@@ -2,6 +2,8 @@
 
 Deep Bhattacharjee and Ushashi Bhattacharya.
 
+Archived on Zenodo: release v1.0.0, [doi:10.5281/zenodo.23444338](https://doi.org/10.5281/zenodo.23444338).
+
 This repository contains the paper
 *Spacing-Uniform Lattice Inequalities Cannot Produce the Yang–Mills Mass Gap*
 (`tex/main.tex`, compiled to `main.pdf`; RevTeX 4-2, PRD style) and a Lean 4 /
