@@ -1,0 +1,12 @@
+cff-version: 1.2.0
+message: "If you use this work, please cite it as below."
+title: "Spacing-Uniform Lattice Inequalities Cannot Produce the Yang-Mills Mass Gap: paper, audit and Lean certificate"
+authors:
+  - family-names: Bhattacharjee
+    given-names: Deep
+  - family-names: Bhattacharya
+    given-names: Ushashi
+version: 1.0.0
+date-released: 2026-10-18
+repository-code: "https://github.com/creelie/4Y-M"
+license: MIT
