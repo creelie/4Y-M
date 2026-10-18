@@ -1,12 +1,23 @@
 {
-  "title": "Spacing-Uniform Lattice Inequalities Cannot Produce the Yang-Mills Mass Gap: paper, audit and Lean certificate",
+  "title": "Lattice Yang-Mills theory: spacing-uniform obstructions, the mass gap up to the Dobrushin ceiling, and Lean certificate",
   "upload_type": "software",
-  "description": "RevTeX paper and Lean 4/Mathlib certificate. Proves that a lattice gap uniform in lattice units forces vanishing continuum two-point functions, records volume, cumulant, Bianchi, running-coupling and curvature obstructions, audits eight manuscripts, and states the open residual (Hypothesis R). The Yang-Mills existence and mass-gap problem remains open. Lean: 21 main theorems, no sorry, standard axioms only.",
+  "description": "Two RevTeX papers and a Lean 4/Mathlib certificate. (1) Spacing-Uniform Lattice Inequalities Cannot Produce the Yang-Mills Mass Gap: a lattice gap uniform in lattice units forces vanishing continuum two-point functions; volume, cumulant, Bianchi, running-coupling and curvature obstructions; the open residual (Hypothesis R). (2) Mass Gap of Lattice Yang-Mills Theory up to the Dobrushin Ceiling: the sharp Hessian bound 4d, uniqueness and a lattice mass gap for |beta|<1/(8d), the sharp quarter W1(nu_b,nu_b') <= |b-b'|/4 for von Mises-Fisher laws on the three-sphere, and hence uniqueness and a lattice mass gap m >= -log(9 beta_W/2) for four-dimensional SU(2) up to beta_W = 2/9, the ceiling of all single-link Dobrushin arguments; a gauge-invariant finite-box criterion. The continuum Yang-Mills existence and mass-gap problem remains open. Lean: 63 theorems, no sorry, standard axioms only.",
   "creators": [
-    {"name": "Bhattacharjee, Deep"},
-    {"name": "Bhattacharya, Ushashi"}
+    {
+      "name": "Bhattacharjee, Deep"
+    },
+    {
+      "name": "Bhattacharya, Ushashi"
+    }
   ],
   "license": "MIT",
-  "keywords": ["Yang-Mills", "mass gap", "lattice gauge theory", "Lean 4", "reflection positivity"],
-  "access_right": "open"
+  "keywords": [
+    "Yang-Mills",
+    "mass gap",
+    "lattice gauge theory",
+    "Dobrushin uniqueness",
+    "Lean 4"
+  ],
+  "access_right": "open",
+  "version": "2.0.0"
 }
