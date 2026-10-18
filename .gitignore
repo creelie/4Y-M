@@ -1,0 +1,10 @@
+.lake/
+*.aux
+*.log
+*.out
+*.fls
+*.fdb_latexmk
+*.bbl
+*.blg
+*Notes.bib
+*.toc
