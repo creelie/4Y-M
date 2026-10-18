@@ -16,6 +16,9 @@ Mathlib project (`YangMills/`) checking its finite statements.
 - No-go: if the lattice gap is bounded below in lattice units uniformly in the
   spacing, every renormalised two-point function vanishes at positive time in
   the limit (`SpectralNoGo.lean`).
+- Critical scaling: if the lattice gap is at least `m_a · a` with `m_a → m`, the
+  limiting two-point functions obey the ratio bound of a theory with gap `m`
+  (`LimitRatio.lean`); this is the one-sided bound the no-go leaves open.
 - Wilson action bounds `0 ≤ S ≤ 2N|P|`, oscillation `≤ 2Nβ|P|`, and the
   Holley–Stroock factor `e^{-2Nβ|P|} → 0` with the volume (`WilsonAction.lean`).
 - Holley–Stroock perturbation for Poincaré and entropy inequalities on finite
@@ -27,7 +30,7 @@ Mathlib project (`YangMills/`) checking its finite statements.
   the independence step of the cumulant argument (`CumulantCounterexample.lean`).
 
 **Open:** the Clay problem itself. The paper isolates the residual statement
-(Hypothesis R: `Δ_lat(a) = m a + o(a)` with Osterwalder–Schrader convergence)
+(Hypothesis R: `liminf Δ_lat(a)/a ≥ m > 0` with Osterwalder–Schrader convergence)
 and records that no argument in the eight audited manuscripts, and no paper in
 the literature, proves it.
 

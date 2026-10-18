@@ -5,6 +5,7 @@ import YangMills
 #print axioms YangMills.kallenLehmann_pos
 #print axioms YangMills.nogo_no_gapped_limit
 #print axioms YangMills.target_excludes_uniform_gap
+#print axioms YangMills.limit_ratio_le
 #print axioms YangMills.abs_re_trace_le_of_unitary
 #print axioms YangMills.wilsonAction_nonneg
 #print axioms YangMills.wilsonAction_le
