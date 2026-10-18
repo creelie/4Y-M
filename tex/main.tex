@@ -35,7 +35,6 @@
 \newcommand{\cG}{\mathcal{G}}
 \newcommand{\R}{\mathbb{R}}
 \newcommand{\Z}{\mathbb{Z}}
-\newcommand{\lean}[1]{\texttt{\detokenize{#1}}}
 \newcommand{\Dlat}{\Delta_{\mathrm{lat}}}
 
 \begin{document}
@@ -70,7 +69,7 @@ the free-energy cumulants uniformly in the volume, and plaquette variables
 satisfy exact Bianchi relations in dimension three or more; the one-loop
 effective coupling takes every positive value at a scale independent of the
 spacing, so no continuum limit avoids intermediate coupling. Every one of
-these statements is checked in Lean~4 with Mathlib, with no \texttt{sorry}
+these statements is checked in Lean~4 with Mathlib, with every proof complete
 and no axiom beyond the three standard ones. We use them to locate the
 errors of eight manuscripts that claimed the mass gap by this route, we
 record what is known unconditionally, and we state the single residual
@@ -143,7 +142,7 @@ $\mu_*=\Lambda\exp(1/(2b_0g_*^2))$, a scale independent of $a$ and inside
 $(\Lambda,1/a)$ for every $a<1/\mu_*$.
 \end{theorem}
 
-Theorems~\ref{thm:A} to~\ref{thm:D} are theorems of Lean~4, listed in
+Theorems~\ref{thm:A} to~\ref{thm:D} are checked in Lean~4, as described in
 Section~\ref{sec:lean}. Together they show where each of the earlier
 manuscripts fails (Section~\ref{sec:audit}): the curvature step proves too
 little (it controls only Haar measure, or strong coupling), the analyticity
@@ -277,7 +276,7 @@ set of local observables gives $\rho_a([0,\delta))=0$ through
 \eqref{eq:spectral}, which is the hypothesis of Theorem~\ref{thm:nogo}.
 \end{proof}
 
-The Lean proof covers Lemma~\ref{lem:ratio}, Theorem~\ref{thm:nogo},
+The formal proof covers Lemma~\ref{lem:ratio}, Theorem~\ref{thm:nogo},
 Lemma~\ref{lem:KL} and Corollary~\ref{cor:nogap}; the implications from
 functional inequalities to clustering in Corollary~\ref{cor:strategy} are
 quoted.
@@ -756,46 +755,24 @@ cannot be replaced by any inequality that is uniform in the spacing:
 whatever controls that region must produce the divergence of the
 correlation length, not exclude it.
 
-\section{The Lean certificate}
+\section{Formal verification}
 \label{sec:lean}
 
-The repository~\cite{Repo} contains a Lean~4 project on Mathlib whose
-default target builds with \texttt{lake build}. It contains no
-\texttt{sorry}, and \texttt{\#print axioms} reports only
-\texttt{propext}, \texttt{Classical.choice} and \texttt{Quot.sound} for
-every theorem below. Table~\ref{tab:lean} lists them.
+The finite statements of this paper are checked in Lean~4 on Mathlib, in
+the archive~\cite{Repo}. They are Lemma~\ref{lem:ratio},
+Theorem~\ref{thm:nogo}, Lemma~\ref{lem:KL} and Corollary~\ref{cor:nogap};
+Lemma~\ref{lem:trace}, the bounds $0\le S\le2N|P|$ and the oscillation
+bound $2N\beta|P|$; Proposition~\ref{prop:volume}; the Bianchi identity of
+Proposition~\ref{prop:bianchi}; the variational forms of variance and
+entropy and both forms of Proposition~\ref{prop:HS}; Theorem~\ref{thm:D}
+with asymptotic freedom of the one-loop coupling; and
+Proposition~\ref{prop:counter}. No proof is left incomplete, and each uses
+only the three standard axioms of the Lean kernel (propositional
+extensionality, choice and quotient soundness).
 
-\begin{table*}[t]
-\caption{Theorems checked in Lean, all in the namespace \lean{YangMills}.}
-\label{tab:lean}
-\begin{ruledtabular}
-\begin{tabular}{lll}
-Lean name & File & Statement\\
-\hline
-\lean{twoPoint_ratio_le} & \lean{SpectralNoGo} & Lemma~\ref{lem:ratio}\\
-\lean{nogo_later_limit_zero} & \lean{SpectralNoGo} & Theorem~\ref{thm:nogo}\\
-\lean{kallenLehmann_pos} & \lean{SpectralNoGo} & Lemma~\ref{lem:KL}\\
-\lean{nogo_no_gapped_limit} & \lean{SpectralNoGo} & Corollary~\ref{cor:nogap}, first part\\
-\lean{target_excludes_uniform_gap} & \lean{SpectralNoGo} & Corollary~\ref{cor:nogap}, second part\\
-\lean{abs_re_trace_le_of_unitary} & \lean{WilsonAction} & Lemma~\ref{lem:trace}, $|\mathrm{Re}\Tr U|\le N$\\
-\lean{wilsonAction_nonneg}, \lean{wilsonAction_le} & \lean{WilsonAction} & $0\le S\le2N|P|$\\
-\lean{wilsonAction_osc_le} & \lean{WilsonAction} & oscillation $\le2N\beta|P|$\\
-\lean{holleyStroock_factor_tendsto_zero} & \lean{WilsonAction} & Proposition~\ref{prop:volume}, limit\\
-\lean{cube_bianchi} & \lean{WilsonAction} & Proposition~\ref{prop:bianchi}\\
-\lean{wvar_le}, \lean{went_le} & \lean{HolleyStroock} & variational forms of variance and entropy\\
-\lean{holleyStroock_poincare} & \lean{HolleyStroock} & Proposition~\ref{prop:HS}, Poincar\'e form\\
-\lean{holleyStroock_entropy} & \lean{HolleyStroock} & Proposition~\ref{prop:HS}, entropy form\\
-\lean{gsq_scaleOf}, \lean{gsq_tendsto_zero} & \lean{RunningCoupling} & every coupling attained; asymptotic freedom\\
-\lean{window_entered} & \lean{RunningCoupling} & Theorem~\ref{thm:D}\\
-\lean{corrAction_var} & \lean{CumulantCounterexample} & Proposition~\ref{prop:counter}\\
-\lean{corrAction_var_per_volume_unbounded} & \lean{CumulantCounterexample} & Proposition~\ref{prop:counter}, unboundedness\\
-\end{tabular}
-\end{ruledtabular}
-\end{table*}
-
-The Lean statements are the abstract forms given above. The spectral
-representation~\eqref{eq:spectral} is a hypothesis of the Lean no-go
-theorem, not a Lean theorem: it is the spectral theorem for the transfer
+The formal statements are the abstract forms given above. The spectral
+representation~\eqref{eq:spectral} is a hypothesis of the formal no-go
+theorem, not a formal theorem: it is the spectral theorem for the transfer
 matrix, which we quote from~\cite{OSei78,GJ87}. Likewise Milnor's formula,
 the Bakry--\'Emery criterion, Proposition~\ref{prop:notminimal}, the
 quotient theorem of~\cite{GKMS18} and the implications of
@@ -820,7 +797,8 @@ remains open.
 \section*{Data availability}
 
 The Lean~4 source, the build configuration and the sources of this paper
-are in the repository~\cite{Repo}. The Lean formalisation was prepared with
+are archived on Zenodo as release v1.0.0,
+\href{https://doi.org/10.5281/zenodo.23444338}{doi:10.5281/zenodo.23444338}~\cite{Repo}. The Lean formalisation was prepared with
 the assistance of AI tools and checked by the Lean kernel.
 
 \section*{Conflict of interest}
@@ -958,8 +936,10 @@ M.~Reed and B.~Simon, \emph{Methods of Modern Mathematical Physics I:
 Functional Analysis}, revised ed. (Academic Press, New York, 1980).
 
 \bibitem{Repo}
-D.~Bhattacharjee and U.~Bhattacharya, 4Y-M: Lean formalisation of lattice
-Yang--Mills obstructions, \url{https://github.com/creelie/4Y-M}.
+D.~Bhattacharjee and U.~Bhattacharya, Spacing-uniform lattice inequalities
+cannot produce the Yang--Mills mass gap: paper, audit and Lean certificate,
+Zenodo, release v1.0.0 (2026),
+\href{https://doi.org/10.5281/zenodo.23444338}{doi:10.5281/zenodo.23444338}.
 
 \bibitem{Sei82}
 E.~Seiler, \emph{Gauge Theories as a Problem of Constructive Quantum Field
