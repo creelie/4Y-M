@@ -256,6 +256,32 @@ would be $0$, against Lemma~\ref{lem:KL}. For the second statement,
 $\Dlat(a)=(\Dlat(a)/a)\,a\to m\cdot0$.
 \end{proof}
 
+\begin{lemma}[Critical scaling]
+\label{lem:critical}
+Let $(a_i)$ tend to $0^+$ along a filter, let $\rho_i$ be finite positive
+measures with $\rho_i([0,m_ia_i))=0$ for numbers $m_i\ge0$ with $m_i\to m$,
+and let $Z_i>0$. If $Z_iS_{a_i}(t_1)\to L_1$ and $Z_iS_{a_i}(t_2)\to L_2$ with
+$0\le t_1\le t_2$, then $L_2\le e^{-m(t_2-t_1)}L_1$.
+\end{lemma}
+
+\begin{proof}
+Lemma~\ref{lem:ratio} with $\delta=m_ia_i$ gives
+$Z_iS_{a_i}(t_2)\le e^{-m_i(t_2-t_1)}Z_iS_{a_i}(t_1)$; the right side tends
+to $e^{-m(t_2-t_1)}L_1$.
+\end{proof}
+
+Lemma~\ref{lem:critical} is the bound that Theorem~\ref{thm:nogo} leaves
+open. A lattice gap bounded below by a constant is excluded; a lattice gap
+bounded below by $ma$ makes every limiting two-point function satisfy the
+ratio bound of a theory with gap $m$, and a Laplace transform of a finite
+positive measure obeying $S(t_2)\le e^{-m(t_2-t_1)}S(t_1)$ for all
+$t_1\le t_2$ has its measure supported in $[m,\infty)$. The converse does
+not follow from anything here: a gapped limit forces $\Dlat(a)\to0$
+(Corollary~\ref{cor:nogap}) and $\limsup\Dlat(a)/a\le m$ when the gap $m$
+is attained, but the lower bound $\liminf\Dlat(a)/a\ge m$ is exactly what
+has to be proved, since the gap is only lower semicontinuous under
+convergence of two-point functions.
+
 \begin{corollary}[Foreclosed inequalities]
 \label{cor:strategy}
 Along a family of Wilson theories converging after renormalisation to a
@@ -722,16 +748,19 @@ There exist $m\in(0,\infty)$, a trajectory $\beta=\beta(a)\to\infty$ and
 renormalisations of the gauge-invariant fields such that:
 \textup{(R1)} the renormalised Schwinger functions of the Wilson theory on
 $a\Z^4$ converge as $a\to0$ to limits satisfying OS1--OS5;
-\textup{(R2)} $\Dlat(a)=ma+o(a)$;
+\textup{(R2)} $\liminf_{a\to0}\Dlat(a)/a\ge m$;
 \textup{(R3)} the limiting two-point functions of some gauge-invariant
 field are nonzero.
 \end{hypothesis}
 
-By Lemma~\ref{lem:KL} and Theorem~\ref{thm:nogo}, (R2) is necessary for
-(R1) and (R3) with a gap in $(0,\infty)$, and by Osterwalder--Schrader
-reconstruction Hypothesis~\ref{hyp:R}, together with lower semicontinuity
-of the gap in physical units, gives the Clay statement for the
-reconstructed theory. It is the Clay problem restated on the lattice.
+By Lemma~\ref{lem:critical}, (R1) and (R2) make every limiting
+two-point function the Laplace transform of a measure supported in
+$[m,\infty)$, so by Osterwalder--Schrader reconstruction
+Hypothesis~\ref{hyp:R} gives the Clay statement for the reconstructed
+theory, with gap at least $m$ and, by (R3), a nontrivial theory. Theorem~\ref{thm:nogo}
+shows that (R2) cannot be strengthened to a bound uniform in lattice units,
+and a bound by $o(a)$ gives no gap; (R2) is the one-sided bound at the
+critical scaling, and it is the Clay problem restated on the lattice.
 Relative to Ba{\l}aban's programme the missing parts are the following.
 Ba{\l}aban's bounds concern partition functions and effective actions in a
 fixed physical volume at small bare coupling; (R1) needs the convergence of
@@ -739,7 +768,8 @@ correlation functions and the removal of the volume cutoff, which requires
 control of the renormalisation-group flow at the scales where the
 effective coupling is of order one (Section~\ref{sec:running}). (R2) is a
 statement about exactly those scales: the lattice correlation length
-$1/\Dlat(a)$ must diverge like $1/(ma)$. No method now available controls
+$1/\Dlat(a)$ must diverge, by Corollary~\ref{cor:nogap}, but no faster
+than $1/(ma)$. No method now available controls
 the flow there in four dimensions.
 
 The comparison with the Poincar\'e conjecture is instructive. Hamilton's
@@ -760,7 +790,8 @@ correlation length, not exclude it.
 
 The finite statements of this paper are checked in Lean~4 on Mathlib, in
 the archive~\cite{Repo}. They are Lemma~\ref{lem:ratio},
-Theorem~\ref{thm:nogo}, Lemma~\ref{lem:KL} and Corollary~\ref{cor:nogap};
+Theorem~\ref{thm:nogo}, Lemma~\ref{lem:KL}, Corollary~\ref{cor:nogap} and
+Lemma~\ref{lem:critical};
 Lemma~\ref{lem:trace}, the bounds $0\le S\le2N|P|$ and the oscillation
 bound $2N\beta|P|$; Proposition~\ref{prop:volume}; the Bianchi identity of
 Proposition~\ref{prop:bianchi}; the variational forms of variance and
@@ -790,7 +821,8 @@ contain the errors (E1)--(E10). What it does prove correctly, a curvature
 bound for Haar measure and a volume-dependent log-Sobolev constant for the
 Wilson measure, is classical, and its correct strong-coupling form is the
 theorem of Shen, Zhu and Zhu. The residual statement,
-Hypothesis~\ref{hyp:R}, is the Clay problem on the lattice; it requires
+Hypothesis~\ref{hyp:R}, a lattice gap of at least $ma$ together with
+convergence, is the Clay problem on the lattice; it requires
 control of the renormalisation-group flow at order-one coupling, and it
 remains open.
 
