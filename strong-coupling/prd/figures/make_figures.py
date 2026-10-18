@@ -50,7 +50,7 @@ def save(fig, name):
 def fig_thresholds():
     fig, ax = plt.subplots(figsize=(W, 2.4))
     rows = [
-        ("curvature bound of Shen, Zhu and Zhu", 1 / 12, GREY),
+        ("Shen\u2013Zhu\u2013Zhu curvature bound", 1 / 12, GREY),
         ("Theorems B, D (curvature)", 1 / 8, BLUE),
         ("Poincare constant alone", 1 / (3 * np.sqrt(3)), GREY),
         ("Theorem E (sharp quarter)", 2 / 9, BLUE),
@@ -64,9 +64,9 @@ def fig_thresholds():
     ax.axvline(2 / 9, color=RED, lw=1.3, ls="--")
     ax.text(2 / 9 * 0.97, 0.55, "single-link ceiling", color=RED, fontsize=8, va="center", ha="right")
     ax.axvspan(1.8, 2.6, color=ORANGE, alpha=0.3)
-    ax.text(2.16, 2.5, "Monte Carlo\ncrossover", ha="center", va="center", fontsize=8, color="#8a4b0f")
+    ax.text(2.16, 2.5, "Monte\nCarlo\ncross-\nover", ha="center", va="center", fontsize=8, color="#8a4b0f")
     ax.set_xscale("log")
-    ax.set_xlim(0.04, 4)
+    ax.set_xlim(0.04, 5)
     ax.set_ylim(0.35, len(rows) + 0.6)
     ax.set_yticks([])
     ax.set_xlabel(r"Wilson coupling $\beta_W$ (logarithmic)")
@@ -211,7 +211,8 @@ def fig_spectrum():
         ax.text(x0 - 0.5, 75, lab, fontsize=7.5, ha="right", va="center", rotation=90)
     ax.set_xlim(-19, 27); ax.set_ylim(0, 128)
     ax.set_xlabel(r"eigenvalue of $\mathrm{Hess}\,S_0$"); ax.set_ylabel("count")
-    ax.legend(loc="upper right", frameon=False, bbox_to_anchor=(1.03, 1.0), fontsize=7.5)
+    ax.legend(loc="upper center", frameon=False, bbox_to_anchor=(0.5, -0.2), ncol=3, fontsize=7,
+              handlelength=1.2, columnspacing=0.9)
     ax.set_title("spectra on $(\\mathbb{Z}/4\\mathbb{Z})^3$, zero modes omitted")
     for s in ("top", "right"):
         ax.spines[s].set_visible(False)
@@ -258,7 +259,8 @@ def fig_weights():
     ax.axhline(1 / 8, color=GREY, ls=":", lw=1)
     ax.text(2.2, 0.1255, r"$\beta_W=1/8$ at $a=1$", color=GREY, fontsize=8, va="bottom")
     ax.plot([a], [4.0 / (32.0 + 18.0 * (np.sqrt(a) - 1) ** 2 / np.sqrt(a))], "o", color=ORANGE, ms=4)
-    ax.text(a + 0.05, 0.1195, "$a=1.6$", color=ORANGE, fontsize=8)
+    ax.annotate("$a=1.6$", xy=(a, 4.0 / (32.0 + 18.0 * (np.sqrt(a) - 1) ** 2 / np.sqrt(a))), xytext=(-5, -9),
+                textcoords="offset points", ha="right", va="top", color=ORANGE, fontsize=8)
     ax.set_xlabel("weight base $a$"); ax.set_ylabel(r"largest $\beta_W$ with $K_a>0$")
     ax.set_ylim(0.105, 0.128)
     for s_ in ("top", "right"):
@@ -352,7 +354,7 @@ def fig_quarter():
     ax.plot(km, [zonal_majorant(k) for k in km], color=GREEN, lw=1.2, ls="--", label="zonal majorant")
     ax.plot(ks, 4 / (3 * (1 + np.sqrt(ks ** 2 + 9))), color=GREY, lw=1.3, ls=":", label="Cauchy–Schwarz")
     ax.axhline(0.25, color="k", lw=0.8)
-    ax.text(0.08, 0.2535, r"$\frac{1}{4}$", fontsize=9)
+    ax.text(0.08, 0.258, r"$\frac{1}{4}$", fontsize=9, va="bottom")
     ax.text((np.sqrt(88) / 3 + 3.6) / 2, 0.02, r"$\kappa\geq\sqrt{88}/3$", fontsize=8, color="#555", rotation=90, ha="center", va="bottom")
     ax.set_xlim(0, 3.6); ax.set_ylim(0, 0.34)
     ax.set_xlabel(r"$\kappa$")
@@ -390,7 +392,8 @@ def fig_box():
     ax.plot([1, 2], [2, 2], [1, 1], color=ORANGE, lw=3)
     ax.text(1.5, 2.0, 1.4, "$b$", color=ORANGE, fontsize=11)
     ax.text(4.3, -1.0, -1.9, "frozen shell", color=GREY, fontsize=8)
-    ax.text(3.0, 3.2, 3.2, "$V$", color=BLUE, fontsize=11)
+    ax.text(3.0, 3.2, 3.2, "$V$", color=BLUE, fontsize=11,
+            bbox=dict(fc="white", ec="none", pad=0.6))
     ax.view_init(elev=20, azim=-62)
     clean3d(ax)
     ax.set_title(r"$\kappa_V(y,b)$: disagreement at $b$ caused by $y$", pad=-4)
@@ -402,8 +405,13 @@ def fig_box():
         o = np.array(s, float) + 0.04 * np.array(s)
         cube_edges(ax, o, 2, c, 1.1, alpha=0.9)
     ax.plot([0.5, 1.5], [1, 1], [1, 1], color=RED, lw=3.2)
-    ax.text(0.15, 1.0, 1.25, "$b$", color=RED, fontsize=11)
     ax.view_init(elev=22, azim=-58)
+    fig.canvas.draw()
+    from mpl_toolkits.mplot3d import proj3d
+    bx, by, _ = proj3d.proj_transform(1.5, 1.0, 1.0, ax.get_proj())
+    ax.annotate("$b$", xy=(bx, by), xytext=(1.03, 0.8), textcoords="axes fraction", color=RED,
+                fontsize=11, ha="left", va="center",
+                arrowprops=dict(arrowstyle="-", color=RED, lw=0.8, shrinkA=1, shrinkB=2))
     clean3d(ax)
     ax.set_title("translates of $V$ containing $b$", pad=-4)
     fig.subplots_adjust(wspace=0.0)
@@ -419,7 +427,7 @@ def fig_massgap():
     ax.plot(b2, -np.log(4.5 * b2), color=BLUE, lw=1.7, label=r"Theorem F: $-\log(\frac{9}{2}\beta_W)$")
     ax.plot(b1, -np.log(3 * np.sqrt(3) * b1), color=GREY, lw=1.3, ls="--",
             label="Poincaré only: " + r"$-\log(3\sqrt{3}\,\beta_W)$")
-    ax.axvline(2 / 9, color=RED, lw=0.9, ls=":")
+    ax.plot([2 / 9, 2 / 9], [0, 2.05], color=RED, lw=0.9, ls=":")
     ax.text(2 / 9 - 0.004, 2.2, r"$\beta_W=2/9$", color=RED, fontsize=8, ha="right")
     ax.set_ylim(0, 5.5); ax.set_xlim(0, 0.24)
     ax.set_xlabel(r"$\beta_W$"); ax.set_ylabel("lattice mass gap $m$ (lower bound)")
