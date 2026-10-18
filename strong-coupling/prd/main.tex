@@ -4,13 +4,20 @@
 \usepackage{amsthm}
 \usepackage{graphicx}
 \usepackage{booktabs}
-\usepackage{array}
 \usepackage{xcolor}
 \usepackage{enumitem}
 \usepackage[colorlinks=true,linkcolor=blue!50!black,citecolor=blue!50!black,urlcolor=blue!50!black,bookmarksnumbered=true]{hyperref}
 \usepackage{orcidlink}
 \usepackage{microtype}
 \usepackage{xurl}
+
+\makeatletter
+% Ragged-right paragraph cells without the array package, whose current
+% release is not recognised by revtex4-2.
+\newcommand*{\raggedcells}{%
+  \let\YM@arrayparboxrestore\@arrayparboxrestore
+  \def\@arrayparboxrestore{\YM@arrayparboxrestore\rightskip\z@\@plus1fil\relax}}
+\makeatother
 
 \makeatletter
 \AtBeginDocument{\def\NAT@bibsetup{\setlength{\labelwidth}{\z@}%
@@ -1901,12 +1908,13 @@ Sec.~\ref{sec:hessian}--\ref{sec:transfer} and the continuum mass gap, in the
 order in which they have to be crossed.
 
 \begin{table*}[t]
+\raggedcells
 \caption{The gaps on the lattice route to the mass gap of four-dimensional
 $\SU(N)$ Yang--Mills theory, and their status after this paper. ``Closed''
 means proved here, by hand and without conditions.}
 \label{tab:gaps}
 \begin{ruledtabular}
-\begin{tabular}{>{\raggedright\arraybackslash}p{0.30\textwidth}>{\raggedright\arraybackslash}p{0.17\textwidth}>{\raggedright\arraybackslash}p{0.45\textwidth}}
+\begin{tabular}{p{0.30\textwidth}p{0.17\textwidth}p{0.45\textwidth}}
 Gap & Status & Where, and what remains\\
 \hline
 Best constant in the Hessian bound & Closed & Theorem~A: $4d$, attained
