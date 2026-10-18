@@ -1,7 +1,7 @@
 {
   "title": "Spacing-Uniform Lattice Inequalities Cannot Produce the Yang-Mills Mass Gap: paper, audit and Lean certificate",
   "upload_type": "software",
-  "description": "RevTeX paper and Lean 4/Mathlib certificate. Proves that a lattice gap uniform in lattice units forces vanishing continuum two-point functions, records volume, cumulant, Bianchi, running-coupling and curvature obstructions, audits eight manuscripts, and states the open residual (Hypothesis R). The Yang-Mills existence and mass-gap problem remains open. Lean: 20 main theorems, no sorry, standard axioms only.",
+  "description": "RevTeX paper and Lean 4/Mathlib certificate. Proves that a lattice gap uniform in lattice units forces vanishing continuum two-point functions, records volume, cumulant, Bianchi, running-coupling and curvature obstructions, audits eight manuscripts, and states the open residual (Hypothesis R). The Yang-Mills existence and mass-gap problem remains open. Lean: 21 main theorems, no sorry, standard axioms only.",
   "creators": [
     {"name": "Bhattacharjee, Deep"},
     {"name": "Bhattacharya, Ushashi"}
