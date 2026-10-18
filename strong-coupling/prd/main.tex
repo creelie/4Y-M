@@ -30,7 +30,6 @@
 \newtheorem{lemma}[theorem]{Lemma}
 \newtheorem{proposition}[theorem]{Proposition}
 \newtheorem{corollary}[theorem]{Corollary}
-\newtheorem{conjecture}[theorem]{Conjecture}
 \newtheorem*{theoremA}{Theorem A}
 \newtheorem*{theoremB}{Theorem B}
 \newtheorem*{theoremC}{Theorem C}
@@ -65,7 +64,7 @@
 \setlength{\emergencystretch}{3em}
 \begin{document}
 
-\title{Mass Gap of Lattice Yang--Mills Theory at Strong Coupling}
+\title{Mass Gap of Lattice Yang--Mills Theory up to the Dobrushin Ceiling}
 
 \author{Deep Bhattacharjee\,\orcidlink{0000-0003-0466-750X}}
 \email{itsdeep@live.com}
@@ -84,13 +83,14 @@ Street, Kolkata 700073, West Bengal, India}
 
 \begin{abstract}
 \itshape
-We prove unconditionally that the Hessian of the Wilson action on
-$d$-dimensional lattice gauge fields is bounded by $4d$, and that $4d$ is
-attained. Consequently lattice $\SU(N)$ Yang--Mills theory has a unique
-infinite-volume state with a positive mass gap for $|\beta|<1/(8d)$, and
-four-dimensional $\SU(2)$ theory has one for $\beta_W<1/(3\sqrt3)$. A
-gauge-invariant finite-box criterion yields confinement. The continuum mass
-gap remains open.
+We prove that the Hessian of the Wilson action on $d$-dimensional lattice
+gauge fields is bounded by $4d$, sharply, so lattice $\SU(N)$ Yang--Mills
+theory has a unique infinite-volume state with a positive mass gap for
+$|\beta|<1/(8d)$. Every von Mises--Fisher law on the three-sphere moves by at
+most a quarter of its parameter in Kantorovich distance; consequently
+four-dimensional $\SU(2)$ theory has a mass gap for $\beta_W<2/9$, the
+ceiling of all single-link Dobrushin arguments. A gauge-invariant finite-box
+criterion yields confinement. The continuum mass gap remains open.
 \par\medskip\upshape\noindent
 \textit{2020 Mathematics Subject Classification.} Primary 81T25, 81T13;
 Secondary 82B20, 60K35, 58J65, 53C21, 47D07, 49Q22, 22E30, 60J60.
@@ -226,22 +226,29 @@ Mises--Fisher law on the three-sphere, and its moments are explicit. A
 Dobrushin argument in the chordal metric then goes past the curvature range.
 
 \begin{theoremE}[Uniqueness for $\SU(2)$]
-Let $G=\SU(2)$ and $|\beta|<1/(4\sqrt3\,(d-1))$. The Wilson theory on $\Z^d$
-has exactly one infinite-volume Gibbs measure, and its truncated
-correlations of local Lipschitz functions decay exponentially with every rate
-$\lambda<-\log\bigl(4\sqrt3(d-1)|\beta|\bigr)$. At $d=4$ the range is
-$\beta_W<1/(3\sqrt3)\approx0.1925$. No single-link Wasserstein--Dobrushin
-argument, in the chordal or the geodesic metric, reaches beyond
-$|\beta|=1/(6(d-1))$, that is $\beta_W=2/9$ at $d=4$.
+Let $G=\SU(2)$ and $|\beta|<1/(6(d-1))$. The Wilson theory on $\Z^d$ has
+exactly one infinite-volume Gibbs measure, and its truncated correlations of
+local Lipschitz functions decay exponentially with every rate
+$\lambda<-\log\bigl(6(d-1)|\beta|\bigr)$. At $d=4$ the range is
+$\beta_W<2/9$. No single-link Wasserstein--Dobrushin argument, in the
+chordal or the geodesic metric, reaches beyond this range.
 \end{theoremE}
 
 Here $\beta_W=N^2\beta$ is the Wilson coupling of the physics
 literature.\footnote{We follow the normalisation of Shen, Zhu and Zhu~\cite{SZZ23}:
 the weight is $\exp(N\beta\sum_p\ReTr Q_p)$. The physics literature writes
 $\exp(\frac{\beta_W}N\sum_p\ReTr Q_p)$, so $\beta_W=N^2\beta$, and for
-$\SU(2)$, $\beta_W=4\beta$.} Between $1/(3\sqrt3)$ and $2/9$ the remaining
-question is a single inequality on the three-sphere,
-Conjecture~\ref{conj:quarter}, which we prove in three of its four regimes.
+$\SU(2)$, $\beta_W=4\beta$.} The range is the largest that a single-link
+argument can give, and it is reached because of a sharp inequality on the
+three-sphere, Theorem~\ref{thm:quarter}: under every von Mises--Fisher law
+$\nu_b$, the covariance of a chordally $1$-Lipschitz function with a
+coordinate is at most $\frac14$, so that $W_1(\nu_b,\nu_{b'})\le\frac14
+|b-b'|$. The constant $\frac14$ is attained at $b=0$ and fails in the geodesic
+metric. The proof extends a Lipschitz function from the sphere to the ball
+it bounds and integrates by parts against a harmonic function; the
+resulting negative Sobolev norm is a series in modified Bessel functions,
+and the inequality becomes the positivity of the Taylor coefficients of one
+entire function.
 
 \subsection{A lattice mass gap}
 
@@ -253,8 +260,8 @@ In the range of Theorem~B, and for $\SU(2)$ in the range of Theorem~E, the
 infinite-volume state is reflection positive and its transfer matrix
 $\mathbb T$ has a spectral gap: the spectrum of $\mathbb T$ on the
 orthogonal complement of the vacuum lies in $[0,e^{-m}]$ with $m>0$. For
-$\SU(2)$ one may take $m=-\log\bigl(4\sqrt3(d-1)|\beta|\bigr)$, which at
-$d=4$ reads $m=-\log(3\sqrt3\,\beta_W)$.
+$\SU(2)$ one may take $m=-\log\bigl(6(d-1)|\beta|\bigr)$, which at $d=4$
+reads $m=-\log(\frac92\beta_W)$ and is positive for $\beta_W<2/9$.
 \end{theoremF}
 
 This is a gap in lattice units at fixed lattice spacing. It is not the mass
@@ -311,13 +318,15 @@ precisely as Problem~\ref{prob:crossover}.
 \centering
 \includegraphics[width=0.96\textwidth]{figures/fig_thresholds.png}
 \caption{Thresholds for four-dimensional $\SU(2)$ in the Wilson coupling
-$\beta_W$, on a logarithmic scale. Grey marks: the earlier curvature bound
-$1/12$ from~\eqref{eq:szzbound} and the authors' earlier single-link bound
-$1/6$. Blue: Theorems~B, D (curvature, $1/8$) and Theorem~E (chordal
-Dobrushin, $1/(3\sqrt3)$). Red: the ceiling $2/9$ of all single-link
-Wasserstein--Dobrushin arguments, reached if Conjecture~\ref{conj:quarter}
-holds. Orange: the region where Monte Carlo simulations place the crossover to
-weak coupling, which plays no role in any proof.}
+$\beta_W$, on a logarithmic scale. Blue: Theorems~B and~D (curvature,
+$\beta_W<1/8$) and Theorem~E (chordal Dobrushin, $\beta_W<2/9$). Grey: the
+curvature bound $1/12$ that follows from~\eqref{eq:szzbound}, and the range
+$\beta_W<1/(3\sqrt3)\approx0.1925$ that the Poincar\'e constant of
+Lemma~\ref{lem:vmf} gives without Theorem~\ref{thm:quarter}. Red: the ceiling
+$2/9$ of all single-link Wasserstein--Dobrushin arguments
+(Proposition~\ref{prop:ceiling}), which Theorem~E reaches. Orange: the region
+where Monte Carlo simulations place the crossover to weak coupling, which
+plays no role in any proof.}
 \label{fig:thresholds}
 \end{figure*}
 
@@ -771,7 +780,8 @@ covariance matrix of $x$ is $\operatorname{diag}(A',A/\kappa,A/\kappa,
 A/\kappa)$, and $A'=1-A^2-3A/\kappa$;
 \item $\displaystyle\frac{\kappa}{2+\sqrt{\kappa^2+4}}\le
 A(\kappa)\le\frac{\kappa}{1+\sqrt{\kappa^2+9}}$;
-\item $A'\le A/\kappa\le\bigl(1+\sqrt{\kappa^2+9}\bigr)^{-1}\le\frac14$.
+\item $A'\le A/\kappa\le\bigl(1+\sqrt{\kappa^2+9}\bigr)^{-1}\le\frac14$;
+\item $A(\kappa)\ge\kappa\big/\bigl(\frac32+\sqrt{\kappa^2+25/4}\bigr)$.
 \end{enumerate}
 \end{lemma}
 
@@ -795,6 +805,8 @@ By (ii), $4A/\kappa\ge4/(2+s)$ and $1-A^2\le1-\kappa^2/(2+s)^2$, and
 \end{aligned}
 \]
 which holds with equality. So $A'=1-A^2-3A/\kappa\le A/\kappa$.
+(iv) is the comparison of (ii) with a third barrier, which improves the
+lower bound of (ii); it is carried out in the same appendix.
 \end{proof}
 
 \subsection{The Lipschitz rate of the family}
@@ -850,81 +862,331 @@ hx^2=A/\kappa$. (iii) By~\eqref{eq:csbound}, $L\le\frac14$ as soon as
 $1+\sqrt{\kappa^2+9}\ge\frac{16}3$, that is $\kappa^2\ge\frac{88}9$.
 \end{proof}
 
-The reflection is drawn in Fig.~\ref{fig:sphere}. Lemma~\ref{lem:rate}
-leaves one case open, and Theorem~E would improve to the ceiling of
-Proposition~\ref{prop:ceiling} if it were settled.
+The reflection is drawn in Fig.~\ref{fig:sphere}. It settles the directions
+$h\perp c$ and the point $c=0$; for an oblique $h$ the reflection no longer
+preserves $\nu_c$, and the Cauchy--Schwarz bound~\eqref{eq:csbound} is too
+weak for $\kappa<\sqrt{88}/3$. The next theorem closes this case.
 
-\begin{conjecture}[The sharp quarter]\label{conj:quarter}
-$L(\kappa,\varphi)\le\frac14$ for all $\kappa\ge0$ and $\varphi$. By
-Lemma~\ref{lem:rate} it suffices to take $0<\kappa<\sqrt{88}/3$ and
-$\varphi<\pi/2$, and for Theorem~E at $\beta_W=2/9$ only $\kappa\le4/3$ is
-needed.
-\end{conjecture}
-
-Figure~\ref{fig:surface} shows $L(\kappa,\varphi)$ computed by exact optimal
-transport on a discretisation of $S^3$.\footnote{By symmetry the problem
-reduces to the half two-sphere $\{(x_1,x_2,r):x_1^2+x_2^2+r^2=1,\ r\ge0\}$,
-the quotient of $S^3$ by the rotations of the $(x_3,x_4)$ plane, with the
-density $e^{\kappa x_1}r$ and the quotient metric, which is again the chordal
-one. On a grid of $26\times26$ cells the computed values at $\kappa=0$ exceed
-$\frac14$ by at most $5\times10^{-4}$, which is the discretisation error; at
-$\varphi=\pi/2$ they agree with $A/\kappa$ to the same accuracy.} In every
-computed case the maximum over $\varphi$ is at $\varphi=\pi/2$, where it equals
-$A/\kappa$, and it decreases in $\kappa$. We have not been able to prove
-this in general, but the question reduces to a variance inequality in two
-variables.
-
-\begin{proposition}[Reduction of the conjecture]\label{prop:reduction}
-Let $c=\kappa e_1$, let $h$ lie in the plane of $e_1,e_2$, and let
-$\mathcal L_{\rm sym}$ be the set of functions $g$ on $S^3$ that are
-$1$-Lipschitz for $\delta$ and depend only on $(x_1,x_2,\sqrt{x_3^2+x_4^2})$.
-Put $V(\kappa)=\sup_{g\in\mathcal L_{\rm sym}}\Var_{\nu_c}g$. Then
-$V(\kappa)\ge A(\kappa)/\kappa$, and
+\begin{theorem}[The sharp quarter]\label{thm:quarter}
+For every $c\in\R^4$ and every unit vector $h\in\R^4$,
 \[
-L(c,h)\le\bigl(V(\kappa)\,A(\kappa)/\kappa\bigr)^{1/2}.
+L(c,h)\le\tfrac14 ,
 \]
-In particular, if linear functions maximise the variance in
-$\mathcal L_{\rm sym}$, that is if $V(\kappa)=A(\kappa)/\kappa$, then
-$L(\kappa,\varphi)\le A(\kappa)/\kappa\le\frac14$ for every $\varphi$, and
-Conjecture~\ref{conj:quarter} holds with the maximum over $\varphi$ attained at
-$\varphi=\pi/2$.
+with equality at $c=0$. Equivalently, $W_1(\nu_b,\nu_{b'})\le\frac14|b-b'|$
+for all $b,b'\in\R^4$, and the constant $\frac14$ is the best possible.
+\end{theorem}
+
+The equivalence is~\eqref{eq:w1segment} in one direction and the derivative
+formula above it in the other; the sharpness is Lemma~\ref{lem:rate}(i). The
+metric matters.\footnote{In the geodesic metric of $S^3$ the statement is
+false already at $c=0$: the function $\arcsin x_2$ is geodesically
+$1$-Lipschitz and its covariance with $x_2$ under the uniform law is
+$\frac8{9\pi}\approx0.283>\frac14$. A proof therefore has to use that the
+chordal distance between two points is shorter than their geodesic distance,
+that is, it has to see the sphere from the ball it bounds. The proof below
+does exactly this: it extends a chordally Lipschitz function to the ball and
+integrates by parts there.} The proof has four steps. A Lipschitz function
+on $S^3$ extends to the unit ball $B\subset\R^4$, and Green's formula in $B$
+bounds the covariance by a negative Sobolev norm of the density
+(Lemma~\ref{lem:harmonic}). This norm splits into a zonal and a transverse
+part, both explicit series in modified Bessel functions
+(Lemma~\ref{lem:spectral}). The transverse part is at most $\frac14$ because a
+certain power series has nonnegative coefficients
+(Proposition~\ref{prop:transverse}), and the zonal part is at most $\frac14$
+by a Riccati comparison (Proposition~\ref{prop:zonal}).
+
+\subsection{Harmonic extension}
+
+Let $\sigma$ be the normalised surface measure of $S^3$ and $H_k$ the space
+of spherical harmonics of degree $k$, the restrictions to $S^3$ of harmonic
+homogeneous polynomials of degree $k$ on $\R^4$. The spaces $H_k$ are
+orthogonal in $L^2(\sigma)$ and span it; we write $u_k$ for the component of
+$u$ in $H_k$, and for $u$ with $\int u\,d\sigma=0$ we put
+\begin{equation}\label{eq:Qnorm}
+\mathcal Q(u)=\sum_{k\ge1}\frac1k\,\|u_k\|_{L^2(\sigma)}^2 .
+\end{equation}
+This is $\ip u{\Lambda^{-1}u}$ for the Dirichlet-to-Neumann operator
+$\Lambda$ of $B$, which acts on $H_k$ as multiplication by $k$.
+
+\begin{lemma}\label{lem:harmonic}
+Let $u$ be a real-analytic function on $S^3$ with $\int u\,d\sigma=0$ and let
+$g$ be $1$-Lipschitz for the chordal metric. Then
+\[
+\int_{S^3}g\,u\,d\sigma\le\tfrac12\,\mathcal Q(u)^{1/2}.
+\]
+\end{lemma}
+
+\begin{proof}
+The chordal metric is the Euclidean metric of $\R^4$ restricted to $S^3$,
+so McShane's extension $G(y)=\inf_{x\in S^3}\bigl(g(x)+|x-y|\bigr)$
+is $1$-Lipschitz on $\R^4$ and equals $g$ on $S^3$~\cite{McS34}; by
+Rademacher's theorem $|\nabla G|\le1$ almost everywhere. Let
+$\psi=\sum_{k\ge1}k^{-1}r^ku_k(\omega)$ in polar coordinates $y=r\omega$. Each
+term is a harmonic polynomial, the series converges with all derivatives on
+the closed ball because $u$ is real-analytic,\footnote{For real-analytic
+$u$ the norms $\|u_k\|$ decay geometrically in $k$, and the supremum of a
+function in $H_k$ is at most $(\dim H_k)^{1/2}=k+1$ times its $L^2(\sigma)$
+norm, so the series for $\psi$ and for each of its derivatives converge
+uniformly on $\bar B$.} and $\partial_r\psi=u$ on $S^3$. Green's formula for
+the Lipschitz function $G$ and the smooth harmonic function $\psi$ reads
+$\int_{S^3}G\,\partial_r\psi\,dS=\int_B\nabla G\cdot\nabla\psi\,dy$. With
+$|S^3|=2\pi^2$ and $|B|=\pi^2/2$ the Cauchy--Schwarz inequality gives
+\[
+\int g\,u\,d\sigma=\frac1{2\pi^2}\int_B\nabla G\cdot\nabla\psi\,dy\le
+\frac{|B|^{1/2}}{2\pi^2}\Bigl(\int_B|\nabla\psi|^2dy\Bigr)^{1/2}.
+\]
+Green's formula once more gives $\int_B|\nabla\psi|^2=\int_{S^3}\psi\,
+\partial_r\psi\,dS=2\pi^2\sum_kk^{-1}\|u_k\|^2=2\pi^2\mathcal Q(u)$, and the
+right side becomes $\frac12\mathcal Q(u)^{1/2}$.
+\end{proof}
+
+The lemma is a form of Thomson's principle. By Kantorovich--Rubinstein
+duality, $\sup_g\int gu\,d\sigma$ is the least cost of a flow in $\R^4$ that
+carries the positive part of $u\,d\sigma$ to its negative part, the cost
+being the total length travelled by the mass.\footnote{This is the
+Beckmann formulation of the transport problem with cost $|x-y|$: the
+optimal cost equals the least $\int|V|$ over vector measures $V$ on $\R^4$
+with divergence $u\,d\sigma$. Restricting the flow to the closed ball does
+not change the infimum, since projecting onto $\bar B$ shortens paths. The
+gradient $\nabla\psi$ on $B$ is one admissible flow. It minimises the energy
+$\int|V|^2$ rather than the cost $\int|V|$, and the Cauchy--Schwarz inequality
+converts one into the other at the price of the factor $|B|^{1/2}$.} The
+harmonic field $\nabla\psi$ is one such flow, through the interior of the
+ball, and the lemma computes its cost. At $c=0$ the flow is optimal: for
+$u=\ip hx$ one has $\psi=\ip hy$, the field $\nabla\psi=h$ is constant,
+the Cauchy--Schwarz inequality is an equality, and $\mathcal Q(u)=\|u\|^2=
+\frac14$.
+
+\subsection{Spectral decomposition}
+
+Fix $c=\kappa e_1$ with $\kappa>0$ and write $h=\cos\varphi\,e_1+\sin\varphi
+\,e_2$, which is no loss of generality by rotation invariance. Let
+$\rho=d\nu_c/d\sigma=e^{\kappa x_1}/Z(\kappa)$, $Z(\kappa)=\int e^{\kappa x_1}
+d\sigma=2I_1(\kappa)/\kappa$, and
+\[
+u=\bigl(\ip hx-\E_{\nu_c}\ip hx\bigr)\rho ,
+\]
+so that $\Cov_{\nu_c}(g,\ip hx)=\int gu\,d\sigma$ and $\int u\,d\sigma=0$.
+Let $U_n$ be the Chebyshev polynomials of the second kind and put
+\begin{equation}\label{eq:dn}
+d_n(\kappa)=\frac{(n+1)\,I_{n+1}(\kappa)}{I_1(\kappa)},\qquad n\ge0 .
+\end{equation}
+
+\begin{lemma}\label{lem:spectral}
+With this notation
+\[
+\mathcal Q(u)=\cos^2\varphi\,\mathcal Q_z(\kappa)+\sin^2\varphi\,
+\mathcal Q_x(\kappa),
+\]
+where
+\[
+\mathcal Q_z=\sum_{n\ge1}\frac{d_n'(\kappa)^2}n,\qquad
+\mathcal Q_x=\frac1{3\kappa^2}\sum_{n\ge1}(n+2)\,d_n(\kappa)^2 .
+\]
+\end{lemma}
+
+\begin{proof}
+The functions $U_n(x_1)$, $n\ge0$, are the zonal harmonics: $U_n(x_1)\in
+H_n$, and they are orthonormal in $L^2(\sigma)$ (Appendix~\ref{app:quarter}).
+The expansion $e^{\kappa t}=\frac2\kappa\sum_n(n+1)I_{n+1}(\kappa)U_n(t)$ of
+the same appendix gives $\rho=\sum_nd_n(\kappa)U_n(x_1)$, with $d_0=1$.
+
+Write $u=\cos\varphi\,u_z+\sin\varphi\,u_x$ with $u_z=(x_1-A)\rho$ and
+$u_x=x_2\rho$; here $\E_{\nu_c}x_1=A$ and $\E_{\nu_c}x_2=0$. The reflection
+$x_2\mapsto-x_2$ maps each $H_k$ to itself, fixes $u_z$ and reverses $u_x$,
+so the components of $u_z$ and $u_x$ in each $H_k$ are orthogonal and the
+cross term in $\mathcal Q(u)$ vanishes.
+
+Since $A=Z'/Z$, we have $u_z=\partial_\kappa\rho=\sum_nd_n'(\kappa)U_n(x_1)$,
+and the component of $u_z$ in $H_n$ is $d_n'U_n(x_1)$, of norm $|d_n'|$. This
+gives $\mathcal Q_z$.
+
+For $u_x$, let $y(t)=\cos t\,e_1+\sin t\,e_2$. The law $\nu_{\kappa y(t)}$ has
+density $\rho_t=e^{\kappa\ip{y(t)}x}/Z(\kappa)=\sum_nd_n(\kappa)U_n(\ip{y(t)}x)$,
+and $\partial_t\rho_t|_{t=0}=\kappa x_2\rho$. The function
+$U_n(\ip{y(t)}x)$ lies in $H_n$ for every $t$, hence so does its derivative
+$x_2U_n'(x_1)$ at $t=0$, and the component of $u_x$ in $H_n$ is
+$\kappa^{-1}d_nx_2U_n'(x_1)$. Its norm follows from the eigenvalue
+$n(n+2)$ of the Laplacian of $S^3$ on $H_n$. For $f=U_n(x_1)$,
+\[
+\begin{aligned}
+n(n+2)&=n(n+2)\|f\|^2=\int|\nabla_{S^3}f|^2d\sigma\\
+&=\int U_n'(x_1)^2(1-x_1^2)\,d\sigma ,
+\end{aligned}
+\]
+since the tangential gradient of $x_1$ has squared length $1-x_1^2$. Given
+$x_1$, the point $(x_2,x_3,x_4)$ is uniform on the sphere of radius
+$(1-x_1^2)^{1/2}$, so $\E[x_2^2\mid x_1]=\frac13(1-x_1^2)$ and
+$\|x_2U_n'(x_1)\|^2=\frac13n(n+2)$. Summing $n^{-1}\kappa^{-2}d_n^2\cdot\frac13
+n(n+2)$ over $n\ge1$ gives $\mathcal Q_x$.
+\end{proof}
+
+By Lemmas~\ref{lem:harmonic} and~\ref{lem:spectral},
+\begin{equation}\label{eq:Lbyq}
+L(\kappa,\varphi)\le\tfrac12\max\bigl(\mathcal Q_z(\kappa),\mathcal Q_x(
+\kappa)\bigr)^{1/2},
+\end{equation}
+and Theorem~\ref{thm:quarter} follows once both parts are at most
+$\frac14$. Both are $\frac14$ at $\kappa=0$, by continuity from the values
+$d_1\sim\kappa/2$, $d_1'\to\frac12$ and $d_n=O(\kappa^n)$.
+
+\subsection{Three Bessel sums}
+
+The series of Lemma~\ref{lem:spectral} reduce to closed forms. Write $I_j$
+for $I_j(\kappa)$.
+
+\begin{lemma}\label{lem:besselsums}
+For every $\kappa>0$,
+\begin{align*}
+\sum_{j\ge1}j^2I_j^2&=\frac\kappa4\,I_1(2\kappa),\qquad
+\sum_{j\ge1}j^3I_j^2=\frac{\kappa^2}4\bigl(I_0^2+I_1^2\bigr),\\
+I_1(2\kappa)&=2\sum_{j\ge1}I_{j-1}I_j .
+\end{align*}
+\end{lemma}
+
+The first and third identities follow from Parseval's formula for
+$e^{\kappa\cos\theta}=\sum_{j\in\Z}I_je^{ij\theta}$, and the second from the
+recurrences of $I_j$ by telescoping; Appendix~\ref{app:quarter} gives the
+proofs.
+
+\subsection{The transverse part}
+
+\begin{proposition}\label{prop:transverse}
+$\mathcal Q_x(\kappa)\le\frac14$ for every $\kappa\ge0$.
 \end{proposition}
 
 \begin{proof}
-The group $H\cong\mathrm O(2)$ of orthogonal maps that fix $e_1$ and $e_2$
-and act on the plane of $e_3,e_4$ preserves $\delta$, the law $\nu_c$ and the
-function $\ip hx$. For a $1$-Lipschitz $g$ the average
-$\bar g(x)=\int_Hg(kx)\,dk$ over the Haar measure of $H$ is again
-$1$-Lipschitz, lies in $\mathcal L_{\rm sym}$, and has
-$\Cov(\bar g,\ip hx)=\Cov(g,\ip hx)$. So the supremum in~\eqref{eq:rate} may
-be taken over $\mathcal L_{\rm sym}$, and the Cauchy--Schwarz inequality with
-$\Var\ip hx\le A/\kappa$ (Lemma~\ref{lem:moments}) gives the bound. The
-function $x_2$ lies in $\mathcal L_{\rm sym}$ and has variance $A/\kappa$.
+By~\eqref{eq:dn}, $\mathcal Q_x=(3\kappa^2I_1^2)^{-1}\sum_{j\ge2}j^2(j+1)
+I_j^2$, and the sum equals $\sum_{j\ge1}(j^3+j^2)I_j^2-2I_1^2$. By
+Lemma~\ref{lem:besselsums}, $\mathcal Q_x\le\frac14$ is equivalent to
+\begin{equation}\label{eq:Dfunction}
+\mathcal D(\kappa):=(8+2\kappa^2)I_1^2-\kappa^2I_0^2-\kappa I_1(2\kappa)\ge0 .
+\end{equation}
+Each term is an entire function of $\kappa$ that is even after the
+factor $\kappa^2$ is removed, so $\mathcal D(\kappa)=\sum_{n\ge0}\mathcal D_n
+\kappa^{2n}$. Lemma~\ref{lem:Dcoef} of Appendix~\ref{app:quarter} computes the
+coefficients: $\mathcal D_0=\mathcal D_1=0$, and for $n=m+1\ge2$
+\[
+\mathcal D_n=\frac{N_m}{4^m\,m!\,(m+1)!\,(m+1)(m+2)},
+\]
+with
+\[
+\begin{aligned}
+N_m={}&\binom{2m}m\bigl(4(2m+1)+(m-1)(m+1)(m+2)\bigr)\\
+&-4^m(m+1)(m+2).
+\end{aligned}
+\]
+The numerator $N_m$ vanishes for $m=0,1,2$ and is positive for $m\ge3$
+(Lemma~\ref{lem:Dcoef}). So every coefficient of $\mathcal D$ is nonnegative
+and $\mathcal D\ge0$.
 \end{proof}
 
-The reduced problem lives on the upper half of the unit two-sphere in the
-coordinates $(x_1,x_2,r)$, $r=(x_3^2+x_4^2)^{1/2}$, with the density
-$r\,e^{\kappa x_1}$ and the chordal metric of $\R^3$, and asks whether a
-linear function has the largest variance among all $1$-Lipschitz
-functions.\footnote{The averaging step cannot be dropped: on all of $S^3$ the
-maximal variance of a chordally $1$-Lipschitz function is not known to us,
-and the Poincar\'e inequality of Lemma~\ref{lem:vmf} bounds it only by
-$\frac13$, which is what leads to the constant $1/(2\sqrt3)$ of
-Lemma~\ref{lem:rate}. In the geodesic metric the answer is different and
-larger: at $\kappa=0$ the function $\arcsin x_2$ is geodesically $1$-Lipschitz
-and has variance $\frac{\pi^2}{12}-\frac12\approx0.3225$, which exceeds
-$\frac14$; its covariance with $x_2$ is $\frac8{9\pi}\approx0.283$, so in the
-geodesic metric the rate at $\kappa=0$ is already larger than $\frac14$. The
-chordal metric is therefore essential to the conjecture, and any proof must
-see the curvature of the sphere at large distances, not only the length of
-gradients.} For functions of $x_2$ alone the answer is yes: the condition
-reads $|\psi(\alpha)-\psi(\alpha')|\le2\sin\frac{|\alpha-\alpha'|}2$ for
-$\psi(\alpha)=g(\sin\alpha)$, and on a grid of $300$ angles the largest
-variance found by linear programming at $\kappa=0$ is $\frac14$ to seven
-digits. For general functions in $\mathcal L_{\rm sym}$ the same computation
-on $450$ points of the half-sphere gives, at $\kappa=0,1,2$, the values
-$0.25038$, $0.24056$, $0.21691$ against $A/\kappa=0.25000$, $0.24019$,
-$0.21656$, differences of the size of the grid error. We do not have a proof.
+The first nonzero coefficient is $\mathcal D_4=\frac1{2304}$, so
+$\frac14-\mathcal Q_x=\mathcal D/(12\kappa^2I_1^2)$ is of order $\kappa^4$ at $0$: the transverse part
+leaves the value $\frac14$ very slowly, which is why no estimate that loses a
+constant can prove the proposition.
+
+\subsection{The zonal part}
+
+Let $A=I_2/I_1$ as before, so that $d_1=2A$ and, by
+Lemma~\ref{lem:moments}(i), $A'=1-A^2-3A/\kappa$.
+
+\begin{proposition}\label{prop:zonal}
+For $0<\kappa\le\sqrt{88}/3$,
+\[
+\mathcal Q_z(\kappa)\le\frac14+4A'^2+\frac{A^2}4-\frac A{2\kappa}-
+\frac{2A^2}{\kappa^2}<\frac14 .
+\]
+\end{proposition}
+
+\begin{proof}
+\emph{The higher modes.} With $r_\nu=I_{\nu+1}/I_\nu$ the recurrence
+$I_\nu'=I_{\nu+1}+\frac\nu\kappa I_\nu$ gives
+\[
+\frac{d_n'}{d_n}=\frac{I_{n+1}'}{I_{n+1}}-\frac{I_1'}{I_1}=\frac n\kappa+
+r_{n+1}-r_1 .
+\]
+By Lemma~\ref{lem:ratio} of Appendix~\ref{app:quarter}, $r_{n+1}\le r_1$, and
+$r_1=A\le\kappa/4$ by Lemma~\ref{lem:moments}(iii). Hence $-n/\kappa\le
+n/\kappa-\kappa/4\le d_n'/d_n\le n/\kappa$ for $n\ge2$ and $\kappa^2\le16$, so
+$d_n'^2\le n^2d_n^2/\kappa^2$. With $d_1'=2A'$,
+\[
+\mathcal Q_z\le4A'^2+\frac1{\kappa^2}\sum_{n\ge2}n\,d_n^2=4A'^2+\frac{S_3-
+S_2-4I_2^2}{\kappa^2I_1^2},
+\]
+where $S_2=\sum_{j\ge1}j^2I_j^2$ and $S_3=\sum_{j\ge1}j^3I_j^2$; the
+second form uses $n\,d_n^2I_1^2=(j-1)j^2I_j^2$ with $j=n+1$.
+
+\emph{The closed form.} The recurrences $I_0-I_2=\frac2\kappa I_1$ and
+$I_1-I_3=\frac4\kappa I_2$ give $I_0/I_1=2/\kappa+A$ and $I_2I_3/I_1^2=A-
+4A^2/\kappa$. By Lemma~\ref{lem:besselsums},
+$S_3/(\kappa^2I_1^2)=\frac14(2/\kappa+A)^2+\frac14$, and, keeping three
+terms of the third identity,
+\[
+\frac{S_2}{\kappa^2I_1^2}\ge\frac{I_0I_1+I_1I_2+I_2I_3}{2\kappa I_1^2}=
+\frac1{2\kappa}\Bigl(\frac2\kappa+3A-\frac{4A^2}\kappa\Bigr).
+\]
+Collecting terms, $\mathcal Q_z\le\frac14+4A'^2+T(A)$ with $T(a)=\frac{a^2}4-
+\frac a{2\kappa}-\frac{2a^2}{\kappa^2}$, which is the first inequality.
+
+\emph{The barrier.} Let $s=\sqrt{\kappa^2+25/4}$ and $A_\flat=\kappa/(\frac32
++s)$. By Lemma~\ref{lem:moments}(iv), $A_\flat\le A\le\kappa/4$. The function
+$a\mapsto1-a^2-3a/\kappa$ decreases on $a\ge0$, and $A'\ge0$ because $A'=
+\Var x_1$, so $0\le A'\le\alpha:=1-A_\flat^2-3A_\flat/\kappa$. For $\kappa^2\le
+12$ the quadratic $T$ decreases on $[0,\kappa/4]$, since
+\[
+T(a)-T(a')=(a'-a)\,\frac{2\kappa-(a+a')(\kappa^2-8)}{4\kappa^2}
+\]
+and $(a+a')(\kappa^2-8)\le\frac\kappa2(\kappa^2-8)\le2\kappa$ there. So
+$\mathcal Q_z\le\frac14+4\alpha^2+T(A_\flat)$. With $\kappa^2=s^2-\frac{25}4$
+and $A_\flat/\kappa=2/(2s+3)$ both terms are rational in $s$:
+$\alpha=16/(2s+3)^2$, and
+\begin{equation}\label{eq:zonalfactor}
+\begin{aligned}
+4\alpha^2+T(A_\flat)&=\frac{(2s-5)\,p(s)}{4(2s+3)^4},\\
+p(s)&=8s^3+28s^2-98s-695 .
+\end{aligned}
+\end{equation}
+For $0<\kappa\le\sqrt{88}/3$ we have $\frac52<s\le\sqrt{577}/6<4.004$. On
+$s\ge\frac52$ the cubic $p$ increases, since $p'(s)=24s^2+56s-98>0$, and
+$p(4.004)<-120$. So the right side of~\eqref{eq:zonalfactor} is negative.
+\end{proof}
+
+\subsection{Proof of Theorem~\ref{thm:quarter}}
+
+At $c=0$ the theorem is Lemma~\ref{lem:rate}(i), and for $|c|\ge\sqrt{88}/3$
+it is Lemma~\ref{lem:rate}(iii). For $0<|c|<\sqrt{88}/3$,
+Propositions~\ref{prop:transverse} and~\ref{prop:zonal} give $\mathcal Q_x,
+\mathcal Q_z\le\frac14$, and~\eqref{eq:Lbyq} gives $L\le\frac14$. \qed
+
+\medskip
+The two parts of the norm behave differently (Fig.~\ref{fig:quarter}). The
+transverse part stays within $10^{-2}$ of $\frac14$ for $\kappa\le3$, and
+there the theorem is an identity between power series in which no constant
+can be lost. The zonal part drops below $\frac14$ at once, and a cruder
+argument suffices; its majorant in Proposition~\ref{prop:zonal} ceases to be
+below $\frac14$ only beyond the point where the Cauchy--Schwarz bound of
+Lemma~\ref{lem:rate}(iii) takes over.\footnote{The two arguments overlap: the
+majorant of Proposition~\ref{prop:zonal} is below $\frac14$ on all of
+$(0,\sqrt{88}/3]$, and~\eqref{eq:csbound} is at most $\frac14$ from
+$\sqrt{88}/3\approx3.127$ on. For Theorem~E at $d=4$ only $\kappa\le
+8(d-1)|\beta|<\frac43$ occurs, because the staple sum of a link has at most
+$2(d-1)$ terms of norm $4|\beta|$ each.}
+
+\begin{figure*}[t]
+\centering
+\includegraphics[width=0.96\textwidth]{figures/fig_quarter.png}
+\caption{The proof of Theorem~\ref{thm:quarter}. Left: the bound $\frac12
+\mathcal Q^{1/2}$ of Lemma~\ref{lem:harmonic} on the rate $L(\kappa,\varphi)$
+as a function of the field strength $\kappa=|c|$ and the angle $\varphi$
+between $h$ and $c$, below the plane $\frac14$ (grey), which it touches along
+$\kappa=0$. Right: the transverse part $\mathcal Q_x$ (blue), the zonal part
+$\mathcal Q_z$ (green), the majorant of Proposition~\ref{prop:zonal} (green,
+dashed) and the square of twice the Cauchy--Schwarz bound~\eqref{eq:csbound}
+(grey, dotted), which reaches $\frac14$ at $\kappa=\sqrt{88}/3$ (shaded
+region to its right).}
+\label{fig:quarter}
+\end{figure*}
 
 \begin{figure*}[t]
 \centering
@@ -934,26 +1196,9 @@ $(x_1,x_2,x_3)$. Left: the von Mises--Fisher density for $\kappa=2$, peaked
 in the staple direction $b$; the plane $h^\perp$ with $h\perp b$ and the
 reflection $x\mapsto Rx$ that proves Lemma~\ref{lem:rate}(ii), which moves
 each point by $2|\ip hx|$. Right: for $h$ not perpendicular to $b$ the
-reflection no longer preserves the law, which is the open case of
-Conjecture~\ref{conj:quarter}.}
+reflection no longer preserves the law, and Theorem~\ref{thm:quarter} is
+proved instead by harmonic extension into the ball.}
 \label{fig:sphere}
-\end{figure*}
-
-\begin{figure*}[t]
-\centering
-\includegraphics[width=0.96\textwidth]{figures/fig_surface.png}
-\caption{The Lipschitz rate $L(\kappa,\varphi)$ of the von Mises--Fisher
-family on $S^3$ (surface, computed by optimal transport), the conjectured
-bound $\frac14$ (flat grey plane) and the proved bound
-$(3(1+\sqrt{\kappa^2+9}))^{-1/2}$ of~\eqref{eq:csbound} (blue curve). The edge $\varphi=\pi/2$ is the proved value $A(\kappa)/\kappa$.
-Right: sections at seven values of $\varphi$; for $\kappa\ge\frac12$ the
-largest computed rate occurs at $\varphi=\pi/2$, where it is the proved
-value. The
-surface stays below the plane up to the discretisation error of the
-transport computation, which shows at $\kappa=0$: there every direction
-gives exactly $\frac14$ and the computed values exceed it by at most
-$5\times10^{-4}$.}
-\label{fig:surface}
 \end{figure*}
 
 \subsection{Proof of Theorem E}
@@ -971,20 +1216,20 @@ plaquette, and moving $Q_{e'}$ from $\omega_{e'}$ to $\omega'_{e'}$ changes
 one staple of $e$ by an isometric image of the displacement, because left
 and right multiplication by unit quaternions and conjugation are isometries
 of $\R^4$. So $|b-b'|=4|\beta|\,\delta(\omega_{e'},\omega'_{e'})$, and
-by~\eqref{eq:w1segment} and Lemma~\ref{lem:rate},
+by~\eqref{eq:w1segment} and Theorem~\ref{thm:quarter},
 \[
-C_{ee'}\le4|\beta|\cdot\frac1{2\sqrt3}=\frac{2|\beta|}{\sqrt3}.
+C_{ee'}\le4|\beta|\cdot\frac14=|\beta| .
 \]
 A link lies in $2(d-1)$ plaquettes, each with three other links, so every row
 and every column of $C$ has at most $6(d-1)$ nonzero entries and
 \[
-\alpha:=\max\Bigl(\sup_e\sum_{e'}C_{ee'},\ \sup_{e'}\sum_eC_{ee'}\Bigr)\le4\sqrt3(d-1)|\beta| .
+\alpha:=\max\Bigl(\sup_e\sum_{e'}C_{ee'},\ \sup_{e'}\sum_eC_{ee'}\Bigr)\le6(d-1)|\beta| .
 \]
 For $\alpha<1$ the comparison lemma of Appendix~\ref{app:dobrushin}
 (Lemma~\ref{lem:comparison}) gives uniqueness of the Gibbs measure and
 decay of truncated correlations of Lipschitz local functions at every rate
 $\lambda<-\log\alpha$, measured in the distance between link midpoints. At
-$d=4$, $\alpha<1$ reads $|\beta|<1/(12\sqrt3)$, that is $\beta_W<1/(3\sqrt3)$.
+$d=4$, $\alpha<1$ reads $|\beta|<1/18$, that is $\beta_W<2/9$.
 \end{proof}
 
 \begin{proposition}[The ceiling]\label{prop:ceiling}
@@ -1005,14 +1250,15 @@ $|b-b'|=4|\beta|\delta$ to first order this gives $C_{ee'}\ge|\beta|$, and
 summing over the $6(d-1)$ neighbours gives $\alpha\ge6(d-1)|\beta|$.
 \end{proof}
 
-If Conjecture~\ref{conj:quarter} holds, the proof of Theorem~E gives
-$C_{ee'}\le|\beta|$ and uniqueness for $|\beta|<1/(6(d-1))$, which is the
-ceiling exactly.\footnote{A 2026 preprint attributed to J.~Lockwood, which we
-have seen only as an abstract, announces uniqueness for four-dimensional
-$\SU(2)$ at $\beta_W<2/9$ by a Wasserstein--Dobrushin argument. By
-Proposition~\ref{prop:ceiling} that is the ceiling of the method, and it
-would follow from Conjecture~\ref{conj:quarter}. We have not been able to
-check the claim.} For $\SU(N)$ with $N\ge3$ the staple sum is not a multiple
+Proposition~\ref{prop:ceiling} and the proof of Theorem~E together give
+$\sup C_{ee'}=|\beta|$ exactly: Theorem~\ref{thm:quarter} is the statement
+that the single-link coupling is optimal, and Theorem~E is the best result a
+single-link argument can give.\footnote{A 2026 preprint attributed to
+J.~Lockwood, which we have seen only as an abstract, announces uniqueness for
+four-dimensional $\SU(2)$ at $\beta_W<2/9$ by a Wasserstein--Dobrushin
+argument; we have not been able to check its proof. By
+Proposition~\ref{prop:ceiling} that range is the ceiling of the method, and
+Theorem~\ref{thm:quarter} is what the method needs to reach it.} For $\SU(N)$ with $N\ge3$ the staple sum is not a multiple
 of a unitary matrix, the single-link law is not of von Mises--Fisher type, and
 the same argument with the single-link Bakry--\'Emery bound reproduces only
 $|\beta|<1/(16(d-1))$; Theorem~D is stronger there.
@@ -1524,23 +1770,24 @@ specification~\cite[Ch.~4]{Geo11}, so it equals the unique Gibbs measure $\mu$,
 which is again reflection positive. Lemma~\ref{lem:comparison} gives, for
 local functions $F,H$ that are Lipschitz in each link variable,
 $|\Cov_\mu(F,H)|\le C_{F,H}e^{-\lambda\,\dist(S_F,S_H)}$ for every
-$\lambda<-\log\alpha$, with $\alpha=4\sqrt3(d-1)|\beta|$. Lipschitz
+$\lambda<-\log\alpha$, with $\alpha=6(d-1)|\beta|$. Lipschitz
 gauge-invariant local functions are dense as before, and
 Proposition~\ref{prop:gapdecay} gives a gap at least $\lambda$ for each such
-$\lambda$, hence at least $-\log\alpha$. At $d=4$, $\alpha=12\sqrt3|\beta|=
-3\sqrt3\,\beta_W$.
+$\lambda$, hence at least $-\log\alpha$. At $d=4$, $\alpha=18|\beta|=
+\frac92\beta_W$.
 \end{proof}
 
 \begin{figure*}[t]
 \centering
 \includegraphics[width=0.96\textwidth]{figures/fig_massgap.png}
-\caption{The lower bound $m\ge-\log(3\sqrt3\,\beta_W)$ of Theorem~F for
-four-dimensional $\SU(2)$, in lattice units (solid), and the bound
-$m\ge-\log(\frac92\beta_W)$ that Conjecture~\ref{conj:quarter} would give
-(dashed), which extends to $\beta_W=2/9$. Both vanish at the end of their
-range; neither says anything about the continuum gap, which in lattice units
-must vanish with the spacing~\cite{BB26}. Right: the resulting bound
-$(3\sqrt3\,\beta_W)^t$ on truncated correlations at distance $t$.}
+\caption{Left: the lower bound $m\ge-\log(\frac92\beta_W)$ of Theorem~F for
+four-dimensional $\SU(2)$, in lattice units (blue), with the bound
+$-\log(3\sqrt3\,\beta_W)$ that the Poincar\'e constant of
+Lemma~\ref{lem:vmf} alone gives (grey, dashed). The gap vanishes at the
+ceiling $\beta_W=2/9$. Neither bound says anything about the continuum gap,
+which in lattice units must vanish with the spacing~\cite{BB26}. Right: the
+resulting bound $(\frac92\beta_W)^t$ on truncated correlations at distance
+$t$.}
 \label{fig:massgap}
 \end{figure*}
 
@@ -1662,13 +1909,12 @@ Uniqueness on the whole curvature range & Closed & Theorem~D: removes the
 factor $2$ of~\cite{SZZ23}, $|\beta|<1/(8d)$\\
 Limit of curvature methods & Closed & Theorem~C: no uniform Bakry--\'Emery
 bound beyond $1/(8d)$\\
-$\SU(2)$ beyond the curvature range & Closed to $\beta_W<1/(3\sqrt3)$ &
-Theorem~E; to $2/9$ it needs Conjecture~\ref{conj:quarter}, reduced in
-Proposition~\ref{prop:reduction} to a variance inequality in two variables\\
+$\SU(2)$ beyond the curvature range & Closed & Theorem~E: $\beta_W<2/9$,
+by the sharp quarter, Theorem~\ref{thm:quarter}\\
 Limit of single-link methods & Closed & Proposition~\ref{prop:ceiling}:
 $\beta_W=2/9$\\
-Lattice mass gap at strong coupling & Closed & Theorem~F: $m\ge-\log(3
-\sqrt3\,\beta_W)$ for $\SU(2)$\\
+Lattice mass gap at strong coupling & Closed & Theorem~F: $m\ge-\log(
+\frac92\beta_W)$ for $\SU(2)$\\
 Finite-box criterion, twists, area law & Closed & Theorem~G,
 Proposition~\ref{prop:hgds}\\
 Two dimensions at every coupling & Closed & Proposition~\ref{prop:2d}\\
@@ -1759,9 +2005,10 @@ the difficulty rather than remove it. The classical relation between
 log-Sobolev inequalities, spectral gaps and the decay of correlations is
 in~\cite{Gro75,HS87,SZ92,Zeg96,MO94,OV00,Led01}.}
 
-\emph{Single-link couplings.} Proposition~\ref{prop:ceiling} shows that no
-single-link Wasserstein--Dobrushin argument goes beyond $\beta_W=2/9$, by
-the configurations whose staples cancel. Couplings of larger blocks, as in
+\emph{Single-link couplings.} Theorem~E reaches $\beta_W=2/9$, and
+Proposition~\ref{prop:ceiling} shows that no single-link
+Wasserstein--Dobrushin argument goes further, by the configurations whose
+staples cancel. For single-link methods the problem is therefore settled. Couplings of larger blocks, as in
 Theorem~G, avoid this ceiling, but then the finite computation has to be
 done at the coupling in question.\footnote{For spin systems with compact
 spin space Dobrushin's condition~\cite{Dob68,Dob70}, its Wasserstein form
@@ -1814,17 +2061,27 @@ neither excludes a phase transition at intermediate coupling.
 
 \section*{Data and code availability}
 
-All proofs in this paper are by hand. The identities of
-Lemma~\ref{lem:local} and Appendix~\ref{app:hessian}, the Barta and Riccati
-computations of Appendix~\ref{app:vmf}, the extremal values in Theorem~A and
-the numerical values quoted after Conjecture~\ref{conj:quarter} and
-Proposition~\ref{prop:reduction} were also checked independently, in exact
-arithmetic where possible, and the bound of Theorem~A against the
-numerically computed Hessian on random configurations; these checks are
-archived with the source of this paper in the repository
-\texttt{creelie/4Y-M}. Deep Bhattacharjee carried out the computations and
-checks in Python (SymPy, NumPy, SciPy) with AI assistance from Claude
-(Anthropic); both authors approved the final text.
+All proofs in this paper are by hand and are complete without any
+computation. The repository \texttt{creelie/4Y-M} contains the \LaTeX{}
+source of this paper, independent checks in exact rational arithmetic and in
+floating point of the identities of Lemma~\ref{lem:local},
+Appendix~\ref{app:hessian}, the Barta and Riccati computations of
+Appendix~\ref{app:vmf}, the extremal values of Theorem~A, the spectral
+decomposition of Lemma~\ref{lem:spectral}, the Bessel sums of Lemma~\ref{lem:besselsums} and the
+coefficients of Lemma~\ref{lem:Dcoef}, and a Lean~4 certificate (with
+Mathlib) of the finite and algebraic steps: the coefficient formula and the
+positivity of Lemma~\ref{lem:Dcoef}, the binomial inequality used for it, the
+polynomial identities and sign of Proposition~\ref{prop:zonal}, the
+derivative of the third Riccati barrier, and the thresholds of Theorems~E
+and~F. The Lean files compile with no \texttt{sorry} and depend only on the
+standard axioms \texttt{propext}, \texttt{Classical.choice} and
+\texttt{Quot.sound}. The archive is on Zenodo,
+\href{https://doi.org/10.5281/zenodo.23444338}{doi:10.5281/zenodo.23444338},
+where later versions are listed, and the PDF of this paper is at
+\url{https://github.com/creelie/4Y-M/blob/main/preprintYangMillsDobrushinCeiling/YangMillsDobrushinCeiling.pdf}.
+Deep Bhattacharjee carried out the computations and the Lean, Python and
+shell checks with AI assistance from Claude (Anthropic); both authors
+approved the final text.
 
 \section*{Ethical declarations}
 
@@ -2099,6 +2356,26 @@ $\kappa\to0$, so $\mu D\ge0$ and $A\ge\phi_-$. The same argument with
 $D=\phi_+-A$ and $R=(u-3)^2/(u(1+u)^2)$ gives $A\le\phi_+$. This is
 Lemma~\ref{lem:moments}(ii).
 
+For (iv) let $s=\sqrt{\kappa^2+25/4}$ and $\phi_\flat=\kappa/(\frac32+s)$.
+Since $s^2-\frac94=\kappa^2+4$, the same differentiation gives
+\[
+\phi_\flat'-\mathcal F(\kappa,\phi_\flat)=-\frac{5\,(s-\frac52)}{2\,s\,
+(\frac32+s)^2}\le0,
+\]
+so $\phi_\flat$ is a subsolution, and $\phi_\flat=\frac\kappa4-\frac{\kappa^3}
+{80}+O(\kappa^5)$.\footnote{With $\phi_\flat=\kappa(s-\frac32)/(\kappa^2+4)$ one
+has $\phi_\flat'=(\frac32 s+\frac{25}4)/(s(\frac32+s)^2)$, using $ds/d\kappa=
+\kappa/s$; and $\mathcal F(\kappa,\phi_\flat)=1-\phi_\flat^2-3/(\frac32+s)$.
+Clearing the denominator $s(\frac32+s)^2$ and replacing $\kappa^2$ by
+$s^2-\frac{25}4$ leaves $-\frac52 s+\frac{25}4$ in the numerator, which is the
+stated residual. The expansion follows from $s=\frac52+\frac{\kappa^2}5+
+O(\kappa^4)$.} Hence $A-\phi_\flat=\frac{\kappa^3}{480}+O(\kappa^5)$, and the
+integrating-factor argument above, with $D=A-\phi_\flat$, $R=\frac{5(s-5/2)}
+{2s(3/2+s)^2}\ge0$ and $\mu=\kappa^3\exp\int_0^\kappa(A+\phi_\flat)$, gives
+$\mu D=O(\kappa^6)$ at $0$, $(\mu D)'=\mu R\ge0$, and so $A\ge\phi_\flat$. Since
+$\frac32+\sqrt{\kappa^2+25/4}<2+\sqrt{\kappa^2+4}$ for $\kappa>0$, this
+improves the lower bound of (ii).
+
 \section{The weighted coupling}\label{app:weighted}
 
 We prove Lemma~\ref{lem:weighted}. Let $Q,Q'$ be two fields such that for
@@ -2358,6 +2635,200 @@ c_0^{i+1}\int f^{*i}(\Gamma B)f(\Gamma^{-1}H)\,d\Gamma=c_0^{i+1}f^{*(i+1)}(BH),
 and $BH$ is the holonomy of $\partial D_{i+1}=\beta\cdot\eta$.
 \end{proof}
 
+\section{The sharp quarter}\label{app:quarter}
+
+This appendix proves the auxiliary statements used in Sec.~\ref{sec:su2}
+for Theorem~\ref{thm:quarter}. Throughout, $I_j=I_j(\kappa)$ with $\kappa>0$,
+and $I_{-j}=I_j$ for integers $j$. We use the series
+\[
+I_\nu(\kappa)=\sum_{i\ge0}\frac{(\kappa/2)^{2i+\nu}}{i!\,(i+\nu)!},
+\]
+the integral $I_j(\kappa)=\pi^{-1}\int_0^\pi e^{\kappa\cos\theta}\cos
+j\theta\,d\theta$, the Fourier series $e^{\kappa\cos\theta}=\sum_{j\in\Z}
+I_je^{ij\theta}$ and the recurrences
+\begin{equation}\label{eq:besselrec}
+I_{j-1}-I_{j+1}=\frac{2j}\kappa\,I_j,\quad I_j'=I_{j+1}+\frac j\kappa\,I_j ,
+\end{equation}
+all of which are in Watson's treatise~\cite{Wat44}, \S\S3.7, 3.71,
+2.22. All series below converge absolutely, because $0<I_j\le(\kappa/2)^j
+e^\kappa/j!$.
+
+\subsection{Zonal harmonics}
+
+Under $\sigma$ the coordinate $x_1$ has the density $\frac2\pi(1-t^2)^{1/2}$
+on $[-1,1]$, the area of the two-sphere $\{x_1=t\}$ being proportional to
+$1-t^2$ and its normal speed to $(1-t^2)^{-1/2}$. The Chebyshev polynomials
+$U_n(\cos\theta)=\sin((n+1)\theta)/\sin\theta$ satisfy
+\[
+\int U_nU_m\,d\sigma=\frac2\pi\int_0^\pi\sin((n+1)\theta)\sin((m+1)\theta)
+\,d\theta=\delta_{nm},
+\]
+and $U_n=C_n^{(1)}$ is the Gegenbauer polynomial of index $\frac{4-2}2=1$, so
+$U_n(\ip yx)$ is the zonal harmonic of degree $n$ on $S^3$ with pole $y$:
+$|x|^nU_n(\ip yx/|x|)$ is a harmonic polynomial on $\R^4$~\cite{SW71},
+Ch.~IV, \S2.
+
+\begin{lemma}\label{lem:chebexp}
+$e^{\kappa t}=\frac2\kappa\sum_{n\ge0}(n+1)I_{n+1}(\kappa)\,U_n(t)$ in
+$L^2\bigl(\frac2\pi(1-t^2)^{1/2}dt\bigr)$, and uniformly on $[-1,1]$.
+\end{lemma}
+
+\begin{proof}
+With $t=\cos\theta$ and $2\sin\theta\sin((n+1)\theta)=\cos n\theta-\cos(
+n+2)\theta$, the $n$-th coefficient is
+\[
+\begin{aligned}
+\frac2\pi\int_0^\pi e^{\kappa\cos\theta}\sin((n+1)\theta)\sin\theta\,d\theta
+&=I_n-I_{n+2}\\
+&=\frac{2(n+1)}\kappa I_{n+1},
+\end{aligned}
+\]
+by~\eqref{eq:besselrec}. Since $|U_n|\le n+1$ and $I_{n+1}$ decays
+factorially, the series converges uniformly.
+\end{proof}
+
+\subsection{Proof of Lemma~\ref{lem:besselsums}}
+
+Let $F(\theta)=e^{\kappa\cos\theta}=\sum_jI_je^{ij\theta}$. Then
+\[
+F'(\theta)=-\kappa\sin\theta\,F(\theta)=\sum_jijI_je^{ij\theta},
+\]
+and Parseval's formula gives
+\[
+\begin{aligned}
+\sum_{j\in\Z}j^2I_j^2&=\frac{\kappa^2}{2\pi}\int_0^{2\pi}\sin^2\theta\,
+e^{2\kappa\cos\theta}d\theta\\
+&=\frac{\kappa^2}2\bigl(I_0(2\kappa)-I_2(2\kappa)\bigr)=\frac\kappa2I_1(2\kappa),
+\end{aligned}
+\]
+the last step by~\eqref{eq:besselrec} at the argument $2\kappa$. Halving gives
+the first identity. The coefficient of $e^{i\theta}$ in $F^2=e^{2\kappa\cos
+\theta}$ is $I_1(2\kappa)=\sum_{j\in\Z}I_jI_{1-j}$, and the terms with $j\le0$
+repeat those with $j\ge1$; this is the third identity.
+
+For the second, $jI_j=\frac\kappa2(I_{j-1}-I_{j+1})$ by~\eqref{eq:besselrec}, so
+\[
+\sum_{j\ge1}j^3I_j^2=\frac{\kappa^2}4\sum_{j\ge1}j\bigl(I_{j-1}^2+I_{j+1}^2-
+2I_{j-1}I_{j+1}\bigr).
+\]
+Shifting indices, $\sum_{j\ge1}j(I_{j-1}^2+I_{j+1}^2)=I_0^2+\sum_{m\ge1}2m
+I_m^2$, and $\sum_{m\ge1}2mI_m^2=\kappa\sum_{m\ge1}(I_{m-1}I_m-I_mI_{m+1})=
+\kappa I_0I_1$ by telescoping. For the mixed term write $j=\frac12((j-1)+(j+1))$
+and apply~\eqref{eq:besselrec} to $(j-1)I_{j-1}$ and to $(j+1)I_{j+1}$, which is
+legitimate at $j=1$ because $I_{-1}=I_1$:
+\[
+\begin{aligned}
+jI_{j-1}I_{j+1}=\frac\kappa4\bigl[&(I_{j-1}I_j-I_jI_{j+1})\\
+&+(I_{j-2}I_{j+1}-I_{j-1}I_{j+2})\bigr].
+\end{aligned}
+\]
+Both brackets telescope, to $I_0I_1$ and to $I_{-1}I_2=I_1I_2$, so
+$\sum_{j\ge1}jI_{j-1}I_{j+1}=\frac\kappa4(I_0I_1+I_1I_2)$. Altogether
+\[
+\sum_{j\ge1}j^3I_j^2=\frac{\kappa^2}4\Bigl(I_0^2+\frac\kappa2I_1(I_0-I_2)
+\Bigr)=\frac{\kappa^2}4\bigl(I_0^2+I_1^2\bigr). \qquad\qed
+\]
+
+\subsection{The coefficients of $\mathcal D$}
+
+\begin{lemma}\label{lem:Dcoef}
+Write $\mathcal D(\kappa)=\sum_{n\ge0}\mathcal D_n\kappa^{2n}$ for the function
+of~\eqref{eq:Dfunction}. Then $\mathcal D_0=\mathcal D_1=0$, and for $m\ge1$
+\[
+\mathcal D_{m+1}=\frac{N_m}{4^m\,m!\,(m+1)!\,(m+1)(m+2)},
+\]
+with $N_m=\binom{2m}m\bigl(4(2m+1)+(m-1)(m+1)(m+2)\bigr)-4^m(m+1)(m+2)$.
+Moreover $N_m=0$ for $m\le2$ and $N_m>0$ for $m\ge3$.
+\end{lemma}
+
+\begin{proof}
+\emph{The coefficients.} Multiplying the series of $I_0$ and $I_1$ and
+collecting powers,
+\[
+\begin{gathered}
+I_0^2=\sum_{m\ge0}\alpha_m\kappa^{2m},\qquad I_1^2=\sum_{m\ge0}\beta_m
+\kappa^{2m+2},\\
+\kappa I_1(2\kappa)=\sum_{m\ge0}\frac{\kappa^{2m+2}}{m!\,(m+1)!},
+\end{gathered}
+\]
+where
+\[
+\begin{aligned}
+\alpha_m&=\frac1{4^m}\sum_{i=0}^m\frac1{i!^2(m-i)!^2},\\
+\beta_m&=\frac1{4^{m+1}}\sum_{i=0}^m\frac1{i!\,(i+1)!\,(m-i)!\,(m-i+1)!}.
+\end{aligned}
+\]
+By Vandermonde's identity, $\sum_i\binom mi^2=\binom{2m}m$ and
+$\sum_i\binom mi\binom{m+2}{i+1}=\binom{2m+2}{m+1}$, so
+\[
+\alpha_m=\frac{\binom{2m}m}{4^m\,m!^2},\qquad\beta_m=\frac{\binom{2m+2}{m+1}}
+{4^{m+1}m!\,(m+2)!}.
+\]
+The coefficient of $\kappa^{2m+2}$ in $\mathcal D$ is $\mathcal D_{m+1}=8\beta_m
++2\beta_{m-1}-\alpha_m-1/(m!(m+1)!)$, with $\beta_{-1}=0$; for $m=0$ it is
+$\frac84-1-1=0$, and $\mathcal D_0=0$ because every term of $\mathcal D$ is
+$O(\kappa^2)$. For $m\ge1$ put $\Delta=4^m\,m!\,(m+1)!\,(m+1)(m+2)$ and
+$b=\binom{2m}m$. With $\binom{2m+2}{m+1}=\frac{2(2m+1)}{m+1}b$,
+\[
+\begin{aligned}
+8\beta_m&=\frac{4(2m+1)\,b}\Delta,\qquad\alpha_m=\frac{(m+1)^2(m+2)\,b}\Delta,\\
+2\beta_{m-1}&=\frac{2m(m+1)(m+2)\,b}\Delta,\\
+\frac1{m!(m+1)!}&=\frac{4^m(m+1)(m+2)}\Delta,
+\end{aligned}
+\]
+and $2m-(m+1)=m-1$ gives $\mathcal D_{m+1}=N_m/\Delta$.
+
+\emph{The sign.} Directly, $N_0=N_1=N_2=0$ ($2-2$, $24-24$, $192-192$),
+$N_3=80$, $N_4=1140$ and $N_5=10416$. For $m\ge6$ we first show
+$16^m\le4m\binom{2m}m^2$ for $m\ge1$ by induction: it is an equality at
+$m=1$, and $(m+1)\binom{2m+2}{m+1}=2(2m+1)\binom{2m}m$ gives
+\[
+\begin{aligned}
+4(m+1)\binom{2m+2}{m+1}^2&=\frac{16(2m+1)^2}{m+1}\binom{2m}m^2\\
+&\ge\frac{16(2m+1)^2}{4m(m+1)}16^m\ge16^{m+1}.
+\end{aligned}
+\]
+Since $(m-1)^2\ge4m$ for $m\ge6$, it follows that $\binom{2m}m^2(m-1)^2\ge
+16^m$, that is $\binom{2m}m(m-1)\ge4^m$, and
+\[
+\begin{aligned}
+N_m={}&\Bigl(\binom{2m}m(m-1)-4^m\Bigr)(m+1)(m+2)\\
+&+4(2m+1)\binom{2m}m>0 .
+\end{aligned}
+\]
+\end{proof}
+
+\subsection{Monotonicity of Bessel ratios}
+
+\begin{lemma}\label{lem:ratio}
+For $n\ge1$ and $\kappa>0$, $I_{n+2}(\kappa)/I_{n+1}(\kappa)\le I_2(\kappa)/
+I_1(\kappa)$.
+\end{lemma}
+
+\begin{proof}
+We use a lemma of Biernacki and Krzy\.z~\cite{BK55}: if $f=\sum a_jx^j$ and
+$g=\sum b_jx^j$ have positive coefficients and $a_j/b_j$ is nonincreasing in
+$j$, then $f/g$ is nonincreasing on $x>0$. Indeed
+\[
+\begin{aligned}
+f'g-fg'&=\sum_{i,j}(i-j)a_ib_jx^{i+j-1}\\
+&=\frac12\sum_{i,j}(i-j)b_ib_j\Bigl(\frac{a_i}{b_i}-\frac{a_j}{b_j}\Bigr)
+x^{i+j-1}\le0 .
+\end{aligned}
+\]
+Take $x=\kappa^2$, $f=I_{n+1}(\kappa)/\kappa^{n+1}$ and $g=I_1(\kappa)/\kappa$.
+Then $a_j/b_j=2^{-n}(j+1)!/(j+n+1)!$ decreases in $j$, so $I_{n+1}/(\kappa^n
+I_1)$ is nonincreasing in $\kappa$. Its logarithmic derivative is, by the
+second recurrence of~\eqref{eq:besselrec},
+\[
+\begin{aligned}
+&\frac{n+1}\kappa+\frac{I_{n+2}}{I_{n+1}}-\frac n\kappa-\frac1\kappa-\frac{I_2}
+{I_1}\\
+&\qquad=\frac{I_{n+2}}{I_{n+1}}-\frac{I_2}{I_1}\le0 .
+\end{aligned}\qedhere
+\]
+\end{proof}
+
 \begin{thebibliography}{999}\raggedright\advance\leftskip\labelwidth
 
 \bibitem{AC25}
@@ -2463,6 +2934,11 @@ circles II, Preprints (2026),
 \bibitem{Bha26Q}
 D.~Bhattacharjee, Holonomic quantum computing, SSRN (2026),
 \href{https://doi.org/10.2139/ssrn.6066428}{doi:10.2139/ssrn.6066428}.
+
+\bibitem{BK55}
+M.~Biernacki and J.~Krzy\.z, On the monotonity of certain functionals in the
+theory of analytic functions, Ann. Univ. Mariae Curie-Sk{\l}odowska Sect. A
+\textbf{9} (1955), 135--147.
 
 \bibitem{BF83}
 J.~Bricmont and J.~Fr\"ohlich, An order parameter distinguishing between
@@ -2768,6 +3244,12 @@ in the one phase region. I. The attractive case, Comm. Math. Phys.
 \textbf{161} (1994), 447--486,
 \href{https://doi.org/10.1007/BF02101929}{doi:10.1007/BF02101929}.
 
+\bibitem{McS34}
+E.~J.~McShane, Extension of range of functions, Bull. Amer. Math. Soc.
+\textbf{40} (1934), 837--842,
+\href{https://doi.org/10.1090/S0002-9904-1934-05978-0}
+{doi:10.1090/S0002-9904-1934-05978-0}.
+
 \bibitem{Mig75}
 A.~A.~Migdal, Recursion equations in gauge field theories, Sov. Phys. JETP
 \textbf{42} (1975), 413--418.
@@ -2857,6 +3339,11 @@ Yang--Mills at strong coupling, Comm. Math. Phys. \textbf{400} (2023),
 B.~Simon, \emph{The Statistical Mechanics of Lattice Gases, Volume I},
 Princeton University Press, Princeton, NJ, 1993,
 \href{https://doi.org/10.1515/9781400863433}{doi:10.1515/9781400863433}.
+
+\bibitem{SW71}
+E.~M.~Stein and G.~Weiss, \emph{Introduction to Fourier Analysis on Euclidean
+Spaces}, Princeton University Press, Princeton, NJ, 1971,
+\href{https://doi.org/10.1515/9781400883899}{doi:10.1515/9781400883899}.
 
 \bibitem{SZ92}
 D.~W.~Stroock and B.~Zegarlinski, The logarithmic Sobolev inequality for
