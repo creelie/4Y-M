@@ -4,3 +4,6 @@ import YangMills.WilsonAction
 import YangMills.HolleyStroock
 import YangMills.RunningCoupling
 import YangMills.CumulantCounterexample
+import YangMills.StrongCoupling.QxCoefficients
+import YangMills.StrongCoupling.ZonalBound
+import YangMills.StrongCoupling.Thresholds

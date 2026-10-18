@@ -1,4 +1,4 @@
-"""Figures of the PRD paper: python3 make_figures.py writes figures/fig_*.png and .pdf."""
+"""Figures of the paper: python3 -I make_figures.py writes fig_*.png and .pdf next to it."""
 import os
 import numpy as np
 import matplotlib
@@ -48,24 +48,26 @@ def save(fig, name):
 
 # 1. thresholds -------------------------------------------------------------
 def fig_thresholds():
-    fig, ax = plt.subplots(figsize=(W, 2.5))
+    fig, ax = plt.subplots(figsize=(W, 2.4))
     rows = [
-        ("earlier curvature bound", 1 / 12, GREY),
-        ("earlier single-link bound", 1 / 6, GREY),
+        ("curvature bound of Shen, Zhu and Zhu", 1 / 12, GREY),
         ("Theorems B, D (curvature)", 1 / 8, BLUE),
-        ("Theorem E (chordal Dobrushin)", 1 / (3 * np.sqrt(3)), BLUE),
-        ("ceiling of single-link arguments", 2 / 9, RED),
+        ("Poincare constant alone", 1 / (3 * np.sqrt(3)), GREY),
+        ("Theorem E (sharp quarter)", 2 / 9, BLUE),
     ]
     for i, (lab, v, c) in enumerate(rows):
         y = len(rows) - i
-        ax.barh(y, v - 0.04, left=0.04, height=0.55, color=c, alpha=0.85 if c != RED else 0.35,
-                hatch=None if c != RED else "///", edgecolor=c)
-        ax.text(v * 1.06, y, f"{lab}: {v:.4f}" if c != RED else f"{lab}: $2/9$", va="center", fontsize=8)
+        ax.barh(y, v - 0.04, left=0.04, height=0.55, color=c, alpha=0.85, edgecolor=c)
+        txt = f"{lab}: $2/9$" if abs(v - 2 / 9) < 1e-12 else (f"{lab}: $1/8$" if abs(v - 1 / 8) < 1e-12 else
+              (f"{lab}: $1/12$" if abs(v - 1 / 12) < 1e-12 else f"{lab}: {v:.4f}"))
+        ax.text(0.255, y, txt.replace("Poincare", "Poincaré"), va="center", fontsize=8)
+    ax.axvline(2 / 9, color=RED, lw=1.3, ls="--")
+    ax.text(2 / 9 * 0.97, 0.55, "single-link ceiling", color=RED, fontsize=8, va="center", ha="right")
     ax.axvspan(1.8, 2.6, color=ORANGE, alpha=0.3)
-    ax.text(2.16, 3.0, "Monte Carlo\ncrossover", ha="center", va="center", fontsize=8, color="#8a4b0f")
+    ax.text(2.16, 2.5, "Monte Carlo\ncrossover", ha="center", va="center", fontsize=8, color="#8a4b0f")
     ax.set_xscale("log")
     ax.set_xlim(0.04, 4)
-    ax.set_ylim(0.4, len(rows) + 0.6)
+    ax.set_ylim(0.35, len(rows) + 0.6)
     ax.set_yticks([])
     ax.set_xlabel(r"Wilson coupling $\beta_W$ (logarithmic)")
     ax.set_xticks([0.05, 0.1, 0.2, 0.5, 1, 2])
@@ -74,8 +76,6 @@ def fig_thresholds():
         ax.spines[s].set_visible(False)
     save(fig, "fig_thresholds")
 
-
-# 2. plaquette ---------------------------------------------------------------
 C35, S35 = np.cos(np.radians(40)), np.sin(np.radians(40))
 
 
@@ -277,7 +277,7 @@ def fig_sphere():
     dens = np.exp(kappa * Z)
     dens = (dens - dens.min()) / (dens.max() - dens.min())
     for k, (h, title) in enumerate(((np.array([1.0, 0, 0]), r"$h\perp b$: the reflection preserves $\nu_b$"),
-                                    (np.array([0.6, 0, 0.8]), r"$h$ not orthogonal to $b$: the open case"))):
+                                    (np.array([0.6, 0, 0.8]), r"$h$ oblique to $b$: harmonic extension"))):
         ax = fig.add_subplot(1, 2, k + 1, projection="3d")
         ax.plot_surface(X, Y, Z, facecolors=plt.cm.YlOrRd(0.15 + 0.8 * dens), rstride=2, cstride=2,
                         lw=0, antialiased=True, alpha=0.55, shade=False)
@@ -306,44 +306,63 @@ def fig_sphere():
 
 
 # 7. surface -----------------------------------------------------------------
-def fig_surface():
-    raw = [l.split() for l in open(os.path.join(DATA, "surf.dat")) if l.strip()]
-    D = np.array(raw, float)
-    ks = np.unique(D[:, 0]); ps = np.unique(D[:, 1])
-    Lz = D[:, 2].reshape(len(ks), len(ps))
-    K, P = np.meshgrid(ks, ps, indexing="ij")
-    fig = plt.figure(figsize=(W, 3.3))
+def qparts(k):
+    """Q_x, Q_z of the spectral decomposition, by the Bessel series (k > 0)."""
+    n = np.arange(1, 80)
+    I1 = iv(1, k)
+    d = (n + 1) * iv(n + 1, k) / I1
+    dI = lambda nu: iv(nu + 1, k) + nu / k * iv(nu, k)
+    dd = (n + 1) * (dI(n + 1) * I1 - iv(n + 1, k) * dI(1)) / I1 ** 2
+    qx = np.sum((n + 2) * d ** 2) / (3 * k ** 2)
+    qz = np.sum(dd ** 2 / n)
+    return qx, qz
+
+
+def zonal_majorant(k):
+    A = iv(2, k) / iv(1, k)
+    Ap = 1 - A ** 2 - 3 * A / k
+    return 0.25 + 4 * Ap ** 2 + A ** 2 / 4 - A / (2 * k) - 2 * A ** 2 / k ** 2
+
+
+def fig_quarter():
+    ks = np.linspace(0.02, 3.6, 150)
+    Q = np.array([qparts(k) for k in ks])
+    fig = plt.figure(figsize=(W, 3.2))
     ax = fig.add_subplot(1, 2, 1, projection="3d")
-    ax.plot_surface(K, P, Lz, cmap="viridis", edgecolor="#333", lw=0.25, alpha=0.95)
-    ax.plot_surface(K, P, 0.25 + 0 * K, color="#999", alpha=0.25, lw=0)
-    kk = np.linspace(0, 2, 60)
-    ax.plot(kk, np.pi / 2 + 0.0 * kk, (3 * (1 + np.sqrt(kk ** 2 + 9))) ** -0.5, color=BLUE, lw=1.6)
-    A = iv(2, kk[1:]) / iv(1, kk[1:])
-    ax.plot(kk[1:], np.pi / 2 + 0 * kk[1:], A / kk[1:], color=RED, lw=1.6)
-    ax.set_xlabel(r"$\kappa$", labelpad=-4); ax.set_ylabel(r"$\varphi$", labelpad=-4)
-    ax.set_zlabel(""); ax.tick_params(pad=-2)
-    ax.set_zlim(0.19, 0.30)
-    ax.view_init(elev=20, azim=-50)
-    ax.set_title(r"rate surface $L(\kappa,\varphi)$ and the plane $1/4$", pad=-2)
+    kk = np.linspace(0.02, 3.6, 60)
+    Qk = np.array([qparts(k) for k in kk])
+    ph = np.linspace(0, np.pi / 2, 40)
+    K, P = np.meshgrid(kk, ph, indexing="ij")
+    Lb = 0.5 * np.sqrt(np.cos(P) ** 2 * Qk[:, 1:2] + np.sin(P) ** 2 * Qk[:, 0:1])
+    ax.plot_surface(K, P, Lb, cmap="viridis", edgecolor="#333", lw=0.15, alpha=0.95, rstride=2, cstride=2)
+    ax.plot_surface(K, P, 0.25 + 0 * K, color="#888", alpha=0.22, lw=0)
+    ax.set_xlabel(r"$\kappa$", labelpad=-5); ax.set_ylabel(r"$\varphi$", labelpad=-5)
+    ax.set_yticks([0, np.pi / 4, np.pi / 2]); ax.set_yticklabels(["0", r"$\pi/4$", r"$\pi/2$"])
+    ax.set_zticks([0.15, 0.2, 0.25])
+    ax.tick_params(pad=-2)
+    ax.set_zlim(0.12, 0.26)
+    ax.view_init(elev=22, azim=-128)
+    ax.set_title(r"$\frac{1}{2}\mathcal{Q}^{1/2}$ under the plane $\frac{1}{4}$", pad=-2)
 
     ax = fig.add_subplot(1, 2, 2)
-    for j, ph in enumerate(ps):
-        ax.plot(ks, Lz[:, j], color=plt.cm.viridis(j / (len(ps) - 1)), lw=1.1, marker="o", ms=2.2)
-    ax.plot(kk, (3 * (1 + np.sqrt(kk ** 2 + 9))) ** -0.5, color=BLUE, lw=1.4, label="proved bound")
-    ax.plot(kk[1:], A / kk[1:], color=RED, lw=1.4, ls="--", label=r"$A(\kappa)/\kappa$ (edge $\varphi=\pi/2$)")
-    ax.axhline(0.25, color=GREY, lw=1)
-    ax.text(1.35, 0.2515, "conjectured $1/4$", color=GREY, fontsize=8)
-    ax.set_xlabel(r"$\kappa$"); ax.set_ylabel(r"$L(\kappa,\varphi)$")
-    ax.set_ylim(0.20, 0.295)
-    ax.legend(frameon=False, loc="upper right")
+    ax.axvspan(np.sqrt(88) / 3, 3.6, color="#dddddd", alpha=0.6, lw=0)
+    ax.plot(ks, Q[:, 0], color=BLUE, lw=1.6, label=r"transverse $\mathcal{Q}_x$")
+    ax.plot(ks, Q[:, 1], color=GREEN, lw=1.6, label=r"zonal $\mathcal{Q}_z$")
+    km = ks[ks <= np.sqrt(88) / 3]
+    ax.plot(km, [zonal_majorant(k) for k in km], color=GREEN, lw=1.2, ls="--", label="zonal majorant")
+    ax.plot(ks, 4 / (3 * (1 + np.sqrt(ks ** 2 + 9))), color=GREY, lw=1.3, ls=":", label="Cauchy–Schwarz")
+    ax.axhline(0.25, color="k", lw=0.8)
+    ax.text(0.08, 0.2535, r"$\frac{1}{4}$", fontsize=9)
+    ax.text((np.sqrt(88) / 3 + 3.6) / 2, 0.02, r"$\kappa\geq\sqrt{88}/3$", fontsize=8, color="#555", rotation=90, ha="center", va="bottom")
+    ax.set_xlim(0, 3.6); ax.set_ylim(0, 0.34)
+    ax.set_xlabel(r"$\kappa$")
+    ax.legend(frameon=False, loc="lower left", fontsize=7.5)
     for s in ("top", "right"):
         ax.spines[s].set_visible(False)
-    ax.set_title(r"sections at $\varphi=0,\pi/12,\dots,\pi/2$")
-    fig.subplots_adjust(wspace=0.36)
-    save(fig, "fig_surface")
+    ax.set_title("the two parts of the norm")
+    fig.subplots_adjust(wspace=0.3)
+    save(fig, "fig_quarter")
 
-
-# 8. box ---------------------------------------------------------------------
 def cube_edges(ax, o, n, color, lw, alpha=1.0, ls="-"):
     o = np.array(o, float)
     for a in range(3):
@@ -397,32 +416,31 @@ def fig_massgap():
     ax = fig.add_subplot(1, 2, 1)
     b1 = np.linspace(0.004, 1 / (3 * np.sqrt(3)) - 1e-4, 400)
     b2 = np.linspace(0.004, 2 / 9 - 1e-4, 400)
-    ax.plot(b1, -np.log(3 * np.sqrt(3) * b1), color=BLUE, lw=1.7, label=r"Theorem F: $-\log(3\sqrt{3}\,\beta_W)$")
-    ax.plot(b2, -np.log(4.5 * b2), color=RED, lw=1.4, ls="--", label=r"if the quarter holds: $-\log(\frac{9}{2}\beta_W)$")
-    ax.axvline(1 / (3 * np.sqrt(3)), color=BLUE, lw=0.7, ls=":")
-    ax.axvline(2 / 9, color=RED, lw=0.7, ls=":")
+    ax.plot(b2, -np.log(4.5 * b2), color=BLUE, lw=1.7, label=r"Theorem F: $-\log(\frac{9}{2}\beta_W)$")
+    ax.plot(b1, -np.log(3 * np.sqrt(3) * b1), color=GREY, lw=1.3, ls="--",
+            label="Poincaré only: " + r"$-\log(3\sqrt{3}\,\beta_W)$")
+    ax.axvline(2 / 9, color=RED, lw=0.9, ls=":")
+    ax.text(2 / 9 - 0.004, 2.2, r"$\beta_W=2/9$", color=RED, fontsize=8, ha="right")
     ax.set_ylim(0, 5.5); ax.set_xlim(0, 0.24)
     ax.set_xlabel(r"$\beta_W$"); ax.set_ylabel("lattice mass gap $m$ (lower bound)")
-    ax.legend(frameon=False, loc="upper right")
+    ax.legend(frameon=False, loc="upper right", bbox_to_anchor=(1.0, 0.93))
     for s in ("top", "right"):
         ax.spines[s].set_visible(False)
     ax.set_title("lower bounds for the gap in lattice units")
 
     ax = fig.add_subplot(1, 2, 2, projection="3d")
-    bb = np.linspace(0.01, 1 / (3 * np.sqrt(3)) - 2e-3, 50)
+    bb = np.linspace(0.01, 2 / 9 - 2e-3, 50)
     tt = np.linspace(0, 6, 40)
     B, T = np.meshgrid(bb, tt)
-    Mz = np.exp(np.log(3 * np.sqrt(3) * B) * T)
+    Mz = np.exp(np.log(4.5 * B) * T)
     ax.plot_surface(B, T, Mz, cmap="Blues_r", lw=0, alpha=0.95)
     ax.set_xlabel(r"$\beta_W$", labelpad=-4); ax.set_ylabel("distance $t$", labelpad=-4)
     ax.set_zlabel("correlation bound", labelpad=-4); ax.tick_params(pad=-2)
     ax.view_init(elev=24, azim=-130)
-    ax.set_title(r"decay $e^{-mt}=(3\sqrt{3}\,\beta_W)^t$", pad=-2)
+    ax.set_title(r"decay $e^{-mt}=(\frac{9}{2}\beta_W)^t$", pad=-2)
     fig.subplots_adjust(wspace=0.2)
     save(fig, "fig_massgap")
 
-
-# 10. scales ------------------------------------------------------------------
 def fig_scales():
     fig, ax = plt.subplots(figsize=(W, 2.9))
     xc = 1.0
@@ -462,6 +480,6 @@ def fig_scales():
 
 if __name__ == "__main__":
     for f in (fig_thresholds, fig_plaquette, fig_extremal, fig_spectrum, fig_weights,
-              fig_sphere, fig_surface, fig_box, fig_massgap, fig_scales):
+              fig_sphere, fig_quarter, fig_box, fig_massgap, fig_scales):
         f()
         print("done", f.__name__)
