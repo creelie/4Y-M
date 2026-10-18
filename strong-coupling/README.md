@@ -4,7 +4,7 @@ Deep Bhattacharjee and Ushashi Bhattacharya.
 
 ## The PRD version (`prd/`)
 
-`prd/main.tex` is the current paper ("Mass Gap of Lattice Yang--Mills Theory at Strong Coupling"), in REVTeX 4-2 (Physical Review D, two
+`prd/main.tex` is the current paper ("Mass Gap of Lattice Yang–Mills Theory at Strong Coupling"), in REVTeX 4-2 (Physical Review D, two
 columns, 25 pages), compiled as `prd/YangMillsStrongCoupling_PRD.pdf`. Build
 with `latexmk -pdf -bibtex- main.tex`; the bibliography (102 entries, every
 DOI checked against Crossref) is written by hand. The figures are 200 dpi PNG
