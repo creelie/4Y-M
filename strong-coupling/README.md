@@ -2,16 +2,18 @@
 
 Deep Bhattacharjee and Ushashi Bhattacharya.
 
-## The PRD version (`prd/`)
+## The current paper (`prd/`)
 
-`prd/main.tex` is the current paper ("Mass Gap of Lattice Yang–Mills Theory at Strong Coupling"), in REVTeX 4-2 (Physical Review D, two
-columns, 25 pages), compiled as `prd/YangMillsStrongCoupling_PRD.pdf`. Build
-with `latexmk -pdf -bibtex- main.tex`; the bibliography (104 entries, every
-DOI checked against Crossref) is written by hand. The figures are 200 dpi PNG
-files written by `prd/figures/make_figures.py` from the data in
+`prd/main.tex` is the paper "Mass Gap of Lattice Yang–Mills Theory up to the
+Dobrushin Ceiling", in REVTeX 4-2 (Physical Review D, two columns, 29 pages),
+compiled as `prd/YangMillsDobrushinCeiling.pdf` (also at
+`preprintYangMillsDobrushinCeiling/YangMillsDobrushinCeiling.pdf` in the
+repository root). Build with `latexmk -pdf -bibtex- main.tex`; the
+bibliography is written by hand and every DOI was checked. The figures are
+200 dpi PNG files written by `prd/figures/make_figures.py` from the data in
 `prd/figures/data/`.
 
-What it proves:
+What it proves, all by hand and without conditions:
 
 - **Theorem A.** For SU(N), SO(N) and U(N) in dimension d the Hessian of the
   Wilson action is bounded by 4d, attained with both signs.
@@ -21,34 +23,39 @@ What it proves:
   further.
 - **Theorem D.** A weighted coupling distance removes the factor two of Shen,
   Zhu and Zhu, so uniqueness and decay hold on the whole curvature range.
+- **The sharp quarter.** For every von Mises–Fisher law on the three-sphere
+  and every unit vector h, the covariance of a chordally 1-Lipschitz function
+  with ⟨h,x⟩ is at most 1/4; equivalently W₁(ν_b, ν_b′) ≤ |b − b′|/4, with
+  equality at b = 0. Proof: McShane extension and Green's formula in the ball,
+  a spectral split into zonal and transverse parts with closed Bessel sums,
+  positivity of every Taylor coefficient of one entire function, and a
+  Riccati comparison.
 - **Theorem E.** Four-dimensional SU(2) has a unique infinite-volume Gibbs
-  measure for β_W < 1/(3√3) ≈ 0.1925, by a Wasserstein–Dobrushin argument in
-  the chordal metric; single-link arguments of this kind stop at 2/9.
+  measure for β_W < 2/9, which is the ceiling of every single-link
+  Wasserstein–Dobrushin argument.
 - **Theorem F.** In the same ranges the lattice theory has a positive
-  transfer-matrix gap, m ≥ −log(3√3 β_W) for SU(2).
+  transfer-matrix gap, m ≥ −log(9β_W/2) for SU(2).
 - **Theorem G.** A gauge-invariant Dobrushin–Shlosman finite-box criterion,
   stable in every 't Hooft twist sector; two-dimensional SU(2) meets it at
   every coupling.
 
-The step from 1/(3√3) to 2/9 is reduced to one inequality on the
-three-sphere (Conjecture 7, the "sharp quarter"), proved in three of its four
-regimes and further reduced (Proposition 8) to a variance inequality for
-symmetric chordal-Lipschitz functions on a half two-sphere, which the
-numerics support and which is not proved.
-
 It does not prove the Clay mass gap. Section VIII lists the gaps: the
-crossover between strong coupling and Bałaban's weak-coupling control, the
-continuum limit, and a gap in physical units remain open.
+intermediate fixed coupling, the crossover between strong coupling and
+Bałaban's weak-coupling control, the continuum limit, and a gap in physical
+units remain open.
 
-New checks in `prd/checks/`:
+Checks in `prd/checks/` (the paper does not rely on them):
 
 | Script | Checks |
 |---|---|
 | `pairblock_derive.py` | the pair block M of Lemma 2 from the trace expansion |
 | `sos_delta.py` | the reflection M(−1,θ) = M(1,θ+π), the real form Δ*MΔ and its sum of squares |
-| `barta_riccati.py` | the Barta computation and the Riccati barriers of Appendix B |
-| `quarter/lipvar1d.py`, `quarter/lipvar2d.py N κ…` | the variance inequality of Proposition 8 in one and two variables |
-| `quarter/lip2d.py`, `quarter/surf.py` | the rate surface of Fig. 7 by optimal transport |
+| `barta_riccati.py` | the Barta computation and the first two Riccati barriers of Appendix B |
+| `quarter/check_quarter.py` | the coefficients of the function 𝒟, the Bessel sums, both parts of the norm below 1/4, the third barrier and the factorisation of the zonal majorant (49 checks) |
+
+The Lean files `YangMills/StrongCoupling/{QxCoefficients,ZonalBound,Thresholds}.lean`
+certify the finite and algebraic steps of the sharp quarter and of
+Theorems E and F (25 theorems, see the root README).
 
 ## The earlier amsart version (`paper/`)
 
