@@ -17,6 +17,7 @@ Monte Carlo puts the crossover (β_W of order 2.2 for SU(2)).
 | every SU(N), \|β\| < 1/(8d) | proved by curvature; no curvature bound uniform over configurations goes further on the ungauged measure | `prd/`, Theorems B and C |
 | SU(2), 2/9 ≤ β_W < 1/3 | proved by forest gauge fixing, not yet refereed; 1/3 is the ceiling of single-link Dobrushin after any forest gauge fixing | `gauge-fixed/forest.md` |
 | every SU(N), \|β\| < 1/29 (SU(3): β_W < 9/29) | proved by the gauge-fixed Hessian bound 29/2, not yet refereed | `gauge-fixed/curvature.md` |
+| SU(3), β_W ≤ 0.366 | proved by single-link Dobrushin in the forest gauge with an analytic spectral-gap bound for the one-link measure, not yet refereed; Monte Carlo puts the reach of the same argument with exact moments near β_W ≈ 0.5 | `gauge-fixed/su3.md` |
 | the best gauge-fixed Hessian constant h_F | 9 + √17 ≤ h_F ≤ 29/2; numerically 13.9740139454, attained by an abelian field; certificates on one plaquette and one vertex stop at 14.3839 | open |
 | SU(2) from β_W = 1/3 to about 2.2 | no method; block (Dobrushin–Shlosman) criteria are the natural tool, and the paper's Theorem G gives one that is stable in every 't Hooft sector, but no box has been certified at these couplings | open |
 

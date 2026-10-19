@@ -1,0 +1,14 @@
+r=0.0 rI: lmaxA=0.4460 lmaxB=0.00000 Lambda=2.6667 ell=0.2504 2r*ell=0.000
+r=0.0 r(1,1,-1): lmaxA=0.4460 lmaxB=0.00000 Lambda=2.6667 ell=0.2504 2r*ell=0.000
+r=0.25 rI: lmaxA=0.4725 lmaxB=0.00084 Lambda=2.0174 ell=0.2782 2r*ell=0.139
+r=0.25 r(1,1,-1): lmaxA=0.4709 lmaxB=0.00092 Lambda=2.0174 ell=0.2787 2r*ell=0.139
+r=0.5 rI: lmaxA=0.4988 lmaxB=0.00317 Lambda=1.4514 ell=0.3116 2r*ell=0.312
+r=0.5 r(1,1,-1): lmaxA=0.4933 lmaxB=0.00369 Lambda=1.4514 ell=0.3138 2r*ell=0.314
+r=0.75 rI: lmaxA=0.5223 lmaxB=0.00693 Lambda=0.9688 ell=0.3556 2r*ell=0.533
+r=0.75 r(1,1,-1): lmaxA=0.5124 lmaxB=0.00813 Lambda=0.9688 ell=0.3600 2r*ell=0.540
+r=1.0 rI: lmaxA=0.5418 lmaxB=0.01176 Lambda=0.5695 ell=0.4197 2r*ell=0.839
+r=1.0 r(1,1,-1): lmaxA=0.5283 lmaxB=0.01391 Lambda=0.5695 ell=0.4288 2r*ell=0.858
+r=1.25 rI: lmaxA=0.5560 lmaxB=0.01728 Lambda=0.2535 ell=0.5407 2r*ell=1.352
+r=1.25 r(1,1,-1): lmaxA=0.5415 lmaxB=0.02063 Lambda=0.2535 ell=0.5612 2r*ell=1.403
+
+[exited with code 0]
