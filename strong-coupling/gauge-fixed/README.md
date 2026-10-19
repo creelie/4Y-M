@@ -57,7 +57,7 @@ The notes do not rely on the scripts; they confirm the finite steps.
 | `checks/su3/certify_blend.py` | the identity E_H[\|∇φ_h\|² U] = adj(h)/9 exactly; m̃(1.14) < 0.8051, the blended variance κ_s(1.14) < 0.0508 at s = 0.322 over 9778 squares of the torus, gap₂(1.14) = 283/128 − 0.57 and 2rΛ̄₃ = 0.99098 < 1 at r = 1.14, in ball arithmetic (output in `certify_blend.txt`, about 25 s) |
 | `checks/su3/gap_lemma.py` | the pointwise bound Re Tr(WX²) + Re Tr(W)/2 ≤ 1/2 of Lemma D′ and its closed form on the torus and at random W; Galerkin gaps at r = 1.14 (`gap_lemma.txt`) |
 | `checks/su3/tilted_mc.py`, `losses.py` | Monte Carlo comparison of the exact moments; the three remaining losses at r = 1.14 (`losses.txt`) |
-| `checks/su3/ceiling.py` | Galerkin lower bounds for the H^{-1} norm that the route bounds, r = 1.12 to 1.5 (`ceiling.txt`) |
+| `checks/su3/ceiling.py` | Galerkin lower bounds for the H^{-1} norm that the route bounds, at matrices of rK for r = 1.25 to 1.55 (`ceiling.txt`) |
 | `checks/su3/sanity.py`, `lip.py` | Monte Carlo comparison of the gap and gradient-moment bounds with Galerkin values |
 | `checks/su3/route1.py`, `scan2.py` | Monte Carlo estimates of the true single-link rate (`route1.txt`, `scan2.txt`) |
 | `checks/curvature/abelian.py` | the same maximum over abelian fields: 64 angles in one U(1) subgroup, value 13.9740139454 (`abelian.txt`, angles in `abelian_extremal_L4.pt`) |
