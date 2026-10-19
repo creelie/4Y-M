@@ -64,8 +64,9 @@ results follow, proved by hand and not yet refereed (see
   Bakry–Émery, decay and a gap hold for |β| < 1/29 (SU(3): β_W < 9/29);
 - four-dimensional SU(3): single-link Dobrushin in the same gauge, with an
   analytic lower bound for the spectral gap of the one-link measure and a
-  blended corrector evaluated with the exact moments of the one-link measure
-  at every staple sum, gives uniqueness, decay and a gap for β_W ≤ 45/64.
+  corrector of degree two evaluated with the exact moments of the one-link
+  measure at every staple sum, gives uniqueness, decay and a gap for
+  β_W ≤ 3/4.
 
 Checks in `prd/checks/` (the paper does not rely on them):
 
