@@ -1,0 +1,1564 @@
+\documentclass[aps,prd,twocolumn,superscriptaddress,nofootinbib,longbibliography,floatfix,amsmath,amssymb,10pt]{revtex4-2}
+
+\usepackage{mathptmx}
+\usepackage{amsthm}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{xcolor}
+\usepackage{enumitem}
+\usepackage[colorlinks=true,linkcolor=blue!50!black,citecolor=blue!50!black,urlcolor=blue!50!black,bookmarksnumbered=true]{hyperref}
+\usepackage{orcidlink}
+\usepackage{microtype}
+\usepackage{xurl}
+
+\makeatletter
+% Ragged-right paragraph cells without the array package, whose current
+% release is not recognised by revtex4-2.
+\newcommand*{\raggedcells}{%
+  \let\YM@arrayparboxrestore\@arrayparboxrestore
+  \def\@arrayparboxrestore{\YM@arrayparboxrestore\rightskip\z@\@plus1fil\relax}}
+\makeatother
+
+\makeatletter
+\AtBeginDocument{\def\NAT@bibsetup{\setlength{\labelwidth}{\z@}%
+ \setlength{\labelsep}{0.5em}\setlength{\itemindent}{\z@}%
+ \setlength{\listparindent}{\z@}\setlength{\topsep}{\z@}%
+ \setlength{\parsep}{\z@}\NATx@bibsetup}}
+\let\write@bibliographystyle\relax
+\let\bibliography@latex\@gobble
+\makeatother
+
+\tolerance=2000
+\emergencystretch=2em
+\hbadness=2000
+\hfuzz=1pt
+\raggedbottom
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\SU}{\mathrm{SU}}
+\newcommand{\SO}{\mathrm{SO}}
+\newcommand{\U}{\mathrm{U}}
+\newcommand{\g}{\mathfrak{g}}
+\newcommand{\Tr}{\operatorname{Tr}}
+\newcommand{\ReTr}{\operatorname{Re}\operatorname{Tr}}
+\newcommand{\ImTr}{\operatorname{Im}\operatorname{Tr}}
+\newcommand{\Hess}{\operatorname{Hess}}
+\newcommand{\Ric}{\operatorname{Ric}}
+\newcommand{\Cov}{\operatorname{Cov}}
+\newcommand{\Var}{\operatorname{Var}}
+\newcommand{\dist}{\operatorname{dist}}
+\newcommand{\ip}[2]{\langle #1,#2\rangle}
+\newcommand{\zenodoID}{23444338}
+
+\setlength{\emergencystretch}{3em}
+\begin{document}
+
+\title{Mass Gap of Four-Dimensional Lattice Yang--Mills Theory in a Forest Gauge}
+
+\author{Deep Bhattacharjee\,\orcidlink{0000-0003-0466-750X}}
+\email{itsdeep@live.com}
+\thanks{$*$\,Corresponding author. Second address:
+\nolinkurl{d.bhattacharjee@erl-forschung.de}.}
+\affiliation{Formerly, Electro-Gravitational Space Propulsion Laboratory
+(EGSPL), Bhubaneswar, Odisha 751030, India}
+\affiliation{Formerly, University of Calcutta, Senate House, 87/1 College
+Street, Kolkata 700073, West Bengal, India}
+
+\author{Ushashi Bhattacharya\,\orcidlink{0009-0002-2254-3914}}
+\email{rai.bhattacharya.in@gmail.com}
+\affiliation{Formerly, National Taiwan University, Taipei 106319, Taiwan}
+
+\date{19 October 2026}
+
+\begin{abstract}
+\itshape
+We fix the gauge of four-dimensional lattice Yang--Mills theory on a field
+of straight lines that meets every plaquette in exactly one link, so that
+each free link interacts with twelve others instead of eighteen. In this
+gauge the theory has a unique infinite-volume state with exponential decay
+of correlations and a positive mass gap at fixed lattice spacing, for SU(2)
+up to the limit of every single-link argument in a gauge of this kind, for
+every SU(N) beyond the curvature limit of the ungauged theory, and for SU(3)
+on a range more than twice as large as was known before.
+\par\medskip\upshape\noindent
+\textit{2020 Mathematics Subject Classification.} Primary 81T25, 82B20;
+Secondary 60K35, 81T13, 22E30, 58J50, 65G30.
+\par\smallskip\noindent
+\textit{Keywords.} Lattice gauge theory; gauge fixing; Dobrushin
+uniqueness; mass gap.
+\end{abstract}
+
+\maketitle
+
+\makeatletter
+\renewcommand\l@subsection[2]{}
+\renewcommand\l@subsubsection[2]{}
+\makeatother
+\tableofcontents
+
+\section{Introduction}\label{sec:intro}
+
+Wilson's lattice gauge theory~\cite{Wil74} assigns an element $Q_e$ of a
+compact group $G\subset\U(N)$ to every link $e$ of $\Z^4$ and weighs a
+configuration by $\exp(N\beta\sum_p\ReTr Q_p)$, where $Q_p$ is the ordered
+product of the four link variables around the plaquette~$p$.\footnote{This is
+the normalisation of Shen, Zhu and Zhu~\cite{SZZ23} and of our earlier
+paper~\cite{BB26a}. The conventional inverse coupling is $\beta_W=N^2\beta$,
+so the weight is $\exp(\frac{\beta_W}N\sum_p\ReTr Q_p)$; for $\SU(2)$,
+identified with the unit quaternions, $\frac12\Tr Q_p=\operatorname{Re}Q_p$
+and $\beta_W=4\beta$. Standard accounts of the lattice theory are the books
+of Montvay and M\"unster~\cite{MM94} and of Gattringer and
+Lang~\cite{GL10}; the Hamiltonian version is due to Kogut and
+Susskind~\cite{KS75}.} At small $|\beta|$ the theory is under control: it has
+a unique infinite-volume state, correlations decay exponentially, and the
+transfer matrix has a gap~\cite{OSei78,Sei82}. The question is how far into
+the coupling range such statements can be proved with explicit constants,
+since the problem of the continuum limit~\cite{JW06} begins where strong
+coupling ends and Ba{\l}aban's weak-coupling
+analysis~\cite{Bal84a,Bal85a,Bal89b} takes over.
+
+Two methods give explicit ranges. The Bakry--\'Emery
+method~\cite{BE85,BGL14} of Shen, Zhu and Zhu~\cite{SZZ23} bounds the
+Hessian of the action; in~\cite{BB26a} we showed that the sharp bound is
+$4d=16$ and that no curvature argument for the ungauged measure goes beyond
+$|\beta|<1/32$. The Dobrushin method~\cite{Dob68,Dob70} bounds the influence
+of each link on the conditional law of another; for $\SU(2)$ the single-link
+conditional law is a von Mises--Fisher law on the three-sphere, the sharp
+Kantorovich modulus of that family is one quarter~\cite[Thm.~7]{BB26a}, and
+every link has eighteen partners, which gives $\beta_W<2/9$ and nothing
+beyond, because the coefficients are attained.
+
+Both limits come from the same count. A link of $\Z^4$ lies in six
+plaquettes and shares each with three other links. Gauge invariance makes
+part of this redundant: in a box, the variables on a forest of links can be
+set to the identity without changing any gauge-invariant
+expectation~\cite{Cre77}.\footnote{Creutz used a maximal tree to remove the
+gauge freedom completely; the temporal gauge, with all links in one
+direction fixed, is the special case of a family of straight lines. In a
+maximal tree almost every link is fixed in some region and none in others,
+so the number of partners of a free link is not uniform, and the temporal
+gauge leaves fourteen partners per link. The point here is a pattern that
+fixes exactly one link in every plaquette.} The forest we use is a field of
+straight lines with one line through every site, chosen so that every
+plaquette contains exactly one fixed link. Then every free link has exactly
+twelve free partners, two in each of its plaquettes
+(Lemma~\ref{lem:structure}), and both methods improve.
+
+\begin{theorem}[$\SU(2)$]\label{thm:su2}
+Let $G=\SU(2)$ and $0\le\beta_W<\frac13$. For every gauge-invariant local
+observable $O$ the expectations $W_\Lambda(O)$ in boxes with free boundary
+converge, along every sequence of boxes that exhausts $\Z^4$, to a limit
+$\omega(O)$ that does not depend on the sequence. The state $\omega$ is
+invariant under translations and the hypercubic group and reflection
+positive; truncated correlations of Lipschitz observables decay at every
+rate below $-\log(3\beta_W)$; and the transfer matrix has spectral gap
+\[
+m\ge-\log(3\beta_W)>0 .
+\]
+For $-\frac13<\beta_W<0$ all statements except reflection positivity and the
+gap hold.
+\end{theorem}
+
+The step behind Theorem~\ref{thm:su2} is short once the line field is in
+place.\footnote{The combination of a forest gauge fixing with the sharp
+quarter of~\cite{BB26a} was first assembled during a run of Anaxia, the
+reasoning engine of the BLLM system~\cite{Bha26}, release v3.0.5. In that
+run the engine combines proof steps along typed links (a step that produces
+a single-link Kantorovich bound may only feed a step that consumes one), and
+in every run with typed crossing it reached a composite accepting a lattice
+mass gap for four-dimensional $\SU(2)$ at $\beta_W<\frac13$, which no
+untyped or random run reached. The composite was first proposed by the
+language model inside the engine, and the engine's network reproduces it.
+The engine did not supply the line field, the free-boundary limit, the
+ceiling, the curvature bound or anything in the $\SU(3)$ part; the authors
+wrote and checked every proof in this paper.} The number $\frac13$ is also
+the end of the road for this kind of argument.
+
+\begin{theorem}[Ceiling]\label{thm:ceiling}
+Let $F'$ be any set of links of $\Z^4$ without cycles, and give two distinct
+links outside $F'$ that share a plaquette the coefficient $|\beta|$, the
+largest single-link Kantorovich coefficient of $\SU(2)$. Then the weighted
+Dobrushin condition with these coefficients fails for $\beta_W\ge\frac13$.
+For the line field the coefficients are attained, so no single-link
+Kantorovich argument in that gauge reaches $\beta_W=\frac13$.
+\end{theorem}
+
+The curvature method gains as well, and for every $N$. Let $\Hess S_0$ be
+the Hessian of $\sum_p\ReTr Q_p$ on $G^E$ and $F$ the set of fixed links.
+
+\begin{theorem}[Curvature in the gauge]\label{thm:curv}
+For every $N$, every field $Q$ and every tangent vector $v=(X_eQ_e)$ with
+$X_e=0$ for $e\in F$,
+\[
+|\Hess S_0(v,v)|\le\tfrac{29}2|v|^2 ,
+\]
+against the sharp constant $16$ without gauge fixing. Consequently, for
+$G=\SU(N)$ and $|\beta|<\frac1{29}$, or $G=\SO(N)$, $N\ge3$, and
+$|\beta|<\frac{N-2}{58N}$, the conclusions of Theorem~\ref{thm:su2} hold
+with some rate $c>0$ in place of $-\log(3\beta_W)$. For $\SU(3)$ this is
+$\beta_W<\frac9{29}=0.310$.
+\end{theorem}
+
+No Bakry--\'Emery argument for the ungauged measure can pass $|\beta|=
+\frac1{32}$~\cite[Thm.~C]{BB26a}; the gauge fixing changes the measure, not
+the metric, which is why it can. For $\SU(2)$ the curvature range
+$\beta_W<\frac4{29}$ lies inside that of Theorem~\ref{thm:su2}. For $\SU(3)$
+the Dobrushin route goes much further.
+
+\begin{theorem}[$\SU(3)$]\label{thm:su3}
+Let $G=\SU(3)$ and $0\le\beta_W\le\frac{45}{64}=0.703$. Then the conclusions
+of Theorem~\ref{thm:su2} hold, with decay at every rate below
+$-\log(1.4218\,\beta_W)$ and a transfer-matrix gap
+\[
+m\ge-\log(1.4218\,\beta_W)>0 .
+\]
+\end{theorem}
+
+The proof of Theorem~\ref{thm:su3} bounds the Kantorovich modulus of the
+one-link measure $\nu_b(dU)\propto e^{\ReTr(Ub)}dU$ on $\SU(3)$ uniformly over
+staple sums $b$. Its analytic part is a lower bound for the spectral gap of
+$\nu_b$ through Bochner's formula with a cross term
+(Lemma~\ref{lem:gap}), a corrector that blends the exact eigenfunction of the
+Haar Laplacian with the drift (Lemma~\ref{lem:corrector}), the reduction of
+$b$ to diagonal matrices (Lemma~\ref{lem:orbits}), the character expansion
+of the moments of $\nu_b$ (Lemma~\ref{lem:characters}) and an interpolation
+inequality on boxes of staple sums (Lemma~\ref{lem:boxes}). The remaining
+step evaluates the resulting bound on $865$ boxes with rigorous error bounds;
+the theorem rests on that computation, which is described in full in
+Sec.~\ref{ssec:cover} and Appendix~\ref{app:cover}.
+
+\begin{table}[t]
+\caption{Explicit ranges of uniqueness, decay and a transfer-matrix gap for
+four-dimensional lattice Yang--Mills theory. The first three rows hold for
+the ungauged measure; the last three are the results of this paper.}
+\label{tab:ranges}
+\begin{ruledtabular}
+\begin{tabular}{lll}
+Method&$\SU(2)$, $\beta_W$&$\SU(3)$, $\beta_W$\\
+\colrule
+Curvature, Shen--Zhu--Zhu~\cite{SZZ23}&$<\frac1{12}$&$<\frac3{16}$\\
+Curvature, sharp~\cite{BB26a}&$<\frac18$&$<\frac9{32}$\\
+Dobrushin, sharp quarter~\cite{BB26a}&$<\frac29$&\\
+Curvature, forest gauge&$<\frac4{29}$&$<\frac9{29}$\\
+Dobrushin, forest gauge&$<\frac13$&$\le\frac{45}{64}$\\
+\end{tabular}
+\end{ruledtabular}
+\end{table}
+
+\begin{figure*}[t]
+\centering
+\includegraphics[width=0.86\textwidth]{figures/fig_ranges.png}
+\caption{Ranges of Table~\ref{tab:ranges}. The height of each bar is the
+largest inverse coupling $\beta_W$ covered by the method. Grey bars are
+methods for the ungauged measure; blue and red bars use the forest gauge. For
+$\SU(2)$ the red bar ends at the ceiling of Theorem~\ref{thm:ceiling}; for
+$\SU(3)$ it is Theorem~\ref{thm:su3}.}
+\label{fig:ranges}
+\end{figure*}
+
+All four theorems are statements at fixed lattice spacing. They do not touch
+the continuum limit, the crossover to Ba{\l}aban's regime, or a gap in
+physical units, which together are the Clay problem; Sec.~\ref{sec:limits}
+says where each method stops and what remains of the four open problems
+of~\cite{BB26a}. The obstruction proved in~\cite{BB26b}, that a lattice gap
+uniform in lattice units forces trivial continuum two-point functions,
+applies to all of them.
+
+Section~\ref{sec:linefield} constructs the line field.
+Section~\ref{sec:state} shows that a Dobrushin bound for the gauge-fixed
+specification gives the full conclusion of Theorem~\ref{thm:su2}.
+Sections~\ref{sec:su2}, \ref{sec:curvature} and~\ref{sec:su3} prove
+Theorems~\ref{thm:su2}--\ref{thm:su3}, and Sec.~\ref{sec:limits} measures
+what is left. The appendices contain the residue table of the line field,
+the comparison lemma, the blocks of the local Hessian inequality and the
+details of the certified computation.
+
+\section{The line field}\label{sec:linefield}
+
+Write $e_0,\dots,e_3$ for the unit vectors of $\Z^4$ and $(x,\mu)$ for the
+link from $x$ to $x+e_\mu$. A \emph{direction field} is a map
+$\sigma:\Z^4\to\{0,1,2,3\}$; its links are $F=\{(x,\sigma(x)):x\in\Z^4\}$. At
+each site put $\pi_x(\mu)=\sigma(x+e_\mu)$. The plaquette at $x$ in the plane
+$\{\mu,\nu\}$ has the links $(x,\mu)$, $(x+e_\mu,\nu)$, $(x+e_\nu,\mu)$,
+$(x,\nu)$, so it contains
+\begin{equation}\label{eq:count}
+[\sigma(x)\in\{\mu,\nu\}]+[\pi_x(\mu)=\nu]+[\pi_x(\nu)=\mu]
+\end{equation}
+links of $F$.
+
+\begin{lemma}\label{lem:cycle}
+Every plaquette of $\Z^4$ contains exactly one link of $F$ if and only if, at
+every site $x$, $\pi_x$ fixes $\sigma(x)$ and permutes the other three
+directions cyclically.
+\end{lemma}
+
+\begin{proof}
+Fix $x$, let $s=\sigma(x)$ and let $R$ be the set of the other three
+directions. For a plane $\{s,\nu\}$ the count~\eqref{eq:count} is $1+[\pi_x(s)
+=\nu]+[\pi_x(\nu)=s]$; it equals one for all $\nu\in R$ exactly when
+$\pi_x(s)=s$ and $\pi_x(\nu)\ne s$ for $\nu\in R$, that is, when $\pi_x$ fixes
+$s$ and maps $R$ into $R$. For a plane $\{\mu,\nu\}\subset R$ the count is
+$[\pi_x(\mu)=\nu]+[\pi_x(\nu)=\mu]$. Draw an arrow $\mu\to\pi_x(\mu)$ for every
+$\mu\in R$ with $\pi_x(\mu)\in R\setminus\{\mu\}$. Each vertex of $R$ has at most
+one outgoing arrow, and the condition says that each of the three pairs of
+$R$ carries exactly one arrow. Three arrows on three vertices with out-degree
+at most one give out-degree exactly one everywhere, and a tournament on three
+vertices with all out-degrees one is a directed three-cycle.
+\end{proof}
+
+From now on $\sigma$ is the field of period two given in
+Table~\ref{tab:sigma} of Appendix~\ref{app:table}, read from $x$ modulo two.
+The table lists $\pi_x$ at each of the sixteen residue classes; in each row
+$\pi_x$ fixes $\sigma(x)$ and is a three-cycle on the rest, so every plaquette
+contains exactly one link of $F$ by Lemma~\ref{lem:cycle}.\footnote{There are
+exactly eight period-two direction fields with this property, all equivalent
+to $\sigma$ under the symmetries of the lattice. A field with one fixed link
+at every site and one in every plaquette exists only in four dimensions: a
+link lies in $2(d-1)$ plaquettes and a site carries $d(d-1)/2$ of them, and
+$2(d-1)=d(d-1)/2$ forces $d=4$. The statements of this section are also
+checked by \texttt{decide} in the Lean file \texttt{GaugeFix.lean} of the
+archive.}
+
+\begin{lemma}\label{lem:structure}
+\begin{enumerate}[label=\textup{(\roman*)},leftmargin=*]
+\item $F$ is a disjoint union of bi-infinite straight lines, one through
+every site: every site has exactly one outgoing and one incoming link of $F$,
+and both point in the direction $\sigma(x)$.
+\item For every box $\Lambda$ (a product of four finite intervals, with the
+links and plaquettes it contains), $F\cap E(\Lambda)$ is a disjoint union of
+segments, hence a forest.
+\item A link $e=(x,\mu)\notin F$ lies in six plaquettes. Four of them contain
+a link of $F$ that shares an end point with $e$, and these lie in the planes
+$\{\mu,\sigma(x)\}$ and $\{\mu,\pi_x(\mu)\}$. In the other two, which lie in
+the remaining plane $\{\mu,\rho\}$, the link of $F$ is opposite to $e$.
+\item Every link outside $F$ shares a plaquette with exactly twelve other
+links outside $F$, two in each of its plaquettes.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+(i) Since $\pi_x$ fixes $\sigma(x)$, $\sigma(x+e_{\sigma(x)})=\sigma(x)$.
+Because $\sigma$ has period two, $x-e_\mu\equiv x+e_\mu$, so also
+$\sigma(x-e_{\sigma(x)})=\sigma(x)$, and the link $(x-e_{\sigma(x)},\sigma(x))$ is
+in $F$. Conversely, if $(x-e_\nu,\nu)\in F$, then $\sigma(x-e_\nu)=\nu$, and
+straightness at $x-e_\nu$ gives $\sigma(x)=\nu$. So the incoming link is unique
+and continues the outgoing one.
+
+(ii) A line meets a box in a segment, and distinct lines are disjoint.
+
+(iii) The plaquettes of $e$ are, for each $\nu\ne\mu$, the one at $x$ and the
+one at $x-e_\nu$ in the plane $\{\mu,\nu\}$. A link of $F$ sharing an end point
+with $e$ is the outgoing or the incoming link of $F$ at $x$ or at $x+e_\mu$.
+At $x$ both point in the direction $s=\sigma(x)\ne\mu$, and they lie in the
+plaquettes at $x$ and at $x-e_s$ in the plane $\{\mu,s\}$. At $x+e_\mu$ both
+point in the direction $t=\pi_x(\mu)$, which lies in $R\setminus\{\mu\}$ because
+$\pi_x$ is a three-cycle on $R$, and they lie in the plaquettes at $x$ and at
+$x-e_t$ in the plane $\{\mu,t\}$. These four plaquettes are distinct because
+$s\ne t$. Each plaquette contains exactly one link of $F$, so in the two
+plaquettes of the third plane $\{\mu,\rho\}$ the link of $F$ is a link of
+direction $\mu$ or $\rho$ not touching $e$; the links of direction $\rho$ in
+such a plaquette touch $e$, so it is the opposite link.
+
+(iv) Each of the six plaquettes contains $e$, one link of $F$ and two other
+links, and two distinct links share at most one plaquette.
+\end{proof}
+
+\begin{figure*}[t]
+\centering
+\includegraphics[width=0.9\textwidth]{figures/fig_linefield.png}
+\caption{(a) The line field in the slice $x_3=0$ of a box of side three.
+Thick red segments are the links of $F$ in the directions $0,1,2$, with a dot
+marking the direction of travel; an orange ring marks a site whose line
+leaves the slice in direction~$3$. Every line is straight
+(Lemma~\ref{lem:structure}(i)), and the segments that leave the box are its
+boundary stubs. (b) One plaquette with its fixed link $e_1$. The weights are
+those of the local inequality of Lemma~\ref{lem:local} for the three free
+links: $\frac{21}{10}$ on the two links adjacent to $e_1$ and $\frac54$ on the
+opposite one. The two purple corners are the ones that enter the corner
+form~\eqref{eq:corner} once $Y_1=0$.}
+\label{fig:linefield}
+\end{figure*}
+
+\section{Gauge fixing and the free-boundary state}\label{sec:state}
+
+Let $G\subset\U(N)$ be compact with Haar measure $dU$, and let $\Lambda$ be a
+box. The Wilson measure with free boundary is
+\[
+W_\Lambda(dQ)=\frac1{Z_\Lambda}\exp\Bigl(N\beta\sum_{p\in P(\Lambda)}\ReTr
+Q_p\Bigr)\prod_{e\in E(\Lambda)}dQ_e .
+\]
+The measure is invariant under the gauge transformations $Q_{(x,y)}\mapsto
+g_xQ_{(x,y)}g_y^{-1}$ with $g\in G^\Lambda$. Call the links outside $F$ \emph{active} and
+write $A$ for their set. For a function $O$ of the links, $O^F$ is $O$ with
+every link of $F$ set to the identity.
+
+\begin{lemma}[Gauge fixing]\label{lem:gaugefix}
+Let $\mu^F_\Lambda$ be the probability measure on $G^{A\cap E(\Lambda)}$
+whose density with respect to Haar measure is proportional to
+$\exp(N\beta\sum_{p\in P(\Lambda)}\ReTr Q^F_p)$. For every gauge-invariant $O$ on $G^{E(\Lambda)}$,
+\[
+W_\Lambda(O)=\mu^F_\Lambda(O^F).
+\]
+\end{lemma}
+
+\begin{proof}
+Each segment of $F\cap E(\Lambda)$ is a path $x_0,x_1,\dots,x_k$ along one
+direction. Given the variables on $F$, put $g_{x_0}=1$ and $g_{x_{i+1}}=
+g_{x_i}Q_{(x_i,x_{i+1})}$ on every segment. The transformed field has $Q^g_e
+=1$ on $F\cap E(\Lambda)$, and for fixed values on $F$ the map $Q_A\mapsto
+Q^g_A$ is a product of left and right translations, which preserves Haar
+measure. Gauge invariance of the action and of $O$ and the change of
+variables give the claim.
+\end{proof}
+
+No leftover holonomy appears because $F\cap E(\Lambda)$ is a forest. The
+measures $\mu^F_\Lambda$ are finite-volume versions of the specification
+$\gamma^F$ on $G^A$: for $e\in A$, $\gamma^F_e$ resamples $Q_e$ from the law
+with density proportional to $\exp(N\beta\sum_{p\ni e}\ReTr Q^F_p)$ given all
+other active links. No infinite-volume gauge transformation is performed;
+$\gamma^F$ is a specification in its own right. Fix a metric $\delta$ on $G$
+of diameter $D$ that is bi-invariant (for $\SU(2)$ the chordal metric on
+$S^3$, $D=2$; for $\SU(N)$ the Hilbert--Schmidt distance). The Kantorovich
+coefficient of $e'$ on $e$ is
+\[
+C_{ee'}=\sup\frac{W_1\bigl(\gamma^F_e(\cdot\mid Q),\gamma^F_e(\cdot\mid
+Q')\bigr)}{\delta(Q_{e'},Q'_{e'})},
+\]
+the supremum over pairs of configurations that differ only at $e'$. It
+vanishes unless $e$ and $e'$ share a plaquette.
+
+\begin{proposition}\label{prop:state}
+Suppose that every row and every column of $(C_{ee'})$ sums to at most
+$\alpha<1$. Then:
+\begin{enumerate}[label=\textup{(\roman*)},leftmargin=*]
+\item $\gamma^F$ has exactly one Gibbs measure $\mu_F$;
+\item for every gauge-invariant local $O$ the limit $\omega(O)=\lim
+W_\Lambda(O)$ exists along every sequence of boxes exhausting $\Z^4$ and
+equals $\mu_F(O^F)$;
+\item $\omega$ is invariant under translations and the hypercubic group;
+\item if $\beta\ge0$, $\omega$ is reflection positive for reflections in
+hyperplanes through sites and in hyperplanes bisecting links;
+\item for gauge-invariant local $O,O'$ with $O$ Lipschitz in each link,
+$|\Cov_\omega(O,O')|\le C_{O,O'}e^{-\lambda\dist(O,O')}$ for every
+$\lambda<-\log\alpha$;
+\item if $\beta\ge0$, the transfer matrix of $\omega$ has spectral gap at
+least $-\log\alpha$.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+(i) Gibbs measures exist by compactness, and the comparison lemma of
+Appendix~\ref{app:comparison} with $S=\emptyset$ shows that any two coincide.
+
+(ii) Extend $\mu^F_\Lambda$ by Haar measure on the active links outside
+$\Lambda$, and let $S$ be the set of active links with a plaquette outside
+$P(\Lambda)$; this includes every active link outside $E(\Lambda)$. For an
+active link $e\notin S$ all six plaquettes of $e$ lie in $P(\Lambda)$, so the
+conditional law of $Q_e$ under the extended measure is $\gamma^F_e$. Let $T$
+be the support of $O^F$ and $\lambda<-\log\alpha$. The comparison lemma with
+weights $e^{-\lambda\dist(\cdot,T)}$ gives
+\[
+|\mu^F_\Lambda(O^F)-\mu_F(O^F)|\le L\,\frac{\theta D}{1-\theta}
+\sum_{z\in S}e^{-\lambda\dist(z,T)},
+\]
+with $\theta=\alpha e^\lambda<1$ and $L$ a Lipschitz constant of $O^F$; the
+sum is at most $C_TR^3e^{-\lambda R}$ when $R$ is the distance from $T$ to the
+complement of $\Lambda$. For $O$ continuous but not Lipschitz, approximate
+uniformly. Lemma~\ref{lem:gaugefix} gives $W_\Lambda(O)=\mu^F_\Lambda(O^F)$.
+
+(iii) $W_\Lambda(\tau_vO)=W_{\Lambda-v}(O)$, and the boxes $\Lambda-v$ also
+exhaust $\Z^4$; by (ii) the limit does not depend on the sequence. The line
+field is a device for computing $W_\Lambda$ and is never shifted. The same
+argument applies to the hypercubic group.
+
+(iv) For $\beta\ge0$ the measure $W_\Lambda$ is reflection positive for every
+box symmetric under the reflection~\cite{OSei78}, and reflection positivity
+passes to the limit along such boxes, which is $\omega$ by (ii).
+
+(v) $\Cov_\omega(O,O')=\Cov_{\mu_F}(O^F,O'^F)$, and setting the links of $F$
+to the identity keeps the Lipschitz property. The bound is
+Corollary~\ref{cor:decay}.
+
+(vi) Let $\vartheta$ be a time reflection and $\tau_t$ a time translation.
+For gauge-invariant local $O$ that are Lipschitz in each link, (v) gives
+$|\omega(\vartheta(\bar O)\tau_tO)-|\omega(O)|^2|\le C_Oe^{-\lambda t}$. On
+the support of $O$ these functions are dense in the gauge-invariant part of
+$L^2(\omega)$: gauge-invariant functions are functions on the compact
+quotient of $G^{E}$ by the gauge group, Lipschitz functions for the quotient
+metric are dense in $L^2$ of every finite measure on it, and they lift to
+gauge-invariant Lipschitz functions. By~\cite[Prop.~23]{BB26a} the spectrum
+of the transfer matrix on the complement of the vacuum lies in
+$[0,e^{-\lambda}]$, for every $\lambda<-\log\alpha$.
+\end{proof}
+
+The proposition replaces the torus limits and the uniqueness of the
+ungauged Gibbs measure used in~\cite[Thm.~F]{BB26a} by the free-boundary
+limit, which has all the properties the reconstruction of the transfer
+matrix needs.\footnote{On a torus the line field closes up into cycles, and
+the holonomies along them cannot be removed by a gauge transformation; the
+argument never uses a torus. The state $\omega$ is defined only on
+gauge-invariant observables, which is all that the Osterwalder--Schrader
+reconstruction~\cite{OS73,OS75,OSei78} uses.}
+
+\section{SU(2) up to one third}\label{sec:su2}
+
+\begin{proof}[Proof of Theorem~\ref{thm:su2}]
+Identify $\SU(2)$ with the unit quaternions and use the chordal metric. For an
+active link $e$ and a plaquette $p\ni e$, the staple $s_p$ is the product of the
+other three link variables in the order that makes $\operatorname{Re}(Q_es_p)
+=\frac12\Tr Q_p$, with links of $F$ equal to one. Since $N\beta\ReTr Q_p=
+4\beta\ip{Q_e}{\bar s_p}$ in $\R^4$, the conditional law of $Q_e$ is the von
+Mises--Fisher law $\nu_b(dx)\propto e^{\ip xb}dx$ on $S^3$ with $b=4\beta
+\sum_{p\ni e}\bar s_p$. Changing a partner $e'$ by $\delta$ in the chordal
+metric changes one staple by an isometric image of that displacement, so $b$
+moves by $4|\beta|\delta$, and the sharp quarter~\cite[Thm.~7]{BB26a},
+$W_1(\nu_b,\nu_{b'})\le\frac14|b-b'|$, gives $C_{ee'}\le|\beta|$. By
+Lemma~\ref{lem:structure}(iv) every row and column has twelve nonzero
+entries, so $\alpha\le12|\beta|=3|\beta_W|$. Proposition~\ref{prop:state}
+applies for $|\beta_W|<\frac13$.
+\end{proof}
+
+\begin{proof}[Proof of Theorem~\ref{thm:ceiling}]
+For the line field, every staple of an active link contains two active
+links, so the six staples can be chosen with sum zero while the staple
+through a given partner $e'$ moves freely. At $b=0$ the derivative of $\nu_b$
+in the direction $h$ has Kantorovich norm $\frac14|h|$~\cite[Lemma~6(i)]{BB26a},
+so $C_{ee'}=|\beta|$ exactly, and every row sum is $12|\beta|=3|\beta_W|$.
+
+Now let $F'$ be any forest and $C'$ the matrix of the statement. Suppose a
+positive weight $w$ satisfies $C'w\le\alpha w$. For a box $\Lambda_n$ of side
+$n$ let $C_n$ be the principal submatrix on the active links of $E(\Lambda_n)$;
+then $C_nw\le\alpha w$ on these links, and the Collatz--Wielandt inequality
+for nonnegative matrices gives $\rho(C_n)\le\alpha$. Since $C_n$ is symmetric,
+$\rho(C_n)$ is at least the mean row sum. The box has $4n^4-O(n^3)$ links and
+$n^4$ sites, and a forest has fewer links than sites, so the number $a$ of
+active links is at least $3n^4-O(n^3)$. Let $a_p$ be the number of active
+links of the plaquette $p$; the box has $P=6n^4-O(n^3)$ plaquettes and
+$\sum_pa_p=6a-O(n^3)$. Two links share at most one plaquette, so the row
+sums add up to $|\beta|\sum_pa_p(a_p-1)$, and by convexity
+\[
+\frac{|\beta|}a\sum_pa_p(a_p-1)\ge\frac{|\beta|P}a\,\bar a(\bar a-1)
+=6|\beta|(\bar a-1)-o(1),
+\]
+with $\bar a=\sum_pa_p/P=6a/P-o(1)\ge3-o(1)$. Hence $\alpha\ge12|\beta|-o(1)$
+for every $n$, and $\alpha\ge12|\beta|=3|\beta_W|$.
+\end{proof}
+
+Without gauge fixing the same count gives eighteen partners and the ceiling
+$\beta_W=\frac29$ of~\cite[Prop.~13]{BB26a}; the temporal gauge, a family of
+lines in one direction, leaves fourteen. The line field is optimal among
+forests: twelve is the mean number of partners forced by the number of free
+links, and it is attained at every link.
+
+\section{Curvature in the gauge}\label{sec:curvature}
+
+In this section $G=\SU(N)$, $\SO(N)$ or $\U(N)$ with the inner product
+$\ip XY=-\Tr(XY)$ on the Lie algebra, so that $\Ric_{\SU(N)}=\frac N2$ and
+$\Ric_{\SO(N)}=\frac{N-2}4$. A tangent vector at a field $Q$ is $v=(X_eQ_e)$,
+$|v|^2=\sum_e|X_e|^2$. For the plaquette at $x$ in the plane $\mu<\nu$ number
+its links $e_1=(x,\mu)$, $e_2=(x+e_\mu,\nu)$, $e_3=(x+e_\nu,\mu)$,
+$e_4=(x,\nu)$, transport their vectors to $x$,
+\begin{equation}\label{eq:transport}
+Y_1=X_{e_1},\ \ Y_2=Q_{e_1}X_{e_2}Q_{e_1}^*,\ \
+Y_3=Q_{e_4}X_{e_3}Q_{e_4}^*,\ \ Y_4=X_{e_4},
+\end{equation}
+and write $W=Q_p$. The second derivative of $\ReTr Q_p$ along the geodesic
+$Q_e(t)=e^{tX_e}Q_e$ is~\cite[Eq.~(5)]{BB26a}
+\begin{equation}\label{eq:fp}
+\begin{split}
+f_p={}&\sum_{i=1}^4\ReTr(Y_i^2W)+2\ReTr(Y_1Y_2W)+2\ReTr(Y_3Y_4W)\\
+&-2\sum_{i\in\{1,2\},\,j\in\{3,4\}}\ReTr(Y_iWY_j),
+\end{split}
+\end{equation}
+so that $\Hess S_0(v,v)=\sum_pf_p$. The corner form of $p$ is
+\begin{equation}\label{eq:corner}
+c_p=2\ip{Y_1}{Y_4}-2\ip{Y_1}{Y_2}+2\ip{Y_2}{WY_3W^*}-2\ip{Y_3}{Y_4}.
+\end{equation}
+It collects the inner products of the transported vectors of two links that
+meet at a right angle at a corner of $p$.
+
+\begin{lemma}\label{lem:identity}
+On $\Z^4$, or on a box with free boundary, for every field $Q$ and every
+square-summable $X$,
+\[
+\begin{split}
+&\sum_y\Bigl[|D_yX|^2+\sum_\mu\bigl|X_{y,\mu}+Q^*_{y-e_\mu,\mu}X_{y-e_\mu,\mu}
+Q_{y-e_\mu,\mu}\bigr|^2\Bigr]\\
+&\qquad=4|X|^2+\sum_pc_p ,
+\end{split}
+\]
+where $D_yX=\sum_\mu[X_{y,\mu}-Q^*_{y-e_\mu,\mu}X_{y-e_\mu,\mu}Q_{y-e_\mu,\mu}]$ is
+the covariant divergence and terms with a link outside the box are omitted.
+\end{lemma}
+
+\begin{proof}
+At a site $y$ write $o_\mu$ for the vector of the outgoing link in direction
+$\mu$ and $i_\mu$ for the transported vector of the incoming one, so that
+$D_yX=\sum_\mu(o_\mu-i_\mu)$. Every link is outgoing at one end and incoming at
+the other, so the squares $|o_\mu|^2+|i_\mu|^2$, which appear once in
+$|D_yX|^2$ and once in $|o_\mu+i_\mu|^2$, add up to $4|X|^2$. The collinear
+cross term $-2\ip{o_\mu}{i_\mu}$ of $|D_yX|^2$ cancels the term
+$+2\ip{o_\mu}{i_\mu}$ of $|o_\mu+i_\mu|^2$. The remaining cross terms of
+$|D_yX|^2$ pair two perpendicular ends at $y$, and each such pair is a corner
+of exactly one plaquette, with the sign and the transport of~\eqref{eq:corner}
+(this is the proof of~\cite[Lemma~1]{BB26a}). In a box two perpendicular ends at $y$ span
+a plaquette of the box, because a box is a product of intervals.
+\end{proof}
+
+\begin{lemma}\label{lem:local}
+Let $k\in\{1,2,3,4\}$, let $k\pm1$ \textup{(}mod $4$\textup{)} be the
+positions adjacent to $k$ and $k+2$ the opposite one. For every $N$, every
+$W\in\U(N)$ and all $Y_1,\dots,Y_4\in\mathfrak u(N)$ with $Y_k=0$,
+\[
+\pm f_p+\tfrac9{10}c_p\le\tfrac{21}{10}\bigl(|Y_{k-1}|^2+|Y_{k+1}|^2\bigr)
++\tfrac54|Y_{k+2}|^2 .
+\]
+\end{lemma}
+
+\begin{proof}
+Replacing $W$ by $-W$ changes the sign of $f_p$ and fixes $c_p$, so the sign
+$+$ suffices. Conjugation by a unitary matrix preserves both sides, so we may
+take $W=\operatorname{diag}(w_a)$. The form $\mathcal F=\mathrm{RHS}-f_p-
+\frac9{10}c_p$ then splits into a block for each diagonal position $a$, in the
+real variables $y_i=-i(Y_i)_{aa}$, and a block for each pair $a\ne b$, in the
+complex variables $z_i=(Y_i)_{ab}$, since $(Y_i)_{ba}=-\bar z_i$. Appendix~\ref{app:blocks}
+shows that every block is positive definite.
+\end{proof}
+
+\begin{proof}[Proof of the bound in Theorem~\ref{thm:curv}]
+Every plaquette has exactly one link of $F$, and $X$ vanishes on it. By
+Lemma~\ref{lem:structure}(iii) each active link is adjacent to the fixed
+link in four of its plaquettes and opposite to it in two. Summing
+Lemma~\ref{lem:local} over the plaquettes,
+\[
+\sum_p\bigl(\pm f_p+\tfrac9{10}c_p\bigr)\le\bigl(4\cdot\tfrac{21}{10}+2\cdot
+\tfrac54\bigr)|X|^2=\tfrac{109}{10}|X|^2 .
+\]
+By Lemma~\ref{lem:identity}, $\frac9{10}\sum_pc_p=\frac9{10}\Sigma-\frac{36}{10}
+|X|^2$, where $\Sigma\ge0$ is the left side of the lemma. Hence
+\[
+\pm\Hess S_0(v,v)+\tfrac9{10}\Sigma\le\bigl(\tfrac{109}{10}+\tfrac{36}{10}\bigr)
+|X|^2=\tfrac{29}2|X|^2 .
+\]
+In a box, links near the boundary lie in fewer plaquettes and receive less.
+\end{proof}
+
+The factor $\frac9{10}$ is chosen so that the corners are paid by the
+divergence identity at the price $\frac{36}{10}$ while the local blocks stay
+positive; Lemma~\ref{lem:identity} is the divergence identity
+of~\cite[Lemma~1]{BB26a} with the collinear term written as a square, so nothing is
+lost by Cauchy--Schwarz.
+
+\begin{corollary}\label{cor:be}
+Let $G=\SU(N)$ and $|\beta|<\frac1{29}$, or $G=\SO(N)$, $N\ge3$, and
+$|\beta|<\frac{N-2}{58N}$. For every box the measure $\mu^F_\Lambda$
+satisfies the Bakry--\'Emery condition with $K=\Ric_G-\frac{29}2N|\beta|>0$,
+uniformly in the box, and hence a logarithmic Sobolev inequality with
+constant $2/K$ and a Poincar\'e inequality with constant $1/K$.
+\end{corollary}
+
+\begin{proof}
+The set $\{Q_F=1\}$ is a product factor, so its Ricci curvature is $\Ric_G$ on
+every link, and the Hessian of the restricted action is the restriction of
+$N\beta\Hess S_0$ to $X_F=0$. Apply the bound and~\cite[Cor.~5.7.2]{BGL14}.
+\end{proof}
+
+\begin{proof}[Proof of the rest of Theorem~\ref{thm:curv}]
+\emph{Decay in boxes.} $\mu^F_\Lambda$ is the Gibbs measure of a
+nearest-neighbour interaction on a product of copies of $G$. The commutator
+estimate of~\cite[Sec.~4]{SZZ23} holds with the same constants, because
+fixing links only removes terms, and the Poincar\'e constant is $1/K$, so
+the argument of~\cite[Cor.~4.11 and Rem.~4.12]{SZZ23} gives
+$|\Cov_{\mu^F_\Lambda}(f,g)|\le c_1e^{-c\,\dist(f,g)}(\|f\|\,\|g\|+|f|_2|g|_2)$
+for smooth local $f,g$, uniformly in the box, in the norms of that paper.
+
+\emph{Limit.} For boxes $\Lambda\subset\Lambda'$ let $S_s=S_\Lambda+s(S_{\Lambda'}
+-S_\Lambda)$ on the active links of $\Lambda'$, $s\in[0,1]$, and $\mu_s$ the
+corresponding measure. Its Hessian is a convex combination of two Hessians,
+each bounded by $\frac{29}2N|\beta|$, so $\mu_s$ has the same constant $K$ and
+the same commutator constants. Since $\frac d{ds}\mu_s(f)=\sum_{p\in
+P(\Lambda')\setminus P(\Lambda)}\Cov_{\mu_s}(f,N\beta\ReTr Q^F_p)$,
+\[
+|\mu^F_{\Lambda'}(f)-\mu^F_\Lambda(f)|\le C_fR^3e^{-cR},
+\]
+$R$ the distance from the support of $f$ to the complement of $\Lambda$. The
+limit therefore exists along every increasing sequence of boxes, and two
+sequences are compared through their intersections, which are boxes.
+
+\emph{Properties.} Invariance, reflection positivity and decay follow as in
+Proposition~\ref{prop:state}(iii)--(v), and Proposition~23 of~\cite{BB26a}, applied
+to smooth gauge-invariant cylinder functions, gives a gap at least $c$.
+\end{proof}
+
+\begin{remark}\label{rem:hf}
+Let $h_F$ be the supremum of $\pm\Hess S_0$ on the gauge-fixed directions, so
+that uniform curvature reaches $|\beta|<1/(2h_F)$ and no further. At the
+identity field $-\Hess S_0$ restricted to $X_F=0$ has the eigenvalue
+$9+\sqrt{17}=13.123$ on the torus of side two, so $9+\sqrt{17}\le h_F\le\frac{29}2$.
+A gradient search over $\SU(2)$ fields of periods two, four and six gives
+$h_F=13.97401$, attained by an abelian field; certificates made of
+plaquette forms and vertex forms on the period-two cell cannot go below
+$14.384$. With this gauge the curvature method stops between $|\beta|=\frac1{29}$
+and $\frac1{26.25}$.
+\end{remark}
+
+\section{SU(3) up to 45/64}\label{sec:su3}
+
+In this section $G=\SU(3)$, $\beta\ge0$ and $\beta_W=9\beta$. The distance on
+$\SU(3)$ is $d(U,V)=\|U-V\|_{\rm HS}$, which is at most the geodesic distance
+for $\ip XY=-\Tr(XY)$; $K=\operatorname{conv}\SU(3)$; $A(M)=\frac12(M-M^*)$
+and $P$ removes the trace. With this inner product $\Ric=\frac32$, the
+Casimir of the fundamental representation is $\lambda_F=\frac83$ and that of
+the adjoint representation is $6$.
+
+\subsection{Reduction to one link}
+
+The conditional law of an active link is
+\[
+\nu_b(dU)\propto e^{\ReTr(Ub)}dU,\qquad b=N\beta\sum_{p\ni e}S_p ,
+\]
+where $S_p$ is the staple of $e$ in $p$, a product of $\SU(3)$ matrices and
+identities, or its adjoint. Six staples give $b\in rK$ with
+$r=6N\beta=2\beta_W$. For a matrix $h$ put $\varphi_h(U)=\ReTr(Uh)$ and
+\[
+L_h(b)=\sup\{\Cov_{\nu_b}(g,\varphi_h):g\text{ 1-Lipschitz for }d\},
+\]
+\[
+\Lambda(r)=\sup_{b\in rK}\ \sup_{\|h\|_{\rm HS}=1}L_h(b).
+\]
+Changing a partner $e'$ changes one staple by a matrix of norm $d(Q_{e'},
+Q'_{e'})$. Along the segment $b_t$ from $b$ to $b'$, which stays in $rK$,
+$\frac d{dt}\nu_{b_t}(g)=\Cov_{\nu_{b_t}}(g,\ReTr(U(b'-b)))$, so
+$W_1(\nu_b,\nu_{b'})\le N\beta\Lambda(r)\,d(Q_{e'},Q'_{e'})$. With twelve
+partners per link,
+\begin{equation}\label{eq:alpha}
+\alpha\le12N\beta\Lambda(r)=2r\Lambda(r)=4\beta_W\Lambda(2\beta_W).
+\end{equation}
+Since $K$ is convex and contains $0$, the mean of $I,\omega I,\omega^2I$ with
+$\omega^3=1$, $r'K\subset rK$ for $r'\le r$ and $\Lambda$ is nondecreasing.
+
+\subsection{Gradients and one-forms}
+
+\begin{lemma}\label{lem:gradients}
+In the left trivialisation, $\nabla\varphi_c(U)=-PA(cU)$; if $V=\varphi_b$
+then $\Hess V(X,X)=\ReTr(UX^2b)$; and $\Delta\varphi_c=-\lambda_F\varphi_c$.
+\end{lemma}
+
+\begin{proof}
+$\frac d{dt}\ReTr(Ue^{tX}c)|_{t=0}=\ReTr(cUX)=-\ip{PA(cU)}X$ for $X\in
+\mathfrak{su}(3)$. On a group with a bi-invariant metric $\nabla_XX=0$ for
+left-invariant $X$, so the Hessian is the second derivative along $e^{tX}$.
+The function $\varphi_c$ is a matrix coefficient of the fundamental
+representation, on which the Casimir acts by $\lambda_F$.
+\end{proof}
+
+\begin{lemma}\label{lem:roughlap}
+The bottom of the spectrum of the rough Laplacian $\nabla^*\nabla$ on $L^2$
+one-forms of $\SU(3)$ is $\mu_0=\frac76$.
+\end{lemma}
+
+\begin{proof}
+Trivialise one-forms on the left, so that a one-form is a function
+$f:\SU(3)\to\mathfrak{su}(3)$. For an orthonormal basis $X_a$ acting as
+left-invariant vector fields, $\nabla_{X_a}Y=\frac12[X_a,Y]$ and
+$\nabla_{X_a}X_a=0$, so $\nabla^*\nabla=-\sum_a(\rho(X_a)+\frac12\operatorname{ad}
+X_a)^2$. On the isotypic part $V_\pi\otimes V_\pi^*\otimes\mathfrak{su}(3)$ of
+$L^2\otimes\mathfrak{su}(3)$ put $A_a=\rho_\pi(X_a)$, $B_a=\operatorname{ad}X_a$
+and $T_a=A_a+B_a$, the action on the tensor product. Since $A_a$ and $B_a$
+commute, $A_a+\frac12B_a=\frac12(A_a+T_a)$ and $A_aT_a+T_aA_a=A_a^2+T_a^2-B_a^2$,
+so on a component $\sigma\subset\pi\otimes\operatorname{ad}$
+\[
+\nabla^*\nabla=\tfrac12(C_\pi+C_\sigma)-\tfrac14C_{\rm ad}=\tfrac12(C_\pi+
+C_\sigma)-\tfrac32 ,
+\]
+with $C(p,q)=\frac23(p^2+q^2+pq+3p+3q)$ for the representation of highest
+weight $(p,q)$~\cite{FH91}. The components of $(p,q)\otimes(1,1)$
+are $(p+1,q+1)$, $(p+2,q-1)$, $(p-1,q+2)$, $(p+1,q-2)$, $(p-2,q+1)$,
+$(p-1,q-1)$ and $(p,q)$, the last with multiplicity two, one or zero as both,
+one or none of $p,q$ are positive, and only those with nonnegative labels
+occur. For $\pi=(0,0)$ the only component is $(1,1)$, with value
+$\frac32$. For $\pi=(1,0)$ the components are $(2,1)$, $(0,2)$, $(1,0)$, with
+values $\frac{31}6$, $\frac{19}6$, $\frac76$, and $(0,1)$ is conjugate. For
+$p+q\ge2$ the smallest values occur at $(p-1,q-1)$, $(p,q)$, $(p-2,q+1)$ or
+$(p+1,q-2)$, and each is at least $\frac13(2(p^2+q^2+pq)+3(p+q)-3)-\frac32\ge
+\frac32$.
+\end{proof}
+
+\subsection{The gap of the one-link measure}
+
+\begin{lemma}\label{lem:gap}
+For $b\in rK$ the spectral gap of $L=\Delta+\ip{\nabla V}{\nabla\cdot}$,
+$V=\varphi_b$, on $L^2(\nu_b)$ is at least
+\[
+\gamma(r)=\tfrac{39}{64}\mu_0+\tfrac32-\tfrac r2=\tfrac{283}{128}-\tfrac r2 .
+\]
+\end{lemma}
+
+\begin{proof}
+Let $-Lf=\lambda f$ with $\lambda>0$, $\omega=df$ and $\eta=e^{V/2}\omega$;
+norms are in $L^2(dU)$. Bochner's formula integrated against $\nu_b$ gives
+$\lambda\nu_b|\omega|^2=\nu_b|\nabla\omega|^2+\nu_b((\Ric-\Hess V)(\omega,
+\omega))$, and since $e^{V/2}\nabla\omega=\nabla\eta-\frac12dV\otimes\eta$,
+\begin{equation}\label{eq:bochner}
+\lambda\|\eta\|^2=\|\nabla\eta-\tfrac12dV\otimes\eta\|^2+\int(\Ric-\Hess V)
+(\eta,\eta).
+\end{equation}
+Put $\mathcal A=\nabla\eta$ and $\mathcal B=\frac12dV\otimes\eta$. Then
+\[
+\ip{\mathcal A}{\mathcal B}=\tfrac14\int\ip{\nabla V}{\nabla|\eta|^2}
+=\tfrac{\lambda_F}4\int V|\eta|^2 ,
+\]
+because $-\Delta V=\lambda_FV$. Writing $\|\mathcal A-\mathcal B\|^2=
+\|\frac58\mathcal A-\mathcal B\|^2+\frac{39}{64}\|\mathcal A\|^2-\frac34
+\ip{\mathcal A}{\mathcal B}$ and dropping the first term,
+\[
+\|\mathcal A-\mathcal B\|^2\ge\tfrac{39}{64}\mu_0\|\eta\|^2-\tfrac12\int
+V|\eta|^2
+\]
+by Lemma~\ref{lem:roughlap}. With $\Ric=\frac32$, \eqref{eq:bochner} gives
+$\lambda\|\eta\|^2\ge(\frac{39}{64}\mu_0+\frac32)\|\eta\|^2-\int(\Hess V(\eta,
+\eta)+\frac12V|\eta|^2)$, and the claim follows from the pointwise bound
+\begin{equation}\label{eq:pointwise}
+\ReTr(MX^2)+\tfrac12\ReTr M\le\tfrac r2|X|^2,\qquad M=bU\in rK ,
+\end{equation}
+since $\Hess V(X,X)=\ReTr(MX^2)$ and $V=\ReTr M$. The maximum over $|X|=1$ of
+the left side is convex in $M$, so it suffices to take $M=rW$ with $W\in
+\SU(3)$ and, after a conjugation, $W=\operatorname{diag}(e^{i\theta_k})$ with
+$\sum_k\theta_k=0$; put $c_k=\cos\theta_k$. Write $X=iH$ with $H$ Hermitian,
+traceless, $\Tr H^2=1$, with diagonal $d_k$ and entries $H_{jk}$. Then
+\[
+\ReTr(WX^2)=-\sum_kc_kd_k^2-\sum_{j<k}(c_j+c_k)|H_{jk}|^2 ,
+\]
+with $\sum_kd_k^2+2\sum_{j<k}|H_{jk}|^2=1$, so the maximum is the larger of
+$q_{\rm off}=\max_{j<k}-\frac12(c_j+c_k)$ and $q_{\rm diag}=\max\{-\sum c_kd_k^2:
+\sum d_k=0,\ \sum d_k^2=1\}$. If $l$ is the third index, $q_{\rm off}+\frac12
+\sum_kc_k=\frac12c_l\le\frac12$. The value $q_{\rm diag}$ is minus the smaller
+eigenvalue of $\operatorname{diag}(c)$ compressed to the plane $\sum d_k=0$;
+the eigenvalues of the compression solve $\sum_k(c_k-\mu)^{-1}=0$, that is
+$3\mu^2-2e_1\mu+e_2=0$ with $e_1,e_2$ the elementary symmetric functions of
+the $c_k$, so $q_{\rm diag}=\frac13(\sqrt{e_1^2-3e_2}-e_1)$. The inequality
+$q_{\rm diag}+\frac12e_1\le\frac12$ is $\sqrt{e_1^2-3e_2}\le\frac12(3-e_1)$, that
+is $e_1^2-4e_2+2e_1-3\le0$. When $\sum\theta_k=0$, $\sum c_k^2=1+2c_1c_2c_3$,
+and with this identity the left side equals $-2(1-c_1)(1-c_2)(1-c_3)\le0$.
+\end{proof}
+
+The weight $\frac58$ is the one that gives the coefficient $\frac12$ of $V$,
+and~\eqref{eq:pointwise} is an equality at $W=I$. At $r=\frac{45}{32}$,
+$\gamma=\frac{193}{128}$.\footnote{The direct Bochner bound, with
+Minkowski's inequality in place of the cross term, gives
+$(\sqrt{\mu_0}-\frac g2r)^2+\frac32-r$ with $g^2=\max_W\|PA(W)\|^2=2.0655$;
+it is exact at $b=0$, where the gap is $\frac83$, but falls below $\gamma$
+for $r>0.24$ and vanishes before $r=1$.}
+
+\subsection{A blended corrector}
+
+\begin{lemma}\label{lem:corrector}
+For $b\in rK$, $\|h\|=1$ and $s\ge0$, put $\Gamma=\ip{\nabla V}{\nabla
+\varphi_h}$ and $X_s=(1-s\lambda_F)\varphi_h+s\Gamma$. Then
+\[
+L_h(b)\le s\sqrt{\nu_b|\nabla\varphi_h|^2}+\sqrt{\Var_{\nu_b}(X_s)/
+\gamma(r)} .
+\]
+\end{lemma}
+
+\begin{proof}
+Let $-L\psi=\varphi_h-\nu_b\varphi_h$. For a 1-Lipschitz $g$, $|\nabla g|\le1$
+almost everywhere, because $d$ is at most the geodesic distance, so
+$\Cov(g,\varphi_h)=\nu_b\ip{\nabla g}{\nabla\psi}\le\nu_b|\nabla\psi|$. Write
+$\psi=s\varphi_h+\chi$. By Lemma~\ref{lem:gradients}, $-L(s\varphi_h)=
+s\lambda_F\varphi_h-s\Gamma$, so $-L\chi=X_s-\nu_bX_s$, and
+\[
+\nu_b|\nabla\chi|^2=\Cov(\chi,X_s)\le\sqrt{\Var\chi\,\Var X_s}\le
+\sqrt{\nu_b|\nabla\chi|^2\Var X_s/\gamma}
+\]
+by Lemma~\ref{lem:gap}. Hence $\nu_b|\nabla\chi|^2\le\Var X_s/\gamma$, and
+$\nu_b|\nabla\psi|\le s\sqrt{\nu_b|\nabla\varphi_h|^2}+\sqrt{\nu_b|\nabla
+\chi|^2}$.
+\end{proof}
+
+The choice $s=1/\lambda_F$ removes $\varphi_h$ from $X_s$ and leaves the
+drift alone; $s=0$ is the plain spectral-gap bound. The best $s$ depends on
+$b$ and is found box by box.
+
+\subsection{Orbits of staple sums}
+
+\begin{lemma}\label{lem:orbits}
+Let $V,W\in\SU(3)$.
+\begin{enumerate}[label=\textup{(\roman*)},leftmargin=*]
+\item $L_h(VbW)=L_{V^{-1}hW^{-1}}(b)$ and $L_h(\bar b)=L_{\bar h}(b)$.
+\item Every $b\in\C^{3\times3}$ is in the orbit of some
+$\operatorname{diag}(a_1,a_2,z_3)$ with $a_1\ge a_2\ge|z_3|$ and
+$\operatorname{Im}z_3\ge0$.
+\item A diagonal matrix lies in $K$ if and only if it lies in the convex hull
+of the diagonal torus $T$ of $\SU(3)$.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+(i) If $U$ has law $\nu_{VbW}$ then $WUV$ has law $\nu_b$; the map preserves
+$d$ and Haar measure, and $\varphi_h(U)=\varphi_{V^{-1}hW^{-1}}(WUV)$. For
+$\bar b$ use $U\mapsto\bar U$. (ii) Take a singular value decomposition
+$b=V_1\Sigma W_1$ and move the determinants of $V_1,W_1$ into the last
+entry; a complex conjugation makes $\operatorname{Im}z_3\ge0$. (iii) Let $c$ be
+diagonal with nonzero entries of distinct moduli and let $U$ maximise
+$\ReTr(cU)$ on $\SU(3)$. The derivative along $\mathfrak{su}(3)$ vanishes, so
+the anti-Hermitian part of $cU$ is a multiple $i\lambda I$ of the identity
+and $cU=H+i\lambda I$ with $H$ Hermitian. Then $H^2+\lambda^2I=cc^*$ is diagonal
+with distinct entries, $H$ commutes with it and is diagonal, and $U\in T$.
+Hence $\max_{\SU(3)}\ReTr(cU)=\max_T\ReTr(ct)$ for such $c$, and by continuity
+for every diagonal $c$. A diagonal matrix outside $\operatorname{conv}T$ is
+separated from it by such a functional, which then separates it from $K$.
+\end{proof}
+
+Since every $b\in rK$ has operator norm at most $r$,
+\[
+\Lambda(r)=\sup\Bigl\{\sup_{\|h\|=1}L_h(b):b\in\mathcal R_r\Bigr\},
+\]
+where $\mathcal R_r$ is the set of $\operatorname{diag}(a_1,a_2,x_3+iy_3)\in
+r\operatorname{conv}T$ with $a_1\ge a_2\ge|x_3+iy_3|$ and $y_3\ge0$, a subset of
+the box $[0,r]^2\times[-r,r]\times[0,r]$ in the coordinates
+$(a_1,a_2,x_3,y_3)$.
+
+\subsection{Exact moments and interpolation}
+
+\begin{lemma}\label{lem:characters}
+For $D,D'\in\C^{3\times3}$ let $\E_H$ be the Haar mean on $\SU(3)$ and
+\[
+Z(D,D')=\E_H\exp\bigl(\tfrac12\Tr(UD)+\tfrac12\Tr(\bar UD')\bigr).
+\]
+Then
+\[
+Z(D,D')=\sum_{p\ge q\ge0}\frac{s_{(p,q)}(DD'^{\top})\,G_{p,q}(\det D)\,
+G_{p,q}(\det D')}{d_{p,q}} ,
+\]
+with $G_{p,q}(z)=\sum_{k\ge0}c_{(p+k,q+k,k)}z^k$, $c_\lambda=2^{-|\lambda|}/
+\prod\operatorname{hooks}(\lambda)$, $d_{p,q}=\frac12(p-q+1)(q+1)(p+2)$ and
+$s_{(p,q)}$ the Schur polynomial. The moments of degree $j$ in $U$ and $k$ in
+$\bar U$ are $\E_H[u^\alpha\bar u^{\beta}e^{\ReTr(Ub)}]=2^{|\alpha|+|\beta|}
+\partial_D^\alpha\partial_{D'}^{\beta}Z(b,\bar b)$, the entry $u_{ij}$ pairing with
+$D_{ji}$.
+\end{lemma}
+
+\begin{proof}
+We use $(\Tr X)^n=\sum_{\lambda\vdash n}f^\lambda s_\lambda(X)$, where
+$f^\lambda$ is the number of standard tableaux of shape $\lambda$, given by
+the hook length formula~\cite[Cor.~7.21.6]{Sta99}. Expanding the
+exponential gives
+\[
+e^{\frac12\Tr X}=\sum_{n\ge0}\frac{(\Tr X)^n}{2^nn!}=\sum_\lambda
+c_\lambda s_\lambda(X),
+\]
+the sum over partitions with at most three parts. For $U\in\SU(3)$ one has
+$s_{\lambda+(k,k,k)}(UD)=(\det D)^ks_\lambda(UD)$, so
+\[
+e^{\frac12\Tr(UD)}=\sum_{p\ge q}G_{p,q}(\det D)\,\chi_{p,q}(UD),
+\]
+where $\chi_{p,q}$ is the irreducible character of highest weight
+$(p,q,0)$ and $d_{p,q}$ its dimension. Since $\bar U=(U^{-1})^\top$, we have
+$\chi_{p,q}(\bar UD')=\chi_{p,q}(U^{-1}D'^\top)$, and Schur
+orthogonality~\cite[Ch.~2]{Bum13},
+\[
+\E_H\bigl[\chi_\rho(UA)\chi_{\rho'}(U^{-1}B)\bigr]=
+\delta_{\rho\rho'}\frac{\chi_\rho(AB)}{d_\rho},
+\]
+gives the expansion. The bound below gives absolute convergence. Finally $\ReTr(Ub)=
+\frac12\Tr(Ub)+\frac12\Tr(\bar U\bar b)$.
+\end{proof}
+
+The computation keeps $p\le24$ and $k\le8$. Every omitted partition has
+more than $24$ boxes, and since $|s_\lambda(X)|\le\dim(\lambda)\|X\|^{|\lambda|}$ and
+$\sum_{\lambda\vdash n}f^\lambda\dim\lambda=3^n$ by Schur--Weyl duality, the omitted
+part of each factor is at most $\sum_{n>24}(\frac32\|D\|)^n/n!$; Cauchy's
+estimate on a polydisc around $b$ turns this into a bound for every
+derivative (Appendix~\ref{app:cover}).
+
+\begin{lemma}[Interpolation on a box]\label{lem:boxes}
+Let $Q=\prod_k[l_k,l_k+w_k]$ in the coordinates $(a_1,a_2,x_3,y_3)$, with
+corners $b_i$ and multilinear weights $\omega_i(b)\ge0$, $\sum_i\omega_i(b)=1$,
+and let $\varsigma=w_1^2+w_2^2+\max(w_3^2,w_4^2)$. For $b\in Q$:
+\begin{enumerate}[label=\textup{(\roman*)},leftmargin=*]
+\item $Z(b)\ge e^{-\varsigma/8}\sum_i\omega_i(b)Z(b_i)$;
+\item $\nu_b(f)\le e^{\varsigma/8}\max_i\nu_{b_i}(f)$ for every $f\ge0$ that
+does not depend on $b$;
+\item if $Y_b=(\mathcal A+\sum_k(b_k-\beta_k)\mathcal B_k)^2$ with functions
+$\mathcal A,\mathcal B_k$ of $U$ and a fixed point $\beta$, then
+\[
+\nu_b(Y_b)\le e^{\varsigma/8}\Bigl(\max_i\nu_{b_i}(Y_{b_i})+\sum_k
+\frac{w_k^2}4\,\frac{\max_iZ(b_i)\nu_{b_i}(\mathcal B_k^2)}{\min_iZ(b_i)}\Bigr).
+\]
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+Write $E(b)=e^{\ReTr(Ub)}=\prod_ke^{c_kb_k}$, where
+\[
+c=(\operatorname{Re}u_{11},\operatorname{Re}u_{22},\operatorname{Re}u_{33},
+-\operatorname{Im}u_{33}),
+\]
+so that $|c_k|\le1$ and $c_3^2+c_4^2\le1$. In each coordinate the chord of $e^{c_kx}$
+over $[l_k,l_k+w_k]$ lies above the function and, by Hoeffding's
+lemma~\cite{Hoe63} for a two-point variable, below $e^{c_kx}e^{c_k^2w_k^2/8}$.
+Multiplying,
+\begin{equation}\label{eq:hoeffding}
+E(b)\le\sum_i\omega_i(b)E(b_i)\le E(b)\,e^{\sum_kc_k^2w_k^2/8}\le E(b)\,
+e^{\varsigma/8}.
+\end{equation}
+Integrating the right inequality gives (i), and (ii) follows from the left
+one and (i). For (iii) let $\mathcal F(b)=Y_bE(b)$ and $I_k$ the linear
+interpolation in the $k$-th coordinate, so that $\mathcal F-I_1I_2I_3I_4
+\mathcal F=\sum_kI_1\cdots I_{k-1}(\mathcal F-I_k\mathcal F)$. Along the $k$-th
+coordinate $\mathcal F$ is $\ell^2e^{c_kx}$ times a positive factor, with $\ell$
+affine of slope $\mathcal B_k$, and $\partial_k^2\mathcal F=((c_k\ell+2\mathcal
+B_k)^2-2\mathcal B_k^2)E\ge-2\mathcal B_k^2E$. With the Green kernel of the
+interval, whose integral is at most $w_k^2/8$,
+\[
+\mathcal F-I_k\mathcal F\le2\mathcal B_k^2\int G\,E\le\tfrac{w_k^2}4\mathcal
+B_k^2\sum_i\omega_i^{(k)}E(b_i)
+\]
+by the left inequality of~\eqref{eq:hoeffding}, with weights $\omega_i^{(k)}
+\ge0$ of sum one that do not depend on $U$. The operators $I_j$ have
+nonnegative weights of sum one; integrate over $U$ and divide by $Z(b)$,
+bounded below by (i).
+\end{proof}
+
+\subsection{The cover and the theorem}\label{ssec:cover}
+
+Fix a box $Q$ and an integer $j$, and put $s=3j/8192$, so that $1-s\lambda_F
+=1-j/1024$. Since $\Gamma=\sum_kb_kG_{F_k,h}$ with $F=(e_{11},e_{22},e_{33},
+ie_{33})$ and $G_{c,h}=\ip{\nabla\varphi_c}{\nabla\varphi_h}$, the function
+$X_s$ is affine in $b$. For any constant $\kappa$, $\Var(X_s)\le\nu_b[(X_s-
+\kappa)^2]$; take $\kappa=\ip{\kappa(b)}h$ with $\kappa(b)$ affine in $b$,
+fitted to the means at the corners. Then $X_s-\kappa=\mathcal A+\sum_k(b_k-
+\beta_k)\mathcal B_k$ with $\beta$ the centre of $Q$, and
+Lemmas~\ref{lem:corrector} and~\ref{lem:boxes} give, for all $b\in Q\cap
+\mathcal R_r$,
+\begin{equation}\label{eq:BQ}
+\begin{split}
+\sup_hL_h(b)\le{}&s\sqrt{e^{\varsigma/8}\max_i\lambda_M(b_i)}\\
+&+\sqrt{\frac{e^{\varsigma/8}}{\gamma(r)}\Bigl(\max_i\lambda_V(b_i)+
+\frac{e_N}{\min_iZ(b_i)}\Bigr)} ,
+\end{split}
+\end{equation}
+where $e_N=\sum_k\frac{w_k^2}4\max_iZ(b_i)\lambda_k(b_i)$ and $\lambda_M$,
+$\lambda_V$, $\lambda_k$ are the largest eigenvalues of the quadratic forms
+$h\mapsto\nu_{b_i}|\nabla\varphi_h|^2$, $h\mapsto\nu_{b_i}[(X_s-\kappa)^2]$ at
+$b=b_i$, and $h\mapsto\nu_{b_i}[\mathcal B_k^2]$ on $\C^{3\times3}=\R^{18}$. By
+Lemma~\ref{lem:characters} their entries are moments of $\nu_{b_i}$ of degree
+at most four, computed with rigorous error bounds; each largest eigenvalue is
+bounded above by an $LDL^\top$ factorisation of $tI$ minus the computed form
+with certified positive pivots, plus the norm of its error matrix by Weyl's
+inequality~\cite{Hig02,Joh17}. For diagonal $b$ the measure $\nu_b$ is
+invariant under conjugation by $T$, so each form splits into four blocks:
+the diagonal entries of $h$ and the three pairs $\{h_{jk},h_{kj}\}$.
+
+A box is discarded when it contains no point with $a_1\ge a_2\ge|z_3|$, or
+when a linear functional $\ell(b)=\ReTr(c^*b)$ satisfies $\min_Q\ell>r\max_T
+\ell$, which separates it from $r\operatorname{conv}T$ and hence, by
+Lemma~\ref{lem:orbits}(iii), from $\mathcal R_r$.
+
+\begin{proposition}\label{prop:cover}
+$2r\Lambda(r)\le0.999657$ at $r=\frac{45}{32}$.
+\end{proposition}
+
+\begin{proof}
+The box $[0,r]^2\times[-r,r]\times[0,r]$ is cut into $8192$ boxes of side
+$r/8$. Of these, $841$ survive the two tests, and $797$ satisfy
+$2rB_Q<1$ for the right side $B_Q$ of~\eqref{eq:BQ}, with $\gamma(r)=
+\frac{193}{128}$. Each of the other $44$ is cut into sixteen boxes of side
+$r/16$; $68$ of these survive the tests, and all satisfy $2rB_Q<1$. The
+$865$ certified boxes cover $\mathcal R_r$. The largest bound is $0.999657$,
+on the box $[1.0547,1.2305]\times[0.7031,0.8789]\times[0.3516,0.5273]
+\times[0.7031,0.8789]$; the median is $0.966$, and $j$ ranges from $776$ to
+$1020$. Figure~\ref{fig:cover} shows the cover, and
+Appendix~\ref{app:cover} the error analysis.
+\end{proof}
+
+\begin{proof}[Proof of Theorem~\ref{thm:su3}]
+Proposition~\ref{prop:cover} gives
+\[
+\Lambda\bigl(\tfrac{45}{32}\bigr)\le\frac{0.999657}{45/16}<0.355435 .
+\]
+For $\beta_W\le\frac{45}{64}$ we have $2\beta_W\le\frac{45}{32}$,
+and~\eqref{eq:alpha} with the monotonicity of $\Lambda$ gives
+\[
+\alpha\le4\beta_W\Lambda\bigl(\tfrac{45}{32}\bigr)<1.42174\,\beta_W\le
+0.999657 .
+\]
+Proposition~\ref{prop:state} applies with the Hilbert--Schmidt metric.
+\end{proof}
+
+\begin{figure*}[t]
+\centering
+\includegraphics[width=0.92\textwidth]{figures/fig_cover.png}
+\caption{The $865$ certified boxes at $r=\frac{45}{32}$, plotted at their
+centres in the coordinates $(a_1,a_2)$ of the staple sum
+$\operatorname{diag}(a_1,a_2,x_3+iy_3)$, coloured by the certified bound on
+$2r\sup_hL_h$ over the box. (a) All boxes, with height $|x_3+iy_3|$; the
+red line is the face $\operatorname{diag}(r,\rho,\rho)$ on which the
+floating-point maximum of Lemma~\ref{lem:corrector} lies. (b) The boxes with
+bound above $0.97$, with height $x_3$; the largest bounds sit in the
+interior of $\mathcal R_r$, not at its extreme points.}
+\label{fig:cover}
+\end{figure*}
+
+\section{Where the methods stop}\label{sec:limits}
+
+\emph{$\SU(2)$.} Theorem~\ref{thm:ceiling} closes the single-link route in
+every forest gauge at $\beta_W=\frac13$. Going further needs blocks of
+several links, where the influence of a boundary link on a whole block is
+bounded at once; the corresponding Dobrushin--Shlosman
+criterion~\cite{DS85} is gauge invariant and stable~\cite[Thm.~G]{BB26a},
+but its constants have not been evaluated past $\frac13$.
+
+\emph{Curvature.} Remark~\ref{rem:hf} locates the end of the curvature
+method in this gauge between $|\beta|=\frac1{29}$ and $\frac1{26.25}$.
+
+\emph{$\SU(3)$.} The route of Sec.~\ref{sec:su3} bounds the
+$H^{-1}(\nu_b)$ norm of $\varphi_h-\nu_b\varphi_h$, which is at least
+$L_h(b)$, and needs it uniformly on $rK$. Its Galerkin values (polynomials
+of degree two) at matrices of $rK$ give $2r$ times the norm equal to $0.79$
+at $r=1.25$, $0.89$ at $r=1.4$, $0.97$ at $r=1.5$ and $1.009$ at $r=1.55$, so
+the route stops at or below $\beta_W\approx0.77$ even with exact constants.
+Lemma~\ref{lem:corrector} with Lemma~\ref{lem:gap} stops earlier: in floating
+point its largest values on $\mathcal R_r$ lie on the face
+$\operatorname{diag}(r,\rho,\rho)$ with $\rho$ between $0.75r$ and $0.8r$, and
+$2r$ times the bound is $0.9458$ at $r=1.36$, $0.9767$ at $r=1.40$ and $1.0080$
+at $r=1.44$ (Fig.~\ref{fig:face}). Between $\beta_W\approx0.715$ and $0.77$ the
+room lies in the gap bound, whose Galerkin values at $r=1.14$ are near $2.3$
+against $\gamma=1.64$; past $0.77$ one needs blocks.
+
+\begin{figure*}[t]
+\centering
+\includegraphics[width=0.84\textwidth]{figures/fig_face.png}
+\caption{The floating-point value of $2r\sup_h$ of the bound of
+Lemma~\ref{lem:corrector} on the face $b=\operatorname{diag}(r,\rho,\rho)$, as
+a function of $\rho/r$, for $r=1.36$, $1.40$ and $1.44$. The grey plane is the
+Dobrushin threshold one. The bound crosses it between $r=1.40$ and $1.44$,
+where the single-link method with the gap of Lemma~\ref{lem:gap} ends.}
+\label{fig:face}
+\end{figure*}
+
+\emph{The four open problems.} Our earlier paper~\cite{BB26a} listed four
+problems between the strong-coupling results and the Clay
+problem~\cite{JW06}: (1) uniqueness and a gap at intermediate fixed
+coupling; (2) the crossover from strong coupling to Ba{\l}aban's
+weak-coupling regime; (3) the continuum limit with the
+Osterwalder--Schrader axioms; and (4) a gap in physical units. The present
+paper moves the boundary of (1): for $\SU(2)$ from $\beta_W=\frac29$ to
+$\frac13$, for $\SU(3)$ from $\frac9{32}$ to $\frac{45}{64}$, and for every
+$\SU(N)$ past the curvature ceiling. It does not close (1); the region
+between these values and the scaling region, near $\beta_W\approx2.2$ for
+$\SU(2)$ and $\beta_W\approx6$ for $\SU(3)$, is open, and with it problem
+(2). Problems (3) and (4) are untouched. Every bound proved here is uniform
+in lattice units, so by~\cite{BB26b} none of them can by itself produce a
+continuum mass gap; that requires control of the gap in physical units along
+the renormalisation group flow~\cite{Bal84a,BSB26}.
+
+\section*{Data and code availability}
+
+The analytic proofs are complete as written, except the evaluation in
+Proposition~\ref{prop:cover}, which is a computation with rigorous error
+bounds. The repository \texttt{creelie/4Y-M} contains the \LaTeX{} source of
+this paper; the programs of that computation, in Python with python-flint
+(FLINT and Arb), with their outputs and the list of certified boxes;
+independent checks in exact rational arithmetic of Lemmas~\ref{lem:local}
+and~\ref{lem:roughlap} and of~\eqref{eq:pointwise}; numerical checks of
+Lemma~\ref{lem:identity} on tori; the searches of Remark~\ref{rem:hf} and
+Sec.~\ref{sec:limits}; and a Lean~4 certificate of the line field
+(Lemmas~\ref{lem:cycle} and~\ref{lem:structure} for the table of
+Appendix~\ref{app:table}, by \texttt{decide}). The archive is on Zenodo,
+\href{https://doi.org/10.5281/zenodo.\zenodoID}{doi:10.5281/zenodo.\zenodoID},
+where all versions are listed, and the PDF of this paper is at
+\url{https://github.com/creelie/4Y-M/blob/main/preprintYangMillsForestGauge/YangMillsForestGauge.pdf}.
+Deep Bhattacharjee carried out the computations and the Lean, Python and
+shell checks with AI assistance from Claude (Anthropic). The first composite
+behind Theorem~\ref{thm:su2} was assembled by the Anaxia engine of the BLLM
+system~\cite{Bha26}, release v3.0.5, as described in the footnote to that
+theorem. Both authors approved the final text.
+
+\section*{Ethical declarations}
+
+\emph{Funding.} None. \emph{Competing interests.} None.
+
+\appendix
+
+\section{The line field}\label{app:table}
+
+Table~\ref{tab:sigma} lists, for each residue class of $x$ modulo two, the
+direction $\sigma(x)$ and the permutation $\pi_x(\mu)=\sigma(x+e_\mu)$. In every
+row $\pi_x$ fixes $\sigma(x)$ and is a three-cycle on the other directions,
+which is the condition of Lemma~\ref{lem:cycle}.
+
+\begin{table}[h]
+\caption{The line field: $x$ modulo two (digits $x_0x_1x_2x_3$), the
+direction $\sigma(x)$ and the values $\sigma(x+e_\mu)$ for $\mu=0,1,2,3$.}
+\label{tab:sigma}
+\begin{ruledtabular}
+\begin{tabular}{cccccc}
+$x$&$\sigma(x)$&$\mu=0$&$\mu=1$&$\mu=2$&$\mu=3$\\
+\colrule
+0000 & 0 & 0 & 2 & 3 & 1 \\
+1000 & 0 & 0 & 3 & 1 & 2 \\
+0100 & 2 & 3 & 0 & 2 & 1 \\
+1100 & 3 & 2 & 0 & 1 & 3 \\
+0010 & 3 & 1 & 2 & 0 & 3 \\
+1010 & 1 & 3 & 1 & 0 & 2 \\
+0110 & 2 & 1 & 3 & 2 & 0 \\
+1110 & 1 & 2 & 1 & 3 & 0 \\
+0001 & 1 & 2 & 1 & 3 & 0 \\
+1001 & 2 & 1 & 3 & 2 & 0 \\
+0101 & 1 & 3 & 1 & 0 & 2 \\
+1101 & 3 & 1 & 2 & 0 & 3 \\
+0011 & 3 & 2 & 0 & 1 & 3 \\
+1011 & 2 & 3 & 0 & 2 & 1 \\
+0111 & 0 & 0 & 3 & 1 & 2 \\
+1111 & 0 & 0 & 2 & 3 & 1 \\
+\end{tabular}
+\end{ruledtabular}
+\end{table}
+
+\section{The comparison lemma}\label{app:comparison}
+
+Let $(G,\delta)$ be a compact group with a bi-invariant metric of diameter
+$D$, $\Omega=G^A$, and $C_{ee'}$ the coefficients of Sec.~\ref{sec:state},
+with row and column sums at most $\alpha<1$ and $C_{ee'}=0$ unless $e,e'$ share
+a plaquette, so that $|e-e'|\le1$ for the distance of link midpoints. Fix
+$\lambda>0$ with $\theta=\alpha e^\lambda<1$.
+
+\begin{lemma}\label{lem:comparison}
+Let $S\subset A$, possibly infinite, and let $\mu_1,\mu_2$ be probability
+measures on $\Omega$ invariant under $\gamma^F_e$ for every $e\notin S$. Let
+$T\subset A\setminus S$ be finite, $w_b=e^{-\lambda\dist(b,T)}$, and suppose
+$\sum_{z\in S}w_z<\infty$. There is a coupling of $\mu_1,\mu_2$ whose link
+distances $\varrho(b)=\E\,\delta(\sigma_b,\sigma'_b)$ satisfy
+\[
+\sum_{b\notin S}w_b\varrho(b)\le\frac{\theta D}{1-\theta}\sum_{z\in S}w_z .
+\]
+If $S=\emptyset$ then $\mu_1=\mu_2$.
+\end{lemma}
+
+\begin{proof}
+The couplings form a weakly compact set and $\Psi(\pi)=\sum_bw_b\E_\pi\delta(
+\sigma_b,\sigma'_b)$ is weakly continuous because $\sum_bw_b<\infty$; let $\pi^*$ be
+a minimiser. For $e\notin S$ replace the pair $(\sigma_e,\sigma'_e)$ by a sample of
+an optimal coupling of $\gamma^F_e(\cdot\mid\sigma)$ and $\gamma^F_e(\cdot\mid
+\sigma')$, chosen measurably~\cite[Cor.~5.22]{Vil09}. Both $\mu_i$ are
+invariant, so the result is again a coupling, and changing the finitely
+many links that enter $\gamma^F_e$ one at a time gives $W_1\le\sum_{e'}C_{ee'}
+\delta(\sigma_{e'},\sigma'_{e'})$. Minimality gives $\varrho(e)\le\sum_{e'}C_{ee'}
+\varrho(e')$. Multiply by $w_e$ and sum over $e\notin S$; where $C_{ee'}\ne0$,
+$w_e\le e^\lambda w_{e'}$, so
+\[
+\sum_{e\notin S}w_e\varrho(e)\le\theta\Bigl[\sum_{e'\notin S}w_{e'}\varrho(e')
++\sum_{z\in S}w_z\varrho(z)\Bigr],
+\]
+all sums are finite, and $\varrho\le D$ on $S$. If $S=\emptyset$, $\varrho\equiv0$.
+\end{proof}
+
+\begin{corollary}\label{cor:decay}
+Let $\mu$ be the Gibbs measure of $\gamma^F$, $F$ a local function with
+support $S_F$, $L_F$-Lipschitz in each link, and $H$ bounded with finite
+support $S_H$ disjoint from $S_F$. Then
+\[
+|\Cov_\mu(F,H)|\le\|H\|_\infty L_F\frac{\theta D}{1-\theta}|S_H|\,
+e^{-\lambda\dist(S_F,S_H)}.
+\]
+\end{corollary}
+
+\begin{proof}
+Condition on the links of $S_H$~\cite[Ch.~3]{Kal21}; the conditional
+measures are invariant under $\gamma^F_e$ for $e\notin S_H$, and
+Lemma~\ref{lem:comparison} with $S=S_H$, $T=S_F$ bounds the difference of
+two of them, as in~\cite[Cor.~29]{BB26a}.
+\end{proof}
+
+\section{The blocks of Lemma~\ref{lem:local}}\label{app:blocks}
+
+\emph{Diagonal blocks.} Let $w_a=e^{i\phi}$. On the diagonal part,
+$f_p=-\cos\phi\,(y_1+y_2-y_3-y_4)^2$ and $c_p=2(y_1y_4-y_1y_2+y_2y_3-y_3y_4)$, so
+\[
+\begin{split}
+\mathcal F={}&\sum_i\alpha_iy_i^2+\cos\phi\,(y_1+y_2-y_3-y_4)^2\\
+&-\tfrac95(y_1y_4-y_1y_2+y_2y_3-y_3y_4)
+\end{split}
+\]
+with $y_k=0$ and weights $\alpha_{k\pm1}=\frac{21}{10}$, $\alpha_{k+2}=\frac54$.
+It is affine in $\cos\phi$, so positivity at $\cos\phi=\pm1$ suffices. For
+$k=1$ and $\cos\phi=1$ the matrix in $(y_2,y_3,y_4)$ is
+\[
+\begin{pmatrix}\frac{31}{10}&-\frac{19}{10}&-1\\[2pt]-\frac{19}{10}&\frac94&
+\frac{19}{10}\\[2pt]-1&\frac{19}{10}&\frac{31}{10}\end{pmatrix},
+\]
+and Table~\ref{tab:minors} lists the leading principal minors for every
+position; all are positive.
+
+\begin{table}[h]
+\caption{Leading principal minors of the diagonal blocks of
+Lemma~\ref{lem:local}.}
+\label{tab:minors}
+\begin{ruledtabular}
+\begin{tabular}{lll}
+Fixed link&$\cos\phi=1$&$\cos\phi=-1$\\
+\colrule
+$e_1$, $e_4$&$\frac{31}{10},\ \frac{673}{200},\ \frac{8421}{2000}$&
+$\frac{11}{10},\ \frac{53}{200},\ \frac{21}{2000}$\\[2pt]
+$e_2$&$\frac{31}{10},\ \frac{861}{100},\ \frac{8421}{2000}$&
+$\frac{11}{10},\ \frac{21}{100},\ \frac{21}{2000}$\\[2pt]
+$e_3$&$\frac94,\ \frac{673}{200},\ \frac{8421}{2000}$&
+$\frac14,\ \frac{53}{200},\ \frac{21}{2000}$\\
+\end{tabular}
+\end{ruledtabular}
+\end{table}
+
+\emph{Pair blocks.} Let $w_a=e^{i(\chi+\vartheta)}$ and $w_b=e^{i(\chi-\vartheta)}$.
+The terms of $f_p$ carry $w_a+\bar w_b=2\cos\chi\,e^{i\vartheta}$ or its
+conjugate, and $c_p$ carries $w_a\bar w_b=e^{2i\vartheta}$, so the Hermitian
+matrix $M(m,\vartheta)$ of $\mathcal F$, $m=\cos\chi$, is affine in $m$ with
+$M(-1,\vartheta)=M(1,\vartheta+\pi)$, and $m=1$ suffices. For the fixed link
+$e_2$, in the variables $(z_1,z_3,z_4)$ and with $c=\cos\vartheta$,
+\[
+M=\begin{pmatrix}\frac{21}5+2c&-2e^{i\vartheta}&-\frac95-2e^{i\vartheta}\\[2pt]
+-2e^{-i\vartheta}&\frac{21}5+2c&\frac95+2e^{-i\vartheta}\\[2pt]
+-\frac95-2e^{-i\vartheta}&\frac95+2e^{i\vartheta}&\frac52+2c\end{pmatrix}.
+\]
+With $u=\cos^2(\vartheta/2)\in[0,1]$ its leading principal minors are
+\[
+\tfrac{20u+11}5,\quad\tfrac{(20u+1)(20u+21)}{25},\quad
+\tfrac{400u(40u^2-23u+4)+21}{250},
+\]
+and $40u^2-23u+4$ has negative discriminant $529-640$. The other positions
+give the same determinant and the leading minors $\frac{20u+11}5$ or
+$\frac{8u+1}2$ and $\frac{800u^2-180u+53}{50}$, whose discriminant $32400-169600$
+is negative. Every block is positive definite.
+
+The inequality is not tight. In floating point the least eigenvalue of the
+whole form over $W\in\U(N)$, $N\le4$, is $0.0149$, which is also the least
+eigenvalue of the exact blocks; this slack is what the choice of the weights
+$\frac{21}{10}$, $\frac54$, $\frac9{10}$ trades against the constant
+$\frac{29}2$.
+
+\section{The certified computation}\label{app:cover}
+
+\emph{Truncation.} For a corner $b$ of a box the moments of
+Lemma~\ref{lem:characters} are derivatives of $Z$ at $(b,\bar b)$. The
+truncated series is $\E_H[A_t(UD)B_t(\bar UD')]$ with $A_t$ the part of
+$\sum_\lambda c_\lambda s_\lambda(UD)$ over partitions with $\lambda_1-\lambda_3\le24$ and
+$\lambda_3\le8$, and $B_t$ likewise. Every omitted partition has $|\lambda|>24$,
+because $3\cdot9>24$, and the omitted part is at most $T(\|D\|)=\sum_{n>24}
+(\frac32\|D\|)^n/n!$ in modulus. On the polydisc $|D_{ij}-b_{ij}|\le\rho$,
+$\|D\|\le\|b\|+3\rho$, and Cauchy's estimate bounds the $\alpha$-th derivative
+of the omitted part by $\alpha!\rho^{-|\alpha|}T(\|b\|+3\rho)$. The
+derivatives of the full exponential are at most $2^{-|\alpha|}e^{v/2}$ with
+$v=\sum_k|b_k|$, since $|\Tr(Ub)|\le\sum_k|b_k|$ for diagonal $b$. With
+$\varepsilon_\alpha=2^{|\alpha|}\alpha!\rho^{-|\alpha|}T(\|b\|+3\rho)$ the
+truncated moment differs from the true one by at most $\varepsilon_\alpha e^{v/2}
++(e^{v/2}+\varepsilon_\alpha)\varepsilon_\beta$, and $\rho$ is chosen to minimise
+$\rho^{-4}T$.
+
+\emph{Rounding.} The truncated series is a Taylor polynomial of total degree
+four in the $36$ real directions of $(D-b,D'-\bar b)$, computed in double
+precision. Every operation is repeated on absolute values and carries an
+operation count $n$, so that the computed coefficient differs from the
+exact one by at most $\gamma_n=nu/(1-nu)$, $u=2^{-53}$, times the
+absolute-value coefficient~\cite[Sec.~3.1]{Hig02}. The polynomials
+$\varphi_h$, $\ip{\nabla\varphi_h}{\nabla\varphi_{h'}}$ and $G_{F_k,h}$ have exact
+Gaussian rational coefficients, given by Lemma~\ref{lem:gradients}:
+\[
+\begin{split}
+G_{c,h}(U)={}&\tfrac12\ReTr(ch^*)-\tfrac12\ReTr(cUhU)\\
+&-\tfrac13\ImTr(cU)\ImTr(hU).
+\end{split}
+\]
+Normalisation by $Z$, the quadratic forms and their error matrices are
+formed with the same bookkeeping, and the largest eigenvalues are bounded in
+ball arithmetic~\cite{Joh17}. The off-block entries of the exact forms vanish
+and are dropped with their error bounds checked.
+
+\emph{Separation.} The functional $c$ of a discarded box is the dual solution
+of a linear program for the gauge of the centre of the box with respect to a
+$72\times72$ grid of $T$. Only the final inequality is used: $\max_T\ell$ is
+bounded by its maximum over a $512\times512$ grid plus $\frac12H\delta^2/2$, with
+$\delta=2\pi/512$ and $H=|c_1|+|c_2|+2|c_3|$ a bound for its Hessian on the
+torus, and the inequality is checked with relative margin $10^{-12}$.
+
+\emph{Choice of $s$.} The integer $j$ is chosen per box by a floating-point
+search; any choice gives a valid bound. The cover runs in about half an
+hour on four cores and writes every certified box with its $j$ and its
+bound.
+
+\begin{thebibliography}{99}\raggedright\advance\leftskip\labelwidth
+
+\bibitem{BE85}
+D.~Bakry and M.~\'Emery, Diffusions hypercontractives, in \emph{S\'eminaire
+de Probabilit\'es XIX}, Lecture Notes in Math. 1123, Springer, Berlin, 1985,
+177--206, \href{https://doi.org/10.1007/BFb0075847}{doi:10.1007/BFb0075847}.
+
+\bibitem{BGL14}
+D.~Bakry, I.~Gentil and M.~Ledoux, \emph{Analysis and Geometry of Markov
+Diffusion Operators}, Grundlehren Math. Wiss. 348, Springer, Cham, 2014,
+\href{https://doi.org/10.1007/978-3-319-00227-9}{doi:10.1007/978-3-319-00227-9}.
+
+\bibitem{Bal84a}
+T.~Ba{\l}aban, Propagators and renormalization transformations for lattice
+gauge theories.~I, Comm. Math. Phys. \textbf{95} (1984), 17--40,
+\href{https://doi.org/10.1007/BF01215753}{doi:10.1007/BF01215753}.
+
+\bibitem{Bal85a}
+T.~Ba{\l}aban, Averaging operations for lattice gauge theories, Comm. Math.
+Phys. \textbf{98} (1985), 17--51,
+\href{https://doi.org/10.1007/BF01211042}{doi:10.1007/BF01211042}.
+
+\bibitem{Bal89b}
+T.~Ba{\l}aban, Large field renormalization. II. Localization,
+exponentiation, and bounds for the $\mathbf R$ operation, Comm. Math. Phys.
+\textbf{122} (1989), 355--392,
+\href{https://doi.org/10.1007/BF01238433}{doi:10.1007/BF01238433}.
+
+\bibitem{Bha26}
+D.~Bhattacharjee, BLLM: Beyond the LLM with Deep Human-Mind-AI, Zenodo,
+release v3.0.5, 2026,
+\href{https://doi.org/10.5281/zenodo.23469389}{doi:10.5281/zenodo.23469389}.
+
+\bibitem{BB26a}
+D.~Bhattacharjee and U.~Bhattacharya, Mass gap of lattice Yang--Mills theory
+up to the Dobrushin ceiling, Zenodo, release v2.0.2, 2026,
+\href{https://doi.org/10.5281/zenodo.23449466}{doi:10.5281/zenodo.23449466}.
+
+\bibitem{BB26b}
+D.~Bhattacharjee and U.~Bhattacharya, Spacing-uniform lattice inequalities
+cannot produce the Yang--Mills mass gap, Zenodo, release v1.0.0, 2026,
+\href{https://doi.org/10.5281/zenodo.23444339}{doi:10.5281/zenodo.23444339}.
+
+\bibitem{BSB26}
+D.~Bhattacharjee, P.~Samal and S.~Bhattacharya, Geometric structure and
+renormalization group flow in chiral Yang--Mills--Higgs theory, Preprints
+(2026), \href{https://doi.org/10.20944/preprints202602.2022.v1}
+{doi:10.20944/preprints202602.2022.v1}.
+
+\bibitem{Bum13}
+D.~Bump, \emph{Lie Groups}, 2nd ed., Grad. Texts in Math. 225, Springer, New
+York, 2013, \href{https://doi.org/10.1007/978-1-4614-8024-2}
+{doi:10.1007/978-1-4614-8024-2}.
+
+\bibitem{Cre77}
+M.~Creutz, Gauge fixing, the transfer matrix, and confinement on a lattice,
+Phys. Rev. D \textbf{15} (1977), 1128--1136,
+\href{https://doi.org/10.1103/PhysRevD.15.1128}{doi:10.1103/PhysRevD.15.1128}.
+
+\bibitem{Dob68}
+R.~L.~Dobrushin, The description of a random field by means of conditional
+probabilities and conditions of its regularity, Theory Probab. Appl.
+\textbf{13} (1968), 197--224,
+\href{https://doi.org/10.1137/1113026}{doi:10.1137/1113026}.
+
+\bibitem{Dob70}
+R.~L.~Dobrushin, Prescribing a system of random variables by conditional
+distributions, Theory Probab. Appl. \textbf{15} (1970), 458--486,
+\href{https://doi.org/10.1137/1115049}{doi:10.1137/1115049}.
+
+\bibitem{DS85}
+R.~L.~Dobrushin and S.~B.~Shlosman, Constructive criterion for the uniqueness
+of Gibbs field, in \emph{Statistical Physics and Dynamical Systems},
+Birkh\"auser, Boston, 1985, 347--370,
+\href{https://doi.org/10.1007/978-1-4899-6653-7_20}{doi:10.1007/978-1-4899-6653-7\_20}.
+
+\bibitem{FH91}
+W.~Fulton and J.~Harris, \emph{Representation Theory: A First Course}, Grad.
+Texts in Math. 129, Springer, New York, 1991,
+\href{https://doi.org/10.1007/978-1-4612-0979-9}{doi:10.1007/978-1-4612-0979-9}.
+
+\bibitem{GL10}
+C.~Gattringer and C.~B.~Lang, \emph{Quantum Chromodynamics on the Lattice},
+Lecture Notes in Phys. 788, Springer, Berlin, 2010,
+\href{https://doi.org/10.1007/978-3-642-01850-3}{doi:10.1007/978-3-642-01850-3}.
+
+\bibitem{Hig02}
+N.~J.~Higham, \emph{Accuracy and Stability of Numerical Algorithms}, 2nd
+ed., SIAM, Philadelphia, 2002,
+\href{https://doi.org/10.1137/1.9780898718027}{doi:10.1137/1.9780898718027}.
+
+\bibitem{Hoe63}
+W.~Hoeffding, Probability inequalities for sums of bounded random variables,
+J. Amer. Statist. Assoc. \textbf{58} (1963), 13--30,
+\href{https://doi.org/10.1080/01621459.1963.10500830}{doi:10.1080/01621459.1963.10500830}.
+
+\bibitem{JW06}
+A.~Jaffe and E.~Witten, Quantum Yang--Mills theory, in \emph{The Millennium
+Prize Problems}, Clay Mathematics Institute and American Mathematical
+Society, Cambridge, MA and Providence, RI, 2006, 129--152,
+\url{https://www.claymath.org/wp-content/uploads/2022/06/yangmills.pdf}.
+
+\bibitem{Joh17}
+F.~Johansson, Arb: efficient arbitrary-precision midpoint-radius interval
+arithmetic, IEEE Trans. Comput. \textbf{66} (2017), 1281--1292,
+\href{https://doi.org/10.1109/TC.2017.2690633}{doi:10.1109/TC.2017.2690633}.
+
+\bibitem{Kal21}
+O.~Kallenberg, \emph{Foundations of Modern Probability}, 3rd ed., Springer,
+Cham, 2021, \href{https://doi.org/10.1007/978-3-030-61871-1}
+{doi:10.1007/978-3-030-61871-1}.
+
+\bibitem{KS75}
+J.~Kogut and L.~Susskind, Hamiltonian formulation of Wilson's lattice gauge
+theories, Phys. Rev. D \textbf{11} (1975), 395--408,
+\href{https://doi.org/10.1103/PhysRevD.11.395}{doi:10.1103/PhysRevD.11.395}.
+
+\bibitem{MM94}
+I.~Montvay and G.~M\"unster, \emph{Quantum Fields on a Lattice}, Cambridge
+University Press, Cambridge, 1994,
+\href{https://doi.org/10.1017/CBO9780511470783}{doi:10.1017/CBO9780511470783}.
+
+\bibitem{OS73}
+K.~Osterwalder and R.~Schrader, Axioms for Euclidean Green's functions,
+Comm. Math. Phys. \textbf{31} (1973), 83--112,
+\href{https://doi.org/10.1007/BF01645738}{doi:10.1007/BF01645738}.
+
+\bibitem{OS75}
+K.~Osterwalder and R.~Schrader, Axioms for Euclidean Green's functions.~II,
+Comm. Math. Phys. \textbf{42} (1975), 281--305,
+\href{https://doi.org/10.1007/BF01608978}{doi:10.1007/BF01608978}.
+
+\bibitem{OSei78}
+K.~Osterwalder and E.~Seiler, Gauge field theories on a lattice, Ann. Physics
+\textbf{110} (1978), 440--471,
+\href{https://doi.org/10.1016/0003-4916(78)90039-8}{doi:10.1016/0003-4916(78)90039-8}.
+
+\bibitem{Sei82}
+E.~Seiler, \emph{Gauge Theories as a Problem of Constructive Quantum Field
+Theory and Statistical Mechanics}, Lecture Notes in Phys. 159, Springer,
+Berlin, 1982, \href{https://doi.org/10.1007/3-540-11559-5}{doi:10.1007/3-540-11559-5}.
+
+\bibitem{SZZ23}
+H.~Shen, R.~Zhu and X.~Zhu, A stochastic analysis approach to lattice
+Yang--Mills at strong coupling, Comm. Math. Phys. \textbf{400} (2023),
+805--851, \href{https://doi.org/10.1007/s00220-022-04609-1}{doi:10.1007/s00220-022-04609-1}.
+
+\bibitem{Sta99}
+R.~P.~Stanley, \emph{Enumerative Combinatorics, Volume 2}, Cambridge Stud.
+Adv. Math. 62, Cambridge University Press, Cambridge, 1999,
+\href{https://doi.org/10.1017/CBO9780511609589}{doi:10.1017/CBO9780511609589}.
+
+\bibitem{Vil09}
+C.~Villani, \emph{Optimal Transport: Old and New}, Grundlehren Math. Wiss.
+338, Springer, Berlin, 2009,
+\href{https://doi.org/10.1007/978-3-540-71050-9}{doi:10.1007/978-3-540-71050-9}.
+
+\bibitem{Wil74}
+K.~G.~Wilson, Confinement of quarks, Phys. Rev. D \textbf{10} (1974),
+2445--2459, \href{https://doi.org/10.1103/PhysRevD.10.2445}{doi:10.1103/PhysRevD.10.2445}.
+
+\end{thebibliography}
+
+\end{document}

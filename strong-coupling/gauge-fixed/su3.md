@@ -1,4 +1,4 @@
-# Four-dimensional SU(3) in the forest gauge: β_W ≤ 11/16
+# Four-dimensional SU(3) in the forest gauge: β_W ≤ 45/64
 
 Status: proved by hand; constants certified in ball arithmetic (`checks/su3/certify_su3.py` for Lemmas B–E,
 `checks/su3/certify_tilted.py` for Lemmas G–J, `checks/su3/certify_blend.py` for Lemmas D′–H′, python-flint 0.9.0),
@@ -311,7 +311,7 @@ and the run takes about 25 seconds (output in `checks/su3/certify_blend.txt`).
 
 Sections 3 and 4 bound the moments in Lemma F′ by numerators at extreme points of rK and the
 normalisation Z ≥ 1. This section evaluates Lemma F′ itself at every b ∈ rK, with the moments of ν_b
-computed from the character expansion of the Haar measure and bounded rigorously, at r = 11/8.
+computed from the character expansion of the Haar measure and bounded rigorously, at r = 45/32.
 
 **Lemma K (orbits).** (i) For V, W ∈ SU(3) and every h, L_h(VbW) = L_{V⁻¹hW⁻¹}(b) and L_h(b̄) = L_{h̄}(b),
 so sup_{‖h‖=1} L_h is constant on the orbits of b ↦ VbW and b ↦ b̄. (ii) Every b ∈ C^{3×3} lies in the orbit
@@ -440,18 +440,18 @@ H = |c_1| + |c_2| + 2|c_3| a bound for the Hessian on the torus. The functional 
 linear program for the gauge of the centre with respect to a 72 × 72 grid of T; only the final inequality
 is used, and it is checked with a relative margin 10⁻¹².
 
-**Result at r = 11/8.** Boxes of side r/8 cover [0, r]² × [−r, r] × [0, r]: 8192 boxes, of which 6762 have no
-point with a_1 ≥ a_2 ≥ |z_3| and 589 are separated from r conv T. The other 841 all satisfy 2rB_Q < 1, with
-j between 780 and 1020; the largest value of 2rB_Q is 0.979520, on the boxes containing
-diag(1.03125, 1.03125, 0.515625 + 0.6875i), and half of them are below 0.938. Over the 2099 corners the
-moment errors are below 4.1·10⁻⁸ and the normalisations satisfy Z(b_i) ≥ 1 − 10⁻¹². The boxes with the largest
-bounds lie mostly outside rK, and their corners outside rK carry the larger values: of 625 grid points of
-the worst box only 2 lie in rK, where 2r sup_h of the floating-point bound of Lemma F′ is 0.945
-(`checks/su3/exact/worstbox.py`). `checks/su3/exact/cover.py`
-runs in about 20 minutes on four cores and writes `cover_log.txt` and `cover_boxes.txt` (every box with
-its j and bound). Hence
+**Result at r = 45/32.** Boxes of side r/8 cover [0, r]² × [−r, r] × [0, r]: 8192 boxes, of which 6762 have no
+point with a_1 ≥ a_2 ≥ |z_3| and 589 are separated from r conv T. Of the other 841, 797 satisfy
+2rB_Q < 1; the remaining 44 are cut into sixteen boxes of side r/16 each, and of these 704 boxes 68 survive
+the two tests and all satisfy 2rB_Q < 1. The 865 certified boxes have j between 776 and 1020; the largest
+value of 2rB_Q is 0.999657, on the box [1.0547, 1.2305] × [0.7031, 0.8789] × [0.3516, 0.5273] ×
+[0.7031, 0.8789] in (a_1, a_2, x_3, y_3), and the median is 0.966. The rounding and truncation errors of
+the moments at every corner enter the bound B_Q. On a 5⁴ grid of the worst box, 55 points lie in rK, where 2r sup_h
+of the floating-point bound of Lemma F′ is at most 0.972; the largest value on the grid, 0.992, is at a
+corner outside rK (`checks/su3/exact/worstbox.py`, output `worstbox.txt`). `checks/su3/exact/cover.py` runs in about half an hour on four cores and writes
+`cover_log.txt` and `cover_boxes.txt` (every box with its j and bound). Hence
 
-    2rΛ(r) ≤ 0.979520 at r = 11/8.
+    2rΛ(r) ≤ 0.999657 at r = 45/32.
 
 
 ## 6. The theorem
@@ -466,15 +466,15 @@ one r holds below it. In ball arithmetic (g² ≤ 2.06548; for Λ̄ upper Rieman
 | Λ̄ (Lemmas E, F), `certify_su3.py` | 0.732 | gap 1.07504 | 0.999841 | 0.00016 |
 | Λ̄₂ (Lemmas F–J), `certify_tilted.py` | 0.98 | m̃ < 0.7123, κ̃ < 0.1830, gap 0.661306 | 0.999236 | 0.00076 |
 | Λ̄₃ (Lemmas D′–H′), `certify_blend.py` | 1.14 | s = 0.322, m̂ < 0.64543, κ_s < 0.0508, gap₂ 1.64094 | 0.990976 | 0.00907 |
-| Lemma F′ at every b (Section 5), `exact/cover.py` | 11/8 | 841 boxes, gap₂ 195/128 | 0.979520 | 0.02069 |
+| Lemma F′ at every b (Section 5), `exact/cover.py` | 45/32 | 865 boxes, gap₂ 193/128 | 0.999657 | 0.00034 |
 
-So Λ(11/8) ≤ 0.979520/(11/4) < 0.356189, and for β_W ≤ 11/16, α = 2rΛ(r) ≤ 4β_W Λ(11/8) < 1.42476 β_W ≤ 0.979520.
+So Λ(45/32) ≤ 0.999657/(45/16) < 0.355435, and for β_W ≤ 45/64, α ≤ 4β_W Λ(45/32) < 1.42174 β_W ≤ 0.999657.
 
-**Theorem.** Four-dimensional SU(3) lattice Yang–Mills with 0 ≤ β_W ≤ 11/16 = 0.6875: the forest-gauge
+**Theorem.** Four-dimensional SU(3) lattice Yang–Mills with 0 ≤ β_W ≤ 45/64 = 0.703125: the forest-gauge
 specification γ^F has a unique Gibbs measure; the free-boundary limit ω of the Wilson measures exists
 for every gauge-invariant local observable along every exhausting sequence of boxes, is translation
 and hypercubic invariant and reflection positive, has exponentially decaying truncated correlations,
-and has a transfer-matrix gap m ≥ −log(1.4248 β_W) > 0. For β_W ≤ 0.366 also
+and has a transfer-matrix gap m ≥ −log(1.4218 β_W) > 0. For β_W ≤ 0.366 also
 m ≥ −log(4β_W Λ̄(2β_W)), and since Λ̄ → 1/4, m ≥ −log β_W + o(1) as β_W → 0.
 
 This passes 9/29 = 0.310 (gauge-fixed curvature) and 9/32 = 0.281 (Theorem B).
