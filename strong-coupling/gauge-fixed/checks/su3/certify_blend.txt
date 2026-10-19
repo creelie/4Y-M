@@ -1,0 +1,17 @@
+(0) at r = 0 the moment matrix of |grad phi_h|^2 is exactly (4/9) I
+(A) E_H[|grad phi_h|^2 U] = adj(h)/9 exactly (all 171 x 9 polarised coefficients)
+(M) max_h E[|grad phi_h|^2 e^(r ReTrU)] < 0.8051 at r = 1.14: True
+    float value 0.8050630849426982
+    mh = mt/(mt + (5/9) e^(-r/5)) <= [0.645427003334596 +/- 2.90e-16]
+    exact moments built, block structure verified (11.3 s)
+    float maximum over a 90 x 90 grid of the torus: 0.049821
+    9778 dyadic boxes cover the torus exactly (area 1); float search 19.0 s
+(V) max over the torus of the blended variance < 0.0508 at r = 1.14, s = 0.322: True  (0 failed boxes, 23.8 s)
+(D) gap2(r) = [1.64093750000000 +/- 3.34e-16]
+    Lambda <= [0.434638487183947 +/- 4.73e-16]   2 r Lambda = [0.99097575077940 +/- 1.32e-15]   beta_W = [0.570000000000000 +/- 9.78e-17]
+    rate -log(2 r Lambda) = [0.00906521439714 +/- 2.66e-15]
+ALL OK
+
+real	0m23.971s
+user	0m24.110s
+sys	0m0.020s

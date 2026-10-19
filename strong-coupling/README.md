@@ -57,9 +57,9 @@ results follow, proved by hand and not yet refereed (see
 - every SU(N): the gauge-fixed Hessian is bounded by 29/2 (against 16), so
   Bakry–Émery, decay and a gap hold for |β| < 1/29 (SU(3): β_W < 9/29);
 - four-dimensional SU(3): single-link Dobrushin in the same gauge, with an
-  analytic lower bound for the spectral gap of the one-link measure and exact
-  moments of the tilted Haar measure, gives uniqueness, decay and a gap for
-  β_W ≤ 0.49.
+  analytic lower bound for the spectral gap of the one-link measure, exact
+  moments of the tilted Haar measure and a blended corrector, gives
+  uniqueness, decay and a gap for β_W ≤ 0.57.
 
 Checks in `prd/checks/` (the paper does not rely on them):
 
