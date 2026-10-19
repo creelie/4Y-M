@@ -42,7 +42,20 @@ What it proves, all by hand and without conditions:
 It does not prove the Clay mass gap. Section VIII lists the gaps: the
 intermediate fixed coupling, the crossover between strong coupling and
 Bałaban's weak-coupling control, the continuum limit, and a gap in physical
-units remain open.
+units remain open. `OPEN.md` records what is known of each.
+
+## Forest gauge fixing (`gauge-fixed/`)
+
+Fixing the gauge on one link of every plaquette, along a field of straight
+lines, lowers the number of Dobrushin partners of a link from 18 to 12. Two
+results follow, proved by hand and not yet refereed (see
+`gauge-fixed/README.md`):
+
+- four-dimensional SU(2): uniqueness of the free-boundary state, decay and a
+  transfer-matrix gap m ≥ −log(3β_W) for β_W < 1/3, the ceiling of
+  single-link Dobrushin after any forest gauge fixing;
+- every SU(N): the gauge-fixed Hessian is bounded by 29/2 (against 16), so
+  Bakry–Émery, decay and a gap hold for |β| < 1/29 (SU(3): β_W < 9/29).
 
 Checks in `prd/checks/` (the paper does not rely on them):
 
@@ -55,7 +68,9 @@ Checks in `prd/checks/` (the paper does not rely on them):
 
 The Lean files `YangMills/StrongCoupling/{QxCoefficients,ZonalBound,Thresholds}.lean`
 certify the finite and algebraic steps of the sharp quarter and of
-Theorems E and F (25 theorems, see the root README).
+Theorems E and F (25 theorems, see the root README);
+`YangMills/StrongCoupling/GaugeFix.lean` certifies the combinatorics of the
+forest gauge (7 theorems).
 
 ## The earlier amsart version (`paper/`)
 
