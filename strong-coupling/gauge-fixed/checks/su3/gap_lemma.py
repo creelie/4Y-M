@@ -5,7 +5,8 @@
    diagonal W it equals max(A, B) with A = (sqrt(e1^2 - 3 e2) - e1)/3, B = max_{j<k} -(c_j + c_k)/2,
    c_k = cos(theta_k), e1, e2 the elementary symmetric functions of the c_k.
 2. Galerkin upper bounds for the gap of nu_b at r = 1.14 (polynomials of degree two, 10^5 Haar points),
-   against gap2(r) = 283/128 - r/2 of Lemma D' and gap(r) = (sqrt(7/6) - g r/2)^2 + 3/2 - r of Lemma D."""
+   against gap2(r) = 283/128 - r/2 of Lemma D' and gap(r) = (sqrt(7/6) - g r/2)^2 + 3/2 - r of Lemma D,
+   at b = 0, rI, r diag(0,0,1) = r (I + diag(-1,-1,1))/2 and (r/2) e^{i pi/3} I = r (I + omega I)/2, all in rK."""
 import sys,os; sys.path.insert(0,os.path.dirname(os.path.abspath(__file__)))
 import numpy as np
 from lip import haar, features
@@ -44,5 +45,6 @@ def galerkin_gap(b,D=2):
     mF=w@F; C=(F-mF).T@((F-mF)*w[:,None]); Gw=(Gr*np.sqrt(w)[None,:,None]).reshape(-1,Gr.shape[2]); A=Gw.T@Gw
     e,V=np.linalg.eigh(C); keep=e>1e-8*e.max(); P=V[:,keep]/np.sqrt(e[keep])
     return np.linalg.eigvalsh(P.T@A@P).min()
-for name,b in [('b = 0',0*np.eye(3)),('b = rI',r*np.eye(3)),('b = r diag(1,1,0)',np.diag([r,r,0]))]:
+for name,b in [('b = 0',0*np.eye(3)),('b = rI',r*np.eye(3)),('b = r diag(0,0,1)',np.diag([0,0,r])),
+               ('b = (r/2) e^{i pi/3} I',r/2*np.exp(1j*np.pi/3)*np.eye(3))]:
     print(f"2. r = {r}, {name}: Galerkin gap {galerkin_gap(b):.4f}   (Lemma D': {gap2:.4f}; Lemma D: {gap1:.4f})")

@@ -1,8 +1,24 @@
-r=1.12 rI: L=0.3170 2rL=0.710
-r=1.12 r diag(1,1,-1): L=0.3528 2rL=0.790
-r=1.25 rI: L=0.3155 2rL=0.789
-r=1.25 r diag(1,1,-1): L=0.3641 2rL=0.910
-r=1.4 rI: L=0.3112 2rL=0.871
-r=1.4 r diag(1,1,-1): L=0.3771 2rL=1.056
-r=1.5 rI: L=0.3070 2rL=0.921
-r=1.5 r diag(1,1,-1): L=0.3858 2rL=1.157
+r=1.25 b=1.1 I: L=0.3170 2rL=0.792
+r=1.25 b=r I: L=0.3155 2rL=0.789
+r=1.25 b=r diag(0,0,1): L=0.3110 2rL=0.778
+r=1.25 b=(r/2) e^{i pi/3} I: L=0.3116 2rL=0.779
+r=1.25 b=r (I + diag(w,w,w^-2))/2: L=0.3161 2rL=0.790
+r=1.25: largest 2rL over these matrices 0.792
+r=1.4 b=1.1 I: L=0.3170 2rL=0.888
+r=1.4 b=r I: L=0.3112 2rL=0.871
+r=1.4 b=r diag(0,0,1): L=0.3178 2rL=0.890
+r=1.4 b=(r/2) e^{i pi/3} I: L=0.3186 2rL=0.892
+r=1.4 b=r (I + diag(w,w,w^-2))/2: L=0.3182 2rL=0.891
+r=1.4: largest 2rL over these matrices 0.892
+r=1.5 b=1.1 I: L=0.3170 2rL=0.951
+r=1.5 b=r I: L=0.3070 2rL=0.921
+r=1.5 b=r diag(0,0,1): L=0.3223 2rL=0.967
+r=1.5 b=(r/2) e^{i pi/3} I: L=0.3232 2rL=0.970
+r=1.5 b=r (I + diag(w,w,w^-2))/2: L=0.3187 2rL=0.956
+r=1.5: largest 2rL over these matrices 0.970
+r=1.55 b=1.1 I: L=0.3170 2rL=0.983
+r=1.55 b=r I: L=0.3045 2rL=0.944
+r=1.55 b=r diag(0,0,1): L=0.3245 2rL=1.006
+r=1.55 b=(r/2) e^{i pi/3} I: L=0.3255 2rL=1.009
+r=1.55 b=r (I + diag(w,w,w^-2))/2: L=0.3187 2rL=0.988
+r=1.55: largest 2rL over these matrices 1.009
