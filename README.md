@@ -79,12 +79,12 @@ free-boundary state with a transfer-matrix gap m ≥ −log(3β_W) for β_W < 1/
 and every SU(N) has a gauge-fixed Hessian bound 29/2 giving Bakry–Émery,
 decay and a gap for |β| < 1/29 (SU(3): β_W < 9/29). For SU(3) a single-link
 Dobrushin bound in the same gauge, with a spectral-gap estimate for the
-one-link measure and a blended corrector evaluated with the exact moments of
-the one-link measure at every staple sum (character expansion, rigorous
-error bounds, a cover of the staple sums by 865 boxes), gives uniqueness,
-decay and a gap m ≥ −log(1.4218 β_W) for β_W ≤ 45/64 = 0.703. The
-single-link route stops near β_W ≈ 0.715 with this gap bound and at or below
-0.77 with any bound; past that, blocks of several links are needed.
+one-link measure and a corrector of degree two in the matrix entries,
+evaluated with the exact moments of the one-link measure at every staple sum
+(character expansion, rigorous error bounds, a cover of the staple sums by
+2341 boxes), gives uniqueness, decay and a gap m ≥ −log(1.3332 β_W) for
+β_W ≤ 3/4. The single-link route stops at or below β_W ≈ 0.77 with any
+bound; past that, blocks of several links are needed.
 
 **Open:** the Clay problem itself (the four open problems of the
 strong-coupling paper are listed in `strong-coupling/OPEN.md`). The paper isolates the residual statement

@@ -1,6 +1,6 @@
 """Figures of the forest-gauge paper. Run from this directory: python3 make_figures.py.
-Reads the certified boxes in ../../gauge-fixed/checks/su3/exact/r45_32/cover_boxes.txt and the face
-values in ../../gauge-fixed/checks/su3/exact/face.txt. Writes flattened 256-colour PNG files."""
+Reads the certified boxes in ../../gauge-fixed/checks/su3/deg2/r3_2/cover_boxes.txt and the face
+values in ../../gauge-fixed/checks/su3/deg2/face2.txt. Writes flattened 256-colour PNG files."""
 import os, itertools
 import numpy as np
 import matplotlib
@@ -10,7 +10,7 @@ from mpl_toolkits.mplot3d.art3d import Line3DCollection
 from PIL import Image
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-EXACT = os.path.join(HERE, '..', '..', 'gauge-fixed', 'checks', 'su3', 'exact')
+DEG2 = os.path.join(HERE, '..', '..', 'gauge-fixed', 'checks', 'su3', 'deg2')
 plt.rcParams.update({'font.family': 'serif', 'font.size': 10, 'mathtext.fontset': 'cm'})
 TABLE = [0, 0, 2, 3, 3, 1, 2, 1, 1, 2, 1, 3, 3, 2, 0, 0]
 sigma = lambda x: TABLE[(x[0] % 2) + 2 * (x[1] % 2) + 4 * (x[2] % 2) + 8 * (x[3] % 2)]
@@ -85,7 +85,7 @@ def fig_ranges():
             'fdob': ('forest gauge, single-link Dobrushin', '#c0392b')}
     col = {k: i for i, k in enumerate(meth)}
     rows = [('SU(2)', [('curv', 4 / 32, '1/8'), ('quarter', 2 / 9, '2/9'), ('fdob', 1 / 3, '1/3')]),
-            ('SU(3)', [('SZZ', 9 / 48, '3/16'), ('curv', 9 / 32, '9/32'), ('fcurv', 9 / 29, '9/29'), ('fdob', 45 / 64, '45/64')])]
+            ('SU(3)', [('SZZ', 9 / 48, '3/16'), ('curv', 9 / 32, '9/32'), ('fcurv', 9 / 29, '9/29'), ('fdob', 3 / 4, '3/4')])]
     ax.computed_zorder = False
     for yi, (name, items) in enumerate(rows):
         y0 = 1.5 * yi
@@ -108,54 +108,61 @@ def fig_ranges():
     save(fig, 'fig_ranges.png')
 
 def fig_cover():
-    A = np.array([[float(t) for t in l.split()] for l in open(os.path.join(EXACT, 'r45_32', 'cover_boxes.txt')) if not l.startswith('#')])
+    A = np.array([[float(t) for t in l.split()] for l in open(os.path.join(DEG2, 'r3_2', 'cover_boxes.txt')) if not l.startswith('#')])
     lo, hi, val = A[:, :4], A[:, 4:8], A[:, 9]
     c = (lo + hi) / 2
-    r = 45 / 32
+    r = 3 / 2
     fig = plt.figure(figsize=(7.2, 3.8))
     ax = fig.add_subplot(1, 2, 1, projection='3d')
-    sc = ax.scatter(c[:, 0], c[:, 1], np.hypot(c[:, 2], c[:, 3]), c=val, cmap='viridis', vmin=0.88, vmax=1.0, s=10 * (hi[:, 0] - lo[:, 0]) / (r / 8) + 4, depthshade=False)
-    t = np.linspace(0, 1, 50)
-    ax.plot(r + 0 * t, r * t, r * t, color='#c0392b', linewidth=1.6)
+    sc = ax.scatter(c[:, 0], c[:, 1], np.hypot(c[:, 2], c[:, 3]), c=val, cmap='viridis', vmin=0.84, vmax=1.0, s=10 * (hi[:, 0] - lo[:, 0]) / (r / 8) + 3, depthshade=False)
     ax.set_xlabel(r'$a_1$', labelpad=-6); ax.set_ylabel(r'$a_2$', labelpad=-6)
     ax.tick_params(labelsize=7, pad=-2)
     ax.view_init(elev=24, azim=-128)
-    ax.set_title('(a) all 865 boxes; height $|z_3|$', fontsize=10)
+    ax.set_title(f'(a) all {len(val)} boxes; height $|z_3|$', fontsize=10)
     ax = fig.add_subplot(1, 2, 2, projection='3d')
-    sel = val > 0.97
-    ax.scatter(c[sel, 0], c[sel, 1], c[sel, 2], c=val[sel], cmap='viridis', vmin=0.88, vmax=1.0, s=16, depthshade=False)
+    sel = val > 0.99
+    ax.scatter(c[sel, 0], c[sel, 1], c[sel, 2], c=val[sel], cmap='viridis', vmin=0.84, vmax=1.0, s=12, depthshade=False)
     ax.set_xlabel(r'$a_1$', labelpad=-6); ax.set_ylabel(r'$a_2$', labelpad=-6)
     ax.tick_params(labelsize=7, pad=-2)
     ax.view_init(elev=24, azim=-128)
-    ax.set_title('(b) bound above 0.97; height $x_3$', fontsize=10)
+    ax.set_title('(b) bound above 0.99; height $x_3$', fontsize=10)
     cax = fig.add_axes([0.905, 0.22, 0.016, 0.56])
-    cb = fig.colorbar(sc, cax=cax, ticks=[0.88, 0.92, 0.96, 1.0])
+    cb = fig.colorbar(sc, cax=cax, ticks=[0.84, 0.88, 0.92, 0.96, 1.0])
     cb.set_label('certified bound on the box', fontsize=9); cb.ax.tick_params(labelsize=7)
     fig.subplots_adjust(left=0.05, right=0.87, bottom=0.02, top=0.92, wspace=0.08)
     save(fig, 'fig_cover.png')
 
 def fig_face():
     data = {}
-    for l in open(os.path.join(EXACT, 'face.txt')):
+    for l in open(os.path.join(DEG2, 'face2.txt')):
         if not l.startswith('r='): continue
-        a = l.split(); r = float(a[0][2:]); q = float(a[1].split('=')[1].rstrip(':')); v = float(a[2].split('=')[1])
-        data.setdefault(r, []).append((q, v))
-    fig = plt.figure(figsize=(7.2, 3.4))
+        a = l.replace(':', ' ').split()
+        r = float(a[0][2:]); q = float(a[1].split('=')[1])
+        v1 = float(a[2].split('=')[1]); v2 = float(a[3].split('=')[1])
+        data.setdefault(r, []).append((q, v1, v2))
+    fig = plt.figure(figsize=(7.2, 3.6))
     ax = fig.add_subplot(1, 1, 1, projection='3d')
-    cols = {1.36: '#2e6fb7', 1.4: '#1e8449', 1.44: '#c0392b'}
+    cols = {1.44: '#2e6fb7', 1.5: '#1e8449', 1.54: '#c0392b'}
     for r, pts in sorted(data.items()):
-        pts = sorted(pts); q = np.array([p[0] for p in pts]); v = np.array([p[1] for p in pts])
-        ax.plot(q, r + 0 * q, v, color=cols.get(r, 'k'), linewidth=2, marker='o', markersize=3)
-        for qq, vv in zip(q, v):
-            ax.plot([qq, qq], [r, r], [0.93, vv], color=cols.get(r, 'k'), linewidth=0.4, alpha=0.5)
-        ax.text(q[0] - 0.02, r, v[0] + 0.004, f'$r={r:.2f}$', color=cols.get(r, 'k'), fontsize=9, ha='right')
-    Q, R = np.meshgrid(np.linspace(0.6, 1.0, 2), np.linspace(1.34, 1.46, 2))
+        pts = sorted(pts); q = np.array([p[0] for p in pts])
+        v1 = np.array([p[1] for p in pts]); v2 = np.array([p[2] for p in pts])
+        c = cols.get(r, 'k')
+        ax.plot(q, r + 0 * q, v1, color=c, linewidth=1.4, linestyle='--')
+        ax.plot(q, r + 0 * q, v2, color=c, linewidth=2.2, marker='o', markersize=3)
+        for qq, vv in zip(q, v2):
+            ax.plot([qq, qq], [r, r], [0.90, vv], color=c, linewidth=0.4, alpha=0.5)
+    Q, R = np.meshgrid(np.linspace(0.5, 1.0, 2), np.linspace(1.42, 1.56, 2))
     ax.plot_surface(Q, R, 1 + 0 * Q, color='0.6', alpha=0.25)
-    ax.set_xlabel(r'$\rho/r$', labelpad=-4); ax.set_ylabel(r'$r$', labelpad=-4); ax.set_zlabel('bound', labelpad=2)
-    ax.tick_params(labelsize=7, pad=-2); ax.set_zlim(0.93, 1.015)
-    ax.set_xticks([0.6, 0.7, 0.8, 0.9, 1.0]); ax.set_yticks([1.36, 1.40, 1.44]); ax.set_zticks([0.94, 0.97, 1.0])
-    ax.view_init(elev=18, azim=-60)
-    ax.set_box_aspect((2.2, 1.1, 1.0), zoom=1.15)
+    ax.set_xlabel(r'$\rho/r$', labelpad=-4); ax.set_ylabel(r'$r$', labelpad=-2); ax.set_zlabel('bound', labelpad=2)
+    ax.tick_params(labelsize=7, pad=-2); ax.set_zlim(0.90, 1.10)
+    ax.set_xticks([0.5, 0.6, 0.7, 0.8, 0.9, 1.0]); ax.set_yticks([1.44, 1.50, 1.54]); ax.set_zticks([0.92, 0.96, 1.0, 1.04, 1.08])
+    ax.view_init(elev=16, azim=-62)
+    ax.set_box_aspect((2.2, 1.1, 1.0), zoom=1.12)
+    from matplotlib.lines import Line2D
+    fig.legend(handles=[Line2D([], [], color='k', linewidth=2.2, marker='o', markersize=3, label='degree-two corrector'),
+                        Line2D([], [], color='k', linewidth=1.4, linestyle='--', label='blended corrector')]
+               + [Line2D([], [], color=c, linewidth=2.2, label=f'$r={r:.2f}$') for r, c in sorted(cols.items())],
+               loc='upper left', bbox_to_anchor=(0.06, 0.97), fontsize=8.5, frameon=False)
     fig.subplots_adjust(left=0, right=1, bottom=0, top=1)
     save(fig, 'fig_face.png')
 

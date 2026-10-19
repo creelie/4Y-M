@@ -80,7 +80,7 @@ gauge the theory has a unique infinite-volume state with exponential decay
 of correlations and a positive mass gap at fixed lattice spacing, for SU(2)
 up to the limit of every single-link argument in a gauge of this kind, for
 every SU(N) beyond the curvature limit of the ungauged theory, and for SU(3)
-on a range more than twice as large as was known before.
+on a range more than two and a half times as large as was known before.
 \end{abstract}
 
 \maketitle
@@ -204,11 +204,11 @@ $\beta_W<\frac4{29}$ lies inside that of Theorem~\ref{thm:su2}. For $\SU(3)$
 the Dobrushin route goes much further.
 
 \begin{theorem}[$\SU(3)$]\label{thm:su3}
-Let $G=\SU(3)$ and $0\le\beta_W\le\frac{45}{64}=0.703$. Then the conclusions
+Let $G=\SU(3)$ and $0\le\beta_W\le\frac34$. Then the conclusions
 of Theorem~\ref{thm:su2} hold, with decay at every rate below
-$-\log(1.4218\,\beta_W)$ and a transfer-matrix gap
+$-\log(1.3332\,\beta_W)$ and a transfer-matrix gap
 \[
-m\ge-\log(1.4218\,\beta_W)>0 .
+m\ge-\log(1.3332\,\beta_W)>0 .
 \]
 \end{theorem}
 
@@ -216,12 +216,12 @@ The proof of Theorem~\ref{thm:su3} bounds the Kantorovich modulus of the
 one-link measure $\nu_b(dU)\propto e^{\ReTr(Ub)}dU$ on $\SU(3)$ uniformly over
 staple sums $b$. Its analytic part is a lower bound for the spectral gap of
 $\nu_b$ through Bochner's formula with a cross term
-(Lemma~\ref{lem:gap}), a corrector that blends the exact eigenfunction of the
-Haar Laplacian with the drift (Lemma~\ref{lem:corrector}), the reduction of
+(Lemma~\ref{lem:gap}), a corrector chosen box by box among
+polynomials of degree two in the matrix entries (Lemma~\ref{lem:corrector}), the reduction of
 $b$ to diagonal matrices (Lemma~\ref{lem:orbits}), the character expansion
 of the moments of $\nu_b$ (Lemma~\ref{lem:characters}) and an interpolation
 inequality on boxes of staple sums (Lemma~\ref{lem:boxes}). The remaining
-step evaluates the resulting bound on $865$ boxes with rigorous error bounds;
+step evaluates the resulting bound on $2341$ boxes with rigorous error bounds;
 the theorem rests on that computation, which is described in full in
 Section~\ref{ssec:cover} and Appendix~\ref{app:cover}.
 
@@ -238,7 +238,7 @@ Curvature, Shen--Zhu--Zhu~\cite{SZZ23}&$<\frac1{12}$&$<\frac3{16}$\\
 Curvature, sharp~\cite{BB26a}&$<\frac18$&$<\frac9{32}$\\
 Dobrushin, sharp quarter~\cite{BB26a}&$<\frac29$&\\
 Curvature, forest gauge&$<\frac4{29}$&$<\frac9{29}$\\
-Dobrushin, forest gauge&$<\frac13$&$\le\frac{45}{64}$\\
+Dobrushin, forest gauge&$<\frac13$&$\le\frac34$\\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -700,7 +700,7 @@ $14.384$. With this gauge the curvature method stops between $|\beta|=\frac1{29}
 and $\frac1{26.25}$.
 \end{remark}
 
-\section{SU(3) up to 45/64}\label{sec:su3}
+\section{SU(3) up to 3/4}\label{sec:su3}
 
 In this section $G=\SU(3)$, $\beta\ge0$ and $\beta_W=9\beta$. The distance on
 $\SU(3)$ is $d(U,V)=\|U-V\|_{\rm HS}$, which is at most the geodesic distance
@@ -841,20 +841,19 @@ and with this identity the left side equals $-2(1-c_1)(1-c_2)(1-c_3)\le0$.
 \end{proof}
 
 The weight $\frac58$ is the one that gives the coefficient $\frac12$ of $V$,
-and~\eqref{eq:pointwise} is an equality at $W=I$. At $r=\frac{45}{32}$,
-$\gamma=\frac{193}{128}$.\footnote{The direct Bochner bound, with
+and~\eqref{eq:pointwise} is an equality at $W=I$. At $r=\frac32$,
+$\gamma=\frac{187}{128}$.\footnote{The direct Bochner bound, with
 Minkowski's inequality in place of the cross term, gives
 $(\sqrt{\mu_0}-\frac g2r)^2+\frac32-r$ with $g^2=\max_W\|PA(W)\|^2=2.0655$;
 it is exact at $b=0$, where the gap is $\frac83$, but falls below $\gamma$
 for $r>0.24$ and vanishes before $r=1$.}
 
-\subsection{A blended corrector}
+\subsection{A corrector of degree two}
 
 \begin{lemma}\label{lem:corrector}
-For $b\in rK$, $\|h\|=1$ and $s\ge0$, put $\Gamma=\ip{\nabla V}{\nabla
-\varphi_h}$ and $X_s=(1-s\lambda_F)\varphi_h+s\Gamma$. Then
+For $b\in rK$, $\|h\|=1$ and every smooth real function $u$ on $\SU(3)$,
 \[
-L_h(b)\le s\sqrt{\nu_b|\nabla\varphi_h|^2}+\sqrt{\Var_{\nu_b}(X_s)/
+L_h(b)\le\sqrt{\nu_b|\nabla u|^2}+\sqrt{\Var_{\nu_b}(\varphi_h+Lu)/
 \gamma(r)} .
 \]
 \end{lemma}
@@ -863,20 +862,65 @@ L_h(b)\le s\sqrt{\nu_b|\nabla\varphi_h|^2}+\sqrt{\Var_{\nu_b}(X_s)/
 Let $-L\psi=\varphi_h-\nu_b\varphi_h$. For a 1-Lipschitz $g$, $|\nabla g|\le1$
 almost everywhere, because $d$ is at most the geodesic distance, so
 $\Cov(g,\varphi_h)=\nu_b\ip{\nabla g}{\nabla\psi}\le\nu_b|\nabla\psi|$. Write
-$\psi=s\varphi_h+\chi$. By Lemma~\ref{lem:gradients}, $-L(s\varphi_h)=
-s\lambda_F\varphi_h-s\Gamma$, so $-L\chi=X_s-\nu_bX_s$, and
+$\psi=u+\chi$. Since $\nu_b(Lu)=0$, $\chi$ solves $-L\chi=X-\nu_bX$ with
+$X=\varphi_h+Lu$, and
 \[
-\nu_b|\nabla\chi|^2=\Cov(\chi,X_s)\le\sqrt{\Var\chi\,\Var X_s}\le
-\sqrt{\nu_b|\nabla\chi|^2\Var X_s/\gamma}
+\nu_b|\nabla\chi|^2=\Cov(\chi,X)\le\sqrt{\Var\chi\,\Var X}\le
+\sqrt{\nu_b|\nabla\chi|^2\Var X/\gamma}
 \]
-by Lemma~\ref{lem:gap}. Hence $\nu_b|\nabla\chi|^2\le\Var X_s/\gamma$, and
-$\nu_b|\nabla\psi|\le s\sqrt{\nu_b|\nabla\varphi_h|^2}+\sqrt{\nu_b|\nabla
+by Lemma~\ref{lem:gap}. Hence $\nu_b|\nabla\chi|^2\le\Var X/\gamma$, and
+$\nu_b|\nabla\psi|\le\sqrt{\nu_b|\nabla u|^2}+\sqrt{\nu_b|\nabla
 \chi|^2}$.
 \end{proof}
 
-The choice $s=1/\lambda_F$ removes $\varphi_h$ from $X_s$ and leaves the
-drift alone; $s=0$ is the plain spectral-gap bound. The best $s$ depends on
-$b$ and is found box by box.
+The best $u$ is $\psi$ itself, and then the second term vanishes. With
+$u=s\varphi_h$, Lemma~\ref{lem:gradients} gives $\varphi_h+Lu=(1-s\lambda_F)
+\varphi_h+s\Gamma$ with $\Gamma=\ip{\nabla V}{\nabla\varphi_h}$; the choice
+$s=1/\lambda_F$ removes $\varphi_h$ and leaves the drift. This blended
+corrector reaches $\beta_W=\frac{45}{64}$ and stops near $0.715$
+(Section~\ref{sec:limits}).\footnote{An earlier version of this paper proved
+Theorem~\ref{thm:su3} for $\beta_W\le\frac{45}{64}$ with $u=s\varphi_h$, $s$
+chosen box by box, on $865$ boxes at $r=\frac{45}{32}$; the largest bound was
+$0.999657$.} We take $u$ in a space of polynomials of degree two.
+
+Let $\mathcal P_2$ be the real vector space of real polynomials of degree one
+or two in the entries $u_{ij}$ of $U$ and $\bar u_{ij}$ of $\bar U$. It has
+dimension $189$: a basis $(B_k)$ consists of $\frac12(m+\bar m)$ and
+$\frac1{2i}(m-\bar m)$ for each pair $\{m,\bar m\}$ of conjugate monomials with
+$m\ne\bar m$, and $m$ itself when $m=\bar m$. Identify $h\in\C^{3\times3}$
+with $\R^{18}$ through the real and imaginary parts of its entries. For a real
+$189\times18$ matrix $C$ put
+\[
+q_h=\sum_{k}\sum_{m=1}^{18}C_{km}h_mB_k\in\mathcal P_2 ,
+\]
+linear in $h$. For diagonal $b=\operatorname{diag}(a_1,a_2,x_3+iy_3)$ we have
+$V=\sum_kb_k\varphi_{F_k}$ with $(b_k)=(a_1,a_2,x_3,y_3)$ and $F=(e_{11},e_{22},
+e_{33},ie_{33})$, so
+\begin{equation}\label{eq:Xq}
+X_h=\varphi_h+Lq_h=\varphi_h+\Delta q_h+\sum_kb_k\ip{\nabla\varphi_{F_k}}
+{\nabla q_h}
+\end{equation}
+is a polynomial of degree at most three, affine in $b$, while $\nabla q_h$
+does not depend on $b$. The squares of these functions have degree at most
+six, so the quadratic forms $h\mapsto\nu_b|\nabla q_h|^2$ and
+$h\mapsto\nu_b[(X_h-\kappa)^2]$ are combinations of moments of $\nu_b$ of
+degree at most six.
+
+To compute $\Delta$ and $\ip{\nabla f}{\nabla g}$ exactly we use the basis of
+$\mathfrak{su}(3)$
+\[
+e_{jk}-e_{kj},\quad i(e_{jk}+e_{kj})\ (j<k),\quad i(e_{11}-e_{22}),\quad
+i(e_{11}+e_{22}-2e_{33}),
+\]
+acting as left-invariant fields $X_af(U)=\frac d{dt}f(Ue^{tX_a})|_{t=0}$, with
+weights $w_a=\frac12$ for the first seven and $\frac16$ for the last. Then
+$\sum_aw_aX_a\otimes X_a$ is the Casimir tensor of $\ip XY=-\Tr(XY)$, so
+\[
+\ip{\nabla f}{\nabla g}=\sum_aw_a\,X_af\,X_ag,\qquad\Delta=\sum_aw_aX_a^2 .
+\]
+The fields map monomials to combinations of monomials of the same degree with
+coefficients in $\Z[i]$; for instance $\Delta\varphi_h=-\frac83\varphi_h$, as in
+Lemma~\ref{lem:gradients}.
 
 \subsection{Orbits of staple sums}
 
@@ -963,10 +1007,10 @@ gives the expansion. The bound below gives absolute convergence. Finally $\ReTr(
 \frac12\Tr(Ub)+\frac12\Tr(\bar U\bar b)$.
 \end{proof}
 
-The computation keeps $p\le24$ and $k\le8$. Every omitted partition has
-more than $24$ boxes, and since $|s_\lambda(X)|\le\dim(\lambda)\|X\|^{|\lambda|}$ and
+The computation keeps $p\le34$ and $k\le11$. Every omitted partition has
+more than $34$ boxes, and since $|s_\lambda(X)|\le\dim(\lambda)\|X\|^{|\lambda|}$ and
 $\sum_{\lambda\vdash n}f^\lambda\dim\lambda=3^n$ by Schur--Weyl duality, the omitted
-part of each factor is at most $\sum_{n>24}(\frac32\|D\|)^n/n!$; Cauchy's
+part of each factor is at most $\sum_{n>34}(\frac32\|D\|)^n/n!$; Cauchy's
 estimate on a polydisc around $b$ turns this into a bound for every
 derivative (Appendix~\ref{app:cover}).
 
@@ -1021,33 +1065,37 @@ bounded below by (i).
 
 \subsection{The cover and the theorem}\label{ssec:cover}
 
-Fix a box $Q$ and an integer $j$, and put $s=3j/8192$, so that $1-s\lambda_F
-=1-j/1024$. Since $\Gamma=\sum_kb_kG_{F_k,h}$ with $F=(e_{11},e_{22},e_{33},
-ie_{33})$ and $G_{c,h}=\ip{\nabla\varphi_c}{\nabla\varphi_h}$, the function
-$X_s$ is affine in $b$. For any constant $\kappa$, $\Var(X_s)\le\nu_b[(X_s-
-\kappa)^2]$; take $\kappa=\ip{\kappa(b)}h$ with $\kappa(b)$ affine in $b$,
-fitted to the means at the corners. Then $X_s-\kappa=\mathcal A+\sum_k(b_k-
-\beta_k)\mathcal B_k$ with $\beta$ the centre of $Q$, and
+Fix a box $Q$ and a matrix $C$. For any constant $\kappa$, $\Var(X_h)\le
+\nu_b[(X_h-\kappa)^2]$; take $\kappa=\ip{\kappa(b)}h$ with $\kappa(b)$ affine in
+$b$, fitted to the means at the corners. By~\eqref{eq:Xq}, $X_h-\kappa=
+\mathcal A+\sum_k(b_k-\beta_k)\mathcal B_k$ with $\beta$ the centre of $Q$ and
+$\mathcal B_k=\ip{\nabla\varphi_{F_k}}{\nabla q_h}-\ip{\partial_k\kappa}h$, and
 Lemmas~\ref{lem:corrector} and~\ref{lem:boxes} give, for all $b\in Q\cap
 \mathcal R_r$,
 \begin{equation}\label{eq:BQ}
 \begin{split}
-\sup_hL_h(b)\le{}&s\sqrt{e^{\varsigma/8}\max_i\lambda_M(b_i)}\\
+\sup_hL_h(b)\le{}&\sqrt{e^{\varsigma/8}\max_i\lambda_A(b_i)}\\
 &+\sqrt{\frac{e^{\varsigma/8}}{\gamma(r)}\Bigl(\max_i\lambda_V(b_i)+
 \frac{e_N}{\min_iZ(b_i)}\Bigr)} ,
 \end{split}
 \end{equation}
-where $e_N=\sum_k\frac{w_k^2}4\max_iZ(b_i)\lambda_k(b_i)$ and $\lambda_M$,
+where $e_N=\sum_k\frac{w_k^2}4\max_iZ(b_i)\lambda_k(b_i)$ and $\lambda_A$,
 $\lambda_V$, $\lambda_k$ are the largest eigenvalues of the quadratic forms
-$h\mapsto\nu_{b_i}|\nabla\varphi_h|^2$, $h\mapsto\nu_{b_i}[(X_s-\kappa)^2]$ at
-$b=b_i$, and $h\mapsto\nu_{b_i}[\mathcal B_k^2]$ on $\C^{3\times3}=\R^{18}$. By
-Lemma~\ref{lem:characters} their entries are moments of $\nu_{b_i}$ of degree
-at most four, computed with rigorous error bounds; each largest eigenvalue is
-bounded above by an $LDL^\top$ factorisation of $tI$ minus the computed form
-with certified positive pivots, plus the norm of its error matrix by Weyl's
-inequality~\cite{Hig02,Joh17}. For diagonal $b$ the measure $\nu_b$ is
-invariant under conjugation by $T$, so each form splits into four blocks:
-the diagonal entries of $h$ and the three pairs $\{h_{jk},h_{kj}\}$.
+$h\mapsto\nu_{b_i}|\nabla q_h|^2$, $h\mapsto\nu_{b_i}[(X_h-\kappa)^2]$ at $b=b_i$,
+and $h\mapsto\nu_{b_i}[\mathcal B_k^2]$ on $\R^{18}$. Their entries are moments
+of $\nu_{b_i}$ of degree at most six, computed with rigorous error bounds
+(Appendix~\ref{app:cover}); each largest eigenvalue is bounded above by an
+$LDL^\top$ factorisation of $tI$ minus the computed form with certified
+positive pivots, plus the norm of its error matrix by Weyl's
+inequality~\cite{Hig02,Joh17}.
+
+The matrix $C$ is chosen in each box in floating point. At the mean of the
+corner moments and at $b=\beta$, Lemma~\ref{lem:corrector} for $u=q_h$ is a
+quadratic problem in $C$: for $\theta>0$ we minimise the trace of
+$\nu|\nabla q|^2+\theta\,\Var(X)/\gamma$ over the $18$ coordinate directions
+$h$, a least-squares problem of size $189$, keep the $\theta$ on a geometric grid of
+$48$ values from $0.05$ to $80$ that gives the smallest bound, and round $C$ to multiples of
+$2^{-30}$. Any choice gives a valid bound.
 
 A box is discarded when it contains no point with $a_1\ge a_2\ge|z_3|$, or
 when a linear functional $\ell(b)=\ReTr(c^*b)$ satisfies $\min_Q\ell>r\max_T
@@ -1055,32 +1103,31 @@ when a linear functional $\ell(b)=\ReTr(c^*b)$ satisfies $\min_Q\ell>r\max_T
 Lemma~\ref{lem:orbits}(iii), from $\mathcal R_r$.
 
 \begin{proposition}\label{prop:cover}
-$2r\Lambda(r)\le0.999657$ at $r=\frac{45}{32}$.
+$2r\Lambda(r)\le0.999887$ at $r=\frac32$.
 \end{proposition}
 
 \begin{proof}
 The box $[0,r]^2\times[-r,r]\times[0,r]$ is cut into $8192$ boxes of side
-$r/8$. Of these, $841$ survive the two tests, and $797$ satisfy
+$r/8$. Of these, $841$ survive the two tests, and $581$ satisfy
 $2rB_Q<1$ for the right side $B_Q$ of~\eqref{eq:BQ}, with $\gamma(r)=
-\frac{193}{128}$. Each of the other $44$ is cut into sixteen boxes of side
-$r/16$; $68$ of these survive the tests, and all satisfy $2rB_Q<1$. The
-$865$ certified boxes cover $\mathcal R_r$. The largest bound is $0.999657$,
-on the box $[1.0547,1.2305]\times[0.7031,0.8789]\times[0.3516,0.5273]
-\times[0.7031,0.8789]$; the median is $0.966$, and $j$ ranges from $776$ to
-$1020$. Figure~\ref{fig:cover} shows the cover, and
+\frac{187}{128}$. Each of the other $260$ is cut into sixteen boxes of side
+$r/16$; $1760$ of these survive the tests, and all satisfy $2rB_Q<1$. The
+$2341$ certified boxes cover $\mathcal R_r$. The largest bound is $0.999887$,
+on the box $[1.3125,1.5]\times[0.9375,1.125]\times[0.5625,0.75]
+\times[0,0.1875]$, and the median is $0.983$. Figure~\ref{fig:cover} shows the cover, and
 Appendix~\ref{app:cover} the error analysis.
 \end{proof}
 
 \begin{proof}[Proof of Theorem~\ref{thm:su3}]
 Proposition~\ref{prop:cover} gives
 \[
-\Lambda\bigl(\tfrac{45}{32}\bigr)\le\frac{0.999657}{45/16}<0.355435 .
+\Lambda\bigl(\tfrac32\bigr)\le\frac{0.999887}3<0.333296 .
 \]
-For $\beta_W\le\frac{45}{64}$ we have $2\beta_W\le\frac{45}{32}$,
+For $\beta_W\le\frac34$ we have $2\beta_W\le\frac32$,
 and~\eqref{eq:alpha} with the monotonicity of $\Lambda$ gives
 \[
-\alpha\le4\beta_W\Lambda\bigl(\tfrac{45}{32}\bigr)<1.42174\,\beta_W\le
-0.999657 .
+\alpha\le4\beta_W\Lambda\bigl(\tfrac32\bigr)<1.333183\,\beta_W\le
+\tfrac34\cdot1.333183<1 .
 \]
 Proposition~\ref{prop:state} applies with the Hilbert--Schmidt metric.
 \end{proof}
@@ -1088,14 +1135,13 @@ Proposition~\ref{prop:state} applies with the Hilbert--Schmidt metric.
 \begin{figure}[tb]
 \centering
 \includegraphics[width=\textwidth]{figures/fig_cover.png}
-\caption{The $865$ certified boxes at $r=\frac{45}{32}$, plotted at their
+\caption{The $2341$ certified boxes at $r=\frac32$, plotted at their
 centres in the coordinates $(a_1,a_2)$ of the staple sum
 $\operatorname{diag}(a_1,a_2,x_3+iy_3)$, coloured by the certified bound on
-$2r\sup_hL_h$ over the box. (a) All boxes, with height $|x_3+iy_3|$; the
-red line is the face $\operatorname{diag}(r,\rho,\rho)$ on which the
-floating-point maximum of Lemma~\ref{lem:corrector} lies. (b) The boxes with
-bound above $0.97$, with height $x_3$; the largest bounds sit in the
-interior of $\mathcal R_r$, not at its extreme points.}
+$2r\sup_hL_h$ over the box; the larger points are the boxes of side $r/8$.
+(a) All boxes, with height $|x_3+iy_3|$. (b) The $419$ boxes with bound
+above $0.99$, with height $x_3$; the largest bounds sit in the interior of
+$\mathcal R_r$, not at its extreme points.}
 \label{fig:cover}
 \end{figure}
 
@@ -1117,22 +1163,31 @@ $L_h(b)$, and needs it uniformly on $rK$. Its Galerkin values (polynomials
 of degree two) at matrices of $rK$ give $2r$ times the norm equal to $0.79$
 at $r=1.25$, $0.89$ at $r=1.4$, $0.97$ at $r=1.5$ and $1.009$ at $r=1.55$, so
 the route stops at or below $\beta_W\approx0.77$ even with exact constants.
-Lemma~\ref{lem:corrector} with Lemma~\ref{lem:gap} stops earlier: in floating
+With $u=s\varphi_h$, Lemma~\ref{lem:corrector} stops earlier: in floating
 point its largest values on $\mathcal R_r$ lie on the face
 $\operatorname{diag}(r,\rho,\rho)$ with $\rho$ between $0.75r$ and $0.8r$, and
 $2r$ times the bound is $0.9458$ at $r=1.36$, $0.9767$ at $r=1.40$ and $1.0080$
-at $r=1.44$ (Figure~\ref{fig:face}). Between $\beta_W\approx0.715$ and $0.77$ the
-room lies in the gap bound, whose Galerkin values at $r=1.14$ are near $2.3$
-against $\gamma=1.64$; past $0.77$ one needs blocks.
+at $r=1.44$, so this corrector ends near $\beta_W\approx0.715$. With $u=q_h$
+of degree two the largest values on the same face are $0.9305$ at $r=1.44$,
+$0.9729$ at $r=1.50$ and $1.0018$ at $r=1.54$ (Figure~\ref{fig:face}), close to the
+Galerkin values. Lemma~\ref{lem:gap} therefore costs
+little at these couplings, and most of the distance between the
+floating-point value at $r=1.5$ and the certified $0.999887$ of
+Proposition~\ref{prop:cover} is the interpolation over boxes. Between
+$\beta_W=\frac34$ and $0.77$ there is room only for smaller boxes; past
+$0.77$ one needs blocks of several links.
 
 \begin{figure}[tb]
 \centering
 \includegraphics[width=\textwidth]{figures/fig_face.png}
 \caption{The floating-point value of $2r\sup_h$ of the bound of
 Lemma~\ref{lem:corrector} on the face $b=\operatorname{diag}(r,\rho,\rho)$, as
-a function of $\rho/r$, for $r=1.36$, $1.40$ and $1.44$. The grey plane is the
-Dobrushin threshold one. The bound crosses it between $r=1.40$ and $1.44$,
-where the single-link method with the gap of Lemma~\ref{lem:gap} ends.}
+a function of $\rho/r$, for $r=1.44$, $1.50$ and $1.54$: dashed with the
+corrector $u=s\varphi_h$ for the best $s$, solid with $u=q_h$ of degree two
+for the best $C$. The grey plane is the Dobrushin threshold one. The first
+corrector is above it already at $r=1.44$; the second stays below it at
+$r=1.50$, where Proposition~\ref{prop:cover} certifies the bound on all of
+$\mathcal R_r$, and crosses it by $r=1.54$.}
 \label{fig:face}
 \end{figure}
 
@@ -1143,7 +1198,7 @@ coupling; (2) the crossover from strong coupling to Ba{\l}aban's
 weak-coupling regime; (3) the continuum limit with the
 Osterwalder--Schrader axioms; and (4) a gap in physical units. The present
 paper moves the boundary of (1): for $\SU(2)$ from $\beta_W=\frac29$ to
-$\frac13$, for $\SU(3)$ from $\frac9{32}$ to $\frac{45}{64}$, and for every
+$\frac13$, for $\SU(3)$ from $\frac9{32}$ to $\frac34$, and for every
 $\SU(N)$ past the curvature ceiling. It does not close (1); the region
 between these values and the scaling region, near $\beta_W\approx2.2$ for
 $\SU(2)$ and $\beta_W\approx6$ for $\SU(3)$, is open, and with it problem
@@ -1157,12 +1212,12 @@ the renormalisation group flow~\cite{Bal84a,BSB26}.
 \subsection*{Data availability}
 The analytic proofs are complete as written, except the evaluation in
 Proposition~\ref{prop:cover}, which is a computation with rigorous error
-bounds. The archive \texttt{creelie/4Y-M} on Zenodo (release v3.0.1,
-\href{https://doi.org/10.5281/zenodo.23484057}{doi:10.5281/zenodo.23484057};
-all versions,
+bounds. The archive \texttt{creelie/4Y-M} on Zenodo (release v3.1.0; all versions,
 \href{https://doi.org/10.5281/zenodo.23444338}{doi:10.5281/zenodo.23444338})
 contains the programs of that computation, in Python with python-flint
-(FLINT and Arb), with their outputs and the list of certified boxes;
+(FLINT and Arb) and a C kernel for products of Taylor polynomials, with
+their outputs and the list of certified boxes; the programs and outputs of
+the earlier certificate at $\beta_W=\frac{45}{64}$;
 independent checks in exact rational arithmetic of Lemmas~\ref{lem:local}
 and~\ref{lem:roughlap} and of~\eqref{eq:pointwise}; numerical checks of
 Lemma~\ref{lem:identity} on tori; the searches of Remark~\ref{rem:hf} and
@@ -1346,9 +1401,9 @@ $\frac{29}2$.
 \emph{Truncation.} For a corner $b$ of a box the moments of
 Lemma~\ref{lem:characters} are derivatives of $Z$ at $(b,\bar b)$. The
 truncated series is $\E_H[A_t(UD)B_t(\bar UD')]$ with $A_t$ the part of
-$\sum_\lambda c_\lambda s_\lambda(UD)$ over partitions with $\lambda_1-\lambda_3\le24$ and
-$\lambda_3\le8$, and $B_t$ likewise. Every omitted partition has $|\lambda|>24$,
-because $3\cdot9>24$, and the omitted part is at most $T(\|D\|)=\sum_{n>24}
+$\sum_\lambda c_\lambda s_\lambda(UD)$ over partitions with $\lambda_1-\lambda_3\le34$ and
+$\lambda_3\le11$, and $B_t$ likewise. Every omitted partition has $|\lambda|>34$,
+because $3\cdot12>34$, and the omitted part is at most $T(\|D\|)=\sum_{n>34}
 (\frac32\|D\|)^n/n!$ in modulus. On the polydisc $|D_{ij}-b_{ij}|\le\rho$,
 $\|D\|\le\|b\|+3\rho$, and Cauchy's estimate bounds the $\alpha$-th derivative
 of the omitted part by $\alpha!\rho^{-|\alpha|}T(\|b\|+3\rho)$. The
@@ -1357,26 +1412,34 @@ $v=\sum_k|b_k|$, since $|\Tr(Ub)|\le\sum_k|b_k|$ for diagonal $b$. With
 $\varepsilon_\alpha=2^{|\alpha|}\alpha!\rho^{-|\alpha|}T(\|b\|+3\rho)$ the
 truncated moment differs from the true one by at most $\varepsilon_\alpha e^{v/2}
 +(e^{v/2}+\varepsilon_\alpha)\varepsilon_\beta$, and $\rho$ is chosen to minimise
-$\rho^{-4}T$.
+$\rho^{-6}T$. The largest error bound of an unnormalised moment at any corner is
+$1.7\times10^{-11}$.
+
+\emph{Weight zero.} Conjugation by the diagonal torus $T$ preserves Haar measure
+and $\ReTr(Ub)$ for diagonal $b$, and multiplies $u_{ij}$ by $t_it_j^{-1}$; a
+moment of a monomial on which $T$ acts by a nontrivial character is therefore
+$0$, and only $8278$ of the $134596$ monomials of degree at most six have the
+trivial character. The functions $\Tr(X)$, $e_2(X)$, $\det X$ of $X=DD'^\top$
+and $\det D$, $\det D'$ are invariant under the same action on the variables,
+so after these are formed in the full ring of Taylor polynomials of degree six
+in the $18$ variables, the series is computed in the subring of weight-zero
+monomials.
 
 \emph{Rounding.} The truncated series is a Taylor polynomial of total degree
-four in the $36$ real directions of $(D-b,D'-\bar b)$, computed in double
+six in the $36$ real directions of $(D-b,D'-\bar b)$, computed in double
 precision. Every operation is repeated on absolute values and carries an
 operation count $n$, so that the computed coefficient differs from the
 exact one by at most $\gamma_n=nu/(1-nu)$, $u=2^{-53}$, times the
-absolute-value coefficient~\cite[Section~3.1]{Hig02}. The polynomials
-$\varphi_h$, $\ip{\nabla\varphi_h}{\nabla\varphi_{h'}}$ and $G_{F_k,h}$ have exact
-Gaussian rational coefficients, given by Lemma~\ref{lem:gradients}:
-\[
-\begin{split}
-G_{c,h}(U)={}&\tfrac12\ReTr(ch^*)-\tfrac12\ReTr(cUhU)\\
-&-\tfrac13\ImTr(cU)\ImTr(hU).
-\end{split}
-\]
-Normalisation by $Z$, the quadratic forms and their error matrices are
-formed with the same bookkeeping, and the largest eigenvalues are bounded in
-ball arithmetic~\cite{Joh17}. The off-block entries of the exact forms vanish
-and are dropped with their error bounds checked.
+absolute-value coefficient~\cite[Sec.~3.1]{Hig02}. With $C$ in $2^{-30}\Z$,
+the polynomials $2^{31}q_h$, $X_a(2^{31}q_h)$,
+$12\cdot2^{31}(\varphi_h+\Delta q_h)$ and $12\cdot2^{31}\ip{\nabla\varphi_{F_k}}
+{\nabla q_h}$ for the coordinate vectors $h$ have coefficients in $\Z[i]$, and
+every partial sum in their computation is bounded, through the same
+operations on absolute values, by less than $2^{50}$; they are therefore
+computed exactly. Normalisation by $Z$, the products with the corner
+coordinates, the quadratic forms and their error matrices are formed with the
+same bookkeeping, and the largest eigenvalues are bounded in ball
+arithmetic~\cite{Joh17}.
 
 \emph{Separation.} The functional $c$ of a discarded box is the dual solution
 of a linear program for the gauge of the centre of the box with respect to a
@@ -1385,10 +1448,9 @@ bounded by its maximum over a $512\times512$ grid plus $\frac12H\delta^2/2$, wit
 $\delta=2\pi/512$ and $H=|c_1|+|c_2|+2|c_3|$ a bound for its Hessian on the
 torus, and the inequality is checked with relative margin $10^{-12}$.
 
-\emph{Choice of $s$.} The integer $j$ is chosen per box by a floating-point
-search; any choice gives a valid bound. The cover runs in about half an
-hour on four cores and writes every certified box with its $j$ and its
-bound.
+\emph{Running time.} The moments at one corner take about one and a half seconds and
+the bound on one box about two and a half seconds on one core. The cover runs in about an hour on
+four cores and writes every certified box with its $\theta$ and its bound.
 
 \begin{thebibliography}{99}\raggedright
 
