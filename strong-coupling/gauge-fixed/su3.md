@@ -1,7 +1,7 @@
-# Four-dimensional SU(3) in the forest gauge: β_W ≤ 0.49
+# Four-dimensional SU(3) in the forest gauge: β_W ≤ 0.57
 
 Status: proved by hand; constants certified in ball arithmetic (`checks/su3/certify_su3.py` for Lemmas B–E,
-`checks/su3/certify_tilted.py` for Lemmas G–J, python-flint 0.9.0); not yet read by an outside referee. Ranges known before for four-dimensional SU(3): β_W < 9/32 = 0.281
+`checks/su3/certify_tilted.py` for Lemmas G–J, `checks/su3/certify_blend.py` for Lemmas D′–H′, python-flint 0.9.0); not yet read by an outside referee. Ranges known before for four-dimensional SU(3): β_W < 9/32 = 0.281
 (Theorem B of the paper in `../prd/`, sharp Hessian 4d), β_W < 9/29 = 0.310 (gauge-fixed curvature,
 `curvature.md`); Shen–Zhu–Zhu (arXiv 2204.12737) has a smaller explicit range. Search of 19 Oct 2026 (arXiv
 and web, "SU(3) lattice Yang–Mills strong coupling uniqueness Dobrushin explicit beta"): no larger
@@ -182,8 +182,8 @@ The t_τ are tilted means of class functions. By the Weyl integration formula th
 the torus integral of z_1^{n_1} z_2^{n_2} z_3^{n_3} e^{r Σ cos θ_j} is S(n), since z_1^{a_1} z_2^{a_2} z_3^{a_3}
 integrates to 1 if a_1 = a_2 = a_3 and to 0 otherwise. The degrees give |n_i| ≤ 12. ∎
 
-For 0 ≤ r ≤ 1, I_m(r) ≤ (r/2)^m e^{r²/4}/m!, which decreases in m, so the terms |k| > 40 of S(n) add at
-most 4[(1/2)^{29} e^{1/4}/29!]³. At r = 0 the computation returns Q = (4/9)·Id, the value of Lemma A(4).
+For 0 ≤ r ≤ R ≤ 2, I_m(r) ≤ (R/2)^m e^{R²/4}/m!, which decreases in m, so the terms |k| > 40 of S(n) add
+at most 4[(R/2)^{29} e^{R²/4}/29!]³. At r = 0 the computation returns Q = (4/9)·Id, the value of Lemma A(4).
 
 **Lemma J (the torus).** Let θ range over a square of half-width ρ about θ_c, and put
 N_c = N(θ_c), D_i = 2 Σ_{a,b} w_a(θ_c) ∂_i w_b(θ_c) K_ab. Then, block by block,
@@ -204,7 +204,108 @@ off-block entries vanish identically), evaluates them in ball arithmetic at r = 
 
     Λ(r) ≤ Λ̄₂(r) := (3/8) √m̃(r) + (3/8) r √(κ̃(r)/gap(r)).
 
-## 4. The theorem
+## 4. A sharper gap, a normalised moment and a blended corrector
+
+Three further steps remove part of each loss of Section 3; what remains is measured in Section 6.
+
+**Lemma D′ (sharper gap).** For b ∈ rK the spectral gap of ν_b is at least
+
+    gap₂(r) = (39/64) μ_0 + 3/2 − r/2 = 283/128 − r/2.
+
+Proof. Keep λ, ω = df and η = e^{V/2}ω from Lemma D, and take norms in L²(dU). Bochner's formula reads
+
+    λ‖η‖² = ‖∇η − ½ dV ⊗ η‖² + ∫ (Ric − Hess V)(η, η).                                    (1)
+
+Put A = ∇η and B = ½ dV ⊗ η. Then ⟨A, B⟩ = ½ ∫ Σ_a ⟨∇_{X_a}η, η⟩ X_aV = ¼ ∫ ⟨∇V, ∇|η|²⟩ = (λ_F/4) ∫ V|η|²,
+because V = φ_b is a matrix coefficient of the fundamental representation, so −ΔV = λ_F V. Dropping
+‖(5/8)A − B‖² ≥ 0 from ‖A − B‖² leaves
+
+    ‖A − B‖² ≥ (39/64)‖A‖² − (3/4)⟨A, B⟩ = (39/64)‖∇η‖² − ½ ∫ V|η|² ≥ (39/64) μ_0‖η‖² − ½ ∫ V|η|²
+
+by Lemma C. With Ric = 3/2, (1) gives λ‖η‖² ≥ ((39/64)μ_0 + 3/2)‖η‖² − ∫ (Hess V(η, η) + ½ V|η|²), and
+the claim follows from the pointwise bound
+
+    Hess V(X, X) + ½ V|X|² = Re Tr(M X²) + ½ Re Tr M ≤ (r/2)|X|²,   M = bU ∈ rK.              (2)
+
+The left side of (2), maximised over |X| = 1, is convex in M, so it suffices to prove (2) at M = rW,
+W ∈ SU(3), and after a conjugation at W = diag(e^{iθ_k}) with θ_1 + θ_2 + θ_3 = 0; put c_k = cos θ_k.
+Write X = iH with H Hermitian, traceless and Tr H² = 1, with diagonal d and off-diagonal entries H_jk.
+Then
+
+    Re Tr(W X²) = −Σ_k c_k d_k² − Σ_{j<k} (c_j + c_k)|H_jk|²,   Σ_k d_k² + 2 Σ_{j<k} |H_jk|² = 1,
+
+so the maximum over X is the larger of q_off = max_{j<k} −(c_j + c_k)/2 and
+q_diag = max{−Σ_k c_k d_k² : Σ_k d_k = 0, Σ_k d_k² = 1}. If l is the third index,
+q_off + ½Σ_k c_k = c_l/2 ≤ ½. q_diag is minus the smaller eigenvalue of diag(c) compressed to the plane Σ_k d_k = 0; the eigenvalues μ of
+the compression solve Σ_k 1/(c_k − μ) = 0, that is 3μ² − 2e_1μ + e_2 = 0 with e_1, e_2 the elementary
+symmetric functions of the c_k, so q_diag = (√(e_1² − 3e_2) − e_1)/3. Then q_diag + e_1/2 ≤ ½ means
+√(e_1² − 3e_2) ≤ (3 − e_1)/2, and since both sides are nonnegative this is e_1² − 4e_2 + 2e_1 − 3 ≤ 0.
+When θ_1 + θ_2 + θ_3 = 0, Σ_k c_k² = 1 + 2c_1c_2c_3, and with this identity the left side equals
+−2(1 − c_1)(1 − c_2)(1 − c_3) ≤ 0. ∎
+
+The weight 5/8 is the one for which the coefficient of V is ½, and (2) is an equality at W = I. Lemma D
+is the better bound for r < 0.24 (at b = 0 it gives the exact value 8/3, Lemma D′ gives 2.21); at
+r = 1.14, gap₂ = 1.64094 against 0.428 for Lemma D. `checks/su3/gap_lemma.py` checks (2) and the closed
+form of the maximum over X on a grid of the torus and at random W, and compares gap₂ with Galerkin
+values (Section 6).
+
+**Lemma G′ (normalised gradient moment).** For b ∈ rK and ‖h‖ = 1,
+
+    ν_b|∇φ_h|² ≤ m̂(r) := m̃(r)/(m̃(r) + (5/9) e^{−r/5}).
+
+Proof. Let F = |∇φ_h|², so 0 ≤ F ≤ 1 by Lemma A(1) and E_H F = 4/9 by Lemma A(4). Then ν_b F = N/(N + N′)
+with N = E_H[F e^{φ_b}] ≤ m̃(r) (proof of Lemma G) and N′ = E_H[(1 − F) e^{φ_b}], and N/(N + N′) increases
+in N and decreases in N′. Jensen's inequality for the probability measure (9/5)(1 − F) dU and E_H φ_b = 0
+give
+
+    N′ ≥ (5/9) exp((9/5) E_H[(1 − F)φ_b]) = (5/9) exp(−(9/5) Re Tr(E_H[F U] b)).
+
+Here E_H[F U] = adj(h)/9. Indeed, Haar measure is invariant under U ↦ ωU, ω³ = 1, so a moment of degree
+j in the entries of U and k in those of Ū vanishes unless j ≡ k mod 3. In F·U = (½‖h‖² − ½ReTr(hUhU) − ⅓(ImTr hU)²)U
+only −¼Tr(hUhU)U and (1/12)Tr(hU)²U survive, and E_H[U_ia U_jb U_kc] = ε_ijk ε_abc/6 gives
+E_H[Tr(hU)² U] = adj(h)/3 and E_H[Tr(hUhU) U] = −adj(h)/3, so E_H[FU] = adj(h)/12 + adj(h)/36. (Part (A)
+of `checks/su3/certify_blend.py` checks the identity exactly, coefficient by coefficient.) The singular
+values of adj(h) are s_2s_3, s_1s_3, s_1s_2 when those of h are s_1, s_2, s_3, so its trace norm is
+((Σ s_k)² − Σ s_k²)/2 ≤ (3 − 1)/2 = 1 and |Re Tr(adj(h) b)| ≤ r. So N′ ≥ (5/9) e^{−r/5}. ∎
+
+**Lemma F′ (blended corrector).** For b ∈ rK, ‖h‖ = 1 and s ≥ 0, with Γ as in Lemma F and
+X_s = (1 − sλ_F)φ_h + sΓ,
+
+    L_h(b) ≤ s √(ν_b|∇φ_h|²) + √(Var_{ν_b}(X_s)/gap₂(r)).
+
+Proof. As for Lemma F, with ψ = sφ_h + χ: since −L(sφ_h) = sλ_Fφ_h − sΓ, χ solves −Lχ = X_s − ν_bX_s, and
+ν_b|∇χ|² ≤ Var(X_s)/gap₂ by Lemma D′. The choice s = 1/λ_F = 3/8 is Lemma F. ∎
+
+**Lemma H′ (blended variance).** Put c_1 = 1 − sλ_F and c_2 = s r. For b ∈ rK and ‖h‖ = 1,
+
+    Var_{ν_b}(X_s) ≤ κ_s(r) := max{ E_H[(c_1 φ_h + c_2 g_{W,h})² e^{r Re Tr U}] : W ∈ T, ‖h‖ = 1 },
+
+with g_{W,h} = G_{W,h} − (4/9) ReTr(W h*) as in Lemma H.
+
+Proof. As for Lemma H, with b = r a: X_s minus the constant c_2 (4/9) ReTr(a h*) is c_1φ_h + c_2 g_{a,h},
+which is affine in a, so Var(X_s) ≤ E_H[(c_1φ_h + c_2 g_{a,h})² e^{φ_b}], which is convex in a and in b
+separately. The substitutions U ↦ UW′⁻¹ and U ↦ VUV⁻¹ turn φ_h into φ_{W′⁻¹h} and φ_{V⁻¹hV}, the same
+changes of h as in g. ∎
+
+The quadratic form in h is N_s(θ) = c_1² P + c_1c_2 Σ_a w_a (R_a + R_aᵀ) + c_2² Σ_{a,b} w_a w_b K_ab with
+P_pq = E_H[φ_{e_p} φ_{e_q} e^{r Re Tr U}] and (R_a)_pq = E_H[φ_{e_p} g_{d_a,e_q} e^{r Re Tr U}]. Diagonal
+conjugation preserves the whole integrand, so P and the R_a have the block structure of the K_ab, and
+every entry is again a rational combination of the S(n) of Lemma I. In Lemma J the linear part adds
+c_1c_2 Σ_a ∂_i w_a (R_a + R_aᵀ) to D_i; the second derivative of w_a along a segment is at most 4ρ², so
+the remainder becomes ρ² (2|c_1c_2| Σ_a ‖R_a + R_aᵀ‖_F + 8 c_2² Σ_{a,b} ‖K_ab‖_F).
+
+`checks/su3/certify_blend.py` checks E_H[FU] = adj(h)/9 exactly (every polarised coefficient, with the
+exact Haar values S(n) = 1 if n_1 = n_2 = n_3 and 0 otherwise), proves m̃(1.14) < 0.8051 (float value
+0.805063), so m̂(1.14) < 0.64543, builds P, the R_a and the K_ab exactly, and at r = 1.14, s = 0.322
+covers the torus by 9778 dyadic squares on each of which the bound of Lemma J is below 0.0508. The
+float maximum over a 90 × 90 grid is 0.049821, at the central elements ωI, ω²I of T (0.04950 at I).
+Lemmas D′, F′, G′, H′ give the third bound
+
+    Λ(r) ≤ Λ̄₃(r) := s √m̂(r) + √(κ_s(r)/gap₂(r)),
+
+and the run takes about 25 seconds (output in `checks/su3/certify_blend.txt`).
+
+## 5. The theorem
 
 Λ̄ is increasing on [0, 2√μ_0/g): gap decreases, J and m increase. For r′ ≤ r, r′K ⊂ rK, because K is
 convex and contains 0 (the mean of I, ωI, ω²I with ω³ = 1), so Λ is nondecreasing and the bound at
@@ -215,31 +316,39 @@ one r holds below it. In ball arithmetic (g² ≤ 2.06548; for Λ̄ upper Rieman
 | Λ̄ (Lemmas E, F), `certify_su3.py` | 0.730 | gap 1.07864 | 0.994249 | 0.00577 |
 | Λ̄ (Lemmas E, F), `certify_su3.py` | 0.732 | gap 1.07504 | 0.999841 | 0.00016 |
 | Λ̄₂ (Lemmas F–J), `certify_tilted.py` | 0.98 | m̃ < 0.7123, κ̃ < 0.1830, gap 0.661306 | 0.999236 | 0.00076 |
+| Λ̄₃ (Lemmas D′–H′), `certify_blend.py` | 1.14 | s = 0.322, m̂ < 0.64543, κ_s < 0.0508, gap₂ 1.64094 | 0.990976 | 0.00907 |
 
-So Λ(0.98) ≤ Λ̄₂(0.98) < 0.50982, and α = 2rΛ(r) ≤ 4β_W · 0.50982 < 1 for β_W ≤ 0.49.
+So Λ(1.14) ≤ Λ̄₃(1.14) < 0.43464, and α = 2rΛ(r) ≤ 4β_W · 0.43464 < 1 for β_W ≤ 0.57.
 
-**Theorem.** Four-dimensional SU(3) lattice Yang–Mills with 0 ≤ β_W ≤ 0.49: the forest-gauge
+**Theorem.** Four-dimensional SU(3) lattice Yang–Mills with 0 ≤ β_W ≤ 0.57: the forest-gauge
 specification γ^F has a unique Gibbs measure; the free-boundary limit ω of the Wilson measures exists
 for every gauge-invariant local observable along every exhausting sequence of boxes, is translation
 and hypercubic invariant and reflection positive, has exponentially decaying truncated correlations,
-and has a transfer-matrix gap m ≥ −log(2.0393 β_W) > 0. For β_W ≤ 0.366 also
+and has a transfer-matrix gap m ≥ −log(1.7386 β_W) > 0. For β_W ≤ 0.366 also
 m ≥ −log(4β_W Λ̄(2β_W)), and since Λ̄ → 1/4, m ≥ −log β_W + o(1) as β_W → 0.
 
 This passes 9/29 = 0.310 (gauge-fixed curvature) and 9/32 = 0.281 (Theorem B).
 
-## 5. Where the estimate loses
+## 6. Where the estimate loses
 
-Three losses remain, measured at r = 0.98 with the exact moments and a Galerkin computation
-(`checks/su3/losses.py`):
+Three losses remain, measured at r = 1.14, s = 0.322 with the exact moments and a Galerkin computation
+(`checks/su3/losses.py`, `checks/su3/gap_lemma.py`):
 
-1. Z(b) ≥ 1 in Lemmas G and H. At b = rI, Z = 1.3185, and the normalised moment ν_b|∇φ_h|² is at most
-   0.540 against m̃ = 0.712.
-2. Decoupling a = b/r from b in Lemma H. The maximum, about 0.183, of λ_max N(θ) is attained away from W = I; at
-   W = I, the alignment of the extreme points b = rW′, the bound is 0.122 and the true variance of Γ/r
-   under ν_{rI} is 0.084.
-3. Lemma D. Its value 0.661 compares with the Galerkin value 2.29 at b = rI, an upper bound for the true
-   gap (polynomials of degree two; the same computation gives 2.58 at b = 0, where the gap is 8/3).
+1. Normalisation. At b = rI, Z = 1.4632; Lemma G′ gives m̂ = 0.6454 (m̃ = 0.8051), against the normalised
+   moment max_h ν_{rI}|∇φ_h|² = 0.5502.
+2. The variance in Lemma H′. The decoupled form has its maximum 0.04982 at the central elements ωI, ω²I
+   of T (0.04950 at W = I), while the largest variance of X_s under ν_{rI} is 0.01825. The factor 2.7
+   comes from Z ≥ 1 and from bounding a variance by a second moment about the Haar mean; shifting
+   X_s by a multiple of Re Tr(W h*), the only shift compatible with the reductions, does not lower the
+   maximum.
+3. Lemma D′. gap₂(1.14) = 1.641, against Galerkin values 2.29 at b = rI and 2.24 at b = r diag(1, 1, 0),
+   upper bounds for the true gap (polynomials of degree two; the same computation gives 2.58 at b = 0,
+   where the gap is 8/3).
 
-With the true moments in Lemma F and the gap of Lemma D, a Monte Carlo evaluation gives 2rΛ < 1 up to
-r ≈ 1.07 (β_W ≈ 0.53, `checks/su3/route1.py`); a certified gap bound near the true one would go further.
-`checks/su3/tilted_mc.py` compares the exact tilted moments with a Haar Monte Carlo estimate.
+The route bounds sup_h √(ν_b|∇ψ|²), the H^{-1}(ν_b) norm of φ_h − ν_bφ_h. Its Galerkin values
+(polynomials of degree two, `checks/su3/ceiling.py`) are 0.353 at r = 1.12 and b = r diag(1, 1, −1),
+the larger of the two matrices tried, against Λ̄₃(1.14) = 0.435; twice r times it is 0.91 at r = 1.25
+and 1.06 at r = 1.4. These are lower bounds at two matrices only, so single-link Dobrushin estimated
+through this norm stops at or below β_W ≈ 0.67 even with exact constants; going further needs blocks
+of several links. `checks/su3/tilted_mc.py` compares the exact tilted moments with a Haar Monte Carlo
+estimate.

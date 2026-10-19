@@ -137,12 +137,12 @@ def S(n,r,K=40):
         tot=flint.arb(0)
         for k in range(-K,K+1):
             tot+=r.bessel_i(k-n[0])*r.bessel_i(k-n[1])*r.bessel_i(k-n[2])
-        # tail |k| > K (valid for 0 <= r <= 1): every order is at least |k| - 12 >= K - 11 = mm, and
-        # I_m(r) <= (r/2)^m e^{r^2/4}/m! decreases in m, so the tail is at most
-        # 2 * sum_{j >= 0} [(1/2)^(mm+j) e^{1/4}/(mm+j)!]^3 <= 4 [(1/2)^mm e^{1/4}/mm!]^3
-        assert r<=1
-        mm=K-11
-        t=4*((flint.arb(1)/2)**mm*flint.arb('0.25').exp()/flint.arb.fac_ui(mm))**3
+        # tail |k| > K (valid for 0 <= r <= 2): every order is at least |k| - 12 >= K - 11 = mm, and
+        # I_m(r) <= (r/2)^m e^{r^2/4}/m! decreases in m, so with R = upper bound of r the tail is at most
+        # 2 * sum_{j >= 0} [(R/2)^(mm+j) e^{R^2/4}/(mm+j)!]^3 <= 4 [(R/2)^mm e^{R^2/4}/mm!]^3
+        assert 0<=r and r<=2
+        mm=K-11; R=flint.arb(r.upper())
+        t=4*((R/2)**mm*(R*R/4).exp()/flint.arb.fac_ui(mm))**3
         tot+=flint.arb(0,t.upper())
         _S[key]=tot
     return _S[key]

@@ -1,0 +1,4 @@
+1. Z(rI) = 1.4632; mt = 0.8051, mh = 0.6454; true max_h nu_rI|grad phi_h|^2 = 0.5502
+2. decoupled form of Lemma H' at W = I: 0.04950
+2. decoupled form of Lemma H' at W = omega I (rational approximation of omega): 0.04982
+   true max_h Var_(nu_rI)((1 - 8s/3) phi_h + s Gamma) = 0.01825
