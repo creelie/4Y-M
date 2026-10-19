@@ -1,0 +1,13 @@
+level 3: 8192 boxes, 841 kept, 2099 new corners (discarded so far: order 6762, separation 589)
+  corners 200/2099 148s
+  corners 400/2099 256s
+  corners 600/2099 364s
+  corners 800/2099 469s
+  corners 1000/2099 573s
+  corners 1200/2099 682s
+  corners 1400/2099 790s
+  corners 1600/2099 898s
+  corners 1800/2099 1005s
+  corners 2000/2099 1110s
+level 3: passed 841, failed 0, largest passing bound 0.97952, 1208s
+COVER COMPLETE: 841 boxes, largest bound 0.979519; discarded order 6762, separation 589

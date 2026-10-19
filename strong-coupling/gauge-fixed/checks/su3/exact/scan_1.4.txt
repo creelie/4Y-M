@@ -1,0 +1,26 @@
+114 points
+48 inside rK 30.50713014602661
+[1.4  1.05 1.05 0.  ] gauge 1.400  2rB(uniform gap) 0.9767 s=0.295  2rB(gauge gap) 0.9767
+[1.4 1.4 1.4 0. ] gauge 1.400  2rB(uniform gap) 0.9700 s=0.270  2rB(gauge gap) 0.9700
+[1.05 1.05 1.05 0.  ] gauge 1.050  2rB(uniform gap) 0.9682 s=0.305  2rB(gauge gap) 0.9495
+[1.4 0.7 0.7 0. ] gauge 1.400  2rB(uniform gap) 0.9669 s=0.325  2rB(gauge gap) 0.9669
+[1.05  1.05  0.495 0.495] gauge 1.381  2rB(uniform gap) 0.9652 s=0.325  2rB(gauge gap) 0.9643
+[1.05 1.05 0.7  0.  ] gauge 1.176  2rB(uniform gap) 0.9583 s=0.320  2rB(gauge gap) 0.9474
+[1.05  1.05  0.247 0.247] gauge 1.391  2rB(uniform gap) 0.9498 s=0.340  2rB(gauge gap) 0.9494
+[1.05  0.7   0.495 0.495] gauge 1.219  2rB(uniform gap) 0.9458 s=0.340  2rB(gauge gap) 0.9383
+[1.05 1.05 0.35 0.  ] gauge 1.321  2rB(uniform gap) 0.9452 s=0.335  2rB(gauge gap) 0.9418
+[1.4  0.35 0.35 0.  ] gauge 1.400  2rB(uniform gap) 0.9444 s=0.355  2rB(gauge gap) 0.9444
+[1.05 0.7  0.7  0.  ] gauge 1.050  2rB(uniform gap) 0.9415 s=0.335  2rB(gauge gap) 0.9269
+[1.05 0.7  0.   0.35] gauge 1.311  2rB(uniform gap) 0.9301 s=0.360  2rB(gauge gap) 0.9271
+[ 0.7  0.7 -0.7  0. ] gauge 1.400  2rB(uniform gap) 0.9287 s=0.370  2rB(gauge gap) 0.9287
+[ 0.7    0.7   -0.495  0.495] gauge 1.352  2rB(uniform gap) 0.9281 s=0.365  2rB(gauge gap) 0.9266
+[1.4 0.  0.  0. ] gauge 1.400  2rB(uniform gap) 0.9278 s=0.370  2rB(gauge gap) 0.9278
+by gauge gap:
+[1.4  1.05 1.05 0.  ] gauge 1.400  2rB(uniform gap) 0.9767  2rB(gauge gap) 0.9767 s=0.295
+[1.4 1.4 1.4 0. ] gauge 1.400  2rB(uniform gap) 0.9700  2rB(gauge gap) 0.9700 s=0.270
+[1.4 0.7 0.7 0. ] gauge 1.400  2rB(uniform gap) 0.9669  2rB(gauge gap) 0.9669 s=0.325
+[1.05  1.05  0.495 0.495] gauge 1.381  2rB(uniform gap) 0.9652  2rB(gauge gap) 0.9643 s=0.325
+[1.05 1.05 1.05 0.  ] gauge 1.050  2rB(uniform gap) 0.9682  2rB(gauge gap) 0.9495 s=0.290
+[1.05  1.05  0.247 0.247] gauge 1.391  2rB(uniform gap) 0.9498  2rB(gauge gap) 0.9494 s=0.340
+[1.05 1.05 0.7  0.  ] gauge 1.176  2rB(uniform gap) 0.9583  2rB(gauge gap) 0.9474 s=0.310
+[1.4  0.35 0.35 0.  ] gauge 1.400  2rB(uniform gap) 0.9444  2rB(gauge gap) 0.9444 s=0.355
