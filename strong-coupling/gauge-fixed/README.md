@@ -36,7 +36,7 @@ counts 6·3 = 18 and 6·2 = 12.
 |---|---|---|
 | [`forest.md`](forest.md) | Four-dimensional SU(2): the free-boundary limit of the Wilson measure exists for β_W < 1/3, is translation and hypercubic invariant and reflection positive, has exponential decay and a transfer-matrix gap m ≥ −log(3β_W). The value 1/3 is the ceiling of single-link Dobrushin after any forest gauge fixing. | proved, not refereed |
 | [`curvature.md`](curvature.md) | On the gauge-fixed directions ±Hess S₀ ≤ 29/2 at every field (against 16 for the ungauged measure), so Bakry–Émery, uniqueness, decay and, for β ≥ 0, a mass gap hold for \|β\| < 1/29 for every SU(N) and \|β\| < (N−2)/(58N) for SO(N); for SU(3) this is β_W < 9/29. The best constant h_F lies between 9 + √17 and 29/2; numerically h_F = 13.9740139454, attained by an abelian field of period two. | proved, not refereed; h_F open |
-| [`su3.md`](su3.md) | Four-dimensional SU(3): single-link Dobrushin with twelve partners. The one-link measure ν_b ∝ exp(Re Tr(Ub)) has spectral gap at least (√(7/6) − g r/2)² + 3/2 − r (Bochner and the bottom 7/6 of the rough Laplacian on 1-forms), which bounds its gradient moment and a corrector for the Lipschitz rate; uniqueness, decay, reflection positivity and a gap m ≥ −log(4β_W Λ̄(2β_W)) follow for β_W ≤ 0.366, past 9/29 = 0.310. | proved, not refereed; constants in ball arithmetic |
+| [`su3.md`](su3.md) | Four-dimensional SU(3): single-link Dobrushin with twelve partners. The one-link measure ν_b ∝ exp(Re Tr(Ub)) has spectral gap at least (√(7/6) − g r/2)² + 3/2 − r (Bochner and the bottom 7/6 of the rough Laplacian on 1-forms), which bounds a corrector for the Lipschitz rate; the gradient moment and the variance of the corrector are bounded by moments of the Haar measure tilted by exp(r Re Tr U), computed exactly (Schur–Weyl, Weyl integration, Bessel sums). Uniqueness, decay, reflection positivity and a gap m ≥ −log(2.0393 β_W) follow for β_W ≤ 0.49, past 9/29 = 0.310. | proved, not refereed; constants in ball arithmetic |
 
 ## Checks
 
@@ -53,6 +53,8 @@ The notes do not rely on the scripts; they confirm the finite steps.
 | `checks/curvature/cert.py`, `sym.py`, `pair.py` | the local certificates and the semidefinite search for their weights |
 | `checks/curvature/thess.py`, `fast.py`, `analyse_best.py`, `enum_sig.py` | the gradient search for the extremal field (best value 13.9740139454, field in `extremal_field_L4.pt`) |
 | `checks/su3/certify_su3.py` | the bottom 7/6 of the rough Laplacian (Casimirs and dimensions for p, q ≤ 40), the constant g² ≤ 2.06548 by branch and bound, and 2rΛ̄(r) < 1 at r = 0.730, 0.732, all in ball arithmetic (python-flint) |
+| `checks/su3/tilted_moments.py`, `certify_tilted.py` | exact tilted Haar moments of degree four; m̃(0.98) < 0.7123, κ̃(0.98) < 0.1830 over 8464 squares of the torus, and 2rΛ̄₂ = 0.99924 < 1 at r = 0.98, in ball arithmetic (output in `certify_tilted.txt`, about 20 s) |
+| `checks/su3/tilted_mc.py`, `losses.py` | Monte Carlo comparison of the exact moments; the three remaining losses at r = 0.98 |
 | `checks/su3/sanity.py`, `lip.py` | Monte Carlo comparison of the gap and gradient-moment bounds with Galerkin values |
 | `checks/su3/route1.py`, `scan2.py` | Monte Carlo estimates of the true single-link rate (`route1.txt`, `scan2.txt`) |
 | `checks/curvature/abelian.py` | the same maximum over abelian fields: 64 angles in one U(1) subgroup, value 13.9740139454 (`abelian.txt`, angles in `abelian_extremal_L4.pt`) |
