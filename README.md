@@ -57,7 +57,9 @@ standard axioms only):**
 `strong-coupling/gauge-fixed/`):** four-dimensional SU(2) has a unique
 free-boundary state with a transfer-matrix gap m ≥ −log(3β_W) for β_W < 1/3,
 and every SU(N) has a gauge-fixed Hessian bound 29/2 giving Bakry–Émery,
-decay and a gap for |β| < 1/29 (SU(3): β_W < 9/29).
+decay and a gap for |β| < 1/29 (SU(3): β_W < 9/29). For SU(3) a single-link
+Dobrushin bound in the same gauge, with a spectral-gap estimate for the
+one-link measure, gives uniqueness, decay and a gap for β_W ≤ 0.366.
 
 **Open:** the Clay problem itself (the four open problems of the
 strong-coupling paper are listed in `strong-coupling/OPEN.md`). The paper isolates the residual statement

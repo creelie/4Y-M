@@ -47,7 +47,7 @@ units remain open. `OPEN.md` records what is known of each.
 ## Forest gauge fixing (`gauge-fixed/`)
 
 Fixing the gauge on one link of every plaquette, along a field of straight
-lines, lowers the number of Dobrushin partners of a link from 18 to 12. Two
+lines, lowers the number of Dobrushin partners of a link from 18 to 12. Three
 results follow, proved by hand and not yet refereed (see
 `gauge-fixed/README.md`):
 
@@ -55,7 +55,10 @@ results follow, proved by hand and not yet refereed (see
   transfer-matrix gap m ≥ −log(3β_W) for β_W < 1/3, the ceiling of
   single-link Dobrushin after any forest gauge fixing;
 - every SU(N): the gauge-fixed Hessian is bounded by 29/2 (against 16), so
-  Bakry–Émery, decay and a gap hold for |β| < 1/29 (SU(3): β_W < 9/29).
+  Bakry–Émery, decay and a gap hold for |β| < 1/29 (SU(3): β_W < 9/29);
+- four-dimensional SU(3): single-link Dobrushin in the same gauge, with an
+  analytic lower bound for the spectral gap of the one-link measure, gives
+  uniqueness, decay and a gap for β_W ≤ 0.366.
 
 Checks in `prd/checks/` (the paper does not rely on them):
 
