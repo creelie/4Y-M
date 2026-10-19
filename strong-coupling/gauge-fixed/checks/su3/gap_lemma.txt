@@ -2,4 +2,5 @@
    largest deviation from the closed form max(A, B) on the torus: 1.17e-13; value at W = I: 0.500000000000
 2. r = 1.14, b = 0: Galerkin gap 2.5778   (Lemma D': 1.6409; Lemma D: 0.4281)
 2. r = 1.14, b = rI: Galerkin gap 2.2902   (Lemma D': 1.6409; Lemma D: 0.4281)
-2. r = 1.14, b = r diag(1,1,0): Galerkin gap 2.2435   (Lemma D': 1.6409; Lemma D: 0.4281)
+2. r = 1.14, b = r diag(0,0,1): Galerkin gap 2.3118   (Lemma D': 1.6409; Lemma D: 0.4281)
+2. r = 1.14, b = (r/2) e^{i pi/3} I: Galerkin gap 2.2952   (Lemma D': 1.6409; Lemma D: 0.4281)

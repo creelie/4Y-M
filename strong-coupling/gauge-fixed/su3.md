@@ -341,14 +341,19 @@ Three losses remain, measured at r = 1.14, s = 0.322 with the exact moments and 
    comes from Z ≥ 1 and from bounding a variance by a second moment about the Haar mean; shifting
    X_s by a multiple of Re Tr(W h*), the only shift compatible with the reductions, does not lower the
    maximum.
-3. Lemma D′. gap₂(1.14) = 1.641, against Galerkin values 2.29 at b = rI and 2.24 at b = r diag(1, 1, 0),
-   upper bounds for the true gap (polynomials of degree two; the same computation gives 2.58 at b = 0,
-   where the gap is 8/3).
+3. Lemma D′. gap₂(1.14) = 1.641, against Galerkin values 2.29 at b = rI, 2.31 at b = r diag(0, 0, 1)
+   and 2.30 at b = (r/2)e^{iπ/3} I, upper bounds for the true gap (polynomials of degree two; the same
+   computation gives 2.58 at b = 0, where the gap is 8/3).
 
-The route bounds sup_h √(ν_b|∇ψ|²), the H^{-1}(ν_b) norm of φ_h − ν_bφ_h. Its Galerkin values
-(polynomials of degree two, `checks/su3/ceiling.py`) are 0.353 at r = 1.12 and b = r diag(1, 1, −1),
-the larger of the two matrices tried, against Λ̄₃(1.14) = 0.435; twice r times it is 0.91 at r = 1.25
-and 1.06 at r = 1.4. These are lower bounds at two matrices only, so single-link Dobrushin estimated
-through this norm stops at or below β_W ≈ 0.67 even with exact constants; going further needs blocks
-of several links. `checks/su3/tilted_mc.py` compares the exact tilted moments with a Haar Monte Carlo
+The route bounds sup_h √(ν_b|∇ψ|²), the H^{-1}(ν_b) norm of φ_h − ν_bφ_h, and needs it at every
+b ∈ rK. Its Galerkin values (polynomials of degree two, `checks/su3/ceiling.py`) are not largest at the
+extreme points r SU(3): along ρI they rise to 0.317 at ρ ≈ 1.1 and then fall (0.305 at ρ = 1.55), while
+interior points of rK such as r diag(0, 0, 1) = r(I + diag(−1, −1, 1))/2 and (r/2)e^{iπ/3} I = r(I + ωI)/2
+keep growing (0.3245 and 0.3255 at r = 1.55). Twice r times the largest value found is 0.79 at r = 1.25,
+0.89 at r = 1.4, 0.97 at r = 1.5 and 1.009 at r = 1.55. These are lower bounds at a few matrices only, so
+single-link Dobrushin estimated through this norm stops at or below β_W ≈ 0.77 even with exact constants.
+Between 0.57 and that value the room lies in the three losses above, and at interior points of rK the
+convexity reductions of Lemmas G to H′ compare a numerator at an extreme point with the normalisation
+Z ≥ 1, so recovering it needs moments of ν_b at non-scalar b; past that value one needs blocks of several
+links. `checks/su3/tilted_mc.py` compares the exact tilted moments with a Haar Monte Carlo
 estimate.
