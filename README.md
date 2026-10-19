@@ -29,8 +29,10 @@ This repository contains three papers and a Lean 4 / Mathlib project
   `strong-coupling/README.md`);
 - *Mass Gap of Four-Dimensional Lattice Yang–Mills Theory in a Forest Gauge*
   (`strong-coupling/forest/`, PDF also at
-  `preprintYangMillsForestGauge/YangMillsForestGauge.pdf`; the working notes
-  and checks are in `strong-coupling/gauge-fixed/`).
+  `preprintYangMillsForestGauge/YangMillsForestGauge.pdf`; the journal
+  version for Communications in Mathematical Physics, one column in the AMS
+  article class, is `strong-coupling/forest/cmp/`; the working notes and
+  checks are in `strong-coupling/gauge-fixed/`).
 
 ## Status
 
