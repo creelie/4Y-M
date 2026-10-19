@@ -1,0 +1,9 @@
+(0) at r = 0 the exact moment matrix is (4/9) I
+(M) max_h E[|grad phi_h|^2 e^(r ReTrU)] < 0.7123 at r = 0.98: True
+    float value 0.7122065720666877
+    exact tensor built, block structure verified (11.4 s)
+    8464 dyadic boxes cover the torus exactly (area 1); float search 14.8 s
+(V) max over the torus of the tilted variance < 0.1830 at r = 0.98: True  (0 failed boxes, 18.5 s)
+    gap(r) = [0.661305570923707 +/- 9.02e-16]   Lambda <= [0.509814232937940 +/- 4.50e-16]   2 r Lambda = [0.99923589655836 +/- 3.37e-15]   beta_W = [0.490000000000000 +/- 1.78e-17]
+    rate -log(2 r Lambda) = [0.00076439551747 +/- 5.03e-15]
+ALL OK
