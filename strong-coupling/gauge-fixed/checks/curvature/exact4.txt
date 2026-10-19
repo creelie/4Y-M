@@ -1,0 +1,16 @@
+position 0 checked
+position 1 checked
+position 2 checked
+position 3 checked
+distinct pair minors: 10
+   (16000*C**6 - 9200*C**4 + 1600*C**2 + 21)/250
+   (20*C**2 + 1)*(20*C**2 + 21)/25
+   (20*C**2 + 11)/5
+   (20*C**2 - 41)*(20*C**2 - 21)/25
+   (8*C**2 + 1)/2
+   (800*C**4 - 1420*C**2 + 673)/50
+   (800*C**4 - 180*C**2 + 53)/50
+   -(16000*C**6 - 38800*C**4 + 31200*C**2 - 8421)/250
+   -(20*C**2 - 31)/5
+   -(8*C**2 - 9)/2
+ALL PRINCIPAL MINORS POSITIVE: True

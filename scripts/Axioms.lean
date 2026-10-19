@@ -46,3 +46,10 @@ import YangMills
 #print axioms YangMills.StrongCoupling.hasDerivAt_Alo
 #print axioms YangMills.StrongCoupling.T_antitone
 #print axioms YangMills.StrongCoupling.zonal_final
+#print axioms YangMills.StrongCoupling.GaugeFix.one_fixed_per_plaquette
+#print axioms YangMills.StrongCoupling.GaugeFix.twelve_neighbours
+#print axioms YangMills.StrongCoupling.GaugeFix.threshold
+#print axioms YangMills.StrongCoupling.GaugeFix.one_per_site
+#print axioms YangMills.StrongCoupling.GaugeFix.straight_lines
+#print axioms YangMills.StrongCoupling.GaugeFix.two_opposite
+#print axioms YangMills.StrongCoupling.GaugeFix.budget

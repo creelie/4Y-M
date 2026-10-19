@@ -1,0 +1,37 @@
+SU(2) diagonal scan min: 0.01492189406417911
+N=2 U=True i0=0 sign=+1: min lambda_min = 0.014922
+N=2 U=True i0=0 sign=-1: min lambda_min = 0.014922
+N=2 U=True i0=1 sign=+1: min lambda_min = 0.014922
+N=2 U=True i0=1 sign=-1: min lambda_min = 0.014922
+N=2 U=True i0=2 sign=+1: min lambda_min = 0.014922
+N=2 U=True i0=2 sign=-1: min lambda_min = 0.014922
+N=2 U=True i0=3 sign=+1: min lambda_min = 0.014922
+N=2 U=True i0=3 sign=-1: min lambda_min = 0.014922
+N=2 U=True: worst 0.014922
+N=3 U=False i0=0 sign=+1: min lambda_min = 0.014922
+N=3 U=False i0=0 sign=-1: min lambda_min = 0.020903
+N=3 U=False i0=1 sign=+1: min lambda_min = 0.014922
+N=3 U=False i0=1 sign=-1: min lambda_min = 0.014922
+N=3 U=False i0=2 sign=+1: min lambda_min = 0.014922
+N=3 U=False i0=2 sign=-1: min lambda_min = 0.020903
+N=3 U=False i0=3 sign=+1: min lambda_min = 0.020903
+N=3 U=False i0=3 sign=-1: min lambda_min = 0.014922
+N=3 U=False: worst 0.014922
+N=3 U=True i0=0 sign=+1: min lambda_min = 0.014922
+N=3 U=True i0=0 sign=-1: min lambda_min = 0.014922
+N=3 U=True i0=1 sign=+1: min lambda_min = 0.014922
+N=3 U=True i0=1 sign=-1: min lambda_min = 0.014922
+N=3 U=True i0=2 sign=+1: min lambda_min = 0.014922
+N=3 U=True i0=2 sign=-1: min lambda_min = 0.014922
+N=3 U=True i0=3 sign=+1: min lambda_min = 0.014922
+N=3 U=True i0=3 sign=-1: min lambda_min = 0.014922
+N=3 U=True: worst 0.014922
+N=4 U=True i0=0 sign=+1: min lambda_min = 0.014922
+N=4 U=True i0=0 sign=-1: min lambda_min = 0.014922
+N=4 U=True i0=1 sign=+1: min lambda_min = 0.014922
+N=4 U=True i0=1 sign=-1: min lambda_min = 0.014922
+N=4 U=True i0=2 sign=+1: min lambda_min = 0.014922
+N=4 U=True i0=2 sign=-1: min lambda_min = 0.014922
+N=4 U=True i0=3 sign=+1: min lambda_min = 0.020903
+N=4 U=True i0=3 sign=-1: min lambda_min = 0.014922
+N=4 U=True: worst 0.014922

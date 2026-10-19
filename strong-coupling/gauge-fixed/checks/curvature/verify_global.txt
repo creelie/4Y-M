@@ -1,0 +1,12 @@
+L=4 N=2 U=False sign=+1: lhs=33548.1854301279 rhs=33548.1854301279 diff=-2.91e-11
+L=4 N=2 U=False sign=-1: lhs=34440.2850022561 rhs=34440.2850022561 diff=-6.55e-11
+  h = 14.5  min eigenvalue of S_p over plaquettes: 0.017531299819775706  link counts 4 adjacent / 2 opposite: True
+L=4 N=2 U=False sign=+1: lhs=36068.8034715064 rhs=36068.8034715065 diff=-1.02e-10
+L=4 N=2 U=False sign=-1: lhs=35963.3369572317 rhs=35963.3369572318 diff=-1.09e-10
+  h = 14.5  min eigenvalue of S_p over plaquettes: 0.02090293054306754  link counts 4 adjacent / 2 opposite: True
+L=4 N=3 U=False sign=+1: lhs=87582.6970697021 rhs=87582.6970697021 diff=2.91e-11
+L=4 N=3 U=False sign=-1: lhs=88256.2143363000 rhs=88256.2143363000 diff=-5.82e-11
+  h = 14.5  min eigenvalue of S_p over plaquettes: 0.020909887017453978  link counts 4 adjacent / 2 opposite: True
+L=4 N=3 U=True sign=+1: lhs=99289.4816605058 rhs=99289.4816605060 diff=-1.75e-10
+L=4 N=3 U=True sign=-1: lhs=98097.2929620024 rhs=98097.2929620027 diff=-2.76e-10
+  h = 14.5  min eigenvalue of S_p over plaquettes: 0.014921928336679605  link counts 4 adjacent / 2 opposite: True
