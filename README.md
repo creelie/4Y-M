@@ -47,8 +47,20 @@ standard axioms only):**
   monotonicity of T, and the final zonal inequality.
 - `StrongCoupling/Thresholds.lean`: the Dobrushin row sum 6(d−1)|β|, the
   threshold β_W < 2/9 at d = 4, and the gap m = −log(9β_W/2) > 0.
+- `StrongCoupling/GaugeFix.lean`: the line field of the forest gauge
+  (`strong-coupling/gauge-fixed/`): one fixed link in every plaquette,
+  straight lines, twelve partners per active link (so the Dobrushin row sum
+  is 12|β| = 3β_W), and the per-link budget 29/2 of the gauge-fixed Hessian
+  bound (seven theorems, `decide`, axioms `propext` at most).
 
-**Open:** the Clay problem itself. The paper isolates the residual statement
+**Forest gauge fixing (proved by hand, not yet refereed;
+`strong-coupling/gauge-fixed/`):** four-dimensional SU(2) has a unique
+free-boundary state with a transfer-matrix gap m ≥ −log(3β_W) for β_W < 1/3,
+and every SU(N) has a gauge-fixed Hessian bound 29/2 giving Bakry–Émery,
+decay and a gap for |β| < 1/29 (SU(3): β_W < 9/29).
+
+**Open:** the Clay problem itself (the four open problems of the
+strong-coupling paper are listed in `strong-coupling/OPEN.md`). The paper isolates the residual statement
 (Hypothesis R: `liminf Δ_lat(a)/a ≥ m > 0` with Osterwalder–Schrader convergence)
 and records that no argument in the eight audited manuscripts, and no paper in
 the literature, proves it.
