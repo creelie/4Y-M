@@ -2,9 +2,17 @@
 
 Deep Bhattacharjee and Ushashi Bhattacharya.
 
-Archived on Zenodo: release v1.0.0, [doi:10.5281/zenodo.23444338](https://doi.org/10.5281/zenodo.23444338).
+Archived on Zenodo; the concept DOI [10.5281/zenodo.23444338](https://doi.org/10.5281/zenodo.23444338)
+resolves to the latest release.
 
-This repository contains two papers and a Lean 4 / Mathlib project
+| Release | Version DOI |
+|---|---|
+| v1.0.0 | [10.5281/zenodo.23444339](https://doi.org/10.5281/zenodo.23444339) |
+| v2.0.0 | [10.5281/zenodo.23449141](https://doi.org/10.5281/zenodo.23449141) |
+| v2.0.1 | [10.5281/zenodo.23449152](https://doi.org/10.5281/zenodo.23449152) |
+| v2.0.2 | [10.5281/zenodo.23449466](https://doi.org/10.5281/zenodo.23449466) |
+
+This repository contains three papers and a Lean 4 / Mathlib project
 (`YangMills/`) checking their finite statements:
 
 - *Spacing-Uniform Lattice Inequalities Cannot Produce the Yang–Mills Mass Gap*
@@ -12,7 +20,11 @@ This repository contains two papers and a Lean 4 / Mathlib project
 - *Mass Gap of Lattice Yang–Mills Theory up to the Dobrushin Ceiling*
   (`strong-coupling/prd/`, PDF also at
   `preprintYangMillsDobrushinCeiling/YangMillsDobrushinCeiling.pdf`; see
-  `strong-coupling/README.md`).
+  `strong-coupling/README.md`);
+- *Mass Gap of Four-Dimensional Lattice Yang–Mills Theory in a Forest Gauge*
+  (`strong-coupling/forest/`, PDF also at
+  `preprintYangMillsForestGauge/YangMillsForestGauge.pdf`; the working notes
+  and checks are in `strong-coupling/gauge-fixed/`).
 
 ## Status
 
@@ -53,16 +65,18 @@ standard axioms only):**
   is 12|β| = 3β_W), and the per-link budget 29/2 of the gauge-fixed Hessian
   bound (seven theorems, `decide`, axioms `propext` at most).
 
-**Forest gauge fixing (proved by hand, not yet refereed;
-`strong-coupling/gauge-fixed/`):** four-dimensional SU(2) has a unique
+**Forest gauge fixing (proved by hand, not yet refereed; third paper,
+`strong-coupling/forest/`, notes in `strong-coupling/gauge-fixed/`):** four-dimensional SU(2) has a unique
 free-boundary state with a transfer-matrix gap m ≥ −log(3β_W) for β_W < 1/3,
 and every SU(N) has a gauge-fixed Hessian bound 29/2 giving Bakry–Émery,
 decay and a gap for |β| < 1/29 (SU(3): β_W < 9/29). For SU(3) a single-link
 Dobrushin bound in the same gauge, with a spectral-gap estimate for the
 one-link measure and a blended corrector evaluated with the exact moments of
 the one-link measure at every staple sum (character expansion, rigorous
-error bounds, a cover of the staple sums by 841 boxes), gives uniqueness,
-decay and a gap m ≥ −log(1.4248 β_W) for β_W ≤ 11/16 = 0.6875.
+error bounds, a cover of the staple sums by 865 boxes), gives uniqueness,
+decay and a gap m ≥ −log(1.4218 β_W) for β_W ≤ 45/64 = 0.703. The
+single-link route stops near β_W ≈ 0.715 with this gap bound and at or below
+0.77 with any bound; past that, blocks of several links are needed.
 
 **Open:** the Clay problem itself (the four open problems of the
 strong-coupling paper are listed in `strong-coupling/OPEN.md`). The paper isolates the residual statement

@@ -1,7 +1,7 @@
 """Adaptive dyadic cover of the representatives b = diag(a1, a2, x3 + i y3), a1 >= a2 >= |z3|, y3 >= 0,
-b in r conv T (su3.md, Lemma K), r = 11/8, by boxes on which the bound 2 r B_Q of Section 7 is below 1.
+b in r conv T (su3.md, Lemma K), r = 45/32, by boxes on which the bound 2 r B_Q of Section 7 is below 1.
 
-Usage: python3 cover.py [--r 11/8] [--L0 3] [--LMAX 6] [--out DIR]   (boxes of side r/2^L0 to start; four
+Usage: python3 cover.py [--r 45/32] [--L0 3] [--LMAX 6] [--out DIR]   (boxes of side r/2^L0 to start; four
 worker processes). Writes cover_log.txt and cover_boxes.txt (every certified box with its j and bound) in
 DIR (default: this directory); the corner data are cached in cover_cache.pkl there (not tracked)."""
 import numpy as np, itertools, pickle, os, sys, time
@@ -11,7 +11,7 @@ from corner import corner_data
 from box import box_bound
 import argparse
 from fractions import Fraction
-_ap=argparse.ArgumentParser(); _ap.add_argument('--r',default='11/8'); _ap.add_argument('--L0',type=int,default=3)
+_ap=argparse.ArgumentParser(); _ap.add_argument('--r',default='45/32'); _ap.add_argument('--L0',type=int,default=3)
 _ap.add_argument('--LMAX',type=int,default=6); _ap.add_argument('--out',default=os.path.dirname(os.path.abspath(__file__)))
 _ap.add_argument('--table',action='store_true')
 ARGS=_ap.parse_args() if __name__=='__main__' else _ap.parse_args([])

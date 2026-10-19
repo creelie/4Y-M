@@ -44,7 +44,13 @@ intermediate fixed coupling, the crossover between strong coupling and
 Bałaban's weak-coupling control, the continuum limit, and a gap in physical
 units remain open. `OPEN.md` records what is known of each.
 
-## Forest gauge fixing (`gauge-fixed/`)
+## Forest gauge fixing (`forest/`, `gauge-fixed/`)
+
+`forest/main.tex` is the paper "Mass Gap of Four-Dimensional Lattice
+Yang–Mills Theory in a Forest Gauge" (REVTeX 4-2, two columns, 13 pages),
+compiled as `preprintYangMillsForestGauge/YangMillsForestGauge.pdf` in the
+repository root; its figures are written by `forest/figures/make_figures.py`.
+The working notes and the scripts behind it are in `gauge-fixed/`.
 
 Fixing the gauge on one link of every plaquette, along a field of straight
 lines, lowers the number of Dobrushin partners of a link from 18 to 12. Three
@@ -59,7 +65,7 @@ results follow, proved by hand and not yet refereed (see
 - four-dimensional SU(3): single-link Dobrushin in the same gauge, with an
   analytic lower bound for the spectral gap of the one-link measure and a
   blended corrector evaluated with the exact moments of the one-link measure
-  at every staple sum, gives uniqueness, decay and a gap for β_W ≤ 11/16.
+  at every staple sum, gives uniqueness, decay and a gap for β_W ≤ 45/64.
 
 Checks in `prd/checks/` (the paper does not rely on them):
 
