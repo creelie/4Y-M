@@ -8,3 +8,5 @@
 *.blg
 *Notes.bib
 *.toc
+__pycache__/
+*.so

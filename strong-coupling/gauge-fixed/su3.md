@@ -1,9 +1,10 @@
-# Four-dimensional SU(3) in the forest gauge: β_W ≤ 45/64
+# Four-dimensional SU(3) in the forest gauge: β_W ≤ 3/4
 
 Status: proved by hand; constants certified in ball arithmetic (`checks/su3/certify_su3.py` for Lemmas B–E,
 `checks/su3/certify_tilted.py` for Lemmas G–J, `checks/su3/certify_blend.py` for Lemmas D′–H′, python-flint 0.9.0),
 and the evaluation of Section 5 at every staple sum by rigorous floating-point error bounds and ball
-arithmetic (`checks/su3/exact/`); not yet read by an outside referee. Ranges known before for four-dimensional SU(3): β_W < 9/32 = 0.281
+arithmetic (`checks/su3/exact/` at β_W = 45/64 with the blended corrector, `checks/su3/deg2/` at β_W = 3/4
+with the corrector of degree two of Section 6); not yet read by an outside referee. Ranges known before for four-dimensional SU(3): β_W < 9/32 = 0.281
 (Theorem B of the paper in `../prd/`, sharp Hessian 4d), β_W < 9/29 = 0.310 (gauge-fixed curvature,
 `curvature.md`); Shen–Zhu–Zhu (arXiv 2204.12737) has a smaller explicit range. Search of 19 Oct 2026 (arXiv
 and web, "SU(3) lattice Yang–Mills strong coupling uniqueness Dobrushin explicit beta"): no larger
@@ -208,7 +209,7 @@ off-block entries vanish identically), evaluates them in ball arithmetic at r = 
 
 ## 4. A sharper gap, a normalised moment and a blended corrector
 
-Three further steps remove part of each loss of Section 3; what remains is measured in Section 7.
+Three further steps remove part of each loss of Section 3; what remains is measured in Section 8.
 
 **Lemma D′ (sharper gap).** For b ∈ rK the spectral gap of ν_b is at least
 
@@ -249,7 +250,7 @@ The weight 5/8 is the one for which the coefficient of V is ½, and (2) is an eq
 is the better bound for r < 0.24 (at b = 0 it gives the exact value 8/3, Lemma D′ gives 2.21); at
 r = 1.14, gap₂ = 1.64094 against 0.428 for Lemma D. `checks/su3/gap_lemma.py` checks (2) and the closed
 form of the maximum over X on a grid of the torus and at random W, and compares gap₂ with Galerkin
-values (Section 7).
+values (Section 8).
 
 **Lemma G′ (normalised gradient moment).** For b ∈ rK and ‖h‖ = 1,
 
@@ -454,7 +455,71 @@ corner outside rK (`checks/su3/exact/worstbox.py`, output `worstbox.txt`). `chec
     2rΛ(r) ≤ 0.999657 at r = 45/32.
 
 
-## 6. The theorem
+## 6. A corrector of degree two
+
+**Lemma F″.** For b ∈ rK, ‖h‖ = 1 and every smooth real u on SU(3),
+
+    L_h(b) ≤ √(ν_b|∇u|²) + √( Var_{ν_b}(φ_h + Lu) / gap₂(r) ).
+
+Proof: write ψ = u + χ, where −Lψ = φ_h − ν_bφ_h. Since ν_b(Lu) = 0, −Lχ = X − ν_bX with X = φ_h + Lu,
+and ν_b|∇χ|² = Cov(χ, X) ≤ √(Var χ Var X) ≤ √(ν_b|∇χ|² Var X / gap₂). Lemma F′ is the case u = sφ_h.
+
+The choice u = sφ_h is the bottleneck of Section 5: in floating point it gives 1.0080 at r = 1.44
+on the face diag(r, ρ, ρ), while the Galerkin values of Section 8 allow up to r ≈ 1.54. Take instead
+u = q_h = Σ_k Σ_m C_km h_m B_k, where (B_k) is a real basis of the 189-dimensional space 𝒫₂ of real
+polynomials of degree one or two in the entries of U and Ū (the real and imaginary parts of the
+monomials), h ∈ ℂ^{3×3} = ℝ^18, and C is a real 189 × 18 matrix chosen per box. For diagonal
+b = diag(a_1, a_2, x_3 + iy_3) with F = (e11, e22, e33, ie33),
+
+    X_h = φ_h + Lq_h = φ_h + Δq_h + Σ_k b_k ⟨∇φ_{F_k}, ∇q_h⟩
+
+is a polynomial of degree three, affine in b, and ∇q_h does not depend on b; the quadratic forms
+h ↦ ν_b|∇q_h|² and h ↦ ν_b[(X_h − κ)²] are combinations of moments of degree at most six.
+
+**Exact fields.** With the basis A_jk = e_jk − e_kj, S_jk = i(e_jk + e_kj) (j < k), H_1 = i(e11 − e22)
+(weight ½ each) and H_2 = i(e11 + e22 − 2e33) (weight 1/6) of su(3), Σ_a w_a X_a ⊗ X_a is the Casimir
+tensor of −Tr(XY), so ⟨∇f, ∇g⟩ = Σ_a w_a X_af X_ag and Δ = Σ_a w_a X_a², with X_a acting by
+U ↦ UX_a (and Ū ↦ Ū X̄_a). The fields map monomials to Z[i]-combinations of monomials of the same
+degree; with C ∈ 2⁻³⁰Z the polynomials 2³¹q_h, X_a(2³¹q_h), 12·2³¹(φ_h + Δq_h) and
+12·2³¹⟨∇φ_{F_k}, ∇q_h⟩ have Gaussian-integer coefficients, every partial sum is below 2⁵⁰ in modulus,
+so double precision computes them exactly (`checks/su3/deg2/polys.py`, asserted).
+
+**Moments of degree six.** The character expansion of Section 5 is truncated at λ_1 − λ_3 ≤ 34 and
+λ_3 ≤ 11 (every omitted partition has more than 34 boxes), with the Cauchy estimate on a polydisc of
+radius ρ minimising ρ⁻⁶T. Since ν_b is invariant under conjugation by the diagonal torus, only the 8278
+of the 134596 monomials of degree at most six with trivial torus weight have nonzero moments; the
+invariants Tr X, e_2(X), det X of X = DD′ᵀ and det D, det D′ are formed in the full ring of Taylor
+polynomials and the series is computed in the weight-zero subring (`rs6z.py`, with the C kernel
+`tsmul.c` for the products). The largest error bound of an unnormalised moment at any corner is
+1.7·10⁻¹¹, and one corner takes about 1.5 s on one core.
+
+**The box bound.** As in Section 5, with λ_A the largest eigenvalue of h ↦ ν|∇q_h|²:
+
+    sup_h L_h(b) ≤ √(e^{σ/8} max_i λ_A(b_i)) + √( e^{σ/8} (max_i λ_V(b_i) + e_N/min_i Z(b_i)) / gap₂(r) ),
+
+with the full 18 × 18 forms (no block splitting) bounded by LDLᵀ in ball arithmetic plus the
+Frobenius norm of the error matrix. C is chosen in floating point at the mean of the corner moments and
+the centre of the box: for θ on a geometric grid of 48 values from 0.05 to 80, C = −(D + θC_LL/gap₂)⁻¹
+θC_Lφ/gap₂ minimises the trace of ν|∇q|² + θ Var(X)/gap₂ over the 18 coordinate directions; the best θ
+is kept and C is rounded to 2⁻³⁰. Any C gives a valid bound (`box2.py`).
+
+**Result at r = 3/2.** gap₂(3/2) = 283/128 − 3/4 = 187/128. Boxes of side r/8 cover
+[0, r]² × [−r, r] × [0, r]: 8192 boxes, 841 survive the two tests and 581 of these satisfy 2rB_Q < 1; the
+other 260 are cut into sixteen, 1760 of the 4160 pieces survive the tests and all satisfy 2rB_Q < 1. In all
+8013 boxes are discarded by the order test and 1738 by separation. The 2341 certified boxes have largest
+bound 0.999887, on [1.3125, 1.5] × [0.9375, 1.125] × [0.5625, 0.75] × [0, 0.1875] in (a_1, a_2, x_3, y_3),
+median 0.983, and θ between 7.6 and 80. `checks/su3/deg2/cover2.py` runs in about an hour on four cores
+and writes `r3_2/cover_log.txt` and `r3_2/cover_boxes.txt` (every box with its θ, in the column headed
+"kappa", and its bound). Hence
+
+    2rΛ(r) ≤ 0.999887 at r = 3/2.
+
+In floating point (`deg2/face2.py`, output `deg2/face2.txt`) the largest values of 2r sup_h of the bound
+of Lemma F″ on the face diag(r, ρ, ρ) are 0.9305 at r = 1.44, 0.9729 at r = 1.50 and 1.0018 at r = 1.54,
+against 1.0081, 1.0559 and 1.0882 for u = sφ_h with the best s.
+
+
+## 7. The theorem
 
 Λ̄ is increasing on [0, 2√μ_0/g): gap decreases, J and m increase. For r′ ≤ r, r′K ⊂ rK, because K is
 convex and contains 0 (the mean of I, ωI, ω²I with ω³ = 1), so Λ is nondecreasing and the bound at
@@ -467,19 +532,20 @@ one r holds below it. In ball arithmetic (g² ≤ 2.06548; for Λ̄ upper Rieman
 | Λ̄₂ (Lemmas F–J), `certify_tilted.py` | 0.98 | m̃ < 0.7123, κ̃ < 0.1830, gap 0.661306 | 0.999236 | 0.00076 |
 | Λ̄₃ (Lemmas D′–H′), `certify_blend.py` | 1.14 | s = 0.322, m̂ < 0.64543, κ_s < 0.0508, gap₂ 1.64094 | 0.990976 | 0.00907 |
 | Lemma F′ at every b (Section 5), `exact/cover.py` | 45/32 | 865 boxes, gap₂ 193/128 | 0.999657 | 0.00034 |
+| Lemma F″ at every b (Section 6), `deg2/cover2.py` | 3/2 | 2341 boxes, gap₂ 187/128 | 0.999887 | 0.00011 |
 
-So Λ(45/32) ≤ 0.999657/(45/16) < 0.355435, and for β_W ≤ 45/64, α ≤ 4β_W Λ(45/32) < 1.42174 β_W ≤ 0.999657.
+So Λ(3/2) ≤ 0.999887/3 < 0.333296, and for β_W ≤ 3/4, α ≤ 4β_W Λ(3/2) < 1.333183 β_W ≤ 0.999888 < 1.
 
-**Theorem.** Four-dimensional SU(3) lattice Yang–Mills with 0 ≤ β_W ≤ 45/64 = 0.703125: the forest-gauge
+**Theorem.** Four-dimensional SU(3) lattice Yang–Mills with 0 ≤ β_W ≤ 3/4: the forest-gauge
 specification γ^F has a unique Gibbs measure; the free-boundary limit ω of the Wilson measures exists
 for every gauge-invariant local observable along every exhausting sequence of boxes, is translation
 and hypercubic invariant and reflection positive, has exponentially decaying truncated correlations,
-and has a transfer-matrix gap m ≥ −log(1.4218 β_W) > 0. For β_W ≤ 0.366 also
+and has a transfer-matrix gap m ≥ −log(1.3332 β_W) > 0. For β_W ≤ 0.366 also
 m ≥ −log(4β_W Λ̄(2β_W)), and since Λ̄ → 1/4, m ≥ −log β_W + o(1) as β_W → 0.
 
 This passes 9/29 = 0.310 (gauge-fixed curvature) and 9/32 = 0.281 (Theorem B).
 
-## 7. Where the estimate loses
+## 8. Where the estimate loses
 
 Section 4 left three losses, measured at r = 1.14, s = 0.322 with the exact moments and a Galerkin
 computation (`checks/su3/losses.py`, `checks/su3/gap_lemma.py`); Section 5 removes the first two by
@@ -508,6 +574,10 @@ With the moments exact, what is left is Lemma D′ and the limit of Lemma F′ i
 (`checks/su3/exact/scan.py`, `face.py`, outputs `scan_1.4.txt`, `face.txt`) the largest values of
 2r sup_h of the bound of Lemma F′ found on 𝓡_r lie on the face diag(r, ρ, ρ) with ρ between 0.75r and 0.8r:
 0.9458 at r = 1.36, 0.9767 at r = 1.4 and 1.0080 at r = 1.44, so Lemma F′ with Lemma D′ stops near
-r = 1.43, β_W ≈ 0.715. Between that value and 0.77 the room is in the gap bound (item 3); past 0.77 one
-needs blocks of several links. `checks/su3/tilted_mc.py` and `checks/su3/exact/mc_check.py` compare the exact
+r = 1.43, β_W ≈ 0.715. The corrector of degree two of Section 6 removes almost all of that loss: on the
+same face it gives 0.9305 at r = 1.44 and 0.9729 at r = 1.5, close to the Galerkin values, so Lemma D′ costs
+little at these couplings (item 3 measures the gap itself, not its effect on the bound), and the distance
+between the floating-point value and the certified 0.999887 at r = 3/2 is the interpolation over boxes.
+Between β_W = 3/4 and 0.77 there is room only for smaller boxes; past 0.77 one needs blocks of several
+links. `checks/su3/tilted_mc.py` and `checks/su3/exact/mc_check.py` compare the exact
 moments of Sections 3 and 5 with Haar Monte Carlo estimates (agreement within two standard errors).
