@@ -12,6 +12,11 @@ resolves to the latest release.
 | v2.0.1 | [10.5281/zenodo.23449152](https://doi.org/10.5281/zenodo.23449152) |
 | v2.0.2 | [10.5281/zenodo.23449466](https://doi.org/10.5281/zenodo.23449466) |
 | v3.0.0 | [10.5281/zenodo.23484043](https://doi.org/10.5281/zenodo.23484043) |
+| v3.0.1 | [10.5281/zenodo.23484057](https://doi.org/10.5281/zenodo.23484057) |
+
+`YangMills_masterzipfinal2.zip` holds the repository at v3.0.1, the Hexagon
+package of the forest-gauge paper and the journal packages of the papers
+([download](https://github.com/creelie/4Y-M/raw/main/YangMills_masterzipfinal2.zip)).
 
 This repository contains three papers and a Lean 4 / Mathlib project
 (`YangMills/`) checking their finite statements:
