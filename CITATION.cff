@@ -1,13 +1,16 @@
 cff-version: 1.2.0
 message: "If you use this work, please cite it as below."
-title: "Lattice Yang-Mills theory: spacing-uniform obstructions, the mass gap up to the Dobrushin ceiling, and Lean certificate"
+title: "Lattice Yang-Mills theory: spacing-uniform obstructions, the mass gap up to the Dobrushin ceiling and in a forest gauge, and Lean certificate"
 authors:
   - family-names: Bhattacharjee
     given-names: Deep
+    orcid: "https://orcid.org/0000-0003-0466-750X"
+    affiliation: "Formerly, Electro-Gravitational Space Propulsion Laboratory (EGSPL), Bhubaneswar, Odisha 751030, India"
   - family-names: Bhattacharya
     given-names: Ushashi
-version: 2.0.0
-date-released: 2026-10-18
+    orcid: "https://orcid.org/0009-0002-2254-3914"
+version: 3.0.0
+date-released: 2026-10-19
 repository-code: "https://github.com/creelie/4Y-M"
 license: MIT
 doi: 10.5281/zenodo.23444338
