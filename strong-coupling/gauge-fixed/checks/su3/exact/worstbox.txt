@@ -1,0 +1,4 @@
+2 of 625 grid points in rK (gauge at most r)
+   [1.03125 0.85938 0.51562 0.6875 ] gauge 1.3695  value 0.9454
+   [1.03125 0.85938 0.47266 0.6875 ] gauge 1.3749  value 0.9448
+largest value over the grid: [1.20312 1.03125 0.34375 0.85938] gauge 1.6936  value 0.9719
