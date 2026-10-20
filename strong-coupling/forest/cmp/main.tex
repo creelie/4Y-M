@@ -64,7 +64,7 @@ India}
 \email{rai.bhattacharya.in@gmail.com}
 \urladdr{\href{https://orcid.org/0009-0002-2254-3914}{orcid.org/0009-0002-2254-3914}}
 
-\date{19 October 2026}
+\date{20 October 2026}
 
 \subjclass[2020]{Primary 81T25, 82B20; Secondary 60K35, 81T13, 22E30,
 58J50, 65G30}
@@ -78,7 +78,8 @@ of straight lines that meets every plaquette in exactly one link, so that
 each free link interacts with twelve others instead of eighteen. In this
 gauge the theory has a unique infinite-volume state with exponential decay
 of correlations and a positive mass gap at fixed lattice spacing, for SU(2)
-up to the limit of every single-link argument in a gauge of this kind, for
+beyond the limit of every single-link argument in a gauge of this kind, by
+blocks made of the three free links of a plaquette, for
 every SU(N) beyond the curvature limit of the ungauged theory, and for SU(3)
 on a range more than two and a half times as large as was known before.
 \end{abstract}
@@ -181,6 +182,31 @@ For the line field the coefficients are attained, so no single-link
 Kantorovich argument in that gauge reaches $\beta_W=\frac13$.
 \end{theorem}
 
+The ceiling concerns coefficients between single links. Take instead as a
+block the three free links of one plaquette. The free links of the line
+field split into such triples with period two (Lemma~\ref{lem:plaqblocks}),
+the coupling inside the block plaquette is no longer paid for, and each link
+keeps ten outside partners. The price is the sensitivity of a law on three
+spheres instead of one, which we bound analytically by integrating out the
+middle link of the block.
+
+\begin{theorem}[$\SU(2)$ with plaquette blocks]\label{thm:blocks}
+Let $G=\SU(2)$ and $0\le\beta_W\le0.345$. The number $\alpha(\beta_W)$
+of~\eqref{eq:alphablock} is increasing, $\alpha(\frac13)\le0.9561$ and
+$\alpha(0.345)\le0.9973$. The conclusions of Theorem~\ref{thm:su2} hold
+with decay at every rate below $-\frac12\log\alpha(\beta_W)$ and a
+transfer-matrix gap
+\[
+m\ge-\tfrac12\log\alpha(\beta_W)>0 ;
+\]
+at $\beta_W=\frac13$ this gives $m\ge0.0224$. For $-0.345\le\beta_W<0$ all
+statements except reflection positivity and the gap hold.
+\end{theorem}
+
+At small coupling the rate of Theorem~\ref{thm:su2} is the better one, so
+both bounds stand side by side; Theorem~\ref{thm:blocks} matters past
+$\beta_W=\frac13$, where the gap of Theorem~\ref{thm:su2} has closed.
+
 The curvature method gains as well, and for every $N$. Let $\Hess S_0$ be
 the Hessian of $\sum_p\ReTr Q_p$ on $G^E$ and $F$ the set of fixed links.
 
@@ -228,7 +254,7 @@ Section~\ref{ssec:cover} and Appendix~\ref{app:cover}.
 \begin{table}[tb]
 \caption{Explicit ranges of uniqueness, decay and a transfer-matrix gap for
 four-dimensional lattice Yang--Mills theory. The first three rows hold for
-the ungauged measure; the last three are the results of this paper.}
+the ungauged measure; the last four are the results of this paper.}
 \label{tab:ranges}
 \begin{tabular}{lll}
 \toprule
@@ -239,6 +265,7 @@ Curvature, sharp~\cite{BB26a}&$<\frac18$&$<\frac9{32}$\\
 Dobrushin, sharp quarter~\cite{BB26a}&$<\frac29$&\\
 Curvature, forest gauge&$<\frac4{29}$&$<\frac9{29}$\\
 Dobrushin, forest gauge&$<\frac13$&$\le\frac34$\\
+Plaquette blocks, forest gauge&$\le0.345$&\\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -248,13 +275,15 @@ Dobrushin, forest gauge&$<\frac13$&$\le\frac34$\\
 \includegraphics[width=\textwidth]{figures/fig_ranges.png}
 \caption{Ranges of Table~\ref{tab:ranges}. The height of each bar is the
 largest inverse coupling $\beta_W$ covered by the method. Grey bars are
-methods for the ungauged measure; blue and red bars use the forest gauge. For
-$\SU(2)$ the red bar ends at the ceiling of Theorem~\ref{thm:ceiling}; for
-$\SU(3)$ it is Theorem~\ref{thm:su3}.}
+methods for the ungauged measure; blue, red and orange bars use the forest
+gauge. For $\SU(2)$ the red bar ends at the ceiling of
+Theorem~\ref{thm:ceiling} and the orange bar, plaquette blocks, passes it
+(Theorem~\ref{thm:blocks}); for $\SU(3)$ the red bar is
+Theorem~\ref{thm:su3}.}
 \label{fig:ranges}
 \end{figure}
 
-All four theorems are statements at fixed lattice spacing. They do not touch
+All five theorems are statements at fixed lattice spacing. They do not touch
 the continuum limit, the crossover to Ba{\l}aban's regime, or a gap in
 physical units, which together are the Clay problem; Section~\ref{sec:limits}
 says where each method stops and what remains of the four open problems
@@ -265,11 +294,12 @@ applies to all of them.
 Section~\ref{sec:linefield} constructs the line field.
 Section~\ref{sec:state} shows that a Dobrushin bound for the gauge-fixed
 specification gives the full conclusion of Theorem~\ref{thm:su2}.
-Sections~\ref{sec:su2}, \ref{sec:curvature} and~\ref{sec:su3} prove
-Theorems~\ref{thm:su2}--\ref{thm:su3}, and Section~\ref{sec:limits} measures
-what is left. The appendices contain the residue table of the line field,
-the comparison lemma, the blocks of the local Hessian inequality and the
-details of the certified computation.
+Sections~\ref{sec:su2}, \ref{sec:plaqblocks}, \ref{sec:curvature}
+and~\ref{sec:su3} prove Theorems~\ref{thm:su2}--\ref{thm:su3}, and
+Section~\ref{sec:limits} measures what is left. The appendices contain the
+residue table of the line field, the comparison lemma and its version for
+blocks, the blocks of the local Hessian inequality and the details of the
+certified computation.
 
 \section{The line field}\label{sec:linefield}
 
@@ -547,6 +577,281 @@ $\beta_W=\frac29$ of~\cite[Prop.~13]{BB26a}; the temporal gauge, a family of
 lines in one direction, leaves fourteen. The line field is optimal among
 forests: twelve is the mean number of partners forced by the number of free
 links, and it is attained at every link.
+
+\section{SU(2) past one third: plaquette blocks}\label{sec:plaqblocks}
+
+Throughout this section $G=\SU(2)$ is the group of unit quaternions with
+the chordal metric $|x-y|$, $\bar x$ is the conjugate, $\ip xy=\operatorname{Re}
+(x\bar y)$ is the inner product of $\R^4$, and $dx$ is the normalised Haar
+measure on $S^3$. Left and right multiplication by unit quaternions and
+conjugation are isometries, and $\operatorname{Re}(xyz)=\operatorname{Re}
+(yzx)=\ip y{\bar z\bar x}$. Put
+\[
+Z_0(c)=\int_{S^3}e^{\ip cx}dx=\sum_{j\ge0}\frac{(|c|^2/4)^j}{j!\,(j+1)!},
+\qquad c\in\R^4,
+\]
+let $\nu_c(dx)\propto e^{\ip cx}dx$ be the von Mises--Fisher law, and write
+$g=\log Z_0$, so that $\nabla g(c)$ is the mean and $\Hess g(c)$ the
+covariance of $\nu_c$.
+
+\subsection{The blocks}
+
+A \emph{block plaquette} is a plaquette of the set $\mathcal B$ described in
+Table~\ref{tab:plaqblocks} of Appendix~\ref{app:plaqblocks}, and its
+\emph{block} is the set of its three active links.
+
+\begin{lemma}\label{lem:plaqblocks}
+The set $\mathcal B$ is invariant under translations by $2\Z^4$ and:
+\begin{enumerate}[label=\textup{(\roman*)},leftmargin=*]
+\item the blocks partition the active links;
+\item every plaquette $p\notin\mathcal B$ meets three distinct blocks, one in
+each of its active links;
+\item every active link lies in exactly five plaquettes outside $\mathcal B$,
+so it shares a plaquette outside $\mathcal B$ with exactly ten active links,
+none of them in its own block;
+\item if an active link $j$ and a link of a block $B$ lie in a common
+plaquette outside $\mathcal B$, then every link of $B$ has its midpoint
+within distance $2$ of the midpoint of $j$.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+All four statements are invariant under $2\Z^4$ and involve plaquettes at
+distance at most two from one site, so they hold on $\Z^4$ as soon as they
+hold on the torus $(\Z/P\Z)^4$ with $P\ge6$, where no such configuration
+wraps around. They are checked on the tori of side four and six by the
+program described in Appendix~\ref{app:plaqblocks}; the side four already
+suffices for (i)--(iii). For (iii), an active link lies in six plaquettes,
+one of which is its block plaquette, and each of the other five contains two
+further active links, which lie in other blocks by (ii).
+\end{proof}
+
+Fix a block plaquette $p$ with active links $e_1,e_2,e_3$. Reading the
+plaquette product cyclically and deleting its fixed link, $\frac12\Tr Q_p=
+\operatorname{Re}(y_1y_2y_3)$, where $y_i$ is $Q_{e_i}$ or $Q_{e_i}^{-1}$.
+Every other plaquette containing $e_i$ meets the block only in $e_i$ by
+Lemma~\ref{lem:plaqblocks}(ii) and contributes $4\beta\ip{y_i}{\bar s}$ to
+the exponent, where $s$ is the staple of $y_i$ in it. Hence the conditional
+law of the block given all other active links is
+\begin{equation}\label{eq:blocklaw}
+\mu_b(dy)\propto\exp\Bigl(\sum_{i=1}^3\ip{y_i}{b_i}+4\beta\operatorname{Re}
+(y_1y_2y_3)\Bigr)dy_1\,dy_2\,dy_3,
+\end{equation}
+with $b_i$ the sum of $4\beta\bar s$ over the five staples, so that
+$|b_i|\le20|\beta|$. Inversion is an isometry of $S^3$ and preserves Haar
+measure, so we may work with $y$ instead of $Q$. On $(S^3)^3$ we use the
+metric $d(y,y')=\sum_i|y_i-y'_i|$.
+
+\subsection{The sensitivity of one block}
+
+Let $\lambda_*$ and $\tau$ be a lower and an upper bound for the
+eigenvalues of $\Hess g(c)$ on the ball $|c|\le24|\beta|$, and $M$ an upper
+bound there for the norm of the third derivative $D^3g(c)$ as a trilinear
+form. Put
+\begin{equation}\label{eq:blockconst}
+\begin{gathered}
+w=8\beta^2(\tau-\lambda_*),\qquad s=\tfrac14+(e^w-1)e^w\sqrt\tau,\\
+C=20|\beta|\bigl(4|\beta|\tau s+16\beta^2M\bigr),\qquad
+K=\frac{(1+|\beta|)\,s}{1-C},
+\end{gathered}
+\end{equation}
+assuming $C<1$.
+
+\begin{lemma}\label{lem:tilt}
+Let $\nu$ be a probability measure and $\lambda=e^R\nu/\nu(e^R)$ with
+$\operatorname{osc}R\le\omega$. For bounded $f,h$,
+\[
+\Cov_\lambda(f,h)\le\Cov_\nu(f,h)+(e^\omega-1)e^\omega\,\mathrm{sd}_\nu(f)
+\,\mathrm{sd}_\nu(h).
+\]
+\end{lemma}
+
+\begin{proof}
+We may assume $0\le R\le\omega$. The density $\rho=e^R/\nu(e^R)$ lies in
+$[e^{-\omega},e^\omega]$, so $\delta=\|\rho-1\|_\infty\le e^\omega-1$. With
+$\tilde f=f-\nu f$ and $\tilde h=h-\nu h$,
+\[
+\begin{split}
+\Cov_\lambda(f,h)-\Cov_\nu(f,h)={}&\nu\bigl((\rho-1)\tilde f\tilde h\bigr)\\
+&-\nu\bigl((\rho-1)\tilde f\bigr)\,\nu\bigl((\rho-1)\tilde h\bigr),
+\end{split}
+\]
+and the right side is at most $(\delta+\delta^2)\,\mathrm{sd}_\nu(f)\,
+\mathrm{sd}_\nu(h)$ by the Cauchy--Schwarz inequality.
+\end{proof}
+
+\begin{lemma}\label{lem:onesite}
+Let $\beta\ge0$, $a,c_0\in\R^4$ with $|a|,|c_0|\le20\beta$, and
+\[
+\kappa(dx)\propto\exp\bigl(\ip xa+g(c_0+4\beta\bar x)\bigr)dx
+\quad\text{on }S^3 .
+\]
+For every $1$-Lipschitz $f$ and every $h\in\R^4$:
+\begin{enumerate}[label=\textup{(\roman*)},leftmargin=*]
+\item $\Cov_\kappa(f,\ip xh)\le s|h|$;
+\item if $c_0$ moves in the direction $k$, then $|\frac{d}{dt}\kappa(f)|\le
+(4\beta\tau s+16\beta^2M)|k|$.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+(i) Taylor's formula at $c_0$ gives $g(c_0+4\beta u)=g(c_0)+4\beta\ip{\nabla
+g(c_0)}u+R(u)$ with $R(u)=8\beta^2\Hess g(\xi)(u,u)$ for some $\xi$ on the
+segment, $|\xi|\le24\beta$. For $u=\bar x$ of norm one, $R(\bar x)\in[8\beta^2
+\lambda_*,8\beta^2\tau]$, so $\operatorname{osc}R\le w$. Since $\ip{\nabla
+g(c_0)}{\bar x}=\ip x{\overline{\nabla g(c_0)}}$, $\kappa$ is the tilt
+$e^{R}\nu/\nu(e^R)$ of $\nu=\nu_c$ with $c=a+4\beta\overline{\nabla g(c_0)}$.
+The sharp quarter~\cite[Thm.~7]{BB26a} gives $\Cov_\nu(f,\ip xh)=\frac{d}{dt}
+\nu_{c+th}(f)\le\frac14|h|$. A $1$-Lipschitz function on a set of diameter
+two has $\mathrm{sd}\le1$, and $\mathrm{sd}_\nu\ip xh\le\sqrt\tau|h|$
+because $|c|\le|a|+4\beta\le24\beta$. Lemma~\ref{lem:tilt} gives (i).
+
+(ii) The derivative is $\Cov_\kappa(f,\ip{\nabla g(c_0+4\beta\bar x)}k)$.
+Write $\nabla g(c_0+4\beta u)=\nabla g(c_0)+4\beta\Hess g(c_0)u+N(u)$. The
+constant term does not contribute. The linear term is $\ip xh$ with
+$h=4\beta\,\overline{\Hess g(c_0)k}$, $|h|\le4\beta\tau|k|$, and contributes at
+most $4\beta\tau s|k|$ by (i). For $|u|,|u'|\le1$, $\|\Hess g(c_0+4\beta v)-
+\Hess g(c_0)\|\le4\beta M|v|\le4\beta M$ on the segment between them, so
+$|N(u)-N(u')|\le16\beta^2M|u-u'|$; the function $\ip{N(\bar x)}k$ is
+therefore $16\beta^2M|k|$-Lipschitz, its standard deviation is at most that
+constant, and its covariance with $f$ is at most $16\beta^2M|k|$.
+\end{proof}
+
+\begin{lemma}\label{lem:blockK}
+Let $C<1$. If $b$ and $b'$ satisfy $|b_i|,|b'_i|\le20|\beta|$ and differ
+only in one coordinate $b_i$, then
+\[
+W_1(\mu_b,\mu_{b'})\le K\,|b_i-b'_i|
+\]
+in the metric $d$.
+\end{lemma}
+
+\begin{proof}
+The map $y_1\mapsto-y_1$ turns $\mu_b$ for $\beta$ into the law for $-\beta$
+with $b_1$ replaced by $-b_1$ and is an isometry, so we may take $\beta\ge0$;
+the cyclic symmetry of $\operatorname{Re}(y_1y_2y_3)$ lets us take $i=1$. Let
+$f$ be $1$-Lipschitz for $d$ and $\varepsilon=|b_1-b'_1|$.
+
+\emph{The middle link.} Given $y_1,y_3$, the law of $y_2$ is $\nu_c$ with $c=
+b_2+4\beta\,\overline{y_3y_1}$, which does not involve $b_1$. Changing $y_1$
+by $\eta$ moves $c$ by $4\beta\eta$, and the sharp quarter moves $\nu_c$ by at
+most $\beta\eta$ in $W_1$. Hence $F(y_1,y_3)=\E[f\mid y_1,y_3]$ is
+$(1+\beta)$-Lipschitz in each variable, and $\mu_b(f)=\mu^{13}_b(F)$, where
+$\mu^{13}_b$ is the law of $(y_1,y_3)$:
+\[
+\mu^{13}_b\propto e^{\ip{y_1}{b_1}+\ip{y_3}{b_3}}Z_0\bigl(b_2+4\beta\,
+\overline{y_3y_1}\bigr).
+\]
+Since $|b_2+4\beta\overline{y_3y_1}|=|b_2y_3+4\beta\bar y_1|=|y_1b_2+
+4\beta\bar y_3|$, its conditional laws are
+\[
+\begin{split}
+\kappa_1(dy_1\mid y_3)&\propto e^{\ip{y_1}{b_1}+g(b_2y_3+4\beta\bar y_1)}dy_1,\\
+\kappa_3(dy_3\mid y_1)&\propto e^{\ip{y_3}{b_3}+g(y_1b_2+4\beta\bar y_3)}dy_3,
+\end{split}
+\]
+both of the form of Lemma~\ref{lem:onesite}, with $|c_0|=|b_2|$.
+
+\emph{Two sites.} Integrating Lemma~\ref{lem:onesite}(i) along the segment
+from $b_1$ to $b'_1$ gives $W_1(\kappa_1,\kappa'_1)\le s\varepsilon$ for the
+same $y_3$. Moving $y_3$ to $y'_3$ moves $c_0=b_2y_3$ along a segment of
+length $|b_2||y_3-y'_3|\le20\beta|y_3-y'_3|$ inside the ball $|c_0|\le20\beta$,
+so Lemma~\ref{lem:onesite}(ii) gives $W_1(\kappa_1(\cdot\mid y_3),\kappa_1(
+\cdot\mid y'_3))\le C|y_3-y'_3|$, and the same for $\kappa_3$, which does not
+depend on $b_1$. Let $\pi$ be a coupling of $\mu^{13}_b$ and $\mu^{13}_{b'}$
+minimising $d_1+d_3$, $d_k=\E_\pi|y_k-y'_k|$. Replacing $(y_1,y'_1)$ by an
+optimal coupling of $\kappa_1(\cdot\mid y_3)$ and $\kappa'_1(\cdot\mid y'_3)$
+keeps a coupling, so minimality gives $d_1\le s\varepsilon+Cd_3$; in the
+same way $d_3\le Cd_1$. Hence $d_1\le s\varepsilon/(1-C^2)$ and
+\[
+|\mu_b(f)-\mu_{b'}(f)|\le(1+\beta)(d_1+d_3)\le\frac{(1+\beta)s}{1-C}
+\,\varepsilon=K\varepsilon .\qedhere
+\]
+\end{proof}
+
+\subsection{The constants}
+
+\begin{lemma}\label{lem:vmfconst}
+Write $g(c)=\varphi(|c|^2)$ and $r=|c|$. For $c\ne0$ the eigenvalues of
+$\Hess g(c)$ are $2\varphi'(r^2)$, three times, and $2\varphi'(r^2)+4r^2
+\varphi''(r^2)$, and the norm of $D^3g(c)$ is
+\[
+\max\Bigl(|A+\Gamma|,\tfrac23|A|\Bigr),\qquad A=12r\varphi''(r^2),\quad
+\Gamma=8r^3\varphi'''(r^2).
+\]
+On the ball $r\le2.07$ every eigenvalue of $\Hess g$ lies between
+$0.158491$ and $0.25000001$, and the norm of $D^3g$ is at most $0.0615586$.
+\end{lemma}
+
+\begin{proof}
+Differentiating $\varphi(|c|^2)$ gives $D^2g(v,v)=2\varphi'|v|^2+4\varphi''
+\ip cv^2$ and $D^3g(v,v,v)=12\varphi''\ip cv|v|^2+8\varphi'''\ip cv^3$. For
+$|v|=1$ and $t=\ip{c/r}v\in[-1,1]$ the cubic form is $At+\Gamma t^3$, whose
+largest absolute value is attained at $t=\pm1$ or at an interior critical
+point, where it equals $\frac23|A||t|\le\frac23|A|$; by Banach's
+theorem~\cite{Ban38} the supremum of a symmetric trilinear form on the
+diagonal of the unit sphere is its norm. The numerical bounds are obtained
+in ball arithmetic~\cite{Joh17} from the series of $Z_0$, truncated after
+forty terms with a proved bound on the tail, on $2\cdot10^4$ subintervals of
+$[0,2.07]$; the program is described in Appendix~\ref{app:plaqblocks}.
+\end{proof}
+
+\subsection{The proof of Theorem~\ref{thm:blocks}}
+
+Let $\gamma^{\mathcal B}$ be the block specification: for a block $B$,
+$\gamma^{\mathcal B}_B$ resamples the three links of $B$ from~\eqref{eq:blocklaw}.
+It comes from the same interaction as $\gamma^F$, so the two specifications
+have the same Gibbs measures. Define the block coefficients
+\[
+C_{Bj}=\sup\frac{W_1\bigl(\gamma^{\mathcal B}_B(\cdot\mid Q),\gamma^{\mathcal B}_B
+(\cdot\mid Q')\bigr)}{|Q_j-Q'_j|}
+\]
+for an active link $j\notin B$, the supremum over pairs of configurations
+that differ only at $j$, with $W_1$ for the metric $d$.
+
+\begin{proposition}\label{prop:blockstate}
+Suppose that $\sum_BC_{Bj}\le\alpha<1$ for every active link $j$. Then the
+conclusions (i)--(vi) of Proposition~\ref{prop:state} hold with
+$-\frac12\log\alpha$ in place of $-\log\alpha$.
+\end{proposition}
+
+\begin{proof}
+The proof of Proposition~\ref{prop:state} goes through with
+Lemma~\ref{lem:blockcomparison} of Appendix~\ref{app:comparison} in place of
+Lemma~\ref{lem:comparison}, and with the set $S$ of part~(ii), and the
+support of $H$ in Corollary~\ref{cor:decay}, enlarged to the union of the
+blocks that meet it. The enlargement multiplies the size of these sets by at
+most three and moves them by at most one, which changes only the constants.
+\end{proof}
+
+\begin{proof}[Proof of Theorem~\ref{thm:blocks}]
+Let $|\beta|\le0.345/4$ and take the constants of Lemma~\ref{lem:vmfconst},
+whose ball $r\le2.07$ contains $|c|\le24|\beta|$. With these fixed constants
+every quantity in~\eqref{eq:blockconst} is increasing in $|\beta|$, and so is
+\begin{equation}\label{eq:alphablock}
+\alpha(\beta_W)=40|\beta|K .
+\end{equation}
+Changing an active link $j$ by $\eta$ changes one staple of each of its ten
+partners outside its block by an isometric image of the displacement, so the
+field $b_i$ of each such partner $i$ moves by at most $4|\beta|\eta$, and
+Lemma~\ref{lem:blockK}, applied once for each of these ten fields, gives
+$\sum_BC_{Bj}\le40|\beta|K$. Evaluating~\eqref{eq:blockconst} in ball
+arithmetic at $\beta_W=0.345$ gives $w\le0.0054459$, $s\le0.252746$,
+$C\le0.050243$, $K\le0.289069$ and $\alpha\le0.99729$; at $\beta_W=\frac13$ it
+gives $\alpha\le0.95602$. Proposition~\ref{prop:blockstate} applies.
+\end{proof}
+
+\begin{remark}\label{rem:blockgap}
+Most of the range is kept. A second bound for the same sensitivity, which
+keeps the law of the middle link instead of linearising it, evaluated in
+floating point on a quadrature grid and maximised over the fields $b$ by a
+random search followed by the Nelder--Mead method, gives $0.2783$ at
+$\beta_W=0.34$, against $0.2881$ from Lemma~\ref{lem:blockK}, and $40|\beta|$
+times it crosses one near $\beta_W=0.357$. That computation is not certified
+and is not used in the proof. Past this point the gain from integrating out
+one link is spent, and larger blocks are needed, such as the free links of a
+cube of the line field, whose sensitivity no longer reduces to two sites.
+\end{remark}
 
 \section{Curvature in the gauge}\label{sec:curvature}
 
@@ -1148,11 +1453,12 @@ $\mathcal R_r$, not at its extreme points.}
 \section{Where the methods stop}\label{sec:limits}
 
 \emph{$\SU(2)$.} Theorem~\ref{thm:ceiling} closes the single-link route in
-every forest gauge at $\beta_W=\frac13$. Going further needs blocks of
-several links, where the influence of a boundary link on a whole block is
-bounded at once; the corresponding Dobrushin--Shlosman
-criterion~\cite{DS85} is gauge invariant and stable~\cite[Thm.~G]{BB26a},
-but its constants have not been evaluated past $\frac13$.
+every forest gauge at $\beta_W=\frac13$. Blocks of several links, where the
+influence of a boundary link on a whole block is bounded at once, in the
+spirit of the Dobrushin--Shlosman criterion~\cite{DS85}, pass it:
+plaquette blocks reach $\beta_W=0.345$ (Theorem~\ref{thm:blocks}), and the
+sharper floating-point bound of Remark~\ref{rem:blockgap} stops near
+$0.357$. Larger blocks are the next step.
 
 \emph{Curvature.} Remark~\ref{rem:hf} locates the end of the curvature
 method in this gauge between $|\beta|=\frac1{29}$ and $\frac1{26.25}$.
@@ -1198,7 +1504,7 @@ coupling; (2) the crossover from strong coupling to Ba{\l}aban's
 weak-coupling regime; (3) the continuum limit with the
 Osterwalder--Schrader axioms; and (4) a gap in physical units. The present
 paper moves the boundary of (1): for $\SU(2)$ from $\beta_W=\frac29$ to
-$\frac13$, for $\SU(3)$ from $\frac9{32}$ to $\frac34$, and for every
+$0.345$, for $\SU(3)$ from $\frac9{32}$ to $\frac34$, and for every
 $\SU(N)$ past the curvature ceiling. It does not close (1); the region
 between these values and the scaling region, near $\beta_W\approx2.2$ for
 $\SU(2)$ and $\beta_W\approx6$ for $\SU(3)$, is open, and with it problem
@@ -1211,10 +1517,11 @@ the renormalisation group flow~\cite{Bal84a,BSB26}.
 
 \subsection*{Data availability}
 The analytic proofs are complete as written, except the evaluation in
-Proposition~\ref{prop:cover}, which is a computation with rigorous error
-bounds. The archive \texttt{creelie/4Y-M} on Zenodo (release v3.1.0,
-\href{https://doi.org/10.5281/zenodo.23486278}{doi:10.5281/zenodo.23486278};
-all versions,
+Proposition~\ref{prop:cover} and the numerical bounds of
+Lemma~\ref{lem:vmfconst}, which are computations with rigorous error bounds,
+and the finite check of Lemma~\ref{lem:plaqblocks}. The archive
+\texttt{creelie/4Y-M} on Zenodo (release v3.2.0, whose DOI is listed in the
+README of the repository; all versions,
 \href{https://doi.org/10.5281/zenodo.23444338}{doi:10.5281/zenodo.23444338})
 contains the programs of that computation, in Python with python-flint
 (FLINT and Arb) and a C kernel for products of Taylor polynomials, with
@@ -1225,14 +1532,19 @@ and~\ref{lem:roughlap} and of~\eqref{eq:pointwise}; numerical checks of
 Lemma~\ref{lem:identity} on tori; the searches of Remark~\ref{rem:hf} and
 Section~\ref{sec:limits}; a Lean~4 certificate of the line field
 (Lemmas~\ref{lem:cycle} and~\ref{lem:structure} for the table of
-Appendix~\ref{app:table}, by \texttt{decide}); and the source of the
+Appendix~\ref{app:table}, by \texttt{decide}); the programs of
+Appendix~\ref{app:plaqblocks} for the plaquette blocks, with the
+floating-point search of Remark~\ref{rem:blockgap}; and the source of the
 preprint version of this paper. Deep Bhattacharjee carried out the
 computations and the Lean, Python and shell checks with AI assistance from
 Claude (Anthropic). The first composite behind Theorem~\ref{thm:su2} was
 assembled by Anaxia, the reasoning engine of the BLLM system, in release
 v3.0.5~\cite{Bha26}, as described in the footnote to that theorem; release
 v3.1.0~\cite{Bha26b} records the engine's Yang--Mills runs in its failure
-log. Both authors approved the final text.
+log, whose last Yang--Mills entry is the change from single links to blocks
+of several links; the plaquette blocks of Section~\ref{sec:plaqblocks}, the
+bound of Lemma~\ref{lem:blockK} and the certified constants were found and
+checked by the authors. Both authors approved the final text.
 
 \subsection*{Funding}
 None.
@@ -1332,6 +1644,77 @@ measures are invariant under $\gamma^F_e$ for $e\notin S_H$, and
 Lemma~\ref{lem:comparison} with $S=S_H$, $T=S_F$ bounds the difference of
 two of them, as in~\cite[Cor.~29]{BB26a}.
 \end{proof}
+
+\begin{lemma}\label{lem:blockcomparison}
+Let the blocks partition $A$, let $C_{Bj}$ be the block coefficients of
+Section~\ref{sec:plaqblocks}, with $\sum_BC_{Bj}\le\alpha<1$ for every $j$ and
+$C_{Bj}=0$ unless every link of $B$ lies within distance $2$ of $j$, and fix
+$\lambda>0$ with $\theta=\alpha e^{2\lambda}<1$. Let $S\subset A$ be a union
+of blocks and let $\mu_1,\mu_2$ be invariant under $\gamma^{\mathcal B}_B$ for
+every block $B\not\subset S$. With $T$, $w_b$ as in
+Lemma~\ref{lem:comparison} and $\sum_{z\in S}w_z<\infty$, there is a coupling
+with $\sum_{b\notin S}w_b\varrho(b)\le\frac{\theta D}{1-\theta}\sum_{z\in S}w_z$,
+and $\mu_1=\mu_2$ if $S=\emptyset$.
+\end{lemma}
+
+\begin{proof}
+Take a minimiser $\pi^*$ of $\Psi$ as before. For a block $B\not\subset S$
+replace $(\sigma_B,\sigma'_B)$ by an optimal coupling, for the metric $d$, of
+the two block laws; it is again a coupling, and changing the boundary links
+one at a time bounds the expected new $d$-distance by $\sum_jC_{Bj}\varrho(j)$.
+Put $\bar w_B=\max_{i\in B}w_i$. Minimality gives
+\[
+\sum_{i\in B}w_i\varrho(i)\le\bar w_B\sum_jC_{Bj}\varrho(j),
+\]
+and $\bar w_B\le e^{2\lambda}w_j$ whenever $C_{Bj}\ne0$. Summing over the
+blocks outside $S$ and using the column sums,
+\[
+\sum_{b\notin S}w_b\varrho(b)\le\theta\Bigl[\sum_{j\notin S}w_j\varrho(j)+
+\sum_{z\in S}w_z\varrho(z)\Bigr],
+\]
+which gives the claim as in Lemma~\ref{lem:comparison}.
+\end{proof}
+
+\section{The plaquette blocks}\label{app:plaqblocks}
+
+Table~\ref{tab:plaqblocks} lists the block plaquettes of
+Section~\ref{sec:plaqblocks} modulo $2\Z^4$: the plaquette at $x$ in the plane
+$\{\mu,\nu\}$ is a block plaquette exactly when $x$ modulo two and
+$\{\mu,\nu\}$ appear in the table. Eight lie in the plane $\{0,1\}$ and eight
+in $\{2,3\}$; together they contain the $48$ active links of a cell of side
+two, each once.
+
+\begin{table}[h]
+\caption{The sixteen block plaquettes modulo two: the base point $x$
+(digits $x_0x_1x_2x_3$ modulo two) and the plane.}
+\label{tab:plaqblocks}
+\centering
+\begin{tabular}{cccc}
+\toprule
+$x$&plane&$x$&plane\\
+\midrule
+0000&$\{0,1\}$&0000&$\{2,3\}$\\
+0001&$\{0,1\}$&0011&$\{2,3\}$\\
+0010&$\{0,1\}$&0100&$\{2,3\}$\\
+0011&$\{0,1\}$&0111&$\{2,3\}$\\
+1100&$\{0,1\}$&1000&$\{2,3\}$\\
+1101&$\{0,1\}$&1011&$\{2,3\}$\\
+1110&$\{0,1\}$&1100&$\{2,3\}$\\
+1111&$\{0,1\}$&1111&$\{2,3\}$\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The program \texttt{cover.py} in the folder
+\nolinkurl{strong-coupling/gauge-fixed/blocks/} of the archive finds this set by an exact-cover search on the torus of side
+two and checks Lemma~\ref{lem:plaqblocks} on the tori of side four and six.
+The program \texttt{constants.py} evaluates the bounds of
+Lemma~\ref{lem:vmfconst} in ball arithmetic with python-flint at $120$ bits:
+the series of $Z_0$ and of its first three derivatives in $s=r^2$ is summed to
+forty terms, and the tail is bounded for $s\le5$ by twice the first omitted
+term $(5/4)^{40}40^3/(40!\,41!)$, because consecutive terms decrease by a
+factor below one half. The program \texttt{alpha.py} evaluates the constants
+of~\eqref{eq:blockconst} and $\alpha$ at a given $\beta_W$, read exactly.
 
 \section{The blocks of Lemma~\ref{lem:local}}\label{app:blocks}
 
@@ -1483,6 +1866,11 @@ Ba{\l}aban, T.: Large field renormalization. II. Localization,
 exponentiation, and bounds for the $\mathbf R$ operation. Commun. Math.
 Phys. \textbf{122}, 355--392 (1989).
 \href{https://doi.org/10.1007/BF01238433}{https://doi.org/10.1007/BF01238433}
+
+\bibitem{Ban38}
+S.~Banach, \"Uber homogene Polynome in $(L^2)$, Studia Math. \textbf{7}
+(1938), 36--44,
+\href{https://doi.org/10.4064/sm-7-1-36-44}{doi:10.4064/sm-7-1-36-44}.
 
 \bibitem{Bha26}
 Bhattacharjee, D.: BLLM: Beyond the LLM with Deep Human-Mind-AI. Zenodo,

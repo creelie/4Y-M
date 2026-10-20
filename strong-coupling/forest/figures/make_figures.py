@@ -76,15 +76,16 @@ def fig_linefield():
 
 def fig_ranges():
     from matplotlib.patches import Patch
-    fig = plt.figure(figsize=(7.2, 4.0))
-    ax = fig.add_axes([-0.06, 0.16, 1.1, 0.9], projection='3d')
+    fig = plt.figure(figsize=(7.2, 4.4))
+    ax = fig.add_axes([-0.06, 0.2, 1.1, 0.86], projection='3d')
     meth = {'SZZ': ('ungauged curvature (Shen, Zhu, Zhu)', '#d5d8dc'),
             'curv': ('ungauged curvature, sharp', '#95a5a6'),
             'quarter': ('ungauged Dobrushin, sharp quarter', '#566573'),
             'fcurv': ('forest gauge, curvature', '#2e6fb7'),
-            'fdob': ('forest gauge, single-link Dobrushin', '#c0392b')}
+            'fdob': ('forest gauge, single-link Dobrushin', '#c0392b'),
+            'fblock': ('forest gauge, plaquette blocks', '#e67e22')}
     col = {k: i for i, k in enumerate(meth)}
-    rows = [('SU(2)', [('curv', 4 / 32, '1/8'), ('quarter', 2 / 9, '2/9'), ('fdob', 1 / 3, '1/3')]),
+    rows = [('SU(2)', [('curv', 4 / 32, '1/8'), ('quarter', 2 / 9, '2/9'), ('fdob', 1 / 3, '1/3'), ('fblock', 0.345, '0.345')]),
             ('SU(3)', [('SZZ', 9 / 48, '3/16'), ('curv', 9 / 32, '9/32'), ('fcurv', 9 / 29, '9/29'), ('fdob', 3 / 4, '3/4')])]
     ax.computed_zorder = False
     for yi, (name, items) in enumerate(rows):
@@ -98,8 +99,8 @@ def fig_ranges():
         ax.text(-0.35, y0 + 0.3, 0, name, fontsize=11, ha='right', va='center', zorder=100)
     ax.set_xticks([]); ax.set_yticks([]); ax.set_zlim(0, 0.8); ax.set_zticks([0, 0.25, 0.5, 0.75])
     ax.tick_params(labelsize=8)
-    ax.set_xlim(-0.2, 5.4); ax.set_ylim(-0.2, 2.3)
-    ax.set_box_aspect((2.4, 1.1, 1.0), zoom=1.25)
+    ax.set_xlim(-0.2, 6.6); ax.set_ylim(-0.2, 2.3)
+    ax.set_box_aspect((2.8, 1.1, 1.0), zoom=1.25)
     ax.view_init(elev=22, azim=-62); ax.set_proj_type('ortho')
     ax.xaxis.pane.fill = ax.yaxis.pane.fill = False
     ax.set_zlabel(r'$\beta_W$', labelpad=2)

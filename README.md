@@ -86,7 +86,14 @@ evaluated with the exact moments of the one-link measure at every staple sum
 (character expansion, rigorous error bounds, a cover of the staple sums by
 2341 boxes), gives uniqueness, decay and a gap m ≥ −log(1.3332 β_W) for
 β_W ≤ 3/4. The single-link route stops at or below β_W ≈ 0.77 with any
-bound; past that, blocks of several links are needed.
+bound; past that, blocks of several links are needed. For SU(2), blocks made
+of the three free links of one plaquette pass the single-link ceiling 1/3:
+the free links split into such triples with period two, the middle link of
+each block is integrated out, and the block constant is bounded analytically
+with constants of the von Mises–Fisher partition function certified in ball
+arithmetic (`strong-coupling/gauge-fixed/blocks/`). This gives uniqueness,
+decay and a gap m ≥ −½ log α(β_W) for β_W ≤ 0.345, with α(1/3) ≤ 0.9561 and
+α(0.345) ≤ 0.9973.
 
 **Open:** the Clay problem itself (the four open problems of the
 strong-coupling paper are listed in `strong-coupling/OPEN.md`). The paper isolates the residual statement
