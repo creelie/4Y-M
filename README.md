@@ -96,6 +96,13 @@ with constants of the von Mises–Fisher partition function certified in ball
 arithmetic (`strong-coupling/gauge-fixed/blocks/`). This gives uniqueness,
 decay and a gap m ≥ −½ log α(β_W) for β_W ≤ 0.345, with α(1/3) ≤ 0.9561 and
 α(0.345) ≤ 0.9973.
+The same blocks work for SU(3) (`strong-coupling/gauge-fixed/blocks/su3/`):
+the law of a block is controlled by the modulus Λ(r) of the cover, the
+Hessian of log Z on r conv SU(3) and its third derivative, bounded on 841
+boxes in ball arithmetic at r = 3/2 (eigenvalues in [0.056015, 0.247316],
+third cumulant ≤ 0.182126). This gives α₃(3/4) ≤ 0.9653 and a gap
+m ≥ −½ log α₃(β_W), so m ≥ 0.0177 at β_W = 3/4 instead of 1.1·10⁻⁴ from
+single links. The range stays β_W ≤ 3/4.
 
 **Open:** the Clay problem itself (the four open problems of the
 strong-coupling paper are listed in `strong-coupling/OPEN.md`). The paper isolates the residual statement

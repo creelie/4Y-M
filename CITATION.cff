@@ -9,7 +9,7 @@ authors:
   - family-names: Bhattacharya
     given-names: Ushashi
     orcid: "https://orcid.org/0009-0002-2254-3914"
-version: 3.2.1
+version: 3.3.0
 date-released: 2026-10-20
 repository-code: "https://github.com/creelie/4Y-M"
 license: MIT

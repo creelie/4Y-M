@@ -1,9 +1,12 @@
 """Adaptive dyadic cover of the representatives b = diag(a1, a2, x3 + i y3), a1 >= a2 >= |z3|, y3 >= 0,
-b in r conv T (su3.md, Lemma K), r = 3/2, by boxes on which the degree-2 corrector bound of box2.py is below 1.
+b in r conv T (su3.md, Lemma K), r = 3/2, by boxes on which the degree-2 corrector bound of box2.py is below 1 (or below --thr).
 
-Usage: python3 cover.py [--r 45/32] [--L0 3] [--LMAX 6] [--out DIR]   (boxes of side r/2^L0 to start; four
+Usage: python3 cover2.py [--r 45/32] [--thr 1] [--L0 3] [--LMAX 6] [--out DIR]   (boxes of side r/2^L0 to start; four
 worker processes). Writes cover_log.txt and cover_boxes.txt (every certified box with its j and bound) in
 DIR (default: this directory); the corner data are cached in cover_cache.pkl there (not tracked)."""
+import os
+for _v in ('OPENBLAS_NUM_THREADS', 'OMP_NUM_THREADS', 'MKL_NUM_THREADS'):
+    os.environ.setdefault(_v, '1')   # one BLAS thread per worker: four workers already fill four cores
 import numpy as np, itertools, pickle, os, sys, time
 from multiprocessing import Pool
 from scipy.optimize import linprog
@@ -13,9 +16,9 @@ import argparse
 from fractions import Fraction
 _ap=argparse.ArgumentParser(); _ap.add_argument('--r',default='3/2'); _ap.add_argument('--L0',type=int,default=3)
 _ap.add_argument('--LMAX',type=int,default=6); _ap.add_argument('--out',default=os.path.dirname(os.path.abspath(__file__)))
-_ap.add_argument('--table',action='store_true')
+_ap.add_argument('--table',action='store_true'); _ap.add_argument('--thr',default='1')
 ARGS=_ap.parse_args() if __name__=='__main__' else _ap.parse_args([])
-R=float(Fraction(ARGS.r))
+R=float(Fraction(ARGS.r)); THR=float(Fraction(ARGS.thr))
 OUT=os.path.abspath(ARGS.out); os.makedirs(OUT,exist_ok=True)
 CACHE=os.path.join(OUT,'cover_cache.pkl')
 LOG=os.path.join(OUT,'cover_log.txt')
@@ -95,7 +98,7 @@ def main(L0=3,LMAX=6):
             tasks=[(lo,hi,{c:cache[c] for c in corners_of(lo,hi)}) for L,lo,hi in keep]
             nxt=[]; failed=0
             for (L,_,_),(lo,hi,b,d) in zip(keep,pool.imap(evalbox,tasks,chunksize=4)):
-                if b<1: passed.append((L,lo,hi,b,d.get('kap'))); worst=max(worst,b)
+                if b<THR: passed.append((L,lo,hi,b,d.get('kap'))); worst=max(worst,b)
                 else:
                     failed+=1; h=(hi-lo)/2
                     for c in itertools.product((0,1),repeat=4):
@@ -112,5 +115,5 @@ if __name__=='__main__':
     if ARGS.table:
         with open(os.path.join(OUT,'cover_passed.pkl'),'rb') as f: table(pickle.load(f))
         sys.exit()
-    log(f'r = {ARGS.r}, beta_W = r/2 = {R/2}')
+    log(f'r = {ARGS.r}, beta_W = r/2 = {R/2}, threshold {ARGS.thr}')
     main(ARGS.L0,ARGS.LMAX)

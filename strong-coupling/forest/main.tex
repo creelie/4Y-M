@@ -92,7 +92,9 @@ of correlations and a positive mass gap at fixed lattice spacing, for SU(2)
 beyond the limit of every single-link argument in a gauge of this kind, by
 blocks made of the three free links of a plaquette, for
 every SU(N) beyond the curvature limit of the ungauged theory, and for SU(3)
-on a range more than two and a half times as large as was known before.
+on a range more than two and a half times as large as was known before,
+where the same blocks raise the gap at the end of that range by two orders
+of magnitude.
 \par\medskip\upshape\noindent
 \textit{2020 Mathematics Subject Classification.} Primary 81T25, 82B20;
 Secondary 60K35, 81T13, 22E30, 58J50, 65G30.
@@ -270,10 +272,27 @@ step evaluates the resulting bound on $2341$ boxes with rigorous error bounds;
 the theorem rests on that computation, which is described in full in
 Sec.~\ref{ssec:cover} and Appendix~\ref{app:cover}.
 
+The plaquette blocks of Theorem~\ref{thm:blocks} work for $\SU(3)$ as well.
+They use the same modulus of the one-link measure, so they end where
+Theorem~\ref{thm:su3} ends, but near that end they give a much larger gap.
+
+\begin{theorem}[$\SU(3)$ with plaquette blocks]\label{thm:su3blocks}
+Let $G=\SU(3)$ and $0\le\beta_W\le\frac34$. The number $\alpha_3(\beta_W)$
+of~\eqref{eq:blockconst3} is increasing, $\alpha_3(0.72)\le0.9182$ and
+$\alpha_3(\frac34)\le0.9653$. The conclusions of Theorem~\ref{thm:su2} hold
+with decay at every rate below $-\frac12\log\alpha_3(\beta_W)$ and a
+transfer-matrix gap
+\[
+m\ge-\tfrac12\log\alpha_3(\beta_W)>0 ;
+\]
+at $\beta_W=\frac34$ this gives $m\ge0.0177$, against $1.1\cdot10^{-4}$ from
+Theorem~\ref{thm:su3}.
+\end{theorem}
+
 \begin{table}[t]
 \caption{Explicit ranges of uniqueness, decay and a transfer-matrix gap for
 four-dimensional lattice Yang--Mills theory. The first three rows hold for
-the ungauged measure; the last four are the results of this paper.}
+the ungauged measure; the last three are the results of this paper.}
 \label{tab:ranges}
 \begin{ruledtabular}
 \begin{tabular}{lll}
@@ -284,7 +303,7 @@ Curvature, sharp~\cite{BB26a}&$<\frac18$&$<\frac9{32}$\\
 Dobrushin, sharp quarter~\cite{BB26a}&$<\frac29$&\\
 Curvature, forest gauge&$<\frac4{29}$&$<\frac9{29}$\\
 Dobrushin, forest gauge&$<\frac13$&$\le\frac34$\\
-Plaquette blocks, forest gauge&$\le0.345$&\\
+Plaquette blocks, forest gauge&$\le0.345$&$\le\frac34$\\
 \end{tabular}
 \end{ruledtabular}
 \end{table}
@@ -298,11 +317,12 @@ methods for the ungauged measure; blue, red and orange bars use the forest
 gauge. For $\SU(2)$ the red bar ends at the ceiling of
 Theorem~\ref{thm:ceiling} and the orange bar, plaquette blocks, passes it
 (Theorem~\ref{thm:blocks}); for $\SU(3)$ the red bar is
-Theorem~\ref{thm:su3}.}
+Theorem~\ref{thm:su3} and the orange bar, plaquette blocks, ends at the same
+place with a larger gap (Theorem~\ref{thm:su3blocks}).}
 \label{fig:ranges}
 \end{figure*}
 
-All five theorems are statements at fixed lattice spacing. They do not touch
+All six theorems are statements at fixed lattice spacing. They do not touch
 the continuum limit, the crossover to Ba{\l}aban's regime, or a gap in
 physical units, which together are the Clay problem; Sec.~\ref{sec:limits}
 says where each method stops and what remains of the four open problems
@@ -314,7 +334,7 @@ Section~\ref{sec:linefield} constructs the line field.
 Section~\ref{sec:state} shows that a Dobrushin bound for the gauge-fixed
 specification gives the full conclusion of Theorem~\ref{thm:su2}.
 Sections~\ref{sec:su2}, \ref{sec:plaqblocks}, \ref{sec:curvature}
-and~\ref{sec:su3} prove Theorems~\ref{thm:su2}--\ref{thm:su3}, and
+\ref{sec:su3} and~\ref{sec:su3blocks} prove Theorems~\ref{thm:su2}--\ref{thm:su3blocks}, and
 Sec.~\ref{sec:limits} measures what is left. The appendices contain the
 residue table of the line field, the comparison lemma and its version for
 blocks, the blocks of the local Hessian inequality and the details of the
@@ -1471,6 +1491,194 @@ $\mathcal R_r$, not at its extreme points.}
 \label{fig:cover}
 \end{figure*}
 
+\section{SU(3) with plaquette blocks}\label{sec:su3blocks}
+
+In this section $G=\SU(3)$, $\beta\ge0$, $\beta_W=9\beta$, $N\beta=\beta_W/3$,
+and the notation is that of Sec.~\ref{sec:su3}: $d$ is the Hilbert--Schmidt
+distance, $K=\operatorname{conv}\SU(3)$, $\nu_c(dU)\propto e^{\ReTr(Uc)}dU$,
+$\varphi_h(U)=\ReTr(Uh)$ and $\Lambda(r)$ is the modulus
+of~\eqref{eq:alpha}. Put $Z(c)=\int e^{\ReTr(Uc)}dU$ and $g=\log Z$ on
+$\C^{3\times3}$, viewed as $\R^{18}$ with the inner product $\ip
+xy=\ReTr(xy^*)$. The gradient of $g$ at $c$ is the conjugate mean
+$m(c)^*$, $m(c)=\nu_c(U)\in K$, and $\Hess g(c)(h,h)=\Var_{\nu_c}(\varphi_h)$.
+Since $Z(VcW)=Z(c)$ for $V,W\in\SU(3)$, the same holds for $g$.
+
+The blocks are those of Lemma~\ref{lem:plaqblocks}, which concerns the line
+field only and holds for every group. For a block plaquette with active
+links $e_1,e_2,e_3$, $\ReTr Q_p=\ReTr(y_1y_2y_3)$ with $y_i=Q_{e_i}$ or
+$Q_{e_i}^{-1}$, and the conditional law of the block is
+\begin{equation}\label{eq:blocklaw3}
+\mu_b(dy)\propto\exp\Bigl(\sum_i\ReTr(y_ib_i)+N\beta\ReTr(y_1y_2y_3)
+\Bigr)dy ,
+\end{equation}
+where $b_i$ is $N\beta$ times the sum of the five staples of $y_i$ outside
+the block plaquette, so $b_i\in5N\beta K$ and $\|b_i\|_{\rm op}\le5N\beta$.
+On $\SU(3)^3$ we use $d(y,y')=\sum_i\|y_i-y'_i\|_{\rm HS}$.
+
+\subsection{The sensitivity of one block}
+
+Let $r=2\beta_W=6N\beta$. Let $\lambda_*$ and $\tau$ be a lower and an upper
+bound for the eigenvalues of $\Hess g$ on $rK$, $M$ an upper bound on $rK$
+for $|D^3g(c)(u,v,v)|$ over unit vectors $u,v$, and $\gamma=\gamma(r)$ the
+gap of Lemma~\ref{lem:gap}. Put
+\begin{equation}\label{eq:blockconst3}
+\begin{gathered}
+w=\tfrac32(N\beta)^2(\tau-\lambda_*),\qquad s=\Lambda(r)+(e^w-1)e^w
+\sqrt{\tau/\gamma},\\
+C=5(N\beta)^2\Bigl(\tau s+\frac{\sqrt3\,N\beta\,M\,e^w}{\gamma}\Bigr),\\
+K_3=\frac{(1+N\beta\Lambda(r))\,s}{1-C},\qquad\alpha_3=10N\beta K_3,
+\end{gathered}
+\end{equation}
+assuming $C<1$.
+
+\begin{lemma}\label{lem:onesite3}
+Let $a,c_0\in5N\beta K$ and
+\[
+\kappa(dx)\propto\exp\bigl(\ReTr(xa)+g(c_0+N\beta x)\bigr)dx\quad\text{on }
+\SU(3).
+\]
+For every $1$-Lipschitz $f$ and every $h\in\C^{3\times3}$:
+\begin{enumerate}[label=\textup{(\roman*)},leftmargin=*]
+\item $\Cov_\kappa(f,\varphi_h)\le s\|h\|_{\rm HS}$;
+\item if $c_0$ moves in the direction $k$ inside $5N\beta K$, then
+\[
+\bigl|\tfrac{d}{dt}\kappa(f)\bigr|\le N\beta\bigl(\tau s+\sqrt3N\beta
+Me^w/\gamma\bigr)\|k\|_{\rm HS}.
+\]
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+(i) The segment from $c_0$ to $c_0+N\beta x$ lies in $6N\beta K=rK$, and
+Taylor's formula gives
+\[
+g(c_0+N\beta x)=g(c_0)+N\beta\ReTr(x\,m(c_0))+R(x)
+\]
+with $R(x)=\frac12(N\beta)^2\Hess g(\xi)(x,x)$. Since $\|x\|_{\rm HS}^2=3$,
+$R\in[\frac32(N\beta)^2\lambda_*,\frac32(N\beta)^2\tau]$ and $\operatorname{osc}
+R\le w$. Hence $\kappa$ is the tilt $e^R\nu/\nu(e^R)$ of $\nu=\nu_{c'}$ with
+$c'=a+N\beta m(c_0)\in rK$. By definition of $\Lambda$, $\Cov_\nu(f,\varphi_h)
+\le\Lambda(r)\|h\|$. The function $f$ is $1$-Lipschitz for the geodesic
+distance, which dominates $d$, so $\mathrm{sd}_\nu f\le\gamma^{-1/2}$ by
+Lemma~\ref{lem:gap}, and $\mathrm{sd}_\nu\varphi_h\le\sqrt\tau\|h\|$.
+Lemma~\ref{lem:tilt} gives (i).
+
+(ii) The derivative is $\Cov_\kappa(f,\ip{\nabla g(c_0+N\beta x)}k)$. Write
+$\nabla g(c_0+N\beta u)=\nabla g(c_0)+N\beta\Hess g(c_0)u+N(u)$. The linear
+term is $\varphi_h$ with $\|h\|\le N\beta\tau\|k\|$ and contributes at most
+$N\beta\tau s\|k\|$ by (i). On the segment from $c_0$ the Hessian moves by at
+most $N\beta M\|u\|\le\sqrt3N\beta M$, so $x\mapsto\ip{N(x)}k$ is
+$\sqrt3(N\beta)^2M\|k\|$-Lipschitz for $d$. The law $\kappa$ is a tilt of
+$\nu$ by a function of oscillation at most $w$, so its spectral gap is at
+least $e^{-w}\gamma$ by the Holley--Stroock lemma~\cite{HS87}, and the
+covariance of two Lipschitz functions under $\kappa$ is at most $e^w/\gamma$
+times the product of their constants.
+\end{proof}
+
+\begin{lemma}\label{lem:blockK3}
+Let $C<1$. If $b,b'$ have all fields in $5N\beta K$ and differ only in $b_i$,
+then $W_1(\mu_b,\mu_{b'})\le K_3\|b_i-b'_i\|_{\rm HS}$ for the metric $d$.
+\end{lemma}
+
+\begin{proof}
+By the cyclic symmetry of $\ReTr(y_1y_2y_3)$ we may take $i=1$. Given
+$y_1,y_3$, the law of $y_2$ is $\nu_c$ with $c=b_2+N\beta y_3y_1\in rK$.
+Changing $y_1$ by $\eta$ in $d$ moves $c$ by $N\beta\eta$ and $\nu_c$ by at most
+$N\beta\Lambda(r)\eta$ in $W_1$, as in~\eqref{eq:alpha}; so $F(y_1,y_3)=
+\E[f\mid y_1,y_3]$ is $(1+N\beta\Lambda(r))$-Lipschitz in each variable. The
+law of $(y_1,y_3)$ is proportional to $e^{\ReTr(y_1b_1)+\ReTr(y_3b_3)}
+Z(b_2+N\beta y_3y_1)$, and $Z(b_2+N\beta y_3y_1)=Z(y_3^{-1}b_2+N\beta y_1)=
+Z(b_2y_1^{-1}+N\beta y_3)$, so its two conditional laws have the form of
+Lemma~\ref{lem:onesite3}, with $c_0=y_3^{-1}b_2$ and $c_0=b_2y_1^{-1}$.
+Moving $y_3$ to $y'_3$ moves $y_3^{-1}b_2$ along a segment in $5N\beta K$ of
+length at most $\|b_2\|_{\rm op}\|y_3-y'_3\|\le5N\beta\|y_3-y'_3\|$. The
+coupling argument of Lemma~\ref{lem:blockK} now gives $d_1\le s\varepsilon+
+Cd_3$, $d_3\le Cd_1$ and $|\mu_b(f)-\mu_{b'}(f)|\le(1+N\beta\Lambda(r))(d_1+
+d_3)\le K_3\varepsilon$.
+\end{proof}
+
+\subsection{The constants and the proof of Theorem~\ref{thm:su3blocks}}
+
+\begin{lemma}\label{lem:su3const}
+At $r=\frac32$ every eigenvalue of $\Hess g$ on $rK$ lies in
+$[0.056015,0.247316]$, and $|D^3g(c)(u,v,v)|\le0.182126$ for $c\in rK$ and
+unit vectors $u,v$.
+\end{lemma}
+
+\begin{proof}
+For $V,W\in\SU(3)$, $g(VcW)=g(c)$ and $x\mapsto VxW$ is an isometry, so the
+eigenvalues of $\Hess g$ and the norm of $D^3g$ are constant on the orbits,
+and by Lemma~\ref{lem:orbits} it suffices to bound them on $\mathcal R_r$. The
+derivatives of $g$ are the cumulants of $\varphi$ under $\nu_c$. Cut the box
+$[0,r]^2\times[-r,r]\times[0,r]$ into boxes of side $r/8$ and keep the $841$
+that survive the two tests of Sec.~\ref{ssec:cover}. On each box $Q$ we
+compute, with rigorous error bounds, the moments of $\varphi$ of degree at
+most three at the sixteen corners $b_i$ and at the centre $b_0$, and put
+$k=m(b_0)$, the mean of $\varphi$ at the centre.
+
+\emph{Upper bound.} For $b\in Q$ and every $h$, $\Var_{\nu_b}(\varphi_h)\le
+\nu_b[(\varphi_h-\ip kh)^2]\le e^{\varsigma/8}\max_i\nu_{b_i}[(\varphi_h-
+\ip kh)^2]$ by Lemma~\ref{lem:boxes}(ii).
+
+\emph{Lower bound.} Integrating the right inequality of~\eqref{eq:hoeffding}
+against $f\ge0$ and dividing by $Z(b)\le\sum_i\omega_iZ(b_i)$, the left one,
+gives $\nu_b(f)\ge
+e^{-\varsigma/8}\min_i\nu_{b_i}(f)$. With $f=(\varphi_h-\nu_b\varphi_h)^2$ this
+gives $\Var_{\nu_b}(\varphi_h)\ge e^{-\varsigma/8}\min_i\Var_{\nu_{b_i}}
+(\varphi_h)$.
+
+\emph{Third cumulant.} Put $\delta=m(b)-k$. The mean value theorem and the
+upper bound give $\|\delta\|\le\tau\rho+e$, with $\rho$ the largest distance
+from $b_0$ in $Q$ and $e$ the error of the computed mean. Expanding the
+central moment about $k$,
+\[
+\begin{aligned}
+D^3g(b)(u,v,v)&=T_b(u,v,v)-\delta_u\Var(\varphi_v)\\
+&\quad-2\delta_v\Cov(\varphi_u,\varphi_v)-\delta_u\delta_v^2 ,
+\end{aligned}
+\]
+with $T_b=\nu_b[(\varphi-k)^{\otimes3}]$, $\delta_u=\ip\delta u$ and the
+moments under $\nu_b$. For a function $G$ of either sign, writing $G=G^+-G^-$
+and applying the two bounds above to $G^\pm$ gives
+$|\nu_b(G)|\le(\max_i|\nu_{b_i}(G)|+\varepsilon\max_i\nu_{b_i}|G|)/(1-
+\varepsilon)$ with $\varepsilon=1-e^{-\varsigma/8}$. For $G=(\varphi_u-k_u)
+(\varphi_v-k_v)^2$ we use $|\nu_{b_i}(G)|\le\|T_{b_i}\|$, the largest singular
+value of the $18\times324$ unfolding of $T_{b_i}$, and $\nu_{b_i}|G|\le2\sqrt3
+\,\nu_{b_i}[(\varphi_v-k_v)^2]$, since $\|U-k\|_{\rm HS}\le2\sqrt3$. The
+largest eigenvalues and singular values are bounded as in
+Sec.~\ref{ssec:cover}, and the maxima over the $841$ boxes are the numbers
+stated (Appendix~\ref{app:plaqblocks}).
+\end{proof}
+
+\begin{proof}[Proof of Theorem~\ref{thm:su3blocks}]
+Let $\beta_W\le\frac34$, so that $r=2\beta_W\le\frac32$. Every field met in
+Lemmas~\ref{lem:onesite3} and~\ref{lem:blockK3} lies in $\frac32K$, so the
+constants of Lemma~\ref{lem:su3const}, $\Lambda(\frac32)\le\frac{0.999887}3$
+from Proposition~\ref{prop:cover} and $\gamma=\gamma(\frac32)=\frac{187}{128}$
+apply; with these fixed constants every quantity in~\eqref{eq:blockconst3} is
+increasing in $\beta_W$. Changing an active link $j$ by $\eta$ changes one
+staple of each of its ten partners outside its block by a matrix of norm
+$\eta$, so the field $b_i$ of each such partner moves by $N\beta\eta$, and
+Lemma~\ref{lem:blockK3} gives $\sum_BC_{Bj}\le10N\beta K_3=\alpha_3(\beta_W)$.
+In ball arithmetic, at $\beta_W=\frac34$, $w\le0.017935$, $s\le0.34088$,
+$C\le0.043520$, $K_3\le0.38609$ and $\alpha_3\le0.96521$; at $\beta_W=0.72$,
+$\alpha_3\le0.91815$. Proposition~\ref{prop:blockstate}, whose proof does not
+use the group, applies with the Hilbert--Schmidt metric.
+\end{proof}
+
+\begin{remark}\label{rem:su3blocks}
+The blocks do not lengthen the range of Theorem~\ref{thm:su3}, which ends
+where $2r\Lambda(r)$ reaches one, but they remove the factor $\frac{12}{10}$
+of the single-link sum and keep most of it after paying for the three links:
+at $\beta_W=\frac34$ the gap bound rises from $1.1\cdot10^{-4}$ to
+$0.0177$, and the block bound is the better one for $\beta_W\ge0.715$. Past
+$\frac34$ the same proof needs $2r\Lambda(r)$ at larger $r$, where the
+Galerkin values of Sec.~\ref{sec:limits} rise above one; evaluated in
+floating point with the constants of a scan of $\mathcal R_r$, the block sum
+stays below one up to $\beta_W\approx0.78$. That computation is not certified
+and is not used in the proof.
+\end{remark}
+
 \section{Where the methods stop}\label{sec:limits}
 
 \emph{$\SU(2)$.} Theorem~\ref{thm:ceiling} closes the single-link route in
@@ -1501,8 +1709,11 @@ Galerkin values. Lemma~\ref{lem:gap} therefore costs
 little at these couplings, and most of the distance between the
 floating-point value at $r=1.5$ and the certified $0.999887$ of
 Proposition~\ref{prop:cover} is the interpolation over boxes. Between
-$\beta_W=\frac34$ and $0.77$ there is room only for smaller boxes; past
-$0.77$ one needs blocks of several links.
+$\beta_W=\frac34$ and $0.77$ there is room only for smaller boxes. The
+plaquette blocks of Theorem~\ref{thm:su3blocks} use $\Lambda(2\beta_W)$ as
+well and stop at the same place (Remark~\ref{rem:su3blocks}); past $0.77$ one
+needs larger blocks, whose sensitivity does not go through the one-link
+modulus.
 
 \begin{figure*}[t]
 \centering
@@ -1525,7 +1736,8 @@ coupling; (2) the crossover from strong coupling to Ba{\l}aban's
 weak-coupling regime; (3) the continuum limit with the
 Osterwalder--Schrader axioms; and (4) a gap in physical units. The present
 paper moves the boundary of (1): for $\SU(2)$ from $\beta_W=\frac29$ to
-$0.345$, for $\SU(3)$ from $\frac9{32}$ to $\frac34$, and for every
+$0.345$, for $\SU(3)$ from $\frac9{32}$ to $\frac34$, with a gap at $\frac34$ of
+$0.0177$ in lattice units, and for every
 $\SU(N)$ past the curvature ceiling. It does not close (1); the region
 between these values and the scaling region, near $\beta_W\approx2.2$ for
 $\SU(2)$ and $\beta_W\approx6$ for $\SU(3)$, is open, and with it problem
@@ -1552,9 +1764,8 @@ Sec.~\ref{sec:limits}; and a Lean~4 certificate of the line field
 Appendix~\ref{app:table}, by \texttt{decide}); and the programs of
 Appendix~\ref{app:plaqblocks} for the plaquette blocks, with the
 floating-point search of Remark~\ref{rem:blockgap}. The archive is on
-Zenodo: this paper accompanies release v3.2.0,
-\href{https://doi.org/10.5281/zenodo.\zenodoID}{doi:10.5281/zenodo.\zenodoID},
-and \href{https://doi.org/10.5281/zenodo.23444338}{doi:10.5281/zenodo.23444338}
+Zenodo: this paper accompanies release v3.3.0, whose DOI is listed in the
+README of the repository, and \href{https://doi.org/10.5281/zenodo.23444338}{doi:10.5281/zenodo.23444338}
 lists every version. The PDF of this paper is at
 \url{https://github.com/creelie/4Y-M/blob/main/preprintYangMillsForestGauge/YangMillsForestGauge.pdf}.
 Deep Bhattacharjee carried out the computations and the Lean, Python and
@@ -1564,8 +1775,8 @@ system~\cite{Bha26}, release v3.0.5, as described in the footnote to that
 theorem; release v3.1.0~\cite{Bha26b} records the engine's Yang--Mills runs
 in its failure log, whose last Yang--Mills entry is the change from single
 links to blocks of several links; the plaquette blocks of
-Sec.~\ref{sec:plaqblocks}, the bound of Lemma~\ref{lem:blockK} and the
-certified constants were found and checked by the authors. Both authors
+Sec.~\ref{sec:plaqblocks}, the bound of Lemma~\ref{lem:blockK}, their $\SU(3)$ version in
+Sec.~\ref{sec:su3blocks} and the certified constants were found and checked by the authors. Both authors
 approved the final text.
 
 \section*{Ethical declarations}
@@ -1733,6 +1944,15 @@ forty terms, and the tail is bounded for $s\le5$ by twice the first omitted
 term $(5/4)^{40}40^3/(40!\,41!)$, because consecutive terms decrease by a
 factor below one half. The program \texttt{alpha.py} evaluates the constants
 of~\eqref{eq:blockconst} and $\alpha$ at a given $\beta_W$, read exactly.
+
+For $\SU(3)$ the folder \nolinkurl{strong-coupling/gauge-fixed/blocks/su3/}
+contains \texttt{consts.py}, which evaluates the bounds of
+Lemma~\ref{lem:su3const} on the $841$ boxes of side $\frac3{16}$ with the
+moments of Appendix~\ref{app:cover}, and \texttt{alpha3.py}, which reads
+these bounds and the cover of Proposition~\ref{prop:cover} and evaluates
+the constants of~\eqref{eq:blockconst3} and $\alpha_3$ in ball arithmetic
+at $120$ bits; its output at $\beta_W=\frac34$ is listed with the bounds of
+each box.
 
 \section{The blocks of Lemma~\ref{lem:local}}\label{app:blocks}
 
@@ -1955,6 +2175,11 @@ Lecture Notes in Phys. 788, Springer, Berlin, 2010,
 N.~J.~Higham, \emph{Accuracy and Stability of Numerical Algorithms}, 2nd
 ed., SIAM, Philadelphia, 2002,
 \href{https://doi.org/10.1137/1.9780898718027}{doi:10.1137/1.9780898718027}.
+
+\bibitem{HS87}
+R.~Holley and D.~Stroock, Logarithmic Sobolev inequalities and stochastic
+Ising models, J. Stat. Phys. \textbf{46} (1987), 1159--1194,
+\href{https://doi.org/10.1007/BF01011161}{doi:10.1007/BF01011161}.
 
 \bibitem{Hoe63}
 W.~Hoeffding, Probability inequalities for sums of bounded random variables,

@@ -86,7 +86,7 @@ def fig_ranges():
             'fblock': ('forest gauge, plaquette blocks', '#e67e22')}
     col = {k: i for i, k in enumerate(meth)}
     rows = [('SU(2)', [('curv', 4 / 32, '1/8'), ('quarter', 2 / 9, '2/9'), ('fdob', 1 / 3, '1/3'), ('fblock', 0.345, '0.345')]),
-            ('SU(3)', [('SZZ', 9 / 48, '3/16'), ('curv', 9 / 32, '9/32'), ('fcurv', 9 / 29, '9/29'), ('fdob', 3 / 4, '3/4')])]
+            ('SU(3)', [('SZZ', 9 / 48, '3/16'), ('curv', 9 / 32, '9/32'), ('fcurv', 9 / 29, '9/29'), ('fdob', 3 / 4, '3/4'), ('fblock', 3 / 4, '3/4')])]
     ax.computed_zorder = False
     for yi, (name, items) in enumerate(rows):
         y0 = 1.5 * yi
