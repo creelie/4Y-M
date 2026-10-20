@@ -17,6 +17,7 @@ resolves to the latest release.
 | v3.1.1 | [10.5281/zenodo.23486348](https://doi.org/10.5281/zenodo.23486348) |
 | v3.2.0 | [10.5281/zenodo.23487516](https://doi.org/10.5281/zenodo.23487516) |
 | v3.2.1 | [10.5281/zenodo.23487558](https://doi.org/10.5281/zenodo.23487558) |
+| v3.3.0 | [10.5281/zenodo.23490004](https://doi.org/10.5281/zenodo.23490004) |
 
 `YangMills_masterzipfinal2.zip` holds the repository at v3.2.1, the Hexagon
 package of the forest-gauge paper and the journal packages of the papers
