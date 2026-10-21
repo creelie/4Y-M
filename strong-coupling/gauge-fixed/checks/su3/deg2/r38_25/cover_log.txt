@@ -1,0 +1,33 @@
+r = 38/25, beta_W = r/2 = 0.76, threshold 1.03
+level 3: 8192 boxes, 784 kept, 3522 new corners (discarded so far: order 6883, separation 525)
+  corners 200/3522 165s
+  corners 400/3522 279s
+  corners 600/3522 399s
+  corners 800/3522 535s
+  corners 1000/3522 649s
+  corners 1200/3522 762s
+  corners 1400/3522 946s
+  corners 1600/3522 1167s
+  corners 1800/3522 1435s
+  corners 2000/3522 1732s
+  corners 2200/3522 2024s
+  corners 2400/3522 2265s
+  corners 2600/3522 2512s
+  corners 2800/3522 2751s
+  corners 3000/3522 2969s
+  corners 3200/3522 3233s
+  corners 3400/3522 3475s
+level 3: passed 690, failed 94, largest passing bound 1.02997, 4903s
+level 4: 1504 boxes, 373 kept, 2188 new corners (discarded so far: order 7264, separation 1275)
+  corners 200/2188 163s
+  corners 400/2188 277s
+  corners 600/2188 396s
+  corners 800/2188 508s
+  corners 1000/2188 615s
+  corners 1200/2188 722s
+  corners 1400/2188 824s
+  corners 1600/2188 929s
+  corners 1800/2188 1030s
+  corners 2000/2188 1131s
+level 4: passed 373, failed 0, largest passing bound 1.02997, 1533s
+COVER COMPLETE: 1063 boxes, largest bound 1.029967; discarded order 7264, separation 1275

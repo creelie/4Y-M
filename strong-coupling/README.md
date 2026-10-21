@@ -66,7 +66,8 @@ results follow, proved by hand and not yet refereed (see
   analytic lower bound for the spectral gap of the one-link measure and a
   corrector of degree two evaluated with the exact moments of the one-link
   measure at every staple sum, gives uniqueness, decay and a gap for
-  β_W ≤ 3/4.
+  β_W ≤ 3/4; blocks of the three free links of a plaquette extend it to
+  β_W ≤ 0.76.
 
 Checks in `prd/checks/` (the paper does not rely on them):
 
