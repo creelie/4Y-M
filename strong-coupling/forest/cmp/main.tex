@@ -83,7 +83,7 @@ blocks made of the three free links of a plaquette, for
 every SU(N) beyond the curvature limit of the ungauged theory, and for SU(3)
 on a range more than two and a half times as large as was known before,
 where the same blocks raise the gap at the end of that range by two orders
-of magnitude.
+of magnitude and carry the range past it to $\beta_W=0.76$.
 \end{abstract}
 
 \maketitle
@@ -234,9 +234,9 @@ the Dobrushin route goes much further.
 \begin{theorem}[$\SU(3)$]\label{thm:su3}
 Let $G=\SU(3)$ and $0\le\beta_W\le\frac34$. Then the conclusions
 of Theorem~\ref{thm:su2} hold, with decay at every rate below
-$-\log(1.3332\,\beta_W)$ and a transfer-matrix gap
+$-\log(1.33319\,\beta_W)$ and a transfer-matrix gap
 \[
-m\ge-\log(1.3332\,\beta_W)>0 .
+m\ge-\log(1.33319\,\beta_W)>0 .
 \]
 \end{theorem}
 
@@ -254,20 +254,24 @@ the theorem rests on that computation, which is described in full in
 Section~\ref{ssec:cover} and Appendix~\ref{app:cover}.
 
 The plaquette blocks of Theorem~\ref{thm:blocks} work for $\SU(3)$ as well.
-They use the same modulus of the one-link measure, so they end where
-Theorem~\ref{thm:su3} ends, but near that end they give a much larger gap.
+They use the same modulus of the one-link measure, but only through the
+three links of a block, so they need $\Lambda(2\beta_W)$ small and not
+$2r\Lambda(r)<1$: near the end of Theorem~\ref{thm:su3} they give a much
+larger gap, and they go past it.
 
 \begin{theorem}[$\SU(3)$ with plaquette blocks]\label{thm:su3blocks}
-Let $G=\SU(3)$ and $0\le\beta_W\le\frac34$. The number $\alpha_3(\beta_W)$
-of~\eqref{eq:blockconst3} is increasing, $\alpha_3(0.72)\le0.9182$ and
-$\alpha_3(\frac34)\le0.9653$. The conclusions of Theorem~\ref{thm:su2} hold
+Let $G=\SU(3)$ and $0\le\beta_W\le\frac{19}{25}=0.76$. Then
+$\alpha_3(\beta_W)<1$ for the number of~\eqref{eq:blockconst3}, with
+$\alpha_3(0.72)\le0.9182$, $\alpha_3(\frac34)\le0.9653$ and
+$\alpha_3(0.76)\le0.99950$. The conclusions of Theorem~\ref{thm:su2} hold
 with decay at every rate below $-\frac12\log\alpha_3(\beta_W)$ and a
 transfer-matrix gap
 \[
 m\ge-\tfrac12\log\alpha_3(\beta_W)>0 ;
 \]
 at $\beta_W=\frac34$ this gives $m\ge0.0177$, against $1.1\cdot10^{-4}$ from
-Theorem~\ref{thm:su3}.
+Theorem~\ref{thm:su3}, and at $\beta_W=0.76$, where Theorem~\ref{thm:su3}
+no longer applies, $m\ge2.5\cdot10^{-4}$.
 \end{theorem}
 
 \begin{table}[tb]
@@ -284,7 +288,7 @@ Curvature, sharp~\cite{BB26a}&$<\frac18$&$<\frac9{32}$\\
 Dobrushin, sharp quarter~\cite{BB26a}&$<\frac29$&\\
 Curvature, forest gauge&$<\frac4{29}$&$<\frac9{29}$\\
 Dobrushin, forest gauge&$<\frac13$&$\le\frac34$\\
-Plaquette blocks, forest gauge&$\le0.345$&$\le\frac34$\\
+Plaquette blocks, forest gauge&$\le0.345$&$\le0.76$\\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -298,8 +302,8 @@ methods for the ungauged measure; blue, red and orange bars use the forest
 gauge. For $\SU(2)$ the red bar ends at the ceiling of
 Theorem~\ref{thm:ceiling} and the orange bar, plaquette blocks, passes it
 (Theorem~\ref{thm:blocks}); for $\SU(3)$ the red bar is
-Theorem~\ref{thm:su3} and the orange bar, plaquette blocks, ends at the same
-place with a larger gap (Theorem~\ref{thm:su3blocks}).}
+Theorem~\ref{thm:su3} and the orange bar, plaquette blocks, gives a larger
+gap there and passes it (Theorem~\ref{thm:su3blocks}).}
 \label{fig:ranges}
 \end{figure}
 
@@ -1443,6 +1447,23 @@ on the box $[1.3125,1.5]\times[0.9375,1.125]\times[0.5625,0.75]
 Appendix~\ref{app:cover} the error analysis.
 \end{proof}
 
+The same cover at a larger $r$ bounds $\Lambda(r)$ where $2r\Lambda(r)$ is
+no longer below one; the plaquette blocks of Section~\ref{sec:su3blocks} use
+that bound.
+
+\begin{proposition}\label{prop:cover2}
+$2r\Lambda(r)\le1.029967$ at $r=\frac{38}{25}$.
+\end{proposition}
+
+\begin{proof}
+As in the proof of Proposition~\ref{prop:cover}, with $\gamma(r)=
+\frac{4643}{3200}$ and the threshold $2rB_Q<1.03$: of the $8192$ boxes of
+side $r/8$, $784$ survive the two tests and $690$ satisfy the threshold; each
+of the other $94$ is cut into sixteen boxes of side $r/16$, of which $373$
+survive the tests, and all satisfy it. The $1063$ certified boxes cover
+$\mathcal R_r$, and the largest bound is $1.029967$.
+\end{proof}
+
 \begin{proof}[Proof of Theorem~\ref{thm:su3}]
 Proposition~\ref{prop:cover} gives
 \[
@@ -1581,7 +1602,8 @@ d_3)\le K_3\varepsilon$.
 \begin{lemma}\label{lem:su3const}
 At $r=\frac32$ every eigenvalue of $\Hess g$ on $rK$ lies in
 $[0.056015,0.247316]$, and $|D^3g(c)(u,v,v)|\le0.182126$ for $c\in rK$ and
-unit vectors $u,v$.
+unit vectors $u,v$. At $r=\frac{38}{25}$ the same holds with
+$[0.054978,0.248280]$ and $0.183546$.
 \end{lemma}
 
 \begin{proof}
@@ -1590,7 +1612,7 @@ eigenvalues of $\Hess g$ and the norm of $D^3g$ are constant on the orbits,
 and by Lemma~\ref{lem:orbits} it suffices to bound them on $\mathcal R_r$. The
 derivatives of $g$ are the cumulants of $\varphi$ under $\nu_c$. Cut the box
 $[0,r]^2\times[-r,r]\times[0,r]$ into boxes of side $r/8$ and keep the $841$
-that survive the two tests of Section~\ref{ssec:cover}. On each box $Q$ we
+($784$ at $r=\frac{38}{25}$) that survive the two tests of Section~\ref{ssec:cover}. On each box $Q$ we
 compute, with rigorous error bounds, the moments of $\varphi$ of degree at
 most three at the sixteen corners $b_i$ and at the centre $b_0$, and put
 $k=m(b_0)$, the mean of $\varphi$ at the centre.
@@ -1625,37 +1647,45 @@ $|\nu_b(G)|\le(\max_i|\nu_{b_i}(G)|+\varepsilon\max_i\nu_{b_i}|G|)/(1-
 value of the $18\times324$ unfolding of $T_{b_i}$, and $\nu_{b_i}|G|\le2\sqrt3
 \,\nu_{b_i}[(\varphi_v-k_v)^2]$, since $\|U-k\|_{\rm HS}\le2\sqrt3$. The
 largest eigenvalues and singular values are bounded as in
-Section~\ref{ssec:cover}, and the maxima over the $841$ boxes are the numbers
+Section~\ref{ssec:cover}, and the maxima over these boxes are the numbers
 stated (Appendix~\ref{app:plaqblocks}).
 \end{proof}
 
 \begin{proof}[Proof of Theorem~\ref{thm:su3blocks}]
-Let $\beta_W\le\frac34$, so that $r=2\beta_W\le\frac32$. Every field met in
-Lemmas~\ref{lem:onesite3} and~\ref{lem:blockK3} lies in $\frac32K$, so the
-constants of Lemma~\ref{lem:su3const}, $\Lambda(\frac32)\le\frac{0.999887}3$
-from Proposition~\ref{prop:cover} and $\gamma=\gamma(\frac32)=\frac{187}{128}$
-apply; with these fixed constants every quantity in~\eqref{eq:blockconst3} is
-increasing in $\beta_W$. Changing an active link $j$ by $\eta$ changes one
+Let first $\beta_W\le\frac34$, so that $r=2\beta_W\le\frac32$. Every field
+met in Lemmas~\ref{lem:onesite3} and~\ref{lem:blockK3} lies in $\frac32K$, so
+the constants of Lemma~\ref{lem:su3const} at $\frac32$,
+$\Lambda(\frac32)\le\frac{0.999887}3$ from Proposition~\ref{prop:cover} and
+$\gamma=\gamma(\frac32)=\frac{187}{128}$ apply; with these fixed constants every
+quantity in~\eqref{eq:blockconst3} is increasing in $\beta_W$. For
+$\frac34<\beta_W\le\frac{19}{25}$ the fields lie in $\frac{38}{25}K$, and the
+constants of Lemma~\ref{lem:su3const} at $\frac{38}{25}$,
+$\Lambda(\frac{38}{25})\le\frac{1.029967}{3.04}$ from
+Proposition~\ref{prop:cover2} and $\gamma(\frac{38}{25})=\frac{4643}{3200}$
+apply in the same way. Changing an active link $j$ by $\eta$ changes one
 staple of each of its ten partners outside its block by a matrix of norm
 $\eta$, so the field $b_i$ of each such partner moves by $N\beta\eta$, and
 Lemma~\ref{lem:blockK3} gives $\sum_BC_{Bj}\le10N\beta K_3=\alpha_3(\beta_W)$.
 In ball arithmetic, at $\beta_W=\frac34$, $w\le0.017935$, $s\le0.34088$,
 $C\le0.043520$, $K_3\le0.38609$ and $\alpha_3\le0.96521$; at $\beta_W=0.72$,
-$\alpha_3\le0.91815$. Proposition~\ref{prop:blockstate}, whose proof does not
+$\alpha_3\le0.91815$; at $\beta_W=0.76$, with the second set of constants,
+$w\le0.018609$, $s\le0.34673$, $C\le0.045770$, $K_3\le0.39454$ and
+$\alpha_3\le0.99950$. Proposition~\ref{prop:blockstate}, whose proof does not
 use the group, applies with the Hilbert--Schmidt metric.
 \end{proof}
 
 \begin{remark}\label{rem:su3blocks}
-The blocks do not lengthen the range of Theorem~\ref{thm:su3}, which ends
-where $2r\Lambda(r)$ reaches one, but they remove the factor $\frac{12}{10}$
-of the single-link sum and keep most of it after paying for the three links:
-at $\beta_W=\frac34$ the gap bound rises from $1.1\cdot10^{-4}$ to
-$0.0177$, and the block bound is the better one for $\beta_W\ge0.715$. Past
-$\frac34$ the same proof needs $2r\Lambda(r)$ at larger $r$, where the
-Galerkin values of Section~\ref{sec:limits} rise above one; evaluated in
-floating point with the constants of a scan of $\mathcal R_r$, the block sum
-stays below one up to $\beta_W\approx0.78$. That computation is not certified
-and is not used in the proof.
+Theorem~\ref{thm:su3} ends where $2r\Lambda(r)$ reaches one. The blocks
+remove the factor $\frac{12}{10}$ of the single-link sum and keep most of it
+after paying for the three links: at $\beta_W=\frac34$ the gap bound rises
+from $1.1\cdot10^{-4}$ to $0.0177$, and the block bound is the better one for
+$\beta_W\ge0.715$. Before the corrections for the three links their sum is
+$\frac{10}{12}$ of the single-link sum $2r\Lambda(r)$, so it can stay below one
+while $2r\Lambda(r)$ is slightly above one; Proposition~\ref{prop:cover2} certifies
+$2r\Lambda(r)\le1.03$ at $r=1.52$, which is enough at $\beta_W=0.76$, with
+little room. Evaluated in floating point with the constants of a scan of
+$\mathcal R_r$, the block sum stays below one up to $\beta_W\approx0.78$;
+that computation is not certified and is not used.
 \end{remark}
 
 \section{Where the methods stop}\label{sec:limits}
@@ -1690,9 +1720,10 @@ floating-point value at $r=1.5$ and the certified $0.999887$ of
 Proposition~\ref{prop:cover} is the interpolation over boxes. Between
 $\beta_W=\frac34$ and $0.77$ there is room only for smaller boxes. The
 plaquette blocks of Theorem~\ref{thm:su3blocks} use $\Lambda(2\beta_W)$ as
-well and stop at the same place (Remark~\ref{rem:su3blocks}); past $0.77$ one
-needs larger blocks, whose sensitivity does not go through the one-link
-modulus.
+well, with a little more room: they reach $0.76$ with the certified cover of
+Proposition~\ref{prop:cover2} and near $0.78$ in floating point
+(Remark~\ref{rem:su3blocks}); past that one needs larger blocks, whose
+sensitivity does not go through the one-link modulus.
 
 \begin{figure}[tb]
 \centering
@@ -1715,7 +1746,7 @@ coupling; (2) the crossover from strong coupling to Ba{\l}aban's
 weak-coupling regime; (3) the continuum limit with the
 Osterwalder--Schrader axioms; and (4) a gap in physical units. The present
 paper moves the boundary of (1): for $\SU(2)$ from $\beta_W=\frac29$ to
-$0.345$, for $\SU(3)$ from $\frac9{32}$ to $\frac34$, with a gap at $\frac34$ of
+$0.345$, for $\SU(3)$ from $\frac9{32}$ to $0.76$, with a gap at $\frac34$ of
 $0.0177$ in lattice units, and for every
 $\SU(N)$ past the curvature ceiling. It does not close (1); the region
 between these values and the scaling region, near $\beta_W\approx2.2$ for
@@ -1728,13 +1759,14 @@ the renormalisation group flow~\cite{Bal84a,BSB26}.
 \section*{Declarations}
 
 \subsection*{Data availability}
-The analytic proofs are complete as written, except the evaluation in
-Proposition~\ref{prop:cover} and the numerical bounds of
+The analytic proofs are complete as written, except the evaluations in
+Propositions~\ref{prop:cover} and~\ref{prop:cover2} and
+Lemma~\ref{lem:su3const} and the numerical bounds of
 Lemma~\ref{lem:vmfconst}, which are computations with rigorous error bounds,
 and the finite check of Lemma~\ref{lem:plaqblocks}. The archive
-\texttt{creelie/4Y-M} on Zenodo (release v3.3.0,
-\href{https://doi.org/10.5281/zenodo.23490004}{doi:10.5281/zenodo.23490004};
-all versions,
+\texttt{creelie/4Y-M} (release v3.4.0,
+\url{https://github.com/creelie/4y-m/releases/tag/v3.4.0}; all versions on
+Zenodo,
 \href{https://doi.org/10.5281/zenodo.23444338}{doi:10.5281/zenodo.23444338})
 contains the programs of that computation, in Python with python-flint
 (FLINT and Arb) and a C kernel for products of Taylor polynomials, with
@@ -1931,12 +1963,15 @@ of~\eqref{eq:blockconst} and $\alpha$ at a given $\beta_W$, read exactly.
 
 For $\SU(3)$ the folder \nolinkurl{strong-coupling/gauge-fixed/blocks/su3/}
 contains \texttt{consts.py}, which evaluates the bounds of
-Lemma~\ref{lem:su3const} on the $841$ boxes of side $\frac3{16}$ with the
-moments of Appendix~\ref{app:cover}, and \texttt{alpha3.py}, which reads
-these bounds and the cover of Proposition~\ref{prop:cover} and evaluates
-the constants of~\eqref{eq:blockconst3} and $\alpha_3$ in ball arithmetic
-at $120$ bits; its output at $\beta_W=\frac34$ is listed with the bounds of
-each box.
+Lemma~\ref{lem:su3const} on the $841$ boxes of side $\frac3{16}$ at
+$r=\frac32$ and the $784$ boxes of side $\frac{19}{100}$ at $r=\frac{38}{25}$
+with the moments of Appendix~\ref{app:cover}, and \texttt{alpha3.py}, which
+reads these bounds and the cover of Proposition~\ref{prop:cover} or
+Proposition~\ref{prop:cover2} and evaluates the constants
+of~\eqref{eq:blockconst3} and $\alpha_3$ in ball arithmetic at $120$ bits; its
+outputs at $\beta_W=\frac34$ and $0.76$ are listed with the bounds of each box.
+The cover of Proposition~\ref{prop:cover2} is computed by the program of
+Appendix~\ref{app:cover} with \texttt{--r 38/25 --thr 1.03}.
 
 \section{The blocks of Lemma~\ref{lem:local}}\label{app:blocks}
 
