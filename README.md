@@ -88,7 +88,7 @@ Dobrushin bound in the same gauge, with a spectral-gap estimate for the
 one-link measure and a corrector of degree two in the matrix entries,
 evaluated with the exact moments of the one-link measure at every staple sum
 (character expansion, rigorous error bounds, a cover of the staple sums by
-2341 boxes), gives uniqueness, decay and a gap m ≥ −log(1.3332 β_W) for
+2341 boxes), gives uniqueness, decay and a gap m ≥ −log(1.33319 β_W) for
 β_W ≤ 3/4. The single-link route stops at or below β_W ≈ 0.77 with any
 bound; past that, blocks of several links are needed. For SU(2), blocks made
 of the three free links of one plaquette pass the single-link ceiling 1/3:
@@ -104,7 +104,11 @@ Hessian of log Z on r conv SU(3) and its third derivative, bounded on 841
 boxes in ball arithmetic at r = 3/2 (eigenvalues in [0.056015, 0.247316],
 third cumulant ≤ 0.182126). This gives α₃(3/4) ≤ 0.9653 and a gap
 m ≥ −½ log α₃(β_W), so m ≥ 0.0177 at β_W = 3/4 instead of 1.1·10⁻⁴ from
-single links. The range stays β_W ≤ 3/4.
+single links. The blocks need only Λ(2β_W), not 2rΛ(r) < 1: a second cover
+at r = 38/25 (1063 boxes, 2rΛ(r) ≤ 1.029967) with the constants on 784 boxes
+(eigenvalues in [0.054978, 0.248280], third cumulant ≤ 0.183546) gives
+α₃(0.76) ≤ 0.99950, so the SU(3) range extends to β_W ≤ 0.76, past the end of
+the single-link route, with m ≥ 2.5·10⁻⁴ at β_W = 0.76.
 
 **Open:** the Clay problem itself (the four open problems of the
 strong-coupling paper are listed in `strong-coupling/OPEN.md`). The paper isolates the residual statement
