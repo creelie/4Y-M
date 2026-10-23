@@ -1,16 +1,17 @@
 {
-  "title": "Lattice Yang-Mills theory: spacing-uniform obstructions, the mass gap up to the Dobrushin ceiling and in a forest gauge, and Lean certificate",
+  "title": "Mass Gap of Four-Dimensional Lattice Yang–Mills Theory in a Forest Gauge — aomart research revision",
   "upload_type": "software",
-  "description": "Three RevTeX papers and a Lean 4/Mathlib certificate. (1) Spacing-Uniform Lattice Inequalities Cannot Produce the Yang-Mills Mass Gap: a lattice gap uniform in lattice units forces vanishing continuum two-point functions; volume, cumulant, Bianchi, running-coupling and curvature obstructions; the open residual (Hypothesis R). (2) Mass Gap of Lattice Yang-Mills Theory up to the Dobrushin Ceiling: the sharp Hessian bound 4d, uniqueness and a lattice mass gap for |beta|<1/(8d), the sharp quarter W1(nu_b,nu_b') <= |b-b'|/4 for von Mises-Fisher laws on the three-sphere, and hence uniqueness and a lattice mass gap m >= -log(9 beta_W/2) for four-dimensional SU(2) up to beta_W = 2/9, the ceiling of all single-link Dobrushin arguments; a gauge-invariant finite-box criterion. (3) Mass Gap of Four-Dimensional Lattice Yang-Mills Theory in a Forest Gauge: a field of straight lines meeting every plaquette in exactly one link, so that each free link has twelve partners; a unique free-boundary state, reflection positivity, decay and a transfer-matrix gap m >= -log(3 beta_W) for SU(2) up to beta_W = 1/3, the ceiling of single-link Dobrushin after any forest gauge fixing; past that ceiling, blocks made of the three free links of one plaquette, with the middle link integrated out and constants certified in ball arithmetic, give a gap m >= -(1/2) log alpha(beta_W) for SU(2) up to beta_W = 0.345 (alpha(0.345) <= 0.9973); a gauge-fixed Hessian bound 29/2 for every SU(N) and SO(N); and for SU(3) a gap m >= -log(1.33319 beta_W) for beta_W <= 3/4, from a spectral-gap bound for the one-link measure, a corrector of degree two in the matrix entries and a cover of the staple sums by 2341 boxes certified in ball arithmetic. The same plaquette blocks work for SU(3): with the Hessian and third cumulant of the one-link partition function bounded on 841 boxes in ball arithmetic, alpha_3(3/4) <= 0.9653 and m >= -(1/2) log alpha_3(beta_W), so the gap at beta_W = 3/4 rises from 1.1e-4 to 0.0177; a second cover at r = 38/25 (1063 boxes, 2 r Lambda(r) <= 1.029967) with constants on 784 boxes gives alpha_3(0.76) <= 0.99950, so the SU(3) range extends to beta_W <= 0.76. The continuum Yang-Mills existence and mass-gap problem remains open. Lean: 70 theorems and lemmas, no sorry, standard axioms only.",
+  "description": "<p>Research manuscript edition prepared in the aomart class. The results concern the stated fixed-spacing lattice strong-coupling regime. The continuum Yang-Mills mass gap has not been constructed.</p><p>This is a typesetting and bounded-results research revision, not journal acceptance or a claim that all requested open conjectures have been solved. No new human mathematical review is asserted. The exact changes and AI-assisted preparation are recorded with the files. The existing paper, figures and verification sources are retained in this repository archive.</p>",
   "creators": [
     {
       "name": "Bhattacharjee, Deep",
       "orcid": "0000-0003-0466-750X",
-      "affiliation": "Formerly, Electro-Gravitational Space Propulsion Laboratory (EGSPL), Bhubaneswar, Odisha 751030, India"
+      "affiliation": "Formerly, EGSPL, Bhubaneswar, India; formerly, University of Calcutta, Kolkata, India"
     },
     {
       "name": "Bhattacharya, Ushashi",
-      "orcid": "0009-0002-2254-3914"
+      "orcid": "0009-0002-2254-3914",
+      "affiliation": "Formerly, National Taiwan University, Taipei, Taiwan"
     }
   ],
   "license": "MIT",
@@ -23,5 +24,5 @@
     "Lean 4"
   ],
   "access_right": "open",
-  "version": "3.4.0"
+  "version": "annals-research-2026-10-23-p09"
 }
