@@ -47,9 +47,14 @@ units remain open. `OPEN.md` records what is known of each.
 ## Forest gauge fixing (`forest/`, `gauge-fixed/`)
 
 `forest/main.tex` is the paper "Mass Gap of Four-Dimensional Lattice
-Yang–Mills Theory in a Forest Gauge" (REVTeX 4-2, two columns, 13 pages),
-compiled as `preprintYangMillsForestGauge/YangMillsForestGauge.pdf` in the
-repository root; its figures are written by `forest/figures/make_figures.py`.
+Yang–Mills Theory for Every Compact Simple Gauge Group" by Deep
+Bhattacharjee, Ushashi Bhattacharya and James Montgomery Lockwood (REVTeX
+4-2, two columns, 33 pages), compiled as
+`preprintYangMillsForestGauge/YangMillsForestGauge.pdf` in the repository
+root; `forest/cmp/main.tex` is the same paper in the AMS article class (50
+pages). Its figures are written by `forest/figures/make_figures.py`. The
+paper is self-contained: the transfer-matrix reconstruction and the sharp
+quarter for the single-link law of SU(2) are proved in its appendices.
 The working notes and the scripts behind it are in `gauge-fixed/`.
 
 Fixing the gauge on one link of every plaquette, along a field of straight
@@ -67,7 +72,12 @@ results follow, proved by hand and not yet refereed (see
   corrector of degree two evaluated with the exact moments of the one-link
   measure at every staple sum, gives uniqueness, decay and a gap for
   β_W ≤ 3/4; blocks of the three free links of a plaquette extend it to
-  β_W ≤ 0.76.
+  β_W ≤ 0.76;
+- every compact simple group: with κ_G = h^∨/(2ℓ_ρ) the least Ricci
+  curvature, uniqueness, clustering and a gap m_G(β) for N|β| < 2κ_G/29;
+- conditional: a Dobrushin–Shlosman condition on one cube of fixed physical
+  size, uniform along the continuum tuning, gives a mass gap for every
+  continuum limit; the cube estimate and the existence of the limit are open.
 
 Checks in `prd/checks/` (the paper does not rely on them):
 

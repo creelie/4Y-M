@@ -167,5 +167,80 @@ def fig_face():
     fig.subplots_adjust(left=0, right=1, bottom=0, top=1)
     save(fig, 'fig_face.png')
 
+GROUPS = [('SU(2)', 2, 1.0), ('SU(3)', 3, 1.5), ('Sp(2)', 4, 1.5), ('SO(5)', 5, 0.75), ('G$_2$', 7, 1.0),
+          ('F$_4$', 26, 0.75), ('E$_6$', 27, 1.0), ('E$_7$', 56, 0.75), ('E$_8$', 248, 0.25)]
+
+def fig_groups():
+    """Gap m_G as a function of beta_W = N^2 beta for nine groups (Theorem thm:groups)."""
+    fig = plt.figure(figsize=(7.2, 4.0))
+    ax = fig.add_subplot(1, 1, 1, projection='3d')
+    cmap = plt.get_cmap('viridis')
+    for k, (name, N, kap) in enumerate(GROUPS):
+        top = 2 * kap * N / 29  # range of beta_W
+        bw = np.geomspace(top * 1e-3, top * (1 - 1e-6), 400)
+        u = bw / (N * kap)  # N|beta| / kappa_G
+        m = np.arccosh(1 + (1 / u - 29 / 2) / 12)
+        x = np.log10(bw); y = np.full_like(x, k); c = cmap(k / (len(GROUPS) - 1))
+        ax.plot(x, y, m, color=c, linewidth=1.8)
+        verts = [list(zip(x, y, m)) + [(x[-1], k, 0), (x[0], k, 0)]]
+        from mpl_toolkits.mplot3d.art3d import Poly3DCollection
+        ax.add_collection3d(Poly3DCollection(verts, facecolors=[c], alpha=0.28, edgecolors='none'))
+        ax.scatter([np.log10(top)], [k], [0], color=c, s=14, depthshade=False)
+    ax.set_yticks(range(len(GROUPS))); ax.set_yticklabels([g[0] for g in GROUPS], fontsize=7.5)
+    ax.set_xticks([-3, -2, -1, 0]); ax.set_xticklabels(['$10^{-3}$', '$10^{-2}$', '$10^{-1}$', '$1$'], fontsize=7.5)
+    ax.set_xlabel(r'$\beta_W$', labelpad=0); ax.set_zlabel(r'gap $m_G$', labelpad=0)
+    ax.tick_params(axis='z', labelsize=7.5)
+    ax.set_zlim(0, 6.5)
+    ax.view_init(elev=24, azim=-58)
+    ax.set_box_aspect((1.7, 1.5, 0.9), zoom=1.1)
+    fig.subplots_adjust(left=0, right=1, bottom=0, top=1)
+    save(fig, 'fig_groups.png')
+
+def fig_cubes():
+    """(a) averaged cubes: V (n=4) and translates by 2Z^d, drawn in three dimensions;
+    (b) one cube of physical side l at three lattice spacings."""
+    from mpl_toolkits.mplot3d.art3d import Poly3DCollection
+    fig = plt.figure(figsize=(7.2, 3.5))
+    ax = fig.add_subplot(1, 2, 1, projection='3d'); clean3d(ax)
+    n, L = 4, 7
+    def box(o, s, c, a, lw):
+        o = np.array(o, float)
+        V = [o + s * np.array(v) for v in itertools.product((0, 1), repeat=3)]
+        faces = [[V[0], V[1], V[3], V[2]], [V[4], V[5], V[7], V[6]], [V[0], V[1], V[5], V[4]],
+                 [V[2], V[3], V[7], V[6]], [V[0], V[2], V[6], V[4]], [V[1], V[3], V[7], V[5]]]
+        ax.add_collection3d(Poly3DCollection(faces, facecolors=c, alpha=a, edgecolors=c, linewidths=lw))
+    pts = np.array(list(itertools.product(range(L), repeat=3)))
+    ax.scatter(*pts.T, s=2, c='0.55', depthshade=False)
+    box((0, 0, 0), n - 1, '#2e6fb7', 0.10, 1.4)
+    box((2, 0, 0), n - 1, '#e67e22', 0.06, 0.9)
+    box((2, 2, 2), n - 1, '#1e8449', 0.06, 0.9)
+    j0 = np.array([3.0, 3.0, 4.0])
+    ax.plot(*zip(j0, j0 + np.array([1, 0, 0])), color='#c0392b', linewidth=3.2)
+    ax.text(*(j0 + np.array([0.6, -0.2, 0.55])), r'$j$', color='#c0392b', fontsize=11)
+    ax.text(0.2, -0.9, -0.6, r'$V$', color='#2e6fb7', fontsize=11)
+    ax.text(5.2, -0.9, -0.6, r'$V+2e_1$', color='#e67e22', fontsize=9)
+    ax.text2D(0.62, 0.86, r'$V+2(e_1+e_2+e_3)$', color='#1e8449', fontsize=9, transform=ax.transAxes)
+    ax.set_xlim(0, L - 1); ax.set_ylim(0, L - 1); ax.set_zlim(0, L - 1)
+    ax.view_init(elev=20, azim=-60)
+    ax.text2D(0.0, 0.97, '(a) averaged cubes, $n=4$', transform=ax.transAxes)
+    ax = fig.add_subplot(1, 2, 2, projection='3d'); clean3d(ax)
+    ell = 1.0
+    for k, (a, c) in enumerate([(0.25, '#2e6fb7'), (0.125, '#1e8449'), (0.0625, '#c0392b')]):
+        z = 1.2 * k
+        g = np.arange(0, 1.5 + 1e-9, a)
+        segs = [[(x, 0, z), (x, 1.5, z)] for x in g] + [[(0, y, z), (1.5, y, z)] for y in g]
+        ax.add_collection3d(Line3DCollection(segs, colors=c, linewidths=0.35, alpha=0.55))
+        sq = [(0.25, 0.25, z), (0.25 + ell, 0.25, z), (0.25 + ell, 0.25 + ell, z), (0.25, 0.25 + ell, z)]
+        ax.add_collection3d(Poly3DCollection([sq], facecolors=c, alpha=0.18, edgecolors=c, linewidths=1.8))
+        lab = (f'$a/{2**k}$' if k else '$a$') + f', $n={int(round(ell / a))}$'
+        ax.text(1.62, 0.0, z, lab, color=c, fontsize=9.5)
+    ax.plot([0.25, 0.25 + ell], [0.12, 0.12], [-0.05, -0.05], color='k', linewidth=1.0)
+    ax.text(0.55, -0.25, -0.35, r'$\ell=na$', fontsize=10)
+    ax.set_xlim(0, 1.6); ax.set_ylim(0, 1.6); ax.set_zlim(-0.3, 2.6)
+    ax.view_init(elev=18, azim=-62)
+    ax.text2D(0.0, 0.97, '(b) one physical scale', transform=ax.transAxes)
+    fig.subplots_adjust(left=0, right=1, bottom=0, top=1, wspace=0)
+    save(fig, 'fig_cubes.png')
+
 if __name__ == '__main__':
-    fig_linefield(); fig_ranges(); fig_cover(); fig_face()
+    fig_linefield(); fig_ranges(); fig_cover(); fig_face(); fig_groups(); fig_cubes()

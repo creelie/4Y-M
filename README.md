@@ -1,6 +1,6 @@
-# Yang–Mills: lattice obstructions, audit and Lean certificate
+# Yang–Mills: lattice obstructions, the lattice mass gap for every compact simple group, and Lean certificate
 
-Deep Bhattacharjee and Ushashi Bhattacharya.
+Deep Bhattacharjee, Ushashi Bhattacharya and James Montgomery Lockwood.
 
 Archived on Zenodo; the concept DOI [10.5281/zenodo.23444338](https://doi.org/10.5281/zenodo.23444338)
 resolves to the latest release.
@@ -19,9 +19,11 @@ resolves to the latest release.
 | v3.2.1 | [10.5281/zenodo.23487558](https://doi.org/10.5281/zenodo.23487558) |
 | v3.3.0 | [10.5281/zenodo.23490004](https://doi.org/10.5281/zenodo.23490004) |
 | v3.3.1 | [10.5281/zenodo.23490028](https://doi.org/10.5281/zenodo.23490028) |
+| v3.4.0 | [10.5281/zenodo.23541099](https://doi.org/10.5281/zenodo.23541099) |
 
-`YangMills_masterzipfinal2.zip` holds the repository at v3.3.1, the Hexagon
-package of the forest-gauge paper and the journal packages of the papers
+`YangMills_masterzipfinal2.zip` holds the repository at v3.5.0 and the
+Hexagon package of the paper *Mass Gap of Four-Dimensional Lattice
+Yang–Mills Theory for Every Compact Simple Gauge Group*
 ([download](https://github.com/creelie/4Y-M/raw/main/YangMills_masterzipfinal2.zip)).
 
 This repository contains three papers and a Lean 4 / Mathlib project
@@ -33,12 +35,13 @@ This repository contains three papers and a Lean 4 / Mathlib project
   (`strong-coupling/prd/`, PDF also at
   `preprintYangMillsDobrushinCeiling/YangMillsDobrushinCeiling.pdf`; see
   `strong-coupling/README.md`);
-- *Mass Gap of Four-Dimensional Lattice Yang–Mills Theory in a Forest Gauge*
-  (`strong-coupling/forest/`, PDF also at
-  `preprintYangMillsForestGauge/YangMillsForestGauge.pdf`; the journal
-  version for Communications in Mathematical Physics, one column in the AMS
-  article class, is `strong-coupling/forest/cmp/`; the working notes and
-  checks are in `strong-coupling/gauge-fixed/`).
+- *Mass Gap of Four-Dimensional Lattice Yang–Mills Theory for Every Compact
+  Simple Gauge Group* (`strong-coupling/forest/`, REVTeX, 33 pages; PDF also
+  at `preprintYangMillsForestGauge/YangMillsForestGauge.pdf`; the one-column
+  version in the AMS article class, 50 pages, is `strong-coupling/forest/cmp/`;
+  the working notes and checks are in `strong-coupling/gauge-fixed/`). It
+  was first posted as Hexagon preprint 2610.00341 under the title *Mass Gap
+  of Four-Dimensional Lattice Yang–Mills Theory in a Forest Gauge*.
 
 ## Status
 
@@ -109,6 +112,23 @@ at r = 38/25 (1063 boxes, 2rΛ(r) ≤ 1.029967) with the constants on 784 boxes
 (eigenvalues in [0.054978, 0.248280], third cumulant ≤ 0.183546) gives
 α₃(0.76) ≤ 0.99950, so the SU(3) range extends to β_W ≤ 0.76, past the end of
 the single-link route, with m ≥ 2.5·10⁻⁴ at β_W = 0.76.
+
+**Every compact simple group (third paper, proved by hand, not refereed):**
+in the forest gauge the least Ricci curvature of G is κ_G = h^∨/(2ℓ_ρ)
+(Ric = −B/4), and for N|β| < 2κ_G/29 the theory has a unique free-boundary
+state, exponential clustering and a transfer-matrix gap
+m_G(β) = arccosh(1 + (κ_G/(N|β|) − 29/2)/12). The ranges in β_W = N²β run
+from N²/29 for SU(N) to 124/29 for E₈ (exact table checked by
+`strong-coupling/gauge-fixed/checks/groups/ricci.py`).
+
+**The continuum step at one physical scale (conditional):** the paper
+replaces the single-link Dobrushin condition by a condition D(n, α) on one
+cube of n⁴ sites, averaged over its translates by 2Z⁴, and proves that it
+gives a lattice gap ≥ log(1/α)/(2n). If D(n_k, α) holds along the continuum
+tuning with n_k a_k ≤ ℓ for a fixed physical length ℓ, then every continuum
+limit has a mass gap ≥ log(1/α)/(2ℓ). Two statements remain unproved: (D)
+the cube estimate uniformly in the spacing, and (E) the existence of a
+nontrivial Osterwalder–Schrader limit.
 
 **Open:** the Clay problem itself (the four open problems of the
 strong-coupling paper are listed in `strong-coupling/OPEN.md`). The paper isolates the residual statement
