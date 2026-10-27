@@ -64,45 +64,60 @@
 \setlength{\emergencystretch}{3em}
 \begin{document}
 
-\title{Mass Gap of Four-Dimensional Lattice Yang--Mills Theory in a Forest Gauge}
+\title{Mass Gap of Four-Dimensional Lattice Yang--Mills Theory for Every Compact Simple Gauge Group}
 
-\author{Deep Bhattacharjee\,\orcidlink{0000-0003-0466-750X}}
+\author{Deep Bhattacharjee$^{*}$\,\orcidlink{0000-0003-0466-750X}}
 \email{itsdeep@live.com}
-\thanks{$*$\,Corresponding author. Second address:
-\nolinkurl{d.bhattacharjee@erl-forschung.de}.}
+\thanks{$^{*}$\,Corresponding author. Secondary address:
+\nolinkurl{d.bhattacharjee@erl-forschung.de}; GitHub contact:
+\nolinkurl{egspl@proton.me}, \href{https://github.com/creelie}{github.com/creelie}.}
 \affiliation{Formerly, Electro-Gravitational Space Propulsion Laboratory
 (EGSPL), Bhubaneswar, Odisha 751030, India}
-\affiliation{Formerly, University of Calcutta, Senate House, 87/1 College
-Street, Kolkata 700073, West Bengal, India}
+\affiliation{Formerly, Heramba Chandra College, 23/49 Gariahat Road, Golpark,
+Kolkata 700029 (University of Calcutta, 87/1 College Street, Kolkata 700073),
+West Bengal, India}
 
 \author{Ushashi Bhattacharya\,\orcidlink{0009-0002-2254-3914}}
 \email{rai.bhattacharya.in@gmail.com}
 \affiliation{Formerly, National Taiwan University, Taipei 106319, Taiwan}
 
-\date{20 October 2026}
+\author{James Montgomery Lockwood}
+\email{spectralityworkinggroup@gmail.com}
+\affiliation{Independent Researcher, San Antonio, USA}
+
+\date{27 October 2026}
 
 \begin{abstract}
 \itshape
-We fix the gauge of four-dimensional lattice Yang--Mills theory on a field
-of straight lines that meets every plaquette in exactly one link, so that
-each free link interacts with twelve others instead of eighteen. In this
-gauge the theory has a unique infinite-volume state with exponential decay
-of correlations and a positive mass gap at fixed lattice spacing, for SU(2)
-beyond the limit of every single-link argument in a gauge of this kind, by
-blocks made of the three free links of a plaquette, for
-every SU(N) beyond the curvature limit of the ungauged theory, and for SU(3)
-on a range more than two and a half times as large as was known before,
-where the same blocks raise the gap at the end of that range by two orders
-of magnitude and carry the range past it to $\beta_W=0.76$.
-\par\medskip\upshape\noindent
-\textit{2020 Mathematics Subject Classification.} Primary 81T25, 82B20;
-Secondary 60K35, 81T13, 22E30, 58J50, 65G30.
-\par\smallskip\noindent
-\textit{Keywords.} Lattice gauge theory; gauge fixing; Dobrushin
-uniqueness; mass gap.
+We fix the gauge of four-dimensional lattice Yang--Mills theory on lines
+that meet every plaquette once, so that each free link interacts with twelve
+others. For every compact simple gauge group the theory then has a unique
+infinite-volume state, exponential clustering and an explicit mass gap at
+fixed lattice spacing, past the curvature limit of the ungauged theory; for
+SU(2) and SU(3) the ranges reach $\beta_W\le0.345$ and $\beta_W\le0.76$.
+A mass gap in physical units for every continuum limit follows from one
+estimate of Dobrushin--Shlosman type in a cube of fixed physical size; that
+estimate and the existence of the limit remain open.
 \end{abstract}
 
 \maketitle
+
+\begingroup
+\renewcommand\thefootnote{}\footnotesize
+\footnotetext{\footnotesize\emph{2020 Mathematics Subject Classification.}
+Primary 81T25, 82B20; Secondary 60K35, 81T13, 22E30, 58J50, 65G30.
+\emph{PACS.} 11.15.Ha, 05.50.+q, 02.50.Cw, 02.40.Ky. \emph{Keywords.}
+Lattice gauge theory; gauge fixing; Dobrushin uniqueness; mass gap.}
+\footnotetext{\footnotesize An earlier version, titled ``Mass Gap of Four-Dimensional Lattice
+Yang--Mills Theory in a Forest Gauge'', appeared as Hexagon preprint
+2610.00341. This version adds the theorem for every compact simple gauge
+group, the reduction of the continuum gap to one physical scale, and
+complete proofs of the results earlier taken from our first paper. The
+\LaTeX{} source, the checks and the Lean certificate are in
+\href{https://github.com/creelie/4Y-M}{github.com/creelie/4Y-M}, release
+v3.5.0.}
+\endgroup
+\addtocounter{footnote}{-2}
 
 \makeatletter
 \renewcommand\l@subsection[2]{}
@@ -125,7 +140,25 @@ of Montvay and M\"unster~\cite{MM94} and of Gattringer and
 Lang~\cite{GL10}; the Hamiltonian version is due to Kogut and
 Susskind~\cite{KS75}.} At small $|\beta|$ the theory is under control: it has
 a unique infinite-volume state, correlations decay exponentially, and the
-transfer matrix has a gap~\cite{OSei78,Sei82}. The question is how far into
+transfer matrix has a gap~\cite{OSei78,Sei82}.\footnote{Strong-coupling results of this kind go back to
+Osterwalder and Seiler~\cite{OSei78}, who proved exponential clustering and
+a gap by a convergent expansion, and to Seiler's monograph~\cite{Sei82}; the
+general framework for lattice gauge fields and their continuum limits is
+that of Brydges, Fr\"ohlich and Seiler~\cite{BFS79}. More recent work treats
+the strong-coupling regime by probabilistic methods: the survey of
+Chatterjee~\cite{Chat19}, his large-$N$ solution of $\SO(N)$ lattice gauge
+theory at strong coupling~\cite{Chat19b} and its planar extension by Basu
+and Ganguly~\cite{BG18}, the Langevin dynamics of Shen, Zhu and
+Zhu~\cite{SZZ23}, and the area law in an enlarged region by Cao, Nissim and
+Sheffield~\cite{CNS25}. For finite gauge groups Adhikari and Cao proved
+correlation decay at weak coupling~\cite{AC25}. In two dimensions the
+continuum Yang--Mills measure has been constructed by Gross, King and
+Sengupta~\cite{GKS89}, Driver~\cite{Dri89} and L\'evy~\cite{Lev03}; in four
+dimensions Ba{\l}aban's renormalisation group, as expounded by
+Dimock~\cite{Dim13}, gives ultraviolet stability in finite volume, and
+Magnen, Rivasseau and S\'en\'eor constructed the theory with an infrared
+cutoff~\cite{MRS93}. None of these results gives a mass gap in physical
+units.} The question is how far into
 the coupling range such statements can be proved with explicit constants,
 since the problem of the continuum limit~\cite{JW06} begins where strong
 coupling ends and Ba{\l}aban's weak-coupling
@@ -138,7 +171,7 @@ $4d=16$ and that no curvature argument for the ungauged measure goes beyond
 $|\beta|<1/32$. The Dobrushin method~\cite{Dob68,Dob70} bounds the influence
 of each link on the conditional law of another; for $\SU(2)$ the single-link
 conditional law is a von Mises--Fisher law on the three-sphere, the sharp
-Kantorovich modulus of that family is one quarter~\cite[Thm.~7]{BB26a}, and
+Kantorovich modulus of that family is one quarter~\cite{BB26a} (Theorem~\ref{q-thm:quarter} in Appendix~\ref{app:sharp}), and
 every link has eighteen partners, which gives $\beta_W<2/9$ and nothing
 beyond, because the coefficients are attained.
 
@@ -239,9 +272,88 @@ $X_e=0$ for $e\in F$,
 against the sharp constant $16$ without gauge fixing. Consequently, for
 $G=\SU(N)$ and $|\beta|<\frac1{29}$, or $G=\SO(N)$, $N\ge3$, and
 $|\beta|<\frac{N-2}{58N}$, the conclusions of Theorem~\ref{thm:su2} hold
-with some rate $c>0$ in place of $-\log(3\beta_W)$. For $\SU(3)$ this is
+with the rate and gap of Theorem~\ref{thm:groups}. For $\SU(3)$ this is
 $\beta_W<\frac9{29}=0.310$.
 \end{theorem}
+
+The constant $\frac{29}2$ is a statement about $\U(N)$, so it holds on every
+closed subgroup, and the curvature of the group does the rest. This gives the
+theorem for every compact simple gauge group, the exceptional groups
+included, with an explicit gap. Let $\rho:G\to\U(N)$ be a faithful unitary
+representation of a compact connected Lie group $G$, weigh a configuration by
+$\exp(N\beta\sum_p\ReTr\rho(Q_p))$, and let $\kappa_G$ be the least Ricci
+curvature of $G$ for the bi-invariant metric $\ip XY=-\Tr(\rho(X)\rho(Y))$;
+we identify $G$ with $\rho(G)\subset\U(N)$.
+
+\begin{theorem}[Every compact simple group]\label{thm:groups}
+Suppose that the Lie algebra of $G$ is semisimple, so that $\kappa_G>0$, and
+that
+\[
+N|\beta|<\tfrac2{29}\,\kappa_G .
+\]
+Then the conclusions of Theorem~\ref{thm:su2} hold, for $\beta<0$ all of them
+except reflection positivity and the gap, with decay at every rate below
+\[
+m_G(\beta)=\operatorname{arccosh}\Bigl(1+\frac1{12}\Bigl(\frac{\kappa_G}{N|\beta|}
+-\frac{29}2\Bigr)\Bigr)>0
+\]
+and a transfer-matrix gap $m\ge m_G(\beta)$. For a simple $G$,
+$\kappa_G=h^\vee/(2\ell_\rho)$, where $h^\vee$ is the dual Coxeter number and
+$\ell_\rho$ the Dynkin index of $\rho$; Table~\ref{tab:groups} lists the
+values.
+\end{theorem}
+
+For $\SU(N)$, $\kappa_G=\frac N2$, and for $\SO(N)$, $\kappa_G=\frac{N-2}4$, so
+Theorem~\ref{thm:groups} contains the ranges of Theorem~\ref{thm:curv} and
+supplies their rate.\footnote{The dual Coxeter number is $h^\vee=N$ for $\SU(N)$, $N-2$ for
+$\SO(N)$, $n+1$ for $\mathrm{Sp}(n)$, $4,9,12,18,30$ for $G_2,F_4,E_6,E_7,E_8$, and
+the Dynkin index of a representation is normalised to one on the defining
+representation of $\SU(N)$~\cite[Ch.~6]{Kac90}. The identity
+$\kappa_G=h^\vee/(2\ell_\rho)$ is the statement that the Ricci tensor of a
+compact simple group with a bi-invariant metric is one quarter of the
+negative Killing form, $\Ric(X,X)=-\frac14B(X,X)$~\cite{Mil76}, together with
+$B(X,X)=2h^\vee\Tr(\rho(X)^2)/\ell_\rho$. Lower Ricci bounds of the same
+kind, for special holonomy and for Riemannian submersions, are studied
+in~\cite{BTBS26,GBN26}.} For small $|\beta|$ the existence of a gap is classical
+for every compact group, with no explicit range~\cite[Thm.~3.6]{OSei78}; what is new is an explicit range for
+every group, past the range $N|\beta|<\kappa_G/16$ that the Hessian bound $16$
+gives without gauge fixing, and an explicit gap. As $\beta\to0$ the gap grows like $\log\frac{\kappa_G}{6N|\beta|}$.
+
+\begin{table}[t]
+\caption{Least Ricci curvature $\kappa_G=h^\vee/(2\ell_\rho)$ of the compact
+simple groups in a faithful representation $\rho$ of least dimension $N$, and
+the range of Theorem~\ref{thm:groups} for the conventional inverse coupling
+$\beta_W=N^2\beta$.}
+\label{tab:groups}
+\begin{ruledtabular}
+\begin{tabular}{llcccc}
+Group&$\rho$&$h^\vee$&$\ell_\rho$&$\kappa_G$&$\beta_W<$\\
+\colrule
+$\SU(N)$, $N\ge2$&$\C^N$&$N$&$1$&$\frac N2$&$\frac{N^2}{29}$\\
+$\SO(N)$, $N\ge5$&$\R^N$&$N-2$&$2$&$\frac{N-2}4$&$\frac{N(N-2)}{58}$\\
+$\SO(3)$&$\R^3$&$2$&$4$&$\frac14$&$\frac3{58}$\\
+$\mathrm{Sp}(n)$, $n\ge2$&$\C^{2n}$&$n+1$&$1$&$\frac{n+1}2$&$\frac{2n(n+1)}{29}$\\
+$G_2$&$7$&$4$&$2$&$1$&$\frac{14}{29}$\\
+$F_4$&$26$&$9$&$6$&$\frac34$&$\frac{39}{29}$\\
+$E_6$&$27$&$12$&$6$&$1$&$\frac{54}{29}$\\
+$E_7$&$56$&$18$&$12$&$\frac34$&$\frac{84}{29}$\\
+$E_8$&$248$&$30$&$60$&$\frac14$&$\frac{124}{29}$\\
+\end{tabular}
+\end{ruledtabular}
+\end{table}
+
+\begin{figure*}[t]
+\centering
+\includegraphics[width=0.9\textwidth]{figures/fig_groups.png}
+\caption{The gap $m_G(\beta)$ of Theorem~\ref{thm:groups} as a function of
+$\beta_W=N^2\beta$ on a logarithmic scale, for nine groups in the
+representations of Table~\ref{tab:groups}. Each curve ends at the edge
+$\beta_W=2N\kappa_G/29$ of the range, marked by a dot, where the gap tends to
+zero; as $\beta_W\to0$ it grows like $\log(\kappa_G/(6N|\beta|))$. The
+curves differ only by the factor $N\kappa_G$, since $m_G$ depends on
+$N|\beta|/\kappa_G$ alone.}
+\label{fig:groups}
+\end{figure*}
 
 No Bakry--\'Emery argument for the ungauged measure can pass $|\beta|=
 \frac1{32}$~\cite[Thm.~C]{BB26a}; the gauge fixing changes the measure, not
@@ -325,23 +437,33 @@ gap there and passes it (Theorem~\ref{thm:su3blocks}).}
 \label{fig:ranges}
 \end{figure*}
 
-All six theorems are statements at fixed lattice spacing. They do not touch
+All seven theorems are statements at fixed lattice spacing. They do not touch
 the continuum limit, the crossover to Ba{\l}aban's regime, or a gap in
 physical units, which together are the Clay problem; Sec.~\ref{sec:limits}
 says where each method stops and what remains of the four open problems
 of~\cite{BB26a}. The obstruction proved in~\cite{BB26b}, that a lattice gap
 uniform in lattice units forces trivial continuum two-point functions,
-applies to all of them.
+applies to all of them. Section~\ref{sec:bypass} goes past it in one
+respect: a Dobrushin--Shlosman condition on one cube of fixed physical size,
+uniform along the continuum tuning, gives a mass gap in physical units for
+every continuum limit (Theorems~\ref{thm:onescale} and~\ref{thm:transfer}).
+That condition and the existence of the limit are the two statements left
+open.
 
 Section~\ref{sec:linefield} constructs the line field.
 Section~\ref{sec:state} shows that a Dobrushin bound for the gauge-fixed
 specification gives the full conclusion of Theorem~\ref{thm:su2}.
-Sections~\ref{sec:su2}, \ref{sec:plaqblocks}, \ref{sec:curvature}
+Sections~\ref{sec:su2}, \ref{sec:plaqblocks}, \ref{sec:curvature},
 \ref{sec:su3} and~\ref{sec:su3blocks} prove Theorems~\ref{thm:su2}--\ref{thm:su3blocks}, and
-Sec.~\ref{sec:limits} measures what is left. The appendices contain the
+Sec.~\ref{sec:limits} measures what is left; Sec.~\ref{sec:bypass} reduces the continuum gap to one
+cube and the existence of the limit. The appendices contain the
 residue table of the line field, the comparison lemma and its version for
-blocks, the blocks of the local Hessian inequality and the details of the
-certified computation.
+blocks, the blocks of the local Hessian inequality, the details of the
+certified computation, the reconstruction of the transfer matrix with the
+equivalence of a gap and exponential clustering
+(Appendix~\ref{app:transfer}), and a complete proof of the sharp quarter for
+the single-link law of $\SU(2)$ (Appendices~\ref{app:sharp}--\ref{app:bessel}),
+so that the paper does not depend on our earlier one for any step.
 
 \section{The line field}\label{sec:linefield}
 
@@ -556,7 +678,7 @@ the support of $O$ these functions are dense in the gauge-invariant part of
 $L^2(\omega)$: gauge-invariant functions are functions on the compact
 quotient of $G^{E}$ by the gauge group, Lipschitz functions for the quotient
 metric are dense in $L^2$ of every finite measure on it, and they lift to
-gauge-invariant Lipschitz functions. By~\cite[Prop.~23]{BB26a} the spectrum
+gauge-invariant Lipschitz functions. By Proposition~\ref{prop:gapdecay} the spectrum
 of the transfer matrix on the complement of the vacuum lies in
 $[0,e^{-\lambda}]$, for every $\lambda<-\log\alpha$.
 \end{proof}
@@ -581,7 +703,7 @@ other three link variables in the order that makes $\operatorname{Re}(Q_es_p)
 Mises--Fisher law $\nu_b(dx)\propto e^{\ip xb}dx$ on $S^3$ with $b=4\beta
 \sum_{p\ni e}\bar s_p$. Changing a partner $e'$ by $\delta$ in the chordal
 metric changes one staple by an isometric image of that displacement, so $b$
-moves by $4|\beta|\delta$, and the sharp quarter~\cite[Thm.~7]{BB26a},
+moves by $4|\beta|\delta$, and the sharp quarter (Theorem~\ref{q-thm:quarter}),
 $W_1(\nu_b,\nu_{b'})\le\frac14|b-b'|$, gives $C_{ee'}\le|\beta|$. By
 Lemma~\ref{lem:structure}(iv) every row and column has twelve nonzero
 entries, so $\alpha\le12|\beta|=3|\beta_W|$. Proposition~\ref{prop:state}
@@ -592,7 +714,7 @@ applies for $|\beta_W|<\frac13$.
 For the line field, every staple of an active link contains two active
 links, so the six staples can be chosen with sum zero while the staple
 through a given partner $e'$ moves freely. At $b=0$ the derivative of $\nu_b$
-in the direction $h$ has Kantorovich norm $\frac14|h|$~\cite[Lemma~6(i)]{BB26a},
+in the direction $h$ has Kantorovich norm $\frac14|h|$ by Lemma~\ref{q-lem:rate}(i),
 so $C_{ee'}=|\beta|$ exactly, and every row sum is $12|\beta|=3|\beta_W|$.
 
 Now let $F'$ be any forest and $C'$ the matrix of the statement. Suppose a
@@ -743,7 +865,7 @@ segment, $|\xi|\le24\beta$. For $u=\bar x$ of norm one, $R(\bar x)\in[8\beta^2
 \lambda_*,8\beta^2\tau]$, so $\operatorname{osc}R\le w$. Since $\ip{\nabla
 g(c_0)}{\bar x}=\ip x{\overline{\nabla g(c_0)}}$, $\kappa$ is the tilt
 $e^{R}\nu/\nu(e^R)$ of $\nu=\nu_c$ with $c=a+4\beta\overline{\nabla g(c_0)}$.
-The sharp quarter~\cite[Thm.~7]{BB26a} gives $\Cov_\nu(f,\ip xh)=\frac{d}{dt}
+The sharp quarter, Theorem~\ref{q-thm:quarter}, gives $\Cov_\nu(f,\ip xh)=\frac{d}{dt}
 \nu_{c+th}(f)\le\frac14|h|$. A $1$-Lipschitz function on a set of diameter
 two has $\mathrm{sd}\le1$, and $\mathrm{sd}_\nu\ip xh\le\sqrt\tau|h|$
 because $|c|\le|a|+4\beta\le24\beta$. Lemma~\ref{lem:tilt} gives (i).
@@ -897,9 +1019,9 @@ cube of the line field, whose sensitivity no longer reduces to two sites.
 
 \section{Curvature in the gauge}\label{sec:curvature}
 
-In this section $G=\SU(N)$, $\SO(N)$ or $\U(N)$ with the inner product
-$\ip XY=-\Tr(XY)$ on the Lie algebra, so that $\Ric_{\SU(N)}=\frac N2$ and
-$\Ric_{\SO(N)}=\frac{N-2}4$. A tangent vector at a field $Q$ is $v=(X_eQ_e)$,
+In this section $G\subset\U(N)$ is a closed connected subgroup with Lie
+algebra $\g$ and the inner product $\ip XY=-\Tr(XY)$; the bound of
+Theorem~\ref{thm:curv} is proved first for $\U(N)$. A tangent vector at a field $Q$ is $v=(X_eQ_e)$,
 $|v|^2=\sum_e|X_e|^2$. For the plaquette at $x$ in the plane $\mu<\nu$ number
 its links $e_1=(x,\mu)$, $e_2=(x+e_\mu,\nu)$, $e_3=(x+e_\nu,\mu)$,
 $e_4=(x,\nu)$, transport their vectors to $x$,
@@ -908,14 +1030,20 @@ Y_1=X_{e_1},\ \ Y_2=Q_{e_1}X_{e_2}Q_{e_1}^*,\ \
 Y_3=Q_{e_4}X_{e_3}Q_{e_4}^*,\ \ Y_4=X_{e_4},
 \end{equation}
 and write $W=Q_p$. The second derivative of $\ReTr Q_p$ along the geodesic
-$Q_e(t)=e^{tX_e}Q_e$ is~\cite[Eq.~(5)]{BB26a}
+$Q_e(t)=e^{tX_e}Q_e$ is
 \begin{equation}\label{eq:fp}
 \begin{split}
 f_p={}&\sum_{i=1}^4\ReTr(Y_i^2W)+2\ReTr(Y_1Y_2W)+2\ReTr(Y_3Y_4W)\\
 &-2\sum_{i\in\{1,2\},\,j\in\{3,4\}}\ReTr(Y_iWY_j),
 \end{split}
 \end{equation}
-so that $\Hess S_0(v,v)=\sum_pf_p$. The corner form of $p$ is
+so that $\Hess S_0(v,v)=\sum_pf_p$. To see this, write $Q_p=Q_{e_1}Q_{e_2}Q_{e_3}^*Q_{e_4}^*$. Since
+$Q_{e_1}e^{tX_{e_2}}=e^{tY_2}Q_{e_1}$ and $e^{-tX_{e_3}}Q_{e_4}^*=Q_{e_4}^*
+e^{-tY_3}$, the plaquette variable along the geodesic is
+$Q_p(t)=e^{tY_1}e^{tY_2}We^{-tY_3}e^{-tY_4}$. Differentiating twice at $t=0$
+gives the four squares, the two products of neighbouring factors and the four
+products across $W$, and the squares and the product $WY_3Y_4$ are moved
+cyclically under the trace. The corner form of $p$ is
 \begin{equation}\label{eq:corner}
 c_p=2\ip{Y_1}{Y_4}-2\ip{Y_1}{Y_2}+2\ip{Y_2}{WY_3W^*}-2\ip{Y_3}{Y_4}.
 \end{equation}
@@ -994,45 +1122,240 @@ positive; Lemma~\ref{lem:identity} is the divergence identity
 of~\cite[Lemma~1]{BB26a} with the collinear term written as a square, so nothing is
 lost by Cauchy--Schwarz.
 
+The two lemmas concern vectors in $\mathfrak u(N)$ and fields in $\U(N)$, so the
+bound holds without change on every closed subgroup $G\subset\U(N)$, the
+vectors $X_e$ ranging over its Lie algebra $\g$. It is also the Hessian of
+$S_0$ on $G^E$: the metric is bi-invariant, the geodesics of $G$ through
+$Q_e$ are the curves $e^{tX}Q_e$ with $X\in\g$, which are geodesics of
+$\U(N)$, and the Hessian is read off from second derivatives along
+geodesics.
+
+\begin{lemma}\label{lem:ricci}
+Let $G\subset\U(N)$ be closed and connected with simple Lie algebra $\g$, let
+$\mathfrak t\subset\g$ be a maximal abelian subalgebra, and write the
+eigenvalues of $\operatorname{ad}H$ on $\g\otimes\C$ and of $H$ on $\C^N$, for
+$H\in\mathfrak t$, as $i\alpha(H)$ and $i\mu(H)$, with $\alpha$ running over the
+roots and $\mu$ over the weights of $\C^N$ counted with multiplicity. Then
+$\Ric_G=\kappa_G\ip\cdot\cdot$ with
+\[
+\kappa_G=\frac{\sum_\alpha\alpha(H)^2}{4\sum_\mu\mu(H)^2}\qquad(0\ne H\in\mathfrak t).
+\]
+\end{lemma}
+
+\begin{proof}
+For a bi-invariant metric the curvature is $R(X,Y)Z=-\frac14[[X,Y],Z]$ on
+left-invariant fields~\cite[Sect.~7]{Mil76}, so for an orthonormal basis
+$(E_i)$ of $\g$,
+\[
+\begin{split}
+\Ric(X,X)&=\sum_i\ip{R(E_i,X)X}{E_i}\\
+&=\tfrac14\sum_i|[X,E_i]|^2=-\tfrac14\Tr(\operatorname{ad}X)^2 ,
+\end{split}
+\]
+since $\operatorname{ad}X$ is skew. The Killing form $B(X,Y)=\Tr(\operatorname{ad}X
+\operatorname{ad}Y)$ and $\ip\cdot\cdot$ are invariant under the adjoint
+action, and $\g$ is simple, so $B=-4\kappa\ip\cdot\cdot$ for a constant
+$\kappa$ and $\Ric=\kappa\ip\cdot\cdot$. On $H\in\mathfrak t$ the two forms
+are $B(H,H)=-\sum_\alpha\alpha(H)^2$ and $\ip HH=-\Tr H^2=\sum_\mu\mu(H)^2$.
+\end{proof}
+
+Table~\ref{tab:groups} evaluates the ratio of Lemma~\ref{lem:ricci} for
+every compact simple Lie algebra and a faithful representation of least
+dimension, on the root systems of~\cite[Sect.~12.1]{Hum72}; the weights of
+the representations of dimensions $27$ and $56$ of $E_6$ and $E_7$ are the
+roots of $E_8$ with prescribed inner products with a subsystem $A_2$,
+respectively $A_1$, projected to its orthogonal complement, by the
+decompositions $248=(78,1)+(27,3)+(\overline{27},\bar3)+(1,8)$ and
+$248=(133,1)+(56,2)+(1,3)$~\cite{Sla81}. Taking for $H$ the coroot
+$\theta^\vee$ of the highest root gives $\sum_\alpha\alpha(\theta^\vee)^2=4h^\vee$
+and $\sum_\mu\mu(\theta^\vee)^2=2\ell_\rho$, so $\kappa_G=h^\vee/(2\ell_\rho)$, with
+the Dynkin index normalised to one on the defining representation of
+$\SU(N)$. The ratio depends on $\g$ and $\rho$ only, so it is the same for
+every compact group with Lie algebra $\g$, simply connected or not.
+
+\begin{lemma}\label{lem:mixed}
+Let $e\ne e'$ be two links of a plaquette $p$, and write
+\[
+\Hess\ReTr Q_p(v,v)=\sum_{e,e'\in p}H^p_{ee'}(X_e,X_{e'})
+\]
+with bilinear forms satisfying $H^p_{ee'}(a,b)=H^p_{e'e}(b,a)$. Then $|H^p_{ee'}(a,b)|\le|a|\,|b|$ for all
+$a,b\in\mathfrak u(N)$ and every field.
+\end{lemma}
+
+\begin{proof}
+By~\eqref{eq:fp} the terms of $f_p$ that mix two positions $i\ne j$ are
+$2\ReTr(Y_1Y_2W)$, $2\ReTr(Y_3Y_4W)$ and $-2\ReTr(Y_iWY_j)$, so $H^p_{ee'}$
+is $\pm\ReTr(abW)$ or $\pm\ReTr(aWb)$ after an isometric transport of $a$
+and $b$, and $|\Tr(abW)|\le\|a\|_{\mathrm{HS}}\|bW\|_{\mathrm{HS}}=|a|\,|b|$.
+\end{proof}
+
 \begin{corollary}\label{cor:be}
-Let $G=\SU(N)$ and $|\beta|<\frac1{29}$, or $G=\SO(N)$, $N\ge3$, and
-$|\beta|<\frac{N-2}{58N}$. For every box the measure $\mu^F_\Lambda$
-satisfies the Bakry--\'Emery condition with $K=\Ric_G-\frac{29}2N|\beta|>0$,
+Let $G\subset\U(N)$ be closed and connected with semisimple Lie algebra and
+$N|\beta|<\frac2{29}\kappa_G$. For every box the measure $\mu^F_\Lambda$
+satisfies the Bakry--\'Emery condition with $K=\kappa_G-\frac{29}2N|\beta|>0$,
 uniformly in the box, and hence a logarithmic Sobolev inequality with
 constant $2/K$ and a Poincar\'e inequality with constant $1/K$.
 \end{corollary}
 
 \begin{proof}
-The set $\{Q_F=1\}$ is a product factor, so its Ricci curvature is $\Ric_G$ on
-every link, and the Hessian of the restricted action is the restriction of
-$N\beta\Hess S_0$ to $X_F=0$. Apply the bound and~\cite[Cor.~5.7.2]{BGL14}.
+The set $\{Q_F=1\}$ is a product factor, so its Ricci curvature is at least
+$\kappa_G$ on every link, and the Hessian of the restricted action is the
+restriction of $N\beta\Hess S_0$ to $X_F=0$. Apply the bound
+and~\cite[Cor.~5.7.2]{BGL14}.
+\end{proof}
+
+\subsection{Decay with an explicit rate}
+
+Let $A'$ be a finite set of active links and $P'$ a finite set of plaquettes
+whose active links lie in $A'$. An action $S=\sum_{p\in P'}c_p\ReTr Q^F_p$
+with $0\le c_p\le1$ is \emph{admissible} if $|\Hess S(v,v)|\le\frac{29}2|v|^2$
+for all $v$ tangent to $G^{A'}$. Two links lie in at most one common
+plaquette, so by Lemma~\ref{lem:mixed} and Lemma~\ref{lem:structure}(iv) the
+mixed blocks of its Hessian satisfy
+$|\Hess S_{ee'}(a,b)|\le|a|\,|b|$, and each link has at most twelve partners.
+The action $S_\Lambda=\sum_{p\in P(\Lambda)}\ReTr Q^F_p$ of a box is
+admissible by the bound proved above, and so is every convex combination of
+two admissible actions. Let $\mu$ be the probability measure on $G^{A'}$ with
+density proportional to $e^{N\beta S}$ with respect to Haar measure, let
+$L=\Delta+N\beta\ip{\nabla S}{\nabla\cdot}$ be its Langevin generator, which is
+self-adjoint in $L^2(\mu)$, and $P_t=e^{tL}$. Write $\nabla_e$ for the
+gradient in the factor of the link $e$, and for weights $w:A'\to(0,\infty)$
+put $\Gamma^w(f)=\sum_ew_e|\nabla_ef|^2$; $\Gamma$ is the case $w\equiv1$.
+
+\begin{lemma}\label{lem:weighted}
+Let $\lambda\ge0$ and $w_e=e^{\lambda d_e}$, where $|d_e-d_{e'}|\le1$ whenever
+$e$ and $e'$ share a plaquette, and put
+\[
+K_\lambda=\kappa_G-N|\beta|\Bigl(\tfrac{29}2+12\bigl(\cosh\tfrac\lambda2-1\bigr)\Bigr).
+\]
+Then $\Gamma^w(P_tf)\le e^{-2K_\lambda t}P_t\Gamma^w(f)$ for every smooth $f$ and
+$t\ge0$.
+\end{lemma}
+
+\begin{proof}
+Put $V=-N\beta S$. On the product manifold $M=G^{A'}$ the projection to the
+tangent space of one factor is parallel, the rough Laplacian commutes with
+it, and the Ricci tensor is block diagonal. Hence the Bochner--Weitzenb\"ock
+formula $\nabla\Delta g=\bar\Delta\nabla g+\Ric(\nabla g)$, applied factor by
+factor, together with the derivative of the drift, gives for smooth $g$
+\[
+\begin{split}
+&\tfrac12L\Gamma^w(g)-\Gamma^w(g,Lg)\\
+&\quad=\sum_ew_e\bigl(|\nabla\nabla_eg|^2+\Ric_G(\nabla_eg,\nabla_eg)\bigr)\\
+&\qquad+\sum_{e,e'}w_e\Hess V_{ee'}(\nabla_eg,\nabla_{e'}g),
+\end{split}
+\]
+where $\Gamma^w(g,h)$ is the polarised form.\footnote{For $w\equiv1$ this is
+Bochner's identity $\Gamma_2=|\nabla^2g|^2+(\Ric+\Hess V)(\nabla g,\nabla g)$;
+the weights enter only through the factor index, which the connection, the
+Laplacian and the Ricci tensor preserve, so only the off-diagonal blocks of
+$\Hess V$ see them.} Put $u_e=\nabla_eg$ and $v_e=\sqrt{w_e}\,u_e$. By the
+symmetry of $\Hess V$,
+\[
+\begin{split}
+&\sum_{e,e'}w_e\Hess V_{ee'}(u_e,u_{e'})=\Hess V(v,v)\\
+&\quad+\sum_{e\ne e'}\Bigl(\cosh\tfrac{\lambda(d_e-d_{e'})}2-1\Bigr)
+\Hess V_{ee'}(v_e,v_{e'}),
+\end{split}
+\]
+because $\frac{w_e+w_{e'}}{2\sqrt{w_ew_{e'}}}=\cosh\frac{\lambda(d_e-d_{e'})}2$. The
+first term is at least $-\frac{29}2N|\beta|\,|v|^2$. In the second only
+partners contribute, each with a coefficient at most $\cosh\frac\lambda2-1$
+and a block of norm at most $N|\beta|$, and
+$2|v_e|\,|v_{e'}|\le|v_e|^2+|v_{e'}|^2$ with twelve partners per link bounds it by
+$12(\cosh\frac\lambda2-1)N|\beta|\,|v|^2$. Since $\Ric_G\ge\kappa_G$ and
+$|v|^2=\Gamma^w(g)$,
+\[
+\tfrac12L\Gamma^w(g)-\Gamma^w(g,Lg)\ge K_\lambda\Gamma^w(g).
+\]
+For fixed $t$ let $\varphi(s)=P_s\Gamma^w(P_{t-s}f)$, $0\le s\le t$. Then
+$\varphi'(s)=P_s\bigl(L\Gamma^w(g_s)-2\Gamma^w(g_s,Lg_s)\bigr)\ge2K_\lambda\varphi(s)$
+with $g_s=P_{t-s}f$, and $\varphi(0)\le e^{-2K_\lambda t}\varphi(t)$ is the claim.
+\end{proof}
+
+\begin{lemma}\label{lem:decayrate}
+Suppose $K_\lambda>0$. Let $f$ and $g$ be smooth functions on $G^{A'}$ that
+depend only on the links of $A_f$ and of $B_g$, and let $D$ be the least
+number of steps from $A_f$ to $B_g$ in the graph on $A'$ whose edges join
+links that share a plaquette. Then
+\[
+|\Cov_\mu(f,g)|\le\frac{e^{-\lambda D/2}}{K_\lambda}\,\|\nabla f\|_\infty
+\sum_{e\in B_g}\|\nabla_eg\|_\infty ,
+\]
+where $\|\nabla f\|_\infty^2=\sup\sum_e|\nabla_ef|^2$.
+\end{lemma}
+
+\begin{proof}
+Since $K_0\ge K_\lambda>0$, Lemma~\ref{lem:weighted} with $\lambda=0$ gives
+$\Gamma(P_tf)\le e^{-2K_0t}\|\nabla f\|_\infty^2$, so $P_tf$ converges uniformly
+to a constant, which is $\mu(f)$ by invariance, $M$ being connected. Since
+$\frac d{dt}\mu(gP_tf)=\mu(gLP_tf)=-\mu(\Gamma(g,P_tf))$,
+\[
+\Cov_\mu(f,g)=\int_0^\infty\mu\bigl(\Gamma(P_tf,g)\bigr)\,dt .
+\]
+Let $d_e$ be the smaller of $D$ and the graph distance from $e$ to $A_f$, so
+that $|d_e-d_{e'}|\le1$ for partners, $w_e=1$ on $A_f$, $w_e=e^{\lambda D}$ on
+$B_g$, and
+$\Gamma^w(f)\le\|\nabla f\|_\infty^2$. For $e\in B_g$, Lemma~\ref{lem:weighted}
+gives $|\nabla_eP_tf|^2\le w_e^{-1}\Gamma^w(P_tf)\le e^{-\lambda D}e^{-2K_\lambda t}
+\|\nabla f\|_\infty^2$. Hence $|\Gamma(P_tf,g)|\le e^{-\lambda D/2}e^{-K_\lambda t}
+\|\nabla f\|_\infty\sum_{e\in B_g}\|\nabla_eg\|_\infty$, and integration in $t$
+gives the bound.
+\end{proof}
+
+\begin{proof}[Proof of Theorem~\ref{thm:groups}]
+Let $\lambda^*>0$ solve $K_{\lambda^*}=0$, so that $\frac{\lambda^*}2=m_G(\beta)$, and
+let $0<\lambda<\lambda^*$; then $K_\lambda>0$.
+
+\emph{Decay in boxes.} Lemma~\ref{lem:decayrate} with $S=S_\Lambda$ gives
+\[
+|\Cov_{\mu^F_\Lambda}(f,g)|\le C_{f,g}e^{-\lambda D/2},
+\]
+uniformly in the box.
+
+\emph{Limit.} For boxes $\Lambda\subset\Lambda'$ let $S_s=(1-s)S_\Lambda+sS_{\Lambda'}$
+on the active links of $\Lambda'$, $s\in[0,1]$, and $\mu_s$ the corresponding
+measure; $S_s$ is admissible, $\mu_0$ is $\mu^F_\Lambda$ times Haar measure on
+the active links outside $\Lambda$, and $\mu_1=\mu^F_{\Lambda'}$. For smooth $f$
+of the active links of $\Lambda$,
+\[
+\frac d{ds}\mu_s(f)=N\beta\sum_{p\in P(\Lambda')\setminus P(\Lambda)}
+\Cov_{\mu_s}\bigl(f,\ReTr Q^F_p\bigr),
+\]
+and $|\nabla_e\ReTr Q_p|\le\|Q_p\|_{\mathrm{HS}}=\sqrt N$. A step in the graph
+of Lemma~\ref{lem:decayrate} moves a link by at most one lattice unit, so a
+plaquette at graph distance $k$ from the support $T$ of $f$ lies within
+distance $k+1$ of $T$, there are at most $C_T(k+1)^4$ of them, and every
+plaquette outside $P(\Lambda)$ is at graph distance at least $R-1$, $R$ the
+distance from $T$ to the complement of $\Lambda$. Lemma~\ref{lem:decayrate}
+gives
+\[
+|\mu^F_{\Lambda'}(f)-\mu^F_\Lambda(f)|\le C_fR^4e^{-\lambda R/2}.
+\]
+The limit therefore exists along every increasing sequence of boxes, and two
+sequences are compared through their intersections, which are boxes.
+Continuous gauge-invariant $O$ are uniform limits of smooth gauge-invariant
+ones, for instance of $e^{\tau\Delta}O$, since the heat semigroup of $G^E$
+commutes with left and right translations; with Lemma~\ref{lem:gaugefix}
+the limit $\omega(O)$ of $W_\Lambda(O)$ exists for all of them.
+
+\emph{Properties.} Invariance and, for $\beta\ge0$, reflection positivity
+follow as in Proposition~\ref{prop:state}(iii)--(iv). For Lipschitz $O$ the
+functions $e^{\tau\Delta}O$ are smooth with the same Lipschitz constant, since
+$\Ric_G\ge0$~\cite[Sect.~3.3]{BGL14}, so the bound of the first step
+passes to $\omega$ and to Lipschitz observables. Two links of one plaquette
+have time coordinates that differ by at most one, so observables at time
+separation $t$ are at graph distance at least $t-c$, and truncated
+correlations decay at every rate below $m_G(\beta)$. The gap follows
+from Proposition~\ref{prop:gapdecay} as in Proposition~\ref{prop:state}(vi).
 \end{proof}
 
 \begin{proof}[Proof of the rest of Theorem~\ref{thm:curv}]
-\emph{Decay in boxes.} $\mu^F_\Lambda$ is the Gibbs measure of a
-nearest-neighbour interaction on a product of copies of $G$. The commutator
-estimate of~\cite[Sec.~4]{SZZ23} holds with the same constants, because
-fixing links only removes terms, and the Poincar\'e constant is $1/K$, so
-the argument of~\cite[Cor.~4.11 and Rem.~4.12]{SZZ23} gives
-$|\Cov_{\mu^F_\Lambda}(f,g)|\le c_1e^{-c\,\dist(f,g)}(\|f\|\,\|g\|+|f|_2|g|_2)$
-for smooth local $f,g$, uniformly in the box, in the norms of that paper.
-
-\emph{Limit.} For boxes $\Lambda\subset\Lambda'$ let $S_s=S_\Lambda+s(S_{\Lambda'}
--S_\Lambda)$ on the active links of $\Lambda'$, $s\in[0,1]$, and $\mu_s$ the
-corresponding measure. Its Hessian is a convex combination of two Hessians,
-each bounded by $\frac{29}2N|\beta|$, so $\mu_s$ has the same constant $K$ and
-the same commutator constants. Since $\frac d{ds}\mu_s(f)=\sum_{p\in
-P(\Lambda')\setminus P(\Lambda)}\Cov_{\mu_s}(f,N\beta\ReTr Q^F_p)$,
-\[
-|\mu^F_{\Lambda'}(f)-\mu^F_\Lambda(f)|\le C_fR^3e^{-cR},
-\]
-$R$ the distance from the support of $f$ to the complement of $\Lambda$. The
-limit therefore exists along every increasing sequence of boxes, and two
-sequences are compared through their intersections, which are boxes.
-
-\emph{Properties.} Invariance, reflection positivity and decay follow as in
-Proposition~\ref{prop:state}(iii)--(v), and Proposition~23 of~\cite{BB26a}, applied
-to smooth gauge-invariant cylinder functions, gives a gap at least $c$.
+By Lemma~\ref{lem:ricci} and Table~\ref{tab:groups}, $\kappa_{\SU(N)}=\frac N2$
+and $\kappa_{\SO(N)}=\frac{N-2}4$; for $\SO(4)$, whose Lie algebra is
+$\mathfrak{so}(3)\oplus\mathfrak{so}(3)$ acting on $\R^4\otimes\C=\C^2\otimes\C^2$,
+each ideal gives $\frac12$ by the same computation. The conditions of Theorem~\ref{thm:curv}
+are those of Theorem~\ref{thm:groups}.
 \end{proof}
 
 \begin{remark}\label{rem:hf}
@@ -1759,6 +2082,12 @@ $\mathcal R_r$, and crosses it by $r=1.54$.}
 \label{fig:face}
 \end{figure*}
 
+\emph{Other groups.} For groups other than $\SU(2)$ and $\SU(3)$ only the
+curvature route is carried out here (Theorem~\ref{thm:groups}), and it stops
+where the bound $\frac{29}2$ uses up the curvature of $G$, at
+$N|\beta|=\frac2{29}\kappa_G$. The Dobrushin route needs a bound for the Kantorovich
+modulus of the one-link measure of each group, which is not attempted here.
+
 \emph{The four open problems.} Our earlier paper~\cite{BB26a} listed four
 problems between the strong-coupling results and the Clay
 problem~\cite{JW06}: (1) uniqueness and a gap at intermediate fixed
@@ -1767,14 +2096,407 @@ weak-coupling regime; (3) the continuum limit with the
 Osterwalder--Schrader axioms; and (4) a gap in physical units. The present
 paper moves the boundary of (1): for $\SU(2)$ from $\beta_W=\frac29$ to
 $0.345$, for $\SU(3)$ from $\frac9{32}$ to $0.76$, with a gap at $\frac34$ of
-$0.0177$ in lattice units, and for every
-$\SU(N)$ past the curvature ceiling. It does not close (1); the region
+$0.0177$ in lattice units, and for every compact simple
+group, the exceptional groups included, past the curvature ceiling of the
+ungauged measure, with an explicit gap. It does not close (1); the region
 between these values and the scaling region, near $\beta_W\approx2.2$ for
 $\SU(2)$ and $\beta_W\approx6$ for $\SU(3)$, is open, and with it problem
-(2). Problems (3) and (4) are untouched. Every bound proved here is uniform
+(2). Problems (3) and (4) are not solved here. Every bound proved here is uniform
 in lattice units, so by~\cite{BB26b} none of them can by itself produce a
 continuum mass gap; that requires control of the gap in physical units along
-the renormalisation group flow~\cite{Bal84a,BSB26}.
+the renormalisation group flow~\cite{Bal84a,BSB26}.\footnote{Every one of these approaches needs an input at physical
+length scales. Renormalisation group approaches to the ultraviolet behaviour
+of gauge and gravitational theories, of which~\cite{Bal84a,Dim13} are the
+rigorous ones for Yang--Mills theory, have also been proposed for the
+effective dimension of spacetime~\cite{SBG26} and for completions of quantum
+gravity~\cite{Bha22,BRS26}; they do not bear on the infrared estimates
+needed here.}
+
+\emph{The continuum problem.} Two general facts limit what can be imported
+into problems (3) and (4) above from constructions of continuum measures.
+Both concern a random distribution $F$ on $\R^d$, a Borel probability
+measure on the tempered distributions with finite moments, and the growth
+condition
+\begin{equation}\label{eq:growth}
+\E\,e^{F(\chi)}\le e^{C(\|\chi\|_1+\|\chi\|_2^2)}\qquad\text{for all real }
+\chi\in\mathcal S(\R^d),
+\end{equation}
+which is the growth condition of the regularity axiom of Glimm and Jaffe at
+$p=2$~\cite[Sect.~6.1, (6.1.5)]{GJ87}. It is the hypothesis under which reflection
+positivity across coordinate and diagonal hyperplanes is shown
+in~\cite{Sus26a} to give rotation invariance of the Schwinger functions, a
+step proposed there for the continuum limit of lattice gauge theories.
+
+\begin{proposition}\label{prop:growth}
+Let $F$ satisfy~\eqref{eq:growth}, and suppose that its connected two-point
+function is, off the diagonal, a locally integrable function $S_2(x,y)$
+with $S_2(x,y)\ge c|x-y|^{-2\Delta}\bigl(\log\frac1{|x-y|}\bigr)^{-k}$ for
+$0<|x-y|\le r_0$, where $c>0$, $k\ge0$ and $2\Delta>d$. Then $F$ does not
+exist: no random distribution has both properties.
+\end{proposition}
+
+\begin{proof}
+Applying~\eqref{eq:growth} to $\chi$ and $-\chi$ and using $\cosh x\ge1+\frac{x^2}2$
+gives $\E F(\chi)^2\le2(e^{C(\|\chi\|_1+\|\chi\|_2^2)}-1)$. Fix nonnegative
+$\varphi,\psi\in C_c^\infty(\R^d)$, not zero, with supports in a ball of
+radius $\frac R2$ and at distance $\delta>0$ from each other, and put
+$\varphi_\varepsilon(x)=\varepsilon^{-d/2}\varphi(x/\varepsilon)$, and likewise
+$\psi_\varepsilon$. Then $\|\varphi_\varepsilon\|_2=\|\varphi\|_2$ and
+$\|\varphi_\varepsilon\|_1=\varepsilon^{d/2}\|\varphi\|_1\le\|\varphi\|_1$ for
+$\varepsilon\le1$, so the covariance of $F(\varphi_\varepsilon)$ and
+$F(\psi_\varepsilon)$ is bounded uniformly in $\varepsilon$ by the
+Cauchy--Schwarz inequality. On the other hand the supports of
+$\varphi_\varepsilon$ and $\psi_\varepsilon$ are disjoint, and for $u,v$ in the
+supports $\varepsilon\delta\le|\varepsilon u-\varepsilon v|\le\varepsilon R$.
+For $\varepsilon R\le r_0$ and $\varepsilon R<1$ the lower bound for $S_2$
+therefore gives
+\[
+\begin{split}
+\Cov\bigl(F(\varphi_\varepsilon),F(\psi_\varepsilon)\bigr)&=\varepsilon^d\!\int\!\!\int
+\varphi(u)\psi(v)S_2(\varepsilon u,\varepsilon v)\,du\,dv\\
+&\ge c\,R^{-2\Delta}\varepsilon^{d-2\Delta}\Bigl(\log\frac1{\varepsilon\delta}\Bigr)^{-k}
+\|\varphi\|_1\|\psi\|_1 ,
+\end{split}
+\]
+which tends to infinity as $\varepsilon\to0$.
+\end{proof}
+
+The action density $\Tr F_{\mu\nu}F_{\mu\nu}$ has dimension $\Delta=4$ in four
+dimensions. A two-sided short-distance law of the form $|x-y|^{-8}$ times
+the fourth power of the running coupling, which is what asymptotic freedom
+predicts and what the conditional construction of~\cite{Sus26b} states for
+the smeared action density, has $2\Delta=8>4$ and $k=2$; so that field
+cannot satisfy~\eqref{eq:growth}, and rotation invariance for it has to come
+from another source, as in~\cite{Sus26b}, where it is reduced to a separate
+infrared hypothesis. In three dimensions the free part of the action density
+already has $2\Delta=6>3$. Condition~\eqref{eq:growth} suits fields of
+dimension at most $\frac d2$, such as the field strength of the free Maxwell
+field, whose covariance is bounded in momentum space.
+
+Positivity, symmetry and regularity do not produce a gap by themselves.
+
+\begin{proposition}\label{prop:nogapgff}
+On $\R^4$ let $F$ be the centred Gaussian random distribution with
+covariance
+\[
+\widehat C(p)=\int_0^1\frac{m^2}{|p|^2+m^2}\,dm .
+\]
+Then $F$ is invariant under all Euclidean motions, reflection positive,
+satisfies~\eqref{eq:growth} with $C=\frac12$, and its Osterwalder--Schrader
+Hamiltonian has no gap above the vacuum.
+\end{proposition}
+
+\begin{proof}
+Since $0\le\widehat C\le1$, $\E e^{F(\chi)}=e^{\frac12\ip\chi{C\chi}}\le e^{\frac12
+\|\chi\|_2^2}$, with the unitary Fourier transform. Invariance is clear. The
+covariance is the integral over $m\in(0,1)$, with the weight $m^2dm$, of the
+covariances of free fields of mass $m$, each of which is reflection
+positive~\cite[Sect.~6.2]{GJ87}; a positive combination of reflection
+positive covariances is reflection positive, and so is the Gaussian measure
+with such a covariance~\cite[Sect.~6.2]{GJ87}. For $\chi(t,\mathbf x)=h(t)g(\mathbf x)$
+with $h\ge0$ supported in $t>0$, not zero, and $\hat g(0)\ne0$, the vector
+$v=F(\chi)$ is orthogonal to the vacuum, and after the Fourier transform in
+$\mathbf x$,
+\[
+\begin{split}
+\ip v{e^{-sH}v}={}&\int_0^1m^2\,dm\int\frac{|\hat g(\mathbf k)|^2}{2\omega}
+e^{-\omega s}\\
+&\times\Bigl(\int_0^\infty h(t)e^{-\omega t}dt\Bigr)^2\,d\mathbf k ,
+\end{split}
+\]
+with $\omega=\sqrt{|\mathbf k|^2+m^2}$ and constants absorbed in $\hat g$.
+If $H$ had a gap $m_0>0$, the left side would be at most $e^{-m_0s}\|v\|^2$.
+For $0<\eta<m_0$ the part of the integral with $m,|\mathbf k|\le\eta/2$ is at
+least $c_\eta e^{-\eta s}$ with $c_\eta>0$, a contradiction as $s\to\infty$.
+\end{proof}
+
+The Gaussian field of Proposition~\ref{prop:nogapgff} is not a gauge theory;
+it shows only that an infrared estimate, such as a bound
+$\ip{v_a}{T_a^{\lfloor t/a\rfloor}v_a}\le C_ve^{-m_*t}$ uniform in the spacing $a$
+along the continuum tuning, has to be proved in addition to the axioms. The
+lattice bounds of this paper are of this form only with $m_*$ proportional
+to $1/a$, and by~\cite{BB26b} such bounds give trivial limits. The routes we
+know to a continuum gap therefore all stop at the same two estimates: the
+construction of the infinite-volume continuum measure past
+Ba{\l}aban's small-field analysis~\cite{Bal84a,Bal89b}, which the
+conditional construction of~\cite{Sus26b} assumes clause by clause and which
+yields there a non-negative Hamiltonian without any statement on its
+spectrum, and a decay estimate in physical units at large scales. The
+finite-size criterion described in~\cite[Sect.~9.4]{Sus26b} reduces a gap to
+a threshold condition on one box, uniformly in the cutoff; as stated there,
+the condition fails in every small box and would have to be checked at large
+scales, which the construction does not reach.
+
+\section{The continuum step at one physical scale}\label{sec:bypass}
+
+The bounds of the preceding sections hold at fixed coupling and give a gap
+that is at least a fixed number in lattice units, and~\cite{BB26b} shows that
+no such bound can produce a continuum gap. This section replaces the
+single-link condition of Proposition~\ref{prop:state} by a condition on one
+cube of $n^4$ sites, averaged over its translates in the manner of Dobrushin
+and Shlosman~\cite{DS85}, and proves that the condition gives a gap of order
+$1/n$ in lattice units. If it holds with $n$ proportional to $1/a$, that is,
+in a cube of fixed physical size, the gap survives in physical units and
+passes to every continuum limit (Theorem~\ref{thm:transfer}). The two
+statements that remain unproved are named at the end: the cube estimate and
+the existence of the limit.
+
+\subsection{Averaged cubes}
+
+For a finite set $V\subset A$ let $\gamma_V(\cdot\mid Q)$ be the probability
+measure on $G^V$ with density proportional to $\exp\bigl(N\beta\sum_{p\cap
+V\ne\emptyset}\ReTr Q^F_p\bigr)$ with respect to Haar measure, the links
+outside $V$ being those of $Q$. Its conditional law of $Q_e$, $e\in V$, given
+the other links of $V$ is $\gamma^F_e$. Write $d_V(Q_V,Q'_V)=\sum_{i\in V}
+\delta(Q_i,Q'_i)$ and, for $j\in A\setminus V$,
+\[
+C_{V,j}=\sup\frac{W_1^{d_V}\bigl(\gamma_V(\cdot\mid Q),\gamma_V(\cdot\mid
+Q')\bigr)}{\delta(Q_j,Q'_j)},
+\]
+the supremum over pairs that differ only at $j$; $W_1^{d_V}$ is the
+Kantorovich distance for $d_V$. The coefficient vanishes unless $j$ shares a
+plaquette with a link of $V$.
+
+Let $n\ge2$ be even and let $V$ be the set of active links $(x,\mu)$ with
+$x\in[0,n)^4$. The direction field has period two, so the translations by
+$2\Z^4$ preserve $F$, $A$ and $\gamma^F$, and the translates $V_x=V+x$,
+$x\in2\Z^4$, satisfy $C_{V_x,j+x}=C_{V,j}$. Every active link lies in exactly
+$N_n=(n/2)^4$ of them. A \emph{class} is an orbit of $2\Z^4$ on $A$, that is,
+a residue of the base point modulo two together with a direction; there are
+at most $64$ classes. For a class $c$ put
+\[
+K_c=\sum_{j\in c\setminus V}C_{V,j}.
+\]
+
+\begin{definition}\label{def:cube}
+For $0<\alpha<1$, the condition $D(n,\alpha)$ at the coupling $\beta$ is
+$K_c\le\alpha N_n$ for every class $c$.
+\end{definition}
+
+Since $\sum_{x\in2\Z^4,\,j\notin V_x}C_{V_x,j}=\sum_{x}C_{V,j-x}[j-x\notin V]
+=K_{c(j)}$ for the class $c(j)$ of $j$, the condition says that the total
+influence of a link on the translates that do not contain it is at most the
+fraction $\alpha$ of the number of translates that do. Figure~\ref{fig:cubes} shows the cubes.
+
+\begin{figure*}[t]
+\centering
+\includegraphics[width=0.9\textwidth]{figures/fig_cubes.png}
+\caption{(a) The cube $V$ of side $n=4$ and two of its translates by
+$2\Z^4$, drawn in three of the four dimensions. A link $j$ outside $V$
+enters $K_c$ through every translate whose boundary it touches, and
+$D(n,\alpha)$ compares that total with the $N_n=(n/2)^4$ translates that
+contain $j$. (b) The cube of Theorem~\ref{thm:transfer}: its physical side
+$\ell=na$ is held fixed while the spacing is halved, so $n$ doubles at each
+step and the lattice gap $\log(1/\alpha)/(2n)$ is of order $a/\ell$.}
+\label{fig:cubes}
+\end{figure*}
+ For $n=2$ it is a
+bound on blocks of $48$ links. Distances between links are those of their
+midpoints; a link of $V$ and a link sharing a plaquette with $V$ are at
+distance at most $\rho_n=2n$, and $c_n$ denotes the number of active links
+within distance $\rho_n$ of a given one.
+
+\begin{theorem}\label{thm:onescale}
+Let $\beta\ge0$ and suppose that $D(n,\alpha)$ holds. Then statements
+\textup{(i)}--\textup{(iv)} of Proposition~\ref{prop:state} hold,
+\textup{(v)} holds for every $\lambda<\log(1/\alpha)/\rho_n$, and the transfer
+matrix of $\omega$ has spectral gap at least $\log(1/\alpha)/(2n)$.
+\end{theorem}
+
+\begin{proof}
+The proof of Proposition~\ref{prop:state} uses the coefficients $C_{ee'}$
+only through Lemma~\ref{lem:comparison} and Corollary~\ref{cor:decay}.
+Lemma~\ref{lem:dscomparison} of Appendix~\ref{app:comparison} gives the same
+conclusions under $D(n,\alpha)$, for every $\lambda>0$ with $\alpha
+e^{\lambda\rho_n}<1$, with the constant $\theta D/(1-\theta)$ replaced by
+$D(1+c_ne^{\lambda\rho_n})/(1-\theta)$ and $\theta=\alpha e^{\lambda\rho_n}$.
+The measures used there are invariant under every $\gamma_{V_x}$ with $V_x$
+disjoint from the exceptional set: a Gibbs measure of $\gamma^F$ and its
+conditional measures given the links of a finite set by
+Lemma~\ref{lem:dscomparison}(a), and the extended finite-volume measure of
+part (ii) because every plaquette that meets such a $V_x$ lies in
+$P(\Lambda)$. Part (vi) then follows from Proposition~\ref{prop:gapdecay}
+as before, with every $\lambda<\log(1/\alpha)/(2n)$.
+\end{proof}
+
+\subsection{The continuum limit}
+
+Let $a_k=2^{-k}a_0$ and let $\beta_k\ge0$ be couplings, typically with
+$\beta_k\to\infty$. Suppose that the lattice states $\omega_k$ at $\beta_k$
+exist as in Proposition~\ref{prop:state}, with transfer matrices $\mathbb T_k$ on
+the reconstructed spaces $\mathcal H_k$ and vacua $\Omega_k$
+(Appendix~\ref{app:transfer}). Let $\mathcal T$
+be a complex vector space of test functions on $\R^4$ supported in $\{t>0\}$
+and, for each $k$, let $f\mapsto O_k(f)$ be a linear map from $\mathcal T$ to
+gauge-invariant local observables supported in positive lattice times; the
+example to keep in mind is $O_k(f)=Z_k\sum_xa_k^4f(a_kx)\Phi(x)$ for a local
+gauge-invariant field $\Phi$, a renormalisation constant $Z_k$ and $\Phi(x)$
+the translate of $\Phi$ to $x$. Write $\vartheta$ for the time reflection and
+$\tau_t$ for the time translation by $t$ lattice steps.
+
+\begin{definition}\label{def:limit}
+A \emph{continuum limit} of $(\omega_k,O_k)$ is a Hilbert space $\mathcal H$
+with a unit vector $\Omega$, a self-adjoint operator $H\ge0$ with
+$H\Omega=0$, and a linear map $f\mapsto\psi(f)$ from $\mathcal T$ to
+$\mathcal H$ with dense range, such that for all $f,g\in\mathcal T$ and all
+dyadic $\tau\ge0$,
+\[
+\begin{split}
+\ip{\psi(f)}{e^{-\tau H}\psi(g)}&=\lim_{k\to\infty}\omega_k\bigl(\vartheta
+(\overline{O_k(f)})\,\tau_{\tau/a_k}O_k(g)\bigr),\\
+\ip\Omega{\psi(f)}&=\lim_{k\to\infty}\omega_k\bigl(O_k(f)\bigr),
+\end{split}
+\]
+the limits taken over the $k$ for which $\tau/a_k$ is an integer. It is
+\emph{nontrivial} if $\mathcal H\ne\C\Omega$.
+\end{definition}
+
+The Osterwalder--Schrader reconstruction~\cite{OS73,OS75} produces such a
+limit from convergent renormalised Schwinger functions that satisfy the
+axioms; the definition records only what the next theorem uses.
+
+\begin{theorem}\label{thm:transfer}
+Suppose that there are $\alpha<1$, $\ell>0$ and even $n_k$ with
+$n_ka_k\le\ell$ such that $D(n_k,\alpha)$ holds at $\beta_k$ for every $k$.
+Then every continuum limit of $(\omega_k,O_k)$ satisfies
+\[
+\sigma(H)\subset\{0\}\cup[m_*,\infty),\qquad m_*=\frac{\log(1/\alpha)}{2\ell},
+\]
+and $0$ is a simple eigenvalue. If the limit is nontrivial,
+$\sigma(H)\cap[m_*,\infty)\ne\emptyset$, so $H$ has a mass gap of at least
+$m_*$.
+\end{theorem}
+
+\begin{proof}
+By Theorem~\ref{thm:onescale} the state $\omega_k$ exists and $\mathbb T_k$ has gap
+at least $\log(1/\alpha)/(2n_k)$ on the complement of $\Omega_k$. Let $f\in
+\mathcal T$, put $O=O_k(f)$ and $\varphi_k=\Psi_O-\omega_k(O)\Omega_k$. In
+the reconstruction of Appendix~\ref{app:transfer},
+$\ip{\Psi_F}{\mathbb T_k^t\Psi_H}=\omega_k(\vartheta(\bar F)\tau_tH)$, so
+$\ip{\Omega_k}{\Psi_O}=\omega_k(O)$, and $\mathbb T_k\Omega_k=\Omega_k$; hence, for integers $t\ge0$,
+\[
+\begin{split}
+\ip{\varphi_k}{\mathbb T_k^t\varphi_k}&=\omega_k\bigl(\vartheta(\bar O)\,\tau_tO\bigr)
+-|\omega_k(O)|^2\\
+&\le e^{-t\log(1/\alpha)/(2n_k)}\,\|\varphi_k\|^2 .
+\end{split}
+\]
+Take $\tau\ge0$ dyadic and $k$ large, so that $t=\tau/a_k$ is an integer;
+then $t/(2n_k)=\tau/(2n_ka_k)\ge\tau/(2\ell)$, and the right side is at most
+$e^{-m_*\tau}\|\varphi_k\|^2$. Both sides converge by
+Definition~\ref{def:limit}. With $\varphi=\psi(f)-\ip\Omega{\psi(f)}\Omega$
+and $e^{-\tau H}\Omega=\Omega$ the limit reads
+\[
+\ip\varphi{e^{-\tau H}\varphi}\le e^{-m_*\tau}\|\varphi\|^2 .
+\]
+The maps $f\mapsto O_k(f)$ and $f\mapsto\psi(f)$ are linear, so the vectors
+$\varphi$ form a linear subspace, and it is dense in $\Omega^\perp$ because
+the range of $\psi$ is dense. The inequality extends to $\Omega^\perp$ by
+continuity, and from dyadic $\tau$ to all $\tau\ge0$ by the strong continuity
+of $e^{-\tau H}$. For $\varphi\in\Omega^\perp$ with spectral measure
+$\mu_\varphi$ of $H$ this says $\int e^{-\tau E}d\mu_\varphi(E)\le e^{-m_*\tau}
+\mu_\varphi([0,\infty))$ for all $\tau\ge0$; if $\mu_\varphi([0,m_*-\eta])>0$
+for some $\eta>0$, the left side is at least $\mu_\varphi([0,m_*-\eta])
+e^{-(m_*-\eta)\tau}$, which exceeds the right side for large $\tau$. So
+$\mu_\varphi$ lives on $[m_*,\infty)$ for every $\varphi\in\Omega^\perp$, which
+gives both claims about $0$, and the spectrum on $\Omega^\perp\ne\{0\}$ lies in
+$[m_*,\infty)$ and is not empty.
+\end{proof}
+
+The theorem bypasses the obstruction of~\cite{BB26b}: under the hypothesis
+the lattice gap is at least $\log(1/\alpha)/(2n_k)$, of order $a_k/\ell$ in
+lattice units, which tends to zero, and only its value in physical units is
+bounded below. In the language of~\cite{BB26b} the hypothesis implies the
+gap part (R2) of Hypothesis~R, with $m=m_*$, and the conclusion holds for
+every continuum limit without a separate assumption on the gap.
+
+\subsection{The two residues}
+
+Theorem~\ref{thm:transfer} reduces a continuum mass gap to two statements,
+neither of which is proved here or, to our knowledge, anywhere else.
+\begin{enumerate}[label=\textup{(\Alph*)},leftmargin=*]
+\setcounter{enumi}{3}
+\item \emph{The cube estimate.} There are $\alpha<1$ and $\ell>0$ such that
+$D(n,\alpha)$ holds with $na\le\ell$ along the continuum tuning
+$\beta=\beta(a)\to\infty$, uniformly in $a$.
+\item \emph{The limit.} The renormalised Schwinger functions converge along
+$a_k=2^{-k}a_0$ to Schwinger functions that satisfy the
+Osterwalder--Schrader axioms and are not those of the vacuum alone.
+\end{enumerate}
+(D) and (E) together give the mass gap of the continuum theory; the
+remaining Clay requirements, Euclidean invariance and the local structure of
+the limit~\cite{JW06}, belong to (E). (D) is a statement about a single
+cube of fixed physical size and a single coupling at each spacing; (E) is the
+construction problem, on which Ba{\l}aban's renormalisation group
+analysis~\cite{Bal84a,Bal85a,Bal89b} gives the ultraviolet part in finite
+volume.
+
+\begin{remark}\label{rem:cubeheuristic}
+A linear-response count suggests that (D) is consistent with a massive
+continuum theory. If the gauge-fixed field responds to a change of one link
+on the boundary of a cube through a Poisson kernel with decay length $\xi$
+in lattice units, the response summed over the cube is of order $\xi$, so
+$K_c$ is of order $n^3\xi$ and $D(n,\alpha)$ asks for $n\gtrsim\xi/\alpha$,
+that is, $\ell\gtrsim\xi a/\alpha$, a fixed multiple of the physical
+correlation length. The count is not a proof, and it assumes that the
+gauge-fixed links decorrelate on the scale $\xi$. The gauge here is built on
+straight lines, and in gauges of axial type the gauge-fixed variables can
+fluctuate on all scales even when gauge-invariant observables cluster; if
+that happens, (D) fails in this gauge and has to be posed for block-averaged
+variables, where it becomes part of the renormalisation group problem.
+\end{remark}
+
+\begin{remark}\label{rem:routes}
+The other routes we tried stop at (D) or (E), or earlier.
+\begin{enumerate}[label=\textup{(\alph*)},leftmargin=*]
+\item \emph{Disjoint blocks.} The block criterion of
+Lemma~\ref{lem:blockcomparison} with a partition into cubes of side $n$
+requires, for a link on a face, that its influence on the neighbouring cube
+be less than one. In the count of Remark~\ref{rem:cubeheuristic} that
+influence is of order $\xi$, which grows like $1/a$. Averaging over the $N_n$
+translates divides it by the number of translates on whose boundary the link
+lies, a factor of order $1/n$, and this is why (D) is stated for averaged
+cubes.
+\item \emph{Rescaling a fixed lattice gap.} Any bound uniform in lattice
+units, such as those of Theorems~\ref{thm:su2}--\ref{thm:su3blocks}, gives
+trivial continuum two-point functions~\cite{BB26b}; rescaling it produces
+no gap.
+\item \emph{Assuming the gap.} Hypothesis~R of~\cite{BB26b} assumes the gap
+in physical units together with the limit. Theorem~\ref{thm:transfer}
+replaces the gap part by the cube estimate (D), which concerns one box and
+one coupling at each spacing.
+\item \emph{Computation.} At a fixed coupling and a fixed small $n$,
+$D(n,\alpha)$ is a finite set of Kantorovich bounds and could in principle be
+certified as in Propositions~\ref{prop:cover} and~\ref{prop:cover2}; for
+$n=2$ and $\SU(2)$ the block already has $48$ links and $144$ real variables.
+(D) asks for it at infinitely many couplings with $n\to\infty$, which no
+finite computation covers.
+\item \emph{Axioms alone.} Proposition~\ref{prop:nogapgff} shows that
+positivity, invariance and regularity do not force a gap, and
+Proposition~\ref{prop:growth} shows that the growth route to rotation
+invariance is closed for the action density. The infrared input therefore
+has to be an estimate such as (D).
+\end{enumerate}
+\end{remark}
+
+\section*{Acknowledgements}
+
+This paper rests on the work of many earlier scientists. Lattice gauge
+theory is due to Wilson~\cite{Wil74} and its Hamiltonian form to Kogut and
+Susskind~\cite{KS75}; reflection positivity and the reconstruction of the
+transfer matrix to Osterwalder and Schrader~\cite{OS73,OS75}, and their
+lattice form, with the first proof of a gap at strong coupling, to
+Osterwalder and Seiler~\cite{OSei78,Sei82}. The uniqueness method is
+Dobrushin's~\cite{Dob68,Dob70,DS85}, the curvature method is that of Bakry
+and \'Emery~\cite{BE85,BGL14} in the form of Shen, Zhu and Zhu~\cite{SZZ23},
+the gauge fixing on a forest is Creutz's~\cite{Cre77}, and the curvature of
+Lie groups is Milnor's~\cite{Mil76}. The analysis of the single-link law
+uses results of Barta~\cite{Bar37}, Biernacki and Krzy\.z~\cite{BK55},
+McShane~\cite{McS34}, Stein and Weiss~\cite{SW71} and Watson~\cite{Wat44}, and
+the continuum problem is the one formulated by Jaffe and Witten~\cite{JW06}
+and studied by Ba{\l}aban~\cite{Bal84a,Bal85a,Bal89b}. The Yang--Mills
+manuscripts of Sussman and collaborators~\cite{Sus26a,Sus26b} were read in
+the preparation of Sec.~\ref{sec:limits}.
 
 \section*{Data and code availability}
 
@@ -1794,23 +2516,27 @@ Sec.~\ref{sec:limits}; and a Lean~4 certificate of the line field
 (Lemmas~\ref{lem:cycle} and~\ref{lem:structure} for the table of
 Appendix~\ref{app:table}, by \texttt{decide}); and the programs of
 Appendix~\ref{app:plaqblocks} for the plaquette blocks, with the
-floating-point search of Remark~\ref{rem:blockgap}. This paper accompanies release v3.4.0 of the archive,
-\url{https://github.com/creelie/4y-m/releases/tag/v3.4.0}. The PDF of this paper is at
+floating-point search of Remark~\ref{rem:blockgap}; and an exact computation of the curvatures of
+Table~\ref{tab:groups} from the root systems. This paper accompanies release v3.5.0 of the archive,
+\url{https://github.com/creelie/4y-m/releases/tag/v3.5.0}. The PDF of this paper is at
 \url{https://github.com/creelie/4Y-M/blob/main/preprintYangMillsForestGauge/YangMillsForestGauge.pdf}.
-Deep Bhattacharjee carried out the computations and the Lean, Python and
-shell checks with AI assistance from Claude (Anthropic). The first composite
+The computations and the Lean, Python and shell checks were run with AI
+assistance (Claude Opus~5.5, Claude Fable~5.1 with Ultracode, and GPT Sol~6.1
+Ultra) under the direction of Deep Bhattacharjee. The first composite
 behind Theorem~\ref{thm:su2} was assembled by the Anaxia engine of the BLLM
 system~\cite{Bha26}, release v3.0.5, as described in the footnote to that
 theorem; release v3.1.0~\cite{Bha26b} records the engine's Yang--Mills runs
 in its failure log, whose last Yang--Mills entry is the change from single
 links to blocks of several links; the plaquette blocks of
 Sec.~\ref{sec:plaqblocks}, the bound of Lemma~\ref{lem:blockK}, their $\SU(3)$ version in
-Sec.~\ref{sec:su3blocks} and the certified constants were found and checked by the authors. Both authors
+Sec.~\ref{sec:su3blocks} and the certified constants were found and checked by the authors. All three authors
 approved the final text.
 
-\section*{Ethical declarations}
+\section*{Declarations}
 
-\emph{Funding.} None. \emph{Competing interests.} None.
+\emph{Funding.} None. \emph{Competing interests.} None. \emph{Ethics
+approval.} Not applicable: the work involves no human participants, animals
+or personal data.
 
 \appendix
 
@@ -1899,9 +2625,15 @@ e^{-\lambda\dist(S_F,S_H)}.
 
 \begin{proof}
 Condition on the links of $S_H$~\cite[Ch.~3]{Kal21}; the conditional
-measures are invariant under $\gamma^F_e$ for $e\notin S_H$, and
-Lemma~\ref{lem:comparison} with $S=S_H$, $T=S_F$ bounds the difference of
-two of them, as in~\cite[Cor.~29]{BB26a}.
+measures $\mu^\sigma=\mu(\cdot\mid\sigma_{S_H})$ are invariant under
+$\gamma^F_e$ for $e\notin S_H$. Lemma~\ref{lem:comparison} with $S=S_H$ and
+$T=S_F$, for which $w_b=1$ on $S_F$ and $w_z\le e^{-\lambda\dist(S_F,S_H)}$ on
+$S_H$, gives
+$|\mu^\sigma(F)-\mu^{\sigma'}(F)|\le L_F\sum_{b\in S_F}\varrho(b)\le
+L_F\frac{\theta D}{1-\theta}|S_H|e^{-\lambda\dist(S_F,S_H)}$ for any two
+boundary values. Since $H$ depends only on $\sigma_{S_H}$,
+$\Cov_\mu(F,H)=\iint H(\sigma)\bigl(\mu^\sigma(F)-\mu^{\sigma'}(F)\bigr)\,
+d\mu(\sigma)\,d\mu(\sigma')$, and the bound follows.
 \end{proof}
 
 \begin{lemma}\label{lem:blockcomparison}
@@ -1933,6 +2665,74 @@ blocks outside $S$ and using the column sums,
 \]
 which gives the claim as in Lemma~\ref{lem:comparison}.
 \end{proof}
+
+\begin{lemma}\label{lem:dscomparison}
+Let $n\ge2$ be even, let $V_x$, $x\in2\Z^4$, be the translates of
+Sec.~\ref{sec:bypass}, and suppose that $D(n,\alpha)$ holds.
+\begin{enumerate}[label=\textup{(\alph*)},leftmargin=*]
+\item If a probability measure $\mu$ on $G^A$ is invariant under
+$\gamma^F_e$ for every $e$ in a finite set $V$, it is invariant under
+$\gamma_V$.
+\item Fix $\lambda>0$ with $\theta=\alpha e^{\lambda\rho_n}<1$. Let $S\subset
+A$, and let $\mu_1,\mu_2$ be invariant under $\gamma_{V_x}$ for every $x$
+with $V_x\cap S=\emptyset$. With $T$, $w_b$ as in Lemma~\ref{lem:comparison}
+and $\sum_{z\in S}w_z<\infty$, there is a coupling with
+\[
+\sum_{b\notin S}w_b\varrho(b)\le\frac{D(1+c_ne^{\lambda\rho_n})}{1-\theta}
+\sum_{z\in S}w_z ,
+\]
+and $\mu_1=\mu_2$ if $S=\emptyset$.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+(a) Let $\nu_\eta$ be the conditional law of $Q_V$ given the links $\eta$
+outside $V$. For bounded $f$ on $G^V$ and bounded $g$ of $\eta$,
+$\gamma^F_e(fg)=g\,\gamma^F_ef$ for $e\in V$, so invariance gives $\int
+g(\eta)\bigl(\nu_\eta(\gamma^F_ef)-\nu_\eta(f)\bigr)\,d\mu=0$ for all $g$;
+taking $f$ in a countable dense set of continuous functions, $\nu_\eta$ is
+invariant under every $\gamma^F_e(\cdot\mid\cdot,\eta)$, $e\in V$, for
+$\mu$-almost every $\eta$. So is $\gamma_V(\cdot\mid\eta)$, whose
+conditional laws of single links are the $\gamma^F_e$. The composition $P_\eta$
+of the kernels $\gamma^F_e$, $e\in V$, in a fixed order has a density with
+respect to Haar measure on $G^V$ bounded below by a positive constant,
+because each single-link density is at least $e^{-12N^2\beta}$ times its
+maximum over the group. A Markov kernel with such a lower bound has at most
+one invariant probability measure (Doeblin's condition), so
+$\nu_\eta=\gamma_V(\cdot\mid\eta)$.
+
+(b) Let $\pi^*$ minimise $\Psi$ as in Lemma~\ref{lem:comparison} and call $x$
+admissible if $V_x\cap S=\emptyset$. For admissible $x$ replace
+$(\sigma_{V_x},\sigma'_{V_x})$ by an optimal coupling, for $d_{V_x}$, of the
+two block laws; both $\mu_i$ are invariant, so the result is a coupling, and
+changing the boundary links one at a time bounds the new expected
+$d_{V_x}$-distance by $\sum_jC_{V_x,j}\varrho(j)$. With $\bar w_x=\max_{i\in
+V_x}w_i$, minimality gives
+\[
+\sum_{i\in V_x}w_i\varrho(i)\le\bar w_x\sum_{j\notin V_x}C_{V_x,j}\varrho(j),
+\]
+and $\bar w_x\le e^{\lambda\rho_n}w_j$ whenever $C_{V_x,j}\ne0$. Let $S'$ be
+the set of links outside $S$ that lie in a translate meeting $S$; each is
+within distance $\rho_n$ of a link of $S$, so $\sum_{i\in S'}w_i\le
+c_ne^{\lambda\rho_n}\sum_{z\in S}w_z$. A link outside $S\cup S'$ lies in
+$N_n$ translates, all admissible. Summing over admissible $x$ and using
+$\sum_{x:\,j\notin V_x}C_{V_x,j}=K_{c(j)}\le\alpha N_n$,
+\[
+N_n\sum_{i\notin S\cup S'}w_i\varrho(i)\le\theta N_n\Bigl[\sum_{i\notin
+S\cup S'}w_i\varrho(i)+\sum_{i\in S\cup S'}w_i\varrho(i)\Bigr].
+\]
+All sums are finite and $\varrho\le D$, so $\sum_{i\notin S\cup S'}w_i
+\varrho(i)\le\frac{\theta D}{1-\theta}(1+c_ne^{\lambda\rho_n})\sum_{z\in S}
+w_z$; adding $\sum_{i\in S'}w_i\varrho(i)\le Dc_ne^{\lambda\rho_n}\sum_{z\in
+S}w_z$ gives the bound. If $S=\emptyset$ then $S'=\emptyset$ and
+$\varrho\equiv0$.
+\end{proof}
+
+The covariance bound of Corollary~\ref{cor:decay} follows from part (b) in
+the same way, with $\theta D/(1-\theta)$ replaced by
+$D(1+c_ne^{\lambda\rho_n})/(1-\theta)$, since the conditional measures
+$\mu^\sigma$ there are invariant under $\gamma_{V_x}$ for $V_x\cap
+S_H=\emptyset$ by part (a).
 
 \section{The plaquette blocks}\label{app:plaqblocks}
 
@@ -2107,7 +2907,861 @@ torus, and the inequality is checked with relative margin $10^{-12}$.
 the bound on one box about two and a half seconds on one core. The cover runs in about an hour on
 four cores and writes every certified box with its $\theta$ and its bound.
 
+\section{The transfer matrix}\label{app:transfer}
+
+This appendix recalls the Osterwalder--Schrader reconstruction for the
+lattice~\cite{OS73,OS75,OSei78} in the form used for the gaps, following our
+earlier paper~\cite{BB26a}.
+
+Let $\omega$ be a state on the gauge-invariant local functions of $\Z^4$ that
+is invariant under translations and the hypercubic group and reflection
+positive for reflections in planes through sites and in planes bisecting
+links; by Proposition~\ref{prop:state}(iii)--(iv) and its analogues in the
+other theorems, the states of this paper are of this kind. The reconstruction gives a Hilbert space with a
+vector $\Omega$, a map $F\mapsto\Psi_F$ with dense range, and a self-adjoint
+$\mathbb T$ with $0\le\mathbb T\le1$, $\mathbb T\Omega=\Omega$ and
+$\ip{\Psi_F}{\mathbb T^t\Psi_H}=\omega(\vartheta(\bar F)\tau_tH)$, where
+$\vartheta$ is the time reflection and $\tau_t$ the time
+translation.\footnote{$\Psi_F$ is the class of $F$ in the completion of the
+positive-time local functions for the form $\ip FH=\omega(\vartheta(\bar F)H)$,
+which is positive semidefinite by reflection positivity. Since
+$|\omega(\vartheta(\bar F)F)|\le\omega(|F|^2)$ by the Cauchy--Schwarz
+inequality and the invariance of $\omega$ under $\vartheta$, functions that are
+close in $L^2(\omega)$ give close vectors.}
+
+\begin{proposition}\label{prop:gapdecay}
+For $m>0$ the following are equivalent:
+\begin{enumerate}[label=\textup{(\alph*)},leftmargin=*]
+\item the spectrum of $\mathbb T$ on $\Omega^\perp$ lies in $[0,e^{-m}]$;
+\item for every $F$ in a class of gauge-invariant local functions supported
+at times in a bounded interval and dense in $L^2(\omega)$ on each such support,
+there is $C_F<\infty$ with $0\le\omega(\vartheta(\bar F)\tau_tF)-|\omega(F)|^2
+\le C_Fe^{-mt}$ for all $t\ge0$.
+\end{enumerate}
+Under \textup{(a)} one may take $C_F=\|F\|_\infty^2$ for every bounded $F$.
+\end{proposition}
+
+\begin{proof}
+If (a) holds, then
+\[
+\omega(\vartheta(\bar F)\tau_tF)-|\omega(F)|^2=\ip{\Psi'_F}{\mathbb
+T^t\Psi'_F}
+\]
+with $\Psi'_F=\Psi_F-\ip\Omega{\Psi_F}\Omega\in\Omega^\perp$; this number lies
+in $[0,e^{-mt}\|\Psi_F\|^2]$, and $\|\Psi_F\|^2\le\|F\|_\infty^2$.
+Conversely, let $\sigma$ be the spectral measure of $\mathbb T$ at
+$\Psi'_F$ and let $\delta>0$. Then
+\[
+\sigma\bigl((e^{-m+\delta},1]\bigr)e^{(-m+\delta)t}\le C_Fe^{-mt}
+\]
+for all $t$, so $\sigma((e^{-m+\delta},1])=0$.
+The spectral projection of $(e^{-m},1]$ restricted to $\Omega^\perp$ therefore
+annihilates the vectors $\Psi'_F$ of the class, which are dense by the
+footnote above, and it vanishes.
+\end{proof}
+
+\section{The single-link law of SU(2)}\label{app:sharp}
+
+This appendix proves the sharp quarter, $W_1(\nu_b,\nu_{b'})\le\frac14|b-b'|$
+for the one-link law of $\SU(2)$, which Theorems~\ref{thm:su2}
+and~\ref{thm:blocks} use, and the exact value at $b=0$, which
+Theorem~\ref{thm:ceiling} uses. The argument is that of our earlier
+paper~\cite{BB26a}; it is given in full so that the present paper is
+self-contained.
+
+\subsection{The von Mises--Fisher law}
+
+Identify $\SU(2)$ with the unit quaternions, that is with the unit sphere
+$S^3\subset\R^4$, so that $\ReTr U=2x_0(U)$ and $\ReTr(UV)=2\ip u{\bar v}$
+for the Euclidean inner product of $\R^4$ and quaternion conjugation
+$v\mapsto\bar v$. Fix a link $e$ and the field off $e$. Every plaquette
+through $e$ can be rotated cyclically so that its trace reads $\ReTr(Q_eA_p)$
+with $A_p\in\SU(2)$, the staple of $e$ in $p$. The action therefore depends on
+$Q_e$ only through
+\[
+N\beta\sum_{p\ni e}\ReTr(Q_eA_p)=\ip{x}{b},\qquad
+b=4\beta\sum_{p\ni e}\bar A_p\in\R^4,
+\]
+with $x=Q_e\in S^3$. Since there are six staples, each of norm one,
+\begin{equation}\label{q-eq:kappamax}
+\kappa:=|b|\le y:=24|\beta| .
+\end{equation}
+The conditional law of $Q_e$ is the von Mises--Fisher law\footnote{On the
+sphere $S^{p-1}\subset\R^p$ the von Mises--Fisher law with mean direction
+$\mu$ and concentration $\kappa$ has density proportional to
+$e^{\kappa\ip x\mu}$ with respect to the surface measure, and its normalising
+constant is $(2\pi)^{p/2}I_{p/2-1}(\kappa)/\kappa^{p/2-1}$; it is the maximum
+entropy law with prescribed mean resultant, and it plays on the sphere the
+role of the Gaussian in $\R^p$. For $p=4$ the Bessel index is $1$. The mean
+resultant length $\E\ip x\mu=I_{p/2}(\kappa)/I_{p/2-1}(\kappa)$ is the
+function $A$ of Lemma~\ref{q-lem:moments}. See Mardia and Jupp~\cite{MJ00},
+Ch.~9, for these facts and for the tangent-normal decomposition used in
+Appendix~\ref{app:vmfcomp}.}
+\begin{equation}\label{q-eq:vmf}
+\nu_b(dx)=Z(\kappa)^{-1}e^{\ip xb}\,\sigma(dx)
+\end{equation}
+on the unit sphere, with $\sigma$ the normalised surface measure. We use
+coordinates in which $b=\kappa e_1$. The density of $t=x_1$ is proportional
+to $(1-t^2)^{1/2}e^{\kappa t}$ on $[-1,1]$, so $Z(\kappa)=2I_1(\kappa)/\kappa$
+with the modified Bessel function $I_1$, normalised so that $Z(0)=1$.
+
+\begin{lemma}\label{q-lem:vmf}
+For every $\kappa\ge0$ the law $\nu_b$ on the unit sphere $S^3$ satisfies
+the Poincar\'e inequality $\Var_{\nu_b}(g)\le\frac13\int|\nabla g|^2d\nu_b$,
+and the constant $\frac13$ is attained at $\kappa=0$.
+\end{lemma}
+
+\begin{proof}
+In the polar angle $\theta\in(0,\pi)$ from $e_1$ the generator of the
+reversible diffusion of $\nu_b$ is $L=\partial_\theta^2+b(\theta)
+\partial_\theta+\sin^{-2}\theta\,\Delta_{S^2}$ with $b(\theta)=2\cot\theta-
+\kappa\sin\theta$. On spherical harmonics of degree $\ell$ on $S^2$ it acts as
+a Sturm--Liouville operator $L_\ell$ with potential
+$\ell(\ell+1)\sin^{-2}\theta$. A ground state comparison of Barta's
+type~\cite{Bar37} with the trial function $\psi=\sin\theta\,
+e^{a\kappa\cos\theta}$ gives $-L_1\psi\ge3\psi$ for $a=-\frac15$, and the same
+trial function with $a=-\frac25$ gives the bound $3$ for the derivatives of
+zonal eigenfunctions; Appendix~\ref{app:vmfcomp} carries out both computations.
+Hence every nonzero eigenvalue of $-L$ is at least $3$. At $\kappa=0$ the
+first eigenvalue of the Laplacian of the unit $S^3$ is $3$.
+\end{proof}
+
+\subsection{Moments}
+
+Let $A(\kappa)=\E_{\nu_b}x_1=Z'(\kappa)/Z(\kappa)=I_2(\kappa)/I_1(\kappa)$.
+
+\begin{lemma}\label{q-lem:moments}
+For every $\kappa>0$, in coordinates with $b=\kappa e_1$,
+\begin{enumerate}[label=\textup{(\roman*)},leftmargin=*]
+\item $\E x_2^2=\E x_3^2=\E x_4^2=A/\kappa$, $\E(1-x_1^2)=3A/\kappa$, the
+covariance matrix of $x$ is $\operatorname{diag}(A',A/\kappa,A/\kappa,
+A/\kappa)$, and $A'=1-A^2-3A/\kappa$;
+\item $\displaystyle\frac{\kappa}{2+\sqrt{\kappa^2+4}}\le
+A(\kappa)\le\frac{\kappa}{1+\sqrt{\kappa^2+9}}$;
+\item $A'\le A/\kappa\le\bigl(1+\sqrt{\kappa^2+9}\bigr)^{-1}\le\frac14$;
+\item $A(\kappa)\ge\kappa\big/\bigl(\frac32+\sqrt{\kappa^2+25/4}\bigr)$.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+(i) Integrating by parts against $\frac{d}{dt}(1-t^2)^{3/2}=-3t(1-t^2)^{1/2}$
+gives $\kappa\,\E(1-x_1^2)=3\E x_1$, and the three coordinates
+$x_2,x_3,x_4$ are exchangeable under $\nu_b$, with $\sum_ix_i^2=1$. The
+off-diagonal covariances vanish by the reflections $x_i\mapsto-x_i$,
+$i\ge2$, and $A'=\Var x_1$ because $A=(\log Z)'$.
+(ii) By (i), $A$ solves the Riccati equation $A'=1-A^2-3A/\kappa$ with
+$A(\kappa)=\kappa/4+O(\kappa^3)$. Appendix~\ref{app:vmfcomp} shows that the left
+side of (ii) is a subsolution and the right side a supersolution of this
+equation, with the same behaviour at $0$, and concludes by comparison.
+(iii) The middle inequality is (ii). For the first, put $s=\sqrt{\kappa^2+4}$.
+By (ii), $4A/\kappa\ge4/(2+s)$ and $1-A^2\le1-\kappa^2/(2+s)^2$, and
+\[
+\begin{aligned}
+1-\frac{\kappa^2}{(2+s)^2}\le\frac4{2+s}
+&\iff(2+s)^2-\kappa^2\le4(2+s)\\
+&\iff s^2-\kappa^2\le4,
+\end{aligned}
+\]
+which holds with equality. So $A'=1-A^2-3A/\kappa\le A/\kappa$.
+(iv) is the comparison of (ii) with a third barrier, which improves the
+lower bound of (ii); it is carried out in the same appendix.
+\end{proof}
+
+\subsection{The Lipschitz rate of the family}
+
+Let $\delta$ be the chordal metric $\delta(x,x')=|x-x'|$ on $S^3$ and $W_1$
+the Kantorovich distance for $\delta$. For $c\in\R^4$ and a unit vector
+$h\in\R^4$ put
+\begin{equation}\label{q-eq:rate}
+L(c,h)=\sup_g\Cov_{\nu_c}\bigl(g,\ip hx\bigr),
+\end{equation}
+the supremum over $1$-Lipschitz functions $g$ for $\delta$. Since
+$\frac{d}{dt}\nu_{c+th}(g)=\Cov_{\nu_{c+th}}(g,\ip hx)$, the
+Kantorovich--Rubinstein duality gives, for all $b,b'$,
+\begin{equation}\label{q-eq:w1segment}
+W_1(\nu_b,\nu_{b'})\le|b-b'|\sup_{c\in[b,b']}L\Bigl(c,\frac{b'-b}{|b'-b|}
+\Bigr).
+\end{equation}
+By rotation invariance $L(c,h)$ depends only on $\kappa=|c|$ and on the angle
+$\varphi$ between $h$ and $c^\perp$, and we write $L(\kappa,\varphi)$.
+
+\begin{lemma}\label{q-lem:rate}
+For all $c$ and $h$, $L(c,h)\le1/(2\sqrt3)$. Moreover:
+\begin{enumerate}[label=\textup{(\roman*)},leftmargin=*]
+\item at $c=0$, $L(0,h)=\frac14$ for every $h$;
+\item if $h\perp c$, then $L(c,h)=\E_{\nu_c}x_2^2=A(\kappa)/\kappa\le\frac14$;
+\item if $\kappa\ge\sqrt{88}/3\approx3.127$, then $L(c,h)\le\frac14$ for
+every $h$.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+A $1$-Lipschitz function for $\delta$ is $1$-Lipschitz for the geodesic
+distance, which is larger, so $|\nabla g|\le1$ almost everywhere, and
+Lemma~\ref{q-lem:vmf} gives $\Var g\le\frac13$. By Lemma~\ref{q-lem:moments}(i),
+(iii) the largest eigenvalue of the covariance of $x$ is $A/\kappa\le\frac14$,
+so $\Var\ip hx\le A/\kappa$. The Cauchy--Schwarz inequality gives
+\begin{equation}\label{q-eq:csbound}
+L(c,h)\le\bigl(\tfrac13A/\kappa\bigr)^{1/2}\le\Bigl(3\bigl(1+
+\sqrt{\kappa^2+9}\bigr)\Bigr)^{-1/2}\le\frac1{2\sqrt3}.
+\end{equation}
+(i) and (ii) are reflection arguments. Let $R$ be the reflection in the
+hyperplane $h^\perp$, and suppose $\nu_c$ is $R$-invariant, which is the case
+when $c=0$ or $h\perp c$. Then $\E\ip hx=0$ and
+\[
+\begin{aligned}
+\Cov(g,\ip hx)&=\E\bigl[(g(x)-g(Rx))\ip hx;\ \ip hx>0\bigr]\\
+&\le\E\bigl[2\ip hx^2;\ \ip hx>0\bigr]=\E\ip hx^2,
+\end{aligned}
+\]
+since $\delta(x,Rx)=2|\ip hx|$. Equality holds for $g=\ip hx$, which is
+$1$-Lipschitz. At $c=0$, $\E\ip hx^2=\frac14$; for $h\perp c$, $\E\ip
+hx^2=A/\kappa$. (iii) By~\eqref{q-eq:csbound}, $L\le\frac14$ as soon as
+$1+\sqrt{\kappa^2+9}\ge\frac{16}3$, that is $\kappa^2\ge\frac{88}9$.
+\end{proof}
+
+The reflection settles the directions
+$h\perp c$ and the point $c=0$; for an oblique $h$ the reflection no longer
+preserves $\nu_c$, and the Cauchy--Schwarz bound~\eqref{q-eq:csbound} is too
+weak for $\kappa<\sqrt{88}/3$. The next theorem closes this case.
+
+\begin{theorem}[The sharp quarter]\label{q-thm:quarter}
+For every $c\in\R^4$ and every unit vector $h\in\R^4$,
+\[
+L(c,h)\le\tfrac14 ,
+\]
+with equality at $c=0$. Equivalently, $W_1(\nu_b,\nu_{b'})\le\frac14|b-b'|$
+for all $b,b'\in\R^4$, and the constant $\frac14$ is the best possible.
+\end{theorem}
+
+The equivalence is~\eqref{q-eq:w1segment} in one direction and the derivative
+formula above it in the other; the sharpness is Lemma~\ref{q-lem:rate}(i). The
+metric matters.\footnote{In the geodesic metric of $S^3$ the statement is
+false already at $c=0$: the function $\arcsin x_2$ is geodesically
+$1$-Lipschitz and its covariance with $x_2$ under the uniform law is
+$\frac8{9\pi}\approx0.283>\frac14$. A proof therefore has to use that the
+chordal distance between two points is shorter than their geodesic distance,
+that is, it has to see the sphere from the ball it bounds. The proof below
+does exactly this: it extends a chordally Lipschitz function to the ball and
+integrates by parts there.} The proof has four steps. A Lipschitz function
+on $S^3$ extends to the unit ball $B\subset\R^4$, and Green's formula in $B$
+bounds the covariance by a negative Sobolev norm of the density
+(Lemma~\ref{q-lem:harmonic}). This norm splits into a zonal and a transverse
+part, both explicit series in modified Bessel functions
+(Lemma~\ref{q-lem:spectral}). The transverse part is at most $\frac14$ because a
+certain power series has nonnegative coefficients
+(Proposition~\ref{q-prop:transverse}), and the zonal part is at most $\frac14$
+by a Riccati comparison (Proposition~\ref{q-prop:zonal}).
+
+\subsection{Harmonic extension}
+
+Let $\sigma$ be the normalised surface measure of $S^3$ and $H_k$ the space
+of spherical harmonics of degree $k$, the restrictions to $S^3$ of harmonic
+homogeneous polynomials of degree $k$ on $\R^4$. The spaces $H_k$ are
+orthogonal in $L^2(\sigma)$ and span it; we write $u_k$ for the component of
+$u$ in $H_k$, and for $u$ with $\int u\,d\sigma=0$ we put
+\begin{equation}\label{q-eq:Qnorm}
+\mathcal Q(u)=\sum_{k\ge1}\frac1k\,\|u_k\|_{L^2(\sigma)}^2 .
+\end{equation}
+This is $\ip u{\Lambda^{-1}u}$ for the Dirichlet-to-Neumann operator
+$\Lambda$ of $B$, which acts on $H_k$ as multiplication by $k$.
+
+\begin{lemma}\label{q-lem:harmonic}
+Let $u$ be a real-analytic function on $S^3$ with $\int u\,d\sigma=0$ and let
+$g$ be $1$-Lipschitz for the chordal metric. Then
+\[
+\int_{S^3}g\,u\,d\sigma\le\tfrac12\,\mathcal Q(u)^{1/2}.
+\]
+\end{lemma}
+
+\begin{proof}
+The chordal metric is the Euclidean metric of $\R^4$ restricted to $S^3$,
+so McShane's extension $G(y)=\inf_{x\in S^3}\bigl(g(x)+|x-y|\bigr)$
+is $1$-Lipschitz on $\R^4$ and equals $g$ on $S^3$~\cite{McS34}; by
+Rademacher's theorem $|\nabla G|\le1$ almost everywhere. Let
+$\psi=\sum_{k\ge1}k^{-1}r^ku_k(\omega)$ in polar coordinates $y=r\omega$. Each
+term is a harmonic polynomial, the series converges with all derivatives on
+the closed ball because $u$ is real-analytic,\footnote{For real-analytic
+$u$ the norms $\|u_k\|$ decay geometrically in $k$, and the supremum of a
+function in $H_k$ is at most $(\dim H_k)^{1/2}=k+1$ times its $L^2(\sigma)$
+norm, so the series for $\psi$ and for each of its derivatives converge
+uniformly on $\bar B$.} and $\partial_r\psi=u$ on $S^3$. Green's formula for
+the Lipschitz function $G$ and the smooth harmonic function $\psi$ reads
+$\int_{S^3}G\,\partial_r\psi\,dS=\int_B\nabla G\cdot\nabla\psi\,dy$. With
+$|S^3|=2\pi^2$ and $|B|=\pi^2/2$ the Cauchy--Schwarz inequality gives
+\[
+\int g\,u\,d\sigma=\frac1{2\pi^2}\int_B\nabla G\cdot\nabla\psi\,dy\le
+\frac{|B|^{1/2}}{2\pi^2}\Bigl(\int_B|\nabla\psi|^2dy\Bigr)^{1/2}.
+\]
+Green's formula once more gives $\int_B|\nabla\psi|^2=\int_{S^3}\psi\,
+\partial_r\psi\,dS=2\pi^2\sum_kk^{-1}\|u_k\|^2=2\pi^2\mathcal Q(u)$, and the
+right side becomes $\frac12\mathcal Q(u)^{1/2}$.
+\end{proof}
+
+The lemma is a form of Thomson's principle. By Kantorovich--Rubinstein
+duality, $\sup_g\int gu\,d\sigma$ is the least cost of a flow in $\R^4$ that
+carries the positive part of $u\,d\sigma$ to its negative part, the cost
+being the total length travelled by the mass.\footnote{This is the
+Beckmann formulation of the transport problem with cost $|x-y|$: the
+optimal cost equals the least $\int|V|$ over vector measures $V$ on $\R^4$
+with divergence $u\,d\sigma$. Restricting the flow to the closed ball does
+not change the infimum, since projecting onto $\bar B$ shortens paths. The
+gradient $\nabla\psi$ on $B$ is one admissible flow. It minimises the energy
+$\int|V|^2$ rather than the cost $\int|V|$, and the Cauchy--Schwarz inequality
+converts one into the other at the price of the factor $|B|^{1/2}$.} The
+harmonic field $\nabla\psi$ is one such flow, through the interior of the
+ball, and the lemma computes its cost. At $c=0$ the flow is optimal: for
+$u=\ip hx$ one has $\psi=\ip hy$, the field $\nabla\psi=h$ is constant,
+the Cauchy--Schwarz inequality is an equality, and $\mathcal Q(u)=\|u\|^2=
+\frac14$.
+
+\subsection{Spectral decomposition}
+
+Fix $c=\kappa e_1$ with $\kappa>0$ and write $h=\cos\varphi\,e_1+\sin\varphi
+\,e_2$, which is no loss of generality by rotation invariance. Let
+$\rho=d\nu_c/d\sigma=e^{\kappa x_1}/Z(\kappa)$, $Z(\kappa)=\int e^{\kappa x_1}
+d\sigma=2I_1(\kappa)/\kappa$, and
+\[
+u=\bigl(\ip hx-\E_{\nu_c}\ip hx\bigr)\rho ,
+\]
+so that $\Cov_{\nu_c}(g,\ip hx)=\int gu\,d\sigma$ and $\int u\,d\sigma=0$.
+Let $U_n$ be the Chebyshev polynomials of the second kind and put
+\begin{equation}\label{q-eq:dn}
+d_n(\kappa)=\frac{(n+1)\,I_{n+1}(\kappa)}{I_1(\kappa)},\qquad n\ge0 .
+\end{equation}
+
+\begin{lemma}\label{q-lem:spectral}
+With this notation
+\[
+\mathcal Q(u)=\cos^2\varphi\,\mathcal Q_z(\kappa)+\sin^2\varphi\,
+\mathcal Q_x(\kappa),
+\]
+where
+\[
+\mathcal Q_z=\sum_{n\ge1}\frac{d_n'(\kappa)^2}n,\qquad
+\mathcal Q_x=\frac1{3\kappa^2}\sum_{n\ge1}(n+2)\,d_n(\kappa)^2 .
+\]
+\end{lemma}
+
+\begin{proof}
+The functions $U_n(x_1)$, $n\ge0$, are the zonal harmonics: $U_n(x_1)\in
+H_n$, and they are orthonormal in $L^2(\sigma)$ (Appendix~\ref{app:bessel}).
+The expansion $e^{\kappa t}=\frac2\kappa\sum_n(n+1)I_{n+1}(\kappa)U_n(t)$ of
+the same appendix gives $\rho=\sum_nd_n(\kappa)U_n(x_1)$, with $d_0=1$.
+
+Write $u=\cos\varphi\,u_z+\sin\varphi\,u_x$ with $u_z=(x_1-A)\rho$ and
+$u_x=x_2\rho$; here $\E_{\nu_c}x_1=A$ and $\E_{\nu_c}x_2=0$. The reflection
+$x_2\mapsto-x_2$ maps each $H_k$ to itself, fixes $u_z$ and reverses $u_x$,
+so the components of $u_z$ and $u_x$ in each $H_k$ are orthogonal and the
+cross term in $\mathcal Q(u)$ vanishes.
+
+Since $A=Z'/Z$, we have $u_z=\partial_\kappa\rho=\sum_nd_n'(\kappa)U_n(x_1)$,
+and the component of $u_z$ in $H_n$ is $d_n'U_n(x_1)$, of norm $|d_n'|$. This
+gives $\mathcal Q_z$.
+
+For $u_x$, let $y(t)=\cos t\,e_1+\sin t\,e_2$. The law $\nu_{\kappa y(t)}$ has
+density $\rho_t=e^{\kappa\ip{y(t)}x}/Z(\kappa)=\sum_nd_n(\kappa)U_n(\ip{y(t)}x)$,
+and $\partial_t\rho_t|_{t=0}=\kappa x_2\rho$. The function
+$U_n(\ip{y(t)}x)$ lies in $H_n$ for every $t$, hence so does its derivative
+$x_2U_n'(x_1)$ at $t=0$, and the component of $u_x$ in $H_n$ is
+$\kappa^{-1}d_nx_2U_n'(x_1)$. Its norm follows from the eigenvalue
+$n(n+2)$ of the Laplacian of $S^3$ on $H_n$. For $f=U_n(x_1)$,
+\[
+\begin{aligned}
+n(n+2)&=n(n+2)\|f\|^2=\int|\nabla_{S^3}f|^2d\sigma\\
+&=\int U_n'(x_1)^2(1-x_1^2)\,d\sigma ,
+\end{aligned}
+\]
+since the tangential gradient of $x_1$ has squared length $1-x_1^2$. Given
+$x_1$, the point $(x_2,x_3,x_4)$ is uniform on the sphere of radius
+$(1-x_1^2)^{1/2}$, so $\E[x_2^2\mid x_1]=\frac13(1-x_1^2)$ and
+$\|x_2U_n'(x_1)\|^2=\frac13n(n+2)$. Summing $n^{-1}\kappa^{-2}d_n^2\cdot\frac13
+n(n+2)$ over $n\ge1$ gives $\mathcal Q_x$.
+\end{proof}
+
+By Lemmas~\ref{q-lem:harmonic} and~\ref{q-lem:spectral},
+\begin{equation}\label{q-eq:Lbyq}
+L(\kappa,\varphi)\le\tfrac12\max\bigl(\mathcal Q_z(\kappa),\mathcal Q_x(
+\kappa)\bigr)^{1/2},
+\end{equation}
+and Theorem~\ref{q-thm:quarter} follows once both parts are at most
+$\frac14$. Both are $\frac14$ at $\kappa=0$, by continuity from the values
+$d_1\sim\kappa/2$, $d_1'\to\frac12$ and $d_n=O(\kappa^n)$.
+
+\subsection{Three Bessel sums}
+
+The series of Lemma~\ref{q-lem:spectral} reduce to closed forms. Write $I_j$
+for $I_j(\kappa)$.
+
+\begin{lemma}\label{q-lem:besselsums}
+For every $\kappa>0$,
+\begin{align*}
+\sum_{j\ge1}j^2I_j^2&=\frac\kappa4\,I_1(2\kappa),\qquad
+\sum_{j\ge1}j^3I_j^2=\frac{\kappa^2}4\bigl(I_0^2+I_1^2\bigr),\\
+I_1(2\kappa)&=2\sum_{j\ge1}I_{j-1}I_j .
+\end{align*}
+\end{lemma}
+
+The first and third identities follow from Parseval's formula for
+$e^{\kappa\cos\theta}=\sum_{j\in\Z}I_je^{ij\theta}$, and the second from the
+recurrences of $I_j$ by telescoping; Appendix~\ref{app:bessel} gives the
+proofs.
+
+\subsection{The transverse part}
+
+\begin{proposition}\label{q-prop:transverse}
+$\mathcal Q_x(\kappa)\le\frac14$ for every $\kappa\ge0$.
+\end{proposition}
+
+\begin{proof}
+By~\eqref{q-eq:dn}, $\mathcal Q_x=(3\kappa^2I_1^2)^{-1}\sum_{j\ge2}j^2(j+1)
+I_j^2$, and the sum equals $\sum_{j\ge1}(j^3+j^2)I_j^2-2I_1^2$. By
+Lemma~\ref{q-lem:besselsums}, $\mathcal Q_x\le\frac14$ is equivalent to
+\begin{equation}\label{q-eq:Dfunction}
+\mathcal D(\kappa):=(8+2\kappa^2)I_1^2-\kappa^2I_0^2-\kappa I_1(2\kappa)\ge0 .
+\end{equation}
+Each term is an entire function of $\kappa$ that is even after the
+factor $\kappa^2$ is removed, so $\mathcal D(\kappa)=\sum_{n\ge0}\mathcal D_n
+\kappa^{2n}$. Lemma~\ref{q-lem:Dcoef} of Appendix~\ref{app:bessel} computes the
+coefficients: $\mathcal D_0=\mathcal D_1=0$, and for $n=m+1\ge2$
+\[
+\mathcal D_n=\frac{N_m}{4^m\,m!\,(m+1)!\,(m+1)(m+2)},
+\]
+with
+\[
+\begin{aligned}
+N_m={}&\binom{2m}m\bigl(4(2m+1)+(m-1)(m+1)(m+2)\bigr)\\
+&-4^m(m+1)(m+2).
+\end{aligned}
+\]
+The numerator $N_m$ vanishes for $m=0,1,2$ and is positive for $m\ge3$
+(Lemma~\ref{q-lem:Dcoef}). So every coefficient of $\mathcal D$ is nonnegative
+and $\mathcal D\ge0$.
+\end{proof}
+
+The first nonzero coefficient is $\mathcal D_4=\frac1{2304}$, so
+$\frac14-\mathcal Q_x=\mathcal D/(12\kappa^2I_1^2)$ is of order $\kappa^4$ at $0$: the transverse part
+leaves the value $\frac14$ very slowly, which is why no estimate that loses a
+constant can prove the proposition.
+
+\subsection{The zonal part}
+
+Let $A=I_2/I_1$ as before, so that $d_1=2A$ and, by
+Lemma~\ref{q-lem:moments}(i), $A'=1-A^2-3A/\kappa$.
+
+\begin{proposition}\label{q-prop:zonal}
+For $0<\kappa\le\sqrt{88}/3$,
+\[
+\mathcal Q_z(\kappa)\le\frac14+4A'^2+\frac{A^2}4-\frac A{2\kappa}-
+\frac{2A^2}{\kappa^2}<\frac14 .
+\]
+\end{proposition}
+
+\begin{proof}
+\emph{The higher modes.} With $r_\nu=I_{\nu+1}/I_\nu$ the recurrence
+$I_\nu'=I_{\nu+1}+\frac\nu\kappa I_\nu$ gives
+\[
+\frac{d_n'}{d_n}=\frac{I_{n+1}'}{I_{n+1}}-\frac{I_1'}{I_1}=\frac n\kappa+
+r_{n+1}-r_1 .
+\]
+By Lemma~\ref{q-lem:ratio} of Appendix~\ref{app:bessel}, $r_{n+1}\le r_1$, and
+$r_1=A\le\kappa/4$ by Lemma~\ref{q-lem:moments}(iii). Hence $-n/\kappa\le
+n/\kappa-\kappa/4\le d_n'/d_n\le n/\kappa$ for $n\ge2$ and $\kappa^2\le16$, so
+$d_n'^2\le n^2d_n^2/\kappa^2$. With $d_1'=2A'$,
+\[
+\mathcal Q_z\le4A'^2+\frac1{\kappa^2}\sum_{n\ge2}n\,d_n^2=4A'^2+\frac{S_3-
+S_2-4I_2^2}{\kappa^2I_1^2},
+\]
+where $S_2=\sum_{j\ge1}j^2I_j^2$ and $S_3=\sum_{j\ge1}j^3I_j^2$; the
+second form uses $n\,d_n^2I_1^2=(j-1)j^2I_j^2$ with $j=n+1$.
+
+\emph{The closed form.} The recurrences $I_0-I_2=\frac2\kappa I_1$ and
+$I_1-I_3=\frac4\kappa I_2$ give $I_0/I_1=2/\kappa+A$ and $I_2I_3/I_1^2=A-
+4A^2/\kappa$. By Lemma~\ref{q-lem:besselsums},
+$S_3/(\kappa^2I_1^2)=\frac14(2/\kappa+A)^2+\frac14$, and, keeping three
+terms of the third identity,
+\[
+\frac{S_2}{\kappa^2I_1^2}\ge\frac{I_0I_1+I_1I_2+I_2I_3}{2\kappa I_1^2}=
+\frac1{2\kappa}\Bigl(\frac2\kappa+3A-\frac{4A^2}\kappa\Bigr).
+\]
+Collecting terms, $\mathcal Q_z\le\frac14+4A'^2+T(A)$ with $T(a)=\frac{a^2}4-
+\frac a{2\kappa}-\frac{2a^2}{\kappa^2}$, which is the first inequality.
+
+\emph{The barrier.} Let $s=\sqrt{\kappa^2+25/4}$ and $A_\flat=\kappa/(\frac32
++s)$. By Lemma~\ref{q-lem:moments}(iv), $A_\flat\le A\le\kappa/4$. The function
+$a\mapsto1-a^2-3a/\kappa$ decreases on $a\ge0$, and $A'\ge0$ because $A'=
+\Var x_1$, so $0\le A'\le\alpha:=1-A_\flat^2-3A_\flat/\kappa$. For $\kappa^2\le
+12$ the quadratic $T$ decreases on $[0,\kappa/4]$, since
+\[
+T(a)-T(a')=(a'-a)\,\frac{2\kappa-(a+a')(\kappa^2-8)}{4\kappa^2}
+\]
+and $(a+a')(\kappa^2-8)\le\frac\kappa2(\kappa^2-8)\le2\kappa$ there. So
+$\mathcal Q_z\le\frac14+4\alpha^2+T(A_\flat)$. With $\kappa^2=s^2-\frac{25}4$
+and $A_\flat/\kappa=2/(2s+3)$ both terms are rational in $s$:
+$\alpha=16/(2s+3)^2$, and
+\begin{equation}\label{q-eq:zonalfactor}
+\begin{aligned}
+4\alpha^2+T(A_\flat)&=\frac{(2s-5)\,p(s)}{4(2s+3)^4},\\
+p(s)&=8s^3+28s^2-98s-695 .
+\end{aligned}
+\end{equation}
+For $0<\kappa\le\sqrt{88}/3$ we have $\frac52<s\le\sqrt{577}/6<4.004$. On
+$s\ge\frac52$ the cubic $p$ increases, since $p'(s)=24s^2+56s-98>0$, and
+$p(4.004)<-120$. So the right side of~\eqref{q-eq:zonalfactor} is negative.
+\end{proof}
+
+\subsection{Proof of Theorem~\ref{q-thm:quarter}}
+
+At $c=0$ the theorem is Lemma~\ref{q-lem:rate}(i), and for $|c|\ge\sqrt{88}/3$
+it is Lemma~\ref{q-lem:rate}(iii). For $0<|c|<\sqrt{88}/3$,
+Propositions~\ref{q-prop:transverse} and~\ref{q-prop:zonal} give $\mathcal Q_x,
+\mathcal Q_z\le\frac14$, and~\eqref{q-eq:Lbyq} gives $L\le\frac14$. \qed
+
+
+\section{Computations for the single-link law}\label{app:vmfcomp}
+
+\subsection{Barta's inequality}
+
+Let $\rho(\theta)=\sin^2\theta\,e^{\kappa\cos\theta}$ on $(0,\pi)$, let $V$
+be a continuous potential, and let
+\[
+T=-\rho^{-1}\partial_\theta\,\rho\,\partial_\theta+V .
+\] If $\psi>0$ is smooth on $(0,\pi)$ with
+$\rho\psi^2=O(\sin^4\theta)$ at the end points and $T\psi\ge\lambda_0\psi$,
+then
+\[
+\int(|h'|^2+Vh^2)\rho\,d\theta\ge\lambda_0\int h^2\rho\,d\theta
+\]
+for every smooth $h$ vanishing to first order at $0$ and $\pi$. Indeed, writing
+$h=\psi u$ and integrating by parts, the boundary terms $\rho\psi\psi'u^2$
+vanish and
+\[
+\int(|h'|^2+Vh^2)\rho=\int\rho\psi^2|u'|^2+\int\frac{T\psi}\psi\,h^2\rho
+\ \ge\ \lambda_0\int h^2\rho .
+\]
+This is the inequality of Barta~\cite{Bar37} in the form of a ground state
+transformation.
+
+\subsection{The computations of Lemma~\ref{q-lem:vmf}}
+
+The generator of the reversible diffusion of $\nu_b$ on $S^3$ is
+$L=\Delta_{S^3}+\kappa\nabla x_1\cdot\nabla$. In the polar angle $\theta$
+from $e_1$ the round metric is $d\theta^2+\sin^2\theta\,g_{S^2}$, so
+$\Delta_{S^3}=\partial_\theta^2+2\cot\theta\,\partial_\theta+\sin^{-2}\theta\,
+\Delta_{S^2}$, and $\nabla x_1\cdot\nabla=-\sin\theta\,\partial_\theta$. On
+$h(\theta)Y_\ell$ with a spherical harmonic $Y_\ell$ of degree $\ell$ on $S^2$
+the operator acts as $L_\ell=\partial_\theta^2+b\,\partial_\theta-\ell(\ell+1)
+\sin^{-2}\theta$, $b=2\cot\theta-\kappa\sin\theta=\rho'/\rho$, so
+$-L_\ell=T$ with $V=\ell(\ell+1)\sin^{-2}\theta$.
+
+\emph{Degree $\ell\ge1$.} Take $\psi=\sin\theta\,e^{a\kappa\cos\theta}$. Then
+$\psi'/\psi=\cot\theta-a\kappa\sin\theta$ and
+$\psi''/\psi=(\psi'/\psi)^2+(\psi'/\psi)'$, and a short computation gives
+\[
+\frac{-L_1\psi}\psi=3+(1+5a)\kappa\cos\theta-a(1+a)\kappa^2\sin^2\theta .
+\]
+For $a=-\frac15$ this is $3+\frac4{25}\kappa^2\sin^2\theta\ge3$. Since
+$V=\ell(\ell+1)\sin^{-2}\theta\ge2\sin^{-2}\theta$ for $\ell\ge1$, Barta's
+inequality gives $-L_\ell\ge3$ on every sector with $\ell\ge1$.
+
+\emph{Degree $\ell=0$.} Let $g(\theta)$ be a zonal eigenfunction,
+$-L_0g=\lambda g$, $g$ not constant, so that $g'(0)=g'(\pi)=0$. Differentiating
+$g''+bg'=-\lambda g$ gives, for $h=g'$,
+\[
+-\bigl(h''+bh'\bigr)-b'h=\lambda h,\qquad -b'=\frac2{\sin^2\theta}+\kappa
+\cos\theta,
+\]
+so $h$ is an eigenfunction of $T$ with $V=2\sin^{-2}\theta+\kappa\cos\theta$,
+with eigenvalue $\lambda$, and $h\not\equiv0$ vanishes at both ends. With the
+same $\psi$,
+\[
+\frac{T\psi}\psi=3+(2+5a)\kappa\cos\theta-a(1+a)\kappa^2\sin^2\theta,
+\]
+which for $a=-\frac25$ is $3+\frac6{25}\kappa^2\sin^2\theta\ge3$. Barta's
+inequality applied to $h$ gives $\lambda\ge3$. Together with the case
+$\ell\ge1$ every nonzero eigenvalue of $-L$ is at least $3$, which is
+Lemma~\ref{q-lem:vmf}; the spectrum is discrete because $S^3$ is compact and
+the drift is smooth.
+
+\subsection{Moments}
+
+The density of $t=x_1$ under $\nu_b$ is proportional to $(1-t^2)^{1/2}e^{
+\kappa t}$. For every smooth $\phi$ on $[-1,1]$,
+\[
+\frac d{dt}\Bigl[(1-t^2)^{3/2}e^{\kappa t}\Bigr]=(1-t^2)^{1/2}e^{\kappa t}
+\bigl(\kappa(1-t^2)-3t\bigr),
+\]
+and integration by parts gives $\E[\phi'(t)(1-t^2)]=\E\bigl[\phi(t)\bigl(3t-
+\kappa(1-t^2)\bigr)\bigr]$. With $\phi=1$ this is $\kappa\E(1-x_1^2)=3\E x_1$,
+the identity of Lemma~\ref{q-lem:moments}(i). With $\phi=t^k$ it gives the
+recursion
+\[
+m_{k+2}=m_k-\frac{k+3}\kappa\,m_{k+1}+\frac k\kappa\,m_{k-1},\qquad m_k=\E
+x_1^k,
+\]
+from $m_0=1$ and $m_1=A$; all polynomial moments of $\nu_b$ are rational in
+$\kappa$ and $A(\kappa)$.\footnote{For instance $m_2=1-3A/\kappa$,
+$m_3=A-3/\kappa+12A/\kappa^2$ and $m_4=m_2-5m_3/\kappa+2A/\kappa$. The joint moments
+with $x_2,x_3,x_4$ follow from exchangeability:
+$\E[\phi(x_1)x_2^2]=\frac13\E[\phi(x_1)(1-x_1^2)]$.}
+
+\subsection{The Riccati barriers}
+
+By Lemma~\ref{q-lem:moments}(i), $A$ solves $A'=\mathcal F(\kappa,A):=1-A^2-
+3A/\kappa$ on $(0,\infty)$, and $A(\kappa)=\frac\kappa4-\frac{\kappa^3}{96}+
+O(\kappa^5)$ from the series of $I_1$ and $I_2$. Let $s=\sqrt{\kappa^2+4}$,
+$u=\sqrt{\kappa^2+9}$, $\phi_-=\kappa/(2+s)$ and $\phi_+=\kappa/(1+u)$. Direct
+differentiation gives
+\[
+\begin{aligned}
+\phi_-'-\mathcal F(\kappa,\phi_-)&=-\frac{\kappa^2}{s(s+2)^2}\le0,\\
+\phi_+'-\mathcal F(\kappa,\phi_+)&=\frac{(u-3)^2}{u(1+u)^2}\ge0,
+\end{aligned}
+\]
+and $\phi_\pm=\frac\kappa4+O(\kappa^3)$.\footnote{For the first identity write
+$\phi_-=(s-2)/\kappa$, which follows from $s^2-4=\kappa^2$; then
+$\phi_-'=(\kappa^2/s-s+2)/\kappa^2$ and $1-\phi_-^2-3\phi_-/\kappa=
+(\kappa^2-(s-2)^2-3(s-2))/\kappa^2$, and the difference simplifies with
+$s^2=\kappa^2+4$. The second is the same computation with
+$\phi_+=\kappa(u-1)/(u^2-1)=\kappa(u-1)/(\kappa^2+8)$ in place of $\phi_-$
+and $u^2=\kappa^2+9$ in place of $s^2=\kappa^2+4$. After clearing the denominator $\kappa^2(1+u)^2$ the
+numerator becomes $\kappa^2(u-3)^2/u$, which is the stated residual.} The comparison is singular at $0$
+because of the term $3A/\kappa$, and we carry it out with an integrating
+factor. Let $D=A-\phi_-$. Then
+\[
+\begin{aligned}
+D'&=\mathcal F(\kappa,A)-\mathcal F(\kappa,\phi_-)-\bigl(\phi_-'-\mathcal F(
+\kappa,\phi_-)\bigr)\\
+&=-\Bigl(A+\phi_-+\frac3\kappa\Bigr)D+R,
+\end{aligned}
+\]
+with $R=\kappa^2/(s(s+2)^2)\ge0$. Put $\mu(\kappa)=\kappa^3\exp\int_0^\kappa
+(A+\phi_-)$. Then $(\mu D)'=\mu R\ge0$, and $\mu D=O(\kappa^6)\to0$ as
+$\kappa\to0$, so $\mu D\ge0$ and $A\ge\phi_-$. The same argument with
+$D=\phi_+-A$ and $R=(u-3)^2/(u(1+u)^2)$ gives $A\le\phi_+$. This is
+Lemma~\ref{q-lem:moments}(ii).
+
+For (iv) let $s=\sqrt{\kappa^2+25/4}$ and $\phi_\flat=\kappa/(\frac32+s)$.
+Since $s^2-\frac94=\kappa^2+4$, the same differentiation gives
+\[
+\phi_\flat'-\mathcal F(\kappa,\phi_\flat)=-\frac{5\,(s-\frac52)}{2\,s\,
+(\frac32+s)^2}\le0,
+\]
+so $\phi_\flat$ is a subsolution, and $\phi_\flat=\frac\kappa4-\frac{\kappa^3}
+{80}+O(\kappa^5)$.\footnote{With $\phi_\flat=\kappa(s-\frac32)/(\kappa^2+4)$ one
+has $\phi_\flat'=(\frac32 s+\frac{25}4)/(s(\frac32+s)^2)$, using $ds/d\kappa=
+\kappa/s$; and $\mathcal F(\kappa,\phi_\flat)=1-\phi_\flat^2-3/(\frac32+s)$.
+Clearing the denominator $s(\frac32+s)^2$ and replacing $\kappa^2$ by
+$s^2-\frac{25}4$ leaves $-\frac52 s+\frac{25}4$ in the numerator, which is the
+stated residual. The expansion follows from $s=\frac52+\frac{\kappa^2}5+
+O(\kappa^4)$.} Hence $A-\phi_\flat=\frac{\kappa^3}{480}+O(\kappa^5)$, and the
+integrating-factor argument above, with $D=A-\phi_\flat$, $R=\frac{5(s-5/2)}
+{2s(3/2+s)^2}\ge0$ and $\mu=\kappa^3\exp\int_0^\kappa(A+\phi_\flat)$, gives
+$\mu D=O(\kappa^6)$ at $0$, $(\mu D)'=\mu R\ge0$, and so $A\ge\phi_\flat$. Since
+$\frac32+\sqrt{\kappa^2+25/4}<2+\sqrt{\kappa^2+4}$ for $\kappa>0$, this
+improves the lower bound of (ii).
+
+
+\section{Bessel functions}\label{app:bessel}
+
+This appendix proves the auxiliary statements used in Appendix~\ref{app:sharp}
+for Theorem~\ref{q-thm:quarter}. Throughout, $I_j=I_j(\kappa)$ with $\kappa>0$,
+and $I_{-j}=I_j$ for integers $j$. We use the series
+\[
+I_\nu(\kappa)=\sum_{i\ge0}\frac{(\kappa/2)^{2i+\nu}}{i!\,(i+\nu)!},
+\]
+the integral $I_j(\kappa)=\pi^{-1}\int_0^\pi e^{\kappa\cos\theta}\cos
+j\theta\,d\theta$, the Fourier series $e^{\kappa\cos\theta}=\sum_{j\in\Z}
+I_je^{ij\theta}$ and the recurrences
+\begin{equation}\label{q-eq:besselrec}
+I_{j-1}-I_{j+1}=\frac{2j}\kappa\,I_j,\quad I_j'=I_{j+1}+\frac j\kappa\,I_j ,
+\end{equation}
+all of which are in Watson's treatise~\cite{Wat44}, \S\S3.7, 3.71,
+2.22. All series below converge absolutely, because $0<I_j\le(\kappa/2)^j
+e^\kappa/j!$.
+
+\subsection{Zonal harmonics}
+
+Under $\sigma$ the coordinate $x_1$ has the density $\frac2\pi(1-t^2)^{1/2}$
+on $[-1,1]$, the area of the two-sphere $\{x_1=t\}$ being proportional to
+$1-t^2$ and its normal speed to $(1-t^2)^{-1/2}$. The Chebyshev polynomials
+$U_n(\cos\theta)=\sin((n+1)\theta)/\sin\theta$ satisfy
+\[
+\int U_nU_m\,d\sigma=\frac2\pi\int_0^\pi\sin((n+1)\theta)\sin((m+1)\theta)
+\,d\theta=\delta_{nm},
+\]
+and $U_n=C_n^{(1)}$ is the Gegenbauer polynomial of index $\frac{4-2}2=1$, so
+$U_n(\ip yx)$ is the zonal harmonic of degree $n$ on $S^3$ with pole $y$:
+$|x|^nU_n(\ip yx/|x|)$ is a harmonic polynomial on $\R^4$~\cite{SW71},
+Ch.~IV, \S2.
+
+\begin{lemma}\label{q-lem:chebexp}
+$e^{\kappa t}=\frac2\kappa\sum_{n\ge0}(n+1)I_{n+1}(\kappa)\,U_n(t)$ in
+$L^2\bigl(\frac2\pi(1-t^2)^{1/2}dt\bigr)$, and uniformly on $[-1,1]$.
+\end{lemma}
+
+\begin{proof}
+With $t=\cos\theta$ and $2\sin\theta\sin((n+1)\theta)=\cos n\theta-\cos(
+n+2)\theta$, the $n$-th coefficient is
+\[
+\begin{aligned}
+\frac2\pi\int_0^\pi e^{\kappa\cos\theta}\sin((n+1)\theta)\sin\theta\,d\theta
+&=I_n-I_{n+2}\\
+&=\frac{2(n+1)}\kappa I_{n+1},
+\end{aligned}
+\]
+by~\eqref{q-eq:besselrec}. Since $|U_n|\le n+1$ and $I_{n+1}$ decays
+factorially, the series converges uniformly.
+\end{proof}
+
+\subsection{Proof of Lemma~\ref{q-lem:besselsums}}
+
+Let $F(\theta)=e^{\kappa\cos\theta}=\sum_jI_je^{ij\theta}$. Then
+\[
+F'(\theta)=-\kappa\sin\theta\,F(\theta)=\sum_jijI_je^{ij\theta},
+\]
+and Parseval's formula gives
+\[
+\begin{aligned}
+\sum_{j\in\Z}j^2I_j^2&=\frac{\kappa^2}{2\pi}\int_0^{2\pi}\sin^2\theta\,
+e^{2\kappa\cos\theta}d\theta\\
+&=\frac{\kappa^2}2\bigl(I_0(2\kappa)-I_2(2\kappa)\bigr)=\frac\kappa2I_1(2\kappa),
+\end{aligned}
+\]
+the last step by~\eqref{q-eq:besselrec} at the argument $2\kappa$. Halving gives
+the first identity. The coefficient of $e^{i\theta}$ in $F^2=e^{2\kappa\cos
+\theta}$ is $I_1(2\kappa)=\sum_{j\in\Z}I_jI_{1-j}$, and the terms with $j\le0$
+repeat those with $j\ge1$; this is the third identity.
+
+For the second, $jI_j=\frac\kappa2(I_{j-1}-I_{j+1})$ by~\eqref{q-eq:besselrec}, so
+\[
+\sum_{j\ge1}j^3I_j^2=\frac{\kappa^2}4\sum_{j\ge1}j\bigl(I_{j-1}^2+I_{j+1}^2-
+2I_{j-1}I_{j+1}\bigr).
+\]
+Shifting indices, $\sum_{j\ge1}j(I_{j-1}^2+I_{j+1}^2)=I_0^2+\sum_{m\ge1}2m
+I_m^2$, and $\sum_{m\ge1}2mI_m^2=\kappa\sum_{m\ge1}(I_{m-1}I_m-I_mI_{m+1})=
+\kappa I_0I_1$ by telescoping. For the mixed term write $j=\frac12((j-1)+(j+1))$
+and apply~\eqref{q-eq:besselrec} to $(j-1)I_{j-1}$ and to $(j+1)I_{j+1}$,
+using $I_{-1}=I_1$ at $j=1$:
+\[
+\begin{aligned}
+jI_{j-1}I_{j+1}=\frac\kappa4\bigl[&(I_{j-1}I_j-I_jI_{j+1})\\
+&+(I_{j-2}I_{j+1}-I_{j-1}I_{j+2})\bigr].
+\end{aligned}
+\]
+Both brackets telescope, to $I_0I_1$ and to $I_{-1}I_2=I_1I_2$, so
+$\sum_{j\ge1}jI_{j-1}I_{j+1}=\frac\kappa4(I_0I_1+I_1I_2)$. Altogether
+\[
+\sum_{j\ge1}j^3I_j^2=\frac{\kappa^2}4\Bigl(I_0^2+\frac\kappa2I_1(I_0-I_2)
+\Bigr)=\frac{\kappa^2}4\bigl(I_0^2+I_1^2\bigr). \qquad\qed
+\]
+
+\subsection{\texorpdfstring{The coefficients of $\mathcal D$}{The coefficients of D}}
+
+\begin{lemma}\label{q-lem:Dcoef}
+Write $\mathcal D(\kappa)=\sum_{n\ge0}\mathcal D_n\kappa^{2n}$ for the function
+of~\eqref{q-eq:Dfunction}. Then $\mathcal D_0=\mathcal D_1=0$, and for $m\ge1$
+\[
+\mathcal D_{m+1}=\frac{N_m}{4^m\,m!\,(m+1)!\,(m+1)(m+2)},
+\]
+with $N_m=\binom{2m}m\bigl(4(2m+1)+(m-1)(m+1)(m+2)\bigr)-4^m(m+1)(m+2)$.
+Moreover $N_m=0$ for $m\le2$ and $N_m>0$ for $m\ge3$.
+\end{lemma}
+
+\begin{proof}
+\emph{The coefficients.} Multiplying the series of $I_0$ and $I_1$ and
+collecting powers,
+\[
+\begin{gathered}
+I_0^2=\sum_{m\ge0}\alpha_m\kappa^{2m},\qquad I_1^2=\sum_{m\ge0}\beta_m
+\kappa^{2m+2},\\
+\kappa I_1(2\kappa)=\sum_{m\ge0}\frac{\kappa^{2m+2}}{m!\,(m+1)!},
+\end{gathered}
+\]
+where
+\[
+\begin{aligned}
+\alpha_m&=\frac1{4^m}\sum_{i=0}^m\frac1{i!^2(m-i)!^2},\\
+\beta_m&=\frac1{4^{m+1}}\sum_{i=0}^m\frac1{i!\,(i+1)!\,(m-i)!\,(m-i+1)!}.
+\end{aligned}
+\]
+By Vandermonde's identity, $\sum_i\binom mi^2=\binom{2m}m$ and
+$\sum_i\binom mi\binom{m+2}{i+1}=\binom{2m+2}{m+1}$, so
+\[
+\alpha_m=\frac{\binom{2m}m}{4^m\,m!^2},\qquad\beta_m=\frac{\binom{2m+2}{m+1}}
+{4^{m+1}m!\,(m+2)!}.
+\]
+The coefficient of $\kappa^{2m+2}$ in $\mathcal D$ is $\mathcal D_{m+1}=8\beta_m
++2\beta_{m-1}-\alpha_m-1/(m!(m+1)!)$, with $\beta_{-1}=0$; for $m=0$ it is
+$\frac84-1-1=0$, and $\mathcal D_0=0$ because every term of $\mathcal D$ is
+$O(\kappa^2)$. For $m\ge1$ put $\Delta=4^m\,m!\,(m+1)!\,(m+1)(m+2)$ and
+$b=\binom{2m}m$. With $\binom{2m+2}{m+1}=\frac{2(2m+1)}{m+1}b$,
+\[
+\begin{aligned}
+8\beta_m&=\frac{4(2m+1)\,b}\Delta,\qquad\alpha_m=\frac{(m+1)^2(m+2)\,b}\Delta,\\
+2\beta_{m-1}&=\frac{2m(m+1)(m+2)\,b}\Delta,\\
+\frac1{m!(m+1)!}&=\frac{4^m(m+1)(m+2)}\Delta,
+\end{aligned}
+\]
+and $2m-(m+1)=m-1$ gives $\mathcal D_{m+1}=N_m/\Delta$.
+
+\emph{The sign.} Directly, $N_0=N_1=N_2=0$ ($2-2$, $24-24$, $192-192$),
+$N_3=80$, $N_4=1140$ and $N_5=10416$. For $m\ge6$ we first show
+$16^m\le4m\binom{2m}m^2$ for $m\ge1$ by induction: it is an equality at
+$m=1$, and $(m+1)\binom{2m+2}{m+1}=2(2m+1)\binom{2m}m$ gives
+\[
+\begin{aligned}
+4(m+1)\binom{2m+2}{m+1}^2&=\frac{16(2m+1)^2}{m+1}\binom{2m}m^2\\
+&\ge\frac{16(2m+1)^2}{4m(m+1)}16^m\ge16^{m+1}.
+\end{aligned}
+\]
+Since $(m-1)^2\ge4m$ for $m\ge6$, it follows that $\binom{2m}m^2(m-1)^2\ge
+16^m$, that is $\binom{2m}m(m-1)\ge4^m$, and
+\[
+\begin{aligned}
+N_m={}&\Bigl(\binom{2m}m(m-1)-4^m\Bigr)(m+1)(m+2)\\
+&+4(2m+1)\binom{2m}m>0 .
+\end{aligned}
+\]
+\end{proof}
+
+\subsection{Monotonicity of Bessel ratios}
+
+\begin{lemma}\label{q-lem:ratio}
+For $n\ge1$ and $\kappa>0$, $I_{n+2}(\kappa)/I_{n+1}(\kappa)\le I_2(\kappa)/
+I_1(\kappa)$.
+\end{lemma}
+
+\begin{proof}
+We use a lemma of Biernacki and Krzy\.z~\cite{BK55}: if $f=\sum a_jx^j$ and
+$g=\sum b_jx^j$ have positive coefficients and $a_j/b_j$ is nonincreasing in
+$j$, then $f/g$ is nonincreasing on $x>0$. Indeed
+\[
+\begin{aligned}
+f'g-fg'&=\sum_{i,j}(i-j)a_ib_jx^{i+j-1}\\
+&=\frac12\sum_{i,j}(i-j)b_ib_j\Bigl(\frac{a_i}{b_i}-\frac{a_j}{b_j}\Bigr)
+x^{i+j-1}\le0 .
+\end{aligned}
+\]
+Take $x=\kappa^2$, $f=I_{n+1}(\kappa)/\kappa^{n+1}$ and $g=I_1(\kappa)/\kappa$.
+Then $a_j/b_j=2^{-n}(j+1)!/(j+n+1)!$ decreases in $j$, so $I_{n+1}/(\kappa^n
+I_1)$ is nonincreasing in $\kappa$. Its logarithmic derivative is, by the
+second recurrence of~\eqref{q-eq:besselrec},
+\[
+\begin{aligned}
+&\frac{n+1}\kappa+\frac{I_{n+2}}{I_{n+1}}-\frac n\kappa-\frac1\kappa-\frac{I_2}
+{I_1}\\
+&\qquad=\frac{I_{n+2}}{I_{n+1}}-\frac{I_2}{I_1}\le0 .
+\end{aligned}\qedhere
+\]
+\end{proof}
+
+\def\bibsection{\par\vskip10pt\noindent\hfil\rule{0.5\columnwidth}{0.4pt}\hfil\par\vskip8pt}
+
 \begin{thebibliography}{99}\raggedright\advance\leftskip\labelwidth
+
+\bibitem{AC25}
+A.~Adhikari and S.~Cao, Correlation decay for finite lattice gauge theories at weak coupling, Ann. Probab. \textbf{53} (2025), 140--174, \href{https://doi.org/10.1214/24-AOP1702}{doi:10.1214/24-AOP1702}.
 
 \bibitem{BE85}
 D.~Bakry and M.~\'Emery, Diffusions hypercontractives, in \emph{S\'eminaire
@@ -2140,6 +3794,15 @@ S.~Banach, \"Uber homogene Polynome in $(L^2)$, Studia Math. \textbf{7}
 (1938), 36--44,
 \href{https://doi.org/10.4064/sm-7-1-36-44}{doi:10.4064/sm-7-1-36-44}.
 
+\bibitem{Bar37}
+J.~Barta, Sur la vibration fondamentale d'une membrane, C. R. Acad. Sci. Paris \textbf{204} (1937), 472--473.
+
+\bibitem{BG18}
+R.~Basu and S.~Ganguly, $\SO(N)$ lattice gauge theory, planar and beyond, Comm. Pure Appl. Math. \textbf{71} (2018), 2016--2064, \href{https://doi.org/10.1002/cpa.21788}{doi:10.1002/cpa.21788}.
+
+\bibitem{Bha22}
+D.~Bhattacharjee, A coherent approach towards quantum gravity, Phys. Sci. Int. J. \textbf{26}(6) (2022), 59--78, \href{https://doi.org/10.9734/psij/2022/v26i6751}{doi:10.9734/psij/2022/v26i6751}.
+
 \bibitem{Bha26}
 D.~Bhattacharjee, BLLM: Beyond the LLM with Deep Human-Mind-AI, Zenodo,
 release v3.0.5, 2026,
@@ -2152,7 +3815,9 @@ release v3.1.0, 2026,
 
 \bibitem{BB26a}
 D.~Bhattacharjee and U.~Bhattacharya, Mass gap of lattice Yang--Mills theory
-up to the Dobrushin ceiling, Zenodo, release v2.0.2, 2026,
+up to the Dobrushin ceiling, in \emph{Lattice Yang--Mills theory: spacing-uniform
+obstructions, the mass gap up to the Dobrushin ceiling, and Lean certificate},
+Zenodo, release v2.0.2, 2026,
 \href{https://doi.org/10.5281/zenodo.23449466}{doi:10.5281/zenodo.23449466}.
 
 \bibitem{BB26b}
@@ -2160,21 +3825,45 @@ D.~Bhattacharjee and U.~Bhattacharya, Spacing-uniform lattice inequalities
 cannot produce the Yang--Mills mass gap, Zenodo, release v1.0.0, 2026,
 \href{https://doi.org/10.5281/zenodo.23444339}{doi:10.5281/zenodo.23444339}.
 
+\bibitem{BRS26}
+D.~Bhattacharjee, S.~Singha Roy and P.~Samal, Brane-cluster UV completion of quantum gravity, Research Square (2026), \href{https://doi.org/10.21203/rs.3.rs-9053205/v1}{doi:10.21203/rs.3.rs-9053205/v1}.
+
 \bibitem{BSB26}
 D.~Bhattacharjee, P.~Samal and S.~Bhattacharya, Geometric structure and
 renormalization group flow in chiral Yang--Mills--Higgs theory, Preprints
 (2026), \href{https://doi.org/10.20944/preprints202602.2022.v1}
 {doi:10.20944/preprints202602.2022.v1}.
 
+\bibitem{BTBS26}
+D.~Bhattacharjee, S.~Nath Thakur, S.~Bhattacharya and P.~Samal, $\SU(n)$ holonomy deviations in Calabi--Yau manifolds (CY1--CY4), Preprints (2026), \href{https://doi.org/10.20944/preprints202602.0023.v1}{doi:10.20944/preprints202602.0023.v1}.
+
+\bibitem{BK55}
+M.~Biernacki and J.~Krzy\.z, On the monotonity of certain functionals in the theory of analytic functions, Ann. Univ. Mariae Curie-Sk{\l}odowska Sect. A \textbf{9} (1955), 135--147.
+
+\bibitem{BFS79}
+D.~Brydges, J.~Fr\"ohlich and E.~Seiler, On the construction of quantized gauge fields. I. General results, Ann. Physics \textbf{121} (1979), 227--284, \href{https://doi.org/10.1016/0003-4916(79)90098-8}{doi:10.1016/0003-4916(79)90098-8}.
+
 \bibitem{Bum13}
 D.~Bump, \emph{Lie Groups}, 2nd ed., Grad. Texts in Math. 225, Springer, New
 York, 2013, \href{https://doi.org/10.1007/978-1-4614-8024-2}
 {doi:10.1007/978-1-4614-8024-2}.
 
+\bibitem{CNS25}
+S.~Cao, R.~Nissim and S.~Sheffield, Expanded regimes of area law for lattice Yang--Mills theories, preprint, 2025, \href{https://arxiv.org/abs/2505.16585}{arXiv:2505.16585}.
+
+\bibitem{Chat19}
+S.~Chatterjee, Yang--Mills for probabilists, in \emph{Probability and Analysis in Interacting Physical Systems}, Springer Proc. Math. Stat. 283, Springer, Cham, 2019, 1--16, \href{https://doi.org/10.1007/978-3-030-15338-0_1}{doi:10.1007/978-3-030-15338-0\_1}.
+
+\bibitem{Chat19b}
+S.~Chatterjee, Rigorous solution of strongly coupled $\SO(N)$ lattice gauge theory in the large $N$ limit, Comm. Math. Phys. \textbf{366} (2019), 203--268, \href{https://doi.org/10.1007/s00220-019-03353-3}{doi:10.1007/s00220-019-03353-3}.
+
 \bibitem{Cre77}
 M.~Creutz, Gauge fixing, the transfer matrix, and confinement on a lattice,
 Phys. Rev. D \textbf{15} (1977), 1128--1136,
 \href{https://doi.org/10.1103/PhysRevD.15.1128}{doi:10.1103/PhysRevD.15.1128}.
+
+\bibitem{Dim13}
+J.~Dimock, The renormalization group according to Balaban, I. Small fields, Rev. Math. Phys. \textbf{25} (2013), 1330010, \href{https://doi.org/10.1142/S0129055X13300100}{doi:10.1142/S0129055X13300100}.
 
 \bibitem{Dob68}
 R.~L.~Dobrushin, The description of a random field by means of conditional
@@ -2193,15 +3882,29 @@ of Gibbs field, in \emph{Statistical Physics and Dynamical Systems},
 Birkh\"auser, Boston, 1985, 347--370,
 \href{https://doi.org/10.1007/978-1-4899-6653-7_20}{doi:10.1007/978-1-4899-6653-7\_20}.
 
+\bibitem{Dri89}
+B.~K.~Driver, YM$_2$: continuum expectations, lattice convergence, and lassos, Comm. Math. Phys. \textbf{123} (1989), 575--616, \href{https://doi.org/10.1007/BF01218586}{doi:10.1007/BF01218586}.
+
 \bibitem{FH91}
 W.~Fulton and J.~Harris, \emph{Representation Theory: A First Course}, Grad.
-Texts in Math. 129, Springer, New York, 1991,
+Texts in Math. 129, Springer, New York, 1991 (reprinted 2004),
 \href{https://doi.org/10.1007/978-1-4612-0979-9}{doi:10.1007/978-1-4612-0979-9}.
 
 \bibitem{GL10}
 C.~Gattringer and C.~B.~Lang, \emph{Quantum Chromodynamics on the Lattice},
 Lecture Notes in Phys. 788, Springer, Berlin, 2010,
 \href{https://doi.org/10.1007/978-3-642-01850-3}{doi:10.1007/978-3-642-01850-3}.
+
+\bibitem{GBN26}
+R.~Ghora, D.~Bhattacharjee, P.~Nandi, P.~Samal, R.~Patra, S.~Singha Roy and S.~Bhattacharya, O'Neill tensor bounds for Riemannian submersions in fibred Calabi--Yau manifolds, Preprints (2026), \href{https://doi.org/10.20944/preprints202602.0125.v1}{doi:10.20944/preprints202602.0125.v1}.
+
+\bibitem{GJ87}
+J.~Glimm and A.~Jaffe, \emph{Quantum Physics: A Functional Integral Point
+of View}, 2nd ed., Springer, New York, 1987,
+\href{https://doi.org/10.1007/978-1-4612-4728-9}{doi:10.1007/978-1-4612-4728-9}.
+
+\bibitem{GKS89}
+L.~Gross, C.~King and A.~Sengupta, Two dimensional Yang--Mills theory via stochastic differential equations, Ann. Physics \textbf{194} (1989), 65--112, \href{https://doi.org/10.1016/0003-4916(89)90032-8}{doi:10.1016/0003-4916(89)90032-8}.
 
 \bibitem{Hig02}
 N.~J.~Higham, \emph{Accuracy and Stability of Numerical Algorithms}, 2nd
@@ -2218,6 +3921,11 @@ W.~Hoeffding, Probability inequalities for sums of bounded random variables,
 J. Amer. Statist. Assoc. \textbf{58} (1963), 13--30,
 \href{https://doi.org/10.1080/01621459.1963.10500830}{doi:10.1080/01621459.1963.10500830}.
 
+\bibitem{Hum72}
+J.~E.~Humphreys, \emph{Introduction to Lie Algebras and Representation
+Theory}, Grad. Texts in Math. 9, Springer, New York, 1972,
+\href{https://doi.org/10.1007/978-1-4612-6398-2}{doi:10.1007/978-1-4612-6398-2}.
+
 \bibitem{JW06}
 A.~Jaffe and E.~Witten, Quantum Yang--Mills theory, in \emph{The Millennium
 Prize Problems}, Clay Mathematics Institute and American Mathematical
@@ -2229,6 +3937,9 @@ F.~Johansson, Arb: efficient arbitrary-precision midpoint-radius interval
 arithmetic, IEEE Trans. Comput. \textbf{66} (2017), 1281--1292,
 \href{https://doi.org/10.1109/TC.2017.2690633}{doi:10.1109/TC.2017.2690633}.
 
+\bibitem{Kac90}
+V.~G.~Kac, \emph{Infinite-Dimensional Lie Algebras}, 3rd ed., Cambridge University Press, Cambridge, 1990, \href{https://doi.org/10.1017/CBO9780511626234}{doi:10.1017/CBO9780511626234}.
+
 \bibitem{Kal21}
 O.~Kallenberg, \emph{Foundations of Modern Probability}, 3rd ed., Springer,
 Cham, 2021, \href{https://doi.org/10.1007/978-3-030-61871-1}
@@ -2238,6 +3949,23 @@ Cham, 2021, \href{https://doi.org/10.1007/978-3-030-61871-1}
 J.~Kogut and L.~Susskind, Hamiltonian formulation of Wilson's lattice gauge
 theories, Phys. Rev. D \textbf{11} (1975), 395--408,
 \href{https://doi.org/10.1103/PhysRevD.11.395}{doi:10.1103/PhysRevD.11.395}.
+
+\bibitem{Lev03}
+T.~L\'evy, Yang--Mills measure on compact surfaces, Mem. Amer. Math. Soc. \textbf{166} (2003), no.~790, \href{https://doi.org/10.1090/memo/0790}{doi:10.1090/memo/0790}.
+
+\bibitem{MRS93}
+J.~Magnen, V.~Rivasseau and R.~S\'en\'eor, Construction of YM$_4$ with an infrared cutoff, Comm. Math. Phys. \textbf{155} (1993), 325--383, \href{https://doi.org/10.1007/BF02097397}{doi:10.1007/BF02097397}.
+
+\bibitem{MJ00}
+K.~V.~Mardia and P.~E.~Jupp, \emph{Directional Statistics}, Wiley, Chichester, 2000, \href{https://doi.org/10.1002/9780470316979}{doi:10.1002/9780470316979}.
+
+\bibitem{McS34}
+E.~J.~McShane, Extension of range of functions, Bull. Amer. Math. Soc. \textbf{40} (1934), 837--842, \href{https://doi.org/10.1090/S0002-9904-1934-05978-0}{doi:10.1090/S0002-9904-1934-05978-0}.
+
+\bibitem{Mil76}
+J.~Milnor, Curvatures of left invariant metrics on Lie groups, Adv.
+Math. \textbf{21} (1976), 293--329,
+\href{https://doi.org/10.1016/S0001-8708(76)80002-3}{doi:10.1016/S0001-8708(76)80002-3}.
 
 \bibitem{MM94}
 I.~Montvay and G.~M\"unster, \emph{Quantum Fields on a Lattice}, Cambridge
@@ -2259,6 +3987,9 @@ K.~Osterwalder and E.~Seiler, Gauge field theories on a lattice, Ann. Physics
 \textbf{110} (1978), 440--471,
 \href{https://doi.org/10.1016/0003-4916(78)90039-8}{doi:10.1016/0003-4916(78)90039-8}.
 
+\bibitem{SBG26}
+P.~Samal, D.~Bhattacharjee and R.~Ghora, Renormalization of spacetime dimension, Preprints (2026), \href{https://doi.org/10.20944/preprints202602.0531.v1}{doi:10.20944/preprints202602.0531.v1}.
+
 \bibitem{Sei82}
 E.~Seiler, \emph{Gauge Theories as a Problem of Constructive Quantum Field
 Theory and Statistical Mechanics}, Lecture Notes in Phys. 159, Springer,
@@ -2269,15 +4000,38 @@ H.~Shen, R.~Zhu and X.~Zhu, A stochastic analysis approach to lattice
 Yang--Mills at strong coupling, Comm. Math. Phys. \textbf{400} (2023),
 805--851, \href{https://doi.org/10.1007/s00220-022-04609-1}{doi:10.1007/s00220-022-04609-1}.
 
+\bibitem{Sla81}
+R.~Slansky, Group theory for unified model building, Phys. Rep.
+\textbf{79} (1981), 1--128,
+\href{https://doi.org/10.1016/0370-1573(81)90092-2}{doi:10.1016/0370-1573(81)90092-2}.
+
 \bibitem{Sta99}
-R.~P.~Stanley, \emph{Enumerative Combinatorics, Volume 2}, Cambridge Stud.
+R.~P.~Stanley, \emph{Enumerative Combinatorics, Volume 2}, with an appendix by
+S.~Fomin, Cambridge Stud.
 Adv. Math. 62, Cambridge University Press, Cambridge, 1999,
 \href{https://doi.org/10.1017/CBO9780511609589}{doi:10.1017/CBO9780511609589}.
+
+\bibitem{SW71}
+E.~M.~Stein and G.~Weiss, \emph{Introduction to Fourier Analysis on Euclidean Spaces}, Princeton University Press, Princeton, NJ, 1971, \href{https://doi.org/10.1515/9781400883899}{doi:10.1515/9781400883899}.
+
+\bibitem{Sus26a}
+E.~Sussman and collaborators, Rotation invariance from lattice symmetry
+and reflection positivity, manuscript, 2026, in the repository
+\nolinkurl{github.com/ethanwsussman/Yang--Mills-LLM-experiment}, commit \texttt{1b92bd0}.
+
+\bibitem{Sus26b}
+E.~Sussman and collaborators, $\SU(2)$ Yang--Mills theory in four
+dimensions via Ba{\l}aban's renormalisation group: construction, axioms and
+non-triviality, zeroth draft, 6 October 2026, in the repository
+\nolinkurl{github.com/ethanwsussman/Yang--Mills-LLM-experiment}, commit \texttt{1b92bd0}.
 
 \bibitem{Vil09}
 C.~Villani, \emph{Optimal Transport: Old and New}, Grundlehren Math. Wiss.
 338, Springer, Berlin, 2009,
 \href{https://doi.org/10.1007/978-3-540-71050-9}{doi:10.1007/978-3-540-71050-9}.
+
+\bibitem{Wat44}
+G.~N.~Watson, \emph{A Treatise on the Theory of Bessel Functions}, 2nd ed., Cambridge University Press, Cambridge, 1944.
 
 \bibitem{Wil74}
 K.~G.~Wilson, Confinement of quarks, Phys. Rev. D \textbf{10} (1974),
