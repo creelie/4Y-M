@@ -67,6 +67,7 @@ The notes do not rely on the scripts; they confirm the finite steps.
 | `checks/su3/ceiling.py` | Galerkin lower bounds for the H^{-1} norm that the route bounds, at matrices of rK for r = 1.25 to 1.55 (`ceiling.txt`) |
 | `checks/su3/sanity.py`, `lip.py` | Monte Carlo comparison of the gap and gradient-moment bounds with Galerkin values |
 | `checks/su3/route1.py`, `scan2.py` | Monte Carlo estimates of the true single-link rate (`route1.txt`, `scan2.txt`) |
+| `checks/groups/ricci.py` | κ_G = h^∨/(2ℓ_ρ) for every compact simple group in its least faithful representation, from the Killing form and the Dynkin index, and the ranges N\|β\| < 2κ_G/29 in β_W (all closed forms exact) |
 | `checks/curvature/abelian.py` | the same maximum over abelian fields: 64 angles in one U(1) subgroup, value 13.9740139454 (`abelian.txt`, angles in `abelian_extremal_L4.pt`) |
 
 The four open problems of the paper, with what is known of each, are listed
