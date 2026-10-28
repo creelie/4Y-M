@@ -49,9 +49,9 @@ units remain open. `OPEN.md` records what is known of each.
 `forest/main.tex` is the paper "Mass Gap of Four-Dimensional Lattice
 Yang–Mills Theory for Every Compact Simple Gauge Group" by Deep
 Bhattacharjee, Ushashi Bhattacharya and James Montgomery Lockwood (REVTeX
-4-2, two columns, 37 pages), compiled as
+4-2, two columns, 38 pages), compiled as
 `preprintYangMillsForestGauge/YangMillsForestGauge.pdf` in the repository
-root; `forest/cmp/main.tex` is the same paper in the AMS article class (57
+root; `forest/cmp/main.tex` is the same paper in the AMS article class (58
 pages). Its figures are written by `forest/figures/make_figures.py`. The
 paper is self-contained: the transfer-matrix reconstruction and the sharp
 quarter for the single-link law of SU(2) are proved in its appendices.
@@ -85,6 +85,9 @@ results follow, proved by hand and not yet refereed (see
   e^(−b/1280) up to powers of b); for SU(2) it needs
   n⁴ ≥ (1−α)² β_W/(675 L(β_W)), and the n² lost in that bound is of the right
   order (a stationary flux configuration);
+- a Gaussian benchmark: the averaged cube coefficient of a Gaussian field is
+  exactly 1 when it is massless and bounded below 1 at a fixed physical scale
+  when it has a mass;
 - smoothed observables: the continuum step holds after the spatial gradient
   flow, which keeps reflection positivity and the transfer matrix.
 

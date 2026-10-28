@@ -80,15 +80,22 @@ heat bath, four chains, 300 + 300 sweeps): the mean distance ε_V of the
 forest-gauge links of a cube with the identity outside, which D(n, α) needs to
 be at least 2(1−α)/3, grows with n at every coupling tried:
 
-| β_W | n = 2 | n = 4 | n = 6 | n = 8 |
-|---|---|---|---|---|
-| 2.0 | 0.557 | 0.700 | 0.827 | 0.948 |
-| 2.3 | 0.519 | 0.641 | 0.750 | 0.852 |
-| 2.6 | 0.485 | 0.596 | 0.700 | 0.787 |
-| 3.0 | 0.450 | 0.550 | 0.642 | 0.725 |
+| β_W | n = 2 | n = 4 | n = 6 | n = 8 | n = 10 |
+|---|---|---|---|---|---|
+| 2.0 | 0.557 | 0.700 | 0.827 | 0.948 | 1.047 |
+| 2.3 | 0.519 | 0.641 | 0.750 | 0.852 | 0.937 |
+| 2.6 | 0.485 | 0.596 | 0.700 | 0.787 | 0.867 |
+| 3.0 | 0.450 | 0.550 | 0.642 | 0.725 | 0.797 |
 
 It passes 2/3 near n = 4, 5, 6, 7 for β_W = 2.0, 2.3, 2.6, 3.0, far more slowly
 than the correlation length grows, so this necessary condition excludes nothing
 at a fixed physical scale. A coupled-chain estimate of the influence
 coefficients themselves (`influence_mc.py`) is uninformative in this range:
 the two chains decouple, and it returns only the trivial upper estimate.
+
+Proposition "Gaussian benchmark" computes the cube coefficient of a Gaussian
+field exactly: K_c = N_n at every n and every stiffness when the field is
+massless, so D(n, α) fails for every α < 1, while a mass m gives D(n, α) at
+a fixed physical scale. A proof of (D) along the tuning therefore has to
+produce in the forest-gauge variables the loss that a mass supplies there,
+from the Wilson action alone.

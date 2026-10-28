@@ -78,11 +78,12 @@ gap. PACS: 11.15.Ha, 05.50.+q, 02.50.Cw, 02.40.Ky}
 Yang--Mills Theory in a Forest Gauge'', appeared as Hexagon preprint
 2610.00341. This version adds the theorem for every compact simple gauge
 group, the reduction of the continuum gap to one physical scale, what that
-reduction requires of the cube estimate, smoothed observables, and
+reduction requires of the cube estimate, a Gaussian benchmark for it,
+smoothed observables, and
 complete proofs of the results earlier taken from our first paper. The
 \LaTeX{} source, the checks and the Lean certificate are in
 \href{https://github.com/creelie/4Y-M}{github.com/creelie/4Y-M}, release
-v3.7.0.}
+v3.8.0.}
 
 \begin{abstract}
 \itshape
@@ -432,7 +433,9 @@ coupling, fails at every fixed cube size at weak coupling, forces the
 gauge-fixed variables to be disordered on the scale of the cube, and cannot
 be reached from estimates on single lines of links; for $\SU(2)$ it needs
 cubes of side at least of order $(\beta_W/\log\beta_W)^{1/4}$
-(Proposition~\ref{prop:cubesize}).
+(Proposition~\ref{prop:cubesize}). For a Gaussian field the condition holds at
+a fixed physical scale when the field has a mass and fails exactly, at every
+size, when it is massless (Proposition~\ref{prop:gauss}).
 
 Section~\ref{sec:linefield} constructs the line field.
 Section~\ref{sec:state} shows that a Dobrushin bound for the gauge-fixed
@@ -2535,6 +2538,86 @@ that happens, (D) fails in this gauge and has to be posed for block-averaged
 variables, where it becomes part of the renormalisation group problem.
 \end{remark}
 
+The count of Remark~\ref{rem:cubeheuristic} can be carried out exactly for a
+Gaussian field, the quadratic approximation of the gauge-fixed theory at weak
+coupling, and indicates what (D) asks of the gauge-fixed variables.
+
+\begin{proposition}\label{prop:gauss}
+Let $d\ge1$, $b>0$, $t\ge0$, let $n\ge2$ be even and $V=[0,n)^d\cap\Z^d$.
+Given $\eta\in\R^{\Z^d\setminus V}$, let $\gamma_V(\cdot\mid\eta)$ be the
+Gaussian law on $\R^V$ with density proportional to
+\[
+\exp\Bigl(-\frac b2\Bigl[\sum_{\{x,y\}\cap V\ne\emptyset}(\phi_x-\phi_y)^2
++t\sum_{x\in V}\phi_x^2\Bigr]\Bigr),
+\]
+the first sum over nearest-neighbour pairs, with $\phi=\eta$ outside $V$.
+Define $C_{V,j}$, the classes $c$ (residues modulo two) and $K_c$ as above,
+with $d_V(\phi,\phi')=\sum_{x\in V}|\phi_x-\phi'_x|$ and $\delta(\eta_j,\eta'_j)
+=|\eta_j-\eta'_j|$, and put $N_n=(n/2)^d$. Then $K_c=\alpha_n(t)N_n$ for every
+class $c$, where
+\[
+\alpha_n(t)=1-\frac t{n^d}\,\mathbf 1^{\mathsf T}(t+L_n)^{-1}\mathbf 1
+\]
+and $L_n$ is the Dirichlet Laplacian of $V$. In particular:
+\begin{enumerate}[label=\textup{(\roman*)},leftmargin=*]
+\item for $t=0$, $K_c=N_n$ for every $n$ and every $b$, so $D(n,\alpha)$
+fails for every $\alpha<1$;
+\item for $t>0$, $1-\alpha_n(t)\ge(5/6)^d\,tn^2/(tn^2+10d)$; for $d=4$,
+$t=m^2a^2$ and $\ell/2\le na\le\ell$ this gives $D(n,\alpha)$ with
+$\alpha=1-(5/6)^4(m\ell)^2/((m\ell)^2+160)$, uniformly in $a$.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+Let $A=t+L_n$ and $G=A^{-1}$, and let $B$ be the matrix with $B_{xj}=1$ when
+$x\in V$ and $j\notin V$ are neighbours. The law $\gamma_V(\cdot\mid\eta)$ has
+covariance $b^{-1}G$ and mean $GB\eta$. The matrix $A$ has nonpositive
+off-diagonal entries and is positive definite, so $G\ge0$ entrywise. Changing
+$\eta_j$ by $\Delta$ translates the law by $\Delta\,GB_j$, where $B_j$ is the
+column of $j$. The coupling by translation gives $W_1^{d_V}\le|\Delta|
+\sum_x(GB_j)_x$, and the $1$-Lipschitz function $\sum_x\phi_x$ gives the
+reverse inequality, so $C_{V,j}=\mathbf1^{\mathsf T}GB_j$. Since
+$B\mathbf1=L_n\mathbf1$ (both count the exterior neighbours of each site),
+\[
+\sum_{j\notin V}C_{V,j}=\mathbf1^{\mathsf T}GL_n\mathbf1
+=\mathbf1^{\mathsf T}\mathbf1-t\,\mathbf1^{\mathsf T}G\mathbf1
+=n^d\alpha_n(t).
+\]
+The reflection $x_i\mapsto n-1-x_i$ preserves $V$ and the coefficients and,
+as $n$ is even, exchanges the two residues of the coordinate $x_i$; so the
+$2^d$ class sums are equal, and each is $n^d\alpha_n(t)/2^d=\alpha_n(t)N_n$.
+This proves the formula and (i).
+
+For (ii) let $v(i)=(i+1)(n-i)$ for $0\le i<n$ and $\psi(x)=\prod_iv(x_i)$.
+The one-dimensional Dirichlet Laplacian maps $v$ to the constant $2$, so with
+$s_1=\sum_iv(i)=n(n+1)(n+2)/6$ and $s_2=\sum_iv(i)^2=n(n+1)(n+2)(n^2+2n+2)/30$,
+\[
+\mathbf1^{\mathsf T}\psi=s_1^d,\qquad
+\psi^{\mathsf T}A\psi=ts_2^d+2ds_1s_2^{d-1}.
+\]
+By the Cauchy--Schwarz inequality for the form of $A^{-1}$,
+$\mathbf1^{\mathsf T}G\mathbf1\ge(\mathbf1^{\mathsf T}\psi)^2/\psi^{\mathsf T}
+A\psi$, hence
+\[
+1-\alpha_n(t)\ge\Bigl(\frac{s_1^2}{ns_2}\Bigr)^d\frac t{t+2ds_1/s_2}
+\ge\Bigl(\frac56\Bigr)^d\frac{tn^2}{tn^2+10d},
+\]
+since $s_1^2/(ns_2)=\frac56(n^2+3n+2)/(n^2+2n+2)\ge\frac56$ and
+$2ds_1/s_2=10d/(n^2+2n+2)\le10d/n^2$. With $d=4$ and $tn^2=m^2(na)^2\ge
+(m\ell)^2/4$ the last fraction is at least $(m\ell)^2/((m\ell)^2+160)$.
+\end{proof}
+
+The Gaussian field is not Yang--Mills theory, and the proposition is a
+benchmark for the condition, not a statement about the Wilson measure. It
+shows that the averaged cube condition is met at a fixed physical scale by a
+field with a mass and fails exactly, at every size and every stiffness, for
+a massless one. Small local fluctuations alone therefore give nothing: in the
+massless Gaussian field on $\Z^d$, $d\ge3$, the variance of
+$\phi_x-\phi_{x+e_1}$ is $1/(db)$,
+which tends to zero as $b\to\infty$, and still $K_c=N_n$. A proof of (D)
+along the tuning has to produce in the gauge-fixed variables the loss that
+the parameter $t$ supplies here, from the Wilson action alone.
+
 \begin{remark}\label{rem:routes}
 The other routes we tried stop at (D) or (E), or earlier.
 \begin{enumerate}[label=\textup{(\alph*)},leftmargin=*]
@@ -2878,6 +2961,45 @@ and an argument of the kind above that places gauge-fixed links near the
 identity needs plaquette bounds of order $o(n^{-2})$.
 \end{remark}
 
+Up to the factor $L(b)^{1/2}$ the rate $b^{-1/2}$ of
+Proposition~\ref{prop:cubesize} is the right one, and the lower bound below
+holds for every $n$ and every exterior.
+
+\begin{proposition}\label{prop:epslower}
+Let $G=\SU(2)$ with the chordal metric and $b=\beta_W>0$. For every Gibbs
+specification of the gauge-fixed theory, every active link $e$ and every
+configuration of the other links, the conditional law of $Q_e$ satisfies
+\[
+\int\delta(1,Q_e)\,d\mu_e\ge\frac1{9\max(6b,1)^{1/2}} .
+\]
+In particular $\varepsilon_V(\beta)\ge\frac19\max(6b,1)^{-1/2}$ for every
+$n$; at every fixed $n$, $\varepsilon_V(\beta)$ lies between constant
+multiples of $b^{-1/2}$ and $(L(b)/b)^{1/2}$.
+\end{proposition}
+
+\begin{proof}
+Write $\langle\cdot,\cdot\rangle$ for the Euclidean product of quaternions,
+so that $\ReTr q=2\langle q,1\rangle$. The six plaquettes that contain $e$
+contribute $\exp(b\langle Q_e,W_p\rangle)$ to the conditional density, with
+$|W_p|=1$; so $\mu_e$ has density $e^{\langle u,v\rangle}/Z(|v|)$ with respect
+to normalised Haar measure, for some $v$ with $a=|v|\le6b$. Put
+$a'=\max(a,1)$ and $\eta=a'^{-1/2}\le1$. On the geodesic ball of radius $\eta$
+about $v/|v|$ the exponent is at least $a(1-\eta^2/2)\ge a-\frac12$, and that
+ball has measure greater than $\eta^3/24$ (proof of
+Proposition~\ref{prop:slowline}); hence $Z(a)\ge e^{a-1/2}\eta^3/24$ and the
+density is at most $24e^{1/2}a'^{3/2}$ (for $a<1$ directly, since $Z\ge1$ by
+Jensen's inequality). A chordal ball of radius $r$ is a geodesic ball of
+radius $\theta$ with $2\sin(\theta/2)=r$, so $\theta\le\pi r/2$, and its
+measure is $(\theta-\sin\theta\cos\theta)/\pi\le2\theta^3/(3\pi)\le\pi^2r^3/12$.
+With $r=\frac29a'^{-1/2}$,
+\[
+\mu_e\bigl(\delta(1,Q_e)<r\bigr)\le24e^{1/2}a'^{3/2}\,\frac{\pi^2r^3}{12}
+=2e^{1/2}\pi^2\Bigl(\frac29\Bigr)^3<\frac12 ,
+\]
+so the mean of $\delta(1,Q_e)$ is at least $r/2=\frac19a'^{-1/2}$. Averaging
+over $e\in V$ and over the configuration gives the bound on $\varepsilon_V$.
+\end{proof}
+
 Along the continuum tuning Theorem~\ref{thm:cubeneeds} says the following.
 If (D) holds, then in a cube of fixed physical size $\ell$ with the identity
 outside, the forest-gauge variables stay on average at distance at least
@@ -3021,8 +3143,8 @@ Propositions~\ref{prop:cover} and~\ref{prop:cover2} and
 Lemma~\ref{lem:su3const} and the numerical bounds of
 Lemma~\ref{lem:vmfconst}, which are computations with rigorous error bounds,
 and the finite check of Lemma~\ref{lem:plaqblocks}. The archive
-\texttt{creelie/4Y-M} (release v3.7.0,
-\url{https://github.com/creelie/4y-m/releases/tag/v3.7.0})
+\texttt{creelie/4Y-M} (release v3.8.0,
+\url{https://github.com/creelie/4y-m/releases/tag/v3.8.0})
 contains the programs of that computation, in Python with python-flint
 (FLINT and Arb) and a C kernel for products of Taylor polynomials, with
 their outputs and the list of certified boxes; the programs and outputs of
@@ -3036,7 +3158,7 @@ Appendix~\ref{app:table}, by \texttt{decide}); the programs of
 Appendix~\ref{app:plaqblocks} for the plaquette blocks, with the
 floating-point search of Remark~\ref{rem:blockgap}; an exact computation of
 the curvatures of Table~\ref{tab:groups} from the root systems; exact checks of
-the finite counts and of the discs of Section~\ref{ssec:cubeneeds}, with
+the finite counts, of the discs and of the Gaussian benchmark of Section~\ref{ssec:cubeneeds}, with
 Monte Carlo estimates of the influence coefficients and of $\varepsilon_V$
 that the proofs do not use; and the source of the
 preprint version of this paper. The computations and the Lean, Python and shell checks were run with AI
