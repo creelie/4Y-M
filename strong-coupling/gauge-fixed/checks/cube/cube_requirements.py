@@ -21,7 +21,9 @@ The line field sigma of the residue table has period two. The script checks:
       4n^2+2n discs (n = 2, 4, 6, 8), and the lattice Stokes inequality on
       random configurations (n = 2, 4);
   (g) the flux configuration of the remark on loops, in exact angles;
-  (h) the arithmetic of the lower bound on eps_V.
+  (h) the arithmetic of the lower bound on eps_V;
+  (i) the Gaussian benchmark: K_c = alpha_n(t) N_n for every residue class,
+      alpha_n(0) = 1, and the bound for t > 0, in exact arithmetic.
 Run: python3 cube_requirements.py
 """
 from collections import Counter
@@ -322,5 +324,50 @@ for L in (4, 6, 8, 10, 12):
 #     (so e^(1/2) < 1.6488) and pi < 3.1416
 ok(Fr(16488, 10000) ** 2 > Fr(27183, 10000), "sqrt(e) < 1.6488")
 ok(2 * Fr(16488, 10000) * Fr(31416, 10000) ** 2 * Fr(2, 9) ** 3 < Fr(1, 2), "small ball")
+
+# (i) the Gaussian benchmark: K_c = alpha_n(t) N_n for every class, alpha_n(0) = 1,
+#     and the lower bound on 1 - alpha_n(t), in exact arithmetic
+def solve(M, rhs):
+    N = len(M)
+    M = [row[:] + [r] for row, r in zip(M, rhs)]
+    for c in range(N):
+        p = next(r for r in range(c, N) if M[r][c] != 0)
+        M[c], M[p] = M[p], M[c]
+        inv = 1 / M[c][c]
+        M[c] = [v * inv for v in M[c]]
+        for r in range(N):
+            if r != c and M[r][c] != 0:
+                f = M[r][c]
+                M[r] = [a - f * b for a, b in zip(M[r], M[c])]
+    return [M[r][N] for r in range(N)]
+
+for d, n in ((1, 2), (1, 6), (2, 2), (2, 4), (2, 6), (3, 2), (3, 4), (4, 2)):
+    sites = list(product(range(n), repeat=d))
+    index = {x: i for i, x in enumerate(sites)}
+    def nbrs(x):
+        for i in range(d):
+            for s in (1, -1):
+                yield tuple(v + (s if k == i else 0) for k, v in enumerate(x))
+    ext = sorted({y for x in sites for y in nbrs(x) if y not in index})
+    for t in (Fr(0), Fr(1, 3), Fr(2)):
+        A = [[Fr(0)] * len(sites) for _ in sites]
+        for x in sites:
+            A[index[x]][index[x]] = 2 * d + t
+            for y in nbrs(x):
+                if y in index:
+                    A[index[x]][index[y]] = Fr(-1)
+        Gone = solve(A, [Fr(1)] * len(sites))      # G 1 (A is symmetric)
+        alpha = 1 - t * sum(Gone) / n**d
+        K = Counter()
+        for j in ext:
+            C = sum(Gone[index[x]] for x in nbrs(j) if x in index)  # 1^T G B_j
+            K[tuple(v % 2 for v in j)] += C
+        ok(len(K) == 2**d and all(k == alpha * Fr(n // 2) ** d for k in K.values()),
+           f"K_c = alpha N_n, d={d} n={n} t={t}")
+        if t == 0:
+            ok(alpha == 1, "massless alpha = 1")
+        else:
+            ok(1 - alpha >= Fr(5, 6) ** d * t * n * n / (t * n * n + 10 * d), "mass bound")
+            ok(all(g > 0 for g in Gone), "G 1 > 0")
 
 print(f"all {checks} checks passed")
