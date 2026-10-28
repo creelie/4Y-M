@@ -78,11 +78,11 @@ gap. PACS: 11.15.Ha, 05.50.+q, 02.50.Cw, 02.40.Ky}
 Yang--Mills Theory in a Forest Gauge'', appeared as Hexagon preprint
 2610.00341. This version adds the theorem for every compact simple gauge
 group, the reduction of the continuum gap to one physical scale, what that
-reduction requires of the cube estimate, and
+reduction requires of the cube estimate, smoothed observables, and
 complete proofs of the results earlier taken from our first paper. The
 \LaTeX{} source, the checks and the Lean certificate are in
 \href{https://github.com/creelie/4Y-M}{github.com/creelie/4Y-M}, release
-v3.6.0.}
+v3.7.0.}
 
 \begin{abstract}
 \itshape
@@ -94,7 +94,7 @@ fixed lattice spacing, past the curvature limit of the ungauged theory; for
 SU(2) and SU(3) the ranges reach $\beta_W\le0.345$ and $\beta_W\le0.76$.
 A mass gap in physical units for every continuum limit follows from one
 estimate of Dobrushin--Shlosman type in a cube of fixed physical size; that
-estimate and the existence of the limit remain open. The estimate holds at strong coupling and forces the gauge-fixed variables to be disordered at the scale of the cube.
+estimate and the existence of the limit remain open. The estimate holds at strong coupling, forces the gauge-fixed variables to be disordered at the scale of the cube, and for SU(2) needs a cube of side at least of order $(\beta_W/\log\beta_W)^{1/4}$.
 \end{abstract}
 
 \maketitle
@@ -425,11 +425,14 @@ applies to all of them. Section~\ref{sec:bypass} goes past it in one
 respect: a Dobrushin--Shlosman condition on one cube of fixed physical size,
 uniform along the continuum tuning, gives a mass gap in physical units for
 every continuum limit (Theorems~\ref{thm:onescale} and~\ref{thm:transfer}).
-That condition and the existence of the limit are the two statements left
+The conclusion extends to observables smoothed by the spatial gradient
+flow (Proposition~\ref{prop:spatialflow}). The cube condition and the existence of the limit are the two statements left
 open. Section~\ref{ssec:cubeneeds} shows that the condition holds at strong
 coupling, fails at every fixed cube size at weak coupling, forces the
 gauge-fixed variables to be disordered on the scale of the cube, and cannot
-be reached from estimates on single lines of links.
+be reached from estimates on single lines of links; for $\SU(2)$ it needs
+cubes of side at least of order $(\beta_W/\log\beta_W)^{1/4}$
+(Proposition~\ref{prop:cubesize}).
 
 Section~\ref{sec:linefield} constructs the line field.
 Section~\ref{sec:state} shows that a Dobrushin bound for the gauge-fixed
@@ -2389,6 +2392,113 @@ bounded below. In the language of~\cite{BB26b} the hypothesis implies the
 gap part (R2) of Hypothesis~R, with $m=m_*$, and the conclusion holds for
 every continuum limit without a separate assumption on the gap.
 
+\subsection{Smoothed observables}
+
+The observables $O_k(f)$ of Definition~\ref{def:limit} need not be local.
+The renormalised fields that one expects to converge are smoothed by the
+gradient flow of the Wilson action~\cite{Lus10}; at positive flow time their
+correlation functions are finite to all orders of perturbation theory once
+the coupling is renormalised~\cite{LW11}. Flow in all four directions mixes
+the two sides of the reflection plane, but the spatial flow
+of~\cite[Sec.~II.B]{SS23} does not: it flows the links of each time slice
+under the Wilson action of that slice and leaves the temporal links alone.
+
+Fix a bi-invariant Riemannian metric on $G$. For a configuration $U$ of all
+links of $\Z^4$ (for the states of this paper, the links of $F$ equal to
+$1$), let $\Phi_s(U)$, $s\in\R$, solve
+\[
+\frac{d}{ds}U_e=-\nabla_e\!\!\sum_{p\ni e,\ p\ \mathrm{spatial}}
+\bigl(N-\ReTr U_p\bigr)
+\]
+for every spatial link $e$, the sum running over the four plaquettes of the
+time slice of $e$ that contain it, with the temporal links held fixed and
+$\nabla_e$ the gradient in the variable $U_e$.
+
+\begin{proposition}\label{prop:spatialflow}
+\textup{(i)} $\Phi_s$ is defined on every configuration of the infinite
+lattice, $\Phi_s\circ\Phi_{s'}=\Phi_{s+s'}$, and $\Phi_s$ commutes with gauge
+transformations, with spatial and temporal translations and with the
+reflections in time. The link $\Phi_s(U)_e$ depends only on the spatial links
+of the time slice of $e$, and there are constants $\kappa,c$ depending only on
+$G$ such that, if $\Phi^{R}_s$ denotes the flow of the links of that slice
+within distance $R$ of $e$ with all other links held fixed,
+\[
+\delta\bigl(\Phi_s(U)_e,\Phi^R_s(U)_e\bigr)\le D\,e^{\kappa|s|}
+\frac{(c|s|)^{R+1}}{(R+1)!}
+\]
+for every configuration $U$.
+
+\textup{(ii)} Let $\omega$ be a state as in Appendix~\ref{app:transfer} and
+$O$ a bounded gauge-invariant function of finitely many links at times in
+$[t_0,t_1]$, continuous in them. Then $O\circ\Phi_s$ is a bounded
+gauge-invariant function of the links at times in $[t_0,t_1]$ and a uniform
+limit of gauge-invariant local functions at those times.
+
+\textup{(iii)} Theorem~\ref{thm:transfer} holds with $O_k(f)$ replaced by
+$O_k(f)\circ\Phi_{s_k}$ for any $s_k\in\R$, in particular for $s_k=\tau/a_k^2$
+at a fixed flow time $\tau$ in physical units.
+
+\textup{(iv)} The image measure $(\Phi_s)_*\omega$ is reflection positive, and
+its transfer matrix is unitarily equivalent to that of $\omega$, the unitary
+fixing the vacuum.
+\end{proposition}
+
+\begin{proof}
+(i) Embed $G$ in a matrix algebra. The right side of the equation is a smooth
+function of the links of the four plaquettes containing $e$, tangent to $G$
+at $U_e$, so on the Banach space of bounded assignments of matrices to the
+spatial links it is a vector field that is bounded and Lipschitz on a
+neighbourhood of the configurations with values in $G$, with a Lipschitz
+constant that does not depend on the volume because every link meets
+finitely many others. The Picard--Lindel\"of theorem gives a unique local
+solution; it stays on $G$ because the field is tangent there, and since the
+field is bounded on $G$ the solution exists for all $s$; uniqueness gives the
+group law. The action of a time slice and the metric are invariant under
+gauge transformations, translations and the reflections, so the flow
+commutes with them by uniqueness. Since the equation of a spatial link
+involves only links of its own slice, so does the solution. For the
+comparison, let $d_{e'}(s)$ be the distance between the two flows at a link
+$e'$ of the slice. Smoothness on the compact group gives constants $\kappa_0,c_1$ with
+$d_{e'}(s)\le\int_0^{|s|}\bigl(\kappa_0d_{e'}+c_1\sum_{e''\sim e'}d_{e''}\bigr)$
+for $e'$ within
+distance $R$ of $e$, where $e''\sim e'$ means that the two links share a
+spatial plaquette (twelve neighbours), while $d_{e'}\le D$ beyond. Iterating
+the integral form of this inequality, a term that reaches the links beyond
+distance $R$ needs at least $R+1$ steps of $\sim$, and
+$\sum_{k>R}x^k/k!\le e^xx^{R+1}/(R+1)!$; this gives the bound with $c=12c_1$
+and $\kappa=\kappa_0+c$.
+
+(ii) The truncated flow $\Phi^R_s$ commutes with gauge transformations for the
+same reason as $\Phi_s$, so $O\circ\Phi^R_s$ is a gauge-invariant function of
+finitely many links at times in $[t_0,t_1]$. By (i) and the uniform
+continuity of $O$, it converges to $O\circ\Phi_s$ uniformly as $R\to\infty$.
+
+(iii) The proof of Theorem~\ref{thm:transfer} uses $O_k(f)$ only through the
+vectors $\Psi_{O_k(f)}$ and the identity
+$\ip{\Psi_F}{\mathbb T^t\Psi_H}=\omega(\vartheta(\bar F)\tau_tH)$. By (ii) and the
+footnote in Appendix~\ref{app:transfer}, both extend to uniform limits of
+local functions at positive times, and $f\mapsto O_k(f)\circ\Phi_{s_k}$ is
+linear.
+
+(iv) By (i), $\Phi_s$ and $\Phi_{-s}$ preserve the functions of the links at
+positive times and commute with $\vartheta$ and $\tau_t$. Hence
+$(\Phi_s)_*\omega\bigl(\vartheta(\bar F)\tau_tH\bigr)=\omega\bigl(\vartheta(\overline{F\circ
+\Phi_s})\,\tau_t(H\circ\Phi_s)\bigr)$, which for $t=0$ and $H=F$ is
+nonnegative, and $F\mapsto F\circ\Phi_s$ induces an isometry between the
+reconstructed spaces that intertwines the transfer matrices and fixes the
+vacuum; $\Phi_{-s}$ gives its inverse.
+\end{proof}
+
+Part (iv) says that smoothing changes the variables and not the theory: it
+neither creates nor removes a gap. Its use is in the choice of the
+observables. With $O_k(f)$ the spatially flowed fields at a fixed physical
+flow time, for instance $Z_k\sum_xa_k^4f(a_kx)\bigl(\mathcal E_{\tau}(x)-
+\omega_k(\mathcal E_\tau(x))\bigr)$ with $\mathcal E_\tau(x)$ the flowed action
+density of the slice, statement (E) asks for the convergence of correlation
+functions that are known to be finite in perturbation theory~\cite{LW11},
+and Theorem~\ref{thm:transfer} applies to them. Neither their nonperturbative
+convergence nor their nontriviality is proved here.
+
 \subsection{The two residues}
 
 Theorem~\ref{thm:transfer} reduces a continuum mass gap to two statements,
@@ -2655,12 +2765,127 @@ Theorem~\ref{thm:cubeneeds} excludes $D(n,\alpha)$ once
 $\varepsilon_V(\beta)<(1-\alpha)D/3$.
 \end{proof}
 
+The size $\beta_0(n,\alpha)$ in Corollary~\ref{cor:cubefails} comes from a
+compactness argument. For $\SU(2)$ it can be made explicit, and then reads as
+a lower bound on the side of any cube that satisfies the condition.
+
+\begin{proposition}\label{prop:cubesize}
+Let $G=\SU(2)$ with the chordal metric, so that $D=2$, let $b=\beta_W\ge\frac19$,
+let $n\ge2$ be even and put $L(b)=1+\log24+\frac32\log(9b)$. Then
+\[
+\varepsilon_V(\beta)\le(4n^2+2n)\Bigl(\frac{12L(b)}b\Bigr)^{1/2}.
+\]
+Consequently, if $D(n,\alpha)$ holds at $b$, then
+\[
+n^4\ge\frac{(1-\alpha)^2\,b}{675\,L(b)} .
+\]
+\end{proposition}
+
+\begin{proof}
+Put $m=n/2$. Under $\gamma^1_V$ every link outside $V$ equals $1$: the links
+of $F$ always, the others by the choice of exterior. A plaquette that does
+not meet $V$ therefore has plaquette variable $1$.
+
+\emph{Links as loops.} Let $e=(x,\mu)\in V$, $y=x+e_\mu$, $\sigma=\sigma(x)$
+and $\tau=\sigma(y)$. The directions $\sigma,\tau,\mu$ are distinct:
+$\sigma\ne\mu$ because $e$ is active; $\tau\ne\mu$ because otherwise the line of
+$F$ through $y$ would contain $x$, and the lines of $F$ are disjoint; and
+$\tau\ne\sigma$ by Table~\ref{tab:sigma}, in which $\sigma(x+e_\mu)\ne\sigma(x)$
+whenever $\mu\ne\sigma(x)$. Since $0\le x_\sigma<n$, one of $n-x_\sigma$ and
+$x_\sigma+1$ is at most $m$; call it $s$ and let $\epsilon=\pm1$ be the sign
+for which $x'=x+s\epsilon e_\sigma$ has $\sigma$-coordinate outside $[0,n)$.
+Choose $t\le m$ and $\epsilon'$ in the same way for $y$ and $\tau$ (note
+$y_\tau=x_\tau$). Let $R_1$ be the $s$ plaquettes of the rectangle with corners
+$x$, $x'$, $x'+e_\mu$, $y$ in the plane $\{\sigma,\mu\}$, and $R_2$ the $st$
+plaquettes of the rectangle with corners $y$, $x'+e_\mu$,
+$x'+e_\mu+t\epsilon'e_\tau$, $y+t\epsilon'e_\tau$ in the plane $\{\sigma,\tau\}$.
+The union $R(e)=R_1\cup R_2$ is a disc, and its boundary runs from $x$ along
+the line of $F$ through $x$ to $x'$, then to $x'+e_\mu$, along $e_\tau$ to
+$x'+e_\mu+t\epsilon'e_\tau$, along $e_\sigma$ to $y+t\epsilon'e_\tau$, back
+along the line of $F$ through $y$ to $y$, and over $e$ to $x$. The links of the
+first and fifth pieces lie in $F$. The links of the second and third pieces
+have base points with $\sigma$-coordinate $x'_\sigma\notin[0,n)$, and those of
+the fourth have base points with $\tau$-coordinate outside $[0,n)$; none of
+them lies in $V$. So the holonomy of the boundary of $R(e)$ is $Q_e^{\pm1}$.
+Adding the plaquettes of a disc one at a time along its boundary shows that
+this holonomy is a product of conjugates of the plaquette variables
+$(Q^F_p)^{\pm1}$, $p\in R(e)$, one for each plaquette. By bi-invariance and the
+triangle inequality,
+\[
+\delta(1,Q_e)\le\sum_{p\in R(e)}\delta(1,Q^F_p),\qquad |R(e)|=s(t+1)\le
+m(m+1).
+\]
+
+\emph{Multiplicity.} If a plaquette $p$ lies in $R_2(e)$, its plane is
+$\{\sigma,\tau\}$, $\mu$ is one of the two other directions, and the base point
+of $p$ is $y+ae_\sigma+ce_\tau$ with $-m\le a,c\le m-1$. Given $p$, there are
+two ways to name the directions of its plane, two choices of $\mu$ and $(2m)^2$
+of $(a,c)$, and they determine $y$, hence $e$; so $p$ lies in at most $16m^2$
+of the sets $R_2(e)$. Likewise $p\in R_1(e)$ forces its plane to be
+$\{\sigma,\mu\}$ and its base point to be $x+ae_\sigma$ with $-m\le a\le m-1$,
+which leaves at most $4m$ links $e$. Every plaquette therefore lies in at most
+$16m^2+4m=4n^2+2n$ of the discs $R(e)$.
+
+\emph{The energy.} For the chordal metric $\delta(1,q)^2=2-\ReTr q$. Let
+$S=\sum_{p\cap V\ne\emptyset}\delta(1,Q^F_p)^2$; then $\gamma^1_V$ has density
+$e^{-bS/2}/Z$ with $Z=\int e^{-bS/2}$, the integral over $\SU(2)^V$ with Haar
+measure. The function $t\mapsto\log\int e^{-tS}$ is convex and vanishes at
+$t=0$, so its derivative at $t=b/2$, which is $-\int S\,d\gamma^1_V$, is at least
+$2\log Z/b$. A plaquette that meets $V$ contains at most three links of $V$ and
+the other links are $1$, so $\delta(1,Q^F_p)^2\le3\sum_{e\in p\cap V}
+\delta(1,Q_e)^2$; every link lies in six plaquettes, so
+$S\le18\sum_{e\in V}\delta(1,Q_e)^2$ and $Z\ge I^{|V|}$ with
+$I=\int e^{-9b\,\delta(1,q)^2}dq$. The chordal distance is at most the geodesic
+one, and the geodesic ball of radius $r=(9b)^{-1/2}\le1$ has measure greater
+than $r^3/24$ (proof of Proposition~\ref{prop:slowline}), so $I\ge
+e^{-1}(9b)^{-3/2}/24$ and
+\[
+\int S\,d\gamma^1_V\le\frac{2|V|\,L(b)}b .
+\]
+
+\emph{Conclusion.} At most $6|V|$ plaquettes meet $V$. Summing the loop bound
+over $e\in V$ and using the multiplicity and the Cauchy--Schwarz inequality,
+\[
+\begin{split}
+|V|\,\varepsilon_V&\le(4n^2+2n)\sum_{p\cap V\ne\emptyset}\int\delta(1,Q^F_p)\,
+d\gamma^1_V\\
+&\le(4n^2+2n)\Bigl(6|V|\int S\,d\gamma^1_V\Bigr)^{1/2}\\
+&\le(4n^2+2n)\,|V|\Bigl(\frac{12L(b)}b\Bigr)^{1/2}.
+\end{split}
+\]
+If $D(n,\alpha)$ holds, Theorem~\ref{thm:cubeneeds} with $D=2$ gives
+$\varepsilon_V\ge\frac23(1-\alpha)$; squaring and using $4n^2+2n\le5n^2$,
+$\frac49(1-\alpha)^2\le300\,n^4L(b)/b$.
+\end{proof}
+
+\begin{remark}\label{rem:fluxloop}
+The proof loses the area of a disc, of order $n^2$, in passing from plaquettes
+to links, and on loops that loss is of the right order. On the periodic
+lattice $(\Z/L\Z)^4$ with $L$ even and coordinates $0\le x_j<L$, let
+$\phi=4\pi/L^2$, $q(\theta)=\cos\theta+\mathbf i\sin\theta$, and put
+$U_{(x,2)}=q(\phi x_1)$, $U_{(x,1)}=q(-\phi Lx_2)$ when $x_1=L-1$, and $U=1$ on
+every other link. Every plaquette of the plane $\{1,2\}$ equals $q(\phi)$,
+including those on the seam $x_1=L-1$ and at the corner $x_1=x_2=L-1$, where
+the angle is $\phi-4\pi$; all other plaquettes equal $1$. So every plaquette
+variable lies within $\phi$ of the identity, while the boundary of the square
+$[0,L/2]^2$ of the plane $\{1,2\}$ has holonomy $q(\phi L^2/4)=-1$, at the
+largest possible distance $D=2$, against the bound $\phi L^2/4=\pi$ given by
+the disc. Every staple sum of this configuration is parallel to its link, so
+it is a stationary point of the Wilson action, and gradient
+flow~\cite{Lus10} does not change it. Plaquette variables within $O(n^{-2})$
+of the identity therefore do not force loops of length $n$ near the identity,
+and an argument of the kind above that places gauge-fixed links near the
+identity needs plaquette bounds of order $o(n^{-2})$.
+\end{remark}
+
 Along the continuum tuning Theorem~\ref{thm:cubeneeds} says the following.
 If (D) holds, then in a cube of fixed physical size $\ell$ with the identity
 outside, the forest-gauge variables stay on average at distance at least
 $(1-\alpha)D/3$ from the identity, at every spacing. This is not a
 contradiction: $n=\ell/a$ grows like $1/a$, while asymptotic freedom makes
 $\beta(a)$ grow only like $\log(1/a)$, and the corollary concerns fixed $n$.
+The size bound of Proposition~\ref{prop:cubesize} is likewise met along the
+tuning, since its right side grows only like $\log(1/a)$.
 It turns the assumption of Remark~\ref{rem:cubeheuristic}, that the
 gauge-fixed links decorrelate on the scale of the cube, into a necessary
 condition. Whether the forest-gauge variables are disordered at a fixed
@@ -2796,8 +3021,8 @@ Propositions~\ref{prop:cover} and~\ref{prop:cover2} and
 Lemma~\ref{lem:su3const} and the numerical bounds of
 Lemma~\ref{lem:vmfconst}, which are computations with rigorous error bounds,
 and the finite check of Lemma~\ref{lem:plaqblocks}. The archive
-\texttt{creelie/4Y-M} (release v3.6.0,
-\url{https://github.com/creelie/4y-m/releases/tag/v3.6.0})
+\texttt{creelie/4Y-M} (release v3.7.0,
+\url{https://github.com/creelie/4y-m/releases/tag/v3.7.0})
 contains the programs of that computation, in Python with python-flint
 (FLINT and Arb) and a C kernel for products of Taylor polynomials, with
 their outputs and the list of certified boxes; the programs and outputs of
@@ -2811,7 +3036,9 @@ Appendix~\ref{app:table}, by \texttt{decide}); the programs of
 Appendix~\ref{app:plaqblocks} for the plaquette blocks, with the
 floating-point search of Remark~\ref{rem:blockgap}; an exact computation of
 the curvatures of Table~\ref{tab:groups} from the root systems; exact checks of
-the finite counts of Section~\ref{ssec:cubeneeds}; and the source of the
+the finite counts and of the discs of Section~\ref{ssec:cubeneeds}, with
+Monte Carlo estimates of the influence coefficients and of $\varepsilon_V$
+that the proofs do not use; and the source of the
 preprint version of this paper. The computations and the Lean, Python and shell checks were run with AI
 assistance (Claude Opus~5.5, Claude Fable~5.1 with Ultracode, GPT-6.1 Sol Ultra
 and GPT-6 Astra Ultra) under the direction of Deep Bhattacharjee. The first composite behind Theorem~\ref{thm:su2} was
@@ -4257,6 +4484,16 @@ theories. Phys. Rev. D \textbf{11}, 395--408 (1975).
 \bibitem{Lev03}
 L\'evy, T.: Yang--Mills measure on compact surfaces. Mem. Amer. Math. Soc. \textbf{166}(790) (2003). \href{https://doi.org/10.1090/memo/0790}{https://doi.org/10.1090/memo/0790}
 
+\bibitem{Lus10}
+M.~L\"uscher, Properties and uses of the Wilson flow in lattice QCD, J. High
+Energy Phys. \textbf{2010}, no.~8, 071,
+\href{https://doi.org/10.1007/JHEP08(2010)071}{doi:10.1007/JHEP08(2010)071}.
+
+\bibitem{LW11}
+M.~L\"uscher and P.~Weisz, Perturbative analysis of the gradient flow in
+non-abelian gauge theories, J. High Energy Phys. \textbf{2011}, no.~2, 051,
+\href{https://doi.org/10.1007/JHEP02(2011)051}{doi:10.1007/JHEP02(2011)051}.
+
 \bibitem{MRS93}
 Magnen, J., Rivasseau, V., S\'en\'eor, R.: Construction of YM$_4$ with an infrared cutoff. Commun. Math. Phys. \textbf{155}, 325--383 (1993). \href{https://doi.org/10.1007/BF02097397}{https://doi.org/10.1007/BF02097397}
 
@@ -4293,6 +4530,11 @@ Osterwalder, K., Seiler, E.: Gauge field theories on a lattice. Ann. Phys.
 
 \bibitem{SBG26}
 Samal, P., Bhattacharjee, D., Ghora, R.: Renormalization of spacetime dimension. Preprints (2026). \href{https://doi.org/10.20944/preprints202602.0531.v1}{https://doi.org/10.20944/preprints202602.0531.v1}
+
+\bibitem{SS23}
+K.~Sakai and S.~Sasaki, Glueball spectroscopy in lattice QCD using gradient
+flow, Phys. Rev. D \textbf{107} (2023), 034510,
+\href{https://doi.org/10.1103/PhysRevD.107.034510}{doi:10.1103/PhysRevD.107.034510}.
 
 \bibitem{Sei82}
 Seiler, E.: Gauge Theories as a Problem of Constructive Quantum Field

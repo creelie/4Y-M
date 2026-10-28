@@ -14,7 +14,13 @@ The line field sigma of the residue table has period two. The script checks:
   (d) the slow line: for each of the 48 line types, the four transverse
       plaquettes at each link have two active links each, off the line, not
       twists, and pairwise distinct over a stretch of the line;
-  (e) the exact arithmetic of the proofs.
+  (e) the exact arithmetic of the proofs;
+  (f) the proposition on the cube size: every active link of the cube is the
+      holonomy of a disc of at most m(m+1) plaquettes whose other boundary
+      links lie in F or outside the cube, each plaquette lies in at most
+      4n^2+2n discs (n = 2, 4, 6, 8), and the lattice Stokes inequality on
+      random configurations (n = 2, 4);
+  (g) the flux configuration of the remark on loops, in exact angles.
 Run: python3 cube_requirements.py
 """
 from collections import Counter
@@ -189,5 +195,126 @@ ok(all(r[k] == r[(10 - k) % 10] for k in range(10)), "palindrome")
 for k in range(10):
     h = [Fr(2 * r[k][i] - r[k - 1][i] - r[(k + 1) % 10][i], 2) for i in range(4)]
     ok(sum(t * t for t in h) <= 4, "field at most 2b")
+
+# (f) Proposition on the cube size: links as loops, multiplicity, Stokes
+import math, random
+
+def qm(a, b):
+    a0, a1, a2, a3 = a
+    b0, b1, b2, b3 = b
+    return (a0*b0 - a1*b1 - a2*b2 - a3*b3, a0*b1 + a1*b0 + a2*b3 - a3*b2,
+            a0*b2 - a1*b3 + a2*b0 + a3*b1, a0*b3 + a1*b2 - a2*b1 + a3*b0)
+
+def qc(a):
+    return (a[0], -a[1], -a[2], -a[3])
+
+def chord(a):  # delta(1, a) = sqrt(2 - Re Tr a), Re Tr a = 2 a_0
+    return math.sqrt(max(0.0, 2 - 2 * a[0]))
+
+ONE = (1.0, 0.0, 0.0, 0.0)
+
+def disc(e, n):
+    """The disc R(e) of the proof: its plaquettes (base, plane) and its boundary
+    as a list of (link, orientation) starting at x."""
+    x, mu = e
+    m = n // 2
+    y = move(x, mu)
+    s_, t_ = sigma(x), sigma(y)
+    def reach(z, d):
+        up, down = n - z[d], z[d] + 1
+        return (up, 1) if up <= m else (down, -1)
+    s, eps = reach(x, s_)
+    t, eps2 = reach(y, t_)
+    xp = move(x, s_, s * eps)
+    path, pts = [], [x]
+    def walk(d, k, sgn):
+        for _ in range(k):
+            z = pts[-1]
+            if sgn == 1:
+                path.append(((z, d), 1))
+            else:
+                path.append(((move(z, d, -1), d), -1))
+            pts.append(move(z, d, sgn))
+    walk(s_, s, eps)          # along the line of F through x
+    walk(mu, 1, 1)            # to x' + e_mu
+    walk(t_, t, eps2)         # along e_tau
+    walk(s_, s, -eps)         # along e_sigma
+    walk(t_, t, -eps2)        # back along the line of F through y
+    walk(mu, 1, -1)           # over e
+    plaq = set()
+    for a in range(s):
+        z = move(x, s_, eps * a if eps == 1 else -(a + 1))
+        plaq.add((z, frozenset((s_, mu))))
+        for c in range(t):
+            w = move(move(y, s_, eps * a if eps == 1 else -(a + 1)), t_,
+                     c if eps2 == 1 else -(c + 1))
+            plaq.add((w, frozenset((s_, t_))))
+    return s, t, path, pts, plaq
+
+for n in (2, 4, 6, 8):
+    m = n // 2
+    inside = lambda z: all(0 <= v < n for v in z)
+    V = [(x, mu) for x in product(range(n), repeat=4) for mu in range(4)
+         if active((x, mu))]
+    Vset = set(V)
+    ok(len(V) == 48 * m**4, f"|V| = 48 N_n, n={n}")
+    mult = Counter()
+    for e in V:
+        x, mu = e
+        ok(sigma(move(x, mu)) not in (mu, sigma(x)), "sigma, tau, mu distinct")
+        s, t, path, pts, plaq = disc(e, n)
+        ok(s <= m and t <= m and len(plaq) == s * (t + 1) <= m * (m + 1), "disc size")
+        ok(pts[-1] == x, "closed loop")
+        others = [l for l, _ in path[:-1]]
+        ok(path[-1][0] == e and e not in others, "e once")
+        ok(all(not active(l) or l not in Vset for l in others), "boundary off V")
+        for p in plaq:
+            mult[p] += 1
+    ok(max(mult.values()) <= 4 * n * n + 2 * n, f"multiplicity n={n}")
+    if n <= 4:
+        rng = random.Random(n)
+        U = {}
+        for e in V:
+            g = [rng.gauss(0, 1) for _ in range(4)]
+            r = math.sqrt(sum(v * v for v in g))
+            U[e] = tuple(v / r for v in g)
+        link = lambda l: U.get(l, ONE)
+        def pl(z, a, b):
+            return qm(qm(link((z, a)), link((move(z, a), b))),
+                      qm(qc(link((move(z, b), a))), qc(link((z, b)))))
+        for e in V:
+            s, t, path, pts, plaq = disc(e, n)
+            h = ONE
+            for l, o in path:
+                h = qm(h, link(l) if o == 1 else qc(link(l)))
+            ok(abs(chord(h) - chord(U[e])) < 1e-9, "holonomy is Q_e")
+            rhs = sum(chord(pl(z, *sorted(P))) for z, P in plaq)
+            ok(chord(h) <= rhs + 1e-9, "lattice Stokes")
+ok(Fr(4, 9) / 300 == Fr(1, 675), "675")
+ok(all(4 * n * n + 2 * n <= 5 * n * n for n in range(2, 50)), "4n^2+2n <= 5n^2")
+
+# (g) the flux configuration of the remark: angles in units of 2 pi / L^2
+for L in (4, 6, 8, 10, 12):
+    N = L * L
+    phi = 2
+    def ang(z, d):
+        z = tuple(v % L for v in z)
+        if d == 1:
+            return (phi * z[0]) % N
+        if d == 0 and z[0] == L - 1:
+            return (-phi * L * z[1]) % N
+        return 0
+    def pa(z, a, b):
+        return (ang(z, a) + ang(move(z, a), b) - ang(move(z, b), a) - ang(z, b)) % N
+    for z in product(range(L), repeat=2):
+        for a, b in combinations(range(4), 2):
+            zz = (z[0], z[1], 0, 0)
+            ok(pa(zz, a, b) == (phi if (a, b) == (0, 1) else 0), "flux plaquettes")
+    h, k = 0, L // 2
+    for i in range(k):
+        h += ang((i, 0, 0, 0), 0) + ang((k, i, 0, 0), 1) \
+            - ang((i, k, 0, 0), 0) - ang((0, i, 0, 0), 1)
+    ok(h % N == N // 2, "holonomy -1 on the square")
+    ok(phi * k * k == N // 2, "disc bound pi")
 
 print(f"all {checks} checks passed")
