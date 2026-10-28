@@ -101,7 +101,8 @@ results follow, proved by hand and not yet refereed (see
   at σ, and a one-slab bound on the transfer matrix would give the ratio
   (neither proved); for product test functions the packet ratio is
   squeezed between ratios of slice correlations D(r′)/D(r) at fixed physical
-  separations, which converge to a positive limit for the free field;
+  separations, which converge to a positive limit for the free field and
+  for two-dimensional SU(N) along its tuning (energies g²ℓC₂(λ)/2);
 - higher correlations: tree bounds on the truncated correlations give all
   n-point Schwinger functions as reflection-positive distributions along a
   subsequence, Gaussian if the tree weight has vanishing physical volume;

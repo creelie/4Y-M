@@ -664,7 +664,7 @@ for mu in (Fr(1, 3), Fr(1, 1), Fr(5, 2)):
 # (v) energy control from the order-two tree bounds, uniform local estimates, blocking:
 # finite differences, 1 - e^{-x} >= x/(1+x), log(1-x) >= -2x, the SU(2) one-link
 # constants, the Bessel majorant, and |Tr(T^2 M)| <= 1 for unit T and unitary M
-from scipy.special import iv
+from scipy.special import iv, ive
 from scipy.integrate import quad
 for m in (1, 2, 3):
     for a in (0.1, 0.01):
@@ -708,5 +708,37 @@ for N in (2, 3, 4):
         T -= np.trace(T) / N * np.eye(N); T /= math.sqrt(-np.trace(T @ T).real)
         M = np.linalg.qr(rng.normal(size=(N, N)) + 1j * rng.normal(size=(N, N)))[0]
         ok(abs(np.trace(T @ T @ M)) <= 1 + 1e-12, "|Tr(T^2 M)| <= 1")
+
+# (w) two-dimensional SU(N): the holonomy identity, chat_lambda = 1 - N C2/beta + O(beta^-2)
+# (SU(2) by Bessel functions, SU(3) fundamental and adjoint by Weyl integration), and the
+# energies -(ell/a^2) log chat_F -> g^2 ell C2/2 at beta = 2N/(g^2 a^2)
+def haar(N):
+    Z = (rng.normal(size=(N, N)) + 1j * rng.normal(size=(N, N))) / math.sqrt(2)
+    Q, R = np.linalg.qr(Z); Q = Q * (np.diag(R) / abs(np.diag(R)))
+    return Q / np.linalg.det(Q) ** (1 / N)
+for N in (2, 3):
+    for L in (2, 3, 5):
+        V = [haar(N) for _ in range(L)]; W = [haar(N) for _ in range(L)]
+        lhs = np.eye(N); rhs = np.eye(N); P = np.eye(N)
+        for x in range(L):
+            lhs = lhs @ (W[x] @ V[x]); rhs = rhs @ (P @ W[x] @ np.linalg.inv(P)); P = P @ V[x]
+        ok(np.allclose(lhs, rhs @ P), "holonomy identity")
+for beta in (400.0, 1600.0, 6400.0):
+    c = ive(2, beta) / ive(1, beta)
+    ok(abs(beta * (1 - c) / 2 - 0.75) < 1.0 / beta, "SU(2) chat")
+th = np.linspace(-np.pi, np.pi, 1600, endpoint=False)
+t1, t2 = np.meshgrid(th, th, indexing="ij"); t3 = -(t1 + t2)
+z = [np.exp(1j * t1), np.exp(1j * t2), np.exp(1j * t3)]
+vd = abs(z[0] - z[1]) ** 2 * abs(z[0] - z[2]) ** 2 * abs(z[1] - z[2]) ** 2
+chi = z[0] + z[1] + z[2]; retr = np.cos(t1) + np.cos(t2) + np.cos(t3)
+for beta in (800.0, 3200.0):
+    w = vd * np.exp(beta / 3 * (retr - 3)); w /= w.sum()
+    cF = float(np.sum(w * chi).real) / 3; cA = float(np.sum(w * (abs(chi) ** 2 - 1))) / 8
+    ok(abs(beta * (1 - cF) / 3 - 4 / 3) < 40 / beta and abs(beta * (1 - cA) / 3 - 3) < 80 / beta, "SU(3) chat")
+    ok(0 < cA < cF < 1, "SU(3) chat order")
+for a in (0.02, 0.01, 0.005):
+    beta = 4 / a ** 2
+    E = -math.log(ive(2, beta) / ive(1, beta)) / a ** 2
+    ok(abs(E - 0.375) < 0.4 * a, "SU(2) energy")
 
 print(f"all {checks} checks passed")
