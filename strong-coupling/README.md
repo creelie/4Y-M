@@ -92,7 +92,10 @@ results follow, proved by hand and not yet refereed (see
   exactly 1 when it is massless and bounded below 1 at a fixed physical scale
   when it has a mass;
 - smoothed observables: the continuum step holds after the spatial gradient
-  flow, which keeps reflection positivity and the transfer matrix.
+  flow, which keeps reflection positivity and the transfer matrix;
+- renormalised flowed observables: with one renormalisation condition they
+  have continuum limits along subsequences for every tuning, and a nontrivial
+  limit exists if and only if C(σ)/C(0) does not tend to zero (not proved).
 
 Checks in `prd/checks/` (the paper does not rely on them):
 
