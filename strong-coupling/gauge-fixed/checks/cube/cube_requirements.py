@@ -25,7 +25,11 @@ The line field sigma of the residue table has period two. The script checks:
   (i) the Gaussian benchmark: K_c = alpha_n(t) N_n for every residue class,
       alpha_n(0) = 1, and the bound for t > 0, in exact arithmetic;
   (j) the joint-cube transport route: a legal configuration where the weighted
-      curvature is negative once beta_W > 1/3.
+      curvature is negative once beta_W > 1/3;
+  (k) the four colours of the SU(2) proposition: the sets X_1, ..., X_4 are
+      unions of two pairs, every active link joins different sets, X_3 u X_4
+      is the colour set of (b), and the tetrahedral quaternions z_k have
+      <z_k, z_l> = -1/3 for k != l, in exact arithmetic.
 Run: python3 cube_requirements.py
 """
 from collections import Counter
@@ -295,8 +299,11 @@ for n in (2, 4, 6, 8):
             ok(abs(chord(h) - chord(U[e])) < 1e-9, "holonomy is Q_e")
             rhs = sum(chord(pl(z, *sorted(P))) for z, P in plaq)
             ok(chord(h) <= rhs + 1e-9, "lattice Stokes")
-ok(Fr(4, 9) / 300 == Fr(1, 675), "675")
-ok(all(4 * n * n + 2 * n <= 5 * n * n for n in range(2, 50)), "4n^2+2n <= 5n^2")
+for n in range(2, 60, 2):
+    m = n // 2
+    ok(m * (m + 1) * (4 * n * n + 2 * n) * 2 == n * n * (n + 2) * (2 * n + 1),
+       "m(m+1)(4n^2+2n) = n^2(n+2)(2n+1)/2")
+    ok((n + 2) * (2 * n + 1) <= 5 * n * n, "(n+2)(2n+1) <= 5n^2")
 
 # (g) the flux configuration of the remark: angles in units of 2 pi / L^2
 for L in (4, 6, 8, 10, 12):
@@ -387,5 +394,24 @@ for X in ((0, 1, 0, 0), (0, 0, 1, 0), (0, 0, 0, 1), (0, 0.6, 0, 0.8)):
         ok(abs(second + 6 * beta) < 1e-5, "second derivative -6 beta_W")
         ok((2 + second < 0) == (beta > 1 / 3 + 1e-12), "curvature sign at 1/3")
 ok(Fr(4, 29) < Fr(1, 3), "Bakry-Emery range 4/29 below the threshold 1/3")
+
+# (k) four colours for SU(2)
+XS = [{tuple(int(c) for c in w) for w in ws.split()} for ws in (
+    "0000 1000 0111 1111", "0001 0101 1010 1110",
+    "0010 0011 1100 1101", "0100 0110 1001 1011")]
+ok(sorted(r for X in XS for r in X) == sorted(SIG), "four sets partition the residues")
+colour = {r: k for k, X in enumerate(XS) for r in X}
+for X in XS:
+    ok(all(res(move(r, SIG[r])) in X for r in X), "union of pairs")
+for r in SIG:
+    for mu in range(4):
+        if mu != SIG[r]:
+            ok(colour[r] != colour[res(move(r, mu))], "active link joins different sets")
+ok(XS[2] | XS[3] == {tuple(int(c) for c in w) for w in
+   "0010 0011 0100 0110 1001 1011 1100 1101".split()}, "X3 u X4 is the colour set of (b)")
+Z = [(1, 1, 1), (1, -1, -1), (-1, 1, -1), (-1, -1, 1)]
+for k, l in combinations(range(4), 2):
+    ok(Fr(sum(a * b for a, b in zip(Z[k], Z[l])), 3) == Fr(-1, 3), "<z_k, z_l> = -1/3")
+ok(2 - 2 * Fr(-1, 3) == Fr(8, 3), "d_*^2 = 8/3")
 
 print(f"all {checks} checks passed")
