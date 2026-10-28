@@ -156,7 +156,12 @@ stationary flux configuration, every plaquette within 4π/L² of the identity
 and a loop of side L/2 with holonomy −1, shows that the n² lost there is of
 the right order. The continuum step also holds for observables smoothed by the
 spatial gradient flow of Sakai and Sasaki, which is reflection positive and
-leaves the transfer matrix unchanged up to unitary equivalence. At every n
+leaves the transfer matrix unchanged up to unitary equivalence. Renormalised
+by one condition at a single physical separation, these flowed fields have
+continuum limits along subsequences for every tuning (Theorem "renormalised
+flowed observables"), and a nontrivial limit exists if and only if the ratio
+C(σ)/C(0) of their lattice two-point functions at a fixed physical separation
+and at contact does not tend to zero; that ratio condition is not proved. At every n
 the mean distance of the gauge-fixed links from the identity is at least
 (1/9)·max(6β_W, 1)^(−1/2). For a Gaussian field the averaged cube coefficient
 is exactly 1 at every size when the field is massless, and below
