@@ -98,7 +98,12 @@ SU(N) lattice gauge theory on a circle of length ℓ with β = 2N/(g²a²), wher
 the energies −(ℓ/a²) log ĉ_λ(β) converge to g²ℓC₂(λ)/2 (Remark "two
 dimensions"); in two dimensions there is no ultraviolet problem, and the
 spatial flow alone does not give the inequality (a free field of mass M_k with
-aM_k fixed has ratio → 0 under the same flow). Every bound proved on such
+aM_k fixed has ratio → 0 under the same flow). For the free field,
+conditioning an energy packet on the averages over blocks of side two leaves
+at least the fraction 2^(−d)d^(−2) of its variance, at every lattice spacing
+(Proposition "block averages of the free field"), so a route that replaces
+the packet by conditional expectations on block averages has to measure its
+errors in the reflected norm C(0), not in L². Every bound proved on such
 ratios is an upper bound. Tree bounds on the truncated correlations of the
 flowed fields (T1)–(T3) give uniformly bounded higher correlations, all
 n-point Schwinger functions as reflection-positive distributions along a
