@@ -99,3 +99,20 @@ massless, so D(n, α) fails for every α < 1, while a mass m gives D(n, α) at
 a fixed physical scale. A proof of (D) along the tuning therefore has to
 produce in the forest-gauge variables the loss that a mass supplies there,
 from the Wilson action alone.
+
+A further route that stops: joint-cube transport. Moving one boundary link j
+along a geodesic changes the conditional cube measure μ_t ∝ e^{−H_t}, and
+d/dt E_t f = −Cov_t(f, Ḣ_t) exactly, for all noncommuting links of the cube.
+Solving the weighted Poisson equation L_t ψ = Ḣ_t − E_t Ḣ_t on G^V (L_t the
+Langevin generator of μ_t) gives the transport field ∇ψ, and W1 is at most
+∫ E_t Σ_e |∇_e ψ| dt. Two losses stop it. A Poincaré constant λ controls only
+the ℓ² norm, E|∇ψ|² ≤ λ^{−1}‖Ḣ‖², so passing to the ℓ¹ distance d_V costs
+|V|^{1/2}; avoiding that loss needs the decay of ∇_e ψ away from j, which is
+the content of (D) itself. And λ cannot be bounded uniformly by curvature:
+at the legal configuration U_j = −1 with every other link 1, the six
+plaquettes through j have holonomy −1 and the weighted curvature in the
+direction of j is 2 − 6β_W (unit S³), negative for β_W > 1/3 at every cube
+size (check (j) of `cube_requirements.py`). The Bakry–Émery range β_W < 4/29
+of the paper lies below that threshold. For the Gaussian benchmark the
+Poincaré constant is of order β/n², while this route needs order β²n², so
+even the quadratic approximation is out of its reach.
