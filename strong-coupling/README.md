@@ -104,7 +104,9 @@ results follow, proved by hand and not yet refereed (see
   separations, which converge to a positive limit for the free field;
 - higher correlations: tree bounds on the truncated correlations give all
   n-point Schwinger functions as reflection-positive distributions along a
-  subsequence, Gaussian if the tree weight has vanishing physical volume
+  subsequence, Gaussian if the tree weight has vanishing physical volume;
+  with amplitude scales they also give a time semigroup, the ratio bound
+  C(σ)/C(0) ≥ 1/2 and, with (D), the gap for every polynomial in the fields
   (the tree bounds are not proved along the continuum tuning);
 - the cube size for every SU(N): n⁴ ≥ 2(1−α) β_W/(5 L_N(β_W)) with
   L_N(b) = 1 + ((N²−1)/2) log(81π²b) + N(N−1) log(12/11).
