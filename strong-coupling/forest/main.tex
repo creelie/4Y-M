@@ -117,7 +117,7 @@ smoothed observables, and
 complete proofs of the results earlier taken from our first paper. The
 \LaTeX{} source, the checks and the Lean certificate are in
 \href{https://github.com/creelie/4Y-M}{github.com/creelie/4Y-M}, release
-v3.9.0.}
+v3.10.0.}
 \endgroup
 \addtocounter{footnote}{-2}
 
@@ -3034,6 +3034,71 @@ the second. As $\delta\le2$, $\delta\ge\delta^2/2$, and the bound on
 $\varepsilon_V$ follows.
 \end{proof}
 
+The four colours need nothing from $\SU(2)$ except four elements whose
+pairwise quotients are conjugate, and every compact simple group contains
+such elements. For a metric that comes from a representation the bound then
+compares the cube with Haar measure.
+
+\begin{proposition}\label{prop:fourcolours}
+Let $G$ be a compact simple group, $\rho$ a nontrivial irreducible unitary
+representation of $G$ of dimension $d$, and $\delta(p,q)=\kappa^{-1/2}\|\rho(p)
+-\rho(q)\|_{\mathrm{HS}}$ for some $\kappa>0$. Let $n$ be even, $V$ the cube of
+Definition~\ref{def:cube}, and suppose that $D(n,\alpha)$ holds at $\beta$.
+Then
+\[
+\frac1{|V|}\sum_{i\in V}\Bigl|\int\Tr\rho(Q_i)\,d\gamma^1_V\Bigr|\le
+\alpha\,d,
+\]
+\[
+\frac1{|V|}\sum_{i\in V}\int\delta(1,Q_i)^2\,d\gamma^1_V\ge(1-\alpha)
+\int_G\delta(1,q)^2\,dq ,
+\]
+where $dq$ is Haar measure, and $\varepsilon_V(\beta)\ge(1-\alpha)D/2$.
+\end{proposition}
+
+\begin{proof}
+\emph{Four elements.} Let $\varphi\colon\SU(2)\to G$ be the homomorphism of
+the $\SU(2)$ subgroup of a root, and $z_1,\dots,z_4$ the tetrahedral
+quaternions of Proposition~\ref{prop:tetra}. For $k\ne l$ the quaternion
+$z_kz_l^{-1}$ has real part $\langle z_k,z_l\rangle=-\frac13$; unit
+quaternions with equal real parts are conjugate in $\SU(2)$, so the twelve
+elements $\varphi(z_kz_l^{-1})$ are conjugate in $G$, and by bi-invariance
+$\delta(\varphi(z_k),\varphi(z_l))=d_*$ for all $k\ne l$, with one number
+$d_*$. If $d_*=0$, then $\varphi(z_kz_l^{-1})$ lies in $\ker\rho$, a proper
+normal subgroup of the simple group $G$ and therefore central; it then
+commutes with $\varphi(\SU(2))$, so it is central there, and $z_kz_l^{-1}$
+lies in $\{\pm1\}\ker\varphi\subset\{\pm1\}$, which its real part $-\frac13$
+excludes. So $d_*>0$.
+
+\emph{The two bounds.} Put $g(x)=\varphi(z_k)$ when the residue of $x$ lies
+in $X_k$. The proof of Proposition~\ref{prop:tetra} applies word for word:
+$Q^g$ equals $1$ on $F$ and on every plaquette, $\delta(1,Q^g_e)=d_*$ on
+every active link, and $W_1^{d_V}(\gamma^1_V,\gamma_V(\cdot\mid Q^g))\le
+\alpha d_*|V|$. Simultaneous conjugation of the links of $V$ preserves
+$\gamma^1_V$, so the mean $\int\rho(Q_i)\,d\gamma^1_V$ commutes with
+$\rho(G)$, and by Schur's lemma it is $c_iI$ with $c_i=d^{-1}\int\Tr\rho(Q_i)
+\,d\gamma^1_V$. Its mean under $\gamma_V(\cdot\mid Q^g)$ is $c_i\rho(Q^g_i)$.
+With matrices $W_i$ of Hilbert--Schmidt norm $\kappa^{-1/2}$ chosen so that
+$\operatorname{Re}\Tr(W_i^*c_i(\rho(Q^g_i)-I))=|c_i|\,\delta(1,Q^g_i)$, the
+function $f(Q)=\sum_i\operatorname{Re}\Tr(W_i^*\rho(Q_i))$ is $1$-Lipschitz
+for $d_V$, and Kantorovich duality gives $W_1^{d_V}\ge d_*\sum_i|c_i|$.
+Hence $\sum_i|c_i|\le\alpha|V|$, the first inequality.
+
+\emph{Comparison with Haar measure.} Since $\kappa\,\delta(1,q)^2=2d-2
+\operatorname{Re}\Tr\rho(q)$ and $\int_G\Tr\rho(q)\,dq=0$ for a nontrivial
+irreducible $\rho$, $\int_G\delta(1,q)^2dq=2d/\kappa$, while $\int\delta(1,
+Q_i)^2d\gamma^1_V=2d(1-\operatorname{Re}c_i)/\kappa\ge2d(1-|c_i|)/\kappa$.
+Averaging gives the second inequality. Finally $\kappa D^2\le4d$, because
+$\|\rho(p)-\rho(q)\|_{\mathrm{HS}}\le2\sqrt d$, so $\delta\ge\delta^2/D$
+gives $\varepsilon_V\ge2d(1-\alpha)/(\kappa D)\ge(1-\alpha)D/2$.
+\end{proof}
+
+For $\SU(N)$ with the Hilbert--Schmidt distance this improves the constant
+$\frac13$ of Theorem~\ref{thm:cubeneeds} to $\frac12$, and for $\SU(3)$, where
+$D^2=9$ and the Haar mean of $\delta^2$ is $6$, to $\frac23$: in a cube with
+the identity outside, $D(n,\alpha)$ leaves the gauge-fixed links at least the
+fraction $1-\alpha$ of the disorder of independent Haar-distributed links.
+
 The size $\beta_0(n,\alpha)$ in Corollary~\ref{cor:cubefails} comes from a
 compactness argument. For $\SU(2)$ it can be made explicit, and then reads as
 a lower bound on the side of any cube that satisfies the condition.
@@ -3355,8 +3420,8 @@ Appendix~\ref{app:plaqblocks} for the plaquette blocks, with the
 floating-point search of Remark~\ref{rem:blockgap}; and an exact computation of the curvatures of
 Table~\ref{tab:groups} from the root systems; and exact checks of the finite
 counts, of the discs and of the Gaussian benchmark of Sec.~\ref{ssec:cubeneeds}, with Monte Carlo
-estimates of the influence coefficients and of $\varepsilon_V$ that the proofs do not use. This paper accompanies release v3.9.0 of the archive,
-\url{https://github.com/creelie/4y-m/releases/tag/v3.9.0}. The PDF of this paper is at
+estimates of the influence coefficients and of $\varepsilon_V$ that the proofs do not use. This paper accompanies release v3.10.0 of the archive,
+\url{https://github.com/creelie/4y-m/releases/tag/v3.10.0}. The PDF of this paper is at
 \url{https://github.com/creelie/4Y-M/blob/main/preprintYangMillsForestGauge/YangMillsForestGauge.pdf}.
 The computations and the Lean, Python and shell checks were run with AI
 assistance (Claude Opus~5.5, Claude Fable~5.1 with Ultracode, GPT-6.1 Sol Ultra
