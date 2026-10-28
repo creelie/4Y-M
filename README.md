@@ -21,7 +21,7 @@ resolves to the latest release.
 | v3.3.1 | [10.5281/zenodo.23490028](https://doi.org/10.5281/zenodo.23490028) |
 | v3.4.0 | [10.5281/zenodo.23541099](https://doi.org/10.5281/zenodo.23541099) |
 | v3.5.0 | [10.5281/zenodo.23711288](https://doi.org/10.5281/zenodo.23711288) |
-| v3.6.0 | recorded after release |
+| v3.6.0 | [10.5281/zenodo.23717210](https://doi.org/10.5281/zenodo.23717210) |
 
 `YangMills_masterzipfinal2.zip` holds the repository at v3.6.0 and the
 Hexagon package of the paper *Mass Gap of Four-Dimensional Lattice
