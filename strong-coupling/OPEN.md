@@ -93,7 +93,12 @@ correlations D(r) of the spatially smeared slice field at two fixed physical
 separations, so the open estimate is liminf D(r′)/D(r) > 0 for one pair
 r < r′ with r ≤ 2t₀ (Proposition "slice ratio"; a bound at a later pair only
 covers a packet shifted forward in time); it holds for the free field (limit
-0.6337 at the parameters of Remark "free slice"). Every bound proved on such
+0.6337 at the parameters of Remark "free slice") and for two-dimensional
+SU(N) lattice gauge theory on a circle of length ℓ with β = 2N/(g²a²), where
+the energies −(ℓ/a²) log ĉ_λ(β) converge to g²ℓC₂(λ)/2 (Remark "two
+dimensions"); in two dimensions there is no ultraviolet problem, and the
+spatial flow alone does not give the inequality (a free field of mass M_k with
+aM_k fixed has ratio → 0 under the same flow). Every bound proved on such
 ratios is an upper bound. Tree bounds on the truncated correlations of the
 flowed fields (T1)–(T3) give uniformly bounded higher correlations, all
 n-point Schwinger functions as reflection-positive distributions along a

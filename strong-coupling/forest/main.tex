@@ -89,15 +89,15 @@ West Bengal, India}
 
 \begin{abstract}
 \itshape
-We fix the gauge of four-dimensional lattice Yang--Mills theory on lines
-that meet every plaquette once, so that each free link interacts with twelve
-others. For every compact simple gauge group the theory then has a unique
-infinite-volume state, exponential clustering and an explicit mass gap at
-fixed lattice spacing, past the curvature limit of the ungauged theory; for
-SU(2) and SU(3) the ranges reach $\beta_W\le0.345$ and $\beta_W\le0.76$.
-A mass gap in physical units for every continuum limit follows from one
-estimate of Dobrushin--Shlosman type in a cube of fixed physical size; that
-estimate and the existence of the limit remain open. The estimate holds at strong coupling, forces the gauge-fixed variables to be disordered at the scale of the cube, and for SU(N) needs a cube of side at least of order $(\beta_W/\log\beta_W)^{1/4}$.
+We prove that four-dimensional lattice Yang--Mills theory with any compact
+simple gauge group has a unique infinite-volume state, exponential clustering
+and an explicit mass gap at fixed lattice spacing, past the curvature limit of
+the ungauged theory; for SU(2) and SU(3) the ranges reach $\beta_W\le0.345$
+and $\beta_W\le0.76$. The proof fixes the gauge on lines that meet every
+plaquette once, so that each free link interacts with twelve others. We also
+prove that one estimate of Dobrushin--Shlosman type in a cube of fixed
+physical size gives a mass gap in physical units for every continuum limit;
+that estimate and the existence of the limit remain open. The estimate holds at strong coupling, forces the gauge-fixed variables to be disordered at the scale of the cube, and for SU(N) needs a cube of side at least of order $(\beta_W/\log\beta_W)^{1/4}$.
 \end{abstract}
 
 \maketitle
@@ -117,7 +117,7 @@ smoothed observables, and
 complete proofs of the results earlier taken from our first paper. The
 \LaTeX{} source, the checks and the Lean certificate are in
 \href{https://github.com/creelie/4Y-M}{github.com/creelie/4Y-M}, release
-v3.17.0.}
+v3.18.0.}
 \endgroup
 \addtocounter{footnote}{-2}
 
@@ -2963,6 +2963,68 @@ corresponding positive ratio of continuum integrals; for $h=e^{-|x|^2}$,
 $t_f=0.05$, $r=\frac12$ and $r'=1$ it is $0.6337$.
 \end{remark}
 
+\begin{remark}\label{rem:twodslice}
+The inequality also holds along the right tuning in two-dimensional $\SU(N)$
+lattice gauge theory, which is interacting and nonabelian but has no
+propagating gluons. Take the lattice $a_k\Z\times a_k\Z_{L_k}$ with
+$a_kL_k=\ell$ fixed, the weight $\prod_p\exp(\frac{\beta_k}N\ReTr U_p)$ with
+$\beta_k=2N/(g^2a_k^2)$, and the temporal gauge. A gauge-invariant function
+of the links of one slice depends only on the conjugacy class of their
+holonomy $V$ around the circle; this includes every spatially flowed and
+spatially smeared slice field, since the flow is gauge covariant. Let
+$w_\beta$ be the probability density proportional to
+$e^{\frac\beta N\ReTr U}$ with respect to Haar measure and, for an irreducible
+representation $\lambda$ of dimension $d_\lambda$ and character
+$\chi_\lambda$, $\hat c_\lambda(\beta)=d_\lambda^{-1}\int\chi_\lambda
+w_\beta\,dU$. Between two slices put $W_x=V'_xV_x^{-1}$; the $W_x$ are
+independent with density $w_{\beta_k}$, which is invariant under conjugation
+and inversion, and
+\[
+\begin{split}
+V'_1\cdots V'_{L}&=W_1\,(V_1W_2V_1^{-1})\cdots\\
+&\quad\cdots(V_1\cdots V_{L-1}W_{L}(V_1\cdots V_{L-1})^{-1})\,V_1\cdots V_{L},
+\end{split}
+\]
+so the new holonomy is $QV$ with $Q$ distributed as the $L_k$-fold
+convolution of $w_{\beta_k}$, independent of $V$. By Schur's lemma the
+transfer matrix acts on class functions by $\chi_\lambda\mapsto\hat
+c_\lambda(\beta_k)^{L_k}\chi_\lambda$. The coefficients are real, since
+$w_\beta$ is invariant under $U\mapsto\bar U$, nonnegative, since the
+exponential of $\frac\beta{2N}(\chi_{\mathrm F}+\bar\chi_{\mathrm F})$ is a sum of
+characters with nonnegative coefficients, and below $1$ for
+$\lambda\ne0$. For a class function $f$ with $\int f\,dU=0$ and isotypic
+components of norms $|\hat f_\lambda|$, the slice correlation is therefore
+\[
+D_k(r)=\sum_{\lambda\ne0}|\hat f_\lambda|^2e^{-rE_{\lambda,k}},\qquad
+E_{\lambda,k}=-\frac{\ell}{a_k^2}\log\hat c_\lambda(\beta_k).
+\]
+Laplace's method at the unique maximum $U=1$ of $\ReTr U$, with
+$U=e^X$, $\ReTr e^X=N+\frac12\operatorname{Tr}X^2+O(|X|^4)$,
+$\operatorname{Re}\operatorname{Tr}X^3=0$, $\operatorname{Tr}\rho_\lambda(X)=0$
+and $\sum_a\rho_\lambda(T_a)^2=-2C_2(\lambda)$ for an orthonormal basis of
+$\mathfrak{su}(N)$ in the norm $-\operatorname{Tr}X^2$, gives $\hat
+c_\lambda(\beta)=1-NC_2(\lambda)/\beta+O(\beta^{-2})$, with the Casimir
+normalised by $C_2=(N^2-1)/(2N)$ on the fundamental representation. Hence
+$E_{\lambda,k}\to g^2\ell C_2(\lambda)/2$, and since $D_k(r)\le\|f\|^2$,
+\[
+\liminf_k\frac{D_k(r')}{D_k(r)}\ge\frac{|\hat f_\mu|^2}{\|f\|^2}
+e^{-r'g^2\ell C_2(\mu)/2}>0
+\]
+for every $\mu\ne0$ with $\hat f_\mu\ne0$; for $f=\ReTr V$ the ratio is
+exactly $e^{-(r'-r)E_{\mathrm F,k}}\to e^{-(r'-r)g^2\ell(N^2-1)/(4N)}$. This
+is the exact solution of two-dimensional lattice gauge theory, whose
+continuum limit is the measure of~\cite{GKS89,Dri89,Lev03}, written as
+the inequality. In two dimensions $g^2$ has the dimension of a mass squared
+and there is no ultraviolet problem, so this does not suggest a method in four
+dimensions. Nor does the spatial flow give the inequality by itself: it damps
+the spectral weight at large spatial momentum and leaves the weight at zero
+spatial momentum unchanged. For the free lattice field of
+Remark~\ref{rem:freeslice} with a mass $M_k$ and the same flow, every energy
+is at least $m_k=a_k^{-1}\operatorname{arccosh}(1+a_k^2M_k^2/2)$, so
+$D_k(r')\le e^{-m_k(r'-r)}D_k(r)$, which tends to zero relative to $D_k(r)$
+when $a_kM_k$ is fixed.
+\end{remark}
+
 \subsection{Higher correlations}\label{ssec:higher}
 
 Theorem~\ref{thm:flowlimit} controls two renormalised fields at a time, and
@@ -4532,8 +4594,8 @@ Appendix~\ref{app:plaqblocks} for the plaquette blocks, with the
 floating-point search of Remark~\ref{rem:blockgap}; and an exact computation of the curvatures of
 Table~\ref{tab:groups} from the root systems; and exact checks of the finite
 counts, of the discs and of the Gaussian benchmark of Sec.~\ref{ssec:cubeneeds}, with Monte Carlo
-estimates of the influence coefficients and of $\varepsilon_V$ that the proofs do not use. This paper accompanies release v3.17.0 of the archive,
-\url{https://github.com/creelie/4y-m/releases/tag/v3.17.0}. The PDF of this paper is at
+estimates of the influence coefficients and of $\varepsilon_V$ that the proofs do not use. This paper accompanies release v3.18.0 of the archive,
+\url{https://github.com/creelie/4y-m/releases/tag/v3.18.0}. The PDF of this paper is at
 \url{https://github.com/creelie/4Y-M/blob/main/preprintYangMillsForestGauge/YangMillsForestGauge.pdf}.
 The computations and the Lean, Python and shell checks were run with AI
 assistance (Claude Opus~5.5, Claude Fable~5.1 with Ultracode, GPT-6.1 Sol Ultra
