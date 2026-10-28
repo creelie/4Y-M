@@ -83,8 +83,11 @@ results follow, proved by hand and not yet refereed (see
   identity (so it fails at every fixed cube size at large β), and cannot come
   from single-line bounds uniform in the exterior (an SU(2) line with gap
   e^(−b/1280) up to powers of b); for SU(2) it needs
-  n⁴ ≥ (1−α)² β_W/(675 L(β_W)), and the n² lost in that bound is of the right
+  n⁴ ≥ 2(1−α) β_W/(5 L(β_W)), and the n² lost in that bound is of the right
   order (a stationary flux configuration);
+- the quadratic approximation of the forest gauge: the Gaussian field of the
+  Wilson action with the forest links fixed has class sums of cube
+  coefficients at least the cube size, so (D) fails there at every n;
 - a Gaussian benchmark: the averaged cube coefficient of a Gaussian field is
   exactly 1 when it is massless and bounded below 1 at a fixed physical scale
   when it has a mass;

@@ -138,13 +138,14 @@ nontrivial Osterwalder–Schrader limit.
 coupling for every even n above an explicit size (for SU(2),
 α = β_W/(1−3β_W)·(5/n − 2/n²)); if D(n, α) holds, then in the cube with the
 identity outside the gauge-fixed links stay on average at distance at least
-(1−α)D/3 from the identity, so for every fixed n the condition fails once β is
-large; and for SU(2) there is an exterior, legal at every coupling, under
+(1−α)D/3 from the identity (for SU(2), by four colours and tetrahedral
+quaternions, at mean distance at least 1−α), so for every fixed n the
+condition fails once β is large; and for SU(2) there is an exterior, legal at every coupling, under
 which the conditional law of one line of links has a ten-step gap at most
 e^20 24^10 b^15 e^(−b/1280), so (D) cannot come from bounds on single lines
 that are uniform in the exterior. None of this decides (D) along the
 continuum tuning, where n grows with β. For SU(2) the condition needs
-n⁴ ≥ (1−α)² β_W/(675 L(β_W)), L(b) = 1 + log 24 + (3/2) log 9b: every
+n⁴ ≥ 2(1−α) β_W/(5 L(β_W)), L(b) = 1 + log 24 + (3/2) log 9b: every
 gauge-fixed link is the holonomy of a disc of at most (n/2)(n/2+1) plaquettes,
 and a lattice Stokes inequality with the energy bound gives the size. A
 stationary flux configuration, every plaquette within 4π/L² of the identity
