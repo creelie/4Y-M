@@ -49,7 +49,7 @@ units remain open. `OPEN.md` records what is known of each.
 `forest/main.tex` is the paper "Mass Gap of Four-Dimensional Lattice
 Yang–Mills Theory for Every Compact Simple Gauge Group" by Deep
 Bhattacharjee, Ushashi Bhattacharya and James Montgomery Lockwood (REVTeX
-4-2, two columns, 33 pages), compiled as
+4-2, two columns, 36 pages), compiled as
 `preprintYangMillsForestGauge/YangMillsForestGauge.pdf` in the repository
 root; `forest/cmp/main.tex` is the same paper in the AMS article class (50
 pages). Its figures are written by `forest/figures/make_figures.py`. The
@@ -78,6 +78,11 @@ results follow, proved by hand and not yet refereed (see
 - conditional: a Dobrushin–Shlosman condition on one cube of fixed physical
   size, uniform along the continuum tuning, gives a mass gap for every
   continuum limit; the cube estimate and the existence of the limit are open.
+- what (D) requires: it holds at strong coupling, forces the gauge-fixed links
+  of a cube with trivial exterior to stay a fixed mean distance from the
+  identity (so it fails at every fixed cube size at large β), and cannot come
+  from single-line bounds uniform in the exterior (an SU(2) line with gap
+  e^(−b/1280) up to powers of b).
 
 Checks in `prd/checks/` (the paper does not rely on them):
 
