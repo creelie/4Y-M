@@ -20,7 +20,8 @@ The line field sigma of the residue table has period two. The script checks:
       links lie in F or outside the cube, each plaquette lies in at most
       4n^2+2n discs (n = 2, 4, 6, 8), and the lattice Stokes inequality on
       random configurations (n = 2, 4);
-  (g) the flux configuration of the remark on loops, in exact angles.
+  (g) the flux configuration of the remark on loops, in exact angles;
+  (h) the arithmetic of the lower bound on eps_V.
 Run: python3 cube_requirements.py
 """
 from collections import Counter
@@ -316,5 +317,10 @@ for L in (4, 6, 8, 10, 12):
             - ang((i, k, 0, 0), 0) - ang((0, i, 0, 0), 1)
     ok(h % N == N // 2, "holonomy -1 on the square")
     ok(phi * k * k == N // 2, "disc bound pi")
+
+# (h) the lower bound on eps_V: 2 e^(1/2) pi^2 (2/9)^3 < 1/2, with e < 2.7183
+#     (so e^(1/2) < 1.6488) and pi < 3.1416
+ok(Fr(16488, 10000) ** 2 > Fr(27183, 10000), "sqrt(e) < 1.6488")
+ok(2 * Fr(16488, 10000) * Fr(31416, 10000) ** 2 * Fr(2, 9) ** 3 < Fr(1, 2), "small ball")
 
 print(f"all {checks} checks passed")
