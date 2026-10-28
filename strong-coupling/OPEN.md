@@ -87,8 +87,20 @@ functions (strictly positive transfer matrix); the ratio is untouched. C(0)
 is the reflected norm of the smeared packet, not a point coincidence (for the
 free massless field the point ratio tends to zero). A lower bound on the ratio
 gives tight spectral measures after renormalising at σ (Proposition "shifted
-renormalisation"), and ⟨Ψ, (1−T)Ψ⟩ ≤ Ca for one slab would give the ratio; the
-open estimate is that one-slab bound, an upper bound on a Dirichlet form.
+renormalisation"), and ⟨Ψ, (1−T)Ψ⟩ ≤ Ca for one slab would give the ratio. For
+product test functions g ⊗ h the packet ratio lies between ratios of the
+correlations D(r) of the spatially smeared slice field at two fixed physical
+separations, so the open estimate is liminf D(r′)/D(r) > 0 for one pair
+r < r′ (Proposition "slice ratio"); it holds for the free field (limit
+0.6337 at the parameters of Remark "free slice"). Every bound proved on such
+ratios is an upper bound. Tree bounds on the truncated correlations of the
+flowed fields (T1)–(T3) give uniformly bounded higher correlations, all
+n-point Schwinger functions as reflection-positive distributions along a
+subsequence, and a Gaussian limit when the physical volume of the tree weight
+tends to zero (Theorem "higher correlations"); (T1)–(T3) are not proved along
+the continuum tuning. A three-state reflection-positive chain with a fixed gap
+and a cutoff-independent two-point function has divergent four-point
+functions, so the two-point function alone cannot replace them.
 
 Monte Carlo (not used by any proof; `gauge-fixed/checks/cube/eps_mc.py`,
 heat bath, four chains, 300 + 300 sweeps): the mean distance ε_V of the

@@ -171,7 +171,14 @@ coincidence would not do: it tends to zero for the free massless field); that
 ratio condition is not proved. If the ratio is bounded below, renormalising at
 separation σ gives tight spectral measures with explicit tail and moment
 bounds, and a one-slab bound ⟨Ψ, (1−T)Ψ⟩ ≤ Ca on the transfer matrix would give
-the ratio bound; neither is proved for Yang–Mills. In a
+the ratio bound; neither is proved for Yang–Mills. For product test functions
+the ratio lies between ratios of correlations of one spatially smeared slice
+field at two fixed physical separations, so what is open is a lower bound
+liminf D(r′)/D(r) > 0 for one pair r < r′; it holds for the free field. Tree
+bounds on the truncated correlations of the flowed fields give all n-point
+Schwinger functions as reflection-positive distributions along a
+subsequence (Theorem "higher correlations"); they are not proved along the
+continuum tuning. In a
 periodic spatial box the normalising reflected norm C(0) is strictly positive
 for product test functions, by Lüscher's strictly positive transfer matrix. At every n
 the mean distance of the gauge-fixed links from the identity is at least
