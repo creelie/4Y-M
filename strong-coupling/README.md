@@ -107,7 +107,10 @@ results follow, proved by hand and not yet refereed (see
   subsequence, Gaussian if the tree weight has vanishing physical volume;
   with amplitude scales they also give a time semigroup, the ratio bound
   C(σ)/C(0) ≥ 1/2 and, with (D), the gap for every polynomial in the fields
-  (the tree bounds are not proved along the continuum tuning);
+  (the tree bounds are not proved along the continuum tuning); their
+  order-two cases force the lattice gap m_k ≤ a_k log 2/σ and put a fixed
+  fraction of the tree weight at physical time distance 2t₀, so they fail at
+  every fixed strong coupling;
 - the cube size for every SU(N): n⁴ ≥ 2(1−α) β_W/(5 L_N(β_W)) with
   L_N(b) = 1 + ((N²−1)/2) log(81π²b) + N(N−1) log(12/11).
 

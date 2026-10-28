@@ -180,7 +180,10 @@ liminf D(r′)/D(r) > 0 for one pair r < r′; it holds for the free field. Tree
 bounds on the truncated correlations of the flowed fields give all n-point
 Schwinger functions as reflection-positive distributions along a
 subsequence, a time semigroup and the ratio bound itself (Theorem "higher
-correlations"); they are not proved along the continuum tuning. In a
+correlations"); they are not proved along the continuum tuning, and their
+order-two cases force the lattice gap below a fixed multiple of the lattice
+spacing, so they fail at every fixed strong coupling and no strong coupling
+expansion can give them (Proposition "tree bounds are critical"). In a
 periodic spatial box the normalising reflected norm C(0) is strictly positive
 for product test functions, by Lüscher's strictly positive transfer matrix. At every n
 the mean distance of the gauge-fixed links from the identity is at least
