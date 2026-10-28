@@ -47,7 +47,13 @@ The line field sigma of the residue table has period two. The script checks:
   (o) the remarks on the flowed ratio: the free massless covariance with
       spatial cutoff Lambda at time t and at coincidence (radial quadrature),
       and the bounds of the proposition on shifted renormalisation on random
-      discrete spectral measures (tail, moments, Lipschitz, Jensen, slab tail).
+      discrete spectral measures (tail, moments, Lipschitz, Jensen, slab tail);
+  (w) two-dimensional SU(N): the holonomy identity and the expansion of the
+      character coefficients;
+  (x) the proposition on block averages of the free field: the exact
+      conditional variance E Var(F | block averages) of a quadratic packet
+      against 2 sigma^4 sum alpha_B^2, and Var F against 2 d^2 sum f^2, on
+      periodic boxes in two and three dimensions.
 Run: python3 cube_requirements.py
 """
 from collections import Counter
@@ -740,5 +746,47 @@ for a in (0.02, 0.01, 0.005):
     beta = 4 / a ** 2
     E = -math.log(ive(2, beta) / ive(1, beta)) / a ** 2
     ok(abs(E - 0.375) < 0.4 * a, "SU(2) energy")
+
+# (x) block averages of the free field: E Var(F|B) >= 2 sigma^4 sum alpha_B^2 and
+# Var F <= 2 d^2 sum f^2, exactly by Gaussian traces
+def free_block_check(shape, mu, fvals, blocks):
+    d = len(shape); sites = list(product(*[range(n) for n in shape])); idx = {x: i for i, x in enumerate(sites)}
+    n = len(sites)
+    def mv(x, nu, s):
+        y = list(x); y[nu] = (y[nu] + s) % shape[nu]; return tuple(y)
+    P = np.zeros((n, n))
+    for x in sites:
+        P[idx[x], idx[x]] += 2 * d + mu ** 2
+        for nu in range(d):
+            for s_ in (1, -1):
+                P[idx[x], idx[mv(x, nu, s_)]] -= 1
+    C = np.linalg.inv(P)
+    A = np.zeros((n, n))
+    for x in sites:
+        for nu in range(d):
+            g = np.zeros(n); g[idx[mv(x, nu, 1)]] += 1; g[idx[x]] -= 1
+            A += fvals[idx[x]] * np.outer(g, g)
+    K = np.zeros((len(blocks), n))
+    for b, z in enumerate(blocks):
+        for e in product((0, 1), repeat=d):
+            K[b, idx[tuple((2 * z[i] + e[i]) % shape[i] for i in range(d))]] = 2.0 ** -d
+    Cc = C - C @ K.T @ np.linalg.solve(K @ C @ K.T, K @ C)
+    evar = 2 * np.trace(A @ Cc @ A @ Cc) + 4 * np.trace(A @ Cc @ A @ (C - Cc))
+    var = 2 * np.trace(A @ C @ A @ C)
+    sig2 = 2 / (2 * d + mu ** 2); al = 0.0
+    for z in blocks:
+        xb = tuple(2 * zi for zi in z); yb = tuple(2 * z[i] + (1 if i < 2 else 0) for i in range(d))
+        t = sum(d * fvals[idx[w]] + sum(fvals[idx[mv(w, nu, -1)]] for nu in range(d)) for w in (xb, yb))
+        al += (t / 4) ** 2
+    ok(evar >= 2 * sig2 ** 2 * al * (1 - 1e-9), "block-average lower bound")
+    ok(var <= 2 * d * d * float(np.sum(fvals ** 2)) * (1 + 1e-9), "variance upper bound")
+    ok(evar <= var * (1 + 1e-9), "conditioning reduces variance")
+for shape in ((4, 4), (6, 6), (8, 4), (4, 4, 4)):
+    allb = list(product(*[range(n // 2) for n in shape]))
+    for mu in (0.1, 0.7, 2.0):
+        for trial in range(3):
+            fv = rng.random(int(np.prod(shape))) * (rng.random(int(np.prod(shape))) < 0.6)
+            sub = [b for b in allb if rng.random() < 0.7] or allb[:1]
+            free_block_check(shape, mu, fv, sub)
 
 print(f"all {checks} checks passed")

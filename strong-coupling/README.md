@@ -46,15 +46,16 @@ units remain open. `OPEN.md` records what is known of each.
 
 ## Forest gauge fixing (`forest/`, `gauge-fixed/`)
 
-`forest/main.tex` is the paper "Mass Gap of Four-Dimensional Lattice
-Yang–Mills Theory for Every Compact Simple Gauge Group" by Deep
+`forest/main.tex` is the paper "Yang–Mills Mass Gap in 4D: Lattice SU(N) and Every Compact Simple Group" by Deep
 Bhattacharjee, Ushashi Bhattacharya and James Montgomery Lockwood (REVTeX
-4-2, two columns, 38 pages), compiled as
+4-2, two columns, 54 pages), compiled as
 `preprintYangMillsForestGauge/YangMillsForestGauge.pdf` in the repository
-root; `forest/cmp/main.tex` is the same paper in the AMS article class (58
-pages). Its figures are written by `forest/figures/make_figures.py`. The
-paper is self-contained: the transfer-matrix reconstruction and the sharp
-quarter for the single-link law of SU(2) are proved in its appendices.
+root; `forest/cmp/main.tex` is the same paper in the AMS article class (81
+pages). Its figures are written by `forest/figures/make_figures.py` and the
+schematic figures by `forest/figures/make_schematics.py`. The paper is
+self-contained: the transfer-matrix reconstruction, the facts on spectral
+measures and on the character expansion, and the sharp quarter for the
+single-link law of SU(2) are proved in its appendices.
 The working notes and the scripts behind it are in `gauge-fixed/`.
 
 Fixing the gauge on one link of every plaquette, along a field of straight
@@ -102,7 +103,10 @@ results follow, proved by hand and not yet refereed (see
   (neither proved); for product test functions the packet ratio is
   squeezed between ratios of slice correlations D(r′)/D(r) at fixed physical
   separations, which converge to a positive limit for the free field and
-  for two-dimensional SU(N) along its tuning (energies g²ℓC₂(λ)/2);
+  for two-dimensional SU(N) along its tuning (energies g²ℓC₂(λ)/2); for the
+  free field, conditioning an energy packet on block averages leaves a fixed
+  fraction of its variance at every spacing, so a blocking route has to be
+  measured in the reflected norm;
 - higher correlations: tree bounds on the truncated correlations give all
   n-point Schwinger functions as reflection-positive distributions along a
   subsequence, Gaussian if the tree weight has vanishing physical volume;
