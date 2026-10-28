@@ -28,7 +28,7 @@ resolves to the latest release.
 | v3.10.0 | [10.5281/zenodo.23720481](https://doi.org/10.5281/zenodo.23720481) |
 | v3.11.0 | [10.5281/zenodo.23721334](https://doi.org/10.5281/zenodo.23721334) |
 
-`YangMills_masterzipfinal2.zip` holds the repository at v3.11.0 and the
+`YangMills_masterzipfinal2.zip` holds the repository at v3.12.0 and the
 Hexagon package of the paper *Mass Gap of Four-Dimensional Lattice
 Yang–Mills Theory for Every Compact Simple Gauge Group*
 ([download](https://github.com/creelie/4Y-M/raw/main/YangMills_masterzipfinal2.zip)).
@@ -152,7 +152,9 @@ that are uniform in the exterior. None of this decides (D) along the
 continuum tuning, where n grows with β. For SU(2) the condition needs
 n⁴ ≥ 2(1−α) β_W/(5 L(β_W)), L(b) = 1 + log 24 + (3/2) log 9b: every
 gauge-fixed link is the holonomy of a disc of at most (n/2)(n/2+1) plaquettes,
-and a lattice Stokes inequality with the energy bound gives the size. A
+and a lattice Stokes inequality with the energy bound gives the size. The same
+holds for every SU(N) with L_N(b) = 1 + ((N²−1)/2) log(81π²b) + N(N−1) log(12/11),
+from the Jacobian of the exponential map and the volume of small balls. A
 stationary flux configuration, every plaquette within 4π/L² of the identity
 and a loop of side L/2 with holonomy −1, shows that the n² lost there is of
 the right order. The continuum step also holds for observables smoothed by the
@@ -162,7 +164,9 @@ by one condition at a single physical separation, these flowed fields have
 continuum limits along subsequences for every tuning (Theorem "renormalised
 flowed observables"), and a nontrivial limit exists if and only if the ratio
 C(σ)/C(0) of their lattice two-point functions at a fixed physical separation
-and at contact does not tend to zero; that ratio condition is not proved. At every n
+and at contact does not tend to zero; that ratio condition is not proved. In a
+periodic spatial box the normalising reflected norm C(0) is strictly positive
+for product test functions, by Lüscher's strictly positive transfer matrix. At every n
 the mean distance of the gauge-fixed links from the identity is at least
 (1/9)·max(6β_W, 1)^(−1/2). For a Gaussian field the averaged cube coefficient
 is exactly 1 at every size when the field is massless, and below
