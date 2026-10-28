@@ -21,8 +21,9 @@ resolves to the latest release.
 | v3.3.1 | [10.5281/zenodo.23490028](https://doi.org/10.5281/zenodo.23490028) |
 | v3.4.0 | [10.5281/zenodo.23541099](https://doi.org/10.5281/zenodo.23541099) |
 | v3.5.0 | [10.5281/zenodo.23711288](https://doi.org/10.5281/zenodo.23711288) |
+| v3.6.0 | recorded after release |
 
-`YangMills_masterzipfinal2.zip` holds the repository at v3.5.0 and the
+`YangMills_masterzipfinal2.zip` holds the repository at v3.6.0 and the
 Hexagon package of the paper *Mass Gap of Four-Dimensional Lattice
 Yang–Mills Theory for Every Compact Simple Gauge Group*
 ([download](https://github.com/creelie/4Y-M/raw/main/YangMills_masterzipfinal2.zip)).
@@ -37,9 +38,9 @@ This repository contains three papers and a Lean 4 / Mathlib project
   `preprintYangMillsDobrushinCeiling/YangMillsDobrushinCeiling.pdf`; see
   `strong-coupling/README.md`);
 - *Mass Gap of Four-Dimensional Lattice Yang–Mills Theory for Every Compact
-  Simple Gauge Group* (`strong-coupling/forest/`, REVTeX, 33 pages; PDF also
+  Simple Gauge Group* (`strong-coupling/forest/`, REVTeX, 36 pages; PDF also
   at `preprintYangMillsForestGauge/YangMillsForestGauge.pdf`; the one-column
-  version in the AMS article class, 50 pages, is `strong-coupling/forest/cmp/`;
+  version in the AMS article class, 54 pages, is `strong-coupling/forest/cmp/`;
   the working notes and checks are in `strong-coupling/gauge-fixed/`). It
   was first posted as Hexagon preprint 2610.00341 under the title *Mass Gap
   of Four-Dimensional Lattice Yang–Mills Theory in a Forest Gauge*.
@@ -130,6 +131,18 @@ tuning with n_k a_k ≤ ℓ for a fixed physical length ℓ, then every continuu
 limit has a mass gap ≥ log(1/α)/(2ℓ). Two statements remain unproved: (D)
 the cube estimate uniformly in the spacing, and (E) the existence of a
 nontrivial Osterwalder–Schrader limit.
+
+**What the cube estimate requires (proved):** D(n, α) holds at strong
+coupling for every even n above an explicit size (for SU(2),
+α = β_W/(1−3β_W)·(5/n − 2/n²)); if D(n, α) holds, then in the cube with the
+identity outside the gauge-fixed links stay on average at distance at least
+(1−α)D/3 from the identity, so for every fixed n the condition fails once β is
+large; and for SU(2) there is an exterior, legal at every coupling, under
+which the conditional law of one line of links has a ten-step gap at most
+e^20 24^10 b^15 e^(−b/1280), so (D) cannot come from bounds on single lines
+that are uniform in the exterior. None of this decides (D) along the
+continuum tuning, where n grows with β. Finite counts:
+`strong-coupling/gauge-fixed/checks/cube/cube_requirements.py`.
 
 **Open:** the Clay problem itself (the four open problems of the
 strong-coupling paper are listed in `strong-coupling/OPEN.md`). The paper isolates the residual statement
