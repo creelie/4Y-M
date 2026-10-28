@@ -102,7 +102,12 @@ tends to zero (Theorem "higher correlations"). With amplitude scales r_k in
 the tree bounds, the same hypotheses also give a time semigroup e^{−tH},
 the ratio bound C(σ)/C(0) ≥ 1/2 (so they are at least as strong as the open
 ratio), and, with (D), the mass gap for every polynomial in the smeared
-fields. (T1)–(T3) are not proved along the continuum tuning. A three-state reflection-positive chain with a fixed gap
+fields. (T1)–(T3) are not proved along the continuum tuning. Their order-two
+cases alone force the lattice gap m_k ≤ a_k log 2/σ and put a fixed fraction
+γ of the tree weight at time distance at least 2t₀/a_k − 1, so they fail at
+every fixed coupling in the strong coupling range (where C(σ)/C(0) ≤
+e^{−m_G σ/a_k} → 0) and cannot come from any expansion whose convergence
+gives a lattice gap bounded below (Proposition "tree bounds are critical"). A three-state reflection-positive chain with a fixed gap
 and a cutoff-independent two-point function has divergent four-point
 functions, so the two-point function alone cannot replace them.
 
