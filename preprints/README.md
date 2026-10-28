@@ -4,7 +4,7 @@ The current PDF of each paper of this repository. Every release replaces these f
 
 | File | Paper | Release |
 |---|---|---|
-| `YangMillsForestGauge.pdf` | Mass Gap of Four-Dimensional Lattice Yang–Mills Theory for Every Compact Simple Gauge Group (REVTeX, 38 pages) | v3.8.0 |
+| `YangMillsForestGauge.pdf` | Mass Gap of Four-Dimensional Lattice Yang–Mills Theory for Every Compact Simple Gauge Group (REVTeX, 38 pages) | v3.8.0, [doi:10.5281/zenodo.23718452](https://doi.org/10.5281/zenodo.23718452) |
 | `YangMillsForestGauge_CMP.pdf` | the same paper in the AMS article class (58 pages) | v3.8.0 |
 | `YangMillsDobrushinCeiling.pdf` | Mass Gap of Lattice Yang–Mills Theory up to the Dobrushin Ceiling | v2.0.2, [doi:10.5281/zenodo.23449466](https://doi.org/10.5281/zenodo.23449466) |
 
