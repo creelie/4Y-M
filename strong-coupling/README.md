@@ -96,7 +96,10 @@ results follow, proved by hand and not yet refereed (see
 - renormalised flowed observables: with one renormalisation condition they
   have continuum limits along subsequences for every tuning, and a nontrivial
   limit exists if and only if C(σ)/C(0) does not tend to zero (not proved);
-  in a periodic spatial box C(0) > 0 for product test functions;
+  in a periodic spatial box C(0) > 0 for product test functions; a lower
+  bound on the ratio would give tight spectral measures after renormalising
+  at σ, and a one-slab bound on the transfer matrix would give the ratio
+  (neither proved);
 - the cube size for every SU(N): n⁴ ≥ 2(1−α) β_W/(5 L_N(β_W)) with
   L_N(b) = 1 + ((N²−1)/2) log(81π²b) + N(N−1) log(12/11).
 

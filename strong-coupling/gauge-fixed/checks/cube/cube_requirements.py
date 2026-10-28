@@ -43,7 +43,11 @@ The line field sigma of the residue table has period two. The script checks:
       of L_N(b);
   (n) the proposition on positive reflected norms in a box: the coefficients
       of the SU(2) characters chi_j in exp((b/2) Re chi) are positive for
-      2j <= 4 at b = 0.5 and 2j <= 10 at b = 2, 6 (Weyl integration formula).
+      2j <= 4 at b = 0.5 and 2j <= 10 at b = 2, 6 (Weyl integration formula);
+  (o) the remarks on the flowed ratio: the free massless covariance with
+      spatial cutoff Lambda at time t and at coincidence (radial quadrature),
+      and the bounds of the proposition on shifted renormalisation on random
+      discrete spectral measures (tail, moments, Lipschitz, Jensen, slab tail).
 Run: python3 cube_requirements.py
 """
 from collections import Counter
@@ -535,5 +539,29 @@ for bb, top in ((0.5, 4), (2.0, 10), (6.0, 10)):
         chi = np.sin((twoj + 1) * th[1:-1]) / np.sin(th[1:-1])
         c = trap(dens[1:-1] * chi * wts[1:-1], th[1:-1])
         ok(c > 0, f"positive character coefficient, b = {bb}, 2j = {twoj}")
+
+# (o) the flowed ratio
+for Lam, t in ((1.0, 0.5), (10.0, 0.3), (100.0, 1.0)):
+    p = np.linspace(0, Lam, 400001)
+    num = trap(p * np.exp(-p * t), p) / (4 * math.pi ** 2)
+    ok(abs(num - (1 - (1 + Lam * t) * math.exp(-Lam * t)) / (4 * math.pi ** 2 * t * t)) < 1e-8 * max(1, num), "C(t,0)")
+    ok(abs(trap(p, p) / (4 * math.pi ** 2) - Lam ** 2 / (8 * math.pi ** 2)) < 1e-8 * Lam ** 2, "C(0,0)")
+ok(2 * (1 - (1 + 1e4) * math.exp(-1e4)) / 1e8 < 1e-7, "contact ratio tends to zero")
+for trial in range(200):
+    E = rng.exponential(rng.uniform(0.5, 20), 30); w = rng.dirichlet(np.ones(30))
+    sig = rng.uniform(0.2, 2); R = float(np.sum(w * np.exp(-sig * E)))
+    wp = w * np.exp(-sig * E) / R
+    for Lam in (0.5, 2, 8):
+        ok(np.sum(wp[E >= Lam]) <= np.exp(-sig * Lam) / R + 1e-12, "tail")
+    for m in (1, 2, 3):
+        ok(np.sum(wp * E ** m) <= (m / (math.e * sig)) ** m / R + 1e-9, "moments")
+    ts = rng.uniform(0, 3, 2)
+    ok(abs(np.sum(wp * (np.exp(-ts[0] * E) - np.exp(-ts[1] * E)))) <= abs(ts[0] - ts[1]) / (math.e * sig * R) + 1e-12, "Lipschitz")
+    a = rng.uniform(0.001, 0.05); d = float(np.sum(w * (1 - np.exp(-a * E)))); C = d / a
+    for n in (1, 5, 40):
+        if C * a <= 0.5:
+            ok(np.sum(w * np.exp(-a * n * E)) >= math.exp(-2 * C * a * n) - 1e-12, "Jensen")
+    for Lam in (0.5, 2, 8):
+        ok(np.sum(w[E >= Lam]) <= C * (a + 1 / Lam) + 1e-12, "slab tail")
 
 print(f"all {checks} checks passed")
