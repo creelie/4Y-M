@@ -83,7 +83,7 @@ smoothed observables, and
 complete proofs of the results earlier taken from our first paper. The
 \LaTeX{} source, the checks and the Lean certificate are in
 \href{https://github.com/creelie/4Y-M}{github.com/creelie/4Y-M}, release
-v3.8.0.}
+v3.9.0.}
 
 \begin{abstract}
 \itshape
@@ -337,7 +337,13 @@ $N|\beta|/\kappa_G$ alone.}
 No Bakry--\'Emery argument for the ungauged measure can pass $|\beta|=
 \frac1{32}$~\cite[Thm.~C]{BB26a}; the gauge fixing changes the measure, not
 the metric, which is why it can. For $\SU(2)$ the curvature range
-$\beta_W<\frac4{29}$ lies inside that of Theorem~\ref{thm:su2}. For $\SU(3)$
+$\beta_W<\frac4{29}$ lies inside that of Theorem~\ref{thm:su2}, and no
+curvature argument for the gauge-fixed $\SU(2)$ measure passes
+$\beta_W=\frac13$: when one active link $e$ is $-1$ and all others are $1$,
+the six plaquettes through $e$ have variable $-1$, and along a geodesic
+through $Q_e$ the Hessian of $-\frac{\beta_W}2\sum_p\ReTr Q_p$ is $-6\beta_W$
+times the metric of the unit sphere $S^3$, whose Ricci curvature is $2$, so
+the Bakry--\'Emery tensor is negative there once $\beta_W>\frac13$. For $\SU(3)$
 the Dobrushin route goes much further.
 
 \begin{theorem}[$\SU(3)$]\label{thm:su3}
@@ -435,7 +441,9 @@ be reached from estimates on single lines of links; for $\SU(2)$ it needs
 cubes of side at least of order $(\beta_W/\log\beta_W)^{1/4}$
 (Proposition~\ref{prop:cubesize}). For a Gaussian field the condition holds at
 a fixed physical scale when the field has a mass and fails exactly, at every
-size, when it is massless (Proposition~\ref{prop:gauss}).
+size, when it is massless (Proposition~\ref{prop:gauss}); so does the
+quadratic approximation of the forest gauge itself
+(Proposition~\ref{prop:gaussforest}).
 
 Section~\ref{sec:linefield} constructs the line field.
 Section~\ref{sec:state} shows that a Dobrushin bound for the gauge-fixed
@@ -2618,6 +2626,76 @@ which tends to zero as $b\to\infty$, and still $K_c=N_n$. A proof of (D)
 along the tuning has to produce in the gauge-fixed variables the loss that
 the parameter $t$ supplies here, from the Wilson action alone.
 
+The quadratic approximation of the forest gauge itself, with the plaquette
+action in place of the Laplacian, is no better than the massless field of
+Proposition~\ref{prop:gauss}(i).
+
+\begin{proposition}\label{prop:gaussforest}
+Let $b>0$, let $n$ be even and $V$ the cube of Definition~\ref{def:cube}.
+For real functions $\varphi$ on the links of $\Z^4$ that vanish on $F$, let
+$(d\varphi)_p$ be the sum of $\varphi$ around the plaquette $p$ with the signs
+of its orientation. Given $\eta\in\R^{A\setminus V}$, let
+$\gamma_V(\cdot\mid\eta)$ be the law on $\R^V$ with density proportional to
+\[
+\exp\Bigl(-\frac b2\sum_{p\cap V\ne\emptyset}(d\varphi)_p^2\Bigr),
+\]
+with $\varphi=\eta$ on $A\setminus V$ and $\varphi=0$ on $F$, and define
+$C_{V,j}$ and $K_c$ as above with $d_V(\varphi,\varphi')=\sum_{i\in V}
+|\varphi_i-\varphi'_i|$ and $\delta(\eta_j,\eta'_j)=|\eta_j-\eta'_j|$. Then
+\[
+\sum_cK_c\ge|V|=48N_n ,
+\]
+so $K_c\ge N_n$ for some class $c$, and $D(n,\alpha)$ fails for every
+$\alpha<1$, at every $n$ and every $b$.
+\end{proposition}
+
+\begin{proof}
+\emph{The laws.} The quadratic form $\sum_{p\cap V\ne\emptyset}(d\varphi)_p^2$
+with $\varphi=0$ outside $V$ vanishes only at $\varphi=0$: the argument of
+Corollary~\ref{cor:cubefails}, written additively, gives a function $h$ on
+the sites with $\varphi_{(x,\mu)}=h(x)-h(x+e_\mu)$, constant outside the box
+and along the lines of $F$, hence constant. So $\gamma_V(\cdot\mid\eta)$ is a
+Gaussian law whose covariance does not depend on $\eta$ and whose mean is
+$\sum_j\eta_ju_j$ for some vectors $u_j\in\R^V$. Two exteriors that differ
+in finitely many links give translates of one law by
+$t=\sum_j(\eta'_j-\eta_j)u_j$; the coupling by translation and the
+$1$-Lipschitz function $\sum_i\operatorname{sign}(t_i)\varphi_i$ show that
+their distance is $\|t\|_1$. In particular $C_{V,j}=\|u_j\|_1$, and
+\[
+W_1^{d_V}\bigl(\gamma_V(\cdot\mid\eta),\gamma_V(\cdot\mid\eta')\bigr)\le
+\sum_jC_{V,j}\,|\eta'_j-\eta_j| .
+\]
+
+\emph{Lines.} By Lemma~\ref{lem:structure}(i) the lines of $F$ are straight,
+disjoint and cover the sites, and the two ends of an active link $(x,\mu)$
+lie on different lines, since the line through $x$ has direction
+$\sigma(x)\ne\mu$. For a line $\ell$ let $h_\ell$
+be the indicator of its sites and $(dh_\ell)_{(x,\mu)}=h_\ell(x)-h_\ell(x+e_\mu)$.
+Then $dh_\ell$ vanishes on $F$ and around every plaquette, so the density is
+invariant under $\varphi\mapsto\varphi+dh_\ell$, and
+$\gamma_V(\cdot\mid dh_\ell)$ is $\gamma_V(\cdot\mid0)$ translated by the
+restriction of $dh_\ell$ to $V$. Hence
+\[
+\sum_{i\in V}|(dh_\ell)_i|\le\sum_{j\in A\setminus V}C_{V,j}\,|(dh_\ell)_j| .
+\]
+Here $|(dh_\ell)_e|=1$ when exactly one end of $e$ lies on $\ell$ and $0$
+otherwise, so $\sum_\ell|(dh_\ell)_e|=2$ for every active link $e$, the sum
+running over the finitely many lines that meet a link entering the
+inequality. Summing over these lines gives $2|V|\le2\sum_jC_{V,j}=
+2\sum_cK_c$.
+\end{proof}
+
+The proof uses only that gauge transformations constant on the lines of $F$
+move the whole cube while changing few boundary links, which is the
+behaviour of gauges of axial type anticipated in
+Remark~\ref{rem:cubeheuristic}. The class sums themselves, computed exactly
+in the archive for $n\le8$, lie between $1.5$ and $11$ times $N_n$ and
+increase with $n$. Below the correlation length, where the theory is weakly
+coupled, the forest-gauge variables should follow this quadratic
+approximation; a proof of (D) along the tuning therefore has to show that
+the nonperturbative regime reduces the cube coefficients of the forest
+gauge below $N_n$, or (D) has to be posed for other variables.
+
 \begin{remark}\label{rem:routes}
 The other routes we tried stop at (D) or (E), or earlier.
 \begin{enumerate}[label=\textup{(\alph*)},leftmargin=*]
@@ -2657,7 +2735,8 @@ This subsection proves four facts about $D(n,\alpha)$. It holds at small
 coupling for every even $n$ above an explicit size
 (Proposition~\ref{prop:cubesmall}). It forces the gauge-fixed variables of a
 cube with trivial exterior to stay a fixed distance from the identity on
-average (Theorem~\ref{thm:cubeneeds}), so that for every fixed $n$ it fails
+average (Theorem~\ref{thm:cubeneeds}, and Proposition~\ref{prop:tetra} for
+$\SU(2)$), so that for every fixed $n$ it fails
 once $\beta$ is large (Corollary~\ref{cor:cubefails}). And it cannot be
 obtained from bounds on the conditional law of a single line of links that
 are uniform in the configuration around the line
@@ -2848,6 +2927,84 @@ Theorem~\ref{thm:cubeneeds} excludes $D(n,\alpha)$ once
 $\varepsilon_V(\beta)<(1-\alpha)D/3$.
 \end{proof}
 
+For $\SU(2)$ the constant of Theorem~\ref{thm:cubeneeds} can be improved: a
+flat configuration with four values instead of two moves every class of
+active links, and the means of the gauge-fixed links are scalar.
+
+\begin{proposition}\label{prop:tetra}
+Let $G=\SU(2)$ with the chordal metric, let $n$ be even, $V$ the cube of
+Definition~\ref{def:cube}, and suppose that $D(n,\alpha)$ holds at $\beta$.
+Then
+\[
+\frac1{|V|}\sum_{i\in V}\Bigl|\int\ReTr Q_i\,d\gamma^1_V\Bigr|\le2\alpha,
+\]
+\[
+\frac1{|V|}\sum_{i\in V}\int\delta(1,Q_i)^2\,d\gamma^1_V\ge2(1-\alpha),
+\]
+and $\varepsilon_V(\beta)\ge1-\alpha$.
+\end{proposition}
+
+\begin{proof}
+Write $\langle\cdot,\cdot\rangle$ for the Euclidean product of quaternions;
+then $\ReTr q=2\langle q,1\rangle$ and $\delta(p,q)=|p-q|$.
+
+\emph{Four colours.} Split the sixteen residues modulo two into the sets
+\[
+\begin{aligned}
+X_1&=\{0000,1000,0111,1111\},\\
+X_2&=\{0001,0101,1010,1110\},\\
+X_3&=\{0010,0011,1100,1101\},\\
+X_4&=\{0100,0110,1001,1011\}.
+\end{aligned}
+\]
+Each is the union of two of the eight pairs $\{r,r+e_{\sigma(r)}\}$, and
+Table~\ref{tab:sigma} shows that $r$ and $r+e_\mu$ lie in different sets for
+every residue $r$ and every $\mu\ne\sigma(r)$. (The eight residues used in the
+proof of Theorem~\ref{thm:cubeneeds} form $X_3\cup X_4$.) Let
+\[
+\begin{split}
+z_1&=(\mathbf i+\mathbf j+\mathbf k)/\sqrt3,\quad
+z_2=(\mathbf i-\mathbf j-\mathbf k)/\sqrt3,\\
+z_3&=(-\mathbf i+\mathbf j-\mathbf k)/\sqrt3,\quad
+z_4=(-\mathbf i-\mathbf j+\mathbf k)/\sqrt3,
+\end{split}
+\]
+unit quaternions with $\langle z_k,z_l\rangle=-\frac13$ for $k\ne l$, so that
+$\delta(z_k,z_l)=d_*=(8/3)^{1/2}$. Put $g(x)=z_k$ when the residue of $x$ lies
+in $X_k$, and $Q^g_{(x,\mu)}=g(x)g(x+e_\mu)^{-1}$. As in the proof of
+Theorem~\ref{thm:cubeneeds}, $Q^g$ equals $1$ on $F$, every plaquette
+variable of $Q^g$ is $1$, and $\gamma_V(\cdot\mid Q^g)=\Phi_*\gamma^1_V$ with
+$\Phi(Q)_{(x,\mu)}=g(x)Q_{(x,\mu)}g(x+e_\mu)^{-1}$; now
+$\delta(1,Q^g_e)=d_*$ for every active link $e$.
+
+\emph{Upper bound.} Changing the exterior links one at a time,
+\[
+W_1^{d_V}\bigl(\gamma^1_V,\gamma_V(\cdot\mid Q^g)\bigr)\le
+d_*\sum_cK_c\le48\,\alpha\,d_*N_n=\alpha\,d_*|V| .
+\]
+
+\emph{Lower bound.} Conjugating every link of $V$ by one unit quaternion
+leaves the exterior $1$, the links of $F$, Haar measure and every plaquette
+trace unchanged, so it preserves $\gamma^1_V$. The mean $m_i=\int Q_i\,
+d\gamma^1_V$, taken in the space of quaternions, therefore commutes with
+every unit quaternion, and $m_i=a_i1$ with $a_i=\frac12\int\ReTr Q_i\,
+d\gamma^1_V$ real. Since $\Phi$ acts on each link by a fixed left and right
+multiplication, the mean of $Q_i$ under $\gamma_V(\cdot\mid Q^g)$ is $a_iQ^g_i$.
+Choose unit quaternions $w_i$ with $\langle w_i,a_iQ^g_i-a_i1\rangle=
+|a_i|\,|Q^g_i-1|$. The function $f(Q)=\sum_{i\in V}\langle w_i,Q_i\rangle$ is
+$1$-Lipschitz for $d_V$, and Kantorovich duality gives
+\[
+W_1^{d_V}\bigl(\gamma^1_V,\gamma_V(\cdot\mid Q^g)\bigr)\ge
+\sum_{i\in V}|a_i|\,\delta(1,Q^g_i)=d_*\sum_{i\in V}|a_i| .
+\]
+
+\emph{Conclusion.} Comparing the two bounds, $\sum_i|a_i|\le\alpha|V|$,
+which is the first inequality. Since $\delta(1,q)^2=2-2\langle q,1\rangle$,
+$\int\delta(1,Q_i)^2\,d\gamma^1_V=2(1-a_i)\ge2(1-|a_i|)$, and averaging gives
+the second. As $\delta\le2$, $\delta\ge\delta^2/2$, and the bound on
+$\varepsilon_V$ follows.
+\end{proof}
+
 The size $\beta_0(n,\alpha)$ in Corollary~\ref{cor:cubefails} comes from a
 compactness argument. For $\SU(2)$ it can be made explicit, and then reads as
 a lower bound on the side of any cube that satisfies the condition.
@@ -2856,11 +3013,13 @@ a lower bound on the side of any cube that satisfies the condition.
 Let $G=\SU(2)$ with the chordal metric, so that $D=2$, let $b=\beta_W\ge\frac19$,
 let $n\ge2$ be even and put $L(b)=1+\log24+\frac32\log(9b)$. Then
 \[
-\varepsilon_V(\beta)\le(4n^2+2n)\Bigl(\frac{12L(b)}b\Bigr)^{1/2}.
+\frac1{|V|}\sum_{e\in V}\int\delta(1,Q_e)^2\,d\gamma^1_V\le
+\frac{n^2(n+2)(2n+1)\,L(b)}b ,
 \]
-Consequently, if $D(n,\alpha)$ holds at $b$, then
+so $\varepsilon_V(\beta)^2$ is at most the same quantity. Consequently, if
+$D(n,\alpha)$ holds at $b$, then
 \[
-n^4\ge\frac{(1-\alpha)^2\,b}{675\,L(b)} .
+n^4\ge\frac{2(1-\alpha)\,b}{5\,L(b)} .
 \]
 \end{proposition}
 
@@ -2926,19 +3085,24 @@ e^{-1}(9b)^{-3/2}/24$ and
 \int S\,d\gamma^1_V\le\frac{2|V|\,L(b)}b .
 \]
 
-\emph{Conclusion.} At most $6|V|$ plaquettes meet $V$. Summing the loop bound
-over $e\in V$ and using the multiplicity and the Cauchy--Schwarz inequality,
+\emph{Conclusion.} The Cauchy--Schwarz inequality inside each disc squares
+the loop bound:
 \[
-\begin{split}
-|V|\,\varepsilon_V&\le(4n^2+2n)\sum_{p\cap V\ne\emptyset}\int\delta(1,Q^F_p)\,
-d\gamma^1_V\\
-&\le(4n^2+2n)\Bigl(6|V|\int S\,d\gamma^1_V\Bigr)^{1/2}\\
-&\le(4n^2+2n)\,|V|\Bigl(\frac{12L(b)}b\Bigr)^{1/2}.
-\end{split}
+\begin{aligned}
+\delta(1,Q_e)^2&\le|R(e)|\sum_{p\in R(e)}\delta(1,Q^F_p)^2\\
+&\le m(m+1)\sum_{p\in R(e)}\delta(1,Q^F_p)^2 .
+\end{aligned}
 \]
-If $D(n,\alpha)$ holds, Theorem~\ref{thm:cubeneeds} with $D=2$ gives
-$\varepsilon_V\ge\frac23(1-\alpha)$; squaring and using $4n^2+2n\le5n^2$,
-$\frac49(1-\alpha)^2\le300\,n^4L(b)/b$.
+Summing over
+$e\in V$ and using the multiplicity,
+\[
+\sum_{e\in V}\delta(1,Q_e)^2\le m(m+1)(4n^2+2n)\,S
+=\frac{n^2(n+2)(2n+1)}2\,S ,
+\]
+and integrating against $\gamma^1_V$ gives the first bound; the bound on
+$\varepsilon_V$ follows by the Cauchy--Schwarz inequality. If $D(n,\alpha)$
+holds, Proposition~\ref{prop:tetra} gives $2(1-\alpha)\le
+n^2(n+2)(2n+1)L(b)/b$, and $(n+2)(2n+1)\le5n^2$ for $n\ge2$.
 \end{proof}
 
 \begin{remark}\label{rem:fluxloop}
@@ -3003,7 +3167,8 @@ over $e\in V$ and over the configuration gives the bound on $\varepsilon_V$.
 Along the continuum tuning Theorem~\ref{thm:cubeneeds} says the following.
 If (D) holds, then in a cube of fixed physical size $\ell$ with the identity
 outside, the forest-gauge variables stay on average at distance at least
-$(1-\alpha)D/3$ from the identity, at every spacing. This is not a
+$(1-\alpha)D/3$ from the identity, and at least $1-\alpha$ for $\SU(2)$, at
+every spacing. This is not a
 contradiction: $n=\ell/a$ grows like $1/a$, while asymptotic freedom makes
 $\beta(a)$ grow only like $\log(1/a)$, and the corollary concerns fixed $n$.
 The size bound of Proposition~\ref{prop:cubesize} is likewise met along the
@@ -3143,8 +3308,8 @@ Propositions~\ref{prop:cover} and~\ref{prop:cover2} and
 Lemma~\ref{lem:su3const} and the numerical bounds of
 Lemma~\ref{lem:vmfconst}, which are computations with rigorous error bounds,
 and the finite check of Lemma~\ref{lem:plaqblocks}. The archive
-\texttt{creelie/4Y-M} (release v3.8.0,
-\url{https://github.com/creelie/4y-m/releases/tag/v3.8.0})
+\texttt{creelie/4Y-M} (release v3.9.0,
+\url{https://github.com/creelie/4y-m/releases/tag/v3.9.0})
 contains the programs of that computation, in Python with python-flint
 (FLINT and Arb) and a C kernel for products of Taylor polynomials, with
 their outputs and the list of certified boxes; the programs and outputs of

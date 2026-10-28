@@ -65,11 +65,11 @@ block variables.
 The subsection "What the cube estimate requires" proves that D(n, α) holds
 at strong coupling, that it forces the forest-gauge links of a cube with the
 identity outside to stay at mean distance at least (1−α)D/3 from the identity
-(hence it fails at every fixed n once β is large), and that bounds on the
+(at least 1−α for SU(2), by four colours and tetrahedral quaternions; hence it fails at every fixed n once β is large), and that bounds on the
 conditional law of single lines, uniform in the exterior, cannot give it.
 None of this decides (D) along the tuning.
 For SU(2) the same subsection makes the size explicit: D(n, α) needs
-n⁴ ≥ (1−α)² β_W/(675 L(β_W)), L(b) = 1 + log 24 + (3/2) log 9b (Proposition
+n⁴ ≥ 2(1−α) β_W/(5 L(β_W)), L(b) = 1 + log 24 + (3/2) log 9b (Proposition
 "cube size"), a bound met along the tuning; the n² lost in its proof is of the
 right order (a stationary flux configuration). The continuum step also holds
 for observables smoothed by the spatial gradient flow (Proposition "smoothed
@@ -78,7 +78,7 @@ observables"); nonperturbative convergence of the flowed fields is not proved.
 Monte Carlo (not used by any proof; `gauge-fixed/checks/cube/eps_mc.py`,
 heat bath, four chains, 300 + 300 sweeps): the mean distance ε_V of the
 forest-gauge links of a cube with the identity outside, which D(n, α) needs to
-be at least 2(1−α)/3, grows with n at every coupling tried:
+be at least 1−α for SU(2), grows with n at every coupling tried:
 
 | β_W | n = 2 | n = 4 | n = 6 | n = 8 | n = 10 | n = 12 |
 |---|---|---|---|---|---|---|
@@ -87,7 +87,8 @@ be at least 2(1−α)/3, grows with n at every coupling tried:
 | 2.6 | 0.485 | 0.596 | 0.700 | 0.787 | 0.867 | 0.936 |
 | 3.0 | 0.450 | 0.550 | 0.642 | 0.725 | 0.797 | 0.864 |
 
-It passes 2/3 near n = 4, 5, 6, 7 for β_W = 2.0, 2.3, 2.6, 3.0, far more slowly
+It passes 1 near n = 9 and n = 12 for β_W = 2.0, 2.3 and has not reached it at
+n = 12 for β_W = 2.6, 3.0, far more slowly
 than the correlation length grows, so this necessary condition excludes nothing
 at a fixed physical scale. A coupled-chain estimate of the influence
 coefficients themselves (`influence_mc.py`) is uninformative in this range:
