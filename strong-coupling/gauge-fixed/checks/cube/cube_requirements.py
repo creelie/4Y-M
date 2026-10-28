@@ -661,4 +661,52 @@ for mu in (Fr(1, 3), Fr(1, 1), Fr(5, 2)):
         ok(tail / full <= 2 * math.exp(-float(mu) * R) + 1e-15, "tail bound")
         ok((1 + q) / (1 - q) >= 2 / float(mu), "coth bound")
 
+# (v) energy control from the order-two tree bounds, uniform local estimates, blocking:
+# finite differences, 1 - e^{-x} >= x/(1+x), log(1-x) >= -2x, the SU(2) one-link
+# constants, the Bessel majorant, and |Tr(T^2 M)| <= 1 for unit T and unitary M
+from scipy.special import iv
+from scipy.integrate import quad
+for m in (1, 2, 3):
+    for a in (0.1, 0.01):
+        xs = np.linspace(0.3, 2.0, 50)
+        f = lambda x: np.exp(-1 / (x * (2.3 - x))) if 0 < x < 2.3 else 0.0
+        D = [sum((-1) ** j * math.comb(m, j) * f(x - j * a) for j in range(m + 1)) for x in xs]
+        h = 1e-3; g = np.linspace(0.01, 2.29, 4000)
+        der = [max(abs(sum((-1) ** j * math.comb(m, j) * f(y + (m / 2 - j) * h) for j in range(m + 1)) / h ** m) for y in g)]
+        ok(max(abs(d) for d in D) <= a ** m * der[0] * 1.05 + 1e-12, "finite difference")
+for x in np.linspace(0, 50, 501):
+    ok(1 - math.exp(-x) >= x / (1 + x) - 1e-15, "1 - e^-x")
+for x in np.linspace(0, 0.5, 101):
+    ok(math.log1p(-x) >= -2 * x - 1e-15, "log(1-x)")
+ok(math.e ** 2 * math.sqrt(math.pi / 2) < 14, "Z_T bound")
+ok(4 * 224 * 336 < 2 ** 19 and 1792 * 1 <= 2 ** 19, "variance constants")
+ok(math.exp(-0.5) / 8 >= 1 / 16 and math.exp(-1.5) / 4 >= 1 / 24, "interval masses")
+for r in np.concatenate([np.linspace(0, 10, 41), [30.0, 100.0, 600.0]]):
+    n = 1 + r
+    br = [k / n for k in (1, 4, 16, 64) if k / n < 2]
+    Z = quad(lambda t: math.exp(-r * t) * math.sqrt(t * (2 - t)), 0, 2, limit=200, points=br)[0]
+    ok(Z <= 14 * n ** -1.5, "normalisation")
+    pI = quad(lambda t: math.exp(-r * t) * math.sqrt(t * (2 - t)), 1 / (4 * n), 1 / (2 * n))[0] / Z
+    pJ = quad(lambda t: math.exp(-r * t) * math.sqrt(t * (2 - t)), 1 / n, 1.5 / n)[0] / Z
+    ok(pI >= 1 / 224 and pJ >= 1 / 336, "P(I), P(J)")
+    m1 = quad(lambda t: t * math.exp(-r * t) * math.sqrt(t * (2 - t)), 0, 2, limit=200, points=br)[0] / Z
+    m2 = quad(lambda t: t * t * math.exp(-r * t) * math.sqrt(t * (2 - t)), 0, 2, limit=200, points=br)[0] / Z
+    ok(m2 - m1 ** 2 >= 1 / (2 ** 19 * n * n), "Var X")
+    EX = 1 - m1
+    if r > 0:
+        ok(abs(EX - iv(2, r) / iv(1, r)) < 1e-7, "E X = I2/I1")
+        ok(abs(3 * EX - r * (2 * m1 - m2)) < 1e-8 * (1 + r), "sphere identity")
+        ok(EX <= (math.sqrt(9 + 4 * r * r) - 3) / (2 * r) + 1e-12 <= 2 * r / (2 * r + 3) + 1e-12, "mean bound")
+        ok(all(iv(l + 1, r) <= iv(2, r) * (1 + 1e-12) for l in range(1, 8)), "Bessel order")
+for b in (0.5, 1.0, 5.0, 50.0):
+    ok(2 * 6 * b / (2 * 6 * b + 3) <= 4 * b / (4 * b + 1) + 1e-15 and 3 / (12 * b + 3) >= 1 / (4 * b + 1) - 1e-15, "b bounds")
+    for B in (4, 10, 100):
+        ok(math.exp(3 * b) * (4 * b / (4 * b + 1)) ** (B - 3) <= math.exp(3 * b - (B - 3) / (4 * b + 1)) * (1 + 1e-12), "blocking bound")
+for N in (2, 3, 4):
+    for trial in range(40):
+        X = rng.normal(size=(N, N)) + 1j * rng.normal(size=(N, N)); T = X - X.conj().T
+        T -= np.trace(T) / N * np.eye(N); T /= math.sqrt(-np.trace(T @ T).real)
+        M = np.linalg.qr(rng.normal(size=(N, N)) + 1j * rng.normal(size=(N, N)))[0]
+        ok(abs(np.trace(T @ T @ M)) <= 1 + 1e-12, "|Tr(T^2 M)| <= 1")
+
 print(f"all {checks} checks passed")

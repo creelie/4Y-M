@@ -107,7 +107,13 @@ cases alone force the lattice gap m_k ≤ a_k log 2/σ and put a fixed fraction
 γ of the tree weight at time distance at least 2t₀/a_k − 1, so they fail at
 every fixed coupling in the strong coupling range (where C(σ)/C(0) ≤
 e^{−m_G σ/a_k} → 0) and cannot come from any expansion whose convergence
-gives a lattice gap bounded below (Proposition "tree bounds are critical"). A three-state reflection-positive chain with a fixed gap
+gives a lattice gap bounded below (Proposition "tree bounds are critical").
+For a packet smooth in time they give the ratio with an explicit rate,
+C(σ)/C(0) ≥ e^{−2√B₁σ}, tight spectral measures and a limit packet of finite
+energy (Proposition "energy control from the tree bounds"); this is still
+conditional on (T1), (T2). The estimates uniform in the coupling (SU(N) force
+moments, the Ward identity, the SU(2) plaquette variance, bare blocking) are
+local and do not bear on the ratio, the tree bounds or (D). A three-state reflection-positive chain with a fixed gap
 and a cutoff-independent two-point function has divergent four-point
 functions, so the two-point function alone cannot replace them.
 

@@ -110,7 +110,14 @@ results follow, proved by hand and not yet refereed (see
   (the tree bounds are not proved along the continuum tuning); their
   order-two cases force the lattice gap m_k ≤ a_k log 2/σ and put a fixed
   fraction of the tree weight at physical time distance 2t₀, so they fail at
-  every fixed strong coupling;
+  every fixed strong coupling; for a smooth packet they give
+  C(σ)/C(0) ≥ e^{−2√B₁σ}, m_k ≤ 2√B₁ a_k, tight spectral measures and a
+  limit packet with ∫E^{2m} dμ ≤ B_m;
+- uniform local estimates: SU(N) force moments E e^{ηE_e} ≤ (1−12η/N)^{−q/2},
+  the Ward identity E[W_e F] = −E⟨∇S_e, ∇F⟩, the SU(2) plaquette variance
+  ≥ 1/(2¹⁹(1+6b)²), and bare blocking (coarse links within total variation
+  (K/2)e^{3b}(4b/(4b+1))^{B−3} of Haar); none of them reaches the ratio,
+  the tree bounds or (D);
 - the cube size for every SU(N): n⁴ ≥ 2(1−α) β_W/(5 L_N(β_W)) with
   L_N(b) = 1 + ((N²−1)/2) log(81π²b) + N(N−1) log(12/11).
 
