@@ -83,7 +83,7 @@ smoothed observables, and
 complete proofs of the results earlier taken from our first paper. The
 \LaTeX{} source, the checks and the Lean certificate are in
 \href{https://github.com/creelie/4Y-M}{github.com/creelie/4Y-M}, release
-v3.12.0.}
+v3.13.0.}
 
 \begin{abstract}
 \itshape
@@ -2651,14 +2651,88 @@ and it reduces their nontriviality to the lattice inequality
 \[
 \limsup_{k\to\infty}\frac{C_k(\sigma)}{C_k(0)}>0
 \]
-for one physical separation $\sigma$: the flowed two-point function at a
-fixed physical distance must not become negligible against its value at
-contact. If the lattice gap stayed above some $m>0$ in lattice units, the
+for one physical separation $\sigma$: the flowed two-point function of the
+smeared packet at a fixed physical distance must not become negligible
+against its reflected norm $C_k(0)$. If the lattice gap stayed above some $m>0$ in lattice units, the
 ratio would be at most $e^{-m\sigma/a_k}$ and the limit would be trivial, so the
 inequality is a condition on the tuning $\beta_k\to\infty$; it is not proved
 here. Nor are the independence of the limit from the subsequence, Euclidean
 invariance, or bounds on products of more than two renormalised fields, for
 which (i) gives nothing because $Z_k$ may diverge; (E) requires all of these.
+
+The denominator $C_k(0)$ is the reflected norm of the packet smeared by
+$f_0$, not a coincidence limit of point fields, and the distinction matters.
+For the free massless scalar field in four dimensions with spatial momenta cut
+off at $\Lambda$, the covariance at spatial separation $0$ is
+$(1-(1+\Lambda t)e^{-\Lambda t})/(4\pi^2t^2)$ at time $t>0$ and
+$\Lambda^2/(8\pi^2)$ at coincidence, so its ratio
+$2(1-(1+\Lambda t)e^{-\Lambda t})/(\Lambda t)^2$ tends to zero as
+$\Lambda\to\infty$, although the limiting field is the nontrivial Gaussian
+field; for packets smeared by $f_0$ the reflected norms of that field have
+finite positive limits and the ratio stays positive. The criterion of
+Theorem~\ref{thm:flowlimit}(iv) is about the smeared packets $A_k$ only.
+
+When the ratio is bounded below, renormalising at the separation $\sigma$
+instead of $0$ removes the escape to infinite energy altogether, and one slab
+of the transfer matrix gives a sufficient condition for the bound. Write
+$\mu_k$ for the measures in the proof of Theorem~\ref{thm:flowlimit}.
+
+\begin{proposition}\label{prop:flowshift}
+\textup{(i)} Suppose $C_k(\sigma)\ge c\,C_k(0)$ for a dyadic $\sigma>0$, a
+$c>0$ and every $k$ of a sequence. Let $\mu'_k$ be the spectral measure, in
+energies $E=-a_k^{-1}\log\lambda$, of the unit vector
+$C_k(\sigma)^{-1/2}\Psi_{A'_k}$ with $A'_k=\tau_{\sigma/2a_k}A_k$. Then
+$\mu'_k$ is a probability measure on $[0,\infty)$,
+\[
+\mu'_k([\Lambda,\infty))\le c^{-1}e^{-\sigma\Lambda},\qquad
+\int E^m\,d\mu'_k\le c^{-1}\Bigl(\frac m{e\sigma}\Bigr)^m ,
+\]
+and $t\mapsto C_k(\sigma+t)/C_k(\sigma)$ is Lipschitz on $[0,\infty)$ with
+constant $(e\sigma c)^{-1}$. A subsequence of the $\mu'_k$ converges weakly to
+a probability measure on $[0,\infty)$ with the same bounds.
+
+\textup{(ii)} Suppose $\ip{\Psi_k}{(1-\mathbb T_k)\Psi_k}\le Ca_k$ for a
+constant $C$ and every $k$ of a sequence. Then
+$C_k(\sigma)/C_k(0)\ge e^{-2C\sigma}$ whenever $Ca_k\le\frac12$ and
+$\sigma/a_k$ is an integer, and $\mu_k([\Lambda,\infty])\le C(a_k+\Lambda^{-1})$
+for every $\Lambda>0$.
+\end{proposition}
+
+\begin{proof}
+(i) We have $\Psi_{A'_k}=\mathbb T_k^{\sigma/2a_k}\Psi_{A_k}$, so the
+measure $\mu'_k$ is $e^{-\sigma E}d\mu_k(E)$ divided by its mass
+$C_k(\sigma)/C_k(0)\ge c$, and $e^{-\sigma E}$ vanishes at $E=\infty$. For
+$E\ge\Lambda$ we have $e^{-\sigma E}\le e^{-\sigma\Lambda}$, and
+$E^me^{-\sigma E}\le(m/e\sigma)^m$ for all $E\ge0$. The ratio in question is
+the integral of $e^{-tE}$ against $\mu'_k$, and the inequality
+$|e^{-tE}-e^{-sE}|\le|t-s|E$ with the moment bound for $m=1$ gives the
+Lipschitz bound. The tail bound makes the sequence tight on
+$[0,\infty)$, so Prokhorov's theorem gives the weak limit, and the bounds pass
+to it because $\{E>\Lambda\}$ is open and $E^m$ is a monotone limit of bounded
+continuous functions.
+
+(ii) Let $\nu_k$ be the spectral measure of $\mathbb T_k$ at $\Psi_k$ on
+$[0,1]$, a probability measure, and $n=\sigma/a_k$. By Jensen's inequality for
+the convex function $\lambda^n$,
+\[
+\frac{C_k(\sigma)}{C_k(0)}=\int\lambda^nd\nu_k\ge\Bigl(\int\lambda\,d\nu_k
+\Bigr)^n\ge(1-Ca_k)^n\ge e^{-2Ca_kn},
+\]
+since $\log(1-x)\ge-2x$ on $[0,\frac12]$. Moreover $Ca_k\ge\int(1-e^{-a_kE})
+d\mu_k\ge(1-e^{-a_k\Lambda})\mu_k([\Lambda,\infty])$, and
+$1-e^{-x}\ge x/(1+x)$.
+\end{proof}
+
+Part (ii) asks for an upper bound on a one-slab Dirichlet form, the opposite
+direction to a mass gap, which bounds such forms from below. In the box of
+Proposition~\ref{prop:flowpositive}, with $g$ smooth, the time smearing
+supplies the factor $a_k$ up to one ratio: in the notation of its proof,
+$\mathbb T_k=A$ and $\Psi_{A_k}=\sum_nw_n\mathbb T_k^nu$ with
+$w_n=a_kg(a_kn)$ and $u=a_k^3F^c\psi_0$, and the identity $(1-\mathbb T_k)
+\Psi_{A_k}=\sum_n(w_n-w_{n-1})\mathbb T_k^nu$ gives
+$\ip{\Psi_k}{(1-\mathbb T_k)\Psi_k}\le a_k\|g'\|_{L^1}\|u\|/\|\Psi_{A_k}\|$, so
+the hypothesis of (ii) holds when the vector $u$ of a single slice stays
+comparable to the time-smeared packet. That comparison is not proved.
 
 
 In a periodic spatial box the assumption $C_k(0)>0$ is a theorem. Let
@@ -3664,8 +3738,8 @@ Propositions~\ref{prop:cover} and~\ref{prop:cover2} and
 Lemma~\ref{lem:su3const} and the numerical bounds of
 Lemma~\ref{lem:vmfconst}, which are computations with rigorous error bounds,
 and the finite check of Lemma~\ref{lem:plaqblocks}. The archive
-\texttt{creelie/4Y-M} (release v3.12.0,
-\url{https://github.com/creelie/4y-m/releases/tag/v3.12.0})
+\texttt{creelie/4Y-M} (release v3.13.0,
+\url{https://github.com/creelie/4y-m/releases/tag/v3.13.0})
 contains the programs of that computation, in Python with python-flint
 (FLINT and Arb) and a C kernel for products of Taylor polynomials, with
 their outputs and the list of certified boxes; the programs and outputs of

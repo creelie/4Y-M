@@ -29,7 +29,7 @@ resolves to the latest release.
 | v3.11.0 | [10.5281/zenodo.23721334](https://doi.org/10.5281/zenodo.23721334) |
 | v3.12.0 | [10.5281/zenodo.23721638](https://doi.org/10.5281/zenodo.23721638) |
 
-`YangMills_masterzipfinal2.zip` holds the repository at v3.12.0 and the
+`YangMills_masterzipfinal2.zip` holds the repository at v3.13.0 and the
 Hexagon package of the paper *Mass Gap of Four-Dimensional Lattice
 Yang–Mills Theory for Every Compact Simple Gauge Group*
 ([download](https://github.com/creelie/4Y-M/raw/main/YangMills_masterzipfinal2.zip)).
@@ -164,8 +164,13 @@ leaves the transfer matrix unchanged up to unitary equivalence. Renormalised
 by one condition at a single physical separation, these flowed fields have
 continuum limits along subsequences for every tuning (Theorem "renormalised
 flowed observables"), and a nontrivial limit exists if and only if the ratio
-C(σ)/C(0) of their lattice two-point functions at a fixed physical separation
-and at contact does not tend to zero; that ratio condition is not proved. In a
+C(σ)/C(0) of the two-point function of the smeared packet at a fixed physical
+separation to its reflected norm does not tend to zero (a point-field ratio at
+coincidence would not do: it tends to zero for the free massless field); that
+ratio condition is not proved. If the ratio is bounded below, renormalising at
+separation σ gives tight spectral measures with explicit tail and moment
+bounds, and a one-slab bound ⟨Ψ, (1−T)Ψ⟩ ≤ Ca on the transfer matrix would give
+the ratio bound; neither is proved for Yang–Mills. In a
 periodic spatial box the normalising reflected norm C(0) is strictly positive
 for product test functions, by Lüscher's strictly positive transfer matrix. At every n
 the mean distance of the gauge-fixed links from the identity is at least
