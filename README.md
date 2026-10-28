@@ -1,4 +1,4 @@
-# Yang–Mills: lattice obstructions, the lattice mass gap for every compact simple group, and Lean certificate
+# Yang–Mills Mass Gap in 4D: Lattice SU(N) and Every Compact Simple Group
 
 Deep Bhattacharjee, Ushashi Bhattacharya and James Montgomery Lockwood.
 
@@ -36,8 +36,7 @@ resolves to the latest release.
 | v3.18.0 | [10.5281/zenodo.23728179](https://doi.org/10.5281/zenodo.23728179) |
 
 `YangMills_masterzipfinal2.zip` holds the repository at v3.18.0 and the
-Hexagon package of the paper *Mass Gap of Four-Dimensional Lattice
-Yang–Mills Theory for Every Compact Simple Gauge Group*
+Hexagon package of the paper *Yang–Mills Mass Gap in 4D: Lattice SU(N) and Every Compact Simple Group*
 ([download](https://github.com/creelie/4Y-M/raw/main/YangMills_masterzipfinal2.zip)).
 
 This repository contains three papers and a Lean 4 / Mathlib project
@@ -49,10 +48,9 @@ This repository contains three papers and a Lean 4 / Mathlib project
   (`strong-coupling/prd/`, PDF also at
   `preprintYangMillsDobrushinCeiling/YangMillsDobrushinCeiling.pdf`; see
   `strong-coupling/README.md`);
-- *Mass Gap of Four-Dimensional Lattice Yang–Mills Theory for Every Compact
-  Simple Gauge Group* (`strong-coupling/forest/`, REVTeX, 38 pages; PDF also
+- *Yang–Mills Mass Gap in 4D: Lattice SU(N) and Every Compact Simple Group* (`strong-coupling/forest/`, REVTeX, 54 pages; PDF also
   at `preprintYangMillsForestGauge/YangMillsForestGauge.pdf`; the one-column
-  version in the AMS article class, 58 pages, is `strong-coupling/forest/cmp/`;
+  version in the AMS article class, 81 pages, is `strong-coupling/forest/cmp/`;
   the working notes and checks are in `strong-coupling/gauge-fixed/`). It
   was first posted as Hexagon preprint 2610.00341 under the title *Mass Gap
   of Four-Dimensional Lattice Yang–Mills Theory in a Forest Gauge*.
@@ -182,7 +180,11 @@ field at two fixed physical separations, so what is open is a lower bound
 liminf D(r′)/D(r) > 0 for one pair r < r′; it holds for the free field and,
 along the right tuning, for two-dimensional SU(N) lattice gauge theory on a
 circle, where the energies converge to g²ℓC₂(λ)/2; the spatial flow alone
-does not give it. Tree
+does not give it. For the free field, conditioning an energy packet on
+averages over blocks leaves at least the fraction 2^(−d)d^(−2) of its variance
+at every lattice spacing, so the errors of a route through block averages
+have to be measured in the reflected norm (Proposition "block averages of the
+free field"). Tree
 bounds on the truncated correlations of the flowed fields give all n-point
 Schwinger functions as reflection-positive distributions along a
 subsequence, a time semigroup and the ratio bound itself (Theorem "higher

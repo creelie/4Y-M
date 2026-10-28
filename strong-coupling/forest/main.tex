@@ -64,7 +64,7 @@
 \setlength{\emergencystretch}{3em}
 \begin{document}
 
-\title{Mass Gap of Four-Dimensional Lattice Yang--Mills Theory for Every Compact Simple Gauge Group}
+\title{Yang--Mills Mass Gap in 4D: Lattice SU($N$) and Every Compact Simple Group}
 
 \author{Deep Bhattacharjee$^{*}$\,\orcidlink{0000-0003-0466-750X}}
 \email{itsdeep@live.com}
@@ -92,12 +92,12 @@ West Bengal, India}
 We prove that four-dimensional lattice Yang--Mills theory with any compact
 simple gauge group has a unique infinite-volume state, exponential clustering
 and an explicit mass gap at fixed lattice spacing, past the curvature limit of
-the ungauged theory; for SU(2) and SU(3) the ranges reach $\beta_W\le0.345$
-and $\beta_W\le0.76$. The proof fixes the gauge on lines that meet every
-plaquette once, so that each free link interacts with twelve others. We also
-prove that one estimate of Dobrushin--Shlosman type in a cube of fixed
-physical size gives a mass gap in physical units for every continuum limit;
-that estimate and the existence of the limit remain open. The estimate holds at strong coupling, forces the gauge-fixed variables to be disordered at the scale of the cube, and for SU(N) needs a cube of side at least of order $(\beta_W/\log\beta_W)^{1/4}$.
+the ungauged theory, with the ranges $\beta_W\le0.345$ for SU(2) and
+$\beta_W\le0.76$ for SU(3). We also prove that one estimate of
+Dobrushin--Shlosman type in a cube of fixed physical size gives a mass gap in
+physical units for every continuum limit, and that this estimate, which holds
+at strong coupling and remains open along the continuum tuning, needs for
+SU($N$) a cube of side at least of order $(\beta_W/\log\beta_W)^{1/4}$.
 \end{abstract}
 
 \maketitle
@@ -110,14 +110,10 @@ Primary 81T25, 82B20; Secondary 60K35, 81T13, 22E30, 58J50, 65G30.
 Lattice gauge theory; gauge fixing; Dobrushin uniqueness; mass gap.}
 \footnotetext{\footnotesize An earlier version, titled ``Mass Gap of Four-Dimensional Lattice
 Yang--Mills Theory in a Forest Gauge'', appeared as Hexagon preprint
-2610.00341. This version adds the theorem for every compact simple gauge
-group, the reduction of the continuum gap to one physical scale, what that
-reduction requires of the cube estimate, a Gaussian benchmark for it,
-smoothed observables, and
-complete proofs of the results earlier taken from our first paper. The
+2610.00341. The
 \LaTeX{} source, the checks and the Lean certificate are in
 \href{https://github.com/creelie/4Y-M}{github.com/creelie/4Y-M}, release
-v3.18.0.}
+v3.19.0.}
 \endgroup
 \addtocounter{footnote}{-2}
 
@@ -170,10 +166,10 @@ Two methods give explicit ranges. The Bakry--\'Emery
 method~\cite{BE85,BGL14} of Shen, Zhu and Zhu~\cite{SZZ23} bounds the
 Hessian of the action; in~\cite{BB26a} we showed that the sharp bound is
 $4d=16$ and that no curvature argument for the ungauged measure goes beyond
-$|\beta|<1/32$. The Dobrushin method~\cite{Dob68,Dob70} bounds the influence
+$|\beta|<1/32$. The Dobrushin method~\cite{Dob68,Dob70}\footnote{Dobrushin's theorem: if the conditional law of each variable given all others moves, in Kantorovich distance, by at most $C_{xy}$ times the distance by which the variable at $y$ moves, and $\sup_x\sum_yC_{xy}<1$, then the Gibbs measure is unique and correlations decay at the rate given by the Neumann series of the matrix $C$. Dobrushin and Shlosman~\cite{DS85} replaced single variables by finite boxes, which is the form used in Sec.~\ref{sec:bypass}.} bounds the influence
 of each link on the conditional law of another; for $\SU(2)$ the single-link
 conditional law is a von Mises--Fisher law on the three-sphere, the sharp
-Kantorovich modulus of that family is one quarter~\cite{BB26a} (Theorem~\ref{q-thm:quarter} in Appendix~\ref{app:sharp}), and
+Kantorovich modulus\footnote{The Kantorovich distance between two probability measures on a metric space is the least expected distance over their couplings, equivalently the largest difference of their integrals over $1$-Lipschitz functions~\cite{Vil09}. The modulus of a family of laws indexed by a metric space is the best Lipschitz constant of the map from the index to the law in that distance.} of that family is one quarter~\cite{BB26a} (Theorem~\ref{q-thm:quarter} in Appendix~\ref{app:sharp}), and
 every link has eighteen partners, which gives $\beta_W<2/9$ and nothing
 beyond, because the coefficients are attained.
 
@@ -199,7 +195,7 @@ observable $O$ the expectations $W_\Lambda(O)$ in boxes with free boundary
 converge, along every sequence of boxes that exhausts $\Z^4$, to a limit
 $\omega(O)$ that does not depend on the sequence. The state $\omega$ is
 invariant under translations and the hypercubic group and reflection
-positive; truncated correlations of Lipschitz observables decay at every
+positive;\footnote{That is, $\omega(\vartheta(\bar F)F)\ge0$ for every $F$ depending on the links on one side of a lattice hyperplane, $\vartheta$ being the reflection in it. It gives the Hilbert space and the transfer matrix of Osterwalder and Schrader~\cite{OS73,OS75} and of Osterwalder and Seiler~\cite{OSei78}, reconstructed in Appendix~\ref{app:transfer}.} truncated correlations of Lipschitz observables decay at every
 rate below $-\log(3\beta_W)$; and the transfer matrix has spectral gap
 \[
 m\ge-\log(3\beta_W)>0 .
@@ -283,7 +279,7 @@ closed subgroup, and the curvature of the group does the rest. This gives the
 theorem for every compact simple gauge group, the exceptional groups
 included, with an explicit gap. Let $\rho:G\to\U(N)$ be a faithful unitary
 representation of a compact connected Lie group $G$, weigh a configuration by
-$\exp(N\beta\sum_p\ReTr\rho(Q_p))$, and let $\kappa_G$ be the least Ricci
+$\exp(N\beta\sum_p\ReTr\rho(Q_p))$, and let $\kappa_G$ be the least Ricci\footnote{For a bi-invariant metric on a compact Lie group the Ricci curvature is $-\frac14\Tr((\operatorname{ad}X)^2)$ in the direction of $X$. It is positive for every $X\ne0$ exactly when the Lie algebra is semisimple, and $\kappa_G$ is its minimum over unit vectors.}
 curvature of $G$ for the bi-invariant metric $\ip XY=-\Tr(\rho(X)\rho(Y))$;
 we identify $G$ with $\rho(G)\subset\U(N)$.
 
@@ -451,50 +447,84 @@ physical units, which together are the Clay problem; Sec.~\ref{sec:limits}
 says where each method stops and what remains of the four open problems
 of~\cite{BB26a}. The obstruction proved in~\cite{BB26b}, that a lattice gap
 uniform in lattice units forces trivial continuum two-point functions,
-applies to all of them. Section~\ref{sec:bypass} goes past it in one
-respect: a Dobrushin--Shlosman condition on one cube of fixed physical size,
+applies to all of them.
+
+\emph{The continuum step.} Sec.~\ref{sec:bypass} goes past that obstruction
+in one respect, through three implications, each proved.
+\begin{enumerate}[label=\textup{(I\arabic*)},leftmargin=*]
+\item A Dobrushin--Shlosman condition on one cube of fixed physical size,
 uniform along the continuum tuning, gives a mass gap in physical units for
-every continuum limit (Theorems~\ref{thm:onescale} and~\ref{thm:transfer}).
-The conclusion extends to observables smoothed by the spatial gradient
-flow (Proposition~\ref{prop:spatialflow}), and these observables, renormalised
-by one condition at a single physical separation, have continuum limits along
-subsequences whose nontriviality reduces to one ratio of lattice two-point
-functions (Theorem~\ref{thm:flowlimit}), which is bounded above and below by
+every continuum limit (Theorems~\ref{thm:onescale} and~\ref{thm:transfer}),
+also for observables smoothed by the spatial gradient flow
+(Proposition~\ref{prop:spatialflow}).
+\item The flowed observables, renormalised by one condition at a single
+physical separation, have reflection positive continuum limits along
+subsequences, and such a limit is nontrivial exactly when one ratio of
+lattice two-point functions stays away from zero
+(Theorem~\ref{thm:flowlimit}); that ratio is bounded above and below by
 ratios of correlations of one slice field at fixed physical separations
-(Proposition~\ref{prop:sliceratio}); tree bounds on the truncated
-correlations give all the higher Schwinger functions as reflection positive
-distributions, imply the ratio bound, and carry the conditional mass gap to
-every polynomial in the smeared fields (Theorem~\ref{thm:higher}); already their
-order-two cases force the lattice gap below a fixed multiple of the lattice
-spacing, so no strong coupling expansion gives them
-(Proposition~\ref{prop:treecritical}), while for a smooth packet they give the
+(Proposition~\ref{prop:sliceratio}).
+\item Tree bounds on the truncated correlations give all the higher
+Schwinger functions as reflection positive distributions, imply the ratio
+bound, and carry the conditional mass gap to every polynomial in the
+smeared fields (Theorem~\ref{thm:higher}); for a smooth packet they give the
 ratio with an explicit rate and a reference vector of finite energy
-(Proposition~\ref{prop:treeenergy}). The cube condition and the
-nontrivial existence of the limit are the two statements left open. Section~\ref{ssec:cubeneeds} shows that the condition holds at strong
+(Proposition~\ref{prop:treeenergy}).
+\end{enumerate}
+\emph{What is open.} The inputs of (I1)--(I3), namely the cube condition
+along the tuning, the slice ratio in four dimensions and the tree bounds,
+are not proved, and so the nontrivial existence of the continuum limit and
+the gap in physical units remain open. Figure~\ref{fig:logic} shows how the
+proved statements, the implications and the open inputs fit together. The
+open inputs are measured as follows. The cube condition holds at strong
 coupling, fails at every fixed cube size at weak coupling, forces the
 gauge-fixed variables to be disordered on the scale of the cube, and cannot
 be reached from estimates on single lines of links; for $\SU(N)$ it needs
 cubes of side at least of order $(\beta_W/\log\beta_W)^{1/4}$
-(Propositions~\ref{prop:cubesize} and~\ref{prop:cubesizeN}). For a Gaussian field the condition holds at
-a fixed physical scale when the field has a mass and fails exactly, at every
-size, when it is massless (Proposition~\ref{prop:gauss}); so does the
-quadratic approximation of the forest gauge itself
-(Proposition~\ref{prop:gaussforest}).
+(Propositions~\ref{prop:cubesize} and~\ref{prop:cubesizeN}). For a Gaussian
+field it holds at a fixed physical scale when the field has a mass and fails
+exactly, at every size, when it is massless (Proposition~\ref{prop:gauss});
+it also fails for the quadratic approximation of the forest gauge itself
+(Proposition~\ref{prop:gaussforest}). The order-two cases of the tree bounds
+force the lattice gap below a fixed multiple of the lattice spacing, so no
+strong coupling expansion gives them (Proposition~\ref{prop:treecritical}).
+The slice ratio holds in two dimensions, where it is the exact solution of
+lattice gauge theory (Remark~\ref{rem:twodslice}), and fails for a field
+whose mass is fixed in lattice units; for the free field, conditioning an
+energy packet on averages over blocks leaves a fixed fraction of its ordinary
+variance at every lattice spacing, so a reduction to block averages has to be
+measured in the reflected norm (Proposition~\ref{prop:blockfree}).
 
-Section~\ref{sec:linefield} constructs the line field.
-Section~\ref{sec:state} shows that a Dobrushin bound for the gauge-fixed
+\begin{figure*}[t]
+\centering
+\includegraphics[width=0.9\textwidth]{figures/fig_logic.png}
+\caption{The logical structure of the paper. Green: theorems at fixed
+lattice spacing (P1 the gap for every compact simple group,
+Theorem~\ref{thm:groups}, P2 the plaquette blocks for $\SU(2)$
+and $\SU(3)$, P3 the cube condition at strong coupling). Blue: the proved
+implications (I1)--(I3) of the continuum step. Red: their inputs, none of
+which is proved along the continuum tuning. Each arrow joins an open input
+to the implication that consumes it; no implication feeds its own input.}
+\label{fig:logic}
+\end{figure*}
+
+\emph{Plan.} Sec.~\ref{sec:linefield} constructs the line field.
+Sec.~\ref{sec:state} shows that a Dobrushin bound for the gauge-fixed
 specification gives the full conclusion of Theorem~\ref{thm:su2}.
-Sections~\ref{sec:su2}, \ref{sec:plaqblocks}, \ref{sec:curvature},
+Secs.~\ref{sec:su2}, \ref{sec:plaqblocks}, \ref{sec:curvature},
 \ref{sec:su3} and~\ref{sec:su3blocks} prove Theorems~\ref{thm:su2}--\ref{thm:su3blocks}, and
-Sec.~\ref{sec:limits} measures what is left; Sec.~\ref{sec:bypass} reduces the continuum gap to one
-cube and the existence of the limit. The appendices contain the
+Sec.~\ref{sec:limits} measures what is left; Sec.~\ref{sec:bypass} proves
+(I1)--(I3) and measures the open inputs. The appendices contain the
 residue table of the line field, the comparison lemma and its version for
 blocks, the blocks of the local Hessian inequality, the details of the
 certified computation, the reconstruction of the transfer matrix with the
 equivalence of a gap and exponential clustering
-(Appendix~\ref{app:transfer}), and a complete proof of the sharp quarter for
-the single-link law of $\SU(2)$ (Appendices~\ref{app:sharp}--\ref{app:bessel}),
-so that the paper does not depend on our earlier one for any step.
+(Appendix~\ref{app:transfer}), the facts on spectral measures and on the
+character expansion that the continuum step uses
+(Appendices~\ref{app:spectral} and~\ref{app:characters}), and a complete
+proof of the sharp quarter for the single-link law of $\SU(2)$
+(Appendices~\ref{app:sharp}--\ref{app:bessel}), so that the paper does not
+depend on our earlier one for any step.
 
 \section{The line field}\label{sec:linefield}
 
@@ -1579,10 +1609,7 @@ $u=s\varphi_h$, Lemma~\ref{lem:gradients} gives $\varphi_h+Lu=(1-s\lambda_F)
 \varphi_h+s\Gamma$ with $\Gamma=\ip{\nabla V}{\nabla\varphi_h}$; the choice
 $s=1/\lambda_F$ removes $\varphi_h$ and leaves the drift. This blended
 corrector reaches $\beta_W=\frac{45}{64}$ and stops near $0.715$
-(Sec.~\ref{sec:limits}).\footnote{An earlier version of this paper proved
-Theorem~\ref{thm:su3} for $\beta_W\le\frac{45}{64}$ with $u=s\varphi_h$, $s$
-chosen box by box, on $865$ boxes at $r=\frac{45}{32}$; the largest bound was
-$0.999657$.} We take $u$ in a space of polynomials of degree two.
+(Sec.~\ref{sec:limits}). We take $u$ in a space of polynomials of degree two.
 
 Let $\mathcal P_2$ be the real vector space of real polynomials of degree one
 or two in the entries $u_{ij}$ of $U$ and $\bar u_{ij}$ of $\bar U$. It has
@@ -2194,7 +2221,11 @@ which tends to infinity as $\varepsilon\to0$.
 
 The action density $\Tr F_{\mu\nu}F_{\mu\nu}$ has dimension $\Delta=4$ in four
 dimensions. A two-sided short-distance law of the form $|x-y|^{-8}$ times
-the fourth power of the running coupling, which is what asymptotic freedom
+the fourth power of the running coupling, which is what asymptotic freedom\footnote{For $\SU(N)$ the renormalisation group gives, with $b_0=11N/(48\pi^2)$ and the invariant scale $\Lambda$,
+\[
+g(a)^{-2}=2b_0\log\tfrac1{a\Lambda}+O\bigl(\log\log\tfrac1{a\Lambda}\bigr),
+\]
+so the inverse coupling $\beta_W=2N/g(a)^2$ grows like $\frac{11N^2}{12\pi^2}\log\frac1{a\Lambda}$ along the continuum tuning.}
 predicts and what the conditional construction of~\cite{Sus26b} states for
 the smeared action density, has $2\Delta=8>4$ and $k=2$; so that field
 cannot satisfy~\eqref{eq:growth}, and rotation invariance for it has to come
@@ -2445,7 +2476,7 @@ every continuum limit without a separate assumption on the gap.
 
 The observables $O_k(f)$ of Definition~\ref{def:limit} need not be local.
 The renormalised fields that one expects to converge are smoothed by the
-gradient flow of the Wilson action~\cite{Lus10}; at positive flow time their
+gradient flow of the Wilson action~\cite{Lus10}\footnote{The flow moves the gauge field along the negative gradient of the Wilson action. At positive flow time the flowed fields are smooth on the scale of the square root of the flow time, and in perturbation theory their gauge-invariant composite fields need no further renormalisation~\cite{Lus10,LW11}.}; at positive flow time their
 correlation functions are finite to all orders of perturbation theory once
 the coupling is renormalised~\cite{LW11}. Flow in all four directions mixes
 the two sides of the reflection plane, but the spatial flow
@@ -2574,6 +2605,17 @@ $Z_k=C_k(0)^{-1/2}$. Let $\mathcal D$ be the set of points $y=(t,y')\in\R^4$
 with dyadic coordinates (in units of $a_0$) and $t>0$, and for $y\in\mathcal D$
 and $k$ with $y/a_k\in\Z^4$ let $A^y_k$ be the translate of $A_k$ by $y/a_k$.
 
+\begin{figure*}[t]
+\centering
+\includegraphics[width=0.82\textwidth]{figures/fig_packet.png}
+\caption{The packet $f_0$ of Theorem~\ref{thm:flowlimit}, supported in the time
+window $[t_0,t_1]$ above the reflection plane $t=0$, its reflection
+$\vartheta f_0$ and its translate $\tau_\sigma f_0$ by $\sigma$ in time. The
+correlation $C_k(\sigma)$ pairs the reflected packet with the translated one;
+$C_k(0)$ is the reflected norm that renormalises the packet.}
+\label{fig:packet}
+\end{figure*}
+
 \begin{theorem}\label{thm:flowlimit}
 \textup{(i)} For $y,y'\in\mathcal D$ and every $k$ with $y/a_k,y'/a_k\in\Z^4$,
 \[
@@ -2629,11 +2671,11 @@ Z_k\Psi_{A^y_k}=U_k(y'/a_k)\,\mathbb T_k^{t/a_k}\Psi_k .
 bounded by (i), so a diagonal subsequence gives all the limits $K$; the limits
 $\rho(\sigma)$ are among them, since $C_k(\sigma)/C_k(0)=
 \ip{\Psi_k}{\mathbb T_k^{\sigma/a_k}\Psi_k}$ is the value of $K$ at
-$y=y'=(\sigma/2,0)$. Let $\nu_k$ be the spectral measure of $\mathbb T_k$ at
+$y=y'=(\sigma/2,0)$. Let $\nu_k$ be the spectral measure (Lemma~\ref{lem:spectralmeasure}) of $\mathbb T_k$ at
 $\Psi_k$, a probability measure on $[0,1]$, and $\mu_k$ its image under
 $\lambda\mapsto-a_k^{-1}\log\lambda\in[0,\infty]$. Then
 $C_k(\sigma)/C_k(0)=\int e^{-\sigma E}d\mu_k(E)$. The space $[0,\infty]$ is
-compact, so a further subsequence has $\mu_k\to\mu$ weakly, and
+compact, so a further subsequence has $\mu_k\to\mu$ weakly (Lemma~\ref{lem:helly}), and
 $E\mapsto e^{-\sigma E}$ is continuous on $[0,\infty]$ for $\sigma>0$.
 
 (iii) A finite combination $\sum_jc_jf_0(\cdot-y_j)$ with distinct $y_j$ that
@@ -2665,7 +2707,7 @@ A^{y'+(\sigma,0)}_k$; and for $f_*$ they read $\omega_k(1)=1$ and
 $\omega_k(\vartheta(\bar A^y_k))=\omega_k(\tau_{\sigma/a_k}A^y_k)=0$.
 
 (iv) The limit is nontrivial exactly when $\mathcal H_0\ne0$, that is when
-$\|\delta_y\|^2=K(y,y)=\rho(2t)$ is positive for some $y=(t,y')$. By (ii),
+$\|\delta_y\|^2=K(y,y)=\rho(2t)$ is positive for some $y=(t,y')$. By (ii) and Lemma~\ref{lem:laplace}(b),
 $\rho(\sigma)>0$ for one $\sigma>0$ if and only if $\mu([0,\infty))>0$, and
 then $\rho(\sigma)>0$ for every $\sigma>0$. For the last statement choose a
 subsequence along which $C_k(\sigma)/C_k(0)$ tends to its $\limsup$, and refine
@@ -2986,7 +3028,7 @@ V'_1\cdots V'_{L}&=W_1\,(V_1W_2V_1^{-1})\cdots\\
 \end{split}
 \]
 so the new holonomy is $QV$ with $Q$ distributed as the $L_k$-fold
-convolution of $w_{\beta_k}$, independent of $V$. By Schur's lemma the
+convolution of $w_{\beta_k}$, independent of $V$. By Schur's lemma (Lemma~\ref{lem:convolution}) the
 transfer matrix acts on class functions by $\chi_\lambda\mapsto\hat
 c_\lambda(\beta_k)^{L_k}\chi_\lambda$. The coefficients are real, since
 $w_\beta$ is invariant under $U\mapsto\bar U$, nonnegative, since the
@@ -2998,13 +3040,13 @@ components of norms $|\hat f_\lambda|$, the slice correlation is therefore
 D_k(r)=\sum_{\lambda\ne0}|\hat f_\lambda|^2e^{-rE_{\lambda,k}},\qquad
 E_{\lambda,k}=-\frac{\ell}{a_k^2}\log\hat c_\lambda(\beta_k).
 \]
-Laplace's method at the unique maximum $U=1$ of $\ReTr U$, with
+Laplace's method\footnote{For a smooth function with a unique nondegenerate maximum, $\int e^{\beta\varphi}h$ has an expansion in powers of $\beta^{-1}$ whose coefficients are Gaussian moments at the maximum; Lemma~\ref{lem:wilsoncoeff} carries it out here.} at the unique maximum $U=1$ of $\ReTr U$, with
 $U=e^X$, $\ReTr e^X=N+\frac12\operatorname{Tr}X^2+O(|X|^4)$,
 $\operatorname{Re}\operatorname{Tr}X^3=0$, $\operatorname{Tr}\rho_\lambda(X)=0$
 and $\sum_a\rho_\lambda(T_a)^2=-2C_2(\lambda)$ for an orthonormal basis of
 $\mathfrak{su}(N)$ in the norm $-\operatorname{Tr}X^2$, gives $\hat
 c_\lambda(\beta)=1-NC_2(\lambda)/\beta+O(\beta^{-2})$, with the Casimir
-normalised by $C_2=(N^2-1)/(2N)$ on the fundamental representation. Hence
+normalised by $C_2=(N^2-1)/(2N)$ on the fundamental representation (Lemma~\ref{lem:wilsoncoeff}). Hence
 $E_{\lambda,k}\to g^2\ell C_2(\lambda)/2$, and since $D_k(r)\le\|f\|^2$,
 \[
 \liminf_k\frac{D_k(r')}{D_k(r)}\ge\frac{|\hat f_\mu|^2}{\|f\|^2}
@@ -3015,8 +3057,8 @@ exactly $e^{-(r'-r)E_{\mathrm F,k}}\to e^{-(r'-r)g^2\ell(N^2-1)/(4N)}$. This
 is the exact solution of two-dimensional lattice gauge theory, whose
 continuum limit is the measure of~\cite{GKS89,Dri89,Lev03}, written as
 the inequality. In two dimensions $g^2$ has the dimension of a mass squared
-and there is no ultraviolet problem, so this does not suggest a method in four
-dimensions. Nor does the spatial flow give the inequality by itself: it damps
+and there is no ultraviolet problem, so the argument has no four-dimensional
+analogue. Nor does the spatial flow give the inequality by itself: it damps
 the spectral weight at large spatial momentum and leaves the weight at zero
 spatial momentum unchanged. For the free lattice field of
 Remark~\ref{rem:freeslice} with a mass $M_k$ and the same flow, every energy
@@ -3024,6 +3066,157 @@ is at least $m_k=a_k^{-1}\operatorname{arccosh}(1+a_k^2M_k^2/2)$, so
 $D_k(r')\le e^{-m_k(r'-r)}D_k(r)$, which tends to zero relative to $D_k(r)$
 when $a_kM_k$ is fixed.
 \end{remark}
+
+\begin{figure*}[t]
+\centering
+\includegraphics[width=0.9\textwidth]{figures/fig_twod.png}
+\caption{Two-dimensional $\SU(N)$ (Remark~\ref{rem:twodslice}). (a) The lattice
+$a_k\Z\times a_k\Z_{L_k}$ drawn as a cylinder: the holonomy $V$ of one slice,
+the holonomy $V'=QV$ of the next, and the plaquette variables $W_x$ between
+them. (b) The energies $E_{j,k}=-(\ell/a_k^2)\log\hat c_j(\beta_k)$ of
+$\SU(2)$ for $g^2=\ell=1$, with $\hat c_j(\beta)=I_{2j+1}(\beta)/I_1(\beta)$,
+against the lattice spacing; the dashed lines are the limits $j(j+1)/2$.}
+\label{fig:twod}
+\end{figure*}
+
+\begin{figure*}[t]
+\centering
+\includegraphics[width=0.9\textwidth]{figures/fig_slice.png}
+\caption{The ratio $D_k(r)/D_k(\frac12)$ over the separation $r$ and the lattice
+spacing $a_k$. (a) Two-dimensional $\SU(2)$ with $f=\ReTr V$ and
+$g^2=\ell=1$, where the ratio is $e^{-(r-1/2)E_{1/2,k}}$ and converges as
+$a_k\to0$. (b) The term $e^{-(r-1/2)m_k}$ of the lowest energy $m_k$ of a free
+field with mass $\frac12$ in lattice units, which bounds the ratio from above
+and tends to zero at every $r>\frac12$.}
+\label{fig:slice}
+\end{figure*}
+
+A route to the slice ratio in four dimensions replaces the packet by its
+conditional expectations given averages of the field over blocks of
+increasing size and controls the error of each step. The free field shows in
+which norm such errors can be small. In the ordinary $L^2$ norm the first
+step already fails: conditioning on the averages over blocks of side two
+leaves a fixed fraction of the variance of an energy packet, at every
+lattice spacing.
+
+\begin{proposition}\label{prop:blockfree}
+Let $d\ge2$, let $\Lambda$ be a periodic box in $\Z^d$ with even sides, let
+$\mu>0$, and let $\phi$ be the Gaussian field on $\Lambda$ with density
+proportional to
+$\exp\bigl(-\frac12\sum_{x,\nu}(\nabla_\nu\phi(x))^2-\frac{\mu^2}2\sum_x
+\phi(x)^2\bigr)$, where $\nabla_\nu\phi(x)=\phi(x+e_\nu)-\phi(x)$. Let
+$\mathcal Z$ be a set of blocks $B=2z+\{0,1\}^d$, let $\mathfrak B$ be the
+$\sigma$-algebra generated by the averages of $\phi$ over the blocks in
+$\mathcal Z$, let $f\ge0$ on $\Lambda$, and let
+\[
+F=\sum_{x\in\Lambda}f(x)\sum_{\nu=1}^d{:}(\nabla_\nu\phi(x))^2{:} ,
+\]
+where ${:}X^2{:}=X^2-\E X^2$. For $B=2z+\{0,1\}^d$ put $x_B=2z$,
+$y_B=2z+e_1+e_2$ and
+\[
+\alpha_B=\frac14\sum_{w\in\{x_B,y_B\}}\Bigl(d\,f(w)+\sum_{\nu=1}^df(w-e_\nu)
+\Bigr),
+\]
+and $\sigma^2=2/(2d+\mu^2)$.
+\textup{(i)} $\E\Var(F\mid\mathfrak B)\ge2\sigma^4\sum_{B\in\mathcal Z}\alpha_B^2$.
+
+\textup{(ii)} $\Var F\le2d^2\sum_xf(x)^2$.
+
+\textup{(iii)} Let $g\ge0$ be a Lipschitz function on $\R^d$ with compact
+support and $\int g^2>0$. For $n\ge1$ let $\Lambda_n$ contain $n\operatorname{supp}g$
+in a fundamental domain, $f_n(x)=g(x/n)$, let $\mathcal Z_n$ contain every
+block that meets $n\operatorname{supp}g$, and let $\mu=\mu_n\to0$. Then for
+the packets $F_n$ of $f_n$,
+\[
+\liminf_{n\to\infty}\frac{\E\Var(F_n\mid\mathfrak B_n)}{n^d\int g^2}
+\ge2^{1-d},\qquad
+\limsup_{n\to\infty}\frac{\Var F_n}{n^d\int g^2}\le2d^2 ,
+\]
+so $\E\Var(F_n\mid\mathfrak B_n)\ge(2^{-d}d^{-2}-o(1))\Var F_n$.
+\end{proposition}
+
+\begin{proof}
+(i) No two of the sites $x_B,y_B$, $B\in\mathcal Z$, are neighbours: their
+coordinate sums are even, and a neighbour of a site has a coordinate sum of
+the other parity. Let $\mathfrak H\supseteq\mathfrak B$ be generated by
+$\mathfrak B$ and by $\phi(w)$ for every $w$ outside
+$\{x_B,y_B:B\in\mathcal Z\}$. By the law of total variance,
+$\Var(F\mid\mathfrak B)=\E[\Var(F\mid\mathfrak H)\mid\mathfrak B]
++\Var(\E[F\mid\mathfrak H]\mid\mathfrak B)$, so
+$\E\Var(F\mid\mathfrak B)\ge\E\Var(F\mid\mathfrak H)$. In the exponent of the
+density, a site $w$ enters through $(d+\frac{\mu^2}2)\phi(w)^2$ and through
+$-\phi(w)\phi(w')$ for each of its $2d$ neighbours $w'$. Given $\mathfrak H$,
+the block average fixes $s_B=\phi(x_B)+\phi(y_B)$, and with
+$u_B=\phi(x_B)-\phi(y_B)$ we have $\phi(x_B)^2+\phi(y_B)^2=\frac12(s_B^2+
+u_B^2)$. Since the free sites have only $\mathfrak H$-measurable neighbours,
+the conditional density of $(u_B)_{B\in\mathcal Z}$ is proportional to
+$\prod_B\exp(-\frac14(2d+\mu^2)u_B^2+c_Bu_B)$ with $\mathfrak H$-measurable
+$c_B$: the $u_B$ are conditionally independent Gaussians of variance
+$\sigma^2$. A term $(\nabla_\nu\phi(w))^2$ contains at most one free site,
+and if it contains $x_B$, then $\phi(x_B)=\frac12(s_B+u_B)$ shows that it is
+$\frac14u_B^2$ plus a term linear in $u_B$ plus an $\mathfrak
+H$-measurable term; the same holds for $y_B$ with $-u_B$. The terms
+containing $x_B$ are those with $w=x_B$ and those with $w=x_B-e_\nu$, $d$ of
+each kind, so
+\[
+F=\sum_{B\in\mathcal Z}\bigl(\alpha_Bu_B^2+\beta_Bu_B\bigr)+F_0
+\]
+with $\mathfrak H$-measurable $\beta_B$ and $F_0$. Writing
+$u_B=m_B+v_B$ with $m_B$ the conditional mean, $\alpha_Bu_B^2+\beta_Bu_B=
+\alpha_Bv_B^2+(2\alpha_Bm_B+\beta_B)v_B+\text{const}$, and for a centred
+Gaussian $v$ of variance $\sigma^2$, $\Var(\alpha v^2+\gamma v)=2\alpha^2
+\sigma^4+\gamma^2\sigma^2$. By conditional independence,
+$\Var(F\mid\mathfrak H)\ge2\sigma^4\sum_B\alpha_B^2$.
+
+(ii) For centred jointly Gaussian $X,Y$, $\Cov({:}X^2{:},{:}Y^2{:})=2\Cov(X,Y)^2$.
+With $G_{\nu\rho}(x,y)=\E[\nabla_\nu\phi(x)\nabla_\rho\phi(y)]$,
+\[
+\begin{split}
+\Var F&=2\sum_{x,y}f(x)f(y)\sum_{\nu,\rho}G_{\nu\rho}(x,y)^2\\
+&\le\sum_{x,y}\bigl(f(x)^2+f(y)^2\bigr)\sum_{\nu,\rho}G_{\nu\rho}(x,y)^2 .
+\end{split}
+\]
+On the dual torus $\Lambda^*$, with $\hat p^2=\sum_\nu|e^{ip_\nu}-1|^2$,
+\[
+G_{\nu\rho}(x,y)=\frac1{|\Lambda|}\sum_{p\in\Lambda^*}
+\frac{(e^{ip_\nu}-1)(e^{-ip_\rho}-1)}{\hat p^2+\mu^2}e^{ip\cdot(x-y)},
+\]
+and by Parseval
+$\sum_yG_{\nu\rho}(x,y)^2=|\Lambda|^{-1}\sum_p|e^{ip_\nu}-1|^2
+|e^{ip_\rho}-1|^2(\hat p^2+\mu^2)^{-2}\le1$, since each factor
+$|e^{ip_\nu}-1|^2$ is at most $\hat p^2$. The same holds for the sum over
+$x$, and (ii) follows.
+
+(iii) If $\operatorname{Lip}g=K$, every site entering $\alpha_B$ lies within
+distance $3$ of $2z$, so $|\alpha_B-d\,g(2z/n)|\le3dK/n$. Hence
+$\sum_{B\in\mathcal Z_n}\alpha_B^2\ge\sum_z(d\,g(2z/n)-3dK/n)_+^2$, the sum
+running over $z$ with $2z\in n\operatorname{supp}g$, and this is
+$d^2(n/2)^d\int g^2\,(1+o(1))$ as a Riemann sum on the grid $(2/n)\Z^d$.
+Since $\sigma^4=4/(2d+\mu_n^2)^2\to d^{-2}$, (i) gives the first bound. By
+(ii) and $\sum_xg(x/n)^2=n^d\int g^2(1+o(1))$, the second follows.
+\end{proof}
+
+For $d=4$ and the energy density, $\Var F_n$ grows like $(\ell/a)^4$ at a
+fixed physical size $\ell$ of the packet, and no step of conditioning on
+block averages removes more than a fraction $1-2^{-d}d^{-2}+o(1)$ of it. The
+reflected norm $C_k(0)=\omega_k(\vartheta(\bar A_k)A_k)$, which renormalises
+the packet in Theorem~\ref{thm:flowlimit}, involves the covariance only
+between the support of $\vartheta f_0$ and that of $f_0$, at a fixed
+physical distance. The errors of a blocking route have therefore to be
+measured in that norm; Figure~\ref{fig:blocking} shows the blocks between
+the reflection plane and the packet.
+
+\begin{figure*}[t]
+\centering
+\includegraphics[width=0.9\textwidth]{figures/fig_blocking.png}
+\caption{Block averages between the reflection plane $t=0$ and a packet $F$ at
+physical height $d$, for blocks of side $d/4$, $d/2$ and $d$. By
+Proposition~\ref{prop:blockfree} the first conditioning step already leaves
+a fixed fraction of the ordinary variance of the packet, so the errors of
+such steps have to be measured in the reflected norm.}
+\label{fig:blocking}
+\end{figure*}
+
 
 \subsection{Higher correlations}\label{ssec:higher}
 
@@ -3387,9 +3580,8 @@ $K_n$ either. By Theorem~\ref{thm:higher}(v) the limit can be non-Gaussian
 only if $\liminf_ka_k^4W_k>0$; for the product majorants of part (iii) the
 time factor of $W_k$ is $\coth(\mu_k/2)\ge2/\mu_k$, which is of order $1/a_k$
 at least, so the time direction alone is compatible with this. At a fixed
-physical flow time the flowed fields are smooth on the scale $\sqrt\tau$,
-which makes such majorants the expected behaviour, but no estimate of that
-kind is proved here.
+physical flow time the flowed fields are smooth on the scale $\sqrt\tau$;
+majorants of product form for them are not proved here.
 
 The order-two cases of (T1) and (T2) say more about the reference vector than
 part (iv) of Theorem~\ref{thm:higher} records: for a smooth $f_0$ they bound
@@ -3652,23 +3844,27 @@ analysis~\cite{Bal84a,Bal85a,Bal89b} gives the ultraviolet part in finite
 volume.
 
 \begin{remark}\label{rem:cubeheuristic}
-A linear-response count suggests that (D) is consistent with a massive
-continuum theory. If the gauge-fixed field responds to a change of one link
-on the boundary of a cube through a Poisson kernel with decay length $\xi$
-in lattice units, the response summed over the cube is of order $\xi$, so
-$K_c$ is of order $n^3\xi$ and $D(n,\alpha)$ asks for $n\gtrsim\xi/\alpha$,
-that is, $\ell\gtrsim\xi a/\alpha$, a fixed multiple of the physical
-correlation length. The count is not a proof, and it assumes that the
-gauge-fixed links decorrelate on the scale $\xi$. The gauge here is built on
-straight lines, and in gauges of axial type the gauge-fixed variables can
-fluctuate on all scales even when gauge-invariant observables cluster; if
-that happens, (D) fails in this gauge and has to be posed for block-averaged
-variables, where it becomes part of the renormalisation group problem.
+The following count relates (D) to a correlation length. Suppose that the
+gauge-fixed field responds to a change of one link on the boundary of a cube
+through a Poisson kernel with decay length $\xi$ in lattice units. Then the
+response summed over the cube is of order $\xi$, so $K_c$ is of order
+$n^3\xi$ and $D(n,\alpha)$ holds once $n\gtrsim\xi/\alpha$, that is, once
+$\ell\gtrsim\xi a/\alpha$, a fixed multiple of the physical correlation
+length. The hypothesis is that the gauge-fixed links decorrelate on the
+scale $\xi$, and it is a statement about the gauge, not about the
+gauge-invariant observables: the gauge here is built on straight lines, and
+in gauges of axial type the gauge-fixed variables can fluctuate on all
+scales while gauge-invariant observables cluster. Propositions~\ref{prop:gauss}
+and~\ref{prop:gaussforest} carry the count out exactly for Gaussian fields,
+and Proposition~\ref{prop:gaussforest} shows that the quadratic
+approximation of the forest gauge fluctuates in this way. Where it does,
+(D) fails in this gauge and has to be posed for block-averaged variables,
+where it becomes part of the renormalisation group problem.
 \end{remark}
 
 The count of Remark~\ref{rem:cubeheuristic} can be carried out exactly for a
 Gaussian field, the quadratic approximation of the gauge-fixed theory at weak
-coupling, and indicates what (D) asks of the gauge-fixed variables.
+coupling, and shows what (D) asks of the gauge-fixed variables.
 
 \begin{proposition}\label{prop:gauss}
 Let $d\ge1$, $b>0$, $t\ge0$, let $n\ge2$ be even and $V=[0,n)^d\cap\Z^d$.
@@ -3810,11 +4006,11 @@ move the whole cube while changing few boundary links, which is the
 behaviour of gauges of axial type anticipated in
 Remark~\ref{rem:cubeheuristic}. The class sums themselves, computed exactly
 in the archive for $n\le8$, lie between $1.5$ and $11$ times $N_n$ and
-increase with $n$. Below the correlation length, where the theory is weakly
-coupled, the forest-gauge variables should follow this quadratic
-approximation; a proof of (D) along the tuning therefore has to show that
-the nonperturbative regime reduces the cube coefficients of the forest
-gauge below $N_n$, or (D) has to be posed for other variables.
+increase with $n$. Below the correlation length the theory is weakly
+coupled, and the quadratic approximation is its leading order there. A proof
+of (D) along the tuning therefore has to show that the nonperturbative
+regime reduces the cube coefficients of the forest gauge below $N_n$, or
+(D) has to be posed for other variables.
 
 \begin{remark}\label{rem:routes}
 The other routes we tried stop at (D) or (E), or earlier.
@@ -4441,13 +4637,13 @@ contradiction: $n=\ell/a$ grows like $1/a$, while asymptotic freedom makes
 $\beta(a)$ grow only like $\log(1/a)$, and the corollary concerns fixed $n$.
 The size bound of Proposition~\ref{prop:cubesize} is likewise met along the
 tuning, since its right side grows only like $\log(1/a)$.
-It turns the assumption of Remark~\ref{rem:cubeheuristic}, that the
+It turns the hypothesis of Remark~\ref{rem:cubeheuristic}, that the
 gauge-fixed links decorrelate on the scale of the cube, into a necessary
-condition. Whether the forest-gauge variables are disordered at a fixed
-physical scale, as the gauge-invariant ones are expected to be in a massive
-theory, is part of what (D) asks.
+condition: (D) requires the forest-gauge variables to be disordered at a
+fixed physical scale. For gauge-invariant observables of a massive theory
+that disorder is clustering; for the gauge-fixed variables it is not proved.
 
-The last statement concerns a strategy that suggests itself: control the
+The last statement concerns the following strategy: control the
 conditional law of one line of links, given everything else, uniformly in
 the configuration around it, and assemble the cube from lines. Fix a site
 $x$, let $s=\sigma(x)$ and $\mu\ne s$, and let $c_k=(x+ke_s,\mu)$, $k\in\Z$.
@@ -5035,6 +5231,182 @@ for all $t$, so $\sigma((e^{-m+\delta},1])=0$.
 The spectral projection of $(e^{-m},1]$ restricted to $\Omega^\perp$ therefore
 annihilates the vectors $\Psi'_F$ of the class, which are dense by the
 footnote above, and it vanishes.
+\end{proof}
+
+\section{Spectral measures and Laplace transforms}\label{app:spectral}
+
+This appendix collects the facts on spectral measures that the continuum
+step uses, with proofs.
+
+\begin{lemma}\label{lem:spectralmeasure}
+Let $T$ be a self-adjoint operator on a Hilbert space with $0\le T\le1$ and
+let $\psi$ be a unit vector. There is a unique probability measure $\nu$ on
+$[0,1]$ with $\ip\psi{h(T)\psi}=\int h\,d\nu$ for every bounded Borel
+function $h$ on $[0,1]$. If $T\psi'=\psi'$ implies $\ip{\psi'}\psi=0$, then
+$\nu(\{1\})=0$. If $\mu$ is the image of $\nu$ under
+$\lambda\mapsto-c^{-1}\log\lambda\in[0,\infty]$ for some $c>0$, then
+$\ip\psi{T^{\sigma/c}\psi}=\int_{[0,\infty]}e^{-\sigma E}d\mu(E)$ for
+$\sigma>0$, with the integrand $0$ at $E=\infty$.
+\end{lemma}
+
+\begin{proof}
+The spectral theorem~\cite[Sec.~VII.2]{RS80} gives the measure $\nu$,
+carried by the spectrum of $T$, which lies in $[0,1]$; uniqueness
+holds because the moments $\int\lambda^n d\nu=\ip\psi{T^n\psi}$ determine a
+measure on a compact interval, polynomials being dense in $C[0,1]$. The
+spectral projection $P=\mathbf 1_{\{1\}}(T)$ projects onto the eigenvectors
+of $T$ with eigenvalue $1$, so $\nu(\{1\})=\|P\psi\|^2=\ip{P\psi}\psi=0$
+under the hypothesis. The last identity is the change of variables
+$\lambda^{\sigma/c}=e^{-\sigma E}$ for $\lambda=e^{-cE}$, with $\lambda=0$
+corresponding to $E=\infty$.
+\end{proof}
+
+\begin{lemma}\label{lem:helly}
+Every sequence of probability measures on a compact metric space $K$ has a
+subsequence that converges weakly, that is, against every continuous
+function, to a probability measure on $K$.
+\end{lemma}
+
+\begin{proof}
+$C(K)$ is separable; let $(h_j)$ be dense. The numbers $\int h_j\,d\mu_k$ are
+bounded by $\|h_j\|_\infty$, so a diagonal subsequence makes all of them
+converge. By density the limit $\Lambda(h)=\lim\int h\,d\mu_k$ exists for
+every $h\in C(K)$; $\Lambda$ is linear, positive and $\Lambda(1)=1$, so by
+the Riesz representation theorem it is integration against a probability
+measure.
+\end{proof}
+
+\begin{lemma}\label{lem:laplace}
+Let $\mu$ be a probability measure on $[0,\infty]$ and
+$\rho(\sigma)=\int e^{-\sigma E}d\mu(E)$ for $\sigma>0$.
+\begin{enumerate}[label=\textup{(\alph*)},leftmargin=*]
+\item $\rho$ is nonincreasing and log-convex:
+$\rho(\sigma)^2\le\rho(\sigma-s)\rho(\sigma+s)$ for $0<s<\sigma$.
+\item $\rho(\sigma)>0$ for one $\sigma>0$ if and only if
+$\mu([0,\infty))>0$, and then $\rho(\sigma)>0$ for every $\sigma>0$.
+\item $\rho(\sigma)\to\mu([0,\infty))$ as $\sigma\downarrow0$.
+\item If $\mu$ is carried by $[m,\infty]$, then $\rho(\sigma)\le
+e^{-m\sigma}$.
+\item For $M>0$, $\mu([0,M])\ge\rho(\sigma)-e^{-\sigma M}$.
+\item If $\mu_k\to\mu$ weakly on $[0,\infty]$, then $\int e^{-\sigma
+E}d\mu_k\to\rho(\sigma)$ for every $\sigma>0$.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+(a) The integrand decreases in $\sigma$. By the Cauchy--Schwarz
+inequality,
+\[
+\Bigl(\int e^{-\sigma E}d\mu\Bigr)^2\le\int e^{-(\sigma-s)E}d\mu\int
+e^{-(\sigma+s)E}d\mu .
+\]
+(b) The integrand is positive exactly on
+$[0,\infty)$. (c) The integrand increases to $\mathbf 1_{[0,\infty)}$ as
+$\sigma\downarrow0$, and monotone convergence applies. (d) The integrand
+is at most $e^{-m\sigma}$ on $[m,\infty]$. (e) Split the integral at $M$:
+it is at most $\mu([0,M])+e^{-\sigma M}$. (f) For $\sigma>0$ the function
+$E\mapsto e^{-\sigma E}$, extended by $0$ at $\infty$, is continuous on
+$[0,\infty]$.
+\end{proof}
+
+By (b) and (e), a lower bound $\rho(\sigma)\ge c>0$ at one $\sigma$ places
+mass at least $c/2$ on the bounded interval $[0,\sigma^{-1}\log(2/c)]$; for
+the measures $\mu_k$ of Theorem~\ref{thm:flowlimit} a bound uniform in $k$
+therefore makes them tight on $[0,\infty)$ with a fixed fraction of their
+mass.
+
+\section{The character expansion}\label{app:characters}
+
+Let $G$ be a compact connected Lie group with normalised Haar measure $dU$.
+For an irreducible unitary representation $\rho_\lambda$ of dimension
+$d_\lambda$ write $\chi_\lambda=\Tr\rho_\lambda$. The characters form an
+orthonormal basis of the square-integrable class functions
+(Peter--Weyl and Schur orthogonality~\cite[Chs.~2--4]{Bum13}).
+
+\begin{lemma}\label{lem:convolution}
+Let $w\in L^1(G)$ be a class function with $w(U^{-1})=w(U)$, and put
+$\hat c_\lambda=d_\lambda^{-1}\int w\,\chi_\lambda\,dU$. Then $\int
+w(U)\rho_\lambda(U)\,dU=\hat c_\lambda I$, and
+$\int w(U)\chi_\lambda(U^{-1}V)\,dU=\hat c_\lambda\chi_\lambda(V)$.
+\end{lemma}
+
+\begin{proof}
+$M=\int w(U)\rho_\lambda(U)dU$ commutes with every $\rho_\lambda(V)$, since
+$w(VUV^{-1})=w(U)$ and Haar measure is invariant; by Schur's lemma
+$M=cI$, and taking traces gives $c=\hat c_\lambda$. Then $\int
+w(U)\chi_\lambda(U^{-1}V)dU=\Tr(\int w(U)\rho_\lambda(U^{-1})dU\,
+\rho_\lambda(V))$, and the substitution $U\mapsto U^{-1}$ with
+$w(U^{-1})=w(U)$ turns the integral into $M$.
+\end{proof}
+
+\begin{lemma}\label{lem:wilsoncoeff}
+Let $G=\SU(N)$ and $\beta>0$, and let
+\[
+w_\beta(U)=e^{\frac\beta N\ReTr U}\Bigl/\int e^{\frac\beta N\ReTr V}dV .
+\]
+Then $\hat c_\lambda(\beta)=d_\lambda^{-1}\int
+w_\beta\chi_\lambda\,dU$ is real, $0\le\hat c_\lambda(\beta)\le1$, and
+$\hat c_\lambda(\beta)<1$ for $\lambda\ne0$. Moreover
+\[
+\hat c_\lambda(\beta)=1-\frac{N\,C_2(\lambda)}\beta+O(\beta^{-2})\qquad
+(\beta\to\infty),
+\]
+where $-\sum_a\rho_\lambda(T_a)^2=2C_2(\lambda)I$ for a basis $(T_a)$ of
+$\mathfrak{su}(N)$ orthonormal for $|X|^2=-\Tr X^2$, so that
+$C_2=(N^2-1)/(2N)$ on the fundamental representation.
+\end{lemma}
+
+\begin{proof}
+Since $w_\beta(\bar U)=w_\beta(U)$ and $\chi_\lambda(\bar U)=
+\overline{\chi_\lambda(U)}$, and complex conjugation preserves Haar measure,
+$\int w_\beta\chi_\lambda=\int w_\beta\bar\chi_\lambda$, which is the
+complex conjugate of the left side; so $\hat c_\lambda$ is real. Next,
+$w_\beta$ is a multiple of
+$\exp(\frac\beta{2N}(\chi_{\mathrm F}+\bar\chi_{\mathrm F}))=
+\sum_{m}\frac1{m!}(\frac\beta{2N})^m(\chi_{\mathrm F}+\bar\chi_{\mathrm
+F})^m$, and each power is the character of a representation, hence a sum
+of irreducible characters with nonnegative integer coefficients. By
+orthonormality $\int w_\beta\bar\chi_\lambda\ge0$, so $\hat
+c_\lambda\ge0$. As $|\chi_\lambda(U)|\le d_\lambda$, with
+$\operatorname{Re}\chi_\lambda(U)=d_\lambda$ only where
+$\rho_\lambda(U)=I$, a proper closed subgroup when $\lambda\ne0$ and so a
+Haar null set, and $w_\beta>0$ everywhere, $\hat c_\lambda=d_\lambda^{-1}
+\int w_\beta\operatorname{Re}\chi_\lambda<1$ for $\lambda\ne0$.
+
+For the expansion, $\ReTr U\le N$ with equality only at $U=I$, so outside a
+neighbourhood $\{U=e^X:|X|<\delta\}$ both integrals $\int e^{\frac\beta
+N\ReTr U}\chi_\lambda$ and $\int e^{\frac\beta N\ReTr U}$ are smaller than
+their values near $I$ by a factor $e^{-c\beta}$. Near $I$ write $U=e^X$;
+the Haar density in these coordinates is $j(X)=1+O(|X|^2)$, even in $X$.
+For antihermitian $X$, $\Tr X^3$ is imaginary, so
+\[
+\tfrac1N\ReTr e^X=1-\tfrac1{2N}|X|^2+r(X),\qquad 0\le r(X)\le C|X|^4,
+\]
+and $d_\lambda^{-1}\chi_\lambda(e^X)=1+d_\lambda^{-1}\Tr\rho_\lambda(X)+
+\frac1{2d_\lambda}\Tr\rho_\lambda(X)^2+c_3(X)+O(|X|^4)$, with $c_3$ cubic and
+$\Tr\rho_\lambda(X)=0$, since $\mathfrak{su}(N)$ is perfect. Let
+$\langle\cdot\rangle$ denote the average against the Gaussian weight
+$e^{-\beta|X|^2/(2N)}$, under which the coordinates $x_a$ of $X=\sum
+x_aT_a$ are independent with variance $N/\beta$. With $h=j\,e^{\beta r}$,
+\[
+\begin{split}
+\hat c_\lambda(\beta)&=\frac{\langle d_\lambda^{-1}\chi_\lambda(e^X)\,
+h\rangle}{\langle h\rangle}+O(e^{-c\beta})\\
+&=1+\frac{\langle\frac1{2d_\lambda}\Tr\rho_\lambda(X)^2\,h\rangle}
+{\langle h\rangle}+\frac{\langle(c_3(X)+O(|X|^4))h\rangle}{\langle h\rangle},
+\end{split}
+\]
+the averages being taken over $|X|<\delta$. Under $\langle\cdot\rangle$,
+$|X|^{2m}$ has mean of order $\beta^{-m}$ and $\beta|r(X)|\le C\beta|X|^4$
+has mean of order $\beta^{-1}$, so $h=1+O(\beta^{-1})$ in every moment. The
+weight $h$ is even in $X$, since $\Tr X^k$ is imaginary for odd $k$ and $j$
+is even, so the odd term $c_3$ contributes nothing; the quartic remainder and
+the correlation of the quadratic term with $h-1$ contribute $O(\beta^{-2})$. Finally $\langle\Tr\rho_\lambda(X)^2\rangle=
+\frac N\beta\sum_a\Tr\rho_\lambda(T_a)^2=-\frac{2NC_2(\lambda)d_\lambda}
+\beta$, which gives the expansion. For $\SU(2)$ and the representation of
+spin $j$ the integrals are explicit, $\hat c_j(\beta)=I_{2j+1}(\beta)/
+I_1(\beta)$ with the modified Bessel functions $I_n$, in agreement with
+$C_2=j(j+1)$.
 \end{proof}
 
 \section{The single-link law of SU(2)}\label{app:sharp}
@@ -6084,6 +6456,11 @@ Comm. Math. Phys. \textbf{42} (1975), 281--305,
 K.~Osterwalder and E.~Seiler, Gauge field theories on a lattice, Ann. Physics
 \textbf{110} (1978), 440--471,
 \href{https://doi.org/10.1016/0003-4916(78)90039-8}{doi:10.1016/0003-4916(78)90039-8}.
+
+\bibitem{RS80}
+M.~Reed and B.~Simon, \emph{Methods of Modern Mathematical Physics I:
+Functional Analysis}, revised and enlarged ed., Academic Press, New York,
+1980.
 
 \bibitem{SBG26}
 P.~Samal, D.~Bhattacharjee and R.~Ghora, Renormalization of spacetime dimension, Preprints (2026), \href{https://doi.org/10.20944/preprints202602.0531.v1}{doi:10.20944/preprints202602.0531.v1}.
