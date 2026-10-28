@@ -184,7 +184,14 @@ subsequence, a time semigroup and the ratio bound itself (Theorem "higher
 correlations"); they are not proved along the continuum tuning, and their
 order-two cases force the lattice gap below a fixed multiple of the lattice
 spacing, so they fail at every fixed strong coupling and no strong coupling
-expansion can give them (Proposition "tree bounds are critical"). In a
+expansion can give them (Proposition "tree bounds are critical"). For a
+smooth packet the same order-two bounds give the ratio with an explicit rate,
+C(σ)/C(0) ≥ e^(−2√B₁σ), tight spectral measures and a limit of finite energy
+(Proposition "energy control from the tree bounds"). Uniformly in the coupling:
+SU(N) force moments, the Ward identity E[W_e F] = −E⟨∇S_e, ∇F⟩, a lower bound
+on the SU(2) plaquette variance, and bare blocking (coarse links within total
+variation (K/2)e^(3b)(4b/(4b+1))^(B−3) of Haar); none of these reaches the
+ratio, the tree bounds or (D). In a
 periodic spatial box the normalising reflected norm C(0) is strictly positive
 for product test functions, by Lüscher's strictly positive transfer matrix. At every n
 the mean distance of the gauge-fixed links from the identity is at least
