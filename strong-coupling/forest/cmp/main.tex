@@ -83,7 +83,7 @@ smoothed observables, and
 complete proofs of the results earlier taken from our first paper. The
 \LaTeX{} source, the checks and the Lean certificate are in
 \href{https://github.com/creelie/4Y-M}{github.com/creelie/4Y-M}, release
-v3.10.0.}
+v3.11.0.}
 
 \begin{abstract}
 \itshape
@@ -433,8 +433,11 @@ respect: a Dobrushin--Shlosman condition on one cube of fixed physical size,
 uniform along the continuum tuning, gives a mass gap in physical units for
 every continuum limit (Theorems~\ref{thm:onescale} and~\ref{thm:transfer}).
 The conclusion extends to observables smoothed by the spatial gradient
-flow (Proposition~\ref{prop:spatialflow}). The cube condition and the existence of the limit are the two statements left
-open. Section~\ref{ssec:cubeneeds} shows that the condition holds at strong
+flow (Proposition~\ref{prop:spatialflow}), and these observables, renormalised
+by one condition at a single physical separation, have continuum limits along
+subsequences whose nontriviality reduces to one ratio of lattice two-point
+functions (Theorem~\ref{thm:flowlimit}). The cube condition and the
+nontrivial existence of the limit are the two statements left open. Section~\ref{ssec:cubeneeds} shows that the condition holds at strong
 coupling, fails at every fixed cube size at weak coupling, forces the
 gauge-fixed variables to be disordered on the scale of the cube, and cannot
 be reached from estimates on single lines of links; for $\SU(2)$ it needs
@@ -2507,8 +2510,156 @@ flow time, for instance $Z_k\sum_xa_k^4f(a_kx)\bigl(\mathcal E_{\tau}(x)-
 \omega_k(\mathcal E_\tau(x))\bigr)$ with $\mathcal E_\tau(x)$ the flowed action
 density of the slice, statement (E) asks for the convergence of correlation
 functions that are known to be finite in perturbation theory~\cite{LW11},
-and Theorem~\ref{thm:transfer} applies to them. Neither their nonperturbative
-convergence nor their nontriviality is proved here.
+and Theorem~\ref{thm:transfer} applies to them. Theorem~\ref{thm:flowlimit}
+below constructs their continuum limits along subsequences; their
+nontriviality is not proved here.
+\subsection{Renormalised flowed observables}\label{ssec:flowlimit}
+
+The spatially flowed fields can be renormalised by one condition at a single
+physical separation, and their correlation functions then have continuum
+limits along subsequences without further assumptions. What remains open is
+whether such a limit is trivial, and that question reduces to one ratio of
+lattice two-point functions.
+
+Fix a bounded gauge-invariant function $\Phi$ of finitely many spatial links of
+the slice $\{x_0=0\}$, continuous in them, a flow time $\tau>0$ in physical
+units, and a nonzero test function $f_0\in C_c(\R^4)$ supported in
+$\{t>0\}$. Put $s_k=\tau/a_k^2$, write $\Phi_x$ for the translate of $\Phi$ to
+$x\in\Z^4$, and let
+\[
+A_k=\sum_{x\in\Z^4}a_k^4f_0(a_kx)\bigl(\Phi_x\circ\Phi_{s_k}
+-\omega_k(\Phi_x\circ\Phi_{s_k})\bigr),
+\]
+\[
+C_k(\sigma)=\omega_k\bigl(\vartheta(\bar A_k)\,\tau_{\sigma/a_k}A_k\bigr)
+\]
+for dyadic $\sigma\ge0$ (the sum is finite, and $\sigma/a_k$ is an integer for
+large $k$). By reflection positivity $C_k(0)\ge0$; assume $C_k(0)>0$ and set
+$Z_k=C_k(0)^{-1/2}$. Let $\mathcal D$ be the set of points $y=(t,y')\in\R^4$
+with dyadic coordinates (in units of $a_0$) and $t>0$, and for $y\in\mathcal D$
+and $k$ with $y/a_k\in\Z^4$ let $A^y_k$ be the translate of $A_k$ by $y/a_k$.
+
+\begin{theorem}\label{thm:flowlimit}
+\textup{(i)} For $y,y'\in\mathcal D$ and every $k$ with $y/a_k,y'/a_k\in\Z^4$,
+\[
+Z_k^2\,\bigl|\omega_k\bigl(\vartheta(\bar A^y_k)A^{y'}_k\bigr)\bigr|\le1 .
+\]
+\textup{(ii)} Every sequence of $k$ has a subsequence along which
+$K(y,y')=\lim Z_k^2\,\omega_k(\vartheta(\bar A^y_k)A^{y'}_k)$ exists for all
+$y,y'\in\mathcal D$ and $\rho(\sigma)=\lim C_k(\sigma)/C_k(0)$ exists for all
+dyadic $\sigma>0$. Along it there is a probability measure $\mu$ on $[0,\infty]$
+with
+\[
+\rho(\sigma)=\int_{[0,\infty]}e^{-\sigma E}\,d\mu(E)\qquad(\sigma>0),
+\]
+the integrand being $0$ at $E=\infty$.
+
+\textup{(iii)} Along such a subsequence, let $\mathcal T$ be spanned by the
+translates $f_0(\cdot-y)$, $y\in\mathcal D$, and one more function $f_*\in
+C_c(\R^4)$ supported in $\{t>0\}$ outside their span, and let $O_k$ be the
+linear map with $O_k(f_0(\cdot-y))=Z_kA^y_k$ and $O_k(f_*)=1$. Then
+$(\omega_k,O_k)$ has a continuum limit in the sense of
+Definition~\ref{def:limit}, on which the dyadic spatial translations act by
+unitary operators commuting with $H$.
+
+\textup{(iv)} This limit is nontrivial if and only if $\mu([0,\infty))>0$, if and
+only if $\rho(\sigma)>0$ for one dyadic $\sigma>0$, and then $\rho(\sigma)>0$
+for all of them. Consequently a nontrivial limit exists along some subsequence
+if and only if $\limsup_kC_k(\sigma)/C_k(0)>0$ for some dyadic $\sigma>0$.
+
+\textup{(v)} If the hypothesis of Theorem~\ref{thm:transfer} holds, then $\mu$
+is carried by $[m_*,\infty]$ and $\rho(\sigma)\le e^{-m_*\sigma}$.
+\end{theorem}
+
+\begin{proof}
+By Proposition~\ref{prop:spatialflow}(ii) each $\Phi_x\circ\Phi_{s_k}$, and
+hence each $A^y_k$, is a uniform limit of gauge-invariant local functions at
+times $\ge1$, so the reconstruction of Appendix~\ref{app:transfer} applies to
+them (its footnote). Write $\Psi_k=Z_k\Psi_{A_k}$. Since
+$\ip{\Omega_k}{\Psi_{A_k}}=\omega_k(A_k)=0$ and $\|\Psi_k\|^2=Z_k^2C_k(0)=1$,
+$\Psi_k$ is a unit vector orthogonal to $\Omega_k$. The relation
+$\ip{\Psi_F}{\mathbb T_k^t\Psi_H}=\omega_k(\vartheta(\bar F)\tau_tH)$ for all $F$
+gives $\Psi_{\tau_tH}=\mathbb T_k^t\Psi_H$. Spatial translations commute with
+$\vartheta$ and with $\tau_t$ and leave $\omega_k$ invariant, so they act on the
+reconstructed space by unitaries $U_k(x)$ that commute with $\mathbb T_k$.
+Hence, for $y=(t,y')$,
+\[
+Z_k\Psi_{A^y_k}=U_k(y'/a_k)\,\mathbb T_k^{t/a_k}\Psi_k .
+\]
+
+(i) The left side of the inequality is $|\ip{Z_k\Psi_{A^y_k}}{Z_k
+\Psi_{A^{y'}_k}}|\le1$, because $\|U_k\|=1$ and $0\le\mathbb T_k\le1$.
+
+(ii) The set $\mathcal D\times\mathcal D$ is countable and the numbers are
+bounded by (i), so a diagonal subsequence gives all the limits $K$; the limits
+$\rho(\sigma)$ are among them, since $C_k(\sigma)/C_k(0)=
+\ip{\Psi_k}{\mathbb T_k^{\sigma/a_k}\Psi_k}$ is the value of $K$ at
+$y=y'=(\sigma/2,0)$. Let $\nu_k$ be the spectral measure of $\mathbb T_k$ at
+$\Psi_k$, a probability measure on $[0,1]$, and $\mu_k$ its image under
+$\lambda\mapsto-a_k^{-1}\log\lambda\in[0,\infty]$. Then
+$C_k(\sigma)/C_k(0)=\int e^{-\sigma E}d\mu_k(E)$. The space $[0,\infty]$ is
+compact, so a further subsequence has $\mu_k\to\mu$ weakly, and
+$E\mapsto e^{-\sigma E}$ is continuous on $[0,\infty]$ for $\sigma>0$.
+
+(iii) A finite combination $\sum_jc_jf_0(\cdot-y_j)$ with distinct $y_j$ that
+vanishes has Fourier transform $\hat f_0(p)\sum_jc_je^{-ip\cdot y_j}=0$; since
+$\hat f_0$ is analytic and not zero, the exponential sum vanishes on an open
+set and every $c_j$ is zero. So the translates are linearly independent and
+$O_k$ is well defined. On the space $V$ of finite sums $v=\sum_yc_y\delta_y$
+over $\mathcal D$ put $B(v,w)=\sum\bar c_yc'_{y'}K(y,y')$. It is the limit of
+$\ip{v_k}{w_k}$ with $v_k=\sum_yc_yZ_k\Psi_{A^y_k}$, hence positive
+semidefinite; let $\mathcal H_0$ be the completion of $V$ modulo its null
+space. For dyadic $\sigma\ge0$ and dyadic spatial $x$ define
+$T(\sigma)\delta_y=\delta_{y+(\sigma,0)}$ and $U(x)\delta_y=\delta_{y+(0,x)}$.
+At level $k$ these are $\mathbb T_k^{\sigma/a_k}$ and $U_k(x/a_k)$, so in the
+limit $B(T(\sigma)v,w)=B(v,T(\sigma)w)$, $B(T(\sigma)v,T(\sigma)v)\le B(v,v)$,
+$B(v,T(\sigma)v)\ge0$, and $U(x)$ preserves $B$. Thus $T(\sigma)$ extends to
+commuting positive contractions on $\mathcal H_0$ with
+$T(\sigma)T(\sigma')=T(\sigma+\sigma')$, and $U(x)$ to unitaries commuting with
+them. For dyadic $\sigma>0$ the kernel of $T(\sigma)=T(\sigma/2)^2$ equals that
+of $T(\sigma/2)$, so all these kernels coincide; and every $\delta_y$ with
+$y=(t,y')$ equals $T(t/2)\delta_{(t/2,y')}$, a vector in the range of a
+positive operator and so orthogonal to its kernel. Hence each $T(\sigma)$ is
+injective on $\mathcal H_0$, and $H_0=-\log T(1)$ is a self-adjoint operator
+with $H_0\ge0$ and $e^{-\sigma H_0}=T(\sigma)$ for dyadic $\sigma$, by the
+uniqueness of positive roots. Put $\mathcal H=\C\Omega\oplus\mathcal H_0$,
+$H=0\oplus H_0$, $\psi(f_0(\cdot-y))=\delta_y$ and $\psi(f_*)=\Omega$. The range
+of $\psi$ is dense, and the identities of Definition~\ref{def:limit} hold: for
+two translates they are the limits defining $K$, with $\tau_{\sigma/a_k}A^{y'}_k=
+A^{y'+(\sigma,0)}_k$; and for $f_*$ they read $\omega_k(1)=1$ and
+$\omega_k(\vartheta(\bar A^y_k))=\omega_k(\tau_{\sigma/a_k}A^y_k)=0$.
+
+(iv) The limit is nontrivial exactly when $\mathcal H_0\ne0$, that is when
+$\|\delta_y\|^2=K(y,y)=\rho(2t)$ is positive for some $y=(t,y')$. By (ii),
+$\rho(\sigma)>0$ for one $\sigma>0$ if and only if $\mu([0,\infty))>0$, and
+then $\rho(\sigma)>0$ for every $\sigma>0$. For the last statement choose a
+subsequence along which $C_k(\sigma)/C_k(0)$ tends to its $\limsup$, and refine
+it by (ii).
+
+(v) Under that hypothesis the proof of Theorem~\ref{thm:transfer} gives
+$\nu_k([0,e^{-\log(1/\alpha)/(2n_k)}])=1$ because $\Psi_k\perp\Omega_k$, so
+$\mu_k$ is carried by $[\log(1/\alpha)/(2n_ka_k),\infty]\subset[m_*,\infty]$,
+and so is the weak limit $\mu$.
+\end{proof}
+
+The measure $\mu$ is the spectral measure of the renormalised flowed field in
+the limit: its part on $[0,\infty)$ is what survives as a state of the
+continuum theory, and its atom at $\infty$ is the weight that the field puts on
+energies that diverge in physical units. The theorem constructs the
+renormalised continuum observables and their reconstruction for every tuning,
+and it reduces their nontriviality to the lattice inequality
+\[
+\limsup_{k\to\infty}\frac{C_k(\sigma)}{C_k(0)}>0
+\]
+for one physical separation $\sigma$: the flowed two-point function at a
+fixed physical distance must not become negligible against its value at
+contact. If the lattice gap stayed above some $m>0$ in lattice units, the
+ratio would be at most $e^{-m\sigma/a_k}$ and the limit would be trivial, so the
+inequality is a condition on the tuning $\beta_k\to\infty$; it is not proved
+here. Nor are the independence of the limit from the subsequence, Euclidean
+invariance, or bounds on products of more than two renormalised fields, for
+which (i) gives nothing because $Z_k$ may diverge; (E) requires all of these.
+
 
 \subsection{The two residues}
 
@@ -3373,8 +3524,8 @@ Propositions~\ref{prop:cover} and~\ref{prop:cover2} and
 Lemma~\ref{lem:su3const} and the numerical bounds of
 Lemma~\ref{lem:vmfconst}, which are computations with rigorous error bounds,
 and the finite check of Lemma~\ref{lem:plaqblocks}. The archive
-\texttt{creelie/4Y-M} (release v3.10.0,
-\url{https://github.com/creelie/4y-m/releases/tag/v3.10.0})
+\texttt{creelie/4Y-M} (release v3.11.0,
+\url{https://github.com/creelie/4y-m/releases/tag/v3.11.0})
 contains the programs of that computation, in Python with python-flint
 (FLINT and Arb) and a C kernel for products of Taylor polynomials, with
 their outputs and the list of certified boxes; the programs and outputs of
