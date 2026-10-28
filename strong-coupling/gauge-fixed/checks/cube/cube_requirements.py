@@ -23,7 +23,9 @@ The line field sigma of the residue table has period two. The script checks:
   (g) the flux configuration of the remark on loops, in exact angles;
   (h) the arithmetic of the lower bound on eps_V;
   (i) the Gaussian benchmark: K_c = alpha_n(t) N_n for every residue class,
-      alpha_n(0) = 1, and the bound for t > 0, in exact arithmetic.
+      alpha_n(0) = 1, and the bound for t > 0, in exact arithmetic;
+  (j) the joint-cube transport route: a legal configuration where the weighted
+      curvature is negative once beta_W > 1/3.
 Run: python3 cube_requirements.py
 """
 from collections import Counter
@@ -369,5 +371,21 @@ for d, n in ((1, 2), (1, 6), (2, 2), (2, 4), (2, 6), (3, 2), (3, 4), (4, 2)):
         else:
             ok(1 - alpha >= Fr(5, 6) ** d * t * n * n / (t * n * n + 10 * d), "mass bound")
             ok(all(g > 0 for g in Gone), "G 1 > 0")
+
+# (j) the joint-cube transport route: at the legal configuration U_j = -1, all
+#     other links 1, the six plaquettes through j have holonomy -1, and along a
+#     geodesic of SU(2) = S^3 through U_j the action -beta_W sum <Q_p, 1> has
+#     second derivative -6 beta_W, against Ricci curvature 2 of the unit S^3:
+#     the weighted curvature is negative once beta_W > 1/3, at every cube size
+for X in ((0, 1, 0, 0), (0, 0, 1, 0), (0, 0, 0, 1), (0, 0.6, 0, 0.8)):
+    for beta in (0.2, 1 / 3, 0.5, 2.3):
+        def act(s):
+            u = qm((-1, 0, 0, 0), (math.cos(s),) + tuple(math.sin(s) * c for c in X[1:]))
+            return -beta * 6 * u[0]                  # six plaquettes, <Q_p, 1> = Re part
+        h = 1e-4
+        second = (act(h) - 2 * act(0) + act(-h)) / h**2
+        ok(abs(second + 6 * beta) < 1e-5, "second derivative -6 beta_W")
+        ok((2 + second < 0) == (beta > 1 / 3 + 1e-12), "curvature sign at 1/3")
+ok(Fr(4, 29) < Fr(1, 3), "Bakry-Emery range 4/29 below the threshold 1/3")
 
 print(f"all {checks} checks passed")
