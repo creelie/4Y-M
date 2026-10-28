@@ -97,7 +97,7 @@ fixed lattice spacing, past the curvature limit of the ungauged theory; for
 SU(2) and SU(3) the ranges reach $\beta_W\le0.345$ and $\beta_W\le0.76$.
 A mass gap in physical units for every continuum limit follows from one
 estimate of Dobrushin--Shlosman type in a cube of fixed physical size; that
-estimate and the existence of the limit remain open.
+estimate and the existence of the limit remain open. The estimate holds at strong coupling and forces the gauge-fixed variables to be disordered at the scale of the cube.
 \end{abstract}
 
 \maketitle
@@ -111,11 +111,12 @@ Lattice gauge theory; gauge fixing; Dobrushin uniqueness; mass gap.}
 \footnotetext{\footnotesize An earlier version, titled ``Mass Gap of Four-Dimensional Lattice
 Yang--Mills Theory in a Forest Gauge'', appeared as Hexagon preprint
 2610.00341. This version adds the theorem for every compact simple gauge
-group, the reduction of the continuum gap to one physical scale, and
+group, the reduction of the continuum gap to one physical scale, what that
+reduction requires of the cube estimate, and
 complete proofs of the results earlier taken from our first paper. The
 \LaTeX{} source, the checks and the Lean certificate are in
 \href{https://github.com/creelie/4Y-M}{github.com/creelie/4Y-M}, release
-v3.5.0.}
+v3.6.0.}
 \endgroup
 \addtocounter{footnote}{-2}
 
@@ -448,7 +449,10 @@ respect: a Dobrushin--Shlosman condition on one cube of fixed physical size,
 uniform along the continuum tuning, gives a mass gap in physical units for
 every continuum limit (Theorems~\ref{thm:onescale} and~\ref{thm:transfer}).
 That condition and the existence of the limit are the two statements left
-open.
+open. Section~\ref{ssec:cubeneeds} shows that the condition holds at strong
+coupling, fails at every fixed cube size at weak coupling, forces the
+gauge-fixed variables to be disordered on the scale of the cube, and cannot
+be reached from estimates on single lines of links.
 
 Section~\ref{sec:linefield} constructs the line field.
 Section~\ref{sec:state} shows that a Dobrushin bound for the gauge-fixed
@@ -2479,6 +2483,326 @@ has to be an estimate such as (D).
 \end{enumerate}
 \end{remark}
 
+\subsection{What the cube estimate requires}\label{ssec:cubeneeds}
+
+This subsection proves four facts about $D(n,\alpha)$. It holds at small
+coupling for every even $n$ above an explicit size
+(Proposition~\ref{prop:cubesmall}). It forces the gauge-fixed variables of a
+cube with trivial exterior to stay a fixed distance from the identity on
+average (Theorem~\ref{thm:cubeneeds}), so that for every fixed $n$ it fails
+once $\beta$ is large (Corollary~\ref{cor:cubefails}). And it cannot be
+obtained from bounds on the conditional law of a single line of links that
+are uniform in the configuration around the line
+(Proposition~\ref{prop:slowline}). None of the four decides (D) along the
+continuum tuning, where $n$ grows while $\beta$ grows.\footnote{The four
+statements answer the question of which parts of (D) can be settled with
+the methods of this paper. The first places (D) in the range where the
+single-link method already works, the second and third show what any proof
+of (D) at weak coupling has to produce, and the fourth excludes the most
+direct one-dimensional route. The finite counts used below, from
+Table~\ref{tab:sigma}, are rechecked by \texttt{cube\_requirements.py} in
+the archive.}
+
+For a finite $V\subset A$ and $j\in A\setminus V$ let $b(V,j)$ be the number
+of links of $V$ that share a plaquette with $j$, and write $k\sim i$ when two
+active links share a plaquette.
+
+\begin{lemma}\label{lem:cubesingle}
+Suppose that $C_{ee'}\le c_0$ for all active $e,e'$, with $12c_0<1$. Then
+$C_{V,j}\le c_0\,b(V,j)/(1-12c_0)$ for every finite $V\subset A$ and every
+$j\in A\setminus V$.
+\end{lemma}
+
+\begin{proof}
+Fix $Q,Q'$ that differ only at $j$, put $d=\delta(Q_j,Q'_j)$,
+$\mu=\gamma_V(\cdot\mid Q)$ and $\nu=\gamma_V(\cdot\mid Q')$. The couplings of
+$\mu$ and $\nu$ form a weakly compact set on which $\pi\mapsto\int d_V\,d\pi$
+is continuous, so one of them, $\pi$, minimises it; let
+$\rho_i=\int\delta(X_i,Y_i)\,d\pi$. Fix $i\in V$. Under $\mu$ the conditional
+law of $X_i$ given the other links of $V$ is $\gamma^F_i(\cdot\mid X)$, and
+likewise for $\nu$. Replace $(X_i,Y_i)$ by a pair drawn from an optimal
+coupling of $\gamma^F_i(\cdot\mid X)$ and $\gamma^F_i(\cdot\mid Y)$, chosen
+measurably~\cite[Cor.~5.22]{Vil09}, and keep the other coordinates. The new
+coupling still has marginals $\mu$ and $\nu$, and changing the links in which
+$X$ and $Y$ differ one at a time gives
+\[
+W_1\bigl(\gamma^F_i(\cdot\mid X),\gamma^F_i(\cdot\mid Y)\bigr)\le
+\sum_{k\in V,\,k\ne i}C_{ik}\,\delta(X_k,Y_k)+C_{ij}\,d .
+\]
+Minimality of $\pi$ therefore gives $\rho_i\le c_0\sum_{k\in V,\,k\sim
+i}\rho_k+c_0[i\sim j]\,d$. Sum over $i\in V$: every $\rho_k$ occurs at most
+twelve times by Lemma~\ref{lem:structure}(iv), so $(1-12c_0)\sum_i\rho_i\le
+c_0\,b(V,j)\,d$. Since $W_1^{d_V}(\mu,\nu)\le\sum_i\rho_i$, dividing by $d$
+proves the lemma.
+\end{proof}
+
+\begin{proposition}\label{prop:cubesmall}
+Let $n=2m$ and let $V$ be the cube of Definition~\ref{def:cube}. For every
+class $c$,
+\[
+\sum_{j\in c\setminus V}b(V,j)\le10m^3-2m^2 ,
+\]
+with equality for three classes. Consequently, if $C_{ee'}\le c_0$ for all
+$e,e'$ with $12c_0<1$, then $D(n,\alpha)$ holds for every $\alpha\in(0,1)$
+with
+\[
+\alpha\ge\hat\alpha_n=\frac{c_0}{1-12c_0}\Bigl(\frac{20}n-\frac8{n^2}\Bigr).
+\]
+For $\SU(2)$ and $|\beta_W|<\frac13$ this reads $\hat\alpha_n=
+\frac{|\beta_W|}{1-3|\beta_W|}\bigl(\frac5n-\frac2{n^2}\bigr)$, which is below
+one for every even $n>5|\beta_W|/(1-3|\beta_W|)$.
+\end{proposition}
+
+\begin{proof}
+Let $j=(y,\mu)$ lie in the class $c$, with $y\equiv r$ modulo two. A link of
+$V$ that shares a plaquette with $j$ has base point $y+d$ with
+$d\in\{-1,0,1\}^4$ and at most two nonzero coordinates, and the twelve
+offsets $d$ depend only on $c$. For a fixed offset we count the $y\equiv r$
+with $y+d\in[0,n)^4$ and $y\notin[0,n)^4$. In the coordinate $l$ there are
+$m$ values of $y_l\equiv r_l$ with $y_l+d_l\in[0,n)$, and one of them lies
+outside $[0,n)$ exactly when $d_l=1$ and $r_l=1$ (the value $y_l=-1$) or
+$d_l=-1$ and $r_l=0$ (the value $y_l=n$). If $q$ is the number of such
+coordinates, the count is $m^4-m^{4-q}(m-1)^q$, that is $0$, $m^3$ or
+$2m^3-m^2$ for $q=0,1,2$. Summing over the twelve offsets, the class sum is
+$a_cm^3-b_cm^2$, where $b_c$ is the number of offsets with $q=2$ and $a_c$ is
+the number with $q=1$ plus twice $b_c$. Reading the offsets from
+Table~\ref{tab:sigma}, the pairs $(a_c,b_c)$ over the $48$ classes are
+$(2,0)$, $(7,0)$, $(7,1)$, $(9,1)$, $(9,2)$ and $(10,2)$ three times each and
+$(3,0)$, $(4,0)$, $(5,0)$, $(6,0)$ and $(8,1)$ six times each. In every case
+$a_c\le10$ and $8-a_c+b_c\ge0$, so
+\[
+\begin{split}
+(10m^3-2m^2)-(a_cm^3-b_cm^2)&=m^2\bigl((10-a_c)m+b_c-2\bigr)\\
+&\ge m^2(8-a_c+b_c)\ge0,
+\end{split}
+\]
+with equality for the three classes with $(a_c,b_c)=(10,2)$. By
+Lemma~\ref{lem:cubesingle}, $K_c\le c_0(10m^3-2m^2)/(1-12c_0)$, and $N_n=m^4$
+gives $K_c/N_n\le\hat\alpha_n$. For $\SU(2)$ the proof of
+Theorem~\ref{thm:su2} gives $c_0=|\beta|=|\beta_W|/4$.
+\end{proof}
+
+At $\beta_W=\frac3{10}$ and $n=16$, for instance, $\hat\alpha_{16}=
+\frac{117}{128}$, and Theorem~\ref{thm:onescale} gives the gap
+$\log\frac{128}{117}/32$, much weaker than Theorem~\ref{thm:su2}. The
+proposition shows that the cube condition is not empty; it does not extend
+the range, because the absorption $12c_0<1$ is the single-link condition
+itself.
+
+The next theorem uses the configuration in which every link outside $V$ is
+the identity. Write $\gamma^1_V=\gamma_V(\cdot\mid1)$ and
+\[
+\varepsilon_V(\beta)=\frac1{|V|}\sum_{i\in V}\int\delta(1,Q_i)\,
+d\gamma^1_V(Q)
+\]
+for the mean distance of the gauge-fixed variables of the cube from the
+identity. Recall that $\delta$ is bi-invariant of diameter $D$.
+
+\begin{theorem}\label{thm:cubeneeds}
+Let $n$ be even, $V$ the cube of Definition~\ref{def:cube}, and suppose that
+$D(n,\alpha)$ holds at $\beta$. Then
+\[
+\varepsilon_V(\beta)\ge\frac{(1-\alpha)\,D}3 .
+\]
+\end{theorem}
+
+\begin{proof}
+\emph{A flat configuration.} By Lemma~\ref{lem:structure}(i) and the period
+two of $\sigma$, the sixteen residues modulo two fall into eight pairs
+$\{r,r+e_{\sigma(r)}\}$, the residues met by one line of $F$. The eight
+residues $0010$, $0011$, $0100$, $0110$, $1001$, $1011$, $1100$, $1101$ form
+four of these pairs. Choose $z,w\in G$ with $\delta(z,w)=D$, put $g(x)=w$ if
+$x$ is congruent to one of those eight residues and $g(x)=z$ otherwise, and
+let $Q^g_{(x,\mu)}=g(x)g(x+e_\mu)^{-1}$ for every link of $\Z^4$. Then $g$ is
+constant on every line of $F$, so $Q^g$ equals $1$ on $F$, every plaquette
+variable of $Q^g$ is $1$, and $Q^g$ has period two. By bi-invariance
+$\delta(1,Q^g_{(x,\mu)})=\delta(g(x+e_\mu),g(x))$, which is $D$ when $x$ and
+$x+e_\mu$ receive different values and $0$ otherwise; from
+Table~\ref{tab:sigma} the first case occurs for exactly $32$ of the $48$
+classes. Let $\delta_c$ be the common value of $\delta(1,Q^g_e)$ for $e$ in
+the class $c$, so that $\sum_c\delta_c=32D$.
+
+\emph{Gauge covariance.} Let $\Phi(Q)_{(x,\mu)}=g(x)Q_{(x,\mu)}g(x+e_\mu)^{-1}$
+on $G^V$. The gauge transformation by $g$ maps the configuration equal to
+$Q_V$ on $V$ and to $1$ elsewhere to the one equal to $\Phi(Q_V)$ on $V$ and
+to $Q^g$ elsewhere; it leaves every plaquette trace unchanged and every link
+of $F$ equal to $1$, and $\Phi$ preserves Haar measure. Hence
+$\gamma_V(\cdot\mid Q^g)=\Phi_*\gamma^1_V$.
+
+\emph{Upper bound.} Only the finitely many links outside $V$ that share a
+plaquette with $V$ enter $\gamma_V$. Changing them one at a time from $1$ to
+$Q^g$ and applying the definition of $C_{V,j}$ at each step,
+\[
+\begin{split}
+W_1^{d_V}\bigl(\gamma^1_V,\gamma_V(\cdot\mid Q^g)\bigr)&\le\sum_{j\in
+A\setminus V}C_{V,j}\,\delta(1,Q^g_j)=\sum_c\delta_cK_c\\
+&\le\alpha N_n\sum_c\delta_c=32\,\alpha DN_n .
+\end{split}
+\]
+
+\emph{Lower bound.} The function $f(Q)=-\sum_{i\in V}\delta(Q_i,Q^g_i)$ is
+$1$-Lipschitz for $d_V$. By gauge covariance and bi-invariance, $\int
+f\,d\gamma_V(\cdot\mid Q^g)=-\int\sum_i\delta(Q_i,1)\,d\gamma^1_V=-|V|
+\varepsilon_V$, and by the triangle inequality $\int f\,d\gamma^1_V\le
+-\sum_i\delta(1,Q^g_i)+|V|\varepsilon_V$. Every class has $N_n$ links in $V$,
+so $\sum_i\delta(1,Q^g_i)=32DN_n$ and
+\[
+W_1^{d_V}\bigl(\gamma^1_V,\gamma_V(\cdot\mid Q^g)\bigr)\ge32DN_n-2|V|
+\varepsilon_V .
+\]
+With $|V|=48N_n$ the two bounds give $96N_n\varepsilon_V\ge32(1-\alpha)DN_n$.
+\end{proof}
+
+\begin{corollary}\label{cor:cubefails}
+For every even $n$ and every $\alpha<1$ there is $\beta_0(n,\alpha)$ such that
+$D(n,\alpha)$ fails at every $\beta\ge\beta_0(n,\alpha)$. In particular, if
+$D(n_k,\alpha)$ holds at couplings $\beta_k\to\infty$, then $n_k\to\infty$.
+\end{corollary}
+
+\begin{proof}
+For $\beta>0$, $\gamma^1_V$ has density proportional to $e^{-N\beta S}$ with
+respect to Haar measure, where $S=\sum_{p\cap V\ne\emptyset}(N-\ReTr Q^F_p)$
+is continuous and nonnegative on $G^V$ and vanishes exactly when $Q^F_p=1$
+for every plaquette $p$ that meets $V$. We show that this forces $Q_V=1$.
+The other plaquettes have all their links equal to $1$, so every plaquette
+variable is $1$; since the plaquettes of $\Z^4$ fill every closed lattice
+path, there is a function $h$ on the sites with $Q_{(x,\mu)}=h(x)h(x+e_\mu)^{-1}$
+on every link, and $h$ takes equal values at the two ends of every link on
+which $Q=1$. Every link with base point outside $[0,n)^4$ is such a link. From
+a site with a coordinate at least $n$ one can move in every positive
+direction along links of this kind, and from a site with a negative
+coordinate $x_\nu$ one can move in the positive directions other than $\nu$
+until another coordinate reaches $n$; so $h$ is constant on the sites outside
+the box. Every line of $F$ leaves the box, and $h$ is constant along it, so
+$h$ is constant and $Q_V=1$.
+
+Let $U$ be a neighbourhood of $1$ in $G^V$, $s=\min_{G^V\setminus U}S>0$, and
+$U'\subset U$ a neighbourhood of $1$ on which $S<s/2$. Then
+$\gamma^1_V(G^V\setminus U)\le e^{-N\beta s}/(|U'|e^{-N\beta s/2})$, which
+tends to zero, so $\varepsilon_V(\beta)\to0$ as $\beta\to\infty$, and
+Theorem~\ref{thm:cubeneeds} excludes $D(n,\alpha)$ once
+$\varepsilon_V(\beta)<(1-\alpha)D/3$.
+\end{proof}
+
+Along the continuum tuning Theorem~\ref{thm:cubeneeds} says the following.
+If (D) holds, then in a cube of fixed physical size $\ell$ with the identity
+outside, the forest-gauge variables stay on average at distance at least
+$(1-\alpha)D/3$ from the identity, at every spacing. This is not a
+contradiction: $n=\ell/a$ grows like $1/a$, while asymptotic freedom makes
+$\beta(a)$ grow only like $\log(1/a)$, and the corollary concerns fixed $n$.
+It turns the assumption of Remark~\ref{rem:cubeheuristic}, that the
+gauge-fixed links decorrelate on the scale of the cube, into a necessary
+condition. Whether the forest-gauge variables are disordered at a fixed
+physical scale, as the gauge-invariant ones are expected to be in a massive
+theory, is part of what (D) asks.
+
+The last statement concerns a strategy that suggests itself: control the
+conditional law of one line of links, given everything else, uniformly in
+the configuration around it, and assemble the cube from lines. Fix a site
+$x$, let $s=\sigma(x)$ and $\mu\ne s$, and let $c_k=(x+ke_s,\mu)$, $k\in\Z$.
+All $c_k$ are active, since $\sigma$ is constant along the line through $x$.
+
+\begin{proposition}\label{prop:slowline}
+Let $G=\SU(2)$, identified with the unit quaternions, and $b=\beta_W\ge1$.
+There is a configuration of the active links outside $\{c_k\}$, independent
+of $b$, for which the conditional law of $(Q_{c_k})_k$ has a ten-step
+transfer operator, similar to a positive self-adjoint operator $K_b$ on
+$L^2(S^3)$ with simple top eigenvalue $\Lambda_b$, whose gap satisfies
+\[
+0<1-\frac{\Lambda_{b,1}}{\Lambda_b}\le e^{20}\,24^{10}\,b^{15}\,e^{-b/1280},
+\]
+where $\Lambda_{b,1}$ is the next point of the spectrum.
+\end{proposition}
+
+\begin{proof}
+\emph{The interactions.} By Lemma~\ref{lem:structure}(iii), $c_k$ lies in
+two plaquettes of the plane $\{\mu,s\}$, which contain $c_{k-1}$ or
+$c_{k+1}$, the link $(x+ke_s,s)$ or $(x+(k-1)e_s,s)$ of $F$, and an active
+twist link of direction $s$; and in four plaquettes of the planes
+$\{\mu,t\}$ and $\{\mu,\rho\}$, each containing $c_k$, one link of $F$ and
+two active links not on the line. The four plaquettes at $c_k$ lie in the
+hyperplane of $s$-coordinate $x_s+k$, so these plaquettes at different $k$
+share no link; two plaquettes through $c_k$ share no other link; and their
+links have directions other than $s$, so they are not twists. Set every
+twist to $1$; then the plaquette at $x+ke_s$ in the plane $\{\mu,s\}$
+contributes $b\ip{q_k}{q_{k+1}}$ to the exponent, with $q_k=Q_{c_k}$. In each
+of the four other plaquettes at $c_k$ set one of its two links to $1$ and the
+other to $X$; after a cyclic rotation and possibly an inversion the plaquette
+variable is $q_kX^{\pm1}$ or $q_k^{-1}X^{\pm1}$, and since $\operatorname{Re}
+(q\bar u)=\operatorname{Re}(\bar qu)=\ip qu$ for unit quaternions, $X$ can be
+chosen so that the plaquette contributes $b\ip{q_k}u$ for any prescribed unit
+vector $u$. Every other active link is set to $1$. Four unit vectors add up
+to any vector of length at most $4$ (two copies each of $t\pm(1-|t|^2)^{1/2}
+\nu$ with $t=v/4$ and $\nu\perp t$ a unit vector), so the conditional density
+of the line is proportional to $\exp\bigl(b\sum_k\ip{q_k}{q_{k+1}}+\sum_k\ip
+{h_k}{q_k}\bigr)$ for any fields $h_k$ with $|h_k|\le4b$.
+
+\emph{The fields.} Let $a=\frac12$, $c=\frac{\sqrt3}2$, let $e_1,\dots,e_4$ be
+the standard basis of $\R^4$, and let $r_k$ have period ten with
+$(r_0,\dots,r_9)=a(e_1,-e_1,e_2,-e_2,e_3,-e_3,e_3,-e_2,e_2,-e_1)$. Put
+$h_k=b(2r_k-r_{k-1}-r_{k+1})$, so $|h_k|\le4ab=2b$, and the configuration is
+independent of $b$ because $h_k/b$ is. With $v_k=q_k-r_k$ and
+$|q_k|=1$, $|r_k|=a$, summation by parts gives, over $0\le k\le9$,
+\[
+\begin{split}
+\frac12\sum_k|v_{k+1}-v_k|^2&=\sum_k\bigl(1-\ip{q_k}{q_{k+1}}\bigr)
+-\frac1b\sum_k\ip{h_k}{q_k}\\
+&\quad+\frac12\sum_k|r_{k+1}-r_k|^2+B(q_0)-B(q_{10}),
+\end{split}
+\]
+with $B(q)=\ip q{r_0-r_9}$. The boundary terms only conjugate the ten-step
+transfer kernel by a multiplication operator, so up to similarity it is
+\[
+K_b(x,y)=\int_{(S^3)^9}\exp\Bigl(-\frac b2\sum_{k=0}^9|v_{k+1}-v_k|^2\Bigr)
+dq_1\cdots dq_9,
+\]
+with $q_0=x$, $q_{10}=y$ and normalised Haar measure. The sequence $r_0,\dots,r_{10}$ is a
+palindrome, so $K_b=B_bB_b^*$ for the five-step kernel $B_b$; $K_b$ is
+compact, positive and self-adjoint with a continuous positive kernel, its top
+eigenvalue $\Lambda_b$ is simple, and its eigenfunction $\psi_b>0$ is even
+under the reflection $x_4\mapsto-x_4$, which commutes with $K_b$.
+
+\emph{A barrier.} Let $E=\frac12\sum_{k=0}^9|v_{k+1}-v_k|^2$ and suppose
+that $(q_0)_4\ge0\ge(q_{10})_4$ and $E\le\frac1{1280}$. Put $\Delta=
+(20E)^{1/2}\le\frac18$ and $w=v_0$; by Cauchy--Schwarz $|w-v_k|\le\Delta$ for
+all $k$, and $0\le w_4\le\Delta$ because the $r_k$ have no fourth coordinate.
+From $|v_k+r_k|=1$, $\bigl||w+r_k|^2-1\bigr|\le\Delta(2+\Delta)=:\eta$ for
+$0\le k\le5$. The pairs $r_k=\pm ae_l$ give $|w_l|\le\eta/(2a)=\eta$ for
+$l=1,2,3$ and $|w|^2\ge\frac34-\eta$, so $\frac34\le3\eta^2+\Delta^2+\eta\le
+3(\frac{17}{64})^2+\frac1{64}+\frac{17}{64}=\frac{2019}{4096}$, a contradiction.
+Hence $K_b(x,y)\le e^{-b/1280}$ whenever $x_4\ge0\ge y_4$.
+
+\emph{The top eigenvalue.} Let $\epsilon=b^{-1/2}$. The geodesic ball of
+radius $\epsilon\le1$ in $S^3$ has normalised measure $\frac2\pi\int_0^\epsilon
+\sin^2\theta\,d\theta\ge\frac{8\epsilon^3}{3\pi^3}>\frac{\epsilon^3}{24}$. If
+each $q_k$ lies in the ball of radius $\epsilon$ about $r_k+ce_4$, then
+$|v_k-ce_4|\le\epsilon$ and $E\le20\epsilon^2$, so the integrand is at least
+$e^{-20}$. Testing $K_b$ on the normalised indicator of the ball about
+$r_0+ce_4$ gives $\Lambda_b\ge e^{-20}(\epsilon^3/24)^{10}=e^{-20}24^{-10}
+b^{-15}$.
+
+\emph{The gap.} Let $\phi(x)=\operatorname{sign}(x_4)\psi_b(x)$, a unit vector
+orthogonal to $\psi_b$. Then
+\[
+\begin{split}
+\Lambda_b-\ip\phi{K_b\phi}&=4\int_{x_4>0>y_4}\psi_b(x)K_b(x,y)\psi_b(y)\,dx\,dy\\
+&\le e^{-b/1280},
+\end{split}
+\]
+because $\int_{x_4>0}\psi_b\le\frac12$ by Cauchy--Schwarz. By the
+variational principle $\Lambda_{b,1}\ge\ip\phi{K_b\phi}$, and dividing by the
+lower bound on $\Lambda_b$ proves the estimate; the gap is positive because
+$\Lambda_b$ is simple.
+\end{proof}
+
+The exterior of Proposition~\ref{prop:slowline} is legal at every coupling,
+so a bound on the conditional law of single lines that is uniform in the
+exterior cannot be better than $e^{-b/1280}$ up to powers of $b$, and an
+argument of this kind cannot give (D) along the tuning. A proof of (D) has to
+use what such a bound discards: the joint resampling of the transverse links
+inside the cube, which the averaged coefficients $C_{V,j}$ retain, or the
+smallness of the probability of such exteriors under the Wilson measure.
+
 \section*{Acknowledgements}
 
 This paper rests on the work of many earlier scientists. Lattice gauge
@@ -2517,8 +2841,9 @@ Sec.~\ref{sec:limits}; and a Lean~4 certificate of the line field
 Appendix~\ref{app:table}, by \texttt{decide}); and the programs of
 Appendix~\ref{app:plaqblocks} for the plaquette blocks, with the
 floating-point search of Remark~\ref{rem:blockgap}; and an exact computation of the curvatures of
-Table~\ref{tab:groups} from the root systems. This paper accompanies release v3.5.0 of the archive,
-\url{https://github.com/creelie/4y-m/releases/tag/v3.5.0}. The PDF of this paper is at
+Table~\ref{tab:groups} from the root systems; and exact checks of the finite
+counts of Sec.~\ref{ssec:cubeneeds}. This paper accompanies release v3.6.0 of the archive,
+\url{https://github.com/creelie/4y-m/releases/tag/v3.6.0}. The PDF of this paper is at
 \url{https://github.com/creelie/4Y-M/blob/main/preprintYangMillsForestGauge/YangMillsForestGauge.pdf}.
 The computations and the Lean, Python and shell checks were run with AI
 assistance (Claude Opus~5.5, Claude Fable~5.1 with Ultracode, and GPT Sol~6.1
