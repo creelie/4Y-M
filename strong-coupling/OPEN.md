@@ -80,12 +80,12 @@ heat bath, four chains, 300 + 300 sweeps): the mean distance ε_V of the
 forest-gauge links of a cube with the identity outside, which D(n, α) needs to
 be at least 2(1−α)/3, grows with n at every coupling tried:
 
-| β_W | n = 2 | n = 4 | n = 6 | n = 8 | n = 10 |
-|---|---|---|---|---|---|
-| 2.0 | 0.557 | 0.700 | 0.827 | 0.948 | 1.047 |
-| 2.3 | 0.519 | 0.641 | 0.750 | 0.852 | 0.937 |
-| 2.6 | 0.485 | 0.596 | 0.700 | 0.787 | 0.867 |
-| 3.0 | 0.450 | 0.550 | 0.642 | 0.725 | 0.797 |
+| β_W | n = 2 | n = 4 | n = 6 | n = 8 | n = 10 | n = 12 |
+|---|---|---|---|---|---|---|
+| 2.0 | 0.557 | 0.700 | 0.827 | 0.948 | 1.047 | 1.110 |
+| 2.3 | 0.519 | 0.641 | 0.750 | 0.852 | 0.937 | 1.009 |
+| 2.6 | 0.485 | 0.596 | 0.700 | 0.787 | 0.867 | 0.936 |
+| 3.0 | 0.450 | 0.550 | 0.642 | 0.725 | 0.797 | 0.864 |
 
 It passes 2/3 near n = 4, 5, 6, 7 for β_W = 2.0, 2.3, 2.6, 3.0, far more slowly
 than the correlation length grows, so this necessary condition excludes nothing
@@ -116,3 +116,29 @@ size (check (j) of `cube_requirements.py`). The Bakry–Émery range β_W < 4/29
 of the paper lies below that threshold. For the Gaussian benchmark the
 Poincaré constant is of order β/n², while this route needs order β²n², so
 even the quadratic approximation is out of its reach.
+
+The weak-coupling approximation of the forest gauge itself is no better than
+the massless benchmark. Linearise U = exp(iA) with A = 0 on F. The fixed links
+form disjoint monotone lines (every site has one incoming and one outgoing
+fixed link), and an active link joins two different lines. A gauge
+transformation φ equal to 1 on one line ℓ and 0 elsewhere keeps A = 0 on F and
+leaves the action invariant, so it translates the conditional law of the cube
+by dφ restricted to V; for a Gaussian the cube coefficients then give
+‖dφ|_V‖₁ ≤ Σ_j C_{V,j} |dφ(j)|. Summing over all lines, each link has
+exactly two lines through its endpoints, so Σ_c K_c ≥ |V| = 48 N_n: some class
+has K_c ≥ N_n and D(n, α) fails for every α < 1 at every n. The exact values
+(`gauge-fixed/checks/cube/gaussian_forest.py`, sparse solve, independent of β)
+are far larger and grow with n:
+
+| n | max K_c/N_n | mean | min |
+|---|---|---|---|
+| 2 | 6.03 | 3.21 | 1.57 |
+| 4 | 7.88 | 4.71 | 2.59 |
+| 6 | 9.38 | 6.14 | 3.40 |
+| 8 | 11.24 | 7.52 | 3.83 |
+
+As in an axial gauge, a change of one boundary link is carried along the fixed
+lines into the whole cube. Below the correlation length, where the theory is
+weakly coupled, the cube coefficients of the forest gauge therefore follow this
+growth, and (D) along the tuning requires the nonperturbative regime to reduce
+them by a factor of order the cube size.
