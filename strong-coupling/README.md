@@ -95,7 +95,10 @@ results follow, proved by hand and not yet refereed (see
   flow, which keeps reflection positivity and the transfer matrix;
 - renormalised flowed observables: with one renormalisation condition they
   have continuum limits along subsequences for every tuning, and a nontrivial
-  limit exists if and only if C(σ)/C(0) does not tend to zero (not proved).
+  limit exists if and only if C(σ)/C(0) does not tend to zero (not proved);
+  in a periodic spatial box C(0) > 0 for product test functions;
+- the cube size for every SU(N): n⁴ ≥ 2(1−α) β_W/(5 L_N(β_W)) with
+  L_N(b) = 1 + ((N²−1)/2) log(81π²b) + N(N−1) log(12/11).
 
 Checks in `prd/checks/` (the paper does not rely on them):
 
