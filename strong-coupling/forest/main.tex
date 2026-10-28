@@ -2907,6 +2907,45 @@ and an argument of the kind above that places gauge-fixed links near the
 identity needs plaquette bounds of order $o(n^{-2})$.
 \end{remark}
 
+Up to the factor $L(b)^{1/2}$ the rate $b^{-1/2}$ of
+Proposition~\ref{prop:cubesize} is the right one, and the lower bound below
+holds for every $n$ and every exterior.
+
+\begin{proposition}\label{prop:epslower}
+Let $G=\SU(2)$ with the chordal metric and $b=\beta_W>0$. For every Gibbs
+specification of the gauge-fixed theory, every active link $e$ and every
+configuration of the other links, the conditional law of $Q_e$ satisfies
+\[
+\int\delta(1,Q_e)\,d\mu_e\ge\frac1{9\max(6b,1)^{1/2}} .
+\]
+In particular $\varepsilon_V(\beta)\ge\frac19\max(6b,1)^{-1/2}$ for every
+$n$; at every fixed $n$, $\varepsilon_V(\beta)$ lies between constant
+multiples of $b^{-1/2}$ and $(L(b)/b)^{1/2}$.
+\end{proposition}
+
+\begin{proof}
+Write $\langle\cdot,\cdot\rangle$ for the Euclidean product of quaternions,
+so that $\ReTr q=2\langle q,1\rangle$. The six plaquettes that contain $e$
+contribute $\exp(b\langle Q_e,W_p\rangle)$ to the conditional density, with
+$|W_p|=1$; so $\mu_e$ has density $e^{\langle u,v\rangle}/Z(|v|)$ with respect
+to normalised Haar measure, for some $v$ with $a=|v|\le6b$. Put
+$a'=\max(a,1)$ and $\eta=a'^{-1/2}\le1$. On the geodesic ball of radius $\eta$
+about $v/|v|$ the exponent is at least $a(1-\eta^2/2)\ge a-\frac12$, and that
+ball has measure greater than $\eta^3/24$ (proof of
+Proposition~\ref{prop:slowline}); hence $Z(a)\ge e^{a-1/2}\eta^3/24$ and the
+density is at most $24e^{1/2}a'^{3/2}$ (for $a<1$ directly, since $Z\ge1$ by
+Jensen's inequality). A chordal ball of radius $r$ is a geodesic ball of
+radius $\theta$ with $2\sin(\theta/2)=r$, so $\theta\le\pi r/2$, and its
+measure is $(\theta-\sin\theta\cos\theta)/\pi\le2\theta^3/(3\pi)\le\pi^2r^3/12$.
+With $r=\frac29a'^{-1/2}$,
+\[
+\mu_e\bigl(\delta(1,Q_e)<r\bigr)\le24e^{1/2}a'^{3/2}\,\frac{\pi^2r^3}{12}
+=2e^{1/2}\pi^2\Bigl(\frac29\Bigr)^3<\frac12 ,
+\]
+so the mean of $\delta(1,Q_e)$ is at least $r/2=\frac19a'^{-1/2}$. Averaging
+over $e\in V$ and over the configuration gives the bound on $\varepsilon_V$.
+\end{proof}
+
 Along the continuum tuning Theorem~\ref{thm:cubeneeds} says the following.
 If (D) holds, then in a cube of fixed physical size $\ell$ with the identity
 outside, the forest-gauge variables stay on average at distance at least
