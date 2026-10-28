@@ -23,7 +23,7 @@ resolves to the latest release.
 | v3.5.0 | [10.5281/zenodo.23711288](https://doi.org/10.5281/zenodo.23711288) |
 | v3.6.0 | [10.5281/zenodo.23717210](https://doi.org/10.5281/zenodo.23717210) |
 
-`YangMills_masterzipfinal2.zip` holds the repository at v3.6.0 and the
+`YangMills_masterzipfinal2.zip` holds the repository at v3.7.0 and the
 Hexagon package of the paper *Mass Gap of Four-Dimensional Lattice
 Yang–Mills Theory for Every Compact Simple Gauge Group*
 ([download](https://github.com/creelie/4Y-M/raw/main/YangMills_masterzipfinal2.zip)).
@@ -38,9 +38,9 @@ This repository contains three papers and a Lean 4 / Mathlib project
   `preprintYangMillsDobrushinCeiling/YangMillsDobrushinCeiling.pdf`; see
   `strong-coupling/README.md`);
 - *Mass Gap of Four-Dimensional Lattice Yang–Mills Theory for Every Compact
-  Simple Gauge Group* (`strong-coupling/forest/`, REVTeX, 36 pages; PDF also
+  Simple Gauge Group* (`strong-coupling/forest/`, REVTeX, 37 pages; PDF also
   at `preprintYangMillsForestGauge/YangMillsForestGauge.pdf`; the one-column
-  version in the AMS article class, 54 pages, is `strong-coupling/forest/cmp/`;
+  version in the AMS article class, 57 pages, is `strong-coupling/forest/cmp/`;
   the working notes and checks are in `strong-coupling/gauge-fixed/`). It
   was first posted as Hexagon preprint 2610.00341 under the title *Mass Gap
   of Four-Dimensional Lattice Yang–Mills Theory in a Forest Gauge*.
@@ -141,8 +141,18 @@ large; and for SU(2) there is an exterior, legal at every coupling, under
 which the conditional law of one line of links has a ten-step gap at most
 e^20 24^10 b^15 e^(−b/1280), so (D) cannot come from bounds on single lines
 that are uniform in the exterior. None of this decides (D) along the
-continuum tuning, where n grows with β. Finite counts:
-`strong-coupling/gauge-fixed/checks/cube/cube_requirements.py`.
+continuum tuning, where n grows with β. For SU(2) the condition needs
+n⁴ ≥ (1−α)² β_W/(675 L(β_W)), L(b) = 1 + log 24 + (3/2) log 9b: every
+gauge-fixed link is the holonomy of a disc of at most (n/2)(n/2+1) plaquettes,
+and a lattice Stokes inequality with the energy bound gives the size. A
+stationary flux configuration, every plaquette within 4π/L² of the identity
+and a loop of side L/2 with holonomy −1, shows that the n² lost there is of
+the right order. The continuum step also holds for observables smoothed by the
+spatial gradient flow of Sakai and Sasaki, which is reflection positive and
+leaves the transfer matrix unchanged up to unitary equivalence. Finite counts:
+`strong-coupling/gauge-fixed/checks/cube/cube_requirements.py`; Monte Carlo
+probes that the proofs do not use: `influence_mc.py`, `eps_mc.py` in the same
+directory (see `strong-coupling/OPEN.md`).
 
 **Open:** the Clay problem itself (the four open problems of the
 strong-coupling paper are listed in `strong-coupling/OPEN.md`). The paper isolates the residual statement
