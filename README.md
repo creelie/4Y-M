@@ -24,7 +24,7 @@ resolves to the latest release.
 | v3.6.0 | [10.5281/zenodo.23717210](https://doi.org/10.5281/zenodo.23717210) |
 | v3.7.0 | [10.5281/zenodo.23717915](https://doi.org/10.5281/zenodo.23717915) |
 
-`YangMills_masterzipfinal2.zip` holds the repository at v3.7.0 and the
+`YangMills_masterzipfinal2.zip` holds the repository at v3.8.0 and the
 Hexagon package of the paper *Mass Gap of Four-Dimensional Lattice
 Yang–Mills Theory for Every Compact Simple Gauge Group*
 ([download](https://github.com/creelie/4Y-M/raw/main/YangMills_masterzipfinal2.zip)).
@@ -39,9 +39,9 @@ This repository contains three papers and a Lean 4 / Mathlib project
   `preprintYangMillsDobrushinCeiling/YangMillsDobrushinCeiling.pdf`; see
   `strong-coupling/README.md`);
 - *Mass Gap of Four-Dimensional Lattice Yang–Mills Theory for Every Compact
-  Simple Gauge Group* (`strong-coupling/forest/`, REVTeX, 37 pages; PDF also
+  Simple Gauge Group* (`strong-coupling/forest/`, REVTeX, 38 pages; PDF also
   at `preprintYangMillsForestGauge/YangMillsForestGauge.pdf`; the one-column
-  version in the AMS article class, 57 pages, is `strong-coupling/forest/cmp/`;
+  version in the AMS article class, 58 pages, is `strong-coupling/forest/cmp/`;
   the working notes and checks are in `strong-coupling/gauge-fixed/`). It
   was first posted as Hexagon preprint 2610.00341 under the title *Mass Gap
   of Four-Dimensional Lattice Yang–Mills Theory in a Forest Gauge*.
@@ -150,7 +150,11 @@ stationary flux configuration, every plaquette within 4π/L² of the identity
 and a loop of side L/2 with holonomy −1, shows that the n² lost there is of
 the right order. The continuum step also holds for observables smoothed by the
 spatial gradient flow of Sakai and Sasaki, which is reflection positive and
-leaves the transfer matrix unchanged up to unitary equivalence. Finite counts:
+leaves the transfer matrix unchanged up to unitary equivalence. At every n
+the mean distance of the gauge-fixed links from the identity is at least
+(1/9)·max(6β_W, 1)^(−1/2). For a Gaussian field the averaged cube coefficient
+is exactly 1 at every size when the field is massless, and below
+1 − (5/6)⁴(mℓ)²/((mℓ)²+160) at physical side ℓ with mass m. Finite counts:
 `strong-coupling/gauge-fixed/checks/cube/cube_requirements.py`; Monte Carlo
 probes that the proofs do not use: `influence_mc.py`, `eps_mc.py` in the same
 directory (see `strong-coupling/OPEN.md`).
