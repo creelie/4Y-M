@@ -117,7 +117,7 @@ smoothed observables, and
 complete proofs of the results earlier taken from our first paper. The
 \LaTeX{} source, the checks and the Lean certificate are in
 \href{https://github.com/creelie/4Y-M}{github.com/creelie/4Y-M}, release
-v3.14.0.}
+v3.15.0.}
 \endgroup
 \addtocounter{footnote}{-2}
 
@@ -459,12 +459,12 @@ The conclusion extends to observables smoothed by the spatial gradient
 flow (Proposition~\ref{prop:spatialflow}), and these observables, renormalised
 by one condition at a single physical separation, have continuum limits along
 subsequences whose nontriviality reduces to one ratio of lattice two-point
-functions (Theorem~\ref{thm:flowlimit}) and is controlled in both directions
-by a lower bound on
-the ratio of correlations of one slice field at two fixed physical
-separations (Proposition~\ref{prop:sliceratio}); tree bounds on the
-truncated correlations give all the higher Schwinger functions as reflection
-positive distributions (Theorem~\ref{thm:higher}). The cube condition and the
+functions (Theorem~\ref{thm:flowlimit}), which is bounded above and below by
+ratios of correlations of one slice field at fixed physical separations
+(Proposition~\ref{prop:sliceratio}); tree bounds on the truncated
+correlations give all the higher Schwinger functions as reflection positive
+distributions, imply the ratio bound, and carry the conditional mass gap to
+every polynomial in the smeared fields (Theorem~\ref{thm:higher}). The cube condition and the
 nontrivial existence of the limit are the two statements left open. Section~\ref{ssec:cubeneeds} shows that the condition holds at strong
 coupling, fails at every fixed cube size at weak coupling, forces the
 gauge-fixed variables to be disordered on the scale of the cube, and cannot
@@ -2828,8 +2828,8 @@ The proposition removes the one assumption of Theorem~\ref{thm:flowlimit} in a
 box; it says nothing about the ratio of part (iv), on which nontriviality
 depends.
 
-The time smearing plays no part in the ratio of
-Theorem~\ref{thm:flowlimit}(iv). Suppose that $f_0(t,x)=g(t)h(x)$ with
+The ratio of Theorem~\ref{thm:flowlimit}(iv) can be compared with
+correlations of a single slice field. Suppose that $f_0(t,x)=g(t)h(x)$ with
 $g\ge0$ supported in $[t_0,t_1]$, $t_0<t_1$ positive and dyadic, let
 \[
 U_k=\sum_{x\in\Z^3}a_k^3h(a_kx)\bigl(\Phi_{(0,x)}\circ\Phi_{s_k}
@@ -2913,13 +2913,19 @@ c^{\sigma'/\sigma}C_k(0)$, and the right inequality at $\sigma'$ gives the
 claim, the two times being ordered because $\sigma'>2(t_1-t_0)$.
 \end{proof}
 
-So the open input of Theorem~\ref{thm:flowlimit}(iv) is an inequality
-between two correlations of one slice field,
+So for the packet $g\otimes h$ the open input of
+Theorem~\ref{thm:flowlimit}(iv) follows from an inequality between two
+correlations of one slice field,
 \[
-\liminf_kD_k(r')/D_k(r)>0\quad\text{for one pair }0<r<r',
+\liminf_kD_k(r')/D_k(r)>0\quad\text{for one pair }0<r<r'\text{ with }r\le2t_0,
 \]
 and by (iii) a uniform bound for one packet gives one for every packet
-$g'\otimes h$ with $g'$ supported in $[t_1,\infty)$. The left inequality of
+$g'\otimes h$ with $g'$ supported in $[t_1,\infty)$. The condition $r\le2t_0$
+cannot be dropped: a bound at a later pair says nothing about an earlier
+packet, as $D_k(r)=(1-4^{-k})2^{-kr}+4^{-k}2^{-r}$ shows, with
+$D_k(4)/D_k(3)\to\frac12$ and $D_k(2)/D_k(1)\to0$. A bound at a later pair
+does apply to the packet shifted forward in time, renormalised by its own
+reflected norm. The left inequality of
 (i) bounds the ratio without the comparison of $u$ with the packet that was
 needed after Proposition~\ref{prop:flowshift}(ii). Every bound on such ratios
 proved in this paper, at strong coupling or through
@@ -2961,26 +2967,32 @@ renormalised packet as an operator is not available. A reflection positive
 process with a fixed gap and a two-point function independent of the
 cutoff can have divergent four-point functions at separated times
 (Remark~\ref{rem:markov}), so no statement about the two-point function alone
-can replace the following hypothesis on the truncated correlations. Write $\varphi_k(x)=\Phi_x\circ\Phi_{s_k}$,
+can replace the following hypothesis on the truncated correlations. In this
+subsection $\Phi$ is real-valued, as the energy of the plaquettes is; for a
+complex field the conjugate field has to be adjoined and (T1) imposed on all
+mixed cumulants. Write $\varphi_k(x)=\Phi_x\circ\Phi_{s_k}$,
 $\omega^T_k$ for the truncated correlations (joint cumulants) under
 $\omega_k$, and for $f\in C_c(\R^4)$
 \[
 A_k(f)=\sum_{x\in\Z^4}a_k^4f(a_kx)\bigl(\varphi_k(x)-\omega_k(\varphi_k(x))\bigr),
 \]
-so that $A_k=A_k(f_0)$. Let $w_k:\Z^4\to[0,\infty)$ be even functions with
-$W_k=\sum_xw_k(x)<\infty$, and consider:
+so that $A_k=A_k(f_0)$ and $\bar A_k(f)=A_k(\bar f)$. Let
+$w_k:\Z^4\to[0,\infty)$ be even functions with $W_k=\sum_xw_k(x)<\infty$, let
+$r_k>0$ be amplitude scales, and consider:
 \begin{enumerate}[label=\textup{(T\arabic*)},leftmargin=*]
 \item \emph{Tree bounds.} For every $n\ge2$ there is $K_n$, independent of $k$,
 with
 \[
 \bigl|\omega^T_k\bigl(\varphi_k(x_1);\dots;\varphi_k(x_n)\bigr)\bigr|
-\le K_n\sum_{T}\prod_{\{i,j\}\in T}w_k(x_i-x_j)
+\le K_nr_k^n\sum_{T}\prod_{\{i,j\}\in T}w_k(x_i-x_j)
 \]
 for all $x_1,\dots,x_n\in\Z^4$, the sum running over the trees $T$ on
 $\{1,\dots,n\}$.
-\item \emph{Saturation.} $C_k(0)\ge c\,a_k^4W_k$ for a $c>0$ and every $k$.
-\item \emph{Physical volume.} $b=\sup_ka_k^4W_k<\infty$.
+\item \emph{Saturation.} $C_k(0)\ge c\,r_k^2a_k^4W_k$ for a $c>0$ and every $k$.
+\item \emph{Physical volume.} $B_*=\sup_ka_k^4W_k<\infty$.
 \end{enumerate}
+The amplitude $r_k$ separates the size of the field from the volume over
+which it is correlated; Remark~\ref{rem:amplitude} shows why it is needed.
 For a compact $Q\subset\R^4$ let $|Q|_k=a_k^4\,\#\{x\in\Z^4:a_kx\in Q\}$; for a
 cube of side $L$ it is at most $(L+a_0)^4$.
 
@@ -2988,8 +3000,10 @@ cube of side $L$ it is at most $(L+a_0)^4$.
 Under \textup{(T1)}, for $n\ge2$ and bounded $f_1,\dots,f_n$ with compact
 supports, $f_1$ supported in $Q$,
 \[
-\bigl|\omega^T_k\bigl(A_k(f_1);\dots;A_k(f_n)\bigr)\bigr|
-\le K_nn^{n-2}\,|Q|_k\,(a_k^4W_k)^{n-1}\prod_{j=1}^n\|f_j\|_\infty .
+\begin{split}
+&\bigl|\omega^T_k\bigl(A_k(f_1);\dots;A_k(f_n)\bigr)\bigr|\\
+&\qquad\le K_nn^{n-2}r_k^n\,|Q|_k\,(a_k^4W_k)^{n-1}\prod_{j=1}^n\|f_j\|_\infty .
+\end{split}
 \]
 \end{lemma}
 
@@ -3011,7 +3025,7 @@ Assume \textup{(T1)--(T3)}.
 \[
 \begin{split}
 &\bigl|\omega^T_k\bigl(Z_kA_k(f_1);\dots;Z_kA_k(f_n)\bigr)\bigr|\\
-&\qquad\le K_nn^{n-2}c^{-n/2}\,b^{\,n/2-1}\,|Q|_k\prod_{j=1}^n\|f_j\|_\infty ,
+&\qquad\le K_nn^{n-2}c^{-n/2}\,B_*^{\,n/2-1}\,|Q|_k\prod_{j=1}^n\|f_j\|_\infty ,
 \end{split}
 \]
 and the moments $\omega_k\bigl(\prod_jZ_kA_k(f_j)\bigr)$ with all
@@ -3024,15 +3038,15 @@ S_n(f_1,\dots,f_n)=\lim_k\omega_k\Bigl(\prod_{j=1}^nZ_kA_k(f_j)\Bigr)
 \]
 exists for all $n$ and all $f_j\in C_c(\R^4)$. Each $S_n$ is symmetric,
 multilinear, bounded by $M_n(Q)\prod_j\|f_j\|_\infty$ on functions supported in
-$Q$, hence a distribution on $(\R^4)^n$; it is invariant under the dyadic
-translations if the $\omega_k$ are translation invariant, and the kernel $K$
-of Theorem~\textup{\ref{thm:flowlimit}} along the subsequence is
+$Q$, hence a distribution on $(\R^4)^n$; it is invariant under all
+translations of $\R^4$ if the $\omega_k$ are translation invariant, and the
+kernel $K$ of Theorem~\textup{\ref{thm:flowlimit}} along the subsequence is
 $K(y,y')=S_2\bigl(\overline{f_0(\cdot-y)}\circ\theta,f_0(\cdot-y')\bigr)$, with
 $\theta$ as in \textup{(iii)}.
 
-\textup{(iii)} Let $\theta$ be the reflection $t\mapsto-t$ of $\R^4$. For every
-finite family of $c_\alpha\in\C$ and $f_{\alpha,j}\in C_c(\R^4)$ supported in
-$\{t>0\}$,
+\textup{(iii)} Put $S_0=1$, $S_1=0$, and let $\theta$ be the reflection
+$t\mapsto-t$ of $\R^4$. For every finite family of $c_\alpha\in\C$ and
+$f_{\alpha,j}\in C_c(\R^4)$ supported in $\{t>0\}$,
 \[
 \sum_{\alpha,\beta}\bar c_\alpha c_\beta\,
 S\Bigl(\prod_j\overline{f_{\alpha,j}}\circ\theta\cdot\prod_jf_{\beta,j}\Bigr)\ge0,
@@ -3042,25 +3056,40 @@ Osterwalder--Schrader construction gives a Hilbert space $\mathcal H$ with
 vacuum $\Omega$ and a dense set of vectors $\Psi(P)$ indexed by polynomials $P$
 in the smeared fields at positive times, with
 $\ip{\Psi(P)}{\Psi(P')}=S(\theta\bar P\cdot P')$; in particular the separated
-higher correlations of the renormalised fields are finite.
+higher correlations of the renormalised fields are finite. The vector
+$\Psi(P_0)$ of the field smeared by $f_0$ is a unit vector orthogonal to
+$\Omega$.
 
-\textup{(iv)} If $a_k^4W_k\to0$ along the subsequence, every $S_n$ is given by
+\textup{(iv)} Suppose the $\omega_k$ are translation invariant. Then the
+time translations by $t\ge0$ define on $\mathcal H$ a strongly continuous
+semigroup $e^{-tH}$ with $H\ge0$ self-adjoint, and the spatial translations a
+strongly continuous unitary group commuting with $H$. Moreover there is a
+dyadic $\sigma>0$ with $C_k(\sigma)\ge\frac12C_k(0)$ for all large $k$, so
+the limit of Theorem~\textup{\ref{thm:flowlimit}} is nontrivial.
+
+\textup{(v)} If $a_k^4W_k\to0$ along the subsequence, every $S_n$ is given by
 Wick's rule from $S_2$: the limit is the Gaussian field with covariance $S_2$.
+
+\textup{(vi)} If the $\omega_k$ are translation invariant and the
+hypothesis of Theorem~\textup{\ref{thm:transfer}} holds, then $0$ is a simple
+eigenvalue of $H$ and $\sigma(H)\subset\{0\}\cup[m_*,\infty)$ with
+$m_*=\log(1/\alpha)/(2\ell)$, and $\Omega^\perp\ne0$.
 \end{theorem}
 
 \begin{proof}
-(i) By (T2), $Z_k^n=C_k(0)^{-n/2}$ is at most $(c\,a_k^4W_k)^{-n/2}$;
-multiply the lemma by it and use $(a_k^4W_k)^{n/2-1}\le b^{n/2-1}$ by (T3) for $n\ge2$. A
+(i) By (T2), $Z_k^n=C_k(0)^{-n/2}$ is at most $(c\,r_k^2a_k^4W_k)^{-n/2}$;
+multiply the lemma by it, which cancels $r_k^n$, and use
+$(a_k^4W_k)^{n/2-1}\le B_*^{n/2-1}$ by (T3) for $n\ge2$. A
 moment is the sum over partitions of $\{1,\dots,n\}$ of the products of the
 cumulants of the blocks; blocks of size one vanish because $A_k(f)$ is
 centred, and each block contributes the bound just proved with
 $|Q|_k\le(L+a_0)^4$ for a cube of side $L$. This gives $M_n(Q)$.
 
 (ii) For each cube $Q_L=[-L,L]^4$, $L\in\mathbb N$, the continuous functions
-supported in $Q_L$ form a separable space under the supremum norm. Choose a countable dense
-set $\mathcal F$ of functions; by (i) the countably many sequences
-$\omega_k(\prod Z_kA_k(f_j))$, $f_j\in\mathcal F$, are bounded, and a diagonal
-subsequence makes all of them converge. By multilinearity,
+supported in $Q_L$ form a separable space under the supremum norm. Choose a
+countable dense set $\mathcal F$ of functions; by (i) the countably many
+sequences $\omega_k(\prod Z_kA_k(f_j))$, $f_j\in\mathcal F$, are bounded, and
+a diagonal subsequence makes all of them converge. By multilinearity,
 \[
 \begin{split}
 &\Bigl|\omega_k\Bigl(\prod_jZ_kA_k(f_j)\Bigr)
@@ -3075,15 +3104,18 @@ multilinear form bounded in this way is separately continuous on
 $C^\infty_c(\R^4)$, so the Schwartz kernel theorem makes it a distribution.
 For dyadic $y$ and large $k$, $y/a_k\in\Z^4$ and translation invariance of
 $\omega_k$ and of the flow (Proposition~\ref{prop:spatialflow}(i)) give
-$\omega_k(\prod Z_kA_k(f_j(\cdot-y)))=\omega_k(\prod Z_kA_k(f_j))$. The
-formula for $K$ follows from $A^y_k=A_k(f_0(\cdot-y))$ and the argument of
-(iii) with $n=2$.
+$\omega_k(\prod Z_kA_k(f_j(\cdot-y)))=\omega_k(\prod Z_kA_k(f_j))$. For a real
+$y$ take dyadic $y_m\to y$; the functions $f_j(\cdot-y_m)$ converge uniformly
+to $f_j(\cdot-y)$ with supports in one cube, so the bound above carries the
+invariance to $y$. The formula for $K$ follows from $A^y_k=A_k(f_0(\cdot-y))$
+and the argument of (iii) with $n=2$.
 
 (iii) Let $\vartheta$ be the lattice reflection of
 Appendix~\ref{app:transfer} and $\theta_k$ the corresponding reflection of
 $a_k\Z^4$; it differs from $\theta$ by a translation of length at most $a_k$.
-Since $\vartheta$ commutes with the flow, $\vartheta(\bar A_k(f))=
-A_k(\bar f\circ\theta_k)$. Let $P_k=\sum_\beta c_\beta\prod_jZ_kA_k(f_{\beta,j})$ and
+Since $\Phi$ is real and $\vartheta$ commutes with the flow,
+$\vartheta(\bar A_k(f))=A_k(\bar f\circ\theta_k)$. Let
+$P_k=\sum_\beta c_\beta\prod_jZ_kA_k(f_{\beta,j})$ and
 $R_k=\sum_\alpha\bar c_\alpha\prod_jZ_kA_k(\overline{f_{\alpha,j}}\circ\theta)$,
 so that $\vartheta(\bar P_k)$ is $R_k$ with $\theta$ replaced by $\theta_k$.
 Reflection positivity gives $\omega_k(\vartheta(\bar P_k)P_k)\ge0$. By (i),
@@ -3095,14 +3127,89 @@ which tends to zero by uniform continuity, while $\omega_k(R_kP_k)$ tends to
 the left side of (iii) by (ii). So the limit of the nonnegative
 numbers is the left side of (iii). The construction of $\mathcal H$ is the
 usual quotient of the polynomials at positive times by the null space of this
-form~\cite{OS73}.
+form~\cite{OS73}. By the same approximation of $\theta$ by $\theta_k$,
+$\|\Psi(P_0)\|^2=\lim_kZ_k^2C_k(0)=1$, and $\ip\Omega{\Psi(P_0)}=S_1(f_0)=0$.
 
-(iv) For $n\ge3$ the exponent $n/2-1$ in (i) is positive, so with
-$(a_k^4W_k)^{n/2-1}$ in place of $b^{n/2-1}$ the cumulants of order $n\ge3$ of
+(iv) For a polynomial $P$ at positive times let $\tau_tP$ be its time
+translate by $t\ge0$, again at positive times. By translation invariance and
+$\theta\circ\tau_t=\tau_{-t}\circ\theta$, $\ip{\Psi(\tau_tP)}{\Psi(P')}=
+\ip{\Psi(P)}{\Psi(\tau_tP')}$, and $q_P(t)=\|\Psi(\tau_tP)\|^2=
+\ip{\Psi(P)}{\Psi(\tau_{2t}P)}$. If $P$ has degree at most $d$, every
+partition in (i) of the products in $q_P(t)$ has at most $d$ blocks, each
+bounded by a multiple of $|Q|_k$ for a cube $Q$ of side $O(1+t)$, so
+$q_P(t)\le C_P(1+t)^{4d}$. The Cauchy--Schwarz inequality gives
+$q_P(t)\le q_P(0)^{1/2}q_P(2t)^{1/2}$, hence by induction
+$q_P(t)\le q_P(0)^{1-2^{-m}}q_P(2^mt)^{2^{-m}}$ for every $m$, and letting
+$m\to\infty$, $q_P(t)\le q_P(0)$. So $\tau_t$ maps null vectors to null
+vectors and extends to a symmetric contraction $\mathsf T(t)$ of $\mathcal
+H$; $\mathsf T(s)\mathsf T(t)=\mathsf T(s+t)$, and $\mathsf T(t)=\mathsf
+T(t/2)^2\ge0$. By the bound of (ii) and uniform continuity of the translated
+test functions, $\|\Psi(\tau_tP)-\Psi(P)\|\to0$ as $t\to0$, so the semigroup
+is strongly continuous on a dense set, hence everywhere, and $\mathsf
+T(t)=e^{-tH}$ with $H\ge0$ self-adjoint~\cite{OS73}. Spatial translations
+preserve the form, have the opposite translations as inverses, commute with
+$\tau_t$, and are strongly continuous by the same argument.
+
+For the ratio let $f_{0,t}=f_0(\cdot-(t,0))$. For dyadic $t>0$ and large
+$k$, translation invariance gives $\tau_{t/a_k}A_k=A_k(f_{0,t})$, so by
+(iii)
+\[
+C_k(t)-C_k(0)=\omega_k\bigl(A_k(\bar f_0\circ\theta_k)\,
+A_k(f_{0,t}-f_0)\bigr),
+\]
+a covariance of two centred fields. The case $n=2$ of (i) bounds $Z_k^2$
+times it by $L_0\|f_{0,t}-f_0\|_\infty$ with
+$L_0=(K_2/c)\sup_k|Q|_k\|f_0\|_\infty$, $Q$ a cube containing the supports
+of $f_0\circ\theta_k$ for all $k$. By uniform continuity of $f_0$ there is a
+dyadic $\sigma>0$ with $L_0\|f_{0,\sigma}-f_0\|_\infty\le\frac12$; then
+$C_k(\sigma)/C_k(0)\ge\frac12$, and Theorem~\ref{thm:flowlimit}(iv) applies.
+
+(v) For $n\ge3$ the exponent $n/2-1$ in (i) is positive, so with
+$(a_k^4W_k)^{n/2-1}$ in place of $B_*^{n/2-1}$ the cumulants of order $n\ge3$ of
 the renormalised fields tend to zero. The moments are the sums over partitions
 of products of cumulants, so in the limit only the partitions into pairs
 remain, which is Wick's rule.
+
+(vi) As in the proof of Theorem~\ref{thm:transfer}, $\mathbb T_k$ has gap at
+least $\log(1/\alpha)/(2n_k)$ on the complement of $\Omega_k$. For a
+polynomial $P$ at positive times let $v_k=\Psi_{P_k}-\omega_k(P_k)\Omega_k$
+with $P_k$ its lattice version. For dyadic $t$ and large $k$,
+\[
+\omega_k\bigl(\vartheta(\bar P_k)\tau_{t/a_k}P_k\bigr)-|\omega_k(P_k)|^2
+=\ip{v_k}{\mathbb T_k^{t/a_k}v_k}\le e^{-m_*t}\|v_k\|^2 ,
+\]
+and both sides are finite combinations of moments, which converge by (ii)
+and the approximation of $\theta$ in (iii). The limit is
+$\ip v{e^{-tH}v}\le e^{-m_*t}\|v\|^2$ for $v=\Psi(P)-\ip\Omega{\Psi(P)}\Omega$.
+These $v$ are dense in $\Omega^\perp$, so the inequality holds on
+$\Omega^\perp$ for all $t\ge0$, and the spectral theorem gives the spectral
+statement as in Theorem~\ref{thm:transfer}. By (iii), $\Psi(P_0)$ is a unit
+vector in $\Omega^\perp$.
 \end{proof}
+
+Part (iv) shows that the order-two cases of (T1) and (T2) already contain
+the lower bound on the ratio that Theorem~\ref{thm:flowlimit}(iv) needs; they
+are not harmless combinatorial assumptions, and proving them along the
+continuum tuning is at least as hard as that lower bound. Part (vi) passes the
+conditional mass gap of Theorem~\ref{thm:transfer} to every polynomial in the
+smeared fields. Neither part proves Euclidean invariance, independence of the
+limit from the subsequence, or the reconstruction of the field operators,
+for which the growth of $M_n(Q)$ in $n$ would also be needed.
+
+\begin{remark}\label{rem:amplitude}
+The amplitude scale cannot be dropped for a bounded field. Suppose
+$\operatorname{Var}\varphi_k(0)\to0$, as for the energy of the flowed
+plaquettes in lattice units when the flowed links approach the identity.
+Reflection invariance of $\omega_k$, the Cauchy--Schwarz inequality and
+stationarity give
+\[
+C_k(0)\le\omega_k(|A_k|^2)\le\Bigl(a_k^4\sum_x|f_0(a_kx)|\Bigr)^2
+\operatorname{Var}\varphi_k(0)\to0 .
+\]
+With $r_k=1$, (T2) then forces $a_k^4W_k\to0$, and by part (v) the limit is
+Gaussian. With $r_k^2$ of the order of $\operatorname{Var}\varphi_k(0)$ this
+is no longer forced. Choosing $r_k$ does not prove (T1) or (T2).
+\end{remark}
 
 \begin{remark}\label{rem:markov}
 Let $0<\epsilon<1$, $m>0$, let $\pi$ be the probability measure on
@@ -3114,27 +3221,21 @@ $X(s)=s/\sqrt\epsilon$ we have $\pi(X)=\pi(X^3)=0$, $\pi(X^2)=1$,
 $\pi(X^4)=1/\epsilon$ and $P_tX=e^{-mt}X$, so the two-point function is
 $e^{-mt}$ for every $\epsilon$, while for $t_1\le t_2\le t_3\le t_4$ and
 $q_i=e^{-m(t_{i+1}-t_i)}$ the four-point function is
-$q_3\,\pi\bigl(XP_{t_2-t_1}(XP_{t_3-t_2}X^2)\bigr)=q_1q_3(q_2/\epsilon+1-q_2)$, with truncated
-part $q_1q_3(q_2/\epsilon-q_2-2q_2^2)$; both diverge as $\epsilon\to0$.
+$q_3\,\pi\bigl(XP_{t_2-t_1}(XP_{t_3-t_2}X^2)\bigr)=q_1q_3(q_2/\epsilon+1-q_2)$,
+with truncated part $q_1q_3(q_2/\epsilon-q_2-2q_2^2)$; both diverge as
+$\epsilon\to0$. By part (i), no choice of amplitude scales makes
+(T1)--(T3) hold for this family with constants independent of $\epsilon$.
 \end{remark}
 
-Theorem~\ref{thm:higher} isolates what Theorem~\ref{thm:flowlimit} lacks.
-In the example of Remark~\ref{rem:markov} the truncated four-point function
-of the normalised field is of order $1/\epsilon$ while its two-point function
-is of order one, so tree bounds with $K_4$ independent of $\epsilon$ fail
-exactly where the four-point function diverges. Part (iv)
-says that (T3) alone is not enough for an interacting theory: the limit can
-be non-Gaussian only if $\liminf_ka_k^4W_k>0$, that is, if the truncated
-correlations of the flowed fields remain of order one over a region of fixed
-physical volume. At a fixed physical flow time $\tau$ the flowed fields are
-smooth on the scale $\sqrt\tau$, so this is the expected behaviour, but it is
-not proved here. The hypotheses (T1)--(T3) are uniform cluster estimates for
-the continuum tuning $\beta_k\to\infty$; the estimates of this paper hold at
-fixed strong coupling and do not give them, and a mass gap, which bounds the
-decay of the two-point function, does not give the constants $K_n$. The
-theorem also leaves Euclidean invariance and the independence of the limit
-from the subsequence open, as well as the growth of $M_n(Q)$ in $n$ needed for
-the Osterwalder--Schrader reconstruction of the field operators themselves.
+The hypotheses (T1)--(T3) are uniform cluster estimates for the continuum
+tuning $\beta_k\to\infty$. The estimates of this paper hold at fixed strong
+coupling and do not give them, and a mass gap, which bounds the decay of the
+two-point function, does not give the constants $K_n$. By part (v) the limit
+can be non-Gaussian only if $\liminf_ka_k^4W_k>0$, a condition on the tree
+majorant and its saturation rather than a pointwise lower bound on the
+truncated correlations; at a fixed physical flow time the flowed fields are
+smooth on the scale $\sqrt\tau$, which makes this the expected behaviour, but
+no estimate of that kind is proved here.
 
 \subsection{The two residues}
 
@@ -4100,8 +4201,8 @@ Appendix~\ref{app:plaqblocks} for the plaquette blocks, with the
 floating-point search of Remark~\ref{rem:blockgap}; and an exact computation of the curvatures of
 Table~\ref{tab:groups} from the root systems; and exact checks of the finite
 counts, of the discs and of the Gaussian benchmark of Sec.~\ref{ssec:cubeneeds}, with Monte Carlo
-estimates of the influence coefficients and of $\varepsilon_V$ that the proofs do not use. This paper accompanies release v3.14.0 of the archive,
-\url{https://github.com/creelie/4y-m/releases/tag/v3.14.0}. The PDF of this paper is at
+estimates of the influence coefficients and of $\varepsilon_V$ that the proofs do not use. This paper accompanies release v3.15.0 of the archive,
+\url{https://github.com/creelie/4y-m/releases/tag/v3.15.0}. The PDF of this paper is at
 \url{https://github.com/creelie/4Y-M/blob/main/preprintYangMillsForestGauge/YangMillsForestGauge.pdf}.
 The computations and the Lean, Python and shell checks were run with AI
 assistance (Claude Opus~5.5, Claude Fable~5.1 with Ultracode, GPT-6.1 Sol Ultra

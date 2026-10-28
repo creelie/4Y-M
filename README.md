@@ -178,8 +178,8 @@ field at two fixed physical separations, so what is open is a lower bound
 liminf D(r′)/D(r) > 0 for one pair r < r′; it holds for the free field. Tree
 bounds on the truncated correlations of the flowed fields give all n-point
 Schwinger functions as reflection-positive distributions along a
-subsequence (Theorem "higher correlations"); they are not proved along the
-continuum tuning. In a
+subsequence, a time semigroup and the ratio bound itself (Theorem "higher
+correlations"); they are not proved along the continuum tuning. In a
 periodic spatial box the normalising reflected norm C(0) is strictly positive
 for product test functions, by Lüscher's strictly positive transfer matrix. At every n
 the mean distance of the gauge-fixed links from the identity is at least
