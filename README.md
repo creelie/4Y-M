@@ -140,8 +140,10 @@ coupling for every even n above an explicit size (for SU(2),
 α = β_W/(1−3β_W)·(5/n − 2/n²)); if D(n, α) holds, then in the cube with the
 identity outside the gauge-fixed links stay on average at distance at least
 (1−α)D/3 from the identity (for SU(2), by four colours and tetrahedral
-quaternions, at mean distance at least 1−α), so for every fixed n the
-condition fails once β is large; and for SU(2) there is an exterior, legal at every coupling, under
+quaternions, at mean distance at least 1−α; for every compact simple group
+with the Hilbert–Schmidt metric of an irreducible representation, at least
+the fraction 1−α of the Haar disorder and mean distance (1−α)D/2), so for
+every fixed n the condition fails once β is large; and for SU(2) there is an exterior, legal at every coupling, under
 which the conditional law of one line of links has a ten-step gap at most
 e^20 24^10 b^15 e^(−b/1280), so (D) cannot come from bounds on single lines
 that are uniform in the exterior. None of this decides (D) along the
