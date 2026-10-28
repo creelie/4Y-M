@@ -26,8 +26,9 @@ resolves to the latest release.
 | v3.8.0 | [10.5281/zenodo.23718452](https://doi.org/10.5281/zenodo.23718452) |
 | v3.9.0 | [10.5281/zenodo.23719806](https://doi.org/10.5281/zenodo.23719806) |
 | v3.10.0 | [10.5281/zenodo.23720481](https://doi.org/10.5281/zenodo.23720481) |
+| v3.11.0 | [10.5281/zenodo.23721334](https://doi.org/10.5281/zenodo.23721334) |
 
-`YangMills_masterzipfinal2.zip` holds the repository at v3.10.0 and the
+`YangMills_masterzipfinal2.zip` holds the repository at v3.11.0 and the
 Hexagon package of the paper *Mass Gap of Four-Dimensional Lattice
 Yang–Mills Theory for Every Compact Simple Gauge Group*
 ([download](https://github.com/creelie/4Y-M/raw/main/YangMills_masterzipfinal2.zip)).
