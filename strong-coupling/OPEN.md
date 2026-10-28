@@ -75,7 +75,11 @@ n⁴ ≥ 2(1−α) β_W/(5 L(β_W)), L(b) = 1 + log 24 + (3/2) log 9b (Propositi
 "cube size"), a bound met along the tuning; the n² lost in its proof is of the
 right order (a stationary flux configuration). The continuum step also holds
 for observables smoothed by the spatial gradient flow (Proposition "smoothed
-observables"); nonperturbative convergence of the flowed fields is not proved.
+observables"). Renormalised by one condition at a single physical
+separation, the flowed fields have continuum limits along subsequences for
+every tuning (Theorem "renormalised flowed observables"); a nontrivial limit
+exists if and only if limsup C(σ)/C(0) > 0 for the flowed two-point function
+at a fixed physical separation σ, and that inequality is not proved.
 
 Monte Carlo (not used by any proof; `gauge-fixed/checks/cube/eps_mc.py`,
 heat bath, four chains, 300 + 300 sweeps): the mean distance ε_V of the
