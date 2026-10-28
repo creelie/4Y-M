@@ -79,8 +79,8 @@ results follow, proved by hand and not yet refereed (see
   size, uniform along the continuum tuning, gives a mass gap for every
   continuum limit; the cube estimate and the existence of the limit are open.
 - what (D) requires: it holds at strong coupling, forces the gauge-fixed links
-  of a cube with trivial exterior to stay a fixed mean distance from the
-  identity (so it fails at every fixed cube size at large β), and cannot come
+  of a cube with trivial exterior to keep at least the fraction 1−α of the
+  Haar disorder (mean distance (1−α)D/2 for a representation metric; so it fails at every fixed cube size at large β), and cannot come
   from single-line bounds uniform in the exterior (an SU(2) line with gap
   e^(−b/1280) up to powers of b); for SU(2) it needs
   n⁴ ≥ 2(1−α) β_W/(5 L(β_W)), and the n² lost in that bound is of the right

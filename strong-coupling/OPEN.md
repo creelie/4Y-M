@@ -65,7 +65,9 @@ block variables.
 The subsection "What the cube estimate requires" proves that D(n, α) holds
 at strong coupling, that it forces the forest-gauge links of a cube with the
 identity outside to stay at mean distance at least (1−α)D/3 from the identity
-(at least 1−α for SU(2), by four colours and tetrahedral quaternions; hence it fails at every fixed n once β is large), and that bounds on the
+(at least 1−α for SU(2), by four colours and tetrahedral quaternions, and
+(1−α)D/2 for every compact simple group with a representation metric, where
+the cube keeps the fraction 1−α of the Haar disorder; hence it fails at every fixed n once β is large), and that bounds on the
 conditional law of single lines, uniform in the exterior, cannot give it.
 None of this decides (D) along the tuning.
 For SU(2) the same subsection makes the size explicit: D(n, α) needs
