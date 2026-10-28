@@ -91,14 +91,18 @@ renormalisation"), and ⟨Ψ, (1−T)Ψ⟩ ≤ Ca for one slab would give the ra
 product test functions g ⊗ h the packet ratio lies between ratios of the
 correlations D(r) of the spatially smeared slice field at two fixed physical
 separations, so the open estimate is liminf D(r′)/D(r) > 0 for one pair
-r < r′ (Proposition "slice ratio"); it holds for the free field (limit
+r < r′ with r ≤ 2t₀ (Proposition "slice ratio"; a bound at a later pair only
+covers a packet shifted forward in time); it holds for the free field (limit
 0.6337 at the parameters of Remark "free slice"). Every bound proved on such
 ratios is an upper bound. Tree bounds on the truncated correlations of the
 flowed fields (T1)–(T3) give uniformly bounded higher correlations, all
 n-point Schwinger functions as reflection-positive distributions along a
 subsequence, and a Gaussian limit when the physical volume of the tree weight
-tends to zero (Theorem "higher correlations"); (T1)–(T3) are not proved along
-the continuum tuning. A three-state reflection-positive chain with a fixed gap
+tends to zero (Theorem "higher correlations"). With amplitude scales r_k in
+the tree bounds, the same hypotheses also give a time semigroup e^{−tH},
+the ratio bound C(σ)/C(0) ≥ 1/2 (so they are at least as strong as the open
+ratio), and, with (D), the mass gap for every polynomial in the smeared
+fields. (T1)–(T3) are not proved along the continuum tuning. A three-state reflection-positive chain with a fixed gap
 and a cutoff-independent two-point function has divergent four-point
 functions, so the two-point function alone cannot replace them.
 

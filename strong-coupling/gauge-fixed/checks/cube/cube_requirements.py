@@ -624,4 +624,24 @@ for eps in (Fr(1, 2), Fr(1, 10), Fr(1, 1000)):
         ok(four == q1 * q3 * (q2 / eps + 1 - q2), "four-point")
         ok(four - q1 * q3 - 2 * q1 * q2 ** 2 * q3 == q1 * q3 * (q2 / eps - q2 - 2 * q2 ** 2), "truncated four-point")
 
+# (s) the range of the slice-ratio extension, and the later-pair counterexample
+D = lambda t: (Fr(1, 2) ** t + Fr(1, 4) ** t) / 2
+c = D(3) / D(1)
+ok(c == Fr(3, 16) and D(2) / D(1) == Fr(5, 12), "slice values")
+ok((D(2) / D(1)) ** 2 < c, "power bound fails inside the pair")
+ok(D(2) / D(1) >= c, "monotone bound inside the pair")
+for al, be in ((1, 4), (2, 5), (1, 7), (3, 9)):
+    ok(D(be) / D(al) >= c ** Fr(max(2, be - al), 2) if (be - al) % 2 == 0 else
+       (D(be) / D(al)) ** 2 >= c ** max(2, be - al), "power bound to the right")
+for k in (10, 20, 40):
+    Dk = lambda t: (1 - Fr(1, 4 ** k)) * Fr(1, 2 ** (k * t)) + Fr(1, 4 ** k) * Fr(1, 2 ** t)
+    ok(abs(Dk(4) / Dk(3) - Fr(1, 2)) < Fr(1, 2 ** (k - 2)), "later pair ratio near 1/2")
+    ok(Dk(2) / Dk(1) < Fr(2, 2 ** k), "earlier pair ratio tends to zero")
+# (t) the amplitude scales cancel: r^n (c r^2 V)^(-n/2) V^(n-1) = c^(-n/2) V^(n/2-1)
+for r in (Fr(1, 7), Fr(3, 2), Fr(10 ** -6)):
+    for V in (Fr(1, 3), Fr(5, 1)):
+        for n in (2, 4, 6):
+            lhs = r ** n * V ** (n - 1) / (r * r * V) ** (n // 2)
+            ok(lhs == V ** (n // 2 - 1), "amplitude cancels")
+
 print(f"all {checks} checks passed")
