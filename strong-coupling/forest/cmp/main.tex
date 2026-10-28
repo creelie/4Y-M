@@ -83,7 +83,7 @@ smoothed observables, and
 complete proofs of the results earlier taken from our first paper. The
 \LaTeX{} source, the checks and the Lean certificate are in
 \href{https://github.com/creelie/4Y-M}{github.com/creelie/4Y-M}, release
-v3.11.0.}
+v3.12.0.}
 
 \begin{abstract}
 \itshape
@@ -95,7 +95,7 @@ fixed lattice spacing, past the curvature limit of the ungauged theory; for
 SU(2) and SU(3) the ranges reach $\beta_W\le0.345$ and $\beta_W\le0.76$.
 A mass gap in physical units for every continuum limit follows from one
 estimate of Dobrushin--Shlosman type in a cube of fixed physical size; that
-estimate and the existence of the limit remain open. The estimate holds at strong coupling, forces the gauge-fixed variables to be disordered at the scale of the cube, and for SU(2) needs a cube of side at least of order $(\beta_W/\log\beta_W)^{1/4}$.
+estimate and the existence of the limit remain open. The estimate holds at strong coupling, forces the gauge-fixed variables to be disordered at the scale of the cube, and for SU(N) needs a cube of side at least of order $(\beta_W/\log\beta_W)^{1/4}$.
 \end{abstract}
 
 \maketitle
@@ -440,9 +440,9 @@ functions (Theorem~\ref{thm:flowlimit}). The cube condition and the
 nontrivial existence of the limit are the two statements left open. Section~\ref{ssec:cubeneeds} shows that the condition holds at strong
 coupling, fails at every fixed cube size at weak coupling, forces the
 gauge-fixed variables to be disordered on the scale of the cube, and cannot
-be reached from estimates on single lines of links; for $\SU(2)$ it needs
+be reached from estimates on single lines of links; for $\SU(N)$ it needs
 cubes of side at least of order $(\beta_W/\log\beta_W)^{1/4}$
-(Proposition~\ref{prop:cubesize}). For a Gaussian field the condition holds at
+(Propositions~\ref{prop:cubesize} and~\ref{prop:cubesizeN}). For a Gaussian field the condition holds at
 a fixed physical scale when the field has a mass and fails exactly, at every
 size, when it is massless (Proposition~\ref{prop:gauss}); so does the
 quadratic approximation of the forest gauge itself
@@ -2661,6 +2661,67 @@ invariance, or bounds on products of more than two renormalised fields, for
 which (i) gives nothing because $Z_k$ may diverge; (E) requires all of these.
 
 
+In a periodic spatial box the assumption $C_k(0)>0$ is a theorem. Let
+$G=\SU(N)$ with its defining representation, and replace $\Z^4$ by
+$\Z\times(\Z/L_k\Z)^3$ with $L_k\ge3$ and $\omega_k$ by the infinite-time
+Wilson state of the box. The proof of Theorem~\ref{thm:flowlimit} uses only
+reflection positivity and the transfer matrix once the spatial translations
+are dropped, and parts (i)--(iv) hold in the box with $\mathcal D$ replaced by
+its points $(t,0)$, the time translates of $f_0$ being independent by the
+same Fourier argument in $t$.
+
+\begin{proposition}\label{prop:flowpositive}
+In the box, let $f_0(t,x)=g(t)h(x)$ with $g,h\ge0$, and let $\Phi=\sum_{i<j}
+(N-\ReTr Q_{ij})$ be the energy of the three spatial plaquettes at the origin.
+If $g(a_kn)h(a_kx)>0$ for some $n\ge1$ and some $x$, then $C_k(0)>0$.
+\end{proposition}
+
+\begin{proof}
+L\"uscher proved that the transfer matrix is strictly positive~\cite{Lus77};
+we recall the argument because the proof uses it in this form.
+
+\emph{The one-link kernel.} Write $\chi$ for the character of the defining
+representation and $b=\beta_W>0$. Then
+\[
+e^{\frac bN\operatorname{Re}\chi}=\sum_{m\ge0}\frac{(b/2N)^m}{m!}
+(\chi+\bar\chi)^m ,
+\]
+and $(\chi+\bar\chi)^m$ is the character of $(\rho\oplus\bar\rho)^{\otimes m}$.
+Every irreducible representation $\sigma$ occurs in one of these tensor
+powers: their matrix coefficients span the algebra of polynomials in the
+entries of $q$ and $\bar q$, which contains the constants and separates points,
+so it is dense in $C(G)$ by the Stone--Weierstrass theorem, while the matrix
+coefficients of a $\sigma$ that never occurred would be orthogonal to it by
+Schur orthogonality. So the coefficient of every irreducible character in
+$e^{\frac bN\operatorname{Re}\chi}$ is positive, and convolution with this
+function acts on each isotypic part of $L^2(G)$ by a positive scalar.
+
+\emph{The transfer matrix.} In the temporal gauge the transfer matrix of the
+box acts on the gauge-invariant part of $L^2(G^{E})$, $E$ the spatial links
+of one slice, as $M K M$, where $K$ is the tensor product over $E$ of the
+convolutions above and $M$ is multiplication by the exponential of half the
+spatial plaquette weight~\cite{Lus77,OSei78}. Both commute with gauge
+transformations, $K$ is positive and injective by the first step, and $M$ is
+positive and invertible, so $\ip v{MKMv}=\ip{Mv}{KMv}>0$ for $v\ne0$. Its
+kernel is a continuous positive function, and $K$ is compact, so its largest eigenvalue $\lambda_0$ is
+simple with an eigenfunction $\psi_0>0$, and with $A=MKM/\lambda_0$, a
+function $F$ of the slice at time $n\ge0$ has $\Psi_F=A^nF\psi_0$ in the
+reconstruction, $\Omega$ being $\psi_0$.
+
+\emph{Conclusion.} Let $F=\sum_xh(a_kx)\,\Phi_x\circ\Phi_{s_k}$ and
+$F^c=F-\omega_k(F)$. Then $\Psi_{A_k}=a_k^4\,p(A)F^c\psi_0$ with
+$p(z)=\sum_{n\ge1}g(a_kn)z^n$, a polynomial with nonnegative coefficients,
+not all zero, so $p>0$ on $(0,1]$ and $p(A)$ is injective. The function
+$\sum_xh(a_kx)\Phi_x$ vanishes at the configuration with every link $1$ and is
+positive at one with a single nontrivial link at a site where $h(a_kx)>0$; the
+flow $\Phi_{s_k}$ is a bijection, so $F$ is not constant, and as $F$ is
+continuous and $\psi_0>0$, $F^c\psi_0\ne0$. Hence $C_k(0)=\|\Psi_{A_k}\|^2>0$.
+\end{proof}
+
+The proposition removes the one assumption of Theorem~\ref{thm:flowlimit} in a
+box; it says nothing about the ratio of part (iv), on which nontriviality
+depends.
+
 \subsection{The two residues}
 
 Theorem~\ref{thm:transfer} reduces a continuum mass gap to two statements,
@@ -3321,6 +3382,85 @@ holds, Proposition~\ref{prop:tetra} gives $2(1-\alpha)\le
 n^2(n+2)(2n+1)L(b)/b$, and $(n+2)(2n+1)\le5n^2$ for $n\ge2$.
 \end{proof}
 
+The loops and their multiplicity use nothing of $\SU(2)$ but the
+bi-invariance of $\delta$, and the energy uses only the form of the action and
+the measure of small balls. The bound therefore holds for every $\SU(N)$,
+with the same power of $n$.
+
+\begin{proposition}\label{prop:cubesizeN}
+Let $G=\SU(N)$, $N\ge2$, with the weight $\exp(\frac{b}N\sum_p\ReTr Q_p)$,
+$b=\beta_W\ge N/9$, and the Hilbert--Schmidt distance
+$\delta(p,q)=\|p-q\|_{\mathrm{HS}}$. Let $n\ge2$ be even and put
+\[
+L_N(b)=1+\frac{N^2-1}2\log(81\pi^2b)+N(N-1)\log\frac{12}{11} .
+\]
+Then
+\[
+\frac1{|V|}\sum_{e\in V}\int\delta(1,Q_e)^2\,d\gamma^1_V\le
+\frac{N\,n^2(n+2)(2n+1)\,L_N(b)}b .
+\]
+Consequently, if $D(n,\alpha)$ holds at $b$, then
+\[
+n^4\ge\frac{2(1-\alpha)\,b}{5\,L_N(b)} .
+\]
+\end{proposition}
+
+\begin{proof}
+\emph{Loops.} The discs $R(e)$ of the proof of
+Proposition~\ref{prop:cubesize} and the bound $4n^2+2n$ on their multiplicity
+do not depend on the group, and the loop bound uses only bi-invariance and the
+triangle inequality. With $S=\sum_{p\cap V\ne\emptyset}\delta(1,Q^F_p)^2$ the
+same Cauchy--Schwarz step gives
+$\sum_{e\in V}\delta(1,Q_e)^2\le\frac12n^2(n+2)(2n+1)\,S$.
+
+\emph{The energy.} Since $\delta(1,q)^2=2N-2\ReTr q$, the measure $\gamma^1_V$
+has density $e^{-bS/(2N)}/Z$ with respect to Haar measure. As in the proof of
+Proposition~\ref{prop:cubesize}, the convexity of $t\mapsto\log\int e^{-tS}$
+gives $\int S\,d\gamma^1_V\le2N\log(1/Z)/b$, and $S\le18\sum_{e\in V}
+\delta(1,Q_e)^2$ gives $Z\ge I^{|V|}$ with $I=\int e^{-9b\,\delta(1,q)^2/N}dq$.
+
+\emph{Small balls.} Give $\mathfrak{su}(N)$ the inner product
+$\Tr(X^*Y)$ and $\SU(N)$ the corresponding bi-invariant metric, of volume
+$v_N$. In exponential coordinates the Riemannian measure is $j(X)\,dX$, where
+$dX$ is Lebesgue measure and
+\[
+j(X)=\Bigl|\det\frac{1-e^{-\operatorname{ad}X}}{\operatorname{ad}X}\Bigr|
+=\prod_{k<l}\Bigl(\frac{\sin(\varphi_{kl}/2)}{\varphi_{kl}/2}\Bigr)^2
+\]
+if $X$ has eigenvalues $i\theta_1,\dots,i\theta_N$ and
+$\varphi_{kl}=\theta_k-\theta_l$~\cite[Ch.~II,
+Thm.~1.7]{Hel01}; in particular $j\le1$. Every $q\in\SU(N)$ is conjugate to a
+diagonal matrix with entries $e^{i\psi_k}$, $-\pi\le\psi_k<\pi$; then
+$\sum_k\psi_k=2\pi k_0$ with $|k_0|\le N/2$, and changing $|k_0|$ of the
+$\psi_k$ by $\mp2\pi$ gives angles $\theta_k$ with sum zero and
+$|\theta_k|\le3\pi$. So $q=e^X$ with $X\in\mathfrak{su}(N)$ and
+$\|X\|_{\mathrm{HS}}\le3\pi\sqrt N$, and
+$v_N\le\omega_{N^2-1}(3\pi\sqrt N)^{N^2-1}$, where $\omega_k$ is the volume
+of the unit ball of $\R^k$. Now let $\|X\|_{\mathrm{HS}}\le r\le1$. The
+eigenvalues have $|\theta_k|\le1<\pi$, so $\exp$ is injective on this ball;
+$\delta(1,e^X)^2=\sum_k|e^{i\theta_k}-1|^2\le\|X\|_{\mathrm{HS}}^2$; and
+$|\varphi_{kl}|/2\le(\theta_k^2+\theta_l^2)^{1/2}/\sqrt2\le2^{-1/2}$, so each
+factor of $j(X)$ is at least $(1-\frac1{12})^2$ because $\sin x/x\ge1-x^2/6$.
+Dividing by $v_N$, the Haar measure of $\{q:\delta(1,q)\le r\}$ is at least
+\[
+\Bigl(\frac{11}{12}\Bigr)^{N(N-1)}\frac{\omega_{N^2-1}r^{N^2-1}}{v_N}\ge
+\Bigl(\frac{11}{12}\Bigr)^{N(N-1)}\Bigl(\frac r{3\pi\sqrt N}\Bigr)^{N^2-1}.
+\]
+With $r=(N/9b)^{1/2}\le1$ this gives $I\ge e^{-1}$ times the right-hand side,
+and since $3\pi\sqrt N/r=9\pi\sqrt b$, $\log(1/I)\le L_N(b)$. Hence
+$\int S\,d\gamma^1_V\le2N|V|L_N(b)/b$, and the first bound follows from the
+loops.
+
+\emph{Conclusion.} Proposition~\ref{prop:fourcolours} with the defining
+representation and $\kappa=1$, for which the Haar mean of $\delta(1,q)^2$ is
+$2N$, gives $2N(1-\alpha)\le N\,n^2(n+2)(2n+1)L_N(b)/b$ when $D(n,\alpha)$
+holds, and $(n+2)(2n+1)\le5n^2$.
+\end{proof}
+
+For every $N$, a cube on which the condition holds therefore has side at
+least of order $(\beta_W/\log\beta_W)^{1/4}$, with a constant that depends on
+$N$ only through $L_N$, which grows like $\frac{N^2}2\log\beta_W$.
+
 \begin{remark}\label{rem:fluxloop}
 The proof loses the area of a disc, of order $n^2$, in passing from plaquettes
 to links, and on loops that loss is of the right order. On the periodic
@@ -3524,8 +3664,8 @@ Propositions~\ref{prop:cover} and~\ref{prop:cover2} and
 Lemma~\ref{lem:su3const} and the numerical bounds of
 Lemma~\ref{lem:vmfconst}, which are computations with rigorous error bounds,
 and the finite check of Lemma~\ref{lem:plaqblocks}. The archive
-\texttt{creelie/4Y-M} (release v3.11.0,
-\url{https://github.com/creelie/4y-m/releases/tag/v3.11.0})
+\texttt{creelie/4Y-M} (release v3.12.0,
+\url{https://github.com/creelie/4y-m/releases/tag/v3.12.0})
 contains the programs of that computation, in Python with python-flint
 (FLINT and Arb) and a C kernel for products of Taylor polynomials, with
 their outputs and the list of certified boxes; the programs and outputs of
@@ -4940,6 +5080,11 @@ View, 2nd edn. Springer, New York (1987).
 \bibitem{GKS89}
 Gross, L., King, C., Sengupta, A.: Two dimensional Yang--Mills theory via stochastic differential equations. Ann. Phys. \textbf{194}, 65--112 (1989). \href{https://doi.org/10.1016/0003-4916(89)90032-8}{https://doi.org/10.1016/0003-4916(89)90032-8}
 
+\bibitem{Hel01}
+Helgason, S.: Differential Geometry, Lie Groups, and Symmetric Spaces.
+Grad. Stud. Math., vol.~34. Amer. Math. Soc., Providence, RI (2001).
+\href{https://doi.org/10.1090/gsm/034}{https://doi.org/10.1090/gsm/034}
+
 \bibitem{Hig02}
 Higham, N.J.: Accuracy and Stability of Numerical Algorithms, 2nd edn.
 SIAM, Philadelphia (2002).
@@ -4986,6 +5131,12 @@ theories. Phys. Rev. D \textbf{11}, 395--408 (1975).
 
 \bibitem{Lev03}
 L\'evy, T.: Yang--Mills measure on compact surfaces. Mem. Amer. Math. Soc. \textbf{166}(790) (2003). \href{https://doi.org/10.1090/memo/0790}{https://doi.org/10.1090/memo/0790}
+
+\bibitem{Lus77}
+L\"uscher, M.: Construction of a selfadjoint, strictly positive transfer
+matrix for Euclidean lattice gauge theories. Commun. Math. Phys. \textbf{54},
+283--292 (1977).
+\href{https://doi.org/10.1007/BF01614090}{https://doi.org/10.1007/BF01614090}
 
 \bibitem{Lus10}
 M.~L\"uscher, Properties and uses of the Wilson flow in lattice QCD, J. High

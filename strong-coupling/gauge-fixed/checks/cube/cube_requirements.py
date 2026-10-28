@@ -33,7 +33,17 @@ The line field sigma of the residue table has period two. The script checks:
   (l) the four colours for every group: the quotients z_k z_l^{-1} have real
       part -1/3, their images in SU(3) (2x2 block), SU(4) (q tensor I_2) and
       SO(3) have equal Hilbert-Schmidt distance to the identity, and for SU(3)
-      the diameter squared is 9 against the Haar mean 6 of the squared distance.
+      the diameter squared is 9 against the Haar mean 6 of the squared distance;
+  (m) the cube size for SU(N): every element of SU(N) is exp X with X traceless
+      and eigenvalue angles at most 3 pi; the Jacobian of exp in Hilbert-Schmidt
+      coordinates is the product of (sin(phi/2)/(phi/2))^2 over pairs of angles
+      (finite differences, N = 2, 3, 4); the lower bound
+      (11/12)^(N(N-1)) (r/(3 pi sqrt N))^(N^2-1) for the Haar measure of the
+      ball of radius r <= 1 against Monte Carlo (N = 2, 3); and the arithmetic
+      of L_N(b);
+  (n) the proposition on positive reflected norms in a box: the coefficients
+      of the SU(2) characters chi_j in exp((b/2) Re chi) are positive for
+      2j <= 4 at b = 0.5 and 2j <= 10 at b = 2, 6 (Weyl integration formula).
 Run: python3 cube_requirements.py
 """
 from collections import Counter
@@ -446,5 +456,84 @@ best = min(math.cos(a) + math.cos(b) + math.cos(a + b)
            for a in np.linspace(0, 2 * math.pi, 721) for b in np.linspace(0, 2 * math.pi, 721))
 ok(abs(best + 1.5) < 1e-9, "min Re tr on SU(3) is -3/2")
 ok(6 + 2 * Fr(3, 2) == 9 and Fr(6, 3) == Fr(2, 3) * 3, "SU(3): D^2 = 9, 2d/D = (2/3) D")
+
+# (m) the cube size for SU(N)
+rng = np.random.default_rng(20261028)
+def haar_su(N, k):
+    Zm = (rng.standard_normal((k, N, N)) + 1j * rng.standard_normal((k, N, N))) / math.sqrt(2)
+    Qm, Rm = np.linalg.qr(Zm)
+    dg = np.diagonal(Rm, axis1=1, axis2=2)
+    Qm = Qm * (dg / abs(dg))[:, None, :]
+    return Qm / (np.linalg.det(Qm) ** (1 / N))[:, None, None]
+def expm_h(X):  # X skew-Hermitian
+    w, U = np.linalg.eigh(-1j * X)
+    return (U * np.exp(1j * w)) @ np.conj(U).T
+def basis_su(N):  # Hilbert-Schmidt orthonormal basis of su(N)
+    B = []
+    for j in range(N):
+        for k in range(j + 1, N):
+            E = np.zeros((N, N), complex); E[j, k] = 1; E[k, j] = -1; B.append(E / math.sqrt(2))
+            E = np.zeros((N, N), complex); E[j, k] = 1j; E[k, j] = 1j; B.append(E / math.sqrt(2))
+    for j in range(1, N):
+        E = np.zeros((N, N), complex)
+        for k in range(j): E[k, k] = 1j
+        E[j, j] = -1j * j; B.append(E / np.linalg.norm(E))
+    return B
+for N in (2, 3, 4):
+    for q in haar_su(N, 20):
+        w, U = np.linalg.eig(q)
+        th = np.angle(w)
+        th = np.where(th >= math.pi, th - 2 * math.pi, th)
+        kk = int(round(th.sum() / (2 * math.pi)))
+        order = np.argsort(th)
+        if kk > 0: th[order[-kk:]] -= 2 * math.pi
+        if kk < 0: th[order[:-kk]] += 2 * math.pi
+        ok(abs(th.sum()) < 1e-9 and max(abs(th)) <= 3 * math.pi, "angles traceless, at most 3 pi")
+        ok(np.linalg.norm((U * np.exp(1j * th)) @ np.linalg.inv(U) - q) < 1e-8, "exp X = q")
+    B = basis_su(N)
+    G = np.array([[np.trace(np.conj(a).T @ b).real for b in B] for a in B])
+    ok(np.allclose(G, np.eye(N * N - 1)), "orthonormal basis of su(N)")
+    for _ in range(5):
+        c = rng.standard_normal(N * N - 1); c *= rng.uniform(0.1, 2.5) / np.linalg.norm(c)
+        X = sum(a * b for a, b in zip(c, B))
+        E0inv = np.conj(expm_h(X)).T
+        h = 1e-6
+        J = np.array([[np.trace(np.conj(Bb).T @ (E0inv @ (expm_h(X + h * Ba) - expm_h(X - h * Ba)) / (2 * h))).real
+                       for Ba in B] for Bb in B])
+        ang = np.linalg.eigvalsh(-1j * X)
+        prod = 1.0
+        for a, b in combinations(ang, 2):
+            x = (a - b) / 2
+            prod *= (math.sin(x) / x) ** 2
+        ok(abs(abs(np.linalg.det(J)) - prod) < 1e-5, f"Jacobian of exp, N = {N}")
+        if np.linalg.norm(X) <= 1:
+            ok(prod >= (11 / 12) ** (N * (N - 1)), "Jacobian at least (11/12)^(N(N-1))")
+for N, r in ((2, 0.6), (3, 0.9)):
+    dim = N * N - 1
+    lower = (11 / 12) ** (N * (N - 1)) * (r / (3 * math.pi * math.sqrt(N))) ** dim
+    hits = total = 0
+    for _ in range(20):
+        Qs = haar_su(N, 50000)
+        d2 = np.sum(abs(Qs - np.eye(N)) ** 2, axis=(1, 2))
+        hits += int(np.sum(d2 <= r * r)); total += len(d2)
+    ok(hits / total > lower, f"ball measure above the bound, N = {N}")
+for N in (2, 3, 4, 5):
+    for bb in (N / 9, 1, 6, 100):
+        r = math.sqrt(N / (9 * bb))
+        lhs = (N * N - 1) / 2 * math.log(9 * bb / N) + (N * N - 1) * math.log(3 * math.pi * math.sqrt(N))
+        ok(abs(lhs - (N * N - 1) / 2 * math.log(81 * math.pi ** 2 * bb)) < 1e-9, "L_N arithmetic")
+        ok(abs(math.log(3 * math.pi * math.sqrt(N) / r) - 0.5 * math.log(81 * math.pi ** 2 * bb)) < 1e-9, "radius")
+ok(all(math.sin(x) / x >= 1 - x * x / 6 for x in np.linspace(1e-6, 1 / math.sqrt(2), 1000)), "sin x / x >= 1 - x^2/6")
+
+# (n) positive character coefficients of the Wilson weight for SU(2)
+th = np.linspace(0, math.pi, 20001)
+wts = (2 / math.pi) * np.sin(th) ** 2
+trap = getattr(np, "trapezoid", None) or getattr(np, "trapz")
+for bb, top in ((0.5, 4), (2.0, 10), (6.0, 10)):
+    dens = np.exp(bb * np.cos(th))  # (b/N) Re chi = (b/2) 2 cos theta
+    for twoj in range(top + 1):
+        chi = np.sin((twoj + 1) * th[1:-1]) / np.sin(th[1:-1])
+        c = trap(dens[1:-1] * chi * wts[1:-1], th[1:-1])
+        ok(c > 0, f"positive character coefficient, b = {bb}, 2j = {twoj}")
 
 print(f"all {checks} checks passed")

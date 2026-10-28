@@ -73,13 +73,17 @@ None of this decides (D) along the tuning.
 For SU(2) the same subsection makes the size explicit: D(n, α) needs
 n⁴ ≥ 2(1−α) β_W/(5 L(β_W)), L(b) = 1 + log 24 + (3/2) log 9b (Proposition
 "cube size"), a bound met along the tuning; the n² lost in its proof is of the
-right order (a stationary flux configuration). The continuum step also holds
+right order (a stationary flux configuration). For every SU(N) the same bound
+holds with L_N(b) = 1 + ((N²−1)/2) log(81π²b) + N(N−1) log(12/11)
+(Proposition "cube size for SU(N)"). The continuum step also holds
 for observables smoothed by the spatial gradient flow (Proposition "smoothed
 observables"). Renormalised by one condition at a single physical
 separation, the flowed fields have continuum limits along subsequences for
 every tuning (Theorem "renormalised flowed observables"); a nontrivial limit
 exists if and only if limsup C(σ)/C(0) > 0 for the flowed two-point function
-at a fixed physical separation σ, and that inequality is not proved.
+at a fixed physical separation σ, and that inequality is not proved. In a
+periodic spatial box the assumption C(0) > 0 is proved for product test
+functions (strictly positive transfer matrix); the ratio is untouched.
 
 Monte Carlo (not used by any proof; `gauge-fixed/checks/cube/eps_mc.py`,
 heat bath, four chains, 300 + 300 sweeps): the mean distance ε_V of the
