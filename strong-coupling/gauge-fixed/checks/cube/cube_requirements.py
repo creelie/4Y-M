@@ -29,7 +29,11 @@ The line field sigma of the residue table has period two. The script checks:
   (k) the four colours of the SU(2) proposition: the sets X_1, ..., X_4 are
       unions of two pairs, every active link joins different sets, X_3 u X_4
       is the colour set of (b), and the tetrahedral quaternions z_k have
-      <z_k, z_l> = -1/3 for k != l, in exact arithmetic.
+      <z_k, z_l> = -1/3 for k != l, in exact arithmetic;
+  (l) the four colours for every group: the quotients z_k z_l^{-1} have real
+      part -1/3, their images in SU(3) (2x2 block), SU(4) (q tensor I_2) and
+      SO(3) have equal Hilbert-Schmidt distance to the identity, and for SU(3)
+      the diameter squared is 9 against the Haar mean 6 of the squared distance.
 Run: python3 cube_requirements.py
 """
 from collections import Counter
@@ -413,5 +417,34 @@ Z = [(1, 1, 1), (1, -1, -1), (-1, 1, -1), (-1, -1, 1)]
 for k, l in combinations(range(4), 2):
     ok(Fr(sum(a * b for a, b in zip(Z[k], Z[l])), 3) == Fr(-1, 3), "<z_k, z_l> = -1/3")
 ok(2 - 2 * Fr(-1, 3) == Fr(8, 3), "d_*^2 = 8/3")
+
+# (l) four colours for every group
+import numpy as np
+def su2(q):
+    a, b, c, d = q
+    return np.array([[a + 1j * b, c + 1j * d], [-c + 1j * d, a - 1j * b]])
+ZQ = [(0,) + tuple(v / math.sqrt(3) for v in z) for z in Z]
+def so3(q):
+    a, b, c, d = q
+    return np.array([[a*a+b*b-c*c-d*d, 2*(b*c-a*d), 2*(b*d+a*c)],
+                     [2*(b*c+a*d), a*a-b*b+c*c-d*d, 2*(c*d-a*b)],
+                     [2*(b*d-a*c), 2*(c*d+a*b), a*a-b*b-c*c+d*d]])
+embed = {"SU(3)": lambda q: np.block([[su2(q), np.zeros((2, 1))], [np.zeros((1, 2)), np.eye(1)]]),
+         "SU(4)": lambda q: np.kron(su2(q), np.eye(2)),
+         "SO(3)": so3}
+for name, phi in embed.items():
+    dist = []
+    for k in range(4):
+        for l in range(4):
+            if k != l:
+                quo = qm(ZQ[k], qc(ZQ[l]))
+                ok(abs(quo[0] + 1 / 3) < 1e-12, "real part -1/3")
+                M = phi(ZQ[k]) @ np.conj(phi(ZQ[l])).T
+                dist.append(np.linalg.norm(M - np.eye(M.shape[0])))
+    ok(max(dist) - min(dist) < 1e-12 and min(dist) > 0.5, "equal positive distances " + name)
+best = min(math.cos(a) + math.cos(b) + math.cos(a + b)
+           for a in np.linspace(0, 2 * math.pi, 721) for b in np.linspace(0, 2 * math.pi, 721))
+ok(abs(best + 1.5) < 1e-9, "min Re tr on SU(3) is -3/2")
+ok(6 + 2 * Fr(3, 2) == 9 and Fr(6, 3) == Fr(2, 3) * 3, "SU(3): D^2 = 9, 2d/D = (2/3) D")
 
 print(f"all {checks} checks passed")
