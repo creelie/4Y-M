@@ -83,7 +83,12 @@ every tuning (Theorem "renormalised flowed observables"); a nontrivial limit
 exists if and only if limsup C(σ)/C(0) > 0 for the flowed two-point function
 at a fixed physical separation σ, and that inequality is not proved. In a
 periodic spatial box the assumption C(0) > 0 is proved for product test
-functions (strictly positive transfer matrix); the ratio is untouched.
+functions (strictly positive transfer matrix); the ratio is untouched. C(0)
+is the reflected norm of the smeared packet, not a point coincidence (for the
+free massless field the point ratio tends to zero). A lower bound on the ratio
+gives tight spectral measures after renormalising at σ (Proposition "shifted
+renormalisation"), and ⟨Ψ, (1−T)Ψ⟩ ≤ Ca for one slab would give the ratio; the
+open estimate is that one-slab bound, an upper bound on a Dirichlet form.
 
 Monte Carlo (not used by any proof; `gauge-fixed/checks/cube/eps_mc.py`,
 heat bath, four chains, 300 + 300 sweeps): the mean distance ε_V of the
