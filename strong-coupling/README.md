@@ -99,7 +99,13 @@ results follow, proved by hand and not yet refereed (see
   in a periodic spatial box C(0) > 0 for product test functions; a lower
   bound on the ratio would give tight spectral measures after renormalising
   at σ, and a one-slab bound on the transfer matrix would give the ratio
-  (neither proved);
+  (neither proved); for product test functions the packet ratio is
+  squeezed between ratios of slice correlations D(r′)/D(r) at fixed physical
+  separations, which converge to a positive limit for the free field;
+- higher correlations: tree bounds on the truncated correlations give all
+  n-point Schwinger functions as reflection-positive distributions along a
+  subsequence, Gaussian if the tree weight has vanishing physical volume
+  (the tree bounds are not proved along the continuum tuning);
 - the cube size for every SU(N): n⁴ ≥ 2(1−α) β_W/(5 L_N(β_W)) with
   L_N(b) = 1 + ((N²−1)/2) log(81π²b) + N(N−1) log(12/11).
 
