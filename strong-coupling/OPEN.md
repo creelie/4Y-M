@@ -62,3 +62,9 @@ a linear-response count does not exclude (D) for ℓ a multiple of the
 correlation length, but in gauges built on straight lines the gauge-fixed
 links may fluctuate on all scales, in which case (D) has to be posed for
 block variables.
+The subsection "What the cube estimate requires" proves that D(n, α) holds
+at strong coupling, that it forces the forest-gauge links of a cube with the
+identity outside to stay at mean distance at least (1−α)D/3 from the identity
+(hence it fails at every fixed n once β is large), and that bounds on the
+conditional law of single lines, uniform in the exterior, cannot give it.
+None of this decides (D) along the tuning.
