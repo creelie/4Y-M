@@ -564,4 +564,64 @@ for trial in range(200):
     for Lam in (0.5, 2, 8):
         ok(np.sum(w[E >= Lam]) <= C * (a + 1 / Lam) + 1e-12, "slab tail")
 
+# (p) packet ratio against slice correlators: D(2 a n1 + s)/D(2 a n0) <= C(s)/C(0)
+# <= D(2 a n0 + s)/D(2 a n1), log-convexity, and the extension from one pair
+def lse(x):
+    return float(np.logaddexp.reduce(np.asarray(x, dtype=float)))
+for trial in range(400):
+    a = 10 ** rng.uniform(-3, -1); K = int(rng.integers(1, 40))
+    ll = -a * 10 ** rng.uniform(-1, 3.5, K); lnu = np.log(rng.exponential(size=K))
+    t0 = rng.uniform(0.05, 1); t1 = t0 + rng.uniform(0.01, 1)
+    n0 = int(np.ceil(t0 / a)); n1 = int(np.floor(t1 / a))
+    if n1 <= n0:
+        continue
+    n = np.arange(n0, n1 + 1); lw = np.log(rng.uniform(1e-3, 1, len(n)) * a)
+    lW = np.array([lse(lw + l * n) for l in ll])
+    lD = lambda j: lse(lnu + ll * j)
+    lC = lambda m: lse(lnu + 2 * lW + ll * m)
+    m = int(rng.uniform(0.05, 2) / a); r = lC(m) - lC(0)
+    ok(lD(2 * n1 + m) - lD(2 * n0) - 1e-9 <= r <= lD(2 * n0 + m) - lD(2 * n1) + 1e-9, "slice bounds")
+    j = int(rng.integers(1, 200)); ok(2 * lD(j) <= lD(j - 1) + lD(j + 1) + 1e-9, "log-convex D")
+    ok(2 * lC(j) <= lC(j - 1) + lC(j + 1) + 1e-9, "log-convex C")
+    i0, i1 = sorted(rng.choice(300, 2, replace=False)); lc = lD(i1) - lD(i0)
+    al = int(rng.integers(i0, 400)); be = al + int(rng.integers(1, 400))
+    ok(lD(be) - lD(al) >= lc * max(1, (be - al) / (i1 - i0)) - 1e-9, "extension from one pair")
+
+# (q) the free lattice field: D_k(tau')/D_k(tau) converges to the continuum ratio
+def slice_corr(a, tau, tf=0.05, N=128):
+    L = np.pi / a; P = min(L, 8.0); ps = np.linspace(-P, P, N, endpoint=False) + P / N
+    px, py, pz = np.meshgrid(ps, ps, ps, indexing='ij')
+    ph2 = sum((2 / a * np.sin(a * q / 2)) ** 2 for q in (px, py, pz))
+    w = np.arccosh(1 + a * a * ph2 / 2) / a
+    hh = np.zeros_like(px)
+    for kx in (-1, 0, 1):
+        for ky in (-1, 0, 1):
+            for kz in (-1, 0, 1):
+                hh += np.exp(-((px + 2 * L * kx) ** 2 + (py + 2 * L * ky) ** 2 + (pz + 2 * L * kz) ** 2) / 4)
+    return np.sum(hh ** 2 * np.exp(-2 * tf * ph2) * np.exp(-tau * w) / (2 * np.sinh(a * w) / a))
+x = np.linspace(1e-6, 30, 300001)
+cont = [trap(x * x * np.exp(-x * x / 2 - 2 * 0.05 * x * x - t * x) / (2 * x), x) for t in (0.5, 1.0)]
+rc = cont[1] / cont[0]
+ok(abs(rc - 0.63365) < 1e-4, "continuum free ratio")
+for a in (0.1, 0.0125, 0.001):
+    ok(abs(slice_corr(a, 1.0) / slice_corr(a, 0.5) - rc) < 2e-3, f"lattice free ratio, a = {a}")
+th = np.linspace(1e-9, 6, 100001)
+ok(np.all(np.arccosh(1 + th) >= math.acosh(7) / math.sqrt(12) * np.sqrt(2 * th) - 1e-12), "arccosh bound")
+
+# (r) the three-state chain: two-point e^{-mt}, four-point q1 q3 (q2/eps + 1 - q2)
+from fractions import Fraction as Fr
+for eps in (Fr(1, 2), Fr(1, 10), Fr(1, 1000)):
+    pi = {-1: eps / 2, 0: 1 - eps, 1: eps / 2}
+    S = (-1, 0, 1)
+    def P(q, s, t):
+        return q * (s == t) + (1 - q) * pi[t]
+    for q1, q2, q3 in ((Fr(1, 2), Fr(1, 2), Fr(1, 2)), (Fr(1, 3), Fr(3, 4), Fr(2, 5)), (Fr(9, 10), Fr(1, 7), Fr(1, 1))):
+        ok(all(pi[s] * P(q1, s, t) == pi[t] * P(q1, t, s) for s in S for t in S), "detailed balance")
+        two = sum(pi[s] * s * P(q1, s, t) * t for s in S for t in S) / eps
+        ok(two == q1, "two-point")
+        four = sum(pi[s0] * s0 * P(q1, s0, s1) * s1 * P(q2, s1, s2) * s2 * P(q3, s2, s3) * s3
+                   for s0 in S for s1 in S for s2 in S for s3 in S) / eps ** 2
+        ok(four == q1 * q3 * (q2 / eps + 1 - q2), "four-point")
+        ok(four - q1 * q3 - 2 * q1 * q2 ** 2 * q3 == q1 * q3 * (q2 / eps - q2 - 2 * q2 ** 2), "truncated four-point")
+
 print(f"all {checks} checks passed")
