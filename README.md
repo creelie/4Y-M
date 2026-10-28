@@ -178,7 +178,10 @@ bounds, and a one-slab bound ⟨Ψ, (1−T)Ψ⟩ ≤ Ca on the transfer matrix w
 the ratio bound; neither is proved for Yang–Mills. For product test functions
 the ratio lies between ratios of correlations of one spatially smeared slice
 field at two fixed physical separations, so what is open is a lower bound
-liminf D(r′)/D(r) > 0 for one pair r < r′; it holds for the free field. Tree
+liminf D(r′)/D(r) > 0 for one pair r < r′; it holds for the free field and,
+along the right tuning, for two-dimensional SU(N) lattice gauge theory on a
+circle, where the energies converge to g²ℓC₂(λ)/2; the spatial flow alone
+does not give it. Tree
 bounds on the truncated correlations of the flowed fields give all n-point
 Schwinger functions as reflection-positive distributions along a
 subsequence, a time semigroup and the ratio bound itself (Theorem "higher
