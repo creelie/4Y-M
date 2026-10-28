@@ -644,4 +644,21 @@ for r in (Fr(1, 7), Fr(3, 2), Fr(10 ** -6)):
             lhs = r ** n * V ** (n - 1) / (r * r * V) ** (n // 2)
             ok(lhs == V ** (n // 2 - 1), "amplitude cancels")
 
+# (u) tree bounds force a closing gap: C(s)/C(0) <= e^{-m s/a} for spectral measures on
+# Omega^perp, and the product-form tail ratio 2 e^{-mu R'}/(1 + e^{-mu}) <= 2 e^{-mu R}
+for trial in range(300):
+    a = 10 ** rng.uniform(-3, -1); m = rng.uniform(0, 3); K = int(rng.integers(1, 30))
+    lam = np.exp(-m) * rng.uniform(0, 1, K); w = rng.exponential(size=K); w /= w.sum()
+    s = a * int(rng.integers(1, 400))
+    ok(float(np.sum(w * lam ** round(s / a))) <= math.exp(-m * s / a) + 1e-15, "gap bound")
+for mu in (Fr(1, 3), Fr(1, 1), Fr(5, 2)):
+    q = math.exp(-float(mu))
+    for R in (0.5, 3.0, 7.25, 20.0):
+        Rp = math.ceil(R); J = 4000
+        tail = sum(q ** abs(j) for j in range(-J, J + 1) if abs(j) >= Rp)
+        full = sum(q ** abs(j) for j in range(-J, J + 1))
+        ok(abs(tail / full - 2 * q ** Rp / (1 + q)) < 1e-12, "tail fraction")
+        ok(tail / full <= 2 * math.exp(-float(mu) * R) + 1e-15, "tail bound")
+        ok((1 + q) / (1 - q) >= 2 / float(mu), "coth bound")
+
 print(f"all {checks} checks passed")
