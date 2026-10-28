@@ -83,7 +83,7 @@ smoothed observables, and
 complete proofs of the results earlier taken from our first paper. The
 \LaTeX{} source, the checks and the Lean certificate are in
 \href{https://github.com/creelie/4Y-M}{github.com/creelie/4Y-M}, release
-v3.15.0.}
+v3.16.0.}
 
 \begin{abstract}
 \itshape
@@ -441,7 +441,10 @@ ratios of correlations of one slice field at fixed physical separations
 (Proposition~\ref{prop:sliceratio}); tree bounds on the truncated
 correlations give all the higher Schwinger functions as reflection positive
 distributions, imply the ratio bound, and carry the conditional mass gap to
-every polynomial in the smeared fields (Theorem~\ref{thm:higher}). The cube condition and the
+every polynomial in the smeared fields (Theorem~\ref{thm:higher}); already their
+order-two cases force the lattice gap below a fixed multiple of the lattice
+spacing, so no strong coupling expansion gives them
+(Proposition~\ref{prop:treecritical}). The cube condition and the
 nontrivial existence of the limit are the two statements left open. Section~\ref{ssec:cubeneeds} shows that the condition holds at strong
 coupling, fails at every fixed cube size at weak coupling, forces the
 gauge-fixed variables to be disordered on the scale of the cube, and cannot
@@ -3203,14 +3206,101 @@ $\epsilon\to0$. By part (i), no choice of amplitude scales makes
 \end{remark}
 
 The hypotheses (T1)--(T3) are uniform cluster estimates for the continuum
-tuning $\beta_k\to\infty$. The estimates of this paper hold at fixed strong
-coupling and do not give them, and a mass gap, which bounds the decay of the
-two-point function, does not give the constants $K_n$. By part (v) the limit
-can be non-Gaussian only if $\liminf_ka_k^4W_k>0$, a condition on the tree
-majorant and its saturation rather than a pointwise lower bound on the
-truncated correlations; at a fixed physical flow time the flowed fields are
-smooth on the scale $\sqrt\tau$, which makes this the expected behaviour, but
-no estimate of that kind is proved here.
+tuning $\beta_k\to\infty$, and the next proposition shows that they are
+estimates at a critical point: with the order-two cases alone the lattice
+gap is at most a fixed multiple of $a_k$, and the tree majorant carries a fixed fraction
+of its weight at a fixed physical distance. Let $m_k\in[0,\infty]$ be the
+gap of $\mathbb T_k$ on the complement of $\Omega_k$, so that
+$\|\mathbb T_kv\|\le e^{-m_k}\|v\|$ for $v\perp\Omega_k$, and let $t_0>0$ be
+the least time in the support of $f_0$.
+
+\begin{proposition}\label{prop:treecritical}
+\textup{(i)} For every dyadic $\sigma>0$ and every large $k$,
+$C_k(\sigma)\le e^{-m_k\sigma/a_k}C_k(0)$. If $m_k/a_k\to\infty$, every
+limit of Theorem~\textup{\ref{thm:flowlimit}} is trivial; this is the case
+for $\beta_k=\beta$ fixed in the range of Theorem~\textup{\ref{thm:groups}},
+where $m_k\ge m_G(\beta)$.
+
+\textup{(ii)} Suppose the $\omega_k$ are translation invariant and
+\textup{(T1)} for $n=2$ and \textup{(T2)} hold. Then $m_k\le a_k\log2/\sigma$
+for every large $k$, where $\sigma$ is the dyadic number of
+Theorem~\textup{\ref{thm:higher}(iv)}, which depends only on $K_2/c$ and
+$f_0$. If also the hypothesis of Theorem~\textup{\ref{thm:transfer}} holds,
+then $m_*a_k\le m_k\le a_k\log2/\sigma$, and in particular
+$m_*\le\log2/\sigma$.
+
+\textup{(iii)} Under \textup{(T1)} for $n=2$ and \textup{(T2)}, let $Q$ be a
+cube containing the support of $f_0$ and
+$\gamma=c/(K_2\|f_0\|_\infty^2\sup_k|Q|_k)$. Then for every $k$
+\[
+\sum_{z\in\Z^4,\ |z_0|\ge R_k}w_k(z)\ge\gamma\,W_k,\qquad
+R_k=\frac{2t_0}{a_k}-1 .
+\]
+If $w_k(z)=e^{-\mu_k|z_0|}u_k(\bar z)$ with $\bar z$ the spatial part of $z$
+and $u_k\ge0$ summable on $\Z^3$, then $\mu_kR_k\le\log(2/\gamma)$, so the
+physical time decay rate of the majorant is at most
+$\log(2/\gamma)/(2t_0-a_k)$.
+\end{proposition}
+
+\begin{proof}
+(i) In the proof of Theorem~\ref{thm:flowlimit},
+$C_k(\sigma)/C_k(0)=\ip{\Psi_k}{\mathbb T_k^{\sigma/a_k}\Psi_k}$ with
+$\Psi_k$ a unit vector orthogonal to $\Omega_k$. The operator $\mathbb T_k$
+is self-adjoint and fixes $\Omega_k$, so it preserves the complement, and the
+inequality follows. If $m_k/a_k\to\infty$ then $\rho(\sigma)=0$ for every
+dyadic $\sigma>0$ along every subsequence, and the limit is trivial by
+Theorem~\ref{thm:flowlimit}(iv). At fixed $\beta$ in the range of
+Theorem~\ref{thm:groups} the gap is at least $m_G(\beta)>0$ in lattice units,
+and $a_k\to0$; the spatial flow does not change the transfer matrix
+(Proposition~\ref{prop:spatialflow}(iv)).
+
+(ii) Theorem~\ref{thm:higher}(iv) uses (T1) and (T2) only for $n=2$, since
+the exponent $n/2-1$ in part (i) vanishes there, and gives
+$C_k(\sigma)\ge\frac12C_k(0)$ for large $k$. With (i),
+$e^{-m_k\sigma/a_k}\ge\frac12$. Under the hypothesis of
+Theorem~\ref{thm:transfer}, the proof of that theorem gives
+$m_k\ge\log(1/\alpha)/(2n_k)\ge m_*a_k$.
+
+(iii) $C_k(0)=\omega_k(A_k(\bar f_0\circ\theta_k)A_k(f_0))$, a covariance of
+two centred fields, by the proof of Theorem~\ref{thm:higher}(iv). A point $x$
+in the support of the first sum has $a_kx_0\le-t_0+a_k$, and a point $y$ in
+the support of the second has $a_ky_0\ge t_0$, so $|x_0-y_0|\ge R_k$. By
+(T1) for $n=2$,
+\[
+\begin{split}
+C_k(0)&\le K_2r_k^2\|f_0\|_\infty^2\,a_k^8\sum_{a_ky\in Q}\
+\sum_{|x_0-y_0|\ge R_k}w_k(x-y)\\
+&\le K_2r_k^2\|f_0\|_\infty^2|Q|_k\,a_k^4\sum_{|z_0|\ge R_k}w_k(z),
+\end{split}
+\]
+and (T2) bounds the left side below by $c\,r_k^2a_k^4W_k$. For the product
+form let $R'=\lceil R_k\rceil$; if $R'\le0$ there is nothing to prove, and
+otherwise
+\[
+\frac{\sum_{|j|\ge R'}e^{-\mu_k|j|}}{\sum_{j\in\Z}e^{-\mu_k|j|}}
+=\frac{2e^{-\mu_kR'}}{1+e^{-\mu_k}}\le2e^{-\mu_kR_k},
+\]
+while the factor $\sum_{\bar z}u_k(\bar z)$ cancels. So
+$2e^{-\mu_kR_k}\ge\gamma$.
+\end{proof}
+
+So reflection positivity and decay do not supply (T2): at fixed $\beta$
+in the range of Theorem~\ref{thm:groups} the measures are reflection
+positive with exponential clustering, and $C_k(\sigma)/C_k(0)\to0$, so no
+choice of $w_k$, $r_k$ and constants satisfies the order-two cases of (T1)
+and (T2) together there. For the same reason no
+estimate whose constants give a lattice gap bounded below, as a convergent
+strong coupling expansion does~\cite{OSei78}, can give the tree bounds along
+the tuning: (T1) and (T2) hold, if at all, only along couplings where the lattice
+gap closes at least as fast as $a_k$. A mass gap in physical units,
+which bounds the decay of the two-point function, does not give the constants
+$K_n$ either. By Theorem~\ref{thm:higher}(v) the limit can be non-Gaussian
+only if $\liminf_ka_k^4W_k>0$; for the product majorants of part (iii) the
+time factor of $W_k$ is $\coth(\mu_k/2)\ge2/\mu_k$, which is of order $1/a_k$
+at least, so the time direction alone is compatible with this. At a fixed
+physical flow time the flowed fields are smooth on the scale $\sqrt\tau$,
+which makes such majorants the expected behaviour, but no estimate of that
+kind is proved here.
 
 \subsection{The two residues}
 
@@ -4154,8 +4244,8 @@ Propositions~\ref{prop:cover} and~\ref{prop:cover2} and
 Lemma~\ref{lem:su3const} and the numerical bounds of
 Lemma~\ref{lem:vmfconst}, which are computations with rigorous error bounds,
 and the finite check of Lemma~\ref{lem:plaqblocks}. The archive
-\texttt{creelie/4Y-M} (release v3.15.0,
-\url{https://github.com/creelie/4y-m/releases/tag/v3.15.0})
+\texttt{creelie/4Y-M} (release v3.16.0,
+\url{https://github.com/creelie/4y-m/releases/tag/v3.16.0})
 contains the programs of that computation, in Python with python-flint
 (FLINT and Arb) and a C kernel for products of Taylor polynomials, with
 their outputs and the list of certified boxes; the programs and outputs of
