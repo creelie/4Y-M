@@ -86,8 +86,11 @@ and for every compact connected group no continuous covariant block map treats t
 positions of a block alike (Proposition "nomean"). A cut-off of Bałaban's
 averaging operation is continuous, covariant and coercive for every field and
 agrees with the block averages to first order (Theorem "cutoff"), but its
-constants are those of one step; a block map that is coercive for all fields
-and composes across scales is open.
+constants are those of one step. On torus-valued fields of small curvature at
+every scale it composes, with nonincreasing energy (Theorem "torusscales"),
+and a random coherent path offset composes exactly in mean for every field
+(Proposition "offsetkernel"); a deterministic block map that is coercive for
+all nonabelian fields and composes across scales is open.
 For SU(2) the same subsection makes the size explicit: D(n, α) needs
 n⁴ ≥ 2(1−α) β_W/(5 L(β_W)), L(b) = 1 + log 24 + (3/2) log 9b (Proposition
 "cube size"), a bound met along the tuning; the n² lost in its proof is of the

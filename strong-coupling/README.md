@@ -48,9 +48,9 @@ units remain open. `OPEN.md` records what is known of each.
 
 `forest/main.tex` is the paper "Mass Gap of Four-Dimensional Lattice Yang–Mills Theory for Every Compact Simple Group" by Deep
 Bhattacharjee, Ushashi Bhattacharya and James Montgomery Lockwood (REVTeX
-4-2, two columns, 65 pages), compiled as
+4-2, two columns, 67 pages), compiled as
 `preprintYangMillsForestGauge/YangMillsForestGauge.pdf` in the repository
-root; `forest/cmp/main.tex` is the same paper in the AMS article class (98
+root; `forest/cmp/main.tex` is the same paper in the AMS article class (101
 pages). Its figures are written by `forest/figures/make_figures.py` and the
 schematic figures by `forest/figures/make_schematics.py`. The paper is
 self-contained: the transfer-matrix reconstruction, the facts on spectral
@@ -136,7 +136,9 @@ results, proved by hand and not yet refereed (see
   matrices of the slice links in a maximal torus add up to the identity);
   a cut-off of Bałaban's averaging operation is continuous, covariant,
   coercive for every field with one-step constants 1431 and 2956, and agrees
-  with the block averages to first order.
+  with the block averages to first order; on torus-valued fields of small
+  curvature at every scale it composes with nonincreasing energy, and a
+  random coherent path offset composes exactly in mean for every field.
 
 Checks in `prd/checks/` (the paper does not rely on them):
 
