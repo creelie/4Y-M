@@ -54,9 +54,9 @@ This repository contains three papers and a Lean 4 / Mathlib project
   (`strong-coupling/prd/`, PDF also at
   `preprintYangMillsDobrushinCeiling/YangMillsDobrushinCeiling.pdf`; see
   `strong-coupling/README.md`);
-- *Yang–Mills Mass Gap in 4D: Lattice SU(N) and Every Compact Simple Group* (`strong-coupling/forest/`, REVTeX, 59 pages; PDF also
+- *Yang–Mills Mass Gap in 4D: Lattice SU(N) and Every Compact Simple Group* (`strong-coupling/forest/`, REVTeX, 60 pages; PDF also
   at `preprintYangMillsForestGauge/YangMillsForestGauge.pdf`; the one-column
-  version in the AMS article class, 88 pages, is `strong-coupling/forest/cmp/`;
+  version in the AMS article class, 90 pages, is `strong-coupling/forest/cmp/`;
   the working notes and checks are in `strong-coupling/gauge-fixed/`). It
   was first posted as Hexagon preprint 2610.00341 under the title *Mass Gap
   of Four-Dimensional Lattice Yang–Mills Theory in a Forest Gauge*.
@@ -236,9 +236,17 @@ n ≥ 2·10¹⁵/α. In the forest gauge, averages along straight paths leave th
 lines with odd transverse coordinates invisible, so the constrained
 condition fails there at every n. Checks:
 `strong-coupling/gauge-fixed/checks/blocks/block_gauge.py` and
-`YangMills/StrongCoupling/BlockGauge.lean`. The composition of the
-constrained conditions across scales, the large fields, the crossover to
-strong coupling and (E) are open.
+`YangMills/StrongCoupling/BlockGauge.lean`. One step of composition is
+proved: the cube coefficients of any law that decomposes along the averages
+are at most the constrained ones plus those of the law of the averages
+(Corollary "compose", from a Kantorovich mixture lemma, with responses
+‖r_w‖₁ ≤ 4·10¹⁴), and the averages carry at least the coarse quadratic form
+at every scale, Q_k ≤ S_k, with Q_1 ≤ S_1 ≤ 4 Q_1 and the gap 1/52 at every
+scale (Proposition "effective"; checks in
+`strong-coupling/gauge-fixed/checks/blocks/compose.py`). The localisation of
+the effective forms uniformly in the scale, a cube condition for the
+coarsest averages, the large fields, the crossover to strong coupling and
+(E) are open.
 
 **Open:** the Clay problem itself (the four open problems of the
 strong-coupling paper are listed in `strong-coupling/OPEN.md`). The paper isolates the residual statement
