@@ -79,7 +79,7 @@ Yang--Mills Theory in a Forest Gauge'', appeared as Hexagon preprint
 2610.00341. The
 \LaTeX{} source, the checks and the Lean certificate are in
 \href{https://github.com/creelie/4Y-M}{github.com/creelie/4Y-M}, release
-v3.22.0.}
+v3.23.0.}
 
 \begin{abstract}
 \itshape
@@ -4022,7 +4022,7 @@ has to be an estimate such as (D).
 
 \subsection{What the cube estimate requires}\label{ssec:cubeneeds}
 
-This subsection proves six facts about $D(n,\alpha)$. It holds at small
+This subsection proves seven facts about $D(n,\alpha)$. It holds at small
 coupling for every even $n$ above an explicit size
 (Proposition~\ref{prop:cubesmall}), and it survives small perturbations of
 the action (Proposition~\ref{prop:cubeopen}), although gauge-invariant
@@ -4034,7 +4034,9 @@ $\SU(2)$), so that for every fixed $n$ it fails
 once $\beta$ is large (Corollary~\ref{cor:cubefails}). And it cannot be
 obtained from bounds on the conditional law of a single line of links that
 are uniform in the configuration around the line
-(Proposition~\ref{prop:slowline}). None of the four decides (D) along the
+(Proposition~\ref{prop:slowline}). For the compact abelian theory with
+the Villain action it fails at every size once $\beta$ is large
+(Proposition~\ref{prop:coulomb}). None of these decides (D) along the
 continuum tuning, where $n$ grows while $\beta$ grows.\footnote{The four
 statements answer the question of which parts of (D) can be settled with
 the methods of this paper. The first places (D) in the range where the
@@ -4697,6 +4699,75 @@ statement about strong coupling, and a renormalisation argument has to carry
 the blocked theory out of the small-field regime before the condition can
 be checked. That passage, at a running coupling of order one, is the step
 that remains open.
+
+The next statement shows that the cube condition separates a theory with a
+massless photon from the expected behaviour of $\SU(N)$: for the compact
+abelian theory in its Coulomb phase it fails at every scale. Let $G=\U(1)$
+with the chordal metric, $D=2$, and replace the Wilson weight by the
+Villain weight
+\[
+\varphi_\beta(\theta)=\sum_{k\in\Z}e^{-\beta(\theta+2\pi k)^2/2},
+\]
+so that the measure of a box $\Lambda$ has density proportional to
+$\prod_{p\in P(\Lambda)}\varphi_\beta(\theta_p)$, where $e^{i\theta_p}$ is
+the plaquette variable. Define $\gamma^F$, $C_{V,j}$, $K_c$ and $D(n,\alpha)$
+as before with $\varphi_\beta$ in place of the Wilson weight.
+
+\begin{proposition}\label{prop:coulomb}
+There is $\beta_0$ such that for the Villain theory at every $\beta>\beta_0$
+the condition $D(n,\alpha)$ fails for every even $n\ge2$ and every
+$\alpha<1$. In particular, for couplings $\beta_k\to\infty$ and any even
+$n_k$, the hypothesis of Theorem~\ref{thm:transfer} fails for this theory.
+\end{proposition}
+
+\begin{proof}
+Lemma~\ref{lem:gaugefix}, Proposition~\ref{prop:state}(i)--(iii) and (v),
+Lemma~\ref{lem:comparison}, Corollary~\ref{cor:decay} and
+Lemma~\ref{lem:dscomparison} use the Wilson weight only as a positive
+continuous class function of the plaquette variable, with one exception:
+the Doeblin bound in Lemma~\ref{lem:dscomparison}(a), which for the Villain
+weight reads that each single-link density is at least
+$(\min\varphi_\beta/\max\varphi_\beta)^6>0$ times its maximum. Suppose that
+$D(n,\alpha)$ holds. As in the proof of Theorem~\ref{thm:onescale}, the limit
+$\omega(O)=\lim W_\Lambda(O)$ of the measures of boxes with free boundary
+conditions then exists along every sequence of boxes exhausting $\Z^4$, and
+for gauge-invariant local $O,O'$ with $O$ Lipschitz in each link,
+\[
+|\Cov_\omega(O,O')|\le\|O'\|_\infty L_O\,
+\frac{D(1+c_ne^{\lambda\rho_n})}{1-\theta}\,|S_{O'}|\,
+e^{-\lambda\dist(O,O')}
+\]
+for every $\lambda>0$ with $\theta=\alpha e^{\lambda\rho_n}<1$, where $L_O$
+is a Lipschitz constant of $O$ and $S_{O'}$ the support of $O'$.
+
+Put $\Psi_p=\varphi_\beta'(\theta_p)/\varphi_\beta(\theta_p)$; up to the factor
+$-\mathbf i$ this is the lattice field strength of Fr\"ohlich and
+Spencer~\cite[Sect.~2]{FS82} for the Villain action. It is real, odd and
+smooth in $\theta_p$, so it is gauge invariant, local and Lipschitz in each
+of its four links, with constants that do not depend on $p$, and
+$\omega(\Psi_p)=0$ by the symmetry $\theta\mapsto-\theta$. The bound above
+gives $\sum_{p'}|\omega(\Psi_p\Psi_{p'})|<\infty$, the sum over the
+plaquettes $p'$ parallel to $p$. The state of~\cite{FS82} is the limit of
+the same free-boundary measures over boxes, which is $\omega$. Fr\"ohlich
+and Spencer prove, for $\beta$ larger than some $\beta_0$, that the Fourier
+transform of the two-plaquette function of the field strength is
+discontinuous at zero momentum, so that this sum is
+infinite~\cite[Sect.~2]{FS82}; see also~\cite{Gut80}. This contradiction
+proves the first statement, and the second follows because $\beta_k>\beta_0$
+for all large $k$.
+\end{proof}
+
+At large $\beta$ the plaquette variables of the abelian theory are
+Gaussian to leading order, as are those of $\SU(N)$, and every property of
+the action used in this paper (compactness, locality, positivity and
+smoothness of the weight, reflection positivity, the forest gauge) is shared
+by the two theories. A proof of (D) along the continuum tuning therefore has
+to use the non-abelian structure of $G$; Proposition~\ref{prop:coulomb}
+holds at every cube size, so letting the side grow with $\beta$, which
+Corollary~\ref{cor:cubefails} already requires, does not remove the need.
+Fr\"ohlich and Spencer indicate how their result extends to the Wilson
+action without giving the details~\cite[Sect.~2]{FS82}, so the
+proposition is stated for the Villain action only.
 
 \begin{remark}\label{rem:fluxloop}
 The proof loses the area of a disc, of order $n^2$, in passing from plaquettes
@@ -6477,6 +6548,9 @@ Fulton, W., Harris, J.: Representation Theory: A First Course. Grad. Texts
 in Math., vol.~129. Springer, New York (1991; reprinted 2004).
 \href{https://doi.org/10.1007/978-1-4612-0979-9}{https://doi.org/10.1007/978-1-4612-0979-9}
 
+\bibitem{FS82}
+Fr\"ohlich, J., Spencer, T.: Massless phases and symmetry restoration in abelian gauge theories and spin systems. Commun. Math. Phys. \textbf{83}, 411--454 (1982). \href{https://doi.org/10.1007/BF01213610}{https://doi.org/10.1007/BF01213610}
+
 \bibitem{GL10}
 Gattringer, C., Lang, C.B.: Quantum Chromodynamics on the Lattice. Lecture
 Notes in Phys., vol.~788. Springer, Berlin (2010).
@@ -6492,6 +6566,9 @@ View, 2nd edn. Springer, New York (1987).
 
 \bibitem{GKS89}
 Gross, L., King, C., Sengupta, A.: Two dimensional Yang--Mills theory via stochastic differential equations. Ann. Phys. \textbf{194}, 65--112 (1989). \href{https://doi.org/10.1016/0003-4916(89)90032-8}{https://doi.org/10.1016/0003-4916(89)90032-8}
+
+\bibitem{Gut80}
+Guth, A.H.: Existence proof of a nonconfining phase in four-dimensional $\U(1)$ lattice gauge theory. Phys. Rev. D \textbf{21}, 2291--2307 (1980). \href{https://doi.org/10.1103/PhysRevD.21.2291}{https://doi.org/10.1103/PhysRevD.21.2291}
 
 \bibitem{Hel01}
 Helgason, S.: Differential Geometry, Lie Groups, and Symmetric Spaces.
