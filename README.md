@@ -96,6 +96,11 @@ standard axioms only):**
   straight lines, twelve partners per active link (so the Dobrushin row sum
   is 12|β| = 3β_W), and the per-link budget 29/2 of the gauge-fixed Hessian
   bound (seven theorems, `decide`, axioms `propext` at most).
+- `StrongCoupling/CubeOpen.lean`: the finite arithmetic of the two
+  propositions on perturbed actions in the forest-gauge paper: the constants
+  96, 4608 and 1152, the common tilt e^Ω(1+2Ω), 1 − e^(−2η) ≤ 2η,
+  α' ≥ α + 96sΩ, the threshold ε < (1−α)/(4608 sMDN_n), m⁴ ≥ x²/4 from
+  m(m+1) ≥ x, and the small-field bound on ε of order η² (eleven theorems).
 
 **Forest gauge fixing (proved by hand, not yet refereed; third paper,
 `strong-coupling/forest/`, notes in `strong-coupling/gauge-fixed/`):** four-dimensional SU(2) has a unique

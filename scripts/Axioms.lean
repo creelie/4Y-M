@@ -53,3 +53,14 @@ import YangMills
 #print axioms YangMills.StrongCoupling.GaugeFix.straight_lines
 #print axioms YangMills.StrongCoupling.GaugeFix.two_opposite
 #print axioms YangMills.StrongCoupling.GaugeFix.budget
+#print axioms YangMills.StrongCoupling.cube_constants
+#print axioms YangMills.StrongCoupling.lipschitz_times_diameter
+#print axioms YangMills.StrongCoupling.coefficient_total
+#print axioms YangMills.StrongCoupling.common_tilt
+#print axioms YangMills.StrongCoupling.two_tilts
+#print axioms YangMills.StrongCoupling.alpha_prime_ge
+#print axioms YangMills.StrongCoupling.eps_lt_of_alpha_prime_lt_one
+#print axioms YangMills.StrongCoupling.cube_side_sq_le
+#print axioms YangMills.StrongCoupling.cube_volume_ge
+#print axioms YangMills.StrongCoupling.small_field_eps
+#print axioms YangMills.StrongCoupling.small_field_side
