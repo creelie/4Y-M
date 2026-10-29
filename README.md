@@ -1,4 +1,4 @@
-# Yang–Mills Mass Gap in 4D: Lattice SU(N) and Every Compact Simple Group
+# Mass Gap of Four-Dimensional Lattice Yang–Mills Theory for Every Compact Simple Group
 
 Deep Bhattacharjee, Ushashi Bhattacharya and James Montgomery Lockwood.
 
@@ -43,9 +43,10 @@ resolves to the latest release.
 | v4.1.0 | [10.5281/zenodo.23773255](https://doi.org/10.5281/zenodo.23773255) |
 | v4.1.1 | [10.5281/zenodo.23773990](https://doi.org/10.5281/zenodo.23773990) |
 | v4.2.0 | [10.5281/zenodo.23777759](https://doi.org/10.5281/zenodo.23777759) |
+| v4.3.0 | [10.5281/zenodo.23782846](https://doi.org/10.5281/zenodo.23782846) |
 
 `YangMills_masterzipfinal2.zip` holds the repository at v4.2.0 and the
-Hexagon package of the paper *Yang–Mills Mass Gap in 4D: Lattice SU(N) and Every Compact Simple Group*
+Hexagon package of the paper *Mass Gap of Four-Dimensional Lattice Yang–Mills Theory for Every Compact Simple Group*
 ([download](https://github.com/creelie/4Y-M/raw/main/YangMills_masterzipfinal2.zip)).
 
 This repository contains three papers and a Lean 4 / Mathlib project
@@ -57,7 +58,7 @@ This repository contains three papers and a Lean 4 / Mathlib project
   (`strong-coupling/prd/`, PDF also at
   `preprintYangMillsDobrushinCeiling/YangMillsDobrushinCeiling.pdf`; see
   `strong-coupling/README.md`);
-- *Yang–Mills Mass Gap in 4D: Lattice SU(N) and Every Compact Simple Group* (`strong-coupling/forest/`, REVTeX, 62 pages; PDF also
+- *Mass Gap of Four-Dimensional Lattice Yang–Mills Theory for Every Compact Simple Group* (`strong-coupling/forest/`, REVTeX, 62 pages; PDF also
   at `preprintYangMillsForestGauge/YangMillsForestGauge.pdf`; the one-column
   version in the AMS article class, 94 pages, is `strong-coupling/forest/cmp/`;
   the working notes and checks are in `strong-coupling/gauge-fixed/`). It
