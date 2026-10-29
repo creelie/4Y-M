@@ -33,6 +33,11 @@ Parts:
      angles are the means of the sixteen 2x2 fluxes, the L1 norm drops by at
      least 4, the L2 norm does not increase, the maximum grows by at most 4,
      and Q_2 <= 1.001 Q when eta_0 A <= (rho/12)^2.
+ (H) SU(2) fields of small noncommuting curvature (random and smooth, under
+     random SU(2) gauge transformations) on the lattice of side 8, two steps:
+     the cut-off is inactive, the coarse plaquette logarithm is the mean of the
+     sixteen 2x2 square logarithms up to 3.2 r_P^2 with r_P <= 28.26 eta, and
+     the growth bounds of sqrt E, A and eta of the nonabelian step hold.
 Run: python3 path_blocks.py. Needs numpy."""
 import itertools, math
 import numpy as np
@@ -397,4 +402,56 @@ check('(G) L1 ratio <= 1/4, L2 ratio <= 1, sup ratio <= 4 at every step',
       all(r[5] <= 0.25 + 1e-12 and r[6] <= 1 + 1e-12 and r[7] <= 4 + 1e-12 for r in rows if r[0] != 'Q' and r[2]))
 check('(G) Q_2(V#^2) <= 1.001 Q when eta0 * A <= eta_G^2',
       all(r[3] <= 1.001 for r in rows if r[0] == 'Q' and r[2]) and any(r[2] for r in rows if r[0] == 'Q'))
+# (H)
+def nrm(Z): return math.sqrt(hs2(Z))
+def logs(U, Sz):
+    return {(x, mu, nu): slog(plaq(U, x, mu, nu, Sz)) for x in itertools.product(range(Sz), repeat=d)
+            for mu in range(d) for nu in range(mu + 1, d)}
+def stats(L):
+    v = [nrm(Z) for Z in L.values()]
+    return sum(t * t for t in v), sum(v), max(v)
+def pathp(U, x, mu, Sz): return U[(x, mu)] @ U[(shz(x, mu, Sz), mu)]
+def nonab_step(cur, cs):
+    Ug = gfix(cur, cs); nxt, cmin = step(cur, cs); ns = cs // 2
+    Ln = logs(nxt, ns); worst, rmax = 0.0, 0.0
+    for (yc, mu, nu), Th in Ln.items():
+        y = 2 * np.array(yc)
+        corner = [(y, mu), (y + 2 * E[mu], nu), (y + 2 * E[nu], mu), (y, nu)]
+        K, Dmax = [], [0.0] * 4
+        for o in blk:
+            Pl = [pathp(Ug, tuple((c + o) % cs), m, cs) for c, m in corner]
+            K.append(slog(Pl[0] @ Pl[1] @ inv(Pl[2]) @ inv(Pl[3])))
+            for i, (c, m) in enumerate(corner):
+                P0 = pathp(Ug, tuple(c % cs), m, cs)
+                Dmax[i] = max(Dmax[i], nrm(slog(inv(P0) @ Pl[i])))
+        Fbar = sum(K) / 16; r = sum(Dmax) + nrm(K[0])
+        rmax = max(rmax, r); worst = max(worst, nrm(Th - Fbar) / (3.2 * r * r))
+    return nxt, ns, cmin, worst, rmax
+good_lem, good_steps, rows = True, True, []
+for kind, eps in [('random', 4e-5), ('random', 7e-5), ('smooth', 1e-4)]:
+    U = {}
+    g = {x: haar() for x in itertools.product(range(Sz), repeat=d)}
+    for x in itertools.product(range(Sz), repeat=d):
+        for mu in range(d):
+            a = eps * rng.normal(size=3) if kind == 'random' else \
+                eps * np.array([sum(math.sin(2 * math.pi * x[n] / Sz + cph[mu, n] + k) for n in range(d) if n != mu)
+                                for k in range(3)])
+            U[(x, mu)] = g[x] @ su2(a) @ inv(g[shz(x, mu, Sz)])
+    cur, cs = U, Sz
+    for j in range(2):
+        E0, A0, e0 = stats(logs(cur, cs))
+        nxt, ns, cmin, worst, rmax = nonab_step(cur, cs)
+        E1, A1, e1 = stats(logs(nxt, ns))
+        ok_h = e0 <= rho / 1000
+        good_lem &= (not ok_h) or (cmin == 1.0 and worst <= 1 and rmax <= 28.26 * e0)
+        good_steps &= (not ok_h) or (math.sqrt(E1) <= (1 + 6030 * e0) * math.sqrt(E0) and
+                                      A1 <= A0 / 4 * (1 + 9147 * e0) and e1 <= 4 * e0 * (1 + 647 * e0))
+        rows.append((kind, eps, j, e0, ok_h, cmin, worst, math.sqrt(E1 / E0), 4 * A1 / A0, e1 / e0))
+        cur, cs = nxt, ns
+for r in rows:
+    print('    %s eps = %g, step %d: eta = %.2e (<= rho/1000: %s), min chi %.0f, max err/(3.2 r^2) = %.3f, '
+          'sqrt(E1/E0) = %.4f, 4 A1/A0 = %.4f, eta1/eta0 = %.3f' % r)
+check('(H) nonabelian small fields: cut-off inactive and |log V#_P - Fbar_P| <= 3.2 r_P^2, r_P <= 28.26 eta', good_lem)
+check('(H) sqrt E grows by at most 1 + 6030 eta, A by (1/4)(1 + 9147 eta), eta by 4(1 + 647 eta)', good_steps)
+check('(H) the nonabelian error term is present (max err/(3.2 r^2) > 0)', max(r[6] for r in rows) > 1e-4)
 print('%d checks passed, %d failed' % (sum(ok), len(ok) - sum(ok)))
