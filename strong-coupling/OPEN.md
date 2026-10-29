@@ -83,8 +83,11 @@ crossover are open. For the group-valued links the straight path between
 block roots gives a coercivity bound D_v² ≤ 224 Q for all fields (subsection
 "Path blocks"), but that map does not compose across scales (thin paths),
 and for every compact connected group no continuous covariant block map treats the transverse
-positions of a block alike (Proposition "nomean"); a block map with both
-properties for all fields is open.
+positions of a block alike (Proposition "nomean"). A cut-off of Bałaban's
+averaging operation is continuous, covariant and coercive for every field and
+agrees with the block averages to first order (Theorem "cutoff"), but its
+constants are those of one step; a block map that is coercive for all fields
+and composes across scales is open.
 For SU(2) the same subsection makes the size explicit: D(n, α) needs
 n⁴ ≥ 2(1−α) β_W/(5 L(β_W)), L(b) = 1 + log 24 + (3/2) log 9b (Proposition
 "cube size"), a bound met along the tuning; the n² lost in its proof is of the

@@ -466,7 +466,11 @@ coercivity bound for every compact group and every field
 (Theorem~\ref{thm:pathcoercive}), but this map does not compose across
 scales (Proposition~\ref{prop:thinpath}), and for every compact connected group no continuous
 covariant block map treats the positions of a block alike
-(Proposition~\ref{prop:nomean}). Whether some block map is coercive for all
+(Proposition~\ref{prop:nomean}). A cut-off of Ba{\l}aban's averaging
+operation is continuous, covariant and coercive for every field and agrees
+with the block averages to first order; it breaks the symmetry only at large
+fields, as it must, and its constants are those of one step
+(Theorem~\ref{thm:cutoff}). Whether some block map is coercive for all
 fields and composes across scales is open.
 
 \begin{figure}[t]
@@ -5014,8 +5018,10 @@ ones plus those of the averages (Corollary~\ref{cor:compose}), and the
 averages carry at least the coarse quadratic form at every scale
 (Proposition~\ref{prop:effective}). For the group-valued links themselves,
 the straight paths between block roots satisfy a coercivity bound for all
-fields but do not compose, and a continuous covariant map cannot treat the
-transverse positions alike (Section~\ref{ssec:pathblocks}).
+fields but do not compose, a continuous covariant map cannot treat the
+transverse positions alike, and a cut-off of Ba{\l}aban's averaging operation
+is coercive for all fields and agrees with the block averages to first
+order (Section~\ref{ssec:pathblocks}).
 
 \subsection{Block-constrained cubes}\label{ssec:constrained}
 
@@ -5482,7 +5488,9 @@ group-valued estimate holds for all fields (Theorem~\ref{thm:pathcoercive}),
 but that map does not compose across scales
 (Proposition~\ref{prop:thinpath}), and for every compact connected group no continuous covariant
 map treats the transverse positions of a block alike
-(Proposition~\ref{prop:nomean}).
+(Proposition~\ref{prop:nomean}). The cut-off average of
+Theorem~\ref{thm:cutoff} is coercive for all fields and agrees with the
+averages to first order, with constants for one step.
 \item \emph{Second order.} Let $b_0=11N/(48\pi^2)$ for $\SU(N)$, $t=2b_0\log2$,
 and let $g_m^{-2}=g_*^{-2}+tm$ be the one-loop coupling $m$ steps above a
 matching scale. Comparison with integrals gives $\sum_{m\le M}g_m^2=
@@ -5755,8 +5763,9 @@ $G^T$, for $\SU(N)$ and for every compact simple group. Ba{\l}aban's averages
 are defined only on fields whose plaquettes are small, and the large fields
 are split off~\cite{Bal84a,Bal89b}. A block map with both properties for all
 fields is therefore discontinuous or, like the path map, not invariant under
-the transverse symmetries of the block; whether one exists is
-open.\footnote{That spheres and tori carry no continuous symmetric mean goes
+the transverse symmetries of the block. Theorem~\ref{thm:cutoff} below gives
+a continuous one whose departure from the symmetry is confined to large
+fields.\footnote{That spheres and tori carry no continuous symmetric mean goes
 back to Aumann~\cite{Aum44} and Eckmann~\cite{Eck54}; the proof above is
 their homology argument in gauge-covariant form, with the links of the slice
 $T$ as the arguments of the mean and a maximal torus in place of the
@@ -5776,6 +5785,199 @@ The diagonal is pure gauge and is sent to a loop of degree one, so the
 degrees $W_t$ of the coordinate loops add up to one.}
 \label{fig:pathblocks}
 \end{figure}
+
+The proposition leaves room for a map that treats the positions alike to
+first order and breaks the symmetry only where the field is large. For a
+coarse link $(y,\mu)$ and $x\in B(y)$ put
+\[
+P_x=U_{x,\mu}U_{x+e_\mu,\mu},
+\]
+the product along the straight path of length two from $x$ to $x+2e_\mu$.
+In the tree gauge it is the parallel transport from $2y$ to $2y+2e_\mu$
+through $x$ and $x+2e_\mu$, it transforms as a link under the gauge
+transformations at the block roots, and $P_{2y}=V^{\rm p}_{y,\mu}$, since
+the first link of that path is a tree link. Let $\mathfrak g$ be the Lie
+algebra of $G$, $\lVert X\rVert$ the Hilbert--Schmidt norm and $\log$ the
+principal logarithm of unitary matrices without the eigenvalue $-1$.
+
+\begin{lemma}\label{lem:logbound}
+If $g$ is unitary and $\delta(g,I)\le1$, then $\lVert\log g\rVert\le\frac\pi
+3\,\delta(g,I)$. If $X$ is skew-Hermitian, then $\delta(e^X,I)\le\lVert
+X\rVert$.
+\end{lemma}
+
+\begin{proof}
+Let $e^{i\theta_j}$, $|\theta_j|\le\pi$, be the eigenvalues of $g$. Then
+$\delta(g,I)^2=\sum_j4\sin^2(\theta_j/2)$ and $\lVert\log g\rVert^2=\sum_j
+\theta_j^2$. Each term of the first sum is at most $1$, so $|\theta_j|\le
+\pi/3$, and $\theta/(2\sin(\theta/2))$ increases on $(0,\pi)$ and equals
+$\pi/3$ at $\theta=\pi/3$. The second statement is $|e^{i\theta}-1|\le
+|\theta|$ for the eigenvalues of $X$.
+\end{proof}
+
+Let $\rho_G\in(0,1]$ be such that $\log g\in\mathfrak g$ for every $g\in G$
+with $\delta(g,I)\le\rho_G$.\footnote{The exponential map of $G$ is a
+diffeomorphism from a ball of $\mathfrak g$ of operator-norm radius less than
+$\pi$ onto a neighbourhood $N$ of $I$ in $G$, on which it inverts the
+principal logarithm, and $N$ contains $\{g\in G:\delta(g,I)\le\rho\}$ for
+small $\rho>0$. For $\U(r)$ one may take $\rho_G=1$. For $\SU(N)$ one may
+take $\rho_G=\min\{1,5/\sqrt N\}$: by Lemma~\ref{lem:logbound} the trace of
+$\log g$ has modulus at most $\sqrt N\,\pi\rho_G/3<2\pi$, and it lies in
+$2\pi i\Z$. Some restriction is needed: on the circle $\{\operatorname{diag}
+(z,z^7)\}\subset\U(2)$ the point $z=e^{2\pi i/7}$ has $\delta(g,I)<1$ but
+$\log g\notin\mathfrak g$.} Let $\phi(t)=\min\{1,\max\{0,2-2t\}\}$, which
+equals $1$ on $[0,\frac12]$ and $0$ on $[1,\infty)$, put
+\[
+\chi_{y,\mu}(U)=\phi\Bigl(\rho_G^{-1}\max_{x\in B(y)}\delta(P_x,P_{2y})
+\Bigr),
+\]
+and define the \emph{cut-off average}
+\begin{equation}\label{eq:cutoff}
+V^\sharp_{y,\mu}(U)=P_{2y}\exp\Bigl(\frac{\chi_{y,\mu}(U)}{16}\sum_{x\in
+B(y)}\log\bigl(P_{2y}^{-1}P_x\bigr)\Bigr),
+\end{equation}
+the exponential factor being $I$ when $\chi_{y,\mu}(U)=0$
+(Figure~\ref{fig:cutoff}). When every path is close to the straight one it is
+the average of the sixteen paths taken in the chart at $P_{2y}$; when some
+path is far from it, it is the path map.
+
+\begin{figure}[tb]
+\centering
+\includegraphics[width=\textwidth]{figures/fig_cutoff.png}
+\caption{(a) A block $B(y)$ of side two and the next block in the direction
+$\mu$, drawn in three of the four dimensions. Green dashed: the tree links,
+equal to $I$. Blue: the paths $P_x$ of length two from the sites of $B(y)$,
+each joining $2y$ to $2y+2e_\mu$ through the trees; black: the straight path
+$P_{2y}$, the coarse link of the path map. The cut-off average is the mean of
+the sixteen paths in the chart at $P_{2y}$ while every path is close to it.
+(b) For $\SU(2)$ and one link $e^{\theta X}$, $X=\operatorname{diag}(i,-i)$,
+the angle of $V^\sharp$ when the link lies on the straight path (black) or at
+another transverse position (blue), with $\rho_G=1$. Both equal $\theta/8$,
+the block average, while $\chi=1$; past the cut-off they are the path map,
+$\theta$ and $0$, so the slice windings are $1$ and $0$.}
+\label{fig:cutoff}
+\end{figure}
+
+\begin{theorem}\label{thm:cutoff}
+For every compact $G\subset\U(r)$ the cut-off average is continuous,
+covariant and normalised, and the following hold, with $c=\pi/3$.
+\begin{enumerate}[label=\textup{(\roman*)},leftmargin=*]
+\item If $\delta(P_x,P_{2y})\le\rho_G/2$ for every $x\in B(y)$, then
+$V^\sharp_{y,\mu}(U)=P_{2y}\exp\bigl(\frac1{16}\sum_x\log(P_{2y}^{-1}P_x)
+\bigr)$. For $\varphi$ with values in $\mathfrak g$, vanishing on the tree
+links,
+\[
+V^\sharp_{y,\mu}(e^{t\varphi})=I+t\,V_{y,\mu}(\varphi)+O(t^2),
+\]
+with $V_{y,\mu}$ the block average of Definition~\ref{def:blockgauge}.
+\item For every field $U$ in the tree gauge,
+\begin{align*}
+\sum_{y,\mu}\sum_{x\in B(y)}\delta(P_x,P_{2y})^2&\le896\,Q(U),\\
+\sum_{y,\mu}\delta\bigl(V^\sharp_{y,\mu}(U),V^{\rm p}_{y,\mu}(U)\bigr)^2
+&\le56c^2\,Q(U),\\
+\sum_e\delta\bigl(U_e,R_e(V^\sharp(U))\bigr)^2&\le(448+896c^2)\,Q(U),\\
+Q_1\bigl(V^\sharp(U)\bigr)&\le(8+2688c^2)\,Q(U),
+\end{align*}
+and $448+896c^2<1431$, $8+2688c^2<2956$.
+\item In the setting of Proposition~\ref{prop:nomean} with $s=2$, $W_t$ is
+the identity at the position of the straight path and $0$ at the seven
+others.
+\item If $U$ equals $I$ except on one link from $B(y)$ to $B(y+e_\mu)$,
+where it equals $g$ with $\delta(g,I)\le\rho_G/2$, then $V^\sharp_{y,\mu}(U)=
+\exp(\frac18\log g)$, at each of the eight transverse positions of the link;
+the path map gives $g$ at one position and $I$ at the seven others.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+Write $P=P_{2y}$, $v_x=P^{-1}P_x$ and $m=\max_x\delta(v_x,I)=\max_x\delta(P_x
+,P)$. Where $m<\rho_G$, every $\log v_x$ lies in $\mathfrak g$, depends
+continuously on $U$ by Lemma~\ref{lem:logbound}, which keeps the eigenvalues
+of $v_x$ away from $-1$, and the exponent of~\eqref{eq:cutoff} lies in
+$\mathfrak g$, so $V^\sharp\in G$. Where $m\ge\rho_G$, $V^\sharp=P$. As $m$
+increases to $\rho_G$ the exponent has norm at most $\chi c\rho_G\to0$, so
+$V^\sharp$ is continuous. Let $h$ be a gauge transformation equal to $h_1$
+on $B(y)$ and to $h_2$ on $B(y+e_\mu)$. The middle point $x+e_\mu$ of each
+path lies in one of the two blocks, so $P_x\mapsto h_1P_xh_2^{-1}$ and
+$v_x\mapsto h_2v_xh_2^{-1}$; $\delta$ is invariant and $\log$ is equivariant
+under unitary conjugation, so $\chi$ is unchanged and $V^\sharp\mapsto h_1
+V^\sharp h_2^{-1}$. At $U=I$ every $v_x$ is $I$, so $V^\sharp(I)=I$.
+
+(i) The first statement is $\chi=1$. If $U=e^{t\varphi}$ with $\varphi=0$ on
+the tree, then $P=I+t\varphi_{2y+e_\mu,\mu}+O(t^2)$ and
+$\log v_x=t(\varphi_{x,\mu}+\varphi_{x+e_\mu,\mu}-\varphi_{2y+e_\mu,\mu})+
+O(t^2)$, and for small $t$ the condition of the first statement holds. The
+mean over the sixteen $x$ is $t(V_{y,\mu}(\varphi)-\varphi_{2y+e_\mu,\mu})
++O(t^2)$, since $\varphi_{2y,\mu}=0$, and multiplying by $P$ gives the
+claim.
+
+(ii) In the tree gauge $P=v_{y,\mu}:=V^{\rm p}_{y,\mu}(U)$. If $o_\mu=0$,
+then $U_{x+e_\mu,\mu}$ is the link leaving $B(y)$ at the transverse offset of
+$x$, and invariance of $\delta$ with the triangle inequality gives
+$\delta(P_x,P)\le\delta(U_{x,\mu},I)+\delta(U_{x+e_\mu,\mu},v_{y,\mu})$; if
+$o_\mu=1$, the roles of the two links are exchanged. Each link leaving a
+block in the direction $\mu$ occurs for two sites $x$ of that block, and
+each link in the direction $\mu$ with $o_\mu=0$ occurs once for the block
+containing it and once for the block before it. With $(a+b)^2\le2a^2+2b^2$
+and the notation of the proof of Theorem~\ref{thm:pathcoercive}, the sum is
+at most $2(2I_0+2J_0)=4D_v^2\le896Q$. Next, if $\chi>0$,
+Lemma~\ref{lem:logbound} and the Cauchy--Schwarz inequality give
+\begin{align*}
+\delta(V^\sharp,P)&\le\Bigl\lVert\frac\chi{16}\sum_x\log v_x\Bigr\rVert\le
+\frac c{16}\sum_x\delta(v_x,I)\\
+&\le\frac c4\Bigl(\sum_x\delta(P_x,P)^2\Bigr)^{1/2},
+\end{align*}
+and the second bound follows from the first, $896c^2/16=56c^2$. The
+reconstruction $R(V^\sharp)$ agrees with $R(v)$ on the links with $o_\mu=0$,
+and on the eight links with $o_\mu=1$ of each block and direction
+$\delta(U_e,V^\sharp)^2\le2\delta(U_e,v)^2+2\delta(V^\sharp,v)^2$; so the
+third sum is at most $2D_v^2+16\cdot56c^2Q\le(448+896c^2)Q$. Finally, write
+$V^\sharp=vM$. Removing the four factors $M$ from the holonomy of a coarse
+plaquette one at a time changes $\delta(\cdot,I)$ by at most $\delta(M,I)$
+each time, so $\delta(V^\sharp_P,I)^2\le2\delta(v_P,I)^2+8\sum_{\ell\in P}
+\delta(M_\ell,I)^2$. Each coarse link lies in six coarse plaquettes, so
+$Q_1(V^\sharp)\le2Q_1(v)+48\cdot56c^2Q$, and $Q_1(v)\le4Q$ by
+Proposition~\ref{prop:pathenergy}. The numerical bounds use $c^2<1.0967$.
+
+(iii) For $s=2$ the slice $T$ consists of the eight links leaving $B(y)$,
+and the links inside the blocks are $I$, so $P_x=u_{a}$ for the transverse
+offset $a$ of $x$, two sites for each $a$. Let $t$ be a position other than
+the straight path and $u_{t'}=I$ for $t'\ne t$. Then $P=I$, two of the
+$v_x$ equal $u_t$ and the others $I$, so $F(u)=\exp(\frac18\chi\log u_t)$
+with $\chi=\phi(\delta(u_t,I)/\rho_G)$. On $S$ the maps
+$u_t\mapsto\exp(\frac\lambda8\chi\log u_t)$, $0\le\lambda\le1$, are
+continuous by the argument above and take values in $S$, since $\log u_t$
+commutes with $S$ and the centraliser of a maximal torus in $\mathfrak g$ is
+its Lie algebra; they join $F$ to the constant $I$, so
+$W_t=0$. By Proposition~\ref{prop:nomean} the $W_t$ add up to the identity,
+which is therefore the matrix at the straight path.
+
+(iv) At the straight path, $P_x=g$ for the two sites with transverse offset
+$0$ and $P_x=I$ for the others, so $V^\sharp=g\exp(-\frac{14}{16}\log g)=
+\exp(\frac18\log g)$; at another position, $P=I$ and two of the $P_x$ equal
+$g$, so $V^\sharp=\exp(\frac2{16}\log g)$.
+\end{proof}
+
+The small-field part of~\eqref{eq:cutoff} is Ba{\l}aban's averaging
+operation~\cite{Bal85a}; the cut-off extends it to all fields with the
+bounds of (ii). The theorem shows how far Proposition~\ref{prop:nomean}
+reaches. The cut-off average is continuous, covariant and coercive for
+every field, and it agrees with the block averages to first order. Its slice
+windings are those of the path map, as the proposition demands of any such
+map, but the departure from the transverse symmetry happens only where some
+path differs from the straight one by more than $\rho_G/2$. Below that the
+field of a single link enters with the weight $\frac18$ of the averages,
+whichever position it occupies.
+
+What the theorem does not give is composition. The constants of (ii) are
+those of one step, and iterating them gives a factor that grows
+exponentially in the number of steps; on its large-field branch the map is
+the path map, for which Proposition~\ref{prop:thinpath} rules out any bound
+uniform in that number. Whether the $k$-fold cut-off average obeys
+$Q_k(V^{\sharp,k}(U))\le C\,Q(U)$ and the corresponding coercivity bound
+with $C$ independent of $k$ is open; it is the form in which
+Remark~\ref{rem:constrainedopen}(b) remains.
+
 
 \section*{Acknowledgements}
 
@@ -5807,7 +6009,7 @@ Lemma~\ref{lem:vmfconst}, which are computations in interval arithmetic with
 rigorous error bounds. The programs of these steps, in Python with
 python-flint (FLINT and Arb) and a C kernel for products of Taylor
 polynomials, their outputs and the list of certified boxes are in the
-repository \url{https://github.com/creelie/4Y-M}, release v4.4.0, together
+repository \url{https://github.com/creelie/4Y-M}, release v4.5.0, together
 with a Lean~4 certificate of the line field and independent exact or
 numerical checks of the other finite statements.
 
