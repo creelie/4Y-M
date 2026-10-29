@@ -53,9 +53,9 @@ This repository contains three papers and a Lean 4 / Mathlib project
   (`strong-coupling/prd/`, PDF also at
   `preprintYangMillsDobrushinCeiling/YangMillsDobrushinCeiling.pdf`; see
   `strong-coupling/README.md`);
-- *Yang–Mills Mass Gap in 4D: Lattice SU(N) and Every Compact Simple Group* (`strong-coupling/forest/`, REVTeX, 54 pages; PDF also
+- *Yang–Mills Mass Gap in 4D: Lattice SU(N) and Every Compact Simple Group* (`strong-coupling/forest/`, REVTeX, 59 pages; PDF also
   at `preprintYangMillsForestGauge/YangMillsForestGauge.pdf`; the one-column
-  version in the AMS article class, 81 pages, is `strong-coupling/forest/cmp/`;
+  version in the AMS article class, 88 pages, is `strong-coupling/forest/cmp/`;
   the working notes and checks are in `strong-coupling/gauge-fixed/`). It
   was first posted as Hexagon preprint 2610.00341 under the title *Mass Gap
   of Four-Dimensional Lattice Yang–Mills Theory in a Forest Gauge*.
@@ -103,6 +103,11 @@ standard axioms only):**
   96, 4608 and 1152, the common tilt e^Ω(1+2Ω), 1 − e^(−2η) ≤ 2η,
   α' ≥ α + 96sΩ, the threshold ε < (1−α)/(4608 sMDN_n), m⁴ ≥ x²/4 from
   m(m+1) ≥ x, and the small-field bound on ε of order η² (eleven theorems).
+- `StrongCoupling/BlockGauge.lean`: the block-rooted axial gauge: fifteen
+  tree links per block forming a spanning tree, 17 + 32 active links, chains
+  of length at most three with plaquette load at most eight (the constant 52
+  of the block gap), and the twelve classes of the invisible lines of the
+  forest gauge (five theorems, `decide`, axioms `propext` at most).
 
 **Forest gauge fixing (proved by hand, not yet refereed; third paper,
 `strong-coupling/forest/`, notes in `strong-coupling/gauge-fixed/`):** four-dimensional SU(2) has a unique
@@ -218,6 +223,21 @@ is exactly 1 at every size when the field is massless, and below
 `strong-coupling/gauge-fixed/checks/cube/cube_requirements.py`; Monte Carlo
 probes that the proofs do not use: `influence_mc.py`, `eps_mc.py` in the same
 directory (see `strong-coupling/OPEN.md`).
+
+**Block-constrained cubes (proved in the quadratic approximation; the
+programme of J. Lockwood's report):** in the block-rooted axial gauge, a
+spanning tree fixed in every block of side two, and conditioned on the
+full-block averages, the quadratic form satisfies Σφ² ≤ 52 Q(φ) in every
+volume (Theorem "block gap"), the responses of a cube to its exterior are
+localised by a Combes–Thomas estimate (‖u_j‖₁ ≤ 10¹⁴), and the
+block-constrained cube condition D_c(n, α) holds at every coupling for
+n ≥ 2·10¹⁵/α. In the forest gauge, averages along straight paths leave the
+lines with odd transverse coordinates invisible, so the constrained
+condition fails there at every n. Checks:
+`strong-coupling/gauge-fixed/checks/blocks/block_gauge.py` and
+`YangMills/StrongCoupling/BlockGauge.lean`. The composition of the
+constrained conditions across scales, the large fields, the crossover to
+strong coupling and (E) are open.
 
 **Open:** the Clay problem itself (the four open problems of the
 strong-coupling paper are listed in `strong-coupling/OPEN.md`). The paper isolates the residual statement
