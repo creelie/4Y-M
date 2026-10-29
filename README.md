@@ -56,9 +56,9 @@ This repository contains three papers and a Lean 4 / Mathlib project
   (`strong-coupling/prd/`, PDF also at
   `preprintYangMillsDobrushinCeiling/YangMillsDobrushinCeiling.pdf`; see
   `strong-coupling/README.md`);
-- *Yang–Mills Mass Gap in 4D: Lattice SU(N) and Every Compact Simple Group* (`strong-coupling/forest/`, REVTeX, 60 pages; PDF also
+- *Yang–Mills Mass Gap in 4D: Lattice SU(N) and Every Compact Simple Group* (`strong-coupling/forest/`, REVTeX, 61 pages; PDF also
   at `preprintYangMillsForestGauge/YangMillsForestGauge.pdf`; the one-column
-  version in the AMS article class, 90 pages, is `strong-coupling/forest/cmp/`;
+  version in the AMS article class, 93 pages, is `strong-coupling/forest/cmp/`;
   the working notes and checks are in `strong-coupling/gauge-fixed/`). It
   was first posted as Hexagon preprint 2610.00341 under the title *Mass Gap
   of Four-Dimensional Lattice Yang–Mills Theory in a Forest Gauge*.
@@ -245,7 +245,16 @@ are at most the constrained ones plus those of the law of the averages
 ‖r_w‖₁ ≤ 4·10¹⁴), and the averages carry at least the coarse quadratic form
 at every scale, Q_k ≤ S_k, with Q_1 ≤ S_1 ≤ 4 Q_1 and the gap 1/52 at every
 scale (Proposition "effective"; checks in
-`strong-coupling/gauge-fixed/checks/blocks/compose.py`). The localisation of
+`strong-coupling/gauge-fixed/checks/blocks/compose.py`). For the
+group-valued links, with the straight path between block roots as coarse
+link, D_v² ≤ 224 Q for every compact matrix group and all fields (Theorem
+"pathcoercive", with the anchored-cube constant 3 − √7 in closed form),
+two-sided bounds on the conditional partition functions and volume-uniform
+fluctuations around flat paths (Theorem "pathZ"); this path map does not
+compose, since thin paths give Q/Q_k = s sin²(π/2s) → 0 (Proposition
+"thinpath"; checks in `strong-coupling/gauge-fixed/checks/blocks/path_blocks.py`).
+These path-block results were first written in a technical companion
+prepared with ChatGPT/Codex. The localisation of
 the effective forms uniformly in the scale, a cube condition for the
 coarsest averages, the large fields, the crossover to strong coupling and
 (E) are open.
