@@ -59,9 +59,9 @@ This repository contains three papers and a Lean 4 / Mathlib project
   (`strong-coupling/prd/`, PDF also at
   `preprintYangMillsDobrushinCeiling/YangMillsDobrushinCeiling.pdf`; see
   `strong-coupling/README.md`);
-- *Mass Gap of Four-Dimensional Lattice Yang–Mills Theory for Every Compact Simple Group* (`strong-coupling/forest/`, REVTeX, 62 pages; PDF also
+- *Mass Gap of Four-Dimensional Lattice Yang–Mills Theory for Every Compact Simple Group* (`strong-coupling/forest/`, REVTeX, 63 pages; PDF also
   at `preprintYangMillsForestGauge/YangMillsForestGauge.pdf`; the one-column
-  version in the AMS article class, 94 pages, is `strong-coupling/forest/cmp/`;
+  version in the AMS article class, 95 pages, is `strong-coupling/forest/cmp/`;
   the working notes and checks are in `strong-coupling/gauge-fixed/`). It
   was first posted as Hexagon preprint 2610.00341 under the title *Mass Gap
   of Four-Dimensional Lattice Yang–Mills Theory in a Forest Gauge*.
@@ -255,10 +255,11 @@ link, D_v² ≤ 224 Q for every compact matrix group and all fields (Theorem
 two-sided bounds on the conditional partition functions and volume-uniform
 fluctuations around flat paths (Theorem "pathZ"); this path map does not
 compose, since thin paths give Q/Q_k = s sin²(π/2s) → 0 (Proposition
-"thinpath"). For SU(2) no continuous covariant block map treats the
-transverse positions of a block alike: on the slice of links between two
-blocks the winding numbers of the coordinate loops add up to one
-(Proposition "nomean", after Aumann and Eckmann on means on spheres), so
+"thinpath"). For every compact connected gauge group no continuous
+covariant block map treats the transverse positions of a block alike: on the
+slice of links between two blocks the homology matrices of the coordinate
+loops in a maximal torus add up to the identity (Proposition "nomean", after
+Aumann and Eckmann on symmetric means), so
 averages of the path holonomies have no continuous covariant extension to
 all fields (checks in `strong-coupling/gauge-fixed/checks/blocks/path_blocks.py`).
 These path-block results were first written in a technical companion

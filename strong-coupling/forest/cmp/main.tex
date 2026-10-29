@@ -464,7 +464,7 @@ gauge, by contrast, leave one class of lines invisible and fail at every size
 path between block roots gives a coarse link whose fibres satisfy a
 coercivity bound for every compact group and every field
 (Theorem~\ref{thm:pathcoercive}), but this map does not compose across
-scales (Proposition~\ref{prop:thinpath}), and for $\SU(2)$ no continuous
+scales (Proposition~\ref{prop:thinpath}), and for every compact connected group no continuous
 covariant block map treats the positions of a block alike
 (Proposition~\ref{prop:nomean}). Whether some block map is coercive for all
 fields and composes across scales is open.
@@ -795,9 +795,12 @@ covariance of $\nu_c$.
 
 \subsection{The blocks}
 
-A \emph{block plaquette} is a plaquette of the set $\mathcal B$ described in
-Table~\ref{tab:plaqblocks} of Appendix~\ref{app:plaqblocks}, and its
-\emph{block} is the set of its three active links.
+Let $\mathcal B$ be the set of plaquettes at $x$ in the plane $\{0,1\}$ with
+$x_0\equiv x_1$ and in the plane $\{2,3\}$ with $x_2\equiv x_3$, congruences
+modulo two (Table~\ref{tab:plaqblocks} of Appendix~\ref{app:plaqblocks} lists
+them modulo $2\Z^4$, and Figure~\ref{fig:plaqblocks} draws them). A
+\emph{block plaquette} is a plaquette of $\mathcal B$, and its \emph{block}
+is the set of its three active links.
 
 \begin{lemma}\label{lem:plaqblocks}
 The set $\mathcal B$ is invariant under translations by $2\Z^4$ and:
@@ -815,15 +818,56 @@ within distance $2$ of the midpoint of $j$.
 \end{lemma}
 
 \begin{proof}
-All four statements are invariant under $2\Z^4$ and involve plaquettes at
-distance at most two from one site, so they hold on $\Z^4$ as soon as they
-hold on the torus $(\Z/P\Z)^4$ with $P\ge6$, where no such configuration
-wraps around. They are checked by enumeration on the tori of side four and six
-(Appendix~\ref{app:plaqblocks}); the side four already suffices for
-(i)--(iii). For (iii), an active link lies in six plaquettes,
-one of which is its block plaquette, and each of the other five contains two
-further active links, which lie in other blocks by (ii).
+Invariance under $2\Z^4$ is clear from the congruences. We use one fact
+throughout: two distinct links lie in at most one common plaquette, since
+they span it.
+
+Every link lies in exactly one plaquette of $\mathcal B$. Indeed, a link
+$(y,\mu)$ with $\mu\in\{0,1\}$ lies in no plaquette of the plane $\{2,3\}$,
+and in exactly two of the plane $\{0,1\}$, those at $y$ and at $y-e_\nu$,
+where $\nu$ is the other element of $\{0,1\}$. The base points $y$ and
+$y-e_\nu$ differ only in the coordinate $\nu$, so $y_0-y_1$ has opposite
+parities at the two, and exactly one of them satisfies $x_0\equiv x_1$. The
+directions $2,3$ are treated in the same way. Every plaquette of $\Z^4$
+contains exactly one link of $F$ (Lemma~\ref{lem:cycle}), so a block
+plaquette contains three active links, and every active link lies in exactly
+one block. This is (i).
+
+(ii) Let $p\notin\mathcal B$ have active links $e_1,e_2,e_3$, and let $q_i$ be
+the block plaquette of $e_i$. Then $q_i\ne p$, so $q_i\cap p=\{e_i\}$ by the
+fact above. If $q_i=q_k$ with $i\ne k$, then $e_i,e_k$ lie in the two
+distinct plaquettes $p$ and $q_i$, which is impossible. So the three blocks are
+distinct, and each meets $p$ in one link.
+
+(iii) An active link $e$ lies in six plaquettes (Lemma~\ref{lem:structure}), and
+by (i) exactly one of them is in $\mathcal B$. Each of the other five
+contains two further active links. These ten links are distinct, because a
+link other than $e$ shares at most one plaquette with $e$, and none lies in
+the block of $e$, because a link $f$ of that block sharing the
+plaquette $p\notin\mathcal B$ with $e$ would put $e,f$ in the two distinct
+plaquettes $p$ and the block plaquette of $e$.
+
+(iv) Let $f\in B$ share the plaquette $p\notin\mathcal B$ with $j$. Two links
+of one unit square have midpoints at distance $2^{-1/2}$ or $1$, so the
+midpoint of $j$ is within distance $1$ of that of $f$, and the midpoint of
+$f$ is within distance $1$ of that of every link of its block plaquette. The
+triangle inequality gives the bound $2$.
 \end{proof}
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\textwidth]{figures/fig_plaqblocks.png}
+\caption{Block plaquettes, shaded, in (a) a plane $\{0,1\}$ and (b) a plane
+$\{2,3\}$: the plaquettes at $x$ with $x_0\equiv x_1$, respectively
+$x_2\equiv x_3$, modulo two. Red links belong to the line field $F$; a filled
+dot marks a site whose line runs in the plane, an open dot one whose line
+leaves it. The shaded squares form a checkerboard, so every link of the plane
+borders exactly one of them, and every square contains exactly one red link
+(Lemma~\ref{lem:cycle}); hence each block plaquette carries three active
+links and the blocks partition the active links
+(Lemma~\ref{lem:plaqblocks}(i)).}
+\label{fig:plaqblocks}
+\end{figure}
 
 Fix a block plaquette $p$ with active links $e_1,e_2,e_3$. Reading the
 plaquette product cyclically and deleting its fixed link, $\frac12\Tr Q_p=
@@ -5436,7 +5480,7 @@ fields, and the large fields have to be split off as in Ba{\l}aban's
 analysis~\cite{Bal89b}. For the straight paths between block roots the
 group-valued estimate holds for all fields (Theorem~\ref{thm:pathcoercive}),
 but that map does not compose across scales
-(Proposition~\ref{prop:thinpath}), and for $\SU(2)$ no continuous covariant
+(Proposition~\ref{prop:thinpath}), and for every compact connected group no continuous covariant
 map treats the transverse positions of a block alike
 (Proposition~\ref{prop:nomean}).
 \item \emph{Second order.} Let $b_0=11N/(48\pi^2)$ for $\SU(N)$, $t=2b_0\log2$,
@@ -5654,28 +5698,33 @@ on fibres that do not compose, and the averages compose on linear fibres
 that exist only in the quadratic approximation.
 
 A block map with both properties cannot treat the transverse positions
-alike and be continuous. Let $s=2^k$ and let $V$ be a map of the links with
-both ends in $B(y)\cup B(y+e_\mu)$, blocks of side $s$, to $G$. Call it
-\emph{covariant} if $V(U^h)=h_1V(U)h_2^{-1}$ for every gauge transformation
-$h$ equal to $h_1$ on $B(y)$ and to $h_2$ on $B(y+e_\mu)$, and
-\emph{normalised} if $V(I)=I$. The path map and its iterates are covariant,
-normalised and continuous. Let $T$ be the set of the $s^3$ links in the
-direction $\mu$ from $B(y)$ to $B(y+e_\mu)$, and for $u\in G^T$ let $U(u)$
-carry $u_t$ on the link $t\in T$ and $I$ on every other link
-(Fig.~\ref{fig:pathblocks}).
+alike and be continuous, for any compact connected gauge group. Let $s=2^k$
+and let $V$ be a map of the links with both ends in $B(y)\cup B(y+e_\mu)$,
+blocks of side $s$, to $G$. Call it \emph{covariant} if
+$V(U^h)=h_1V(U)h_2^{-1}$ for every gauge transformation $h$ equal to $h_1$ on
+$B(y)$ and to $h_2$ on $B(y+e_\mu)$, and \emph{normalised} if $V(I)=I$. The
+path map and its iterates are covariant, normalised and continuous. Let $T$
+be the set of the $s^3$ links in the direction $\mu$ from $B(y)$ to
+$B(y+e_\mu)$, and for $u\in G^T$ let $U(u)$ carry $u_t$ on the link $t\in T$
+and $I$ on every other link (Figure~\ref{fig:pathblocks}). Let $S\subset G$ be a
+maximal torus, of dimension $\ell$; a basis of the kernel of its exponential
+map identifies $S$ with $(\R/2\pi\Z)^\ell$ and its first homology with
+$\Z^\ell$.
 
 \begin{proposition}\label{prop:nomean}
-Let $G=\SU(2)$, let $V$ be covariant and normalised, and let $F(u)=V(U(u))$
-be continuous on $G^T$. Fix $X\in\mathfrak{su}(2)$ with eigenvalues $\pm i$,
-so that $\theta\mapsto e^{\theta X}$ has period $2\pi$, and let $w_t$ be the
-degree of the loop $\theta\mapsto F(u)$, $u_t=e^{\theta X}$, $u_{t'}=I$
-for $t'\ne t$, in the circle $\{e^{\eta X}\}$. Then
+Let $G\subset\U(r)$ be a compact connected Lie group of positive dimension,
+let $V$ be covariant and normalised, and let $F(u)=V(U(u))$ be continuous on
+$G^T$. Then $F$ maps $S^T$ into $S$, and the integer matrices $W_t$ by which
+the maps $u_t\mapsto F(u)$, $u_t\in S$, $u_{t'}=I$ for $t'\ne t$, act on
+$H_1(S)=\Z^\ell$ satisfy
 \[
-\sum_{t\in T}w_t=1.
+\sum_{t\in T}W_t=I_\ell .
 \]
-Hence some $w_t\ne0$, there is a field equal to $I$ off one link of $T$
-with $V=-I$, and, if $|T|\ge2$, no transitive group of permutations of $T$
-leaves $F$ invariant.
+Hence some $W_t\ne0$, so that the map $u_t\mapsto V(U(u))$ on fields equal
+to $I$ off the link $t$ is not homotopic to a constant on $S$, and, if
+$|T|\ge2$, no transitive group of permutations of $T$ leaves $F$ invariant.
+For $G=\SU(2)$, $\ell=1$, the $W_t$ are integers adding up to one, and some
+field equal to $I$ off one link of $T$ has $V=-I$.
 \end{proposition}
 
 \begin{proof}
@@ -5683,31 +5732,35 @@ The gauge transformation equal to $g$ on $B(y)\cup B(y+e_\mu)$ maps $U(u)$ to
 $U(gug^{-1})$, since the links equal to $I$ stay $I$, and the one equal to
 $g$ on $B(y)$ and to $I$ on $B(y+e_\mu)$ maps it to $U(gu)$. So
 $F(gug^{-1})=gF(u)g^{-1}$ and $F(gu)=gF(u)$, and with $F(I)=I$ the second
-gives $F(W,\dots,W)=W$. If every $u_t$ lies in the torus $\{e^{\eta X}\}$,
-every $g$ in it fixes $u$, so $F(u)$ commutes with the torus and lies in it,
-since in $\SU(2)$ a maximal torus is its own centraliser. Therefore $F$
-restricts to a continuous map from $(\R/2\pi\Z)^T$ to the circle. On first
-homology it is the homomorphism $\Z^T\to\Z$ that sends the $t$-th
-generator to $w_t$. The diagonal loop $\theta\mapsto(\theta,\dots,\theta)$
-represents the sum of the generators and is sent to $\theta\mapsto
-e^{\theta X}$, of degree one, so $\sum_tw_t=1$. A loop of nonzero
-degree is onto the circle and passes through $-I=e^{\pi X}$. A transitive
-permutation group preserving $F$ would make all $w_t$ equal, and
-$|T|\,w_t=1$ has no integer solution.
+gives $F(g,\dots,g)=g$. If every $u_t$ lies in $S$, every $g\in S$ fixes $u$
+under conjugation, so $F(u)$ commutes with $S$; in a compact connected Lie
+group a maximal torus is its own centraliser~\cite{Hel01}, so $F(u)\in S$.
+Therefore $F$ restricts to a continuous map $f:S^T\to S$. The first homology
+of $S^T$ is $\bigoplus_{t\in T}\Z^\ell$, the $t$-th summand coming from the
+inclusion of the $t$-th factor with the identity elsewhere, so $f$ acts on it
+by $(x_t)_t\mapsto\sum_tW_tx_t$. The diagonal map $S\to S^T$ acts by
+$x\mapsto(x,\dots,x)$, and $f$ composed with it is the identity of $S$
+because $F(g,\dots,g)=g$. Hence $\sum_tW_t=I_\ell$. If all $W_t$ vanished the
+sum would vanish, and a map of tori that is homotopic to a constant acts by
+zero on homology. A transitive permutation group preserving $F$ would make all
+$W_t$ equal to one matrix $W$, and $|T|\,W=I_\ell$ has no integer solution
+for $|T|\ge2$. For $\SU(2)$, $S$ is a circle through $-I$, and a loop of
+nonzero degree in a circle is onto.
 \end{proof}
 
-For the path map, $w_t$ is one at the position of the path and zero
+For the path map, $W_t$ is the identity at the position of the path and zero
 elsewhere. Averages of the path holonomies weigh the positions alike, so by
 the proposition they have no continuous covariant extension to all of
-$G^T$. Ba{\l}aban's averages are
-defined only on fields whose plaquettes are small, and the large fields are
-split off~\cite{Bal84a,Bal89b}. A block map
-with both properties for all fields is therefore discontinuous or, like the
-path map, not invariant under the transverse symmetries of the block;
-whether one exists is open.\footnote{That a sphere carries no continuous
-symmetric mean goes back to Aumann~\cite{Aum44} and Eckmann~\cite{Eck54};
-the proof above is their argument in gauge-covariant form, with the links
-of the slice $T$ as the arguments of the mean.}
+$G^T$, for $\SU(N)$ and for every compact simple group. Ba{\l}aban's averages
+are defined only on fields whose plaquettes are small, and the large fields
+are split off~\cite{Bal84a,Bal89b}. A block map with both properties for all
+fields is therefore discontinuous or, like the path map, not invariant under
+the transverse symmetries of the block; whether one exists is
+open.\footnote{That spheres and tori carry no continuous symmetric mean goes
+back to Aumann~\cite{Aum44} and Eckmann~\cite{Eck54}; the proof above is
+their homology argument in gauge-covariant form, with the links of the slice
+$T$ as the arguments of the mean and a maximal torus in place of the
+circle.}
 
 \begin{figure}[tb]
 \centering
@@ -5717,10 +5770,10 @@ in three of the four dimensions. The black segment is the straight path
 between the roots, the coarse link of the path map. The blue links form the
 slice $T$ of Proposition~\ref{prop:nomean}. The red links carry the field of
 Proposition~\ref{prop:thinpath}: a path whose holonomy is that of a coarse
-link of order one, at a fine energy of order $1/s$. (b) Two coordinates of
+link of order one, at a fine energy of order $1/s$. (b) For $\SU(2)$, two coordinates of
 the torus $(\R/2\pi\Z)^T$ of slice fields with values in a maximal torus.
 The diagonal is pure gauge and is sent to a loop of degree one, so the
-degrees $w_t$ of the coordinate loops add up to one.}
+degrees $W_t$ of the coordinate loops add up to one.}
 \label{fig:pathblocks}
 \end{figure}
 
@@ -5747,15 +5800,14 @@ the preparation of Section~\ref{sec:limits}.
 \section*{Declarations}
 
 \subsection*{Data and code availability}
-The proofs are analytic except for four finite steps: the evaluations in
+The proofs are analytic except for the evaluations in
 Propositions~\ref{prop:cover} and~\ref{prop:cover2} and
 Lemma~\ref{lem:su3const} and the numerical bounds of
 Lemma~\ref{lem:vmfconst}, which are computations in interval arithmetic with
-rigorous error bounds, and the enumeration behind
-Lemma~\ref{lem:plaqblocks}. The programs of these steps, in Python with
+rigorous error bounds. The programs of these steps, in Python with
 python-flint (FLINT and Arb) and a C kernel for products of Taylor
 polynomials, their outputs and the list of certified boxes are in the
-repository \url{https://github.com/creelie/4Y-M}, release v4.3.1, together
+repository \url{https://github.com/creelie/4Y-M}, release v4.4.0, together
 with a Lean~4 certificate of the line field and independent exact or
 numerical checks of the other finite statements.
 
@@ -6008,9 +6060,10 @@ $x$&plane&$x$&plane\\
 \end{tabular}
 \end{table}
 
-An exact-cover search on the torus of side two finds this set, and the same
-enumeration checks Lemma~\ref{lem:plaqblocks} on the tori of side four and
-six. The bounds of Lemma~\ref{lem:vmfconst} are evaluated in ball arithmetic
+In closed form, the plaquette at $x$ in $\{0,1\}$ is a block plaquette when
+$x_0\equiv x_1$ and the plaquette at $x$ in $\{2,3\}$ when $x_2\equiv x_3$; the
+blocks do not depend on the line field beyond the fact that every plaquette
+contains one fixed link. The bounds of Lemma~\ref{lem:vmfconst} are evaluated in ball arithmetic
 at $120$ bits: the series of $Z_0$ and of its first three derivatives in
 $s=r^2$ is summed to forty terms, and the tail is bounded for $s\le5$ by
 twice the first omitted term $(5/4)^{40}40^3/(40!\,41!)$, because consecutive
