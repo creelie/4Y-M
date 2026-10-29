@@ -36,8 +36,9 @@ resolves to the latest release.
 | v3.18.0 | [10.5281/zenodo.23728179](https://doi.org/10.5281/zenodo.23728179) |
 | v3.19.0 | [10.5281/zenodo.23729004](https://doi.org/10.5281/zenodo.23729004) |
 | v3.20.0 | [10.5281/zenodo.23758979](https://doi.org/10.5281/zenodo.23758979) |
+| v3.21.0 | [10.5281/zenodo.23761307](https://doi.org/10.5281/zenodo.23761307) |
 
-`YangMills_masterzipfinal2.zip` holds the repository at v3.20.0 and the
+`YangMills_masterzipfinal2.zip` holds the repository at v3.21.0 and the
 Hexagon package of the paper *Yang–Mills Mass Gap in 4D: Lattice SU(N) and Every Compact Simple Group*
 ([download](https://github.com/creelie/4Y-M/raw/main/YangMills_masterzipfinal2.zip)).
 
