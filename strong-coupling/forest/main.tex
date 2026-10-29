@@ -4048,9 +4048,10 @@ has to be an estimate such as (D).
 
 \subsection{What the cube estimate requires}\label{ssec:cubeneeds}
 
-This subsection proves four facts about $D(n,\alpha)$. It holds at small
+This subsection proves five facts about $D(n,\alpha)$. It holds at small
 coupling for every even $n$ above an explicit size
-(Proposition~\ref{prop:cubesmall}). It forces the gauge-fixed variables of a
+(Proposition~\ref{prop:cubesmall}), and it survives small perturbations of
+the action (Proposition~\ref{prop:cubeopen}). It forces the gauge-fixed variables of a
 cube with trivial exterior to stay a fixed distance from the identity on
 average (Theorem~\ref{thm:cubeneeds}, and Proposition~\ref{prop:tetra} for
 $\SU(2)$), so that for every fixed $n$ it fails
@@ -4152,6 +4153,98 @@ $\log\frac{128}{117}/32$, much weaker than Theorem~\ref{thm:su2}. The
 proposition shows that the cube condition is not empty; it does not extend
 the range, because the absorption $12c_0<1$ is the single-link condition
 itself.
+
+The cube condition is also stable under small changes of the action, which
+is what a block renormalisation would need at its last scale, where the
+effective action is no longer of Wilson form. Let $r\ge0$ and
+$\varepsilon\ge0$, and let $(w_X)$ be real functions on $G^A$ indexed by
+finite sets $X\subset A$ of diameter at most $r$, with $w_X$ depending only
+on the links of $X$, such that the family is invariant under the
+translations by $2\Z^4$, every active link lies in at most $M$ of the sets
+$X$, every $X$ has at most $s$ links, and
+\[
+|w_X(Q)-w_X(Q')|\le\varepsilon\sum_{i\in X}\delta(Q_i,Q'_i)
+\]
+for all $Q,Q'$. Let $\gamma^W_V(\cdot\mid Q)$ be the probability measure
+with density proportional to $\exp\sum_{X\cap V\ne\emptyset}w_X$ with respect
+to $\gamma_V(\cdot\mid Q)$, and define $C^W_{V,j}$, $K^W_c$ and the condition
+$D^W(n,\alpha)$ as in Definition~\ref{def:cube}, with $\gamma^W_V$ in place
+of $\gamma_V$.
+
+\begin{proposition}\label{prop:cubeopen}
+Let $n$ be even and suppose that $D(n,\alpha)$ holds at $\beta$. Then
+$D^W(n,\alpha')$ holds with
+\[
+\alpha'=\alpha\,e^{\Omega}(1+2\Omega)+96\,s\,\Omega,\qquad
+\Omega=48\,M\,D\,N_n\,\varepsilon .
+\]
+In particular $\alpha'<1$ for all $\varepsilon$ below an explicit
+$\varepsilon_0(n,\alpha,M,s)>0$.
+\end{proposition}
+
+\begin{proof}
+The cube has $|V|=48N_n$ links, so $d_V$ has diameter $\Delta_V=48N_nD$.
+For fixed exterior links put $u=\sum_{X\cap V\ne\emptyset}w_X$ as a function
+on $G^V$. Each link of $V$ lies in at most $M$ sets $X$, so $u$ is
+$M\varepsilon$-Lipschitz for $d_V$ and its oscillation is at most
+$M\varepsilon\Delta_V=\Omega$; we normalise $u$ so that $\sup u=0$, which
+does not change the tilted measures, and put $h=e^u$, so that
+$e^{-\Omega}\le h\le1$ and $h$ is $M\varepsilon$-Lipschitz.
+
+\emph{A common tilt.} Let $\mu,\nu$ be probability measures on $G^V$ and
+$\mu_h=h\mu/\mu(h)$, $\nu_h=h\nu/\nu(h)$. Let $f$ be $1$-Lipschitz for $d_V$;
+subtracting a constant we may take $|f|\le\Delta_V$. Then $fh$ is
+$(1+\Delta_VM\varepsilon)$-Lipschitz, $|\nu(fh)|\le\Delta_V\nu(h)$,
+$|\mu(h)-\nu(h)|\le M\varepsilon W_1^{d_V}(\mu,\nu)$ and $\mu(h)\ge
+e^{-\Omega}$, so
+\[
+\begin{split}
+\mu_h(f)-\nu_h(f)&=\frac{\mu(fh)-\nu(fh)}{\mu(h)}+\nu(fh)\,
+\frac{\nu(h)-\mu(h)}{\mu(h)\nu(h)}\\
+&\le e^{\Omega}(1+2\Omega)\,W_1^{d_V}(\mu,\nu),
+\end{split}
+\]
+since $\Delta_VM\varepsilon=\Omega$. By Kantorovich duality
+$W_1^{d_V}(\mu_h,\nu_h)\le e^{\Omega}(1+2\Omega)W_1^{d_V}(\mu,\nu)$.
+
+\emph{Two tilts.} If $u'$ is another weight with $|u-u'|\le\eta$, the
+density of $\nu_{h'}$ with respect to $\nu_h$ lies in $[e^{-2\eta},e^{2\eta}]$,
+so the total variation distance of the two is at most $1-e^{-2\eta}\le
+2\eta$, and $W_1^{d_V}(\nu_h,\nu_{h'})\le2\eta\Delta_V$.
+
+\emph{The coefficients.} Let $Q,Q'$ differ only at $j\notin V$, with
+$\delta=\delta(Q_j,Q'_j)$, and let $u,u'$ be the weights for the two
+exteriors. They differ only through the sets $X$ that contain $j$ and meet
+$V$; if there are $m_j$ of them, $|u-u'|\le m_j\varepsilon\delta$. With
+$\mu=\gamma_V(\cdot\mid Q)$ and $\nu=\gamma_V(\cdot\mid Q')$, the triangle
+inequality and the two steps give
+\[
+C^W_{V,j}\le e^{\Omega}(1+2\Omega)\,C_{V,j}+2\Delta_V\,m_j\,\varepsilon .
+\]
+The pairs $(X,j)$ with $j\in X\setminus V$ and $X\cap V\ne\emptyset$ number
+at most $s$ times the number of sets meeting $V$, hence at most $sM|V|$. Summing
+over $j\in c\setminus V$,
+\[
+\begin{split}
+K^W_c&\le e^{\Omega}(1+2\Omega)\,\alpha N_n+2\Delta_VsM|V|\varepsilon\\
+&=\bigl(\alpha e^{\Omega}(1+2\Omega)+96\,s\,\Omega\bigr)N_n .
+\end{split}
+\]
+The family is invariant under $2\Z^4$, so the coefficients are, and this is
+$D^W(n,\alpha')$.
+\end{proof}
+
+The admissible perturbation is of order $1/N_n=(2/n)^4$, so the proposition
+is useful in a box of a fixed number of lattice spacings, which is how a
+renormalisation argument would use it: after enough block steps that the
+cube of physical size $\ell$ has become a cube of fixed side, the effective
+action has to lie within $\varepsilon_0$ of an action that satisfies the
+condition there. Whether the effective actions along the tuning do so is
+not decided here, and that is where the problem lies: at the scale where
+the blocked theory is strongly coupled enough for a condition of this kind,
+the running coupling is of order one, which is outside the range of the
+existing ultraviolet analysis. The proposition shows only that the
+condition itself is not the obstacle.
 
 The next theorem uses the configuration in which every link outside $V$ is
 the identity. Write $\gamma^1_V=\gamma_V(\cdot\mid1)$ and
