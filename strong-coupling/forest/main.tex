@@ -116,7 +116,7 @@ Yang--Mills Theory in a Forest Gauge'', appeared as Hexagon preprint
 2610.00341. The
 \LaTeX{} source, the checks and the Lean certificate are in
 \href{https://github.com/creelie/4Y-M}{github.com/creelie/4Y-M}, release
-v4.1.0.}
+v4.2.0.}
 \endgroup
 \addtocounter{footnote}{-2}
 
@@ -5013,7 +5013,9 @@ at every coupling once the cube is large (Theorem~\ref{thm:constrainedcube}).
 Integrating out one scale bounds the cube coefficients by the constrained
 ones plus those of the averages (Corollary~\ref{cor:compose}), and the
 averages carry at least the coarse quadratic form at every scale
-(Proposition~\ref{prop:effective}).
+(Proposition~\ref{prop:effective}). For the group-valued links themselves,
+the straight paths between block roots satisfy a coercivity bound for all
+fields but do not compose (Sec.~\ref{ssec:pathblocks}).
 Everything in this subsection concerns the quadratic approximation: real
 fields $\varphi$ on links, $(d\varphi)_p$ the signed sum around the plaquette
 $p$, and $(dh)_{(x,\mu)}=h(x)-h(x+e_\mu)$ for a function $h$ on sites.
@@ -5472,7 +5474,10 @@ block averages are products of group elements along paths, their level sets
 are curved, and the Bakry--\'Emery tensor of Sec.~\ref{sec:curvature} is
 negative at large fields; Theorem~\ref{thm:blockgap} controls only the small
 fields, and the large fields have to be split off as in Ba{\l}aban's
-analysis~\cite{Bal89b}.
+analysis~\cite{Bal89b}. For the straight paths between block roots the
+group-valued estimate holds for all fields (Theorem~\ref{thm:pathcoercive}),
+but that map does not compose across scales
+(Proposition~\ref{prop:thinpath}).
 \item \emph{Second order.} Let $b_0=11N/(48\pi^2)$ for $\SU(N)$, $t=2b_0\log2$,
 and let $g_m^{-2}=g_*^{-2}+tm$ be the one-loop coupling $m$ steps above a
 matching scale. Comparison with integrals gives $\sum_{m\le M}g_m^2=
@@ -5487,6 +5492,203 @@ existence of the limit, (E), are untouched.
 The renormalisation group needed for (a) and (b) is the ultraviolet half of
 (E), so the constrained route places both residues on one construction.
 \end{remark}
+
+\subsection{Path blocks for the group-valued links}\label{ssec:pathblocks}
+
+Remark~\ref{rem:constrainedopen}(b) asks for estimates on the actual
+group-valued links. They can be proved for a coarser block map, the
+straight path between block roots, and this map exhibits the second half of
+the difficulty: it does not compose across scales.
+
+Let $G\subset\U(r)$ be a compact matrix group, $\delta(A,B)=\lVert A-B
+\rVert_{\rm HS}$, which is invariant under left and right multiplication,
+and work on the periodic lattice of side $2L$ with the block tree of
+Definition~\ref{def:blockgauge}, all fifteen tree links of each block equal
+to $I$. Write $\mathcal B$ for the number of blocks. The \emph{path map} is
+\[
+V^{\rm p}_{y,\mu}(U)=U_{2y+e_\mu,\mu},
+\]
+the product along the straight path from $2y$ to $2y+2e_\mu$, whose first
+link is a tree link; it transforms as a link under the gauge
+transformations at the block roots. Fixing $V^{\rm p}=v$ fixes four of the
+$49$ active links of each block, so the fibre is $G^{45\mathcal B}$, and
+the Wilson law in the tree gauge restricts to it with product Haar measure
+as reference, since the tree gauge has unit Jacobian. The
+\emph{reconstruction} $R(v)$ puts $R_{2y+o,\mu}=v_{y,\mu}$ if $o_\mu=1$ and
+$R_{2y+o,\mu}=I$ otherwise. For $U$ in the fibre of $v$ put
+\[
+D_v(U)^2=\sum_e\delta(U_e,R_e(v))^2,\qquad Q(U)=\sum_p\delta(U_p,I)^2,
+\]
+the first sum having zero terms on the tree and path links, and let
+$Q_1(v)=\sum_P\delta(v_P,I)^2$ on the coarse lattice.
+
+\begin{lemma}\label{lem:anchorcube}
+For vectors $z_a$ of a real Hilbert space indexed by $a\in\{0,1\}^3$, with
+$z_0=0$,
+\[
+\sum_a\lVert z_a\rVert^2\le\frac{3+\sqrt7}2\sum_{\{a,a'\}}\lVert z_a-
+z_{a'}\rVert^2\le3\sum_{\{a,a'\}}\lVert z_a-z_{a'}\rVert^2,
+\]
+the sums on the right over the twelve edges of the cube.
+\end{lemma}
+
+\begin{proof}
+It suffices to treat real numbers. The right side is $\ip z{L_0z}$, where
+$L_0$ is the Laplacian of the cube with the vertex $0$ deleted, and the
+claim is that its least eigenvalue is $3-\sqrt7$. The permutations of the
+coordinates commute with $L_0$. On the functions $f_k$ of the level $k=
+|a|$, $L_0$ acts by $f_1\mapsto3f_1-2f_2$, $f_2\mapsto3f_2-2f_1-f_3$,
+$f_3\mapsto3f_3-3f_2$, whose characteristic polynomial in $t=3-\lambda$ is
+$t^3-7t$; the eigenvalues are $3$ and $3\pm\sqrt7$. On the functions of
+levels one and two whose sum over each level vanishes, indexed by the
+coordinate that is one at level one and zero at level two, $L_0$ acts by
+the matrix $\bigl(\begin{smallmatrix}3&1\\1&3\end{smallmatrix}\bigr)$, with
+eigenvalues $2$ and $4$; at level three these functions vanish. The two
+spaces have dimensions $3$ and $4$ and span $\R^7$. Finally $1/(3-\sqrt7)=
+(3+\sqrt7)/2<3$.
+\end{proof}
+
+\begin{theorem}\label{thm:pathcoercive}
+For every $G\subset\U(r)$, every $L\ge1$, every $v$ and every $U$ in the
+fibre of $v$,
+\[
+D_v(U)^2\le224\,Q(U).
+\]
+\end{theorem}
+
+\begin{proof}
+Let $I_0$ be the sum of $\delta(U_e,I)^2$ over the active links inside the
+blocks and $J_0$ the sum of $\delta(U_e,v_{y,\mu})^2$ over the links that
+leave $B(y)$ in the direction $\mu$, so $D_v^2=I_0+J_0$. For an active link
+inside a block, the chain of plaquettes in the proof of
+Theorem~\ref{thm:blockgap} applies to group elements: each plaquette of the
+chain has its two transverse links on the tree, so the holonomy is the
+product of two consecutive links of the chain, and invariance of $\delta$
+with the triangle inequality gives $\delta(U_e,I)^2\le k\sum_i\delta(U_{p_i}
+,I)^2$ with $k\le3$. The loads are those of that proof, so $I_0\le8Q_{\rm
+in}$. Fix $y,\mu$ and label the eight links leaving $B(y)$ by the
+transverse offset $a\in\{0,1\}^3$; the link $a=0$ is the path link and
+equals $v_{y,\mu}$. For a transverse edge $\{a,a'\}$ the face plaquette
+has holonomy $U_a\psi'U_{a'}^{-1}\psi^{-1}$ with $\psi,\psi'$ links inside
+the two blocks, so $\delta(U_a,U_{a'})\le\delta(U_p,I)+\delta(\psi,I)+
+\delta(\psi',I)$. Lemma~\ref{lem:anchorcube} with $z_a=U_a-v_{y,\mu}$ in
+the real Hilbert--Schmidt space and Cauchy--Schwarz bound the eight terms by
+$9$ times the sum of the three squares over the twelve edges. Each face
+plaquette occurs once, and each link inside a block occurs once for each of
+the three directions other than its own, as in the proof of
+Theorem~\ref{thm:blockgap}. Hence $J_0\le9Q_{\rm face}+27I_0$ and
+$D_v^2\le28I_0+9Q_{\rm face}\le224\,Q$.
+\end{proof}
+
+The bound holds for all fields, with no small-field condition and no
+logarithmic chart; Theorem~\ref{thm:blockgap} is its linearisation for the
+averages, with the better constant $52$.
+
+\begin{proposition}\label{prop:pathenergy}
+$Q_1(V^{\rm p}(U))\le4Q(U)$, $Q(R(v))=4Q_1(v)$ and $Q(U)\le8Q_1(v)+
+48D_v(U)^2$ for $U$ in the fibre of $v$; if $Q_1(v)=0$, then $Q(U)\le
+24D_v(U)^2$.
+\end{proposition}
+
+\begin{proof}
+The holonomy of a coarse plaquette is that of the square of side two at
+$2y$, a product of four conjugated fine plaquette holonomies, so
+$\delta(v_P,I)\le\sum_{p\subset P}\delta(U_p,I)$; these squares tile each
+coordinate plane, which gives the first bound. In $R(v)$ only the
+plaquettes with offset one in both directions carry holonomy, equal to that
+of the coarse plaquette, four for each $P$. For any plaquette,
+telescoping gives $\delta(U_p,R_p)\le\sum_{e\in p}\delta(U_e,R_e)$, so
+$\delta(U_p,I)^2\le2\delta(R_p,I)^2+8\sum_{e\in p}\delta(U_e,R_e)^2$, and
+each link lies in six plaquettes. If $Q_1(v)=0$, every $R_p$ is $I$ and the
+factor $2$ is not needed.
+\end{proof}
+
+Let $m=45\mathcal B$, let the action be $\lambda Q$ with $\lambda\ge0$
+(for $\SU(N)$, $\lambda=\beta/(2N)$ up to a constant), and put
+\[
+z_G(t)=\int_Ge^{-t\delta(g,I)^2}dg,\qquad Z_\lambda(v)=\int_{G^m}
+e^{-\lambda Q(U)}dU,
+\]
+with normalised Haar measures, the integral over the fibre of $v$.
+
+\begin{theorem}\label{thm:pathZ}
+For every $v$,
+\[
+e^{-8\lambda Q_1(v)}z_G(48\lambda)^m\le Z_\lambda(v)\le e^{-\lambda
+Q_1(v)/8}z_G(\lambda/448)^m,
+\]
+and if $Q_1(v)=0$, then $z_G(24\lambda)^m\le Z_\lambda(v)\le z_G(\lambda/
+224)^m$. Let $A_\lambda=z_G(\lambda/448)/z_G(24\lambda)$. Under the
+conditional law at such a $v$,
+\[
+\E\,e^{\lambda D_v^2/448}\le A_\lambda^m,\qquad \E\,\delta(U_e,I)^2\le
+\frac{20160}\lambda\log A_\lambda
+\]
+for each link $e$ when $v\equiv I$, and $A_\lambda\to10752^{q/2}$ as
+$\lambda\to\infty$ if $G$ has dimension $q\ge1$.
+\end{theorem}
+
+\begin{proof}
+By Theorem~\ref{thm:pathcoercive} and Proposition~\ref{prop:pathenergy},
+$Q\ge\frac12(D_v^2/224+Q_1/4)$ and $Q\le8Q_1+48D_v^2$. Each term of
+$D_v^2$ involves one free link, and right multiplication by $R_e(v)^{-1}$
+preserves Haar measure, so $\int e^{-tD_v^2}dU=z_G(t)^m$; this gives the
+two bounds, and the flat case is the same with $Q\le24D_v^2$. Next,
+$-\lambda Q+\lambda D_v^2/448\le-\lambda D_v^2/448$, and integration with
+the lower bound gives the exponential moment; Jensen's inequality gives
+$\E D_v^2\le(448m/\lambda)\log A_\lambda$. When $v\equiv I$ the law is
+invariant under translation by blocks, so the $\mathcal B$ links of each
+of the $45$ classes have equal expectations, and $448\cdot45=20160$.
+Finally, in exponential coordinates $\delta(e^X,I)^2=\lVert X\rVert^2+
+O(\lVert X\rVert^4)$ and the Haar density is smooth and positive at $0$,
+while $\delta(\cdot,I)$ is bounded below away from $I$; so $z_G(t)\sim c_G
+t^{-q/2}$, and the ratio at $\lambda/448$ and $24\lambda$ tends to
+$(24\cdot448)^{q/2}$.
+\end{proof}
+
+So the fluctuations of the free links around a flat path field are of
+order $\lambda^{-1/2}$ uniformly in the volume, for the group variables
+themselves. The path map cannot be iterated, however, and this is where it
+differs from the averages. Write $V^{{\rm p},k}$ for the $k$-fold path map,
+the straight path of length $s=2^k$, and $Q_k$ for the plaquette energy of
+the lattice of spacing $s$.
+
+\begin{proposition}\label{prop:thinpath}
+On the periodic lattice of side $3s$, $s=2^k$, there are $\SU(2)$ fields in
+the tree gauge with
+\[
+\frac{Q(U)}{Q_k(V^{{\rm p},k}(U))}=s\sin^2\frac\pi{2s}\le\frac{\pi^2}{4s}.
+\]
+For the averages, by contrast, $Q_k(V^{(k)}(\varphi))\le Q(\varphi)$ for
+every $k$ in the quadratic approximation
+(Proposition~\ref{prop:effective}(i)).
+\end{proposition}
+
+\begin{proof}
+Let $T=\operatorname{diag}(i\pi/2,-i\pi/2)$. Put the $s/2$ links in the
+direction $0$ at $(j,0,0,0)$, $j$ odd, $j<s$, equal to $e^{2T/s}$ and all
+other links equal to $I$. These links have offset one in the direction $0$,
+so the tree gauge holds, and the links at even $j$ are tree links. The
+path from $0$ to $se_0$ carries $e^T$ and every other path carries $I$, so
+one coarse link is $e^T$, and it lies in six coarse plaquettes, each with
+$\delta^2=\lVert e^T-I\rVert_{\rm HS}^2=4$: $Q_k=24$. No fine plaquette
+contains two of the changed links, since the two links of a plaquette in
+the direction $0$ differ in a transverse coordinate, so there are $3s$
+nonzero fine plaquettes, each with $\delta^2=8\sin^2(\pi/2s)$, and
+$Q=24s\sin^2(\pi/2s)$. Gauge covariance of the path map makes the ratio
+gauge invariant.
+\end{proof}
+
+A field concentrated on one thin path carries a coarse curvature of order
+one at a fine cost of order $1/s$. In the averages it is one transverse
+position among $s^3$ and enters with the weight $s^{-3}$, which is why the
+averages compose and the paths do not. The two properties needed for
+Remark~\ref{rem:constrainedopen}(a) and (b) are therefore held by two
+different maps: the paths give a global estimate for the group-valued links
+on fibres that do not compose, and the averages compose on linear fibres
+that exist only in the quadratic approximation. Ba{\l}aban's averages of the
+path holonomies compose for small fields~\cite{Bal89b}; a block map with
+both properties for all fields is not known.
 
 \section*{Acknowledgements}
 
@@ -5530,9 +5732,11 @@ floating-point search of Remark~\ref{rem:blockgap}; and an exact computation of 
 Table~\ref{tab:groups} from the root systems; and exact checks of the finite
 counts, of the discs and of the Gaussian benchmark of Sec.~\ref{ssec:cubeneeds}; the finite counts of
 Sec.~\ref{ssec:constrained}, in exact arithmetic, with floating-point
-values of the constrained gap, of the responses and of the effective form of the averages responses that the proofs do not use; with Monte Carlo
-estimates of the influence coefficients and of $\varepsilon_V$ that the proofs do not use. This paper accompanies release v4.1.0 of the archive,
-\url{https://github.com/creelie/4y-m/releases/tag/v4.1.0}. The PDF of this paper is at
+values of the constrained gap, of the responses and of the effective form of the averages, that the proofs do not use; with Monte Carlo
+estimates of the influence coefficients and of $\varepsilon_V$ that the proofs do not use; the spectrum of Lemma~\ref{lem:anchorcube} in exact arithmetic, with
+floating-point checks of Sec.~\ref{ssec:pathblocks} on random $\SU(2)$ fields
+and of the thin paths. This paper accompanies release v4.2.0 of the archive,
+\url{https://github.com/creelie/4y-m/releases/tag/v4.2.0}. The PDF of this paper is at
 \url{https://github.com/creelie/4Y-M/blob/main/preprintYangMillsForestGauge/YangMillsForestGauge.pdf}.
 The computations and the Lean, Python and shell checks were run with AI
 assistance (Claude Opus~5.5, Claude Fable~5.1 with Ultracode, GPT-6.1 Sol Ultra
@@ -5544,7 +5748,10 @@ in its failure log, whose last Yang--Mills entry is the change from single
 links to blocks of several links; the plaquette blocks of
 Sec.~\ref{sec:plaqblocks}, the bound of Lemma~\ref{lem:blockK}, their $\SU(3)$ version in
 Sec.~\ref{sec:su3blocks} and the certified constants were found and checked by the authors. All three authors
-approved the final text.
+approved the final text. Theorems~\ref{thm:pathcoercive} and~\ref{thm:pathZ}
+and Proposition~\ref{prop:thinpath} were first written in a technical
+companion to this paper prepared with ChatGPT/Codex; the proofs are given
+here in full, and Lemma~\ref{lem:anchorcube} in closed form.
 
 \section*{Declarations}
 
