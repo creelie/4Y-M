@@ -81,8 +81,10 @@ needs localisation of the effective forms uniformly in the scale and a cube
 condition for the coarsest averages; these, the large fields and the
 crossover are open. For the group-valued links the straight path between
 block roots gives a coercivity bound D_v² ≤ 224 Q for all fields (subsection
-"Path blocks"), but that map does not compose across scales (thin paths);
-a block map with both properties for all fields is open.
+"Path blocks"), but that map does not compose across scales (thin paths),
+and for SU(2) no continuous covariant block map treats the transverse
+positions of a block alike (Proposition "nomean"); a block map with both
+properties for all fields is open.
 For SU(2) the same subsection makes the size explicit: D(n, α) needs
 n⁴ ≥ 2(1−α) β_W/(5 L(β_W)), L(b) = 1 + log 24 + (3/2) log 9b (Proposition
 "cube size"), a bound met along the tuning; the n² lost in its proof is of the
