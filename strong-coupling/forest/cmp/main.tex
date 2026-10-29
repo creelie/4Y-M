@@ -472,7 +472,9 @@ with the block averages to first order; it breaks the symmetry only at large
 fields, as it must, and its constants are those of one step
 (Theorem~\ref{thm:cutoff}). On fields with values in a maximal torus whose
 curvature stays small at every scale it composes, with the energy
-nonincreasing and the thin paths contracted (Theorem~\ref{thm:torusscales}). Whether some block map is coercive for
+nonincreasing and the thin paths contracted (Theorem~\ref{thm:torusscales}), and for every compact group it composes
+on fields whose curvatures at the successive scales have a small sum
+(Theorem~\ref{thm:smallscales}). Whether some block map is coercive for
 all fields and composes across scales is open.
 
 \begin{figure}[t]
@@ -5493,7 +5495,9 @@ map treats the transverse positions of a block alike
 (Proposition~\ref{prop:nomean}). The cut-off average of
 Theorem~\ref{thm:cutoff} is coercive for all fields and agrees with the
 averages to first order, with constants for one step; on torus-valued
-fields of small curvature it composes (Theorem~\ref{thm:torusscales}).
+fields of small curvature it composes (Theorem~\ref{thm:torusscales}), and
+for every compact group it composes on fields whose curvature is small at
+every scale with a small sum (Theorem~\ref{thm:smallscales}).
 \item \emph{Second order.} Let $b_0=11N/(48\pi^2)$ for $\SU(N)$, $t=2b_0\log2$,
 and let $g_m^{-2}=g_*^{-2}+tm$ be the one-loop coupling $m$ steps above a
 matching scale. Comparison with integrals gives $\sum_{m\le M}g_m^2=
@@ -5987,8 +5991,9 @@ curvature stays small at every scale.
 
 This subsection proves that the cut-off average composes across all scales
 on fields with values in a maximal torus whose curvature stays small, which
-includes the thin paths that defeat the path map, and records two block
-constructions for general fields that compose in other senses.
+includes the thin paths that defeat the path map, and then that it
+composes for every compact group on fields whose curvature is small, with
+a summable loss over the scales.
 
 \begin{figure}[tb]
 \centering
@@ -6143,17 +6148,218 @@ So on torus-valued fields of small curvature the cut-off average behaves
 like the linear averages: the curvature is averaged over the sixteen
 offsets at every step, the energy never increases, and a thin path is
 spread out and contracted instead of being carried to the coarse lattice
-(Figure~\ref{fig:scales}). Two limitations remain. The torus is abelian, and
-for general fields the paths do not commute: the logarithms then carry the
-commutator of the two links of each path at second order, which has no
-counterpart in Lemma~\ref{lem:torusstep}. And the
-hypothesis~\eqref{eq:torushyp} asks the curvature to stay below $\eta_G$ at
-every scale, while a field whose curvature is smooth on a scale $\ell$
-grows by a factor four per step until the coarse spacing reaches $\ell$.
+(Figure~\ref{fig:scales}).
 
-Neither result gives the supremum over boundary conditions in (D):
-Theorem~\ref{thm:cutoff} has the constants of one step, and
-Theorem~\ref{thm:torusscales} applies only to torus-valued fields.
+For general fields the paths do not commute, and the logarithms carry
+commutators from the second order on. The next two lemmas bound these
+commutators by the square of the local curvature. The same composition
+then holds for every compact group, with a loss of at most $1+O(\eta_j)$ at
+scale $j$.
+
+\begin{lemma}\label{lem:bch}
+Let $Z_1,\dots,Z_n\in\mathfrak g$ with $r=\sum_i\lVert Z_i\rVert\le\min\{
+\frac14,\rho_G\}$, and let $g=e^{Z_1}\cdots e^{Z_n}$. Then $\delta(g,I)\le
+r$, $\log g\in\mathfrak g$, and
+\[
+\Bigl\lVert\log g-\sum_iZ_i\Bigr\rVert\le1.6\,r^2 .
+\]
+\end{lemma}
+
+\begin{proof}
+The distance $\delta$ is invariant under multiplication by unitary
+matrices on either side, so $\delta(g,I)\le\sum_i\delta(e^{Z_i},I)\le r$ by
+Lemma~\ref{lem:logbound}, and $\log g\in\mathfrak g$ by the choice of
+$\rho_G$. Expanding the exponentials, $g-I-\sum_iZ_i$ is a sum of products
+of at least two factors. Since the Hilbert--Schmidt norm is
+submultiplicative, its norm is at most $e^r-1-r\le\frac12r^2e^r\le0.643\,
+r^2$, and $M=g-I$ has $\lVert M\rVert\le e^r-1\le1.137\,r\le0.285$. The
+operator norm of $M$ is smaller than $1$. The principal logarithm is
+holomorphic on the disc $|z-1|<1$, which contains the spectrum of $g$,
+so it is given there by its power series, $\log g=\sum_{k\ge1}(-1)^{k+1}
+M^k/k$. Hence
+\[
+\lVert\log g-M\rVert\le\frac{\lVert M\rVert^2}{2(1-\lVert M\rVert)}\le
+0.905\,r^2 ,
+\]
+and the two bounds add up to less than $1.6\,r^2$.
+\end{proof}
+
+Let $U$ be a $G$-valued field in the tree gauge with $\delta(U_p,I)\le
+\rho_G$, and put $\Theta_p=\log U_p$. A change of base point conjugates
+$\Theta_p$ and does not change its norm. Let $P$ be a coarse plaquette at $y$
+in the plane $\{\mu,\nu\}$. Its sides are $\ell_1=(y,\mu)$, $\ell_2=(y+
+e_\mu,\nu)$, $\ell_3=(y+e_\nu,\mu)$ and $\ell_4=(y,\nu)$, with initial
+points $y_i$. For an offset $o\in\{0,1\}^4$ let $P_{i,o}$ be the path
+product of $\ell_i$ through $2y_i+o$, and put
+\[
+K_{P,o}=P_{1,o}P_{2,o}P_{3,o}^{-1}P_{4,o}^{-1},\qquad\bar F_P=\frac1{16}
+\sum_o\log K_{P,o}.
+\]
+The tree segments between consecutive sides cancel. Hence $K_{P,o}$ is the
+holonomy of the square $\square_{2y+o}$, carried to $2y$ along the tree.
+In a torus, $\log K_{P,o}=F_{2y+o}$, and $\bar F_P$ is the mean of
+Lemma~\ref{lem:torusstep}. Let $\sigma_{P,o}$ be the sum of $\lVert
+\Theta_p\rVert$ over the four plaquettes of $\square_{2y+o}$.
+
+\begin{lemma}\label{lem:smallstep}
+Let $U$ be a $G$-valued field in the tree gauge with $\delta(U_p,I)\le
+\rho_G$ and $\lVert\Theta_p\rVert\le\eta\le\rho_G/1000$ for every
+plaquette. Then $\chi_{y,\mu}(U)=1$ for every coarse link. Every coarse
+plaquette has $\delta(V^\sharp(U)_P,I)\le0.03\,\rho_G$ and
+\begin{equation}\label{eq:smallstep}
+\begin{aligned}
+\bigl\lVert\log V^\sharp(U)_P-\bar F_P\bigr\rVert&\le3.2\,r_P^2,\\
+\lVert\bar F_P\rVert&\le\frac{1+6.4\eta}{16}\sum_o\sigma_{P,o},
+\end{aligned}
+\end{equation}
+with $r_P\le28.26\,\eta$ defined in the proof. Let $E$, $A$ be the sum of
+$\lVert\Theta_p\rVert^2$ and of $\lVert\Theta_p\rVert$, and let $E'$, $A'$,
+$\eta'$ be the sum of squares, the sum and the maximum of $\lVert\log
+V^\sharp(U)_P\rVert$. Then
+\begin{gather*}
+\sqrt{E'}\le(1+6030\eta)\sqrt E,\qquad A'\le(1+9147\eta)\frac A4,\\
+\eta'\le4(1+647\eta)\,\eta .
+\end{gather*}
+\end{lemma}
+
+\begin{proof}
+\emph{Paths.} Fix a coarse link $(y,\mu)$ and $x=2y+o$. As in the proof of
+Lemma~\ref{lem:torusstep}, $P_{2y}^{-1}P_x$ is the holonomy of a loop
+bounding a surface of at most six plaquettes, swept by the transverse edges
+of the tree path. Build the surface one plaquette at a time. This writes
+the holonomy as a product of at most six factors $hU_p^{\pm1}h^{-1}=
+\exp(\pm h\Theta_ph^{-1})$. Let $\sigma_{(y,\mu),o}\le6\eta$ be the sum of
+their $\lVert\Theta_p\rVert$. By Lemma~\ref{lem:bch}, $\delta(P_x,P_{2y})
+\le6\eta\le\rho_G/2$, so $\chi=1$. The logarithm $D_{(y,\mu),o}=\log(
+P_{2y}^{-1}P_x)$ lies in $\mathfrak g$, with
+\[
+\lVert D_{(y,\mu),o}\rVert\le(1+9.6\eta)\,\sigma_{(y,\mu),o}.
+\]
+In the same way $K_{P,o}$ is a product of four such factors, so
+$\lVert\log K_{P,o}\rVert\le(1+6.4\eta)\sigma_{P,o}$. Averaging over $o$
+gives the second inequality of~\eqref{eq:smallstep}.
+
+\emph{The plaquette.} Write $D_{i,o}$ for $D_{\ell_i,o}$. Then $P_{i,o}=
+P_{i,0}e^{D_{i,o}}$ and $D_{i,0}=0$, and $V^\sharp_{\ell_i}=P_{i,0}
+e^{m_i}$ with $m_i=\frac1{16}\sum_oD_{i,o}$. The paths and $V^\sharp$
+transform as links under gauge transformations constant on blocks. These
+transformations preserve the tree gauge and conjugate $D_{i,o}$, $m_i$,
+$K_{P,o}$ and $V^\sharp_P$ by fixed elements. Choose one with $P_{1,0}=
+P_{2,0}=P_{3,0}=I$. Then $P_{4,0}=K_{P,0}^{-1}$, and with $c=\log
+K_{P,0}$,
+\begin{align*}
+V^\sharp_P&=e^{m_1}e^{m_2}e^{-m_3}e^{-m_4}e^{c},\\
+K_{P,o}&=e^{D_{1,o}}e^{D_{2,o}}e^{-D_{3,o}}e^{-D_{4,o}}e^{c}.
+\end{align*}
+Put $r_P=\sum_i\max_o\lVert D_{i,o}\rVert+\lVert c\rVert$. Since
+$\lVert m_i\rVert\le\max_o\lVert D_{i,o}\rVert$, the five exponents in
+each product have norms adding up to at most $r_P$, and
+\[
+r_P\le24(1+9.6\eta)\eta+4(1+6.4\eta)\eta\le28.26\,\eta .
+\]
+Lemma~\ref{lem:bch} gives $\delta(V^\sharp_P,I)\le r_P\le0.03\,\rho_G$ and
+\begin{align*}
+\log V^\sharp_P&=m_1+m_2-m_3-m_4+c+R,\\
+\log K_{P,o}&=D_{1,o}+D_{2,o}-D_{3,o}-D_{4,o}+c+R_o,
+\end{align*}
+with $\lVert R\rVert,\lVert R_o\rVert\le1.6\,r_P^2$. Average the second
+line over $o$ and subtract it from the first; since $m_i$ is the mean of
+the $D_{i,o}$, this is the first inequality of~\eqref{eq:smallstep}.
+
+\emph{Sums.} Each fine plaquette lies in four squares $\square_x$, and the
+pairs $(P,o)$ are in bijection with these squares. The second inequality
+of~\eqref{eq:smallstep} and Cauchy--Schwarz therefore give $\sum_P\lVert
+\bar F_P\rVert^2\le(1+6.4\eta)^2E$; without Cauchy--Schwarz they give
+$\sum_P\lVert\bar F_P\rVert\le(1+6.4\eta)A/4$. For the remainders, let
+$\mathcal U_\ell$ be the set of plaquettes of the surfaces of the side
+$\ell=(y,\mu)$ for all sixteen offsets. These lie in planes $\{\mu,\alpha
+\}$, $\alpha\ne\mu$, at $\mu$-positions $2y_\mu$, $2y_\mu+1$, $2y_\mu+2$,
+and there are at most $36$ of them. A plaquette lies in $\mathcal U_\ell$
+for at most four coarse links. With $m'_\ell=\sum_{p\in\mathcal U_\ell}
+\lVert\Theta_p\rVert$,
+\[
+r_P\le1.0096\Bigl(\sum_{\ell\subset P}m'_\ell+\sigma_{P,0}\Bigr).
+\]
+A coarse link is a side of six coarse plaquettes, and a plaquette lies in
+$\square_{2y}$ for at most one coarse plaquette. Therefore
+\begin{align*}
+\sum_Pr_P&\le1.0096\,(6\cdot4A+A)\le25.24\,A,\\
+\sum_Pr_P^2&\le1.0096^2\cdot5\,(6\cdot36\cdot4\,E+4E)\le4424\,E.
+\end{align*}
+Hence, with $r_P\le28.26\,\eta$,
+\begin{align*}
+\sum_P3.2\,r_P^2&\le3.2\cdot28.26\cdot25.24\,\eta A\le2283\,\eta A,\\
+\Bigl(\sum_P\bigl(3.2\,r_P^2\bigr)^2\Bigr)^{1/2}&\le3.2\cdot28.26\,
+\eta\,(4424\,E)^{1/2}\le6015\,\eta\sqrt E .
+\end{align*}
+The triangle inequality, for the Euclidean norm over
+$P$ in the first case, gives $\sqrt{E'}\le(1+6.4\eta+6015\eta)\sqrt E$ and
+$A'\le(1+6.4\eta)A/4+2283\,\eta A$. For the maximum, $\eta'\le(1+6.4\eta)
+4\eta+3.2\,(28.26\,\eta)^2\le4(1+647\eta)\eta$.
+\end{proof}
+
+For a $G$-valued field, the $k$-fold cut-off average is defined as before,
+with $G$-valued gauge transformations. The tree gauge fixes them up to
+transformations constant on blocks, under which $V^\sharp$ is covariant.
+These transformations conjugate the plaquette holonomies and leave the
+norms $\lVert\Theta^{(j)}_P\rVert$ unchanged.
+
+\begin{theorem}\label{thm:smallscales}
+Let $G\subset\U(r)$ be compact and let $U$ be a $G$-valued field on the
+periodic lattice of side divisible by $2^k$, with $\delta(U_p,I)\le\rho_G$
+on every plaquette. Let $\eta_j$, $A_j$, $E_j$ be the maximum, the sum and
+the sum of squares of $\lVert\Theta^{(j)}_P\rVert$ over the plaquettes of
+the $j$-th iterate.
+\begin{enumerate}[label=\textup{(\roman*)},leftmargin=*]
+\item If $\eta_j\le\rho_G/1000$ for $0\le j<k$, the cut-off is inactive at
+every step. With $\sigma=\sum_{j<k}\eta_j$,
+\begin{gather*}
+E_k\le e^{12060\sigma}E_0,\qquad A_k\le e^{9147\sigma}4^{-k}A_0,\\
+\eta_k\le e^{647\sigma}4^k\eta_0 .
+\end{gather*}
+\item If $\eta_0A_0\le2\cdot10^{-10}\rho_G^2$, then (i) applies for every
+$k$ with $\sigma\le7.25\sqrt{\eta_0A_0}$, and
+\begin{align*}
+Q_k\bigl(V^{\sharp,k}(U)\bigr)&\le e^{8.8\cdot10^4\sqrt{\eta_0A_0}}E_0
+\le1.0001\,e^{8.8\cdot10^4\sqrt{\eta_0A_0}}\,Q(U),\\
+Q_k\bigl(V^{\sharp,k}(U)\bigr)&\le e^2\,16^{-k}A_0^2 .
+\end{align*}
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+(i) Apply Lemma~\ref{lem:smallstep} at each step to the field in the tree
+gauge; the gauge fixing does not change the norms. The lemma gives
+$\delta(U^{(j+1)}_P,I)\le\rho_G$, so $\Theta^{(j+1)}$ is defined, and with
+$1+t\le e^t$ the three inequalities of the lemma multiply over the steps.
+
+(ii) Suppose that for $i<j$ we have $\eta_i\le\rho_G/1000$ and $\sum_{i<j}
+\eta_i\le7.25\sqrt{\eta_0A_0}\le1/9747$. Then (i) gives $A_j\le e\,4^{-j}
+A_0$ and $\eta_j\le e\,4^j\eta_0$, and $\eta_j\le A_j$. So $\eta_j\le e\min
+\{4^j\eta_0,4^{-j}A_0\}\le e\sqrt{\eta_0A_0}\le\rho_G/1000$. Let $i_*$ be the
+last index with $4^{i_*}\eta_0\le4^{-i_*}A_0$. The terms of $\min\{4^i\eta_0,
+4^{-i}A_0\}$ increase by the factor $4$ up to $i_*$ and decrease by the
+factor $4$ after it. The terms at $i_*$ and $i_*+1$ are at most $\sqrt{
+\eta_0A_0}$, so the sum over all $i$ is at most $\frac83\sqrt{\eta_0A_0}$,
+and $\sum_{i\le j}\eta_i\le\frac{8e}3\sqrt{\eta_0A_0}\le7.25\sqrt{\eta_0
+A_0}$. This completes the induction. Then $E_k\le e^{12060\cdot7.25\sqrt{
+\eta_0A_0}}E_0$. By Lemma~\ref{lem:logbound}, $Q_k(V^{\sharp,k}(U))\le E_k$,
+and $E_k\le\eta_kA_k\le A_k^2\le e^2\,16^{-k}A_0^2$. Finally the eigenvalues
+$i\theta$ of each $\Theta_p$ have $|\theta|\le\eta_0\le\sqrt{\eta_0A_0}<
+10^{-4}$, and $\theta^2\le1.0001\cdot4\sin^2(\theta/2)$ there.
+\end{proof}
+
+For a torus Theorem~\ref{thm:torusscales} is sharper, and its hypothesis is
+weaker; the content of Theorem~\ref{thm:smallscales} is the non-abelian
+case. Neither theorem gives the
+supremum over boundary conditions in (D). Theorem~\ref{thm:cutoff} has the
+constants of one step. Theorems~\ref{thm:torusscales}
+and~\ref{thm:smallscales} need the curvature to be small at every scale:
+in Theorem~\ref{thm:smallscales} the losses $e^{6030\eta_j}$ must have a
+bounded product, and a field whose curvature is smooth on a scale $\ell$
+grows by a factor four per step until the coarse spacing reaches $\ell$.
+The large fields, where the cut-off is active, and the Wilson measure
+itself are outside both.
 
 
 
@@ -6187,7 +6393,7 @@ Lemma~\ref{lem:vmfconst}, which are computations in interval arithmetic with
 rigorous error bounds. The programs of these steps, in Python with
 python-flint (FLINT and Arb) and a C kernel for products of Taylor
 polynomials, their outputs and the list of certified boxes are in the
-repository \url{https://github.com/creelie/4Y-M}, release v4.6.1, together
+repository \url{https://github.com/creelie/4Y-M}, release v4.7.0, together
 with a Lean~4 certificate of the line field and independent exact or
 numerical checks of the other finite statements.
 
