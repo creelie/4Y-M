@@ -27,6 +27,12 @@ Parts:
      average, the bounds 896, 56 c^2, 448 + 896 c^2, 8 + 2688 c^2 on random
      fields at five scales, slice windings 1 at the path and 0 elsewhere,
      and the coarse link e^{X/8} of a single small link e^X.
+ (G) torus-valued fields (random and smooth, under random gauge
+     transformations) on the lattice of side 8, two steps with the tree gauge
+     restored between them: the cut-off is inactive, the coarse plaquette
+     angles are the means of the sixteen 2x2 fluxes, the L1 norm drops by at
+     least 4, the L2 norm does not increase, the maximum grows by at most 4,
+     and Q_2 <= 1.001 Q when eta_0 A <= (rho/12)^2.
 Run: python3 path_blocks.py. Needs numpy."""
 import itertools, math
 import numpy as np
@@ -312,4 +318,83 @@ for a in trans:
         V = sharp({((1,) + a, 0): sexp(X)}, (0, 0, 0, 0), 0)[0]
         good &= np.allclose(V, sexp(X / 8))
 check('(F) one small link e^X at any transverse position gives the coarse link e^{X/8}', good)
+# (G)
+def tor(t): return np.diag([np.exp(1j * t), np.exp(-1j * t)])
+def ang(g): return math.atan2(g[0, 0].imag, g[0, 0].real)
+def shz(x, mu, Sz, k=1): return tuple((np.array(x) + k * E[mu]) % Sz)
+def gfix(U, Sz):
+    h = {}
+    for y in itertools.product(range(0, Sz, 2), repeat=d):
+        for o in sorted(blk, key=sum):
+            x = tuple((np.array(y) + o) % Sz)
+            if not any(o): h[x] = I2; continue
+            nu = max(i for i in range(d) if o[i]); p = list(o); p[nu] = 0
+            xp = tuple((np.array(y) + p) % Sz); h[x] = h[xp] @ U[(xp, nu)]
+    return {(x, mu): h[x] @ U[(x, mu)] @ inv(h[shz(x, mu, Sz)]) for (x, mu) in U}
+def sharpz(U, y, mu, Sz):
+    P = []
+    for o in blk:
+        x = tuple((np.array(y) + o) % Sz); P.append(U[(x, mu)] @ U[(shz(x, mu, Sz), mu)])
+    v = [inv(P[0]) @ p for p in P]
+    m = max(math.sqrt(hs2(w - I2)) for w in v); chi = phi(m / rho)
+    M = I2 if chi == 0 else sexp(chi * sum(slog(w) for w in v) / 16)
+    return P[0] @ M, chi
+def plaq(U, x, mu, nu, Sz):
+    return U[(x, mu)] @ U[(shz(x, mu, Sz), nu)] @ inv(U[(shz(x, nu, Sz), mu)]) @ inv(U[(x, nu)])
+def angles(U, Sz):
+    return {(x, mu, nu): ang(plaq(U, x, mu, nu, Sz)) for x in itertools.product(range(Sz), repeat=d)
+            for mu in range(d) for nu in range(mu + 1, d)}
+def step(U, Sz):
+    U = gfix(U, Sz); W, cmin = {}, 1.0
+    for y in itertools.product(range(0, Sz, 2), repeat=d):
+        for mu in range(d):
+            W[(tuple(q // 2 for q in y), mu)], c = sharpz(U, y, mu, Sz); cmin = min(cmin, c)
+    return W, cmin
+Sz = 8; eta_G = rho / 12
+good_formula, good_tree, rows = True, True, []
+cph = rng.uniform(0, 2 * math.pi, size=(d, d))
+for eps in [1e-5, 3e-3, 0.004]:
+    U = {}
+    g = {x: tor(rng.uniform(0, 2 * math.pi)) for x in itertools.product(range(Sz), repeat=d)}
+    for x in itertools.product(range(Sz), repeat=d):
+        for mu in range(d):
+            a = eps * rng.normal() if eps != 0.004 else \
+                eps * sum(math.sin(2 * math.pi * x[n] / Sz + cph[mu, n]) for n in range(d) if n != mu)
+            U[(x, mu)] = g[x] @ tor(a) @ inv(g[shz(x, mu, Sz)])
+    Th = angles(U, Sz); Q0 = sum(8 * math.sin(t / 2) ** 2 for t in Th.values())
+    A = sum(math.sqrt(2) * abs(t) for t in Th.values()); eta0 = max(math.sqrt(2) * abs(t) for t in Th.values())
+    cur, cs = U, Sz
+    for j in range(2):
+        Ug = gfix(cur, cs)
+        good_tree &= all(np.allclose(Ug[(tuple((np.array(y) + o) % cs), mu)], I2)
+                         for y in itertools.product(range(0, cs, 2), repeat=d) for o in blk for mu in range(d)
+                         if tree(list(o), mu))
+        Tc = angles(cur, cs); mx = max(math.sqrt(2) * abs(t) for t in Tc.values())
+        nxt, cmin = step(cur, cs); ns = cs // 2; Tn = angles(nxt, ns)
+        err = 0.0
+        if mx <= eta_G:
+            for (y, mu, nu), t in Tn.items():
+                f = 0.0
+                for o in blk:
+                    x = tuple((2 * np.array(y) + o) % cs)
+                    for a, b in [(0, 0), (1, 0), (0, 1), (1, 1)]:
+                        z = tuple((np.array(x) + a * E[mu] + b * E[nu]) % cs); f += Tc[(z, mu, nu)]
+                err = max(err, abs(t - f / 16))
+            good_formula &= err < 1e-9 and cmin == 1.0
+        L1c = sum(abs(t) for t in Tc.values()); L1n = sum(abs(t) for t in Tn.values())
+        L2c = sum(t * t for t in Tc.values()); L2n = sum(t * t for t in Tn.values())
+        mxn = max(abs(t) for t in Tn.values())
+        rows.append((eps, j, mx <= eta_G, cmin, err, L1n / L1c, L2n / L2c, mxn / max(abs(t) for t in Tc.values())))
+        cur, cs = nxt, ns
+    Qk = sum(8 * math.sin(t / 2) ** 2 for t in angles(cur, cs).values())
+    rows.append(('Q', eps, eta0 * A <= eta_G ** 2, Qk / Q0))
+for r in rows:
+    if r[0] == 'Q': print('    eps = %g: eta0*A <= eta_G^2: %s, Q_2/Q = %.4f' % r[1:])
+    else: print('    eps = %g, step %d: hypothesis %s, min chi %.3f, formula err %.1e, L1 ratio %.4f, L2 ratio %.4f, sup ratio %.3f' % r)
+check('(G) the tree gauge fixing puts every tree link at I', good_tree)
+check('(G) torus fields: coarse angles are the means of the 2x2 fluxes, cut-off inactive', good_formula)
+check('(G) L1 ratio <= 1/4, L2 ratio <= 1, sup ratio <= 4 at every step',
+      all(r[5] <= 0.25 + 1e-12 and r[6] <= 1 + 1e-12 and r[7] <= 4 + 1e-12 for r in rows if r[0] != 'Q' and r[2]))
+check('(G) Q_2(V#^2) <= 1.001 Q when eta0 * A <= eta_G^2',
+      all(r[3] <= 1.001 for r in rows if r[0] == 'Q' and r[2]) and any(r[2] for r in rows if r[0] == 'Q'))
 print('%d checks passed, %d failed' % (sum(ok), len(ok) - sum(ok)))
