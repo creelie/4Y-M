@@ -9,3 +9,4 @@ import YangMills.StrongCoupling.ZonalBound
 import YangMills.StrongCoupling.Thresholds
 import YangMills.StrongCoupling.GaugeFix
 import YangMills.StrongCoupling.CubeOpen
+import YangMills.StrongCoupling.BlockGauge

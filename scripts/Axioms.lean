@@ -64,3 +64,8 @@ import YangMills
 #print axioms YangMills.StrongCoupling.cube_volume_ge
 #print axioms YangMills.StrongCoupling.small_field_eps
 #print axioms YangMills.StrongCoupling.small_field_side
+#print axioms YangMills.StrongCoupling.BlockGauge.tree_count
+#print axioms YangMills.StrongCoupling.BlockGauge.active_counts
+#print axioms YangMills.StrongCoupling.BlockGauge.tree_connects
+#print axioms YangMills.StrongCoupling.BlockGauge.chain_bounds
+#print axioms YangMills.StrongCoupling.BlockGauge.invisible_classes

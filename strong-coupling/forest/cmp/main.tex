@@ -67,7 +67,7 @@ College, 23/49 Gariahat Road, Golpark, Kolkata 700029 (University of Calcutta,
 \address{Independent Researcher, San Antonio, USA}
 \email{spectralityworkinggroup@gmail.com (secondary Blaze61029dogQ@proton.me)}
 
-\date{27 October 2026}
+\date{29 October 2026}
 
 \subjclass[2020]{Primary 81T25, 82B20; Secondary 60K35, 81T13, 22E30,
 58J50, 65G30}
@@ -79,7 +79,7 @@ Yang--Mills Theory in a Forest Gauge'', appeared as Hexagon preprint
 2610.00341. The
 \LaTeX{} source, the checks and the Lean certificate are in
 \href{https://github.com/creelie/4Y-M}{github.com/creelie/4Y-M}, release
-v3.23.0.}
+v4.0.0.}
 
 \begin{abstract}
 \itshape
@@ -92,6 +92,8 @@ Dobrushin--Shlosman type in a cube of fixed physical size gives a mass gap in
 physical units for every continuum limit, and that this estimate, which holds
 at strong coupling and remains open along the continuum tuning, needs for
 SU($N$) a cube of side at least of order $(\beta_W/\log\beta_W)^{1/4}$.
+Posed for block averages in a block-rooted axial gauge, its quadratic
+approximation holds at every coupling in large cubes.
 \end{abstract}
 
 \maketitle
@@ -462,7 +464,12 @@ cubes of side at least of order $(\beta_W/\log\beta_W)^{1/4}$
 field it holds at a fixed physical scale when the field has a mass and fails
 exactly, at every size, when it is massless (Proposition~\ref{prop:gauss});
 it also fails for the quadratic approximation of the forest gauge itself
-(Proposition~\ref{prop:gaussforest}). The order-two cases of the tree bounds
+(Proposition~\ref{prop:gaussforest}). Posed for block averages in a gauge
+whose fixed links are trees inside blocks of side two, it holds in the
+quadratic approximation at every coupling once the cube is large
+(Theorem~\ref{thm:constrainedcube}), while the averages along the lines of
+the forest gauge leave one class of lines invisible and fail at every size
+(Proposition~\ref{prop:invisible}). The order-two cases of the tree bounds
 force the lattice gap below a fixed multiple of the lattice spacing, so no
 strong coupling expansion gives them (Proposition~\ref{prop:treecritical}).
 The slice ratio holds in two dimensions, where it is the exact solution of
@@ -3835,6 +3842,7 @@ and Proposition~\ref{prop:gaussforest} shows that the quadratic
 approximation of the forest gauge fluctuates in this way. Where it does,
 (D) fails in this gauge and has to be posed for block-averaged variables,
 where it becomes part of the renormalisation group problem.
+Section~\ref{ssec:constrained} carries this out in the quadratic approximation.
 \end{remark}
 
 The count of Remark~\ref{rem:cubeheuristic} can be carried out exactly for a
@@ -3980,7 +3988,7 @@ The proof uses only that gauge transformations constant on the lines of $F$
 move the whole cube while changing few boundary links, which is the
 behaviour of gauges of axial type anticipated in
 Remark~\ref{rem:cubeheuristic}. The class sums themselves, computed exactly
-in the archive for $n\le8$, lie between $1.5$ and $11$ times $N_n$ and
+in the archive for $n\le8$, lie between $1.57$ and $11.24$ times $N_n$ and
 increase with $n$. Below the correlation length the theory is weakly
 coupled, and the quadratic approximation is its leading order there. A proof
 of (D) along the tuning therefore has to show that the nonperturbative
@@ -4036,7 +4044,9 @@ obtained from bounds on the conditional law of a single line of links that
 are uniform in the configuration around the line
 (Proposition~\ref{prop:slowline}). For the compact abelian theory with
 the Villain action it fails at every size once $\beta$ is large
-(Proposition~\ref{prop:coulomb}). None of these decides (D) along the
+(Proposition~\ref{prop:coulomb}). In Section~\ref{ssec:constrained} the
+estimate is posed for block averages, where its quadratic approximation
+holds along the tuning. None of these decides (D) along the
 continuum tuning, where $n$ grows while $\beta$ grows.\footnote{The four
 statements answer the question of which parts of (D) can be settled with
 the methods of this paper. The first places (D) in the range where the
@@ -4945,6 +4955,337 @@ use what such a bound discards: the joint resampling of the transverse links
 inside the cube, which the averaged coefficients $C_{V,j}$ retain, or the
 smallness of the probability of such exteriors under the Wilson measure.
 
+\subsection{Block-constrained cubes}\label{ssec:constrained}
+
+Proposition~\ref{prop:gaussforest} locates the failure of (D) in the
+quadratic approximation: gauge transformations constant on the lines of $F$
+move the whole cube and change few links outside it. This subsection takes
+up the programme of the report~\cite{Loc26} of the third author, which keeps
+the cube condition but changes the gauge and conditions the cube on block
+averages of the field, as in Ba{\l}aban's renormalisation
+group~\cite{Bal84a,Bal85a}. The natural block averages of the line field
+leave one class of lines invisible and fail at every size
+(Proposition~\ref{prop:invisible}). In a gauge whose fixed links are trees
+inside blocks of side two, the averages over whole blocks remove every zero
+mode, the constrained quadratic form has a gap that does not depend on the
+volume (Theorem~\ref{thm:blockgap}), and the constrained cube condition holds
+at every coupling once the cube is large (Theorem~\ref{thm:constrainedcube}).
+Everything in this subsection concerns the quadratic approximation: real
+fields $\varphi$ on links, $(d\varphi)_p$ the signed sum around the plaquette
+$p$, and $(dh)_{(x,\mu)}=h(x)-h(x+e_\mu)$ for a function $h$ on sites.
+
+\begin{proposition}[\cite{Loc26}]\label{prop:invisible}
+In the setting of Proposition~\ref{prop:gaussforest}, condition the cube in
+addition on any family of the face averages
+\[
+V^{\mathrm{face}}_{y,\mu}(\varphi)=\frac18\sum_{x}\bigl(\varphi_{(x,\mu)}
++\varphi_{(x+e_\mu,\mu)}\bigr),
+\]
+where $x$ runs over the eight sites of the block $2y+\{0,1\}^4$ with
+$x_\mu=2y_\mu$. Then $\sum_{c\in C_I}K_c\ge12N_n$ for the twelve classes
+\[
+\begin{split}
+C_I=\{&(0111,\mu),(1111,\mu),(0111+e_\mu,\mu),(1111+e_\mu,\mu)\\
+&:\mu=1,2,3\},
+\end{split}
+\]
+written as residue of the base and direction. Hence $K_c\ge N_n$ for some
+class, and the constrained condition fails for every $\alpha<1$, at every
+even $n$ and every $b$.
+\end{proposition}
+
+\begin{proof}
+By Table~\ref{tab:sigma}, $\sigma(0111)=\sigma(1111)=0$, so the lines of $F$
+through the sites with $x_1,x_2,x_3$ odd have direction $0$; call them
+invisible. Let $\ell$ be one of them and $h_\ell$ its indicator. The sum of
+$dh_\ell$ along a path of length two from $x$ is $h_\ell(x)-h_\ell(x+2e_\mu)$.
+For $\mu\ne0$ both end points have even $\mu$-coordinate and are off $\ell$;
+for $\mu=0$ they have the same transverse coordinates and are both on $\ell$
+or both off it. So $dh_\ell$ changes no face average, and the translation
+argument of Proposition~\ref{prop:gaussforest} applies to the constrained
+laws: $\sum_{i\in V}|(dh_\ell)_i|\le\sum_{j\notin V}C_{V,j}|(dh_\ell)_j|$. An
+active link $e=(x,\mu)$ has $|(dh_\ell)_e|=1$ for at most one invisible
+$\ell$, since its two ends lie on different lines and both cannot be
+invisible (for $\mu\ne0$ they differ in the coordinate $\mu$, and for $\mu=0$
+the link would lie in $F$). It has one such $\ell$ exactly when its base or
+its end has residue $0111$ or $1111$, which by Table~\ref{tab:sigma} are the
+classes of $C_I$: the six classes with base residue $0111$ or $1111$ and
+direction $\mu\ne0$, and the six with base residue $r+e_\mu$, $r\in\{0111,
+1111\}$, whose directions $\mu$ differ from $\sigma(r+e_\mu)$ (for instance
+$\sigma(0011)=3\ne1$). Summing over the invisible lines gives $12N_n\le
+\sum_{c\in C_I}K_c$.
+\end{proof}
+
+\begin{definition}\label{def:blockgauge}
+The blocks are $B(y)=2y+\{0,1\}^4$, $y\in\Z^4$, and $o=x\bmod2$ is the offset
+of a site. A link $(x,\mu)$ is a \emph{tree link} if $o_\mu=0$ and $o_\nu=0$
+for every $\nu>\mu$, and \emph{active} otherwise; fields vanish on tree
+links. For a coarse link $(y,\mu)$ the \emph{block average} is
+\[
+V_{y,\mu}(\varphi)=\frac1{16}\sum_{x\in B(y)}\bigl(\varphi_{(x,\mu)}+
+\varphi_{(x+e_\mu,\mu)}\bigr),
+\]
+the mean of $\varphi$ summed along the sixteen paths of length two in the
+direction $\mu$ that start in $B(y)$.
+\end{definition}
+
+\begin{lemma}\label{lem:blocktree}
+\begin{enumerate}[label=\textup{(\roman*)},leftmargin=*]
+\item The fifteen tree links of a block form a spanning tree of its sixteen
+sites. Each block carries $49$ active links: the $17$ active links inside
+it, with $o_\mu=0$, and the $32$ links with $o_\mu=1$, which join $B(y)$ to
+$B(y+e_\mu)$.
+\item If $dh$ vanishes on the tree links, $h$ is constant on every block,
+and $V_{y,\mu}(\varphi+dh)=V_{y,\mu}(\varphi)+h_{B(y)}-h_{B(y+e_\mu)}$.
+\item With $S^\mu_y=\sum_{x\in B(y),\,o_\mu=0}\varphi_{(x,\mu)}$,
+\[
+V_{y,\mu}(\varphi)=\frac18\sum_{x\in B(y),\,o_\mu=1}\varphi_{(x,\mu)}
++\frac1{16}\bigl(S^\mu_y+S^\mu_{y+e_\mu}\bigr).
+\]
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+(i) A tree link of direction $\mu$ has $o_\mu=0$ and stays in its block;
+there are $2^\mu$ of them for each $\mu$, fifteen in all. From any site,
+the tree links of direction $3$ lead to $o_3=0$, then those of direction $2$
+to $o_2=0$, and so on to the corner, so the tree links connect the sixteen
+sites, and fifteen edges connecting sixteen vertices form a tree. Of the
+$64$ links with base in the block, the $32$ with $o_\mu=0$ stay inside it.
+(ii) $h$ is constant along the edges of a spanning tree. The path of length
+two from $x\in B(y)$ ends at $x+2e_\mu\in B(y+e_\mu)$, and the sum of $dh$
+along it is $h(x)-h(x+2e_\mu)$. (iii) The path from $x$ consists of
+$(x,\mu)$ and $(x+e_\mu,\mu)$; a link with $o_\mu=1$ is the second link of
+one path and the first of another, and the links of $S^\mu_{y+e_\mu}$ are the
+second links of the paths that start with $o_\mu=1$.
+\end{proof}
+
+By (ii) the residual gauge freedom is the coarse gauge group, which acts on
+the block averages as on the links of the coarse lattice. Let $W$ be a set
+of blocks and let $\Phi_W$ be the space of finitely supported real $\varphi$
+on the active links with base in $\bigcup W$, with $V_{y,\mu}(\varphi)=0$ for
+every $y\in W$ and every $\mu$. Write $Q(\varphi)=\sum_p(d\varphi)_p^2$ over
+all plaquettes, $\varphi$ being zero off its support.
+
+\begin{theorem}\label{thm:blockgap}
+For every set of blocks $W$ and every $\varphi\in\Phi_W$,
+\[
+\sum_e\varphi_e^2\le52\,Q(\varphi).
+\]
+\end{theorem}
+
+\begin{proof}
+\emph{Inside a block.} Let $e=(x,\mu)$ be an active link with $o_\mu=0$, and
+let $\nu_1>\dots>\nu_k$ be the directions above $\mu$ in which $o$ equals one;
+$1\le k\le3$. Put $x_0=x$ and $x_i=x_{i-1}-e_{\nu_i}$. The plaquette $p_i$ at
+$x_i$ in the plane $\{\mu,\nu_i\}$ has the links $(x_i,\mu)$, $(x_{i-1},\mu)$
+and the tree links $(x_i,\nu_i)$, $(x_i+e_\mu,\nu_i)$, whose offsets vanish in
+$\nu_i$ and above it; and $(x_k,\mu)$ is a tree link. Hence $\varphi_e=\pm
+(d\varphi)_{p_1}\pm\dots\pm(d\varphi)_{p_k}$ and $\varphi_e^2\le k\sum_i
+(d\varphi)_{p_i}^2$. The plaquette at $x'$ in the plane $\{\mu,\nu\}$ is used
+only by the links $(x'+e_\nu+\sum_{\rho\in R}e_\rho,\mu)$ with $R\subset\{\nu+1,
+\dots,3\}$, each with $k=c+1+|R|$, where $c$ is the number of ones of the
+offset of $x'$ strictly between $\mu$ and $\nu$. Its total weight
+$2^{3-\nu}(c+1)+(3-\nu)2^{2-\nu}$ is at most $8$, the value at $\mu=0$,
+$\nu=1$. So the sum $I$ of $\varphi_e^2$ over the active links inside the
+blocks is at most $8Q_{\rm in}$, where $Q_{\rm in}$ is the sum over the
+plaquettes inside a block.
+
+\emph{Between blocks.} Fix $y\in W$ and $\mu$, and label the eight links
+$(x,\mu)$, $x\in B(y)$, $o_\mu=1$, by the transverse offset $a\in\{0,1\}^3$.
+If $a$ and $a'$ differ in the coordinate $\nu$, with $o_\nu=0$ at $a$, the
+plaquette at $x$ in the plane $\{\mu,\nu\}$ contains these two links,
+$(x,\nu)$ in $B(y)$ and $(x+e_\mu,\nu)$ in $B(y+e_\mu)$, the last two inside
+their blocks. So $\varphi_a-\varphi_{a'}=\pm(d\varphi)_p\pm\psi\pm\psi'$ with
+$\psi,\psi'$ inside blocks, and these twelve face plaquettes correspond to the
+twelve edges of the cube $\{0,1\}^3$. By Lemma~\ref{lem:blocktree}(iii) and
+$V_{y,\mu}(\varphi)=0$, the mean of the $\varphi_a$ is $m=-(S^\mu_y+
+S^\mu_{y+e_\mu})/16$, so $8m^2\le\frac12$ times the sum of the squares of the
+sixteen links of $S^\mu_y$ and $S^\mu_{y+e_\mu}$. The Laplacian of the graph
+$\{0,1\}^3$ has smallest nonzero eigenvalue $2$, so
+\[
+\begin{split}
+\sum_a\varphi_a^2&=8m^2+\sum_a(\varphi_a-m)^2\\
+&\le8m^2+\frac32\sum_{\rm edges}\bigl((d\varphi)_p^2+\psi^2+\psi'^2\bigr).
+\end{split}
+\]
+Summed over $y\in W$ and $\mu$, a link $(z,\nu)$ inside a block occurs as
+$\psi$ or $\psi'$ once for each $\mu\ne\nu$ (as $\psi$ if $o_\mu=1$, as
+$\psi'$ of the face of the block below if $o_\mu=0$) and in two of the sums
+$S^\nu$, so it receives weight at most $3\cdot\frac32+2\cdot\frac12=
+\frac{11}2$. The face plaquettes are distinct and lie in no block, so the
+links between blocks contribute at most $\frac32Q_{\rm face}+\frac{11}2I$,
+and
+\[
+\sum_e\varphi_e^2\le\frac{13}2I+\frac32Q_{\rm face}\le52\,Q_{\rm in}+
+\frac32Q_{\rm face}\le52\,Q(\varphi).\qedhere
+\]
+\end{proof}
+
+With $W$ all blocks the bound extends to $\ell^2$, so the block-constrained
+quadratic form on $\Z^4$ has a spectral gap at least $\frac1{52}$; it removes
+in particular the four flat connections that are zero modes of the
+unconstrained form. In the Bloch decomposition the exact gap is
+$0.10748776948684\dots$, attained at the momentum $(0,\pi,\pi,\pi)$, a
+floating-point value computed in~\cite{Loc26} and reproduced in the archive;
+the theorem does not use it. The cube conditions now take the following
+form. Let $n$ be even, $V$ the active links with base in $[0,n)^4$, $W$ its
+blocks, and for an exterior $\eta$ and values $v=(v_{y,\mu})_{y\in W}$ let
+$\gamma^{\rm c}_V(\cdot\mid\eta,v)$ be the law on $\R^V$ with density
+proportional to $\exp(-\frac b2\sum_{p\cap V\ne\emptyset}(d\varphi)_p^2)$ on
+the affine set $\{V_{y,\mu}(\varphi)=v_{y,\mu}\}$, with $\varphi=\eta$ off $V$.
+Define $C^{\rm c}_{V,j}$, $K^{\rm c}_c$ and $D_{\rm c}(n,\alpha)$ as $C_{V,j}$,
+$K_c$ and $D(n,\alpha)$, with $v$ held fixed and the $49$ classes of active
+links modulo two.
+
+\begin{lemma}\label{lem:saddle}
+Let $H\ge0$ be symmetric on $\R^m$ with $\|H\|\le h$, let $B:\R^m\to\R^k$ with
+$BB^\top\ge\beta>0$ and $\langle x,Hx\rangle\ge a|x|^2$ on $\ker B$, and
+$s>0$. Then $K=\bigl(\begin{smallmatrix}H&sB^\top\\sB&0\end{smallmatrix}
+\bigr)$ is invertible, and the solution of $K(x,y)=(f,g)$ has
+$|x|\le(|f|+h|x_1|)/a+|x_1|$ with $|x_1|\le|g|/(s\sqrt\beta)$, and $|y|\le
+(|f|+h|x|)/(s\sqrt\beta)$.
+\end{lemma}
+
+\begin{proof}
+Put $x_1=B^\top(BB^\top)^{-1}g/s$, so $sBx_1=g$ and $|x_1|\le|g|/(s\sqrt
+\beta)$. On $\ker B$ the compression of $H$ is at least $a$, so there is a
+unique $x_0\in\ker B$ with $Hx_0-f+Hx_1\perp\ker B$, and $a|x_0|\le|f|+h
+|x_1|$. Then $f-H(x_0+x_1)$ lies in $(\ker B)^\perp=\operatorname{ran}B^\top$,
+and $y=(BB^\top)^{-1}B(f-Hx)/s$ solves $sB^\top y=f-Hx$. For $f=g=0$ the
+construction gives zero, so $K$ is injective.
+\end{proof}
+
+\begin{lemma}[Combes--Thomas~\cite{CT73}]\label{lem:combes}
+Let $K$ be an invertible symmetric matrix indexed by a finite set $X$, with
+$\|K^{-1}\|\le M_0$ and $\sum_b|K_{ab}|\le S$ for every $a$, and let
+$d:X\to\R$ satisfy $|d(a)-d(b)|\le1$ whenever $K_{ab}\ne0$. If $(e^\lambda-1)
+SM_0\le\frac12$, then $\|e^{\lambda d}K^{-1}e^{-\lambda d}\|\le2M_0$.
+\end{lemma}
+
+\begin{proof}
+$e^{\lambda d}Ke^{-\lambda d}=K+E$ with $|E_{ab}|\le(e^\lambda-1)|K_{ab}|$,
+so $\|E\|\le(e^\lambda-1)S$ by the Schur test, $\|K^{-1}E\|\le\frac12$, and
+$(K+E)^{-1}=(1+K^{-1}E)^{-1}K^{-1}$ has norm at most $2M_0$.
+\end{proof}
+
+\begin{theorem}\label{thm:constrainedcube}
+For every $b>0$, every even $n$ and every exterior link $j$:
+\begin{enumerate}[label=\textup{(\roman*)},leftmargin=*]
+\item $\gamma^{\rm c}_V(\cdot\mid\eta,v)$ is a Gaussian law whose covariance
+depends on neither $\eta$ nor $v$ and whose mean is affine in $(\eta,v)$, and
+$C^{\rm c}_{V,j}=\|u_j\|_1$, where $u_j\in\R^V$ is the change of the mean when
+$\eta_j$ increases by one; $u_j$ does not depend on $b$;
+\item $\sum_{e\in V}e^{2\lambda_0d(e)}u_j(e)^2\le3500^2$ and $\|u_j\|_1\le
+10^{14}$, where $\lambda_0=2.4\cdot10^{-5}$ and $d(e)$ is the $\ell^\infty$
+distance between the midpoints of $e$ and $j$;
+\item $D_{\rm c}(n,\alpha)$ holds for every $\alpha\in(0,1)$ and every even
+$n\ge2\cdot10^{15}/\alpha$, at every $b>0$.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+(i) Let $H$ be the matrix of $\sum_{p\cap V\ne\emptyset}(d\varphi)_p^2$ on
+$\R^V$ and $B$ that of the averages $V_{y,\mu}$, $y\in W$, restricted to
+$V$. By Theorem~\ref{thm:blockgap} with this $W$, $H\ge\frac1{52}$ on $\ker
+B$, so the density is that of a non-degenerate Gaussian on the affine set,
+its covariance is $b^{-1}$ times the inverse of $H$ on $\ker B$, and its mean
+$m$ minimises the quadratic form on the affine set. The mean is affine in
+$(\eta,v)$, and two exteriors that differ at $j$ give translates by $u_j$,
+which minimises $Q(u+\delta_j)$ subject to $B u=g$, $g$ being minus the
+coefficients of $j$ in the averages. The translation argument of
+Proposition~\ref{prop:gaussforest} gives $C^{\rm c}_{V,j}=\|u_j\|_1$.
+
+(ii) The pair $(u_j,y)$, with $y$ the Lagrange multipliers, solves
+$K(u_j,y)=(f,sg)$ with $K$ as in Lemma~\ref{lem:saddle}, $s=96$ and $f=
+-\sum_{p\ni j}(d\delta_j)_p\,d_p|_V$, where $d_p|_V$ is the row of the
+plaquette $p$ restricted to $V$. Each link lies in six plaquettes of four
+links, so the row sums of $|H|$ are at most $24$ and $h\le24$; $|f|\le
+6\sqrt3$; and $|g|\le\frac1{16}$, since an exterior link enters at most one
+average of $W$, with weight $\frac1{16}$. By Lemma~\ref{lem:blocktree}(iii)
+each average has squared norm at least $8\cdot\frac1{64}=\frac18$, two
+averages share links only if they are $(y,\mu)$ and $(y\pm e_\mu,\mu)$, and
+then their inner product is at most $8\cdot\frac1{256}=\frac1{32}$; so $BB^\top
+\ge\frac1{16}$ by Gershgorin's theorem. With $a=\frac1{52}$,
+Lemma~\ref{lem:saddle} gives $\|K^{-1}\|\le M_0=105$. The rows of $K$ have
+absolute sums at most $S=\max(24+\frac{96}8,96\cdot2)=192$, because an
+average has eight coefficients $\frac18$ and sixteen of $\frac1{16}$ and a
+link enters averages with total weight at most $\frac18$. Index the rows of
+$B$ by the centre $2y+\frac12(1,1,1,1)+e_\mu$ of the two blocks of the
+average and put $d$ equal to the $\ell^\infty$ distance to the midpoint of
+$j$. Links of one plaquette, and an average and its links, are within
+distance one, so Lemma~\ref{lem:combes} applies with $\lambda=\log(1+
+1/40320)>\lambda_0$, and
+\[
+\sum_ee^{2\lambda d(e)}u_j(e)^2\le\bigl(2M_0e^\lambda(|f|+s|g|)\bigr)^2
+\le3500^2,
+\]
+since $f$ and $g$ live at distance at most one from $j$. At most
+$4(64k^3+16k)$ links have their base at $\ell^\infty$ distance $k\ge1$ from
+the base of $j$, and their midpoints are at distance at least $k-1$, so
+Cauchy--Schwarz gives
+\[
+\|u_j\|_1^2\le3500^2\cdot4e^{2\lambda}\Bigl(1+\sum_{k\ge1}(64k^3+16k)
+e^{-2\lambda k}\Bigr)\le(10^{14})^2 .
+\]
+
+(iii) $C^{\rm c}_{V_x,j}=0$ unless $j$ shares a plaquette with $V_x$ or
+enters an average of $V_x$, which forces the base $z$ of $j$ into
+$x+[-1,n+1]^4$, while $z\notin x+[0,n)^4$ when $j\notin V_x$. For each
+coordinate at most $\frac n2+2$ even $x_i$ satisfy the first condition and
+exactly $\frac n2$ the second, so
+\[
+K^{\rm c}_c\le\Bigl(\Bigl(\frac n2+2\Bigr)^4-\Bigl(\frac n2\Bigr)^4\Bigr)
+10^{14}\le\frac{17}n\,10^{14}N_n
+\]
+for $n\ge10^4$, which is at most $\alpha N_n$ when $n\ge2\cdot10^{15}/\alpha$.
+\end{proof}
+
+The constants are crude. The computations of~\cite{Loc26} give $C^{\rm
+c}_{V,j}\le12.48$ at $n=4$, and an exact face expansion $K^{\rm c}_c/N_n=
+a_c/n+O(n^{-2})$ with $\max_ca_c=61.18$, so that $D_{\rm c}(n,0.95)$ first
+holds at $n=64$; they are floating-point values, reproduced in the archive
+for $n\le4$, and the theorem does not use them. The coefficients are large
+because the constrained responses obey no maximum principle: an exterior
+link changes the curvature of up to six plaquettes, and keeping the
+curvature small moves a dozen links inside the cube with alternating signs.
+Re-weighting the classes does not help much: if $\sum_{j\in c\setminus V}
+\sum_{c'}w_{c'}C^{c'}_{V,j}\le\alpha N_nw_c$ for positive weights $w$, where
+$C^{c'}_{V,j}$ is the part of $\|u_j\|_1$ on the links of the class $c'$,
+then $\alpha N_n$ is at least the spectral radius of the non-negative matrix
+of these sums, hence at least $\min_cK^{\rm c}_c$, by the Collatz--Wielandt
+inequality~\cite{Loc26}.
+
+\begin{remark}\label{rem:constrainedopen}
+Theorem~\ref{thm:constrainedcube} is the weak-coupling half of the
+constrained route at leading order, and Theorem~\ref{thm:transfer} cannot
+use it as it stands. Four steps remain, each an open problem.
+\begin{enumerate}[label=\textup{(\alph*)},leftmargin=*]
+\item \emph{Composition.} $D_{\rm c}$ holds the block averages fixed. A gap
+in physical units needs a theorem that combines the constrained conditions
+at all scales with a cube condition for the coarsest averages, in the place
+of Theorem~\ref{thm:transfer}.
+\item \emph{Beyond the quadratic approximation.} For the Wilson measure the
+block averages are products of group elements along paths, their level sets
+are curved, and the Bakry--\'Emery tensor of Section~\ref{sec:curvature} is
+negative at large fields; Theorem~\ref{thm:blockgap} controls only the small
+fields, and the large fields have to be split off as in Ba{\l}aban's
+analysis~\cite{Bal89b}.
+\item \emph{Second order.} Let $b_0=11N/(48\pi^2)$ for $\SU(N)$, $t=2b_0\log2$,
+and let $g_m^{-2}=g_*^{-2}+tm$ be the one-loop coupling $m$ steps above a
+matching scale. Comparison with integrals gives $\sum_{m\le M}g_m^2=
+t^{-1}\log M+O(1)$ and $\sum_mg_m^4\le\pi^2/(6t^2)$~\cite{Loc26}. A loss $1+cg_m^2$ per step therefore
+compounds to a power of $M$, and a step from one scale to the next has to be
+exact at order $g^2$, with that term absorbed into the running coupling and
+the normalisation of the field, and remainders of order $g^4$.
+\item \emph{Crossover and existence.} The passage from weak coupling to the
+strong-coupling range of Section~\ref{sec:su2}--\ref{sec:su3blocks} and the
+existence of the limit, (E), are untouched.
+\end{enumerate}
+The renormalisation group needed for (a) and (b) is the ultraviolet half of
+(E), so the constrained route places both residues on one construction.
+\end{remark}
+
 \section*{Acknowledgements}
 
 This paper rests on the work of many earlier scientists. Lattice gauge
@@ -4956,7 +5297,8 @@ Osterwalder and Seiler~\cite{OSei78,Sei82}. The uniqueness method is
 Dobrushin's~\cite{Dob68,Dob70,DS85}, the curvature method is that of Bakry
 and \'Emery~\cite{BE85,BGL14} in the form of Shen, Zhu and Zhu~\cite{SZZ23},
 the gauge fixing on a forest is Creutz's~\cite{Cre77}, and the curvature of
-Lie groups is Milnor's~\cite{Mil76}. The analysis of the single-link law
+Lie groups is Milnor's~\cite{Mil76}; the localisation estimate of
+Section~\ref{ssec:constrained} is that of Combes and Thomas~\cite{CT73}. The analysis of the single-link law
 uses results of Barta~\cite{Bar37}, Biernacki and Krzy\.z~\cite{BK55},
 McShane~\cite{McS34}, Stein and Weiss~\cite{SW71} and Watson~\cite{Wat44}, and
 the continuum problem is the one formulated by Jaffe and Witten~\cite{JW06}
@@ -4972,8 +5314,8 @@ Propositions~\ref{prop:cover} and~\ref{prop:cover2} and
 Lemma~\ref{lem:su3const} and the numerical bounds of
 Lemma~\ref{lem:vmfconst}, which are computations with rigorous error bounds,
 and the finite check of Lemma~\ref{lem:plaqblocks}. The archive
-\texttt{creelie/4Y-M} (release v3.18.0,
-\url{https://github.com/creelie/4y-m/releases/tag/v3.18.0})
+\texttt{creelie/4Y-M} (release v4.0.0,
+\url{https://github.com/creelie/4y-m/releases/tag/v4.0.0})
 contains the programs of that computation, in Python with python-flint
 (FLINT and Arb) and a C kernel for products of Taylor polynomials, with
 their outputs and the list of certified boxes; the programs and outputs of
@@ -4987,7 +5329,10 @@ Appendix~\ref{app:table}, by \texttt{decide}); the programs of
 Appendix~\ref{app:plaqblocks} for the plaquette blocks, with the
 floating-point search of Remark~\ref{rem:blockgap}; an exact computation of
 the curvatures of Table~\ref{tab:groups} from the root systems; exact checks of
-the finite counts, of the discs and of the Gaussian benchmark of Section~\ref{ssec:cubeneeds}, with
+the finite counts, of the discs and of the Gaussian benchmark of Section~\ref{ssec:cubeneeds}; the
+finite counts of Section~\ref{ssec:constrained}, in exact arithmetic, with
+floating-point values of the constrained gap and responses that the proofs
+do not use; with
 Monte Carlo estimates of the influence coefficients and of $\varepsilon_V$
 that the proofs do not use; and the source of the
 preprint version of this paper. The computations and the Lean, Python and shell checks were run with AI
@@ -6520,6 +6865,12 @@ Creutz, M.: Gauge fixing, the transfer matrix, and confinement on a
 lattice. Phys. Rev. D \textbf{15}, 1128--1136 (1977).
 \href{https://doi.org/10.1103/PhysRevD.15.1128}{https://doi.org/10.1103/PhysRevD.15.1128}
 
+\bibitem{CT73}
+J.~M.~Combes and L.~Thomas, Asymptotic behaviour of eigenfunctions for
+multiparticle Schr\"odinger operators, Comm. Math. Phys. \textbf{34} (1973),
+251--270,
+\href{https://doi.org/10.1007/BF01646473}{doi:10.1007/BF01646473}.
+
 \bibitem{Dim13}
 Dimock, J.: The renormalization group according to Balaban, I. Small fields. Rev. Math. Phys. \textbf{25}, 1330010 (2013). \href{https://doi.org/10.1142/S0129055X13300100}{https://doi.org/10.1142/S0129055X13300100}
 
@@ -6621,6 +6972,12 @@ theories. Phys. Rev. D \textbf{11}, 395--408 (1975).
 
 \bibitem{Lev03}
 L\'evy, T.: Yang--Mills measure on compact surfaces. Mem. Amer. Math. Soc. \textbf{166}(790) (2003). \href{https://doi.org/10.1090/memo/0790}{https://doi.org/10.1090/memo/0790}
+
+\bibitem{Loc26}
+J.~M.~Lockwood, Toward the continuum limit of forest-gauge lattice
+Yang--Mills theory: constrained cubes, exact Gaussian diagnostics, and a
+gauge-suited mixing test, technical report, 29 October 2026, distributed with
+the archive.
 
 \bibitem{Lus77}
 L\"uscher, M.: Construction of a selfadjoint, strictly positive transfer
