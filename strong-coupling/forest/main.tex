@@ -495,8 +495,13 @@ covariant block map treats the positions of a block alike
 operation is continuous, covariant and coercive for every field and agrees
 with the block averages to first order; it breaks the symmetry only at large
 fields, as it must, and its constants are those of one step
-(Theorem~\ref{thm:cutoff}). Whether some block map is coercive for all
-fields and composes across scales is open.
+(Theorem~\ref{thm:cutoff}). On fields with values in a maximal torus whose
+curvature stays small at every scale it composes, with the energy
+nonincreasing and the thin paths contracted (Theorem~\ref{thm:torusscales}),
+and a random choice of the path offset gives a kernel that composes exactly
+and does not increase the mean energy for any field
+(Proposition~\ref{prop:offsetkernel}). Whether some block map is coercive for
+all fields and composes across scales is open.
 
 \begin{figure*}[t]
 \centering
@@ -5528,7 +5533,8 @@ but that map does not compose across scales
 map treats the transverse positions of a block alike
 (Proposition~\ref{prop:nomean}). The cut-off average of
 Theorem~\ref{thm:cutoff} is coercive for all fields and agrees with the
-averages to first order, with constants for one step.
+averages to first order, with constants for one step; on torus-valued
+fields of small curvature it composes (Theorem~\ref{thm:torusscales}).
 \item \emph{Second order.} Let $b_0=11N/(48\pi^2)$ for $\SU(N)$, $t=2b_0\log2$,
 and let $g_m^{-2}=g_*^{-2}+tm$ be the one-loop coupling $m$ steps above a
 matching scale. Comparison with integrals gives $\sum_{m\le M}g_m^2=
@@ -6013,8 +6019,291 @@ exponentially in the number of steps; on its large-field branch the map is
 the path map, for which Proposition~\ref{prop:thinpath} rules out any bound
 uniform in that number. Whether the $k$-fold cut-off average obeys
 $Q_k(V^{\sharp,k}(U))\le C\,Q(U)$ and the corresponding coercivity bound
-with $C$ independent of $k$ is open; it is the form in which
-Remark~\ref{rem:constrainedopen}(b) remains.
+with $C$ independent of $k$ is open for general fields; it is the form in
+which Remark~\ref{rem:constrainedopen}(b) remains. Section~\ref{ssec:scales}
+proves it, with $C=1.001$, for fields with values in a maximal torus whose
+curvature stays small at every scale.
+
+\subsection{Composition across scales}\label{ssec:scales}
+
+This subsection proves that the cut-off average composes across all scales
+on fields with values in a maximal torus whose curvature stays small, which
+includes the thin paths that defeat the path map, and records two block
+constructions for general fields that compose in other senses.
+
+\begin{figure*}[t]
+\centering
+\includegraphics[width=0.9\textwidth]{figures/fig_scales.png}
+\caption{(a) In the torus, the coarse plaquette of the cut-off average is
+the mean of the fluxes $F_{2y+o}$ of the sixteen fine squares of side two
+at the offsets $o$ (four of them drawn), whatever the gauge of the coarse
+links (Lemma~\ref{lem:torusstep}). (b) For the thin-path fields of
+Proposition~\ref{prop:thinpath}, the coarse energy after $k$ steps: $24$
+for the path map, at most $18\pi^2/s^2$ for the cut-off average
+(Corollary~\ref{cor:thinscales}); the fine energy is about $6\pi^2/s$.}
+\label{fig:scales}
+\end{figure*}
+
+Let $S$ be a maximal torus of $G\subset\U(r)$ and $\mathfrak s$ its Lie
+algebra. The exponential maps $\mathfrak s$ onto $S$, and its kernel
+$\Lambda$ consists of diagonalisable matrices with eigenvalues in $2\pi i\Z$,
+so every nonzero element of $\Lambda$ has norm at least $2\pi$. For an
+$S$-valued field with $\delta(U_p,I)\le\rho_G$ on every plaquette put
+$\Theta_p=\log U_p$; it lies in $\mathfrak g$, commutes with $S$, and so
+lies in $\mathfrak s$. For a fine site $x$ and a coordinate plane $\{\mu,\nu
+\}$ let $\square_x$ be the square of side two at $x$ in that plane and
+$F_x=\sum_{p\subset\square_x}\Theta_p$, the sum of its four plaquettes,
+oriented as the square. Put
+\[
+\eta_G=\rho_G/12.
+\]
+The $k$-fold cut-off average is defined by putting the coarse field back
+into the tree gauge, by an $S$-valued gauge transformation, before each
+step. The tree gauge fixes such a transformation up to one that is constant
+on blocks, under which $V^\sharp$ is covariant, so the coarse plaquette
+holonomies $U^{(j)}_P$ of the $j$-th iterate $U^{(j)}$ are well defined; we
+write $\Theta^{(j)}_P=\log U^{(j)}_P$ when $\delta(U^{(j)}_P,I)\le\rho_G$.
+
+\begin{lemma}\label{lem:torusstep}
+Let $U$ be an $S$-valued field in the tree gauge with $\lVert\Theta_p\rVert
+\le\eta_G$ for every plaquette. Then $\chi_{y,\mu}(U)=1$ for every coarse
+link, and the coarse plaquette $P$ at $y$ in the plane $\{\mu,\nu\}$ has
+\[
+V^\sharp(U)_P=\exp\bar F_P,\qquad\bar F_P=\frac1{16}\sum_{o\in\{0,1\}^4}
+F_{2y+o},
+\]
+with $\lVert\bar F_P\rVert\le4\max_p\lVert\Theta_p\rVert$, so that $\log
+V^\sharp(U)_P=\bar F_P$.
+\end{lemma}
+
+\begin{proof}
+Let $\eta=\max_p\lVert\Theta_p\rVert$. Fix $(y,\mu)$ and $x=2y+o$. The tree
+path $\tau$ from $2y$ to $x$ sets the coordinates of $o$ one at a time in
+increasing order, so it has at most four edges, at most three of them
+transverse to $\mu$. In the tree gauge its links are $I$, so
+$P_{2y}^{-1}P_x$ is the holonomy of the loop $\tau$, then the straight path
+from $x$ to $x+2e_\mu$, then $\tau+2e_\mu$ backwards, then the straight path
+from $2y+2e_\mu$ back to $2y$. This loop is the boundary of the surface
+swept by the transverse edges of $\tau$ along two steps in the direction
+$\mu$: at most six distinct plaquettes, each with coefficient $\pm1$. The
+group is abelian, so $P_{2y}^{-1}P_x=\exp d_x$ with $d_x$ the signed sum of
+their $\Theta_p$, and $\lVert d_x\rVert\le6\eta\le\rho_G/2$. By
+Lemma~\ref{lem:logbound}, $\delta(P_x,P_{2y})\le\rho_G/2$, so $\chi=1$, and
+since the eigenvalues of $d_x$ have modulus at most $\frac12$,
+$\log(P_{2y}^{-1}P_x)=d_x$. Hence $V^\sharp_{y,\mu}=\exp(X_{y,\mu}+\bar
+d_{y,\mu})$, where $X_{y,\mu}\in\mathfrak s$ is any logarithm of $P_{2y}$
+and $\bar d_{y,\mu}$ is the mean of the $d_x$.
+
+Let the sides of $P$ be the coarse links $\ell$ with signs $\epsilon_\ell$,
+and write $d_{o,\ell}$ for the $d_x$ of the side $\ell$ at the offset $o$.
+For each $o$ the four straight paths of length two at the offset $o$ of the
+four sides bound the square $\square_{2y+o}$, so
+\[
+Y_o=\sum_\ell\epsilon_\ell\bigl(X_\ell+d_{o,\ell}\bigr)-F_{2y+o}\in
+\Lambda .
+\]
+Since $d_{0,\ell}=0$, $\lVert Y_o-Y_0\rVert\le4\cdot6\eta+8\eta=32\eta\le
+\frac83<2\pi$, so $Y_o=Y_0$ for every $o$. Averaging over $o$ gives
+$\sum_\ell\epsilon_\ell(X_\ell+\bar d_\ell)=\bar F_P+Y_0$, and $\exp Y_0=I$.
+Finally $\lVert\bar F_P\rVert\le\max_o\lVert F_{2y+o}\rVert\le4\eta<\pi/3$,
+so $\bar F_P$ is the principal logarithm.
+\end{proof}
+
+\begin{theorem}\label{thm:torusscales}
+Let $U$ be an $S$-valued field in the tree gauge on the periodic lattice of
+side divisible by $2^k$, with $\delta(U_p,I)\le\rho_G$ on every plaquette,
+and put $\eta_0=\max_p\lVert\Theta_p\rVert$, $A=\sum_p\lVert\Theta_p\rVert$.
+Suppose that
+\begin{equation}\label{eq:torushyp}
+\max_P\lVert\Theta^{(j)}_P\rVert\le\eta_G\quad\text{for }0\le j<k,
+\end{equation}
+which holds in particular if $\eta_0A\le\eta_G^2$. Then the cut-off is
+inactive at every step, $\Theta^{(j+1)}=\bar F(\Theta^{(j)})$, and for
+$j<k$
+\begin{gather*}
+\sum_P\lVert\Theta^{(j+1)}_P\rVert^2\le\sum_P\lVert\Theta^{(j)}_P\rVert^2,
+\qquad\sum_P\lVert\Theta^{(j+1)}_P\rVert\le\frac14\sum_P\lVert
+\Theta^{(j)}_P\rVert,\\
+\max_P\lVert\Theta^{(j+1)}_P\rVert\le4\max_P\lVert\Theta^{(j)}_P\rVert.
+\end{gather*}
+Consequently
+\begin{align*}
+Q_k\bigl(V^{\sharp,k}(U)\bigr)&\le\sum_p\lVert\Theta_p\rVert^2\le1.001\,
+Q(U),\\
+Q_k\bigl(V^{\sharp,k}(U)\bigr)&\le16^{-k}A^2 .
+\end{align*}
+\end{theorem}
+
+\begin{proof}
+The first assertions follow from Lemma~\ref{lem:torusstep} by induction,
+the $S$-valued gauge fixing between steps leaving the plaquette holonomies
+unchanged. The coarse plaquettes $P$ in a plane together with the offsets
+$o$ are in bijection with the fine squares $\square_x$ in that plane,
+$x=2y+o$, and a fine plaquette lies in four such squares. With $\lVert\bar
+F_P\rVert^2\le\frac1{16}\sum_o\lVert F_{2y+o}\rVert^2$ and $\lVert F_x
+\rVert^2\le4\sum_{p\subset\square_x}\lVert\Theta_p\rVert^2$ this gives
+$\sum_P\lVert\bar F_P\rVert^2\le\frac1{16}\cdot4\cdot4\sum_p\lVert\Theta_p
+\rVert^2$; the same count without Cauchy--Schwarz gives the factor
+$\frac14$ in the second inequality, and the third is $\lVert F_x\rVert\le
+4\eta$.
+
+For the sufficient condition, let $\eta_j$ and $A_j$ be the maximum and the
+sum of $\lVert\Theta^{(j)}_P\rVert$. While~\eqref{eq:torushyp} holds up to
+$j-1$, the inequalities give $\eta_j\le4^j\eta_0$ and $\eta_j\le A_j\le
+4^{-j}A$. The product of the two bounds is $\eta_0A\le\eta_G^2$, so the
+smaller one is at most $\eta_G$, and~\eqref{eq:torushyp} holds at $j$.
+
+Finally $\delta(\exp\Theta,I)\le\lVert\Theta\rVert$
+(Lemma~\ref{lem:logbound}), so $Q_k(V^{\sharp,k}(U))\le\sum_P\lVert
+\Theta^{(k)}_P\rVert^2$, which is at most both $\sum_p\lVert\Theta_p
+\rVert^2$ and $\eta_kA_k\le A_k^2\le16^{-k}A^2$. The eigenvalues of each
+$\Theta_p$ are $i\theta$ with $|\theta|\le\eta_0\le\eta_G\le\frac1{12}$, since
+$\eta_0^2\le\eta_0A$ in the sufficient condition and $\eta_0\le\eta_G$ is
+the case $j=0$ of~\eqref{eq:torushyp}; and $\theta^2\le1.001\cdot4\sin^2(
+\theta/2)$ there, which gives $\sum_p\lVert\Theta_p\rVert^2\le1.001\,Q(U)$.
+\end{proof}
+
+\begin{corollary}\label{cor:thinscales}
+For $G=\SU(2)$ and the fields of Proposition~\ref{prop:thinpath} with
+$s=2^k\ge2^{14}$,
+\begin{align*}
+Q_k\bigl(V^{\sharp,k}(U)\bigr)&\le\frac{18\pi^2}{s^2}\le\frac4s\,Q(U),\\
+Q_k\bigl(V^{{\rm p},k}(U)\bigr)&=24\ge\frac{4s}{\pi^2}\,Q(U).
+\end{align*}
+\end{corollary}
+
+\begin{proof}
+Here $\rho_G=1$ and $S$ is the diagonal torus. The $3s$ nonzero plaquettes
+have $\Theta_p=\pm2T/s$, of norm $\sqrt2\pi/s$, so $\eta_0A=6\pi^2/s\le
+\frac1{144}$ when $s\ge864\pi^2$, which holds for $s\ge2^{14}$, and $A^2=
+18\pi^2$. Proposition~\ref{prop:thinpath} gives $Q(U)=24s\sin^2(\pi/2s)$,
+which lies between $(6\pi^2/s)(1-\pi^2/(12s^2))$ and $6\pi^2/s$.
+\end{proof}
+
+So on torus-valued fields of small curvature the cut-off average behaves
+like the linear averages: the curvature is averaged over the sixteen
+offsets at every step, the energy never increases, and a thin path is
+spread out and contracted instead of being carried to the coarse lattice
+(Fig.~\ref{fig:scales}). Two limitations remain. The torus is abelian, and
+for general fields the paths do not commute: the logarithms then carry the
+commutator of the two links of each path at second order, which has no
+counterpart in Lemma~\ref{lem:torusstep}. And the
+hypothesis~\eqref{eq:torushyp} asks the curvature to stay below $\eta_G$ at
+every scale, while a field whose curvature is smooth on a scale $\ell$
+grows by a factor four per step until the coarse spacing reaches $\ell$.
+
+The next statements concern general fields of any compact $G\subset\U(r)$.
+They were first written in a technical companion prepared with
+ChatGPT/Codex; the proofs here are complete. The first is a quantitative
+form of the continuity of the cut-off average.
+
+\begin{proposition}\label{prop:cutofflip}
+If $U,U'$ are two fields and $d$ is the sum of $\delta(U_e,U'_e)$ over the
+distinct links of the sixteen paths of $(y,\mu)$, then
+$\delta(V^\sharp_{y,\mu}(U),V^\sharp_{y,\mu}(U'))\le(\frac{13}4+\frac{4\pi}
+3)\,d$.
+\end{proposition}
+
+\begin{proof}
+For unitary $A$ with $\delta(A,I)\le1$ the eigenvalues $e^{i\theta}$ satisfy
+$\cos\theta\ge\frac12$, so $|e^{i\theta}+t|^2\ge1+t+t^2$ for $t\ge0$. The
+representation $\log A-\log B=\int_0^\infty(A+t)^{-1}(A-B)(B+t)^{-1}\,dt$
+then gives $\lVert\log A-\log B\rVert\le\frac{2\pi}{3\sqrt3}\lVert A-B
+\rVert\le2\lVert A-B\rVert$ for two such matrices, and $\lVert e^X-e^Y
+\rVert\le\lVert X-Y\rVert$ for skew-Hermitian $X,Y$, by differentiating
+$e^{(1-t)X}e^{tY}$. Each link lies in at most two of the paths, so $\delta(P
+,P')\le d$, $\sum_x\delta(P_x,P'_x)\le2d$, $|m-m'|\le2d$ and $|\chi-\chi'|
+\le4d/\rho_G$. If both maxima are below $\rho_G$, the exponents $L,L'$ of
+\eqref{eq:cutoff} without $\chi$ have norm at most $c\rho_G$ and
+$\lVert L-L'\rVert\le2d+\frac18\cdot2d$, so $\lVert\chi L-\chi'L'\rVert\le
+(4c+\frac94)d$. If only $m<\rho_G$, then $\chi\le2(\rho_G-m)/\rho_G\le4d/
+\rho_G$ and $\lVert\chi L\rVert\le4cd$. Adding $\delta(P,P')\le d$ gives the
+bound in every case.
+\end{proof}
+
+The second is a random block map. For $s\ge1$ and an offset $b\in\{0,\dots
+,s-1\}^4$ let $B^s_bU$ be the coarse field with $(B^s_bU)_{y,\mu}$ the
+product along the straight path of length $s$ from $b+sy$, and let
+\[
+\mathsf K_s(U,\cdot)=s^{-4}\sum_{b}\delta_{B^s_bU},
+\]
+the same offset being used for every coarse link.
+
+\begin{proposition}\label{prop:offsetkernel}
+$\mathsf K_s$ is defined and weakly continuous on all fields, maps $I$ to
+$\delta_I$, and transforms covariantly under gauge transformations constant
+on the blocks $sy+\{0,\dots,s-1\}^4$. It composes exactly,
+$\mathsf K_s\mathsf K_t=\mathsf K_{st}$, and for every field
+\[
+\int Q_1(V)\,\mathsf K_s(U,dV)\le Q(U).
+\]
+If a state is reflection positive about every integer time plane, its image
+under $\mathsf K_s$ is reflection positive about the coarse plane $y_0=0$.
+\end{proposition}
+
+\begin{proof}
+Continuity and normalisation are clear, and a gauge transformation constant
+on blocks leaves only its values at the ends of each path. Products are
+associative, so $B^t_c(B^s_bU)=B^{st}_{b+sc}U$, and $(b,c)\mapsto b+sc$ is a
+bijection onto $\{0,\dots,st-1\}^4$. A coarse plaquette of $B^s_bU$ is the
+holonomy of a square of side $s$, a product of $s^2$ conjugated fine
+plaquette holonomies, so $\delta(V_P,I)^2\le s^2\sum_{p\subset P}\delta(
+U_p,I)^2$. A fine plaquette in the plane $\{\mu,\nu\}$ lies in such a square
+for exactly $s^2$ of the $s^4$ offsets, those agreeing with it modulo $s$ in
+the two other coordinates, so the mean over $b$ of $Q_1(B^s_bU)$ is at most
+$s^{-4}\cdot s^2\cdot s^2\,Q(U)$. For reflection positivity, the reflection
+in the plane $x_0=b_0$ intertwines $B^s_b$ with the coarse reflection, so
+each term of the mean is positive.
+\end{proof}
+
+The kernel composes and does not increase energy for every field, but it is
+a mixture: conditioning on the offset returns the path map, with
+Proposition~\ref{prop:thinpath}, and the cube condition is a supremum over
+boundary conditions, which a mixture over offsets does not control. The
+third construction is symmetric in the paths and therefore, by
+Proposition~\ref{prop:nomean}, discontinuous. For a coarse link let $W_1,
+\dots,W_{16}$ be its sixteen paths in the tree gauge, $m_W$ their mean in
+the matrix algebra, and let $V$ be a point of $G$ nearest to $m_W$; for
+$\SU(2)$ it is $m_W/|m_W|$ in quaternion notation unless $m_W=0$.
+
+\begin{proposition}\label{prop:nearestmean}
+For every compact $G\subset\U(r)$, every field in the tree gauge and every
+choice of nearest points, $\sum_e\delta(U_e,R_e(V))^2\le180\,Q(U)$. For
+$\SU(2)$ and $0\le r<1$, the number of coarse links with $|m_W|\le r$ is at
+most $\frac{11}{2(1-r^2)}Q(U)$.
+\end{proposition}
+
+\begin{proof}
+For one coarse link let $U_a$, $a\in\{0,1\}^3$, be its eight crossing links,
+$m_U$ their mean and $A=\sum_a\lVert U_a-m_U\rVert^2$. Each $U_a$ occurs in
+two paths, $\psi_aU_a$ and $U_a\psi'_a$, with $\psi_a,\psi'_a$ links inside
+the blocks; let $S=\sum_a(\delta(\psi_a,I)^2+\delta(\psi'_a,I)^2)$. Then
+$\Delta=\lVert m_W-m_U\rVert$ satisfies $\Delta^2\le S/16$, and the distance
+from $m_U$ to $G$ is at most $\sqrt{A/8}$, since it is at most every
+$\lVert m_U-U_a\rVert$. As $V$ is nearest to $m_W$, $\lVert m_U-V\rVert\le
+\sqrt{A/8}+2\Delta$, and
+\[
+\sum_a\lVert U_a-V\rVert^2=A+8\lVert m_U-V\rVert^2\le3A+64\Delta^2\le
+\tfrac32E+4S,
+\]
+where $E$ is the sum of $\lVert U_a-U_{a'}\rVert^2$ over the twelve edges
+of the cube of offsets and $A\le E/2$, because the Laplacian of the cube
+has least nonzero eigenvalue $2$. As in the proof of
+Theorem~\ref{thm:pathcoercive}, $\sum E\le3Q_{\rm face}+9I_0$, while $\sum S
+\le2I_0$ and $I_0\le8Q_{\rm in}$. Summing, $J_0\le\frac92Q_{\rm face}+
+\frac{43}2I_0$ and $I_0+J_0\le180Q$. For $\SU(2)$, $\sum_i\lVert W_i-m_W
+\rVert^2=32(1-|m_W|^2)$, and comparison with $m_U$ bounds it by $2S+4A\le2S
++2E$; summing gives at most $22I_0+6Q_{\rm face}\le176Q$, and each coarse
+link with $|m_W|\le r$ contributes at least $32(1-r^2)$.
+\end{proof}
+
+Of the three, only the cut-off average is a continuous map, and only on
+the torus is it shown to compose; the kernel composes for all fields but
+only in mean; the nearest mean is symmetric and coercive but jumps where
+the paths cancel, and the second bound says that this happens on few
+links of a field of small energy. None of them gives the supremum over
+boundary conditions in (D).
+
 
 
 \section*{Acknowledgements}
@@ -6046,7 +6335,7 @@ Lemma~\ref{lem:vmfconst}, which are computations in interval arithmetic with
 rigorous error bounds. The programs of these steps, in Python with
 python-flint (FLINT and Arb) and a C kernel for products of Taylor
 polynomials, their outputs and the list of certified boxes are in the
-repository \url{https://github.com/creelie/4Y-M}, release v4.5.0, together
+repository \url{https://github.com/creelie/4Y-M}, release v4.6.0, together
 with a Lean~4 certificate of the line field and independent exact or
 numerical checks of the other finite statements.
 
@@ -6058,7 +6347,9 @@ Anaxia, the reasoning engine of the BLLM system~\cite{Bha26,Bha26b}; the line
 field, the free-boundary limit, the ceiling, the curvature bound, the
 $\SU(3)$ part, the plaquette blocks and the certified constants are the
 authors' own. Theorems~\ref{thm:pathcoercive} and~\ref{thm:pathZ} and
-Proposition~\ref{prop:thinpath} were first written in a technical companion
+Proposition~\ref{prop:thinpath}, and
+Propositions~\ref{prop:cutofflip}, \ref{prop:offsetkernel}
+and~\ref{prop:nearestmean}, were first written in technical companions
 prepared with ChatGPT/Codex; the proofs here are complete. All three authors
 approved the final text.
 
