@@ -12,7 +12,7 @@ authors:
   - family-names: Lockwood
     given-names: James Montgomery
     affiliation: "Independent Researcher, San Antonio, USA"
-version: 3.19.0
+version: 3.20.0
 date-released: 2026-10-28
 repository-code: "https://github.com/creelie/4Y-M"
 license: MIT
