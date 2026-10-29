@@ -61,9 +61,9 @@ This repository contains three papers and a Lean 4 / Mathlib project
   (`strong-coupling/prd/`, PDF also at
   `preprintYangMillsDobrushinCeiling/YangMillsDobrushinCeiling.pdf`; see
   `strong-coupling/README.md`);
-- *Mass Gap of Four-Dimensional Lattice Yang–Mills Theory for Every Compact Simple Group* (`strong-coupling/forest/`, REVTeX, 65 pages; PDF also
+- *Mass Gap of Four-Dimensional Lattice Yang–Mills Theory for Every Compact Simple Group* (`strong-coupling/forest/`, REVTeX, 67 pages; PDF also
   at `preprintYangMillsForestGauge/YangMillsForestGauge.pdf`; the one-column
-  version in the AMS article class, 98 pages, is `strong-coupling/forest/cmp/`;
+  version in the AMS article class, 101 pages, is `strong-coupling/forest/cmp/`;
   the working notes and checks are in `strong-coupling/gauge-fixed/`). It
   was first posted as Hexagon preprint 2610.00341 under the title *Mass Gap
   of Four-Dimensional Lattice Yang–Mills Theory in a Forest Gauge*.
@@ -268,8 +268,15 @@ sixteen paths of a block in the logarithmic chart at the straight path,
 switched continuously to the path map once some path is farther than ρ_G/2
 from it, is continuous, covariant and coercive for every field (D² ≤ 1431 Q,
 Q_1 ≤ 2956 Q for one step), agrees with the block averages to first order and
-breaks the symmetry only at large fields (Theorem "cutoff"); its constants
-do not compose (checks in
+breaks the symmetry only at large fields (Theorem "cutoff"). On fields with
+values in a maximal torus whose curvature stays below ρ_G/12 at every scale it
+composes: the coarse curvature is the mean of the sixteen 2×2 fine fluxes,
+the energy does not increase at any scale, and the thin paths are contracted
+(Theorem "torusscales", Corollary "thinscales"). A random coherent path
+offset gives a kernel that composes exactly and does not increase mean energy
+for any field, and the symmetric nearest mean, necessarily discontinuous, has
+D² ≤ 180 Q (Propositions "offsetkernel", "nearestmean"; first written with
+ChatGPT/Codex). Composition for general nonabelian fields is open (checks in
 `strong-coupling/gauge-fixed/checks/blocks/path_blocks.py`).
 These path-block results were first written in a technical companion
 prepared with ChatGPT/Codex. The localisation of
