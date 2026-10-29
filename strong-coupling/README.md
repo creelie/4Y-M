@@ -46,11 +46,11 @@ units remain open. `OPEN.md` records what is known of each.
 
 ## Forest gauge fixing (`forest/`, `gauge-fixed/`)
 
-`forest/main.tex` is the paper "Yang–Mills Mass Gap in 4D: Lattice SU(N) and Every Compact Simple Group" by Deep
+`forest/main.tex` is the paper "Mass Gap of Four-Dimensional Lattice Yang–Mills Theory for Every Compact Simple Group" by Deep
 Bhattacharjee, Ushashi Bhattacharya and James Montgomery Lockwood (REVTeX
-4-2, two columns, 54 pages), compiled as
+4-2, two columns, 62 pages), compiled as
 `preprintYangMillsForestGauge/YangMillsForestGauge.pdf` in the repository
-root; `forest/cmp/main.tex` is the same paper in the AMS article class (81
+root; `forest/cmp/main.tex` is the same paper in the AMS article class (94
 pages). Its figures are written by `forest/figures/make_figures.py` and the
 schematic figures by `forest/figures/make_schematics.py`. The paper is
 self-contained: the transfer-matrix reconstruction, the facts on spectral
@@ -59,8 +59,8 @@ single-link law of SU(2) are proved in its appendices.
 The working notes and the scripts behind it are in `gauge-fixed/`.
 
 Fixing the gauge on one link of every plaquette, along a field of straight
-lines, lowers the number of Dobrushin partners of a link from 18 to 12. Three
-results follow, proved by hand and not yet refereed (see
+lines, lowers the number of Dobrushin partners of a link from 18 to 12. The
+results, proved by hand and not yet refereed (see
 `gauge-fixed/README.md`):
 
 - four-dimensional SU(2): uniqueness of the free-boundary state, decay and a
@@ -125,6 +125,14 @@ results follow, proved by hand and not yet refereed (see
   the tree bounds or (D);
 - the cube size for every SU(N): n⁴ ≥ 2(1−α) β_W/(5 L_N(β_W)) with
   L_N(b) = 1 + ((N²−1)/2) log(81π²b) + N(N−1) log(12/11).
+- block averages: in a gauge whose fixed links are trees inside blocks of
+  side two, the quadratic approximation of (D) holds at every coupling for
+  cubes of side at least 2·10¹⁵/α, and one step of averaging bounds the cube
+  coefficients by the constrained ones plus those of the averages; for the
+  group-valued links the straight path between block roots gives
+  D_v² ≤ 224 Q for every compact group and every field but does not compose
+  (thin paths), and for SU(2) no continuous covariant block map treats the
+  positions of a block alike (winding numbers on the slice add up to one).
 
 Checks in `prd/checks/` (the paper does not rely on them):
 
