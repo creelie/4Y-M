@@ -13,6 +13,12 @@ Parts:
  (C) thin paths: Q / Q_k = s sin^2(pi/(2s)) for s = 2, 4, ..., 64, from the
      s/2 changed links with six plaquettes each and the six coarse plaquettes
      of the one nontrivial coarse link.
+ (D) slice windings: three covariant continuous maps of eight slice links
+     (u_1 and alternating products u_a u_b^-1 u_c ...) satisfy F(g u g^-1) =
+     g F(u) g^-1 and F(g u) = g F(u), and the degrees of their coordinate loops
+     add up to one; the normalised quaternion mean of the eight links, which
+     treats them alike, takes values 2 apart at fields arbitrarily close to
+     the field with u_t = -I on four links and I on the others.
 Run: python3 path_blocks.py. Needs numpy."""
 import itertools, math
 import numpy as np
@@ -126,4 +132,48 @@ for k in range(1, 7):
     good &= abs(r - want) < 1e-12 and r <= math.pi ** 2 / (4 * s) + 1e-15
     print('    s = %3d: Q/Q_k = %.6f, s sin^2(pi/2s) = %.6f' % (s, r, want))
 check('(C) thin-path ratio s sin^2(pi/(2s)) <= pi^2/(4s) for s = 2..64', good)
+
+# (D)
+X = np.array([[1j, 0], [0, -1j]])
+def ex(th): return np.diag([np.exp(1j * th), np.exp(-1j * th)])
+def angle(A): return math.atan2(A[0, 0].imag, A[0, 0].real)
+def degree(F, t, n=8, N=400):
+    tot, prev = 0.0, None
+    for k in range(N + 1):
+        u = [np.eye(2, dtype=complex)] * n; u = list(u); u[t] = ex(2 * math.pi * k / N)
+        a = angle(F(u))
+        if prev is not None:
+            d = a - prev; d -= 2 * math.pi * round(d / (2 * math.pi)); tot += d
+        prev = a
+    return round(tot / (2 * math.pi))
+inv = lambda A: A.conj().T
+maps = {'path map u_1': lambda u: u[0],
+        'u_1 u_2^-1 u_3': lambda u: u[0] @ inv(u[1]) @ u[2],
+        'u_4 u_7^-1 u_2 u_5^-1 u_8': lambda u: u[3] @ inv(u[6]) @ u[1] @ inv(u[4]) @ u[7]}
+rng = np.random.default_rng(7)
+def haar():
+    q = rng.normal(size=4); q /= np.linalg.norm(q)
+    return np.array([[q[0] + 1j * q[1], q[2] + 1j * q[3]], [-q[2] + 1j * q[3], q[0] - 1j * q[1]]])
+good = True
+for F in maps.values():
+    for _ in range(20):
+        u = [haar() for _ in range(8)]; g = haar()
+        good &= np.allclose(F([g @ a @ inv(g) for a in u]), g @ F(u) @ inv(g))
+        good &= np.allclose(F([g @ a for a in u]), g @ F(u))
+check('(D) the three maps are covariant on slice fields', good)
+good = True
+for name, F in maps.items():
+    w = [degree(F, t) for t in range(8)]
+    print('    %-30s w = %s' % (name, w)); good &= sum(w) == 1
+check('(D) slice windings add up to one for covariant continuous maps', good)
+def qmean(u):
+    q = sum(u) / len(u); r = math.sqrt(abs(np.linalg.det(q)))
+    return q / r
+eps = 1e-6
+Y = np.array([[0, 1], [-1, 0]], dtype=complex)
+def near(Xd):
+    return [ex(math.pi) @ (np.eye(2) * math.cos(eps) + Xd * math.sin(eps))] * 4 + [np.eye(2, dtype=complex)] * 4
+jump = np.linalg.norm(qmean(near(X)) - qmean(near(Y)))
+print('    quaternion mean at fields within %g of (-I)^4 I^4 in two directions differs by %.4f' % (eps, jump))
+check('(D) the symmetric quaternion mean jumps by 2 near (-I,...,-I,I,...,I)', abs(jump - 2) < 1e-4)
 print('%d checks passed, %d failed' % (sum(ok), len(ok) - sum(ok)))
