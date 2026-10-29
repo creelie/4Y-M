@@ -19,6 +19,9 @@ Parts:
      add up to one; the normalised quaternion mean of the eight links, which
      treats them alike, takes values 2 apart at fields arbitrarily close to
      the field with u_t = -I on four links and I on the others.
+ (E) the same for SU(3) on its maximal torus: for covariant continuous maps of
+     six slice links the integer matrices W_t on H_1 of the torus add up to the
+     identity.
 Run: python3 path_blocks.py. Needs numpy."""
 import itertools, math
 import numpy as np
@@ -176,4 +179,40 @@ def near(Xd):
 jump = np.linalg.norm(qmean(near(X)) - qmean(near(Y)))
 print('    quaternion mean at fields within %g of (-I)^4 I^4 in two directions differs by %.4f' % (eps, jump))
 check('(D) the symmetric quaternion mean jumps by 2 near (-I,...,-I,I,...,I)', abs(jump - 2) < 1e-4)
+# (E)
+def tor3(a, b): return np.diag([np.exp(1j * a), np.exp(1j * b), np.exp(-1j * (a + b))])
+def wind(vals):
+    tot = 0.0
+    for v0, v1 in zip(vals, vals[1:]):
+        d = math.atan2((v1 / v0).imag, (v1 / v0).real); tot += d
+    return round(tot / (2 * math.pi))
+def wmatrix(F, t, n=6, N=400):
+    W = np.zeros((2, 2), dtype=int)
+    for j in range(2):
+        d0, d1 = [], []
+        for k in range(N + 1):
+            u = [np.eye(3, dtype=complex) for _ in range(n)]
+            th = 2 * math.pi * k / N
+            u[t] = tor3(th, 0) if j == 0 else tor3(0, th)
+            R = F(u); d0.append(R[0, 0]); d1.append(R[1, 1])
+        W[0, j], W[1, j] = wind(d0), wind(d1)
+    return W
+def haar3():
+    z = rng.normal(size=(3, 3)) + 1j * rng.normal(size=(3, 3))
+    q, r = np.linalg.qr(z); q = q @ np.diag(np.diag(r) / abs(np.diag(r)))
+    return q / np.linalg.det(q) ** (1 / 3)
+maps3 = {'u_1': lambda u: u[0], 'u_1 u_2^-1 u_3': lambda u: u[0] @ inv(u[1]) @ u[2],
+         'u_6 u_4^-1 u_5 u_2^-1 u_3': lambda u: u[5] @ inv(u[3]) @ u[4] @ inv(u[1]) @ u[2]}
+good = True
+for F in maps3.values():
+    for _ in range(10):
+        u = [haar3() for _ in range(6)]; g = haar3()
+        good &= np.allclose(F([g @ a @ inv(g) for a in u]), g @ F(u) @ inv(g))
+        good &= np.allclose(F([g @ a for a in u]), g @ F(u))
+check('(E) the three SU(3) maps are covariant on slice fields', good)
+good = True
+for name, F in maps3.items():
+    S = sum(wmatrix(F, t) for t in range(6))
+    print('    %-26s sum of W_t = %s' % (name, S.tolist())); good &= (S == np.eye(2, dtype=int)).all()
+check('(E) for SU(3) the torus matrices W_t add up to the identity', good)
 print('%d checks passed, %d failed' % (sum(ok), len(ok) - sum(ok)))
