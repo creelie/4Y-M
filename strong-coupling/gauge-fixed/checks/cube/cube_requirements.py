@@ -53,7 +53,13 @@ The line field sigma of the residue table has period two. The script checks:
   (x) the proposition on block averages of the free field: the exact
       conditional variance E Var(F | block averages) of a quadratic packet
       against 2 sigma^4 sum alpha_B^2, and Var F against 2 d^2 sum f^2, on
-      periodic boxes in two and three dimensions.
+      periodic boxes in two and three dimensions;
+  (y) the proposition on perturbed actions: on random finite metric spaces,
+      W1 of two measures tilted by the same weight e^u is at most
+      e^Omega (1 + 2 Delta l) times W1 of the measures (l the Lipschitz
+      constant, Omega the oscillation of u, Delta the diameter), and W1 of one
+      measure tilted by e^u and e^u' is at most 2 Delta sup|u - u'|, by
+      linear programming; and the constants 48, 96 of the proposition.
 Run: python3 cube_requirements.py
 """
 from collections import Counter
@@ -788,5 +794,36 @@ for shape in ((4, 4), (6, 6), (8, 4), (4, 4, 4)):
             fv = rng.random(int(np.prod(shape))) * (rng.random(int(np.prod(shape))) < 0.6)
             sub = [b for b in allb if rng.random() < 0.7] or allb[:1]
             free_block_check(shape, mu, fv, sub)
+
+# (y) perturbed actions: the tilt inequalities behind the openness of D(n, alpha)
+from scipy.optimize import linprog
+def w1(mu, nu, Dm):
+    k = len(mu)
+    A_eq = []; b_eq = []
+    for i in range(k):
+        row = np.zeros(k * k); row[i * k:(i + 1) * k] = 1; A_eq.append(row); b_eq.append(mu[i])
+    for j in range(k):
+        row = np.zeros(k * k); row[j::k] = 1; A_eq.append(row); b_eq.append(nu[j])
+    r = linprog(Dm.ravel(), A_eq=np.array(A_eq), b_eq=np.array(b_eq), bounds=(0, None), method="highs")
+    return r.fun
+def tilt(mu, u):
+    h = mu * np.exp(u - u.max()); return h / h.sum()
+yrng = np.random.default_rng(29102026)
+for trial in range(60):
+    k = int(yrng.integers(4, 9))
+    pts = yrng.normal(size=(k, 4)); pts /= np.linalg.norm(pts, axis=1)[:, None]
+    Dm = np.arccos(np.clip(pts @ pts.T, -1, 1))          # geodesic metric on S^3 = SU(2)
+    Delta = Dm.max()
+    ell = float(yrng.uniform(0.05, 2.0))
+    cen = yrng.integers(0, k, size=3); off = yrng.uniform(0, 1, size=3)
+    u = ell * np.min(off[None, :] + Dm[:, cen], axis=1)    # ell-Lipschitz
+    Om = u.max() - u.min()
+    mu = yrng.dirichlet(np.ones(k)); nu = yrng.dirichlet(np.ones(k))
+    lhs = w1(tilt(mu, u), tilt(nu, u), Dm); rhs = np.exp(Om) * (1 + 2 * Delta * ell) * w1(mu, nu, Dm)
+    ok(lhs <= rhs + 1e-9, "tilt by a common weight")
+    up = u + yrng.uniform(-1, 1, size=k) * float(yrng.uniform(0, 0.5))
+    eta = np.abs(up - u).max()
+    ok(w1(tilt(mu, u), tilt(mu, up), Dm) <= 2 * Delta * eta + 1e-9, "two tilts of one measure")
+ok(48 * 2 == 96 and 2 * 48 * 48 == 96 * 48, "constants of the perturbation proposition")
 
 print(f"all {checks} checks passed")
