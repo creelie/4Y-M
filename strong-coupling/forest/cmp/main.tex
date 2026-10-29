@@ -79,7 +79,7 @@ Yang--Mills Theory in a Forest Gauge'', appeared as Hexagon preprint
 2610.00341. The
 \LaTeX{} source, the checks and the Lean certificate are in
 \href{https://github.com/creelie/4Y-M}{github.com/creelie/4Y-M}, release
-v4.2.0.}
+v4.3.0.}
 
 \begin{abstract}
 \itshape
@@ -4978,7 +4978,8 @@ ones plus those of the averages (Corollary~\ref{cor:compose}), and the
 averages carry at least the coarse quadratic form at every scale
 (Proposition~\ref{prop:effective}). For the group-valued links themselves,
 the straight paths between block roots satisfy a coercivity bound for all
-fields but do not compose (Sec.~\ref{ssec:pathblocks}).
+fields but do not compose, and a continuous covariant map cannot treat the
+transverse positions alike (Sec.~\ref{ssec:pathblocks}).
 Everything in this subsection concerns the quadratic approximation: real
 fields $\varphi$ on links, $(d\varphi)_p$ the signed sum around the plaquette
 $p$, and $(dh)_{(x,\mu)}=h(x)-h(x+e_\mu)$ for a function $h$ on sites.
@@ -5440,7 +5441,9 @@ fields, and the large fields have to be split off as in Ba{\l}aban's
 analysis~\cite{Bal89b}. For the straight paths between block roots the
 group-valued estimate holds for all fields (Theorem~\ref{thm:pathcoercive}),
 but that map does not compose across scales
-(Proposition~\ref{prop:thinpath}).
+(Proposition~\ref{prop:thinpath}), and for $\SU(2)$ no continuous covariant
+map treats the transverse positions of a block alike
+(Proposition~\ref{prop:nomean}).
 \item \emph{Second order.} Let $b_0=11N/(48\pi^2)$ for $\SU(N)$, $t=2b_0\log2$,
 and let $g_m^{-2}=g_*^{-2}+tm$ be the one-loop coupling $m$ steps above a
 matching scale. Comparison with integrals gives $\sum_{m\le M}g_m^2=
@@ -5461,7 +5464,9 @@ The renormalisation group needed for (a) and (b) is the ultraviolet half of
 Remark~\ref{rem:constrainedopen}(b) asks for estimates on the actual
 group-valued links. They can be proved for a coarser block map, the
 straight path between block roots, and this map exhibits the second half of
-the difficulty: it does not compose across scales.
+the difficulty: it does not compose across scales. A topological argument
+shows why no continuous map that treats the transverse positions alike can
+take its place.
 
 Let $G\subset\U(r)$ be a compact matrix group, $\delta(A,B)=\lVert A-B
 \rVert_{\rm HS}$, which is invariant under left and right multiplication,
@@ -5508,7 +5513,9 @@ coordinate that is one at level one and zero at level two, $L_0$ acts by
 the matrix $\bigl(\begin{smallmatrix}3&1\\1&3\end{smallmatrix}\bigr)$, with
 eigenvalues $2$ and $4$; at level three these functions vanish. The two
 spaces have dimensions $3$ and $4$ and span $\R^7$. Finally $1/(3-\sqrt7)=
-(3+\sqrt7)/2<3$.
+(3+\sqrt7)/2<3$.\footnote{The constant $(3+\sqrt7)/2$ is attained by a
+function of the level $|a|$ alone, so it is the best constant in the
+lemma.}
 \end{proof}
 
 \begin{theorem}\label{thm:pathcoercive}
@@ -5649,9 +5656,78 @@ averages compose and the paths do not. The two properties needed for
 Remark~\ref{rem:constrainedopen}(a) and (b) are therefore held by two
 different maps: the paths give a global estimate for the group-valued links
 on fibres that do not compose, and the averages compose on linear fibres
-that exist only in the quadratic approximation. Ba{\l}aban's averages of the
-path holonomies compose for small fields~\cite{Bal89b}; a block map with
-both properties for all fields is not known.
+that exist only in the quadratic approximation.
+
+A block map with both properties cannot treat the transverse positions
+alike and be continuous. Let $s=2^k$ and let $V$ be a map of the links with
+both ends in $B(y)\cup B(y+e_\mu)$, blocks of side $s$, to $G$. Call it
+\emph{covariant} if $V(U^h)=h_1V(U)h_2^{-1}$ for every gauge transformation
+$h$ equal to $h_1$ on $B(y)$ and to $h_2$ on $B(y+e_\mu)$, and
+\emph{normalised} if $V(I)=I$. The path map and its iterates are covariant,
+normalised and continuous. Let $T$ be the set of the $s^3$ links in the
+direction $\mu$ from $B(y)$ to $B(y+e_\mu)$, and for $u\in G^T$ let $U(u)$
+carry $u_t$ on the link $t\in T$ and $I$ on every other link
+(Fig.~\ref{fig:pathblocks}).
+
+\begin{proposition}\label{prop:nomean}
+Let $G=\SU(2)$, let $V$ be covariant and normalised, and let $F(u)=V(U(u))$
+be continuous on $G^T$. Fix $X\in\mathfrak{su}(2)$ with eigenvalues $\pm i$,
+so that $\theta\mapsto e^{\theta X}$ has period $2\pi$, and let $w_t$ be the
+degree of the loop $\theta\mapsto F(u)$, $u_t=e^{\theta X}$, $u_{t'}=I$
+for $t'\ne t$, in the circle $\{e^{\eta X}\}$. Then
+\[
+\sum_{t\in T}w_t=1.
+\]
+Hence some $w_t\ne0$, there is a field equal to $I$ off one link of $T$
+with $V=-I$, and, if $|T|\ge2$, no transitive group of permutations of $T$
+leaves $F$ invariant.
+\end{proposition}
+
+\begin{proof}
+The gauge transformation equal to $g$ on $B(y)\cup B(y+e_\mu)$ maps $U(u)$ to
+$U(gug^{-1})$, since the links equal to $I$ stay $I$, and the one equal to
+$g$ on $B(y)$ and to $I$ on $B(y+e_\mu)$ maps it to $U(gu)$. So
+$F(gug^{-1})=gF(u)g^{-1}$ and $F(gu)=gF(u)$, and with $F(I)=I$ the second
+gives $F(W,\dots,W)=W$. If every $u_t$ lies in the torus $\{e^{\eta X}\}$,
+every $g$ in it fixes $u$, so $F(u)$ commutes with the torus and lies in it,
+since in $\SU(2)$ a maximal torus is its own centraliser. Therefore $F$
+restricts to a continuous map from $(\R/2\pi\Z)^T$ to the circle. On first
+homology it is the homomorphism $\Z^T\to\Z$ that sends the $t$-th
+generator to $w_t$. The diagonal loop $\theta\mapsto(\theta,\dots,\theta)$
+represents the sum of the generators and is sent to $\theta\mapsto
+e^{\theta X}$, of degree one, so $\sum_tw_t=1$. A loop of nonzero
+degree is onto the circle and passes through $-I=e^{\pi X}$. A transitive
+permutation group preserving $F$ would make all $w_t$ equal, and
+$|T|\,w_t=1$ has no integer solution.
+\end{proof}
+
+For the path map, $w_t$ is one at the position of the path and zero
+elsewhere. Averages of the path holonomies weigh the positions alike, so by
+the proposition they have no continuous covariant extension to all of
+$G^T$. Ba{\l}aban's averages are
+defined only on fields whose plaquettes are small, and the large fields are
+split off~\cite{Bal84a,Bal89b}. A block map
+with both properties for all fields is therefore discontinuous or, like the
+path map, not invariant under the transverse symmetries of the block;
+whether one exists is open.\footnote{That a sphere carries no continuous
+symmetric mean goes back to Aumann~\cite{Aum44} and Eckmann~\cite{Eck54};
+the proof above is their argument in gauge-covariant form, with the links
+of the slice $T$ as the arguments of the mean.}
+
+\begin{figure}[tb]
+\centering
+\includegraphics[width=\textwidth]{figures/fig_pathblocks.png}
+\caption{(a) Two adjacent blocks $B(y)$, $B(y+e_\mu)$ of side $s=4$, drawn
+in three of the four dimensions. The black segment is the straight path
+between the roots, the coarse link of the path map. The blue links form the
+slice $T$ of Proposition~\ref{prop:nomean}. The red links carry the field of
+Proposition~\ref{prop:thinpath}: a path whose holonomy is that of a coarse
+link of order one, at a fine energy of order $1/s$. (b) Two coordinates of
+the torus $(\R/2\pi\Z)^T$ of slice fields with values in a maximal torus.
+The diagonal is pure gauge and is sent to a loop of degree one, so the
+degrees $w_t$ of the coordinate loops add up to one.}
+\label{fig:pathblocks}
+\end{figure}
 
 \section*{Acknowledgements}
 
@@ -5681,8 +5757,8 @@ Propositions~\ref{prop:cover} and~\ref{prop:cover2} and
 Lemma~\ref{lem:su3const} and the numerical bounds of
 Lemma~\ref{lem:vmfconst}, which are computations with rigorous error bounds,
 and the finite check of Lemma~\ref{lem:plaqblocks}. The archive
-\texttt{creelie/4Y-M} (release v4.2.0,
-\url{https://github.com/creelie/4y-m/releases/tag/v4.2.0})
+\texttt{creelie/4Y-M} (release v4.3.0,
+\url{https://github.com/creelie/4y-m/releases/tag/v4.3.0})
 contains the programs of that computation, in Python with python-flint
 (FLINT and Arb) and a C kernel for products of Taylor polynomials, with
 their outputs and the list of certified boxes; the programs and outputs of
@@ -5716,7 +5792,9 @@ Section~\ref{sec:su3blocks} and the certified constants were found and
 checked by the authors. All three authors approved the final text. Theorems~\ref{thm:pathcoercive} and~\ref{thm:pathZ}
 and Proposition~\ref{prop:thinpath} were first written in a technical
 companion to this paper prepared with ChatGPT/Codex; the proofs are given
-here in full, and Lemma~\ref{lem:anchorcube} in closed form.
+here in full, and Lemma~\ref{lem:anchorcube} in closed form. Proposition~\ref{prop:nomean} is new here; the
+winding numbers of the slice and the jump of the symmetric quaternion mean
+are checked numerically with the other path-block computations.
 
 \subsection*{Funding}
 None.
@@ -7139,6 +7217,11 @@ second recurrence of~\eqref{q-eq:besselrec},
 \bibitem{AC25}
 Adhikari, A., Cao, S.: Correlation decay for finite lattice gauge theories at weak coupling. Ann. Probab. \textbf{53}, 140--174 (2025). \href{https://doi.org/10.1214/24-AOP1702}{https://doi.org/10.1214/24-AOP1702}
 
+\bibitem{Aum44}
+Aumann, G.: {\"U}ber R{\"a}ume mit Mittelbildungen. Math. Ann.
+\textbf{119}, 210--215 (1944).
+\href{https://doi.org/10.1007/BF01563741}{https://doi.org/10.1007/BF01563741}
+
 \bibitem{BE85}
 Bakry, D., \'Emery, M.: Diffusions hypercontractives. In: S\'eminaire de
 Probabilit\'es XIX. Lecture Notes in Math., vol.~1123, pp.~177--206.
@@ -7268,6 +7351,11 @@ pp.~347--370. Birkh\"auser, Boston (1985).
 
 \bibitem{Dri89}
 Driver, B.K.: YM$_2$: continuum expectations, lattice convergence, and lassos. Commun. Math. Phys. \textbf{123}, 575--616 (1989). \href{https://doi.org/10.1007/BF01218586}{https://doi.org/10.1007/BF01218586}
+
+\bibitem{Eck54}
+Eckmann, B.: R{\"a}ume mit Mittelbildungen. Comment. Math. Helv.
+\textbf{28}, 329--340 (1954).
+\href{https://doi.org/10.1007/BF02566939}{https://doi.org/10.1007/BF02566939}
 
 \bibitem{FH91}
 Fulton, W., Harris, J.: Representation Theory: A First Course. Grad. Texts
