@@ -64,7 +64,7 @@
 \setlength{\emergencystretch}{3em}
 \begin{document}
 
-\title{Yang--Mills Mass Gap in 4D: Lattice SU($N$) and Every Compact Simple Group}
+\title{Mass Gap of Four-Dimensional Lattice Yang--Mills Theory for Every Compact Simple Group}
 
 \author{Deep Bhattacharjee$^{*}$\,\orcidlink{0000-0003-0466-750X}}
 \email{itsdeep@live.com}
@@ -73,9 +73,8 @@
 \nolinkurl{egspl@proton.me}, \href{https://github.com/creelie}{github.com/creelie}.}
 \affiliation{Formerly, Electro-Gravitational Space Propulsion Laboratory
 (EGSPL), Bhubaneswar, Odisha 751030, India}
-\affiliation{Formerly, Heramba Chandra College, 23/49 Gariahat Road, Golpark,
-Kolkata 700029 (University of Calcutta, 87/1 College Street, Kolkata 700073),
-West Bengal, India}
+\affiliation{Formerly, University of Calcutta (Heramba Chandra College), 23/49 Gariahat
+Road, Golpark, Kolkata 700029, West Bengal, India}
 
 \author{Ushashi Bhattacharya\,\orcidlink{0009-0002-2254-3914}}
 \email{rai.bhattacharya.in@gmail.com}
@@ -92,15 +91,14 @@ West Bengal, India}
 \itshape
 We prove that four-dimensional lattice Yang--Mills theory with any compact
 simple gauge group has a unique infinite-volume state, exponential clustering
-and an explicit mass gap at fixed lattice spacing, past the curvature limit of
-the ungauged theory, with the ranges $\beta_W\le0.345$ for SU(2) and
-$\beta_W\le0.76$ for SU(3). We also prove that one estimate of
-Dobrushin--Shlosman type in a cube of fixed physical size gives a mass gap in
-physical units for every continuum limit, and that this estimate, which holds
-at strong coupling and remains open along the continuum tuning, needs for
-SU($N$) a cube of side at least of order $(\beta_W/\log\beta_W)^{1/4}$.
-Posed for block averages in a block-rooted axial gauge, its quadratic
-approximation holds at every coupling in large cubes.
+and an explicit transfer-matrix gap at couplings past the curvature limit of
+the ungauged measure, up to $\beta_W=0.345$ for $\SU(2)$ and $\beta_W=0.76$
+for $\SU(3)$, in a gauge that fixes one link of every plaquette. We prove that
+a Dobrushin--Shlosman estimate in one cube of fixed physical size gives a mass
+gap in physical units for every continuum limit. This estimate is open along
+the continuum tuning; for $\SU(N)$ it needs cubes of side at least of order
+$(\beta_W/\log\beta_W)^{1/4}$, and for block averages its quadratic
+approximation holds at every coupling.
 \end{abstract}
 
 \maketitle
@@ -109,16 +107,12 @@ approximation holds at every coupling in large cubes.
 \renewcommand\thefootnote{}\footnotesize
 \footnotetext{\footnotesize\emph{2020 Mathematics Subject Classification.}
 Primary 81T25, 82B20; Secondary 60K35, 81T13, 22E30, 58J50, 65G30.
-\emph{PACS.} 11.15.Ha, 05.50.+q, 02.50.Cw, 02.40.Ky. \emph{Keywords.}
-Lattice gauge theory; gauge fixing; Dobrushin uniqueness; mass gap.}
-\footnotetext{\footnotesize An earlier version, titled ``Mass Gap of Four-Dimensional Lattice
-Yang--Mills Theory in a Forest Gauge'', appeared as Hexagon preprint
-2610.00341. The
-\LaTeX{} source, the checks and the Lean certificate are in
-\href{https://github.com/creelie/4Y-M}{github.com/creelie/4Y-M}, release
-v4.3.0.}
+\emph{Keywords.}
+Lattice gauge theory; gauge fixing; Dobrushin uniqueness; mass gap.
+Source, checks and Lean certificate:
+\href{https://github.com/creelie/4Y-M}{github.com/creelie/4Y-M}.}
 \endgroup
-\addtocounter{footnote}{-2}
+\addtocounter{footnote}{-1}
 
 \makeatletter
 \renewcommand\l@subsection[2]{}
@@ -208,23 +202,7 @@ gap hold.
 \end{theorem}
 
 The step behind Theorem~\ref{thm:su2} is short once the line field is in
-place.\footnote{The combination of a forest gauge fixing with the sharp
-quarter of~\cite{BB26a} was first assembled during a run of Anaxia, the
-reasoning engine of the BLLM system~\cite{Bha26}, release v3.0.5. In that
-run the engine combines proof steps along typed links (a step that produces
-a single-link Kantorovich bound may only feed a step that consumes one), and
-in every run with typed crossing it reached a composite accepting a lattice
-mass gap for four-dimensional $\SU(2)$ at $\beta_W<\frac13$, which no
-untyped or random run reached. The composite was first proposed by the
-language model inside the engine, and the engine's network reproduces it.
-The engine did not supply the line field, the free-boundary limit, the
-ceiling, the curvature bound or anything in the $\SU(3)$ part; the authors
-wrote and checked every proof in this paper. Release v3.1.0 of the
-engine~\cite{Bha26b} records its Yang--Mills runs in the failure log: the
-narrowing of the target from the continuum gap to explicit couplings in this
-gauge, the change from analytic one-link bounds to bounds certified box by
-box, and the change to blocks of several links. These records follow the
-course of the work and supply no step of the proofs.} The number $\frac13$ is also
+place. The number $\frac13$ is also
 the end of the road for this kind of argument.
 
 \begin{theorem}[Ceiling]\label{thm:ceiling}
@@ -478,25 +456,18 @@ ratio with an explicit rate and a reference vector of finite energy
 along the tuning, the slice ratio in four dimensions and the tree bounds,
 are not proved, and so the nontrivial existence of the continuum limit and
 the gap in physical units remain open. Figure~\ref{fig:logic} shows how the
-proved statements, the implications and the open inputs fit together. The
-open inputs are measured as follows. The cube condition holds at strong
-coupling, fails at every fixed cube size at weak coupling, forces the
-gauge-fixed variables to be disordered on the scale of the cube, and cannot
-be reached from estimates on single lines of links; for $\SU(N)$ it needs
-cubes of side at least of order $(\beta_W/\log\beta_W)^{1/4}$
+proved statements, the implications and the open inputs fit together.
+
+Sec.~\ref{sec:inputs} measures the open inputs. The cube condition holds
+at strong coupling, fails at every fixed cube size at weak coupling, forces
+the gauge-fixed variables to be disordered on the scale of the cube, and
+cannot be reached from estimates on single lines of links; for $\SU(N)$ it
+needs cubes of side at least of order $(\beta_W/\log\beta_W)^{1/4}$
 (Propositions~\ref{prop:cubesize} and~\ref{prop:cubesizeN}). For a Gaussian
 field it holds at a fixed physical scale when the field has a mass and fails
 exactly, at every size, when it is massless (Proposition~\ref{prop:gauss});
 it also fails for the quadratic approximation of the forest gauge itself
-(Proposition~\ref{prop:gaussforest}). Posed for block averages in a gauge
-whose fixed links are trees inside blocks of side two, it holds in the
-quadratic approximation at every coupling once the cube is large
-(Theorem~\ref{thm:constrainedcube}), and integrating out one scale reduces
-it to a cube condition for the averages, which carry at least the coarse
-quadratic form at every scale (Corollary~\ref{cor:compose},
-Proposition~\ref{prop:effective}), while the averages along the lines of
-the forest gauge leave one class of lines invisible and fail at every size
-(Proposition~\ref{prop:invisible}). The order-two cases of the tree bounds
+(Proposition~\ref{prop:gaussforest}). The order-two cases of the tree bounds
 force the lattice gap below a fixed multiple of the lattice spacing, so no
 strong coupling expansion gives them (Proposition~\ref{prop:treecritical}).
 The slice ratio holds in two dimensions, where it is the exact solution of
@@ -505,6 +476,23 @@ whose mass is fixed in lattice units; for the free field, conditioning an
 energy packet on averages over blocks leaves a fixed fraction of its ordinary
 variance at every lattice spacing, so a reduction to block averages has to be
 measured in the reflected norm (Proposition~\ref{prop:blockfree}).
+
+\emph{Block averages.} Sec.~\ref{sec:blocks} poses the cube condition for
+block averages in a gauge whose fixed links are trees inside blocks of side
+two. Its quadratic approximation then holds at every coupling once the cube
+is large (Theorem~\ref{thm:constrainedcube}), and integrating out one scale
+reduces it to a cube condition for the averages, which carry at least the
+coarse quadratic form at every scale (Corollary~\ref{cor:compose} and
+Proposition~\ref{prop:effective}); the averages along the lines of the forest
+gauge, by contrast, leave one class of lines invisible and fail at every size
+(Proposition~\ref{prop:invisible}). For the group-valued links, the straight
+path between block roots gives a coarse link whose fibres satisfy a
+coercivity bound for every compact group and every field
+(Theorem~\ref{thm:pathcoercive}), but this map does not compose across
+scales (Proposition~\ref{prop:thinpath}), and for $\SU(2)$ no continuous
+covariant block map treats the positions of a block alike
+(Proposition~\ref{prop:nomean}). Whether some block map is coercive for all
+fields and composes across scales is open.
 
 \begin{figure*}[t]
 \centering
@@ -524,8 +512,9 @@ Sec.~\ref{sec:state} shows that a Dobrushin bound for the gauge-fixed
 specification gives the full conclusion of Theorem~\ref{thm:su2}.
 Secs.~\ref{sec:su2}, \ref{sec:plaqblocks}, \ref{sec:curvature},
 \ref{sec:su3} and~\ref{sec:su3blocks} prove Theorems~\ref{thm:su2}--\ref{thm:su3blocks}, and
-Sec.~\ref{sec:limits} measures what is left; Sec.~\ref{sec:bypass} proves
-(I1)--(I3) and measures the open inputs. The appendices contain the
+Sec.~\ref{sec:limits} measures what is left. Sec.~\ref{sec:bypass} proves
+(I1)--(I3), Sec.~\ref{sec:inputs} states and measures their open inputs, and
+Sec.~\ref{sec:blocks} poses the cube condition for block averages. The appendices contain the
 residue table of the line field, the comparison lemma and its version for
 blocks, the blocks of the local Hessian inequality, the details of the
 certified computation, the reconstruction of the transfer matrix with the
@@ -580,8 +569,7 @@ to $\sigma$ under the symmetries of the lattice. A field with one fixed link
 at every site and one in every plaquette exists only in four dimensions: a
 link lies in $2(d-1)$ plaquettes and a site carries $d(d-1)/2$ of them, and
 $2(d-1)=d(d-1)/2$ forces $d=4$. The statements of this section are also
-checked by \texttt{decide} in the Lean file \texttt{GaugeFix.lean} of the
-archive.}
+checked in the Lean certificate of the archive.}
 
 \begin{lemma}\label{lem:structure}
 \begin{enumerate}[label=\textup{(\roman*)},leftmargin=*]
@@ -855,9 +843,9 @@ within distance $2$ of the midpoint of $j$.
 All four statements are invariant under $2\Z^4$ and involve plaquettes at
 distance at most two from one site, so they hold on $\Z^4$ as soon as they
 hold on the torus $(\Z/P\Z)^4$ with $P\ge6$, where no such configuration
-wraps around. They are checked on the tori of side four and six by the
-program described in Appendix~\ref{app:plaqblocks}; the side four already
-suffices for (i)--(iii). For (iii), an active link lies in six plaquettes,
+wraps around. They are checked by enumeration on the tori of side four and six
+(Appendix~\ref{app:plaqblocks}); the side four already suffices for
+(i)--(iii). For (iii), an active link lies in six plaquettes,
 one of which is its block plaquette, and each of the other five contains two
 further active links, which lie in other blocks by (ii).
 \end{proof}
@@ -2311,8 +2299,8 @@ and Shlosman~\cite{DS85}, and proves that the condition gives a gap of order
 $1/n$ in lattice units. If it holds with $n$ proportional to $1/a$, that is,
 in a cube of fixed physical size, the gap survives in physical units and
 passes to every continuum limit (Theorem~\ref{thm:transfer}). The two
-statements that remain unproved are named at the end: the cube estimate and
-the existence of the limit.
+statements that remain unproved, the cube estimate and the existence of the
+limit, are stated in Sec.~\ref{sec:inputs}.
 
 \subsection{Averaged cubes}
 
@@ -3666,174 +3654,14 @@ Theorem~\ref{thm:flowlimit}(iv) at every separation. The open input of
 Theorem~\ref{thm:flowlimit} is therefore implied by these two bounds for one
 smooth $f_0$; nothing here proves them for the Wilson action.
 
-\subsection{Estimates uniform in the coupling}\label{ssec:uniform}
+\section{The open inputs}\label{sec:inputs}
 
-Some local quantities of the Wilson measure can be controlled uniformly in
-$\beta_W$, the volume and the boundary condition, by integrating by parts in a
-single link. Such estimates hold along every tuning, but they concern local
-fields in lattice units, and the three results below show how far they are
-from the open inputs: the force has bounded moments but its centred form is a
-null vector of the reflected form, the plaquette has fluctuations of order
-$\beta_W^{-2}$ but this is a single-site variance, and bare links over a fixed
-physical distance become independent Haar variables.
+This section states the two unproved inputs of Sec.~\ref{sec:bypass}, the cube
+estimate and the limit, and measures the first: what can be controlled
+uniformly in the coupling, and what any proof of the cube estimate has to
+produce.
 
-Let $G=\SU(N)$, write $b=\beta_W$, so that the Wilson weight is $e^{bS}$ with
-$S=\sum_pN^{-1}\ReTr Q_p$, and give $\g$ the metric $\ip TR=-\Tr(TR)$. For a link
-$e$ let $S_e$ be the sum of the six plaquette terms containing $e$, $X_T$ the
-derivative along $U_e\mapsto e^{uT}U_e$ at $u=0$, $\nabla_e$ and $\Delta_e$ the
-gradient and Laplacian in $U_e$, $q=N^2-1$, $c_N=(N^2-1)/N$, and
-\[
-E_e=b|\nabla_eS_e|^2,\qquad W_e=E_e-c_NS_e=b|\nabla_eS_e|^2+\Delta_eS_e .
-\]
-Below, $\omega$ is a Wilson Gibbs state at $b>0$: a finite-volume measure in
-which $e$ is not fixed by the boundary condition, or an infinite-volume state
-whose conditional law of $U_e$ given the other links is proportional to
-$e^{bS_e}dU_e$ with $dU_e$ the Haar measure.
-
-\begin{proposition}\label{prop:force}
-\textup{(i)} For every unit $T\in\g$, $t\in\R$ and $0\le\eta<N/12$,
-\[
-\begin{split}
-\E_\omega\bigl[e^{t\sqrt b\,X_TS_e}\bigm|U_{e^c}\bigr]&\le e^{3t^2/N},\\
-\E_\omega\bigl[e^{\eta E_e}\bigm|U_{e^c}\bigr]&\le(1-12\eta/N)^{-q/2},
-\end{split}
-\]
-so $\E_\omega E_e^m\le m!\,(24/N)^m2^{q/2}$ for $m\ge1$, uniformly in $b$,
-the volume and the boundary condition. Moreover $\E_\omega E_e=c_N\E_\omega
-S_e$.
-
-\textup{(ii)} For a bounded function $F$ of finitely many links,
-continuously differentiable in $U_e$,
-$\E_\omega[W_eF]=-\E_\omega\ip{\nabla_eS_e}{\nabla_eF}$. In particular
-$\E_\omega[W_eF]=0$ if $F$ does not depend on $U_e$, and
-$\E_\omega[W_eW_f]=0$ if no plaquette contains both $e$ and $f$.
-
-\textup{(iii)} Let $\omega$ be reflection positive as in
-Appendix~\textup{\ref{app:transfer}}, and let $A=\sum_eh_eW_e$ be a finite
-sum over links whose endpoints have times at least $2$. Then
-$\omega(\vartheta(\bar A)A)=0$, so $\Psi_A=0$: in the reconstructed Hilbert
-space the packets $\sum_eh_eE_e$ and $c_N\sum_eh_eS_e$ define the same vector.
-\end{proposition}
-
-\begin{proof}
-(i) Along $u\mapsto e^{uT}U_e$ a plaquette term containing $e$ is
-$N^{-1}\ReTr(e^{uT}V)$ or $N^{-1}\ReTr(Ve^{-uT})$ with $V$ unitary, whose
-second derivative is $N^{-1}\ReTr(T^2e^{\pm uT}V)$. Since $-T^2\ge0$ and
-$\Tr(-T^2)=1$, $|\Tr(T^2M)|\le1$ for unitary $M$, so the second derivative of
-$S_e$ along the curve is at most $6/N$ in absolute value. Taylor's formula with
-$u=t/\sqrt b$ gives
-$b\bigl(S_e(e^{tT/\sqrt b}U_e)-S_e(U_e)\bigr)\ge t\sqrt bX_TS_e(U_e)-3t^2/N$.
-The conditional density is $e^{bS_e}/Z$ with respect to Haar measure, and the
-left invariance of Haar measure gives
-$\E_\omega[e^{b(S_e(e^{tT/\sqrt b}U_e)-S_e(U_e))}\mid U_{e^c}]=1$, which with
-the Taylor bound proves the first inequality. For the second let $G_0$ be a
-standard Gaussian vector in $\g$, independent of $\omega$; then
-$e^{\eta|Y|^2}=\E e^{\sqrt{2\eta}\ip{G_0}Y}$ for $Y=\sqrt b\nabla_eS_e$, and the
-first inequality in the direction of $G_0$ with $t=\sqrt{2\eta}|G_0|$ gives
-the bound $\E e^{6\eta|G_0|^2/N}=(1-12\eta/N)^{-q/2}$. With $\eta=N/24$ and
-$x^m\le m!\,\eta^{-m}e^{\eta x}$ the moment bound follows. For the mean,
-$\sum_AT_A^2=-c_NI$ in an orthonormal basis gives $\Delta_eS_e=-c_NS_e$, and the
-integral of the divergence of $e^{bS_e}\nabla_eS_e$ over $G$ vanishes.
-
-(ii) The integral over $U_e$ of the divergence of $e^{bS_e}F\nabla_eS_e$
-vanishes, and that divergence is $e^{bS_e}(W_eF+\ip{\nabla_eS_e}{\nabla_eF})$;
-integrate the conditional identity. The function $W_f$ depends only on the
-links of the plaquettes containing $f$.
-
-(iii) Each $W_e$ in the sum depends on links with times at least $1$, so
-$\vartheta(\bar A)$ depends only on links with times at most $0$, none of which
-is a link $e$ of the sum. By (ii), $\omega(\vartheta(\bar A)W_e)=0$ for each $e$.
-\end{proof}
-
-\begin{proposition}\label{prop:plaqvar}
-Let $G=\SU(2)$, $b\ge0$, $\omega$ a Wilson Gibbs state at $b$ and $p$ a
-plaquette with a link that is not fixed by the boundary condition. Then
-\[
-\Var_\omega\bigl(\tfrac12\Tr Q_p\bigr)\ge\frac1{2^{19}(1+6b)^2},\quad
-\E_\omega\bigl[1-\tfrac12\Tr Q_p\bigr]\ge\frac1{4b+1}.
-\]
-\end{proposition}
-
-\begin{proof}
-Let $e$ be the link and identify $\SU(2)$ with the unit quaternions. Given the
-other links, $U_e=x$ has density proportional to $e^{rx\cdot u}$ with $|u|=1$
-and $0\le r\le6b$, since the six staples have norm one, and $\frac12\Tr Q_p=x\cdot
-v$ for a unit vector $v$ fixed by the conditioning. Let $X=x\cdot u$ and
-$T=1-X$; the law of $T$ has density proportional to $e^{-rt}\sqrt{t(2-t)}$ on
-$[0,2]$. Put $n=1+r$. Since $e^{-rt}\le e^2e^{-nt}$, the normalisation is at
-most $e^2\int_0^\infty\sqrt{2t}e^{-nt}dt=e^2\sqrt{\pi/2}\,n^{-3/2}<14n^{-3/2}$.
-On $I=[\frac1{4n},\frac1{2n}]$ the density is at least
-$\frac12n^{-1/2}e^{-1/2}$ and on $J=[\frac1n,\frac3{2n}]$ at least
-$\frac12n^{-1/2}e^{-3/2}$, so $P(T\in I)\ge\frac1{224}$ and
-$P(T\in J)\ge\frac1{336}$. With an independent copy $T'$,
-$\Var T=\frac12\E(T-T')^2\ge P(T\in I)P(T\in J)(2n)^{-2}>2^{-19}n^{-2}$. By
-symmetry the conditional covariance of $x$ is diagonal in $u$ and
-$u^\perp$, with eigenvalues $\Var X$ and $\E(1-X^2)/3$; on $I$,
-$1-X^2=T(2-T)\ge\frac3{8n}$, so $\E(1-X^2)/3\ge\frac1{1792n}\ge2^{-19}n^{-2}$.
-Hence the conditional variance of $x\cdot v$ is at least $2^{-19}(1+6b)^{-2}$,
-and so is the variance, by the law of total variance. For the mean, integrating
-$\frac d{dX}\bigl(e^{rX}(1-X^2)^{3/2}\bigr)$ over $[-1,1]$ gives
-$3\E X=r\E(1-X^2)\le r(1-(\E X)^2)$, whence
-$\E X\le(\sqrt{9+4r^2}-3)/(2r)\le2r/(2r+3)$ for $r>0$, and
-$\E[1-x\cdot v]\ge1-\E X\ge3/(2r+3)\ge1/(4b+1)$.
-\end{proof}
-
-For the blocking statement let $G=\SU(2)$, $B\ge4$ an integer and, for a
-coarse edge $(x,\mu)$, $V_{(x,\mu)}=\prod_{r=0}^{B-1}U_{(Bx+r\hat\mu,\mu)}$ the
-ordered product of the fine links along it.
-
-\begin{proposition}\label{prop:blocking}
-For every Wilson Gibbs state $\omega$ of $\SU(2)$ at $b>0$ and every set $\mathcal
-E$ of $K$ coarse edges,
-\[
-\begin{split}
-\bigl\|\mathrm{Law}_\omega\bigl((V_e)_{e\in\mathcal E}\bigr)-m^{\otimes K}\bigr\|_{\mathrm{TV}}
-&\le\frac K2e^{3b}\Bigl(\frac{4b}{4b+1}\Bigr)^{B-3}\\
-&\le\frac K2\exp\Bigl(3b-\frac{B-3}{4b+1}\Bigr),
-\end{split}
-\]
-where $m$ is the Haar measure. If $F$ is a function of the $V_e$ of a set of
-coarse edges at positive times, $|F|\le1$, and $\epsilon$ is this bound for
-those edges and their reflections, then
-$0\le\omega(\vartheta(\bar F^c)F^c)\le6\epsilon$ with $F^c=F-\omega(F)$.
-\end{proposition}
-
-\begin{proof}
-Select on each coarse edge the fine links with $1\le r\le B-2$. No plaquette
-contains two selected links: collinear links do not share a plaquette,
-parallel coarse edges are $B$ apart, and a plaquette containing a selected link
-of $(x,\mu)$ has its links in direction $\nu\ne\mu$ at $\mu$-offsets $r,r+1\in
-[1,B-1]$ from $Bx$, while coarse edges in direction $\nu$ lie at offsets in
-$B\Z$. Given the other links, the selected ones are therefore independent, each
-with density $e^{r_i\,x\cdot u_i}/Z(r_i)$, $0\le r_i\le6b$. Convolution with
-such a density acts on the representation of spin $l\ge1$ by $D^{(l)}(u_i)$
-times $I_{l+1}(r_i)/I_1(r_i)$, whose absolute value is at most
-$I_2(r_i)/I_1(r_i)$ because $I_\nu(r)$ decreases in $\nu\ge0$, and
-$I_2(r_i)/I_1(r_i)=\E X\le4b/(4b+1)$ by the proof of
-Proposition~\ref{prop:plaqvar}, so it contracts the mean-zero part of $L^2$ by
-that factor. The density is at most $e^{6b}$ because $Z\ge1$ by Jensen's
-inequality, so its distance to $1$ in $L^2$ is at most $e^{3b}$. The
-conditional law of $V_e$ is that of a product of $B-2$ such independent
-variables between two fixed ones, so its total variation distance to $m$ is at
-most $\frac12e^{3b}(4b/(4b+1))^{B-3}$, and the coarse edges are conditionally
-independent. Total variation distance from a product is at most the sum over
-the factors, and averaging over the conditioning does not increase it.
-For the last statement, under $m^{\otimes K}$ the covariance vanishes because
-$F$ and its reflection depend on disjoint edges; replacing $\omega$ by
-$m^{\otimes K}$ changes $\omega(\vartheta(\bar F)F)$ by at most $2\epsilon$ and
-$|\omega(F)|^2$ by at most $4\epsilon$.
-\end{proof}
-
-With $B=\ell/a_k$ for a fixed physical length $\ell$ and $b_k=O(\log(1/a_k))$
-the bound tends to zero: the bare coarse links of a fixed coarse graph become
-independent Haar variables, their reflected form has rank one, and a
-renormalisation $Z_k$ that keeps the reflected norm of $Z_kF^c$ at least $c>0$
-must grow at least like $(c/6\epsilon)^{1/2}$. The renormalised flowed fields
-of Theorem~\ref{thm:flowlimit} are not bounded functions of bare coarse links,
-and none of the three propositions bears on the slice ratio, the tree bounds or
-(D).
-
-\subsection{The two residues}
+\subsection{The two open statements}
 
 Theorem~\ref{thm:transfer} reduces a continuum mass gap to two statements,
 neither of which is proved here or, to our knowledge, anywhere else.
@@ -4017,7 +3845,7 @@ The proof uses only that gauge transformations constant on the lines of $F$
 move the whole cube while changing few boundary links, which is the
 behaviour of gauges of axial type anticipated in
 Remark~\ref{rem:cubeheuristic}. The class sums themselves, computed exactly
-in the archive for $n\le8$, lie between $1.57$ and $11.24$ times $N_n$ and
+for $n\le8$, lie between $1.57$ and $11.24$ times $N_n$ and
 increase with $n$. Below the correlation length the theory is weakly
 coupled, and the quadratic approximation is its leading order there. A proof
 of (D) along the tuning therefore has to show that the nonperturbative
@@ -4025,7 +3853,7 @@ regime reduces the cube coefficients of the forest gauge below $N_n$, or
 (D) has to be posed for other variables.
 
 \begin{remark}\label{rem:routes}
-The other routes we tried stop at (D) or (E), or earlier.
+Five other routes stop at (D) or (E), or earlier.
 \begin{enumerate}[label=\textup{(\alph*)},leftmargin=*]
 \item \emph{Disjoint blocks.} The block criterion of
 Lemma~\ref{lem:blockcomparison} with a partition into cubes of side $n$
@@ -4057,6 +3885,173 @@ has to be an estimate such as (D).
 \end{enumerate}
 \end{remark}
 
+\subsection{Estimates uniform in the coupling}\label{ssec:uniform}
+
+Some local quantities of the Wilson measure can be controlled uniformly in
+$\beta_W$, the volume and the boundary condition, by integrating by parts in a
+single link. Such estimates hold along every tuning, but they concern local
+fields in lattice units, and the three results below show how far they are
+from the open inputs: the force has bounded moments but its centred form is a
+null vector of the reflected form, the plaquette has fluctuations of order
+$\beta_W^{-2}$ but this is a single-site variance, and bare links over a fixed
+physical distance become independent Haar variables.
+
+Let $G=\SU(N)$, write $b=\beta_W$, so that the Wilson weight is $e^{bS}$ with
+$S=\sum_pN^{-1}\ReTr Q_p$, and give $\g$ the metric $\ip TR=-\Tr(TR)$. For a link
+$e$ let $S_e$ be the sum of the six plaquette terms containing $e$, $X_T$ the
+derivative along $U_e\mapsto e^{uT}U_e$ at $u=0$, $\nabla_e$ and $\Delta_e$ the
+gradient and Laplacian in $U_e$, $q=N^2-1$, $c_N=(N^2-1)/N$, and
+\[
+E_e=b|\nabla_eS_e|^2,\qquad W_e=E_e-c_NS_e=b|\nabla_eS_e|^2+\Delta_eS_e .
+\]
+Below, $\omega$ is a Wilson Gibbs state at $b>0$: a finite-volume measure in
+which $e$ is not fixed by the boundary condition, or an infinite-volume state
+whose conditional law of $U_e$ given the other links is proportional to
+$e^{bS_e}dU_e$ with $dU_e$ the Haar measure.
+
+\begin{proposition}\label{prop:force}
+\textup{(i)} For every unit $T\in\g$, $t\in\R$ and $0\le\eta<N/12$,
+\[
+\begin{split}
+\E_\omega\bigl[e^{t\sqrt b\,X_TS_e}\bigm|U_{e^c}\bigr]&\le e^{3t^2/N},\\
+\E_\omega\bigl[e^{\eta E_e}\bigm|U_{e^c}\bigr]&\le(1-12\eta/N)^{-q/2},
+\end{split}
+\]
+so $\E_\omega E_e^m\le m!\,(24/N)^m2^{q/2}$ for $m\ge1$, uniformly in $b$,
+the volume and the boundary condition. Moreover $\E_\omega E_e=c_N\E_\omega
+S_e$.
+
+\textup{(ii)} For a bounded function $F$ of finitely many links,
+continuously differentiable in $U_e$,
+$\E_\omega[W_eF]=-\E_\omega\ip{\nabla_eS_e}{\nabla_eF}$. In particular
+$\E_\omega[W_eF]=0$ if $F$ does not depend on $U_e$, and
+$\E_\omega[W_eW_f]=0$ if no plaquette contains both $e$ and $f$.
+
+\textup{(iii)} Let $\omega$ be reflection positive as in
+Appendix~\textup{\ref{app:transfer}}, and let $A=\sum_eh_eW_e$ be a finite
+sum over links whose endpoints have times at least $2$. Then
+$\omega(\vartheta(\bar A)A)=0$, so $\Psi_A=0$: in the reconstructed Hilbert
+space the packets $\sum_eh_eE_e$ and $c_N\sum_eh_eS_e$ define the same vector.
+\end{proposition}
+
+\begin{proof}
+(i) Along $u\mapsto e^{uT}U_e$ a plaquette term containing $e$ is
+$N^{-1}\ReTr(e^{uT}V)$ or $N^{-1}\ReTr(Ve^{-uT})$ with $V$ unitary, whose
+second derivative is $N^{-1}\ReTr(T^2e^{\pm uT}V)$. Since $-T^2\ge0$ and
+$\Tr(-T^2)=1$, $|\Tr(T^2M)|\le1$ for unitary $M$, so the second derivative of
+$S_e$ along the curve is at most $6/N$ in absolute value. Taylor's formula with
+$u=t/\sqrt b$ gives
+$b\bigl(S_e(e^{tT/\sqrt b}U_e)-S_e(U_e)\bigr)\ge t\sqrt bX_TS_e(U_e)-3t^2/N$.
+The conditional density is $e^{bS_e}/Z$ with respect to Haar measure, and the
+left invariance of Haar measure gives
+$\E_\omega[e^{b(S_e(e^{tT/\sqrt b}U_e)-S_e(U_e))}\mid U_{e^c}]=1$, which with
+the Taylor bound proves the first inequality. For the second let $G_0$ be a
+standard Gaussian vector in $\g$, independent of $\omega$; then
+$e^{\eta|Y|^2}=\E e^{\sqrt{2\eta}\ip{G_0}Y}$ for $Y=\sqrt b\nabla_eS_e$, and the
+first inequality in the direction of $G_0$ with $t=\sqrt{2\eta}|G_0|$ gives
+the bound $\E e^{6\eta|G_0|^2/N}=(1-12\eta/N)^{-q/2}$. With $\eta=N/24$ and
+$x^m\le m!\,\eta^{-m}e^{\eta x}$ the moment bound follows. For the mean,
+$\sum_AT_A^2=-c_NI$ in an orthonormal basis gives $\Delta_eS_e=-c_NS_e$, and the
+integral of the divergence of $e^{bS_e}\nabla_eS_e$ over $G$ vanishes.
+
+(ii) The integral over $U_e$ of the divergence of $e^{bS_e}F\nabla_eS_e$
+vanishes, and that divergence is $e^{bS_e}(W_eF+\ip{\nabla_eS_e}{\nabla_eF})$;
+integrate the conditional identity. The function $W_f$ depends only on the
+links of the plaquettes containing $f$.
+
+(iii) Each $W_e$ in the sum depends on links with times at least $1$, so
+$\vartheta(\bar A)$ depends only on links with times at most $0$, none of which
+is a link $e$ of the sum. By (ii), $\omega(\vartheta(\bar A)W_e)=0$ for each $e$.
+\end{proof}
+
+\begin{proposition}\label{prop:plaqvar}
+Let $G=\SU(2)$, $b\ge0$, $\omega$ a Wilson Gibbs state at $b$ and $p$ a
+plaquette with a link that is not fixed by the boundary condition. Then
+\[
+\Var_\omega\bigl(\tfrac12\Tr Q_p\bigr)\ge\frac1{2^{19}(1+6b)^2},\quad
+\E_\omega\bigl[1-\tfrac12\Tr Q_p\bigr]\ge\frac1{4b+1}.
+\]
+\end{proposition}
+
+\begin{proof}
+Let $e$ be the link and identify $\SU(2)$ with the unit quaternions. Given the
+other links, $U_e=x$ has density proportional to $e^{rx\cdot u}$ with $|u|=1$
+and $0\le r\le6b$, since the six staples have norm one, and $\frac12\Tr Q_p=x\cdot
+v$ for a unit vector $v$ fixed by the conditioning. Let $X=x\cdot u$ and
+$T=1-X$; the law of $T$ has density proportional to $e^{-rt}\sqrt{t(2-t)}$ on
+$[0,2]$. Put $n=1+r$. Since $e^{-rt}\le e^2e^{-nt}$, the normalisation is at
+most $e^2\int_0^\infty\sqrt{2t}e^{-nt}dt=e^2\sqrt{\pi/2}\,n^{-3/2}<14n^{-3/2}$.
+On $I=[\frac1{4n},\frac1{2n}]$ the density is at least
+$\frac12n^{-1/2}e^{-1/2}$ and on $J=[\frac1n,\frac3{2n}]$ at least
+$\frac12n^{-1/2}e^{-3/2}$, so $P(T\in I)\ge\frac1{224}$ and
+$P(T\in J)\ge\frac1{336}$. With an independent copy $T'$,
+$\Var T=\frac12\E(T-T')^2\ge P(T\in I)P(T\in J)(2n)^{-2}>2^{-19}n^{-2}$. By
+symmetry the conditional covariance of $x$ is diagonal in $u$ and
+$u^\perp$, with eigenvalues $\Var X$ and $\E(1-X^2)/3$; on $I$,
+$1-X^2=T(2-T)\ge\frac3{8n}$, so $\E(1-X^2)/3\ge\frac1{1792n}\ge2^{-19}n^{-2}$.
+Hence the conditional variance of $x\cdot v$ is at least $2^{-19}(1+6b)^{-2}$,
+and so is the variance, by the law of total variance. For the mean, integrating
+$\frac d{dX}\bigl(e^{rX}(1-X^2)^{3/2}\bigr)$ over $[-1,1]$ gives
+$3\E X=r\E(1-X^2)\le r(1-(\E X)^2)$, whence
+$\E X\le(\sqrt{9+4r^2}-3)/(2r)\le2r/(2r+3)$ for $r>0$, and
+$\E[1-x\cdot v]\ge1-\E X\ge3/(2r+3)\ge1/(4b+1)$.
+\end{proof}
+
+For the blocking statement let $G=\SU(2)$, $B\ge4$ an integer and, for a
+coarse edge $(x,\mu)$, $V_{(x,\mu)}=\prod_{r=0}^{B-1}U_{(Bx+r\hat\mu,\mu)}$ the
+ordered product of the fine links along it.
+
+\begin{proposition}\label{prop:blocking}
+For every Wilson Gibbs state $\omega$ of $\SU(2)$ at $b>0$ and every set $\mathcal
+E$ of $K$ coarse edges,
+\[
+\begin{split}
+\bigl\|\mathrm{Law}_\omega\bigl((V_e)_{e\in\mathcal E}\bigr)-m^{\otimes K}\bigr\|_{\mathrm{TV}}
+&\le\frac K2e^{3b}\Bigl(\frac{4b}{4b+1}\Bigr)^{B-3}\\
+&\le\frac K2\exp\Bigl(3b-\frac{B-3}{4b+1}\Bigr),
+\end{split}
+\]
+where $m$ is the Haar measure. If $F$ is a function of the $V_e$ of a set of
+coarse edges at positive times, $|F|\le1$, and $\epsilon$ is this bound for
+those edges and their reflections, then
+$0\le\omega(\vartheta(\bar F^c)F^c)\le6\epsilon$ with $F^c=F-\omega(F)$.
+\end{proposition}
+
+\begin{proof}
+Select on each coarse edge the fine links with $1\le r\le B-2$. No plaquette
+contains two selected links: collinear links do not share a plaquette,
+parallel coarse edges are $B$ apart, and a plaquette containing a selected link
+of $(x,\mu)$ has its links in direction $\nu\ne\mu$ at $\mu$-offsets $r,r+1\in
+[1,B-1]$ from $Bx$, while coarse edges in direction $\nu$ lie at offsets in
+$B\Z$. Given the other links, the selected ones are therefore independent, each
+with density $e^{r_i\,x\cdot u_i}/Z(r_i)$, $0\le r_i\le6b$. Convolution with
+such a density acts on the representation of spin $l\ge1$ by $D^{(l)}(u_i)$
+times $I_{l+1}(r_i)/I_1(r_i)$, whose absolute value is at most
+$I_2(r_i)/I_1(r_i)$ because $I_\nu(r)$ decreases in $\nu\ge0$, and
+$I_2(r_i)/I_1(r_i)=\E X\le4b/(4b+1)$ by the proof of
+Proposition~\ref{prop:plaqvar}, so it contracts the mean-zero part of $L^2$ by
+that factor. The density is at most $e^{6b}$ because $Z\ge1$ by Jensen's
+inequality, so its distance to $1$ in $L^2$ is at most $e^{3b}$. The
+conditional law of $V_e$ is that of a product of $B-2$ such independent
+variables between two fixed ones, so its total variation distance to $m$ is at
+most $\frac12e^{3b}(4b/(4b+1))^{B-3}$, and the coarse edges are conditionally
+independent. Total variation distance from a product is at most the sum over
+the factors, and averaging over the conditioning does not increase it.
+For the last statement, under $m^{\otimes K}$ the covariance vanishes because
+$F$ and its reflection depend on disjoint edges; replacing $\omega$ by
+$m^{\otimes K}$ changes $\omega(\vartheta(\bar F)F)$ by at most $2\epsilon$ and
+$|\omega(F)|^2$ by at most $4\epsilon$.
+\end{proof}
+
+With $B=\ell/a_k$ for a fixed physical length $\ell$ and $b_k=O(\log(1/a_k))$
+the bound tends to zero: the bare coarse links of a fixed coarse graph become
+independent Haar variables, their reflected form has rank one, and a
+renormalisation $Z_k$ that keeps the reflected norm of $Z_kF^c$ at least $c>0$
+must grow at least like $(c/6\epsilon)^{1/2}$. The renormalised flowed fields
+of Theorem~\ref{thm:flowlimit} are not bounded functions of bare coarse links,
+and none of the three propositions bears on the slice ratio, the tree bounds or
+(D).
+
 \subsection{What the cube estimate requires}\label{ssec:cubeneeds}
 
 This subsection proves seven facts about $D(n,\alpha)$. It holds at small
@@ -4081,9 +4076,7 @@ statements answer the question of which parts of (D) can be settled with
 the methods of this paper. The first places (D) in the range where the
 single-link method already works, the second and third show what any proof
 of (D) at weak coupling has to produce, and the fourth excludes the most
-direct one-dimensional route. The finite counts used below, from
-Table~\ref{tab:sigma}, are rechecked by \texttt{cube\_requirements.py} in
-the archive.}
+direct one-dimensional route. }
 
 For a finite $V\subset A$ and $j\in A\setminus V$ let $b(V,j)$ be the number
 of links of $V$ that share a plaquette with $j$, and write $k\sim i$ when two
@@ -4995,11 +4988,11 @@ use what such a bound discards: the joint resampling of the transverse links
 inside the cube, which the averaged coefficients $C_{V,j}$ retain, or the
 smallness of the probability of such exteriors under the Wilson measure.
 
-\subsection{Block-constrained cubes}\label{ssec:constrained}
+\section{Block averages}\label{sec:blocks}
 
 Proposition~\ref{prop:gaussforest} locates the failure of (D) in the
 quadratic approximation: gauge transformations constant on the lines of $F$
-move the whole cube and change few links outside it. This subsection takes
+move the whole cube and change few links outside it. This section takes
 up the programme of the report~\cite{Loc26} of the third author, which keeps
 the cube condition but changes the gauge and conditions the cube on block
 averages of the field, as in Ba{\l}aban's renormalisation
@@ -5017,7 +5010,10 @@ averages carry at least the coarse quadratic form at every scale
 the straight paths between block roots satisfy a coercivity bound for all
 fields but do not compose, and a continuous covariant map cannot treat the
 transverse positions alike (Sec.~\ref{ssec:pathblocks}).
-Everything in this subsection concerns the quadratic approximation: real
+
+\subsection{Block-constrained cubes}\label{ssec:constrained}
+
+In this subsection everything concerns the quadratic approximation: real
 fields $\varphi$ on links, $(d\varphi)_p$ the signed sum around the plaquette
 $p$, and $(dh)_{(x,\mu)}=h(x)-h(x+e_\mu)$ for a function $h$ on sites.
 
@@ -5788,48 +5784,29 @@ the preparation of Sec.~\ref{sec:limits}.
 
 \section*{Data and code availability}
 
-The analytic proofs are complete as written, except the evaluations in
+The proofs are analytic except for four finite steps: the evaluations in
 Propositions~\ref{prop:cover} and~\ref{prop:cover2} and
 Lemma~\ref{lem:su3const} and the numerical bounds of
-Lemma~\ref{lem:vmfconst}, which are computations with rigorous error bounds,
-and the finite check of Lemma~\ref{lem:plaqblocks}. The repository \texttt{creelie/4Y-M} contains the \LaTeX{} source of
-this paper; the programs of that computation, in Python with python-flint
-(FLINT and Arb) and a C kernel for products of Taylor polynomials, with
-their outputs and the list of certified boxes; the programs and outputs of
-the earlier certificate at $\beta_W=\frac{45}{64}$;
-independent checks in exact rational arithmetic of Lemmas~\ref{lem:local}
-and~\ref{lem:roughlap} and of~\eqref{eq:pointwise}; numerical checks of
-Lemma~\ref{lem:identity} on tori; the searches of Remark~\ref{rem:hf} and
-Sec.~\ref{sec:limits}; and a Lean~4 certificate of the line field
-(Lemmas~\ref{lem:cycle} and~\ref{lem:structure} for the table of
-Appendix~\ref{app:table}, by \texttt{decide}); and the programs of
-Appendix~\ref{app:plaqblocks} for the plaquette blocks, with the
-floating-point search of Remark~\ref{rem:blockgap}; and an exact computation of the curvatures of
-Table~\ref{tab:groups} from the root systems; and exact checks of the finite
-counts, of the discs and of the Gaussian benchmark of Sec.~\ref{ssec:cubeneeds}; the finite counts of
-Sec.~\ref{ssec:constrained}, in exact arithmetic, with floating-point
-values of the constrained gap, of the responses and of the effective form of the averages, that the proofs do not use; with Monte Carlo
-estimates of the influence coefficients and of $\varepsilon_V$ that the proofs do not use; the spectrum of Lemma~\ref{lem:anchorcube} in exact arithmetic, with
-floating-point checks of Sec.~\ref{ssec:pathblocks} on random $\SU(2)$ fields
-and of the thin paths. This paper accompanies release v4.3.0 of the archive,
-\url{https://github.com/creelie/4y-m/releases/tag/v4.3.0}. The PDF of this paper is at
-\url{https://github.com/creelie/4Y-M/blob/main/preprintYangMillsForestGauge/YangMillsForestGauge.pdf}.
-The computations and the Lean, Python and shell checks were run with AI
-assistance (Claude Opus~5.5, Claude Fable~5.1 with Ultracode, GPT-6.1 Sol Ultra
-and GPT-6 Astra Ultra) under the direction of Deep Bhattacharjee. The first composite
-behind Theorem~\ref{thm:su2} was assembled by the Anaxia engine of the BLLM
-system~\cite{Bha26}, release v3.0.5, as described in the footnote to that
-theorem; release v3.1.0~\cite{Bha26b} records the engine's Yang--Mills runs
-in its failure log, whose last Yang--Mills entry is the change from single
-links to blocks of several links; the plaquette blocks of
-Sec.~\ref{sec:plaqblocks}, the bound of Lemma~\ref{lem:blockK}, their $\SU(3)$ version in
-Sec.~\ref{sec:su3blocks} and the certified constants were found and checked by the authors. All three authors
-approved the final text. Theorems~\ref{thm:pathcoercive} and~\ref{thm:pathZ}
-and Proposition~\ref{prop:thinpath} were first written in a technical
-companion to this paper prepared with ChatGPT/Codex; the proofs are given
-here in full, and Lemma~\ref{lem:anchorcube} in closed form. Proposition~\ref{prop:nomean} is new here; the
-winding numbers of the slice and the jump of the symmetric quaternion mean
-are checked numerically with the other path-block computations.
+Lemma~\ref{lem:vmfconst}, which are computations in interval arithmetic with
+rigorous error bounds, and the enumeration behind
+Lemma~\ref{lem:plaqblocks}. The programs of these steps, in Python with
+python-flint (FLINT and Arb) and a C kernel for products of Taylor
+polynomials, their outputs and the list of certified boxes are in the
+repository \url{https://github.com/creelie/4Y-M}, release v4.3.1, together
+with a Lean~4 certificate of the line field and independent exact or
+numerical checks of the other finite statements.
+
+The computations and the checks were run with AI assistance (Claude Opus~5.5,
+Claude Fable~5.1, GPT-6.1 Sol Ultra and GPT-6 Astra Ultra) under the
+direction of Deep Bhattacharjee. The combination of the forest gauge with
+the sharp quarter behind Theorem~\ref{thm:su2} was first assembled by
+Anaxia, the reasoning engine of the BLLM system~\cite{Bha26,Bha26b}; the line
+field, the free-boundary limit, the ceiling, the curvature bound, the
+$\SU(3)$ part, the plaquette blocks and the certified constants are the
+authors' own. Theorems~\ref{thm:pathcoercive} and~\ref{thm:pathZ} and
+Proposition~\ref{prop:thinpath} were first written in a technical companion
+prepared with ChatGPT/Codex; the proofs here are complete. All three authors
+approved the final text.
 
 \section*{Declarations}
 
@@ -6062,28 +6039,25 @@ $x$&plane&$x$&plane\\
 \end{ruledtabular}
 \end{table}
 
-The program \texttt{cover.py} in the folder
-\nolinkurl{strong-coupling/gauge-fixed/blocks/} of the archive finds this set by an exact-cover search on the torus of side
-two and checks Lemma~\ref{lem:plaqblocks} on the tori of side four and six.
-The program \texttt{constants.py} evaluates the bounds of
-Lemma~\ref{lem:vmfconst} in ball arithmetic with python-flint at $120$ bits:
-the series of $Z_0$ and of its first three derivatives in $s=r^2$ is summed to
-forty terms, and the tail is bounded for $s\le5$ by twice the first omitted
-term $(5/4)^{40}40^3/(40!\,41!)$, because consecutive terms decrease by a
-factor below one half. The program \texttt{alpha.py} evaluates the constants
-of~\eqref{eq:blockconst} and $\alpha$ at a given $\beta_W$, read exactly.
+An exact-cover search on the torus of side two finds this set, and the same
+enumeration checks Lemma~\ref{lem:plaqblocks} on the tori of side four and
+six. The bounds of Lemma~\ref{lem:vmfconst} are evaluated in ball arithmetic
+at $120$ bits: the series of $Z_0$ and of its first three derivatives in
+$s=r^2$ is summed to forty terms, and the tail is bounded for $s\le5$ by
+twice the first omitted term $(5/4)^{40}40^3/(40!\,41!)$, because consecutive
+terms decrease by a factor below one half. The constants
+of~\eqref{eq:blockconst} and $\alpha$ are then evaluated at a given $\beta_W$
+from exact input.
 
-For $\SU(3)$ the folder \nolinkurl{strong-coupling/gauge-fixed/blocks/su3/}
-contains \texttt{consts.py}, which evaluates the bounds of
-Lemma~\ref{lem:su3const} on the $841$ boxes of side $\frac3{16}$ at
-$r=\frac32$ and the $784$ boxes of side $\frac{19}{100}$ at $r=\frac{38}{25}$
-with the moments of Appendix~\ref{app:cover}, and \texttt{alpha3.py}, which
-reads these bounds and the cover of Proposition~\ref{prop:cover} or
-Proposition~\ref{prop:cover2} and evaluates the constants
-of~\eqref{eq:blockconst3} and $\alpha_3$ in ball arithmetic at $120$ bits; its
-outputs at $\beta_W=\frac34$ and $0.76$ are listed with the bounds of each box.
-The cover of Proposition~\ref{prop:cover2} is computed by the program of
-Appendix~\ref{app:cover} with \texttt{--r 38/25 --thr 1.03}.
+For $\SU(3)$ the bounds of Lemma~\ref{lem:su3const} are evaluated on the
+$841$ boxes of side $\frac3{16}$ at $r=\frac32$ and the $784$ boxes of side
+$\frac{19}{100}$ at $r=\frac{38}{25}$ with the moments of
+Appendix~\ref{app:cover}, and the constants of~\eqref{eq:blockconst3} and
+$\alpha_3$ are evaluated from these bounds and the cover of
+Proposition~\ref{prop:cover} or Proposition~\ref{prop:cover2} in ball
+arithmetic at $120$ bits. The cover of Proposition~\ref{prop:cover2} is
+computed as in Appendix~\ref{app:cover} with $r=\frac{38}{25}$ and the
+threshold $1.03$.
 
 \section{The blocks of Lemma~\ref{lem:local}}\label{app:blocks}
 
@@ -6202,9 +6176,7 @@ bounded by its maximum over a $512\times512$ grid plus $\frac12H\delta^2/2$, wit
 $\delta=2\pi/512$ and $H=|c_1|+|c_2|+2|c_3|$ a bound for its Hessian on the
 torus, and the inequality is checked with relative margin $10^{-12}$.
 
-\emph{Running time.} The moments at one corner take about one and a half seconds and
-the bound on one box about two and a half seconds on one core. The cover runs in about an hour on
-four cores and writes every certified box with its $\theta$ and its bound.
+
 
 \section{The transfer matrix}\label{app:transfer}
 
