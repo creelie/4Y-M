@@ -116,7 +116,7 @@ Yang--Mills Theory in a Forest Gauge'', appeared as Hexagon preprint
 2610.00341. The
 \LaTeX{} source, the checks and the Lean certificate are in
 \href{https://github.com/creelie/4Y-M}{github.com/creelie/4Y-M}, release
-v4.0.0.}
+v4.1.0.}
 \endgroup
 \addtocounter{footnote}{-2}
 
@@ -491,7 +491,10 @@ it also fails for the quadratic approximation of the forest gauge itself
 (Proposition~\ref{prop:gaussforest}). Posed for block averages in a gauge
 whose fixed links are trees inside blocks of side two, it holds in the
 quadratic approximation at every coupling once the cube is large
-(Theorem~\ref{thm:constrainedcube}), while the averages along the lines of
+(Theorem~\ref{thm:constrainedcube}), and integrating out one scale reduces
+it to a cube condition for the averages, which carry at least the coarse
+quadratic form at every scale (Corollary~\ref{cor:compose},
+Proposition~\ref{prop:effective}), while the averages along the lines of
 the forest gauge leave one class of lines invisible and fail at every size
 (Proposition~\ref{prop:invisible}). The order-two cases of the tree bounds
 force the lattice gap below a fixed multiple of the lattice spacing, so no
@@ -5007,6 +5010,10 @@ inside blocks of side two, the averages over whole blocks remove every zero
 mode, the constrained quadratic form has a gap that does not depend on the
 volume (Theorem~\ref{thm:blockgap}), and the constrained cube condition holds
 at every coupling once the cube is large (Theorem~\ref{thm:constrainedcube}).
+Integrating out one scale bounds the cube coefficients by the constrained
+ones plus those of the averages (Corollary~\ref{cor:compose}), and the
+averages carry at least the coarse quadratic form at every scale
+(Proposition~\ref{prop:effective}).
 Everything in this subsection concerns the quadratic approximation: real
 fields $\varphi$ on links, $(d\varphi)_p$ the signed sum around the plaquette
 $p$, and $(dh)_{(x,\mu)}=h(x)-h(x+e_\mu)$ for a function $h$ on sites.
@@ -5293,6 +5300,161 @@ then $\alpha N_n$ is at least the spectral radius of the non-negative matrix
 of these sums, hence at least $\min_cK^{\rm c}_c$, by the Collatz--Wielandt
 inequality~\cite{Loc26}.
 
+The block averages can be integrated out one scale at a time. For a field
+$v$ on the coarse links put $Q_1(v)=\sum_P(dv)_P^2$ over the plaquettes $P$
+of the coarse lattice, and write $V(\varphi)=(V_{y,\mu}(\varphi))_{y,\mu}$.
+The averages of averages are formed in the same way on the coarse lattice,
+and $V^{(k)}$, $Q_k$ denote the $k$-fold averages and the plaquette form of
+the lattice of spacing $2^k$.
+
+\begin{proposition}\label{prop:effective}
+Let $\varphi$ be a finitely supported field on $\Z^4$ that vanishes on the
+tree links.
+\begin{enumerate}[label=\textup{(\roman*)},leftmargin=*]
+\item For the coarse plaquette $P$ at $y$ in the plane $\{\mu,\nu\}$,
+$16\,(dV(\varphi))_P$ is the sum over $x\in B(y)$ of the curvatures of the
+squares of side two spanned by $x$, $x+2e_\mu$, $x+2e_\nu$, and every
+plaquette of $\Z^4$ lies in exactly four of these squares. Hence $Q_1(V(
+\varphi))\le Q(\varphi)$, and $Q_k(V^{(k)}(\varphi))\le Q(\varphi)$ for
+every $k\ge1$.
+\item For every finitely supported $v$ on the coarse links, the field
+$\varphi^*(v)$ equal to $v_{y,\mu}$ on the eight links $(x,\mu)$, $x\in B(y)$,
+$o_\mu=1$, and to zero on the other links, vanishes on the tree links, has
+$V(\varphi^*(v))=v$ and $Q(\varphi^*(v))=4\,Q_1(v)$.
+\item The effective form $S_1(v)=\inf\{Q(\varphi):V(\varphi)=v\}$ satisfies
+$Q_1\le S_1\le4\,Q_1$, and $S_k(w)=\inf\{Q(\varphi):V^{(k)}(\varphi)=w\}
+\ge Q_k(w)$ for every $k$, the infima over finitely supported fields that
+vanish on the tree links.
+\item For every $k$, every set $W$ of blocks of the lattice of spacing
+$2^k$ and every $w$ in the space $\Phi_W$ of that lattice, $\sum_ew_e^2\le
+52\,S_k(w)$.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+(i) The path of length two from $x\in B(y)$ in the direction $\mu$ ends at
+$x+2e_\mu\in B(y+e_\mu)$, at the same offset, and so on around the square;
+so the four averages of $(dV)_P$ pair the sixteen paths into sixteen closed
+squares, and the sum of $\varphi$ around a square is the sum of the
+curvatures of its four plaquettes. A plaquette at $z$ in the plane
+$\{\mu,\nu\}$ lies in the square from $x$ exactly when $z-x\in\{0,1\}e_\mu+
+\{0,1\}e_\nu$, which gives four points $x$, each in one block. By
+Cauchy--Schwarz, $(dV)_P^2\le\frac1{16}\sum_x\ell_x^2\le\frac14\sum_x\sum_{p
+\subset\square_x}(d\varphi)_p^2$, where $\ell_x$ is the curvature of the
+square from $x$; summing over $P$ gives $Q_1(V(\varphi))\le Q(\varphi)$. The
+argument uses neither the tree links nor the spacing, so it applies on every
+lattice, and induction gives the bound for $V^{(k)}$.
+
+(ii) The tree links have $o_\mu=0$. By Lemma~\ref{lem:blocktree}(iii) the
+average of $\varphi^*$ is $\frac18\cdot8v_{y,\mu}$. A plaquette inside a block
+has only links with $o_\mu=0$ in its direction $\mu$, and so vanishes. A
+plaquette at $x$ in the plane $\{\mu,\nu\}$ with $o_\mu=1$, $o_\nu=0$ has the
+two links $(x,\mu)$, $(x+e_\nu,\mu)$ of the same block, both equal to
+$v_{y,\mu}$, and two links with offset zero in the direction $\nu$; its
+curvature vanishes, and so does that of the plaquettes with $o_\mu=0$,
+$o_\nu=1$. If $o_\mu=o_\nu=1$, its four links carry $v_{y,\mu}$,
+$v_{y+e_\mu,\nu}$, $v_{y+e_\nu,\mu}$, $v_{y,\nu}$, so its curvature is
+$(dv)_P$, and there are four such plaquettes for each $P$.
+
+(iii) The lower bound is (i) and the upper bound is (ii); for $S_k$ apply
+(i) to the $k$-fold averages.
+
+(iv) Theorem~\ref{thm:blockgap} holds on every lattice, so $\sum_ew_e^2\le
+52\,Q_k(w)\le52\,S_k(w)$ by (iii).
+\end{proof}
+
+In the Bloch decomposition the eigenvalues of $S_1$ relative to $Q_1$ fill
+$[1,4]$: they tend to one as the momentum tends to zero and equal four at
+$(\pi,\pi,0,0)$, a floating-point computation reproduced in the archive. So
+at this order the averages carry the coarse quadratic form with no loss at
+long wavelengths; the coupling does not run here, and its running is the
+order-$g^2$ effect of Remark~\ref{rem:constrainedopen}(c). Part (iv) is a
+gap for the averages at every scale, with the constant of
+Theorem~\ref{thm:blockgap}; it does not give the localisation of
+Theorem~\ref{thm:constrainedcube}(ii) for $S_k$, since $S_k$ is not a
+nearest-neighbour form.
+
+\begin{lemma}\label{lem:mixture}
+Let $(X,d_X)$ and $(Y,d_Y)$ be Polish spaces, $\rho,\rho'$ Borel probability
+measures on $Y$, and $\kappa,\kappa'$ probability kernels from $Y$ to $X$,
+all with finite first moments. If $W_1(\kappa(\cdot\mid v),\kappa'(\cdot\mid
+v))\le\varepsilon$ and $W_1(\kappa'(\cdot\mid v),\kappa'(\cdot\mid v'))\le
+d_Y(v,v')$ for all $v,v'$, then the mixtures $\pi=\int\kappa(\cdot\mid v)\,
+\rho(dv)$ and $\pi'=\int\kappa'(\cdot\mid v)\,\rho'(dv)$ satisfy
+\[
+W_1(\pi,\pi')\le\varepsilon+W_1^{d_Y}(\rho,\rho').
+\]
+\end{lemma}
+
+\begin{proof}
+Let $F$ be $1$-Lipschitz on $X$ and $\kappa F(v)=\int F\,d\kappa(\cdot\mid
+v)$. Then $\int F\,d\pi-\int F\,d\pi'=\int(\kappa F-\kappa'F)\,d\rho+\bigl(
+\int\kappa'F\,d\rho-\int\kappa'F\,d\rho'\bigr)$. The first term is at most
+$\varepsilon$. The function $\kappa'F$ is $1$-Lipschitz for $d_Y$, so the
+second is at most $W_1^{d_Y}(\rho,\rho')$. The Kantorovich--Rubinstein
+duality gives the claim.
+\end{proof}
+
+A law $\gamma$ on $\R^V$ \emph{decomposes along the averages} if
+$\gamma(\cdot\mid\eta)=\int\gamma^{\rm c}_V(\cdot\mid\eta,v)\,\rho_V(dv\mid
+\eta)$, with $\rho_V(\cdot\mid\eta)$ the law of $(V_{y,\mu})_{y\in W}$. Every
+law with density proportional to $\exp(-\frac b2\sum_{p\cap V\ne\emptyset}
+(d\varphi)_p^2)\,g(V(\varphi))$, on a set cut out by conditions on the
+averages, decomposes in this way, because Lebesgue measure disintegrates
+along the fibres of a surjective linear map into multiples of Lebesgue
+measure on the fibres. Here $g$ can carry any action of the averages, in
+particular a coarse gauge fixing and a coarse effective action, which is
+the form a law takes after the fine scale has been integrated out.
+
+\begin{corollary}\label{cor:compose}
+Let $r_w\in\R^V$ minimise $\sum_{p\cap V\ne\emptyset}(d\varphi)_p^2$, with
+zero exterior, subject to $V_{y',\mu'}(r_w)=\delta_{w,(y',\mu')}$ for all
+$(y',\mu')$, $y'\in W$; put $L_w=\|r_w\|_1$ and $d_L(v,v')=\sum_wL_w
+|v_w-v'_w|$. For every law that decomposes along the averages,
+\[
+C_{V,j}\le C^{\rm c}_{V,j}+C^\rho_{V,j},\qquad C^\rho_{V,j}=\sup\frac{W_1^{
+d_L}(\rho_V(\cdot\mid\eta),\rho_V(\cdot\mid\eta'))}{|\eta_j-\eta'_j|},
+\]
+the supremum over exteriors that differ only at $j$, and $L_w\le4\cdot
+10^{14}$. Hence $K_c\le K^{\rm c}_c+K^\rho_c$ with $K^\rho_c=\sum_{j\in
+c\setminus V}C^\rho_{V,j}$, and if $K^\rho_c\le\frac\alpha2N_n$ for every
+class and $n\ge4\cdot10^{15}/\alpha$, then $D(n,\alpha)$ holds for the law, with the $49$ classes of active links.
+\end{corollary}
+
+\begin{proof}
+Apply Lemma~\ref{lem:mixture} with $\kappa=\gamma^{\rm c}_V(\cdot\mid\eta,
+\cdot)$, $\kappa'=\gamma^{\rm c}_V(\cdot\mid\eta',\cdot)$, $\rho=\rho_V(\cdot
+\mid\eta)$, $\rho'=\rho_V(\cdot\mid\eta')$. The first condition holds with
+$\varepsilon=C^{\rm c}_{V,j}|\eta_j-\eta'_j|$. By
+Theorem~\ref{thm:constrainedcube}(i) the laws $\gamma^{\rm c}_V(\cdot\mid
+\eta',v)$ and $\gamma^{\rm c}_V(\cdot\mid\eta',v')$ are translates by
+$\sum_w(v'_w-v_w)r_w$, so their distance is at most $d_L(v,v')$. For the
+bound on $L_w$, the pair $(r_w,y)$ solves $K(r_w,y)=(0,s\,e_w)$ with $K$ as
+in the proof of Theorem~\ref{thm:constrainedcube}. Measure $d$ from the
+centre of the row $w$; Lemma~\ref{lem:combes} gives $\sum_ee^{2\lambda d(e)}
+r_w(e)^2\le(2M_0s)^2=20160^2$. With $z_0=2y+e_\mu$ for $w=(y,\mu)$, a link
+whose base is at distance $k$ from $z_0$ has its midpoint at distance at
+least $k-1$ from the centre, and the count in that proof gives $L_w^2\le
+20160^2\cdot4e^{2\lambda}\bigl(1+\sum_{k\ge1}(64k^3+16k)e^{-2\lambda k}\bigr)
+\le(4\cdot10^{14})^2$. Summing over the translates as in
+Definition~\ref{def:cube} gives $K_c\le K^{\rm c}_c+K^\rho_c$, and
+Theorem~\ref{thm:constrainedcube}(iii) with $\alpha/2$ in place of $\alpha$
+gives $K^{\rm c}_c\le\frac\alpha2N_n$.
+\end{proof}
+
+The responses are much smaller than the bound: in floating point,
+$\max_wL_w$ is $23.8$, $44.1$ and $50.9$ for the block $(m,m,m,m)$,
+$m=\lfloor n/4\rfloor$, of the cubes $n=4$, $6$, $8$. Since
+Theorem~\ref{thm:constrainedcube} controls the first term at every coupling,
+the corollary reduces $D(n,\alpha)$ for a law that decomposes along the
+averages to the cube condition $K^\rho_c$ for its averages, a problem of the
+same form one scale up, in the metric $d_L$. Iterating it needs the
+localisation of Theorem~\ref{thm:constrainedcube}(ii) for $S_k$ and ends in
+a cube condition for the coarsest averages, which is where a gap has to come
+from: the quadratic approximation describes a massless field and has none.
+The corollary is one step of the composition of
+Remark~\ref{rem:constrainedopen}(a), not its conclusion.
+
 \begin{remark}\label{rem:constrainedopen}
 Theorem~\ref{thm:constrainedcube} is the weak-coupling half of the
 constrained route at leading order, and Theorem~\ref{thm:transfer} cannot
@@ -5301,7 +5463,10 @@ use it as it stands. Four steps remain, each an open problem.
 \item \emph{Composition.} $D_{\rm c}$ holds the block averages fixed. A gap
 in physical units needs a theorem that combines the constrained conditions
 at all scales with a cube condition for the coarsest averages, in the place
-of Theorem~\ref{thm:transfer}.
+of Theorem~\ref{thm:transfer}. Corollary~\ref{cor:compose} is one step of
+it, and Proposition~\ref{prop:effective}(iv) gives the gap at every scale;
+the localisation of $S_k$ uniformly in $k$ and a cube condition for the
+coarsest averages are open.
 \item \emph{Beyond the quadratic approximation.} For the Wilson measure the
 block averages are products of group elements along paths, their level sets
 are curved, and the Bakry--\'Emery tensor of Sec.~\ref{sec:curvature} is
@@ -5365,9 +5530,9 @@ floating-point search of Remark~\ref{rem:blockgap}; and an exact computation of 
 Table~\ref{tab:groups} from the root systems; and exact checks of the finite
 counts, of the discs and of the Gaussian benchmark of Sec.~\ref{ssec:cubeneeds}; the finite counts of
 Sec.~\ref{ssec:constrained}, in exact arithmetic, with floating-point
-values of the constrained gap and responses that the proofs do not use; with Monte Carlo
-estimates of the influence coefficients and of $\varepsilon_V$ that the proofs do not use. This paper accompanies release v4.0.0 of the archive,
-\url{https://github.com/creelie/4y-m/releases/tag/v4.0.0}. The PDF of this paper is at
+values of the constrained gap, of the responses and of the effective form of the averages responses that the proofs do not use; with Monte Carlo
+estimates of the influence coefficients and of $\varepsilon_V$ that the proofs do not use. This paper accompanies release v4.1.0 of the archive,
+\url{https://github.com/creelie/4y-m/releases/tag/v4.1.0}. The PDF of this paper is at
 \url{https://github.com/creelie/4Y-M/blob/main/preprintYangMillsForestGauge/YangMillsForestGauge.pdf}.
 The computations and the Lean, Python and shell checks were run with AI
 assistance (Claude Opus~5.5, Claude Fable~5.1 with Ultracode, GPT-6.1 Sol Ultra
@@ -5901,7 +6066,10 @@ orthonormal basis of the square-integrable class functions
 
 \begin{lemma}\label{lem:convolution}
 Let $w\in L^1(G)$ be a class function with $w(U^{-1})=w(U)$, and put
-$\hat c_\lambda=d_\lambda^{-1}\int w\,\chi_\lambda\,dU$. Then $\int
+\[
+\hat c_\lambda=d_\lambda^{-1}\int w\,\chi_\lambda\,dU .
+\]
+Then $\int
 w(U)\rho_\lambda(U)\,dU=\hat c_\lambda I$, and
 $\int w(U)\chi_\lambda(U^{-1}V)\,dU=\hat c_\lambda\chi_\lambda(V)$.
 \end{lemma}
