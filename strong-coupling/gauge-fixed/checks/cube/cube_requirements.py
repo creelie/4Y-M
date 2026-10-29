@@ -59,7 +59,14 @@ The line field sigma of the residue table has period two. The script checks:
       e^Omega (1 + 2 Delta l) times W1 of the measures (l the Lipschitz
       constant, Omega the oscillation of u, Delta the diameter), and W1 of one
       measure tilted by e^u and e^u' is at most 2 Delta sup|u - u'|, by
-      linear programming; and the constants 48, 96 of the proposition.
+      linear programming; and the constants 48, 96 of the proposition;
+  (z) gauge-invariant perturbations: the period-two gauge transformation of
+      the theorem on the cube estimate maps the configuration equal to Q_V on
+      V and 1 elsewhere to one equal to Q^g outside V and to 1 on F, and keeps
+      a gauge-invariant weight (the real traces of all 1 x 2 rectangles near
+      the cube) unchanged; and in the small-field regime the mean distance of
+      the cube links from 1 is at most m(m+1) times the largest plaquette
+      distance (n = 2, 4).
 Run: python3 cube_requirements.py
 """
 from collections import Counter
@@ -825,5 +832,58 @@ for trial in range(60):
     eta = np.abs(up - u).max()
     ok(w1(tilt(mu, u), tilt(mu, up), Dm) <= 2 * Delta * eta + 1e-9, "two tilts of one measure")
 ok(48 * 2 == 96 and 2 * 48 * 48 == 96 * 48, "constants of the perturbation proposition")
+
+# (z) gauge-invariant perturbations and the small-field bound
+def zq(rng, scale):
+    g = [1.0] + [rng.gauss(0, scale) for _ in range(3)] if scale < 1 else [rng.gauss(0, 1) for _ in range(4)]
+    r = math.sqrt(sum(v * v for v in g)); return tuple(v / r for v in g)
+def holo(cfg, z, steps):
+    h, p = ONE, z
+    for d, s in steps:
+        if s == 1:
+            h = qm(h, cfg((p, d))); p = move(p, d)
+        else:
+            p = move(p, d, -1); h = qm(h, qc(cfg((p, d))))
+    return h
+zr = random.Random(2910)
+for n in (2,):
+    V = [(x, mu) for x in product(range(n), repeat=4) for mu in range(4) if active((x, mu))]
+    Vset = set(V)
+    zz, ww = zq(zr, 2), zq(zr, 2)
+    WZ = {tuple(int(c) for c in s) for s in "0010 0011 0100 0110 1001 1011 1100 1101".split()}
+    gfun = lambda x: ww if res(x) in WZ else zz
+    QV = {e: zq(zr, 2) for e in V}
+    A = lambda l: QV.get(l, ONE)
+    def B(l):
+        x, mu = l
+        return qm(qm(gfun(x), A(l)), qc(gfun(move(x, mu))))
+    win = list(product(range(-2, n + 2), repeat=4))
+    for x in win:
+        for mu in range(4):
+            l = (x, mu)
+            if not active(l):
+                ok(abs(B(l)[0] - 1) < 1e-12, "Q^g is 1 on F")
+    def wsum(cfg):
+        tot = 0.0
+        for x in win:
+            for a in range(4):
+                for b in range(4):
+                    if a != b:
+                        tot += holo(cfg, x, [(a, 1), (a, 1), (b, 1), (a, -1), (a, -1), (b, -1)])[0]
+        return tot
+    ok(abs(wsum(A) - wsum(B)) < 1e-8, "gauge-invariant weight unchanged")
+for n in (2, 4):
+    m = n // 2
+    V = [(x, mu) for x in product(range(n), repeat=4) for mu in range(4) if active((x, mu))]
+    for trial in range(4):
+        sc = [0.3, 0.1, 0.03, 0.01][trial]
+        QV = {e: zq(zr, sc) for e in V}
+        cfg = lambda l: QV.get(l, ONE)
+        eta = 0.0
+        for x in product(range(-1, n + 1), repeat=4):
+            for a, b in combinations(range(4), 2):
+                eta = max(eta, chord(holo(cfg, x, [(a, 1), (b, 1), (a, -1), (b, -1)])))
+        mean = sum(chord(QV[e]) for e in V) / len(V)
+        ok(mean <= m * (m + 1) * eta + 1e-12, "small-field bound")
 
 print(f"all {checks} checks passed")
