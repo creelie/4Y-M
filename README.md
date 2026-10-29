@@ -47,7 +47,7 @@ resolves to the latest release.
 | v4.3.1 | [10.5281/zenodo.23783046](https://doi.org/10.5281/zenodo.23783046) |
 | v4.4.0 | [10.5281/zenodo.23783328](https://doi.org/10.5281/zenodo.23783328) |
 
-`YangMills_masterzipfinal2.zip` holds the repository at v4.4.0 and the
+`YangMills_masterzipfinal2.zip` holds the repository at v4.5.0 and the
 Hexagon package of the paper *Mass Gap of Four-Dimensional Lattice Yang–Mills Theory for Every Compact Simple Group*
 ([download](https://github.com/creelie/4Y-M/raw/main/YangMills_masterzipfinal2.zip)).
 
@@ -60,9 +60,9 @@ This repository contains three papers and a Lean 4 / Mathlib project
   (`strong-coupling/prd/`, PDF also at
   `preprintYangMillsDobrushinCeiling/YangMillsDobrushinCeiling.pdf`; see
   `strong-coupling/README.md`);
-- *Mass Gap of Four-Dimensional Lattice Yang–Mills Theory for Every Compact Simple Group* (`strong-coupling/forest/`, REVTeX, 63 pages; PDF also
+- *Mass Gap of Four-Dimensional Lattice Yang–Mills Theory for Every Compact Simple Group* (`strong-coupling/forest/`, REVTeX, 65 pages; PDF also
   at `preprintYangMillsForestGauge/YangMillsForestGauge.pdf`; the one-column
-  version in the AMS article class, 95 pages, is `strong-coupling/forest/cmp/`;
+  version in the AMS article class, 98 pages, is `strong-coupling/forest/cmp/`;
   the working notes and checks are in `strong-coupling/gauge-fixed/`). It
   was first posted as Hexagon preprint 2610.00341 under the title *Mass Gap
   of Four-Dimensional Lattice Yang–Mills Theory in a Forest Gauge*.
@@ -262,7 +262,14 @@ slice of links between two blocks the homology matrices of the coordinate
 loops in a maximal torus add up to the identity (Proposition "nomean", after
 Aumann and Eckmann on symmetric means), so
 averages of the path holonomies have no continuous covariant extension to
-all fields (checks in `strong-coupling/gauge-fixed/checks/blocks/path_blocks.py`).
+all fields. A cut-off of Bałaban's averaging operation, the mean of the
+sixteen paths of a block in the logarithmic chart at the straight path,
+switched continuously to the path map once some path is farther than ρ_G/2
+from it, is continuous, covariant and coercive for every field (D² ≤ 1431 Q,
+Q_1 ≤ 2956 Q for one step), agrees with the block averages to first order and
+breaks the symmetry only at large fields (Theorem "cutoff"); its constants
+do not compose (checks in
+`strong-coupling/gauge-fixed/checks/blocks/path_blocks.py`).
 These path-block results were first written in a technical companion
 prepared with ChatGPT/Codex. The localisation of
 the effective forms uniformly in the scale, a cube condition for the

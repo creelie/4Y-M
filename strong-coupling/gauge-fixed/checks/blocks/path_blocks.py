@@ -22,6 +22,11 @@ Parts:
  (E) the same for SU(3) on its maximal torus: for covariant continuous maps of
      six slice links the integer matrices W_t on H_1 of the torus add up to the
      identity.
+ (F) the cut-off average V# = V^p exp(chi/16 sum_x log(V^p^-1 P_x)) on SU(2),
+     rho = 1, c = pi/3: covariance, differential at I equal to the block
+     average, the bounds 896, 56 c^2, 448 + 896 c^2, 8 + 2688 c^2 on random
+     fields at five scales, slice windings 1 at the path and 0 elsewhere,
+     and the coarse link e^{X/8} of a single small link e^X.
 Run: python3 path_blocks.py. Needs numpy."""
 import itertools, math
 import numpy as np
@@ -215,4 +220,96 @@ for name, F in maps3.items():
     S = sum(wmatrix(F, t) for t in range(6))
     print('    %-26s sum of W_t = %s' % (name, S.tolist())); good &= (S == np.eye(2, dtype=int)).all()
 check('(E) for SU(3) the torus matrices W_t add up to the identity', good)
+# (F)
+Sd = 4; I2 = np.eye(2, dtype=complex); c = math.pi / 3; rho = 1.0
+shf = lambda x, mu, k=1: tuple((np.array(x) + k * E[mu]) % Sd)
+def slog(g):  # principal logarithm of SU(2) near I
+    n = math.acos(max(-1.0, min(1.0, g[0, 0].real / 2 + g[1, 1].real / 2)))
+    A = (g - g.conj().T) / 2
+    return A if n < 1e-12 else n / math.sin(n) * A
+def sexp(Z):
+    n = math.sqrt(hs2(Z) / 2)
+    return I2 * math.cos(n) + (Z if n < 1e-12 else math.sin(n) / n * Z)
+def phi(t): return 1.0 if t <= 0.5 else (0.0 if t >= 1 else 2 * (1 - t))
+blk = list(itertools.product(range(2), repeat=d))
+def sharp(U, y, mu):
+    P = [U.get((tuple((np.array(y) + o) % Sd), mu), I2) @
+         U.get((shf(tuple((np.array(y) + o) % Sd), mu), mu), I2) for o in blk]
+    v = [inv(P[0]) @ p for p in P]
+    m = max(math.sqrt(hs2(w - I2)) for w in v); chi = phi(m / rho)
+    M = I2 if chi == 0 else sexp(chi * sum(slog(w) for w in v) / 16)
+    return P[0] @ M, P[0], M, P
+evens = list(itertools.product(range(0, Sd, 2), repeat=d))
+def field(sc):
+    U = {}
+    for x in sites:
+        o = [q % 2 for q in x]
+        for mu in range(d):
+            U[(x, mu)] = I2 if tree(o, mu) else su2(sc * rng.normal(size=3))
+    return U
+# covariance under the gauge transformations constant on blocks
+good = True
+for sc in [0.05, 0.3, 2.0]:
+    U = field(sc); h = {y: haar() for y in evens}
+    hb = lambda x: h[tuple(q // 2 * 2 for q in x)]
+    Uh = {(x, mu): hb(x) @ U[(x, mu)] @ inv(hb(shf(x, mu))) for (x, mu) in U}
+    for y in evens:
+        for mu in range(d):
+            good &= np.allclose(sharp(Uh, y, mu)[0], h[y] @ sharp(U, y, mu)[0] @ inv(h[shf(y, mu, 2)]))
+check('(F) the cut-off average is covariant under block gauge transformations', good)
+# linearisation: the block average
+t = 1e-6; err = 0.0
+for rep in range(3):
+    a = {}
+    for x in sites:
+        o = [q % 2 for q in x]
+        for mu in range(d):
+            a[(x, mu)] = np.zeros(3) if tree(o, mu) else rng.normal(size=3)
+    U = {k: su2(t * a[k]) for k in a}
+    for y in evens:
+        for mu in range(d):
+            avg = sum(a[(tuple((np.array(y) + o) % Sd), mu)] + a[(shf(tuple((np.array(y) + o) % Sd), mu), mu)]
+                      for o in blk) / 16
+            lin = (sharp(U, y, mu)[0] - I2) / t
+            err = max(err, np.abs(lin - 1j * np.tensordot(avg, sig, 1)).max())
+print('    max |(V#(e^{t phi}) - I)/t - V(phi)| at t = 1e-6: %.2e' % err)
+check('(F) the differential of the cut-off average at I is the block average', err < 1e-4)
+# bounds for all fields
+worst = [0, 0, 0, 0]
+for sc in [0.05, 0.3, 1.0, 2.0, 6.0]:
+    for rep in range(2):
+        U = field(sc); Q = energies(U, Sd)
+        Vs, sP, sM = {}, 0.0, 0.0
+        for y in evens:
+            for mu in range(d):
+                V, P0, M, P = sharp(U, y, mu); Vs[(y, mu)] = V
+                sP += sum(hs2(p - P0) for p in P); sM += hs2(M - I2)
+        D = 0.0
+        for x in sites:
+            o = [q % 2 for q in x]; y = tuple(q // 2 * 2 for q in x)
+            for mu in range(d):
+                D += hs2(U[(x, mu)] - (Vs[(y, mu)] if o[mu] == 1 else I2))
+        Q1 = energies(Vs, Sd, 2)
+        worst = [max(worst[0], sP / Q), max(worst[1], sM / Q), max(worst[2], D / Q), max(worst[3], Q1 / Q)]
+print('    max sum d(P_x,P_2y)^2/Q = %.3f, sum d(M,I)^2/Q = %.4f, D^2/Q = %.3f, Q_1/Q = %.3f' % tuple(worst))
+check('(F) sum of d(P_x, V^p)^2 <= 896 Q', worst[0] <= 896)
+check('(F) sum of d(V#, V^p)^2 <= 56 c^2 Q, c = pi/3', worst[1] <= 56 * c * c)
+check('(F) D_{V#}^2 <= (448 + 896 c^2) Q', worst[2] <= 448 + 896 * c * c)
+check('(F) Q_1(V#) <= (8 + 2688 c^2) Q', worst[3] <= 8 + 2688 * c * c)
+# slice windings: the identity at the path, zero elsewhere
+trans = [a for a in itertools.product(range(2), repeat=3)]
+def Fsharp(u):
+    U = {((1,) + a, 0): u[i] for i, a in enumerate(trans)}
+    return sharp(U, (0, 0, 0, 0), 0)[0]
+w = [degree(Fsharp, t) for t in range(8)]
+print('    slice windings of the cut-off average: %s' % w)
+check('(F) slice windings of the cut-off average are 1 at the path and 0 elsewhere', w == [1] + [0] * 7)
+# one link e^X on the straight path or at another transverse position gives e^{X/8}
+good = True
+for a in trans:
+    for th in [0.05, 0.15]:
+        X = th * np.array([[1j, 0], [0, -1j]])
+        V = sharp({((1,) + a, 0): sexp(X)}, (0, 0, 0, 0), 0)[0]
+        good &= np.allclose(V, sexp(X / 8))
+check('(F) one small link e^X at any transverse position gives the coarse link e^{X/8}', good)
 print('%d checks passed, %d failed' % (sum(ok), len(ok) - sum(ok)))
