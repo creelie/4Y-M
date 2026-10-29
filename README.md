@@ -63,9 +63,9 @@ This repository contains three papers and a Lean 4 / Mathlib project
   (`strong-coupling/prd/`, PDF also at
   `preprintYangMillsDobrushinCeiling/YangMillsDobrushinCeiling.pdf`; see
   `strong-coupling/README.md`);
-- *Mass Gap of Four-Dimensional Lattice Yang–Mills Theory for Every Compact Simple Group* (`strong-coupling/forest/`, REVTeX, 66 pages; PDF also
+- *Mass Gap of Four-Dimensional Lattice Yang–Mills Theory for Every Compact Simple Group* (`strong-coupling/forest/`, REVTeX, 68 pages; PDF also
   at `preprintYangMillsForestGauge/YangMillsForestGauge.pdf`; the one-column
-  version in the AMS article class, 100 pages, is `strong-coupling/forest/cmp/`;
+  version in the AMS article class, 103 pages, is `strong-coupling/forest/cmp/`;
   the working notes and checks are in `strong-coupling/gauge-fixed/`). It
   was first posted as Hexagon preprint 2610.00341 under the title *Mass Gap
   of Four-Dimensional Lattice Yang–Mills Theory in a Forest Gauge*.
@@ -274,8 +274,12 @@ breaks the symmetry only at large fields (Theorem "cutoff"). On fields with
 values in a maximal torus whose curvature stays below ρ_G/12 at every scale it
 composes: the coarse curvature is the mean of the sixteen 2×2 fine fluxes,
 the energy does not increase at any scale, and the thin paths are contracted
-(Theorem "torusscales", Corollary "thinscales"). Composition for general
-nonabelian fields is open (checks in
+(Theorem "torusscales", Corollary "thinscales"). For every compact group it
+composes on fields whose curvatures at the successive scales have a small
+sum σ: the commutators are bounded by the square of the local curvature, and
+the energy grows at most by e^{12060σ}; if η_0 A_0 ≤ 2·10⁻¹⁰ ρ_G² this holds
+at every scale (Lemma "smallstep", Theorem "smallscales"). Large fields remain
+open (checks in
 `strong-coupling/gauge-fixed/checks/blocks/path_blocks.py`). The localisation of
 the effective forms uniformly in the scale, a cube condition for the
 coarsest averages, the large fields, the crossover to strong coupling and
