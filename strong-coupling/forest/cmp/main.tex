@@ -79,7 +79,7 @@ Yang--Mills Theory in a Forest Gauge'', appeared as Hexagon preprint
 2610.00341. The
 \LaTeX{} source, the checks and the Lean certificate are in
 \href{https://github.com/creelie/4Y-M}{github.com/creelie/4Y-M}, release
-v3.20.0.}
+v3.21.0.}
 
 \begin{abstract}
 \itshape
@@ -4022,10 +4022,12 @@ has to be an estimate such as (D).
 
 \subsection{What the cube estimate requires}\label{ssec:cubeneeds}
 
-This subsection proves five facts about $D(n,\alpha)$. It holds at small
+This subsection proves six facts about $D(n,\alpha)$. It holds at small
 coupling for every even $n$ above an explicit size
 (Proposition~\ref{prop:cubesmall}), and it survives small perturbations of
-the action (Proposition~\ref{prop:cubeopen}). It forces the gauge-fixed variables of a
+the action (Proposition~\ref{prop:cubeopen}), although gauge-invariant
+perturbations still need strong coupling at the scale of the cube
+(Proposition~\ref{prop:smallfield}). It forces the gauge-fixed variables of a
 cube with trivial exterior to stay a fixed distance from the identity on
 average (Theorem~\ref{thm:cubeneeds}, and Proposition~\ref{prop:tetra} for
 $\SU(2)$), so that for every fixed $n$ it fails
@@ -4630,6 +4632,71 @@ holds, and $(n+2)(2n+1)\le5n^2$.
 For every $N$, a cube on which the condition holds therefore has side at
 least of order $(\beta_W/\log\beta_W)^{1/4}$, with a constant that depends on
 $N$ only through $L_N$, which grows like $\frac{N^2}2\log\beta_W$.
+
+The cube condition is a statement about strong coupling at its own scale,
+and this persists under the perturbations of
+Proposition~\ref{prop:cubeopen} when they respect the gauge. Call $(w_X)$
+\emph{gauge invariant} if $w_X(Q^h)=w_X(Q)$ for every function $h$ on the
+sites that is constant on every line of $F$, where
+$Q^h_{(x,\mu)}=h(x)Q_{(x,\mu)}h(x+e_\mu)^{-1}$. Such transformations keep
+the links of $F$ equal to $1$, so they act on $G^A$, and the restriction to
+the gauge of an action invariant under all gauge transformations is gauge
+invariant in this sense. Write $\varepsilon^W_V$ for $\varepsilon_V$ with
+$\gamma^W_V(\cdot\mid1)$ in place of $\gamma^1_V$.
+
+\begin{proposition}\label{prop:smallfield}
+Let $(w_X)$ be as in Proposition~\ref{prop:cubeopen} and gauge invariant,
+let $n=2m$, and suppose that $D^W(n,\alpha)$ holds.
+\begin{enumerate}[label=\textup{(\roman*)},leftmargin=*]
+\item $\varepsilon^W_V\ge(1-\alpha)D/3$.
+\item If $\eta\ge0$, $0\le\kappa\le1$, and the event that
+$\delta(1,Q^F_p)\le\eta$ for every plaquette $p$ that meets $V$ has
+probability at least $1-\kappa$ under $\gamma^W_V(\cdot\mid1)$, then
+\[
+m(m+1)\,\eta+\kappa D\ge\frac{(1-\alpha)D}3 .
+\]
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+(i) The proof of Theorem~\ref{thm:cubeneeds} uses the action only through
+the identity $\gamma_V(\cdot\mid Q^g)=\Phi_*\gamma^1_V$ and through the
+coefficients $C_{V,j}$. The function $g$ of that proof is constant on every
+line of $F$, so the gauge transformation by $g$ leaves every $w_X$
+unchanged, as it leaves every plaquette trace, and the same identity holds
+for $\gamma^W_V$. Only finitely many links outside $V$ enter $\gamma^W_V$,
+because the sets $X$ have bounded diameter, so the upper bound holds with
+$C^W_{V,j}$ and $K^W_c$ in place of $C_{V,j}$ and $K_c$; the lower bound is
+unchanged.
+
+(ii) Under $\gamma^W_V(\cdot\mid1)$ every link outside $V$ equals $1$, so a
+plaquette that does not meet $V$ has variable $1$. The loop bound of the
+proof of Proposition~\ref{prop:cubesize}, which uses only the bi-invariance
+of $\delta$, gives $\delta(1,Q_e)\le\sum_{p\in R(e)}\delta(1,Q^F_p)\le
+m(m+1)\eta$ for every $e\in V$ on the event of the statement, and
+$\delta(1,Q_e)\le D$ off it. Averaging over $e\in V$ and integrating,
+$\varepsilon^W_V\le m(m+1)\eta+\kappa D$, and (i) completes the proof.
+\end{proof}
+
+In the small-field region of a gauge-covariant block renormalisation the
+blocked plaquette variables lie within a distance $\eta$ that tends to zero
+with the running coupling, and large fields have small probability
+$\kappa$. If $\kappa<(1-\alpha)/3$, part (ii) allows the cube condition on
+the blocked lattice only when $m(m+1)\ge x$, where
+$x=((1-\alpha)/3-\kappa)D/\eta$, so the side must grow like $\eta^{-1/2}$.
+On such a cube $N_n=m^4\ge x^2/4$, and since $\alpha'\ge\alpha+96s\Omega$,
+Proposition~\ref{prop:cubeopen} gives $\alpha'<1$ only for
+\[
+\begin{split}
+\varepsilon&<\frac{1-\alpha}{4608\,sMD\,N_n}\\
+&\le\frac{(1-\alpha)\,\eta^2}{1152\,sMD^3\bigl((1-\alpha)/3-\kappa\bigr)^2},
+\end{split}
+\]
+which is of order $\eta^2$. At a fixed side the condition is therefore a
+statement about strong coupling, and a renormalisation argument has to carry
+the blocked theory out of the small-field regime before the condition can
+be checked. That passage, at a running coupling of order one, is the step
+that remains open.
 
 \begin{remark}\label{rem:fluxloop}
 The proof loses the area of a disc, of order $n^2$, in passing from plaquettes
