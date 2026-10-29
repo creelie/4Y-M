@@ -73,8 +73,13 @@ None of this decides (D) along the tuning.
 The subsection "Block-constrained cubes" poses (D) for block variables, as
 above: in the block-rooted axial gauge with full-block averages fixed, the
 quadratic approximation has a gap 1/52 in every volume and satisfies the
-constrained cube condition at every coupling once n ≥ 2·10¹⁵/α; the
-composition across scales, the large fields and the crossover are open.
+constrained cube condition at every coupling once n ≥ 2·10¹⁵/α. One step of
+composition is proved (Corollary "compose": cube coefficients at most the
+constrained ones plus those of the averages; Proposition "effective": the
+averages carry at least the coarse quadratic form at every scale). Iterating
+needs localisation of the effective forms uniformly in the scale and a cube
+condition for the coarsest averages; these, the large fields and the
+crossover are open.
 For SU(2) the same subsection makes the size explicit: D(n, α) needs
 n⁴ ≥ 2(1−α) β_W/(5 L(β_W)), L(b) = 1 + log 24 + (3/2) log 9b (Proposition
 "cube size"), a bound met along the tuning; the n² lost in its proof is of the
