@@ -78,18 +78,15 @@ Road, Golpark, Kolkata 700029, West Bengal, India}
 \begin{abstract}
 \itshape
 We prove that four-dimensional lattice Yang--Mills theory with any compact
-simple gauge group has a unique infinite-volume state, exponential clustering
-and an explicit transfer-matrix gap at couplings past the curvature limit of
-the ungauged measure, up to $\beta_W=0.345$ for $\SU(2)$ and $\beta_W=0.76$
-for $\SU(3)$, in a gauge that fixes one link of every plaquette. We prove that
-a Dobrushin--Shlosman estimate in one cube of fixed physical size, or any
-exponential decay of renormalised correlations in physical units, gives a
-mass gap for every continuum limit. The cube estimate is open along the
-continuum tuning; for $\SU(N)$ it needs cubes of side at least of order
-$(\beta_W/\log\beta_W)^{1/4}$. For block averages, a cut-off of
-Ba{\l}aban's average composes across all scales on fields of small curvature
-for every compact group, and under the $\SU(2)$ Wilson measure the large
-fields form clusters of vanishing physical size.
+simple gauge group has a unique infinite-volume state and an explicit
+transfer-matrix gap beyond the curvature limit of the ungauged measure, up to
+$\beta_W=0.345$ for $\SU(2)$ and $\beta_W=0.76$ for $\SU(3)$. A
+Dobrushin--Shlosman estimate in one cube of fixed physical size gives a mass
+gap in every continuum limit. We show that the cube needs a side of at least
+order $(\beta_W/\log\beta_W)^{1/4}$ lattice spacings, and that for $\SU(2)$ a
+cut-off of Ba{\l}aban's block average composes through the large fields of the
+Wilson measure up to a scale of the same order. The estimate itself remains
+open.
 \end{abstract}
 
 \maketitle
@@ -6822,7 +6819,7 @@ Lemma~\ref{lem:vmfconst}, which are computations in interval arithmetic with
 rigorous error bounds. The programs of these steps, in Python with
 python-flint (FLINT and Arb) and a C kernel for products of Taylor
 polynomials, their outputs and the list of certified boxes are in the
-repository \url{https://github.com/creelie/4Y-M}, release v4.9.0, together
+repository \url{https://github.com/creelie/4Y-M}, release v4.9.1, together
 with a Lean~4 certificate of the line field and independent exact or
 numerical checks of the other finite statements.
 
