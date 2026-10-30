@@ -140,10 +140,17 @@ at least (1/26 − 4·10⁵c_3(κ+s)), the Haar, coarea and area factors e^{−�
 have |ψ″| ≤ c_6, and for λ ≥ 60c_6 the constrained law restricted to the chart
 satisfies a Brascamp–Lieb inequality with constant 60/λ (240/β for SU(2));
 c_3, c_6 depend only on G, by compactness (Theorem "fibrechart"; check
-gauge-fixed/checks/cube/fibre_chart.py). The decay of the constrained
-influences (Helffer–Sjöstrand on the chart, which has a boundary, with the
-non-local but exponentially decaying Hessian) and the mass off the chart
-are open (Remark "fibrechartopen").
+gauge-fixed/checks/cube/fibre_chart.py). On the chart over
+Ω_r = {η tangent, |η_e| ≤ r for the links e other than one path link d_k per
+constraint}, r = s/32, which is a product of balls in those coordinates and
+lies between K_r and K_{15.1r}, a weighted Helffer–Sjöstrand representation
+(the smooth convex extension H∘τ + nV, n → ∞) and the exponential locality of
+the chart Hessian give |Cov(F,G)| ≤ (c_9/λ)|X_1||X_2| e^{−α_G d(X_1,X_2)} for
+observables of the links in X_1, X_2, with α_G, c_9 depending only on G
+(Theorem "chartdecay"; check gauge-fixed/checks/cube/chart_decay.py). The mass
+off the chart, the values of α_G, c_9, and the passage to the constrained cube
+condition over boundary conditions with large fields are open (Remark
+"chartdecayopen").
 A block
 map that is coercive for all nonabelian fields and composes across the
 remaining scales is open.
