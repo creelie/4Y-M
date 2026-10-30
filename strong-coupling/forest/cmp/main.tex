@@ -507,8 +507,11 @@ at least $\lambda(\frac1{26}-c\kappa)$, however far the links are from $I$
 (Theorem~\ref{thm:smallfibre}). On a chart of the fibre with convex domain
 the constrained law is log-concave for large $\lambda$, coarea factor
 included, and satisfies a Brascamp--Lieb inequality with constant
-$60/\lambda$ (Theorem~\ref{thm:fibrechart}); the decay of its influences
-and its mass off the chart are open (Remark~\ref{rem:fibrechartopen}).
+$60/\lambda$ (Theorem~\ref{thm:fibrechart}); on a chart whose domain is a
+product in the coordinates of the links other than the path links, the
+covariances of local observables decay exponentially at a rate that
+depends only on $G$ (Theorem~\ref{thm:chartdecay}); its mass off the chart
+is open (Remark~\ref{rem:chartdecayopen}).
 Whether some block map is coercive for all fields and composes across the
 remaining scales is open.
 
@@ -6257,8 +6260,9 @@ the Hessian of the action along the fibre is at least $\lambda(\frac1{26}-
 c_G\kappa)$ at every background with plaquettes at most $\kappa$
 (Theorem~\ref{thm:smallfibre}), and on a convex chart of the fibre the
 constrained law satisfies a Brascamp--Lieb inequality for large $\lambda$
-(Theorem~\ref{thm:fibrechart}); the remaining small-field steps are listed
-in Remark~\ref{rem:fibrechartopen}.
+(Theorem~\ref{thm:fibrechart}), and on a product chart its covariances
+decay exponentially (Theorem~\ref{thm:chartdecay}); the remaining
+small-field steps are listed in Remark~\ref{rem:chartdecayopen}.
 \item \emph{Second order.} Let $b_0=11N/(48\pi^2)$ for $\SU(N)$, $t=2b_0\log2$,
 and let $g_m^{-2}=g_*^{-2}+tm$ be the one-loop coupling $m$ steps above a
 matching scale. Comparison with integrals gives $\sum_{m\le M}g_m^2=
@@ -7627,7 +7631,8 @@ of its covariances between distant links. That needs a
 Helffer--Sj\"ostrand representation on the convex set $K_{s/2}$, which has
 a boundary, and the locality of $\Hess H$, which through $Dh$ contains
 $\mathcal G^{-1}$, exponentially decaying by Lemma~\ref{lem:combes} but not
-of finite range;
+of finite range; Theorem~\ref{thm:chartdecay} below reaches it on
+a chart whose domain is a product;
 \item numbers: $c_3$ and $c_6$ come from compactness and are not computed,
 so the threshold $\lambda\ge60c_6$ is not explicit, and $\kappa$ and $s$
 are at the scale $10^{-8}\rho_G$.
@@ -7637,6 +7642,304 @@ check of Theorem~\ref{thm:smallfibre}, two to sixteen blocks and $s$ up to
 $0.03$, the chart Hessian of $Q$ is at least $0.21$
 and $\lvert\psi''\rvert/T$ stays below one, a floating-point computation
 reproduced in the archive.
+\end{remark}
+
+The obstacle in Remark~\ref{rem:fibrechartopen}(b) is the shape of
+$K_{s/2}$, which is not a product in any coordinates adapted to the links. A
+slightly different chart domain is. For $k=(y,\mu)$ let $d_k=(2y+e_\mu,\mu)$
+be the path link of $V_{y,\mu}$. It has $o_\mu=1$, so it is active and lies
+in $A_W$; it enters $V_{y,\mu}$ with weight $\frac18$ by
+Lemma~\ref{lem:blocktree}(iii); and it enters no other average, since the
+links with $o_\mu=1$ that enter $V_{y',\mu}$ have their base in $B(y')$. Let
+$L'=A_W\setminus\{d_k\}$ and, for $r>0$,
+\[
+\Omega_r=\{\eta\in T_U:\lVert\eta_e\rVert\le r\text{ for every }e\in L'\}.
+\]
+Give every link the position of its midpoint and every pair $k$ that of
+$d_k$, and let $d(a,b)$ be the $\ell^\infty$ distance between the positions
+on the periodic lattice. The links that enter $V_{y,\mu}$ have midpoints
+within distance $1$ of that of $d_k$. Let $\nabla'$ be the gradient in the
+coordinates $(\eta_e)_{e\in L'}$, and, for a block matrix $M=(M_{ab})$
+whose indices are links or pairs and whose blocks are maps between copies
+of $\g$, and for $\beta\ge0$, let
+\[
+\lVert M\rVert_\beta=\max\Bigl(\sup_a\sum_be^{\beta d(a,b)}\lVert M_{ab}
+\rVert,\ \sup_b\sum_ae^{\beta d(a,b)}\lVert M_{ab}\rVert\Bigr).
+\]
+At most two indices share a position, so the sum
+\[
+N(\beta)=\sup_a\sum_be^{-\beta d(a,b)}
+\]
+is finite for $\beta>0$ and depends only on $\beta$.
+
+\begin{lemma}\label{lem:kernels}
+\begin{enumerate}[label=\textup{(\roman*)},leftmargin=*]
+\item The operator norm satisfies $\lVert M\rVert\le\lVert M\rVert_\beta$,
+and $\lVert M_1M_2\rVert_\beta\le\lVert M_1\rVert_\beta\lVert M_2
+\rVert_\beta$ and $\lVert M^*\rVert_\beta=\lVert M\rVert_\beta$.
+\item If $|\varphi(a)-\varphi(b)|\le d(a,b)$ for all $a,b$ and $0\le\alpha
+\le\beta$, then $\lVert e^{\alpha\varphi}Me^{-\alpha\varphi}-M\rVert\le
+\frac\alpha\beta\lVert M\rVert_\beta$.
+\item If $M$ is invertible, $\lVert M^{-1}\rVert\le M_0$ and $\lVert M\rVert
+_\beta\le M_1$, then $\lVert M^{-1}\rVert_\gamma\le2M_0N(\gamma)$ with
+$\gamma=\beta/(4M_0M_1)$.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+(i) is the Schur test and the triangle inequality for $d$. (ii) The blocks
+of the difference are $(e^{\alpha(\varphi(a)-\varphi(b))}-1)M_{ab}$, and
+$|e^{\alpha(\varphi(a)-\varphi(b))}-1|\le e^{\alpha d(a,b)}-1\le\frac
+\alpha\beta e^{\beta d(a,b)}$ by convexity of $\alpha\mapsto e^{\alpha d}$;
+apply (i) with $\beta=0$. (iii) Let $\alpha=2\gamma\le\beta$, since $M_0M_1
+\ge\lVert M^{-1}\rVert\lVert M\rVert\ge1$. By (ii), $e^{\alpha\varphi}M
+e^{-\alpha\varphi}=M+E$ with $\lVert M^{-1}E\rVert\le\frac12$, so
+$\lVert e^{\alpha\varphi}M^{-1}e^{-\alpha\varphi}\rVert\le2M_0$ as in
+Lemma~\ref{lem:combes}. With $\varphi=d(\cdot,b)$ the block $(a,b)$ gives
+$e^{2\gamma d(a,b)}\lVert(M^{-1})_{ab}\rVert\le2M_0$ for all $a,b$, and
+summing $e^{\gamma d(a,b)}\lVert(M^{-1})_{ab}\rVert\le2M_0e^{-\gamma
+d(a,b)}$ over $b$ or over $a$ gives the claim.
+\end{proof}
+
+\begin{theorem}\label{thm:chartdecay}
+Assume the hypotheses of Theorem~\ref{thm:fibrechart}\textup{(iv)}, with
+$c_6\ge1$, as we may, and let $r=s/32$.
+\begin{enumerate}[label=\textup{(\roman*)},leftmargin=*]
+\item The coordinates $(\eta_e)_{e\in L'}$ identify $T_U$ with $\g^{L'}$,
+Lebesgue measure on $T_U$ being a constant multiple of that on $\g^{L'}$;
+$\Omega_{r'}$ is a product of balls in them, and $K_{r'}\subset\Omega_{r'}
+\subset K_{15.1r'}$ for every $r'>0$.
+\item There are $\alpha_G>0$ and $c_9$ depending only on $G$ with the
+following property. Let $\mu$ be the constrained law conditioned on
+$\Phi(\Omega_r)$, written as a law on $\Omega_r$. For every $\varphi:L'\to
+\R$ with $|\varphi(e)-\varphi(e')|\le d(e,e')$, every $0\le\alpha\le
+\alpha_G$ and all smooth $F,G$ on $T_U$,
+\[
+\lvert\operatorname{Cov}_\mu(F,G)\rvert\le\frac{120}\lambda\,\bigl\lVert
+e^{-\alpha\varphi}\nabla'F\bigr\rVert_{L^2(\mu)}\bigl\lVert e^{\alpha
+\varphi}\nabla'G\bigr\rVert_{L^2(\mu)}.
+\]
+\item If $X_1,X_2\subset A_W$, $\tilde F,\tilde G$ are smooth functions of
+the links in $X_1$ and in $X_2$ whose left-invariant gradients have norm at
+most $1$ in each link, $F=\tilde F\circ\Phi$ and $G=\tilde G\circ\Phi$, then
+\[
+\lvert\operatorname{Cov}_\mu(F,G)\rvert\le\frac{c_9}\lambda\,\lvert X_1
+\rvert\,\lvert X_2\rvert\,e^{-\alpha_Gd(X_1,X_2)}.
+\]
+\end{enumerate}
+The constants do not depend on $L$, $W$, $U$, $\lambda$, $s$ or $\kappa$.
+\end{theorem}
+
+So the covariances of local observables of the field under the
+constrained law, conditioned on the chart, decay exponentially at a rate
+that depends only on $G$, with amplitude $O(1/\lambda)$; for $\SU(2)$ and
+the Wilson action the amplitude is $O(1/\beta)$.
+
+\begin{proof}
+All constants called $C$ depend only on $G$.
+
+\emph{The section.} By Lemma~\ref{lem:smallframes}(iv), $B_k=\tilde B_k+R_k$
+with $\lVert R_k\rVert\le260\kappa$, and the block of $\tilde B_k$ at $d_k$
+is $\frac18$ times an isometry of $\g$, so $\lVert B_{k,d_k}^{-1}\rVert\le
+(\frac18-260\kappa)^{-1}\le8.01$. For $\xi\in\g^{L'}$ let $(S\xi)_e=\xi_e$
+for $e\in L'$ and $(S\xi)_{d_k}=-B_{k,d_k}^{-1}\sum_{e\ne d_k}B_{k,e}\xi_e$.
+Since $d_k$ enters only $V_k$, $BS=0$; $S$ is injective, and $\dim T_U=
+\lvert L'\rvert\dim G$ because $F$ has codimension $4\lvert W\rvert\dim G$,
+so $S$ is an isomorphism onto $T_U$ whose inverse is the restriction to
+$L'$. The other coefficients of $\tilde B_k$ add up to $\frac78+1=\frac{15}8$,
+so $\lVert(S\xi)_{d_k}\rVert\le8.01(\frac{15}8+\sqrt{24}\cdot260\kappa)\max
+_e\lVert\xi_e\rVert\le15.1\max_e\lVert\xi_e\rVert$. This proves (i), and
+$S$ has blocks of norm at most $1.1$ that vanish beyond distance $1$. Write
+$\mathrm{Box}_{r'}$ for the product of balls $S^{-1}\Omega_{r'}$. Since
+$15.1\cdot2r<s$, the estimates of Theorem~\ref{thm:fibrechart} hold on
+$S(\mathrm{Box}_{2r})$.
+
+\emph{The density.} Put $X(\xi)=S\xi+h(S\xi)$, $A=Dc(X)$, $P=1-B^*(AB^*)
+^{-1}A$ and $\bar P=PS$. In the proof of Theorem~\ref{thm:fibrechart}(ii)
+the derivative of $X$ along $\zeta\in T_U$ is $P\zeta$, and $P\zeta=\zeta
++Dh\,\zeta$ with $Dh\,\zeta\perp T_U$; so $\partial_\xi X=\bar P$, $\bar P^*
+\bar P=S^*(1+Dh^*Dh)S\ge S^*S\ge1$, and $\det\bar P^*\bar P=\det(S^*S)\det
+(1+Dh^*Dh)$. By Theorem~\ref{thm:fibrechart}(iii) the law $\mu$ has, in the
+coordinate $\xi$, the density $e^{-\bar H}\mathbf 1_{\mathrm{Box}_r}$ up to
+normalisation, with
+\[
+\begin{split}
+\bar H(\xi)={}&\lambda Q\bigl(Ue^{X}\bigr)-\sum_e\log j(X_e)\\
+&+\tfrac12\log\det(AA^*)-\tfrac12\log\det(\bar P^*\bar P),
+\end{split}
+\]
+and $\operatorname{Hess}\bar H\ge m=\frac\lambda{60}$ on
+$\mathrm{Box}_{2r}$, because $\lvert S\zeta\rvert\ge\lvert\zeta\rvert$.
+
+\emph{Locality of the Hessian.} We show that $\lVert\operatorname{Hess}\bar
+H(\xi)\rVert_\beta\le c_8\lambda$ on $\mathrm{Box}_{2r}$ for some $\beta>0$
+and $c_8\ge1$ depending only on $G$, the Hessian being the block matrix of
+second derivatives in the coordinates $\xi_e$. The maps $B$, $A$, $S$, the
+second derivative of $Q(Ue^X)$ in $X$ and that of $\sum_e\log j(X_e)$ have
+blocks bounded by $C$ (the last two by compactness, as $c_3$) that vanish
+beyond distance $2$, so their norms $\lVert\cdot\rVert_1$ are at most $C$.
+By the proof of Theorem~\ref{thm:fibrechart}, $\lVert(AB^*)^{-1}\rVert\le34$
+and $\lVert(AA^*)^{-1}\rVert\le25$, and $\lVert(\bar P^*\bar P)^{-1}\rVert
+\le1$. Applying Lemma~\ref{lem:kernels}(iii) to $AB^*$ and $AA^*$, then (i)
+to $P$, $\bar P$ and $\bar P^*\bar P$, then (iii) to $\bar P^*\bar P$, gives
+$\beta_0\in(0,1]$ such that $(AB^*)^{-1}$, $(AA^*)^{-1}$, $P$, $\bar P$,
+$\bar P^*\bar P$ and $(\bar P^*\bar P)^{-1}$ have norm $\lVert\cdot\rVert
+_{\beta_0}$ at most $C$ on $\mathrm{Box}_{2r}$. Let $\gamma=\beta_0/2$, and for
+links $e,e'$ and $v,v'\in\g$ write $v,v'$ also for the vectors of
+$\g^{L'}$ supported at $e$, $e'$. Call a block matrix $M$, depending
+linearly on $v$, \emph{concentrated at $e$} if $\lVert M_{ab}\rVert\le C
+\lvert v\rvert e^{-\gamma(d(a,e)+d(b,e))}$, and, depending bilinearly on
+$(v,v')$, \emph{concentrated at $(e,e')$} if $\lVert M_{ab}\rVert\le C
+\lvert v\rvert\lvert v'\rvert e^{-\gamma(d(a,e)+d(a,e')+d(b,e)+d(b,e'))}$;
+a vector is concentrated if it is so as a column. If $\lVert Y\rVert_{\beta
+_0}\le C$, then $YM$ and $MY$ are concentrated where $M$ is, because
+$e^{-\gamma(d(c,e)+d(c,e'))}\le e^{\beta_0d(a,c)}e^{-\gamma(d(a,e)+d(a,
+e'))}$. For
+$M$ concentrated at $e$ and $M'$ at $e'$, using $d(a,e)+d(a,e')\ge d(e,e')$
+in both indices,
+\[
+\lvert\Tr(MM')\rvert\le C\lvert v\rvert\lvert v'\rvert N(\gamma/2)^2
+e^{-\gamma d(e,e')},
+\]
+and if $M$ is concentrated at $(e,e')$, then
+\[
+\lvert\Tr M\rvert\le C\lvert v\rvert\lvert v'\rvert N(\gamma)e^{-\gamma
+d(e,e')}.
+\]
+
+Now $x_v=\partial_vX=\bar Pv$ has $\lVert(x_v)_a\rVert\le Ce^{-\beta_0
+d(a,e)}\lvert v\rvert$, so it is concentrated at $e$. The vector
+$D^2c(X)[x_v,x_{v'}]$ has components at most $c_3N_k(x_v)N_k(x_{v'})\le
+C\lvert v\rvert\lvert v'\rvert e^{-\beta_0(d(k,e)+d(k,e'))}$, so $x_{vv'}=
+\partial_v\partial_{v'}X=-B^*(AB^*)^{-1}D^2c(X)[x_v,x_{v'}]$ is concentrated
+at $(e,e')$. In the same way $A_v=\partial_vA=D^2c(X)[x_v,\cdot\,]$ is
+concentrated at $e$, $A_{vv'}=D^3c(X)[x_v,x_{v'},\cdot\,]+D^2c(X)[x_{vv'},
+\cdot\,]$ is concentrated at $(e,e')$, $\partial_vP=-B^*(AB^*)^{-1}A_vP$ is
+concentrated at $e$, and $\partial_v\partial_{v'}P$ is a sum of products of
+operators bounded in $\lVert\cdot\rVert_{\beta_0}$ with either one factor
+concentrated at $(e,e')$ or one factor concentrated at $e$ and one at $e'$.
+The same holds for the derivatives of $\mathcal G_1=AA^*$ and $\mathcal G_2
+=\bar P^*\bar P$. Then
+\[
+\begin{split}
+\partial_v\partial_{v'}\bar H={}&\lambda\bigl(D^2Q[x_v,x_{v'}]+DQ[x_{vv'}]
+\bigr)-\sum_e\partial_v\partial_{v'}\log j(X_e)\\
+&+\sum_{i=1,2}\pm\tfrac12\bigl(\Tr(\mathcal G_i^{-1}\partial_v\partial
+_{v'}\mathcal G_i)\\
+&\qquad-\Tr(\mathcal G_i^{-1}\partial_v\mathcal G_i\,\mathcal G_i^{-1}
+\partial_{v'}\mathcal G_i)\bigr),
+\end{split}
+\]
+where $D^2Q$ and $DQ$ are the derivatives of $Q(Ue^X)$ in $X$. By the
+bounds above every term is at most
+\[
+C(\lambda+1)\lvert v\rvert\lvert v'\rvert e^{-\gamma d(e,e')/2};
+\]
+for instance
+\[
+\lvert D^2Q[x_v,x_{v'}]\rvert\le C\sum_ae^{-\beta_0(d(a,e)+d(a,e')-2)}
+\lvert v\rvert\lvert v'\rvert.
+\]
+Hence, using $\lambda\ge60c_6\ge60$, every block of the Hessian of $\bar H$
+satisfies
+\[
+\lVert(\operatorname{Hess}\bar H)_{ee'}\rVert\le C\lambda e^{-\beta_0
+d(e,e')/4},
+\]
+and $\lVert\operatorname{Hess}\bar H\rVert_\beta\le c_8\lambda$ with $\beta
+=\beta_0/8$.
+
+\emph{Approximation.} Let $\rho$ be smooth on $[0,\infty)$ with $0\le\rho'
+\le1$, $\rho(t)=t$ for $t\le\frac32r$, $\rho\le\frac74r$ and $\rho$
+constant on $[2r,\infty)$, and let
+$\tau(\xi)_e=\rho(\lVert\xi_e\rVert)\xi_e/\lVert\xi_e\rVert$, which maps
+$\g^{L'}$ into $\mathrm{Box}_{7r/4}$. Let $v$ be smooth and convex on
+$[0,\infty)$, zero on $[0,r]$, with $0<v''\le1$ on $(r,\infty)$ and
+$v''=1$ on $[\frac54r,\infty)$, and $V(\xi)=\sum_ev(\lVert\xi_e\rVert)$.
+For $t\ge\frac32r$, $v''(t)=1$ and $v'(t)/t\ge1-\frac54r/t\ge\frac16$, so
+$\operatorname{Hess}V\ge\frac16$ in the links with $\lVert\xi_e\rVert\ge
+\frac32r$. Let $H_n=\bar H\circ\tau+nV$. Then
+\[
+\operatorname{Hess}H_n=D\tau^*\bigl(\operatorname{Hess}\bar H\circ\tau
+\bigr)D\tau+\Delta_n,
+\]
+where $D\tau$ and $\Delta_n$ are block diagonal, $D\tau$ is the identity in
+the links with $\lVert\xi_e\rVert\le\frac32r$, $\lVert D\tau\rVert\le1$, and
+$\Delta_n\ge n\frac16-C_1$ in the other links, $C_1$ bounding $\nabla\bar H$
+times the second derivative of $\tau$. So $\operatorname{Hess}H_n\ge m$ on
+$\g^{L'}$ for $n\ge6(m+C_1)$, and all derivatives of $H_n$ of order at least
+two are bounded. For $\varphi$ as in (ii) and $\alpha\le\alpha_G=\beta/(120
+c_8)$, the block-scalar matrix $e^{\alpha\varphi}$ commutes with $D\tau$
+and $\Delta_n$, so by Lemma~\ref{lem:kernels}(ii)
+\[
+\bigl\lVert e^{\alpha\varphi}\operatorname{Hess}H_ne^{-\alpha\varphi}-
+\operatorname{Hess}H_n\bigr\rVert\le\frac\alpha\beta c_8\lambda\le\frac m2 .
+\]
+
+\emph{Weighted Helffer--Sj\"ostrand.} Let $\mu_n$ have density proportional
+to $e^{-H_n}$ on $\g^{L'}$ and $\mathcal L_n=-\Delta+\nabla H_n\cdot\nabla$
+on $L^2(\mu_n)$. For $H_n$ smooth with $\operatorname{Hess}H_n\ge m>0$ and
+bounded derivatives of order at least two, and $F,G$ smooth with bounded
+derivatives, the Helffer--Sj\"ostrand representation~\cite{HS94} reads
+$\operatorname{Cov}_{\mu_n}(F,G)=\langle\nabla F,\mathcal A^{-1}\nabla G
+\rangle_{L^2(\mu_n)}$ with $\mathcal A=\mathcal L_n\otimes1+\operatorname{Hess}
+H_n$ acting on $L^2(\mu_n;\g^{L'})$. With $w=e^{\alpha\varphi}$, constant in
+$\xi$, $\mathcal A_w=w\mathcal Aw^{-1}=\mathcal L_n\otimes1+w\operatorname
+{Hess}H_nw^{-1}$, and $\operatorname{Re}\langle u,\mathcal A_wu\rangle\ge
+\frac m2\lVert u\rVert^2$ because $\mathcal L_n\ge0$; the adjoint satisfies
+the same bound, so $\lVert\mathcal A_w^{-1}\rVert\le\frac2m=\frac{120}
+\lambda$. Since $\mathcal A^{-1}=w^{-1}\mathcal A_w^{-1}w$,
+\[
+\begin{split}
+\lvert\operatorname{Cov}_{\mu_n}(F,G)\rvert&=\bigl\lvert\langle w^{-1}\nabla
+F,\mathcal A_w^{-1}w\nabla G\rangle\bigr\rvert\\
+&\le\frac{120}\lambda\lVert w^{-1}\nabla F\rVert_{L^2(\mu_n)}\lVert w\nabla
+G\rVert_{L^2(\mu_n)}.
+\end{split}
+\]
+As $n\to\infty$, $e^{-H_n}$ decreases to $e^{-\bar H}\mathbf 1_{\mathrm{Box}
+_r}$ off the boundary of $\mathrm{Box}_r$, since $\tau$ is the identity
+there and $V>0$ off it, so $\mu_n\to\mu$ in total variation. For $F,G$
+smooth on $T_U$, apply the bound to $(F\circ S)\chi$ and $(G\circ S)\chi$
+with $\chi$ smooth, compactly supported and equal to $1$ near $\mathrm{Box}
+_r$, and let $n\to\infty$; this proves (ii).
+
+(iii) The left-invariant derivative of $U_ae^{X_a}$ along $\delta X_a$ is
+$\Psi(\operatorname{ad}_{X_a})\delta X_a$, of norm at most $2\lVert\delta
+X_a\rVert$, so $\lVert\partial_{\xi_f}F\rVert\le2\sum_{a\in X_1}\lVert\bar
+P_{af}\rVert$, and similarly for $G$. Take $\varphi=d(\cdot,X_2)$ and $\alpha
+=\alpha_G\le\beta_0$. Then $e^{-\alpha d(f,X_2)}\le e^{\beta_0d(a,f)}e^{-
+\alpha d(a,X_2)}$, so $\lvert e^{-\alpha\varphi}\nabla'F\rvert\le2\lvert
+X_1\rvert\lVert\bar P\rVert_{\beta_0}e^{-\alpha d(X_1,X_2)}$, and $e^{\alpha
+d(f,X_2)}\le e^{\beta_0d(b,f)}$ for $b\in X_2$ gives $\lvert e^{\alpha
+\varphi}\nabla'G\rvert\le2\lvert X_2\rvert\lVert\bar P\rVert_{\beta_0}$.
+Insert these in (ii); with $C$ a bound for $\lVert\bar P\rVert_{\beta_0}$
+on $\mathrm{Box}_{2r}$, $c_9=480C^2$.
+\end{proof}
+
+\begin{remark}\label{rem:chartdecayopen}
+Theorem~\ref{thm:chartdecay} is the decay that
+Remark~\ref{rem:fibrechartopen}(b) asks for, on the chart $\Phi(\Omega_r)$
+with $r=s/32$, which contains $\Phi(K_{s/32})$ and so every $Ue^X\in F$
+with $\lVert X\rVert_\infty\le s/1280$. What remains open for the small
+fields:
+\begin{enumerate}[label=\textup{(\alph*)},leftmargin=*]
+\item the mass of the constrained law outside $\Phi(\Omega_r)$,
+Remark~\ref{rem:fibrechartopen}(a);
+\item numbers: $\alpha_G$, $c_8$ and $c_9$ come, through $c_3$, from
+compactness, and the rate is not computed;
+\item the passage from the decay of the constrained law on one fibre, at
+a fixed background, to the constrained cube condition of
+Remark~\ref{rem:constrainedopen}(a), whose supremum runs over boundary
+conditions that include large fields.
+\end{enumerate}
+On the periodic lattice of side twelve, for $\SU(2)$ backgrounds as in the
+check of Theorem~\ref{thm:smallfibre} and $W$ a row of five blocks, the
+section $S$ has row sums at most $14$, the blocks of $\bar P$ beyond the
+range of $S$ decay by a factor about $0.4$ per unit of distance, and the
+blocks of the chart Hessian of $Q$ fall from $15$ at distance zero to
+$10^{-8}$ at distance nine, a floating-point computation reproduced in the
+archive.
 \end{remark}
 
 \subsection{Large fields under the Wilson measure}\label{ssec:largefields}
@@ -8401,7 +8704,7 @@ Lemma~\ref{lem:vmfconst}, which are computations in interval arithmetic with
 rigorous error bounds. The programs of these steps, in Python with
 python-flint (FLINT and Arb) and a C kernel for products of Taylor
 polynomials, their outputs and the list of certified boxes are in the
-repository \url{https://github.com/creelie/4Y-M}, release v4.18.0, together
+repository \url{https://github.com/creelie/4Y-M}, release v4.19.0, together
 with a Lean~4 certificate of the line field, independent exact or
 numerical checks of the other finite statements, and our checks of the
 certificate of~\cite{Rom26}.
@@ -10027,6 +10330,11 @@ SIAM, Philadelphia (2002).
 R.~Holley and D.~Stroock, Logarithmic Sobolev inequalities and stochastic
 Ising models, J. Stat. Phys. \textbf{46} (1987), 1159--1194,
 \href{https://doi.org/10.1007/BF01011161}{doi:10.1007/BF01011161}.
+
+\bibitem{HS94}
+B.~Helffer and J.~Sj\"ostrand, On the correlation for Kac-like models in
+the convex case, J. Stat. Phys. \textbf{74} (1994), 349--409,
+\href{https://doi.org/10.1007/BF02186817}{doi:10.1007/BF02186817}.
 
 \bibitem{Hoe63}
 Hoeffding, W.: Probability inequalities for sums of bounded random
