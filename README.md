@@ -1,6 +1,6 @@
 # Mass Gap of Four-Dimensional Lattice Yang–Mills Theory for Every Compact Simple Group
 
-Deep Bhattacharjee, Ushashi Bhattacharya and James Montgomery Lockwood.
+Deep Bhattacharjee, Ushashi Bhattacharya, James Montgomery Lockwood and Tristan Romanov.
 
 Archived on Zenodo; the concept DOI [10.5281/zenodo.23444338](https://doi.org/10.5281/zenodo.23444338)
 resolves to the latest release.
@@ -262,7 +262,10 @@ n ≥ 2·10¹⁵/α. In the forest gauge, averages along straight paths leave th
 lines with odd transverse coordinates invisible, so the constrained
 condition fails there at every n. Checks:
 `strong-coupling/gauge-fixed/checks/blocks/block_gauge.py` and
-`YangMills/StrongCoupling/BlockGauge.lean`. One step of composition is
+`YangMills/StrongCoupling/BlockGauge.lean`. A certificate of T. Romanov on a window of
+five blocks improves 52 to 5000/537 = 9.311 (Proposition "blockgapsharp";
+exact check `strong-coupling/gauge-fixed/checks/blocks/blockgap_certificate.py`
+with `certificate_c537_5000.json`). One step of composition is
 proved: the cube coefficients of any law that decomposes along the averages
 are at most the constrained ones plus those of the law of the averages
 (Corollary "compose", from a Kantorovich mixture lemma, with responses

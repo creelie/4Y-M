@@ -85,6 +85,10 @@ Road, Golpark, Kolkata 700029, West Bengal, India}
 \thanks{Secondary address: \nolinkurl{Blaze61029dogQ@proton.me}.}
 \affiliation{Independent Researcher, San Antonio, USA}
 
+\author{Tristan Romanov}
+\email{romanov360@gmail.com}
+\affiliation{Independent Researcher, San Francisco, CA, USA}
+
 \date{30 October 2026}
 
 \begin{abstract}
@@ -290,7 +294,11 @@ kind, for special holonomy and for Riemannian submersions, are studied
 in~\cite{BTBS26,GBN26}.} For small $|\beta|$ the existence of a gap is classical
 for every compact group, with no explicit range~\cite[Thm.~3.6]{OSei78}; what is new is an explicit range for
 every group, past the range $N|\beta|<\kappa_G/16$ that the Hessian bound $16$
-gives without gauge fixing, and an explicit gap. As $\beta\to0$ the gap grows like $\log\frac{\kappa_G}{6N|\beta|}$.
+gives without gauge fixing, and an explicit gap.\footnote{With the computer-assisted bound $h_F\le14.420001$ of
+Theorem~\ref{thm:certificate} in place of $\frac{29}2$, every range of
+Table~\ref{tab:groups} grows by the factor $29/28.840002=1.0055$.
+Appendix~\ref{app:certificate} derives that bound from a certificate of
+T.~Romanov.} As $\beta\to0$ the gap grows like $\log\frac{\kappa_G}{6N|\beta|}$.
 
 \begin{table}[t]
 \caption{Least Ricci curvature $\kappa_G=h^\vee/(2\ell_\rho)$ of the compact
@@ -525,7 +533,11 @@ Corollary~\ref{cor:defectscales}, which is the scale $a_{k_*}$ up to a
 constant factor; for larger boxes with general boundary fields this
 conditional estimate is open (Remark~\ref{rem:boxnonabelian}).
 On the fibres of the cut-off average, at a background whose plaquettes are
-at most $\kappa\le10^{-8}$, the gap $\frac1{52}$ of the averages persists up
+at most $\kappa\le10^{-8}$, the gap $\frac1{52}$ of the averages\footnote{By the certificate of
+Proposition~\ref{prop:blockgapsharp} this gap is at least
+$\frac{537}{5000}=0.1074$, within $0.09$ per cent of the best constant on $\Z^4$, a
+floating-point value.}
+persists up
 to a factor $1+O(\kappa)$, and the Hessian of the action along the fibre is
 at least $\lambda(\frac1{26}-c\kappa)$, however far the links are from $I$
 (Theorem~\ref{thm:smallfibre}). On a chart of the fibre with convex domain
@@ -1514,31 +1526,20 @@ Let $h_F$ be the supremum of $\pm\Hess S_0$ on the gauge-fixed directions, so
 that uniform curvature reaches $|\beta|<1/(2h_F)$ and no further. At the
 identity field $-\Hess S_0$ restricted to $X_F=0$ has the eigenvalue
 $9+\sqrt{17}=13.123$ on the torus of side two, so $9+\sqrt{17}\le h_F\le\frac{29}2$.
-A gradient search over $\SU(2)$ fields of periods two, four and six gives
-$h_F=13.97401$, attained by an abelian field; certificates made of
+A gradient search over $\SU(2)$ fields of periods two, four and six finds
+nothing above $13.97401$, the value at an abelian field; certificates made of
 plaquette forms and vertex forms on the period-two cell cannot go below
-$14.384$. Romanov~\cite{Rom26} constructed such a certificate: sixteen
+$14.384$. One of us (T.~Romanov)~\cite{Rom26} constructed such a certificate, with sixteen
 positive definite vertex forms of size eight and nonnegative plaquette
-weights, rational with denominator $10^6$, with a proof by interval
-arithmetic that the ninety-six plaquette matrices of size twelve are positive
-definite at every pair of phases. It gives $h_F\le14.420001$. Like
-$\frac{29}2$ this is a statement about $\U(N)$, by the reduction of the
-plaquette forms to $\U(2)$, so it replaces $\frac{29}2$ in
-Theorems~\ref{thm:curv} and~\ref{thm:groups}: the curvature method reaches
+weights, rational with denominator $10^6$. It gives $h_F\le14.420001$
+(Theorem~\ref{thm:certificate}; Appendix~\ref{app:certificate} gives the
+derivation and the checks). Like $\frac{29}2$ this is a statement about
+$\U(N)$, so it can replace $\frac{29}2$ in Theorems~\ref{thm:curv}
+and~\ref{thm:groups}, and the curvature method then reaches
 $|\beta|<1/28.840002$, that is $\beta_W<0.1387$ for $\SU(2)$ and
-$\beta_W<0.3121$ for $\SU(3)$. The bound is computer-assisted. With our own
-programs we checked that his forest is ours up to a symmetry of the lattice,
-the finite data in exact arithmetic, the decomposition of the Hessian into
-his plaquette forms and of the corner terms into the vertex forms, and the
-positivity of the plaquette matrices at every phase, by eigenvalues at the
-centres of an adaptive grid with a Lipschitz bound in floating point. One
-of us (J.~M.~Lockwood) checked the certificate independently, in exact
-rational arithmetic with outward-rounded interval elimination and rigorous
-interpolation bounds, without rerunning the original ball-arithmetic
-computation; this confirms $h_F\le14.420001$ and that every plaquette
-matrix has least eigenvalue above $559/716800$. These checks concern the
-lattice at fixed spacing and do not bear on the continuum limit. The
-theorems of this paper are stated with $\frac{29}2$, which is proved by hand.
+$\beta_W<0.3121$ for $\SU(3)$. The bound is computer-assisted and concerns
+the lattice at fixed spacing, not the continuum limit. The theorems of this
+paper are stated with $\frac{29}2$, which is proved by hand.
 With this gauge the curvature method stops between $|\beta|=1/28.840002$
 and $\frac1{26.25}$.
 \end{remark}
@@ -2212,8 +2213,8 @@ sharper floating-point bound of Remark~\ref{rem:blockgap} stops near
 $0.357$. Larger blocks are the next step.
 
 \emph{Curvature.} Remark~\ref{rem:hf} locates the end of the curvature
-method in this gauge between $|\beta|=1/28.840002$, by Romanov's
-certificate~\cite{Rom26}, and $\frac1{26.25}$.
+method in this gauge between $|\beta|=1/28.840002$, by the
+certificate of Appendix~\ref{app:certificate}, and $\frac1{26.25}$.
 
 \emph{$\SU(3)$.} The route of Sec.~\ref{sec:su3} bounds the
 $H^{-1}(\nu_b)$ norm of $\varphi_h-\nu_b\varphi_h$, which is at least
@@ -2293,10 +2294,9 @@ condition
 \chi\in\mathcal S(\R^d),
 \end{equation}
 which is the growth condition of the regularity axiom of Glimm and Jaffe at
-$p=2$~\cite[Sect.~6.1, (6.1.5)]{GJ87}. It is the hypothesis under which reflection
-positivity across coordinate and diagonal hyperplanes is shown
-in~\cite{Sus26a} to give rotation invariance of the Schwinger functions, a
-step proposed there for the continuum limit of lattice gauge theories.
+$p=2$~\cite[Sect.~6.1, (6.1.5)]{GJ87}. The next proposition shows that it
+rules out every field whose two-point function is too singular at short
+distance.
 
 \begin{proposition}\label{prop:growth}
 Let $F$ satisfy~\eqref{eq:growth}, and suppose that its connected two-point
@@ -2339,11 +2339,9 @@ the fourth power of the running coupling, which is what asymptotic freedom\footn
 g(a)^{-2}=2b_0\log\tfrac1{a\Lambda}+O\bigl(\log\log\tfrac1{a\Lambda}\bigr),
 \]
 so the inverse coupling $\beta_W=2N/g(a)^2$ grows like $\frac{11N^2}{12\pi^2}\log\frac1{a\Lambda}$ along the continuum tuning.}
-predicts and what the conditional construction of~\cite{Sus26b} states for
-the smeared action density, has $2\Delta=8>4$ and $k=2$; so that field
-cannot satisfy~\eqref{eq:growth}, and rotation invariance for it has to come
-from another source, as in~\cite{Sus26b}, where it is reduced to a separate
-infrared hypothesis. In three dimensions the free part of the action density
+predicts, has $2\Delta=8>4$ and $k=2$; so that field
+cannot satisfy~\eqref{eq:growth}, and a proof of rotation invariance for it
+has to use something other than this condition. In three dimensions the free part of the action density
 already has $2\Delta=6>3$. Condition~\eqref{eq:growth} suits fields of
 dimension at most $\frac d2$, such as the field strength of the free Maxwell
 field, whose covariance is bounded in momentum space.
@@ -2393,14 +2391,8 @@ lattice bounds of this paper are of this form only with $m_*$ proportional
 to $1/a$, and by~\cite{BB26b} such bounds give trivial limits. The routes we
 know to a continuum gap therefore all stop at the same two estimates: the
 construction of the infinite-volume continuum measure past
-Ba{\l}aban's small-field analysis~\cite{Bal84a,Bal89b}, which the
-conditional construction of~\cite{Sus26b} assumes clause by clause and which
-yields there a non-negative Hamiltonian without any statement on its
-spectrum, and a decay estimate in physical units at large scales. The
-finite-size criterion described in~\cite[Sect.~9.4]{Sus26b} reduces a gap to
-a threshold condition on one box, uniformly in the cutoff; as stated there,
-the condition fails in every small box and would have to be checked at large
-scales, which the construction does not reach.
+Ba{\l}aban's small-field analysis~\cite{Bal84a,Bal89b}, and a decay estimate in physical
+units at large scales.
 
 \section{The continuum step at one physical scale}\label{sec:bypass}
 
@@ -5422,6 +5414,57 @@ and
 \frac32Q_{\rm face}\le52\,Q(\varphi).\qedhere
 \]
 \end{proof}
+
+The constant $52$ is not sharp. A certificate of one of us (T.~Romanov)
+lowers it to within one part in a thousand of the bulk value.
+
+\begin{proposition}\label{prop:blockgapsharp}
+For every set of blocks $W$ and every $\varphi\in\Phi_W$,
+\[
+\sum_e\varphi_e^2\le\frac{5000}{537}\,Q(\varphi)=9.31098\ldots\,Q(\varphi).
+\]
+The same holds on every periodic lattice of even side.
+\end{proposition}
+
+\begin{proof}
+Let $c=\frac{537}{5000}$, and let $S(y)=B(y)\cup B(y+e_0)\cup\dots\cup
+B(y+e_3)$, whose active links number $5\cdot49=245$. The certificate consists
+of $196$ rational numbers $l_{\mu,b}$, $\mu=0,\dots,3$, indexed by the
+$49$ active links $b$ of a block, and a rational symmetric matrix $G$ of
+size $245$ on the active links of $S(0)$. With
+$L_{y,\mu}(\varphi)=\sum_bl_{\mu,b}\varphi_{(y,b)}$, where $(y,b)$ is the
+link $b$ of $B(y)$, and $G_y$ the translate of $G$ to $S(y)$, these satisfy
+the identity of quadratic forms in finitely supported $\varphi$
+\begin{equation}\label{eq:blockgapcert}
+Q(\varphi)-c\sum_e\varphi_e^2-\sum_{y,\mu}V_{y,\mu}(\varphi)L_{y,\mu}
+(\varphi)=\sum_yG_y(\varphi|_{S(y)}),
+\end{equation}
+and $G$ is positive definite. Both sides of~\eqref{eq:blockgapcert} are
+invariant under translations by $2\Z^4$, so the identity amounts to finitely
+many equalities of coefficients, one for each pair of active links of
+$B(0)$ and of a block near it. Now take $\varphi\in\Phi_W$. If $y\in W$
+then $V_{y,\mu}(\varphi)=0$; if $y\notin W$ then $\varphi$ vanishes on the
+links with base in $B(y)$, so $L_{y,\mu}(\varphi)=0$. Every term of the
+middle sum vanishes, and $Q(\varphi)-c\sum_e\varphi_e^2\ge0$. On a periodic
+lattice of even side, both sides of~\eqref{eq:blockgapcert} are the
+periodisations of the same forms, so the identity and the argument
+hold there.
+\end{proof}
+
+The certificate was found by semidefinite programming and rounded to
+rationals: the $l_{\mu,b}$ have denominators dividing $2^{24}$ and the
+entries of $G$ the denominator $2^{30}\cdot5^5$. The coefficient identity
+of~\eqref{eq:blockgapcert} and the positivity of all $245$ leading principal
+minors of the integer matrix $2^{30}5^5G$ are checked in exact arithmetic. The check
+is done by the program of T.~Romanov and independently by our program in
+the archive, which rebuilds the four forms from
+Definition~\ref{def:blockgauge} alone. With $W$ the set of all blocks the
+best constant is the inverse of the Bloch value $0.1074878$ quoted below,
+that is $9.3034$, so $\frac{5000}{537}$ is within $0.09$ per cent of it;
+the semidefinite optimum for this window and this class of multipliers is
+$c^*=0.107488$. These floating-point values are not used. The theorems below are stated with $52$, which
+is proved by hand. Where they use only Theorem~\ref{thm:blockgap}, they hold
+with $52$ replaced by $\frac{5000}{537}$.
 
 With $W$ all blocks the bound extends to $\ell^2$, so the block-constrained
 quadratic form on $\Z^4$ has a spectral gap at least $\frac1{52}$; it removes
@@ -8727,9 +8770,7 @@ Sec.~\ref{ssec:constrained} is that of Combes and Thomas~\cite{CT73}. The analys
 uses results of Barta~\cite{Bar37}, Biernacki and Krzy\.z~\cite{BK55},
 McShane~\cite{McS34}, Stein and Weiss~\cite{SW71} and Watson~\cite{Wat44}, and
 the continuum problem is the one formulated by Jaffe and Witten~\cite{JW06}
-and studied by Ba{\l}aban~\cite{Bal84a,Bal85a,Bal89b}. The Yang--Mills
-manuscripts of Sussman and collaborators~\cite{Sus26a,Sus26b} were read in
-the preparation of Sec.~\ref{sec:limits}.
+and studied by Ba{\l}aban~\cite{Bal84a,Bal85a,Bal89b}.
 
 \section*{Data and code availability}
 
@@ -8737,13 +8778,18 @@ The proofs are analytic except for the evaluations in
 Propositions~\ref{prop:cover} and~\ref{prop:cover2} and
 Lemma~\ref{lem:su3const} and the numerical bounds of
 Lemma~\ref{lem:vmfconst}, which are computations in interval arithmetic with
-rigorous error bounds. The programs of these steps, in Python with
+rigorous error bounds, and for Proposition~\ref{prop:blockgapsharp} and
+Theorem~\ref{thm:certificate}, whose certificates are checked in exact
+arithmetic. The programs of these steps, in Python with
 python-flint (FLINT and Arb) and a C kernel for products of Taylor
 polynomials, their outputs and the list of certified boxes are in the
-repository \url{https://github.com/creelie/4Y-M}, release v4.19.0, together
+repository \url{https://github.com/creelie/4Y-M}, release v4.20.0, together
 with a Lean~4 certificate of the line field, independent exact or
-numerical checks of the other finite statements, and our checks of the
-certificate of~\cite{Rom26}.
+numerical checks of the other finite statements, our checks of the
+certificate of~\cite{Rom26}, and the certificate of
+Proposition~\ref{prop:blockgapsharp} with its exact check. The code was
+written by Deep Bhattacharjee, James Montgomery Lockwood and Tristan
+Romanov.
 
 The computations, the checks and parts of the drafting were done with AI
 assistance (Claude Opus~5.5,
@@ -8753,7 +8799,7 @@ the sharp quarter behind Theorem~\ref{thm:su2} was first assembled by
 Anaxia, the reasoning engine of the BLLM system~\cite{Bha26,Bha26b}; the line
 field, the free-boundary limit, the ceiling, the curvature bound, the
 $\SU(3)$ part, the plaquette blocks and the certified constants are the
-authors' own. All three authors
+authors' own. All four authors
 approved the final text.
 
 \section*{Declarations}
@@ -10155,6 +10201,273 @@ second recurrence of~\eqref{q-eq:besselrec},
 \]
 \end{proof}
 
+\section{The certificate bound}\label{app:certificate}
+
+This appendix derives the bound $h_F\le14.420001$ of Remark~\ref{rem:hf}
+from the data of~\cite{Rom26}. The argument is the proof of the bound in
+Theorem~\ref{thm:curv} with two changes. The divergence identity of
+Lemma~\ref{lem:identity}, taken there with the factor $\frac9{10}$, is
+replaced by a positive semidefinite form at each site, and the weights
+$\frac{21}{10}$ and $\frac54$ of Lemma~\ref{lem:local} are replaced by
+weights chosen plaquette by plaquette. Everything is proved by hand except
+the positivity of ninety-six matrices of trigonometric polynomials and the
+arithmetic of finitely many rational numbers.\footnote{The constant
+$14.420001$ is not the best possible for this kind of certificate: by the
+search reported in Remark~\ref{rem:hf} it cannot go below $14.384$, while
+the true value of $h_F$ is at least $13.123$.}
+
+\subsection{Ends and corners}
+
+At a site $y$ the eight \emph{ends} are
+\[
+o_\mu(y)=X_{y,\mu},\qquad
+i_\mu(y)=Q^*_{y-e_\mu,\mu}X_{y-e_\mu,\mu}Q_{y-e_\mu,\mu},
+\]
+for $\mu=0,1,2,3$, as in the proof of Lemma~\ref{lem:identity}; the end of a
+link in $F$ or outside the box is $0$. Each link $e=(y,\mu)$ has the end
+$o_\mu$ at its tail $y$ and the end $i_\mu$ at its head $y+e_\mu$, both of
+norm $|X_e|$.
+
+\begin{lemma}\label{lem:corners}
+Let $p$ be the plaquette at $x$ in the plane $\mu<\nu$. Then
+\[
+\begin{aligned}
+\ip{Y_1}{Y_4}&=\ip{o_\mu}{o_\nu}(x),\\
+\ip{Y_1}{Y_2}&=\ip{i_\mu}{o_\nu}(x+e_\mu),\\
+\ip{Y_3}{Y_4}&=\ip{o_\mu}{i_\nu}(x+e_\nu),\\
+\ip{Y_2}{WY_3W^*}&=\ip{i_\nu}{i_\mu}(x+e_\mu+e_\nu).
+\end{aligned}
+\]
+Every pair of ends at one site in two different directions occurs in
+exactly one of these identities, for exactly one plaquette.
+\end{lemma}
+
+\begin{proof}
+The first identity is the definition of the ends. The inner product is
+invariant under conjugation by a unitary matrix, so
+$\ip{X_{e_1}}{Q_{e_1}X_{e_2}Q_{e_1}^*}=\ip{Q_{e_1}^*X_{e_1}Q_{e_1}}{X_{e_2}}$,
+which is the second identity, and the third follows in the same way from
+$\ip{Q_{e_4}X_{e_3}Q_{e_4}^*}{X_{e_4}}=\ip{X_{e_3}}{Q_{e_4}^*X_{e_4}Q_{e_4}}$.
+For the fourth, $WQ_{e_4}=Q_{e_1}Q_{e_2}Q_{e_3}^*$, so that $WY_3W^*=
+RX_{e_3}R^*$ with $R=Q_{e_1}Q_{e_2}Q_{e_3}^*$, and conjugating both vectors
+by $(Q_{e_1}Q_{e_2})^*$ gives
+$\ip{Q_{e_2}^*X_{e_2}Q_{e_2}}{Q_{e_3}^*X_{e_3}Q_{e_3}}$. The links $e_2$ and
+$e_3$ both have their head at $x+e_\mu+e_\nu$. For the last statement, the
+pairs $(o_\mu,o_\nu)$, $(i_\mu,o_\nu)$, $(o_\mu,i_\nu)$ and $(i_\mu,i_\nu)$
+at $y$ come from the plaquettes in the plane $\mu\nu$ at $y$, $y-e_\mu$,
+$y-e_\nu$ and $y-e_\mu-e_\nu$ respectively. There are $4\binom42=24$ such
+pairs at each site and $6\cdot4=24$ corners of plaquettes per site.
+\end{proof}
+
+For each class of sites modulo $2$ let $G_y$ be a real symmetric $8\times8$
+matrix indexed by the ends, with $G_y[o_\mu,i_\mu]=0$ for every $\mu$. For
+the plaquette $p$ at $x$ in the plane $\mu<\nu$ put
+\[
+\begin{split}
+c^G_p={}&2G_x[o_\mu,o_\nu]\ip{Y_1}{Y_4}
++2G_{x+e_\mu}[i_\mu,o_\nu]\ip{Y_1}{Y_2}\\
+&+2G_{x+e_\nu}[o_\mu,i_\nu]\ip{Y_3}{Y_4}\\
+&+2G_{x+e_\mu+e_\nu}[i_\mu,i_\nu]\ip{Y_2}{WY_3W^*}.
+\end{split}
+\]
+The matrix $G^0$ with $G^0[a,a]=2$, $G^0[o_\mu,o_\nu]=G^0[i_\mu,i_\nu]=1$
+and $G^0[o_\mu,i_\nu]=-1$ for $\mu\ne\nu$ is the matrix of the form
+$|\sum_\mu(o_\mu-i_\mu)|^2+\sum_\mu|o_\mu+i_\mu|^2$ of
+Lemma~\ref{lem:identity}, and $c^{G^0}_p$ is the corner form
+$c_p$ of~\eqref{eq:corner}.
+
+\begin{lemma}\label{lem:siteidentity}
+On $\Z^4$, or on a box with free boundary, for every field $Q$ and every
+square-summable $X$,
+\[
+\begin{split}
+&\sum_y\sum_{a,b}G_y[a,b]\,\ip{\mathrm{end}_a}{\mathrm{end}_b}(y)\\
+&\quad=\sum_pc^G_p+\sum_e\bigl(G_{t(e)}[o,o]+G_{h(e)}[i,i]\bigr)|X_e|^2,
+\end{split}
+\]
+where $t(e)$ and $h(e)$ are the tail and the head of $e$, and $o$, $i$ are
+its two ends. If every $G_y$ is positive semidefinite, the left side is
+nonnegative.
+\end{lemma}
+
+\begin{proof}
+Split the sum over $a,b$ at each site into the diagonal terms, the pairs
+$(o_\mu,i_\mu)$, whose coefficient is $0$, and the pairs of ends in
+different directions, each counted twice. The diagonal terms give the last
+sum, since each link has one end at its tail and one at its head, and the
+pairs in different directions give $\sum_pc^G_p$ by
+Lemma~\ref{lem:corners}. In a box the argument at the end of the proof of
+Lemma~\ref{lem:identity} applies. At each site the left side is the trace of
+$G_y$ times the Gram matrix of the eight ends, and the trace of a product of
+two positive semidefinite matrices is nonnegative.
+\end{proof}
+
+\subsection{From plaquettes to the Hessian}
+
+Number the positions of a plaquette as in~\eqref{eq:transport} and let
+$k_p$ be the position of its link in $F$; by Lemma~\ref{lem:structure}
+there is exactly one.
+
+\begin{lemma}\label{lem:certificate}
+Let every $G_y$ be positive semidefinite with $G_y[o_\mu,i_\mu]=0$, and let
+$a_{p,r}\ge0$ for the three positions $r\ne k_p$ of each plaquette. Suppose
+that for every plaquette $p$, every $N$, every $W\in\U(N)$ and all
+$Y_1,\dots,Y_4\in\mathfrak u(N)$ with $Y_{k_p}=0$,
+\begin{equation}\label{eq:certineq}
+f_p+c^G_p\le\sum_{r\ne k_p}a_{p,r}|Y_r|^2 .
+\end{equation}
+Then $|\Hess S_0(v,v)|\le h|v|^2$ for every field $Q$ and every $v=(X_eQ_e)$
+with $X_e=0$ for $e\in F$, on $\Z^4$ and on every box, where
+\[
+h=\max_{e\notin F}\Bigl(\sum_{p\ni e}a_{p,e}+G_{t(e)}[o,o]+G_{h(e)}[i,i]
+\Bigr)
+\]
+and $a_{p,e}$ is the weight of the position of $e$ in $p$.
+\end{lemma}
+
+\begin{proof}
+Summing~\eqref{eq:certineq} over the plaquettes and adding the identity of
+Lemma~\ref{lem:siteidentity}, whose left side is nonnegative,
+\[
+\begin{split}
+\Hess S_0(v,v)&=\sum_pf_p\le\sum_p\Bigl(\sum_ra_{p,r}|Y_r|^2-c^G_p\Bigr)\\
+&\le\sum_{e\notin F}\Bigl(\sum_{p\ni e}a_{p,e}+G_{t(e)}[o,o]+G_{h(e)}[i,i]
+\Bigr)|X_e|^2\\
+&\le h|v|^2,
+\end{split}
+\]
+since $|Y_r|=|X_e|$ for the link $e$ at position $r$. In a box the links
+near the boundary lie in fewer plaquettes, and the weights are nonnegative.
+For the lower bound, apply~\eqref{eq:certineq} at $-W$. By~\eqref{eq:fp}
+this changes the sign of $f_p$, while $c^G_p$ does not change, and the same
+chain gives $-\Hess S_0(v,v)\le h|v|^2$.
+\end{proof}
+
+The hypothesis is needed on $\U(N)$ and not only on $\SU(N)$, since
+$-W\notin\SU(N)$ when $N$ is odd.
+
+\begin{lemma}\label{lem:certu2}
+If~\eqref{eq:certineq} holds for $N=2$ and every
+$W=\operatorname{diag}(e^{i\varphi_1},e^{i\varphi_2})$, it holds for
+every $N$ and every $W\in\U(N)$.
+\end{lemma}
+
+\begin{proof}
+Both sides are invariant under conjugation of $W$ and all $Y_i$ by one
+unitary matrix, so we may take $W=\operatorname{diag}(w_1,\dots,w_N)$. Every
+term of $f_p$, of $c^G_p$ and of $|Y_r|^2$ is a multiple of
+$\ReTr(Y_iD_1Y_jD_2)$ with $D_1,D_2\in\{I,W,W^*\}$, and
+\[
+\ReTr(Y_iD_1Y_jD_2)=\operatorname{Re}\sum_{a,b}(Y_i)_{ab}\,(D_1)_{bb}\,
+(Y_j)_{ba}\,(D_2)_{aa}.
+\]
+The difference of the two sides of~\eqref{eq:certineq} is therefore a sum
+of one term for each $a$, in the entries $(Y_i)_{aa}$, and one term for
+each pair $a<b$, in the entries $(Y_i)_{ab}$ and $(Y_i)_{ba}=
+-\overline{(Y_i)_{ab}}$, as in the proof of Lemma~\ref{lem:local}. The term
+of the pair $a<b$ is the same difference for $N=2$ at
+$W'=\operatorname{diag}(w_a,w_b)$, evaluated on the matrices $Y_i'\in
+\mathfrak u(2)$ with off-diagonal entries $(Y_i)_{ab}$, $(Y_i)_{ba}$ and
+zero diagonal. The term of $a$ is the difference at $W'$, for any $b\ne a$,
+evaluated on $Y_i'=\operatorname{diag}((Y_i)_{aa},0)$. In both cases
+$Y'_{k_p}=0$, so each term is nonnegative.
+\end{proof}
+
+In the orthonormal basis $iI/\sqrt2$, $i\sigma_1/\sqrt2$,
+$i\sigma_2/\sqrt2$, $i\sigma_3/\sqrt2$ of $\mathfrak u(2)$, with the Pauli
+matrices $\sigma_j$, the difference of the two sides
+of~\eqref{eq:certineq} at $N=2$ is a quadratic form on the three free
+positions, with a real symmetric $12\times12$ matrix $M_p(\varphi)$. Its
+entries are affine combinations of $1$, $\cos\varphi_a$, $\sin\varphi_a$,
+$\cos(\varphi_1-\varphi_2)$ and $\sin(\varphi_1-\varphi_2)$: the form $f_p$
+is linear in $W$, and $W$ enters $c^G_p$ only through
+$\ip{Y_2}{WY_3W^*}$. Since $W$ commutes with $I$ and $\sigma_3$,
+$M_p(\varphi)$ splits into two blocks of size six, one on the span of
+$iI,i\sigma_3$ and one on the span of $i\sigma_1,i\sigma_2$, at every
+position. By Lemmas~\ref{lem:certificate} and~\ref{lem:certu2}, a
+certificate is a choice of $G_y$ and $a_{p,r}$ such that every
+$M_p(\varphi)$ is positive semidefinite at every $\varphi$, and it gives
+$h_F\le h$.
+
+\subsection{The certificate}
+
+The fixed set $F$ and the field of ends have period two, so it suffices to
+give $G_y$ for the sixteen classes of sites and $a_{p,r}$ for the
+ninety-six classes of plaquettes, six planes at each of sixteen sites. The
+certificate of~\cite{Rom26} consists of sixteen positive definite matrices
+$G_y$ of size eight with $G_y[o_\mu,i_\mu]=0$, and of nonnegative weights
+$a_{p,r}$, all rational with denominator $10^6$. We checked that the set of fixed
+links used there is our $F$ up to a symmetry of the lattice. Of the sixty-four links of
+a period cell, sixteen lie in $F$, one ending at each site. For each of
+the other forty-eight the bracket in the definition of $h$ is computed
+exactly, and the largest is $14420001/10^6$.
+
+\begin{figure*}[t]
+\centering
+\includegraphics[width=0.95\textwidth]{figures/fig_certificate.png}
+\caption{The certificate of Appendix~\ref{app:certificate}. (a)~The least
+eigenvalue of $M_p(\varphi)$ over the torus of phases for the plaquette
+class with the smallest minimum, about $0.0057$ on a grid of $96^2$ phases
+(red dot); Theorem~\ref{thm:certificate} shows it stays positive.
+(b)~The forty-eight totals in the definition of $h$, in increasing order,
+against $\frac{29}2$, the value $14.420001$ of the largest, the floor
+$14.384$ for certificates on the period-two cell, and the lower bound
+$9+\sqrt{17}$ for $h_F$. (c)~The constant $C$ in $\sum\phi^2\le CQ$ for the
+block gauge: $52$ from Theorem~\ref{thm:blockgap}, $5000/537$ from
+Proposition~\ref{prop:blockgapsharp}, and the bulk Bloch value
+$1/0.10749=9.3034$, the best constant when $W$ is the set of all
+blocks. The eigenvalues in (a) and the Bloch value are in floating point.}
+\label{fig:certificate}
+\end{figure*}
+
+\begin{theorem}[Computer-assisted]\label{thm:certificate}
+For every $N$, every field $Q$ and every $v=(X_eQ_e)$ with $X_e=0$ for
+$e\in F$, on $\Z^4$ and on every box,
+\[
+|\Hess S_0(v,v)|\le14.420001\,|v|^2 .
+\]
+\end{theorem}
+
+\begin{proof}
+We show that every $M_p(\varphi)$ is positive semidefinite, which proves
+the theorem by Lemmas~\ref{lem:certificate} and~\ref{lem:certu2}. Write
+$z=(1,\cos\varphi_1,\sin\varphi_1,\cos\varphi_2,\sin\varphi_2)$. For each
+of the $192$ blocks of size six there is a positive definite integer
+symmetric matrix $P$ of size thirty such that
+\[
+2^{24}\cdot4\cdot10^6\,M(\varphi)_{jk}=\sum_{a,b=0}^4z_az_b\,P_{6a+j,\,6b+k}
+\]
+for all $j,k$, as polynomials modulo $\cos^2\varphi_a+\sin^2\varphi_a=1$.
+For $x\in\R^6$ put $w=z\otimes x$. Then $2^{24}\cdot4\cdot10^6\,x^{\mathsf T}
+M(\varphi)x=w^{\mathsf T}Pw$, which is positive for $x\ne0$, since $z_0=1$
+gives $w\ne0$. So every block is positive definite at every $\varphi$.
+\end{proof}
+
+The proof of Theorem~\ref{thm:certificate} rests on computations of three
+kinds. The positivity of the $G_y$, the signs of the weights and the
+forty-eight totals are finite statements about rational numbers. The
+identities between $M(\varphi)$ and the matrices $P$, and the positive
+definiteness of the $P$, are finite statements about integers. All of
+these are checked by the Lean~4 kernel in~\cite{Rom26}, on no axioms beyond
+\texttt{propext} and \texttt{Quot.sound}; the program there also checks
+the positivity at every phase a second time, by interval arithmetic on a
+subdivision of the torus of phases. Lemmas~\ref{lem:corners}
+to~\ref{lem:certu2} and the formula~\eqref{eq:fp} for the Hessian are the
+written proofs above and are not formalised.\footnote{Formalising them
+needs matrices over $\C$, the group $\U(N)$ and second derivatives along
+geodesics, that is, a library such as Mathlib; the Lean files
+of~\cite{Rom26} use only the core library.} We checked the finite data in
+exact arithmetic and the positivity at every phase by eigenvalues on an
+adaptive grid with a Lipschitz bound, in floating point, and
+J.~M.~Lockwood checked it again in exact rational arithmetic with
+outward-rounded interval elimination, finding least eigenvalue above
+$559/716800$ for every plaquette.
+
+With $14.420001$ in place of $\frac{29}2$ the proofs of
+Theorems~\ref{thm:curv} and~\ref{thm:groups} go through unchanged, which
+gives the ranges stated in Remark~\ref{rem:hf}. Those theorems are stated
+with $\frac{29}2$ because its proof uses no computer.
+
 \def\bibsection{\par\vskip10pt\noindent\hfil\rule{0.5\columnwidth}{0.4pt}\hfil\par\vskip8pt}
 
 \begin{thebibliography}{99}\raggedright\advance\leftskip\labelwidth
@@ -10459,7 +10772,8 @@ Functional Analysis}, revised and enlarged ed., Academic Press, New York,
 
 \bibitem{Rom26}
 T.~Romanov, A proved bound $h_F\le14.420001$ for the four-dimensional
-forest-gauge Hessian, computer-assisted certificate (2026),
+forest-gauge Hessian, computer-assisted certificate with Lean~4 kernel
+checks (2026),
 \url{https://github.com/romanov360/yang-mills-4d-forest-certificate}.
 
 \bibitem{SBG26}
@@ -10493,17 +10807,6 @@ Adv. Math. 62, Cambridge University Press, Cambridge, 1999,
 
 \bibitem{SW71}
 E.~M.~Stein and G.~Weiss, \emph{Introduction to Fourier Analysis on Euclidean Spaces}, Princeton University Press, Princeton, NJ, 1971, \href{https://doi.org/10.1515/9781400883899}{doi:10.1515/9781400883899}.
-
-\bibitem{Sus26a}
-E.~Sussman and collaborators, Rotation invariance from lattice symmetry
-and reflection positivity, manuscript, 2026, in the repository
-\nolinkurl{github.com/ethanwsussman/Yang--Mills-LLM-experiment}, commit \texttt{1b92bd0}.
-
-\bibitem{Sus26b}
-E.~Sussman and collaborators, $\SU(2)$ Yang--Mills theory in four
-dimensions via Ba{\l}aban's renormalisation group: construction, axioms and
-non-triviality, zeroth draft, 6 October 2026, in the repository
-\nolinkurl{github.com/ethanwsussman/Yang--Mills-LLM-experiment}, commit \texttt{1b92bd0}.
 
 \bibitem{Uhl82}
 K.~K.~Uhlenbeck, Connections with $L^p$ bounds on curvature, Comm. Math.
