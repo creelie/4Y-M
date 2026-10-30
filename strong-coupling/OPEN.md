@@ -134,10 +134,16 @@ curvature form, and the Hessian of the SU(2) Wilson action along the
 constrained directions is at least (β/2)(1/52 − 2.7·10⁴κ); the second
 fundamental form of the fibre costs a further O(κ) (Lemma "smallframes",
 Theorem "smallfibre"; check gauge-fixed/checks/cube/small_field_fibre.py).
-The coarea factor and Ricci curvature of the fibre, the geodesic convexity of
-the small-field set in the fibre (needed for Brascamp–Lieb or
-Helffer–Sjöstrand and the decay of the constrained influences), and the mass
-outside that set are open (Remark "smallfibreopen").
+On a chart Φ(η) = U exp(η + h(η)) of the fibre over the convex set
+K_s = {η tangent, max_e |η_e| ≤ s}, s ≤ 1/(6000 c_3), the Hessian of Q∘Φ is
+at least (1/26 − 4·10⁵c_3(κ+s)), the Haar, coarea and area factors e^{−ψ}
+have |ψ″| ≤ c_6, and for λ ≥ 60c_6 the constrained law restricted to the chart
+satisfies a Brascamp–Lieb inequality with constant 60/λ (240/β for SU(2));
+c_3, c_6 depend only on G, by compactness (Theorem "fibrechart"; check
+gauge-fixed/checks/cube/fibre_chart.py). The decay of the constrained
+influences (Helffer–Sjöstrand on the chart, which has a boundary, with the
+non-local but exponentially decaying Hessian) and the mass off the chart
+are open (Remark "fibrechartopen").
 A block
 map that is coercive for all nonabelian fields and composes across the
 remaining scales is open.
