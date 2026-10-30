@@ -75,7 +75,9 @@ above: in the block-rooted axial gauge with full-block averages fixed, the
 quadratic approximation has a gap 1/52 in every volume and satisfies the
 constrained cube condition at every coupling once n ≥ 2·10¹⁵/α. One step of
 composition is proved (Corollary "compose": cube coefficients at most the
-constrained ones plus those of the averages; Proposition "effective": the
+constrained ones plus those of the averages; Theorem "effectiveupper": the
+effective forms are equivalent to the coarse forms, Q_k <= S_k <= 256 Q_k,
+uniformly in k (Whitney extension with nodes at the block centres); Proposition "effective": the
 averages carry at least the coarse quadratic form at every scale). Iterating
 needs localisation of the effective forms uniformly in the scale and a cube
 condition for the coarsest averages; these, the large fields and the
