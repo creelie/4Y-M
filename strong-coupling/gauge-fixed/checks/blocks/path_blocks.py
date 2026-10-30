@@ -55,6 +55,12 @@ Parts:
      meets B_{j-1}) has |Theta| <= eta_j with eta_{j+1} = 4(1+647 eta_j)eta_j,
      every plaquette of B_j lies within l-infinity distance 3(2^j-1) of B_0,
      and the energy outside the defects obeys the bound of the theorem.
+ (K) effective forms uniformly in the scale: in exact integer arithmetic on
+     periodic lattices (d = 4 with L = 2, 4; d = 2 with L = 8; d = 3 with
+     L = 4), the Whitney extension with nodes at the block centres has k-fold
+     averages T u with T = tau^(x d), tau = (1/8, 3/4, 1/8), plaquette energy
+     at most Q_k(u), and zero curvature on gradients; the symbol of tau is at
+     least 1/2, against 1/L with the coarse sites as nodes.
 Run: python3 path_blocks.py. Needs numpy."""
 import itertools, math
 import numpy as np
@@ -648,4 +654,61 @@ for r in rows:
 check('(J) off the propagated defects |Theta^(j)| <= eta_j and delta <= 1', good_def and nonempty)
 check('(J) the defects of the j-th iterate lie within 3(2^j - 1) fine spacings of B_0', good_dist)
 check('(J) the energy off the defects obeys E_j <= e^{12060 sigma} E_0', good_E)
+# (K) uniform upper bound for the effective forms: Whitney extension with nodes at the block centres
+def whitney_int(u, L, dim):
+    # returns Pi u times S = 16 L^4 (dim = 4) as an integer array; u integer, periodic coarse lattice
+    n = u.shape[0]; F = n * L
+    X = np.indices((F,) * dim)
+    S = 2 * (2 * L) ** (dim - 1) * L
+    phi = np.zeros((F,) * dim + (dim,), dtype=np.int64)
+    for mu in range(dim):
+        acc = np.zeros((F,) * dim, dtype=np.int64)
+        for z in itertools.product(range(n), repeat=dim):
+            w = np.ones((F,) * dim, dtype=np.int64)
+            for nu in range(dim):
+                c2 = 2 * L * z[nu] + L - 1          # twice the centre
+                x2 = 2 * X[nu]
+                tot = np.zeros((F,) * dim, dtype=np.int64)
+                for sh in (-2 * F, 0, 2 * F):
+                    if nu == mu:   # twice the overlap of [x, x+1) with [c, c+L)
+                        tot += np.maximum(0, np.minimum(x2 + 2, c2 + sh + 2 * L) - np.maximum(x2, c2 + sh))
+                    else:          # 2L times the hat function
+                        tot += np.maximum(0, 2 * L - np.abs(x2 - c2 - sh))
+                w = w * tot
+            acc += u[z + (mu,)] * w
+        phi[..., mu] = acc
+    return phi, S              # phi = S (Pi u): overlap doubled, hats times 2L, and the 1/L of omega
+def curv_int(f, dim):
+    out = []
+    for mu in range(dim):
+        for nu in range(mu + 1, dim):
+            out.append(f[..., mu] + np.roll(f[..., nu], -1, mu) - np.roll(f[..., mu], -1, nu) - f[..., nu])
+    return np.array(out)
+rngK = np.random.default_rng(7)
+good_T, good_Q, good_g = True, True, True
+for (dim, n, L) in ((4, 3, 2), (4, 3, 4), (2, 4, 8), (3, 3, 4)):
+    for trial in range(2):
+        u = rngK.integers(-3, 4, size=(n,) * dim + (dim,))
+        phi, S = whitney_int(u, L, dim)
+        F = n * L
+        # L^4 S times the k-fold averages, from straight paths of length L
+        lhs = np.zeros((n,) * dim + (dim,), dtype=np.int64)
+        for mu in range(dim):
+            ps = sum(np.roll(phi[..., mu], -t, mu) for t in range(L))
+            for z in itertools.product(range(n), repeat=dim):
+                sl = tuple(slice(L * zi, L * zi + L) for zi in z)
+                lhs[z + (mu,)] = ps[sl].sum()
+        Tu = u.astype(np.int64) * 1
+        for nu in range(dim):
+            Tu = 6 * Tu + np.roll(Tu, 1, nu) + np.roll(Tu, -1, nu)     # 8 tau
+        good_T &= np.array_equal(lhs * 8 ** dim, Tu * S * L ** dim)
+        good_Q &= int((curv_int(phi, dim) ** 2).sum()) <= int((curv_int(u, dim) ** 2).sum()) * S * S
+        b = rngK.integers(-3, 4, size=(n,) * dim)
+        db = np.stack([np.roll(b, -1, m) - b for m in range(dim)], -1)
+        good_g &= not np.any(curv_int(whitney_int(db, L, dim)[0], dim))
+check('(K) the k-fold averages of the Whitney extension are T u, T = tau^(x d), tau = (1/8, 3/4, 1/8) (exact)', good_T)
+check('(K) Q(Pi u) <= Q_k(u) and Pi(db) has zero curvature (exact)', good_Q and good_g)
+th = np.linspace(0, np.pi, 2001)
+check('(K) the symbol 3/4 + cos(theta)/4 of tau is at least 1/2, and 1/L with coarse sites as nodes',
+      np.min(0.75 + 0.25 * np.cos(th)) >= 0.5 - 1e-15 and all(abs((L + 1) / (2 * L) - (L - 1) / (2 * L) - 1 / L) < 1e-15 for L in (2, 4, 8, 16)))
 print('%d checks passed, %d failed' % (sum(ok), len(ok) - sum(ok)))

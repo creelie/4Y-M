@@ -454,9 +454,10 @@ measured in the reflected norm (Proposition~\ref{prop:blockfree}).
 block averages in a gauge whose fixed links are trees inside blocks of side
 two. Its quadratic approximation then holds at every coupling once the cube
 is large (Theorem~\ref{thm:constrainedcube}), and integrating out one scale
-reduces it to a cube condition for the averages, which carry at least the
-coarse quadratic form at every scale (Corollary~\ref{cor:compose} and
-Proposition~\ref{prop:effective}); the averages along the lines of the forest
+reduces it to a cube condition for the averages, which carry the coarse
+quadratic form at every scale up to a factor between $1$ and $256$ that does
+not depend on the scale (Corollary~\ref{cor:compose},
+Proposition~\ref{prop:effective} and Theorem~\ref{thm:effectiveupper}); the averages along the lines of the forest
 gauge, by contrast, leave one class of lines invisible and fail at every size
 (Proposition~\ref{prop:invisible}). For the group-valued links, the straight
 path between block roots gives a coarse link whose fibres satisfy a
@@ -5090,8 +5091,9 @@ volume (Theorem~\ref{thm:blockgap}), and the constrained cube condition holds
 at every coupling once the cube is large (Theorem~\ref{thm:constrainedcube}).
 Integrating out one scale bounds the cube coefficients by the constrained
 ones plus those of the averages (Corollary~\ref{cor:compose}), and the
-averages carry at least the coarse quadratic form at every scale
-(Proposition~\ref{prop:effective}). For the group-valued links themselves,
+averages carry the coarse quadratic form at every scale up to a factor
+between $1$ and $256$ (Proposition~\ref{prop:effective} and
+Theorem~\ref{thm:effectiveupper}). For the group-valued links themselves,
 the straight paths between block roots satisfy a coercivity bound for all
 fields but do not compose, a continuous covariant map cannot treat the
 transverse positions alike, and a cut-off of Ba{\l}aban's averaging operation
@@ -5463,6 +5465,195 @@ Theorem~\ref{thm:blockgap}; it does not give the localisation of
 Theorem~\ref{thm:constrainedcube}(ii) for $S_k$, since $S_k$ is not a
 nearest-neighbour form.
 
+The effective forms are equivalent to the coarse plaquette forms uniformly
+in the scale. Write $L=2^k$ and $B_k(y)=Ly+\{0,\dots,L-1\}^4$.
+
+\begin{lemma}\label{lem:straightpaths}
+\begin{enumerate}[label=\textup{(\roman*)},leftmargin=*]
+\item For every $k\ge1$, every coarse link $(y,\mu)$ and every field
+$\varphi$,
+\[
+V^{(k)}_{y,\mu}(\varphi)=\frac1{L^4}\sum_{x\in B_k(y)}\sum_{t=0}^{L-1}
+\varphi_{(x+te_\mu,\mu)} .
+\]
+\item For a function $h$ on sites, $V^{(k)}_{y,\mu}(dh)=\bar h(y)-\bar
+h(y+e_\mu)$, where $\bar h(y)$ is the mean of $h$ over $B_k(y)$.
+\item $S_k(w)$ equals the infimum of $Q(\varphi)$ over all finitely
+supported fields with $V^{(k)}(\varphi)=w$, whether or not they vanish on
+the tree links.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+(i) For $k=1$ this is the definition. If it holds for $k$, then
+$V^{(k)}_{y',\mu}+V^{(k)}_{y'+e_\mu,\mu}$ is $L^{-4}$ times the sum over
+$x\in B_k(y')$ of the sums of $\varphi$ along the straight paths of length
+$2L$ from $x$, because $B_k(y'+e_\mu)=B_k(y')+Le_\mu$. The blocks $B_k(y')$,
+$y'\in2y+\{0,1\}^4$, tile $B_{k+1}(y)$, and averaging over $y'$ with weight
+$\frac1{16}$ gives (i) for $k+1$. (ii) The sum of $dh$ along the path of
+length $L$ from $x$ is $h(x)-h(x+Le_\mu)$; average over $x\in B_k(y)$.
+(iii) Let $\varphi$ be finitely supported. On each block $B(y')$ of side
+two the tree links form a spanning tree (Lemma~\ref{lem:blocktree}(i)), so
+there is $h_0$ on $B(y')$ with $(dh_0)_e=-\varphi_e$ on its tree links,
+unique up to a constant, which we take to be zero where $\varphi$ vanishes
+on the tree links of $B(y')$. Each $B_k(y)$ is a union of blocks of side
+two, since $k\ge1$; adding a constant to $h_0$ on one of them makes the mean
+over $B_k(y)$ vanish, and this changes $h_0$ on finitely many blocks. The
+resulting $h$ is finitely supported, $\varphi+dh$ vanishes on the tree
+links, $Q(\varphi+dh)=Q(\varphi)$, and $V^{(k)}(dh)=0$ by (ii).
+\end{proof}
+
+The extension uses the lowest-order Whitney forms of the coarse cubical
+complex whose vertices are the centres
+\[
+c_z=Lz+\tfrac{L-1}2(1,1,1,1),\qquad z\in\Z^4,
+\]
+of the blocks $B_k(z)$, rather than the coarse sites. Let $\lambda(t)=\max
+(0,1-|t|)$, let $\chi^\mu_z$ be the indicator of $\{\xi\in\R^4:c_{z,\mu}\le
+\xi_\mu<c_{z,\mu}+L\}$, and $\lambda^\nu_z(\xi)=\lambda((\xi_\nu-c_{z,\nu})
+/L)$. For a square-summable field $u$ on the coarse links put
+\[
+\begin{split}
+\omega_\mu(\xi)&=\frac1L\sum_zu_{(z,\mu)}\,\chi^\mu_z(\xi)\prod_{\nu\ne\mu}
+\lambda^\nu_z(\xi),\\
+(\Pi u)_{(x,\mu)}&=\int_0^1\omega_\mu(x+te_\mu)\,dt .
+\end{split}
+\]
+Figure~\ref{fig:whitney} shows the construction along one direction.
+
+\begin{figure}[tb]
+\centering
+\includegraphics[width=\textwidth]{figures/fig_whitney.png}
+\caption{The extension of Theorem~\ref{thm:effectiveupper} along one
+direction. (a)~A block of side $L=4$: the nodes are the block centres $c_z$,
+the hat functions $\lambda_z$ interpolate between them, and the straight
+path of length $L$ from a site $x$ meets the segments of three centres;
+averaged over the block, their weights are $\frac18$, $\frac34$, $\frac18$
+at every scale. (b)~The symbol of this filter stays at least $\frac12$,
+while the filter obtained with the coarse sites as nodes has symbol of
+modulus $1/L$ at $\theta=\pi$.}\label{fig:whitney}
+\end{figure}
+
+\begin{lemma}\label{lem:whitney}
+Let $k\ge1$, $u$ a square-summable field on the coarse links, and let $T$
+act on each component of $u$ by $T=\tau_1\tau_2\tau_3\tau_4$, where
+$(\tau_\nu f)(z)=\frac34f(z)+\frac18\bigl(f(z-e_\nu)+f(z+e_\nu)\bigr)$.
+\begin{enumerate}[label=\textup{(\roman*)},leftmargin=*]
+\item For the plaquette $p$ at $x$ in the plane $\{\mu,\nu\}$,
+\[
+\begin{split}
+(d\Pi u)_p&=\int_0^1\!\!\int_0^1\Omega_{\mu\nu}(x+se_\mu+te_\nu)\,ds\,dt,\\
+\Omega_{\mu\nu}&=\frac1{L^2}\sum_z(du)_{z,\mu\nu}\,\chi^\mu_z\chi^\nu_z
+\!\!\prod_{\rho\ne\mu,\nu}\!\!\lambda^\rho_z ,
+\end{split}
+\]
+where $(du)_{z,\mu\nu}$ is the curvature of $u$ at the coarse plaquette at
+$z$ in the plane $\{\mu,\nu\}$. In particular $\Pi(db)$ is a gradient.
+\item $Q(\Pi u)\le Q_k(u)$.
+\item $V^{(k)}(\Pi u)=Tu$.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+(i) The function $\omega_\mu$ is continuous and piecewise linear in every
+coordinate $\xi_\nu$, $\nu\ne\mu$, and $\omega_\nu$ in $\xi_\mu$. Hence
+\[
+\begin{split}
+(d\Pi u)_p={}&\int_0^1\bigl(\omega_\mu(x+te_\mu)-\omega_\mu(x+e_\nu+te_\mu)
+\bigr)dt\\
+&+\int_0^1\bigl(\omega_\nu(x+e_\mu+te_\nu)-\omega_\nu(x+te_\nu)\bigr)dt
+\end{split}
+\]
+is the integral over the unit square of $\partial_\mu\omega_\nu-\partial_\nu
+\omega_\mu$, which exists almost everywhere. Since $\partial_\mu\lambda^\mu_z
+=\frac1L(\chi^\mu_{z-e_\mu}-\chi^\mu_z)$ and $\chi^\nu_z$ and
+$\lambda^\rho_z$, $\rho\ne\mu$, do not change when $z$ is shifted by
+$e_\mu$, a shift of the summation index gives
+\[
+\partial_\mu\omega_\nu=\frac1{L^2}\sum_z\bigl(u_{(z+e_\mu,\nu)}-u_{(z,\nu)}
+\bigr)\chi^\mu_z\chi^\nu_z\prod_{\rho\ne\mu,\nu}\lambda^\rho_z ,
+\]
+and the same with $\mu,\nu$ exchanged. The difference is $\Omega_{\mu\nu}$,
+with $(du)_{z,\mu\nu}=u_{(z,\mu)}+u_{(z+e_\mu,\nu)}-u_{(z+e_\nu,\mu)}-
+u_{(z,\nu)}$, the sign convention of the fine plaquettes. If $u=db$ then
+$\Omega=0$, every curvature of $\Pi u$ vanishes, and $\Pi u$ is a gradient.
+
+(ii) By Cauchy--Schwarz, $(d\Pi u)_p^2$ is at most the integral of
+$\Omega_{\mu\nu}^2$ over the unit square of $p$. At a point $\xi$ exactly
+one pair $(z_\mu,z_\nu)$ has $\chi^\mu_z\chi^\nu_z=1$, and the hat
+functions form a partition of unity, $\sum_{z_\rho,z_\sigma}\lambda^\rho_z
+\lambda^\sigma_z=1$ for $\{\rho,\sigma\}$ the other two directions; so
+$\Omega_{\mu\nu}^2\le L^{-4}\sum_{z_\rho,z_\sigma}\lambda^\rho_z\lambda^
+\sigma_z(du)^2_{z,\mu\nu}$. Summing over the plaquettes of the plane
+$\{\mu,\nu\}$ integrates over $\xi_\mu,\xi_\nu$, which gives the factor
+$L^2$ for each pair $(z_\mu,z_\nu)$, and sums over the integers $x_\rho,
+x_\sigma$. Since $c_{z,\rho}-x_\rho$ lies in $\Z+\frac12$, $\sum_{x_\rho\in
+\Z}\lambda^\rho_z=2\sum_{j=0}^{L-1}\bigl(1-\frac{j+1/2}L\bigr)=L$, and the
+same for $\sigma$. So the plaquettes of the plane $\{\mu,\nu\}$ contribute
+at most $L^{-4}\cdot L^2\cdot L^2\sum_z(du)^2_{z,\mu\nu}$.
+
+(iii) By Lemma~\ref{lem:straightpaths}(i), $V^{(k)}_{y,\mu}(\Pi u)$ is the
+mean over $x=Ly+s$, $s\in\{0,\dots,L-1\}^4$, of $\int_0^L\omega_\mu(x+te_\mu)
+\,dt$. The term of $u_{(z,\mu)}$ in it is a product of a factor of the
+coordinate $\mu$ and one of each $\nu\ne\mu$, and the mean over $s$ is the
+product of the means over the single coordinates. Put $\delta=s_\mu-
+\frac{L-1}2$. The interval $[x_\mu,x_\mu+L)$ meets $[c_{z,\mu},c_{z,\mu}+L)$
+in length $L-|\delta|$ if $z_\mu=y_\mu$, in $\max(0,-\delta)$ if $z_\mu=
+y_\mu-1$, in $\max(0,\delta)$ if $z_\mu=y_\mu+1$, and not otherwise. As $L$
+is even, $\sum_s|\delta|=2\sum_{j=0}^{L/2-1}(j+\frac12)=\frac{L^2}4$, so the
+means of these lengths divided by $L$ are $\frac34$, $\frac18$, $\frac18$.
+For $\nu\ne\mu$ put $\delta=s_\nu-\frac{L-1}2$; then $\lambda^\nu_z(x)$ is
+$1-|\delta|/L$ if $z_\nu=y_\nu$, $\max(0,\mp\delta)/L$ if $z_\nu=y_\nu\mp1$,
+and zero otherwise, with the same means. The product of the four means is
+the coefficient of $u_{(z,\mu)}$ in $(Tu)_{(y,\mu)}$.
+\end{proof}
+
+\begin{theorem}\label{thm:effectiveupper}
+For every $k\ge1$ and every finitely supported field $w$ on the links of the
+lattice of spacing $2^k$,
+\[
+Q_k(w)\le S_k(w)\le256\,Q_k(w).
+\]
+\end{theorem}
+
+\begin{proof}
+The lower bound is Proposition~\ref{prop:effective}(iii). The operator $T$
+of Lemma~\ref{lem:whitney} is a convolution, the same on every component, so
+it commutes with $d$; its symbol is $\prod_\nu(\frac34+\frac14\cos\theta_\nu)
+\ge\frac1{16}$, so it is invertible on square-summable fields with
+$\|T^{-1}\|\le16$. Let $u=T^{-1}w$. By Lemma~\ref{lem:whitney},
+$V^{(k)}(\Pi u)=w$ and
+\[
+Q(\Pi u)\le Q_k(u)=\|T^{-1}dw\|^2\le256\,Q_k(w).
+\]
+It remains to replace $\Pi u$ by a finitely supported field. Let $u_R$ be
+$u$ on the coarse links with base in $[-R,R]^4$ and zero elsewhere, and
+$e_R=w-Tu_R=T(u-u_R)$, which is finitely supported and tends to zero.
+Let $\psi_R$ equal $e_R(y,\mu)$ on the links $(x,\mu)$ with $x\in B_k(y)$
+and $x_\mu\equiv L-1$ modulo $L$, and zero elsewhere. Each straight path of
+length $L$ from a site of $B_k(y)$ in the direction $\mu$ contains exactly
+one such link of $B_k(y)$, so $V^{(k)}(\psi_R)=e_R$ by
+Lemma~\ref{lem:straightpaths}(i), and $Q(\psi_R)\le24\|\psi_R\|^2=24L^3
+\|e_R\|^2$, since a link lies in six plaquettes of four links. The field
+$\Pi u_R+\psi_R$ is finitely supported, its $k$-fold averages are $w$, and
+$Q(\Pi u_R+\psi_R)^{1/2}\le Q_k(u_R)^{1/2}+(24L^3)^{1/2}\|e_R\|$, which
+tends to $Q_k(u)^{1/2}$. Lemma~\ref{lem:straightpaths}(iii) gives
+$S_k(w)\le Q_k(u)\le256\,Q_k(w)$.
+\end{proof}
+
+So at every scale the averages carry the coarse plaquette form up to a
+factor at most $256$, independent of $k$. The construction inverts the
+averages by a fixed convolution: the filter $(\frac18,\frac34,\frac18)$ does
+not depend on the scale because the nodes are the block centres, and its
+symbol is at least $\frac12$. With the coarse sites as nodes the
+corresponding filter is $\frac{L+1}{2L}\delta_0+\frac{L-1}{2L}\delta_1$,
+whose symbol has modulus $1/L$ at $\theta=\pi$ (Figure~\ref{fig:whitney}(b)). In floating
+point, on a grid of $12^4$ momenta, the largest ratio of $S_k$ to $Q_k$ on
+curvatures is $3.9$, $7.8$ and $10.2$ for $k=1,2,3$, and the kernel of $S_k$
+decreases by the factors $0.17$, $0.23$ and $0.25$ per coarse spacing; these
+values are reproduced in the archive. The theorem gives no decay, and the
+localisation of $S_k$ uniformly in $k$ remains open.
+
 \begin{lemma}\label{lem:mixture}
 Let $(X,d_X)$ and $(Y,d_Y)$ be Polish spaces, $\rho,\rho'$ Borel probability
 measures on $Y$, and $\kappa,\kappa'$ probability kernels from $Y$ to $X$,
@@ -5553,9 +5744,10 @@ use it as it stands. Four steps remain, each an open problem.
 in physical units needs a theorem that combines the constrained conditions
 at all scales with a cube condition for the coarsest averages, in the place
 of Theorem~\ref{thm:transfer}. Corollary~\ref{cor:compose} is one step of
-it, and Proposition~\ref{prop:effective}(iv) gives the gap at every scale;
-the localisation of $S_k$ uniformly in $k$ and a cube condition for the
-coarsest averages are open.
+it, Proposition~\ref{prop:effective}(iv) gives the gap at every scale, and
+Theorem~\ref{thm:effectiveupper} the equivalence of $S_k$ and $Q_k$
+uniformly in $k$; the localisation of $S_k$ uniformly in $k$ and a cube
+condition for the coarsest averages are open.
 \item \emph{Beyond the quadratic approximation.} For the Wilson measure the
 block averages are products of group elements along paths, their level sets
 are curved, and the Bakry--\'Emery tensor of Section~\ref{sec:curvature} is
@@ -6814,7 +7006,7 @@ Lemma~\ref{lem:vmfconst}, which are computations in interval arithmetic with
 rigorous error bounds. The programs of these steps, in Python with
 python-flint (FLINT and Arb) and a C kernel for products of Taylor
 polynomials, their outputs and the list of certified boxes are in the
-repository \url{https://github.com/creelie/4Y-M}, release v4.9.3, together
+repository \url{https://github.com/creelie/4Y-M}, release v4.10.0, together
 with a Lean~4 certificate of the line field and independent exact or
 numerical checks of the other finite statements.
 
