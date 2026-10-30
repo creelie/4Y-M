@@ -279,8 +279,17 @@ the energy does not increase at any scale, and the thin paths are contracted
 composes on fields whose curvatures at the successive scales have a small
 sum σ: the commutators are bounded by the square of the local curvature, and
 the energy grows at most by e^{12060σ}; if η_0 A_0 ≤ 2·10⁻¹⁰ ρ_G² this holds
-at every scale (Lemma "smallstep", Theorem "smallscales"). Large fields remain
-open (checks in
+at every scale (Lemma "smallstep", Theorem "smallscales"). Under the SU(2)
+Wilson measure the large fields are located: by reflection positivity and the
+chessboard estimate a set A of unit cubes is bad (some plaquette farther than ρ
+from I) with probability at most q^{|A|}, q = exp(6(log β_W + C_0) − β_W ρ²/16),
+so the clusters of bad cubes have physical size tending to zero in probability,
+and the cut-off average differs from the path average only on coarse links
+within two lattice spacings of them (Theorem "defects", Corollaries
+"defectclusters" and "activelinks"); bad plaquettes are nevertheless present
+along the one-loop tuning (Proposition "manydefects"), and a frustrated
+exterior shows that the boundary response near them is not small. Composition
+through the clusters remains open (checks in
 `strong-coupling/gauge-fixed/checks/blocks/path_blocks.py`). The localisation of
 the effective forms uniformly in the scale, a cube condition for the
 coarsest averages, the large fields, the crossover to strong coupling and
