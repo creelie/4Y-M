@@ -289,8 +289,14 @@ and the cut-off average differs from the path average only on coarse links
 within two lattice spacings of them (Theorem "defects", Corollaries
 "defectclusters" and "activelinks"); bad plaquettes are nevertheless present
 along the one-loop tuning (Proposition "manydefects"), and a frustrated
-exterior shows that the boundary response near them is not small. Composition
-through the clusters remains open (checks in
+exterior shows that the boundary response near them is not small. The
+composition is local: away from the defects it continues across the scales,
+and the defects spread by at most three spacings of the current scale per
+step (Lemma "localstep", Theorem "defectscales"), so under the Wilson measure
+the cut-off average carries the field through the clusters up to a coarse
+spacing of order (β_W/log β_W)^{1/4} a, the order of the cube side that (D)
+needs (Corollary "defectscales"). Composition across the remaining scales
+remains open (checks in
 `strong-coupling/gauge-fixed/checks/blocks/path_blocks.py`). The localisation of
 the effective forms uniformly in the scale, a cube condition for the
 coarsest averages, the large fields, the crossover to strong coupling and
