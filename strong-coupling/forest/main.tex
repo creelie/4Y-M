@@ -1494,7 +1494,23 @@ $9+\sqrt{17}=13.123$ on the torus of side two, so $9+\sqrt{17}\le h_F\le\frac{29
 A gradient search over $\SU(2)$ fields of periods two, four and six gives
 $h_F=13.97401$, attained by an abelian field; certificates made of
 plaquette forms and vertex forms on the period-two cell cannot go below
-$14.384$. With this gauge the curvature method stops between $|\beta|=\frac1{29}$
+$14.384$. Romanov~\cite{Rom26} constructed such a certificate: sixteen
+positive definite vertex forms of size eight and nonnegative plaquette
+weights, rational with denominator $10^6$, with a proof by interval
+arithmetic that the ninety-six plaquette matrices of size twelve are positive
+definite at every pair of phases. It gives $h_F\le14.420001$. Like
+$\frac{29}2$ this is a statement about $\U(N)$, by the reduction of the
+plaquette forms to $\U(2)$, so it replaces $\frac{29}2$ in
+Theorems~\ref{thm:curv} and~\ref{thm:groups}: the curvature method reaches
+$|\beta|<1/28.840002$, that is $\beta_W<0.1387$ for $\SU(2)$ and
+$\beta_W<0.3121$ for $\SU(3)$. The bound is computer-assisted. With our own
+programs we checked that his forest is ours up to a symmetry of the lattice,
+the finite data in exact arithmetic, the decomposition of the Hessian into
+his plaquette forms and of the corner terms into the vertex forms, and the
+positivity of the plaquette matrices at every phase, by eigenvalues at the
+centres of an adaptive grid with a Lipschitz bound in floating point. The
+theorems of this paper are stated with $\frac{29}2$, which is proved by hand.
+With this gauge the curvature method stops between $|\beta|=1/28.840002$
 and $\frac1{26.25}$.
 \end{remark}
 
@@ -2167,7 +2183,8 @@ sharper floating-point bound of Remark~\ref{rem:blockgap} stops near
 $0.357$. Larger blocks are the next step.
 
 \emph{Curvature.} Remark~\ref{rem:hf} locates the end of the curvature
-method in this gauge between $|\beta|=\frac1{29}$ and $\frac1{26.25}$.
+method in this gauge between $|\beta|=1/28.840002$, by Romanov's
+certificate~\cite{Rom26}, and $\frac1{26.25}$.
 
 \emph{$\SU(3)$.} The route of Sec.~\ref{sec:su3} bounds the
 $H^{-1}(\nu_b)$ norm of $\varphi_h-\nu_b\varphi_h$, which is at least
@@ -7485,9 +7502,10 @@ Lemma~\ref{lem:vmfconst}, which are computations in interval arithmetic with
 rigorous error bounds. The programs of these steps, in Python with
 python-flint (FLINT and Arb) and a C kernel for products of Taylor
 polynomials, their outputs and the list of certified boxes are in the
-repository \url{https://github.com/creelie/4Y-M}, release v4.13.0, together
-with a Lean~4 certificate of the line field and independent exact or
-numerical checks of the other finite statements.
+repository \url{https://github.com/creelie/4Y-M}, release v4.14.0, together
+with a Lean~4 certificate of the line field, independent exact or
+numerical checks of the other finite statements, and our checks of the
+certificate of~\cite{Rom26}.
 
 The computations, the checks and parts of the drafting were done with AI
 assistance (Claude Opus~5.5,
@@ -9195,6 +9213,11 @@ K.~Osterwalder and E.~Seiler, Gauge field theories on a lattice, Ann. Physics
 M.~Reed and B.~Simon, \emph{Methods of Modern Mathematical Physics I:
 Functional Analysis}, revised and enlarged ed., Academic Press, New York,
 1980.
+
+\bibitem{Rom26}
+T.~Romanov, A proved bound $h_F\le14.420001$ for the four-dimensional
+forest-gauge Hessian, computer-assisted certificate (2026),
+\url{https://github.com/romanov360/yang-mills-4d-forest-certificate}.
 
 \bibitem{SBG26}
 P.~Samal, D.~Bhattacharjee and R.~Ghora, Renormalization of spacetime dimension, Preprints (2026), \href{https://doi.org/10.20944/preprints202602.0531.v1}{doi:10.20944/preprints202602.0531.v1}.
