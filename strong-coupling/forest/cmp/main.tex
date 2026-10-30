@@ -489,12 +489,17 @@ spacings of the current scale per step, up to a coarse spacing of order
 $(\beta_W/\log\beta_W)^{1/4}a$, the order of the cube side that the cube condition
 needs
 (Theorem~\ref{thm:defectscales} and Corollary~\ref{cor:defectscales}).
-In a box whose boundary field lies in a maximal torus and has small
-plaquettes, the fraction of unit cubes with a large plaquette is small with
-probability exponentially close to one in the volume, uniformly over such
-boundary fields (Proposition~\ref{prop:conddensity}); for general boundary
-fields with small plaquettes this conditional estimate is open
-(Remark~\ref{rem:boxnonabelian}).
+In a box whose boundary field has small plaquettes and either lies in a
+maximal torus or, for $\SU(2)$, has plaquette angles $\rho_s$ with
+$l^2\rho_s$ below a fixed constant, the fraction of unit cubes with a large
+plaquette is small with probability exponentially close to one in the
+volume, uniformly over such boundary fields
+(Lemmas~\ref{lem:boxextension} and~\ref{lem:nonabelianfilling} and
+Proposition~\ref{prop:conddensity}). The second class allows cube sides up
+to a constant times $(\beta_W/\log\beta_W)^{1/4}$ at the level of
+Corollary~\ref{cor:defectscales}, which is the scale $a_{k_*}$ up to a
+constant factor; for larger boxes with general boundary fields this
+conditional estimate is open (Remark~\ref{rem:boxnonabelian}).
 Whether some block map is coercive for all fields and composes across the
 remaining scales is open.
 
@@ -7591,6 +7596,168 @@ boundary links $B+d\mu\equiv a$, and every plaquette of $R$ has angle at
 most $|(dB)_p|\le C\rho_s$.
 \end{proof}
 
+For a general $\SU(2)$-valued boundary field the curvature is not a closed
+cochain, and the lift in the proof of Lemma~\ref{lem:boxextension} is not
+available. A lift by gluing local gauges still works when $l^2\rho_s$ is
+small. Identify $\mathfrak{su}(2)$ with the imaginary quaternions and write
+$|X|$ for the operator norm, which is the Euclidean norm, so that
+$|[X,Y]|\le2|X||Y|$, $\lVert e^X-I\rVert\le|X|$ and $\angle e^X=|X|$ for
+$|X|\le\pi$. With $d(g,h)=\angle(g^{-1}h)$, the map $X\mapsto e^X$ is
+$1$-Lipschitz, since its differential has singular values $1$ and
+$\sin|X|/|X|$, and the principal logarithm is $2$-Lipschitz on $\{\angle
+h\le\frac12\}$, a geodesically convex ball on which the inverse
+differential has singular values at most $\frac12/\sin\frac12<2$. Put
+\[
+C_1=2,\qquad C_k=11\,C_{k-1}+24\quad(2\le k\le8),
+\]
+so that $C_8=85\,743\,550$, and
+\[
+K=42\,C_8+20,\qquad \varepsilon_0=\frac1{100\,C_8^2}.
+\]
+
+\begin{lemma}\label{lem:nonabelianfilling}
+Let the boundary links $\eta$ of $R$ take values in $\SU(2)$, with
+$\angle\eta_p\le\rho_s$ for every boundary plaquette and $l^2\rho_s\le
+\varepsilon_0$. Then the inner links can be chosen so that $\angle U_p\le
+K\rho_s$ for every plaquette of $R$.
+\end{lemma}
+
+\begin{proof}
+For a vertex gauge $g$ write $\eta^g_{xy}=g_x\eta_{xy}g_y^{-1}$. A product
+of conjugates of $m$ elements of angle at most $\rho_s$ has angle at most
+$m\rho_s$, since $d$ is bi-invariant.
+
+\emph{One facet.} On a facet with coordinates $t_1,t_2,t_3$ let $P_x$ be
+the path from the corner to $x$ that moves first in direction $t_1$, then
+$t_2$, then $t_3$, and put $g^0_x=\eta(P_x)$, the ordered product of the links along
+$P_x$. Then $\eta^{g^0}_{xy}$ is the holonomy of the loop $P_x\,(xy)\,
+P_y^{-1}$. For a link in
+direction $t_3$ this loop retraces itself. For a link in direction $t_2$ at
+height $t_3=c$ it bounds $c$ plaquettes of the planes $\{t_2,t_3\}$, and
+for a link in direction $t_1$ at $(t_2,t_3)=(b,c)$ it bounds $b$
+plaquettes of a plane $\{t_1,t_2\}$ and $c$ of a plane $\{t_1,t_3\}$. So
+the holonomy is a product of conjugates of at most $2l$ plaquette
+holonomies, and every link of the facet has $\angle\eta^{g^0}_e\le
+2l\rho_s$.
+
+\emph{Gluing.} Take the facets in the order of the proof of
+Lemma~\ref{lem:boxextension}, with the same sets $\Gamma_k$; there
+$d_\Gamma\le3d_1$. Two vertices of $\Gamma_k$ joined by a link of the
+facet lie in a common face of $\Gamma_k$, since $l\ge2$, so that link
+lies in $\Gamma_k$. We construct a gauge $g$ on the boundary vertices with
+$\angle\eta^g_e\le M_k=C_kl\rho_s$ on the links of the first $k$ facets.
+For $k=1$ take $g=g^0$. For $k\ge2$, let $g^0$ be the gauge of the $k$-th
+facet and $t_x=g_x(g^0_x)^{-1}$ for $x\in\Gamma_k$. For a link $xy$ of
+$\Gamma_k$, $\eta^g_{xy}=t_x\eta^{g^0}_{xy}t_y^{-1}$, so
+\[
+d(t_x,t_y)=\angle\bigl(t_x^{-1}t_y\bigr)\le\angle\eta^g_{xy}+\angle
+\eta^{g^0}_{xy}\le M_{k-1}+2l\rho_s ,
+\]
+and $t$ is $3(M_{k-1}+2l\rho_s)$-Lipschitz for $d_1$ on $\Gamma_k$. Fix
+$x_0\in\Gamma_k$ and put $h_x=t_{x_0}^{-1}t_x$. The facet has $d_1$-diameter
+$3l$, so
+\[
+\angle h_x\le9l(M_{k-1}+2l\rho_s)=9(C_{k-1}+2)\,l^2\rho_s\le9(C_8+2)
+\varepsilon_0<\tfrac12 ,
+\]
+and $a_x=\log h_x$ is $L$-Lipschitz for $d_1$, with
+$L=6(M_{k-1}+2l\rho_s)$. Extend each of the three real coordinates of $a$
+to the vertices of the facet by the formula of McShane~\cite{McS34}, as in
+the proof of Lemma~\ref{lem:boxextension}; the extension $\tilde a$ is
+$\sqrt3L$-Lipschitz. Put $g_x=t_{x_0}e^{\tilde a_x}g^0_x$ on the facet; on
+$\Gamma_k$ this is the old value. For a link $xy$ of the facet,
+$\eta^g_{xy}=\tilde t_x\eta^{g^0}_{xy}\tilde t_y^{-1}$ with $\tilde t_x=
+t_{x_0}e^{\tilde a_x}$, so
+\[
+\begin{split}
+\angle\eta^g_{xy}&\le d(\tilde t_x,\tilde t_y)+2l\rho_s\le\sqrt3L+2l\rho_s\\
+&=6\sqrt3\,M_{k-1}+(12\sqrt3+2)\,l\rho_s\le M_k .
+\end{split}
+\]
+After the eighth facet, $\angle\eta^g_e\le M=C_8l\rho_s$ on every boundary
+link.
+
+\emph{Potential.} Since $M\le C_8\varepsilon_0/l<\frac12$, the logarithms
+$A_e=\log\eta^g_e$ are defined, with $|A_e|\le M$ and $A_{-e}=-A_e$. Let
+$(dA)_p$ be the signed sum of $A$ over the four links of a boundary
+plaquette. For $X_1,\dots,X_q\in\mathfrak{su}(2)$,
+\[
+\Bigl\lVert e^{X_1}\cdots e^{X_q}-I-\sum_iX_i\Bigr\rVert\le\tfrac12\Bigl(
+\sum_i|X_i|\Bigr)^2 ,
+\]
+by induction on $q$ from $e^Xe^Y-I-X-Y=(e^X-I-X)+(e^Y-I-Y)+(e^X-I)(e^Y-I)$
+and $\lVert e^X-I-X\rVert\le|X|^2/2$. Applied to the four links of $p$, and
+since $\lVert\eta^g_p-I\rVert=2\sin(\angle\eta_p/2)\le\rho_s$, this gives
+\[
+|(dA)_p|\le\sigma=\rho_s+8M^2 .
+\]
+Let $\hat A$ be the lowest-order Whitney form of $A$ on the unit cubes of
+$\partial R$, as in the proof of Lemma~\ref{lem:boxextension}, now with
+values in $\mathfrak{su}(2)$. Its coefficients are interpolations of values
+of $A$, and those of $d\hat A$ are interpolations of values of $dA$, so
+\[
+|\hat A(u)|\le\sqrt3\,M|u|,\qquad|d\hat A(u,w)|\le\sqrt3\,\sigma|u||w| .
+\]
+With $r$, $R_0$ and $\varphi$ as there, put $\tilde B=(r/R_0)^2\varphi^*
+\hat A$ on $R\setminus\{c\}$ and $\tilde B(c)=0$. The same computation
+gives
+\[
+|\tilde B(v)|\le3\sqrt3\,M\frac r{R_0}|v|,\qquad|d\tilde B(v,w)|\le\kappa_1
+|v||w|,
+\]
+where $\kappa_1=12\sqrt3\,M/R_0+9\sqrt3\,\sigma$.
+On each cone from $c$ over a unit cube of $\partial R$, $\tilde B$ is
+smooth away from $c$, and its tangential components are continuous across
+the cones.
+
+\emph{Transport.} For a link $e$ of $R$, parametrised by $s\in[0,1]$, let
+$V_e=T(1)$, where $T'=T\,\tilde B(\dot e)$ and $T(0)=I$; the coefficient is
+bounded and piecewise smooth, and $V$ composes along paths in the order of
+the links. For a closed path $\gamma$ of length $\ell$,
+\[
+T(1)-I-\int_\gamma\tilde B=\int_0^1(T-I)\,\tilde B(\dot\gamma)\,ds,
+\]
+and $\lVert T(s)-I\rVert\le\int_0^s|\tilde B(\dot\gamma)|$,
+so the holonomy $V_\gamma$ satisfies $\lVert V_\gamma-I\rVert\le|\int_\gamma
+\tilde B|+\frac12(\int_\gamma|\tilde B|)^2$. Let $p$ be a plaquette of $R$
+and divide it into $N^2$ squares $q$ of side $h=1/N$. Its holonomy is a
+product of conjugates of the holonomies of the boundaries of the squares,
+since every inner edge of the subdivision is traversed once in each
+direction. For each square, Stokes' theorem on the finitely many convex
+polygons in which the cones cut $q$ gives $\int_{\partial q}\tilde B=
+\int_qd\tilde B$: the integrals over the interior cuts cancel because the
+tangential components agree, and if $c\in q$ a disc of radius $\delta$
+around $c$ contributes $O(\delta^2)$, since $|\tilde B|\le3\sqrt3\,Mr/R_0$.
+Hence
+\[
+\lVert V_{\partial q}-I\rVert\le\kappa_1h^2+\tfrac12\bigl(4h\cdot3\sqrt3\,M
+\bigr)^2=\kappa h^2,
+\]
+with $\kappa=\kappa_1+216M^2$.
+Since $2\arcsin(x/2)\le x(1+x^2)$ for $0\le x\le1$, summing over the
+squares gives $\angle V_p\le\kappa(1+\kappa^2N^{-4})$, and letting
+$N\to\infty$, $\angle V_p\le\kappa$. Now $M/R_0=2C_8\rho_s$ and
+$M^2=C_8^2l^2\rho_s^2\le\rho_s/100$, so
+\[
+\begin{split}
+\kappa&\le\bigl(24\sqrt3\,C_8+9\sqrt3\bigr)\rho_s+\bigl(72\sqrt3+216\bigr)M^2\\
+&<(42\,C_8+20)\,\rho_s=K\rho_s .
+\end{split}
+\]
+
+\emph{Boundary values.} On $\partial R$, $r=R_0$ and $\varphi$ is the
+identity on tangent vectors, and along a boundary link $e$ the tangential
+coefficient of $\hat A$ is the constant $A_e$. So $V_e=e^{A_e}=\eta^g_e$.
+Extend $g$ by $I$ to the inner vertices and put $U_{xy}=g_x^{-1}V_{xy}g_y$.
+Then $U=\eta$ on the boundary links, and $U_p$ is conjugate to $V_p$, so
+$\angle U_p\le K\rho_s$ for every plaquette of $R$.
+\end{proof}
+
+The boundary fields of Lemma~\ref{lem:nonabelianfilling} with strict
+inequalities form an open set of positive Haar measure that contains the
+identity field; unlike those of Lemma~\ref{lem:boxextension}, they are not
+a null set. The constants are far from optimal.
+
 For $0<\varepsilon\le1$ let $E_\varepsilon$ be the event that at least
 $\varepsilon l^4$ of the $l^4$ unit cubes $x+[0,1]^4$, $x\in\{0,\dots,
 l-1\}^4$, of $R$ contain a bad plaquette.
@@ -7608,7 +7775,10 @@ every inner plaquette has angle at most $\kappa$. Then
 with $C_0$ as in Lemma~\ref{lem:wilsonZ}. In particular, if the boundary
 links lie in $T$ with angle at most $\rho_s<\pi/3$ on every boundary
 plaquette and $\rho\ge\sqrt2\,\rho_s$, the bound holds with $\kappa=C\rho_s$
-and the constant $C$ of Lemma~\ref{lem:boxextension}.
+and the constant $C$ of Lemma~\ref{lem:boxextension}. If the boundary
+links lie in $\SU(2)$ with angle at most $\rho_s$ on every boundary
+plaquette, $l^2\rho_s\le\varepsilon_0$ and $\rho\ge\sqrt2\,\rho_s$, it
+holds with $\kappa=K\rho_s$.
 \end{proposition}
 
 \begin{proof}
@@ -7636,36 +7806,42 @@ Since $C_0=\frac12+\frac23\log(24\pi^3)$, $n_P+n_L\log(24\pi^3\beta_W^{3/2}
 )\le6(l+1)^4(\log\beta_W+C_0+\frac12)$, which gives the bound. For the last
 assertion, a boundary plaquette has $\delta(U_p,I)\le\sqrt2\,\angle U_p\le
 \sqrt2\,\rho_s\le\rho$, so it is not bad, and Lemma~\ref{lem:boxextension}
-gives the inner links.
+or Lemma~\ref{lem:nonabelianfilling} gives the inner links.
 \end{proof}
 
-So in a box whose boundary is $T$-valued and calm at a level $\rho_s$
-small compared with $\rho\sqrt\varepsilon/C$, the fraction of bad cubes
+So in a box whose boundary is calm at a level $\rho_s$ small compared with
+$\rho\sqrt\varepsilon/C$ and $T$-valued, or small compared with
+$\rho\sqrt\varepsilon/K$ and $\SU(2)$-valued with $l^2\rho_s\le
+\varepsilon_0$, the fraction of bad cubes
 exceeds $\varepsilon$ only with probability exponentially small in the
 volume once $\beta_W\rho^2\varepsilon$ is large compared with $\log
 \beta_W$, uniformly over such exteriors and over $l$. The estimate is
 conditional, unlike Theorem~\ref{thm:defects}.
 
 \begin{remark}\label{rem:boxnonabelian}
-The exteriors with boundary links in $T$ form a null set for $\mu_L$, so
-Proposition~\ref{prop:conddensity} does not by itself give the conditional
-estimate in (D). Its proof uses the torus only through
-Lemma~\ref{lem:boxextension}, and the lemma uses that $T$ is abelian
-twice: the angles of the six faces of a $3$-cube add up to zero, and the
-lift and the extension are linear. For a general $\SU(2)$-valued boundary
-field neither holds. The curvature is not a closed cochain, and a lift of
-the boundary field to a small potential needs a Coulomb gauge on the
-$3$-sphere $\partial R$. In the continuum, Uhlenbeck's theorem~\cite{Uhl82}
-gives a Coulomb gauge on an $n$-ball when the curvature is small in
-$L^{n/2}$. On $3$-dimensional pieces of $\partial R$ of side comparable to
-$l$, and for curvature of size $\rho_s$, this norm is of order $l^2\rho_s$.
-With $\rho_s$ of the order of the level $\rho(\beta_W)$ of
-Corollary~\ref{cor:defectscales}, $\rho_s^2\sim\log\beta_W/\beta_W$, the
-smallness holds for
-$l\lesssim(\beta_W/\log\beta_W)^{1/4}$, the scale $a_{k_*}$ of
-Corollary~\ref{cor:defectscales}. We do not prove a nonabelian form of
-Lemma~\ref{lem:boxextension}, and the conditional estimate for general calm
-exteriors remains open.
+The exteriors with boundary links in $T$ form a null set for $\mu_L$.
+Lemma~\ref{lem:nonabelianfilling} removes the torus at the price of the
+smallness $l^2\rho_s\le\varepsilon_0$. In the continuum the corresponding
+condition is that of Uhlenbeck's theorem~\cite{Uhl82}, which gives a
+Coulomb gauge on a ball when the curvature is small in $L^{n/2}$; on
+$3$-dimensional pieces of $\partial R$ of side comparable to $l$ and for
+curvature of size $\rho_s$ this norm is of order $l^2\rho_s$. The lemma
+replaces the Coulomb gauge by the gluing of the facet gauges. With
+$\rho_s$ of the order of the level $\rho(\beta_W)$ of
+Corollary~\ref{cor:defectscales}, $\rho_s=c_0(\log\beta_W/\beta_W)^{1/2}$,
+it applies for
+\[
+l\le(\varepsilon_0/c_0)^{1/2}\,(\beta_W/\log\beta_W)^{1/4},
+\]
+the scale $a_{k_*}$ of Corollary~\ref{cor:defectscales} up to a constant
+factor. Along the tuning $\beta_W\sim b\log(1/a)$ the physical side $al$
+then tends to $0$, so the lemma does not reach cubes of a fixed physical
+size; this is a limitation of the argument, not a proof that such fillings
+fail. Moreover Proposition~\ref{prop:conddensity} bounds the fraction of
+bad cubes under one exterior and does not compare the laws under two
+exteriors, so it gives no contraction coefficient. The conditional
+estimate in (D), for calm exteriors on cubes of fixed physical size, remains
+open.
 \end{remark}
 
 \section*{Acknowledgements}
@@ -7698,7 +7874,7 @@ Lemma~\ref{lem:vmfconst}, which are computations in interval arithmetic with
 rigorous error bounds. The programs of these steps, in Python with
 python-flint (FLINT and Arb) and a C kernel for products of Taylor
 polynomials, their outputs and the list of certified boxes are in the
-repository \url{https://github.com/creelie/4Y-M}, release v4.15.1, together
+repository \url{https://github.com/creelie/4Y-M}, release v4.16.0, together
 with a Lean~4 certificate of the line field, independent exact or
 numerical checks of the other finite statements, and our checks of the
 certificate of~\cite{Rom26}.
