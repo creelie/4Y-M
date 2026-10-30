@@ -489,6 +489,12 @@ spacings of the current scale per step, up to a coarse spacing of order
 $(\beta_W/\log\beta_W)^{1/4}a$, the order of the cube side that the cube condition
 needs
 (Theorem~\ref{thm:defectscales} and Corollary~\ref{cor:defectscales}).
+In a box whose boundary field lies in a maximal torus and has small
+plaquettes, the fraction of unit cubes with a large plaquette is small with
+probability exponentially close to one in the volume, uniformly over such
+boundary fields (Proposition~\ref{prop:conddensity}); for general boundary
+fields with small plaquettes this conditional estimate is open
+(Remark~\ref{rem:boxnonabelian}).
 Whether some block map is coercive for all fields and composes across the
 remaining scales is open.
 
@@ -7436,6 +7442,226 @@ boundary response of a cube to a frustrated exterior is not small, and the
 composition beyond the scale $a_{k_*}$ of Corollary~\ref{cor:defectscales}
 and the conditional estimate in (D) remain open.
 
+For exteriors that are calm on the boundary of a box and lie in a maximal
+torus, the conditional estimate does hold. Let $R=[0,l]^4$, $l\ge2$, be a
+box of $\Lambda_L$ with $l<L$. Its boundary $\partial R$ is a cubical
+$3$-sphere. Call a link or plaquette of $R$ a \emph{boundary} link or
+plaquette if it lies in $\partial R$, and \emph{inner} otherwise. A
+plaquette that contains an inner link lies in $R$, so conditionally on all
+other links the inner links have the law
+\[
+\nu_\eta(dU)=Z_\eta^{-1}\exp\Bigl(-\beta_W\sum_{p\in P^\circ}s_p\Bigr)
+\prod_edU_e ,
+\]
+the product over the inner links, where $P^\circ$ is the set of inner
+plaquettes. It depends on the exterior $\eta$ only through the boundary
+links. Let $T\subset\SU(2)$ be the diagonal torus of the elements
+$\exp(tJ)$, $J=\mathrm{diag}(i,-i)$, and for $u\in\SU(2)$ let $\angle u\in
+[0,\pi]$ be its angle, so that $\delta(u,I)=2\sqrt2\sin(\angle u/2)$.
+
+\begin{lemma}\label{lem:boxextension}
+Let $0\le\rho_s<\pi/3$. Suppose the boundary links of $R$ lie in $T$ and
+$\angle U_p\le\rho_s$ for every boundary plaquette. Then the inner links
+can be chosen in $T$ so that $\angle U_p\le C\rho_s$ for every plaquette of
+$R$, where
+\[
+C=\sqrt3\,(24\cdot13118+9)<5.46\cdot10^5 .
+\]
+\end{lemma}
+
+\begin{proof}
+Write a $T$-valued field as $U_e=\exp(a_eJ)$ with $a_e\in\R/2\pi\Z$. For a
+plaquette $p$ let $(da)_p$ be the signed sum of $a$ over its four links, so
+that $U_p=\exp((da)_pJ)$. For a boundary plaquette let $\theta_p\in(-\pi,
+\pi]$ be the representative of $(da)_p$; then $|\theta_p|=\angle U_p\le
+\rho_s$.
+
+\emph{Closedness.} The signed angles of the six plaquettes of a unit
+$3$-cube of $\partial R$ add up to $0$ modulo $2\pi$, since each link occurs
+twice with opposite signs. Their representatives add up to a number of
+modulus at most $6\rho_s<2\pi$, hence to $0$. So $\theta$ is a closed real
+$2$-cochain on $\partial R$.
+
+\emph{Lift.} We construct a real $1$-cochain $\alpha$ on the boundary links
+with $d\alpha=\theta$ and $|\alpha_e|\le13118\,l\rho_s$. The boundary is the
+union of the eight facets $F_i^0=\{x\in R:x_i=0\}$ and $F_i^l=\{x\in R:x_i=
+l\}$, each a cube $[0,l]^3$. Take them in the order $F_1^l$, $F_2^l$,
+$F_2^0$, $F_3^l$, $F_3^0$, $F_4^l$, $F_4^0$, $F_1^0$, and let $\Gamma_k$ be
+the union of the intersections of the $k$-th facet with the earlier ones.
+In the cube of the $k$-th facet, $\Gamma_k$ is empty for $k=1$, one face for
+$k=2,3$, three faces, two of them opposite, for $k=4,5$, five faces for
+$k=6,7$ and all six for $k=8$. So $\Gamma_k$ is contractible or a
+$2$-sphere, and its first cellular cohomology vanishes.
+
+On a facet with coordinates $t_1,t_2,t_3$, the axial gauge gives
+$\alpha^0$ with $d\alpha^0=\theta$ on the facet. Put $\alpha^0=0$ on the
+links in direction $t_3$. Determine $\alpha^0$ on the links in direction
+$t_2$ from the plaquettes in the planes $\{t_2,t_3\}$, starting from $0$ at
+$t_3=0$. On the links in direction $t_1$ at $t_3=0$, determine it from the
+plaquettes in the plane $\{t_1,t_2\}$, starting from $0$ at $t_2=0$, and
+then from the plaquettes in the planes $\{t_1,t_3\}$. The plaquettes in the
+planes $\{t_1,t_2\}$ with $t_3>0$ then satisfy $d\alpha^0=\theta$ by
+closedness, by induction on $t_3$. Each value is a signed sum of at most
+$l$, respectively $2l$, angles, so $|\alpha^0|\le2l\rho_s$.
+
+For $k=1$ put $\alpha=\alpha^0$, so $M_1=\max|\alpha|\le2l\rho_s$. For
+$k\ge2$, $\alpha$ is already defined on the links of $\Gamma_k$, with
+$|\alpha|\le M_{k-1}$, and $\omega=\alpha-\alpha^0$ is closed there.
+Hence $\omega=d\lambda$ for a function $\lambda$ on the vertices of
+$\Gamma_k$, and $|\lambda(x)-\lambda(y)|\le\lVert\omega\rVert_\infty
+d_\Gamma(x,y)$, where $d_\Gamma$ is the path metric of $\Gamma_k$.
+
+We claim $d_\Gamma\le3d_1$, where $d_1$ is the $\ell^1$ metric of the
+facet. If $x$ and $y$ lie in one face of $\Gamma_k$, that face contains an
+$\ell^1$ geodesic between them. If they lie in adjacent faces $\{t_i=s\}$
+and $\{t_j=s'\}$, the path through the point with $t_i=s$, $t_j=s'$ and
+third coordinate that of $x$ has length $d_1(x,y)$. If they lie in opposite
+faces $\{t_i=0\}$ and $\{t_i=l\}$, then $d_1(x,y)\ge l$. In that case
+$\Gamma_k$ contains a face adjacent to both, and the path from $x$ to that
+face, across it and on to $y$ has length at most $d_1(x,y)+2l\le3d_1(x,y)$.
+
+So $\lambda$ is $3\lVert\omega\rVert_\infty$-Lipschitz for $d_1$ on
+$\Gamma_k$. The function
+\[
+\tilde\lambda(x)=\min_y\bigl(\lambda(y)+3\lVert\omega\rVert_\infty d_1(x,y)
+\bigr)
+\]
+extends it to the vertices of the facet with the same constant~\cite{McS34}.
+Put $\alpha=\alpha^0+d\tilde\lambda$ on the links of the facet. It agrees
+with the earlier values on $\Gamma_k$, satisfies $d\alpha=\theta$ on the
+facet, and has
+\[
+|\alpha|\le2l\rho_s+3(M_{k-1}+2l\rho_s).
+\]
+So $M_k\le3M_{k-1}+8l\rho_s$, which gives $M_8\le13118\,l\rho_s$.
+
+\emph{Extension.} Let $c$ be the centre of $R$, $R_0=l/2$, $r(x)=|x-c|_\infty$
+and $\varphi(x)=c+R_0(x-c)/r(x)$, the radial projection of $R\setminus\{c\}$
+onto $\partial R$. Let $\hat\alpha$ and $\hat\theta=d\hat\alpha$ be the
+lowest-order Whitney forms of $\alpha$ and $\theta$ on the unit cubes of
+$\partial R$~\cite{Whi57}. On a unit cube with coordinates $t_1,t_2,t_3$,
+$\hat\alpha=\sum_ia_i\,dt_i$, where $a_i$ is the multilinear interpolation of
+the values of $\alpha$ on the four links in direction $t_i$; similarly
+$\hat\theta=\sum_{i<j}\theta_{ij}\,dt_i\wedge dt_j$. These forms have
+continuous tangential components across the faces of the unit cubes, satisfy
+$\int_e\hat\alpha=\alpha_e$ for every boundary link, and for tangent
+vectors
+\[
+|\hat\alpha(u)|\le\sqrt3\,M_8|u|,\qquad|\hat\theta(u,w)|\le\sqrt3\,\rho_s
+|u||w| .
+\]
+Put $\tilde B=(r/R_0)^2\varphi^*\hat\alpha$ on $R\setminus\{c\}$. Since
+$|\nabla r|=1$ almost everywhere and $|x-c|\le2r$, we have $|d\varphi(v)|\le
+3R_0|v|/r$. Then
+\[
+d\tilde B=d\bigl(r^2/R_0^2\bigr)\wedge\varphi^*\hat\alpha+(r/R_0)^2
+\varphi^*\hat\theta
+\]
+gives
+\[
+|d\tilde B(v,w)|\le\bigl(12\sqrt3\,M_8/R_0+9\sqrt3\,\rho_s\bigr)|v||w|\le
+C\rho_s|v||w| ,
+\]
+and $|\tilde B|\le3\sqrt3\,M_8r/R_0$ is bounded.
+
+The set $R\setminus\{c\}$ is the union of the cones from $c$ over the unit
+cubes of $\partial R$. These cones are convex polytopes cut out by
+hyperplanes through $c$. On each of them $\tilde B$ is smooth, and its
+tangential components are continuous across them since $\varphi$ is
+continuous. Put $B_e=\int_e\tilde B$ for every link $e$ of $R$. Apply
+Stokes' theorem on each piece of a plaquette: the boundary terms on the
+interior cuts cancel, and the point $c$ contributes nothing since $\tilde B$
+is bounded. This gives $(dB)_p=\int_pd\tilde B$, so $|(dB)_p|\le C\rho_s$.
+On $\partial R$, $r=R_0$ and $\varphi$ is the identity on tangent vectors,
+so $B=\alpha$ on the boundary links.
+
+\emph{Gauge.} The cochain $a-\alpha$ on the boundary links has
+$(d(a-\alpha))_p\equiv\theta_p-\theta_p=0$ modulo $2\pi$ on every boundary
+plaquette. So it is a flat $\U(1)$-field on the $2$-skeleton of $\partial
+R$, which is simply connected, and $a-\alpha\equiv d\mu$ modulo $2\pi$ for a
+function $\mu$ on the boundary vertices. Extend $\mu$ by $0$ to the inner
+vertices and put $U_e=\exp((B_e+(d\mu)_e)J)$ on the inner links. On the
+boundary links $B+d\mu\equiv a$, and every plaquette of $R$ has angle at
+most $|(dB)_p|\le C\rho_s$.
+\end{proof}
+
+For $0<\varepsilon\le1$ let $E_\varepsilon$ be the event that at least
+$\varepsilon l^4$ of the $l^4$ unit cubes $x+[0,1]^4$, $x\in\{0,\dots,
+l-1\}^4$, of $R$ contain a bad plaquette.
+
+\begin{proposition}\label{prop:conddensity}
+Let $\beta_W\ge1$ and $0<\rho\le1$. Suppose that no boundary plaquette of
+$R$ is bad under $\eta$, and that the inner links can be chosen so that
+every inner plaquette has angle at most $\kappa$. Then
+\[
+\begin{split}
+-\log\nu_\eta(E_\varepsilon)\ge{}&\frac{\beta_W\rho^2\varepsilon}{16}\,l^4\\
+&-6(l+1)^4\bigl(\log\beta_W+C_0+\tfrac12+\beta_W\kappa^2\bigr),
+\end{split}
+\]
+with $C_0$ as in Lemma~\ref{lem:wilsonZ}. In particular, if the boundary
+links lie in $T$ with angle at most $\rho_s<\pi/3$ on every boundary
+plaquette and $\rho\ge\sqrt2\,\rho_s$, the bound holds with $\kappa=C\rho_s$
+and the constant $C$ of Lemma~\ref{lem:boxextension}.
+\end{proposition}
+
+\begin{proof}
+On $E_\varepsilon$ the bad plaquettes are inner, and each lies in at most
+four of the unit cubes. So there are at least $\varepsilon l^4/4$ of them,
+each with $s_p>\rho^2/4$, and $\sum_{P^\circ}s_p\ge\rho^2\varepsilon l^4
+/16$. Hence the unnormalised weight of $E_\varepsilon$ is at most $\exp(
+-\beta_W\rho^2\varepsilon l^4/16)$.
+
+For the normalisation let $\bar U$ be the inner links of the hypothesis,
+$t=(4\sqrt{\beta_W})^{-1}$, and consider the inner links $U_e=\bar U_eh_e$
+with $\angle h_e\le t$. The angle of $g^{-1}h$ is a bi-invariant distance,
+so every inner plaquette has $\angle U_p\le\kappa+4t$ and
+\[
+s_p\le\tfrac12(\kappa+4t)^2\le\kappa^2+16t^2=\kappa^2+\beta_W^{-1} .
+\]
+Each $h_e$ has probability at least $8t^3/(3\pi^3)=(24\pi^3\beta_W^{3/2}
+)^{-1}$, as in the proof of Lemma~\ref{lem:wilsonZ}. There are $n_P\le6l^2
+(l+1)^2$ inner plaquettes and $n_L\le4l(l+1)^3$ inner links, so
+\[
+Z_\eta\ge\exp\bigl(-n_P(\beta_W\kappa^2+1)\bigr)\bigl(24\pi^3\beta_W^{3/2}
+\bigr)^{-n_L}.
+\]
+Since $C_0=\frac12+\frac23\log(24\pi^3)$, $n_P+n_L\log(24\pi^3\beta_W^{3/2}
+)\le6(l+1)^4(\log\beta_W+C_0+\frac12)$, which gives the bound. For the last
+assertion, a boundary plaquette has $\delta(U_p,I)\le\sqrt2\,\angle U_p\le
+\sqrt2\,\rho_s\le\rho$, so it is not bad, and Lemma~\ref{lem:boxextension}
+gives the inner links.
+\end{proof}
+
+So in a box whose boundary is $T$-valued and calm at a level $\rho_s$
+small compared with $\rho\sqrt\varepsilon/C$, the fraction of bad cubes
+exceeds $\varepsilon$ only with probability exponentially small in the
+volume once $\beta_W\rho^2\varepsilon$ is large compared with $\log
+\beta_W$, uniformly over such exteriors and over $l$. The estimate is
+conditional, unlike Theorem~\ref{thm:defects}.
+
+\begin{remark}\label{rem:boxnonabelian}
+The exteriors with boundary links in $T$ form a null set for $\mu_L$, so
+Proposition~\ref{prop:conddensity} does not by itself give the conditional
+estimate in (D). Its proof uses the torus only through
+Lemma~\ref{lem:boxextension}, and the lemma uses that $T$ is abelian
+twice: the angles of the six faces of a $3$-cube add up to zero, and the
+lift and the extension are linear. For a general $\SU(2)$-valued boundary
+field neither holds. The curvature is not a closed cochain, and a lift of
+the boundary field to a small potential needs a Coulomb gauge on the
+$3$-sphere $\partial R$. In the continuum, Uhlenbeck's theorem~\cite{Uhl82}
+gives a Coulomb gauge on an $n$-ball when the curvature is small in
+$L^{n/2}$. On $3$-dimensional pieces of $\partial R$ of side comparable to
+$l$, and for curvature of size $\rho_s$, this norm is of order $l^2\rho_s$.
+With $\rho_s$ of the order of the level $\rho(\beta_W)$ of
+Corollary~\ref{cor:defectscales}, $\rho_s^2\sim\log\beta_W/\beta_W$, the
+smallness holds for
+$l\lesssim(\beta_W/\log\beta_W)^{1/4}$, the scale $a_{k_*}$ of
+Corollary~\ref{cor:defectscales}. We do not prove a nonabelian form of
+Lemma~\ref{lem:boxextension}, and the conditional estimate for general calm
+exteriors remains open.
+\end{remark}
+
 \section*{Acknowledgements}
 
 This paper rests on the work of many earlier scientists. Lattice gauge
@@ -7466,7 +7692,7 @@ Lemma~\ref{lem:vmfconst}, which are computations in interval arithmetic with
 rigorous error bounds. The programs of these steps, in Python with
 python-flint (FLINT and Arb) and a C kernel for products of Taylor
 polynomials, their outputs and the list of certified boxes are in the
-repository \url{https://github.com/creelie/4Y-M}, release v4.14.0, together
+repository \url{https://github.com/creelie/4Y-M}, release v4.15.0, together
 with a Lean~4 certificate of the line field, independent exact or
 numerical checks of the other finite statements, and our checks of the
 certificate of~\cite{Rom26}.
@@ -9241,6 +9467,11 @@ Ba{\l}aban's renormalisation group: construction, axioms and
 non-triviality. Zeroth draft (6 October 2026), repository
 \nolinkurl{github.com/ethanwsussman/Yang--Mills-LLM-experiment}, commit \texttt{1b92bd0}
 
+\bibitem{Uhl82}
+K.~K.~Uhlenbeck, Connections with $L^p$ bounds on curvature, Comm. Math.
+Phys. \textbf{83} (1982), 31--42,
+\href{https://doi.org/10.1007/BF01947069}{doi:10.1007/BF01947069}.
+
 \bibitem{Vil09}
 Villani, C.: Optimal Transport: Old and New. Grundlehren Math. Wiss.,
 vol.~338. Springer, Berlin (2009).
@@ -9248,6 +9479,11 @@ vol.~338. Springer, Berlin (2009).
 
 \bibitem{Wat44}
 Watson, G.N.: A Treatise on the Theory of Bessel Functions, 2nd edn. Cambridge University Press, Cambridge (1944)
+
+\bibitem{Whi57}
+H.~Whitney, \emph{Geometric Integration Theory}, Princeton University
+Press, Princeton, 1957,
+\href{https://doi.org/10.1515/9781400877577}{doi:10.1515/9781400877577}.
 
 \bibitem{Wil74}
 Wilson, K.G.: Confinement of quarks. Phys. Rev. D \textbf{10}, 2445--2459
