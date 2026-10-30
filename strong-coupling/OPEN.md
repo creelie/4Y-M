@@ -114,8 +114,18 @@ McShane extensions, then a radial pullback of Whitney forms), and conditionally
 on such an exterior the fraction ε of bad unit cubes satisfies
 −log ν(E_ε) ≥ β_W ρ² ε l⁴/16 − 6(l+1)⁴(log β_W + C_0 + 1/2 + C²β_W ρ_s²)
 (Proposition "conddensity"; check gauge-fixed/checks/cube/box_extension.py).
-Such exteriors are a null set; for general calm exteriors the lift is
-nonabelian and the conditional estimate is open (Remark "boxnonabelian").
+Such exteriors are a null set. For arbitrary SU(2) boundary links with
+plaquette angles at most ρ_s and l²ρ_s ≤ ε_0 = 1/(100 C_8²), C_8 = 85 743 550,
+the boundary field extends inside with every plaquette at most Kρ_s,
+K = 42 C_8 + 20 (Lemma "nonabelianfilling": coordinate-path gauges on the
+facets glued through principal logarithms and McShane extensions, the radial
+cubical extension of the logarithms, and transports bounded by subdividing
+each plaquette; check gauge-fixed/checks/cube/nonabelian_filling.py), so the
+conditional estimate holds with κ = Kρ_s on these open sets of exteriors.
+At the level of Corollary "defectscales" this allows boxes up to a constant
+times (β_W/log β_W)^{1/4} spacings; along the tuning their physical size
+tends to zero, and for calm exteriors on cubes of fixed physical size the
+conditional estimate is open (Remark "boxnonabelian").
 A block
 map that is coercive for all nonabelian fields and composes across the
 remaining scales is open.
