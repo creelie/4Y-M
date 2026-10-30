@@ -229,6 +229,18 @@ are far larger and grow with n:
 | 6 | 9.38 | 6.14 | 3.40 |
 | 8 | 11.24 | 7.52 | 3.83 |
 
+The lines are not what makes this work (Proposition "every forest gauge",
+v4.13.0). For any 2Z⁴-invariant set F of links with no closed path whose trees
+are infinite and cover the sites, the 2Z⁴-periodic flat fields
+ψ(x,μ) = c_μ + h(x) − h(x+e_μ) form a space of dimension 19, F has at most 16
+orbits, so some ψ ≠ 0 vanishes on F. It costs no action, so the mean of the
+cube law given ψ outside is ψ on V, and Σ_c |ψ_c| K_c ≥ N_n Σ_c |ψ_c|: D(n, α)
+fails for every α < 1 at every n and every stiffness, in every such gauge
+(`gauge-fixed/checks/cube/gauss_every_gauge.py`, 24 checks; dimension 7 for
+the forest field, 10 for the axial field). A mass, or the block averages held
+fixed as in D_c, removes these fields; within the quadratic approximation the
+loss has to come from the Wilson action beyond its quadratic part.
+
 As in an axial gauge, a change of one boundary link is carried along the fixed
 lines into the whole cube. Below the correlation length, where the theory is
 weakly coupled, the cube coefficients of the forest gauge therefore follow this

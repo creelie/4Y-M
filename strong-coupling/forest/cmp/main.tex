@@ -440,7 +440,8 @@ needs cubes of side at least of order $(\beta_W/\log\beta_W)^{1/4}$
 field it holds at a fixed physical scale when the field has a mass and fails
 exactly, at every size, when it is massless (Proposition~\ref{prop:gauss});
 it also fails for the quadratic approximation of the forest gauge itself
-(Proposition~\ref{prop:gaussforest}). The order-two cases of the tree bounds
+(Proposition~\ref{prop:gaussforest}), and of every gauge fixed on an
+invariant forest with infinite trees (Proposition~\ref{prop:gaussevery}). The order-two cases of the tree bounds
 force the lattice gap below a fixed multiple of the lattice spacing, so no
 strong coupling expansion gives them (Proposition~\ref{prop:treecritical}).
 The slice ratio holds in two dimensions, where it is the exact solution of
@@ -3953,6 +3954,80 @@ of (D) along the tuning therefore has to show that the nonperturbative
 regime reduces the cube coefficients of the forest gauge below $N_n$, or
 (D) has to be posed for other variables.
 
+The lines of $F$ are not what makes the argument work. A constant field,
+corrected by a periodic gauge transformation so that it vanishes on the
+fixed links, costs no action and changes every exterior link by a bounded
+amount, and this happens in every gauge fixed on an invariant forest.
+
+\begin{proposition}\label{prop:gaussevery}
+Let $b>0$ and let $F$ be a set of links of $\Z^4$, invariant under the
+translations by $2\Z^4$, that contains no closed path and whose trees are
+infinite and contain every site. Let $A$ be the set of the other links, $V$
+the set of links $(x,\mu)\in A$ with $x\in[0,n)^4$, $n\ge2$ even, and define
+the classes, $\gamma_V(\cdot\mid\eta)$, $C_{V,j}$ and $K_c$ as in
+Proposition~\ref{prop:gaussforest} with this $F$. Then there are numbers
+$a_c\ge0$, not all zero, with
+\[
+\sum_ca_cK_c\ge N_n\sum_ca_c ,
+\]
+so $K_c\ge N_n$ for some class $c$, and $D(n,\alpha)$ fails for every
+$\alpha<1$, at every $n$ and every $b$.
+\end{proposition}
+
+\begin{proof}
+\emph{The laws.} Let $\varphi$ vanish outside $V$ and on $F$, with
+$(d\varphi)_p=0$ for every plaquette $p$ that meets $V$. The other plaquettes
+contain no link of $V$, so $d\varphi=0$ on every plaquette, and
+$\varphi=dh$ for a function $h$ on the sites. Since $\varphi$ vanishes
+outside a box and the complement of a box is connected, $h$ is constant
+there, and we take that constant to be $0$. As $\varphi$ vanishes on $F$, $h$
+is constant on every tree of $F$; each tree is infinite and meets the
+complement of the box, so $h=0$ and $\varphi=0$. Hence, as in the proof of
+Proposition~\ref{prop:gaussforest}, $\gamma_V(\cdot\mid\eta)$ is a
+nondegenerate Gaussian law with mean $\sum_j\eta_ju_j$, where only the links
+$j$ that share a plaquette with $V$ contribute, and $C_{V,j}=\|u_j\|_1$.
+
+\emph{A flat field.} For $c\in\R^4$ and a function $h$ on $\Z^4$ of period
+two in each coordinate put $\psi_{(x,\mu)}=c_\mu+h(x)-h(x+e_\mu)$. Then
+$d\psi=0$ on every plaquette and $\psi$ is invariant under $2\Z^4$; if
+$\psi=0$, adding $\psi$ at $(x,\mu)$ and $(x+e_\mu,\mu)$ gives $2c_\mu=0$,
+and then $h$ is constant. These fields form a space of dimension
+$16-1+4=19$. Let $f$ be the number of orbits of $2\Z^4$ in $F$. The box
+$[0,2m)^4$ has $16m^4$ sites, and the links of $F$ with both ends in it form
+a forest, so there are at most $16m^4-1$ of them, while each orbit
+contributes at least $(m-1)^4$; letting $m\to\infty$ gives $f\le16$. Vanishing
+on $F$ is therefore at most $16$ linear conditions, and some $\psi\ne0$ of
+this form vanishes on $F$. It is nonzero on some link of $A$. Put
+$a_c=|\psi_j|$ for $j\in c$.
+
+\emph{The inequality.} Let $\eta$ be the restriction of $\psi$ to
+$A\setminus V$. The field equal to $\psi$ on $V$ and to $\eta$ outside gives
+the quadratic form its least value $0$, so by nondegeneracy the mean of
+$\gamma_V(\cdot\mid\eta)$ is the restriction of $\psi$ to $V$, and
+$\psi_i=\sum_j\psi_j(u_j)_i$ for $i\in V$. Hence
+\[
+\sum_{i\in V}|\psi_i|\le\sum_{j\in A\setminus V}C_{V,j}|\psi_j|=\sum_ca_cK_c .
+\]
+A class consists of the active links with a given direction and a given
+residue of the base point modulo two, so it meets $V$ in $N_n$ links, and
+the left side is $N_n\sum_ca_c>0$. So $K_c\ge N_n$ for some class with
+$a_c>0$.
+\end{proof}
+
+For the direction field of Table~\ref{tab:sigma} the flat fields vanishing
+on $F$ form a space of dimension $7$, and for the axial field $\sigma=0$ one
+of dimension $10$. The proposition is weaker than
+Proposition~\ref{prop:gaussforest} for the forest gauge, which bounds the
+sum over all classes, and it says nothing about two kinds of condition. A
+mass gives the constant fields an action, which is why
+Proposition~\ref{prop:gauss} distinguishes $t>0$ from $t=0$. The constrained
+condition $D_{\rm c}$ of Theorem~\ref{thm:constrainedcube} holds the block
+averages fixed, and a constant field changes them. Within the quadratic
+approximation no gauge fixed on an invariant forest gives (D); the loss has
+to come from the Wilson action beyond its quadratic part, or (D) has to be
+posed for variables, such as the block averages, that a constant field
+moves.
+
 \begin{remark}\label{rem:routes}
 Five other routes stop at (D) or (E), or earlier.
 \begin{enumerate}[label=\textup{(\alph*)},leftmargin=*]
@@ -5082,7 +5157,9 @@ smallness of the probability of such exteriors under the Wilson measure.
 
 Proposition~\ref{prop:gaussforest} locates the failure of (D) in the
 quadratic approximation: gauge transformations constant on the lines of $F$
-move the whole cube and change few links outside it. This section takes
+move the whole cube and change few links outside it. By
+Proposition~\ref{prop:gaussevery} every gauge fixed on an invariant forest
+fails in the same way, through the constant fields. This section takes
 up the programme of the report~\cite{Loc26} of the third author, which keeps
 the cube condition but changes the gauge and conditions the cube on block
 averages of the field, as in Ba{\l}aban's renormalisation
@@ -7372,7 +7449,7 @@ Lemma~\ref{lem:vmfconst}, which are computations in interval arithmetic with
 rigorous error bounds. The programs of these steps, in Python with
 python-flint (FLINT and Arb) and a C kernel for products of Taylor
 polynomials, their outputs and the list of certified boxes are in the
-repository \url{https://github.com/creelie/4Y-M}, release v4.12.0, together
+repository \url{https://github.com/creelie/4Y-M}, release v4.13.0, together
 with a Lean~4 certificate of the line field and independent exact or
 numerical checks of the other finite statements.
 
