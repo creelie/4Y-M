@@ -126,6 +126,18 @@ At the level of Corollary "defectscales" this allows boxes up to a constant
 times (β_W/log β_W)^{1/4} spacings; along the tuning their physical size
 tends to zero, and for calm exteriors on cubes of fixed physical size the
 conditional estimate is open (Remark "boxnonabelian").
+On the fibres of the cut-off average the constrained gap survives the curvature
+of the fibres: at any background, however far its links are from I, whose
+plaquettes near the constrained blocks are at most κ ≤ 10⁻⁸ρ_G, every tangent
+vector ξ of the fibre has |ξ|² ≤ 52(1 + 1.4·10⁶κ) Q_U(ξ), Q_U the covariant
+curvature form, and the Hessian of the SU(2) Wilson action along the
+constrained directions is at least (β/2)(1/52 − 2.7·10⁴κ); the second
+fundamental form of the fibre costs a further O(κ) (Lemma "smallframes",
+Theorem "smallfibre"; check gauge-fixed/checks/cube/small_field_fibre.py).
+The coarea factor and Ricci curvature of the fibre, the geodesic convexity of
+the small-field set in the fibre (needed for Brascamp–Lieb or
+Helffer–Sjöstrand and the decay of the constrained influences), and the mass
+outside that set are open (Remark "smallfibreopen").
 A block
 map that is coercive for all nonabelian fields and composes across the
 remaining scales is open.
