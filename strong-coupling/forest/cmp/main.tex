@@ -457,9 +457,11 @@ is large (Theorem~\ref{thm:constrainedcube}), and integrating out one scale
 reduces it to a cube condition for the averages, which carry the coarse
 quadratic form at every scale up to a factor between $1$ and $256$ that does
 not depend on the scale, with an exponentially decaying kernel whose
-constants do not depend on the scale either (Corollary~\ref{cor:compose},
-Proposition~\ref{prop:effective}, Theorems~\ref{thm:effectiveupper}
-and~\ref{thm:effectivelocal}); the averages along the lines of the forest
+constants do not depend on the scale either, and the constrained cube
+condition holds at every scale with one cube side
+(Corollary~\ref{cor:compose}, Proposition~\ref{prop:effective},
+Theorems~\ref{thm:effectiveupper}, \ref{thm:effectivelocal}
+and~\ref{thm:constrainedscales}); the averages along the lines of the forest
 gauge, by contrast, leave one class of lines invisible and fail at every size
 (Proposition~\ref{prop:invisible}). For the group-valued links, the straight
 path between block roots gives a coarse link whose fibres satisfy a
@@ -5096,7 +5098,8 @@ ones plus those of the averages (Corollary~\ref{cor:compose}), and the
 averages carry the coarse quadratic form at every scale up to a factor
 between $1$ and $256$, through forms that are local uniformly in the scale
 (Proposition~\ref{prop:effective} and Theorems~\ref{thm:effectiveupper}
-and~\ref{thm:effectivelocal}). For the group-valued links themselves,
+and~\ref{thm:effectivelocal}), and the constrained cube condition holds at
+every scale with one cube side (Theorem~\ref{thm:constrainedscales}). For the group-valued links themselves,
 the straight paths between block roots satisfy a coercivity bound for all
 fields but do not compose, a continuous covariant map cannot treat the
 transverse positions alike, and a cut-off of Ba{\l}aban's averaging operation
@@ -5950,13 +5953,149 @@ $m=\lfloor n/4\rfloor$, of the cubes $n=4$, $6$, $8$. Since
 Theorem~\ref{thm:constrainedcube} controls the first term at every coupling,
 the corollary reduces $D(n,\alpha)$ for a law that decomposes along the
 averages to the cube condition $K^\rho_c$ for its averages, a problem of the
-same form one scale up, in the metric $d_L$. Iterating it needs the
-localisation of Theorem~\ref{thm:constrainedcube}(ii) for $S_k$, of which
-Theorem~\ref{thm:effectivelocal} gives the locality of $S_k$ itself, and ends in
+same form one scale up, in the metric $d_L$. Iterating it needs
+Theorem~\ref{thm:constrainedcube} and the corollary with $S_k$ in place of
+the plaquette form, which Theorem~\ref{thm:constrainedscales} below gives
+with constants independent of $k$, and ends in
 a cube condition for the coarsest averages, which is where a gap has to come
 from: the quadratic approximation describes a massless field and has none.
 The corollary is one step of the composition of
 Remark~\ref{rem:constrainedopen}(a), not its conclusion.
+
+On the lattice of spacing $2^k$ the blocks, the tree links, the active links
+and the averages are those of Definition~\ref{def:blockgauge}, and after $k$
+steps the averages of the quadratic approximation carry the form $S_k$. Let
+$(S_{ab})$ be its matrix, $S_k(w)=\sum_{a,b}S_{ab}w_aw_b$ for finitely
+supported $w$, and $d(a,b)$ the $\ell^\infty$ distance between the midpoints
+of the links $a$ and $b$. Each link lies in six plaquettes of four links, and
+the midpoints of the links of the plaquettes at $y$ and $y'$ are at distance
+at most $|y-y'|_1+1$, so Theorem~\ref{thm:effectivelocal}(iii) gives, for
+every non-decreasing $\phi\ge0$,
+\begin{equation}\label{eq:Srows}
+\sum_b|S_{ab}|\,\phi(d(a,b))\le24C\sum_{z\in\Z^4}e^{-\eta|z|_1}\phi(|z|_1+1),
+\end{equation}
+with $C$ and $\eta$ of that theorem. In particular $\sum_bS_{ab}\eta_b$
+converges for every bounded field $\eta$. For $n$, $V$, $W$ as before, a
+bounded exterior $\eta$ and values $v$, let $\gamma^{{\rm c},k}_V(\cdot\mid
+\eta,v)$ be the law on $\R^V$ with density proportional to
+\[
+\exp\Bigl(-\frac b2\Bigl(\sum_{a,b\in V}S_{ab}w_aw_b+2\sum_{a\in V,\,b\notin
+V}S_{ab}w_a\eta_b\Bigr)\Bigr)
+\]
+on the affine set $\{V_{y,\mu}(w)=v_{y,\mu},\ y\in W\}$, the conditional law
+of the Gaussian with the form $bS_k$ given the exterior and the averages.
+Define $C^{{\rm c},k}_{V,j}$, $K^{{\rm c},k}_c$, $D^k_{\rm c}(n,\alpha)$,
+$r^{(k)}_w$ and $L^{(k)}_w$ as in Theorem~\ref{thm:constrainedcube} and
+Corollary~\ref{cor:compose}, with $S_k$ in place of the plaquette form; for
+$k=0$ they are the former ones.
+
+\begin{lemma}\label{lem:combeslong}
+Let $K$ be an invertible symmetric matrix indexed by a finite set $X$, with
+$\|K^{-1}\|\le M_0$, and let $d:X\to\R$ and $\lambda>0$. If $\sum_b|K_{ab}|
+(e^{\lambda|d(a)-d(b)|}-1)\le\frac1{2M_0}$ for every $a$, then $\|e^{\lambda
+d}K^{-1}e^{-\lambda d}\|\le2M_0$.
+\end{lemma}
+
+\begin{proof}
+$e^{\lambda d}Ke^{-\lambda d}=K+E$ with $|E_{ab}|\le|K_{ab}|(e^{\lambda|d(a)-
+d(b)|}-1)$, a symmetric bound, so $\|E\|\le\frac1{2M_0}$ by the Schur test,
+and the proof of Lemma~\ref{lem:combes} applies.
+\end{proof}
+
+\begin{theorem}\label{thm:constrainedscales}
+Let $\lambda_1=10^{-215}$. For every $k\ge1$, every $b>0$, every even $n$
+and every exterior link $j$:
+\begin{enumerate}[label=\textup{(\roman*)},leftmargin=*]
+\item $\gamma^{{\rm c},k}_V(\cdot\mid\eta,v)$ is a Gaussian law whose
+covariance depends on neither $\eta$ nor $v$ and whose mean is affine in
+$(\eta,v)$, and $C^{{\rm c},k}_{V,j}=\|u_j\|_1$, where $u_j\in\R^V$
+minimises $S_k(u+\delta_j)$ subject to $Bu=g$, with $B$ and $g$ as in
+Theorem~\ref{thm:constrainedcube};
+\item $\sum_{e\in V}e^{2\lambda_1d(e)}u_j(e)^2\le10^{350}$ and $\|u_j\|_1\le
+10^{607}e^{-\lambda_1r_j/2}$, where $d(e)=d(e,j)$ and $r_j=\min_{e\in V}d(e)$;
+and $L^{(k)}_w\le10^{438}$ for every $w$;
+\item $D^k_{\rm c}(n,\alpha)$ holds for every $\alpha\in(0,1)$ and every even
+$n\ge10^{827}/\alpha$;
+\item Corollary~\ref{cor:compose} holds on the lattice of spacing $2^k$,
+with $S_k$ in place of the plaquette form, $L^{(k)}_w\le10^{438}$ and
+$n\ge2\cdot10^{827}/\alpha$.
+\end{enumerate}
+None of these constants depends on $k$ or on $b$.
+\end{theorem}
+
+\begin{proof}
+(i) Let $H=(S_{ab})_{a,b\in V}$. A vector $w\in\ker B$, extended by zero, lies
+in the space $\Phi_W$ of the lattice of spacing $2^k$, so
+Proposition~\ref{prop:effective}(iv) gives $\langle w,Hw\rangle=S_k(w)\ge
+\frac1{52}|w|^2$ on $\ker B$. The proof of
+Theorem~\ref{thm:constrainedcube}(i) applies, the exterior entering through
+the linear term $\sum_{b\notin V}S_{ab}\eta_b$; changing $\eta_j$ by one
+translates the mean by the minimiser of $\langle u,Hu\rangle+2\sum_{a\in V}
+u_aS_{aj}=S_k(u+\delta_j)-S_k(\delta_j)$ subject to $Bu=g$.
+
+(ii) The pair $(u_j,y)$ solves $K(u_j,y)=(f,sg)$ with $K$ built from $H$ and
+$B$ as in Lemma~\ref{lem:saddle} and $f=-(S_{aj})_{a\in V}$. Since $Q_k(w)\le
+24|w|^2$, Theorem~\ref{thm:effectiveupper} gives $\|H\|\le h=6144$; take
+$s=4h=24576$. The bounds of Lemma~\ref{lem:saddle} for $(h,s)$ are at most
+those for $(24,96)$, because $|x_1|$ and $|f|/s$ decrease while $h|x_1|$ and
+$h/s$ do not change, so $\|K^{-1}\|\le M_0=105$ as in the proof of
+Theorem~\ref{thm:constrainedcube}. Index the rows of $B$ by centres as there.
+For $\phi(r)=e^{\lambda r}-1\le\lambda re^{\lambda r}$ and $\lambda\le\eta/2$,
+\eqref{eq:Srows} bounds the row sums of Lemma~\ref{lem:combeslong} over $H$ by
+\begin{multline*}
+24C\lambda e^\lambda\sum_z(|z|_1+1)e^{-\eta|z|_1/2}\\
+\le24C\lambda e^\lambda\Bigl(1+16\cdot24\,e^{\eta/2}\Bigl(\frac2\eta
+\Bigr)^5\Bigr),
+\end{multline*}
+since at most $8r^3$ points have $|z|_1=r\ge1$ and $\sum_{r\ge1}r^pe^{-xr}\le
+e^xp!/x^{p+1}$. The entries of $sB^\top$ add at most $\frac s8(e^\lambda-1)$
+and a row of $sB$ gives $2s(e^\lambda-1)$. At $\lambda=\lambda_1$ the sums
+are below $3\cdot10^{-4}<\frac1{2M_0}$, so
+Lemma~\ref{lem:combeslong} gives $\|e^{\lambda_1d}K^{-1}e^{-\lambda_1d}\|\le
+210$. By~\eqref{eq:Srows}, $\|e^{\lambda_1d}f\|\le24Ce^{\lambda_1}\sum_z
+e^{-(\eta-\lambda_1)|z|_1}=24Ce^{\lambda_1}\coth^4\frac{\eta-\lambda_1}2<
+4\cdot10^{172}$, and $\|e^{\lambda_1d}sg\|\le e^{\lambda_1}s/16$, which gives the
+first bound. The links with base at $\ell^\infty$ distance $m$ from the base
+of $j$ number at most $4(64m^3+16m)$, with midpoints at distance at least
+$m-1$, so
+\[
+Z(x)=\sum_ee^{-xd(e)}\le4e^x\Bigl(1+\frac{384e^x}{x^4}+\frac{16e^x}{x^2}
+\Bigr),
+\]
+and $Z(\lambda_1)<10^{864}$.
+As $d\ge r_j$ on $V$, the Cauchy--Schwarz inequality gives $\|u_j\|_1^2\le
+10^{350}e^{-\lambda_1r_j}Z(\lambda_1)$. Finally $(r^{(k)}_w,y)$ solves
+$K(r^{(k)}_w,y)=(0,se_w)$; measuring $d$ from the centre of the row $w$,
+we get $\sum_ee^{2\lambda_1d(e)}r^{(k)}_w(e)^2\le(210s)^2$ and $L^{(k)}_w\le210s\,
+Z(2\lambda_1)^{1/2}<10^{438}$.
+
+(iii) The exterior links of a class have their bases at $\ell^\infty$ distance
+$m\ge1$ from $[0,n-1]^4$; at most $4((n+2m)^4-(n+2m-2)^4)\le128(n^3+8m^3)$
+of them have distance $m$, and for them $r_j\ge m-1$. With
+$q=\lambda_1/2$, (ii) gives
+\[
+K^{{\rm c},k}_c\le10^{607}\cdot128\,e^{2q}\Bigl(\frac{n^3}q+\frac{48}{q^4}
+\Bigr),
+\]
+which is at most $\alpha N_n=\alpha(n/2)^4$ when $n\ge10^{827}/\alpha$.
+
+(iv) The proof of Corollary~\ref{cor:compose} uses the plaquette form only
+through Theorem~\ref{thm:constrainedcube}, the translation property of (i)
+and the bound on $L_w$, which (i)--(iii) provide.
+\end{proof}
+
+The constants are poor because the strip of Theorem~\ref{thm:effectivelocal}
+has width $10^{-36}$; they are checked in exact arithmetic in the archive.
+What the theorem adds is that none of them depends on the scale: the
+constrained cube condition holds with one cube side at every scale, and the
+weights $L^{(k)}_w$ of the metrics $d_L$ are bounded uniformly. It does not
+compose the scales. The cube condition $K^\rho_c$ that
+Corollary~\ref{cor:compose} leaves at scale $k$ concerns the law of the
+averages given the fine exterior, in the metric $d_L$, and it has to be turned
+into the cube condition of the law one scale up; that step and the cube
+condition for the coarsest averages are open, and in the quadratic
+approximation the coarsest averages carry a massless Gaussian, so a gap has
+to come from beyond it.
 
 \begin{remark}\label{rem:constrainedopen}
 Theorem~\ref{thm:constrainedcube} is the weak-coupling half of the
@@ -5969,8 +6108,12 @@ at all scales with a cube condition for the coarsest averages, in the place
 of Theorem~\ref{thm:transfer}. Corollary~\ref{cor:compose} is one step of
 it, Proposition~\ref{prop:effective}(iv) gives the gap at every scale, and
 Theorem~\ref{thm:effectiveupper} the equivalence of $S_k$ and $Q_k$
-uniformly in $k$, and Theorem~\ref{thm:effectivelocal} the locality of $S_k$
-uniformly in $k$; a cube condition for the coarsest averages is open.
+uniformly in $k$, Theorem~\ref{thm:effectivelocal} the locality of $S_k$
+uniformly in $k$, and Theorem~\ref{thm:constrainedscales} the constrained
+cube condition and the bounds on the weights $L_w$ at every scale with
+constants independent of $k$. Turning the cube condition for the averages
+into that of the law one scale up, and a cube condition for the coarsest
+averages, are open.
 \item \emph{Beyond the quadratic approximation.} For the Wilson measure the
 block averages are products of group elements along paths, their level sets
 are curved, and the Bakry--\'Emery tensor of Section~\ref{sec:curvature} is
@@ -7229,7 +7372,7 @@ Lemma~\ref{lem:vmfconst}, which are computations in interval arithmetic with
 rigorous error bounds. The programs of these steps, in Python with
 python-flint (FLINT and Arb) and a C kernel for products of Taylor
 polynomials, their outputs and the list of certified boxes are in the
-repository \url{https://github.com/creelie/4Y-M}, release v4.11.0, together
+repository \url{https://github.com/creelie/4Y-M}, release v4.12.0, together
 with a Lean~4 certificate of the line field and independent exact or
 numerical checks of the other finite statements.
 
