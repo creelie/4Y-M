@@ -1514,7 +1514,13 @@ programs we checked that his forest is ours up to a symmetry of the lattice,
 the finite data in exact arithmetic, the decomposition of the Hessian into
 his plaquette forms and of the corner terms into the vertex forms, and the
 positivity of the plaquette matrices at every phase, by eigenvalues at the
-centres of an adaptive grid with a Lipschitz bound in floating point. The
+centres of an adaptive grid with a Lipschitz bound in floating point. One
+of us (J.~M.~Lockwood) checked the certificate independently, in exact
+rational arithmetic with outward-rounded interval elimination and rigorous
+interpolation bounds, without rerunning the original ball-arithmetic
+computation; this confirms $h_F\le14.420001$ and that every plaquette
+matrix has least eigenvalue above $559/716800$. These checks concern the
+lattice at fixed spacing and do not bear on the continuum limit. The
 theorems of this paper are stated with $\frac{29}2$, which is proved by hand.
 With this gauge the curvature method stops between $|\beta|=1/28.840002$
 and $\frac1{26.25}$.
@@ -7728,7 +7734,7 @@ Lemma~\ref{lem:vmfconst}, which are computations in interval arithmetic with
 rigorous error bounds. The programs of these steps, in Python with
 python-flint (FLINT and Arb) and a C kernel for products of Taylor
 polynomials, their outputs and the list of certified boxes are in the
-repository \url{https://github.com/creelie/4Y-M}, release v4.15.0, together
+repository \url{https://github.com/creelie/4Y-M}, release v4.15.1, together
 with a Lean~4 certificate of the line field, independent exact or
 numerical checks of the other finite statements, and our checks of the
 certificate of~\cite{Rom26}.
