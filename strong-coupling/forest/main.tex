@@ -524,6 +524,13 @@ to a constant times $(\beta_W/\log\beta_W)^{1/4}$ at the level of
 Corollary~\ref{cor:defectscales}, which is the scale $a_{k_*}$ up to a
 constant factor; for larger boxes with general boundary fields this
 conditional estimate is open (Remark~\ref{rem:boxnonabelian}).
+On the fibres of the cut-off average, at a background whose plaquettes are
+at most $\kappa\le10^{-8}$, the gap $\frac1{52}$ of the averages persists up
+to a factor $1+O(\kappa)$, and the Hessian of the action along the fibre is
+at least $\lambda(\frac1{26}-c\kappa)$, however far the links are from $I$
+(Theorem~\ref{thm:smallfibre}); the log-concavity of the constrained law,
+the decay of its influences and its large-field mass are open
+(Remark~\ref{rem:smallfibreopen}).
 Whether some block map is coercive for all fields and composes across the
 remaining scales is open.
 
@@ -6280,7 +6287,11 @@ for every compact group it composes on fields whose curvature is small at
 every scale with a small sum (Theorem~\ref{thm:smallscales}); under the Wilson measure
 the remaining large fields form microscopic clusters
 (Corollary~\ref{cor:defectclusters}), but the conditional estimate needed
-near them is open.
+near them is open. Away from them, on the fibres of the cut-off average,
+the Hessian of the action along the fibre is at least $\lambda(\frac1{26}-
+c_G\kappa)$ at every background with plaquettes at most $\kappa$
+(Theorem~\ref{thm:smallfibre}); the remaining small-field steps are listed in
+Remark~\ref{rem:smallfibreopen}.
 \item \emph{Second order.} Let $b_0=11N/(48\pi^2)$ for $\SU(N)$, $t=2b_0\log2$,
 and let $g_m^{-2}=g_*^{-2}+tm$ be the one-loop coupling $m$ steps above a
 matching scale. Comparison with integrals gives $\sum_{m\le M}g_m^2=
@@ -7149,6 +7160,316 @@ fields lie under that measure.
 
 
 
+\subsection{Small fields on the fibres of the cut-off average}\label{ssec:smallfibres}
+
+Theorem~\ref{thm:blockgap} is a gap on the linear fibres of the block
+averages. For group-valued links the fibres of the cut-off average are
+curved, and Remark~\ref{rem:constrainedopen}(b) asks whether the gap
+survives on them. It does at every background whose plaquettes are small,
+however far its links are from $I$, with a loss linear in the curvature.
+
+Let $G\subset\U(r)$ be compact, work on the periodic lattice of side $2L$ in
+the tree gauge of Definition~\ref{def:blockgauge}, and let $W$ be a set of
+blocks. Write $A_W$ for the active links with base in $\bigcup W$ and $W^+$
+for the blocks at $\ell^\infty$ distance at most one from $W$. Fix $U$ and
+let $F$ be the set of fields that agree with $U$ off $A_W$ and have the same
+cut-off averages $V^\sharp_{y,\mu}$ as $U$ for every $y\in W$ and every
+$\mu$. The group $G^{A_W}$ carries the bi-invariant metric with $|\xi|^2=
+T(\xi)=\sum_e\lVert\xi_e\rVert^2$, $\xi_e\in\g$, and its geodesics through
+$U$ are the curves $U_e\exp(t\xi_e)$; write $\operatorname{Ad}(g)X=gXg^{-1}$.
+For a plaquette $p$ at $x$ in the plane $\{\mu,\nu\}$ with links $e_1=(x,
+\mu)$, $e_2=(x+e_\mu,\nu)$, $e_3=(x+e_\nu,\mu)$, $e_4=(x,\nu)$ and $U_p=U_1U_2
+U_3^{-1}U_4^{-1}$, the \emph{covariant curvature}
+\[
+D_p(\xi)=\operatorname{Ad}(U_1)\xi_1+\operatorname{Ad}(U_1U_2)(\xi_2-\xi_3)
+-\operatorname{Ad}(U_1U_2U_3^{-1})\xi_4
+\]
+is the derivative of $U_p(t)U_p^{-1}$ along these curves. Reversing the
+orientation replaces it by $-\operatorname{Ad}(U_p^{-1})D_p(\xi)$, of the
+same norm, so $Q_U(\xi)=\sum_p\lVert D_p(\xi)\rVert^2$ does not depend on
+the orientations. At $U\equiv I$, $D_p(\xi)=(d\xi)_p$ and $Q_I$ is the form
+$Q$ of Theorem~\ref{thm:blockgap}. For $y\in W$ and a direction $\mu$ let
+$v=U_{2y+e_\mu,\mu}$ be the path link, let $\tilde\xi$ equal
+$\operatorname{Ad}(v^{-1})\xi_e$ on the links of $B(y)$ and $\xi_e$ on the
+other links, and let $N_{y,\mu}(\xi)^2$ be the sum of $\lVert\xi_e
+\rVert^2$ over the $24$ links that enter $V_{y,\mu}$.
+
+\begin{lemma}\label{lem:smallframes}
+Suppose that $\delta(U_p,I)\le\kappa\le10^{-8}\rho_G$ for every plaquette
+with a vertex in a block of $W^+$, and let $y\in W$.
+\begin{enumerate}[label=\textup{(\roman*)},leftmargin=*]
+\item Every active link $e$ inside a block of $W^+$ has $\delta(U_e,I)\le
+3\kappa$, and every link $e$ that leaves $B(y)$ in the direction $\mu$ has
+$\delta(U_e,v)\le21\kappa$.
+\item For a plaquette inside a block of $W^+$, $\lVert D_p(\xi)-(d\xi)_p
+\rVert\le18\kappa\sum_{e\in p}\lVert\xi_e\rVert$.
+\item Let $x\in B(y)$ with $x_\mu$ odd and $x_\nu$ even, and let $p$ be the
+plaquette at $x$ in the plane $\{\mu,\nu\}$, oriented as above, so that
+$e_1,e_3$ leave $B(y)$, $e_2$ lies in $B(y+e_\mu)$ and $e_4$ in $B(y)$. Then
+\[
+\begin{split}
+&\bigl\lVert\operatorname{Ad}(v^{-1})D_p(\xi)-\bigl(\xi_1+\xi_2-\xi_3-
+\operatorname{Ad}(v^{-1})\xi_4\bigr)\bigr\rVert\\
+&\qquad\le48\kappa\sum_{e\in p}\lVert\xi_e\rVert.
+\end{split}
+\]
+\item Near $U$ the cut-off average is
+\[
+V^\sharp_{y,\mu}=v\exp\Bigl(\frac1{16}\sum_x\log(v^{-1}P_x)\Bigr),
+\]
+and its derivative satisfies
+\[
+\begin{split}
+&\Bigl\lVert V^\sharp_{y,\mu}(U)^{-1}\frac d{dt}V^\sharp_{y,\mu}\bigl(Ue^{t
+\xi}\bigr)\Big|_{t=0}-V_{y,\mu}(\tilde\xi)\Bigr\rVert\\
+&\qquad\le260\,\kappa\,N_{y,\mu}(\xi).
+\end{split}
+\]
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+We use $\lVert\operatorname{Ad}(g)X-X\rVert\le2\delta(g,I)\lVert X\rVert$,
+which holds since $gXg^{-1}-X=((g-I)X-X(g-I))g^{-1}$, and $\delta(gh,I)\le
+\delta(g,I)+\delta(h,I)$.
+
+(i) The chains of plaquettes in the proof of Theorem~\ref{thm:blockgap}
+have their transverse links on the tree, so $\delta(U_e,I)\le\sum_{i\le k}
+\delta(U_{p_i},I)\le3\kappa$. For the links leaving $B(y)$, the face
+plaquettes give $\delta(U_a,U_{a'})\le\kappa+3\kappa+3\kappa$ for adjacent
+transverse offsets, as in the proof of Theorem~\ref{thm:pathcoercive}, and
+every offset is joined to the straight path, which carries $v$, by at most
+three such steps.
+
+(ii) The links of $p$ and the products $U_1U_2$, $U_1U_2U_3^{-1}$ are within
+$3\kappa$, $6\kappa$ and $9\kappa$ of $I$ by (i).
+
+(iii) By (i), $\delta(v^{-1}U_1,I)\le21\kappa$ and $\delta(v^{-1}U_1U_2,I)
+\le24\kappa$, and $v^{-1}U_1U_2U_3^{-1}=v^{-1}U_pU_4$ with $\delta(U_pU_4,I)
+\le4\kappa$.
+
+(iv) Write $P_x=U_{x,\mu}U_{x+e_\mu,\mu}$, $w_x=v^{-1}P_x$, $X_x=\log w_x$
+and $M=\frac1{16}\sum_xX_x$; the path $P_{2y}$ is $v$, its first link being
+on the tree. One of the two links of $P_x$ leaves $B(y)$ and the other lies
+in $B(y)$ or $B(y+e_\mu)$, so $\delta(P_x,v)\le24\kappa<\rho_G/2$ by (i);
+hence $\chi_{y,\mu}=1$ near $U$, and $\lVert X_x\rVert,\lVert M\rVert\le
+8\pi\kappa$ by Lemma~\ref{lem:logbound}. Since $\lVert[X,Y]\rVert\le2
+\lVert X\rVert\,\lVert Y\rVert$, the operators $\operatorname{ad}_{X_x}$
+and $\operatorname{ad}_M$ have norm at most $a=16\pi\kappa\le50.3\kappa$.
+Along $Ue^{t\xi}$ put $\alpha=\xi_{2y+e_\mu,\mu}$ and $\beta_x=
+\operatorname{Ad}(U_{x+e_\mu,\mu}^{-1})\xi_{x,\mu}+\xi_{x+e_\mu,\mu}$, the
+right logarithmic derivatives of $v$ and $P_x$. Then $w_x^{-1}\dot w_x=
+\beta_x-\operatorname{Ad}(w_x^{-1})\alpha$, and the formula for the
+derivative of the exponential map gives $\dot X_x=\Phi(\operatorname{ad}
+_{X_x})(\beta_x-\operatorname{Ad}(w_x^{-1})\alpha)$ and
+\[
+(V^\sharp)^{-1}\dot V^\sharp=\operatorname{Ad}(e^{-M})\alpha+\Psi(
+\operatorname{ad}_M)\dot M,
+\]
+with $\Phi(z)=z/(1-e^{-z})$ and $\Psi(z)=(1-e^{-z})/z$. The operators
+$\operatorname{ad}_X$ are skew-adjoint, and from the power series,
+$|\Phi(z)-1|\le|z|/2+0.09|z|^2\le|z|$ and $|\Psi(z)-1|\le|z|$ for $|z|\le
+1$, the Bernoulli numbers giving $\sum_{k\ge1}|B_{2k}|/(2k)!<0.09$.
+By Lemma~\ref{lem:blocktree}(iii), $V_{y,\mu}(\tilde\xi)=\frac1{16}\sum_x
+(\tilde\xi_{x,\mu}+\tilde\xi_{x+e_\mu,\mu})=\alpha+\frac1{16}\sum_x(\beta_x
+-\alpha)-\frac1{16}\sum_x\epsilon_x$, where $\epsilon_x=\operatorname{Ad}(
+U_{x+e_\mu,\mu}^{-1})\xi_{x,\mu}-\tilde\xi_{x,\mu}$. If $x_\mu$ is even,
+$U_{x+e_\mu,\mu}$ leaves $B(y)$ and $\tilde\xi_{x,\mu}=\operatorname{Ad}(v^{-
+1})\xi_{x,\mu}$; otherwise $U_{x+e_\mu,\mu}$ lies in $B(y+e_\mu)$ and
+$\tilde\xi_{x,\mu}=\xi_{x,\mu}$; so $\lVert\epsilon_x\rVert\le42\kappa\lVert
+\xi_{x,\mu}\rVert$ by (i). With $m_\beta$ and $m_\xi$ the means of $\lVert
+\beta_x\rVert$ and $\lVert\xi_{x,\mu}\rVert$, the four differences
+$\operatorname{Ad}(e^{-M})\alpha-\alpha$, $(\Psi(\operatorname{ad}_M)-1)
+\dot M$, $\dot M-\frac1{16}\sum_x(\beta_x-\alpha)$ and $\frac1{16}\sum_x
+\epsilon_x$ have norms at most $51\kappa\lVert\alpha\rVert$, $51.6\kappa(
+m_\beta+\lVert\alpha\rVert)$, $51\kappa m_\beta+99\kappa\lVert\alpha\rVert$
+and $42\kappa m_\xi$, using $\lVert\operatorname{Ad}(w_x^{-1})-1\rVert\le
+48\kappa$. The links leaving $B(y)$ occur twice among the $\xi_{x,\mu}$,
+$\xi_{x+e_\mu,\mu}$ and the other sixteen links once, so the Cauchy--Schwarz
+inequality gives $m_\beta\le\frac{\sqrt{48}}{16}N_{y,\mu}\le0.434N_{y,\mu}$
+and $m_\xi\le\frac14N_{y,\mu}$, and the sum is at most $(202+103\cdot0.434
++42/4)\kappa N_{y,\mu}\le260\kappa N_{y,\mu}$.
+\end{proof}
+
+\begin{theorem}\label{thm:smallfibre}
+Under the hypothesis of Lemma~\ref{lem:smallframes}:
+\begin{enumerate}[label=\textup{(\roman*)},leftmargin=*]
+\item for every $\xi\in\g^{A_W}$ tangent to $F$ at $U$, that is with
+$\frac d{dt}V^\sharp_{y,\mu}(Ue^{t\xi})|_{t=0}=0$ for all $y\in W$ and all
+$\mu$,
+\[
+T(\xi)\le52\bigl(1+1.4\cdot10^6\kappa\bigr)\,Q_U(\xi);
+\]
+\item for every $\xi\in\g^{A_W}$,
+\[
+\frac{d^2}{dt^2}Q\bigl(Ue^{t\xi}\bigr)\Big|_{t=0}\ge2Q_U(\xi)-84\kappa\,
+T(\xi),
+\]
+so on the tangent space of $F$ the Hessian of $Q$ is at least $(\frac1{26}-
+5.4\cdot10^4\kappa)T(\xi)$; for $\SU(2)$ the Hessian of the Wilson action
+$\beta\sum_p(1-\frac12\ReTr U_p)=\frac\beta4Q$ on the linearised
+constrained directions is at least $\frac\beta2(\frac1{52}-2.7\cdot10^4
+\kappa)T(\xi)$;
+\item near $U$, $F$ is a smooth submanifold of $G^{A_W}$ of codimension
+$4|W|\dim G$, and the Hessian of $Q|_F$ for the induced metric satisfies
+$\Hess_FQ(\xi,\xi)\ge(\frac1{26}-c_G\kappa)T(\xi)$, where $c_G$ depends only
+on $G$.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+(i) We follow the proof of Theorem~\ref{thm:blockgap}, using
+$(a+b)^2\le(1+\kappa)a^2+(1+\kappa^{-1})b^2$ for each error term.
+\emph{Inside a block.} For the chain $p_1,\dots,p_k$ of an active link
+$e=(x_0,\mu)$, $\xi_e=\sum_i\pm(d\xi)_{p_i}$ with tree links on the
+transverse sides, and Lemma~\ref{lem:smallframes}(ii) gives
+\[
+\lVert\xi_e\rVert\le\sum_i\lVert D_{p_i}\rVert+36\kappa\sum_{j<k}\lVert
+\xi_{x_j,\mu}\rVert .
+\]
+Hence $\lVert\xi_e\rVert^2$ is at most $(1+\kappa)k\sum_i\lVert D_{p_i}
+\rVert^2$ plus $3888\kappa(1+\kappa)\sum_{j<k}\lVert\xi_{x_j,\mu}\rVert^2$.
+A link
+$(x',\mu)$ is a point $x_j$ of the chains of at most eight links, which
+differ from $x'$ by a set of directions above $\mu$, so
+\[
+I\le8(1+\kappa)Q_{\rm in}+31104\kappa(1+\kappa)I .
+\]
+\emph{Between blocks.} Fix $y\in W$ and $\mu$, and work in the frame of
+Lemma~\ref{lem:smallframes}(iii),(iv); the norms do not depend on it. For a
+transverse edge $\{a,a'\}$, part (iii) gives $\lVert\xi_a-\xi_{a'}\rVert\le
+\lVert D_p\rVert+\lVert\xi_\psi\rVert+\lVert\xi_{\psi'}\rVert+48\kappa(
+\lVert\xi_a\rVert+\lVert\xi_{a'}\rVert+\lVert\xi_\psi\rVert+\lVert
+\xi_{\psi'}\rVert)$, so the square is at most $3(1+\kappa)(\lVert D_p
+\rVert^2+\lVert\xi_\psi\rVert^2+\lVert\xi_{\psi'}\rVert^2)$ plus $9216\kappa
+(1+\kappa)$ times the sum of the four squares. Since $\xi$ is tangent, part
+(iv) gives $\lVert V_{y,\mu}(\tilde\xi)\rVert\le260\kappa N_{y,\mu}$, and
+by Lemma~\ref{lem:blocktree}(iii) the mean $m$ of the $\xi_a$ is
+$V_{y,\mu}(\tilde\xi)$ minus a sixteenth of the sum of the sixteen
+framed links of $S^\mu_y$ and $S^\mu_{y+e_\mu}$; so $8\lVert m\rVert^2\le
+(1+\kappa)\frac12\sum_{16}\lVert\xi_e\rVert^2+540800\kappa(1+\kappa)
+N_{y,\mu}^2$. With the Laplacian of the cube as before,
+\[
+\begin{split}
+\sum_a\lVert\xi_a\rVert^2\le{}&(1+\kappa)\Bigl(\frac12\sum_{16}\lVert\xi_e
+\rVert^2+\frac32\sum_{\rm edges}\Sigma_p\Bigr)\\
+&+\kappa(1+\kappa)\Bigl(540800N_{y,\mu}^2\\
+&+4608\bigl(3\sum_a\lVert\xi_a\rVert^2+\sum_\Psi\lVert\xi_e\rVert^2\bigr)
+\Bigr),
+\end{split}
+\]
+where $\Sigma_p=\lVert D_p\rVert^2+\lVert\xi_\psi\rVert^2+\lVert
+\xi_{\psi'}\rVert^2$ and $\Psi$ is the set of the $24$ links $\psi,\psi'$. A link lies in at most two of the
+sets of $N_{y,\mu}$ and in at most three of the sets $\Psi$, so summing over
+$y\in W$ and $\mu$ as in the proof of Theorem~\ref{thm:blockgap}, with
+$J=T-I$,
+\[
+\begin{split}
+J\le{}&(1+\kappa)\Bigl(\frac{11}2I+\frac32Q_{\rm face}\Bigr)\\
+&+1.1\cdot10^6\kappa(1+\kappa)T .
+\end{split}
+\]
+Adding $I$ and inserting the bound for $I$ gives $T\le52(1+\kappa)^2
+Q_U(\xi)+1.31\cdot10^6\kappa(1+\kappa)^2T$, and the claim follows for
+$\kappa\le10^{-8}$.
+
+(ii) Write $D_p(\xi)=B_1+B_2+B_3+B_4$ with
+\[
+\begin{split}
+&B_1=\operatorname{Ad}(U_1)\xi_1,\quad B_2=\operatorname{Ad}(U_1U_2)\xi_2,\\
+&B_3=-\operatorname{Ad}(U_1U_2)\xi_3,\quad B_4=-\operatorname{Ad}(U_1U_2
+U_3^{-1})\xi_4 .
+\end{split}
+\]
+Then $U_p(t)=e^{tB_1}e^{tB_2}e^{tB_3}e^{tB_4}U_p$, so
+$\ddot U_p=(D_p^2+C_p)U_p$ with $D_p=\sum_iB_i$ and $C_p=\sum_{i<j}[B_i,
+B_j]$. Since $\delta(U_p,I)^2=2r-2\ReTr U_p$, $\Tr C_p=0$ and $-\Tr D_p^2=
+\lVert D_p\rVert^2$,
+\[
+\begin{split}
+\frac{d^2}{dt^2}\delta(U_p,I)^2={}&2\lVert D_p\rVert^2-2\ReTr\bigl(D_p^2
+(U_p-I)\bigr)\\
+&-2\ReTr\bigl(C_p(U_p-I)\bigr),
+\end{split}
+\]
+and $\lVert C_p\rVert\le\sum_{i<j}2\lVert B_i\rVert\lVert B_j\rVert\le3
+\sum_{e\in p}\lVert\xi_e\rVert^2$. So the second derivative is at least
+$2(1-\kappa)\lVert D_p\rVert^2-6\kappa\sum_{e\in p}\lVert\xi_e\rVert^2$
+when $\delta(U_p,I)\le\kappa$. Every plaquette that contains a link of $A_W$
+has a vertex in a block of $W^+$, each link lies in six plaquettes, and
+$Q_U(\xi)\le24T(\xi)$; this gives the bound, and with (i)
+$\frac2{52(1+1.4\cdot10^6\kappa)}-84\kappa\ge\frac1{26}-5.4\cdot10^4
+\kappa$.
+
+(iii) Let $C_{y,\mu}(U')=\log(V^\sharp_{y,\mu}(U)^{-1}V^\sharp_{y,\mu}(U'))$
+near $U$, so that $F$ is $C^{-1}(0)$ there, and let $\mathcal G=DC\,DC^*$
+at $U$, a block matrix indexed by the pairs $k=(y,\mu)$. By
+Lemma~\ref{lem:smallframes}(iv), $DC_k=\tilde B_k+R_k$, where $\tilde B_k
+\xi=V_{y,\mu}(\tilde\xi)$ and $\lVert R_k\rVert\le260\kappa$ as maps from
+the $24$ links. Each $\operatorname{Ad}(v^{-1})$ is an isometry, so $\tilde
+B_k\tilde B_k^*$ is the sum of the squared coefficients of $V_{y,\mu}$ on
+$A_W$, at least $\frac18$, $\lVert\tilde B_k\rVert\le\sqrt{3/16}\le0.434$,
+and $\lVert\tilde B_k\tilde B_l^*\rVert\le\frac1{32}$ for the two
+neighbours $l=(y\pm e_\mu,\mu)$, the other blocks being zero. So the
+diagonal blocks of $\mathcal G$ are at least $\frac18-227\kappa$, the two
+off-diagonal blocks of a row have norm at most $\frac1{32}+227\kappa$, and
+$\mathcal G\ge\frac1{16}-700\kappa$. Hence $DC$ is onto and $F$ is a
+submanifold near $U$; and the Neumann series gives $\lVert\mathcal G^{-1}
+\rVert\le17$ in the norm $\max_k\lVert z_k\rVert$. Let $\gamma$ be a
+geodesic of $F$ with $\gamma(0)=U$, $\dot\gamma(0)=\xi$, written as $U
+e^{X(t)}$ link by link. The curves $Ue^{tX}$ are the geodesics of
+$G^{A_W}$, so $\eta=\ddot X(0)$ is the second fundamental form at $(\xi,
+\xi)$; it is normal to $F$, and differentiating $C(\gamma(t))=0$ twice
+gives $\eta=-DC^*\mathcal G^{-1}h$, where $h_k$ is the second derivative of
+$C_k(Ue^{t\xi})$ at $t=0$. Then
+\[
+\Hess_FQ(\xi,\xi)=\frac{d^2}{dt^2}Q\bigl(Ue^{t\xi}\bigr)\Big|_{t=0}+dQ(\eta),
+\]
+and $dQ(\eta)=-\langle\mathcal G^{-1}DC\,\nabla Q,h\rangle$.
+As in (ii), $dQ(\xi)=-2\sum_p\ReTr(D_p(U_p-I))$, so $\lVert\nabla_eQ\rVert
+\le12\kappa$, $\lVert(DC\nabla Q)_k\rVert\le(0.434+260\kappa)\,12\kappa\sqrt{24}\le
+26\kappa$ and $\lVert(\mathcal G^{-1}DC\nabla Q)_k\rVert\le442\kappa$. The
+map $C_k(Ue^{X})$ depends only on the $24$ links of $V_{y,\mu}$ and is
+real-analytic in $(U,X)$ on a neighbourhood of the compact set where
+$\delta(P_x,P_{2y})\le\rho_G/4$ for every $x$, so $\lVert h_k\rVert\le c_2
+N_{y,\mu}(\xi)^2$ with $c_2$ depending only on $G$. Summing,
+$|dQ(\eta)|\le884c_2\kappa T(\xi)$, and (ii) gives the claim with $c_G=5.4
+\cdot10^4+884c_2$.
+\end{proof}
+
+So on the fibres of the cut-off average the action is uniformly convex along
+every geodesic of the fibre on which all plaquettes stay below $\kappa$, with
+modulus $\lambda(\frac1{26}-c_G\kappa)$, and the background enters only
+through its curvature. The constants are crude: on the periodic lattice of
+side four, for $\SU(2)$ fields equal to block gauge transforms of fields
+with $\kappa$ up to $0.08$ and $W$ all sixteen blocks, the least value of
+$Q_U/T$ on the tangent space stays within $0.4\%$ of the gap $0.1075$ of the
+quadratic approximation, and with $\kappa$ up to $0.24$ the frame errors of
+Lemma~\ref{lem:smallframes} stay below $1.3\kappa$, a floating-point
+computation reproduced in the archive.
+
+\begin{remark}\label{rem:smallfibreopen}
+Theorem~\ref{thm:smallfibre} is the curvature input of the small-field half
+of Remark~\ref{rem:constrainedopen}(b); three steps remain open.
+\begin{enumerate}[label=\textup{(\alph*)},leftmargin=*]
+\item With respect to the Riemannian volume of $F$, the constrained law
+has the density $e^{-\lambda Q}$ times the coarea factor $\det(DC\,DC^*)^{-1/2}$, and its Bakry--\'Emery tensor also contains the Ricci curvature of
+$F$. These terms do not depend on $\lambda$, but they have not been
+estimated here.
+\item The set of points of $F$ at which every plaquette is at most $\kappa$
+is not known to be geodesically convex in $F$, so the theorem gives neither
+a Brascamp--Lieb inequality on it nor a Helffer--Sj\"ostrand representation
+of the constrained influences, and the decay through Lemma~\ref{lem:combes}
+is not reached.
+\item The mass of the constrained law outside that set is bounded by
+Theorem~\ref{thm:pathZ} only for the fibres of the path map.
+\end{enumerate}
+The hypothesis $\kappa\le10^{-8}\rho_G$ concerns every plaquette near
+$W$; under the $\SU(2)$ Wilson measure the plaquettes that are not small
+form the clusters of Sec.~\ref{ssec:largefields}, and near them the
+theorem does not apply.
+\end{remark}
+
 \subsection{Large fields under the Wilson measure}\label{ssec:largefields}
 
 Theorem~\ref{thm:smallscales} needs every plaquette to be small. This
@@ -7910,7 +8231,7 @@ Lemma~\ref{lem:vmfconst}, which are computations in interval arithmetic with
 rigorous error bounds. The programs of these steps, in Python with
 python-flint (FLINT and Arb) and a C kernel for products of Taylor
 polynomials, their outputs and the list of certified boxes are in the
-repository \url{https://github.com/creelie/4Y-M}, release v4.16.0, together
+repository \url{https://github.com/creelie/4Y-M}, release v4.17.0, together
 with a Lean~4 certificate of the line field, independent exact or
 numerical checks of the other finite statements, and our checks of the
 certificate of~\cite{Rom26}.
