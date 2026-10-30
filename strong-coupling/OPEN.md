@@ -147,10 +147,17 @@ lies between K_r and K_{15.1r}, a weighted Helffer–Sjöstrand representation
 (the smooth convex extension H∘τ + nV, n → ∞) and the exponential locality of
 the chart Hessian give |Cov(F,G)| ≤ (c_9/λ)|X_1||X_2| e^{−α_G d(X_1,X_2)} for
 observables of the links in X_1, X_2, with α_G, c_9 depending only on G
-(Theorem "chartdecay"; check gauge-fixed/checks/cube/chart_decay.py). The mass
-off the chart, the values of α_G, c_9, and the passage to the constrained cube
-condition over boundary conditions with large fields are open (Remark
-"chartdecayopen").
+(Theorem "chartdecay"; check gauge-fixed/checks/cube/chart_decay.py). Every
+point of the fibre whose plaquettes near W are at most κ lies in the chart when
+s ≥ 1.24·10^5 κ, so the mass off the chart is at most the mass of the large
+plaquettes of the fibre; under the SU(2) Wilson measure this is at most
+10^4|W| q_κ(β_W) in mean over the fibres, so off a set of fibres of
+probability (1 + 1/ε)10^4|W| q_κ(β_W) the mass off the chart is at most ε and
+the covariances on the whole fibre obey |Cov| ≤ (4c_9/β_W e^{−α_G d} + 30ε)
+|X_1||X_2| (Theorem "offchart"; check gauge-fixed/checks/cube/off_chart.py).
+The thresholds are κ ≤ 1.4·10^{-14} and β_W > 10^31. A bound on every fibre,
+the values of α_G, c_9, and the passage to the constrained cube condition over
+boundary conditions with large fields are open (Remark "chartdecayopen").
 A block
 map that is coercive for all nonabelian fields and composes across the
 remaining scales is open.
