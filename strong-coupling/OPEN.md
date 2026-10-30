@@ -106,7 +106,17 @@ only next to them (Theorem "defects", Corollaries "defectclusters",
 with probability tending to one. The composition is local and the defects
 spread by at most three spacings of the current scale per step (Theorem
 "defectscales"), so the cut-off average passes the clusters up to a coarse
-spacing of order (β_W/log β_W)^{1/4} a (Corollary "defectscales"). A block
+spacing of order (β_W/log β_W)^{1/4} a (Corollary "defectscales"). In a box
+of side l whose boundary links lie in a maximal torus with plaquette angles
+at most ρ_s < π/3, the boundary field extends inside with every plaquette at
+most Cρ_s, C < 5.46·10⁵ (Lemma "boxextension": facet-by-facet axial lift with
+McShane extensions, then a radial pullback of Whitney forms), and conditionally
+on such an exterior the fraction ε of bad unit cubes satisfies
+−log ν(E_ε) ≥ β_W ρ² ε l⁴/16 − 6(l+1)⁴(log β_W + C_0 + 1/2 + C²β_W ρ_s²)
+(Proposition "conddensity"; check gauge-fixed/checks/cube/box_extension.py).
+Such exteriors are a null set; for general calm exteriors the lift is
+nonabelian and the conditional estimate is open (Remark "boxnonabelian").
+A block
 map that is coercive for all nonabelian fields and composes across the
 remaining scales is open.
 For SU(2) the same subsection makes the size explicit: D(n, α) needs
