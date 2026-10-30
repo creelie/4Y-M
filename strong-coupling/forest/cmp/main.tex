@@ -504,9 +504,11 @@ On the fibres of the cut-off average, at a background whose plaquettes are
 at most $\kappa\le10^{-8}$, the gap $\frac1{52}$ of the averages persists up
 to a factor $1+O(\kappa)$, and the Hessian of the action along the fibre is
 at least $\lambda(\frac1{26}-c\kappa)$, however far the links are from $I$
-(Theorem~\ref{thm:smallfibre}); the log-concavity of the constrained law,
-the decay of its influences and its large-field mass are open
-(Remark~\ref{rem:smallfibreopen}).
+(Theorem~\ref{thm:smallfibre}). On a chart of the fibre with convex domain
+the constrained law is log-concave for large $\lambda$, coarea factor
+included, and satisfies a Brascamp--Lieb inequality with constant
+$60/\lambda$ (Theorem~\ref{thm:fibrechart}); the decay of its influences
+and its mass off the chart are open (Remark~\ref{rem:fibrechartopen}).
 Whether some block map is coercive for all fields and composes across the
 remaining scales is open.
 
@@ -6253,8 +6255,10 @@ the remaining large fields form microscopic clusters
 near them is open. Away from them, on the fibres of the cut-off average,
 the Hessian of the action along the fibre is at least $\lambda(\frac1{26}-
 c_G\kappa)$ at every background with plaquettes at most $\kappa$
-(Theorem~\ref{thm:smallfibre}); the remaining small-field steps are listed in
-Remark~\ref{rem:smallfibreopen}.
+(Theorem~\ref{thm:smallfibre}), and on a convex chart of the fibre the
+constrained law satisfies a Brascamp--Lieb inequality for large $\lambda$
+(Theorem~\ref{thm:fibrechart}); the remaining small-field steps are listed
+in Remark~\ref{rem:fibrechartopen}.
 \item \emph{Second order.} Let $b_0=11N/(48\pi^2)$ for $\SU(N)$, $t=2b_0\log2$,
 and let $g_m^{-2}=g_*^{-2}+tm$ be the one-loop coupling $m$ steps above a
 matching scale. Comparison with integrals gives $\sum_{m\le M}g_m^2=
@@ -7433,6 +7437,208 @@ form the clusters of Sec.~\ref{ssec:largefields}, and near them the
 theorem does not apply.
 \end{remark}
 
+The first two steps can be taken on a chart of $F$ whose domain is convex.
+Write $T_U\subset\g^{A_W}$ for the tangent space of $F$ at $U$, $N_U$ for its
+orthogonal complement, $\lVert X\rVert_\infty=\max_e\lVert X_e\rVert$ and
+$K_s=\{\eta\in T_U:\lVert\eta\rVert_\infty\le s\}$, a convex set. The
+\emph{constrained law} is the conditional law of $e^{-\lambda Q}\prod_{e\in
+A_W}dU_e$, the other links being those of $U$, given the averages $V^\sharp
+_{y,\mu}$, $y\in W$, in the version given by the coarea formula.
+
+\begin{theorem}\label{thm:fibrechart}
+Assume the hypothesis of Lemma~\ref{lem:smallframes}. There are constants
+$c_3\ge1$ and $c_6$ depending only on $G$ such that, if $0<s\le1/(6000c_3)$
+and $\kappa+6s\le10^{-8}\rho_G$:
+\begin{enumerate}[label=\textup{(\roman*)},leftmargin=*]
+\item there is a smooth map $h:K_s\to N_U$ with $\lVert h(\eta)
+\rVert_\infty\le s/2$ and $\Phi(\eta)=Ue^{\eta+h(\eta)}\in F$; $\Phi$ is an
+embedding, its image contains every $Ue^X\in F$ with $\lVert X\rVert_\infty
+\le s/40$, and every point of $\Phi(K_s)$ satisfies the hypothesis of
+Lemma~\ref{lem:smallframes} with $\kappa+6s$ in place of $\kappa$;
+\item for $\eta$ in the interior of $K_s$ and $\zeta\in T_U$,
+\[
+\frac{d^2}{dt^2}Q\bigl(\Phi(\eta+t\zeta)\bigr)\Big|_{t=0}\ge\Bigl(\frac1{26}-
+4\cdot10^5c_3(\kappa+s)\Bigr)T(\zeta);
+\]
+\item on $\Phi(K_s)$ the constrained law has, in the coordinate $\eta$, a
+density proportional to $e^{-\lambda Q(\Phi(\eta))-\psi(\eta)}$ with respect to
+Lebesgue measure on $T_U$, where $\psi$ is smooth, does not depend on
+$\lambda$, and $\lvert\frac{d^2}{dt^2}\psi(\eta+t\zeta)\rvert\le c_6
+T(\zeta)$ on the interior of $K_s$;
+\item if moreover $4\cdot10^5c_3(\kappa+s)\le\frac1{195}$ and $\lambda\ge60
+c_6$, the constrained law conditioned on $\Phi(K_{s/2})$, written as a law
+$\mu$ on $K_{s/2}$, satisfies
+\[
+\operatorname{Var}_\mu(f)\le\frac{60}\lambda\int\lvert\nabla f\rvert^2\,d\mu
+\]
+for every smooth $f$ on $T_U$.
+\end{enumerate}
+The constants do not depend on $L$, $W$, $U$ or $\lambda$.
+\end{theorem}
+
+For $\SU(2)$ and the Wilson action, $\lambda=\beta/4$, so (iv) is a
+Brascamp--Lieb inequality with constant $240/\beta$ on a chart of the fibre
+around every background with small plaquettes, for $\beta\ge240c_6$.
+
+\begin{proof}
+\emph{Local constants.} For $k=(y,\mu)$ let $c_k(X)=C_{y,\mu}(Ue^X)$, which
+depends only on the $24$ links of $V_{y,\mu}$, and let $j(X_e)=\det\Psi(
+\operatorname{ad}_{X_e})$, the density of Haar measure in the coordinate
+$U_ee^{X_e}$, with $\Psi$ as in Lemma~\ref{lem:smallframes}. Both are
+real-analytic on a neighbourhood of the compact set of backgrounds with
+$\delta(P_x,P_{2y})\le\rho_G/8$ for every $x$ and of $X$ with $\lVert X
+\rVert_\infty\le\rho_G/32$, and $j>0$ there. So there is $c_3\ge1$
+depending only on $G$ such that there the $m$-th derivative of $c_k$ in $X$
+is at most $c_3\prod_{i\le m}N_{y,\mu}(Y^i)$ on $Y^1,\dots,Y^m$ for $m=1,2,
+3$, and the first two derivatives of $\log j$ are at most $c_3$ in norm. By
+Lemma~\ref{lem:smallframes}(i) the background $U$ lies in this set.
+
+Let $B=Dc(0)$, a map from $\g^{A_W}$ to $\g^K$, $K$ the set of pairs $k$,
+so that $T_U=\ker B$ and $N_U=B^*\g^K$, and $\mathcal G=BB^*$. By the
+proof of Theorem~\ref{thm:smallfibre}(iii), $\mathcal G\ge\frac1{17}$ and
+$\lVert\mathcal G^{-1}\rVert\le17$ in the norms $\max_k\lVert z_k\rVert$
+and, $\mathcal G$ being symmetric, $\sum_k\lVert z_k\rVert$; each $B_k$
+has norm at most $0.44$ on the $24$ links of $V_{y,\mu}$, and every link
+lies in at most two of these sets. Hence $\lVert B\rVert\le0.63$, $\lVert
+BX\rVert_\infty\le2.2\lVert X\rVert_\infty$, $\lVert B^*z\rVert_\infty\le
+0.88\max_k\lVert z_k\rVert$ and $\lVert B^*z\rVert_1\le10.6\sum_k\lVert
+z_k\rVert$, where $\lVert X\rVert_1=\sum_e\lVert X_e\rVert$.
+
+(i) Write $c(X)=BX+R(X)$. For $\lVert X\rVert_\infty,\lVert\hat X\rVert
+_\infty\le2s$, Taylor's formula gives $\lVert R_k(X)\rVert\le\frac{c_3}2
+N_{y,\mu}(X)^2\le12c_3\lVert X\rVert_\infty^2$ and $\lVert R_k(X)-R_k(\hat
+X)\rVert\le48c_3s\lVert X-\hat X\rVert_\infty$. For $\eta\in K_s$ the
+equation $c(\eta+B^*z)=0$ reads $z=\Theta(z)=-\mathcal G^{-1}R(\eta+B^*z)$,
+and on $\max_k\lVert z_k\rVert\le s$ the map $\Theta$ has values of norm at
+most $17\cdot12c_3\cdot4s^2=816c_3s^2\le s$ and Lipschitz constant at most
+$17\cdot48\cdot0.88\,c_3s\le720c_3s\le\frac12$. So it has a unique fixed
+point $z(\eta)$, smooth in $\eta$ by the implicit function theorem, and
+$h=B^*z$ has $\lVert h\rVert_\infty\le0.88\cdot816c_3s^2\le s/2$. Since
+$h(\eta)\perp T_U$, $\eta$ is the orthogonal projection of $\eta+h(\eta)$,
+so $\Phi$ is injective; its differential $1+Dh$ is injective, and $\dim T
+_U=\dim F$. If $Ue^X\in F$ with $\lVert X\rVert_\infty\le s/40$, then $X=
+\eta+B^*z$ with $z=\mathcal G^{-1}BX$, $\max_k\lVert z_k\rVert\le17\cdot2.2
+\,s/40<s$ and $\lVert\eta\rVert_\infty\le\lVert X\rVert_\infty+0.88\max_k
+\lVert z_k\rVert<s$, and $z$ is a fixed point of $\Theta$, so $Ue^X=\Phi(
+\eta)$. Finally $\lVert\eta+h\rVert_\infty\le\frac32s$, and by
+bi-invariance $\delta(U'_p,U_p)\le\sum_{e\in p}\delta(e^{X_e},I)\le6s$ for
+$U'=Ue^X$; the links off $A_W$ are unchanged, so $U'$ is in the tree gauge
+and $F$ is its fibre.
+
+(ii) Let $X(t)=\eta+t\zeta+h(\eta+t\zeta)$, $\gamma(t)=Ue^{X(t)}$, and let
+$A=Dc(X)$. Differentiating $c(X(t))=0$ gives $X'=\zeta-B^*(AB^*)^{-1}A\zeta$
+and $X''=-B^*(AB^*)^{-1}D^2c(X)[X',X']$. As above $\lVert(A-B)Y\rVert\le
+c_3N_{y,\mu}(X)N_{y,\mu}(Y)\le7.4c_3s\,N_{y,\mu}(Y)$ in each component, so
+$\lVert A-B\rVert\le10.5c_3s$ and $\sum_k\lVert((A-B)Y)_k\rVert\le14.8c_3s
+\lVert Y\rVert_1$. Since $A\zeta=(A-B)\zeta$ and $AB^*=\mathcal G+(A-B)B^*$,
+the Neumann series gives $\lVert(AB^*)^{-1}\rVert\le34$ in the Euclidean
+norm and in the norm $\sum_k\lVert z_k\rVert$, the latter because $17
+\cdot14.8\cdot10.6\,c_3s\le\frac12$; hence $\lVert Dh\rVert\le0.63\cdot34
+\cdot10.5c_3s\le\frac16$, $T(X')\le1.03T(\zeta)$, the two parts of $X'$
+being orthogonal, and $\lVert X''\rVert_1\le10.6\cdot34\cdot2c_3\cdot1.03
+T(\zeta)\le744c_3T(\zeta)$.
+
+Let $w=\gamma^{-1}\gamma'=\Psi(\operatorname{ad}_X)X'$, link by link. Then
+$\gamma(t+\tau)=\gamma(t)\exp(\tau w+\frac{\tau^2}2\dot w+O(\tau^3))$, so
+\[
+\frac{d^2}{dt^2}Q(\gamma)=\frac{d^2}{d\sigma^2}Q\bigl(\gamma e^{\sigma w}
+\bigr)\Big|_{\sigma=0}+dQ(\dot w).
+\]
+The vector $w$ is tangent to $F$ at $\gamma(t)$, which satisfies the
+hypothesis with $\kappa'=\kappa+6s$, so by Theorem~\ref{thm:smallfibre}(i),
+(ii) at $\gamma(t)$ the first term is at least $(\frac1{26}-5.4\cdot10^4
+\kappa')T(w)$. From the series of $\Psi$ and $\lVert\operatorname{ad}_X
+\rVert\le2\lVert X\rVert$, $\lVert w_e-X'_e\rVert\le2\lVert X_e\rVert\,
+\lVert X'_e\rVert\le3s\lVert X'_e\rVert$, so $T(w)\ge(1-6s)T(\zeta)$; and
+$\dot w=D\Psi(\operatorname{ad}_X)[\operatorname{ad}_{X'}]X'+\Psi(
+\operatorname{ad}_X)X''$, where the term of first order in
+$\operatorname{ad}$ vanishes because $\operatorname{ad}_{X'}X'=0$, so $\lVert
+\dot w_e\rVert\le3s\lVert X'_e\rVert^2+(1+3s)\lVert X''_e\rVert$ and $\lVert
+\dot w\rVert_1\le750c_3T(\zeta)$. With $\lVert\nabla_eQ\rVert\le12\kappa'$,
+\[
+\frac{d^2}{dt^2}Q(\gamma)\ge\Bigl(\frac1{26}-\frac s4-(5.4\cdot10^4+9000
+c_3)\kappa'\Bigr)T(\zeta),
+\]
+and $6(5.4\cdot10^4+9000c_3)+1\le4\cdot10^5c_3$.
+
+(iii) In the coordinate $X$, Haar measure is $\prod_ej(X_e)\,dX$, and the
+coarea formula for $c$ writes $dX$ as the integral over the values of $c$
+of the area measure of its level sets divided by $\det(AA^*)^{1/2}$. On the
+level set $F$ the graph $X=\eta+h(\eta)$ has area element $\det(1+Dh^*Dh)
+^{1/2}\,d\eta$. So the density is $e^{-\lambda Q(\Phi)-\psi}$ with
+\[
+\begin{split}
+\psi(\eta)={}&-\sum_e\log j(X_e)+\tfrac12\log\det(AA^*)\\
+&-\tfrac12\log\det(1+Dh^*Dh).
+\end{split}
+\]
+Along $\eta+t\zeta$, the first sum has second derivative at most $c_3(T(X')
++\lVert X''\rVert_1)\le745c_3^2T(\zeta)$. Next, $A'=D^2c(X)[X',\cdot\,]$ and
+$A''=D^3c(X)[X',X',\cdot\,]+D^2c(X)[X'',\cdot\,]$; their components are maps
+of rank at most $\dim G$ on the $24$ links of $V_{y,\mu}$, of norms at most
+$c_3N_{y,\mu}(X')$ and $c_3(N_{y,\mu}(X')^2+N_{y,\mu}(X''))$. Hence the
+Hilbert--Schmidt norm satisfies $\lVert A'\rVert_2^2\le2.1\dim G\,c_3^2T(
+\zeta)$, and the trace norm $\lVert A''\rVert_1\le\dim G\,c_3(2.1T(\zeta)+2
+\lVert X''\rVert_1)$. Since $AA^*\ge(17^{-1/2}-10.5c_3s)^2\ge\frac1{25}$ and
+$\lVert A\rVert\le1$,
+\[
+\Bigl\lvert\frac{d^2}{dt^2}\log\det(AA^*)\Bigr\rvert\le25\bigl(2\lVert A''
+\rVert_1+2\lVert A'\rVert_2^2\bigr)+2500\lVert A'\rVert_2^2,
+\]
+by the identity
+\[
+\frac{d^2}{dt^2}\log\det M=\Tr(M^{-1}M'')-\Tr\bigl((M^{-1}M')^2\bigr)
+\]
+and the bounds $\lvert\Tr(XY)\rvert\le\lVert X\rVert\,\lVert Y\rVert_1$ and
+$\lVert XY\rVert_1\le\lVert X\rVert_2\lVert Y\rVert_2$. Finally $Dh=-\Pi$ on $T_U$ with $\Pi=B^*(
+AB^*)^{-1}A$; $\Pi'$ is a sum of two terms that contain $A'$ once, and
+$\Pi''$ of terms that contain $A''$ once or $A'$ twice, so $\lVert\Pi'\rVert
+_2\le481\lVert A'\rVert_2$ and $\lVert\Pi''\rVert_1\le c(\lVert A''\rVert
+_1+\lVert A'\rVert_2^2)$ with $c$ absolute, and the same identity with $M=1+
+Dh^*Dh\ge1$ and $\lVert Dh\rVert\le\frac16$ bounds the last term. Each bound
+is a multiple of $T(\zeta)$ by a constant that depends only on $c_3$ and
+$\dim G$; this is $c_6$.
+
+(iv) Let $H=\lambda Q\circ\Phi+\psi$ on the interior of $K_s$. By (ii) and
+(iii), $\Hess H\ge\lambda(\frac1{26}-\frac1{195})-c_6=\frac\lambda{30}-c_6
+\ge m=\frac\lambda{60}$, so for $a,\eta\in K_{s/2}$, $H(\eta)\ge H(a)+\nabla
+H(a)\cdot(\eta-a)+\frac m2\lvert\eta-a\rvert^2$, the segment lying in the
+convex set $K_{s/2}$. The supremum $\tilde H$ over $a\in K_{s/2}$ of the
+right-hand sides is finite, equals $H$ on $K_{s/2}$, and $\tilde H-\frac m2
+\lvert\eta\rvert^2$ is convex. With $d$ the distance to $K_{s/2}$, a convex
+function, the functions $\tilde H+nd$ are $m$-convex on $T_U$, and so are
+their mollifications, which are smooth; for these the Bakry--\'Emery
+criterion~\cite{BGL14} gives the Poincar\'e inequality with constant $1/m$.
+Letting the mollification and then $n\to\infty$, by dominated convergence
+($\tilde H$ grows quadratically and $d=0$ exactly on $K_{s/2}$), the
+inequality passes to $e^{-H}\mathbf 1_{K_{s/2}}$, which is $\mu$ up to
+normalisation by (iii).
+\end{proof}
+
+\begin{remark}\label{rem:fibrechartopen}
+Theorem~\ref{thm:fibrechart} removes the coarea factor and the curvature of
+$F$ for $\lambda\ge60c_6$ and replaces the small-field set by the convex
+chart domain $K_{s/2}$. What it does not give:
+\begin{enumerate}[label=\textup{(\alph*)},leftmargin=*]
+\item the mass of the constrained law outside $\Phi(K_{s/2})$, which is
+Remark~\ref{rem:smallfibreopen}(c);
+\item decay: (iv) is a variance bound for the law on the chart, not a decay
+of its covariances between distant links. That needs a
+Helffer--Sj\"ostrand representation on the convex set $K_{s/2}$, which has
+a boundary, and the locality of $\Hess H$, which through $Dh$ contains
+$\mathcal G^{-1}$, exponentially decaying by Lemma~\ref{lem:combes} but not
+of finite range;
+\item numbers: $c_3$ and $c_6$ come from compactness and are not computed,
+so the threshold $\lambda\ge60c_6$ is not explicit, and $\kappa$ and $s$
+are at the scale $10^{-8}\rho_G$.
+\end{enumerate}
+On the periodic lattice of side four, for $\SU(2)$ backgrounds as in the
+check of Theorem~\ref{thm:smallfibre}, two to sixteen blocks and $s$ up to
+$0.03$, the chart Hessian of $Q$ is at least $0.21$
+and $\lvert\psi''\rvert/T$ stays below one, a floating-point computation
+reproduced in the archive.
+\end{remark}
+
 \subsection{Large fields under the Wilson measure}\label{ssec:largefields}
 
 Theorem~\ref{thm:smallscales} needs every plaquette to be small. This
@@ -8195,7 +8401,7 @@ Lemma~\ref{lem:vmfconst}, which are computations in interval arithmetic with
 rigorous error bounds. The programs of these steps, in Python with
 python-flint (FLINT and Arb) and a C kernel for products of Taylor
 polynomials, their outputs and the list of certified boxes are in the
-repository \url{https://github.com/creelie/4Y-M}, release v4.17.0, together
+repository \url{https://github.com/creelie/4Y-M}, release v4.18.0, together
 with a Lean~4 certificate of the line field, independent exact or
 numerical checks of the other finite statements, and our checks of the
 certificate of~\cite{Rom26}.
