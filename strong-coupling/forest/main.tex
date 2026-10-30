@@ -546,8 +546,11 @@ included, and satisfies a Brascamp--Lieb inequality with constant
 $60/\lambda$ (Theorem~\ref{thm:fibrechart}); on a chart whose domain is a
 product in the coordinates of the links other than the path links, the
 covariances of local observables decay exponentially at a rate that
-depends only on $G$ (Theorem~\ref{thm:chartdecay}); its mass off the chart
-is open (Remark~\ref{rem:chartdecayopen}).
+depends only on $G$ (Theorem~\ref{thm:chartdecay}). Off the chart the
+fibre has only points with a large plaquette, and under the $\SU(2)$
+Wilson measure their mass is small on most fibres
+(Theorem~\ref{thm:offchart}); a bound on every fibre is open
+(Remark~\ref{rem:chartdecayopen}).
 Whether some block map is coercive for all fields and composes across the
 remaining scales is open.
 
@@ -6341,7 +6344,9 @@ c_G\kappa)$ at every background with plaquettes at most $\kappa$
 (Theorem~\ref{thm:smallfibre}), and on a convex chart of the fibre the
 constrained law satisfies a Brascamp--Lieb inequality for large $\lambda$
 (Theorem~\ref{thm:fibrechart}), and on a product chart its covariances
-decay exponentially (Theorem~\ref{thm:chartdecay}); the remaining
+decay exponentially (Theorem~\ref{thm:chartdecay}), and the mass off
+that chart is small on most fibres of the $\SU(2)$ Wilson measure
+(Theorem~\ref{thm:offchart}); the remaining
 small-field steps are listed in Remark~\ref{rem:chartdecayopen}.
 \item \emph{Second order.} Let $b_0=11N/(48\pi^2)$ for $\SU(N)$, $t=2b_0\log2$,
 and let $g_m^{-2}=g_*^{-2}+tm$ be the one-loop coupling $m$ steps above a
@@ -7997,6 +8002,131 @@ Insert these in (ii); with $C$ a bound for $\lVert\bar P\rVert_{\beta_0}$
 on $\mathrm{Box}_{2r}$, $c_9=480C^2$.
 \end{proof}
 
+The chart misses only points of the fibre at which some plaquette near $W$
+is not small, and under the Wilson measure such points carry little mass on
+most fibres.
+
+\begin{theorem}\label{thm:offchart}
+\begin{enumerate}[label=\textup{(\roman*)},leftmargin=*]
+\item Assume the hypotheses of Theorem~\ref{thm:chartdecay} and $s\ge1.24
+\cdot10^5\kappa$. Every $U'\in F$ with $\delta(U'_p,I)\le\kappa$ for every
+plaquette $p$ with a vertex in a block of $W^+$ lies in $\Phi(\Omega_r)$.
+Hence the constrained law gives the complement of $\Phi(\Omega_r)$ at most
+the mass of the points of $F$ at which such a plaquette exceeds $\kappa$.
+\item Let $G=\SU(2)$, let the side $2L$ be a power of two, let $\mu$ be the
+Wilson measure in the tree gauge at $\beta_W\ge1$, so that $\lambda=\beta
+_W/4$, and let $E$ be the set of fields with $\delta(U_p,I)\le\kappa$ for
+every plaquette with a vertex in a block of $W^+$. For $\mu$-almost every
+$U$ let $\mu_U$ be the constrained law on the fibre $F(U)$ through $U$.
+Then
+\[
+\E_\mu\bigl[\mu_U(E^c)\bigr]=\mu(E^c)\le10^4\lvert W\rvert\,q_\kappa(\beta
+_W),
+\]
+with $q_\kappa$ as in Theorem~\ref{thm:defects}. If $\kappa$, $s$ and
+$\lambda$ satisfy the hypotheses of \textup{(i)} and $0<\varepsilon<1$,
+the fields $U\in E$ with $\mu_U(F(U)\setminus\Phi_U(\Omega_r))\le
+\varepsilon$, where $\Phi_U$ is the chart at $U$, have probability at least
+$1-(1+\varepsilon^{-1})10^4\lvert W\rvert q_\kappa(\beta_W)$.
+\item At every such $U$, for $X_1,X_2\subset A_W$ and $\tilde F,\tilde G$
+as in Theorem~\ref{thm:chartdecay}\textup{(iii)},
+\[
+\lvert\Cov_{\mu_U}(\tilde F,\tilde G)\rvert\le\Bigl(\frac{4c_9}{\beta_W}
+e^{-\alpha_Gd(X_1,X_2)}+30\varepsilon\Bigr)\lvert X_1\rvert\,\lvert X_2
+\rvert .
+\]
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+(i) The fields $U$ and $U'$ satisfy the hypothesis of
+Lemma~\ref{lem:smallframes} and agree off $A_W$, in particular on the tree
+links. An active link $e$ with base in a block $B(y)$, $y\in W$, either lies
+inside $B(y)$ or leaves it in a direction $\mu$. In the first case part (i)
+of the lemma, at $U$ and at $U'$, gives $\delta(U_e,U'_e)\le6\kappa$. In the
+second, let $v$ and $v'$ be the path links of $V_{y,\mu}$ at $U$ and at
+$U'$. Part (iv), at both fields, writes the common cut-off average as $v
+e^M=v'e^{M'}$ with $\lVert M\rVert,\lVert M'\rVert\le8\pi\kappa$, so by
+bi-invariance and Lemma~\ref{lem:logbound}
+\[
+\delta(v,v')=\delta\bigl(e^Me^{-M'},I\bigr)\le\lVert M\rVert+\lVert M'
+\rVert\le16\pi\kappa<50.3\kappa,
+\]
+and part (i) gives $\delta(U_e,U'_e)\le\delta(U_e,v)+\delta(v,v')+\delta(
+v',U'_e)\le92.3\kappa$. Let $X_e=\log(U_e^{-1}U'_e)$. By
+Lemma~\ref{lem:logbound}, $\lVert X_e\rVert\le\frac\pi3\,92.3\kappa<96.7
+\kappa\le s/1280$ for every $e\in A_W$. Theorem~\ref{thm:fibrechart}(i)
+with $s/32$ in place of $s$, whose chart is the restriction of $\Phi$ by
+the uniqueness of the fixed point in its proof, puts $U'=Ue^X$ in $\Phi(K
+_{s/32})$, and $K_{s/32}\subset\Omega_r$ by
+Theorem~\ref{thm:chartdecay}(i).
+
+(ii) The tree links span every block, so for every field there is exactly
+one gauge transformation, equal to $I$ at the corner of every block, that
+makes the tree links equal to $I$. Given the tree links, it multiplies each
+active link on both sides by elements that do not depend on that link,
+which preserves Haar measure, and $S$ is gauge invariant; so in the tree
+gauge the active links have density proportional to $e^{-\beta_WS}$ with
+respect to product Haar measure. Since $\beta_WS=\frac{\beta_W}4\sum_p
+\delta(U_p,I)^2$, conditionally on the links off $A_W$ the links of $A_W$
+have density proportional to $e^{-\lambda Q}$, and conditioning further on
+the averages gives the constrained law. So $\mu_U$ is a version of the
+conditional law of $\mu$ given the links off $A_W$ and the averages, and
+the identity is the tower property of conditional expectation. If $U\notin
+E$, some plaquette with a vertex in a block $B(y')$, $y'\in W^+$, is bad for
+$\rho=\kappa$. Its corner $z$ differs from that vertex by an element of
+$\{0,1\}^4$, so $z$ lies in a block at $\ell^\infty$ distance at most two
+from $W$, and the plaquette lies in the unit cube $\mathcal C_z$. There are
+at most $5^4\lvert W\rvert$ such blocks, with $16$ sites each, and $E$ is
+gauge invariant, so Theorem~\ref{thm:defects} with $\lvert A\rvert=1$ gives
+$\mu(E^c)\le10^4\lvert W\rvert q_\kappa(\beta_W)$. For $U\in E$, part (i)
+gives $\mu_U(F(U)\setminus\Phi_U(\Omega_r))\le\mu_U(E^c)$, so the
+exceptional fields lie in $E^c\cup\{\mu_U(E^c)>\varepsilon\}$, which by
+Markov's inequality has probability at most $\mu(E^c)(1+\varepsilon^{-1})$.
+
+(iii) Let $A=\Phi_U(\Omega_r)$, $m=\mu_U$, $m_A=m(\,\cdot\mid A)$ and
+$\epsilon'=m(A^c)\le\varepsilon$. By Theorem~\ref{thm:chartdecay}(iii) with
+$\lambda=\beta_W/4$, $\lvert\Cov_{m_A}(\tilde F,\tilde G)\rvert\le\frac{4c
+_9}{\beta_W}\lvert X_1\rvert\lvert X_2\rvert e^{-\alpha_Gd(X_1,X_2)}$. The
+group $\SU(2)$ has diameter $\sqrt2\pi$, and $\tilde F$ has gradient at most
+$1$ in each link, so after subtracting a constant, which changes no
+covariance, $\lVert\tilde F\rVert_\infty\le\frac{\sqrt2\pi}2\lvert X_1
+\rvert\le2.23\lvert X_1\rvert$, and likewise for $\tilde G$. Writing
+$m=(1-\epsilon')m_A+\epsilon'm_{A^c}$ gives $\lvert m(fg)-m_A(fg)\rvert\le
+2\epsilon'\lVert f\rVert_\infty\lVert g\rVert_\infty$ and $\lvert m(f)-m_A(f)
+\rvert\le2\epsilon'\lVert f\rVert_\infty$ for bounded $f,g$, so
+\[
+\lvert\Cov_m(f,g)-\Cov_{m_A}(f,g)\rvert\le6\epsilon'\lVert f\rVert_\infty
+\lVert g\rVert_\infty,
+\]
+and $6\cdot2.23^2<30$.
+\end{proof}
+
+So on a fixed set of blocks the constrained law of the $\SU(2)$ Wilson
+measure decorrelates, coarea factor and curvature of the fibre included, on
+every fibre outside a set of fibres whose probability tends to zero as
+$\beta_W\to\infty$. The bound grows linearly in $\lvert W\rvert$, which is
+harmless for the fixed cubes of the cube condition, but the thresholds are
+far from the one-loop range: the hypotheses force $\kappa\le1.4\cdot10^{-14}
+$, and $q_\kappa(\beta_W)<1$ needs $\beta_W\kappa^2>96(\log\beta_W+C_0)$,
+so $\beta_W$ exceeds $10^{31}$, and larger through $c_3$ and
+$c_6$ (Fig.~\ref{fig:offchart}).
+
+\begin{figure*}[t]
+\centering
+\includegraphics[width=0.95\textwidth]{figures/fig_offchart.png}
+\caption{Theorem~\ref{thm:offchart}. (a)~A fibre $F$ of the cut-off
+average, drawn as a surface: the product chart $\Phi(\Omega_r)$ around the
+background $U$ (green) contains every point of $F$ whose plaquettes near $W$
+are at most $\kappa$ (inside the blue curve), and the rest of $F$ meets
+only points with a large plaquette (red). (b)~The least $\beta_W$ at which
+the bound $10^4\lvert W\rvert q_\kappa(\beta_W)$ is at most $\frac12$, for
+the $81$ blocks of a cube of side three; it grows like $\kappa^{-2}\log(1/
+\kappa)$, and at the largest $\kappa$ the hypotheses allow it is about
+$3.9\cdot10^{31}$.}
+\label{fig:offchart}
+\end{figure*}
+
 \begin{remark}\label{rem:chartdecayopen}
 Theorem~\ref{thm:chartdecay} is the decay that
 Remark~\ref{rem:fibrechartopen}(b) asks for, on the chart $\Phi(\Omega_r)$
@@ -8004,8 +8134,12 @@ with $r=s/32$, which contains $\Phi(K_{s/32})$ and so every $Ue^X\in F$
 with $\lVert X\rVert_\infty\le s/1280$. What remains open for the small
 fields:
 \begin{enumerate}[label=\textup{(\alph*)},leftmargin=*]
-\item the mass of the constrained law outside $\Phi(\Omega_r)$,
-Remark~\ref{rem:fibrechartopen}(a);
+\item the mass of the constrained law outside $\Phi(\Omega_r)$ on every
+fibre: Theorem~\ref{thm:offchart} bounds it by the mass of the large
+plaquettes of the fibre, and bounds that only in mean over the fibres,
+whereas the constrained cube condition of
+Remark~\ref{rem:constrainedopen}(a) takes a supremum over boundary
+conditions;
 \item numbers: $\alpha_G$, $c_8$ and $c_9$ come, through $c_3$, from
 compactness, and the rate is not computed;
 \item the passage from the decay of the constrained law on one fibre, at
