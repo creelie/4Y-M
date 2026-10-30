@@ -66,7 +66,7 @@ Road, Golpark, Kolkata 700029, West Bengal, India}
 \address{Independent Researcher, San Antonio, USA}
 \email{spectralityworkinggroup@gmail.com (secondary Blaze61029dogQ@proton.me)}
 
-\date{29 October 2026}
+\date{30 October 2026}
 
 \subjclass[2020]{Primary 81T25, 82B20; Secondary 60K35, 81T13, 22E30,
 58J50, 65G30}
@@ -82,11 +82,14 @@ simple gauge group has a unique infinite-volume state, exponential clustering
 and an explicit transfer-matrix gap at couplings past the curvature limit of
 the ungauged measure, up to $\beta_W=0.345$ for $\SU(2)$ and $\beta_W=0.76$
 for $\SU(3)$, in a gauge that fixes one link of every plaquette. We prove that
-a Dobrushin--Shlosman estimate in one cube of fixed physical size gives a mass
-gap in physical units for every continuum limit. This estimate is open along
-the continuum tuning; for $\SU(N)$ it needs cubes of side at least of order
-$(\beta_W/\log\beta_W)^{1/4}$, and for block averages its quadratic
-approximation holds at every coupling.
+a Dobrushin--Shlosman estimate in one cube of fixed physical size, or any
+exponential decay of renormalised correlations in physical units, gives a
+mass gap for every continuum limit. The cube estimate is open along the
+continuum tuning; for $\SU(N)$ it needs cubes of side at least of order
+$(\beta_W/\log\beta_W)^{1/4}$. For block averages, a cut-off of
+Ba{\l}aban's average composes across all scales on fields of small curvature
+for every compact group, and under the $\SU(2)$ Wilson measure the large
+fields form clusters of vanishing physical size.
 \end{abstract}
 
 \maketitle
@@ -411,7 +414,10 @@ in one respect, through three implications, each proved.
 \item A Dobrushin--Shlosman condition on one cube of fixed physical size,
 uniform along the continuum tuning, gives a mass gap in physical units for
 every continuum limit (Theorems~\ref{thm:onescale} and~\ref{thm:transfer}),
-also for observables smoothed by the spatial gradient flow
+and so does exponential decay with constants of the renormalised
+correlations of a spanning set of observables
+(Theorem~\ref{thm:clustering}); this holds also for observables smoothed by
+the spatial gradient flow
 (Proposition~\ref{prop:spatialflow}).
 \item The flowed observables, renormalised by one condition at a single
 physical separation, have reflection positive continuum limits along
@@ -474,8 +480,14 @@ fields, as it must, and its constants are those of one step
 curvature stays small at every scale it composes, with the energy
 nonincreasing and the thin paths contracted (Theorem~\ref{thm:torusscales}), and for every compact group it composes
 on fields whose curvatures at the successive scales have a small sum
-(Theorem~\ref{thm:smallscales}). Whether some block map is coercive for
-all fields and composes across scales is open.
+(Theorem~\ref{thm:smallscales}). Under the $\SU(2)$ Wilson measure the
+plaquettes that are not small lie in clusters whose physical size tends to
+zero in probability, and the cut-off acts only next to them
+(Theorem~\ref{thm:defects}, Corollaries~\ref{cor:defectclusters}
+and~\ref{cor:activelinks}); such plaquettes are nevertheless present along
+the one-loop tuning (Proposition~\ref{prop:manydefects}). Whether some
+block map is coercive for all fields and composes across scales, through
+these clusters, is open.
 
 \begin{figure}[t]
 \centering
@@ -497,7 +509,9 @@ Sections~\ref{sec:su2}, \ref{sec:plaqblocks}, \ref{sec:curvature},
 \ref{sec:su3} and~\ref{sec:su3blocks} prove Theorems~\ref{thm:su2}--\ref{thm:su3blocks}, and
 Section~\ref{sec:limits} measures what is left. Section~\ref{sec:bypass} proves
 (I1)--(I3), Section~\ref{sec:inputs} states and measures their open inputs,
-and Section~\ref{sec:blocks} poses the cube condition for block averages. The appendices contain the
+and Section~\ref{sec:blocks} poses the cube condition for block averages, composes the cut-off average
+across scales at small fields and locates the large fields under the
+Wilson measure. The appendices contain the
 residue table of the line field, the comparison lemma and its version for
 blocks, the blocks of the local Hessian inequality, the details of the
 certified computation, the reconstruction of the transfer matrix with the
@@ -2489,7 +2503,49 @@ gives both claims about $0$, and the spectrum on $\Omega^\perp\ne\{0\}$ lies in
 $[m_*,\infty)$ and is not empty.
 \end{proof}
 
-The theorem bypasses the obstruction of~\cite{BB26b}: under the hypothesis
+The proof uses $D(n_k,\alpha)$ only through the decay of the two-point
+functions, and the same argument accepts any decay with constants that
+depend on the observable.
+
+\begin{theorem}\label{thm:clustering}
+Let $m_0>0$ and let $\mathcal T_0$ span $\mathcal T$. Suppose that for each
+$f\in\mathcal T_0$ there are $C_f<\infty$, $\tau_f\ge0$ and $k_f$ such that
+\begin{align*}
+C^f_k(\tau)&=\omega_k\bigl(\vartheta(\overline{O_k(f)})\,\tau_{\tau/a_k}
+O_k(f)\bigr)-|\omega_k(O_k(f))|^2\\
+&\le C_fe^{-m_0\tau}
+\end{align*}
+for all $k\ge k_f$ and all dyadic $\tau\ge\tau_f$ with $\tau/a_k\in\Z$.
+Then every continuum limit of $(\omega_k,O_k)$ satisfies $\sigma(H)\subset
+\{0\}\cup[m_0,\infty)$, and $0$ is a simple eigenvalue. If the limit is
+nontrivial, $H$ has a mass gap of at least $m_0$.
+\end{theorem}
+
+\begin{proof}
+For $f\in\mathcal T$ put $\varphi(f)=\psi(f)-\ip\Omega{\psi(f)}\Omega$,
+which is linear in $f$. Since $e^{-\tau H}$ is self-adjoint and fixes
+$\Omega$, Definition~\ref{def:limit} gives $\ip{\varphi(f)}{e^{-\tau H}
+\varphi(f)}=\lim_kC^f_k(\tau)$. For $f\in\mathcal T_0$ let $\mu$ be the
+spectral measure of $H$ at $\varphi(f)$. Then $\int e^{-\tau E}d\mu(E)\le
+C_fe^{-m_0\tau}$ for dyadic $\tau\ge\tau_f$. If $\mu([0,m_0-\eta])>0$ for
+some $\eta\in(0,m_0)$, the left side is at least $\mu([0,m_0-\eta])e^{-(m_0-
+\eta)\tau}$, which is impossible for large $\tau$. Hence the spectral
+projection $E_{[0,m_0)}$ of $H$ vanishes on $\varphi(\mathcal T_0)$. By
+linearity it vanishes on $\varphi(\mathcal T)$, and since its kernel is
+closed, it vanishes on the closure of $\varphi(\mathcal T)$, which is
+$\Omega^\perp$ because $\psi(\mathcal T)$ is dense. So $E_{[0,m_0)}=
+\ip\Omega\cdot\,\Omega$, which gives both claims.
+\end{proof}
+
+Theorem~\ref{thm:transfer} is the case $m_0=m_*$, $\tau_f=0$ and $C_f=
+\sup_{k\ge k_f}\|\varphi_k\|^2$, which is finite because $\|\varphi_k\|^2=
+C^f_k(0)$ converges. Theorem~\ref{thm:clustering} needs neither a lattice
+gap nor the gauge of this paper. It applies to the output of a cluster
+expansion of any coarse effective theory, provided the expansion bounds
+the correlations of a spanning set of renormalised observables in
+physical units.
+
+Theorem~\ref{thm:transfer} bypasses the obstruction of~\cite{BB26b}: under the hypothesis
 the lattice gap is at least $\log(1/\alpha)/(2n_k)$, of order $a_k/\ell$ in
 lattice units, which tends to zero, and only its value in physical units is
 bounded below. In the language of~\cite{BB26b} the hypothesis implies the
@@ -2836,6 +2892,24 @@ $\ip{\Psi_k}{(1-\mathbb T_k)\Psi_k}\le a_k\|g'\|_{L^1}\|u\|/\|\Psi_{A_k}\|$, so
 the hypothesis of (ii) holds when the vector $u$ of a single slice stays
 comparable to the time-smeared packet. That comparison is not proved;
 Proposition~\ref{prop:sliceratio} below bounds the ratio without it.
+
+A one-slab bound of this kind also limits the mass that $D(n_k,\alpha)$
+can supply. Let $e^{-m_k}$ be the norm of $\mathbb T_k$ on $\Omega_k^\perp$.
+If a unit vector $\varphi_k\perp\Omega_k$ has $\ip{\varphi_k}{(1-\mathbb
+T_k)\varphi_k}\le\kappa a_k<1$, then the spectral measure of $\mathbb T_k$
+at $\varphi_k$ lives on $[0,e^{-m_k}]$, so $1-e^{-m_k}\le\kappa a_k$ and
+$m_k\le-\log(1-\kappa a_k)$. If in addition $D(n_k,\alpha)$ holds with
+$n_ka_k\le\ell$, Theorem~\ref{thm:onescale} gives $m_k\ge\log(1/\alpha)
+/(2n_k)\ge a_k\log(1/\alpha)/(2\ell)$, and therefore
+\[
+\frac{\log(1/\alpha)}{2\ell}\le\frac{-\log(1-\kappa a_k)}{a_k}=\kappa+
+O(a_k).
+\]
+So the physical mass $m_*$ of Theorem~\ref{thm:transfer} is at most the
+constant $\kappa$ of any one-slab bound. The two hypotheses are compatible
+because both are statements in physical units. The one-slab bound forces
+$m_k\to0$, so it cannot come from an expansion whose convergence gives a
+lattice gap bounded below in lattice units.
 
 
 In a periodic spatial box the assumption $C_k(0)>0$ is a theorem. Let
@@ -5025,7 +5099,10 @@ the straight paths between block roots satisfy a coercivity bound for all
 fields but do not compose, a continuous covariant map cannot treat the
 transverse positions alike, and a cut-off of Ba{\l}aban's averaging operation
 is coercive for all fields and agrees with the block averages to first
-order (Section~\ref{ssec:pathblocks}).
+order (Section~\ref{ssec:pathblocks}). It composes across all scales on fields
+of small curvature for every compact group (Section~\ref{ssec:scales}), and
+under the $\SU(2)$ Wilson measure the fields that are not small form
+clusters of vanishing physical size (Section~\ref{ssec:largefields}).
 
 \subsection{Block-constrained cubes}\label{ssec:constrained}
 
@@ -5497,7 +5574,10 @@ Theorem~\ref{thm:cutoff} is coercive for all fields and agrees with the
 averages to first order, with constants for one step; on torus-valued
 fields of small curvature it composes (Theorem~\ref{thm:torusscales}), and
 for every compact group it composes on fields whose curvature is small at
-every scale with a small sum (Theorem~\ref{thm:smallscales}).
+every scale with a small sum (Theorem~\ref{thm:smallscales}); under the Wilson measure
+the remaining large fields form microscopic clusters
+(Corollary~\ref{cor:defectclusters}), but the conditional estimate needed
+near them is open.
 \item \emph{Second order.} Let $b_0=11N/(48\pi^2)$ for $\SU(N)$, $t=2b_0\log2$,
 and let $g_m^{-2}=g_*^{-2}+tm$ be the one-loop coupling $m$ steps above a
 matching scale. Comparison with integrals gives $\sum_{m\le M}g_m^2=
@@ -5985,7 +6065,9 @@ $Q_k(V^{\sharp,k}(U))\le C\,Q(U)$ and the corresponding coercivity bound
 with $C$ independent of $k$ is open for general fields; it is the form in
 which Remark~\ref{rem:constrainedopen}(b) remains. Section~\ref{ssec:scales}
 proves it, with $C=1.001$, for fields with values in a maximal torus whose
-curvature stays small at every scale.
+curvature stays small at every scale, and with $C=e^{12060\sigma}$ for fields
+of any compact group whose curvatures at the successive scales are small with
+sum $\sigma$.
 
 \subsection{Composition across scales}\label{ssec:scales}
 
@@ -6359,9 +6441,209 @@ in Theorem~\ref{thm:smallscales} the losses $e^{6030\eta_j}$ must have a
 bounded product, and a field whose curvature is smooth on a scale $\ell$
 grows by a factor four per step until the coarse spacing reaches $\ell$.
 The large fields, where the cut-off is active, and the Wilson measure
-itself are outside both.
+itself are outside both; Section~\ref{ssec:largefields} shows where the large
+fields lie under that measure.
 
 
+
+\subsection{Large fields under the Wilson measure}\label{ssec:largefields}
+
+Theorem~\ref{thm:smallscales} needs every plaquette to be small. This
+subsection shows that, under the $\SU(2)$ Wilson measure, the plaquettes
+that are not small form clusters of microscopic size, and that the cut-off
+average departs from the average only next to them. It also shows that
+such plaquettes are present along the one-loop tuning, so the composition
+has to pass through them.
+
+Let $\Lambda_L=(\Z/L\Z)^4$ with $L=2^m\ge4$, and let $\mu_L$ be the $\SU(2)$
+Wilson measure on $\Lambda_L$, with density proportional to $e^{-\beta_W
+S(U)}$ with respect to product Haar measure, where
+\[
+S(U)=\sum_ps_p,\qquad s_p=1-\tfrac12\Tr U_p=\tfrac14\,\delta(U_p,I)^2 .
+\]
+This is the Wilson measure of Section~\ref{sec:state} on the torus, without
+gauge fixing; it has $4L^4$ links and $6L^4$ plaquettes. For $0<\rho\le1$ call a
+plaquette \emph{bad} if $\delta(U_p,I)>\rho$. The closed unit cube $\mathcal
+C_x=x+[0,1]^4$ contains $24$ plaquettes. Let $B_x$ be the event that one of
+them is bad. A plaquette lies in exactly four unit cubes, one for each
+choice of the two transverse coordinates of the cube's corner.
+
+\begin{lemma}\label{lem:wilsonZ}
+Let $Z_L$ be the normalising constant of $\mu_L$ and $C_0=\frac12+\frac23
+\log(24\pi^3)$. For $\beta_W\ge1$,
+\[
+-\log Z_L\le6L^4(\log\beta_W+C_0),\qquad
+\E_{\mu_L}S\le6L^4\,\frac{\log\beta_W+C_0}{\beta_W}.
+\]
+\end{lemma}
+
+\begin{proof}
+Write $U=\cos\theta\,I+\sin\theta\,J$ with $0\le\theta\le\pi$ and $J^2=-I$.
+The angle $\theta$ of $g^{-1}h$ is a bi-invariant distance, and under Haar
+measure $\theta$ has density $\frac2\pi\sin^2\theta$. Put $r=(4\sqrt{
+\beta_W})^{-1}$. If every link has angle at most $r$, every plaquette has
+angle at most $4r\le1$ and $s_p\le(4r)^2/2=1/(2\beta_W)$, so $S\le3L^4$.
+Each link angle is at most $r$ with probability
+\[
+\frac2\pi\int_0^r\sin^2t\,dt\ge\frac{8r^3}{3\pi^3}=\frac1{24\pi^3
+\beta_W^{3/2}},
+\]
+by $\sin t\ge2t/\pi$. Hence $Z_L\ge e^{-3L^4}(24\pi^3\beta_W^{3/2})^{-4L^4}$,
+which is the first bound. The function $F(b)=-\log Z_L$ at the coupling $b$
+is concave with $F(0)=0$ and $F'(b)=\E S$, so $bF'(b)\le F(b)$, which is
+the second.
+\end{proof}
+
+\begin{theorem}\label{thm:defects}
+For $\beta_W\ge1$, $0<\rho\le1$ and every set $A$ of unit cubes,
+\begin{gather*}
+\mu_L\Bigl(\,\bigcap_{x\in A}B_x\Bigr)\le q^{|A|},\\
+q=q_\rho(\beta_W)=\min\bigl\{1,\exp\bigl(6(\log\beta_W+C_0)-\beta_W
+\rho^2/16\bigr)\bigr\}.
+\end{gather*}
+\end{theorem}
+
+\begin{proof}
+The measure $\mu_L$ is reflection positive in every hyperplane through
+sites~\cite{OSei78}: the plaquettes are either in the hyperplane or on one
+side of it, so conditionally on the links in the hyperplane the weight
+factors into two mirror images, and reflection preserves Haar measure and
+$\Tr U_p$. On a torus of side $2^m$ this gives the chessboard estimate for
+functions of the links of closed unit cubes~\cite{FILS78}, \cite[Section
+5.3]{Bis09}:
+\[
+\mu_L\Bigl(\,\bigcap_{x\in A}B_x\Bigr)\le\mu_L\Bigl(\,\bigcap_{x\in
+\Lambda_L}B_x\Bigr)^{|A|/L^4},
+\]
+since the reflection of $B_x$ into another cube is the event $B_y$ of that
+cube. If every cube is bad, there are at least $L^4/4$ bad plaquettes, so
+$S\ge\rho^2L^4/16$ and the event has unnormalised weight at most
+$e^{-\beta_W\rho^2L^4/16}$. Dividing by $Z_L$ and using
+Lemma~\ref{lem:wilsonZ} gives the bound.
+\end{proof}
+
+\begin{corollary}\label{cor:defectclusters}
+Join two unit cubes when their corners are at $\ell^\infty$ distance one on
+the torus. For an integer $r\ge1$,
+\[
+\mu_L\{\text{some connected set of $r$ bad cubes}\}\le L^4(6400\,q)^r .
+\]
+Hence, on a torus of fixed physical side $La$, if $a\to0$ along $L=2^m$ and
+$\beta_W(a)\to\infty$, the physical diameters of all connected clusters of
+bad cubes tend to $0$ in probability, for every fixed $\rho$.
+\end{corollary}
+
+\begin{proof}
+A connected set of $r$ cubes containing a given cube is recovered from a
+walk of length $2(r-1)$ around a spanning tree, and each cube has $80$
+neighbours, so there are at most $80^{2(r-1)}\le6400^r$ such sets. Apply
+Theorem~\ref{thm:defects} and sum over the $L^4$ roots. A cluster of
+physical diameter at least $R$ contains a connected set of $\lceil R/a
+\rceil$ cubes, and once $6400\,q\le\frac12$ the bound is at most $(La/a)^4
+2^{-R/a}\to0$.
+\end{proof}
+
+The bad cubes control where the cut-off average differs from the average.
+For a coarse link $(y,\mu)$ let $\mathcal Z_{y,\mu}$ be the $24$ unit cubes
+with corners $2y+te_\mu+w$, $t\in\{0,1,2\}$, $w\in\{0,1\}^4$, $w_\mu=0$ (Figure~\ref{fig:largefields}).
+
+\begin{figure}[tb]
+\centering
+\includegraphics[width=\textwidth]{figures/fig_largefields.png}
+\caption{Large fields under the $\SU(2)$ Wilson measure. (a)~A plane section of
+the lattice: bad unit cubes (red) form clusters, and the cut-off average can
+differ from the path average only on coarse links (orange) whose $24$ cubes
+$\mathcal Z_{y,\mu}$ meet a bad cube (Corollary~\ref{cor:activelinks}).
+(b)~The frustrated exterior of a link $e$: the staple of $p_0$ is $I$ and the
+other five staples are $-I$, so $U_e$ is driven to $-I$ and $p_0$ is bad.
+(c)~The weight $q_\rho(\beta_W)$ of Theorem~\ref{thm:defects} for three values
+of $\rho$; below the dashed line the cluster bound of
+Corollary~\ref{cor:defectclusters} is summable.}
+\label{fig:largefields}
+\end{figure}
+
+\begin{corollary}\label{cor:activelinks}
+Let $\rho=\frac1{12}$. If no cube of $\mathcal Z_{y,\mu}$ is bad, then
+$\chi_{y,\mu}(U)=1$ in the tree gauge, and $V^\sharp_{y,\mu}$ is the average
+of the sixteen paths in the chart at $P_{2y}$. A bad cube lies in
+$\mathcal Z_{y,\mu}$ for at most eight coarse links, so the expected
+fraction of coarse links with $\chi<1$ is at most $4.5\cdot10^5\,(\log
+\beta_W+C_0)/\beta_W$. Along the limits of Corollary~\ref{cor:defectclusters},
+with probability tending to one these links lie within physical distance
+$2a$ of clusters of bad cubes of physical diameter less than any fixed
+$R>0$.
+\end{corollary}
+
+\begin{proof}
+As in the proof of Lemma~\ref{lem:smallstep}, $P_{2y}^{-1}P_x$ is a
+product of at most six conjugates of plaquette holonomies or their
+inverses. These plaquettes lie in planes $\{\mu,\alpha\}$ with corners
+$2y+te_\mu+w$ as above, and a plaquette lies in the unit cube at its
+corner. So $\delta(P_x,P_{2y})\le6\rho=\frac12$, and $\chi=1$. A cube with
+corner $z$ lies in $\mathcal Z_{y,\mu}$ only if $z_\mu-2y_\mu\in\{0,1,2\}$
+and $z_\alpha-2y_\alpha\in\{0,1\}$ for $\alpha\ne\mu$, which leaves at
+most two coarse links in each direction. There are $L^4/4$ coarse links,
+the number of bad cubes is at most four times the number of bad
+plaquettes, and a bad plaquette has $s_p>\rho^2/4$, so by
+Lemma~\ref{lem:wilsonZ} the expected fraction is at most $4\cdot8\cdot4
+\cdot24\cdot144\,(\log\beta_W+C_0)/\beta_W$. The last assertion is
+Corollary~\ref{cor:defectclusters}.
+\end{proof}
+
+Small plaquettes everywhere, which Theorem~\ref{thm:smallscales} assumes,
+are nevertheless improbable along the one-loop tuning. For $\SU(2)$,
+$\beta_W=4g^{-2}$, and the one-loop coupling of
+Remark~\ref{rem:constrainedopen}(c) at spacing $a=1/L$ gives $\beta_W=8b_0
+\log L+O(1)=\frac{11}{3\pi^2}\log L+O(1)$.
+
+\begin{proposition}\label{prop:manydefects}
+Let $0<\rho\le1$, $v_*=\frac2\pi\int_{\arccos(3/4)}^{\pi/3}\sin^2t\,dt$ and
+$p=v_*e^{-3\beta_W}$. Conditionally on all other links, a plaquette through
+a link $e$ is bad with probability at least $p$. Hence
+\[
+\mu_L\{\text{no plaquette is bad}\}\le e^{-\lfloor L/3\rfloor^4p},
+\]
+which tends to $0$ when $\beta_W\le B\log L+O(1)$ with $B<4/3$, in
+particular along the one-loop tuning.
+\end{proposition}
+
+\begin{proof}
+Identify $\SU(2)$ with the unit quaternions. Conditionally on the other
+links, $U_e$ has density proportional to $e^{\kappa\,h\cdot u}$ with
+$0\le\kappa\le6\beta_W$ and $|h|=1$, the six staples contributing at most
+$\beta_W$ each. The plaquette holonomy is $U_e$ or its inverse multiplied
+by a fixed element, so it has a density of the same form. Writing the
+density as a superposition of indicators of caps centred at $h$, the
+probability of a cap about $I$ is largest when $h=I$, and for $h=I$ it
+increases with $\kappa$, because its derivative is the covariance of an
+increasing function of $\Tr U$ with $\frac12\Tr U$. So the probability of
+being bad is at least that of the angle exceeding $\arccos(1-\rho^2/4)\le
+\arccos(3/4)$ under the density proportional to $e^{6\beta_W\cos t}\sin^2t$,
+which is at least $p$: bound the numerator from below on $[\arccos(3/4),
+\pi/3]$, where $\cos t\ge\frac12$, and the denominator by $e^{6\beta_W}
+\pi/2$.
+
+Let $M=\lfloor L/3\rfloor$. Choose the links in direction $0$ at the sites
+$3z$, $z\in\{0,\dots,M-1\}^4$, and their plaquettes in the plane $\{0,1
+\}$. No chosen plaquette contains another chosen link. Removing one chosen
+link at a time therefore bounds the probability that all chosen plaquettes
+are good by $(1-p)^{M^4}$. With $\beta_W=B\log L+O(1)$ the exponent is of order
+$L^{4-3B}$.
+\end{proof}
+
+The joint bound of Theorem~\ref{thm:defects} is not a conditional one,
+and (D) needs a supremum over boundary conditions. The two differ
+genuinely. Fix a link $e$ and a plaquette $p_0$ through it. Put all
+links on the six staples of $e$ at $I$, except the middle links of the
+five staples other than that of $p_0$, which are $-I$. Then the
+conditional density of $U_e$ is proportional to $e^{-2\beta_W\Tr U_e}$,
+and $p_0$, whose holonomy is $U_e^{\pm1}$, is bad with conditional
+probability tending to $1$ as $\beta_W\to\infty$, for every $\rho<2
+\sqrt2$. Nearby exteriors behave the same way. So the clusters of
+Corollary~\ref{cor:defectclusters} are small in probability, but the
+boundary response of a cube to a frustrated exterior is not small, and the
+composition near the bad clusters and the conditional estimate in (D)
+remain open.
 
 \section*{Acknowledgements}
 
@@ -6393,7 +6675,7 @@ Lemma~\ref{lem:vmfconst}, which are computations in interval arithmetic with
 rigorous error bounds. The programs of these steps, in Python with
 python-flint (FLINT and Arb) and a C kernel for products of Taylor
 polynomials, their outputs and the list of certified boxes are in the
-repository \url{https://github.com/creelie/4Y-M}, release v4.7.0, together
+repository \url{https://github.com/creelie/4Y-M}, release v4.8.0, together
 with a Lean~4 certificate of the line field and independent exact or
 numerical checks of the other finite statements.
 
@@ -7909,6 +8191,12 @@ Bhattacharjee, D., Nath Thakur, S., Bhattacharya, S., Samal, P.: $\SU(n)$ holono
 \bibitem{BK55}
 Biernacki, M., Krzy\.z, J.: On the monotonity of certain functionals in the theory of analytic functions. Ann. Univ. Mariae Curie-Sk{\l}odowska Sect. A \textbf{9}, 135--147 (1955)
 
+\bibitem{Bis09}
+M.~Biskup, Reflection positivity and phase transitions in lattice spin
+models, in \emph{Methods of Contemporary Mathematical Statistical Physics},
+Lecture Notes in Math. 1970, Springer, Berlin, 2009, 1--86,
+\href{https://doi.org/10.1007/978-3-540-92796-9_1}{doi:10.1007/978-3-540-92796-9\_1}.
+
 \bibitem{BFS79}
 Brydges, D., Fr\"ohlich, J., Seiler, E.: On the construction of quantized gauge fields. I. General results. Ann. Phys. \textbf{121}, 227--284 (1979). \href{https://doi.org/10.1016/0003-4916(79)90098-8}{https://doi.org/10.1016/0003-4916(79)90098-8}
 
@@ -7969,6 +8257,12 @@ Eckmann, B.: R{\"a}ume mit Mittelbildungen. Comment. Math. Helv.
 Fulton, W., Harris, J.: Representation Theory: A First Course. Grad. Texts
 in Math., vol.~129. Springer, New York (1991; reprinted 2004).
 \href{https://doi.org/10.1007/978-1-4612-0979-9}{https://doi.org/10.1007/978-1-4612-0979-9}
+
+\bibitem{FILS78}
+J.~Fr\"ohlich, R.~Israel, E.~H. Lieb and B.~Simon, Phase transitions and
+reflection positivity. I. General theory and long range lattice models,
+Comm. Math. Phys. \textbf{62} (1978), 1--34,
+\href{https://doi.org/10.1007/BF01940327}{doi:10.1007/BF01940327}.
 
 \bibitem{FS82}
 Fr\"ohlich, J., Spencer, T.: Massless phases and symmetry restoration in abelian gauge theories and spin systems. Commun. Math. Phys. \textbf{83}, 411--454 (1982). \href{https://doi.org/10.1007/BF01213610}{https://doi.org/10.1007/BF01213610}
