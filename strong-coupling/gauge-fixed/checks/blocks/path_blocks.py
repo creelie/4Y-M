@@ -49,6 +49,12 @@ Parts:
      conditional probability of p_0 being bad, even for rho = 2.5; and on random SU(2) fields with
      localised large links, chi = 1 at every coarse link whose 24 cubes are
      good for rho = 1/12.
+ (J) defects across scales: SU(2) fields of small curvature with a localised
+     large link on the lattice of side 8, one step: every plaquette outside
+     the propagated defect set B_j (coarse plaquettes whose box 2y+[0,4]^4
+     meets B_{j-1}) has |Theta| <= eta_j with eta_{j+1} = 4(1+647 eta_j)eta_j,
+     every plaquette of B_j lies within l-infinity distance 3(2^j-1) of B_0,
+     and the energy outside the defects obeys the bound of the theorem.
 Run: python3 path_blocks.py. Needs numpy."""
 import itertools, math
 import numpy as np
@@ -588,4 +594,58 @@ for rep in range(4):
             else: nfree += 1; good &= chi == 1.0
 print('    coarse links with a bad cube in Z: %d (chi < 1 at %d); without: %d' % (nnear, nact, nfree))
 check('(I) chi = 1 at every coarse link whose 24 cubes are good (rho = 1/12)', good and nfree > 0 and nnear > 0)
+# (J)
+def plaq_pts(x, mu, nu, Sz):
+    return [tuple((np.array(x) + a * E[mu] + b * E[nu]) % Sz) for a in (0, 1) for b in (0, 1)]
+def linf(p, q, Sz):
+    return max(min((p[n] - q[n]) % Sz, (q[n] - p[n]) % Sz) for n in range(d))
+def propagate(Bset, cs):
+    out = set()
+    for y in itertools.product(range(cs // 2), repeat=d):
+        box = {tuple((2 * np.array(y) + np.array(o)) % cs) for o in itertools.product(range(4), repeat=d)}
+        for mu in range(d):
+            for nu in range(mu + 1, d):
+                if any(x in box for (x, m, n) in Bset): out.add((y, mu, nu))
+    return out
+good_def, good_dist, good_E, rows = True, True, True, []
+nonempty = True
+for rep in range(3):
+    g = {x: haar() for x in itertools.product(range(Sz), repeat=d)}
+    c0 = tuple(rng.integers(0, Sz, size=d))
+    U = {}
+    for x in itertools.product(range(Sz), repeat=d):
+        for mu in range(d):
+            big = x == c0 and mu == 0
+            a = rng.normal(size=3) * (0.9 if big else 1e-5)
+            U[(x, mu)] = g[x] @ su2(a) @ inv(g[shz(x, mu, Sz)])
+    eta0 = 4e-4
+    L0 = logs(U, Sz)
+    B = {k for k, Z in L0.items() if nrm(plaq(U, k[0], k[1], k[2], Sz) - I2) > 1 or nrm(Z) > eta0}
+    B0pts = [pt for (x, m, n) in B for pt in plaq_pts(x, m, n, Sz)]
+    Eo0 = sum(nrm(Z) ** 2 for k, Z in L0.items() if k not in B)
+    cur, cs, eta, sgm, Bj = U, Sz, eta0, 0.0, B
+    for j in range(1):
+        nxt, cmin = step(cur, cs); ns = cs // 2
+        Bn = propagate(Bj, cs); sgm += eta; eta = 4 * (1 + 647 * eta) * eta
+        Ln = {}
+        for (y, mu, nu) in itertools.product(itertools.product(range(ns), repeat=d), range(d), range(d)):
+            if mu < nu and (y, mu, nu) not in Bn:
+                P = plaq(nxt, y, mu, nu, ns)
+                good_def &= nrm(P - I2) <= 1 and nrm(slog(P)) <= eta
+                Ln[(y, mu, nu)] = slog(P)
+        scale = 2 ** (j + 1)
+        for (y, mu, nu) in Bn:
+            for pt in plaq_pts(y, mu, nu, ns):
+                fine = tuple(scale * q for q in pt)
+                good_dist &= min(linf(fine, b, Sz) for b in B0pts) <= 3 * (scale - 1)
+        Eo = sum(nrm(Z) ** 2 for Z in Ln.values())
+        good_E &= Eo <= math.exp(12060 * sgm) * Eo0
+        nonempty &= len(Ln) > 0 and len(B) > 0
+        rows.append((rep, j + 1, len(B), len(Bn), max(nrm(Z) for Z in Ln.values()) / eta if Ln else 0.0, Eo / Eo0))
+        cur, cs, Bj = nxt, ns, Bn
+for r in rows:
+    print('    field %d, step %d: |B_0| = %d, |B_j| = %d, max |Theta| off B_j / eta_j = %.3f, E_j off B_j / E_0 off B_0 = %.4f' % r)
+check('(J) off the propagated defects |Theta^(j)| <= eta_j and delta <= 1', good_def and nonempty)
+check('(J) the defects of the j-th iterate lie within 3(2^j - 1) fine spacings of B_0', good_dist)
+check('(J) the energy off the defects obeys E_j <= e^{12060 sigma} E_0', good_E)
 print('%d checks passed, %d failed' % (sum(ok), len(ok) - sum(ok)))

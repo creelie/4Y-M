@@ -485,9 +485,14 @@ plaquettes that are not small lie in clusters whose physical size tends to
 zero in probability, and the cut-off acts only next to them
 (Theorem~\ref{thm:defects}, Corollaries~\ref{cor:defectclusters}
 and~\ref{cor:activelinks}); such plaquettes are nevertheless present along
-the one-loop tuning (Proposition~\ref{prop:manydefects}). Whether some
-block map is coercive for all fields and composes across scales, through
-these clusters, is open.
+the one-loop tuning (Proposition~\ref{prop:manydefects}). The cut-off
+average composes through these clusters, which spread by at most three
+spacings of the current scale per step, up to a coarse spacing of order
+$(\beta_W/\log\beta_W)^{1/4}a$, the order of the cube side that the cube condition
+needs
+(Theorem~\ref{thm:defectscales} and Corollary~\ref{cor:defectscales}).
+Whether some block map is coercive for all fields and composes across the
+remaining scales is open.
 
 \begin{figure}[t]
 \centering
@@ -6631,6 +6636,148 @@ are good by $(1-p)^{M^4}$. With $\beta_W=B\log L+O(1)$ the exponent is of order
 $L^{4-3B}$.
 \end{proof}
 
+The composition of Theorem~\ref{thm:smallscales} is local, so it continues
+across the scales away from the defects, and the defects spread by at most
+three spacings of the current scale at each step. For a coarse plaquette $P$
+at $y$ let $\mathcal B_P$ be the fine box $2y+[0,4]^4$.
+
+\begin{lemma}\label{lem:localstep}
+Let $U$ be a $G$-valued field in the tree gauge and $P$ a coarse plaquette.
+If every plaquette $p$ in $\mathcal B_P$ has $\delta(U_p,I)\le\rho_G$ and
+$\lVert\Theta_p\rVert\le\eta\le\rho_G/1000$, then $\chi=1$ on the four sides
+of $P$, $\delta(V^\sharp(U)_P,I)\le0.03\,\rho_G$, the inequalities
+\eqref{eq:smallstep} hold for $P$, and $\lVert\log V^\sharp(U)_P\rVert\le
+4(1+647\eta)\eta$.
+\end{lemma}
+
+\begin{proof}
+For the plaquette $P$ the proof of Lemma~\ref{lem:smallstep} uses only the
+plaquettes of the surfaces $\mathcal U_\ell$ of the four sides $\ell$ of $P$
+and those of the sixteen squares $\square_{2y+o}$. A plaquette of $\mathcal
+U_\ell$, $\ell=(y_i,\mu_i)$, has its corner $x$ at $x_{\mu_i}-2(y_i)_{\mu_i}
+\in\{0,1,2\}$ and $x_\alpha-2(y_i)_\alpha\in\{0,1\}$ for $\alpha\ne\mu_i$,
+with $y_i\in\{y,y+e_\mu,y+e_\nu\}$; a plaquette of $\square_{2y+o}$ has
+$x-2y\in\{0,1,2\}^4$. So $x-2y\in\{0,1,2,3\}^4$ in every case, and the
+plaquette lies in $\mathcal B_P$. The bounds on $\chi$, on $\delta(V^\sharp_P,
+I)$, the inequalities~\eqref{eq:smallstep} and the bound $\lVert\bar F_P
+\rVert+3.2\,r_P^2\le4(1+647\eta)\eta$ in that proof use only the norms of
+these plaquettes.
+\end{proof}
+
+Let $a$ be the fine spacing and $a_j=2^ja$. Given $\eta_0>0$ put $\eta_{j+1}=
+4(1+647\eta_j)\eta_j$. Let $\mathfrak B_0$ be the set of fine plaquettes with
+$\delta(U_p,I)>\rho_G$ or $\lVert\Theta_p\rVert>\eta_0$, and let $\mathfrak
+B_{j+1}$ be the set of plaquettes $P$ of the lattice of spacing $a_{j+1}$
+whose box $\mathcal B_P$ contains a plaquette of $\mathfrak B_j$. Let
+$E^\circ_j$ and $A^\circ_j$ be the sum of squares and the sum of $\lVert
+\Theta^{(j)}_P\rVert$ over the plaquettes $P\notin\mathfrak B_j$ of the
+$j$-th iterate.
+
+\begin{theorem}\label{thm:defectscales}
+Let $G\subset\U(r)$ be compact and $U$ a $G$-valued field on the periodic
+lattice of side divisible by $2^k$, and suppose that $\eta_j\le\rho_G/1000$
+for $j<k$.
+\begin{enumerate}[label=\textup{(\roman*)},leftmargin=*]
+\item For $j\le k$, every plaquette $P\notin\mathfrak B_j$ of the $j$-th
+iterate has $\delta(U^{(j)}_P,I)\le\rho_G$ and $\lVert\Theta^{(j)}_P\rVert
+\le\eta_j$. For $j<k$ the cut-off is inactive on the sides of every
+plaquette outside $\mathfrak B_{j+1}$, and~\eqref{eq:smallstep} holds
+there.
+\item Every point of a plaquette of $\mathfrak B_j$ lies within $\ell^\infty$
+distance $3(a_j-a)$ of a plaquette of $\mathfrak B_0$.
+\item With $\sigma=\sum_{j<k}\eta_j$,
+\[
+E^\circ_k\le e^{12060\sigma}E^\circ_0,\qquad A^\circ_k\le e^{9147
+\sigma}4^{-k}A^\circ_0 .
+\]
+\item If $4^k\eta_0\le10^{-4}\rho_G$, the hypothesis holds, $\eta_j\le1.023
+\cdot4^j\eta_0$ for $j\le k$, $\sigma\le0.35\cdot4^k\eta_0$, and
+$E^\circ_k\le1.53\,E^\circ_0$.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+(i) By induction on $j$. If $P\notin\mathfrak B_{j+1}$, no plaquette of
+$\mathcal B_P$ lies in $\mathfrak B_j$, so by the induction hypothesis all of
+them have $\delta\le\rho_G$ and norm at most $\eta_j\le\rho_G/1000$.
+Lemma~\ref{lem:localstep}, applied to the $j$-th iterate in the tree gauge,
+gives $\delta(U^{(j+1)}_P,I)\le0.03\,\rho_G$ and $\lVert\Theta^{(j+1)}_P
+\rVert\le\eta_{j+1}$; the gauge fixing between steps does not change these
+norms.
+
+(ii) Let $P$ at $y$ lie in $\mathfrak B_{j+1}$, and let $p\in\mathfrak B_j$
+lie in $\mathcal B_P$, with corner $x$, $x-2y\in\{0,1,2,3\}^4$. In units of
+$a_j$ every coordinate of a point of $P$ lies in $[2y_c,2y_c+2]$, and $p$
+contains a point whose coordinates are $x_c$ or lie in $[x_c,x_c+1]$; so the
+two are at distance at most $3$ in each coordinate. Hence every point of a
+plaquette of $\mathfrak B_{j+1}$ is within $3a_j$ of a plaquette of
+$\mathfrak B_j$, and $\sum_{i<j}3a_i=3(a_j-a)$.
+
+(iii) Repeat the part \emph{Sums} of the proof of Lemma~\ref{lem:smallstep}
+with the plaquettes $P\notin\mathfrak B_{j+1}$ only. Their squares
+$\square_{2y+o}$ and surfaces $\mathcal U_\ell$ consist of plaquettes outside
+$\mathfrak B_j$, so the same counts give $\sqrt{E^\circ_{j+1}}\le(1+6030
+\eta_j)\sqrt{E^\circ_j}$ and $A^\circ_{j+1}\le(1+9147\eta_j)A^\circ_j/4$,
+and $1+t\le e^t$.
+
+(iv) The recursion gives $\eta_j\le e^{647\sigma_j}4^j\eta_0$ with $\sigma_j=
+\sum_{i<j}\eta_i$. Suppose $\sigma_j\le0.35\cdot4^j\eta_0$, which holds at
+$j=0$. Then $\sigma_j\le3.5\cdot10^{-5}$, $e^{647\sigma_j}\le1.023$,
+$\eta_j\le1.023\cdot4^j\eta_0\le1.023\cdot10^{-4}\rho_G$, and $\sigma_{j+1}
+\le1.373\cdot4^j\eta_0\le0.35\cdot4^{j+1}\eta_0$. Finally $e^{12060\cdot
+3.5\cdot10^{-5}}\le1.53$.
+\end{proof}
+
+Under the Wilson measure the defects of Theorem~\ref{thm:defectscales} are
+the bad plaquettes of Theorem~\ref{thm:defects}. For $\SU(2)$, $\rho_G=1$;
+a plaquette with $\delta(U_p,I)=2\sqrt2\sin(\theta/2)\le\rho\le\frac1{10}$
+has $\lVert\Theta_p\rVert=\sqrt2\,\theta\le1.01\,\delta(U_p,I)$, so with
+$\eta_0=1.01\rho$ every plaquette of $\mathfrak B_0$ is bad, and lies in a
+bad cube.
+
+\begin{corollary}\label{cor:defectscales}
+Let $G=\SU(2)$, $C_1=C_0+\frac16\log12800$, and for $\beta_W\ge1$ let
+$\rho(\beta_W)$ be given by $\rho^2=96(\log\beta_W+C_1)/\beta_W$, so that
+$6400\,q_\rho(\beta_W)=\frac12$. Let $k_*$ be the largest integer with
+$4^{k_*}\cdot1.01\rho\le10^{-4}$. If $1.01\rho\le10^{-4}$, then $k_*\ge0$,
+\[
+a_{k_*}\ge1.5\cdot10^{-3}\Bigl(\frac{\beta_W}{\log\beta_W+C_1}\Bigr)^{1/4}a,
+\]
+and with $\mu_L$-probability at least $1-L^42^{-r}$ every connected cluster
+of bad cubes has fewer than $r$ cubes, while for every $j\le k_*$ the
+defects of the $j$-th iterate lie within $\ell^\infty$ distance $3a_j$ of
+these clusters and the iterate satisfies Theorem~\ref{thm:defectscales}(i),
+(iii) with $E^\circ_{k_*}\le1.53\,E^\circ_0$. Along the limits of
+Corollary~\ref{cor:defectclusters} with $a\,\rho(\beta_W)^{-1/2}\to0$, which
+holds along the one-loop tuning, the defects of all iterates up to the
+spacing $a_{k_*}$ lie, with probability tending to one, within clusters of
+physical size tending to $0$.
+\end{corollary}
+
+\begin{proof}
+With this $\rho$, $q_\rho(\beta_W)=\exp(-\log12800)$, and
+Corollary~\ref{cor:defectclusters} gives the probability of a connected set
+of $r$ bad cubes at most $L^4(6400q)^r=L^42^{-r}$. By maximality, $4^{k_*+1}
+\cdot1.01\rho>10^{-4}$, so $2^{k_*}>\frac12\cdot10^{-2}(1.01\rho)^{-1/2}$,
+and $\rho^{-1/2}=96^{-1/4}(\beta_W/(\log\beta_W+C_1))^{1/4}$ with $96^{1/4}
+<3.14$. The rest is Theorem~\ref{thm:defectscales} with $\eta_0=1.01\rho$,
+whose hypothesis holds by part (iv), and $\mathfrak B_0$ contained in the bad
+cubes; the bound $\lVert\Theta_p\rVert\le1.01\,\delta(U_p,I)$ applies since
+$\rho\le\frac1{10}$. For the limits take $r=\lceil8\log_2L\rceil$, so that
+$L^42^{-r}\le L^{-4}$ and $ra\to0$ for a torus of fixed physical side $La$.
+The defects then lie in sets of physical diameter at most $ra+6a_{k_*}$, and
+$a_{k_*}\le10^{-2}(1.01\rho)^{-1/2}a\to0$.
+\end{proof}
+
+The scale $a_{k_*}$ is of the order $(\beta_W/\log\beta_W)^{1/4}a$, the
+order of the cube side that the condition (D) needs by
+Proposition~\ref{prop:cubesizeN}. So the cut-off average carries the field
+through the defects of the Wilson measure, without spreading them, up to
+the scale at which (D) can first hold, but not beyond: past $a_{k_*}$ the
+bound $\eta_j\le1.023\cdot4^j\eta_0$ no longer keeps the curvature small.
+Along the one-loop tuning $\beta_W$ grows like $\log L$, so $k_*$ grows like
+$\frac14\log_2\log L$, a vanishing fraction of the $\log_2L$ scales.
+
 The joint bound of Theorem~\ref{thm:defects} is not a conditional one,
 and (D) needs a supremum over boundary conditions. The two differ
 genuinely. Fix a link $e$ and a plaquette $p_0$ through it. Put all
@@ -6642,8 +6789,8 @@ probability tending to $1$ as $\beta_W\to\infty$, for every $\rho<2
 \sqrt2$. Nearby exteriors behave the same way. So the clusters of
 Corollary~\ref{cor:defectclusters} are small in probability, but the
 boundary response of a cube to a frustrated exterior is not small, and the
-composition near the bad clusters and the conditional estimate in (D)
-remain open.
+composition beyond the scale $a_{k_*}$ of Corollary~\ref{cor:defectscales}
+and the conditional estimate in (D) remain open.
 
 \section*{Acknowledgements}
 
@@ -6675,7 +6822,7 @@ Lemma~\ref{lem:vmfconst}, which are computations in interval arithmetic with
 rigorous error bounds. The programs of these steps, in Python with
 python-flint (FLINT and Arb) and a C kernel for products of Taylor
 polynomials, their outputs and the list of certified boxes are in the
-repository \url{https://github.com/creelie/4Y-M}, release v4.8.0, together
+repository \url{https://github.com/creelie/4Y-M}, release v4.9.0, together
 with a Lean~4 certificate of the line field and independent exact or
 numerical checks of the other finite statements.
 
