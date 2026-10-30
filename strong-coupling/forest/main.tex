@@ -480,8 +480,10 @@ two. Its quadratic approximation then holds at every coupling once the cube
 is large (Theorem~\ref{thm:constrainedcube}), and integrating out one scale
 reduces it to a cube condition for the averages, which carry the coarse
 quadratic form at every scale up to a factor between $1$ and $256$ that does
-not depend on the scale (Corollary~\ref{cor:compose},
-Proposition~\ref{prop:effective} and Theorem~\ref{thm:effectiveupper}); the averages along the lines of the forest
+not depend on the scale, with an exponentially decaying kernel whose
+constants do not depend on the scale either (Corollary~\ref{cor:compose},
+Proposition~\ref{prop:effective}, Theorems~\ref{thm:effectiveupper}
+and~\ref{thm:effectivelocal}); the averages along the lines of the forest
 gauge, by contrast, leave one class of lines invisible and fail at every size
 (Proposition~\ref{prop:invisible}). For the group-valued links, the straight
 path between block roots gives a coarse link whose fibres satisfy a
@@ -5129,8 +5131,9 @@ at every coupling once the cube is large (Theorem~\ref{thm:constrainedcube}).
 Integrating out one scale bounds the cube coefficients by the constrained
 ones plus those of the averages (Corollary~\ref{cor:compose}), and the
 averages carry the coarse quadratic form at every scale up to a factor
-between $1$ and $256$ (Proposition~\ref{prop:effective} and
-Theorem~\ref{thm:effectiveupper}). For the group-valued links themselves,
+between $1$ and $256$, through forms that are local uniformly in the scale
+(Proposition~\ref{prop:effective} and Theorems~\ref{thm:effectiveupper}
+and~\ref{thm:effectivelocal}). For the group-valued links themselves,
 the straight paths between block roots satisfy a coercivity bound for all
 fields but do not compose, a continuous covariant map cannot treat the
 transverse positions alike, and a cut-off of Ba{\l}aban's averaging operation
@@ -5688,8 +5691,227 @@ whose symbol has modulus $1/L$ at $\theta=\pi$ (Fig.~\ref{fig:whitney}(b)). In f
 point, on a grid of $12^4$ momenta, the largest ratio of $S_k$ to $Q_k$ on
 curvatures is $3.9$, $7.8$ and $10.2$ for $k=1,2,3$, and the kernel of $S_k$
 decreases by the factors $0.17$, $0.23$ and $0.25$ per coarse spacing; these
-values are reproduced in the archive. The theorem gives no decay, and the
-localisation of $S_k$ uniformly in $k$ remains open.
+values are reproduced in the archive.
+The theorem gives no decay. The decay comes from an exact formula for $S_k$
+in Fourier variables: in a Feynman gauge for the fine field the effective
+form is diagonal in the six planes, and the pole of the fine propagator at
+zero momentum cancels between numerator and denominator.
+
+For $t\in\C$ put $D_L(t)=\frac1L\sum_{j=0}^{L-1}e^{ijt}$, and for
+$\vartheta\in\C^4$ put $\Psi(\vartheta)=\prod_\nu D_L(\vartheta_\nu)$,
+$E_\mu(\vartheta)=e^{i\vartheta_\mu}-1$ and $\varepsilon(\vartheta)=
+\sum_\nu(2-2\cos\vartheta_\nu)$. For an entire function $f$ let
+$f^\sharp(\vartheta)=\overline{f(\bar\vartheta)}$, so that $ff^\sharp=|f|^2$
+on real arguments. For $\theta\in\C^4$ and $n\in\{0,\dots,L-1\}^4$ let
+$\theta^{(n)}=(\theta+2\pi n)/L$; every function below is $2\pi$-periodic in
+each coordinate of $\theta^{(n)}$, and we take the real parts of these
+coordinates in $[-\pi,\pi]$. Write $\Psi_n=(\Psi\Psi^\sharp)(\theta^{(n)})$,
+$D_{n,\sigma}=(D_LD_L^\sharp)(\theta^{(n)}_\sigma)$, and put
+\begin{gather*}
+A_\sigma=\Psi_0D_{0,\sigma},\qquad\hat\varepsilon=L^2\varepsilon(
+\theta^{(0)}),\qquad\tilde a_\sigma=A_\sigma+\hat\varepsilon r_\sigma,\\
+r_\sigma=\sum_{n\ne0}\frac{\Psi_nD_{n,\sigma}}{L^2\varepsilon(\theta^{(n)})},
+\end{gather*}
+\begin{equation}\label{eq:Yk}
+\begin{split}
+Y={}&\Psi_0^3\prod_\tau D_{0,\tau}\\
+&+\sum_\sigma E_\sigma E^\sharp_\sigma\sum_{\emptyset\ne J\subset\{1,2,3,4\}
+\setminus\{\sigma\}}\hat\varepsilon^{|J|-1}\prod_{\tau\in J}r_\tau
+\prod_{\tau\notin J\cup\{\sigma\}}A_\tau ,
+\end{split}
+\end{equation}
+all functions of $\theta$, and for a plane $P=\{\lambda,\rho\}$
+\[
+K_P=\frac{\prod_{\sigma\notin P}\tilde a_\sigma}{Y}.
+\]
+For $L=1$ these are $\tilde a_\sigma=Y=K_P=1$. For a coarse field $w$ let
+$\hat w(\theta)=\sum_ye^{-i\theta\cdot y}w_y$, and let $F_P=(dw)_P$ be its
+curvature in the plane $P$, a function of the coarse sites.
+
+\begin{lemma}\label{lem:planes}
+Let $\gamma_1,\dots,\gamma_4>0$, $\Gamma=\mathrm{diag}(\gamma_\mu)$ and
+$0\ne E\in\C^4$, and for $P=\{\lambda,\rho\}$, $\lambda<\rho$, let $c_P$ be
+the row vector with $c_Pv=E_\lambda v_\rho-E_\rho v_\lambda$. Then
+\[
+\Gamma-\frac{\Gamma EE^*\Gamma}{E^*\Gamma E}
+=\frac1{E^*\Gamma E}\sum_P\gamma_\lambda\gamma_\rho\,c_P^*c_P .
+\]
+\end{lemma}
+
+\begin{proof}
+Both sides are Hermitian. The diagonal entry $(\mu,\mu)$ of the right side
+is $\sum_{\lambda\ne\mu}\gamma_\mu\gamma_\lambda|E_\lambda|^2/E^*\Gamma E$,
+which is $\gamma_\mu-\gamma_\mu^2|E_\mu|^2/E^*\Gamma E$; the entry
+$(\mu,\nu)$, $\mu\ne\nu$, comes only from $P=\{\mu,\nu\}$, where
+$c_P$ has $-E_\nu$ in place $\mu$ and $E_\mu$ in place $\nu$, and equals
+$-\gamma_\mu\gamma_\nu\bar E_\mu E_\nu/E^*\Gamma E$.
+\end{proof}
+
+\begin{theorem}\label{thm:effectivelocal}
+Let $k\ge1$ and $L=2^k$.
+\begin{enumerate}[label=\textup{(\roman*)},leftmargin=*]
+\item The functions $K_P$ are real-analytic, even, $2\pi$-periodic and
+positive on $\R^4$, $K_P(0)=1$, and for every finitely supported field $w$
+on the coarse links
+\[
+S_k(w)=\sum_P\int_{[-\pi,\pi]^4}K_P(\theta)\,|\hat F_P(\theta)|^2\,
+\frac{d\theta}{(2\pi)^4}.
+\]
+\item There are $\eta>0$ and $C<\infty$, independent of $k$, such that
+every $K_P$ extends analytically to $\{|\mathrm{Im}\,\theta_\nu|\le\eta\}$ and
+is bounded there by $C$.
+\item Hence $S_k(w)=\sum_P\sum_{y,y'}\mathcal K_P(y-y')F_P(y)F_P(y')$ with
+real kernels $\mathcal K_P(y)=(2\pi)^{-4}\int K_P(\theta)e^{i\theta\cdot y}\,
+d\theta$ that satisfy $|\mathcal K_P(y)|\le Ce^{-\eta|y|_1}$ for every $k$.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+\emph{Step 1: the form in Fourier variables.} Let $c_\mu(q)=L\Psi(q)
+D_L(q_\mu)$. Lemma~\ref{lem:straightpaths}(i) and the Poisson summation
+formula give, for every square-summable field $\varphi$,
+\[
+\widehat{V^{(k)}(\varphi)}_\mu(\theta)=L^{-4}\sum_nc_\mu(\theta^{(n)})\,
+\hat\varphi_\mu(\theta^{(n)}),
+\]
+with $\hat\varphi(q)=\sum_xe^{-iq\cdot x}\varphi_x$. Write $x_n=\hat\varphi(
+\theta^{(n)})\in\C^4$ and $e_n=(e^{i\theta^{(n)}_\mu}-1)_\mu$, so that
+$|e_n|^2=\varepsilon(\theta^{(n)})=:\varepsilon_n$. By the Lagrange identity
+the plaquette form at the momentum $\theta^{(n)}$ is $\varepsilon_n|x_n|^2-
+|e_n^*x_n|^2$, and the Plancherel formula gives
+\[
+Q(\varphi)=\int_{[-\pi,\pi]^4}L^{-4}\sum_n\bigl(\varepsilon_n|x_n|^2-
+|e_n^*x_n|^2\bigr)\frac{d\theta}{(2\pi)^4}.
+\]
+Since $LD_L(t)(e^{it}-1)=e^{iLt}-1$ and $e^{iL\theta^{(n)}_\mu}=
+e^{i\theta_\mu}$, the averages map the gauge direction at every alias to the
+coarse gauge direction: $c_\mu(\theta^{(n)})(e_n)_\mu=\Psi(\theta^{(n)})
+E_\mu(\theta)$. For $|t|\le\pi/L$ we have $|D_L(t)|=|\sin(Lt/2)|/
+(L|\sin(t/2)|)\ge2/\pi$, so $\Psi(\theta^{(0)})\ne0$ for real $\theta$.
+
+\emph{Step 2: the minimum at one momentum.} Fix real $\theta\notin2\pi
+\Z^4$; then $E=E(\theta)\ne0$ and every $\varepsilon_n>0$. Let $z\in\C^4$.
+Minimising $L^{-4}\sum_n\varepsilon_n|y_n|^2$ under $L^{-4}\sum_nc_\mu(
+\theta^{(n)})(y_n)_\mu=z_\mu$ separates in $\mu$, and the Cauchy--Schwarz
+inequality gives the minimum $\sum_\mu|z_\mu|^2/a_\mu$, attained at
+$(y_n)_\mu=z_\mu\overline{c_\mu(\theta^{(n)})}/(\varepsilon_na_\mu)$,
+where
+\[
+a_\mu=L^{-4}\sum_n\frac{|c_\mu(\theta^{(n)})|^2}{\varepsilon_n}
+=\frac{\tilde a_\mu}{\hat\varepsilon}.
+\]
+If $x$ satisfies the constraint with right side $\hat w(\theta)$, write $x_n=
+x_n^T+\beta_ne_n$ with $e_n^*x_n^T=0$. Then $L^{-4}\sum_n(\varepsilon_n
+|x_n|^2-|e_n^*x_n|^2)=L^{-4}\sum_n\varepsilon_n|x^T_n|^2$, and by Step 1 the
+vectors $x^T_n$ satisfy the constraint with right side $\hat w(\theta)+tE$
+for some $t\in\C$. Hence the plaquette form at $\theta$ is at least
+\[
+\min_{t\in\C}\sum_\mu\frac{|\hat w_\mu+tE_\mu|^2}{a_\mu}
+=\hat w^*\Bigl(\Gamma-\frac{\Gamma EE^*\Gamma}{E^*\Gamma E}\Bigr)\hat w
+\]
+with $\Gamma=\mathrm{diag}(a_\mu^{-1})$. Conversely, take $t$ optimal, $y$ optimal for $z=\hat w+tE$, and replace
+$y_0$ by $y_0-\beta e_0$ with $\beta=L^4t/\Psi(\theta^{(0)})$: the constraint
+becomes $\hat w(\theta)$ and the plaquette form does not increase, since
+$e_0$ is a gauge direction. By Lemma~\ref{lem:planes} the minimum is
+\[
+\sum_P\frac{\gamma_\lambda\gamma_\rho}{E^*\Gamma E}|c_P\hat w|^2,\qquad
+\frac{\gamma_\lambda\gamma_\rho}{E^*\Gamma E}=\frac{\prod_{\sigma\notin P}
+a_\sigma}{\sum_\sigma|E_\sigma|^2\prod_{\tau\ne\sigma}a_\tau}.
+\]
+We multiply numerator and denominator by $\hat\varepsilon^3$ and expand
+$\tilde a_\tau=A_\tau+\hat\varepsilon r_\tau$. The terms without $r$ add up
+to $\Psi_0^3\prod_\tau D_{0,\tau}\sum_\sigma|E_\sigma|^2/D_{0,\sigma}$,
+and $|E_\sigma|^2=L^2D_{0,\sigma}|e^{i\theta^{(0)}_\sigma}-1|^2$ by the
+identity of Step 1, so they equal $\hat\varepsilon\,\Psi_0^3\prod_\tau
+D_{0,\tau}$; every other term carries a factor $\hat\varepsilon$. So the
+denominator is $\hat\varepsilon Y$, the numerator $\hat\varepsilon\prod_{
+\sigma\notin P}\tilde a_\sigma$, and the quotient is $K_P(\theta)$. Since
+$|c_P\hat w|=|\hat F_P|$, the minimum at $\theta$ is $\sum_PK_P(\theta)|\hat F_P(
+\theta)|^2$.
+
+\emph{Step 3: integration.} Integrating the lower bound over $\theta$ gives
+$Q(\varphi)\ge\sum_P\int K_P|\hat F_P|^2$ for every square-summable
+$\varphi$ with $V^{(k)}(\varphi)=w$. The minimisers of Step 2 are bounded by
+a constant times $|\hat w(\theta)|$: for $n\ne0$ because $\varepsilon_n\ge
+4/L^2$ and $a_\mu\ge A_\mu/\hat\varepsilon$; for $n=0$ because
+$|c_\mu(\theta^{(0)})|/(\varepsilon_0a_\mu)\le L^3/A_\mu$; and $|t||E|\le
+|\hat w|(\max\gamma/\min\gamma)^{1/2}$ by the Cauchy--Schwarz inequality for
+the inner product $\Gamma$, while $|e_0|\le|\theta|/L\le\frac\pi2|E|/L$.
+Here $A_\mu\ge(2/\pi)^{10}$, and $\gamma_\mu/\gamma_\nu=\tilde a_\nu/
+\tilde a_\mu$ is bounded because the $\tilde a$ are continuous and at least
+$A$. So the minimisers define a square-summable field $\varphi^*$ with
+$V^{(k)}(\varphi^*)=w$ and $Q(\varphi^*)=\sum_P\int K_P|\hat F_P|^2$.
+Since $V^{(k)}$ and $Q$ are bounded on square-summable fields, truncating
+$\varphi^*$ and correcting with $\psi_R$ as in the proof of
+Theorem~\ref{thm:effectiveupper} gives finitely supported fields with the
+same averages and plaquette forms tending to $Q(\varphi^*)$, and
+Lemma~\ref{lem:straightpaths}(iii) gives (i) for $S_k$. The functions are
+even since $|D_L|^2$ and $\varepsilon$ are, and positive since $\tilde
+a_\sigma\ge A_\sigma>0$ and $Y\ge\Psi_0^3\prod_\tau D_{0,\tau}\ge
+(2/\pi)^{32}$ on $\R^4$, all other terms of~\eqref{eq:Yk} being non-negative
+there. At $\theta=0$, $\Psi_0=D_{0,\tau}=1$ and $\hat\varepsilon=0$, so
+$K_P(0)=1$.
+
+\emph{Step 4: the strip.} Let $|\mathrm{Im}\,\theta_\nu|\le\frac12$, and for
+$n$ let $s=L\theta^{(n)}$, so $|\mathrm{Re}\,s_\nu|\le\pi L$ and
+$|\mathrm{Im}\,s_\nu|\le\frac12$. For $q=x+iy$ with $|x|\le\pi$,
+$|e^{iq}-1|^2=(e^{-y}-1)^2+2e^{-y}(1-\cos x)\ge e^{-|y|}\frac4{\pi^2}x^2$,
+so
+\[
+|D_L(q)|\le\min\Bigl(e^{1/2},\frac{c_1}{|\mathrm{Re}\,Lq|}\Bigr)
+\]
+for $|\mathrm{Im}\,q|\le1/(2L)$, where $c_1=(e^{1/2}+1)e^{1/4}\frac\pi2<5.35$, and the same holds for $D_L^\sharp$. Also
+$\mathrm{Re}(2-2\cos q)\ge(2-2\cos x)-2(\cosh y-1)$, so
+$\mathrm{Re}\,L^2\varepsilon(\theta^{(n)})\ge\frac4{\pi^2}|\mathrm{Re}\,
+s|^2-1.2$. For $n\ne0$ some $|\mathrm{Re}\,s_\nu|\ge\pi$, and then
+$|L^2\varepsilon(\theta^{(n)})|\ge0.28\,|\mathrm{Re}\,s|^2$. Writing
+$s=\theta+2\pi m$ with $m\in\Z^4\setminus\{0\}$, $|\mathrm{Re}\,s_\nu|\ge
+\pi|m_\nu|$, and
+\[
+|r_\sigma|\le\frac{c_1^{10}}{0.28\,\pi^2}\sum_{m}\prod_\nu
+f(m_\nu)=\frac{c_1^{10}}{0.28\,\pi^2}\Bigl(\frac43\Bigr)^4
+<2.2\cdot10^7,
+\]
+with $f(0)=1$ and $f(j)=1/(\pi j)^2$. The $r_\sigma$ are finite sums of
+functions analytic on the strip, since no $\varepsilon(\theta^{(n)})$,
+$n\ne0$, vanishes there. Further $|A_\sigma|\le e^5$, $|\hat\varepsilon|
+\le4(\pi^2+\frac14)e^{1/2}<70$ and $|E_\sigma E_\sigma^\sharp|\le
+(e^{1/2}+1)^2<7.1$, so on the strip $|Y|\le M=10^{28}$ and $|\tilde
+a_\sigma|\le1.6\cdot10^9$, uniformly in $k$. By the Cauchy estimate on
+discs of radius $\frac14$ in each variable, $|\partial_\nu Y|\le4M$ where
+$|\mathrm{Im}\,\theta|\le\frac14$, so $|Y(\theta)-Y(\mathrm{Re}\,\theta)|\le
+16\eta M\le\frac12(2/\pi)^{32}$ for $|\mathrm{Im}\,\theta_\nu|\le\eta=
+10^{-36}$. There $|Y|\ge\frac12(2/\pi)^{32}$, $K_P=\prod_{\sigma\notin P}
+\tilde a_\sigma/Y$ is analytic, and $|K_P|\le C=10^{26}$, which is (ii).
+Moving the contour of each $\theta_\nu$ to $\mathrm{Im}\,\theta_\nu=
+\pm\eta$, according to the sign of $y_\nu$, gives (iii); the kernels are
+real because $K_P$ is real and even.
+\end{proof}
+
+The proof makes $\eta$ explicit but very small. In floating point the
+kernels decrease much faster: $\max|\mathcal K_P(y)|$ over $|y|_1=d$ falls
+by factors $0.17$, $0.24$ and $0.26$ per unit of $d$ for $k=1,2,3$, the largest value of
+$K_P$ on $\R^4$ is $4.4$, $8.7$ and $11.3$, and its smallest value is $1$, attained at
+$\theta=0$ (Fig.~\ref{fig:locality}); these computations are reproduced in
+the archive. Each $K_P$ is a Riemann sum in $n$ of a function of
+$\theta+2\pi n$, so the kernels have a limit as $k\to\infty$; the theorem
+does not use it. Uniform decay of the propagators of the averaging
+operations of lattice gauge theories is the subject of Ba{\l}aban's
+work~\cite{Bal84a}; here the hard constraint and the Feynman gauge make the
+effective form itself explicit. Together with Theorem~\ref{thm:effectiveupper},
+the effective forms of the quadratic approximation are equivalent to the
+coarse plaquette forms and local, with constants independent of the scale.
+
+\begin{figure*}[t]
+\centering
+\includegraphics[width=0.95\textwidth]{figures/fig_locality.png}
+\caption{The effective forms of Theorem~\ref{thm:effectivelocal}.
+(a)~The multiplier $K_P$ for the plane $P=\{1,2\}$ at $k=3$, as a function of
+$(\theta_3,\theta_4)$ with $\theta_1=\theta_2=0$; it equals $1$ at $\theta=0$
+and stays bounded. (b)~The largest value of the kernel $|\mathcal K_P(y)|$
+on $|y|_1=d$ for $k=1,2,3$, in logarithmic scale: the decay per coarse
+spacing hardly changes with $k$.}\label{fig:locality}
+\end{figure*}
 
 \begin{lemma}\label{lem:mixture}
 Let $(X,d_X)$ and $(Y,d_Y)$ be Polish spaces, $\rho,\rho'$ Borel probability
@@ -5766,7 +5988,8 @@ Theorem~\ref{thm:constrainedcube} controls the first term at every coupling,
 the corollary reduces $D(n,\alpha)$ for a law that decomposes along the
 averages to the cube condition $K^\rho_c$ for its averages, a problem of the
 same form one scale up, in the metric $d_L$. Iterating it needs the
-localisation of Theorem~\ref{thm:constrainedcube}(ii) for $S_k$ and ends in
+localisation of Theorem~\ref{thm:constrainedcube}(ii) for $S_k$, of which
+Theorem~\ref{thm:effectivelocal} gives the locality of $S_k$ itself, and ends in
 a cube condition for the coarsest averages, which is where a gap has to come
 from: the quadratic approximation describes a massless field and has none.
 The corollary is one step of the composition of
@@ -5783,8 +6006,8 @@ at all scales with a cube condition for the coarsest averages, in the place
 of Theorem~\ref{thm:transfer}. Corollary~\ref{cor:compose} is one step of
 it, Proposition~\ref{prop:effective}(iv) gives the gap at every scale, and
 Theorem~\ref{thm:effectiveupper} the equivalence of $S_k$ and $Q_k$
-uniformly in $k$; the localisation of $S_k$ uniformly in $k$ and a cube
-condition for the coarsest averages are open.
+uniformly in $k$, and Theorem~\ref{thm:effectivelocal} the locality of $S_k$
+uniformly in $k$; a cube condition for the coarsest averages is open.
 \item \emph{Beyond the quadratic approximation.} For the Wilson measure the
 block averages are products of group elements along paths, their level sets
 are curved, and the Bakry--\'Emery tensor of Sec.~\ref{sec:curvature} is
@@ -7042,7 +7265,7 @@ Lemma~\ref{lem:vmfconst}, which are computations in interval arithmetic with
 rigorous error bounds. The programs of these steps, in Python with
 python-flint (FLINT and Arb) and a C kernel for products of Taylor
 polynomials, their outputs and the list of certified boxes are in the
-repository \url{https://github.com/creelie/4Y-M}, release v4.10.0, together
+repository \url{https://github.com/creelie/4Y-M}, release v4.11.0, together
 with a Lean~4 certificate of the line field and independent exact or
 numerical checks of the other finite statements.
 
