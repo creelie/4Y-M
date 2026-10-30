@@ -81,8 +81,12 @@ uniformly in k (Whitney extension with nodes at the block centres); Proposition 
 averages carry at least the coarse quadratic form at every scale; Theorem
 "effectivelocal": in Feynman gauge S_k is a sum over the six planes of
 convolution forms in the coarse curvature with kernels |K_P(y)| <= C e^{-η|y|_1},
-C and η independent of k). Iterating needs a cube condition for the coarsest
-averages; this, the large fields and the crossover are open. For the group-valued links the straight path between
+C and η independent of k; Theorem "constrainedscales": the constrained cube
+condition D_c(n,α) for the Gaussian with form S_k holds for n ≥ 10^827/α at
+every scale k, and Corollary "compose" holds at every scale, constants
+independent of k). Turning the cube condition for the averages into that of
+the law one scale up, the cube condition for the coarsest averages, the large
+fields and the crossover are open. For the group-valued links the straight path between
 block roots gives a coercivity bound D_v² ≤ 224 Q for all fields (subsection
 "Path blocks"), but that map does not compose across scales (thin paths),
 and for every compact connected group no continuous covariant block map treats the transverse
