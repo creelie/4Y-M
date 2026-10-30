@@ -38,6 +38,17 @@ Parts:
      the cut-off is inactive, the coarse plaquette logarithm is the mean of the
      sixteen 2x2 square logarithms up to 3.2 r_P^2 with r_P <= 28.26 eta, and
      the growth bounds of sqrt E, A and eta of the nonabelian step hold.
+ (I) large fields under the SU(2) Wilson measure: on the torus of side 8 a
+     plaquette lies in exactly four unit cubes, a cube has 24 plaquettes and
+     80 neighbours, Z_{y,mu} has 24 cubes and a cube lies in Z_{y,mu} for at
+     most eight coarse links; the constants C_0, 4 8 4 24 144 <= 4.5e5 and
+     8 b_0 = 11/(3 pi^2) < 4/3; the link-angle bound 1/(24 pi^3 beta^{3/2}) and
+     the one-link tail p = v_* e^{-3 beta} by quadrature, with the cap
+     probability decreasing in the distance of the centre and increasing in
+     kappa; the staple sum -4I of the frustrated exterior on a lattice and the
+     conditional probability of p_0 being bad, even for rho = 2.5; and on random SU(2) fields with
+     localised large links, chi = 1 at every coarse link whose 24 cubes are
+     good for rho = 1/12.
 Run: python3 path_blocks.py. Needs numpy."""
 import itertools, math
 import numpy as np
@@ -454,4 +465,127 @@ for r in rows:
 check('(H) nonabelian small fields: cut-off inactive and |log V#_P - Fbar_P| <= 3.2 r_P^2, r_P <= 28.26 eta', good_lem)
 check('(H) sqrt E grows by at most 1 + 6030 eta, A by (1/4)(1 + 9147 eta), eta by 4(1 + 647 eta)', good_steps)
 check('(H) the nonabelian error term is present (max err/(3.2 r^2) > 0)', max(r[6] for r in rows) > 1e-4)
+# (I)
+def quad(f, a, b, n=20000):
+    t = np.linspace(a, b, n + 1); w = np.full(n + 1, 2.0); w[0] = w[-1] = 1; w[1:-1:2] = 4
+    return float(np.sum(w * f(t)) * (b - a) / (3 * n))
+Lt = 8
+cubes = list(itertools.product(range(Lt), repeat=d))
+def cube_plaqs(z):
+    out = set()
+    for w in itertools.product(range(2), repeat=d):
+        for mu in range(d):
+            for nu in range(mu + 1, d):
+                if w[mu] == 0 and w[nu] == 0:
+                    out.add((tuple((np.array(z) + w) % Lt), mu, nu))
+    return out
+cp = {z: cube_plaqs(z) for z in cubes}
+inc = {}
+for z, P in cp.items():
+    for p in P: inc[p] = inc.get(p, 0) + 1
+check('(I) a unit cube has 24 plaquettes and a plaquette lies in exactly 4 unit cubes',
+      all(len(P) == 24 for P in cp.values()) and set(inc.values()) == {4} and len(inc) == 6 * Lt ** 4)
+nb = len([w for w in itertools.product((-1, 0, 1), repeat=d) if any(w)])
+check('(I) a unit cube has 80 neighbours at l-infinity distance one', nb == 80 and 80 ** 2 <= 6400)
+def Zset(y, mu):
+    return {tuple((2 * np.array(y) + t * E[mu] + np.array(w)) % Lt) for t in range(3)
+            for w in itertools.product(range(2), repeat=d) if w[mu] == 0}
+Zs = {(y, mu): Zset(y, mu) for y in itertools.product(range(Lt // 2), repeat=d) for mu in range(d)}
+cnt = {}
+for k, Z in Zs.items():
+    for z in Z: cnt[z] = cnt.get(z, 0) + 1
+check('(I) |Z_{y,mu}| = 24 and a cube lies in Z_{y,mu} for at most 8 coarse links',
+      all(len(Z) == 24 for Z in Zs.values()) and max(cnt.values()) <= 8)
+C0 = 0.5 + 2 / 3 * math.log(24 * math.pi ** 3)
+b0 = 11 * 2 / (48 * math.pi ** 2)
+print('    C_0 = %.4f, 4*8*4*24*144 = %d, 8 b_0 = %.4f' % (C0, 4 * 8 * 4 * 24 * 144, 8 * b0))
+check('(I) 4*8*4*24*144 <= 4.5e5 and the one-loop slope 8 b_0 = 11/(3 pi^2) is below 4/3',
+      4 * 8 * 4 * 24 * 144 <= 4.5e5 and abs(8 * b0 - 11 / (3 * math.pi ** 2)) < 1e-12 and 8 * b0 < 4 / 3)
+good = True
+for beta in [1, 3, 10, 100, 1e4]:
+    r = 1 / (4 * math.sqrt(beta))
+    pr = 2 / math.pi * quad(lambda t: np.sin(t) ** 2, 0, r)
+    good &= pr >= 1 / (24 * math.pi ** 3 * beta ** 1.5)
+check('(I) a Haar link has angle <= (4 sqrt beta)^-1 with probability >= 1/(24 pi^3 beta^{3/2})', good)
+vstar = 2 / math.pi * quad(lambda t: np.sin(t) ** 2, math.acos(0.75), math.pi / 3)
+good = True; rows = []
+for beta in [0.5, 1, 2, 5, 10]:
+    for rho_ in [1.0, 0.5, 1 / 12]:
+        t0 = math.acos(1 - rho_ ** 2 / 4)
+        for kap in np.linspace(0, 6 * beta, 7):
+            m = kap  # stabilise the exponentials
+            num = quad(lambda t: np.exp(kap * np.cos(t) - m) * np.sin(t) ** 2, t0, math.pi)
+            den = quad(lambda t: np.exp(kap * np.cos(t) - m) * np.sin(t) ** 2, 0, math.pi)
+            good &= num / den >= vstar * math.exp(-3 * beta) * (1 - 1e-9)
+    rows.append((beta, vstar * math.exp(-3 * beta)))
+print('    v_* = %.5f; p = %s' % (vstar, ', '.join('%.3e at beta %g' % (q, b) for b, q in rows)))
+check('(I) the angle exceeds arccos(1 - rho^2/4) with probability >= v_* e^{-3 beta} for kappa <= 6 beta', good)
+# cap about I under the density e^{kappa h.u}: decreasing in the angle phi of h, increasing in kappa
+def capprob(phi_, kap, th0, n=241):
+    th = np.linspace(0, math.pi, n); al = np.linspace(0, math.pi, n)
+    T, A = np.meshgrid(th, al, indexing='ij')
+    f = np.exp(kap * (math.cos(phi_) * np.cos(T) + math.sin(phi_) * np.sin(T) * np.cos(A) - 1)) * np.sin(T) ** 2 * np.sin(A)
+    W = np.outer(np.where(th <= th0, 1.0, 0.0), np.ones(n))
+    return float(np.trapezoid(np.trapezoid(f * W, al, axis=1), th) / np.trapezoid(np.trapezoid(f, al, axis=1), th))
+good = True
+for kap in [1.0, 4.0, 12.0]:
+    vals = [capprob(ph, kap, 0.6) for ph in np.linspace(0, math.pi, 9)]
+    good &= all(vals[i] >= vals[i + 1] - 1e-6 for i in range(len(vals) - 1))
+kv = [capprob(0.0, k, 0.6) for k in [0.0, 1.0, 4.0, 12.0]]
+good &= all(kv[i] <= kv[i + 1] + 1e-6 for i in range(3))
+check('(I) the probability of a cap about I is largest at h = I and increases with kappa', good)
+# frustrated exterior on a lattice of side 4
+S4 = 4; x0 = (1, 1, 1, 1)
+sh4 = lambda x, mu, k=1: tuple((np.array(x) + k * E[mu]) % S4)
+Uf = {(x, mu): I2.copy() for x in itertools.product(range(S4), repeat=d) for mu in range(d)}
+for nu, sgn in [(2, 1), (3, 1), (1, -1), (2, -1), (3, -1)]:
+    Uf[(sh4(x0, nu, sgn), 0)] = -I2
+def pl4(U, x, mu, nu):
+    return U[(x, mu)] @ U[(sh4(x, mu), nu)] @ inv(U[(sh4(x, nu), mu)]) @ inv(U[(x, nu)])
+good = True
+for rep in range(5):
+    Ue = haar(); Uf[(x0, 0)] = Ue
+    tot = 0.0
+    for nu in range(1, d):
+        tot += pl4(Uf, x0, 0, nu).trace().real / 2 + pl4(Uf, sh4(x0, nu, -1), 0, nu).trace().real / 2
+    good &= abs(tot - (-2 * Ue.trace().real)) < 1e-10 and np.allclose(pl4(Uf, x0, 0, 1), Ue)
+check('(I) frustrated exterior: the six plaquettes of e add to -2 Tr U_e and p_0 has holonomy U_e', good)
+fr = []
+for beta in [0.25, 0.5, 1, 2, 10]:
+    t0 = math.acos(1 - 2.5 ** 2 / 4)
+    num = quad(lambda t: np.exp(-4 * beta * (np.cos(t) + 1)) * np.sin(t) ** 2, t0, math.pi)
+    den = quad(lambda t: np.exp(-4 * beta * (np.cos(t) + 1)) * np.sin(t) ** 2, 0, math.pi)
+    fr.append(num / den)
+print('    frustrated exterior, rho = 2.5: P(p_0 bad) = %s at beta = 0.25, 0.5, 1, 2, 10' % ', '.join('%.6f' % v for v in fr))
+check('(I) under the frustrated exterior p_0 is bad with probability increasing to 1',
+      all(fr[i] <= fr[i + 1] + 1e-12 for i in range(4)) and fr[-1] > 0.999)
+# chi = 1 off the bad cubes
+rho_b = 1 / 12; good, nact, nfree, nnear = True, 0, 0, 0
+for rep in range(4):
+    g = {x: haar() for x in itertools.product(range(Sz), repeat=d)}
+    centres = [tuple(rng.integers(0, Sz, size=d)) for _ in range(2)]
+    U = {}
+    for x in itertools.product(range(Sz), repeat=d):
+        for mu in range(d):
+            big = any(max(min((x[n] - c[n]) % Sz, (c[n] - x[n]) % Sz) for n in range(d)) == 0 for c in centres)
+            a = rng.normal(size=3) * (0.8 if big else 1.5e-3)
+            U[(x, mu)] = g[x] @ su2(a) @ inv(g[shz(x, mu, Sz)])
+    bad = set()
+    for x in itertools.product(range(Sz), repeat=d):
+        for mu in range(d):
+            for nu in range(mu + 1, d):
+                if nrm(plaq(U, x, mu, nu, Sz) - I2) > rho_b:
+                    for w in itertools.product(range(2), repeat=d):
+                        if w[mu] == 0 and w[nu] == 0:
+                            bad.add(tuple((np.array(x) - np.array(w)) % Sz))
+    Ug = gfix(U, Sz)
+    for y in itertools.product(range(0, Sz, 2), repeat=d):
+        for mu in range(d):
+            Z = {tuple((np.array(y) + t * E[mu] + np.array(w)) % Sz) for t in range(3)
+                 for w in itertools.product(range(2), repeat=d) if w[mu] == 0}
+            chi = sharpz(Ug, y, mu, Sz)[1]
+            if Z & bad: nnear += 1; nact += chi < 1
+            else: nfree += 1; good &= chi == 1.0
+print('    coarse links with a bad cube in Z: %d (chi < 1 at %d); without: %d' % (nnear, nact, nfree))
+check('(I) chi = 1 at every coarse link whose 24 cubes are good (rho = 1/12)', good and nfree > 0 and nnear > 0)
 print('%d checks passed, %d failed' % (sum(ok), len(ok) - sum(ok)))
