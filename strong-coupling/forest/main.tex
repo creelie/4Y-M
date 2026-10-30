@@ -9360,6 +9360,15 @@ annihilates the vectors $\Psi'_F$ of the class, which are dense by the
 footnote above, and it vanishes.
 \end{proof}
 
+The class in (b) cannot be replaced by one observable. On $\C^3$ let
+$\mathbb T=\mathrm{diag}(1,e^{-m},e^{-m/2})$, $\Omega=e_1$ and $\Psi'_F=e_2$:
+the function in (b) is $e^{-mt}$, while the spectrum on $\Omega^\perp$ reaches
+$e^{-m/2}$. The decay of one two-point function places only the spectral
+measure of $\Psi'_F$ in $[0,e^{-m}]$, and the gap follows when such vectors
+are dense in $\Omega^\perp$, as in (b) and in Theorem~\ref{thm:clustering}.
+Proposition~8.8 of~\cite{FaS26} draws the gap on $\Omega^\perp$ from the
+two-point function of one fixed observable.
+
 \section{Spectral measures and Laplace transforms}\label{app:spectral}
 
 This appendix collects the facts on spectral measures that the continuum
@@ -9441,6 +9450,14 @@ mass at least $c/2$ on the bounded interval $[0,\sigma^{-1}\log(2/c)]$; for
 the measures $\mu_k$ of Theorem~\ref{thm:flowlimit} a bound uniform in $k$
 therefore makes them tight on $[0,\infty)$ with a fixed fraction of their
 mass.
+
+Part (b) also excludes a positive Laplace representation for a spectral
+cutoff of compact support. If $\chi(\lambda)=\int_{[0,\infty)}e^{-s\lambda}
+d\nu(s)$ with $\nu$ a positive measure and $\chi(0)=\nu([0,\infty))>0$, then
+(b), applied to $\nu/\chi(0)$, gives $\chi(\lambda)>0$ for every $\lambda>0$, so
+$\chi$ vanishes nowhere. The cutoff $\chi_\sigma$ of~\cite[Sec.~9,
+Eqs.~(9.11), (9.12)]{FaS26} equals $1$ on $[0,\sigma]$ and $0$ on
+$[2\sigma,\infty)$ and is asserted to have such a representation.
 
 \section{The character expansion}\label{app:characters}
 
@@ -10752,6 +10769,13 @@ B.~K.~Driver, YM$_2$: continuum expectations, lattice convergence, and lassos, C
 B.~Eckmann, R{\"a}ume mit Mittelbildungen, Comment. Math. Helv.
 \textbf{28} (1954), 329--340,
 \href{https://doi.org/10.1007/BF02566939}{doi:10.1007/BF02566939}.
+
+\bibitem{FaS26}
+M.~Faizal and A.~Shabir, Reflection-positive construction of a
+four-dimensional $\SU(N)$ Yang--Mills theory with mass gap and confinement,
+preprint, 2026, \href{https://arxiv.org/abs/2606.19362v1}{arXiv:2606.19362v1};
+Fortschr. Phys. \textbf{74} (2026), e70097,
+\href{https://doi.org/10.1002/prop.70097}{doi:10.1002/prop.70097}.
 
 \bibitem{FH91}
 W.~Fulton and J.~Harris, \emph{Representation Theory: A First Course}, Grad.
