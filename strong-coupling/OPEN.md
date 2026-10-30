@@ -96,8 +96,12 @@ chessboard estimate, and the cut-off average differs from the path average
 only next to them (Theorem "defects", Corollaries "defectclusters",
 "activelinks"); such plaquettes are present along the one-loop tuning
 (Proposition "manydefects"), and under a frustrated exterior a plaquette is bad
-with probability tending to one. A block map that is coercive for all
-nonabelian fields and composes across scales through these clusters is open.
+with probability tending to one. The composition is local and the defects
+spread by at most three spacings of the current scale per step (Theorem
+"defectscales"), so the cut-off average passes the clusters up to a coarse
+spacing of order (β_W/log β_W)^{1/4} a (Corollary "defectscales"). A block
+map that is coercive for all nonabelian fields and composes across the
+remaining scales is open.
 For SU(2) the same subsection makes the size explicit: D(n, α) needs
 n⁴ ≥ 2(1−α) β_W/(5 L(β_W)), L(b) = 1 + log 24 + (3/2) log 9b (Proposition
 "cube size"), a bound met along the tuning; the n² lost in its proof is of the
