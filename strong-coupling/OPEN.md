@@ -194,10 +194,16 @@ every exterior with a completion whose plaquettes near W are small the fibres
 where q(F) is of order one, and all fibres with no calm field, have mass at
 most that bound at t = κ^2/2 in the law of the averages, and the other fibres
 carry the chart decay (Corollary "calmexterior"; check
-gauge-fixed/checks/cube/fibre_compare.py). Those fibres of small mass, the
-exteriors with no calm completion, and the passage to the constrained cube
-condition over boundary conditions with large fields are open (Remark
-"chartdecayopen").
+gauge-fixed/checks/cube/fibre_compare.py). On every window of bounded size,
+under every exterior, the plaquettes near W are small with probability tending
+to one along the tuning, so the exterior has a calm completion (Corollary
+"localcalm"); on cubes of fixed physical size, |W| = (r/2a)^4, the exteriors
+with no calm completion and the fibres of small mass are the typical case
+(Proposition "calmrare"; check gauge-fixed/checks/cube/calm_windows.py), so
+they need estimates uniform in |W| with the non-calm windows split off as in
+Balaban's large-field analysis. Those estimates, and the passage to the
+constrained cube condition over boundary conditions with large fields, are
+open (Remark "chartdecayopen").
 A block
 map that is coercive for all nonabelian fields and composes across the
 remaining scales is open.

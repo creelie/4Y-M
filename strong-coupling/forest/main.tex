@@ -9114,7 +9114,8 @@ exteriors; the constrained cube condition of
 Remark~\ref{rem:constrainedopen}(a) takes a supremum over boundary
 conditions, which include these fibres of small mass and the exteriors with
 no such completion, and on them no chart of Theorem~\ref{thm:chartdecay} is
-available;
+available; by Proposition~\ref{prop:calmrare} these are the typical case on
+cubes of fixed physical size along the tuning;
 \item the passage from the decay of the constrained law on one fibre, at
 a fixed background, to the constrained cube condition of
 Remark~\ref{rem:constrainedopen}(a), whose supremum runs over boundary
@@ -9928,6 +9929,110 @@ two, so it gives no contraction coefficient. The bad cubes are rare on cubes
 of fixed physical size for every exterior, and the conditional estimate in
 (D) remains open.
 
+The same count locates the windows on which the fibre estimates of
+Sec.~\ref{ssec:smallfibres} apply. Let the side of the torus be even, let
+$B(y)=2y+\{0,1\}^4$ be the blocks of Definition~\ref{def:blockgauge}, and let
+$l$ be even, so that $R$ is a union of blocks.
+
+\begin{corollary}\label{cor:localcalm}
+Let $G=\SU(2)$, $\beta_W\ge1$, let $W_0$ be a set of $m$ blocks, $0<K\le
+10^{-8}$, $\rho=K/(3072m)$, and $0<\varepsilon\le1$ with $\varepsilon l\ge16$.
+For every boundary field $\eta$ of $R$, with $\nu_\eta$-probability at least
+\[
+1-\exp\Bigl(-l^4\Bigl(\frac{\beta_W\rho^2\varepsilon}{32}-6\log\beta_W
+-31-\frac{48\beta_W}l\Bigr)\Bigr),
+\]
+all but fewer than $256m\varepsilon l^4$ of the translates $W=y_0+W_0$ whose
+blocks of $W^+$ lie in $[1,l-1]^4$ have the following property: in the tree
+gauge the exterior of $W$ has a completion that satisfies the hypothesis of
+Corollary~\ref{cor:calmexterior}, namely the field itself.
+\end{corollary}
+
+\begin{proof}
+Outside $E_\varepsilon$, which has the stated probability by
+Proposition~\ref{prop:anyexterior}, fewer than $\varepsilon l^4$ unit cubes of
+$R$ contain a bad plaquette. A plaquette with a vertex in a block of $W^+$
+has all its vertices in $R$ and lies in a unit cube $x+[0,1]^4$ of $R$; if it
+is bad, that cube contains a bad plaquette. The vertex lies in a block
+$B(y')$ with $y'_i\in\{\lfloor x_i/2\rfloor,\lfloor(x_i+1)/2\rfloor\}$, and
+$y'\in\{y\}^+$ for some $y\in W$, so $y_i$ takes at most four values and $y$
+lies in a set of at most $256$ blocks determined by $x$; then $y_0\in y-W_0$
+takes at most $256m$ values. Hence fewer than $256m\varepsilon l^4$
+translates have a bad plaquette with a vertex in a block of $W^+$. At every
+other translate these plaquettes have $\delta(U_p,I)\le\rho$. The number
+$n_P$ of plaquettes that contain a link of $A_W$ is at most $384m$, so $\rho
+\le K/(8n_P)=\kappa/(2\sqrt{n_P})$ with $\kappa=K/(4\sqrt{n_P})$. A gauge
+transformation conjugates every plaquette holonomy and leaves $\delta(U_p,
+I)$ unchanged, so the field in the tree gauge is a completion of its own
+exterior with this property.
+\end{proof}
+
+So under every exterior of a box, the windows of a fixed number of blocks
+on which Corollary~\ref{cor:calmexterior} applies fill all but at most
+$256m\varepsilon l^4$ of the positions, a fraction of about $4096m\varepsilon$. The bound is useful only when
+$\beta_W\rho^2\varepsilon$ is large, that is for windows of bounded size,
+and the next proposition shows that this restriction cannot be removed.
+
+\begin{proposition}\label{prop:calmrare}
+Let $G=\SU(2)$, $\beta_W\ge1$ and $0<\rho'\le1$.
+\begin{enumerate}[label=\textup{(\roman*)},leftmargin=*]
+\item Conditionally on all links but one link of a plaquette $p_0$, the
+event $\delta(U_{p_0},I)\le\rho'$ has probability at most $14(\beta_W
+\rho'^2)^{3/2}$ under the Wilson measure.
+\item Let $W$ be a set of blocks with $W^+\ne W$, $0<K\le10^{-8}$ and
+$\kappa=K/(4\sqrt{n_P})$. Under the Wilson measure in the tree gauge, the
+exterior of $W$ has a completion as in Corollary~\ref{cor:calmexterior} with
+probability at most $7\cdot10^{-32}\beta_W^{3/2}|W|^{-3}$, and
+$\varepsilon''_W(\kappa^2/2,\beta_W/4)<1$ only if $\beta_W>10^{24}|W|^2$.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+(i) As in the proof of Proposition~\ref{prop:manydefects}, the holonomy of
+$p_0$ has a conditional density proportional to $e^{\kappa'h\cdot u}$ with
+$0\le\kappa'\le6\beta_W$ and $|h|=1$, and the probability of a cap about $I$
+is largest at $h=I$, $\kappa'=6\beta_W$. Since $\delta(u,I)=2\sqrt2\sin(
+\angle u/2)$ and $\sin x\ge2x/\pi$ on $[0,\frac\pi2]$, the event forces
+$\angle U_{p_0}\le\theta=\pi\rho'/(2\sqrt2)$. With $\cos t-1\ge-t^2/2$ and
+$\sin t\ge2t/\pi$ on $[0,\frac\pi2]$,
+\begin{multline*}
+\int_0^\pi e^{6\beta_W(\cos t-1)}\sin^2t\,dt\\
+\ge\frac4{\pi^2}\int_0^{\pi/2}e^{-3\beta_Wt^2}t^2\,dt\ge\frac{4\cdot0.44}
+{\pi^2(3\beta_W)^{3/2}},
+\end{multline*}
+because the integral of $e^{-s^2}s^2$ over $[0,\pi\sqrt3/2]$ exceeds $0.44$.
+The integral of $e^{6\beta_W(\cos t-1)}\sin^2t$ over $[0,\theta]$ is at
+most $\theta^3/3$, so the ratio is at most
+$9.72(\beta_W\theta^2)^{3/2}$, and $(\pi/(2\sqrt2))^3<1.371$.
+
+(ii) Take $y'\in W^+\setminus W$ and a plaquette $p_0$ inside $B(y')$. Its
+links have their base in $B(y')$, so none lies in $A_W$, and every
+completion of the exterior agrees with the field on $p_0$. A completion as in
+Corollary~\ref{cor:calmexterior} therefore needs $\delta(U_{p_0},I)\le
+\kappa/(2\sqrt{n_P})=K/(8n_P)$. This event is gauge invariant, so its
+probability is the same without gauge fixing, and by (i) it is at most
+$14(\beta_WK^2/(64n_P^2))^{3/2}$. Each link of $A_W$ lies in six plaquettes
+and a plaquette contains at most four of them, so $n_P\ge73.5|W|$, and
+$14\cdot10^{-24}/(512\cdot73.5^3)<7\cdot10^{-32}$. Finally,
+$\varepsilon''_W(\kappa^2/2,\lambda)<1$ means $\frac38\lambda\kappa^2>49|W|
+\ln(3.45\cdot10^{11}n_P^6/K^6)$, and with $\lambda=\beta_W/4$, $\kappa^2=
+K^2/(16n_P)$, $n_P\ge73.5|W|$ and $K\le10^{-8}$ the logarithm exceeds $162.8$,
+so $\beta_W>512\cdot49\cdot73.5\cdot162.8\cdot10^{16}|W|^2/3>10^{24}|W|^2$.
+\end{proof}
+
+Along the tuning $\beta_W\sim b\log(1/a)$, a cube of fixed physical side $r$
+has $|W|=(r/2a)^4$ blocks, so both bounds of (ii) fail for small $a$: on such
+a cube the exterior has no calm completion with probability tending to one,
+and the fibre estimates of Sec.~\ref{ssec:smallfibres} are vacuous there.
+Their entropy factors are powers of $|W|$, so they are estimates for windows
+of bounded size, which Corollary~\ref{cor:localcalm} places at almost every
+position under every exterior. The exteriors with no calm completion and the
+rare fibres of Corollary~\ref{cor:calmexterior} are thus the typical case at
+the physical scale and not an exceptional one. The cube condition (D) needs
+estimates on the whole cube that are uniform in $|W|$, with the windows that
+are not calm split off as in Ba{\l}aban's analysis~\cite{Bal89b}, and that
+remains open.
+
 \section*{Acknowledgements}
 
 This paper rests on the work of many earlier scientists. Lattice gauge
@@ -9957,7 +10062,7 @@ Theorem~\ref{thm:certificate}, whose certificates are checked in exact
 arithmetic. The programs of these steps, in Python with
 python-flint (FLINT and Arb) and a C kernel for products of Taylor
 polynomials, their outputs and the list of certified boxes are in the
-repository \url{https://github.com/creelie/4Y-M}, release v4.27.0, together
+repository \url{https://github.com/creelie/4Y-M}, release v4.28.0, together
 with a Lean~4 certificate of the line field, independent exact or
 numerical checks of the other finite statements, our checks of the
 certificate of~\cite{Rom26}, and the certificate of
