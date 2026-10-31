@@ -22,3 +22,19 @@ six parameters left after the SU(2)^3 symmetry), `opt4.py` (random search and
 Nelder-Mead, `python3 opt4.py <beta> <samples> <seed>` with beta = beta_W/4), and the
 logs at beta_W = 0.34, 0.35, 0.36 (largest values 0.278284, 0.279506, 0.280754).
 It needs numpy and scipy.
+
+`sharp/` holds the sharpened constants now used in Theorem 3 (Sec. V of the
+forest paper): `s = 1/4 + (e^w-1) e^w sqrt(tau/3)` from the Poincaré inequality
+of the von Mises-Fisher law, and `C = 4|beta| s A + (320/3)|beta|^3 M e^w` from
+interpolating the exponents of the two laws in Lemma 14(ii), with
+`A >= |grad g|` on `|c| <= 20|beta|`. `sharp.py` (python-flint, 128 bits,
+2*10^5 subintervals) gives alpha(1/3) <= 0.94279, alpha(0.345) <= 0.98044,
+alpha(0.351) <= 0.99995, and alpha(0.3511) > 1 (`sharp.out`,
+`fails_0.3511.out`); `--mode paper` reproduces the old constants
+(`paper.out`). `lean/check.sh` rechecks the rational arithmetic of the chain
+from the outward-rounded constants with the Lean kernel (core only, no
+Mathlib), including that it fails at 0.352. `validate_bessel.py` is an
+independent floating-point check with the closed form Z0 = 2 I_1(r)/r.
+
+    python3 sharp/sharp.py --mode sharp --n 200000 --lean sharp/lean/BlockData.lean 0.333333333333333333 0.345 0.35 0.351
+    sh sharp/lean/check.sh
