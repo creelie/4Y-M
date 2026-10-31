@@ -525,7 +525,12 @@ covariances of local observables decay exponentially at a rate that
 depends only on $G$ (Theorem~\ref{thm:chartdecay}). Off the chart the
 fibre has only points with a large plaquette, and under the $\SU(2)$
 Wilson measure their mass is small on most fibres
-(Theorem~\ref{thm:offchart}); a bound on every fibre is open
+(Theorem~\ref{thm:offchart}). Along its private links the cut-off
+average is a submersion with a constant that depends on nothing
+(Lemma~\ref{lem:privatesubmersion}), and its law under Haar measure on them
+has a bounded density, so a Peierls argument inside the fibre bounds that
+mass on every fibre through a field whose plaquettes near the blocks are
+small (Proposition~\ref{prop:calmfibre}); the other fibres are open
 (Remark~\ref{rem:chartdecayopen}).
 Whether some block map is coercive for all fields and composes across the
 remaining scales is open.
@@ -6310,7 +6315,8 @@ constrained law satisfies a Brascamp--Lieb inequality for large $\lambda$
 (Theorem~\ref{thm:fibrechart}), and on a product chart its covariances
 decay exponentially (Theorem~\ref{thm:chartdecay}), and the mass off
 that chart is small on most fibres of the $\SU(2)$ Wilson measure
-(Theorem~\ref{thm:offchart}); the remaining
+(Theorem~\ref{thm:offchart}) and on every fibre through a field with small
+plaquettes (Corollary~\ref{cor:calmfibres}); the remaining
 small-field steps are listed in Remark~\ref{rem:chartdecayopen}.
 \item \emph{Second order.} Let $b_0=11N/(48\pi^2)$ for $\SU(N)$, $t=2b_0\log2$,
 and let $g_m^{-2}=g_*^{-2}+tm$ be the one-loop coupling $m$ steps above a
@@ -8091,6 +8097,338 @@ $3.9\cdot10^{31}$.}
 \label{fig:offchart}
 \end{figure}
 
+The mass off the chart can also be bounded on a single fibre, by a Peierls
+argument inside the fibre. Two properties of the cut-off average make this
+possible: along a fixed set of links it is a submersion with a constant that
+does not depend on the field, and its law under Haar measure on those links
+has a bounded density.
+
+Fix $y\in W$ and a direction $\mu$. Write the offsets of the sites of $B(y)$
+in the three directions other than $\mu$ as $a\in\{0,1\}^3$, and let $x_a$
+and $x'_a$ be the sites of offset $a$ with $o_\mu=0$ and $o_\mu=1$. Let
+$\ell_a=(x'_a,\mu)$, which joins $B(y)$ to $B(y+e_\mu)$, and let $u_a=(x_a,
+\mu)$ and $w_a=(x'_a+e_\mu,\mu)$, which lie inside $B(y)$ and $B(y+e_\mu)$.
+The links $u_0$ and $w_0$ are tree links and $\ell_0=d_k$ is the path link,
+so in the tree gauge
+\[
+P_{2y}=\ell_0,\qquad P_{x_a}=u_a\ell_a,\qquad P_{x'_a}=\ell_aw_a,
+\]
+and $v_x=P_{2y}^{-1}P_x$ equals $I$ at the two sites of offset $0$. The path
+of $V^\sharp_{y',\nu}$ from a site $x$ consists of the link $(x,\nu)$ and
+the next link $(x+e_\nu,\nu)$, so $\ell_a$, whose base has $o_\mu=1$, enters
+only the paths from $x_a$ and $x'_a$ of the pair $(y,\mu)$. We call $\ell_0,
+\dots,\ell_7$ the \emph{private links} of $(y,\mu)$. The $32$ links with
+$o_\mu=1$ of $B(y)$ are the private links of the four pairs $(y,\mu)$; the
+other $17$ active links of $B(y)$ lie inside it.
+
+Let
+\[
+\alpha=2\arcsin\frac1{2\sqrt2}=0.7227\ldots,\qquad\Lambda=\frac\alpha
+{\sin\alpha}=1.0926\ldots,
+\]
+so that $1-\frac78\Lambda>0.0439$. Two
+facts about $\operatorname{ad}X$ for $X\in\g$, which is skew-adjoint for
+the Hilbert--Schmidt product, will be used throughout. If the eigenvalues
+$i\psi$ of $\operatorname{ad}X$ satisfy $|\psi|<2\alpha$, then
+\begin{gather*}
+\log\bigl(e^{tZ}e^X\bigr)=X+tL_XZ+O(t^2),\\
+L_X=\frac{\operatorname{ad}X}{e^{\operatorname{ad}X}-1},\qquad\lVert L_X
+\rVert\le\Lambda,
+\end{gather*}
+since the eigenvalues of $L_X$ have modulus $\frac{|\psi|/2}{\sin(|\psi|/2
+)}$, which increases with $|\psi|$. For every $Y\in\g$,
+\begin{gather*}
+\frac d{dt}e^{Y+tZ}\Big|_{t=0}e^{-Y}=E_YZ,\\
+E_Y=\frac{e^{\operatorname{ad}Y}-1}{\operatorname{ad}Y},\qquad\lVert E_Y
+\rVert\le1,
+\end{gather*}
+because $|e^{i\psi}-1|\le|\psi|$; in particular $d(e^A,e^B)\le\lVert A-B
+\rVert$ for the Riemannian distance $d$ of the bi-invariant metric, along
+the curve $e^{A+t(B-A)}$. If $\delta(v,I)<1$ and $e^{i\theta_j}$, $|\theta
+_j|\le\pi$, are the eigenvalues of $v$, then $\sum_j4\sin^2(\theta_j/2)<1$;
+each $|\theta_j|$ is less than $\frac\pi3$, where $\sin^2(t/2)$ is convex,
+so $|\theta_j|+|\theta_k|<2\alpha$ for all $j,k$, and $X=\log v$ satisfies
+the hypothesis on $\operatorname{ad}X$.
+
+\begin{lemma}\label{lem:privatesubmersion}
+Let $\sigma_0=(1-\frac78\Lambda)/\sqrt2>0.031$. At every field at which
+$V^\sharp_{y,\mu}$ is differentiable, its derivative $J:\g^8\to\g$ with
+respect to its eight private links, right trivialised, satisfies $JJ^*\ge
+\sigma_0^2$. The fields at which it is not differentiable form a null set
+for Haar measure.
+\end{lemma}
+
+\begin{proof}
+Write $m=\max_x\delta(v_x,I)$ and $\chi=\phi(m/\rho_G)$, so that $V^\sharp=
+P_{2y}e^{\chi N}$ with $N=\frac1{16}\sum_x\log v_x$. Where $m>\rho_G$, the
+cut-off vanishes near the field, $V^\sharp=\ell_0$, and the derivative along
+$\ell_0$ is the identity. Suppose $m<\rho_G$, and that the maximum is attained
+at a single site $x_*$ and $m\ne\rho_G/2$; the remaining fields lie in
+finitely many proper real-analytic subsets, a null set. Then every
+$\delta(v_x,I)$ is less than $1$, the logarithms are defined, $\chi$ is
+differentiable, and every variation that fixes $v_{x_*}$ to first order
+fixes $\chi$ to first order. The site $x_*$ has offset $b\ne0$.
+
+Fix $\zeta\in\g$ and put $\eta=\operatorname{Ad}(\ell_0)\zeta$. Move $\ell_0
+\mapsto e^{t\eta}\ell_0$, and, if $x_*=x'_b$, $\ell_b\mapsto e^{t\eta}\ell_b$,
+or, if $x_*=x_b$, $\ell_b\mapsto e^{t\xi}\ell_b$ with $\xi=\operatorname{Ad}
+(u_b^{-1})\eta$, so that $u_b\ell_b\mapsto e^{t\eta}u_b\ell_b$. In both cases
+$P_{2y}$ and $P_{x_*}$ are multiplied on the left by $e^{t\eta}$, so
+$v_{x_*}$ and $\chi$ are fixed to first order. The other site $\bar x$ of
+offset $b$ has $P_{\bar x}\mapsto e^{t\operatorname{Ad}(u_b^{\pm1})\eta}
+P_{\bar x}$, and the paths from the remaining twelve sites with $v_x\ne I$
+do not move. With the isometry $A=\operatorname{Ad}(\ell_0^{-1}u_b^{\pm1}
+\ell_0)$,
+\[
+v_{\bar x}\mapsto e^{t(A-1)\zeta}v_{\bar x}+O(t^2),\qquad v_x\mapsto e^{-t
+\zeta}v_x+O(t^2)
+\]
+for the twelve others, so $N$ moves by $t\,\delta N$ with $16\,\delta N=L_{X
+_{\bar x}}(A-1)\zeta-\sum_xL_{X_x}\zeta$, twelve terms, and $\lVert\delta N
+\rVert\le\frac{14}{16}\Lambda\lVert\zeta\rVert$. Since $\chi$ is fixed,
+\[
+\frac d{dt}V^\sharp\,(V^\sharp)^{-1}=\eta+\operatorname{Ad}(\ell_0)E_{\chi
+N}(\chi\,\delta N)=\operatorname{Ad}(\ell_0)\,T\zeta,
+\]
+with $\lVert T\zeta-\zeta\rVert\le\frac78\Lambda\lVert\zeta\rVert$, as
+$\chi\le1$. The variation is $K\zeta$ for a linear map $K:\g\to\g^8$ with two
+nonzero components of norm $\lVert\zeta\rVert$, so $\lVert K\rVert=\sqrt2$
+and $JK=\operatorname{Ad}(\ell_0)T$. For a unit vector $e\in\g$,
+\[
+\lVert J^*e\rVert\ge\frac{\lVert K^*J^*e\rVert}{\sqrt2}=\frac{\lVert T^*
+\operatorname{Ad}(\ell_0)^*e\rVert}{\sqrt2}\ge\frac{1-\frac78\Lambda}
+{\sqrt2}=\sigma_0,
+\]
+since the least singular value of $T$ is at least $1-\frac78\Lambda$.
+\end{proof}
+
+\begin{corollary}\label{cor:coareabound}
+Let $C=(V^\sharp_{y,\mu})_{y\in W,\,\mu}$, as a function of the links of
+$A_W$, the other links being fixed. Wherever $C$ is differentiable,
+\[
+\det\bigl(DC\,DC^*\bigr)^{-1/2}\le\sigma_0^{-4|W|\dim G}<33^{4|W|\dim G}.
+\]
+\end{corollary}
+
+\begin{proof}
+The private links of distinct pairs are distinct, and each enters only the
+average of its pair, so the columns of $DC$ that belong to private links
+form a block diagonal matrix with the blocks of
+Lemma~\ref{lem:privatesubmersion}. Hence $DC\,DC^*\ge\bigoplus_kJ_kJ_k^*
+\ge\sigma_0^2$.
+\end{proof}
+
+The coarea factor of the constrained law is therefore bounded on the whole
+fibre by a constant per block, for every value of the cut-off and however
+far the links inside the blocks are from $I$. The volume of the fibre is
+bounded through the law of the averages. From here on $G=\SU(2)$, which with
+the metric $\lVert X\rVert^2=\Tr(X^*X)$ is the round sphere of radius
+$\sqrt2$, $\rho_G=1$, and $h$ is normalised Haar measure.
+
+\begin{lemma}\label{lem:averagedensity}
+Let $G=\SU(2)$, fix every link other than the private links of $(y,\mu)$,
+and let these eight links be independent and Haar distributed. Then the
+law of $V^\sharp_{y,\mu}$ has a density with respect to $h$ that is at most
+\[
+M=1+2\Bigl(1-\frac78\Lambda\Bigr)^{-3}<2.4\cdot10^4
+\]
+at every point, in the version given by the formula~\eqref{eq:densityformula}
+of the proof.
+\end{lemma}
+
+\begin{proof}
+Let $g=\ell_0$. Split $G^8$, up to a null set, into the region $R_0$ where
+$m>1$, the region $R_1$ where $m<1$ and the maximum is attained only at
+sites $x_a$, and the region $R_2$ where $m<1$ and it is attained only at
+sites $x'_a$. On $R_0$, $\chi=0$ and $V^\sharp=g$.
+
+On $R_1$ use the coordinates $(g,h_1,\dots,h_7)$ with $h_a=v_{x_a}=g^{-1}u_a
+\ell_a$. For fixed $g$ the map $\ell_a\mapsto h_a$ is a left translation, so
+these coordinates carry product Haar measure, and
+\[
+v_{x'_a}=g^{-1}\ell_aw_a=g^{-1}u_a^{-1}g\,h_aw_a .
+\]
+Fix $h$ and put $m_h=\max_a\delta(h_a,I)<1$. The set $S_h$ of $g$ with $(g,h)
+\in R_1$ is the set where $\delta(v_{x'_a},I)<m_h$ for every $a$; on it
+$m=m_h$, so $\chi=\phi(m_h)$ does not depend on $g$, and $V^\sharp=g\,e^{\chi
+N(g)}$ with $N(g)=\frac1{16}\sum_a(\log h_a+\log v_{x'_a})$. The set
+$\{\delta(v,I)<1\}$ is the ball of angular radius $\alpha$ about $I$ on the
+sphere, which is geodesically convex, and on it $\lVert\log v-\log v'\rVert
+\le\Lambda\,d(v,v')$. By bi-invariance $d(g^{-1}u^{-1}g,g'^{-1}u^{-1}g')\le
+2d(g,g')$, so for $g,g'\in S_h$
+\[
+\lVert N(g)-N(g')\rVert\le\frac7{16}\,2\Lambda\,d(g,g')=\frac78\Lambda\,
+d(g,g').
+\]
+If $V^\sharp(g)=V^\sharp(g')=c$, then $g=c\,e^{-\chi N(g)}$ and $g'=c\,
+e^{-\chi N(g')}$, so $d(g,g')\le\frac78\Lambda\,d(g,g')$ and $g=g'$: the map
+$g\mapsto V^\sharp(g)$ is injective on $S_h$. Its derivative is computed as
+in the proof of Lemma~\ref{lem:privatesubmersion}: with $\eta=\operatorname
+{Ad}(g)\zeta$ the sites $x'_a$ move by $e^{t(A_a-1)\zeta}$, $A_a=
+\operatorname{Ad}(g^{-1}u_a^{-1}g)$, the sites $x_a$ do not move, and the
+right trivialised derivative is $\operatorname{Ad}(g)T$ with $\lVert T-1
+\rVert\le\frac7{16}\,2\Lambda=\frac78\Lambda$, so its determinant is at
+least $(1-\frac78\Lambda)^3$ in modulus. On $R_2$ the coordinates $(g,h'_1,
+\dots,h'_7)$ with $h'_a=v_{x'_a}=g^{-1}\ell_aw_a$ and $v_{x_a}=g^{-1}u_ag
+\,h'_aw_a^{-1}$ give the same conclusions.
+
+By the change of variables formula the law of $V^\sharp$ has the density
+\begin{multline}\label{eq:densityformula}
+\rho(c)=h^{\otimes7}\bigl(\{\ell:(c,\ell)\in R_0\}\bigr)\\
++\sum_{i=1,2}\int\sum_{g\in S^{(i)}_h,\ V^\sharp=c}\frac{dh^{\otimes7}}
+{\lvert\det DV^\sharp(g)\rvert},
+\end{multline}
+the inner sum having at most one term, and $\rho(c)\le1+2(1-\frac78\Lambda
+)^{-3}$. Finally $1-\frac78\Lambda=0.04391\ldots$ and $M=23621\ldots$.
+\end{proof}
+
+The four averages of a block depend on disjoint sets of private links, and
+on the links inside the blocks, which are private to none. So, given the
+links inside the blocks of $W$, the averages $V^\sharp_k$ are independent,
+and the formula~\eqref{eq:densityformula} for each pair defines, for every
+value $c$ of $C$, a measure $\nu_c$ on the fibre $F_c=C^{-1}(c)$: in the
+coordinates of the proof of Lemma~\ref{lem:averagedensity}, chosen for each
+pair according to its region, it is the product Haar measure of the links
+inside the blocks and of the seven coordinates other than $g$, divided by
+the product of the determinants $\lvert\det DV^\sharp_k(g)\rvert$. Then
+$h=\int\nu_c\,dh(c)$ on $G^{A_W}$, so $\nu_c$ is a version of the
+conditional law, and
+\begin{equation}\label{eq:fibrevolume}
+\nu_c(F_c)\le M^{4|W|}\qquad\text{for every }c.
+\end{equation}
+Where $C$ is differentiable,
+\[
+\nu_c=\operatorname{vol}(G)^{-45|W|}\det\bigl(DC\,DC^*\bigr)^{-1/2}\,
+d\mathcal H .
+\]
+Indeed, if $C(z,g)=c$ is solved for $g$ by $g=\psi(z)$, then $DC=\partial_g
+C\,(-D\psi,\,1)$, so
+\[
+\det\bigl(DC\,DC^*\bigr)^{1/2}=\lvert\det\partial_gC\rvert\det\bigl(1+
+D\psi^*D\psi\bigr)^{1/2},
+\]
+and the second factor is the Jacobian of the graph of $\psi$. So
+$\nu_c$ is the coarea version on the charts of
+Theorems~\ref{thm:fibrechart} and~\ref{thm:chartdecay}, where $C$ is smooth,
+and we use it on the whole fibre.
+
+\begin{proposition}\label{prop:calmfibre}
+Let $G=\SU(2)$, $\lambda>0$ and $0<K\le10^{-8}$, and let $n_P\le384|W|$ be the
+number of plaquettes that contain a link of $A_W$. Suppose the fibre $F$
+contains a field $U$ with $\delta(U_p,I)\le\kappa$ for every plaquette $p$
+with a vertex in a block of $W^+$, where $\kappa\le K/(4\sqrt{n_P})$. Then
+the constrained law $\mu_U$ on $F$ gives the set of fields with a
+plaquette $p$ with a vertex in a block of $W^+$ and $\delta(U'_p,I)>K$ mass at
+most
+\[
+\varepsilon_W(K,\lambda)=\Bigl(\frac{3\cdot10^8\,n_P^{3/2}}{K^3}\Bigr)
+^{45|W|}e^{-3\lambda K^2/4}.
+\]
+\end{proposition}
+
+\begin{proof}
+Let $c=C(U)$, let $B$ be the set in question, and let $Q_W$ be the sum of
+$\delta(U'_p,I)^2$ over the $n_P$ plaquettes that contain a link of $A_W$; on
+$F$ it differs from $Q$ by a constant, so $\mu_U=e^{-\lambda Q_W}\nu_c/
+\nu_c(e^{-\lambda Q_W})$. A plaquette that contains no link of $A_W$ has
+$U'_p=U_p$ for $U'\in F$, so on $B$ the large plaquette is one of the $n_P$
+and $Q_W>K^2$. By~\eqref{eq:fibrevolume},
+\[
+\int_Be^{-\lambda Q_W}\,d\nu_c\le M^{4|W|}e^{-\lambda K^2}.
+\]
+
+For the denominator we solve the constraints for the path links. Let
+$L'=A_W\setminus\{d_k\}$, $\rho=K/(188\sqrt{n_P})$ and $R=44\rho$, and let
+$D$ be the set of $z\in G^{L'}$ with $d(z_e,U_e)\le\rho$ for every $e\in L'$.
+The field $U$ satisfies the hypothesis of Lemma~\ref{lem:smallframes}, as
+$\kappa\le K/4$, and part (i) of the lemma gives $\delta(U_e,I)\le3\kappa$ for
+the links inside the blocks and $\delta(U_e,U_{d_k})\le21\kappa$ for the
+private links of $k$, so $\delta(v_x,I)\le24\kappa$ and, by
+Lemma~\ref{lem:logbound}, $d(v_x,I)\le8\pi\kappa$ at every site of every
+pair. Fix $z\in D$ and a pair $k$, and let $\ell$ range over the ball $B_k$ of
+radius $R$ about $U_{d_k}$. Each $v_x$ is $\ell^{-1}$ times a product of at
+most two links of $L'$ and fixed links, so at the field with links $z$ and
+$\ell$ it lies within $R+2\rho$ of its value at $U$, and within $8\pi\kappa
++46\rho<0.01$ of $I$. Hence the cut-off equals $1$ near this field and
+$V^\sharp_k=\ell\,e^{N_k(\ell)}$, with $N_k$ depending on $z$ and $\ell$. Each
+$v_x$ is moved by $d(\ell,\ell')$ when $\ell$ is replaced by $\ell'$, so the
+map $\Psi(\ell)=c_k\,e^{-N_k(\ell)}$ satisfies $d(\Psi(\ell),\Psi(\ell'))\le
+\frac78\Lambda\,d(\ell,\ell')$. At $U$ the path link solves
+$U_{d_k}=c_ke^{-N_k}$, and the sites move by at most $R+2\rho$ between $U$
+and the field with links $z$ and $\ell$, so
+\[
+d\bigl(\Psi(\ell),U_{d_k}\bigr)\le\frac78\Lambda\,(R+2\rho)<0.9561\cdot46
+\rho<R .
+\]
+By the contraction principle $\Psi$ has a
+unique fixed point $\psi_k(z)\in B_k$. The path link $d_k$ is private to $k$,
+so the field $\Gamma(z)$ with links $z$ on $L'$ and $\psi_k(z)$ on $d_k$ lies
+in $F$, and $\Gamma$ is injective.
+
+Near $\Gamma(D)$ every cut-off equals $1$, so $C$ is smooth, and $\partial_g
+C$ is block diagonal with the blocks $\partial_{d_k}V^\sharp_k$. Moving
+$d_k\mapsto e^{t\eta}d_k$ multiplies every $v_x$ of $k$ by $e^{-t\zeta}$,
+$\zeta=\operatorname{Ad}(d_k^{-1})\eta$, so the block is $\operatorname{Ad}
+(d_k)(1-E_{N_k}\frac1{16}\sum_xL_{X_x})$, with determinant at most $(1+\frac
+78\Lambda)^3<1.957^3$ in modulus. By the identity above, $\nu_c$ restricted
+to $\Gamma(D)$ is the image of $h^{\otimes L'}$ on $D$ divided by $\lvert\det
+\partial_gC\rvert$, so
+\begin{gather*}
+\nu_c\bigl(\Gamma(D)\bigr)\ge1.957^{-12|W|}h(B_\rho)^{45|W|},\\
+h(B_\rho)=\frac{2\theta-\sin2\theta}{2\pi}\ge\frac{\rho^3}{14},
+\end{gather*}
+with $\theta=\rho/\sqrt2$ the angular radius, as $2\theta-\sin2\theta\ge
+\frac43\theta^3(1-\frac{\theta^2}5)$. Every plaquette has at most one path
+link, since two path links $(2y+e_\mu,\mu)$ and $(2y'+e_\mu,\mu)$ are never
+opposite sides of a plaquette, so on $\Gamma(D)$ each plaquette moves by at
+most $R+3\rho=47\rho$ and $\delta(U'_p,I)\le\kappa+47\rho\le K/(2\sqrt{n_P})$.
+Hence $Q_W\le K^2/4$ there and
+\[
+\int_Fe^{-\lambda Q_W}\,d\nu_c\ge e^{-\lambda K^2/4}\,1.957^{-12|W|}
+\Bigl(\frac{\rho^3}{14}\Bigr)^{45|W|}.
+\]
+Dividing,
+\[
+\mu_U(B)\le\bigl(M^41.957^{12}\bigr)^{|W|}\Bigl(\frac{14\cdot188^3n_P^{3/2}}
+{K^3}\Bigr)^{45|W|}e^{-3\lambda K^2/4},
+\]
+and $(M^41.957^{12})^{1/45}<2.93$, $14\cdot188^3<9.31\cdot10^7$. Finally $n_P\le384|W|$, since each plaquette
+that contains a link of $A_W$ has the base of that link, a site of a block of
+$W$, as a vertex, and each site is a vertex of $24$ plaquettes.
+\end{proof}
+
+\begin{corollary}\label{cor:calmfibres}
+In addition to the hypotheses of Proposition~\ref{prop:calmfibre}, assume
+those of Theorem~\ref{thm:chartdecay} with $K$ in place of $\kappa$, and
+$s\ge1.24\cdot10^5K$. Then $\mu_U(F\setminus\Phi_U(\Omega_r))\le
+\varepsilon_W(K,\lambda)$, and for $X_1,X_2\subset A_W$ and $\tilde F,\tilde G$
+as in Theorem~\ref{thm:chartdecay}\textup{(iii)},
+\[
+\lvert\Cov_{\mu_U}(\tilde F,\tilde G)\rvert\le\Bigl(\frac{c_9}\lambda e^{-
+\alpha_Gd(X_1,X_2)}+30\,\varepsilon_W(K,\lambda)\Bigr)\lvert X_1\rvert\,
+\lvert X_2\rvert .
+\]
+\end{corollary}
+
+\begin{proof}
+The field $U$ satisfies the hypothesis of Lemma~\ref{lem:smallframes} with
+$K$, so Theorem~\ref{thm:offchart}(i) with $K$ in place of $\kappa$ puts
+every point of $F$ outside $\Phi_U(\Omega_r)$ in the set of
+Proposition~\ref{prop:calmfibre}. The covariance bound follows as in the
+proof of Theorem~\ref{thm:offchart}(iii).
+\end{proof}
+
+So the constrained law decorrelates on every fibre through a field whose
+plaquettes near $W$ are at most $K/(4\sqrt{n_P})$, with no average over
+fibres, once $\lambda K^2$ is a large multiple of $|W|\log(n_P/K)$; with
+$K\le1.4\cdot10^{-14}$ this needs $\beta_W$ above $10^{32}|W|$ under the
+Wilson measure. The restriction is on the fibre: the links off $A_W$ are
+fixed on it, so a fibre whose boundary links carry a large plaquette near
+$W$ contains no such field, and neither may a fibre with small boundary
+links, and these fibres are not covered. The proposition is a lower bound
+for the fibre measure near one good field against an upper bound for the
+whole fibre; it does not compare different fibres.
+
 \begin{remark}\label{rem:chartdecayopen}
 Theorem~\ref{thm:chartdecay} is the decay that
 Remark~\ref{rem:fibrechartopen}(b) asks for, on the chart $\Phi(\Omega_r)$
@@ -8098,12 +8436,13 @@ with $r=s/32$, which contains $\Phi(K_{s/32})$ and so every $Ue^X\in F$
 with $\lVert X\rVert_\infty\le s/1280$. What remains open for the small
 fields:
 \begin{enumerate}[label=\textup{(\alph*)},leftmargin=*]
-\item the mass of the constrained law outside $\Phi(\Omega_r)$ on every
-fibre: Theorem~\ref{thm:offchart} bounds it by the mass of the large
-plaquettes of the fibre, and bounds that only in mean over the fibres,
-whereas the constrained cube condition of
-Remark~\ref{rem:constrainedopen}(a) takes a supremum over boundary
-conditions;
+\item the mass of the constrained law outside $\Phi(\Omega_r)$ on the
+fibres that contain no field whose plaquettes near $W$ are small:
+Corollary~\ref{cor:calmfibres} bounds it on every fibre that contains one,
+and Theorem~\ref{thm:offchart} in mean over all fibres, whereas the
+constrained cube condition of Remark~\ref{rem:constrainedopen}(a) takes a
+supremum over boundary conditions, which include fibres with a large
+plaquette among the fixed links;
 \item numbers: $\alpha_G$, $c_8$ and $c_9$ come, through $c_3$, from
 compactness, and the rate is not computed;
 \item the passage from the decay of the constrained law on one fibre, at
@@ -8949,7 +9288,7 @@ Theorem~\ref{thm:certificate}, whose certificates are checked in exact
 arithmetic. The programs of these steps, in Python with
 python-flint (FLINT and Arb) and a C kernel for products of Taylor
 polynomials, their outputs and the list of certified boxes are in the
-repository \url{https://github.com/creelie/4Y-M}, release v4.22.0, together
+repository \url{https://github.com/creelie/4Y-M}, release v4.23.0, together
 with a Lean~4 certificate of the line field, independent exact or
 numerical checks of the other finite statements, our checks of the
 certificate of~\cite{Rom26}, and the certificate of
