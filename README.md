@@ -1,4 +1,4 @@
-# Mass Gap of Four-Dimensional Lattice Yang–Mills Theory for Every Compact Simple Group
+# Explicit Lattice Yang–Mills Mass Gap for Every Compact Simple Group Reducing the Continuum Gap to One Cube
 
 Deep Bhattacharjee, Ushashi Bhattacharya, James Montgomery Lockwood and Tristan Romanov.
 
@@ -78,7 +78,7 @@ resolves to the latest release.
 | v4.28.0 | [10.5281/zenodo.23836741](https://doi.org/10.5281/zenodo.23836741) |
 
 `YangMills_masterzipfinal2.zip` holds the repository at v4.28.0 and the
-Hexagon package of the paper *Mass Gap of Four-Dimensional Lattice Yang–Mills Theory for Every Compact Simple Group*
+Hexagon package of the paper *Explicit Lattice Yang–Mills Mass Gap for Every Compact Simple Group Reducing the Continuum Gap to One Cube*
 ([download](https://github.com/creelie/4Y-M/raw/main/YangMills_masterzipfinal2.zip)).
 
 This repository contains three papers and a Lean 4 / Mathlib project
@@ -90,9 +90,9 @@ This repository contains three papers and a Lean 4 / Mathlib project
   (`strong-coupling/prd/`, PDF also at
   `preprintYangMillsDobrushinCeiling/YangMillsDobrushinCeiling.pdf`; see
   `strong-coupling/README.md`);
-- *Mass Gap of Four-Dimensional Lattice Yang–Mills Theory for Every Compact Simple Group* (`strong-coupling/forest/`, REVTeX, 68 pages; PDF also
+- *Explicit Lattice Yang–Mills Mass Gap for Every Compact Simple Group Reducing the Continuum Gap to One Cube* (`strong-coupling/forest/`, REVTeX, 98 pages; PDF also
   at `preprintYangMillsForestGauge/YangMillsForestGauge.pdf`; the one-column
-  version in the AMS article class, 103 pages, is `strong-coupling/forest/cmp/`;
+  version in the AMS article class, 150 pages, is `strong-coupling/forest/cmp/`;
   the working notes and checks are in `strong-coupling/gauge-fixed/`). It
   was first posted as Hexagon preprint 2610.00341 under the title *Mass Gap
   of Four-Dimensional Lattice Yang–Mills Theory in a Forest Gauge*.

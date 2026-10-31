@@ -46,7 +46,7 @@ units remain open. `OPEN.md` records what is known of each.
 
 ## Forest gauge fixing (`forest/`, `gauge-fixed/`)
 
-`forest/main.tex` is the paper "Mass Gap of Four-Dimensional Lattice Yang–Mills Theory for Every Compact Simple Group" by Deep
+`forest/main.tex` is the paper "Explicit Lattice Yang–Mills Mass Gap for Every Compact Simple Group Reducing the Continuum Gap to One Cube" by Deep
 Bhattacharjee, Ushashi Bhattacharya and James Montgomery Lockwood (REVTeX
 4-2, two columns, 68 pages), compiled as
 `preprintYangMillsForestGauge/YangMillsForestGauge.pdf` in the repository
