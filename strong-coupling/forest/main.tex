@@ -3208,6 +3208,63 @@ corresponding positive ratio of continuum integrals; for $h=e^{-|x|^2}$,
 $t_f=0.05$, $r=\frac12$ and $r'=1$ it is $0.6337$.
 \end{remark}
 
+\begin{remark}\label{rem:compositeslice}
+The slice field of Proposition~\ref{prop:sliceratio} is not linear: it is a
+gauge-invariant function of the spatial links of one slice. Its free analogue
+is the magnetic energy, and the conclusion of Remark~\ref{rem:freeslice}
+survives for it. Take the abelian free lattice field on $a_k\Z\times
+a_k\Z^3_{L_k}$ with $a_kL_k=\ell$ fixed, Feynman gauge, the lattice heat flow
+of the spatial links for a physical time $t_f\ge0$, and
+$U_k=\sum_x a_k^3\sum_{i<j}(F_{ij}(0,x)^2-\omega_k(F_{ij}^2))$, the zero
+spatial momentum part of $h$ (for $\SU(N)$ at tree level $D_k$ is multiplied by
+$N^2-1$). Since $F_{ij}$ is Gaussian, $\operatorname{Cov}(F^2,F'^2)=2\operatorname{Cov}(F,F')^2$,
+and the mixed propagator of the magnetic field at spatial momentum $p$ is
+$N_{ij,lm}(p)\,K_p(n)$, with a numerator that does not depend on the time
+momentum and $K_p(n)=e^{-\omega|n|a_k}/(2\sinh(a_k\omega))$. Hence
+\[
+D_k(r)\propto\sum_{p\in\frac{2\pi}\ell\Z^3_{L_k}\setminus0}
+S_k(p)\,e^{-4t_f\hat p^2}\,\frac{e^{-2r\omega}}{4a_k^{-2}\sinh^2(a_k\omega)},
+\qquad S_k(p)=\sum_{i<j,\,l<m}|N_{ij,lm}(p)|^2\le36\,\hat p^4 ,
+\]
+and the bounds of Remark~\ref{rem:freeslice} dominate the summands by
+$(9/\kappa^2)\,\hat p^2e^{-4t_f\hat p^2-2r\kappa\hat p}$, summable over
+$\frac{2\pi}\ell\Z^3$ for $r>0$ uniformly in $k$, also for $t_f=0$. The summands
+converge to the continuum ones, so for every $0<r<r'$ the ratio
+$D_k(r')/D_k(r)$ converges to a positive limit, with or without the flow. For
+$\ell=6$ the computed values of $D_k(\frac12)/D_k(\frac14)$ at $t_f=0.05$ and
+$a_k^{-1}=8,12,16,24$ are $0.27341$, $0.27239$, $0.27201$, $0.27174$, against
+$0.27152$ in the continuum; at $t_f=0$ they are $0.0224$, $0.0265$,
+$0.0290$, $0.0304$, against $(r/r')^5=\frac1{32}$ in infinite volume.
+
+The behaviour at $r=0$ separates the cases. With the flow, $D_k(0)$ stays
+bounded and the first-step energy $-a_k^{-1}\log(D_k(a_k)/D_k(0))$ is $6.37$,
+$6.50$, $6.56$, $6.62$ at the four spacings, bounded. Without the flow,
+$D_k(0)\sim a_k^{-5}$ and $D_k(a_k)/D_k(0)=0.0198$ at every spacing, so the
+first-step energy grows like $3.92/a_k$ although every ratio at $r>0$
+converges: the condition of Proposition~\ref{prop:sliceratio} at $r>0$ is
+weaker than a bound on the first step. For the full energy density, which
+contains $F_{0i}$ and is not a function of one slice, the electric numerator
+depends on the time momentum, and the second time difference of $K_p$ is
+$-\delta_{n0}$ plus a multiple of $K_p$, a contact term: $D_k(0)\sim a_k^{-2}$ even with the flow, $D_k(a_k)/D_k(0)=0.042$,
+$0.023$, $0.0145$ at $a_k^{-1}=8,12,16$, while the ratios at $r>0$ again
+converge to the same continuum values ($0.27092$, $0.27126$, $0.27137$). The
+computation is \texttt{slice/composite\_free.py}.
+
+At next order the spatial flow, being nonlinear, fuses two hard modes into a
+soft one, and the state $\Psi_{U_k}$ acquires a component of energy about
+$2q$ for each $q\lesssim a_k^{-1}$. Its norm is of order $g^2$ and ultraviolet
+finite, dominated by $q\approx\tau^{-1/2}$, but its mean energy is not: in the
+free vacuum the first-step energy is $E_{\mathrm{LO}}(1+g^2(c+\frac
+N{3\pi^2}\log(\sqrt\tau/a_k)))$, and the logarithm has coefficient
+$\frac8{11}$ of $2b_0$, $b_0=11N/48\pi^2$. A first-step bound at fixed
+coupling therefore fails logarithmically, while the ratio at a fixed $r>0$
+only loses the norm of that component, damped by $e^{-2qr}$. This is why
+Proposition~\ref{prop:sliceratio} is stated at $r>0$; the decomposition
+$\|\mathbb T_k^{n/2}u\|\ge c^{n/2}\|v\|-\|w\|$ for $u=v+w$ with a first-step
+bound on the soft part $v$ alone is the form a four-dimensional argument
+would use.
+\end{remark}
+
 \begin{remark}\label{rem:twodslice}
 The inequality also holds along the right tuning in two-dimensional $\SU(N)$
 lattice gauge theory, which is interacting and nonabelian but has no
