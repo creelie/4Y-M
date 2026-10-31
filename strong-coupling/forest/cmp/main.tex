@@ -8847,10 +8847,77 @@ then tends to $0$, so the lemma does not reach cubes of a fixed physical
 size; this is a limitation of the argument, not a proof that such fillings
 fail. Moreover Proposition~\ref{prop:conddensity} bounds the fraction of
 bad cubes under one exterior and does not compare the laws under two
-exteriors, so it gives no contraction coefficient. The conditional
-estimate in (D), for calm exteriors on cubes of fixed physical size, remains
-open.
+exteriors, so it gives no contraction coefficient.
 \end{remark}
+
+The calm boundary is needed only for the small-curvature filling. If the
+boundary layer is paid for instead of filled, every condition on the
+exterior disappears, at the price of a surface term that is small against
+the volume on large boxes.
+
+\begin{proposition}\label{prop:anyexterior}
+Let $\beta_W\ge1$, $0<\rho\le1$ and $0<\varepsilon\le1$ with $\varepsilon
+l\ge16$. For every boundary field $\eta$,
+\[
+-\log\nu_\eta(E_\varepsilon)\ge l^4\Bigl(\frac{\beta_W\rho^2\varepsilon}{32}
+-6\log\beta_W-C_1-\frac{48\beta_W}{l}\Bigr),
+\]
+with $C_1=3+4\log(24\pi^3)<31$.
+\end{proposition}
+
+\begin{proof}
+A unit cube $x+[0,1]^4$ with $x\in\{1,\dots,l-2\}^4$ does not meet
+$\partial R$, so all its plaquettes are inner; the other $l^4-(l-2)^4\le8l^3
+\le\varepsilon l^4/2$ unit cubes meet it. On $E_\varepsilon$ at least
+$\varepsilon l^4/2$ cubes of the first kind contain a bad plaquette, which is
+inner, and a plaquette lies in at most four unit cubes. So at least
+$\varepsilon l^4/8$ inner plaquettes are bad, $\sum_{P^\circ}s_p\ge\rho^2
+\varepsilon l^4/32$, and the unnormalised weight of $E_\varepsilon$ is at
+most $\exp(-\beta_W\rho^2\varepsilon l^4/32)$.
+
+For the normalisation take inner links $U_e=h_e$ with $\angle h_e\le t=(4
+\sqrt{\beta_W})^{-1}$. An inner plaquette whose four links are inner has
+$\angle U_p\le4t$ and $s_p\le(2\beta_W)^{-1}$. An inner plaquette spans two
+directions and has its other two coordinates in $\{1,\dots,l-1\}$; it
+contains a boundary link exactly when its cell in the plane of the two
+spanned directions meets the boundary of $[0,l]^2$, which happens for
+$4(l-1)$ of the $l^2$ cells. So $24(l-1)^3\le24l^3$ inner plaquettes contain
+a boundary link, and on them $s_p\le2$. There are $n_P=6l^2(l-1)^2\le6l^4$
+inner plaquettes and $n_L=4l(l-1)^3\le4l^4$ inner links, so, as in the proof
+of Proposition~\ref{prop:conddensity},
+\[
+Z_\eta\ge\exp\bigl(-48\beta_Wl^3-3l^4\bigr)\bigl(24\pi^3\beta_W^{3/2}
+\bigr)^{-4l^4}.
+\]
+Dividing gives the bound, and $24\pi^3<e^7$ gives $C_1<31$.
+\end{proof}
+
+\begin{corollary}\label{cor:anyexterior}
+Let $\beta_W\ge e^{44}$, $l\ge6144\beta_W^{3/4}$ and $\rho=\varepsilon=
+\beta_W^{-1/4}$. Then $\nu_\eta(E_\varepsilon)\le\exp(-\beta_W^{1/4}l^4/64)$
+for every boundary field $\eta$. In particular, along $\beta_W\sim b\log
+(1/a)$ with $l=\lceil r/a\rceil$ and fixed $r,b>0$, on cubes of fixed
+physical side $r$ the fraction of unit cubes that contain a plaquette with
+$\delta(U_p,I)>\beta_W^{-1/4}$ is at most $\beta_W^{-1/4}$ with conditional
+probability tending to one, uniformly over all exteriors.
+\end{corollary}
+
+\begin{proof}
+Here $\varepsilon l\ge6144\beta_W^{1/2}\ge16$ and $\rho\le1$. The first term
+of Proposition~\ref{prop:anyexterior} is $\beta_W^{1/4}/32$, and $48\beta_W
+/l\le\beta_W^{1/4}/128$. For $x=\log\beta_W\ge44$ we have $6x+31\le e^{x/4}
+/128$: at $x=44$ the left side is $295$ and the right side exceeds $467$, and
+$x/4-\log(6x+31)$ increases for $x\ge44$. So $6\log\beta_W+C_1\le\beta_W
+^{1/4}/128$ and the bracket is at least $\beta_W^{1/4}(\frac1{32}-\frac1{128}
+-\frac1{128})=\beta_W^{1/4}/64$. Along the tuning, $\beta_W\to\infty$ and
+$l/\beta_W^{3/4}\to\infty$, so the hypotheses hold for small $a$.
+\end{proof}
+
+Like Proposition~\ref{prop:conddensity}, Corollary~\ref{cor:anyexterior}
+bounds the bad cubes under one exterior and does not compare the laws under
+two, so it gives no contraction coefficient. The bad cubes are rare on cubes
+of fixed physical size for every exterior, and the conditional estimate in
+(D) remains open.
 
 \section*{Acknowledgements}
 
@@ -8882,7 +8949,7 @@ Theorem~\ref{thm:certificate}, whose certificates are checked in exact
 arithmetic. The programs of these steps, in Python with
 python-flint (FLINT and Arb) and a C kernel for products of Taylor
 polynomials, their outputs and the list of certified boxes are in the
-repository \url{https://github.com/creelie/4Y-M}, release v4.21.0, together
+repository \url{https://github.com/creelie/4Y-M}, release v4.22.0, together
 with a Lean~4 certificate of the line field, independent exact or
 numerical checks of the other finite statements, our checks of the
 certificate of~\cite{Rom26}, and the certificate of
