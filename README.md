@@ -76,6 +76,7 @@ resolves to the latest release.
 | v4.26.0 | [10.5281/zenodo.23835912](https://doi.org/10.5281/zenodo.23835912) |
 | v4.27.0 | [10.5281/zenodo.23836409](https://doi.org/10.5281/zenodo.23836409) |
 | v4.28.0 | [10.5281/zenodo.23836741](https://doi.org/10.5281/zenodo.23836741) |
+| v4.29.0 | [10.5281/zenodo.23841532](https://doi.org/10.5281/zenodo.23841532) |
 
 `YangMills_masterzipfinal2.zip` holds the repository at v4.28.0 and the
 Hexagon package of the paper *Explicit Lattice Yang–Mills Mass Gap for Every Compact Simple Group Reducing the Continuum Gap to One Cube*
