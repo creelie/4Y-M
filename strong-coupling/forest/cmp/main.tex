@@ -7550,9 +7550,10 @@ depends only on the $24$ links of $V_{y,\mu}$, and let $j(X_e)=\det\Psi(
 \operatorname{ad}_{X_e})$, the density of Haar measure in the coordinate
 $U_ee^{X_e}$, with $\Psi$ as in Lemma~\ref{lem:smallframes}. Both are
 real-analytic on a neighbourhood of the compact set of backgrounds with
-$\delta(P_x,P_{2y})\le\rho_G/8$ for every $x$ and of $X$ with $\lVert X
-\rVert_\infty\le\rho_G/32$, and $j>0$ there. So there is $c_3\ge1$
-depending only on $G$ such that there the $m$-th derivative of $c_k$ in $X$
+$\delta(P_x,P_{2y})\le10^{-6}\rho_G$ for every $x$ and of $X$ with $\lVert X
+\rVert_\infty\le10^{-3}\rho_G$, and $j>0$ there. So there is $c_3\ge1$
+depending only on $G$, computed in Proposition~\ref{prop:explicitconstants},
+such that there the $m$-th derivative of $c_k$ in $X$
 is at most $c_3\prod_{i\le m}N_{y,\mu}(Y^i)$ on $Y^1,\dots,Y^m$ for $m=1,2,
 3$, and the first two derivatives of $\log j$ are at most $c_3$ in norm. By
 Lemma~\ref{lem:smallframes}(i) the background $U$ lies in this set.
@@ -7661,7 +7662,8 @@ _2\le481\lVert A'\rVert_2$ and $\lVert\Pi''\rVert_1\le c(\lVert A''\rVert
 _1+\lVert A'\rVert_2^2)$ with $c$ absolute, and the same identity with $M=1+
 Dh^*Dh\ge1$ and $\lVert Dh\rVert\le\frac16$ bounds the last term. Each bound
 is a multiple of $T(\zeta)$ by a constant that depends only on $c_3$ and
-$\dim G$; this is $c_6$.
+$\dim G$; this is $c_6$, computed in
+Proposition~\ref{prop:explicitconstants}.
 
 (iv) Let $H=\lambda Q\circ\Phi+\psi$ on the interior of $K_s$. By (ii) and
 (iii), $\Hess H\ge\lambda(\frac1{26}-\frac1{195})-c_6=\frac\lambda{30}-c_6
@@ -7679,6 +7681,135 @@ inequality passes to $e^{-H}\mathbf 1_{K_{s/2}}$, which is $\mu$ up to
 normalisation by (iii).
 \end{proof}
 
+The constants of Theorem~\ref{thm:fibrechart} can be computed. Cauchy's
+estimates on a complex neighbourhood of the real chart bound the
+derivatives of the averages, and the rest of the proof turns these bounds
+into $c_6$.
+
+\begin{proposition}\label{prop:explicitconstants}
+Let $G\subset\U(r)$ be compact. Theorem~\ref{thm:fibrechart} holds with
+\[
+c_3=\max\{1.5\cdot10^4\sqrt r,\dim G\},\qquad c_6=6.81\cdot10^5\dim G\,
+c_3^2.
+\]
+For $\SU(2)$ these are $c_3\le2.13\cdot10^4$ and $c_6\le9.3\cdot10^{14}$, so
+part~\textup{(iv)} holds for $\lambda\ge5.6\cdot10^{16}$, that is, for the
+Wilson action at $\beta\ge2.3\cdot10^{17}$, once $\kappa+s\le6.0\cdot
+10^{-13}$.
+\end{proposition}
+
+\begin{proof}
+Write $\lVert\cdot\rVert_{\rm op}$ for the operator norm, which is at most
+the Hilbert--Schmidt norm, while $\lVert X\rVert\le\sqrt r\lVert X\rVert
+_{\rm op}$ on $\g$. Since $\rho_G\le1$, every background of the set of the
+proof has its sites $w_x=v^{-1}P_x$ within $a=10^{-6}$ of $I$, and every $X$
+of that set has $\lVert X_e\rVert\le x_0=10^{-3}$.
+
+\emph{Three estimates.} Let $X$ be skew-Hermitian and $Z$ complex with
+$\lVert Z\rVert_{\rm op}\le t$. Duhamel's formula $e^{X+Z}-e^X=\int_0^1e^{
+\sigma(X+Z)}Ze^{(1-\sigma)X}\,d\sigma$, with $\lVert e^{\sigma(X+Z)}\rVert
+_{\rm op}\le e^{\sigma t}$ by the Lie--Trotter product formula, gives
+$e^{X+Z}=e^X(I+F)$ and likewise $e^{-X-Z}=(I+F')e^{-X}$, with $\lVert F
+\rVert_{\rm op},\lVert F'\rVert_{\rm op}\le\varphi=e^t-1$. The same formula
+gives $\lVert e^A-e^B\rVert\le\lVert A-B\rVert$ for skew-Hermitian $A,B$, in
+both norms. Finally, on $\lVert w-I\rVert_{\rm op}<1$ the series $\log w=
+\sum_{k\ge1}(-1)^{k+1}(w-I)^k/k$ is holomorphic, equals the principal
+logarithm at unitary $w$, and its derivative satisfies $\lVert D\log(w)[H]
+\rVert\le\lVert H\rVert/(1-\lVert w-I\rVert_{\rm op})$ in both norms.
+
+\emph{The complex chart.} Fix $U$ and a real $X$ in the set, put $U'=
+Ue^X$, and let $Z$ be complex with $\lVert Z_e\rVert_{\rm op}\le t$ on the
+$24$ links of $V_{y,\mu}$. For a path $P_x=U_1U_2$ with path link $v$, the
+site at the complex field $U_ee^{X_e+Z_e}$ is
+\[
+\begin{split}
+w_x&=e^{-X_v-Z_v}v^{-1}U_1e^{X_1+Z_1}U_2e^{X_2+Z_2}\\
+&=(I+F'_v)\,w'_x\,(I+\tilde F_1)(I+F_2),
+\end{split}
+\]
+where $w'_x$ is the site at $U'$, a unitary matrix with $\delta(w'_x,I)\le
+a+3x_0=e_0$ since each link moves by $\delta(e^{X_e},I)\le x_0$, and
+$\tilde F_1$ is $F_1$ conjugated by the unitary $U_2e^{X_2}$. Hence $\lVert
+w_x-w'_x\rVert_{\rm op}\le\psi=(1+\varphi)^3-1$, and if $e_0+\psi<1$ then
+$\lVert\log w_x-\log w'_x\rVert_{\rm op}\le d=\psi/(1-e_0-\psi)$, so the
+mean $M$ of the sixteen logarithms is within $d$ of its value $M'$ at
+$U'$, which is skew-Hermitian. The average is $V^\sharp=ve^{X_v+Z_v}e^M$,
+and with $\lVert e^M\rVert_{\rm op}\le e^d$ and $\lVert e^M-e^{M'}\rVert
+_{\rm op}\le e^d-1$,
+\begin{gather*}
+r=V^\sharp(U')^{-1}V^\sharp=e^{-M'}(I+F_v)e^M,\\
+\lVert r-I\rVert_{\rm op}\le(1+\varphi)e^d-1=\eta.
+\end{gather*}
+At real points $\chi=1$, as $e_0\rho_G<\rho_G/2$. The unitary $q'=V^\sharp
+(U)^{-1}V^\sharp(U')=e^{-M_0}e^{X_v}e^{M'}$ has $\delta(q',I)\le x_0+\lVert
+M'-M_0\rVert\le x_0+3x_0/(1-e_0)=\gamma_0<0.0041$. So if $\gamma_0+\eta<
+1$, then $c(X+Z)=\log(q'r)$ is holomorphic in $Z$, extends $c$, and
+\[
+\lVert c(X+Z)-c(X)\rVert_{\rm op}\le S(t)=\frac\eta{1-\gamma_0-\eta}.
+\]
+
+\emph{Derivatives of $c_k$.} For $N_{y,\mu}(Y)=1$ the function $f(z)=c(X+zY)$
+is holomorphic on $\lvert z\rvert<0.1$, where $e_0+\psi<0.36$ and
+$\gamma_0+\eta<0.91$, and $\lVert zY_e\rVert_{\rm op}\le\lvert z\rvert$.
+Cauchy's estimate $\lVert f^{(m)}(0)\rVert\le m!R^{-m}\sup_{\lvert z\rvert
+=R}\lVert f(z)-f(0)\rVert$ gives
+\[
+\lVert D^mc(X)[Y,\dots,Y]\rVert\le\sqrt r\,m!\,S(R)/R^m .
+\]
+At $R=10^{-3}$, $0.05$ and $0.07$ the values of $m!S(R)/R^m$ for $m=1,2,3$
+are below $4.2$, $307$ and $14811$; at $R=0.07$, for instance, $\varphi<
+0.0726$, $\psi<0.2337$, $d<0.3062$, $\eta<0.4567$ and $S<0.847$. By
+Banach's theorem~\cite{Ban38} a symmetric multilinear form on a real
+Hilbert space has the same norm as its restriction to the diagonal. Applied
+to $\langle u,D^mc(X)[\cdot]\rangle$ for unit vectors $u\in\g$, with the
+Euclidean norm $N_{y,\mu}$ on the $24$ links, this gives $\lVert D^mc(X)
+[Y^1,\dots,Y^m]\rVert\le1.5\cdot10^4\sqrt r\prod_iN_{y,\mu}(Y^i)$ for
+$m=1,2,3$.
+
+\emph{Derivatives of $\log j$.} Since $\g$ is reductive, $\Tr\operatorname
+{ad}_X=0$, and $\Psi(z)=e^{-z/2}\sinh(z/2)/(z/2)$, so $\log j(X)=\Tr g(
+\operatorname{ad}_X)$ with $g(w)=\log(\sinh(w/2)/(w/2))=\sum_{k\ge1}g_{2k}
+w^{2k}$ for $\lvert w\rvert<2\pi$. On $\lvert w\rvert=3$, $\lvert\sinh(w/2)
+/(w/2)-1\rvert\le\sinh(1.5)/1.5-1<0.4196$, so $\lvert g\rvert\le0.5441$ and
+$\lvert g_{2k}\rvert\le0.5441\cdot3^{-2k}$. For complex $X$ with $\lVert X
+\rVert_{\rm op}\le b$ the operator $\operatorname{ad}_X$ on $\g\otimes\C$
+has norm at most $2b$, and $\lvert\Tr A^{2k}\rvert\le\dim G\,\lVert A
+\rVert_{\rm op}^{2k}$, so $\lvert\log j(X)\rvert\le0.5441\dim G\,u^2/(1-u^2)$
+with $u=2b/3$. Along $X+zH$, $\lVert H\rVert=1$, $\lvert z\rvert\le0.8$, this
+is at most $0.218\dim G$, and Cauchy's estimate bounds the first two
+derivatives of $\log j$ by $0.28\dim G$ and $0.69\dim G$.
+
+\emph{The constant $c_6$.} In the proof of Theorem~\ref{thm:fibrechart}(iii),
+with $c_3$ as above, $a'=\lVert A'\rVert_2^2\le2.1\dim G\,c_3^2T(\zeta)$ and
+$b'=\lVert A''\rVert_1\le\dim G\,c_3(2.1+1488c_3)T(\zeta)\le1490.1\dim G\,
+c_3^2T(\zeta)$. Write $K=(AB^*)^{-1}$, so that
+\begin{gather*}
+K'=-KA'B^*K,\quad K''=2KA'B^*KA'B^*K-KA''B^*K,\\
+\Pi'=B^*K'A+B^*KA',\quad\Pi''=B^*K''A+2B^*K'A'+B^*KA''.
+\end{gather*} With $\lVert B\rVert\le0.63$, $\lVert K\rVert\le34$, $\lVert A\rVert
+\le1$ and $k=34\cdot0.63=21.42$ these give $\lVert\Pi'\rVert_2\le(k+k^2)
+\lVert A'\rVert_2\le481\lVert A'\rVert_2$ and $\lVert\Pi''\rVert_1\le(2k^3+
+2k^2)\lVert A'\rVert_2^2+(k^2+k)\lVert A''\rVert_1\le20576\,a'+481\,b'$.
+For $M=1+Dh^*Dh\ge1$ with $\lVert Dh\rVert\le\frac16$, the identity for
+$\log\det$ gives $\lvert(\log\det M)''\rvert\le\frac13\lVert\Pi''\rVert_1+
+\frac{19}9\lVert\Pi'\rVert_2^2$. Adding the three terms of $\psi$,
+\begin{multline*}
+\Bigl\lvert\frac{d^2}{dt^2}\psi\Bigr\rvert\le745c_3^2T+25b'+1275a'\\
++\tfrac12\Bigl(\tfrac13(20576a'+481b')+\tfrac{19}9\,481^2a'\Bigr),
+\end{multline*}
+which is at most $6.81\cdot10^5\dim G\,c_3^2T(\zeta)$.
+
+For $\SU(2)$, $r=2$ and $\dim G=3$. Then $60c_6<5.6\cdot10^{16}$, and $4\cdot
+10^5c_3(\kappa+s)\le\frac1{195}$ holds when $\kappa+s\le6.0\cdot10^{-13}$;
+it implies $s\le1/(6000c_3)$ and $\kappa+6s\le10^{-8}$.
+\end{proof}
+
+The bounds are far from the true sizes: on random $\SU(2)$ backgrounds the
+first three derivatives of $c_k$ along unit directions stay below $0.14$,
+$0.03$ and $0.02$, a floating-point computation reproduced in the archive.
+The loss comes from the radius $0.07$ of the complex neighbourhood, which
+enters the third derivative as $0.07^{-3}$.
+
 \begin{remark}\label{rem:fibrechartopen}
 Theorem~\ref{thm:fibrechart} removes the coarea factor and the curvature of
 $F$ for $\lambda\ge60c_6$ and replaces the small-field set by the convex
@@ -7693,9 +7824,9 @@ a boundary, and the locality of $\Hess H$, which through $Dh$ contains
 $\mathcal G^{-1}$, exponentially decaying by Lemma~\ref{lem:combes} but not
 of finite range; Theorem~\ref{thm:chartdecay} below reaches it on
 a chart whose domain is a product;
-\item numbers: $c_3$ and $c_6$ come from compactness and are not computed,
-so the threshold $\lambda\ge60c_6$ is not explicit, and $\kappa$ and $s$
-are at the scale $10^{-8}\rho_G$.
+\item numbers: the constants of Proposition~\ref{prop:explicitconstants}
+are far from optimal, so for $\SU(2)$ the threshold is $\lambda\ge5.6\cdot
+10^{16}$ and $\kappa$ and $s$ are at the scale $10^{-13}$.
 \end{enumerate}
 On the periodic lattice of side four, for $\SU(2)$ backgrounds as in the
 check of Theorem~\ref{thm:smallfibre}, two to sixteen blocks and $s$ up to
@@ -8082,10 +8213,11 @@ measure decorrelates, coarea factor and curvature of the fibre included, on
 every fibre outside a set of fibres whose probability tends to zero as
 $\beta_W\to\infty$. The bound grows linearly in $\lvert W\rvert$, which is
 harmless for the fixed cubes of the cube condition, but the thresholds are
-far from the one-loop range: the hypotheses force $\kappa\le1.4\cdot10^{-14}
-$, and $q_\kappa(\beta_W)<1$ needs $\beta_W\kappa^2>96(\log\beta_W+C_0)$,
-so $\beta_W$ exceeds $10^{31}$, and larger through $c_3$ and
-$c_6$ (Fig.~\ref{fig:offchart}).
+far from the one-loop range: with the constants of
+Proposition~\ref{prop:explicitconstants} the hypotheses force $\kappa+s\le
+6.0\cdot10^{-13}$ and $s\ge1.24\cdot10^5\kappa$, so $\kappa<4.9\cdot
+10^{-18}$, and $q_\kappa(\beta_W)<1$ needs $\beta_W\kappa^2>96(\log\beta_W+
+C_0)$, so $\beta_W$ exceeds $3.8\cdot10^{38}$ (Fig.~\ref{fig:offchart}).
 
 \begin{figure}[t]
 \centering
@@ -8098,7 +8230,7 @@ only points with a large plaquette (red). (b)~The least $\beta_W$ at which
 the bound $10^4\lvert W\rvert q_\kappa(\beta_W)$ is at most $\frac12$, for
 the $81$ blocks of a cube of side three; it grows like $\kappa^{-2}\log(1/
 \kappa)$, and at the largest $\kappa$ the hypotheses allow it is about
-$3.9\cdot10^{31}$.}
+$4.0\cdot10^{38}$.}
 \label{fig:offchart}
 \end{figure}
 
@@ -8426,7 +8558,7 @@ proof of Theorem~\ref{thm:offchart}(iii).
 So the constrained law decorrelates on every fibre through a field whose
 plaquettes near $W$ are at most $K/(4\sqrt{n_P})$, with no average over
 fibres, once $\lambda K^2$ is a large multiple of $|W|\log(n_P/K)$; with
-$K\le1.4\cdot10^{-14}$ this needs $\beta_W$ above $10^{32}|W|$ under the
+$K<4.9\cdot10^{-18}$ this needs $\beta_W$ above $1.5\cdot10^{39}|W|$ under the
 Wilson measure. The restriction is on the fibre: the links off $A_W$ are
 fixed on it, so a fibre whose boundary links carry a large plaquette near
 $W$ contains no such field, and neither may a fibre with small boundary
@@ -8563,8 +8695,9 @@ $t$ of the least action $q(F)$ of its regular fields, but the constrained
 cube condition of Remark~\ref{rem:constrainedopen}(a) takes a supremum over
 boundary conditions, which include fibres where $q(F)$ is of order one and
 no chart of Theorem~\ref{thm:chartdecay} is available;
-\item numbers: $\alpha_G$, $c_8$ and $c_9$ come, through $c_3$, from
-compactness, and the rate is not computed;
+\item numbers: $c_3$ and $c_6$ are explicit by
+Proposition~\ref{prop:explicitconstants}, but $\beta_0$ and $c_8$, and so
+$\alpha_G$ and $c_9$, rest on constants $C$ that are not computed;
 \item the passage from the decay of the constrained law on one fibre, at
 a fixed background, to the constrained cube condition of
 Remark~\ref{rem:constrainedopen}(a), whose supremum runs over boundary
@@ -9408,7 +9541,7 @@ Theorem~\ref{thm:certificate}, whose certificates are checked in exact
 arithmetic. The programs of these steps, in Python with
 python-flint (FLINT and Arb) and a C kernel for products of Taylor
 polynomials, their outputs and the list of certified boxes are in the
-repository \url{https://github.com/creelie/4Y-M}, release v4.24.0, together
+repository \url{https://github.com/creelie/4Y-M}, release v4.25.0, together
 with a Lean~4 certificate of the line field, independent exact or
 numerical checks of the other finite statements, our checks of the
 certificate of~\cite{Rom26}, and the certificate of
