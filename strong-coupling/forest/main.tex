@@ -8981,6 +8981,118 @@ charts of Theorem~\ref{thm:chartdecay}, which are built at fields
 with all plaquettes near $W$ small. The proposition also does not compare
 regular with irregular fields, at which some site is far from $I$.
 
+Different fibres with the same links off $A_W$ are compared through the
+law of the averages. Call the links off $A_W$ the \emph{exterior} $E$, write
+$h$ for product Haar measure on $G^{A_W}$, and let
+\[
+\pi_E=\frac{e^{-\lambda Q_W}h}{h(e^{-\lambda Q_W})}
+\]
+on $G^{A_W}$. Under the $\SU(2)$ Wilson measure in the tree gauge, $\pi_E$
+with $\lambda=\beta_W/4$ is the conditional law of the links of $A_W$ given
+the exterior. Since $h=\int\nu_c\,dh(c)$,
+\[
+\pi_E=\int\mu_{F_c}\,\frac{\nu_c(e^{-\lambda Q_W})}{h(e^{-\lambda Q_W})}
+\,dh(c),
+\]
+so $\mu_{F_c}$ is the conditional law of $\pi_E$ given $C=c$, and the law
+of the fibre through a field drawn from $\pi_E$ is the law of $C$ under
+$\pi_E$. Let $Q_*(E)$ be the least value of $Q_W$ on $G^{A_W}$, which is
+attained since $G^{A_W}$ is compact.
+
+\begin{proposition}\label{prop:fibrecompare}
+Let $G=\SU(2)$, $\lambda>0$ and $0<t\le1$. For every exterior $E$,
+\begin{gather*}
+\pi_E\bigl(\{Q_W>Q_*(E)+t\}\bigr)\le\varepsilon''_W(t,\lambda),\\
+\varepsilon''_W(t,\lambda)=\Bigl(\frac{1.05\cdot10^7\,n_P^3}{t^3}\Bigr)
+^{49|W|}e^{-3\lambda t/4}.
+\end{gather*}
+In particular the law of the averages under $\pi_E$ gives the fibres $F$
+with $\inf_FQ_W>Q_*(E)+t$ mass at most $\varepsilon''_W(t,\lambda)$.
+\end{proposition}
+
+\begin{proof}
+Since $h$ is a probability measure,
+\[
+\int_{\{Q_W>Q_*+t\}}e^{-\lambda Q_W}\,dh\le e^{-\lambda(Q_*+t)}.
+\]
+For the normalisation let $U_*$ be a field with
+$Q_W(U_*)=Q_*$, let $\rho=t/(90.6\,n_P)$, and let $D$ be the set of fields
+with $d(U_e,U_{*,e})\le\rho$ for each of the $49|W|$ links of $A_W$, the
+$45|W|$ links of $L'$ and the $4|W|$ path links. Then $h(D)=h(B_\rho)
+^{49|W|}\ge(\rho^3/14)^{49|W|}$. Each plaquette contains at most four links
+of $A_W$, so on $D$ it moves by at most $4\rho$, and as $\delta\le d$ and
+$\delta(U_p,I)\le2\sqrt2$,
+\begin{multline*}
+\delta(U_p,I)^2\le\delta(U_{*,p},I)^2+16\sqrt2\,\rho+16\rho^2\\
+<\delta(U_{*,p},I)^2+22.63\rho,
+\end{multline*}
+because each link of $A_W$ lies in six plaquettes, so $n_P\ge74$ and $\rho<
+1.5\cdot10^{-4}$. Hence $Q_W\le Q_*+22.63\,n_P\rho<Q_*+\frac t4$ on $D$, and
+\[
+\pi_E\bigl(\{Q_W>Q_*+t\}\bigr)\le\Bigl(\frac{14\cdot90.6^3n_P^3}{t^3}\Bigr)
+^{49|W|}e^{-3\lambda t/4},
+\]
+with $14\cdot90.6^3<1.05\cdot10^7$. A field $U$ with $Q_W(U)\le Q_*+t$ lies
+in its own fibre, so $\inf_{F(U)}Q_W\le Q_*+t$, which gives the last
+statement.
+\end{proof}
+
+Call a field that agrees with $E$ off $A_W$ a \emph{completion} of $E$.
+
+\begin{corollary}\label{cor:calmexterior}
+Let $G=\SU(2)$, $\lambda>0$, $0<K\le10^{-8}$ and $\kappa=K/(4\sqrt{n_P})$.
+Suppose the exterior $E$ has a completion $U^0$ with $\delta(U^0_p,I)\le
+\kappa/(2\sqrt{n_P})$ for every plaquette $p$ with a vertex in a block of
+$W^+$. Let $\mathcal E$ be the set of completions $U$ with $\delta(U_p,I)\le
+\kappa$ for every such plaquette. Then:
+\begin{enumerate}[label=\textup{(\roman*)},leftmargin=*]
+\item $\pi_E(\mathcal E^c)\le\varepsilon''_W(\kappa^2/2,\lambda)$;
+\item every $U\in\mathcal E$ is regular and its fibre has $q(F(U))<
+\kappa^2$, so the law of the averages under $\pi_E$ gives the fibres with
+$q(F)\ge\kappa^2$, among them every fibre where $q(F)$ is of order one, mass
+at most $\varepsilon''_W(\kappa^2/2,\lambda)$;
+\item if $\lambda$, $s$ and $K$ satisfy the hypotheses of
+Corollary~\ref{cor:calmfibres}, then for every $U\in\mathcal E$ the
+constrained law on $F(U)$ gives the complement of the chart $\Phi_U(
+\Omega_r)$ at $U$ mass at most $\varepsilon_W(K,\lambda)$, and its
+covariances obey the bound of that corollary.
+\end{enumerate}
+\end{corollary}
+
+\begin{proof}
+(i) $Q_*(E)\le Q_W(U^0)\le n_P\kappa^2/(4n_P)=\kappa^2/4$. If $Q_W(U)\le
+Q_*+\kappa^2/2$, then $Q_W(U)\le\frac34\kappa^2$, so every plaquette that
+contains a link of $A_W$ has $\delta(U_p,I)<\kappa$, and a plaquette with a
+vertex in a block of $W^+$ that contains no link of $A_W$ has the value it
+has at $U^0$, at most $\kappa/(2\sqrt{n_P})$. So $\mathcal E^c\subset\{Q_W>
+Q_*+\kappa^2/2\}$, and Proposition~\ref{prop:fibrecompare} with $t=
+\kappa^2/2\le1$ applies. (ii) A field $U\in\mathcal E$ satisfies the
+hypothesis of Lemma~\ref{lem:smallframes}, which places every site of every
+pair within $24\kappa<\frac14$ of $I$, as in the proof of
+Proposition~\ref{prop:calmfibre}; so $U$ is regular and $q(F(U))\le Q_W(U)
+<\kappa^2$. Hence a fibre with $q(F)\ge\kappa^2$ contains no field of
+$\mathcal E$, and the law of the averages gives these fibres at most the mass
+$\pi_E(\mathcal E^c)$. (iii) The fibre $F(U)$ contains the field $U$, whose
+plaquettes with a vertex in a block of $W^+$ are at most $\kappa=K/(4\sqrt
+{n_P})$, which is the hypothesis of Proposition~\ref{prop:calmfibre};
+Corollary~\ref{cor:calmfibres} applies at $U$.
+\end{proof}
+
+So on every exterior whose plaquettes near $W$ can all be made small by the
+links of $A_W$, the fibres where $q(F)$ is of order one, and more generally
+the fibres that contain no field with small plaquettes near $W$, carry total
+mass at most $\varepsilon''_W(\kappa^2/2,\lambda)$ in the law of the
+averages, and every other fibre has the chart decay of
+Corollary~\ref{cor:calmfibres}. This is a bound for every such exterior,
+not a mean over exteriors as in Theorem~\ref{thm:offchart}(ii). If
+$\lambda\kappa^2\ge196|W|\ln(8.4\cdot10^7n_P^3/\kappa^6)$, then
+$\varepsilon''_W(\kappa^2/2,\lambda)\le e^{-\lambda\kappa^2/8}$; with
+$n_P\le384|W|$ and $K=4.8\cdot10^{-18}$ this holds under the Wilson measure
+for $\beta_W\ge6.4\cdot10^{43}|W|^2(1+\ln|W|)$. The fibres where $q(F)$ is of
+order one remain possible in two places: on an exterior with no completion
+whose plaquettes near $W$ are small, and as values of $c$ of small mass on
+an exterior with one.
+
 \begin{remark}\label{rem:chartdecayopen}
 Theorem~\ref{thm:chartdecay} is the decay that
 Remark~\ref{rem:fibrechartopen}(b) asks for, on the chart $\Phi(\Omega_r)$
@@ -8994,12 +9106,15 @@ What remains open for the small fields:
 \item the mass of the constrained law outside $\Phi(\Omega_r)$ on the
 fibres that contain no field whose plaquettes near $W$ are small:
 Corollary~\ref{cor:calmfibres} bounds it on every fibre that contains one,
-and Theorem~\ref{thm:offchart} in mean over all fibres;
-Proposition~\ref{prop:everyfibre} concentrates the law of every fibre within
-$t$ of the least action $q(F)$ of its regular fields, but the constrained
-cube condition of Remark~\ref{rem:constrainedopen}(a) takes a supremum over
-boundary conditions, which include fibres where $q(F)$ is of order one and
-no chart of Theorem~\ref{thm:chartdecay} is available;
+Corollary~\ref{cor:calmexterior} shows that on every exterior with a
+completion whose plaquettes near $W$ are small these fibres, among them those
+where $q(F)$ is of order one, have mass at most $\varepsilon''_W$ in the law
+of the averages, and Theorem~\ref{thm:offchart} bounds them in mean over all
+exteriors; the constrained cube condition of
+Remark~\ref{rem:constrainedopen}(a) takes a supremum over boundary
+conditions, which include these fibres of small mass and the exteriors with
+no such completion, and on them no chart of Theorem~\ref{thm:chartdecay} is
+available;
 \item the passage from the decay of the constrained law on one fibre, at
 a fixed background, to the constrained cube condition of
 Remark~\ref{rem:constrainedopen}(a), whose supremum runs over boundary
@@ -9842,7 +9957,7 @@ Theorem~\ref{thm:certificate}, whose certificates are checked in exact
 arithmetic. The programs of these steps, in Python with
 python-flint (FLINT and Arb) and a C kernel for products of Taylor
 polynomials, their outputs and the list of certified boxes are in the
-repository \url{https://github.com/creelie/4Y-M}, release v4.26.0, together
+repository \url{https://github.com/creelie/4Y-M}, release v4.27.0, together
 with a Lean~4 certificate of the line field, independent exact or
 numerical checks of the other finite statements, our checks of the
 certificate of~\cite{Rom26}, and the certificate of

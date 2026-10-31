@@ -186,9 +186,18 @@ gauge-fixed/checks/cube/every_fibre.py). Weighted operator norms
 ‖M‖_(ϑ) = sup_φ ‖e^{ϑφ} M e^{−ϑφ}‖ over 1-Lipschitz φ, with a Schwarz-lemma bound
 for the Hermitian part of the conjugate, make the decay explicit and the same for
 every compact group: α_G = 2.5·10^{-4} and c_9 = 1.2·10^4 (Proposition
-"explicitdecay"; check gauge-fixed/checks/cube/explicit_decay.py). Fibres where
-q(F) is of order one and the passage to the constrained cube condition over boundary conditions with large
-fields are open (Remark "chartdecayopen").
+"explicitdecay"; check gauge-fixed/checks/cube/explicit_decay.py). Fibres with
+the same exterior are compared through the law of the averages: for every
+exterior the fields with Q_W > Q_*(E) + t have conditional mass at most
+(1.05·10^7 n_P^3/t^3)^{49|W|} e^{−3λt/4} (Proposition "fibrecompare"), so on
+every exterior with a completion whose plaquettes near W are small the fibres
+where q(F) is of order one, and all fibres with no calm field, have mass at
+most that bound at t = κ^2/2 in the law of the averages, and the other fibres
+carry the chart decay (Corollary "calmexterior"; check
+gauge-fixed/checks/cube/fibre_compare.py). Those fibres of small mass, the
+exteriors with no calm completion, and the passage to the constrained cube
+condition over boundary conditions with large fields are open (Remark
+"chartdecayopen").
 A block
 map that is coercive for all nonabelian fields and composes across the
 remaining scales is open.
