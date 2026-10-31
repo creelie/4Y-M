@@ -162,9 +162,24 @@ plaquettes of the fibre; under the SU(2) Wilson measure this is at most
 probability (1 + 1/ε)10^4|W| q_κ(β_W) the mass off the chart is at most ε and
 the covariances on the whole fibre obey |Cov| ≤ (4c_9/β_W e^{−α_G d} + 30ε)
 |X_1||X_2| (Theorem "offchart"; check gauge-fixed/checks/cube/off_chart.py).
-The thresholds are κ ≤ 1.4·10^{-14} and β_W > 10^31. A bound on every fibre,
-the values of α_G, c_9, and the passage to the constrained cube condition over
-boundary conditions with large fields are open (Remark "chartdecayopen").
+The thresholds are κ ≤ 1.4·10^{-14} and β_W > 10^31. Along its eight private
+links (the links that leave the block in its direction) each cut-off average is
+a submersion with JJ* ≥ σ_0², σ_0 = (1 − 7Λ/8)/√2 > 0.031, Λ = α/sin α,
+α = 2 arcsin(1/(2√2)), for every field, so the coarea factor is at most
+33^{4|W| dim G} (Lemma "privatesubmersion", Corollary "coareabound"); for SU(2)
+its law under Haar measure on those links has density at most
+1 + 2(1 − 7Λ/8)^{-3} < 2.4·10^4 (Lemma "averagedensity"), so the fibre measure
+is at most (2.4·10^4)^{4|W|}. Solving each constraint for its path link by a
+contraction gives a graph over a ball of radius K/(188√n_P) in the other links,
+and a Peierls argument inside the fibre bounds the mass of the fields with a
+plaquette above K near W by (3·10^8 n_P^{3/2}/K³)^{45|W|} e^{−3λK²/4} on every
+fibre through a field whose plaquettes near W are at most K/(4√n_P)
+(Proposition "calmfibre"), hence the mass off the chart and the covariances on
+every such fibre (Corollary "calmfibres"; check
+gauge-fixed/checks/cube/calm_fibre.py). Fibres with no such field (a large
+plaquette among the fixed links, for instance), the values of α_G, c_9, and the
+passage to the constrained cube condition over boundary conditions with large
+fields are open (Remark "chartdecayopen").
 A block
 map that is coercive for all nonabelian fields and composes across the
 remaining scales is open.
