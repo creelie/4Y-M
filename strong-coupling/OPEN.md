@@ -176,8 +176,14 @@ plaquette above K near W by (3·10^8 n_P^{3/2}/K³)^{45|W|} e^{−3λK²/4} on e
 fibre through a field whose plaquettes near W are at most K/(4√n_P)
 (Proposition "calmfibre"), hence the mass off the chart and the covariances on
 every such fibre (Corollary "calmfibres"; check
-gauge-fixed/checks/cube/calm_fibre.py). Fibres with no such field (a large
-plaquette among the fixed links, for instance), the values of α_G, c_9, and the
+gauge-fixed/checks/cube/calm_fibre.py). Every fibre, whatever its boundary
+links, contains a field at which every site of every average is I (Lemma
+"alignedfield"), and the same Peierls argument around any field whose sites are
+within 1/4 of I concentrates the constrained law of every fibre within t of the
+least action q(F) of such fields, with error (5.2·10^10 n_P^3/t^3)^{45|W|}
+e^{−3λt/4} (Proposition "everyfibre", Corollary "everyfibre"; check
+gauge-fixed/checks/cube/every_fibre.py). Fibres where q(F) is of order one, the
+values of α_G, c_9, and the
 passage to the constrained cube condition over boundary conditions with large
 fields are open (Remark "chartdecayopen").
 A block
