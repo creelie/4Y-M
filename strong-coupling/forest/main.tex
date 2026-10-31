@@ -8144,6 +8144,272 @@ Insert these in (ii); with $C$ a bound for $\lVert\bar P\rVert_{\beta_0}$
 on $\mathrm{Box}_{2r}$, $c_9=480C^2$.
 \end{proof}
 
+The rate $\alpha_G$ and the amplitude $c_9$ can be computed, and they turn
+out not to depend on $G$. The proof above passes through the norms
+$\lVert\cdot\rVert_\beta$, whose Schur sums bring in the large factors
+$N(\beta)$; the computation below replaces them by weighted operator norms,
+in which inverses and products cost nothing beyond their operator norms. For
+a block matrix $M$ indexed by links and pairs and for $\vartheta\ge0$ let
+\[
+\lVert M\rVert_{(\vartheta)}=\sup_\varphi\bigl\lVert e^{\vartheta\varphi}
+Me^{-\vartheta\varphi}\bigr\rVert,
+\]
+the supremum over all $\varphi$ with $|\varphi(a)-\varphi(b)|\le d(a,b)$
+for all indices $a,b$, the factors $e^{\pm\vartheta\varphi}$ acting as
+scalars on each block. For such $\varphi$ write $w=e^{\vartheta\varphi}$
+and $M^w=wMw^{-1}$.
+
+\begin{lemma}\label{lem:weightednorms}
+\begin{enumerate}[label=\textup{(\roman*)},leftmargin=*]
+\item For $\vartheta\le\vartheta'$, $\lVert M\rVert\le\lVert M\rVert_{(
+\vartheta)}\le\lVert M\rVert_{(\vartheta')}$; moreover $\lVert M_1M_2\rVert
+_{(\vartheta)}\le\lVert M_1\rVert_{(\vartheta)}\lVert M_2\rVert_{(\vartheta)}$,
+$\lVert M^*\rVert_{(\vartheta)}=\lVert M\rVert_{(\vartheta)}$, and $\lVert
+M_{ab}\rVert\le\lVert M\rVert_{(\vartheta)}e^{-\vartheta d(a,b)}$. If the
+blocks of $M$ vanish beyond distance $R$, then $\lVert M\rVert_{(\vartheta)}
+\le e^{\vartheta R}(R_MC_M)^{1/2}$, where $R_M$ and $C_M$ are the largest
+row and column sums of the norms of the blocks.
+\item If $M$ is Hermitian and $0\le\vartheta\le\vartheta'$, then $\lVert
+\operatorname{Re}M^w-M\rVert\le2(\vartheta/\vartheta')^2\lVert M\rVert
+_{(\vartheta')}$ for every $\varphi$, where $\operatorname{Re}T=\frac12(T+
+T^*)$.
+\item If $\operatorname{Re}M^w\ge c>0$ for every $\varphi$, then $\lVert
+M^{-1}\rVert_{(\vartheta)}\le1/c$. If $\lVert M^{-1}\rVert_{(\vartheta)}
+\lVert E\rVert_{(\vartheta)}<1$, then $\lVert(M+E)^{-1}\rVert_{(\vartheta)}
+\le\lVert M^{-1}\rVert_{(\vartheta)}/(1-\lVert M^{-1}\rVert_{(\vartheta)}
+\lVert E\rVert_{(\vartheta)})$.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+(i) Take $\varphi=0$ for the first inequality and replace $\varphi$ by
+$\vartheta\varphi/\vartheta'$ for the second. Products and adjoints follow
+from $(M_1M_2)^w=M_1^wM_2^w$ and $(M^*)^w=(M^{w'})^*$ with $w'=e^{-\vartheta
+\varphi}$. With $\varphi=d(\cdot,b)$ the block $(a,b)$ of $M^w$ is $e^{
+\vartheta d(a,b)}M_{ab}$, of norm at most $\lVert M^w\rVert$. The last bound
+is the Schur test, since the blocks of $M^w$ are $e^{\vartheta(\varphi(a)-
+\varphi(b))}M_{ab}$.
+
+(ii) Let $f(z)=e^{z\varphi}Me^{-z\varphi}$, an entire function of $z\in\C$
+with values in matrices. For $z=x+iy$, $f(z)=e^{iy\varphi}f(x)e^{-iy\varphi}$
+with $e^{iy\varphi}$ unitary, so $\lVert f(z)\rVert\le K=\lVert M\rVert_{(
+\vartheta')}$ for $|x|\le\vartheta'$. Since $M$ is Hermitian, $f(x)^*=f(-x)$
+for real $x$, so $\operatorname{Re}M^w-M=g(\vartheta)$ with $g(z)=\frac12(f(z)
++f(-z))-f(0)$. The function $g$ is even, vanishes at $0$ and is bounded by
+$2K$ on $|z|<\vartheta'$; so $g(z)/z^2$ is holomorphic there, and the maximum
+principle on the circles $|z|=\rho<\vartheta'$, applied to $\ell(g(z))/z^2$
+for every linear functional $\ell$ of norm one, gives $\lVert g(z)\rVert
+\le2K|z|^2/\vartheta'^2$.
+
+(iii) If $\operatorname{Re}T\ge c$, then $\lVert Tu\rVert\lVert u\rVert\ge
+\operatorname{Re}\langle u,Tu\rangle\ge c\lVert u\rVert^2$, so $\lVert T^{-1}
+\rVert\le1/c$; apply this to $T=M^w$, whose inverse is $(M^{-1})^w$. The
+second statement is the Neumann series for $(M^w+E^w)^{-1}$.
+\end{proof}
+
+\begin{proposition}\label{prop:explicitdecay}
+Let $G\subset\U(r)$ be compact. Theorem~\ref{thm:chartdecay} holds with
+\[
+\alpha_G=2.5\cdot10^{-4},\qquad c_9=1.2\cdot10^4,
+\]
+and in~\textup{(iii)} the factor $\lvert X_1\rvert\lvert X_2\rvert$ may be
+replaced by $(\lvert X_1\rvert\lvert X_2\rvert)^{1/2}$.
+\end{proposition}
+
+So the covariances of local observables under the constrained law on the
+chart decay at least like $e^{-d/4000}$, with amplitude $1.2\cdot10^4/
+\lambda$, for every compact group; for $\SU(2)$ and the Wilson action the
+amplitude is $4.8\cdot10^4/\beta$.
+
+\begin{proof}
+Throughout, $\xi\in\mathrm{Box}_{2r}$, $X=S\xi+h(S\xi)$, and the notation is
+that of the proof of Theorem~\ref{thm:chartdecay}. The hypothesis
+$4\cdot10^5c_3(\kappa+s)\le\frac1{195}$ of Theorem~\ref{thm:fibrechart}(iv)
+gives $c_3s\le1.29\cdot10^{-8}$ and $c_3\kappa'\le7.7\cdot10^{-8}$ for
+$\kappa'=\kappa+6s$, and $\kappa\le10^{-8}$. Every $\varphi$ below is
+defined on all indices; a function on $L'$ with the Lipschitz property
+extends to all indices with the same property, by $\varphi(a)=\min_{e\in L'}
+(\varphi(e)+d(a,e))$.
+
+\emph{Local operators.} The row $k$ of $B$ has blocks of norm at most $\frac
+18+260\kappa$, with sum at most $2+24\cdot260\kappa$, by
+Lemma~\ref{lem:smallframes}(iv) and the coefficients of $V_{y,\mu}$, eight of
+them $\frac18$ and sixteen $\frac1{16}$; every link lies in at most two rows,
+and the blocks vanish beyond distance $1$. So $b=\lVert B\rVert_{(\vartheta)}
+\le e^\vartheta(\frac12+10^{-4})^{1/2}$ by Lemma~\ref{lem:weightednorms}(i).
+The row $k$ of $A-B$ has norm at most $c_3N_{y,\mu}(X)\le7.35c_3s=
+\varepsilon_A$, since $\lVert X\rVert_\infty\le\frac32s$, so $\lVert A-B
+\rVert_{(\vartheta)}\le\sqrt{48}\,e^\vartheta\varepsilon_A$. The row $d_k$ of
+$S$ is $s_k\xi=-B_{k,d_k}^{-1}\sum_{e\ne d_k}B_{k,e}\xi_e$, of norm $\sigma
+\le(\frac{\sqrt{11}}8+260\kappa)/(\frac18-260\kappa)\le3.32$, the squares of
+the other coefficients adding up to $\frac{11}{64}$; the other rows of $S$
+are those of the identity. If $D_k$ is the diagonal matrix with entries
+$e^{\vartheta(\varphi(d_k)-\varphi(e))}$ on the links $e$ of $V_{y,\mu}$,
+then the row $d_k$ of $S^w$ is $s_kD_k$, and every link of $L'$ lies in at
+most two of these sets, so
+\[
+\bar s=\lVert S\rVert_{(\vartheta)}\le(1+2\sigma^2e^{2\vartheta})^{1/2}.
+\]
+Finally $Q(Ue^X)=\sum_p\lVert U_p-I\rVert^2=\sum_p(2r-2\ReTr U_p)$. By
+Duhamel's formula the derivative of $U_ee^{X_e}$ in $X_e$ is an average of
+$U_ee^{\theta X_e}Ye^{(1-\theta)X_e}$, and its second derivative an average,
+of total weight one, of products with $Y$ and $Z$ inserted between unitary
+factors. With $\lvert\Tr(V_1YV_2ZV_3)\rvert\le\lVert Y\rVert\lVert Z\rVert$
+for unitary $V_i$ this gives
+\[
+\bigl\lvert D^2Q_p[Y,Z]\bigr\rvert\le2\sum_{e\in p}\lVert Y_e\rVert\sum_{e
+\in p}\lVert Z_e\rVert,
+\]
+and, since $\ReTr(VY)=\ReTr((V-I)Y)$ for skew-Hermitian $Y$ and a conjugate
+$V$ of $U_p$, $\lvert DQ_p[Y]\rvert\le2\kappa'\sum_{e\in p}\lVert Y_e\rVert$.
+A link lies in six plaquettes, so $\lVert D^2Q\rVert_{(\vartheta)}\le48
+e^\vartheta$ and $\lvert DQ[Y]\rvert\le12\kappa'\lVert Y\rVert_1$.
+
+\emph{Inverses.} The diagonal blocks of $\mathcal G=BB^*$ have norm at most
+$\frac3{16}+227\kappa$, each row has two other nonzero blocks, of norm at
+most $\frac1{32}+227\kappa$, at distance $2$, and $\mathcal G\ge\frac1{16}-
+700\kappa$, by the proof of Theorem~\ref{thm:smallfibre}(iii). The blocks of
+$\operatorname{Re}\mathcal G^w$ are $\cosh(\vartheta(\varphi(k)-\varphi(l)))
+\mathcal G_{kl}$, so $\operatorname{Re}\mathcal G^w\ge\frac1{16}-700\kappa-(
+\cosh2\vartheta-1)(\frac1{16}+454\kappa)$, and
+Lemma~\ref{lem:weightednorms}(iii) bounds $g_0=\lVert\mathcal G^{-1}\rVert
+_{(\vartheta)}$ by the inverse of the right-hand side. With $E=(A-B)B^*$, the
+same lemma gives
+\[
+\begin{split}
+\lVert(AB^*)^{-1}\rVert_{(\vartheta)}&\le\frac{g_0}{1-g_0\lVert E\rVert
+_{(\vartheta)}}=h_0,\\
+\lVert(AA^*)^{-1}\rVert_{(\vartheta)}&\le\frac{g_0}{1-g_0(2\lVert E\rVert
+_{(\vartheta)}+\lVert A-B\rVert_{(\vartheta)}^2)}=g_1,
+\end{split}
+\]
+since $AB^*=\mathcal G+E$ and $AA^*=\mathcal G+E+E^*+(A-B)(A-B)^*$. Let
+$Y=B^*(AB^*)^{-1}$, so $y=\lVert Y\rVert_{(\vartheta)}\le bh_0$. Since $BS=0$,
+$\bar P=PS=S-Y(A-B)S$, so $\bar p=\lVert\bar P\rVert_{(\vartheta)}\le\bar s(1+
+y\lVert A-B\rVert_{(\vartheta)})$; and $M=Y(A-B)S$ takes values in $N_U$,
+orthogonal to the values of $S$, so $\bar P^*\bar P=S^*S+M^*M$. Here $S^*S=1+
+\sum_ks_k^*s_k$, and $(s_k^*s_k)^w=v^*u$ with $u=s_kD_k$, $v=s_kD_k^{-1}$, so
+$\operatorname{Re}(s_k^*s_k)^w=\frac14((u+v)^*(u+v)-(u-v)^*(u-v))\ge-\sigma^2
+\sinh^2\vartheta\,J_k$, $J_k$ the projection on the links of $V_{y,\mu}$; and
+$\operatorname{Re}(M^*M)^w\ge-2(\vartheta/\vartheta'')^2\lVert M\rVert_{(
+\vartheta'')}^2$ by Lemma~\ref{lem:weightednorms}(ii), for $\vartheta\le
+\vartheta''$. Hence
+\[
+g_2=\lVert(\bar P^*\bar P)^{-1}\rVert_{(\vartheta)}\le\Bigl(1-2\sigma^2\sinh
+^2\vartheta-2\frac{\vartheta^2}{\vartheta''^2}\lVert M\rVert_{(\vartheta'')}
+^2\Bigr)^{-1}.
+\]
+For the $\ell^1$ norms, $\lVert\mathcal G^{-1}\rVert\le17$ in the norm
+$\sum_k\lVert z_k\rVert$ and $E$ has column sums at most $2(2+10^{-4})
+\varepsilon_A$, so $(AB^*)^{-1}$ has norm $h_1\le17.001$ there, and $\lVert
+B^*z\rVert_1\le(2+10^{-4})\sum_k\lVert z_k\rVert$.
+
+\emph{The Hessian.} Let $u,u'\in\g^{L'}$, $p=wu$ and $q=w^{-1}u'$. Since
+$\langle u,(\operatorname{Hess}\bar H)^wu'\rangle=\partial_p\partial_q\bar
+H$, it suffices to bound $\lvert\partial_p\partial_q\bar H\rvert$ by $K\lvert
+u\rvert\lvert u'\rvert$ for every $\varphi$. Write $x_p=\bar Pp=w\tilde x$ and
+$x_q=w^{-1}\tilde y$, with $\lvert\tilde x\rvert\le\bar p\lvert u\rvert$ and
+$\lvert\tilde y\rvert\le\bar p\lvert u'\rvert$. The links of $V_{y,\mu}$ lie
+within distance $1$ of the position of $k$, so the weights of $x_p$ and $x_q$
+on them differ from $e^{\pm\vartheta\varphi(k)}$ by factors at most
+$e^\vartheta$, and
+\[
+\sum_kN_{y,\mu}(x_p)N_{y,\mu}(x_q)\le2e^{2\vartheta}\lvert\tilde x\rvert
+\lvert\tilde y\rvert,
+\]
+every link lying in at most two of these sets. In the same way $A_p=\partial
+_pA=D^2c(X)[x_p,\cdot\,]$ equals $w\check A_p$ and $A_q=w^{-1}\check A_q$,
+where $\check A_p$ and $\check A_q$ have rows of rank at most $\dim G$, so
+their Hilbert--Schmidt norms satisfy
+\[
+\lVert\check A_p\rVert_2\lVert\check A_q\rVert_2\le2\dim G\,c_3^2e^{2
+\vartheta}\bar p^2\lvert u\rvert\lvert u'\rvert,
+\]
+and conjugating them by $w$ multiplies these norms by at most $e^\vartheta$.
+The second derivative $x_{pq}=-YD^2c(X)[x_p,x_q]$ has $\lVert x_{pq}\rVert_1
+\le c_3x_1\lvert u\rvert\lvert u'\rvert$ with $x_1=2(2+10^{-4})h_1e^{2
+\vartheta}\bar p^2$, and $A_{pq}=D^3c(X)[x_p,x_q,\cdot\,]+D^2c(X)[x_{pq},
+\cdot\,]$ has trace norm $\bar a\le2\dim G\,c_3^2(e^{2\vartheta}\bar p^2+x_1)
+\lvert u\rvert\lvert u'\rvert$, the weights cancelling in both.
+
+The four parts of $\bar H$ are bounded as follows. First, $\partial_p
+\partial_q\lambda Q=\lambda(\langle\tilde x,(D^2Q)^w\tilde y\rangle+DQ[x_{pq}
+])$, at most $\lambda(48e^\vartheta\bar p^2+12c_3\kappa'x_1)\lvert u\rvert
+\lvert u'\rvert$. Second, the Hessian of $\sum_e\log j(X_e)$ in $X$ is block
+diagonal and commutes with $w$, so its part is at most $c_3(\bar p^2+c_3x_1)
+\lvert u\rvert\lvert u'\rvert$. Third, for $\mathcal G_1=AA^*$,
+\[
+\begin{split}
+\partial_p\partial_q\log\det\mathcal G_1={}&\Tr(\mathcal G_1^{-1}\partial_p
+\partial_q\mathcal G_1)\\
+&-\Tr(\mathcal G_1^{-1}\partial_p\mathcal G_1\,\mathcal G_1^{-1}\partial_q
+\mathcal G_1),
+\end{split}
+\]
+with $\partial_p\mathcal G_1=A_pA^*+AA_p^*$ and $\partial_p\partial_q\mathcal
+G_1=A_{pq}A^*+A_pA_q^*+A_qA_p^*+AA_{pq}^*$. Each term is the trace of a
+product in which $w$ and $w^{-1}$ occur once each, next to $\check A_p$ and
+$\check A_q$, or not at all, next to $A_{pq}$. A cyclic permutation writes it
+as $\Tr(wFw^{-1}F')$, or $\Tr(w^{-1}Fw\,F')$, and $\lvert\Tr(wFw^{-1}F')\rvert
+\le\lVert wFw^{-1}\rVert_2\lVert F'\rVert_2$ or $\lVert wFw^{-1}\rVert\lVert
+F'\rVert_1$. With $a=\lVert A\rVert_{(\vartheta)}\le b+\lVert A-B\rVert_{(
+\vartheta)}$ this gives
+\[
+\begin{split}
+\tfrac12\lvert\partial_p\partial_q\log\det\mathcal G_1\rvert\le{}&g_1a\bar a
+\\
+&+(g_1+2g_1^2a^2)e^{2\vartheta}\lVert\check A_p\rVert_2\lVert\check A_q\rVert
+_2.
+\end{split}
+\]
+Fourth, $\partial_p\bar P=-YA_p\bar P$ and $\partial_p\partial_q\bar P=-YA_{pq}
+\bar P+YA_qYA_p\bar P+YA_pYA_q\bar P$, and the same counting for $\mathcal G
+_2=\bar P^*\bar P$ gives
+\[
+\begin{split}
+\tfrac12\lvert\partial_p\partial_q\log\det\mathcal G_2\rvert\le{}&g_2\bar p^2
+y\bar a+(3g_2\bar p^2y^2\\
+&+2g_2^2\bar p^4y^2)e^{2\vartheta}\lVert\check A_p\rVert_2\lVert\check A_q
+\rVert_2.
+\end{split}
+\]
+So
+\[
+\lVert\operatorname{Hess}\bar H\rVert_{(\vartheta)}\le K=\lambda k_1+\dim
+G\,c_3^2k_0,
+\]
+where $k_1=48e^\vartheta\bar p^2+12c_3\kappa'x_1$ and $k_0$
+collects the other three parts, divided by $\dim G\,c_3^2\lvert u\rvert
+\lvert u'\rvert$, which is possible as $c_3\ge1$. At $\vartheta=\vartheta'=
+0.197$, with $\vartheta''=0.6$, these give $b\le0.862$, $g_0,h_0,g_1\le
+17.37$, $y\le14.96$, $\bar s,\bar p\le5.80$, $g_2\le7.41$, $k_1\le1966$ and
+$k_0\le4.16\cdot10^9$; and since $\lambda\ge60c_6=4.086\cdot10^7\dim G\,c_3
+^2$ by Proposition~\ref{prop:explicitconstants}, $K\le2068\lambda$.
+
+\emph{Decay.} In the proof of Theorem~\ref{thm:chartdecay}, replace the
+bound on $e^{\alpha\varphi}\operatorname{Hess}H_ne^{-\alpha\varphi}-
+\operatorname{Hess}H_n$ by the following. Since $D\tau$ and $\Delta_n$ are
+block diagonal and symmetric and commute with $w=e^{\alpha\varphi}$,
+Lemma~\ref{lem:weightednorms}(ii) with $\vartheta=\alpha$ gives
+\[
+\bigl\lVert\operatorname{Re}(\operatorname{Hess}H_n)^w-\operatorname{Hess}H
+_n\bigr\rVert\le2\frac{\alpha^2}{\vartheta'^2}K\le\frac\lambda{120}=\frac m2
+\]
+for $\alpha\le\vartheta'(240\cdot2068)^{-1/2}$, which holds for $\alpha\le
+2.5\cdot10^{-4}$. Then $\operatorname{Re}\langle u,\mathcal A_wu\rangle\ge
+\frac m2\lVert u\rVert^2$ as before, and (ii) follows. For (iii), $\nabla'F
+=\bar P^*g$ with $g$ supported on $X_1$ and $\lvert g_a\rvert\le2$, so with
+$\varphi=d(\cdot,X_2)$,
+\[
+\lvert e^{-\alpha\varphi}\nabla'F\rvert=\lvert(\bar P^*)^{w^{-1}}e^{-\alpha
+\varphi}g\rvert\le2\bar p_\alpha\lvert X_1\rvert^{1/2}e^{-\alpha d(X_1,X_2)},
+\]
+where $\bar p_\alpha=\lVert\bar P\rVert_{(\alpha)}\le4.8$ at $\alpha=2.5\cdot
+10^{-4}$, and $\lvert e^{\alpha\varphi}\nabla'G\rvert\le2\bar p_\alpha\lvert
+X_2\rvert^{1/2}$. Insert these in (ii): $c_9=480\bar p_\alpha^2\le1.2\cdot
+10^4$.
+\end{proof}
+
 The chart misses only points of the fibre at which some plaquette near $W$
 is not small, and under the Wilson measure such points carry little mass on
 most fibres.
@@ -8719,8 +8985,11 @@ regular with irregular fields, at which some site is far from $I$.
 Theorem~\ref{thm:chartdecay} is the decay that
 Remark~\ref{rem:fibrechartopen}(b) asks for, on the chart $\Phi(\Omega_r)$
 with $r=s/32$, which contains $\Phi(K_{s/32})$ and so every $Ue^X\in F$
-with $\lVert X\rVert_\infty\le s/1280$. What remains open for the small
-fields:
+with $\lVert X\rVert_\infty\le s/1280$. Its constants are explicit by
+Propositions~\ref{prop:explicitconstants} and~\ref{prop:explicitdecay}:
+the rate $\alpha_G=2.5\cdot10^{-4}$ is the same for every group and lies far
+below the decay seen in the computation described at the end of this remark.
+What remains open for the small fields:
 \begin{enumerate}[label=\textup{(\alph*)},leftmargin=*]
 \item the mass of the constrained law outside $\Phi(\Omega_r)$ on the
 fibres that contain no field whose plaquettes near $W$ are small:
@@ -8731,9 +9000,6 @@ $t$ of the least action $q(F)$ of its regular fields, but the constrained
 cube condition of Remark~\ref{rem:constrainedopen}(a) takes a supremum over
 boundary conditions, which include fibres where $q(F)$ is of order one and
 no chart of Theorem~\ref{thm:chartdecay} is available;
-\item numbers: $c_3$ and $c_6$ are explicit by
-Proposition~\ref{prop:explicitconstants}, but $\beta_0$ and $c_8$, and so
-$\alpha_G$ and $c_9$, rest on constants $C$ that are not computed;
 \item the passage from the decay of the constrained law on one fibre, at
 a fixed background, to the constrained cube condition of
 Remark~\ref{rem:constrainedopen}(a), whose supremum runs over boundary
@@ -9576,7 +9842,7 @@ Theorem~\ref{thm:certificate}, whose certificates are checked in exact
 arithmetic. The programs of these steps, in Python with
 python-flint (FLINT and Arb) and a C kernel for products of Taylor
 polynomials, their outputs and the list of certified boxes are in the
-repository \url{https://github.com/creelie/4Y-M}, release v4.25.0, together
+repository \url{https://github.com/creelie/4Y-M}, release v4.26.0, together
 with a Lean~4 certificate of the line field, independent exact or
 numerical checks of the other finite statements, our checks of the
 certificate of~\cite{Rom26}, and the certificate of
