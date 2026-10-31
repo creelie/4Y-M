@@ -124,8 +124,15 @@ each plaquette; check gauge-fixed/checks/cube/nonabelian_filling.py), so the
 conditional estimate holds with κ = Kρ_s on these open sets of exteriors.
 At the level of Corollary "defectscales" this allows boxes up to a constant
 times (β_W/log β_W)^{1/4} spacings; along the tuning their physical size
-tends to zero, and for calm exteriors on cubes of fixed physical size the
-conditional estimate is open (Remark "boxnonabelian").
+tends to zero. Paying for the boundary layer instead of filling it removes
+every condition on the exterior (Proposition "anyexterior", Corollary
+"anyexterior"): for every boundary field, −log ν_η(E_ε) ≥ l⁴(β_Wρ²ε/32 −
+6 log β_W − 31 − 48β_W/l) when εl ≥ 16, so with ρ = ε = β_W^{−1/4},
+β_W ≥ e⁴⁴ and l ≥ 6144 β_W^{3/4} the bad fraction exceeds β_W^{−1/4} with
+probability at most exp(−β_W^{1/4}l⁴/64), and along β_W ∼ b log(1/a) this holds
+on cubes of fixed physical size for every exterior (check
+gauge-fixed/checks/cube/any_exterior.py). These are bounds under one exterior
+and give no contraction coefficient; the conditional estimate in (D) is open.
 On the fibres of the cut-off average the constrained gap survives the curvature
 of the fibres: at any background, however far its links are from I, whose
 plaquettes near the constrained blocks are at most κ ≤ 10⁻⁸ρ_G, every tangent

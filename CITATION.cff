@@ -15,8 +15,8 @@ authors:
   - family-names: Romanov
     given-names: Tristan
     affiliation: "Independent Researcher, San Francisco, CA, USA"
-version: 4.21.0
-date-released: 2026-10-30
+version: 4.22.0
+date-released: 2026-10-31
 repository-code: "https://github.com/creelie/4Y-M"
 license: MIT
 doi: 10.5281/zenodo.23444338
