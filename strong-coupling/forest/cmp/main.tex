@@ -47,7 +47,7 @@
 
 \begin{document}
 
-\title[Lattice Yang--Mills mass gap for every compact simple group]{Mass Gap of Four-Dimensional Lattice Yang--Mills Theory for Every Compact Simple Group}
+\title[Explicit lattice Yang--Mills mass gap reducing the continuum gap to one cube]{Explicit Lattice Yang--Mills Mass Gap for Every Compact Simple Group Reducing the Continuum Gap to One Cube}
 
 \author[D. Bhattacharjee]{Deep Bhattacharjee$^{*}$}
 \address{Formerly, Electro-Gravitational Space Propulsion Laboratory
@@ -8566,8 +8566,11 @@ Write $m=\max_x\delta(v_x,I)$ and $\chi=\phi(m/\rho_G)$, so that $V^\sharp=
 P_{2y}e^{\chi N}$ with $N=\frac1{16}\sum_x\log v_x$. Where $m>\rho_G$, the
 cut-off vanishes near the field, $V^\sharp=\ell_0$, and the derivative along
 $\ell_0$ is the identity. Suppose $m<\rho_G$, and that the maximum is attained
-at a single site $x_*$ and $m\ne\rho_G/2$; the remaining fields lie in
-finitely many proper real-analytic subsets, a null set. Then every
+at one path $x_*$, after identifying identical path functions, and
+$m\ne\rho_G/2$. Copies that coincide because $u_a,w_a$ are tree links
+are counted together. Other ties lie in finitely many proper
+real-analytic subsets, a null set. The variation below fixes both copies
+of an identical pair, since then $u_b=w_b=I$ and $A-1=0$. Then every
 $\delta(v_x,I)$ is less than $1$, the logarithms are defined, $\chi$ is
 differentiable, and every variation that fixes $v_{x_*}$ to first order
 fixes $\chi$ to first order. The site $x_*$ has offset $b\ne0$.
@@ -8603,6 +8606,11 @@ and $JK=\operatorname{Ad}(\ell_0)T$. For a unit vector $e\in\g$,
 {\sqrt2}=\sigma_0,
 \]
 since the least singular value of $T$ is at least $1-\frac78\Lambda$.
+At the other points of differentiability the same bound follows by
+continuity: the cut-off has finitely many smooth branch formulas, at such a
+point the formulas of the adjacent full-dimensional branches agree with its
+differential, and the lower bound on the singular value is preserved under
+limits.
 \end{proof}
 
 \begin{corollary}\label{cor:coareabound}
@@ -8640,10 +8648,12 @@ of the proof.
 \end{lemma}
 
 \begin{proof}
-Let $g=\ell_0$. Split $G^8$, up to a null set, into the region $R_0$ where
-$m>1$, the region $R_1$ where $m<1$ and the maximum is attained only at
-sites $x_a$, and the region $R_2$ where $m<1$ and it is attained only at
-sites $x'_a$. On $R_0$, $\chi=0$ and $V^\sharp=g$.
+Let $g=\ell_0$, $m_1=\max_a\delta(v_{x_a},I)$ and
+$m_2=\max_a\delta(v_{x'_a},I)$. Split $G^8$, up to the null set $m=1$,
+into $R_0=\{m>1\}$, $R_1=\{m_1\ge m_2,\ m_1<1\}$ and
+$R_2=\{m_2>m_1,\ m_2<1\}$; ties between the two families, including two
+path functions that coincide identically, belong to $R_1$. On $R_0$,
+$\chi=0$ and $V^\sharp=g$.
 
 On $R_1$ use the coordinates $(g,h_1,\dots,h_7)$ with $h_a=v_{x_a}=g^{-1}u_a
 \ell_a$. For fixed $g$ the map $\ell_a\mapsto h_a$ is a left translation, so
@@ -8652,7 +8662,7 @@ these coordinates carry product Haar measure, and
 v_{x'_a}=g^{-1}\ell_aw_a=g^{-1}u_a^{-1}g\,h_aw_a .
 \]
 Fix $h$ and put $m_h=\max_a\delta(h_a,I)<1$. The set $S_h$ of $g$ with $(g,h)
-\in R_1$ is the set where $\delta(v_{x'_a},I)<m_h$ for every $a$; on it
+\in R_1$ is the measurable set where $\delta(v_{x'_a},I)\le m_h$ for every $a$; on it
 $m=m_h$, so $\chi=\phi(m_h)$ does not depend on $g$, and $V^\sharp=g\,e^{\chi
 N(g)}$ with $N(g)=\frac1{16}\sum_a(\log h_a+\log v_{x'_a})$. The set
 $\{\delta(v,I)<1\}$ is the ball of angular radius $\alpha$ about $I$ on the
@@ -8675,7 +8685,12 @@ least $(1-\frac78\Lambda)^3$ in modulus. On $R_2$ the coordinates $(g,h'_1,
 \dots,h'_7)$ with $h'_a=v_{x'_a}=g^{-1}\ell_aw_a$ and $v_{x_a}=g^{-1}u_ag
 \,h'_aw_a^{-1}$ give the same conclusions.
 
-By the change of variables formula the law of $V^\sharp$ has the density
+For fixed $h$, the smooth formula with $\chi=\phi(m_h)$ fixed extends to
+a neighbourhood of each point of $S_h$, where no logarithm meets $-I$; its
+restriction to the measurable set $S_h$ is injective and has the Jacobian
+bounds above. The change of variables formula for measurable restrictions
+therefore applies, even if part of the boundary of $S_h$ has positive
+measure, and likewise on $R_2$. The law of $V^\sharp$ has the density
 \begin{multline}\label{eq:densityformula}
 \rho(c)=h^{\otimes7}\bigl(\{\ell:(c,\ell)\in R_0\}\bigr)\\
 +\sum_{i=1,2}\int\sum_{g\in S^{(i)}_h,\ V^\sharp=c}\frac{dh^{\otimes7}}
