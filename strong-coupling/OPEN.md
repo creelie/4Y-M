@@ -182,9 +182,12 @@ links, contains a field at which every site of every average is I (Lemma
 within 1/4 of I concentrates the constrained law of every fibre within t of the
 least action q(F) of such fields, with error (5.2·10^10 n_P^3/t^3)^{45|W|}
 e^{−3λt/4} (Proposition "everyfibre", Corollary "everyfibre"; check
-gauge-fixed/checks/cube/every_fibre.py). Fibres where q(F) is of order one, the
-values of α_G, c_9 (which rest on the uncomputed β_0 and c_8), and the
-passage to the constrained cube condition over boundary conditions with large
+gauge-fixed/checks/cube/every_fibre.py). Weighted operator norms
+‖M‖_(ϑ) = sup_φ ‖e^{ϑφ} M e^{−ϑφ}‖ over 1-Lipschitz φ, with a Schwarz-lemma bound
+for the Hermitian part of the conjugate, make the decay explicit and the same for
+every compact group: α_G = 2.5·10^{-4} and c_9 = 1.2·10^4 (Proposition
+"explicitdecay"; check gauge-fixed/checks/cube/explicit_decay.py). Fibres where
+q(F) is of order one and the passage to the constrained cube condition over boundary conditions with large
 fields are open (Remark "chartdecayopen").
 A block
 map that is coercive for all nonabelian fields and composes across the
