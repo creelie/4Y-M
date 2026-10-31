@@ -162,7 +162,7 @@ plaquettes of the fibre; under the SU(2) Wilson measure this is at most
 probability (1 + 1/ε)10^4|W| q_κ(β_W) the mass off the chart is at most ε and
 the covariances on the whole fibre obey |Cov| ≤ (4c_9/β_W e^{−α_G d} + 30ε)
 |X_1||X_2| (Theorem "offchart"; check gauge-fixed/checks/cube/off_chart.py).
-The thresholds are κ ≤ 1.4·10^{-14} and β_W > 10^31. Along its eight private
+With the explicit constants c_3 = max(1.5·10^4 √r, dim G) and c_6 = 6.81·10^5 dim G c_3^2 of the fibre chart (Proposition "explicitconstants", Cauchy estimates on a complex neighbourhood of radius 0.07; check gauge-fixed/checks/cube/explicit_constants.py) the thresholds for SU(2) are λ ≥ 5.6·10^16, κ < 4.9·10^{-18} and β_W > 3.8·10^38. Along its eight private
 links (the links that leave the block in its direction) each cut-off average is
 a submersion with JJ* ≥ σ_0², σ_0 = (1 − 7Λ/8)/√2 > 0.031, Λ = α/sin α,
 α = 2 arcsin(1/(2√2)), for every field, so the coarea factor is at most
@@ -183,7 +183,7 @@ within 1/4 of I concentrates the constrained law of every fibre within t of the
 least action q(F) of such fields, with error (5.2·10^10 n_P^3/t^3)^{45|W|}
 e^{−3λt/4} (Proposition "everyfibre", Corollary "everyfibre"; check
 gauge-fixed/checks/cube/every_fibre.py). Fibres where q(F) is of order one, the
-values of α_G, c_9, and the
+values of α_G, c_9 (which rest on the uncomputed β_0 and c_8), and the
 passage to the constrained cube condition over boundary conditions with large
 fields are open (Remark "chartdecayopen").
 A block
