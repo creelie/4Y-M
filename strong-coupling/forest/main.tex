@@ -554,8 +554,11 @@ average is a submersion with a constant that depends on nothing
 (Lemma~\ref{lem:privatesubmersion}), and its law under Haar measure on them
 has a bounded density, so a Peierls argument inside the fibre bounds that
 mass on every fibre through a field whose plaquettes near the blocks are
-small (Proposition~\ref{prop:calmfibre}); the other fibres are open
-(Remark~\ref{rem:chartdecayopen}).
+small (Proposition~\ref{prop:calmfibre}). On every fibre, whatever the
+boundary links, the same argument concentrates the law within any $t$ of the
+least action of the fields whose averaging sites are near $I$
+(Proposition~\ref{prop:everyfibre}); where that action is not small the
+decay is open (Remark~\ref{rem:chartdecayopen}).
 Whether some block map is coercive for all fields and composes across the
 remaining scales is open.
 
@@ -6352,7 +6355,9 @@ constrained law satisfies a Brascamp--Lieb inequality for large $\lambda$
 decay exponentially (Theorem~\ref{thm:chartdecay}), and the mass off
 that chart is small on most fibres of the $\SU(2)$ Wilson measure
 (Theorem~\ref{thm:offchart}) and on every fibre through a field with small
-plaquettes (Corollary~\ref{cor:calmfibres}); the remaining
+plaquettes (Corollary~\ref{cor:calmfibres}), and on every fibre the law
+concentrates near the least action of its regular fields
+(Proposition~\ref{prop:everyfibre}); the remaining
 small-field steps are listed in Remark~\ref{rem:chartdecayopen}.
 \item \emph{Second order.} Let $b_0=11N/(48\pi^2)$ for $\SU(N)$, $t=2b_0\log2$,
 and let $g_m^{-2}=g_*^{-2}+tm$ be the one-loop coupling $m$ steps above a
@@ -8461,9 +8466,122 @@ $K\le1.4\cdot10^{-14}$ this needs $\beta_W$ above $10^{32}|W|$ under the
 Wilson measure. The restriction is on the fibre: the links off $A_W$ are
 fixed on it, so a fibre whose boundary links carry a large plaquette near
 $W$ contains no such field, and neither may a fibre with small boundary
-links, and these fibres are not covered. The proposition is a lower bound
+links, and the proposition does not cover these fibres. It is a lower bound
 for the fibre measure near one good field against an upper bound for the
 whole fibre; it does not compare different fibres.
+
+The hypothesis on $U$ enters the proof twice: through
+Lemma~\ref{lem:smallframes}, to place the sixteen sites $v_x$ of every pair
+near $I$, and through the bound on $Q_W$ near $U$. Neither needs the links
+off $A_W$ or the links inside the blocks to be small, and every fibre
+contains a field at which the sites are exactly $I$.
+
+\begin{lemma}\label{lem:alignedfield}
+For every value $c$ of $C$ and every choice of the links off $A_W$, the
+fibre $F_c$ contains a field at which $v_x=I$ for every site $x$ of every
+pair $(y,\mu)$, $y\in W$.
+\end{lemma}
+
+\begin{proof}
+Fix $\mu$. The links of $A_W$ in the direction $\mu$ are, for each $y\in
+W$, the links $u_a$ and $\ell_a$ of the pair $(y,\mu)$, and the links $w_a$
+of that pair are the links $u_a$ of the pair $(y+e_\mu,\mu)$ when $y+e_\mu
+\in W$, and fixed links otherwise. Whether $u_a$ is a tree link depends only
+on the offset, so $u_a$ and $w_a$ are both tree links or neither. For a pair
+with path link $g$ and given links $w_a$ put $\ell_0=g$ and, for $a\ne0$,
+\[
+\ell_a=g,\quad\text{or}\quad\ell_a=g\,w_a^{-1},\ u_a=g\,w_a\,g^{-1},
+\]
+the first when $u_a$ is a tree link and the second otherwise. Then $v_{x_a}
+=g^{-1}u_a\ell_a=I$ and $v_{x'_a}=g^{-1}\ell_aw_a=I$, as $u_a=w_a=I$ in the
+first case. The blocks of $W$ along a line in the direction $\mu$ form runs
+$y_1,\dots,y_n$ of consecutive blocks. If $y_n+e_\mu\notin W$, choose the
+links of the pairs $(y_n,\mu),\dots,(y_1,\mu)$ in this order, with $g=c_{y_j,
+\mu}$, the links $w_a$ of $(y_j,\mu)$ being the fixed links for $j=n$ and the
+links $u_a$ just chosen for $(y_{j+1},\mu)$ otherwise. If the run closes up
+around the torus, put $u_a=I$ and $\ell_a=g$ for every pair of the run. At
+the resulting field every $v_x$ equals $I$, so the cut-off equals $1$, $N=0$
+and $V^\sharp_{y,\mu}=\ell_0=c_{y,\mu}$. The directions do not interact,
+since the pairs $(y,\mu)$ use only links in the direction $\mu$.
+\end{proof}
+
+Call a field $U\in F$ \emph{regular} if $\delta(v_x,I)\le\frac14$ at every site
+$x$ of every pair, and let $q(F)$ be the infimum of $Q_W$ over the regular
+fields of $F$, finite by Lemma~\ref{lem:alignedfield}. Write $\mu_F=e^{-\lambda
+Q_W}\nu_c/\nu_c(e^{-\lambda Q_W})$ for the constrained law on $F=F_c$.
+
+\begin{proposition}\label{prop:everyfibre}
+Let $G=\SU(2)$, $\lambda>0$ and $0<t\le1$. For every fibre $F$, whatever the
+links off $A_W$, and every regular $U\in F$,
+\begin{gather*}
+\mu_F\bigl(\{U'\in F:Q_W(U')>Q_W(U)+t\}\bigr)\le\varepsilon'_W(t,
+\lambda),\\
+\varepsilon'_W(t,\lambda)=\Bigl(\frac{5.2\cdot10^{10}\,n_P^3}{t^3}\Bigr)
+^{45|W|}e^{-3\lambda t/4}.
+\end{gather*}
+In particular $\mu_F(\{Q_W>q(F)+t\})\le\varepsilon'_W(t,\lambda)$ on every
+fibre.
+\end{proposition}
+
+\begin{proof}
+The numerator is bounded by~\eqref{eq:fibrevolume} as in the proof of
+Proposition~\ref{prop:calmfibre}, by $M^{4|W|}e^{-\lambda(Q_W(U)+t)}$. For
+the denominator take $\rho=t/(1076\,n_P)\le10^{-3}$, $R=44\rho$, and $D$ and
+$B_k$ as in that proof. At the field with links $z\in D$ on $L'$ and $\ell\in
+B_k$ on $d_k$, each $v_x$ of the pair $k$ lies within $R+2\rho=46\rho<0.043$
+of its value at $U$, and $\delta\le d$, so $\delta(v_x,I)<\frac14+0.043<
+\frac12$. Hence the cut-off equals $1$ near this field, the logarithms are
+$\Lambda$-Lipschitz along the moves, and the contraction argument of that
+proof gives the injective map $\Gamma:D\to F$, near whose image $C$ is smooth
+with $\lvert\det\partial_gC\rvert\le1.957^{3\cdot4|W|}$. So
+\[
+\nu_c\bigl(\Gamma(D)\bigr)\ge1.957^{-12|W|}\Bigl(\frac{\rho^3}{14}\Bigr)
+^{45|W|}.
+\]
+On $\Gamma(D)$ each of the $n_P$ plaquettes moves by at most $47\rho$, and
+$\delta(U_p,I)\le2\sqrt2$, so
+\begin{multline*}
+\delta(U'_p,I)^2\le\delta(U_p,I)^2+94\cdot2\sqrt2\,\rho+47^2\rho^2\\
+<\delta(U_p,I)^2+269\rho,
+\end{multline*}
+and $Q_W\le Q_W(U)+269n_P\rho=Q_W(U)+\frac t4$ there. Dividing as before,
+\begin{multline*}
+\mu_F(\{Q_W>Q_W(U)+t\})\\
+\le\bigl(M^41.957^{12}\bigr)^{|W|}\Bigl(\frac{14\cdot1076^3n_P^3}{t^3}
+\Bigr)^{45|W|}e^{-3\lambda t/4},
+\end{multline*}
+and $2.93\cdot14\cdot1076^3<5.2\cdot10^{10}$. For the last statement apply
+this to regular fields with $Q_W(U)$ decreasing to $q(F)$ and use the
+continuity of $\varepsilon'_W$ in $t$.
+\end{proof}
+
+\begin{corollary}\label{cor:everyfibre}
+Let $G=\SU(2)$, $\lambda>0$ and $0<K\le1$. Suppose the fibre $F$ contains a
+regular field $U$ with $\delta(U_p,I)\le K/(4\sqrt{n_P})$ on every plaquette
+$p$ that contains a link of $A_W$, whatever the plaquettes made of fixed
+links. Then $\mu_F$ gives the fields with such a plaquette above $K$ mass at
+most $\varepsilon'_W(\frac{15}{16}K^2,\lambda)$.
+\end{corollary}
+
+\begin{proof}
+At $U$, $Q_W\le K^2/16$, and a field with one of these plaquettes above $K$
+has $Q_W>K^2\ge Q_W(U)+\frac{15}{16}K^2$. Apply
+Proposition~\ref{prop:everyfibre} with $t=\frac{15}{16}K^2\le1$.
+\end{proof}
+
+The field of Proposition~\ref{prop:calmfibre} is regular, since its sites lie
+within $24\kappa$ of $I$, so Corollary~\ref{cor:everyfibre} contains that
+proposition up to the constants and drops its hypothesis on the plaquettes
+made of fixed links and on the links inside the blocks. It reaches every
+fibre whose boundary links carry large plaquettes, provided the sites of the
+averages can be made small there together with the plaquettes that move.
+Proposition~\ref{prop:everyfibre} holds on every fibre with no hypothesis at
+all, but its reference value $q(F)$ need not be small. Where it is of order
+one, as it can be when the averages are far from what the boundary links
+suggest, the constrained law sits within $t$ of $q(F)$ but away from the
+charts of Theorem~\ref{thm:chartdecay}, which are built at fields
+with all plaquettes near $W$ small. The proposition also does not compare
+regular with irregular fields, at which some site is far from $I$.
 
 \begin{remark}\label{rem:chartdecayopen}
 Theorem~\ref{thm:chartdecay} is the decay that
@@ -8475,10 +8593,12 @@ fields:
 \item the mass of the constrained law outside $\Phi(\Omega_r)$ on the
 fibres that contain no field whose plaquettes near $W$ are small:
 Corollary~\ref{cor:calmfibres} bounds it on every fibre that contains one,
-and Theorem~\ref{thm:offchart} in mean over all fibres, whereas the
-constrained cube condition of Remark~\ref{rem:constrainedopen}(a) takes a
-supremum over boundary conditions, which include fibres with a large
-plaquette among the fixed links;
+and Theorem~\ref{thm:offchart} in mean over all fibres;
+Proposition~\ref{prop:everyfibre} concentrates the law of every fibre within
+$t$ of the least action $q(F)$ of its regular fields, but the constrained
+cube condition of Remark~\ref{rem:constrainedopen}(a) takes a supremum over
+boundary conditions, which include fibres where $q(F)$ is of order one and
+no chart of Theorem~\ref{thm:chartdecay} is available;
 \item numbers: $\alpha_G$, $c_8$ and $c_9$ come, through $c_3$, from
 compactness, and the rate is not computed;
 \item the passage from the decay of the constrained law on one fibre, at
@@ -9323,7 +9443,7 @@ Theorem~\ref{thm:certificate}, whose certificates are checked in exact
 arithmetic. The programs of these steps, in Python with
 python-flint (FLINT and Arb) and a C kernel for products of Taylor
 polynomials, their outputs and the list of certified boxes are in the
-repository \url{https://github.com/creelie/4Y-M}, release v4.23.0, together
+repository \url{https://github.com/creelie/4Y-M}, release v4.24.0, together
 with a Lean~4 certificate of the line field, independent exact or
 numerical checks of the other finite statements, our checks of the
 certificate of~\cite{Rom26}, and the certificate of
