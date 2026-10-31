@@ -164,8 +164,10 @@ the free links split into such triples with period two, the middle link of
 each block is integrated out, and the block constant is bounded analytically
 with constants of the von Mises–Fisher partition function certified in ball
 arithmetic (`strong-coupling/gauge-fixed/blocks/`). This gives uniqueness,
-decay and a gap m ≥ −½ log α(β_W) for β_W ≤ 0.345, with α(1/3) ≤ 0.9561 and
-α(0.345) ≤ 0.9973.
+decay and a gap m ≥ −½ log α(β_W) for β_W ≤ 0.351, with α(1/3) ≤ 0.9428 and
+α(0.351) ≤ 0.99995 (`blocks/sharp/`: the Poincaré inequality of the von
+Mises–Fisher law in the one-site bound, and interpolation of the exponents in
+the two-site bound; the arithmetic is rechecked by the Lean kernel).
 The same blocks work for SU(3) (`strong-coupling/gauge-fixed/blocks/su3/`):
 the law of a block is controlled by the modulus Λ(r) of the cover, the
 Hessian of log Z on r conv SU(3) and its third derivative, bounded on 841

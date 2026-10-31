@@ -96,7 +96,7 @@ Road, Golpark, Kolkata 700029, West Bengal, India}
 We prove that four-dimensional lattice Yang--Mills theory with any compact
 simple gauge group has a unique infinite-volume state and an explicit
 transfer-matrix gap beyond the curvature limit of the ungauged measure, up to
-$\beta_W=0.345$ for $\SU(2)$ and $\beta_W=0.76$ for $\SU(3)$. A
+$\beta_W=0.351$ for $\SU(2)$ and $\beta_W=0.76$ for $\SU(3)$. A
 Dobrushin--Shlosman estimate in one cube of fixed physical size gives a mass
 gap in every continuum limit. We show that the cube needs a side of at least
 order $(\beta_W/\log\beta_W)^{1/4}$ lattice spacings, and that for $\SU(2)$ a
@@ -221,15 +221,15 @@ spheres instead of one, which we bound analytically by integrating out the
 middle link of the block.
 
 \begin{theorem}[$\SU(2)$ with plaquette blocks]\label{thm:blocks}
-Let $G=\SU(2)$ and $0\le\beta_W\le0.345$. The number $\alpha(\beta_W)$
-of~\eqref{eq:alphablock} is increasing, $\alpha(\frac13)\le0.9561$ and
-$\alpha(0.345)\le0.9973$. The conclusions of Theorem~\ref{thm:su2} hold
+Let $G=\SU(2)$ and $0\le\beta_W\le0.351$. The number $\alpha(\beta_W)$
+of~\eqref{eq:alphablock} is increasing, $\alpha(\frac13)\le0.9428$,
+$\alpha(0.345)\le0.9805$ and $\alpha(0.351)\le0.99995$. The conclusions of Theorem~\ref{thm:su2} hold
 with decay at every rate below $-\frac12\log\alpha(\beta_W)$ and a
 transfer-matrix gap
 \[
 m\ge-\tfrac12\log\alpha(\beta_W)>0 ;
 \]
-at $\beta_W=\frac13$ this gives $m\ge0.0224$. For $-0.345\le\beta_W<0$ all
+at $\beta_W=\frac13$ this gives $m\ge0.0294$. For $-0.351\le\beta_W<0$ all
 statements except reflection positivity and the gap hold.
 \end{theorem}
 
@@ -405,7 +405,7 @@ Curvature, sharp~\cite{BB26a}&$<\frac18$&$<\frac9{32}$\\
 Dobrushin, sharp quarter~\cite{BB26a}&$<\frac29$&\\
 Curvature, forest gauge&$<\frac4{29}$&$<\frac9{29}$\\
 Dobrushin, forest gauge&$<\frac13$&$\le\frac34$\\
-Plaquette blocks, forest gauge&$\le0.345$&$\le0.76$\\
+Plaquette blocks, forest gauge&$\le0.351$&$\le0.76$\\
 \end{tabular}
 \end{ruledtabular}
 \end{table}
@@ -988,12 +988,13 @@ bound there for the norm of the third derivative $D^3g(c)$ as a trilinear
 form. Put
 \begin{equation}\label{eq:blockconst}
 \begin{gathered}
-w=8\beta^2(\tau-\lambda_*),\qquad s=\tfrac14+(e^w-1)e^w\sqrt\tau,\\
-C=20|\beta|\bigl(4|\beta|\tau s+16\beta^2M\bigr),\qquad
+w=8\beta^2(\tau-\lambda_*),\qquad s=\tfrac14+(e^w-1)e^w\sqrt{\tau/3},\\
+C=4|\beta|sA+\tfrac{320}3|\beta|^3Me^w,\qquad
 K=\frac{(1+|\beta|)\,s}{1-C},
 \end{gathered}
 \end{equation}
-assuming $C<1$.
+assuming $C<1$, where $A$ is an upper bound for $|\nabla g(c)|$ on the ball
+$|c|\le20|\beta|$.
 
 \begin{lemma}\label{lem:tilt}
 Let $\nu$ be a probability measure and $\lambda=e^R\nu/\nu(e^R)$ with
@@ -1027,8 +1028,9 @@ Let $\beta\ge0$, $a,c_0\in\R^4$ with $|a|,|c_0|\le20\beta$, and
 For every $1$-Lipschitz $f$ and every $h\in\R^4$:
 \begin{enumerate}[label=\textup{(\roman*)},leftmargin=*]
 \item $\Cov_\kappa(f,\ip xh)\le s|h|$;
-\item if $c_0$ moves in the direction $k$, then $|\frac{d}{dt}\kappa(f)|\le
-(4\beta\tau s+16\beta^2M)|k|$.
+\item if $\kappa'$ is the law with $c_0'$ in place of $c_0$ and
+$|c_0'|=|c_0|=\rho$, then $|\kappa(f)-\kappa'(f)|\le(8\beta s\varphi'(\rho^2)
++\frac{16}3\beta^2Me^w)|c_0-c_0'|$.
 \end{enumerate}
 \end{lemma}
 
@@ -1040,19 +1042,35 @@ segment, $|\xi|\le24\beta$. For $u=\bar x$ of norm one, $R(\bar x)\in[8\beta^2
 g(c_0)}{\bar x}=\ip x{\overline{\nabla g(c_0)}}$, $\kappa$ is the tilt
 $e^{R}\nu/\nu(e^R)$ of $\nu=\nu_c$ with $c=a+4\beta\overline{\nabla g(c_0)}$.
 The sharp quarter, Theorem~\ref{q-thm:quarter}, gives $\Cov_\nu(f,\ip xh)=\frac{d}{dt}
-\nu_{c+th}(f)\le\frac14|h|$. A $1$-Lipschitz function on a set of diameter
-two has $\mathrm{sd}\le1$, and $\mathrm{sd}_\nu\ip xh\le\sqrt\tau|h|$
-because $|c|\le|a|+4\beta\le24\beta$. Lemma~\ref{lem:tilt} gives (i).
+\nu_{c+th}(f)\le\frac14|h|$. A function that is $1$-Lipschitz for the
+chordal metric is $1$-Lipschitz for the geodesic one, so $|\nabla f|\le1$
+almost everywhere and the Poincar\'e inequality of Lemma~\ref{q-lem:vmf}
+gives $\mathrm{sd}_\nu(f)\le1/\sqrt3$; and $\mathrm{sd}_\nu\ip xh\le\sqrt\tau|h|$
+because $|c|\le|a|+4\beta\le24\beta$. Lemma~\ref{lem:tilt} gives (i). The
+same argument applies to every law $e^{R'}\nu_{c'}/\nu_{c'}(e^{R'})$ with
+$|c'|\le24\beta$ and $\operatorname{osc}R'\le w$.
 
-(ii) The derivative is $\Cov_\kappa(f,\ip{\nabla g(c_0+4\beta\bar x)}k)$.
-Write $\nabla g(c_0+4\beta u)=\nabla g(c_0)+4\beta\Hess g(c_0)u+N(u)$. The
-constant term does not contribute. The linear term is $\ip xh$ with
-$h=4\beta\,\overline{\Hess g(c_0)k}$, $|h|\le4\beta\tau|k|$, and contributes at
-most $4\beta\tau s|k|$ by (i). For $|u|,|u'|\le1$, $\|\Hess g(c_0+4\beta v)-
-\Hess g(c_0)\|\le4\beta M|v|\le4\beta M$ on the segment between them, so
-$|N(u)-N(u')|\le16\beta^2M|u-u'|$; the function $\ip{N(\bar x)}k$ is
-therefore $16\beta^2M|k|$-Lipschitz, its standard deviation is at most that
-constant, and its covariance with $f$ is at most $16\beta^2M|k|$.
+(ii) We interpolate the exponents rather than the field. For $t\in[0,1]$
+let $\kappa_t\propto\exp\bigl(\ip xa+(1-t)g(c_0+4\beta\bar x)+tg(c'_0+4\beta
+\bar x)\bigr)dx$, so that $\kappa_0=\kappa$, $\kappa_1=\kappa'$ and
+$\frac d{dt}\kappa_t(f)=\Cov_{\kappa_t}(f,D)$ with $D(x)=g(c'_0+4\beta\bar x)-
+g(c_0+4\beta\bar x)$. Write $g(c+4\beta u)=g(c)+4\beta\ip{\nabla g(c)}u+R_c(u)$
+as in (i), for $c\in\{c_0,c'_0\}$. Then $\kappa_t$ is the tilt of $\nu_{c_t}$,
+$c_t=a+4\beta\,\overline{(1-t)\nabla g(c_0)+t\nabla g(c'_0)}$, by
+$R_t=(1-t)R_{c_0}+tR_{c'_0}$, with $\operatorname{osc}R_t\le w$ and $|c_t|\le
+24\beta$ because $|\nabla g|\le1$; so (i) holds for $\kappa_t$, and the
+density of $\kappa_t$ with respect to $\nu_{c_t}$ is at most $e^w$. Up to a
+constant, $D(x)=\ip xh+N(\bar x)$ with $h=4\beta\,\overline{\nabla g(c'_0)-\nabla
+g(c_0)}$ and $N=R_{c'_0}-R_{c_0}$. Since $\nabla g(c)=2\varphi'(|c|^2)c$ and
+$|c_0|=|c'_0|=\rho$, $|h|=8\beta\varphi'(\rho^2)|c_0-c'_0|$, and by (i) the
+linear part contributes at most $s|h|$. For the rest, $\nabla N(u)=16\beta^2
+\int_0^1\bigl(\Hess g(c'_0+4\beta\sigma u)-\Hess g(c_0+4\beta\sigma u)\bigr)u\,
+d\sigma$, both arguments in the convex ball $|c|\le24\beta$, so $N$ is
+$L$-Lipschitz on the unit ball with $L=16\beta^2M|c_0-c'_0|$. With $\nu=
+\nu_{c_t}$ and the Poincar\'e inequality of Lemma~\ref{q-lem:vmf} again,
+$\Var_{\kappa_t}(N)\le\kappa_t((N-\nu N)^2)\le e^w\Var_\nu(N)\le e^wL^2/3$,
+and in the same way $\Var_{\kappa_t}(f)\le e^w/3$. So
+$\Cov_{\kappa_t}(f,N)\le e^wL/3$. Integrating over $t$ gives (ii).
 \end{proof}
 
 \begin{lemma}\label{lem:blockK}
@@ -1092,11 +1110,12 @@ both of the form of Lemma~\ref{lem:onesite}, with $|c_0|=|b_2|$.
 
 \emph{Two sites.} Integrating Lemma~\ref{lem:onesite}(i) along the segment
 from $b_1$ to $b'_1$ gives $W_1(\kappa_1,\kappa'_1)\le s\varepsilon$ for the
-same $y_3$. Moving $y_3$ to $y'_3$ moves $c_0=b_2y_3$ along a segment of
-length $|b_2||y_3-y'_3|\le20\beta|y_3-y'_3|$ inside the ball $|c_0|\le20\beta$,
-so Lemma~\ref{lem:onesite}(ii) gives $W_1(\kappa_1(\cdot\mid y_3),\kappa_1(
-\cdot\mid y'_3))\le C|y_3-y'_3|$, and the same for $\kappa_3$, which does not
-depend on $b_1$. Let $\pi$ be a coupling of $\mu^{13}_b$ and $\mu^{13}_{b'}$
+same $y_3$. Moving $y_3$ to $y'_3$ replaces $c_0=b_2y_3$ by $c'_0=b_2y'_3$,
+of the same norm $\rho=|b_2|\le20\beta$ and with $|c_0-c'_0|=\rho|y_3-y'_3|$.
+Since $\rho\cdot2\varphi'(\rho^2)=|\nabla g(c_0)|\le A$,
+Lemma~\ref{lem:onesite}(ii) gives $W_1(\kappa_1(\cdot\mid y_3),\kappa_1(
+\cdot\mid y'_3))\le(4\beta sA+20\beta\cdot\frac{16}3\beta^2Me^w)|y_3-y'_3|=
+C|y_3-y'_3|$, and the same for $\kappa_3$, which does not depend on $b_1$. Let $\pi$ be a coupling of $\mu^{13}_b$ and $\mu^{13}_{b'}$
 minimising $d_1+d_3$, $d_k=\E_\pi|y_k-y'_k|$. Replacing $(y_1,y'_1)$ by an
 optimal coupling of $\kappa_1(\cdot\mid y_3)$ and $\kappa'_1(\cdot\mid y'_3)$
 keeps a coupling, so minimality gives $d_1\le s\varepsilon+Cd_3$; in the
@@ -1117,8 +1136,9 @@ $\Hess g(c)$ are $2\varphi'(r^2)$, three times, and $2\varphi'(r^2)+4r^2
 \max\Bigl(|A+\Gamma|,\tfrac23|A|\Bigr),\qquad A=12r\varphi''(r^2),\quad
 \Gamma=8r^3\varphi'''(r^2).
 \]
-On the ball $r\le2.07$ every eigenvalue of $\Hess g$ lies between
-$0.158491$ and $0.25000001$, and the norm of $D^3g$ is at most $0.0615586$.
+On the ball $r\le2.106$ every eigenvalue of $\Hess g$ lies between
+$0.156381$ and $0.25000001$, and the norm of $D^3g$ is at most $0.0615172$; on
+the ball $r\le1.755$, $|\nabla g|\le0.391443$.
 \end{lemma}
 
 \begin{proof}
@@ -1130,8 +1150,8 @@ point, where it equals $\frac23|A||t|\le\frac23|A|$; by Banach's
 theorem~\cite{Ban38} the supremum of a symmetric trilinear form on the
 diagonal of the unit sphere is its norm. The numerical bounds are obtained
 in ball arithmetic~\cite{Joh17} from the series of $Z_0$, truncated after
-forty terms with a proved bound on the tail, on $2\cdot10^4$ subintervals of
-$[0,2.07]$; the program is described in Appendix~\ref{app:plaqblocks}.
+forty-eight terms with a proved bound on the tail, on $2\cdot10^5$ subintervals of
+$[0,2.106]$, with $|\nabla g(c)|=r\cdot2\varphi'(r^2)$; the program is described in Appendix~\ref{app:plaqblocks}.
 \end{proof}
 
 \subsection{The proof of Theorem~\ref{thm:blocks}}
@@ -1163,8 +1183,8 @@ most three and moves them by at most one, which changes only the constants.
 \end{proof}
 
 \begin{proof}[Proof of Theorem~\ref{thm:blocks}]
-Let $|\beta|\le0.345/4$ and take the constants of Lemma~\ref{lem:vmfconst},
-whose ball $r\le2.07$ contains $|c|\le24|\beta|$. With these fixed constants
+Let $|\beta|\le0.351/4$ and take the constants of Lemma~\ref{lem:vmfconst},
+whose balls $r\le2.106$ and $r\le1.755$ contain $|c|\le24|\beta|$ and $|c|\le20|\beta|$. With these fixed constants
 every quantity in~\eqref{eq:blockconst} is increasing in $|\beta|$, and so is
 \begin{equation}\label{eq:alphablock}
 \alpha(\beta_W)=40|\beta|K .
@@ -1174,9 +1194,10 @@ partners outside its block by an isometric image of the displacement, so the
 field $b_i$ of each such partner $i$ moves by at most $4|\beta|\eta$, and
 Lemma~\ref{lem:blockK}, applied once for each of these ten fields, gives
 $\sum_BC_{Bj}\le40|\beta|K$. Evaluating~\eqref{eq:blockconst} in ball
-arithmetic at $\beta_W=0.345$ gives $w\le0.0054459$, $s\le0.252746$,
-$C\le0.050243$, $K\le0.289069$ and $\alpha\le0.99729$; at $\beta_W=\frac13$ it
-gives $\alpha\le0.95602$. Proposition~\ref{prop:blockstate} applies.
+arithmetic at $\beta_W=0.351$ gives $w\le0.0057670$, $s\le0.2516793$,
+$C\le0.0390392$, $K\le0.2848858$ and $\alpha\le0.99995$; at $\beta_W=0.345$ and
+$\beta_W=\frac13$ it gives $\alpha\le0.98044$ and $\alpha\le0.94279$. At
+$\beta_W=0.3511$ the same evaluation exceeds one. Proposition~\ref{prop:blockstate} applies.
 \end{proof}
 
 \begin{remark}\label{rem:blockgap}
@@ -1184,8 +1205,14 @@ Most of the range is kept. A second bound for the same sensitivity, which
 keeps the law of the middle link instead of linearising it, evaluated in
 floating point on a quadrature grid and maximised over the fields $b$ by a
 random search followed by the Nelder--Mead method, gives $0.2783$ at
-$\beta_W=0.34$, against $0.2881$ from Lemma~\ref{lem:blockK}, and $40|\beta|$
-times it crosses one near $\beta_W=0.357$. That computation is not certified
+$\beta_W=0.34$, against $0.2837$ from Lemma~\ref{lem:blockK}, and $40|\beta|$
+times it crosses one near $\beta_W=0.357$. Most of the difference is the
+two-site constant $C\approx0.038$, which the floating-point value suggests is
+about twice the true feedback between $y_1$ and $y_3$. No bound of this form
+passes $\beta_W\approx0.366$: at $b=0$ the function $f=\ip{y_1}e+
+\operatorname{Re}(y_2y_3e)$ is $1$-Lipschitz for $d$ and has $\Cov_{\mu_b}(f,
+\ip{y_1}e)=\frac14(1+\beta)+O(\beta^2)$, so the sensitivity is at least
+$\frac14(1+|\beta|)+O(\beta^2)$ and $40|\beta|$ times it is $10|\beta|(1+|\beta|)+O(|\beta|^3)$. That computation is not certified
 and is not used in the proof. Past this point the gain from integrating out
 one link is spent, and larger blocks are needed, such as the free links of a
 cube of the line field, whose sensitivity no longer reduces to two sites.
@@ -2219,7 +2246,7 @@ that computation is not certified and is not used.
 every forest gauge at $\beta_W=\frac13$. Blocks of several links, where the
 influence of a boundary link on a whole block is bounded at once, in the
 spirit of the Dobrushin--Shlosman criterion~\cite{DS85}, pass it:
-plaquette blocks reach $\beta_W=0.345$ (Theorem~\ref{thm:blocks}), and the
+plaquette blocks reach $\beta_W=0.351$ (Theorem~\ref{thm:blocks}), and the
 sharper floating-point bound of Remark~\ref{rem:blockgap} stops near
 $0.357$. Larger blocks are the next step.
 
@@ -2278,7 +2305,7 @@ coupling; (2) the crossover from strong coupling to Ba{\l}aban's
 weak-coupling regime; (3) the continuum limit with the
 Osterwalder--Schrader axioms; and (4) a gap in physical units. The present
 paper moves the boundary of (1): for $\SU(2)$ from $\beta_W=\frac29$ to
-$0.345$, for $\SU(3)$ from $\frac9{32}$ to $0.76$, with a gap at $\frac34$ of
+$0.351$, for $\SU(3)$ from $\frac9{32}$ to $0.76$, with a gap at $\frac34$ of
 $0.0177$ in lattice units, and for every compact simple
 group, the exceptional groups included, past the curvature ceiling of the
 ungauged measure, with an explicit gap. It does not close (1); the region
@@ -10335,10 +10362,13 @@ In closed form, the plaquette at $x$ in $\{0,1\}$ is a block plaquette when
 $x_0\equiv x_1$ and the plaquette at $x$ in $\{2,3\}$ when $x_2\equiv x_3$; the
 blocks do not depend on the line field beyond the fact that every plaquette
 contains one fixed link. The bounds of Lemma~\ref{lem:vmfconst} are evaluated in ball arithmetic
-at $120$ bits: the series of $Z_0$ and of its first three derivatives in
-$s=r^2$ is summed to forty terms, and the tail is bounded for $s\le5$ by
-twice the first omitted term $(5/4)^{40}40^3/(40!\,41!)$, because consecutive
-terms decrease by a factor below one half. The constants
+at $128$ bits: the series of $Z_0$ and of its first three derivatives in
+$s=r^2$ is summed to forty-eight terms, and the tail is bounded for $s\le5$ by
+twice the first omitted term, because consecutive
+terms decrease by a factor below one half. The program also writes the
+constants, rounded outward to $10^{-12}$, for a check of the chain~\eqref{eq:blockconst}
+at $\beta_W=\frac13$, $0.345$, $0.35$, $0.351$ in exact rational arithmetic by the Lean kernel
+(\texttt{gauge-fixed/blocks/sharp}). The constants
 of~\eqref{eq:blockconst} and $\alpha$ are then evaluated at a given $\beta_W$
 from exact input.
 
