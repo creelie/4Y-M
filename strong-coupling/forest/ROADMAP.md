@@ -98,9 +98,11 @@ on (D).
 ## 7. Order of work
 
 1. **D5 on calm exteriors:** the cube coefficient from Theorem `chartdecay`(ii), with the boundary terms of the chart.
+   **Done for links in no average (`D5.md`):** C_G ≤ 3·10¹³ plus an off-chart error. Global calmness is
+   volume-limited, so D5 must be local, and then it merges with D7 through the missing local off-chart bound (L).
 2. **Annealed Dobrushin comparison:** random coefficients dominated in finite intersections by a Bernoulli field
    (caveat 1). A self-contained probability lemma; with §4 it turns D7 into D5.
-3. **Local rarity under an arbitrary exterior** (caveat 2).
+3. **Local rarity under an arbitrary exterior** (caveat 2), in the constrained-law form (L) of `D5.md` §4.
 4. **Island bound in chart coordinates** (caveat 3). The section S has row sums ≤ 14 and range one.
 5. **D4 and D8:** multiscale analysis, no short route visible.
 6. **Side items, if cheap:** the A2 second-order proof (0.351 → 0.355), and the Lean W₁ Dobrushin theorem (A4).

@@ -43,7 +43,7 @@ D_c(n, α), with a supremum over boundary conditions, uniformly along β_W ∼ b
 | D2 | one composition step for the averages | **proved**: Corollary `compose`; Q_k ≤ S_k ≤ 256 Q_k (Theorem `effectiveupper`); locality (Theorem `effectivelocal`) | `main.tex` |
 | D3 | decay of the constrained law on one fibre with a calm background | **proved**: rate α_G = 2.5·10⁻⁴, amplitude O(1/β) (Theorem `chartdecay`) | `main.tex` |
 | D4 | mass off the chart on fibres with no calm completion | **open**; bounded only in mean over exteriors (Theorem `offchart`) | Remark `chartdecayopen`(a) |
-| D5 | fibre decay ⇒ cube coefficient, with the supremum over boundary conditions | **open** | Remark `chartdecayopen`(b) |
+| D5 | fibre decay ⇒ cube coefficient, with the supremum over boundary conditions | **open**. Calm case done in `D5.md` (C_G ≤ 3·10¹³, links in no average); the global form is volume-limited, and the local form needs (L) | Remark `chartdecayopen`(b), `D5.md` |
 | D6 | large fields: rare | **proved** on the torus, with explicit constants | Theorem `defects`, `rare/RARE.md` |
 | D7 | large fields: harmless | **open** | `rare/RARE.md` §4 |
 | D8 | the cube condition for the averages ⇒ the law one scale up; the coarsest averages; the crossover | **open** | `OPEN.md` §4 |
