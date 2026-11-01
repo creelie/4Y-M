@@ -114,5 +114,9 @@ on (D).
    (4.5β_W C_G)^{324n}. With item 3 the thresholds balance at β_W ≈ 10¹⁶⁴, independently of the volume, but only
    given (I1), and only for a gap in lattice units.
 5. **D4 and D8:** multiscale analysis, no short route visible.
+   **Scoped (`D4_D8.md`):**
+   - D4 in window form is the large-field part of (I1).
+   - The base case of D8 lands at an effective coupling of about 10–700 (heuristic, one loop). That is far below every
+     weak-coupling threshold here (≥ 10³⁸), so the crossover is unavoidable.
 6. **Side items, if cheap:** the A2 second-order proof (0.351 → 0.355), and the Lean W₁ Dobrushin theorem (A4).
    Neither bears on (D).
