@@ -86,5 +86,14 @@ the W₁ coefficient β_W/4 ≈ 0.09.
   port, since the formal statement will quote one of them. `BlockCheck.lean` certifies ≤ 0.99997; `main.tex` quotes
   ≤ 0.99995 from the direct Arb evaluation. Both are below 1, so either suffices for the statement at β_W = 0.351.
 
-**Status of A4:** scoped; not started in Lean. The critical-path item is a W₁ (Kantorovich) Dobrushin theorem, which
+**Update (item 6 of `ROADMAP.md` §7).** `YangMills/StrongCoupling/DobrushinComparison.lean` proves the arithmetic
+half of G1 for a finite set of sites, with no `sorry`. It compiles against Mathlib v4.33.0 with `lake env lean`. It contains:
+- `comparison_weighted`: the column-weighted inequality of Lemma `comparison`;
+- `comparison_empty`: uniqueness;
+- `decay_rowweighted` and `sup_bound`: the Bassalygo–Dobrushin form.
+
+The measure-theoretic half is still missing: the minimising Kantorovich coupling, which gives
+ρ(e) ≤ Σ C_{ee′} ρ(e′), together with the infinite-volume limit.
+
+**Status of A4:** scoped; G1 has its arithmetic half done. The critical-path item is a W₁ (Kantorovich) Dobrushin theorem, which
 the Lean ecosystem does not yet have.

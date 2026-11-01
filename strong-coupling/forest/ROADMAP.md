@@ -120,3 +120,7 @@ on (D).
      weak-coupling threshold here (≥ 10³⁸), so the crossover is unavoidable.
 6. **Side items, if cheap:** the A2 second-order proof (0.351 → 0.355), and the Lean W₁ Dobrushin theorem (A4).
    Neither bears on (D).
+   **Outcome:**
+   - A2 is parked. It needs a new Arb certificate (`../gauge-fixed/blocks/feedback/README.md`).
+   - The arithmetic half of the Lean W₁ Dobrushin theorem is proved
+     (`YangMills/StrongCoupling/DobrushinComparison.lean`, no `sorry`). The coupling half is still open.
