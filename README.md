@@ -178,7 +178,9 @@ single links. The blocks need only Λ(2β_W), not 2rΛ(r) < 1: a second cover
 at r = 38/25 (1063 boxes, 2rΛ(r) ≤ 1.029967) with the constants on 784 boxes
 (eigenvalues in [0.054978, 0.248280], third cumulant ≤ 0.183546) gives
 α₃(0.76) ≤ 0.99950, so the SU(3) range extends to β_W ≤ 0.76, past the end of
-the single-link route, with m ≥ 2.5·10⁻⁴ at β_W = 0.76.
+the single-link route, with m ≥ 2.5·10⁻⁴ at β_W = 0.76. A third cover at
+r = 77/50 (2825 boxes, 2rΛ(r) ≤ 1.027468) with constants on 826 boxes gives
+α₃(0.77) ≤ 0.99978, so the range is β_W ≤ 0.77, with m ≥ 1.1·10⁻⁴ there.
 
 **Every compact simple group (third paper, proved by hand, not refereed):**
 in the forest gauge the least Ricci curvature of G is κ_G = h^∨/(2ℓ_ρ)

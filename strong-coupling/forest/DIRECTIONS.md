@@ -2,7 +2,7 @@
 
 | item | status | where |
 |---|---|---|
-| A1 SU(3) blocks 0.77 | interval cover at r = 77/50 running (level 3) | `../gauge-fixed/checks/su3/deg2/` |
+| A1 SU(3) blocks 0.77 | done: α₃(0.77) ≤ 0.99978 from a certified cover at r = 77/50 (2825 boxes, 2rΛ ≤ 1.027468) and constants on 826 boxes; Theorem su3blocks now reads β_W ≤ 0.77 | `../gauge-fixed/blocks/su3/README.md` |
 | A2 SU(2) true feedback | diagnosed, not proved. The true response is (1+β)/4 in all fields. The slack is the 1/(1−C) factor (4.1%), not a doubled C, so the premise below is corrected | `../gauge-fixed/blocks/feedback/README.md` |
 | A3 block shapes | done (negative: built-up blocks reach a ceiling of about 0.369, against 0.366) | `../gauge-fixed/blocks/shapes/README.md` |
 | A4 Lean bridge | scoped; the critical path is a W₁ Dobrushin theorem, which LGT (TV only, β_W < 0.0104) lacks | `A4_LEAN.md` |
