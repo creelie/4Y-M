@@ -106,7 +106,13 @@ on (D).
    lemma reduces the rest to quenched bounds (I1) for laws conditioned on the large-field set. Those are Bałaban
    territory, not a probability lemma.
 3. **Local rarity under an arbitrary exterior** (caveat 2), in the constrained-law form (L) of `D5.md` §4.
+   **Partly done (`ISLANDS.md` §1):** Proposition L (sketch) gives the off-chart bound in window form with
+   volume-independent constants, by adding the private links of the straddling pairs to the free set. Rarity of calm
+   windows under an arbitrary exterior in finite-intersection form is still open (only the density bound `localcalm`).
 4. **Island bound in chart coordinates** (caveat 3). The section S has row sums ≤ 14 and range one.
+   **Done, crude (`ISLANDS.md` §2):** with a one-block collar, an island of n blocks costs at most
+   (4.5β_W C_G)^{324n}. With item 3 the thresholds balance at β_W ≈ 10¹⁶⁴, independently of the volume, but only
+   given (I1), and only for a gap in lattice units.
 5. **D4 and D8:** multiscale analysis, no short route visible.
 6. **Side items, if cheap:** the A2 second-order proof (0.351 → 0.355), and the Lean W₁ Dobrushin theorem (A4).
    Neither bears on (D).
