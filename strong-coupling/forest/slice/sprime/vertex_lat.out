@@ -1,0 +1,20 @@
+L = 8, NMAX = 4, 400 random pairs (k, l), plane waves of unit amplitude in different colours
+max |Q(k+l)| over pairs with k = l = 0: none sampled
+max |Q(k+l)| / (|khat|+|lhat|+|Phat|) = 0.3536
+  |khat|+|lhat|+|Phat| in [4,11):  400 pairs, max ratio 0.3536
+constant fields, all direction pairs: max |Q| = 0.00e+00
+L = 32, NMAX = 2, 200 random pairs (k, l), plane waves of unit amplitude in different colours
+max |Q(k+l)| over pairs with k = l = 0: none sampled
+max |Q(k+l)| / (|khat|+|lhat|+|Phat|) = 0.1608
+  |khat|+|lhat|+|Phat| in [0,1):    6 pairs, max ratio 0.1608
+  |khat|+|lhat|+|Phat| in [1,2):  160 pairs, max ratio 0.1589
+  |khat|+|lhat|+|Phat| in [2,3):   34 pairs, max ratio 0.0836
+constant fields, all direction pairs: max |Q| = 0.00e+00
+L = 32, NMAX = 6, 200 random pairs (k, l), plane waves of unit amplitude in different colours
+max |Q(k+l)| over pairs with k = l = 0: none sampled
+max |Q(k+l)| / (|khat|+|lhat|+|Phat|) = 0.1321
+  |khat|+|lhat|+|Phat| in [1,2):    2 pairs, max ratio 0.1321
+  |khat|+|lhat|+|Phat| in [2,3):   25 pairs, max ratio 0.0909
+  |khat|+|lhat|+|Phat| in [3,4):   74 pairs, max ratio 0.0781
+  |khat|+|lhat|+|Phat| in [4,11):   99 pairs, max ratio 0.0684
+constant fields, all direction pairs: max |Q| = 0.00e+00
