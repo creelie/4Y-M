@@ -31,7 +31,7 @@ This is a log of attempts, kept so that negative results are not repeated. The o
 
 ## Open, not yet tried
 
-- **R2.** Sharpen the feedback constant C. The current C ≈ 0.038 is about twice the true feedback, and closing that gap would move 0.351 toward the 0.357–0.366 window.
-- **R6.** Larger blocks (two plaquettes, or a cube) to beat the 0.366 single-plaquette ceiling.
+- **R2.** Sharpen the feedback constant C. The current C ≈ 0.038 is about twice the true feedback, and closing that gap would move 0.351 toward the 0.357–0.366 window. *Update: the measured response is (1+β)/4 in every field; the slack is the 1/(1−C) factor, not C (`../gauge-fixed/blocks/feedback/`). A second-order expansion around the product measure is the route.*
+- **R6.** Larger blocks (two plaquettes, or a cube) to beat the 0.366 single-plaquette ceiling. *Update: ceilings measured, about 0.369 at best (`../gauge-fixed/blocks/shapes/`); not worth a proof.*
 - **I11.** Rerun the 3D unflowed test with about 100× the statistics (multilevel or a reweighted estimator).
-- **S′ at order g² on the lattice.** Show that the soft-part first-step bound holds with no logarithm in a lattice perturbative computation. The continuum computation says it does.
+- **S′ at order g² on the lattice.** Show that the soft-part first-step bound holds with no logarithm in a lattice perturbative computation. The continuum computation says it does. *Update: done in the free vacuum, uniformly in a (`slice/sprime/LATTICE_SPRIME.md`).*
