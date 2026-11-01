@@ -1,5 +1,7 @@
 ## Status (November 2026)
 
+Summary of all items, their relation to (D) and (E), and the chosen path forward: `ROADMAP.md`.
+
 | item | status | where |
 |---|---|---|
 | A1 SU(3) blocks 0.77 | done: α₃(0.77) ≤ 0.99978 from a certified cover at r = 77/50 (2825 boxes, 2rΛ ≤ 1.027468) and constants on 826 boxes; Theorem su3blocks now reads β_W ≤ 0.77 | `../gauge-fixed/blocks/su3/README.md` |
