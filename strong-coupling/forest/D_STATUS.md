@@ -83,8 +83,11 @@ What this does and does not give:
      fibre. To use the island bound there, it has to be transported from links to chart coordinates. The section S of
      Theorem `chartdecay` has row sums ≤ 14 and range one, which suggests a loss of a constant factor per site, but
      this is not checked.
-- If the three caveats are met, D7 follows from D3 + D5. **The large fields are then not a separate wall: D5 is the
-  wall.**
+- If the three caveats are met, D7 follows from D3 + D5. Caveat 1 turned out to be harder than a probability lemma
+  (`ANNEALED.md`): with rarity used only through probabilities, the comparison has an O(q) floor. The honest route
+  needs bounds for laws conditioned on the large-field set, (I1), which belongs with Bałaban's large-field
+  expansion. **So the large fields remain a separate wall.** Global D5 is volume-limited (`D5.md` §3); its local form
+  needs the estimate (L).
 
 ## 4. Next targets, ranked by what they would decide
 
