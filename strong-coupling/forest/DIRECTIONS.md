@@ -1,3 +1,19 @@
+## Status (November 2026)
+
+| item | status | where |
+|---|---|---|
+| A1 SU(3) blocks 0.77 | interval cover at r = 77/50 running (level 3) | `../gauge-fixed/checks/su3/deg2/` |
+| A2 SU(2) true feedback | diagnosed, not proved. The true response is (1+β)/4 in all fields. The slack is the 1/(1−C) factor (4.1%), not a doubled C, so the premise below is corrected | `../gauge-fixed/blocks/feedback/README.md` |
+| A3 block shapes | done (negative: built-up blocks reach a ceiling of about 0.369, against 0.366) | `../gauge-fixed/blocks/shapes/README.md` |
+| A4 Lean bridge | scoped; the critical path is a W₁ Dobrushin theorem, which LGT (TV only, β_W < 0.0104) lacks | `A4_LEAN.md` |
+| B1 3D next order | done | `slice/THREE_D.md` |
+| B2 lattice S′ at O(g²) | done in the free vacuum, uniformly in a. The vertex bound is proved (Lemma 3); the O(g²) vacuum correction is open | `slice/sprime/LATTICE_SPRIME.md` |
+| B3 CCHS | done (literature): spacetime-flowed slices are smoothened observables; the 3D measure is missing | `slice/CCHS.md` |
+| B4 | not pursued (low priority, as below) | |
+| C1 cube constants | not pursued. Without a structural idea for the composition step, sharper local constants do not change what is proved | |
+| C2 rare bad fibres | rarity proved on the torus (chessboard); harmlessness is not reachable by disagreement percolation | `rare/RARE.md` |
+| C3 | only via 3D, as below | |
+
 ## Track A: certain gains at strong coupling (days each, fully checkable)
 
 **A1. SU(3) blocks, 0.76 → about 0.77.**
@@ -7,7 +23,8 @@
 - This is the most predictable win on the list.
 
 **A2. SU(2), 0.351 → about 0.355.**
-- Our C ≈ 0.038 is about twice the true feedback.
+- Our C ≈ 0.038 is about twice the true feedback. *(Corrected in `../gauge-fixed/blocks/feedback/`: C itself is close to
+  the true conditional feedback; the slack is that the true response does not grow by 1/(1−C) at all.)*
 - Bound the actual y₁–y₃ correlation instead of the two-step estimate.
 - This is idea R2 in `forest/IDEAS.md`.
 
@@ -69,6 +86,6 @@ What we now know:
 - Certified local eigenvalue computations would shrink the constants.
 - But the composition step (Remark 101) is a genuine gap. Work on it only if someone has a structural idea for it.
 
-**C2. Rare bad fibres.** Restated as "bad fibres are rare and harmless", it looks provable by disagreement percolation from the paper's Theorems 122 and 131. That's a self-contained combinatorial lemma and good to hand off.
+**C2. Rare bad fibres.** Restated as "bad fibres are rare and harmless", it looks provable by disagreement percolation from the paper's Theorems 122 and 131. That's a self-contained combinatorial lemma and good to hand off. *(Outcome in `rare/RARE.md`: "rare" holds by chessboard estimates; disagreement percolation fails at weak coupling.)*
 
 **C3. Tree bounds (I3) and continuum existence.** These are Bałaban territory. I'd only attack them through B1: if 3D works, its tree bounds are the next target there.
