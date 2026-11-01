@@ -124,3 +124,9 @@ The walls that remain for (D) are therefore:
 - D8.
 
 Everything else on the list has at least a crude, volume-independent bound.
+
+**Cross-reference (November 2026).** Proposition L is the mass half of Conjecture L of romanov360/OpenGluon, branch `claude/cube-coefficient-calm-data`, `yang-mills/cube-coefficient/CALM_DATA.md`.
+`CALM_LINK.md` §3 derives a covariance form from it by a window bootstrap. The bootstrap gives decay at rate α_G/2,
+down to a floor set by the one-point probability of a non-calm window. Its window, of 2.9·10²⁴ blocks, is much smaller
+than the cube of §3, so the off-chart threshold drops to β_W ≳ 1.1·10⁶⁴. The rarity row of §3 is then needed only in
+one-point form, (R1) of `CALM_LINK.md` §4.
