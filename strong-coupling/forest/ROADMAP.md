@@ -102,6 +102,9 @@ on (D).
    volume-limited, so D5 must be local, and then it merges with D7 through the missing local off-chart bound (L).
 2. **Annealed Dobrushin comparison:** random coefficients dominated in finite intersections by a Bernoulli field
    (caveat 1). A self-contained probability lemma; with §4 it turns D7 into D5.
+   **Done, negative (`ANNEALED.md`):** one-point rarity gives only an O(q) floor (approximate uniqueness). A bootstrap
+   lemma reduces the rest to quenched bounds (I1) for laws conditioned on the large-field set. Those are Bałaban
+   territory, not a probability lemma.
 3. **Local rarity under an arbitrary exterior** (caveat 2), in the constrained-law form (L) of `D5.md` §4.
 4. **Island bound in chart coordinates** (caveat 3). The section S has row sums ≤ 14 and range one.
 5. **D4 and D8:** multiscale analysis, no short route visible.
