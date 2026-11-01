@@ -21,6 +21,15 @@ cumulant at most 0.183546; α_3(0.76) ≤ 0.99950 (`python3 alpha3.py
 ../../checks/su3/deg2/r38_25 r38_25 0.76`, output in `r38_25/alpha3_out.txt`), so the
 blocks give a gap for β_W ≤ 0.76, at least 2.5·10⁻⁴ at β_W = 0.76.
 
+Result at r = 77/50 (`python3 consts.py --r 77/50 --L 3 --out r77_50`, with the cover
+`../../checks/su3/deg2/r77_50` from `python3 cover2.py --r 77/50 --thr 1.0275 --out r77_50`,
+2825 boxes, 2rΛ(r) ≤ 1.027468): 826 boxes, eigenvalues in [0.053955, 0.249240] and third
+cumulant at most 0.184989; α_3(0.77) ≤ 0.99978 (`python3 alpha3.py
+../../checks/su3/deg2/r77_50 r77_50 0.77`, output in `r77_50/alpha3_out.txt`), so the
+blocks give a gap for β_W ≤ 0.77, at least 1.1·10⁻⁴ at β_W = 0.77. The cover and the
+constants each ran in two sessions, resuming from their caches (`cover_log_run*.txt`,
+`consts_log_run1.txt`); the caches are not tracked.
+
 `consts.py` runs four worker processes and sets one BLAS thread per worker;
 with the default multithreaded BLAS the four workers oversubscribe four cores.
 It needs numpy and python-flint, and the modules of `../../checks/su3/deg2/`.
