@@ -124,3 +124,13 @@ on (D).
    - A2 is parked. It needs a new Arb certificate (`../gauge-fixed/blocks/feedback/README.md`).
    - The arithmetic half of the Lean W₁ Dobrushin theorem is proved
      (`YangMills/StrongCoupling/DobrushinComparison.lean`, no `sorry`). The coupling half is still open.
+
+### After §7: the calm-data link (`CALM_LINK.md`)
+
+- The work here is merged with the OpenGluon calm-data note. The constant for the first kind of link is C_* ≤ 7.4·10¹². The second kind
+  has C_b ≤ 9.2·10¹³ plus a shell term.
+- The shell term, averaged over v, reduces to the localised off-chart covariance (sketch, §2).
+- A window bootstrap gives that covariance with decay rate α_G/2, down to a floor, at β_W ≳ 10⁶⁴ (§3).
+- What is left of the calm-data cube coefficient is one statement, (R1): one-point calm rarity under an arbitrary
+  exterior. All three routes to it fail (§4), and it is the large-field half of a renormalisation-group expansion.
+  **D is blocked there**, and at D8. Work moves to other paths.
