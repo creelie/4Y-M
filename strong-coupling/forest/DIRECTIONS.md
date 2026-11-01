@@ -13,6 +13,7 @@
 | C1 cube constants | not pursued. Without a structural idea for the composition step, sharper local constants do not change what is proved | |
 | C2 rare bad fibres | rarity proved on the torus (chessboard); harmlessness is not reachable by disagreement percolation | `rare/RARE.md` |
 | C3 | only via 3D, as below | |
+| (D) overview | the open pieces of the cube estimate, and the observation that islands cost (4.5β_W)^{4n} against their rarity | `D_STATUS.md` |
 
 ## Track A: certain gains at strong coupling (days each, fully checkable)
 
