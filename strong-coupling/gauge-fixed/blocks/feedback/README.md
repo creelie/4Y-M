@@ -76,3 +76,12 @@ done here.
 |---|---|
 | `response.py` | Monte Carlo of the block response (`python3 response.py 0.351 100000 100`) |
 | `response_0.351.out` | Output of that run (11 of the 12 configurations) |
+
+## Status after item 6 of `forest/ROADMAP.md` (November 2026)
+
+Not attempted. Proving K ≤ 0.2817 at β_W = 0.355 needs two pieces:
+- the second-order coefficient of Cov_μ(f, ⟨y₁,h⟩), with a sup over 1-Lipschitz f on (S³)³;
+- a remainder that is certified uniformly over the outside fields |bᵢ| ≤ 20β (12 real parameters).
+
+That is a new Arb certificate on the scale of `blocks/sharp/`, not a cheap side item. It also leaves (D) unchanged
+(`forest/ROADMAP.md` §1), so it stays parked with the target and the 3.4% margin recorded above.
