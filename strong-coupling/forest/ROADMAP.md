@@ -149,3 +149,14 @@ on (D).
   boundary inward by a factor Δ^χ. A constant abelian-embedded field shows no attenuation at the linearised level. The
   same example shows that (R1) cannot hold under *every* exterior without a nonabelian mechanism, so (R1) should be
   posed averaged over exteriors (`CALM_LINK.md` §4, heuristic).
+
+### The large-field wall (November 2026, `LARGE_FIELD.md`)
+
+- **New idea (sketch):** condition on a fixed product of link balls in fibre gauge, not on plaquette-level calm sets.
+  The bad side has no thin lens (proved); the good side is convex, so Bakry–Émery, Herbst and Helffer–Sjöstrand apply
+  given a deterministic Hessian bound (input (a)). Rarity is then needed only on the torus, annealed, at a fixed
+  threshold. Island threshold: 4.7·10⁴¹ at basin radius K (was 8.3·10¹⁶³), lower for larger basins.
+- **Proved:** a box-local Peierls lemma for excess action under any exterior. It is marginal for (R1): forced curvature
+  has attenuation 1 (heuristic).
+- **Unchanged:** D8. Chessboard rarity covers O(log β) scales only (≤ 19 at β = 10⁶⁴); RG-improved rarity is Bałaban's.
+- **Next:** check input (a) in `main.tex` (fibre-gauge Hessian under L^∞ smallness), then input (b).
