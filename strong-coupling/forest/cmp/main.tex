@@ -11,6 +11,8 @@
 \usepackage{microtype}
 \usepackage[colorlinks=true,linkcolor=blue!50!black,citecolor=blue!50!black,urlcolor=blue!50!black,bookmarksnumbered=true]{hyperref}
 \usepackage{xurl}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,patterns}
 \graphicspath{{./}{../}}
 
 \tolerance=2000
@@ -47,7 +49,7 @@
 
 \begin{document}
 
-\title[Explicit lattice Yang--Mills mass gap reducing the continuum gap to one cube]{Explicit Lattice Yang--Mills Mass Gap for Every Compact Simple Group Reducing the Continuum Gap to One Cube}
+\title[Yang--Mills mass gap on the lattice and one cube]{Yang--Mills Mass Gap on the Lattice and One Cube from the Continuum}
 
 \author[D. Bhattacharjee]{Deep Bhattacharjee$^{*}$}
 \address{Formerly, Electro-Gravitational Space Propulsion Laboratory
@@ -71,24 +73,29 @@ Road, Golpark, Kolkata 700029, West Bengal, India}
 \address{Independent Researcher, San Francisco, CA, USA}
 \email{romanov360@gmail.com}
 
-\date{30 October 2026}
+\date{2 November 2026}
 
-\subjclass[2020]{Primary 81T25, 82B20; Secondary 60K35, 81T13, 22E30,
-58J50, 65G30}
-\keywords{Lattice gauge theory, gauge fixing, Dobrushin uniqueness, mass gap}
+\subjclass[2020]{Primary 81T25, 82B20; Secondary 81T13, 60K35, 82B26,
+22E30. PACS 11.15.Ha, 11.15.Tk, 05.50.+q, 02.50.Cw}
+\keywords{Lattice gauge theory, mass gap, Dobrushin uniqueness, block
+averages, reflection positivity}
 
 \begin{abstract}
 \itshape
 We prove that four-dimensional lattice Yang--Mills theory with any compact
 simple gauge group has a unique infinite-volume state and an explicit
-transfer-matrix gap beyond the curvature limit of the ungauged measure, up to
-$\beta_W=0.345$ for $\SU(2)$ and $\beta_W=0.76$ for $\SU(3)$. A
-Dobrushin--Shlosman estimate in one cube of fixed physical size gives a mass
-gap in every continuum limit. We show that the cube needs a side of at least
-order $(\beta_W/\log\beta_W)^{1/4}$ lattice spacings, and that for $\SU(2)$ a
-cut-off of Ba{\l}aban's block average composes through the large fields of the
-Wilson measure up to a scale of the same order. The estimate itself remains
-open.
+transfer-matrix gap in a forest gauge, up to $\beta_W=0.351$ for $\SU(2)$
+and $\beta_W=0.77$ for $\SU(3)$, past the curvature limit of the ungauged
+measure. We prove that a Dobrushin--Shlosman estimate in one cube of fixed
+physical size gives a mass gap in every continuum limit, that the cube
+needs a side of order $(\beta_W/\log\beta_W)^{1/4}$ lattice spacings, and
+that a cut-off of Ba{\l}aban's block average composes through the large
+fields of the $\SU(2)$ Wilson measure up to a scale of that order. We
+prove that the curvature of the block averages costs action independent of
+the scale, that a right translation of the Haar measures makes it rare at
+every scale and under every exterior for the abelian theory, and that for
+$\SU(2)$ the same translation is defeated by the gauge orbit of the vacuum,
+which locates the one estimate that remains open.
 \end{abstract}
 
 \maketitle
@@ -197,15 +204,15 @@ spheres instead of one, which we bound analytically by integrating out the
 middle link of the block.
 
 \begin{theorem}[$\SU(2)$ with plaquette blocks]\label{thm:blocks}
-Let $G=\SU(2)$ and $0\le\beta_W\le0.345$. The number $\alpha(\beta_W)$
-of~\eqref{eq:alphablock} is increasing, $\alpha(\frac13)\le0.9561$ and
-$\alpha(0.345)\le0.9973$. The conclusions of Theorem~\ref{thm:su2} hold
+Let $G=\SU(2)$ and $0\le\beta_W\le0.351$. The number $\alpha(\beta_W)$
+of~\eqref{eq:alphablock} is increasing, $\alpha(\frac13)\le0.9428$,
+$\alpha(0.345)\le0.9805$ and $\alpha(0.351)\le0.99995$. The conclusions of Theorem~\ref{thm:su2} hold
 with decay at every rate below $-\frac12\log\alpha(\beta_W)$ and a
 transfer-matrix gap
 \[
 m\ge-\tfrac12\log\alpha(\beta_W)>0 ;
 \]
-at $\beta_W=\frac13$ this gives $m\ge0.0224$. For $-0.345\le\beta_W<0$ all
+at $\beta_W=\frac13$ this gives $m\ge0.0294$. For $-0.351\le\beta_W<0$ all
 statements except reflection positivity and the gap hold.
 \end{theorem}
 
@@ -353,18 +360,18 @@ $2r\Lambda(r)<1$: near the end of Theorem~\ref{thm:su3} they give a much
 larger gap, and they go past it.
 
 \begin{theorem}[$\SU(3)$ with plaquette blocks]\label{thm:su3blocks}
-Let $G=\SU(3)$ and $0\le\beta_W\le\frac{19}{25}=0.76$. Then
+Let $G=\SU(3)$ and $0\le\beta_W\le\frac{77}{100}=0.77$. Then
 $\alpha_3(\beta_W)<1$ for the number of~\eqref{eq:blockconst3}, with
 $\alpha_3(0.72)\le0.9182$, $\alpha_3(\frac34)\le0.9653$ and
-$\alpha_3(0.76)\le0.99950$. The conclusions of Theorem~\ref{thm:su2} hold
+$\alpha_3(0.76)\le0.99950$ and $\alpha_3(0.77)\le0.99978$. The conclusions of Theorem~\ref{thm:su2} hold
 with decay at every rate below $-\frac12\log\alpha_3(\beta_W)$ and a
 transfer-matrix gap
 \[
 m\ge-\tfrac12\log\alpha_3(\beta_W)>0 ;
 \]
 at $\beta_W=\frac34$ this gives $m\ge0.0177$, against $1.1\cdot10^{-4}$ from
-Theorem~\ref{thm:su3}, and at $\beta_W=0.76$, where Theorem~\ref{thm:su3}
-no longer applies, $m\ge2.5\cdot10^{-4}$.
+Theorem~\ref{thm:su3}, and at $\beta_W=0.76$ and $0.77$, where Theorem~\ref{thm:su3}
+no longer applies, $m\ge2.5\cdot10^{-4}$ and $m\ge1.1\cdot10^{-4}$.
 \end{theorem}
 
 \begin{table}[tb]
@@ -381,7 +388,7 @@ Curvature, sharp~\cite{BB26a}&$<\frac18$&$<\frac9{32}$\\
 Dobrushin, sharp quarter~\cite{BB26a}&$<\frac29$&\\
 Curvature, forest gauge&$<\frac4{29}$&$<\frac9{29}$\\
 Dobrushin, forest gauge&$<\frac13$&$\le\frac34$\\
-Plaquette blocks, forest gauge&$\le0.345$&$\le0.76$\\
+Plaquette blocks, forest gauge&$\le0.351$&$\le0.77$\\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -497,6 +504,23 @@ spacings of the current scale per step, up to a coarse spacing of order
 $(\beta_W/\log\beta_W)^{1/4}a$, the order of the cube side that the cube condition
 needs
 (Theorem~\ref{thm:defectscales} and Corollary~\ref{cor:defectscales}).
+Under every exterior, excess action in a box is rare, restricting one link
+to a fixed set leaves its Dobrushin response bounded, and one-point rarity
+of a bad set gives approximate uniqueness of the Gibbs measures but no
+decay (Lemmas~\ref{lem:excess} and~\ref{lem:fixedset},
+Proposition~\ref{prop:onepoint}). The curvature of the block averages
+costs action independent of the scale (Lemma~\ref{lem:coarseenergy},
+Proposition~\ref{prop:torusenergy}); the chessboard estimate applies to
+coarse events and is lost after $O(\log\beta_W)$ scales in the
+normalisation alone (Proposition~\ref{prop:coarsechess}); a right
+translation of the Haar measures bounds the tails of the force along any
+fixed direction by the second variation of the action, at every scale and
+under every exterior (Theorem~\ref{thm:haartilt}), which for the abelian
+theory makes coarse defects rare at the rate $\beta_Wx^2$ at every scale
+(Corollary~\ref{cor:abeliancoarse}), while for $\SU(2)$ that second
+variation grows like $4^k$ at scale $k$, on the gauge orbit of the vacuum
+(Proposition~\ref{prop:tiltgrowth}); this locates the estimate that the
+cube condition still needs.
 In a box whose boundary field has small plaquettes and either lies in a
 maximal torus or, for $\SU(2)$, has plaquette angles $\rho_s$ with
 $l^2\rho_s$ below a fixed constant, the fraction of unit cubes with a large
@@ -964,12 +988,13 @@ bound there for the norm of the third derivative $D^3g(c)$ as a trilinear
 form. Put
 \begin{equation}\label{eq:blockconst}
 \begin{gathered}
-w=8\beta^2(\tau-\lambda_*),\qquad s=\tfrac14+(e^w-1)e^w\sqrt\tau,\\
-C=20|\beta|\bigl(4|\beta|\tau s+16\beta^2M\bigr),\qquad
+w=8\beta^2(\tau-\lambda_*),\qquad s=\tfrac14+(e^w-1)e^w\sqrt{\tau/3},\\
+C=4|\beta|sA+\tfrac{320}3|\beta|^3Me^w,\qquad
 K=\frac{(1+|\beta|)\,s}{1-C},
 \end{gathered}
 \end{equation}
-assuming $C<1$.
+assuming $C<1$, where $A$ is an upper bound for $|\nabla g(c)|$ on the ball
+$|c|\le20|\beta|$.
 
 \begin{lemma}\label{lem:tilt}
 Let $\nu$ be a probability measure and $\lambda=e^R\nu/\nu(e^R)$ with
@@ -1003,8 +1028,9 @@ Let $\beta\ge0$, $a,c_0\in\R^4$ with $|a|,|c_0|\le20\beta$, and
 For every $1$-Lipschitz $f$ and every $h\in\R^4$:
 \begin{enumerate}[label=\textup{(\roman*)},leftmargin=*]
 \item $\Cov_\kappa(f,\ip xh)\le s|h|$;
-\item if $c_0$ moves in the direction $k$, then $|\frac{d}{dt}\kappa(f)|\le
-(4\beta\tau s+16\beta^2M)|k|$.
+\item if $\kappa'$ is the law with $c_0'$ in place of $c_0$ and
+$|c_0'|=|c_0|=\rho$, then $|\kappa(f)-\kappa'(f)|\le(8\beta s\varphi'(\rho^2)
++\frac{16}3\beta^2Me^w)|c_0-c_0'|$.
 \end{enumerate}
 \end{lemma}
 
@@ -1016,19 +1042,35 @@ segment, $|\xi|\le24\beta$. For $u=\bar x$ of norm one, $R(\bar x)\in[8\beta^2
 g(c_0)}{\bar x}=\ip x{\overline{\nabla g(c_0)}}$, $\kappa$ is the tilt
 $e^{R}\nu/\nu(e^R)$ of $\nu=\nu_c$ with $c=a+4\beta\overline{\nabla g(c_0)}$.
 The sharp quarter, Theorem~\ref{q-thm:quarter}, gives $\Cov_\nu(f,\ip xh)=\frac{d}{dt}
-\nu_{c+th}(f)\le\frac14|h|$. A $1$-Lipschitz function on a set of diameter
-two has $\mathrm{sd}\le1$, and $\mathrm{sd}_\nu\ip xh\le\sqrt\tau|h|$
-because $|c|\le|a|+4\beta\le24\beta$. Lemma~\ref{lem:tilt} gives (i).
+\nu_{c+th}(f)\le\frac14|h|$. A function that is $1$-Lipschitz for the
+chordal metric is $1$-Lipschitz for the geodesic one, so $|\nabla f|\le1$
+almost everywhere and the Poincar\'e inequality of Lemma~\ref{q-lem:vmf}
+gives $\mathrm{sd}_\nu(f)\le1/\sqrt3$; and $\mathrm{sd}_\nu\ip xh\le\sqrt\tau|h|$
+because $|c|\le|a|+4\beta\le24\beta$. Lemma~\ref{lem:tilt} gives (i). The
+same argument applies to every law $e^{R'}\nu_{c'}/\nu_{c'}(e^{R'})$ with
+$|c'|\le24\beta$ and $\operatorname{osc}R'\le w$.
 
-(ii) The derivative is $\Cov_\kappa(f,\ip{\nabla g(c_0+4\beta\bar x)}k)$.
-Write $\nabla g(c_0+4\beta u)=\nabla g(c_0)+4\beta\Hess g(c_0)u+N(u)$. The
-constant term does not contribute. The linear term is $\ip xh$ with
-$h=4\beta\,\overline{\Hess g(c_0)k}$, $|h|\le4\beta\tau|k|$, and contributes at
-most $4\beta\tau s|k|$ by (i). For $|u|,|u'|\le1$, $\|\Hess g(c_0+4\beta v)-
-\Hess g(c_0)\|\le4\beta M|v|\le4\beta M$ on the segment between them, so
-$|N(u)-N(u')|\le16\beta^2M|u-u'|$; the function $\ip{N(\bar x)}k$ is
-therefore $16\beta^2M|k|$-Lipschitz, its standard deviation is at most that
-constant, and its covariance with $f$ is at most $16\beta^2M|k|$.
+(ii) We interpolate the exponents rather than the field. For $t\in[0,1]$
+let $\kappa_t\propto\exp\bigl(\ip xa+(1-t)g(c_0+4\beta\bar x)+tg(c'_0+4\beta
+\bar x)\bigr)dx$, so that $\kappa_0=\kappa$, $\kappa_1=\kappa'$ and
+$\frac d{dt}\kappa_t(f)=\Cov_{\kappa_t}(f,D)$ with $D(x)=g(c'_0+4\beta\bar x)-
+g(c_0+4\beta\bar x)$. Write $g(c+4\beta u)=g(c)+4\beta\ip{\nabla g(c)}u+R_c(u)$
+as in (i), for $c\in\{c_0,c'_0\}$. Then $\kappa_t$ is the tilt of $\nu_{c_t}$,
+$c_t=a+4\beta\,\overline{(1-t)\nabla g(c_0)+t\nabla g(c'_0)}$, by
+$R_t=(1-t)R_{c_0}+tR_{c'_0}$, with $\operatorname{osc}R_t\le w$ and $|c_t|\le
+24\beta$ because $|\nabla g|\le1$; so (i) holds for $\kappa_t$, and the
+density of $\kappa_t$ with respect to $\nu_{c_t}$ is at most $e^w$. Up to a
+constant, $D(x)=\ip xh+N(\bar x)$ with $h=4\beta\,\overline{\nabla g(c'_0)-\nabla
+g(c_0)}$ and $N=R_{c'_0}-R_{c_0}$. Since $\nabla g(c)=2\varphi'(|c|^2)c$ and
+$|c_0|=|c'_0|=\rho$, $|h|=8\beta\varphi'(\rho^2)|c_0-c'_0|$, and by (i) the
+linear part contributes at most $s|h|$. For the rest, $\nabla N(u)=16\beta^2
+\int_0^1\bigl(\Hess g(c'_0+4\beta\sigma u)-\Hess g(c_0+4\beta\sigma u)\bigr)u\,
+d\sigma$, both arguments in the convex ball $|c|\le24\beta$, so $N$ is
+$L$-Lipschitz on the unit ball with $L=16\beta^2M|c_0-c'_0|$. With $\nu=
+\nu_{c_t}$ and the Poincar\'e inequality of Lemma~\ref{q-lem:vmf} again,
+$\Var_{\kappa_t}(N)\le\kappa_t((N-\nu N)^2)\le e^w\Var_\nu(N)\le e^wL^2/3$,
+and in the same way $\Var_{\kappa_t}(f)\le e^w/3$. So
+$\Cov_{\kappa_t}(f,N)\le e^wL/3$. Integrating over $t$ gives (ii).
 \end{proof}
 
 \begin{lemma}\label{lem:blockK}
@@ -1068,11 +1110,12 @@ both of the form of Lemma~\ref{lem:onesite}, with $|c_0|=|b_2|$.
 
 \emph{Two sites.} Integrating Lemma~\ref{lem:onesite}(i) along the segment
 from $b_1$ to $b'_1$ gives $W_1(\kappa_1,\kappa'_1)\le s\varepsilon$ for the
-same $y_3$. Moving $y_3$ to $y'_3$ moves $c_0=b_2y_3$ along a segment of
-length $|b_2||y_3-y'_3|\le20\beta|y_3-y'_3|$ inside the ball $|c_0|\le20\beta$,
-so Lemma~\ref{lem:onesite}(ii) gives $W_1(\kappa_1(\cdot\mid y_3),\kappa_1(
-\cdot\mid y'_3))\le C|y_3-y'_3|$, and the same for $\kappa_3$, which does not
-depend on $b_1$. Let $\pi$ be a coupling of $\mu^{13}_b$ and $\mu^{13}_{b'}$
+same $y_3$. Moving $y_3$ to $y'_3$ replaces $c_0=b_2y_3$ by $c'_0=b_2y'_3$,
+of the same norm $\rho=|b_2|\le20\beta$ and with $|c_0-c'_0|=\rho|y_3-y'_3|$.
+Since $\rho\cdot2\varphi'(\rho^2)=|\nabla g(c_0)|\le A$,
+Lemma~\ref{lem:onesite}(ii) gives $W_1(\kappa_1(\cdot\mid y_3),\kappa_1(
+\cdot\mid y'_3))\le(4\beta sA+20\beta\cdot\frac{16}3\beta^2Me^w)|y_3-y'_3|=
+C|y_3-y'_3|$, and the same for $\kappa_3$, which does not depend on $b_1$. Let $\pi$ be a coupling of $\mu^{13}_b$ and $\mu^{13}_{b'}$
 minimising $d_1+d_3$, $d_k=\E_\pi|y_k-y'_k|$. Replacing $(y_1,y'_1)$ by an
 optimal coupling of $\kappa_1(\cdot\mid y_3)$ and $\kappa'_1(\cdot\mid y'_3)$
 keeps a coupling, so minimality gives $d_1\le s\varepsilon+Cd_3$; in the
@@ -1093,8 +1136,9 @@ $\Hess g(c)$ are $2\varphi'(r^2)$, three times, and $2\varphi'(r^2)+4r^2
 \max\Bigl(|A+\Gamma|,\tfrac23|A|\Bigr),\qquad A=12r\varphi''(r^2),\quad
 \Gamma=8r^3\varphi'''(r^2).
 \]
-On the ball $r\le2.07$ every eigenvalue of $\Hess g$ lies between
-$0.158491$ and $0.25000001$, and the norm of $D^3g$ is at most $0.0615586$.
+On the ball $r\le2.106$ every eigenvalue of $\Hess g$ lies between
+$0.156381$ and $0.25000001$, and the norm of $D^3g$ is at most $0.0615172$; on
+the ball $r\le1.755$, $|\nabla g|\le0.391443$.
 \end{lemma}
 
 \begin{proof}
@@ -1106,8 +1150,8 @@ point, where it equals $\frac23|A||t|\le\frac23|A|$; by Banach's
 theorem~\cite{Ban38} the supremum of a symmetric trilinear form on the
 diagonal of the unit sphere is its norm. The numerical bounds are obtained
 in ball arithmetic~\cite{Joh17} from the series of $Z_0$, truncated after
-forty terms with a proved bound on the tail, on $2\cdot10^4$ subintervals of
-$[0,2.07]$; the program is described in Appendix~\ref{app:plaqblocks}.
+forty-eight terms with a proved bound on the tail, on $2\cdot10^5$ subintervals of
+$[0,2.106]$, with $|\nabla g(c)|=r\cdot2\varphi'(r^2)$; the program is described in Appendix~\ref{app:plaqblocks}.
 \end{proof}
 
 \subsection{The proof of Theorem~\ref{thm:blocks}}
@@ -1139,8 +1183,8 @@ most three and moves them by at most one, which changes only the constants.
 \end{proof}
 
 \begin{proof}[Proof of Theorem~\ref{thm:blocks}]
-Let $|\beta|\le0.345/4$ and take the constants of Lemma~\ref{lem:vmfconst},
-whose ball $r\le2.07$ contains $|c|\le24|\beta|$. With these fixed constants
+Let $|\beta|\le0.351/4$ and take the constants of Lemma~\ref{lem:vmfconst},
+whose balls $r\le2.106$ and $r\le1.755$ contain $|c|\le24|\beta|$ and $|c|\le20|\beta|$. With these fixed constants
 every quantity in~\eqref{eq:blockconst} is increasing in $|\beta|$, and so is
 \begin{equation}\label{eq:alphablock}
 \alpha(\beta_W)=40|\beta|K .
@@ -1150,9 +1194,10 @@ partners outside its block by an isometric image of the displacement, so the
 field $b_i$ of each such partner $i$ moves by at most $4|\beta|\eta$, and
 Lemma~\ref{lem:blockK}, applied once for each of these ten fields, gives
 $\sum_BC_{Bj}\le40|\beta|K$. Evaluating~\eqref{eq:blockconst} in ball
-arithmetic at $\beta_W=0.345$ gives $w\le0.0054459$, $s\le0.252746$,
-$C\le0.050243$, $K\le0.289069$ and $\alpha\le0.99729$; at $\beta_W=\frac13$ it
-gives $\alpha\le0.95602$. Proposition~\ref{prop:blockstate} applies.
+arithmetic at $\beta_W=0.351$ gives $w\le0.0057670$, $s\le0.2516793$,
+$C\le0.0390392$, $K\le0.2848858$ and $\alpha\le0.99995$; at $\beta_W=0.345$ and
+$\beta_W=\frac13$ it gives $\alpha\le0.98044$ and $\alpha\le0.94279$. At
+$\beta_W=0.3511$ the same evaluation exceeds one. Proposition~\ref{prop:blockstate} applies.
 \end{proof}
 
 \begin{remark}\label{rem:blockgap}
@@ -1160,8 +1205,14 @@ Most of the range is kept. A second bound for the same sensitivity, which
 keeps the law of the middle link instead of linearising it, evaluated in
 floating point on a quadrature grid and maximised over the fields $b$ by a
 random search followed by the Nelder--Mead method, gives $0.2783$ at
-$\beta_W=0.34$, against $0.2881$ from Lemma~\ref{lem:blockK}, and $40|\beta|$
-times it crosses one near $\beta_W=0.357$. That computation is not certified
+$\beta_W=0.34$, against $0.2837$ from Lemma~\ref{lem:blockK}, and $40|\beta|$
+times it crosses one near $\beta_W=0.357$. Most of the difference is the
+two-site constant $C\approx0.038$, which the floating-point value suggests is
+about twice the true feedback between $y_1$ and $y_3$. No bound of this form
+passes $\beta_W\approx0.366$: at $b=0$ the function $f=\ip{y_1}e+
+\operatorname{Re}(y_2y_3e)$ is $1$-Lipschitz for $d$ and has $\Cov_{\mu_b}(f,
+\ip{y_1}e)=\frac14(1+\beta)+O(\beta^2)$, so the sensitivity is at least
+$\frac14(1+|\beta|)+O(\beta^2)$ and $40|\beta|$ times it is $10|\beta|(1+|\beta|)+O(|\beta|^3)$. That computation is not certified
 and is not used in the proof. Past this point the gain from integrating out
 one link is spent, and larger blocks are needed, such as the free links of a
 cube of the line field, whose sensitivity no longer reduces to two sites.
@@ -1951,7 +2002,8 @@ no longer below one; the plaquette blocks of Section~\ref{sec:su3blocks} use
 that bound.
 
 \begin{proposition}\label{prop:cover2}
-$2r\Lambda(r)\le1.029967$ at $r=\frac{38}{25}$.
+$2r\Lambda(r)\le1.029967$ at $r=\frac{38}{25}$ and $2r\Lambda(r)\le1.027468$
+at $r=\frac{77}{50}$.
 \end{proposition}
 
 \begin{proof}
@@ -1960,7 +2012,13 @@ As in the proof of Proposition~\ref{prop:cover}, with $\gamma(r)=
 side $r/8$, $784$ survive the two tests and $690$ satisfy the threshold; each
 of the other $94$ is cut into sixteen boxes of side $r/16$, of which $373$
 survive the tests, and all satisfy it. The $1063$ certified boxes cover
-$\mathcal R_r$, and the largest bound is $1.029967$.
+$\mathcal R_r$, and the largest bound is $1.029967$. At $r=\frac{77}{50}$,
+with $\gamma(r)=\frac{4611}{3200}$ and the threshold $2rB_Q<1.0275$: $826$
+boxes of side $r/8$ survive the tests and $513$ satisfy the threshold; the
+other $313$ are cut into sixteen, of which $2311$ survive and $2281$ satisfy
+it; the other $30$ are cut into sixteen, of which $31$ survive, and all
+satisfy it. The $2825$ certified boxes cover $\mathcal R_r$, and the largest
+bound is $1.027468$.
 \end{proof}
 
 \begin{proof}[Proof of Theorem~\ref{thm:su3}]
@@ -2102,7 +2160,8 @@ d_3)\le K_3\varepsilon$.
 At $r=\frac32$ every eigenvalue of $\Hess g$ on $rK$ lies in
 $[0.056015,0.247316]$, and $|D^3g(c)(u,v,v)|\le0.182126$ for $c\in rK$ and
 unit vectors $u,v$. At $r=\frac{38}{25}$ the same holds with
-$[0.054978,0.248280]$ and $0.183546$.
+$[0.054978,0.248280]$ and $0.183546$, and at $r=\frac{77}{50}$ with
+$[0.053955,0.249240]$ and $0.184989$.
 \end{lemma}
 
 \begin{proof}
@@ -2111,7 +2170,7 @@ eigenvalues of $\Hess g$ and the norm of $D^3g$ are constant on the orbits,
 and by Lemma~\ref{lem:orbits} it suffices to bound them on $\mathcal R_r$. The
 derivatives of $g$ are the cumulants of $\varphi$ under $\nu_c$. Cut the box
 $[0,r]^2\times[-r,r]\times[0,r]$ into boxes of side $r/8$ and keep the $841$
-($784$ at $r=\frac{38}{25}$) that survive the two tests of Section~\ref{ssec:cover}. On each box $Q$ we
+($784$ at $r=\frac{38}{25}$, $826$ at $r=\frac{77}{50}$) that survive the two tests of Section~\ref{ssec:cover}. On each box $Q$ we
 compute, with rigorous error bounds, the moments of $\varphi$ of degree at
 most three at the sixteen corners $b_i$ and at the centre $b_0$, and put
 $k=m(b_0)$, the mean of $\varphi$ at the centre.
@@ -2161,7 +2220,9 @@ $\frac34<\beta_W\le\frac{19}{25}$ the fields lie in $\frac{38}{25}K$, and the
 constants of Lemma~\ref{lem:su3const} at $\frac{38}{25}$,
 $\Lambda(\frac{38}{25})\le\frac{1.029967}{3.04}$ from
 Proposition~\ref{prop:cover2} and $\gamma(\frac{38}{25})=\frac{4643}{3200}$
-apply in the same way. Changing an active link $j$ by $\eta$ changes one
+apply in the same way; for $\frac{19}{25}<\beta_W\le\frac{77}{100}$ the
+same holds at $\frac{77}{50}$, with $\Lambda(\frac{77}{50})\le\frac{1.027468}{3.08}$
+and $\gamma(\frac{77}{50})=\frac{4611}{3200}$. Changing an active link $j$ by $\eta$ changes one
 staple of each of its ten partners outside its block by a matrix of norm
 $\eta$, so the field $b_i$ of each such partner moves by $N\beta\eta$, and
 Lemma~\ref{lem:blockK3} gives $\sum_BC_{Bj}\le10N\beta K_3=\alpha_3(\beta_W)$.
@@ -2169,7 +2230,9 @@ In ball arithmetic, at $\beta_W=\frac34$, $w\le0.017935$, $s\le0.34088$,
 $C\le0.043520$, $K_3\le0.38609$ and $\alpha_3\le0.96521$; at $\beta_W=0.72$,
 $\alpha_3\le0.91815$; at $\beta_W=0.76$, with the second set of constants,
 $w\le0.018609$, $s\le0.34673$, $C\le0.045770$, $K_3\le0.39454$ and
-$\alpha_3\le0.99950$. Proposition~\ref{prop:blockstate}, whose proof does not
+$\alpha_3\le0.99950$; at $\beta_W=0.77$, with the third set,
+$w\le0.019298$, $s\le0.34186$, $C\le0.047232$, $K_3\le0.38953$ and
+$\alpha_3\le0.99978$. Proposition~\ref{prop:blockstate}, whose proof does not
 use the group, applies with the Hilbert--Schmidt metric.
 \end{proof}
 
@@ -2181,8 +2244,8 @@ from $1.1\cdot10^{-4}$ to $0.0177$, and the block bound is the better one for
 $\beta_W\ge0.715$. Before the corrections for the three links their sum is
 $\frac{10}{12}$ of the single-link sum $2r\Lambda(r)$, so it can stay below one
 while $2r\Lambda(r)$ is slightly above one; Proposition~\ref{prop:cover2} certifies
-$2r\Lambda(r)\le1.03$ at $r=1.52$, which is enough at $\beta_W=0.76$, with
-little room. Evaluated in floating point with the constants of a scan of
+$2r\Lambda(r)\le1.03$ at $r=1.52$ and $\le1.0275$ at $r=1.54$, which is
+enough at $\beta_W=0.76$ and $0.77$, with little room. Evaluated in floating point with the constants of a scan of
 $\mathcal R_r$, the block sum stays below one up to $\beta_W\approx0.78$;
 that computation is not certified and is not used.
 \end{remark}
@@ -2193,7 +2256,7 @@ that computation is not certified and is not used.
 every forest gauge at $\beta_W=\frac13$. Blocks of several links, where the
 influence of a boundary link on a whole block is bounded at once, in the
 spirit of the Dobrushin--Shlosman criterion~\cite{DS85}, pass it:
-plaquette blocks reach $\beta_W=0.345$ (Theorem~\ref{thm:blocks}), and the
+plaquette blocks reach $\beta_W=0.351$ (Theorem~\ref{thm:blocks}), and the
 sharper floating-point bound of Remark~\ref{rem:blockgap} stops near
 $0.357$. Larger blocks are the next step.
 
@@ -2220,7 +2283,7 @@ floating-point value at $r=1.5$ and the certified $0.999887$ of
 Proposition~\ref{prop:cover} is the interpolation over boxes. Between
 $\beta_W=\frac34$ and $0.77$ there is room only for smaller boxes. The
 plaquette blocks of Theorem~\ref{thm:su3blocks} use $\Lambda(2\beta_W)$ as
-well, with a little more room: they reach $0.76$ with the certified cover of
+well, with a little more room: they reach $0.77$ with the certified cover of
 Proposition~\ref{prop:cover2} and near $0.78$ in floating point
 (Remark~\ref{rem:su3blocks}); past that one needs larger blocks, whose
 sensitivity does not go through the one-link modulus.
@@ -2252,7 +2315,7 @@ coupling; (2) the crossover from strong coupling to Ba{\l}aban's
 weak-coupling regime; (3) the continuum limit with the
 Osterwalder--Schrader axioms; and (4) a gap in physical units. The present
 paper moves the boundary of (1): for $\SU(2)$ from $\beta_W=\frac29$ to
-$0.345$, for $\SU(3)$ from $\frac9{32}$ to $0.76$, with a gap at $\frac34$ of
+$0.351$, for $\SU(3)$ from $\frac9{32}$ to $0.77$, with a gap at $\frac34$ of
 $0.0177$ in lattice units, and for every compact simple
 group, the exceptional groups included, past the curvature ceiling of the
 ungauged measure, with an explicit gap. It does not close (1); the region
@@ -3154,6 +3217,63 @@ converge pointwise to $|\hat h(p)|^2e^{-2t_f|p|^2}e^{-r|p|}/
 (2|p|)$. By dominated convergence $D_k(r')/D_k(r)$ tends to the
 corresponding positive ratio of continuum integrals; for $h=e^{-|x|^2}$,
 $t_f=0.05$, $r=\frac12$ and $r'=1$ it is $0.6337$.
+\end{remark}
+
+\begin{remark}\label{rem:compositeslice}
+The slice field of Proposition~\ref{prop:sliceratio} is not linear: it is a
+gauge-invariant function of the spatial links of one slice. Its free analogue
+is the magnetic energy, and the conclusion of Remark~\ref{rem:freeslice}
+survives for it. Take the abelian free lattice field on $a_k\Z\times
+a_k\Z^3_{L_k}$ with $a_kL_k=\ell$ fixed, Feynman gauge, the lattice heat flow
+of the spatial links for a physical time $t_f\ge0$, and
+$U_k=\sum_x a_k^3\sum_{i<j}(F_{ij}(0,x)^2-\omega_k(F_{ij}^2))$, the zero
+spatial momentum part of $h$ (for $\SU(N)$ at tree level $D_k$ is multiplied by
+$N^2-1$). Since $F_{ij}$ is Gaussian, $\operatorname{Cov}(F^2,F'^2)=2\operatorname{Cov}(F,F')^2$,
+and the mixed propagator of the magnetic field at spatial momentum $p$ is
+$N_{ij,lm}(p)\,K_p(n)$, with a numerator that does not depend on the time
+momentum and $K_p(n)=e^{-\omega|n|a_k}/(2\sinh(a_k\omega))$. Hence
+\[
+D_k(r)\propto\sum_{p\in\frac{2\pi}\ell\Z^3_{L_k}\setminus0}
+S_k(p)\,e^{-4t_f\hat p^2}\,\frac{e^{-2r\omega}}{4a_k^{-2}\sinh^2(a_k\omega)},
+\]
+with $S_k(p)=\sum_{i<j,\,l<m}|N_{ij,lm}(p)|^2\le36\,\hat p^4$,
+and the bounds of Remark~\ref{rem:freeslice} dominate the summands by
+$(9/\kappa^2)\,\hat p^2e^{-4t_f\hat p^2-2r\kappa\hat p}$, summable over
+$\frac{2\pi}\ell\Z^3$ for $r>0$ uniformly in $k$, also for $t_f=0$. The summands
+converge to the continuum ones, so for every $0<r<r'$ the ratio
+$D_k(r')/D_k(r)$ converges to a positive limit, with or without the flow. For
+$\ell=6$ the computed values of $D_k(\frac12)/D_k(\frac14)$ at $t_f=0.05$ and
+$a_k^{-1}=8,12,16,24$ are $0.27341$, $0.27239$, $0.27201$, $0.27174$, against
+$0.27152$ in the continuum; at $t_f=0$ they are $0.0224$, $0.0265$,
+$0.0290$, $0.0304$, against $(r/r')^5=\frac1{32}$ in infinite volume.
+
+The behaviour at $r=0$ separates the cases. With the flow, $D_k(0)$ stays
+bounded and the first-step energy $-a_k^{-1}\log(D_k(a_k)/D_k(0))$ is $6.37$,
+$6.50$, $6.56$, $6.62$ at the four spacings, bounded. Without the flow,
+$D_k(0)\sim a_k^{-5}$ and $D_k(a_k)/D_k(0)=0.0198$ at every spacing, so the
+first-step energy grows like $3.92/a_k$ although every ratio at $r>0$
+converges: the condition of Proposition~\ref{prop:sliceratio} at $r>0$ is
+weaker than a bound on the first step. For the full energy density, which
+contains $F_{0i}$ and is not a function of one slice, the electric numerator
+depends on the time momentum, and the second time difference of $K_p$ is
+$-\delta_{n0}$ plus a multiple of $K_p$, a contact term: $D_k(0)\sim a_k^{-2}$ even with the flow, $D_k(a_k)/D_k(0)=0.042$,
+$0.023$, $0.0145$ at $a_k^{-1}=8,12,16$, while the ratios at $r>0$ again
+converge to the same continuum values ($0.27092$, $0.27126$, $0.27137$). The
+computation is \texttt{slice/composite\_free.py}.
+
+At next order the spatial flow, being nonlinear, fuses two hard modes into a
+soft one, and the state $\Psi_{U_k}$ acquires a component of energy about
+$2q$ for each $q\lesssim a_k^{-1}$. Its norm is of order $g^2$ and ultraviolet
+finite, dominated by $q\approx\tau^{-1/2}$, but its mean energy is not: in the
+free vacuum the first-step energy is $E_{\mathrm{LO}}(1+g^2(c+\frac
+N{3\pi^2}\log(\sqrt\tau/a_k)))$, and the logarithm has coefficient
+$\frac8{11}$ of $2b_0$, $b_0=11N/48\pi^2$. A first-step bound at fixed
+coupling therefore fails logarithmically, while the ratio at a fixed $r>0$
+only loses the norm of that component, damped by $e^{-2qr}$. This is why
+Proposition~\ref{prop:sliceratio} is stated at $r>0$; the decomposition
+$\|\mathbb T_k^{n/2}u\|\ge c^{n/2}\|v\|-\|w\|$ for $u=v+w$ with a first-step
+bound on the soft part $v$ alone is the form a four-dimensional argument
+would use.
 \end{remark}
 
 \begin{remark}\label{rem:twodslice}
@@ -10012,6 +10132,624 @@ estimates on the whole cube that are uniform in $|W|$, with the windows that
 are not calm split off as in Ba{\l}aban's analysis~\cite{Bal89b}, and that
 remains open.
 
+\subsection{Conditioning on a fixed large-field set}\label{ssec:fixedset}
+
+The estimates of Section~\ref{ssec:largefields} are statements about the
+Wilson measure on the torus. The cube condition (D) takes a supremum over
+exteriors, and three facts about conditional laws hold under every
+exterior; the setting is that of a Gibbs field whose potential is itself
+random, the uniqueness theory of which goes back to Bassalygo and
+Dobrushin~\cite{BD86}. The first bounds the excess of the action over its minimum in a
+box, with no reflection positivity and no torus. The second says that
+restricting a single-link law to a fixed set, however irregular, leaves its
+Kantorovich response to the neighbouring links bounded by a constant times
+$\beta_W$. The third turns the one-point rarity of a bad set into closeness
+of any two Gibbs measures, at order of that rarity, and shows at the same
+time why one-point rarity gives closeness and not decay.
+
+\begin{lemma}[excess action]\label{lem:excess}
+Let $G=\SU(2)$, let $\Lambda$ be a set of $N$ links of $\Z^4$ and fix the
+links outside $\Lambda$. Let $P_\Lambda$ be the plaquettes that contain a
+link of $\Lambda$, $S_\Lambda=\sum_{p\in P_\Lambda}s_p$, and $S_{\min}$ the
+minimum of $S_\Lambda$ over the links of $\Lambda$. For every $E>0$, under
+the Wilson measure conditioned on the links outside $\Lambda$,
+\[
+\Pr\bigl(S_\Lambda\ge S_{\min}+E\bigr)\le\Bigl(\frac{3\pi^3}{8r^3}\Bigr)^N
+e^{-\beta_WE/2},
+\]
+where $r=\min\{E/(6\pi N),\pi/2\}$.
+\end{lemma}
+
+\begin{proof}
+The plaquettes that contain no link of $\Lambda$ do not depend on the
+links of $\Lambda$, so the conditional law has density $Z^{-1}e^{-\beta_W
+S_\Lambda}$ with respect to the product of Haar measures on $\Lambda$. The
+unnormalised mass of the event is at most $e^{-\beta_W(S_{\min}+E)}$. For
+the lower bound on $Z$, let $U^*$ be a minimiser, which exists by
+compactness. If a link of a plaquette $p$ moves by geodesic distance $t$,
+the angle $\delta(U_p,I)\in[0,\pi]$ moves by at most $t$, by bi-invariance,
+so $s_p=\frac14\delta(U_p,I)^2$ moves by at most $\frac14\,t\cdot2\pi=
+\frac\pi2t$. Each link lies in six plaquettes. If every link of $\Lambda$
+lies within distance $r$ of its value in $U^*$, then $S_\Lambda\le S_{\min}
++6\cdot\frac\pi2rN\le S_{\min}+E/2$. The Haar measure of a geodesic ball of
+radius $r\le\pi/2$ is $\frac2\pi\int_0^r\sin^2t\,dt\ge8r^3/(3\pi^3)$, by
+$\sin t\ge2t/\pi$. Hence $Z\ge(8r^3/3\pi^3)^Ne^{-\beta_W(S_{\min}+E/2)}$,
+and the quotient of the two bounds is the claim.
+\end{proof}
+
+The constant depends on $N$ and $E$ alone, so excess action is rare under
+every exterior, at a cost that is exponential in $N$. The minimum itself is
+a function of the exterior, and the lemma says nothing about the size of
+its plaquettes: it controls the fluctuation of the field about the
+configuration the exterior forces, not that configuration.
+
+\begin{lemma}[restriction to a fixed set]\label{lem:fixedset}
+Let $G=\SU(2)$, let $e$ be a link and let $h\ge0$ be an integrable function
+on $G$ with $\int h\,dU>0$ that does not depend on the other links. For a
+configuration $\sigma$ of the other links let $\gamma^h_e(\cdot\mid\sigma)$
+be the law on $G$ with density proportional to $e^{-\beta_WS}h$. If
+$\sigma$ and $\sigma'$ differ only at a link $e'\ne e$, then
+\[
+W_1\bigl(\gamma^h_e(\cdot\mid\sigma),\gamma^h_e(\cdot\mid\sigma')\bigr)\le
+\frac{\pi^2}8\,\beta_W\,\delta(\sigma_{e'},\sigma'_{e'}),
+\]
+and the two laws coincide unless $e$ and $e'$ lie in a common plaquette.
+\end{lemma}
+
+\begin{proof}
+Only the plaquettes containing $e$ enter the law, and two distinct links of
+$\Z^4$ lie in at most one common plaquette $p_0$; if there is none the
+laws are equal. Otherwise move $\sigma_{e'}$ along a unit-speed geodesic
+$U(t)$, $0\le t\le T=\delta(\sigma_{e'},\sigma'_{e'})$, and let $\gamma_t$
+be the corresponding law. The function $t\mapsto s_{p_0}$ has $|\frac d{dt}
+s_{p_0}|\le\frac\pi2$ as in the proof of Lemma~\ref{lem:excess}, and the
+derivative $\dot s_{p_0}$ is a function of $U_e$ with oscillation at most
+$\pi$. For a $1$-Lipschitz $f$ on $G$, which has oscillation at most the
+diameter $\pi$, $\frac d{dt}\gamma_t(f)=-\beta_W\Cov_{\gamma_t}(f,\dot
+s_{p_0})$ because $h$ does not depend on $t$, and $|\Cov(f,\dot s_{p_0})|
+\le\sqrt{\Var f\,\Var\dot s_{p_0}}\le\frac\pi2\cdot\frac\pi4$. Integrating
+over $t$ and taking the supremum over $f$ gives the bound.
+\end{proof}
+
+When $h$ is the indicator of a set $C$ the lemma says that conditioning a
+link to lie in $C$ costs nothing in its response, however small or
+irregular $C$ is, as long as $C$ is fixed. The responses that are not
+bounded are those to a set that moves with the neighbours, such as the
+intersection of balls centred at them; this is the difference between
+conditioning on a fixed set of bad links and conditioning on a plaquette
+being large.
+
+\begin{proposition}[one-point rarity]\label{prop:onepoint}
+Let $\mathcal A$ be a set of links, $D$ the diameter of $G$, and
+$\gamma_e$, $e\in\mathcal A$, single-link kernels with
+\[
+W_1\bigl(\gamma_e(\cdot\mid\sigma),\gamma_e(\cdot\mid\sigma')\bigr)\le
+\sum_{e'}c_{ee'}(\sigma,\sigma')\,\delta(\sigma_{e'},\sigma'_{e'})
+\]
+for all $\sigma,\sigma'$. Let $\sigma\mapsto B(\sigma)\subset\mathcal A$ be
+measurable, and suppose there are constants $a_{ee'},A_{ee'}\ge0$ with
+$c_{ee'}(\sigma,\sigma')\le a_{ee'}$ whenever $e\notin B(\sigma)\cup
+B(\sigma')$, $c_{ee'}\le A_{ee'}$ always, $\sup_e\sum_{e'}a_{ee'}\le\theta<1$
+and $\sup_e\sum_{e'}A_{ee'}\le\bar A$. If $\mu_1,\mu_2$ are invariant
+under every $\gamma_e$ and $\mu_i(e\in B)\le q$ for every $e$ and
+$i=1,2$, there is a coupling of $\mu_1$ and $\mu_2$ with
+\[
+\sup_{e\in\mathcal A}\E\,\delta(\sigma_e,\sigma'_e)\le\frac{2\bar ADq}
+{1-\theta}.
+\]
+In particular $|\mu_1(F)-\mu_2(F)|\le L_F|S_F|\,2\bar ADq/(1-\theta)$ for
+every $F$ with support $S_F$ that is $L_F$-Lipschitz in each link.
+\end{proposition}
+
+\begin{proof}
+Fix $b_0\in\mathcal A$, $\lambda>0$, and let $w_b=e^{-\lambda|b-b_0|}$,
+which is summable. As in the proof of Lemma~\ref{lem:comparison} the
+functional $\Psi(\pi)=\sum_bw_b\E_\pi\delta(\sigma_b,\sigma'_b)$ has a
+minimiser $\pi^*$ among the couplings, and replacing the pair at one link
+$e$ by a sample of an optimal coupling of $\gamma_e(\cdot\mid\sigma)$ and
+$\gamma_e(\cdot\mid\sigma')$ gives a coupling again. Only the term at $e$
+changes, so minimality gives, with $\varrho(e)=\E_{\pi^*}\delta(\sigma_e,
+\sigma'_e)$,
+\[
+\varrho(e)\le\E_{\pi^*}\sum_{e'}c_{ee'}(\sigma,\sigma')\,\delta(\sigma_{e'},
+\sigma'_{e'})
+\]
+for every $e$, with no weight left. On the event that $e$ is good in both
+configurations the coefficients are at most $a_{ee'}$; on its complement,
+whose probability is at most $\mu_1(e\in B)+\mu_2(e\in B)\le2q$, they are
+at most $A_{ee'}$ and every distance is at most $D$. Hence $\varrho(e)\le
+\theta\sup\varrho+2\bar ADq$, and $\sup\varrho\le D$ is finite, which gives
+the bound. The last statement follows by writing $F(\sigma)-F(\sigma')$ as
+a telescopic sum over the links of $S_F$.
+\end{proof}
+
+The proposition is approximate uniqueness: all Gibbs measures of the
+specification lie within $2\bar ADq/(1-\theta)$ of each other, link by
+link. It is not decay. Its proof sees the bad set only through the
+one-point probabilities $q$, and the term $2\bar ADq$ does not shrink with
+the distance from the region where $\mu_1$ and $\mu_2$ are allowed to
+differ. The bound $D$ on the distance at a bad link is not what causes
+this: replacing it by H\"older's inequality gives $\varrho\le\theta\varrho
++\bar A(qD)^{1/p}\varrho^{1/p'}$, a recursion with the positive fixed point
+$\varrho^*$ of order $\bar A^pqD/(1-\theta)^p$. To obtain decay the bad set
+has to be held fixed while the comparison runs, as in the disagreement
+percolation of van den Berg and Maes~\cite{vdBM94}, where the two
+configurations are coupled link by link and the disagreement has to
+percolate through the bad set; the price is that the laws conditioned on
+that set, not the Wilson measure, then have to satisfy the fibre estimates
+of Section~\ref{ssec:smallfibres}.
+
+\subsection{Rarity of coarse defects}\label{ssec:coarse}
+
+Theorem~\ref{thm:defects} makes a large plaquette rare at the lattice
+scale. The cube condition (D) concerns a cube of fixed physical side, which
+along the tuning spans $m\sim\beta_W/b$ scales, and it needs the analogue
+of that rarity for the curvature of the block averages at every one of
+them. This subsection isolates the two sides of that question. On the
+energy side, the coarse curvature of a field is bounded by its action
+uniformly in the scale, for linear fields and for group-valued fields in a
+torus. On the entropy side, the chessboard estimate applies to coarse
+events, and it is the normalisation of Lemma~\ref{lem:wilsonZ}, not the
+energy, that makes it useless beyond $O(\log\beta_W)$ scales. A right
+translation of the Haar measures gives rarity at every scale and under
+every exterior, with a rate governed by the second variation of the action
+along a fixed direction; for the abelian theory that second variation is
+the energy of the direction, while for $\SU(2)$ it grows like $4^k$ at
+scale $k$, and the growth is produced by the gauge orbit of the vacuum.
+
+Throughout, $\Lambda_L$ is the torus of side $L=2^m$, the scale $k$
+satisfies $2^{k+2}\le L$, and the lattice of spacing $2^k$ is the torus
+$\Lambda_{L'}$ with $L'=L/2^k\ge4$. For a real field $\varphi$ on the links,
+$d\varphi$ is its curvature, $d^{\mathsf T}$ the adjoint of $d$, and
+$\Delta=d^{\mathsf T}d+dd^{\mathsf T}$, which acts on each component of a
+field as the lattice Laplacian $(\Delta f)(x)=8f(x)-\sum_{\pm\nu}f(x\pm
+e_\nu)$. The Green function $G_{L'}$ of $\Lambda_{L'}$ is the function of
+mean zero with $\Delta G_{L'}=\delta_0-L'^{-4}$; it is invariant under the
+permutations and sign changes of the coordinates, and applied to each
+component it inverts $\Delta$ on fields whose components have mean zero.
+It commutes with $d$, $d^{\mathsf T}$ and the translations.
+
+\begin{lemma}[energy of a coarse defect]\label{lem:coarseenergy}
+Let $P$ be a plaquette of the lattice of spacing $2^k$ and $J_{k,P}$ the
+field with $(d_kV^{(k)}(\varphi))_P=\ip{\varphi}{J_{k,P}}$ for every field
+$\varphi$ on $\Lambda_L$, given by Lemma~\ref{lem:straightpaths}(i). Then
+$d^{\mathsf T}J_{k,P}=0$, every field $\varphi$ satisfies
+\[
+(d_kV^{(k)}(\varphi))_P^2\le\gamma_k\,Q(\varphi),
+\]
+where
+\[
+\gamma_k=\ip{J_{k,P}}{G_LJ_{k,P}}=\sup_\varphi\frac{(d_kV^{(k)}(
+\varphi))_P^2}{Q(\varphi)},
+\]
+and $\frac1{432}\le\gamma_k\le\frac12$ for every $k$. In particular
+$Q(\varphi)\ge2r^2$ whenever $|(d_kV^{(k)}(\varphi))_P|\ge r$, at every
+scale.
+\end{lemma}
+
+\begin{proof}
+Lemma~\ref{lem:straightpaths}(ii) shows that $V^{(k)}(dh)$ is the
+gradient of $\bar h$ on the coarse lattice for every function $h$ on
+sites, so $\ip{dh}{J}=0$, the curvature of a gradient vanishing, and
+$d^{\mathsf T}J=0$; $J$ is supported on the links of directions $\mu$,
+$\nu$ of the plane of $P$, and its component in each direction has mean
+zero, the two sides of $P$ entering with opposite signs. Put $u=G_LJ$.
+Then $\Delta u=J$, $d^{\mathsf T}u=G_Ld^{\mathsf T}J=0$, and for every
+field $\varphi$
+\begin{multline*}
+\ip{\varphi}{J}=\ip{\varphi}{\Delta u}=\ip{d\varphi}{du}+\ip{d^{\mathsf T}
+\varphi}{d^{\mathsf T}u}\\
+=\ip{d\varphi}{du}\le\sqrt{Q(\varphi)Q(u)},
+\end{multline*}
+with $Q(u)=\ip{u}{d^{\mathsf T}du}=\ip{u}{\Delta u}=\ip{u}{J}=\gamma_k$,
+and equality at $\varphi=u$. This proves the inequality and the
+characterisation of $\gamma_k$ as a supremum.
+
+For the upper bound, Proposition~\ref{prop:effective}(i) gives
+$Q_k(V^{(k)}(\varphi))\le Q(\varphi)$ for every field, its proof being a
+local identity, so $\gamma_k$ is at most the supremum of $(d_kw)_P^2/Q_k(w)$
+over the fields $w$ of $\Lambda_{L'}$. The argument of the first paragraph
+on $\Lambda_{L'}$, with $j=d_k^{\mathsf T}e_P$ the field equal to $\pm1$ on
+the four sides of $P$, identifies that supremum with $\ip{j}{G_{L'}j}$. The
+two sides of $P$ in the direction $\mu$ are the links $(y,\mu)$ and
+$(y+e_\nu,\mu)$ with opposite signs, so
+\begin{multline*}
+\ip{j}{G_{L'}j}=4G_{L'}(0)-2G_{L'}(e_\nu)-2G_{L'}(e_\mu)\\
+=4\bigl(G_{L'}(0)-G_{L'}(e_1)\bigr)=\tfrac12\bigl(1-L'^{-4}\bigr),
+\end{multline*}
+by $(\Delta G_{L'})(0)=8G_{L'}(0)-8G_{L'}(e_1)=1-L'^{-4}$ and the symmetry
+of $G_{L'}$.
+
+For the lower bound take $P$ at $y=0$ in the plane $\{1,2\}$, write
+$L_k=2^k$, and let $f$ be the function on $\Z/L\Z$ with $f(s)=s/L_k$ for
+$0\le s\le L_k$, $f(s)=1$ for $L_k\le s\le2L_k$, $f(s)=1-(s-2L_k)/L_k$ for
+$2L_k\le s\le3L_k$ and $f=0$ elsewhere; let $g$ be the indicator of
+$[0,2L_k)$; and let $h(s)=(1-\dist(s,[0,L_k))/L_k)_+$. Put $\varphi_{(x,2)}
+=L_k^{-1}f(x_1)g(x_2)h(x_3)h(x_4)$ and $\varphi=0$ on the other links;
+all supports fit in the torus since $4L_k\le L$. By
+Lemma~\ref{lem:straightpaths}(i), $V^{(k)}_{y,2}(\varphi)=L_k^{-4}\sum_{x
+\in B_k(y)}\sum_{t<L_k}\varphi_{(x+te_2,2)}$, and for $y=0$ and $y=e_1$ the
+factors $g$ and $h$ equal $1$ on the ranges that occur, so $V^{(k)}_{0,2}(
+\varphi)=\bar f(0)$ and $V^{(k)}_{e_1,2}(\varphi)=\bar f(1)$, the means of
+$f$ over $[0,L_k)$ and $[L_k,2L_k)$, which are $(L_k-1)/(2L_k)$ and $1$.
+Hence $(d_kV^{(k)}(\varphi))_P=\bar f(1)-\bar f(0)=(L_k+1)/(2L_k)\ge
+\frac12$. The curvature of $\varphi$ lives on the plaquettes of the planes
+$\{1,2\}$, $\{2,3\}$, $\{2,4\}$, and $g$ is never differenced, so
+\begin{multline*}
+Q(\varphi)=L_k^{-2}\bigl(\|\nabla f\|^2\|g\|^2\|h\|^4+2\|f\|^2\|g\|^2\|
+\nabla h\|^2\|h\|^2\bigr)\\
+\le L_k^{-2}\Bigl(\frac2{L_k}2L_k(3L_k)^2+2\cdot3L_k\cdot2L_k\frac2{L_k}
+3L_k\Bigr),
+\end{multline*}
+where $\nabla$ is the forward difference: $f$ and $h$ change by $1/L_k$ on
+$2L_k$ steps and by nothing elsewhere, and $f^2$, $g^2$, $h^2$ have sums at
+most $3L_k$, $2L_k$, $3L_k$. So $Q(\varphi)\le108$, and $\gamma_k\ge\frac14/108$.
+\end{proof}
+
+The fields $J_{k,P}$ are smeared current loops: by
+Lemma~\ref{lem:straightpaths}(i) each side of $P$ contributes $\pm L_k^{-4}
+c(s)$ on the $L_k^3(2L_k-1)$ links of its direction whose transverse
+coordinates lie in the block and whose longitudinal coordinate $s$ ranges
+over $[0,2L_k-2]$, with the tent $c(s)=\min\{s+1,L_k,2L_k-1-s\}$. A bare
+holonomy around a loop of $n$ links forces action only of order $r^2/n$,
+since the loop can be thickened to a tube of any radius; the block average
+smears the loop over a four-dimensional region, and this is why its energy
+does not decrease with the scale. The lemma is the quadratic part of
+Theorem~\ref{thm:effectiveupper}, seen from one coarse plaquette. The
+same scale invariance holds for group-valued fields in a torus.
+
+\begin{figure}[t]
+\centering
+\begin{tikzpicture}[scale=0.42,>={Stealth[length=2mm]}]
+\fill[blue!18] (0,0) rectangle (7,4);
+\fill[blue!18] (0,4) rectangle (7,8);
+\fill[red!18,opacity=0.7] (0,0) rectangle (4,7);
+\fill[red!18,opacity=0.7] (4,0) rectangle (8,7);
+\draw[very thick] (0,0) rectangle (4,4);
+\node at (2,2) {$P$};
+\draw[->,thick] (0.3,-0.9) -- (6.7,-0.9); \node[below] at (3.5,-0.9) {\footnotesize $+$, side $(y,1)$};
+\draw[<-,thick] (0.3,8.9) -- (6.7,8.9); \node[above] at (3.5,8.9) {\footnotesize $-$, side $(y+e_2,1)$};
+\draw[<-,thick] (-0.9,0.3) -- (-0.9,6.7); \node[left,rotate=90,anchor=south] at (-1.0,3.5) {\footnotesize $-$, side $(y,2)$};
+\draw[->,thick] (8.9,0.3) -- (8.9,6.7); \node[right,rotate=-90,anchor=south] at (9.0,3.5) {\footnotesize $+$, side $(y+e_1,2)$};
+\draw[gray,dashed] (0,0) grid[step=4] (8,8);
+\end{tikzpicture}
+\hspace{1em}
+\begin{tikzpicture}[scale=0.42,>={Stealth[length=2mm]}]
+\draw[->] (-0.5,0) -- (7.5,0) node[right] {\footnotesize $s$};
+\draw[->] (0,-0.5) -- (0,4.8) node[above] {\footnotesize $c(s)$};
+\draw[thick,blue!60!black] (0,1) -- (3,4) -- (6,1);
+\foreach \s/\c in {0/1,1/2,2/3,3/4,4/3,5/2,6/1} \fill[blue!60!black] (\s,\c) circle (3pt);
+\draw[dotted] (3,0) -- (3,4) node[pos=0,below] {\footnotesize $L_k-1$};
+\draw[dotted] (6,0) -- (6,1) node[pos=0,below] {\footnotesize $2L_k-2$};
+\draw[dotted] (0,4) -- (3,4) node[pos=0,left] {\footnotesize $L_k$};
+\end{tikzpicture}
+\caption{The smeared current loop $J_{k,P}$ of Lemma~\ref{lem:coarseenergy}
+in the plane of $P$, drawn for $L_k=4$. Left: each side of the coarse
+plaquette $P$ (thick square) contributes a current of its own direction on
+the links of a slab of transverse size $L_k^3$ and length $2L_k-1$ (blue for
+the direction $1$, red for the direction $2$), with the signs of the four
+sides; the slabs of opposite sides are disjoint and the two directions are
+carried by different links. Right: the longitudinal profile $L_k^4J=\pm c(s)$
+on a slab, the tent $c(s)=\min\{s+1,L_k,2L_k-1-s\}$, which counts the
+straight paths of Lemma~\ref{lem:straightpaths}(i) through the link at
+position $s$. The current is divergence free and its energy
+$\gamma_k=\ip{J_{k,P}}{G_LJ_{k,P}}$ lies in $[\frac1{432},\frac12]$ at every
+scale.}
+\label{fig:smearedloop}
+\end{figure}
+
+\begin{proposition}[energy of a coarse defect, torus-valued fields]
+\label{prop:torusenergy}
+Let $U$ be an $S$-valued field in the tree gauge on $\Lambda_L$, as in
+Theorem~\ref{thm:torusscales}, and let $P$ be a plaquette of the lattice
+of spacing $2^k$ with $\delta(V^{\sharp,k}(U)_P,I)\ge r$. Then
+\[
+Q(U)\ge\min\Bigl\{\frac{r^2}{1.001},\frac1{144.2}\Bigr\}\ge\frac{r^2}
+{1154}.
+\]
+\end{proposition}
+
+\begin{proof}
+If some plaquette has $\delta(U_p,I)>1=\rho_G$ then $Q(U)>1\ge r^2/8$,
+since $r\le\operatorname{diam}\SU(2)=2\sqrt2$. Otherwise every $\Theta_p$
+is defined, and for $\Theta_p=\theta_pJ_p$ with $J_p^2=-I$ one has
+$\lVert\Theta_p\rVert^2=2\theta_p^2$ and $\delta(U_p,I)^2=8\sin^2(\theta_p
+/2)$, so $\lVert\Theta_p\rVert^2\le1.001\,\delta(U_p,I)^2$ when $\theta_p
+\le1/(12\sqrt2)$, that is when $\lVert\Theta_p\rVert\le\eta_G=\frac1{12}$.
+Let $j_*$ be the least $j\le k$ with $\max_P\lVert\Theta^{(j)}_P\rVert>
+\eta_G$, if there is one. If there is none, \eqref{eq:torushyp} holds for
+every $j<k$, and Theorem~\ref{thm:torusscales} gives $r^2\le\delta(V^{
+\sharp,k}(U)_P,I)^2\le Q_k(V^{\sharp,k}(U))\le1.001\,Q(U)$. If $j_*=0$,
+some plaquette has $\theta_p>1/(12\sqrt2)$ and $Q(U)\ge8\sin^2(\theta_p/2)
+\ge1/144.1$. If $1\le j_*\le k$, \eqref{eq:torushyp} holds for $j<j_*$, so
+Theorem~\ref{thm:torusscales} at the scale $j_*$ shows that $\Theta^{(j_*)}$
+is defined and $\sum_P\lVert\Theta^{(j_*)}_P\rVert^2\le\sum_p\lVert\Theta_p
+\rVert^2\le1.001\,Q(U)$, every fine plaquette having $\lVert\Theta_p\rVert
+\le\eta_G$; one term of the left side exceeds $1/144$, so $Q(U)\ge1/144.2$.
+\end{proof}
+
+The $S$-valued fields form a null set for the Wilson measure, and for
+general $\SU(2)$ fields Theorem~\ref{thm:smallscales} controls the
+cut-off average only while $\sum_j\eta_j$ stays small; whether a bound of
+the form $Q(U)\ge c\,r^2$, uniform in $k$, holds for every $\SU(2)$ field is
+not known. The next proposition shows that, whatever the energy of a
+coarse defect, the chessboard estimate cannot use it beyond a bounded
+number of scales.
+
+\begin{proposition}[chessboard for coarse events]\label{prop:coarsechess}
+Let $\beta_W\ge1$, let $b=2^j$ with $2b\mid L$, and let $E$ be an event
+determined by the links of the closed cube $[0,b]^4$ on which the action
+of the plaquettes of that cube is at least $A$. For $z\in(b\Z/L\Z)^4$ let
+$E_z$ be the event obtained from $E$ by the reflections that carry $[0,b]^4$
+to $z+[0,b]^4$. Then for every set $Z$ of such $z$,
+\[
+\mu_L\Bigl(\,\bigcap_{z\in Z}E_z\Bigr)\le\exp\Bigl(|Z|\Bigl(6b^4(\log\beta_W
++C_0)-\frac{\beta_WA}4\Bigr)\Bigr).
+\]
+\end{proposition}
+
+\begin{proof}
+As in the proof of Theorem~\ref{thm:defects}, $\mu_L$ is reflection
+positive in the hyperplanes through sites, and the chessboard estimate for
+functions of the links of the closed blocks $z+[0,b]^4$, $z\in(b\Z/L\Z)^4$,
+bounds the probability of $\bigcap_{z\in Z}E_z$ by that of $\bigcap_{z}E_z$
+over all $(L/b)^4$ blocks, raised to the power $|Z|(b/L)^4$. Reflection
+preserves the Haar measures and $\Tr U_p$, so on every $E_z$ the plaquettes
+of the block $z+[0,b]^4$ carry action at least $A$. A plaquette lies in at
+most four closed blocks, one for each choice of the two transverse
+coordinates of the corner, so on the intersection $S\ge(L/b)^4A/4$, and the
+event has unnormalised weight at most $e^{-\beta_W(L/b)^4A/4}$. Dividing by
+$Z_L\ge e^{-6L^4(\log\beta_W+C_0)}$ of Lemma~\ref{lem:wilsonZ} and raising
+to the power $|Z|(b/L)^4$ gives the bound.
+\end{proof}
+
+A plaquette of the lattice of spacing $2^k$ depends, by
+Lemma~\ref{lem:localstep} applied at each step, on the fine links of a cube
+of side $2^{k+2}-4$, so the event that it carries a large cut-off average is of
+the kind in the proposition with $b=2^{k+2}$. Whatever action $A$ that
+event forces, the bound is below one only when $6\cdot16^{k+2}(\log\beta_W+
+C_0)<\beta_WA/4$, that is $16^k\lesssim\beta_WA/\log\beta_W$. For the
+events of Lemma~\ref{lem:coarseenergy} and
+Proposition~\ref{prop:torusenergy}, $A$ is of the order of $r^2$ at every
+scale, and the loss is entirely in the normalisation: the lower bound of
+Lemma~\ref{lem:wilsonZ} charges the full fluctuation volume of the block,
+$6b^4(\log\beta_W+C_0)$, against a defect whose energy does not grow with
+the block. In the Gaussian theory the two fluctuation volumes, around the
+defect and around the vacuum, are the same, and the following translation
+argument transfers that cancellation to the group, under every exterior.
+
+\begin{theorem}[Haar tilt]\label{thm:haartilt}
+Let $G$ be $\SU(2)$ or $\U(1)$, let $\Lambda$ be a finite set of links,
+either all links of $\Lambda_L$ or the inner links of a box $R\subset\Z^4$
+whose other links are fixed, and let $\mu$ be the law with density
+$Z^{-1}e^{-\beta_WS}$ with respect to the product of the Haar measures on
+$\Lambda$, where $S=\sum_ps_p$ runs over the plaquettes meeting $\Lambda$
+and $s_p=1-\frac1N\ReTr U_p$. For $r=(r_e)_{e\in\Lambda}$ with $r_e\in\g$
+and $\rho_e=\|r_e\|_{\rm op}$ put $U^t_e=U_ee^{tr_e}$,
+\[
+D_rS(U)=\partial_tS(U^t)\big|_{t=0},\qquad K_r=\sup_U\partial_t^2S(U^t)
+\big|_{t=0}.
+\]
+\begin{enumerate}[label=\textup{(\roman*)},leftmargin=*]
+\item $K_r\le\sum_p\bigl(\sum_{e\subset p,\,e\in\Lambda}\rho_e\bigr)^2\le
+24\sum_{e\in\Lambda}\rho_e^2$. For $G=\U(1)$ and $r_e=ia_e$ with $a_e\in\R$,
+$K_r\le Q(a)=\sum_p(da)_p^2$.
+\item $\E_\mu e^{\beta_WtD_rS}\le e^{\beta_Wt^2K_r/2}$ for every $t\in\R$.
+\item For every $x>0$, uniformly in the fixed links,
+\[
+\mu(D_rS\ge x)\le e^{-\beta_Wx^2/(2K_r)},\qquad\mu(D_rS\le-x)\le
+e^{-\beta_Wx^2/(2K_r)}.
+\]
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+(i) Order the links of a plaquette $p$ as traversed, so that $U_p=g_1^{
+\epsilon_1}\cdots g_4^{\epsilon_4}$ with $\epsilon_i=\pm1$. Since $ge^{tr}
+=e^{t\operatorname{Ad}(g)r}g$ and $(ge^{tr})^{-1}=e^{-tr}g^{-1}$, moving
+the exponentials to the left gives $U_p(t)=e^{t\tilde a_1}\cdots e^{t\tilde
+a_4}U_p$ with $\tilde a_i=\pm\operatorname{Ad}(h_i)r_{e_i}$ for unitary
+$h_i$, so $\|\tilde a_i\|_{\rm op}=\rho_{e_i}$, and $\tilde a_i=0$ if
+$e_i\notin\Lambda$. Then
+\[
+\partial_t^2\Tr U_p(t)\big|_{t=0}=\Tr\Bigl[\Bigl(\sum_i\tilde a_i^2+2\sum_{
+i<j}\tilde a_i\tilde a_j\Bigr)U_p\Bigr],
+\]
+and $|\Tr(XU)|\le N\|X\|_{\rm op}$ for unitary $U$, so $|\partial_t^2s_p|
+\le(\sum_i\rho_{e_i})^2\le4\sum_{e\subset p}\rho_e^2$; each link lies in
+six plaquettes. The second derivative at any other $t$ is the one at $0$
+for the field $U^t$, so the bound holds for $K_r$. For $\U(1)$ all factors
+commute, $U_p(t)=e^{it(da)_p}U_p$ and $\partial_t^2s_p=(da)_p^2\ReTr U_p
+\le(da)_p^2$.
+
+(ii) Right multiplication by the fixed element $e^{-tr_e}$ preserves the
+Haar measure of each link of $\Lambda$, so
+\[
+\int e^{-\beta_WS(Ue^{-tr})}\prod_{e\in\Lambda}dU_e=Z,
+\]
+that is, $\E_\mu e^{-\beta_W[S(Ue^{-tr})-S(U)]}=1$.
+Taylor's formula along $s\mapsto Ue^{-sr}$ with the Lagrange remainder
+gives
+\begin{multline*}
+S(Ue^{-tr})-S(U)=-tD_rS(U)+\tfrac{t^2}2\partial_s^2S(Ue^{-sr})\big|_{s=s_*}\\
+\le-tD_rS(U)+\tfrac{t^2}2K_r,
+\end{multline*}
+the second derivative being even in $r$. Hence
+\[
+\E_\mu e^{\beta_WtD_rS-\beta_Wt^2K_r/2}\le1.
+\]
+
+(iii) By Chebyshev's inequality and (ii), $\mu(D_rS\ge x)\le e^{-\beta_Wtx
++\beta_Wt^2K_r/2}$ for $t>0$; take $t=x/K_r$. The lower tail is the upper
+tail for $-r$. Nothing depends on the fixed links.
+\end{proof}
+
+The map $U\mapsto Ue^{-tr}$ is the group version of a translation of the
+Gaussian field; its Jacobian is one, and no smallness of the field enters.
+The observable $D_rS$ is the component of the force along $r$: at a
+plaquette, $\partial_ts_p=-\frac1N\ReTr\bigl((\sum_i\tilde a_i)U_p\bigr)$,
+the covariant derivative of $r$ in the background $U$ paired with the
+sine part of $U_p$. For the abelian theory the second variation is the
+energy of the direction, and the theorem gives the rarity of coarse
+defects at every scale.
+
+\begin{corollary}[abelian theory]\label{cor:abeliancoarse}
+Let $G=\U(1)$, let $\mu_L$ be its Wilson measure on $\Lambda_L$,
+$U_e=e^{i\theta_e}$, $\theta_p=(d\theta)_p$ the angle of
+$U_p$ in $(-\pi,\pi]$, and let $a=G_LJ_{k,P}$ be the minimiser of
+Lemma~\ref{lem:coarseenergy}. For every $k$, every plaquette $P$ of the
+lattice of spacing $2^k$ and every $x>0$,
+\[
+\mu_L\Bigl(\sum_p\sin\theta_p\,(da)_p\ge x\Bigr)\le e^{-\beta_Wx^2}.
+\]
+Here $\sum_p\theta_p(da)_p=(d_kV^{(k)}(\theta))_P$ for every choice of
+link angles $\theta_e$ with $(d\theta)_p\equiv\theta_p$ modulo $2\pi$, up
+to $2\pi\sum_pn_p(da)_p$ with the integers $n_p=((d\theta)_p-\theta_p)/2\pi$.
+Under a fixed exterior of a box, the same bound holds with $a$ replaced by
+its restriction $\tilde a$ to the inner links and $x^2$ replaced by
+$x^2/(2Q(\tilde a))$.
+\end{corollary}
+
+\begin{proof}
+By Theorem~\ref{thm:haartilt}(i) with $r_e=ia_e$, $K_r\le Q(a)=\gamma_k\le
+\frac12$, and $D_rS=\sum_p\sin\theta_p(da)_p$ since $s_p(t)=1-\cos(\theta_p
++t(da)_p)$. Part (iii) gives the bound. For the identity,
+$\sum_p(d\theta)_p(da)_p=\ip{\theta}{d^{\mathsf T}da}=\ip{\theta}{\Delta a}
+=\ip{\theta}{J_{k,P}}$ because $d^{\mathsf T}a=0$. In a box the tilt acts
+on the inner links only, and $K_r\le Q(\tilde a)$.
+\end{proof}
+
+For the abelian theory this is the statement that a smeared coarse flux of
+size $x$ costs $\beta_Wx^2$ at every scale, uniformly in the exterior; the
+four-dimensional abelian theory has no running coupling, and the bound is
+consistent with its known behaviour at weak coupling~\cite{Gut80,FS82}. For
+$\SU(2)$ the same tilt is available, but its second variation grows with
+the scale.
+
+\begin{proposition}[the gauge orbit of the vacuum]\label{prop:tiltgrowth}
+Let $G=\SU(2)$ on $\Lambda_L$, $T\in\g$ with $\|T\|_{\rm op}=1$, $a=G_LJ_{
+k,P}$ for a plaquette $P$ of the lattice of spacing $2^k$, and $r_e=a_eT$.
+Then
+\[
+\Bigl(\sqrt{2\|a\|^2-\gamma_k}-\sqrt{\gamma_k}\Bigr)_+^2\le K_r\le24\|a\|^2
+\]
+and
+\[
+\|a\|^2\ge\frac{\gamma_k^2}{\|J_{k,P}\|^2}\ge\frac{4^k}{1492992},
+\]
+with $\gamma_k=\ip{J_{k,P}}{G_LJ_{k,P}}$ as in Lemma~\ref{lem:coarseenergy};
+in particular $K_r\ge4^k/(3\cdot10^6)$ for $k\ge11$. The lower bound is attained,
+up to the stated loss, at a pure gauge field, where $Q(U)=0$.
+\end{proposition}
+
+\begin{proof}
+The upper bound is Theorem~\ref{thm:haartilt}(i). For the lower bound let
+$U$ be the pure gauge field $U_e=h_xh_{x+e}^{-1}$ of a function $h$ on
+sites with values in $\SU(2)$. The action is invariant under gauge
+transformations and $U_ee^{tr_e}=h_x\exp(t\operatorname{Ad}(h_{x+e}^{-1})
+r_e)h_{x+e}^{-1}$, so $S(Ue^{tr})=S(e^{tr'})$ with $r'_e=\operatorname{Ad}
+(h_{x+e}^{-1})r_e$. At the identity field, $U_p(t)=\exp(tX_p+O(t^2))$ with
+$X_p=(dr')_p$ the signed sum of the $r'_e$ around $p$, and $s_p=1-\cos\|
+X_p(t)\|_{\rm op}$, so $\partial_t^2s_p|_{t=0}=\|(dr')_p\|_{\rm op}^2$ and
+$K_r\ge\sum_p\|(dr')_p\|_{\rm op}^2$. Take $h_x=R^{x_2}$ with $R=i\sigma_1$
+and $T=i\sigma_3$, which is well defined on the torus since $R^4=I$ and
+$4\mid L$, and satisfies $\operatorname{Ad}(R)T=-T$. Then $r'_e=\epsilon_e
+a_eT$ with $\epsilon_{(x,\mu)}=(-1)^{x_2}$ for $\mu\ne2$ and $\epsilon_{(x,
+2)}=(-1)^{x_2+1}$, and $K_r\ge Q(\epsilon a)$. Since $J_{k,P}$ has
+components only in the directions $1$, $2$ of the plane of $P$ and $G_L$
+acts on each component, $a_3=a_4=0$; the reflection exchanging the
+coordinates $1$ and $2$ carries the component $a_1$ to $-a_2$, so $\|a_1\|^2
+=\|a_2\|^2=\frac12\|a\|^2$. On the plaquette at $x$ in the plane $\{1,2\}$
+the signs give
+\begin{multline*}
+(d(\epsilon a))_p=(-1)^{x_2}\bigl[(a_{(x,1)}+a_{(x+e_2,1)})-(a_{(x+e_1,2)}
+-a_{(x,2)})\bigr]\\
+=(-1)^{x_2}\bigl[\sigma_x-v_x\bigr],
+\end{multline*}
+so that $Q(\epsilon a)\ge\|\sigma-v\|^2\ge(\|\sigma\|-\|v\|)_+^2$, with
+$\|\sigma\|^2=4\|a_1\|^2-\|\nabla_2a_1\|^2$ and $\|v\|^2=\|\nabla_1a_2\|^2$,
+where $\nabla_\nu$ is the forward difference in the direction $\nu$. All
+directional differences together give $\sum_{\mu,\nu}\|\nabla_\nu a_\mu\|^2
+=\ip{a}{\Delta a}=\ip{G_LJ}{J}=\gamma_k$, so $\|\sigma\|^2\ge2\|a\|^2-
+\gamma_k$ and $\|v\|^2\le\gamma_k$, which is the lower bound. Finally
+$\gamma_k=\ip{J}{a}\le\|J\|\|a\|$, and by Lemma~\ref{lem:straightpaths}(i)
+each of the four sides of $P$ contributes $L_k^3$ rows of $2L_k-1$ links
+with coefficients $L_k^{-4}c(s)$, $c\le L_k$, so $\|J\|^2\le4L_k^{-8}L_k^3
+(2L_k-1)L_k^2\le8\cdot4^{-k}$; with $\gamma_k\ge\frac1{432}$ this gives
+$\|a\|^2\ge4^k/(8\cdot432^2)$. For $k\ge11$ that is at least $2$, so
+$2\|a\|^2-\gamma_k\ge7\gamma_k$ and $K_r\ge(1-7^{-1/2})^2\cdot\frac78\cdot
+2\|a\|^2\ge0.67\|a\|^2\ge4^k/(3\cdot10^6)$.
+\end{proof}
+
+So for $\SU(2)$ the tilt of Theorem~\ref{thm:haartilt} proves the rarity
+of the force component $D_rS$ at the rate $\beta_Wx^2/(2K_r)$, which is of
+order $\beta_Wx^2/4^k$ at scale $k$, and not more: the supremum in $K_r$ is
+reached on the gauge orbit of the vacuum, where the field has no action
+and no curvature, because a fixed direction $r$ is not gauge covariant and
+its covariant derivative in a pure gauge background is as large as $r$
+itself. A gauge-covariant direction $\operatorname{Ad}(h(U))r$ would make
+the second variation the energy of $r$ in every background with small
+links, but $h(U)$ depends on the field and the translation no longer
+preserves the Haar measures. Conditioning on the tree gauge does not remove
+the obstruction, since the residual gauge transformations at the block
+roots realise the field of the proof on the links between the blocks.
+
+
+\begin{figure*}[t]
+\centering
+\resizebox{\textwidth}{!}{%
+\begin{tikzpicture}[x=0.95cm,y=0.75cm,>={Stealth[length=2mm]}]
+\draw[->,thick] (0,0) -- (14.5,0) node[right] {scale $k$};
+\foreach \x/\l in {0/0,2/{},4/{},6/{},8/{},10/{},12/{},13.4/{$m\sim\beta_W/b$}} \draw (\x,0.12) -- (\x,-0.12) node[below] {\footnotesize \l};
+\draw[dashed,thick] (13.4,-0.3) -- (13.4,5.6);
+\node[above,align=center] at (13.4,5.6) {\footnotesize cube of fixed\\[-2pt]\footnotesize physical side};
+\node[left] at (0,1) {\footnotesize Proposition~\ref{prop:coarsechess}, chessboard};
+\fill[orange!60] (0,0.7) rectangle (3.0,1.3);
+\node[right] at (3.1,1) {\footnotesize $16^k\lesssim\beta_WA/\log\beta_W$: lost in the normalisation $Z_L$};
+\node[left] at (0,2.2) {\footnotesize Proposition~\ref{prop:tiltgrowth}, $\SU(2)$ tilt};
+\fill[red!50] (0,1.9) rectangle (4.2,2.5);
+\node[right] at (4.3,2.2) {\footnotesize $4^k\lesssim\beta_Wx^2$: lost on the gauge orbit of the vacuum};
+\node[left] at (0,3.4) {\footnotesize Corollary~\ref{cor:abeliancoarse}, $\U(1)$ tilt};
+\fill[blue!45] (0,3.1) rectangle (14.2,3.7);
+\node[right] at (0.2,4.0) {\footnotesize rate $\beta_Wx^2$ at every scale and under every exterior};
+\node[left] at (0,4.9) {\footnotesize Lemma~\ref{lem:coarseenergy}, energy};
+\fill[green!40!black!50] (0,4.6) rectangle (14.2,5.2);
+\node[right] at (0.2,5.5) {\footnotesize $Q\ge2r^2$ at every scale: the energy side is never the obstacle};
+\end{tikzpicture}}
+\caption{Which scales the estimates of this subsection reach, along the
+tuning $\beta_W\sim b\log(1/a)$, where a cube of fixed physical side spans
+$m\sim\beta_W/b$ scales. The energy of a coarse defect is scale invariant
+(Lemma~\ref{lem:coarseenergy}), and for the abelian theory the Haar tilt
+makes coarse defects rare at every scale (Corollary~\ref{cor:abeliancoarse}).
+For $\SU(2)$ the chessboard estimate stops after $O(\log\beta_W)$ scales
+because the normalisation charges the whole fluctuation volume of a block
+against the defect (Proposition~\ref{prop:coarsechess}), and the tilt stops
+after $O(\log\beta_W)$ scales because its second variation grows like $4^k$
+on the gauge orbit of the vacuum (Proposition~\ref{prop:tiltgrowth}). The
+remaining scales are the open input of the cube condition.}
+\label{fig:scaleladder}
+\end{figure*}
+Along the tuning $\beta_W\sim b\log(1/a)$ a cube of fixed physical side
+spans $m\sim\beta_W/b$ scales. Proposition~\ref{prop:coarsechess} covers
+$O(\log\beta_W)$ of them, Proposition~\ref{prop:tiltgrowth} covers
+$O(\log\beta_W)$ of them without the torus and uniformly in the exterior,
+and Corollary~\ref{cor:abeliancoarse} covers all of them for the abelian
+theory. What the cube condition needs for $\SU(2)$ is a bound
+\[
+\partial_t^2S(Ue^{tr})\le Q(r)+\mathcal R(U,r)
+\]
+for gauge-covariant directions $r$ at every scale, with a remainder
+$\mathcal R$ supported on the large-field region and summable at the
+running coupling of that scale, together
+with a non-perturbative treatment of the last $O(1)$ scales, where the
+running coupling is of order one and coarse defects are not rare at all.
+This is the content of Ba{\l}aban's large-field expansion~\cite{Bal89b},
+and it is not carried out here. The cube condition itself is a mixing
+condition of Dobrushin--Shlosman type, which for compact spins with finite
+range is equivalent to a logarithmic Sobolev inequality uniform in the
+volume~\cite{SZ92}; the rarity of coarse defects is the part of that
+inequality that concerns the large fields.
+
 \section*{Acknowledgements}
 
 This paper rests on the work of many earlier scientists. Lattice gauge
@@ -10042,7 +10780,7 @@ Theorem~\ref{thm:certificate}, whose certificates are checked in exact
 arithmetic. The programs of these steps, in Python with
 python-flint (FLINT and Arb) and a C kernel for products of Taylor
 polynomials, their outputs and the list of certified boxes are in the
-repository \url{https://github.com/creelie/4Y-M}, release v4.28.0, together
+repository \url{https://github.com/creelie/4Y-M}, release v4.30.0, together
 with a Lean~4 certificate of the line field, independent exact or
 numerical checks of the other finite statements, our checks of the
 certificate of~\cite{Rom26}, and the certificate of
@@ -10302,22 +11040,26 @@ In closed form, the plaquette at $x$ in $\{0,1\}$ is a block plaquette when
 $x_0\equiv x_1$ and the plaquette at $x$ in $\{2,3\}$ when $x_2\equiv x_3$; the
 blocks do not depend on the line field beyond the fact that every plaquette
 contains one fixed link. The bounds of Lemma~\ref{lem:vmfconst} are evaluated in ball arithmetic
-at $120$ bits: the series of $Z_0$ and of its first three derivatives in
-$s=r^2$ is summed to forty terms, and the tail is bounded for $s\le5$ by
-twice the first omitted term $(5/4)^{40}40^3/(40!\,41!)$, because consecutive
-terms decrease by a factor below one half. The constants
+at $128$ bits: the series of $Z_0$ and of its first three derivatives in
+$s=r^2$ is summed to forty-eight terms, and the tail is bounded for $s\le5$ by
+twice the first omitted term, because consecutive
+terms decrease by a factor below one half. The program also writes the
+constants, rounded outward to $10^{-12}$, for a check of the chain~\eqref{eq:blockconst}
+at $\beta_W=\frac13$, $0.345$, $0.35$, $0.351$ in exact rational arithmetic by the Lean kernel
+(\texttt{gauge-fixed/blocks/sharp}). The constants
 of~\eqref{eq:blockconst} and $\alpha$ are then evaluated at a given $\beta_W$
 from exact input.
 
 For $\SU(3)$ the bounds of Lemma~\ref{lem:su3const} are evaluated on the
 $841$ boxes of side $\frac3{16}$ at $r=\frac32$ and the $784$ boxes of side
-$\frac{19}{100}$ at $r=\frac{38}{25}$ with the moments of
+$\frac{19}{100}$ at $r=\frac{38}{25}$ and the $826$ boxes of side
+$\frac{77}{400}$ at $r=\frac{77}{50}$ with the moments of
 Appendix~\ref{app:cover}, and the constants of~\eqref{eq:blockconst3} and
 $\alpha_3$ are evaluated from these bounds and the cover of
 Proposition~\ref{prop:cover} or Proposition~\ref{prop:cover2} in ball
 arithmetic at $120$ bits. The cover of Proposition~\ref{prop:cover2} is
 computed as in Appendix~\ref{app:cover} with $r=\frac{38}{25}$ and the
-threshold $1.03$.
+threshold $1.03$, and with $r=\frac{77}{50}$ and the threshold $1.0275$.
 
 \section{The blocks of Lemma~\ref{lem:local}}\label{app:blocks}
 
@@ -11767,6 +12509,12 @@ Aumann, G.: {\"U}ber R{\"a}ume mit Mittelbildungen. Math. Ann.
 \textbf{119}, 210--215 (1944).
 \href{https://doi.org/10.1007/BF01563741}{https://doi.org/10.1007/BF01563741}
 
+\bibitem{BD86}
+L.~A.~Bassalygo and R.~L.~Dobrushin, Uniqueness of a Gibbs field with a
+random potential---an elementary approach, Theory Probab. Appl.
+\textbf{31} (1987), 572--589,
+\href{https://doi.org/10.1137/1131082}{doi:10.1137/1131082}.
+
 \bibitem{BE85}
 Bakry, D., \'Emery, M.: Diffusions hypercontractives. In: S\'eminaire de
 Probabilit\'es XIX. Lecture Notes in Math., vol.~1123, pp.~177--206.
@@ -12086,6 +12834,11 @@ Theory and Statistical Mechanics. Lecture Notes in Phys., vol.~159.
 Springer, Berlin (1982).
 \href{https://doi.org/10.1007/3-540-11559-5}{https://doi.org/10.1007/3-540-11559-5}
 
+\bibitem{SZ92}
+D.~W.~Stroock and B.~Zegarlinski, The logarithmic Sobolev inequality for
+discrete spin systems on a lattice, Comm. Math. Phys. \textbf{149} (1992),
+175--193, \href{https://doi.org/10.1007/BF02096629}{doi:10.1007/BF02096629}.
+
 \bibitem{SZZ23}
 Shen, H., Zhu, R., Zhu, X.: A stochastic analysis approach to lattice
 Yang--Mills at strong coupling. Commun. Math. Phys. \textbf{400}, 805--851
@@ -12110,6 +12863,11 @@ Stein, E.M., Weiss, G.: Introduction to Fourier Analysis on Euclidean Spaces. Pr
 K.~K.~Uhlenbeck, Connections with $L^p$ bounds on curvature, Comm. Math.
 Phys. \textbf{83} (1982), 31--42,
 \href{https://doi.org/10.1007/BF01947069}{doi:10.1007/BF01947069}.
+
+\bibitem{vdBM94}
+J.~van den Berg and C.~Maes, Disagreement percolation in the study of
+Markov fields, Ann. Probab. \textbf{22} (1994), 749--763,
+\href{https://doi.org/10.1214/aop/1176988728}{doi:10.1214/aop/1176988728}.
 
 \bibitem{Vil09}
 Villani, C.: Optimal Transport: Old and New. Grundlehren Math. Wiss.,
