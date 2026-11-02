@@ -29,7 +29,7 @@ does not add content.
 | item | outcome | where |
 |---|---|---|
 | B1 3D next order | **done** | `slice/THREE_D.md` |
-| B2 lattice S′ at O(g²) | **done in the free vacuum**, uniformly in a. The vertex bound is proved (Lemma 3). The O(g²) vacuum correction and the constant c are open | `slice/sprime/LATTICE_SPRIME.md` |
+| B2 lattice S′ at O(g²) | **done in the free vacuum**, uniformly in a. The vertex bound is proved (Lemma 3). Numerically, the old `leak_norm` drift sits in the normalisation (even) sector, while the hard leak is flat with empirical c ≈ 1.7. The O(g²) vacuum correction is open | `slice/sprime/LATTICE_SPRIME.md` |
 | B3 stochastic quantization (CCHS) | **done** (literature). Spacetime-flowed slices are smoothed observables; the 3D measure the route needs does not exist | `slice/CCHS.md` |
 | B4 3D unflowed Monte Carlo | not pursued (low priority) | |
 
