@@ -85,17 +85,15 @@ averages, reflection positivity}
 We prove that four-dimensional lattice Yang--Mills theory with any compact
 simple gauge group has a unique infinite-volume state and an explicit
 transfer-matrix gap in a forest gauge, up to $\beta_W=0.351$ for $\SU(2)$
-and $\beta_W=0.77$ for $\SU(3)$, past the curvature limit of the ungauged
-measure. We prove that a Dobrushin--Shlosman estimate in one cube of fixed
-physical size gives a mass gap in every continuum limit, that the cube
-needs a side of order $(\beta_W/\log\beta_W)^{1/4}$ lattice spacings, and
-that a cut-off of Ba{\l}aban's block average composes through the large
-fields of the $\SU(2)$ Wilson measure up to a scale of that order. We
-prove that the curvature of the block averages costs action independent of
-the scale, that a right translation of the Haar measures makes it rare at
-every scale and under every exterior for the abelian theory, and that for
-$\SU(2)$ the same translation is defeated by the gauge orbit of the vacuum,
-which locates the one estimate that remains open.
+and $\beta_W=0.77$ for $\SU(3)$. We prove that a Dobrushin--Shlosman
+estimate in one cube of fixed physical size gives a mass gap in every
+continuum limit, and that the cube needs a side of order
+$(\beta_W/\log\beta_W)^{1/4}$ lattice spacings. We prove that the curvature
+of Ba{\l}aban's block averages costs action independent of the scale, that
+a translation of the Haar measures makes it rare at every scale for the
+abelian theory, and that for $\SU(2)$ every such translation transported
+along a forest reaches its constant on the gauge orbit of the vacuum, which
+fixes the one estimate that remains open.
 \end{abstract}
 
 \maketitle
@@ -519,9 +517,11 @@ fixed direction by the second variation of the action, at every scale and
 under every exterior (Theorem~\ref{thm:haartilt}), which for the abelian
 theory makes coarse defects rare at the rate $\beta_Wx^2$ at every scale
 (Corollary~\ref{cor:abeliancoarse}), while for $\SU(2)$ that second
-variation grows like $4^k$ at scale $k$, on the gauge orbit of the vacuum
-(Proposition~\ref{prop:tiltgrowth}); this locates the estimate that the
-cube condition still needs.
+variation grows like $4^k$ at scale $k$, on the gauge orbit of the vacuum,
+and the same happens when the direction is transported along a forest,
+which keeps the Haar measures but leaves the residual gauge freedom of the
+blocks (Propositions~\ref{prop:tiltgrowth}, \ref{prop:foresttilt}); this
+locates the estimate that the cube condition still needs.
 In a box whose boundary field has small plaquettes and either lies in a
 maximal torus or, for $\SU(2)$, has plaquette angles $\rho_s$ with
 $l^2\rho_s$ below a fixed constant, the fraction of unit cubes with a large
@@ -10688,12 +10688,161 @@ order $\beta_Wx^2/4^k$ at scale $k$, and not more: the supremum in $K_r$ is
 reached on the gauge orbit of the vacuum, where the field has no action
 and no curvature, because a fixed direction $r$ is not gauge covariant and
 its covariant derivative in a pure gauge background is as large as $r$
-itself. A gauge-covariant direction $\operatorname{Ad}(h(U))r$ would make
-the second variation the energy of $r$ in every background with small
-links, but $h(U)$ depends on the field and the translation no longer
-preserves the Haar measures. Conditioning on the tree gauge does not remove
-the obstruction, since the residual gauge transformations at the block
-roots realise the field of the proof on the links between the blocks.
+itself. The natural repair is to transport the direction with the field,
+$r_e\mapsto\operatorname{Ad}(h(U))r_e$. When the transport runs along a
+forest, the translation still preserves the Haar measures; but the
+residual gauge freedom of the forest then realises the field of the proof
+on the links between the trees, and the constant is reached at zero action
+in that gauge as well.
+
+\begin{proposition}[covariant tilt on a forest]\label{prop:foresttilt}
+Let $G=\SU(2)$, let $F$ be a set of links of $\Lambda_L$ without cycles,
+with one root chosen in every component, and for a site $y$ let $h_y(U)$
+be the ordered product of the link variables along the path in $F$ from
+the root of its component to $y$, with $h_y=I$ at the roots. For $r=(r_e)$
+with $r_e\in\g$ and $r_e=0$ on $F$ put
+\[
+\Phi_t(U)_e=U_e\exp\bigl(t\operatorname{Ad}(h_y(U)^{-1})r_e\bigr),\quad
+y\ \text{the end point of }e,
+\]
+and $\Phi_t(U)_f=U_f$ for $f\in F$; let $D^F_rS(U)=\partial_tS(\Phi_tU)
+|_{t=0}$ and
+\[
+K^F_r=\sup\bigl\{\partial_t^2S(\tilde Ue^{tr})\big|_{t=0}:\ \tilde U_f=I
+\text{ for all }f\in F\bigr\}.
+\]
+\begin{enumerate}[label=\textup{(\roman*)},leftmargin=*]
+\item $\Phi_t$ preserves the product of the Haar measures for every $t$.
+\item $\E_\mu e^{\beta_WtD^F_rS}\le e^{\beta_Wt^2K^F_r/2}$ for every
+$t\in\R$, and $\mu(\pm D^F_rS\ge x)\le e^{-\beta_Wx^2/(2K^F_r)}$ for every
+$x>0$. $D^F_rS$ is invariant under the gauge transformations that are trivial at
+the roots.
+\item Let $F$ be one of the sixteen translates $F_o$ of the forest of
+Definition~\ref{def:blockgauge}, with blocks $2y+o+\{0,1\}^4$, let
+$a=G_LJ_{k,P}$ and $T$ be as in Proposition~\ref{prop:tiltgrowth}, and
+let $r_e=a_eT$ on the links outside $F$. Then
+\[
+K^F_r\ge2\sum_{e\notin F}a_e^2,
+\]
+and the bound is reached on pure gauge fields, where $Q(U)=0$. For at
+least one $o$ the right side is at least $\frac{29}{16}\|a\|^2\ge
+\frac{29}{16}\cdot\frac{4^k}{1492992}$.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+(i) Let $\Gamma(U)=(U_F,\tilde U)$ with $\tilde U_e=h_x(U)U_eh_y(U)^{-1}$
+for $e=(x,y)\notin F$. Given the variables on $F$, the map $U_e\mapsto
+\tilde U_e$ is a left and a right translation by elements that depend only
+on $U_F$, so $\Gamma$ is a bijection of the configuration space that preserves the
+product of the Haar measures; this is the change of variables of
+Lemma~\ref{lem:gaugefix}. Let $R_t$ multiply every coordinate $\tilde U_e$,
+$e\notin F$, on the right by $e^{tr_e}$ and leave $U_F$ alone. Then
+\[
+(\Gamma^{-1}R_t\Gamma U)_e=h_x^{-1}\bigl(h_xU_eh_y^{-1}e^{tr_e}\bigr)h_y
+=U_e\exp\bigl(t\operatorname{Ad}(h_y^{-1})r_e\bigr),
+\]
+so $\Phi_t=\Gamma^{-1}R_t\Gamma$ is a composition of three maps that
+preserve the measure.
+
+(ii) Since the action is gauge invariant, $S(\Phi_tU)=S(\tilde Ue^{tr})$,
+and $\tilde Ue^{tr}$ again has trivial links on $F$. Taylor's formula
+along $s\mapsto\Phi_{-s}U$ with the Lagrange remainder gives $S(\Phi_{-t}
+U)-S(U)\le-tD^F_rS(U)+\frac{t^2}2K^F_r$, and $\int e^{-\beta_WS\circ\Phi_
+{-t}}\,dU=Z$ by (i); the rest is the proof of Theorem~\ref{thm:haartilt}
+(ii), (iii). Under a gauge transformation $g$ the transports change to
+$g_oh_yg_y^{-1}$, with $o$ the root of the component of $y$, so $\tilde U$
+is conjugated by the root values and $D^F_rS$ is unchanged when they are
+trivial.
+
+(iii) The tree links of $F_o$ join sites of one block, so a pure gauge
+field $U=I^g$, $U_e=g_xg_{x+e}^{-1}$, with $g$ constant on the blocks has
+trivial links on $F_o$, lies in the set of the supremum and has $Q(U)=0$.
+By the proof of Proposition~\ref{prop:tiltgrowth}, $\partial_t^2S(Ue^{tr}
+)|_{t=0}=\sum_p\|(dr')_p\|_{\rm op}^2$ with $r'_e=\operatorname{Ad}(g_{x+e}
+^{-1})r_e$, the end point of $e$ taken. Since $a_3=a_4=0$, a plaquette $p$
+at $x$ in a plane $\{\mu,\nu\}$ with $\mu\in\{1,2\}$ and $\nu\in\{3,4\}$
+has at most two tilted sides, $e=(x,\mu)$ with end point $x+e_\mu$ and
+$e'=(x+e_\nu,\mu)$ with end point $x+e_\mu+e_\nu$, and
+\[
+\|(dr')_p\|_{\rm op}^2=a_e^2+a_{e'}^2-2a_ea_{e'}\ip{\operatorname{Ad}(g_{x
++e_\mu}^{-1})T}{\operatorname{Ad}(g_{x+e_\mu+e_\nu}^{-1})T},
+\]
+with the inner product of $\g$ in which $\|T\|=1$ and $a_e=0$ on $F_o$.
+When $(x-o)_\nu$ is odd the two end points lie in different blocks. Take
+the block values $g_B$ independent with Haar law. The adjoint
+representation of $\SU(2)$ is irreducible of dimension three, so
+$\E\operatorname{Ad}(g_B)=0$, and the expectation of the inner product
+vanishes. Every link $e=(x,\mu)\notin F_o$ with $\mu\in\{1,2\}$ is, for
+each $\nu\in\{3,4\}$, a side of exactly one such plaquette, at $x$ if
+$(x-o)_\nu$ is odd and at $x-e_\nu$ otherwise. Dropping the other
+plaquettes, whose terms are nonnegative,
+\[
+\E_g\,\partial_t^2S(I^ge^{tr})\big|_{t=0}\ge\sum_{\nu\in\{3,4\}}\sum_{e
+\notin F_o}a_e^2=2\sum_{e\notin F_o}a_e^2,
+\]
+and the supremum over the section is at least the expectation. A link
+$(x,\mu)$ lies in $F_o$ for one of the sixteen offsets $o$ when $\mu=1$
+and for two of them when $\mu=2$. Averaging over
+$o$ and using $\|a_1\|^2=\|a_2\|^2=\frac12\|a\|^2$ from the proof of
+Proposition~\ref{prop:tiltgrowth},
+\[
+\frac1{16}\sum_o\sum_{e\notin F_o}a_e^2=\frac{15}{16}\|a_1\|^2+\frac{14}{16}
+\|a_2\|^2=\frac{29}{32}\|a\|^2,
+\]
+so one offset reaches $\frac{29}{32}\|a\|^2$; the last bound is the lower
+bound for $\|a\|^2$ of that proposition.
+\end{proof}
+
+\begin{figure}[t]
+\centering
+\resizebox{0.92\columnwidth}{!}{%
+\begin{tikzpicture}[x=1cm,y=1cm,>={Stealth[length=1.8mm]}]
+\foreach \bx/\nm in {0/{B},3.6/{B'}} {
+  \draw[fill=blue!6,rounded corners=2pt] (\bx,0) rectangle (\bx+2,2);
+  \foreach \p in {(\bx+0.4,0.4),(\bx+1.6,0.4),(\bx+0.4,1.6),(\bx+1.6,1.6)} \fill \p circle (1.6pt);
+  \draw[very thick,blue!60!black] (\bx+0.4,0.4) -- (\bx+1.6,0.4) -- (\bx+1.6,1.6) (\bx+1.6,0.4) -- (\bx+0.4,1.6);
+  \node[above] at (\bx+1,2.05) {\footnotesize $g_{\nm}$};
+}
+\draw[very thick,red!70!black,->] (1.6,0.4) -- (4.0,0.4) node[pos=0.5,below] {\footnotesize $e$, weight $a_e$};
+\draw[very thick,red!70!black,->] (1.6,1.6) -- (4.0,1.6) node[pos=0.5,above] {\footnotesize $e'$, weight $a_{e'}$};
+\draw[->,thick,orange!80!black] (4.0,0.4) -- (6.2,-0.3) node[right] {\footnotesize $a_e\operatorname{Ad}(g_{B'}^{-1})T$};
+\draw[->,thick,orange!80!black] (4.0,1.6) -- (6.2,2.3) node[right] {\footnotesize $a_{e'}\operatorname{Ad}(g_{B'}^{-1})T$};
+\node[align=center] at (3.1,-1.0) {\footnotesize tree links (blue) are trivial in the section; the residual gauge\\[-2pt]\footnotesize group turns the tilt direction by one $\SU(2)$ element per block};
+\end{tikzpicture}}
+\caption{The covariant tilt on the block forest (Proposition~\ref{prop:foresttilt}).
+Transporting the direction along the trees keeps the Haar measures, but the
+section still contains every pure gauge field that is constant on the
+blocks. On a plaquette whose tilted sides $e$, $e'$ end in different blocks
+the transported directions are turned by independent elements, and the
+average of $\|(dr')_p\|^2$ over them is $a_e^2+a_{e'}^2$ instead of the
+$(a_e-a_{e'})^2$ of the abelian energy.}
+\label{fig:foresttilt}
+\end{figure}
+
+Proposition~\ref{prop:foresttilt} and Figure~\ref{fig:foresttilt} show where the obstruction sits. The
+Haar translation survives gauge covariance along a forest, and for the
+block forest the constant it produces is at least $\frac{29}{16}\|a\|^2$,
+reached by fields with no action and no curvature at all; the chessboard
+estimate and the covariant tilt are therefore lost on the same fields, the
+gauge orbit of the vacuum, for different reasons. A bound of the form
+\[
+\partial_t^2S(\tilde Ue^{tr})\le Q(r)+\mathcal R(\tilde U,r),
+\]
+with $\mathcal R$ supported on the large-field region, is false for every
+forest section, since the left side exceeds $Q(r)$ by a fixed multiple of
+$\|a\|^2$ at $\tilde U=I^g$, where the large-field region is empty. A
+section that is smooth on the orbits, such as the Landau gauge, has no
+such pure gauge fields, but its Jacobian is a Faddeev--Popov determinant
+and not one, and part (ii) does not apply to it as it stands.\footnote{The
+Wilson measure satisfies no curvature-dimension condition at the values
+of $\beta_W$ considered here, so the inequality cannot be obtained from a
+Bakry--\'Emery argument either: for one link equal to $-I$ with trivial
+neighbours the second variation of $S$ along a unit direction on that link
+is $-6$, since each of its six plaquettes contributes $\partial_t^2(1+\cos
+t)=-1$, while the Ricci curvature of $\SU(2)$ with unit-speed geodesics
+$e^{tr}$, $\|r\|_{\rm op}=1$, is $2$; the Hessian of $\beta_WS$ plus the
+curvature is negative as soon as $\beta_W>1/3$.}
 
 
 \begin{figure*}[t]
@@ -10707,9 +10856,9 @@ roots realise the field of the proof on the links between the blocks.
 \node[left] at (0,1) {\footnotesize Proposition~\ref{prop:coarsechess}, chessboard};
 \fill[orange!60] (0,0.7) rectangle (3.0,1.3);
 \node[right] at (3.1,1) {\footnotesize $16^k\lesssim\beta_WA/\log\beta_W$: lost in the normalisation $Z_L$};
-\node[left] at (0,2.2) {\footnotesize Proposition~\ref{prop:tiltgrowth}, $\SU(2)$ tilt};
+\node[left] at (0,2.2) {\footnotesize Propositions~\ref{prop:tiltgrowth}, \ref{prop:foresttilt}, $\SU(2)$ tilts};
 \fill[red!50] (0,1.9) rectangle (4.2,2.5);
-\node[right] at (4.3,2.2) {\footnotesize $4^k\lesssim\beta_Wx^2$: lost on the gauge orbit of the vacuum};
+\node[right] at (4.3,2.2) {\footnotesize $4^k\lesssim\beta_Wx^2$: lost on the gauge orbit of the vacuum, fixed direction or transported along a forest};
 \node[left] at (0,3.4) {\footnotesize Corollary~\ref{cor:abeliancoarse}, $\U(1)$ tilt};
 \fill[blue!45] (0,3.1) rectangle (14.2,3.7);
 \node[right] at (0.2,4.0) {\footnotesize rate $\beta_Wx^2$ at every scale and under every exterior};
@@ -10726,28 +10875,32 @@ For $\SU(2)$ the chessboard estimate stops after $O(\log\beta_W)$ scales
 because the normalisation charges the whole fluctuation volume of a block
 against the defect (Proposition~\ref{prop:coarsechess}), and the tilt stops
 after $O(\log\beta_W)$ scales because its second variation grows like $4^k$
-on the gauge orbit of the vacuum (Proposition~\ref{prop:tiltgrowth}). The
-remaining scales are the open input of the cube condition.}
+on the gauge orbit of the vacuum, whether the direction is fixed or
+transported along a forest (Propositions~\ref{prop:tiltgrowth},
+\ref{prop:foresttilt}). The remaining scales are the open input of the cube
+condition.}
 \label{fig:scaleladder}
 \end{figure*}
 Along the tuning $\beta_W\sim b\log(1/a)$ a cube of fixed physical side
 spans $m\sim\beta_W/b$ scales. Proposition~\ref{prop:coarsechess} covers
-$O(\log\beta_W)$ of them, Proposition~\ref{prop:tiltgrowth} covers
-$O(\log\beta_W)$ of them without the torus and uniformly in the exterior,
+$O(\log\beta_W)$ of them, Propositions~\ref{prop:tiltgrowth}
+and~\ref{prop:foresttilt} cover $O(\log\beta_W)$ of them without the torus
+and uniformly in the exterior,
 and Corollary~\ref{cor:abeliancoarse} covers all of them for the abelian
-theory. What the cube condition needs for $\SU(2)$ is a bound
-\[
-\partial_t^2S(Ue^{tr})\le Q(r)+\mathcal R(U,r)
-\]
-for gauge-covariant directions $r$ at every scale, with a remainder
-$\mathcal R$ supported on the large-field region and summable at the
-running coupling of that scale, together
-with a non-perturbative treatment of the last $O(1)$ scales, where the
-running coupling is of order one and coarse defects are not rare at all.
-This is the content of Ba{\l}aban's large-field expansion~\cite{Bal89b},
-and it is not carried out here. The cube condition itself is a mixing
-condition of Dobrushin--Shlosman type, which for compact spins with finite
-range is equivalent to a logarithmic Sobolev inequality uniform in the
+theory. What the cube condition needs for $\SU(2)$ is a translation of the
+Haar measures whose second variation is the energy of the direction up to
+a constant independent of the scale, together with a non-perturbative
+treatment of the last $O(1)$ scales, where the running coupling is of order
+one and coarse defects are not rare at all. Proposition~\ref{prop:foresttilt}
+shows that no translation transported along a forest does this: its
+constant is reached at zero action, with the growth $4^k$ of the energy of
+the smeared current under the residual gauge freedom, so the missing
+estimate is not a large-field remainder but a different section of the
+gauge orbits, with a Jacobian that enters the argument of part (ii). This
+is the content of Ba{\l}aban's large-field expansion~\cite{Bal89b}, and it
+is not carried out here. The cube condition itself is a mixing condition
+of Dobrushin--Shlosman type, which for compact spins with finite range is
+equivalent to a logarithmic Sobolev inequality uniform in the
 volume~\cite{SZ92}; the rarity of coarse defects is the part of that
 inequality that concerns the large fields.
 
