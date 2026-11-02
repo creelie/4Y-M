@@ -1,6 +1,6 @@
 cff-version: 1.2.0
 message: "If you use this work, please cite it as below."
-title: "Yang–Mills Mass Gap for Every Compact Simple Group on the Lattice and One Cube from the Continuum"
+title: "Yang–Mills Mass Gap on the Lattice and One Cube from the Continuum"
 authors:
   - family-names: Bhattacharjee
     given-names: Deep
@@ -16,7 +16,7 @@ authors:
     given-names: Tristan
     affiliation: "Independent Researcher, San Francisco, CA, USA"
 version: 4.30.0
-date-released: 2026-10-31
+date-released: 2026-11-02
 repository-code: "https://github.com/creelie/4Y-M"
 license: MIT
 doi: 10.5281/zenodo.23444338
