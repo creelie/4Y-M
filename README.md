@@ -78,6 +78,7 @@ resolves to the latest release.
 | v4.28.0 | [10.5281/zenodo.23836741](https://doi.org/10.5281/zenodo.23836741) |
 | v4.29.0 | [10.5281/zenodo.23841532](https://doi.org/10.5281/zenodo.23841532) |
 | v4.30.0 | [10.5281/zenodo.23889462](https://doi.org/10.5281/zenodo.23889462) |
+| v4.31.0 | [10.5281/zenodo.23895262](https://doi.org/10.5281/zenodo.23895262) |
 
 `YangMills_masterzipfinal2.zip` holds the repository at v4.31.0 and the
 Hexagon package of the paper
