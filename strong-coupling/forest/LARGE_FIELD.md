@@ -9,8 +9,9 @@ Every item is labelled **proved**, **sketch**, **heuristic** or **computation**.
 
 The main outcome is §3. It changes what is conditioned on: a **fixed product of link balls in fibre gauge**, instead of
 plaquette-level calm conditions. This removes the thin-lens problem on both sides of the mixture of `ANNEALED.md` §5,
-and it moves the rarity threshold from K/(8n_P) ≈ 10⁻⁷⁹ to a fixed radius. In the island ledger the threshold drops
-from 8.3·10¹⁶³ to 4.7·10⁴¹ at basin radius K, and lower for a larger basin (§4). It needs rarity only on the torus and
+and it moves the rarity threshold from K/(8n_P) ≈ 10⁻⁷⁹ to a fixed radius. The good side with no bad links is the paper's
+Theorem `chartdecay` (§3a), at radius 4.7·10⁻¹⁶. In the island ledger the threshold drops from 8.3·10¹⁶³ to
+4.5·10³⁷ at that radius, and lower for a larger basin (§4). It needs rarity only on the torus and
 averaged over the constraint v, which avoids (R1) at a single scale. It does nothing for D8 beyond about 19 scales (§4).
 
 ## 1. Where the huge thresholds come from (computation)
@@ -82,17 +83,43 @@ Because the mixture is averaged over v and over ω, this is used only annealed a
 rarity under every exterior, (R1), is **not** needed at this scale.
 
 **Open inputs.**
-- **(a) Hessian under L^∞ smallness.** Is Hess(βS|fibre) ≥ βc₀ whenever every link is within r₁ of 1 in fibre gauge?
-  The paper's chartdecay/fibrechart bound is stated under calm (plaquette) hypotheses. The Hessian of S at U is
-  the lattice Laplacian-type form plus O(max_p δ_p) corrections, and max_p δ_p ≤ 4r₁ on the product. So the bound
-  should hold for r₁ ≤ c with c an absolute constant, *provided* the fibre gauge kills the zero modes uniformly. That
-  last point is the check to do in `main.tex`.
+- **(a) Hessian under L^∞ smallness.** Answered in part by §3a: for ω = ∅ this is the paper's Theorem `chartdecay`.
+  What remains is the relative version for ω ≠ ∅.
 - **(b) Bad link ⇒ large plaquette.** In fibre gauge a link far from 1 should force curvature nearby, since the gauge
   is fixed by the block averages. This is a gauge-fixing estimate (a Poincaré-type inequality for the fibre
   coordinates in a block); it is plausible and unchecked.
 - **(c) The Cov_ω term.** The environment covariance of `ANNEALED.md` §5 is still closed by the bootstrap Lemma 3, with
   ε ≍ q·|N|²/r₁² now, which is smaller than before.
 - **(d) D8.** See §4.
+
+## 3a. Input (a) at ω = ∅ is already in the paper (proved there; the reading is new)
+
+Theorem `chartdecay` of `main.tex` (with Theorem `fibrechart`(iv) and Proposition `explicitconstants`) conditions the
+constrained law on Φ(Ω_r), where Ω_r is **a product of balls in the link coordinates η_e** (part (i)), so an L^∞
+condition. It gives the Brascamp–Lieb covariance bound with exponential weights, rate α_G = 2.5·10⁻⁴, amplitude
+120/λ, with constants independent of L, W, U, λ, s and κ. For SU(2) it needs β ≥ 2.3·10¹⁷ and κ + s ≤ 6.0·10⁻¹³, and
+the chart contains every fibre point with ‖X‖_∞ ≤ s/1280 ≤ 4.7·10⁻¹⁶ (Remark `chartdecayopen`).
+
+So the good side of §3 with no bad links is proved, at basin radius r₁ ≈ 4.7·10⁻¹⁶. The paper's open items (a) and (b)
+of Remark `chartdecayopen` are exactly the off-chart mass and the supremum over boundary conditions; the mixture of §3
+replaces both by an annealed rarity of leaving the chart. This is why the K/(8n_P) threshold disappears: the paper
+pays for the off-chart mass deterministically per fibre (`calmfibre`), and that is where the L² conditions of §1 enter.
+
+**What is not in the paper: the relative chart (ω ≠ ∅).** Let a block be bad if a link in its closure leaves the
+basin, and let W″ be the good blocks at distance ≥ 2 from bad ones (a collar, as in `ISLANDS.md` §2). Condition on
+every link outside W″. Then the exterior of W″ is within r₁ of the global background U_v near W″, so the actual
+configuration is a background for W″ with plaquettes ≤ κ + 4r₁. Two points must be checked:
+1. **Background selection.** `chartdecay` is centred at a background U′ in the conditional fibre. U′ must be chosen
+   measurably from the exterior (for instance the projection of U_v onto the fibre by the map h of `fibrechart`(i)),
+   and its plaquettes stay ≤ κ + O(r₁).
+2. **Matching domains.** The conditioning domain is a product of geodesic balls around U_v; the domain on which
+   `chartdecay` holds is Ω_r around U′. The bad event should be **defined** through Ω_r(U′) to make them coincide.
+   Then badness depends on the exterior through U′, and the rarity bound must absorb this. Since Φ is a near-isometry
+   at scale s, Ω_{r/2}(U′) ⊂ (ball product around U_v) ⊂ Ω_{2r}(U′) for r₁ ≪ s, so a sandwich with two radii should
+   suffice. Not checked.
+
+With 1 and 2, the island/collar/exit scheme of `ISLANDS.md` §2 runs with chart blocks whose responses are bounded by
+`chartdecay` and `D5.md` §2, and **no off-chart term at all**.
 
 ## 4. Ledger (computation; `d5/basin.py`, `d5/basin.out`)
 
@@ -102,13 +129,16 @@ log q(ρ) = −βρ²/16 + 6 log β + 24.7 + log(6e·80). Condition: q · cost <
 | basin radius r₁ | ρ = r₁/4 | β needed |
 |---|---|---|
 | 4.8·10⁻¹⁸ (= K) | 1.2·10⁻¹⁸ | 4.7·10⁴¹ |
+| 4.7·10⁻¹⁶ (paper's chart, §3a) | 1.2·10⁻¹⁶ | 4.5·10³⁷ |
 | 10⁻⁸ | 2.5·10⁻⁹ | 7.2·10²² |
 | 10⁻⁴ | 2.5·10⁻⁵ | 5.6·10¹⁴ |
 | 10⁻² | 2.5·10⁻³ | 4.8·10¹⁰ |
 | 10⁻¹ | 2.5·10⁻² | 4.4·10⁸ |
 
-Compare 8.3·10¹⁶³ (`ISLANDS.md` §3) and 1.1·10⁶⁴ (`CALM_LINK.md` §3). The island cost still carries C_G from the
-calm-data route. If input (a) holds, C_G is replaced by the Combes–Thomas constant and the numbers fall further.
+Compare 8.3·10¹⁶³ (`ISLANDS.md` §3) and 1.1·10⁶⁴ (`CALM_LINK.md` §3). The radius available today is the second row:
+β ≳ 4.5·10³⁷. Larger radii need a better c₃ in `explicitconstants` (its 6.0·10⁻¹³ is crude); the true chart may be much
+larger (heuristic). The island cost still carries C_G from the calm-data route. If the relative chart of §3a holds,
+C_G is replaced by the Combes–Thomas constant and the numbers fall further.
 
 **Coarse scales by chessboard alone.** A coarse block of side 2^k with holonomy defect r₁ forces a fine plaquette
 > r₁/4^{k+1} (Stokes over ≤ 4^{k+1} plaquettes). Counting the scales k at which the same island condition holds:
@@ -140,11 +170,10 @@ coarse curvature must be rare at the coarse coupling, which is Bałaban's large-
 
 ## 6. What remains, in order
 
-1. **Input (a)** in `main.tex`: does the fibre-gauge Hessian bound use only L^∞ smallness of the links, with the zero
-   modes killed uniformly? If yes, (I1) at one scale is a sketch with a deterministic input, and the islands threshold
-   is ≤ 4.7·10⁴¹.
+1. **Input (a), relative chart:** the two checks of §3a (background selection, matching domains). At ω = ∅ it is
+   Theorem `chartdecay`.
 2. **Input (b):** the Poincaré-type estimate "bad link ⇒ large plaquette" in fibre gauge.
 3. **D8:** RG-improved coarse rarity. Nothing here helps; this remains Bałaban's large-field expansion.
 
-Net effect on the blockers: (R1)/(I1) at a single scale moves from "a piece of Bałaban's expansion" to "two
-deterministic checks, (a) and (b)" (sketch). D8 is unchanged.
+Net effect on the blockers: (R1)/(I1) at a single scale moves from "a piece of Bałaban's expansion" to two
+deterministic checks, the relative chart of §3a and input (b), with threshold β ≳ 4.5·10³⁷ (sketch). D8 is unchanged.

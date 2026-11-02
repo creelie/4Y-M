@@ -23,7 +23,7 @@ def beta_needed(rho):
     return mp.e**hi
 
 print('basin radius r1 | plaquette level rho | beta for islands beaten by rarity')
-for r1 in ['4.8e-18', '1e-8', '1e-4', '1e-2', '1e-1']:
+for r1 in ['4.8e-18', '4.7e-16', '1e-8', '1e-4', '1e-2', '1e-1']:
     r1 = mpf(r1); rho = r1/4
     print(f'{mp.nstr(r1,3):>8} | {mp.nstr(rho,3):>8} | {mp.nstr(beta_needed(rho),3)}')
 
