@@ -115,14 +115,54 @@ logarithm of LEAKAGE.md §1 is the energy of w_Λ; it does not appear.
 2. **The constant c** is not tracked. It contains c_V² (Lemma 3, not evaluated in closed form), the colour factor N(N²−1)/16 and the 4/3 angular factor of
    LEAKAGE.md §2.
 3. **`leak_norm.out`.** The measured total order-g² change of Var(F) per g², 0.785 → 1.035 over τ/a² = 1 → 16, drifts.
-   Lemma 2 predicts that the hard part is uniform. The drift is therefore in the soft part (lattice artefacts at
-   small τ/a², where the soft modes sit near the cutoff) or in F₃ × F₃ soft–soft terms that Lemma 2 does not separate.
-   This is not resolved here; a split of that measurement at Λ = M/√τ would decide it.
+   Lemma 2 predicts that the hard part is uniform. **Resolved numerically (November 2026), see the next section:** the
+   drift is not in the hard part, and not in the soft part of F₃ either. It is in the even sector 2Cov(F₂, F₄), the
+   order-g² normalisation of the two-particle state.
 4. Order g² only. At realistic couplings g₀² ≈ 1.5 these are 5–15% effects (LEAKAGE.md §5).
 
 **Status of B2:** S′ holds at order g² in the free vacuum, uniformly in a, with the hard norm controlled by
-Lemmas 2–3 and the uniform lattice sums. Open: the O(g²) vacuum correction, the explicit constant, and the
-interpretation of the `leak_norm` drift.
+Lemmas 2–3 and the uniform lattice sums. Open: the O(g²) vacuum correction and a closed-form constant. The
+`leak_norm` drift is located (numerically) in the normalisation sector, and an empirical c ≈ 1.7 is measured (below).
+
+## The split measurement (numerical, November 2026)
+
+`leak_split.py` repeats the `leak_norm` measurement with a parity split and a hard/soft split at Λ = 2/√τ.
+- F(+g) and F(−g) are evaluated on the same Gaussian draw, so the odd part F₃ and the even part F₂ + g²F₄ separate.
+- Each soft draw gets two independent hard draws (Fourier modes with p̂ ≥ Λ resampled). Then
+  E[Var(F₃ | soft modes)] is estimated without bias from the difference of the two F₃ values: this is the hard Fock
+  norm ‖w_Λ‖² of Lemma 2.
+- SU(2), d = 4, g = 0.4, box L = 4√τ. Samples: 400, 400, 300, 300, 160 at τ/a² = 1, 2.25, 4, 9, 16. Errors are
+  jackknife (20 blocks). Output: `analyse_split.out`; re-analysis of the old data: `split_existing.out`.
+
+All entries are per g², relative to Var F₂:
+
+| τ/a² | odd (F₃) | hard | soft = odd − hard | even | N(2) | hard / N(2) |
+|---|---|---|---|---|---|---|
+| 1 | 0.065(6) | 0.058(5) | 0.007(3) | 0.654(12) | 0.046 | 1.26 |
+| 2.25 | 0.118(15) | 0.113(17) | 0.004(8) | 0.733(12) | 0.091 | 1.24 |
+| 4 | 0.145(16) | 0.160(21) | −0.014(8) | 0.766(18) | 0.093 | 1.72 |
+| 9 | 0.152(15) | 0.154(17) | −0.002(10) | 0.814(17) | 0.093 | 1.66 |
+| 16 | 0.183(23) | 0.160(27) | 0.023(15) | 0.853(33) | 0.092 | 1.74 |
+
+Findings:
+1. **The soft part of F₃ is zero within errors at every τ.** The cubic leak is entirely hard, as Lemma 2 assumes.
+2. **The hard part is flat for τ/a² ≥ 4.** It is 0.157(12), with χ² 0.06 for a constant (2 dof). Lemma 2 predicted this
+   uniformity. The ratio to the lattice sum N(2) of `hardsum.py` gives an **empirical constant c ≈ 1.7**. It is smaller
+   (1.25) at τ/a² ≤ 2.25, where the soft set is a handful of momenta near the cutoff; that is a lattice artefact.
+3. **The drift is in the even sector.** That sector rises 0.654 → 0.853 and is not constant for τ/a² ≥ 4 (χ² 6.8).
+   - A fit in ln τ gives slope 0.072(8) (χ² 1.8). This is about 80% of the 2b₀ = 0.093 that one-loop running of g² at
+     the scale √τ would give in Var F.
+   - 1/√τ fits as well (χ² 0.5), so the form is not decided.
+   - The old data alone (`split_existing.out`) preferred ln τ, with slope 0.058(10).
+   - Either way it is the normalisation of the two-particle sector. It is the Z-factor / coupling renormalisation of
+     item 1, and it cancels in any ratio such as S′ that normalises by ‖F Ω‖.
+4. **Energies are not resolved.** The f-sum estimate of the order-g² shift of the even-sector energy has errors of 0.4–0.7
+   in units of E₀. So whether that sector's spectral weight moves is not measured here. The odd-sector energy is
+   √τ·E_odd ≈ 11.5, flat in τ: the hard states sit at energies of order a⁻¹, as Lemma 2 uses.
+
+**Consequence for B2.** Item 3 is closed: no drift in the quantity S′ bounds. The g² leak into hard states is
+uniform in a, with c ≈ 1.7 against the lattice sum N(2). What is left is item 1, the O(g²) vacuum, which carries the
+running coupling.
 
 ## Files
 
@@ -131,4 +171,7 @@ interpretation of the `leak_norm` drift.
 | `hardsum.py` | Lattice sums Ē, H(M), N(M) at τ/a² = 1, …, 4096 |
 | `hardsum.out` | Output |
 | `vertex_lat.py` | Bilinear part of the SU(2) Wilson-flow drift vs \|k̂\|+\|l̂\|+\|P̂\| (`python3 vertex_lat.py L NPAIRS NMAX`) |
+| `leak_split.py` | Parity- and hard/soft-split order-g² measurement (`python3 leak_split.py L NSAMP SEED M OUT.npy`; needs `su2_slice_jax` from big-bang-monotile) |
+| `analyse_split.py`, `analyse_split.out` | Jackknife analysis of the split runs |
+| `split_existing.py`, `split_existing.out` | Parity split of the old `leak_norm` data |
 | `vertex_lat.out` | Output for (8, 400, all), (32, 200, 2), (32, 200, 6) |
