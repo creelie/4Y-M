@@ -134,3 +134,18 @@ on (D).
 - What is left of the calm-data cube coefficient is one statement, (R1): one-point calm rarity under an arbitrary
   exterior. All three routes to it fail (§4), and it is the large-field half of a renormalisation-group expansion.
   **D is blocked there**, and at D8. Work moves to other paths.
+
+### After the calm-data link: B2 closed, A2 corrected, lead (b) assessed (November 2026)
+
+- **B2.** The `leak_norm` drift is located (numerical, `slice/sprime/LATTICE_SPRIME.md`, "The split measurement"):
+  - the cubic leak is entirely hard and flat for τ/a² ≥ 4, with c ≈ 1.7 against N(2);
+  - the drift is the two-particle normalisation, which runs like the coupling and cancels in S′.
+
+  What is left is the O(g²) vacuum.
+- **A2.** The 4.1% slack in Lemma `blockK` is the direct y₃ response d₃ = C d₁, not the feedback loop (that is 0.15%).
+  The supremum over test functions lies between 0.2719 and 0.2849. So the "3.4% margin" for β_W = 0.355 is not
+  established (`../gauge-fixed/blocks/feedback/README.md`, Correction).
+- **Lead (b), Dobrushin–Pechersky.** Its Lyapunov condition needs field strength to be attenuated from a block's
+  boundary inward by a factor Δ^χ. A constant abelian-embedded field shows no attenuation at the linearised level. The
+  same example shows that (R1) cannot hold under *every* exterior without a nonabelian mechanism, so (R1) should be
+  posed averaged over exteriors (`CALM_LINK.md` §4, heuristic).
