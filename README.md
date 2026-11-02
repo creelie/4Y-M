@@ -79,7 +79,7 @@ resolves to the latest release.
 | v4.29.0 | [10.5281/zenodo.23841532](https://doi.org/10.5281/zenodo.23841532) |
 
 `YangMills_masterzipfinal2.zip` holds the repository at v4.28.0 and the
-Hexagon package of the paper *Explicit Lattice Yang–Mills Mass Gap for Every Compact Simple Group Reducing the Continuum Gap to One Cube*
+Hexagon package of the paper *Yang–Mills Mass Gap for Every Compact Simple Group on the Lattice and One Cube from the Continuum* (formerly *Explicit Lattice Yang–Mills Mass Gap for Every Compact Simple Group Reducing the Continuum Gap to One Cube*)
 ([download](https://github.com/creelie/4Y-M/raw/main/YangMills_masterzipfinal2.zip)).
 
 This repository contains three papers and a Lean 4 / Mathlib project
@@ -163,9 +163,13 @@ of the three free links of one plaquette pass the single-link ceiling 1/3:
 the free links split into such triples with period two, the middle link of
 each block is integrated out, and the block constant is bounded analytically
 with constants of the von Mises–Fisher partition function certified in ball
-arithmetic (`strong-coupling/gauge-fixed/blocks/`). This gives uniqueness,
-decay and a gap m ≥ −½ log α(β_W) for β_W ≤ 0.345, with α(1/3) ≤ 0.9561 and
-α(0.345) ≤ 0.9973.
+arithmetic (`strong-coupling/gauge-fixed/blocks/`). With the exponents
+interpolated and the Poincaré constant 1/3 of the one-link law
+(`sharp.py`, mode `sharp`), this gives uniqueness, decay and a gap
+m ≥ −½ log α(β_W) for β_W ≤ 0.351, with α(1/3) ≤ 0.9428, α(0.345) ≤ 0.9805
+and α(0.351) ≤ 0.99995; the chain of rational bounds is checked by the Lean
+kernel in `blocks/lean/` (α(1/3) ≤ 0.9428, α(0.351) ≤ 0.99997, and the bound
+exceeds one at 0.352).
 The same blocks work for SU(3) (`strong-coupling/gauge-fixed/blocks/su3/`):
 the law of a block is controlled by the modulus Λ(r) of the cover, the
 Hessian of log Z on r conv SU(3) and its third derivative, bounded on 841
@@ -175,8 +179,11 @@ m ≥ −½ log α₃(β_W), so m ≥ 0.0177 at β_W = 3/4 instead of 1.1·10⁻
 single links. The blocks need only Λ(2β_W), not 2rΛ(r) < 1: a second cover
 at r = 38/25 (1063 boxes, 2rΛ(r) ≤ 1.029967) with the constants on 784 boxes
 (eigenvalues in [0.054978, 0.248280], third cumulant ≤ 0.183546) gives
-α₃(0.76) ≤ 0.99950, so the SU(3) range extends to β_W ≤ 0.76, past the end of
-the single-link route, with m ≥ 2.5·10⁻⁴ at β_W = 0.76.
+α₃(0.76) ≤ 0.99950, and a third cover at r = 77/50 (2825 boxes, threshold
+1.0275) with the constants on 826 boxes (eigenvalues in [0.053955, 0.249240],
+third cumulant ≤ 0.184989) gives α₃(0.77) ≤ 0.99978, so the SU(3) range
+extends to β_W ≤ 0.77, past the end of the single-link route, with
+m ≥ 1.1·10⁻⁴ at β_W = 0.77.
 
 **Every compact simple group (third paper, proved by hand, not refereed):**
 in the forest gauge the least Ricci curvature of G is κ_G = h^∨/(2ℓ_ρ)
