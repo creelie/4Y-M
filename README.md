@@ -79,7 +79,7 @@ resolves to the latest release.
 | v4.29.0 | [10.5281/zenodo.23841532](https://doi.org/10.5281/zenodo.23841532) |
 | v4.30.0 | [10.5281/zenodo.23889462](https://doi.org/10.5281/zenodo.23889462) |
 
-`YangMills_masterzipfinal2.zip` holds the repository at v4.30.0 and the
+`YangMills_masterzipfinal2.zip` holds the repository at v4.31.0 and the
 Hexagon package of the paper
 ([download](https://github.com/creelie/4Y-M/raw/main/YangMills_masterzipfinal2.zip)).
 
@@ -187,8 +187,11 @@ translation of the Haar measures, bounds the tails of the force along a fixed
 direction by the second variation of the action at every scale and under
 every exterior: for U(1) this makes coarse defects rare at the rate β_W x² at
 every scale, while for SU(2) the second variation grows like 4^k on the gauge
-orbit of the vacuum. The remaining statement is a second-variation bound
-along gauge-covariant tilts.
+orbit of the vacuum, and the same happens when the direction is
+transported along a forest, which keeps the Haar measures but leaves the
+residual gauge freedom of the blocks. The remaining statement is a
+second-variation bound on a smooth section of the gauge orbits, with its
+Jacobian.
 
 **Not proved.** The cube estimate along the continuum tuning and the
 existence of a nontrivial Osterwalder–Schrader continuum limit. The Clay
