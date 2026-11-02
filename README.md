@@ -1,4 +1,4 @@
-# Explicit Lattice Yang–Mills Mass Gap for Every Compact Simple Group Reducing the Continuum Gap to One Cube
+# Yang–Mills Mass Gap on the Lattice and One Cube from the Continuum
 
 Deep Bhattacharjee, Ushashi Bhattacharya, James Montgomery Lockwood and Tristan Romanov.
 
@@ -78,271 +78,132 @@ resolves to the latest release.
 | v4.28.0 | [10.5281/zenodo.23836741](https://doi.org/10.5281/zenodo.23836741) |
 | v4.29.0 | [10.5281/zenodo.23841532](https://doi.org/10.5281/zenodo.23841532) |
 
-`YangMills_masterzipfinal2.zip` holds the repository at v4.28.0 and the
-Hexagon package of the paper *Yang–Mills Mass Gap for Every Compact Simple Group on the Lattice and One Cube from the Continuum* (formerly *Explicit Lattice Yang–Mills Mass Gap for Every Compact Simple Group Reducing the Continuum Gap to One Cube*)
+`YangMills_masterzipfinal2.zip` holds the repository at v4.30.0 and the
+Hexagon package of the paper
 ([download](https://github.com/creelie/4Y-M/raw/main/YangMills_masterzipfinal2.zip)).
 
-This repository contains three papers and a Lean 4 / Mathlib project
-(`YangMills/`) checking their finite statements:
+## The paper
 
-- *Spacing-Uniform Lattice Inequalities Cannot Produce the Yang–Mills Mass Gap*
-  (`tex/main.tex`, compiled to `main.pdf`; RevTeX 4-2, PRD style);
-- *Mass Gap of Lattice Yang–Mills Theory up to the Dobrushin Ceiling*
-  (`strong-coupling/prd/`, PDF also at
-  `preprintYangMillsDobrushinCeiling/YangMillsDobrushinCeiling.pdf`; see
-  `strong-coupling/README.md`);
-- *Explicit Lattice Yang–Mills Mass Gap for Every Compact Simple Group Reducing the Continuum Gap to One Cube* (`strong-coupling/forest/`, REVTeX, 98 pages; PDF also
-  at `preprintYangMillsForestGauge/YangMillsForestGauge.pdf`; the one-column
-  version in the AMS article class, 150 pages, is `strong-coupling/forest/cmp/`;
-  the working notes and checks are in `strong-coupling/gauge-fixed/`). It
-  was first posted as Hexagon preprint 2610.00341 under the title *Mass Gap
-  of Four-Dimensional Lattice Yang–Mills Theory in a Forest Gauge*.
+`strong-coupling/forest/main.tex` is the paper *Yang–Mills Mass Gap on the
+Lattice and One Cube from the Continuum* (REVTeX 4-2, two columns, 104 pages;
+PDF at `preprintYangMillsForestGauge/YangMillsForestGauge.pdf`). The
+one-column version in the AMS article class, 159 pages, is
+`strong-coupling/forest/cmp/main.tex`. Both build with
+`latexmk -pdf main.tex`; the bibliography is written by hand and every DOI
+was checked. The figures are PNG files written by the scripts in
+`strong-coupling/forest/figures/` and TikZ pictures in the source. It was
+first posted as Hexagon preprint 2610.00341 under the title *Mass Gap of
+Four-Dimensional Lattice Yang–Mills Theory in a Forest Gauge*.
 
-## Status
+## What it proves
 
-**Proved (and checked in Lean, no `sorry`, standard axioms only):**
+**The forest gauge.** The gauge is fixed on a period-two field of straight
+lines that meets every plaquette in exactly one link, so every free link has
+twelve Dobrushin partners instead of eighteen (`StrongCoupling/GaugeFix.lean`:
+one fixed link in every plaquette, straight lines, twelve partners, the
+per-link budget 29/2 of the gauge-fixed Hessian bound).
 
-- No-go: if the lattice gap is bounded below in lattice units uniformly in the
-  spacing, every renormalised two-point function vanishes at positive time in
-  the limit (`SpectralNoGo.lean`).
-- Critical scaling: if the lattice gap is at least `m_a · a` with `m_a → m`, the
-  limiting two-point functions obey the ratio bound of a theory with gap `m`
-  (`LimitRatio.lean`); this is the one-sided bound the no-go leaves open.
-- Wilson action bounds `0 ≤ S ≤ 2N|P|`, oscillation `≤ 2Nβ|P|`, and the
-  Holley–Stroock factor `e^{-2Nβ|P|} → 0` with the volume (`WilsonAction.lean`).
-- Holley–Stroock perturbation for Poincaré and entropy inequalities on finite
-  spaces (`HolleyStroock.lean`).
-- Bianchi identity on a cube (`WilsonAction.lean`).
-- One-loop running coupling attains every value at a spacing-independent scale
-  (`RunningCoupling.lean`).
-- A correlated local action whose variance per volume is unbounded, refuting
-  the independence step of the cumulant argument (`CumulantCounterexample.lean`).
+**Fixed lattice spacing.** A unique free-boundary state, reflection
+positivity, exponential clustering and a transfer-matrix gap:
 
-**Lattice SU(2) up to the Dobrushin ceiling (checked in Lean, no `sorry`,
-standard axioms only):**
+- SU(2) for β_W < 1/3 from single links, m ≥ −log(3β_W); past the single-link
+  ceiling, blocks made of the three free links of one plaquette give a gap
+  m ≥ −½ log α(β_W) for β_W ≤ 0.351, with α(1/3) ≤ 0.9428, α(0.345) ≤ 0.9805
+  and α(0.351) ≤ 0.99995 (`strong-coupling/gauge-fixed/blocks/`: the constants
+  of the von Mises–Fisher partition function in ball arithmetic, `sharp.py`;
+  the chain of rational bounds checked by the Lean kernel in `blocks/lean/`,
+  where the bound exceeds one at 0.352).
+- SU(3) for β_W ≤ 3/4 from single links, with the exact moments of the
+  one-link law on a cover of the staple sums by 2341 boxes, and up to
+  β_W ≤ 0.77 with the same blocks (`strong-coupling/gauge-fixed/blocks/su3/`):
+  covers at r = 3/2, 38/25 (1063 boxes) and 77/50 (2825 boxes, threshold
+  1.0275), with the Hessian of log Z and its third derivative bounded on 841,
+  784 and 826 boxes; α₃(3/4) ≤ 0.9653, α₃(0.76) ≤ 0.99950, α₃(0.77) ≤ 0.99978.
+- Every compact simple group G for N|β| < 2κ_G/29, with κ_G = h^∨/(2ℓ_ρ) the
+  least Ricci curvature (Ric = −B/4) and the gap
+  m_G(β) = arccosh(1 + (κ_G/(N|β|) − 29/2)/12); the table of ranges is checked
+  by `strong-coupling/gauge-fixed/checks/groups/ricci.py`. A certificate for
+  the gauge-fixed Hessian (Appendix on the certificate bound, data in
+  `strong-coupling/gauge-fixed/checks/romanov/`, checked independently by
+  `romanov_certificate.py`) extends the range to N|β| < 2κ_G/28.840002.
 
-- `StrongCoupling/QxCoefficients.lean`: the closed form of every Taylor
-  coefficient of 𝒟(κ) = (8+2κ²)I₁² − κ²I₀² − κI₁(2κ) by Vandermonde's
-  identity, the bound 16^m ≤ 4m·C(2m,m)², and the nonnegativity of all
-  coefficients (the transverse half of the sharp quarter).
-- `StrongCoupling/ZonalBound.lean`: the identities α = 16/(2s+3)² and
-  4α² + T = (2s−5)p(s)/(4(2s+3)⁴), the sign of the cubic p on (5/2, 4.004],
-  the derivative and residual of the Riccati barrier κ/(3/2+√(κ²+25/4)), the
-  monotonicity of T, and the final zonal inequality.
-- `StrongCoupling/Thresholds.lean`: the Dobrushin row sum 6(d−1)|β|, the
-  threshold β_W < 2/9 at d = 4, and the gap m = −log(9β_W/2) > 0.
-- `StrongCoupling/GaugeFix.lean`: the line field of the forest gauge
-  (`strong-coupling/gauge-fixed/`): one fixed link in every plaquette,
-  straight lines, twelve partners per active link (so the Dobrushin row sum
-  is 12|β| = 3β_W), and the per-link budget 29/2 of the gauge-fixed Hessian
-  bound (seven theorems, `decide`, axioms `propext` at most).
-- `StrongCoupling/CubeOpen.lean`: the finite arithmetic of the two
-  propositions on perturbed actions in the forest-gauge paper: the constants
-  96, 4608 and 1152, the common tilt e^Ω(1+2Ω), 1 − e^(−2η) ≤ 2η,
-  α' ≥ α + 96sΩ, the threshold ε < (1−α)/(4608 sMDN_n), m⁴ ≥ x²/4 from
-  m(m+1) ≥ x, and the small-field bound on ε of order η² (eleven theorems).
-- `StrongCoupling/BlockGauge.lean`: the block-rooted axial gauge: fifteen
-  tree links per block forming a spanning tree, 17 + 32 active links, chains
-  of length at most three with plaquette load at most eight (the constant 52
-  of the block gap), and the twelve classes of the invisible lines of the
-  forest gauge (five theorems, `decide`, axioms `propext` at most).
+**The continuum step at one physical scale.** The single-link condition is
+replaced by a Dobrushin–Shlosman condition D(n, α) on one cube of n⁴ sites,
+averaged over its translates; it gives a lattice gap ≥ log(1/α)/(2n), and if
+it holds along the continuum tuning at a fixed physical side ℓ, every
+continuum limit has a mass gap ≥ log(1/α)/(2ℓ). The same holds for
+observables smoothed by the spatial gradient flow, whose renormalised
+continuum limits exist along subsequences and are nontrivial exactly when one
+ratio of two-point functions stays away from zero; tree bounds on the
+truncated correlations give every n-point function and that ratio.
 
-**Forest gauge fixing (proved by hand, not yet refereed; third paper,
-`strong-coupling/forest/`, notes in `strong-coupling/gauge-fixed/`):** four-dimensional SU(2) has a unique
-free-boundary state with a transfer-matrix gap m ≥ −log(3β_W) for β_W < 1/3,
-and every SU(N) has a gauge-fixed Hessian bound 29/2 giving Bakry–Émery,
-decay and a gap for |β| < 1/29 (SU(3): β_W < 9/29). For SU(3) a single-link
-Dobrushin bound in the same gauge, with a spectral-gap estimate for the
-one-link measure and a corrector of degree two in the matrix entries,
-evaluated with the exact moments of the one-link measure at every staple sum
-(character expansion, rigorous error bounds, a cover of the staple sums by
-2341 boxes), gives uniqueness, decay and a gap m ≥ −log(1.33319 β_W) for
-β_W ≤ 3/4. The single-link route stops at or below β_W ≈ 0.77 with any
-bound; past that, blocks of several links are needed. For SU(2), blocks made
-of the three free links of one plaquette pass the single-link ceiling 1/3:
-the free links split into such triples with period two, the middle link of
-each block is integrated out, and the block constant is bounded analytically
-with constants of the von Mises–Fisher partition function certified in ball
-arithmetic (`strong-coupling/gauge-fixed/blocks/`). With the exponents
-interpolated and the Poincaré constant 1/3 of the one-link law
-(`sharp.py`, mode `sharp`), this gives uniqueness, decay and a gap
-m ≥ −½ log α(β_W) for β_W ≤ 0.351, with α(1/3) ≤ 0.9428, α(0.345) ≤ 0.9805
-and α(0.351) ≤ 0.99995; the chain of rational bounds is checked by the Lean
-kernel in `blocks/lean/` (α(1/3) ≤ 0.9428, α(0.351) ≤ 0.99997, and the bound
-exceeds one at 0.352).
-The same blocks work for SU(3) (`strong-coupling/gauge-fixed/blocks/su3/`):
-the law of a block is controlled by the modulus Λ(r) of the cover, the
-Hessian of log Z on r conv SU(3) and its third derivative, bounded on 841
-boxes in ball arithmetic at r = 3/2 (eigenvalues in [0.056015, 0.247316],
-third cumulant ≤ 0.182126). This gives α₃(3/4) ≤ 0.9653 and a gap
-m ≥ −½ log α₃(β_W), so m ≥ 0.0177 at β_W = 3/4 instead of 1.1·10⁻⁴ from
-single links. The blocks need only Λ(2β_W), not 2rΛ(r) < 1: a second cover
-at r = 38/25 (1063 boxes, 2rΛ(r) ≤ 1.029967) with the constants on 784 boxes
-(eigenvalues in [0.054978, 0.248280], third cumulant ≤ 0.183546) gives
-α₃(0.76) ≤ 0.99950, and a third cover at r = 77/50 (2825 boxes, threshold
-1.0275) with the constants on 826 boxes (eigenvalues in [0.053955, 0.249240],
-third cumulant ≤ 0.184989) gives α₃(0.77) ≤ 0.99978, so the SU(3) range
-extends to β_W ≤ 0.77, past the end of the single-link route, with
-m ≥ 1.1·10⁻⁴ at β_W = 0.77.
+**What the cube estimate needs.** D(n, α) holds at strong coupling for every
+even n above an explicit size; at every fixed n it fails once β is large; it
+cannot come from bounds on single lines of links that are uniform in the
+exterior; for SU(N) the cube needs a side of order (β_W/log β_W)^{1/4}
+spacings (lattice Stokes inequality and the volume of small balls); it fails
+for the abelian Villain theory and for the quadratic approximation of the
+line gauge. Finite counts: `strong-coupling/gauge-fixed/checks/cube/`.
 
-**Every compact simple group (third paper, proved by hand, not refereed):**
-in the forest gauge the least Ricci curvature of G is κ_G = h^∨/(2ℓ_ρ)
-(Ric = −B/4), and for N|β| < 2κ_G/29 the theory has a unique free-boundary
-state, exponential clustering and a transfer-matrix gap
-m_G(β) = arccosh(1 + (κ_G/(N|β|) − 29/2)/12). The ranges in β_W = N²β run
-from N²/29 for SU(N) to 124/29 for E₈ (exact table checked by
-`strong-coupling/gauge-fixed/checks/groups/ricci.py`).
+**Block averages.** In a gauge whose fixed links are trees inside blocks of
+side two, the constrained quadratic form has gap 52, improved to 5000/537 by
+an exact certificate (`checks/blocks/blockgap_certificate.py`), and the
+constrained cube condition holds at every coupling for large cubes; one step
+of averaging reduces it to the averages. For group-valued links the straight
+path between block roots is coercive, D_v² ≤ 224 Q, but does not compose, and
+no continuous covariant block map treats the positions of a block alike. A
+cut-off of Bałaban's averaging is continuous, covariant and coercive for every
+field (D² ≤ 1431 Q, coarse energy ≤ 2956 Q for one step), composes on fields
+with values in a maximal torus of small curvature and, for every compact
+group, on fields whose curvatures at the successive scales have a small sum.
+Under the SU(2) Wilson measure the chessboard estimate locates the large
+plaquettes in clusters of vanishing physical size, the composition is local
+and carries the field through the clusters up to a coarse spacing of order
+(β_W/log β_W)^{1/4} a, and the effective forms after k steps are equivalent to
+the coarse forms, Q_k ≤ S_k ≤ 256 Q_k, local uniformly in k.
 
-**The continuum step at one physical scale (conditional):** the paper
-replaces the single-link Dobrushin condition by a condition D(n, α) on one
-cube of n⁴ sites, averaged over its translates by 2Z⁴, and proves that it
-gives a lattice gap ≥ log(1/α)/(2n). If D(n_k, α) holds along the continuum
-tuning with n_k a_k ≤ ℓ for a fixed physical length ℓ, then every continuum
-limit has a mass gap ≥ log(1/α)/(2ℓ). Two statements remain unproved: (D)
-the cube estimate uniformly in the spacing, and (E) the existence of a
-nontrivial Osterwalder–Schrader limit.
+**The fibres of the average.** On the fibres of the cut-off average at small
+fields the constrained law is log-concave on a chart with Brascamp–Lieb
+constant 60/λ and covariances of local observables decaying at a rate that
+depends only on the group, with explicit constants for every compact G in
+U(r) (α_G = 2.5·10⁻⁴, c_9 = 1.2·10⁴). Every small-field point of a fibre lies
+in the chart; along its private links the average is a submersion with a
+field-independent constant and, for SU(2), its law under Haar measure has
+density at most 2.4·10⁴, so a Peierls argument bounds the mass off the chart
+on every fibre through a field with small plaquettes. Along the logarithmic
+tuning every exterior has a calm completion with probability tending to one,
+and fibres of small mass and exteriors without a calm completion are the
+typical case at physical scale. Checks: `checks/cube/small_field_fibre.py`,
+`fibre_chart.py`, `chart_decay.py`, `off_chart.py`, `every_fibre.py`,
+`calm_windows.py`, `any_exterior.py`.
 
-**What the cube estimate requires (proved):** D(n, α) holds at strong
-coupling for every even n above an explicit size (for SU(2),
-α = β_W/(1−3β_W)·(5/n − 2/n²)); if D(n, α) holds, then in the cube with the
-identity outside the gauge-fixed links stay on average at distance at least
-(1−α)D/3 from the identity (for SU(2), by four colours and tetrahedral
-quaternions, at mean distance at least 1−α; for every compact simple group
-with the Hilbert–Schmidt metric of an irreducible representation, at least
-the fraction 1−α of the Haar disorder and mean distance (1−α)D/2), so for
-every fixed n the condition fails once β is large; and for SU(2) there is an exterior, legal at every coupling, under
-which the conditional law of one line of links has a ten-step gap at most
-e^20 24^10 b^15 e^(−b/1280), so (D) cannot come from bounds on single lines
-that are uniform in the exterior. None of this decides (D) along the
-continuum tuning, where n grows with β. For SU(2) the condition needs
-n⁴ ≥ 2(1−α) β_W/(5 L(β_W)), L(b) = 1 + log 24 + (3/2) log 9b: every
-gauge-fixed link is the holonomy of a disc of at most (n/2)(n/2+1) plaquettes,
-and a lattice Stokes inequality with the energy bound gives the size. The same
-holds for every SU(N) with L_N(b) = 1 + ((N²−1)/2) log(81π²b) + N(N−1) log(12/11),
-from the Jacobian of the exponential map and the volume of small balls. A
-stationary flux configuration, every plaquette within 4π/L² of the identity
-and a loop of side L/2 with holonomy −1, shows that the n² lost there is of
-the right order. The continuum step also holds for observables smoothed by the
-spatial gradient flow of Sakai and Sasaki, which is reflection positive and
-leaves the transfer matrix unchanged up to unitary equivalence. Renormalised
-by one condition at a single physical separation, these flowed fields have
-continuum limits along subsequences for every tuning (Theorem "renormalised
-flowed observables"), and a nontrivial limit exists if and only if the ratio
-C(σ)/C(0) of the two-point function of the smeared packet at a fixed physical
-separation to its reflected norm does not tend to zero (a point-field ratio at
-coincidence would not do: it tends to zero for the free massless field); that
-ratio condition is not proved. If the ratio is bounded below, renormalising at
-separation σ gives tight spectral measures with explicit tail and moment
-bounds, and a one-slab bound ⟨Ψ, (1−T)Ψ⟩ ≤ Ca on the transfer matrix would give
-the ratio bound; neither is proved for Yang–Mills. For product test functions
-the ratio lies between ratios of correlations of one spatially smeared slice
-field at two fixed physical separations, so what is open is a lower bound
-liminf D(r′)/D(r) > 0 for one pair r < r′; it holds for the free field and,
-along the right tuning, for two-dimensional SU(N) lattice gauge theory on a
-circle, where the energies converge to g²ℓC₂(λ)/2; the spatial flow alone
-does not give it. For the free field, conditioning an energy packet on
-averages over blocks leaves at least the fraction 2^(−d)d^(−2) of its variance
-at every lattice spacing, so the errors of a route through block averages
-have to be measured in the reflected norm (Proposition "block averages of the
-free field"). Tree
-bounds on the truncated correlations of the flowed fields give all n-point
-Schwinger functions as reflection-positive distributions along a
-subsequence, a time semigroup and the ratio bound itself (Theorem "higher
-correlations"); they are not proved along the continuum tuning, and their
-order-two cases force the lattice gap below a fixed multiple of the lattice
-spacing, so they fail at every fixed strong coupling and no strong coupling
-expansion can give them (Proposition "tree bounds are critical"). For a
-smooth packet the same order-two bounds give the ratio with an explicit rate,
-C(σ)/C(0) ≥ e^(−2√B₁σ), tight spectral measures and a limit of finite energy
-(Proposition "energy control from the tree bounds"). Uniformly in the coupling:
-SU(N) force moments, the Ward identity E[W_e F] = −E⟨∇S_e, ∇F⟩, a lower bound
-on the SU(2) plaquette variance, and bare blocking (coarse links within total
-variation (K/2)e^(3b)(4b/(4b+1))^(B−3) of Haar); none of these reaches the
-ratio, the tree bounds or (D). In a
-periodic spatial box the normalising reflected norm C(0) is strictly positive
-for product test functions, by Lüscher's strictly positive transfer matrix. At every n
-the mean distance of the gauge-fixed links from the identity is at least
-(1/9)·max(6β_W, 1)^(−1/2). For a Gaussian field the averaged cube coefficient
-is exactly 1 at every size when the field is massless, and below
-1 − (5/6)⁴(mℓ)²/((mℓ)²+160) at physical side ℓ with mass m. Finite counts:
-`strong-coupling/gauge-fixed/checks/cube/cube_requirements.py`; Monte Carlo
-probes that the proofs do not use: `influence_mc.py`, `eps_mc.py` in the same
-directory (see `strong-coupling/OPEN.md`).
+**Fixed large-field sets and coarse defects.** Under every exterior, excess
+action in a box is rare and a link conditioned on a fixed large-field set
+keeps a bounded Dobrushin response. The curvature of the block averages costs
+action independent of the scale (γ_k between 1/432 and 1/2), and the
+chessboard estimate applies to the coarse events. The Haar tilt, a right
+translation of the Haar measures, bounds the tails of the force along a fixed
+direction by the second variation of the action at every scale and under
+every exterior: for U(1) this makes coarse defects rare at the rate β_W x² at
+every scale, while for SU(2) the second variation grows like 4^k on the gauge
+orbit of the vacuum. The remaining statement is a second-variation bound
+along gauge-covariant tilts.
 
-**Block-constrained cubes (proved in the quadratic approximation; the
-programme of J. Lockwood's report):** in the block-rooted axial gauge, a
-spanning tree fixed in every block of side two, and conditioned on the
-full-block averages, the quadratic form satisfies Σφ² ≤ 52 Q(φ) in every
-volume (Theorem "block gap"), the responses of a cube to its exterior are
-localised by a Combes–Thomas estimate (‖u_j‖₁ ≤ 10¹⁴), and the
-block-constrained cube condition D_c(n, α) holds at every coupling for
-n ≥ 2·10¹⁵/α. In the forest gauge, averages along straight paths leave the
-lines with odd transverse coordinates invisible, so the constrained
-condition fails there at every n. Checks:
-`strong-coupling/gauge-fixed/checks/blocks/block_gauge.py` and
-`YangMills/StrongCoupling/BlockGauge.lean`. A certificate of T. Romanov on a window of
-five blocks improves 52 to 5000/537 = 9.311 (Proposition "blockgapsharp";
-exact check `strong-coupling/gauge-fixed/checks/blocks/blockgap_certificate.py`
-with `certificate_c537_5000.json`). One step of composition is
-proved: the cube coefficients of any law that decomposes along the averages
-are at most the constrained ones plus those of the law of the averages
-(Corollary "compose", from a Kantorovich mixture lemma, with responses
-‖r_w‖₁ ≤ 4·10¹⁴), and the averages carry at least the coarse quadratic form
-at every scale, Q_k ≤ S_k, with Q_1 ≤ S_1 ≤ 4 Q_1 and the gap 1/52 at every
-scale (Proposition "effective"; checks in
-`strong-coupling/gauge-fixed/checks/blocks/compose.py`). For the
-group-valued links, with the straight path between block roots as coarse
-link, D_v² ≤ 224 Q for every compact matrix group and all fields (Theorem
-"pathcoercive", with the anchored-cube constant 3 − √7 in closed form),
-two-sided bounds on the conditional partition functions and volume-uniform
-fluctuations around flat paths (Theorem "pathZ"); this path map does not
-compose, since thin paths give Q/Q_k = s sin²(π/2s) → 0 (Proposition
-"thinpath"). For every compact connected gauge group no continuous
-covariant block map treats the transverse positions of a block alike: on the
-slice of links between two blocks the homology matrices of the coordinate
-loops in a maximal torus add up to the identity (Proposition "nomean", after
-Aumann and Eckmann on symmetric means), so
-averages of the path holonomies have no continuous covariant extension to
-all fields. A cut-off of Bałaban's averaging operation, the mean of the
-sixteen paths of a block in the logarithmic chart at the straight path,
-switched continuously to the path map once some path is farther than ρ_G/2
-from it, is continuous, covariant and coercive for every field (D² ≤ 1431 Q,
-Q_1 ≤ 2956 Q for one step), agrees with the block averages to first order and
-breaks the symmetry only at large fields (Theorem "cutoff"). On fields with
-values in a maximal torus whose curvature stays below ρ_G/12 at every scale it
-composes: the coarse curvature is the mean of the sixteen 2×2 fine fluxes,
-the energy does not increase at any scale, and the thin paths are contracted
-(Theorem "torusscales", Corollary "thinscales"). For every compact group it
-composes on fields whose curvatures at the successive scales have a small
-sum σ: the commutators are bounded by the square of the local curvature, and
-the energy grows at most by e^{12060σ}; if η_0 A_0 ≤ 2·10⁻¹⁰ ρ_G² this holds
-at every scale (Lemma "smallstep", Theorem "smallscales"). Under the SU(2)
-Wilson measure the large fields are located: by reflection positivity and the
-chessboard estimate a set A of unit cubes is bad (some plaquette farther than ρ
-from I) with probability at most q^{|A|}, q = exp(6(log β_W + C_0) − β_W ρ²/16),
-so the clusters of bad cubes have physical size tending to zero in probability,
-and the cut-off average differs from the path average only on coarse links
-within two lattice spacings of them (Theorem "defects", Corollaries
-"defectclusters" and "activelinks"); bad plaquettes are nevertheless present
-along the one-loop tuning (Proposition "manydefects"), and a frustrated
-exterior shows that the boundary response near them is not small. The
-composition is local: away from the defects it continues across the scales,
-and the defects spread by at most three spacings of the current scale per
-step (Lemma "localstep", Theorem "defectscales"), so under the Wilson measure
-the cut-off average carries the field through the clusters up to a coarse
-spacing of order (β_W/log β_W)^{1/4} a, the order of the cube side that (D)
-needs (Corollary "defectscales"). Composition across the remaining scales
-remains open (checks in
-`strong-coupling/gauge-fixed/checks/blocks/path_blocks.py`). The localisation of
-the effective forms uniformly in the scale, a cube condition for the
-coarsest averages, the large fields, the crossover to strong coupling and
-(E) are open.
+**Not proved.** The cube estimate along the continuum tuning and the
+existence of a nontrivial Osterwalder–Schrader continuum limit. The Clay
+Millennium problem is open, and the paper says so.
 
-**Open:** the Clay problem itself (the four open problems of the
-strong-coupling paper are listed in `strong-coupling/OPEN.md`). The paper isolates the residual statement
-(Hypothesis R: `liminf Δ_lat(a)/a ≥ m > 0` with Osterwalder–Schrader convergence)
-and records that no argument in the eight audited manuscripts, and no paper in
-the literature, proves it.
+## Layout
+
+- `strong-coupling/forest/`: the paper (`main.tex`, `cmp/main.tex`, `figures/`,
+  `slice/`).
+- `strong-coupling/gauge-fixed/`: the notes, the blocks (`blocks/`, with
+  `sharp.py`, `lean/` and `su3/`) and the checks (`checks/`).
+- `YangMills/`: the Lean 4 / Mathlib project; the paper uses
+  `StrongCoupling/GaugeFix.lean`, `StrongCoupling/CubeOpen.lean` and
+  `StrongCoupling/BlockGauge.lean` (no `sorry`, axioms `propext` at most).
+- `tex/` and `strong-coupling/prd/`: the sources of two earlier papers of the
+  project, kept for the record.
 
 ## Build
 
@@ -350,5 +211,6 @@ the literature, proves it.
 lake exe cache get
 lake build
 lake env lean scripts/Axioms.lean   # prints the axioms of the main theorems
-cd tex && latexmk -pdf main.tex
+cd strong-coupling/forest && latexmk -pdf main.tex
+cd strong-coupling/gauge-fixed/blocks && sh lean/check.sh
 ```
