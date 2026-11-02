@@ -85,3 +85,36 @@ Not attempted. Proving K ≤ 0.2817 at β_W = 0.355 needs two pieces:
 
 That is a new Arb certificate on the scale of `blocks/sharp/`, not a cheap side item. It also leaves (D) unchanged
 (`forest/ROADMAP.md` §1), so it stays parked with the target and the 3.4% margin recorded above.
+
+## Correction (November 2026): the 4.1% is not the feedback loop
+
+The proof of Lemma `blockK` gives d₁ ≤ sε + Cd₃ and d₃ ≤ Cd₁, and then charges (1+β)(d₁ + d₃). So
+
+    K = (1+β)s(1 + C)/(1 − C²) = (1+β)s/(1 − C).
+
+The loop y₁ → y₃ → y₁ is the factor 1/(1 − C²) = 1.0015. Almost all of the 4.1% is the factor 1 + C, which is
+**d₃ = C d₁: the direct response of the y₃ marginal to b₁**. The effective coupling of y₁ and y₃ runs through the field
+b₂ of the middle link (C ≈ 4βs|∇g| with |∇g| ≈ |b₂|/4).
+
+**That response is real.** It vanishes at b₂ = 0, where family A gives 0.2504 ≈ s. With b₂ maximal, family A (the sum of
+the three marginals) gives 0.2588, which is s(1 + 0.035) ≈ s(1 + C). So the statement above that "the feedback the
+proof pays for … cancels in the covariance" is wrong as an explanation.
+
+What the data do show is narrower:
+- the best test function found, family B, does not collect the y₃ response on top of the y₂y₃ route;
+- both routes draw on the same Lipschitz budget of y₃, so a linear test function cannot add them.
+
+The supremum over all 1-Lipschitz f lies between max(B, A) = 0.2719 and the proof's bound, 0.2849. Where it lies is not
+known. For a small perturbation the Kantorovich dual is a minimum-cost flow on (S³)³, and with the l¹ metric:
+- the cost lies between the sum of the marginal costs, s(1 + C) + 0;
+- and the sum of the route costs, s(1 + β)(1 + C).
+
+**Consequence for the target.**
+- Reaching β_W = 0.355 needs K ≤ 0.2817. The bound (1+β)s + Cs, which removes only the loop and the β·C cross term,
+  is 0.2840 there. That is not enough.
+- So a proof must show that the y₃ displacement and the y₂y₃ displacement **share** the y₃ budget in the optimal
+  coupling, i.e. that W₁ is close to (1+β)s and not to (1+β+C)s.
+- The "3.4% margin" quoted above assumes the supremum equals family B. That is not established. A Monte Carlo
+  estimate of the minimum-cost flow (or a richer non-linear test family) should be done before any certificate.
+
+A2 stays parked, now with this sharper statement of what is missing.
