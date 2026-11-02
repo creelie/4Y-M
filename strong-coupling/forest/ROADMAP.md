@@ -154,9 +154,9 @@ on (D).
 
 - **New idea (sketch):** condition on a fixed product of link balls in fibre gauge, not on plaquette-level calm sets.
   The bad side has no thin lens (proved); the good side is convex, so Bakry–Émery, Herbst and Helffer–Sjöstrand apply
-  given a deterministic Hessian bound (input (a)). Rarity is then needed only on the torus, annealed, at a fixed
-  threshold. Island threshold: 4.7·10⁴¹ at basin radius K (was 8.3·10¹⁶³), lower for larger basins.
+  given a deterministic Hessian bound (input (a)); at ω = ∅ that is Theorem `chartdecay`. Rarity is then needed only on the torus, annealed, at a fixed
+  threshold. Island threshold 4.5·10³⁷ at the chart radius of Theorem `chartdecay` (was 8.3·10¹⁶³).
 - **Proved:** a box-local Peierls lemma for excess action under any exterior. It is marginal for (R1): forced curvature
   has attenuation 1 (heuristic).
 - **Unchanged:** D8. Chessboard rarity covers O(log β) scales only (≤ 19 at β = 10⁶⁴); RG-improved rarity is Bałaban's.
-- **Next:** check input (a) in `main.tex` (fibre-gauge Hessian under L^∞ smallness), then input (b).
+- **Next:** the relative chart for ω ≠ ∅ (`LARGE_FIELD.md` §3a), then input (b).
