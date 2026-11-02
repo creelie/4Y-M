@@ -170,6 +170,31 @@ uniformity is exactly what (R1) needs and what route 3 lacks, and Dimock (arXiv:
 self-contained form for a model problem. So (R1) is not a lemma within reach of the tools here. It is the large-field
 half of a renormalisation-group expansion, the same object as (I1) of `ANNEALED.md` and D4 of `D4_D8.md`.
 
+**Lead (b) of the OpenGluon survey: Dobrushin–Pechersky (assessed, heuristic, November 2026).** The criterion in the
+form of Conache–Kondratiev–Kozitsky–Pasurek (arXiv:1501.00673, Theorem 2.6) asks for two things:
+- a contraction (2.9) with Σκ < 1, only on boundaries whose neighbours have h ≤ K;
+- a Lyapunov bound under **every** boundary, π_ℓ^x(h) ≤ 1 + Σ_{ℓ′} c_{ℓℓ′} h(x_{ℓ′}), with
+  c̄ = sup_ℓ Σ_{ℓ′} c_{ℓℓ′} < 1/Δ^χ, where Δ is the degree of the block graph and χ its chromatic number.
+
+The first is the calm contraction we have (`D5.md`, C_* above). The second is a quantitative form of (R1): the badness h
+of a block (a function of its plaquette sizes) has to be **attenuated** by a factor Δ^χ ≥ 80^{16} from the boundary
+inward. At the linearised level it is not:
+- a constant abelian-embedded field strength B is a classical solution of the lattice equations;
+- with boundary links taken from it, the interior minimiser is the same constant field, and the fluctuations around it
+  are O(β_W^{−1/2});
+- so h(interior) ≈ h(boundary), i.e. c̄ ≈ 1.
+
+The criterion therefore needs a **nonperturbative** attenuation mechanism. For SU(2) in a constant field the candidate is the
+Nielsen–Olesen unstable mode: it fits once the region is wider than about B^{−1/2}, and with it the uniform field is
+not the minimiser. That mechanism is the same multiscale, large-field question as before.
+
+The same example bears on (R1) as stated: (R1) has to fail for exteriors carrying a uniform field B ≫ K on any window of side
+≲ B^{−1/2}, unless the nonabelian instability rescues it. So the honest form of (R1) is not "under every exterior" but
+**averaged over exteriors under the Gibbs measure**, or under a class of exteriors that excludes such backgrounds. Lemma
+`mixture` and §2 already use only averaged statements. Whether the cube coefficient itself, with its supremum over
+boundary conditions, survives uniform-field boundaries is part of D4. *(Heuristic: classical solution plus linearised
+fluctuations; not a theorem.)*
+
 **Conclusion for D.** Under (R1), the three remaining pieces of the calm-data cube coefficient reduce to sketch-level
 statements with explicit, volume-independent thresholds:
 - the shell term (§2);
