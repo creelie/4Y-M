@@ -227,8 +227,8 @@ on (D).
   solution is within 14r of c_k, including all cut-off branches. Hence the
   path solution is unique in this regime; no component is discarded.
 - **Proved (deduction):** label only non-path physical links, plus coarse
-  curvature. On W with W^(+5) good, freeze links off A_W together with the
-  incoming path links as the enlarged free set. The full conditional law
+  curvature. On W with W^(+5) good, use A_W plus incoming path links as
+  the free set and freeze its complement. The full conditional law
   equals the product graph law. Under eta+352r<=10^(-10) and
   lambda>=2*10^11, the previous weighted covariance estimate therefore
   holds for this actual enlarged good-window law.
@@ -241,3 +241,17 @@ on (D).
   island/collar comparison, and the environment covariance. The five-block
   collar has not been entered into a working island ledger. (I1), D7, D5
   and (D) remain open; D8 is unchanged.
+
+### Coupling minimality interface, checked in Lean (`COUPLING_INTERFACE.md`)
+
+- **Proved (kernel checked):** `CouplingMinimality.lean` derives the finite
+  discrepancy recurrence and weighted boundary comparison from minimality
+  of coupling cost. Individual-update or random-scan stationarity is not
+  needed for this route. Approximate minimality costs epsilon_i/w_i.
+- **Computation / validation:** checked against the pinned Lean/Mathlib
+  v4.33.0 successfully. The supplied larger bridge text
+  was assessed mathematically but was not compiled as a repository file.
+- **Sketch / open:** instantiate the abstract coupling/update hypotheses;
+  this formal interface does not establish (I1) or any new gauge-theory gap.
+  Next research target remains bad-side transport including path branches,
+  then island/environment comparison. D8 is unchanged.

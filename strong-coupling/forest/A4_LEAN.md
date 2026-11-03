@@ -97,3 +97,14 @@ The measure-theoretic half is still missing: the minimising Kantorovich coupling
 
 **Status of A4:** scoped; G1 has its arithmetic half done. The critical-path item is a W₁ (Kantorovich) Dobrushin theorem, which
 the Lean ecosystem does not yet have.
+
+**Follow-up (kernel-checked finite interface, November 2026).**
+`YangMills/StrongCoupling/CouplingMinimality.lean` derives the discrepancy
+recurrence from minimality of a weighted coupling cost, with no stationarity
+assumption, and feeds it into the boundary comparison. It also tracks
+approximate-minimality error as epsilon_i/w_i. The file was checked
+against Lean/Mathlib v4.33.0; no `sorry` or new axioms.
+The coupling type is abstract: existence of a minimising coupling,
+measurable coupled updates and their specification-dependent estimates
+remain to be instantiated. `COUPLING_INTERFACE.md` assesses the supplied
+WassersteinBridge text, which itself was not compiled in this pass.

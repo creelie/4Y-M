@@ -47,8 +47,16 @@ in (-1,-epsilon) and another in (epsilon,1), in addition to q=0.
 All three represent distinct SU(2) path links. The average of every other
 pair is unchanged, since these links are private.
 
-The scalar function also has turning points on these intervals. Thus
-one cannot obtain a global positive lower bound for the path-link
+There is also a smooth turning point: throughout 0<=q<=1/5 the unique
+maximiser is the -1/2 path and the cut-off stays strictly in its transition
+region. At q=1/5, m>9/10 and m<1, using the same sine bounds and
+sqrt(2)<10/7. Thus chi<1/5 and
+
+    f'(1/5) > 1-7/40-3*(13/100) > 0.
+
+Together with f'(0)<0, continuity gives a point with f'=0 strictly between
+0 and 1/5. The full SU(2) path derivative has a zero axial direction there.
+Thus one cannot obtain a global positive lower bound for the path-link
 Jacobian from this parametrisation. This does not contradict the paper's
 uniform **eight-private-link** submersion bound: that bound allows all
 eight links to move, while here seven are frozen.

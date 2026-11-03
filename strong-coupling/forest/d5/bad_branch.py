@@ -7,6 +7,12 @@ left=F(1,2);right=F(49,100)
 # 1<sqrt(2)<3/2 imply this strict upper bound for f'(0).
 upper=-F(3,4)+F(7,2)*F(3,2)*F(1,4)-F(61,100)*F(31,32)
 assert upper == -F(91,3200) and upper<0
+# A smooth zero of f' exists between 0 and 1/5: f'(0)<0, f'(1/5)>0.
+u=F(7,20)
+assert 2*F(7,5)*(u-u**3/6)>F(9,10)
+assert 2*F(10,7)*u==1  # sin(u)<u makes the actual upper bound strict.
+assert 1-F(7,40)-3*F(13,100)>0
+
 sine_lower=F(1,4)-F(1,4)**3/6
 assert 2*F(7,5)*sine_lower>F(1,2)
 assert 2*F(3,2)*F(1,4)<1
