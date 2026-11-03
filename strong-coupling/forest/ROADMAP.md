@@ -370,3 +370,16 @@ operational logs and raw results remain outside Git. The next targets are
 measurable conditional couplings, actual island/collar factorisation,
 hard-boundary transport and complete flowed Wick coefficients. (I1), D7,
 the required D5, (D), D8 and (E) remain open.
+
+### Upstream contribution comparison (2026-11-03)
+
+**Assessment / prepared contribution:** `UPSTREAM_STATUS.md` compares
+research head `6e0608b` with `creelie/4Y-M:main` at `fdd2dc5`.
+Upstream already has the endpoint improvements and newer paper/release
+work; a full merge has seven conflicting paths. A focused six-file Lean
+contribution is pushed as `romanov360:upstream/g1-coupling` (`e7a52e4`),
+based directly on current upstream and cleanly mergeable. Its proofs and
+dependency pins match the checked sources. No PR was opened because
+GitHub CLI lacks API authentication; the note links the prepared compare
+form. Analytical notes need a separate review against upstream's newer
+forest-tilt and coarse-defect results. Private tooling/data are excluded.
