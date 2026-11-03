@@ -1,5 +1,12 @@
 # A quantitative graph chart around a calm reconstruction
 
+**Matching-law follow-up (proved deduction):** `INDEPENDENT_LABELS.md`
+labels only non-path physical links and coarse curvature. A global branch
+bound d(d_k,c_k)<=14r makes path restrictions redundant. For good windows
+with the stated collar, the actual conditional law equals this graph law.
+The original all-physical-link label domain remains nonconvex
+(`LABEL_DOMAIN.md`). Bad-side and environment estimates remain open.
+
 **Proved (deduction from the paper's `smallfibre` and elementary analytic
 bounds).** This note constructs a measurable background for an enlarged
 window, and proves strong convexity on an explicitly defined product graph
@@ -26,7 +33,12 @@ of K, write the fixed exterior, when the link is off L, as
     U_e = R_e exp(z_e),      ||z_e|| <= t.
 
 This is a hypothesis on the exterior near the window, not on distant
-links. Let D_t be the product ||z_e||<t over the free non-path links e in Z.
+links. The following extension has the same proof and constants: frozen
+non-path links must satisfy the displayed bound t, while frozen path
+links may be within 44t of R. Path links do not enter any other pair's
+constraint, so the fixed-point and determinant estimates only use the
+non-path bound. The curvature estimate below uses the maximum 44t for
+all physical links. This extension is used in `INDEPENDENT_LABELS.md`. Let D_t be the product ||z_e||<t over the free non-path links e in Z.
 Assume
 
     0 < t <= rho/2,       rho=10^(-4),

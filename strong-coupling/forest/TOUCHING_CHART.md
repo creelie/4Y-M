@@ -1,5 +1,14 @@
 # Touching constraints: a local graph and an explicit witness loss
 
+**Latest matching result (proved deduction):** `INDEPENDENT_LABELS.md`
+changes labels to non-path physical links plus coarse curvature. The bound
+d(d_k,c_k)<=14r controls every path branch. With a five-block good collar,
+the full enlarged-window conditional law is exactly the canonical product
+graph law, so its stated covariance estimate applies. The original physical
+all-link domain is nonconvex (`LABEL_DOMAIN.md`); bad data can have multiple
+path branches (`BAD_BRANCHES.md`). Bad-side and environment comparison,
+(I1), D7 and D8 remain open; no working island threshold is claimed.
+
 **Latest constructive result (proved deductions; conditional domain):**
 `CANONICAL_CHART.md` gives measurable background selection, an explicit
 density and weighted covariance decay for a specified product graph law
