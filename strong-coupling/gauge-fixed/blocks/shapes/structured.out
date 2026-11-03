@@ -1,0 +1,14 @@
+cell (1, 1, 1, 1): links/block {6: 1024, 3: 2048}, max n 10, mean n 9.500, share at max 0.583, ceiling 4/max 0.400, internal plaquettes per link: max 1 mean 1.00
+cell (2, 1, 1, 1): links/block {9: 1024, 3: 1024}, max n 10, mean n 8.750, share at max 0.250, ceiling 4/max 0.400, internal plaquettes per link: max 1 mean 1.00
+cell (2, 2, 1, 1): links/block {18: 512, 6: 512}, max n 10, mean n 7.750, share at max 0.083, ceiling 4/max 0.400, internal plaquettes per link: max 2 mean 1.25
+cell (1, 1, 2, 2): links/block {18: 512, 6: 512}, max n 10, mean n 7.750, share at max 0.083, ceiling 4/max 0.400, internal plaquettes per link: max 2 mean 1.25
+cell (2, 1, 2, 1): links/block {12: 1024}, max n 10, mean n 8.062, share at max 0.104, ceiling 4/max 0.400, internal plaquettes per link: max 3 mean 1.19
+cell (2, 2, 2, 1): links/block {24: 512}, max n 10, mean n 6.938, share at max 0.042, ceiling 4/max 0.400, internal plaquettes per link: max 4 mean 1.56
+cell (2, 2, 2, 2): links/block {48: 256}, max n 9, mean n 5.625, share at max 0.083, ceiling 4/max 0.444, internal plaquettes per link: max 4 mean 2.25
+cell (4, 4, 1, 1): links/block {72: 128, 24: 128}, max n 10, mean n 6.656, share at max 0.021, ceiling 4/max 0.400, internal plaquettes per link: max 3 mean 1.53
+cell (4, 2, 2, 2): links/block {96: 128}, max n 9, mean n 5.000, share at max 0.042, ceiling 4/max 0.444, internal plaquettes per link: max 5 mean 2.44
+cell (4, 4, 2, 2): links/block {192: 64}, max n 9, mean n 4.359, share at max 0.031, ceiling 4/max 0.444, internal plaquettes per link: max 5 mean 2.83
+cell (4, 4, 4, 4): links/block {768: 16}, max n 9, mean n 3.016, share at max 0.010, ceiling 4/max 0.444, internal plaquettes per link: max 6 mean 3.52
+cell (8, 8, 1, 1): links/block {288: 32, 96: 32}, max n 8, mean n 5.500, share at max 0.167, ceiling 4/max 0.500, internal plaquettes per link: max 3 mean 2.00
+cell (8, 8, 2, 2): links/block {768: 16}, max n 8, mean n 3.000, share at max 0.042, ceiling 4/max 0.500, internal plaquettes per link: max 5 mean 3.75
+cell (8, 1, 1, 1): links/block {36: 256, 12: 256}, max n 10, mean n 7.750, share at max 0.083, ceiling 4/max 0.400, internal plaquettes per link: max 1 mean 1.00
