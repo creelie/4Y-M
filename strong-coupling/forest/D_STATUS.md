@@ -1,5 +1,12 @@
 # The two walls, (D) and (E): where they stand (November 2026)
 
+**Latest constructive result (proved deductions; conditional domain):**
+`CANONICAL_CHART.md` gives measurable background selection, an explicit
+density and weighted covariance decay for a specified product graph law
+around a calm R(c). This does not match the actual physical label domain.
+`COARSE_LABELS.md` adds coarse-curvature witnesses and sharper overlap losses.
+(I1), D7 and D8 remain open.
+
 **New obstruction (proved):** `ROUGH_BACKGROUND.md` gives a four-link
 negative constrained-action Hessian direction at R(c) with every relative
 physical link label good. Coarse-background calmness is an additional
