@@ -1,0 +1,10 @@
+Nonconvex physical-label pullback: floating diagnostic only
+r=0.1: endpoint path radii 0.0999999332053944, 0.0999999332053944; midpoint 0.100000066666667
+  max free radius=0.0144250444; max equation residual=0
+r=0.03: endpoint path radii 0.0299999981996894, 0.0299999981996894; midpoint 0.0300000017999999
+  max free radius=0.00432751073; max equation residual=3.47e-18
+r=0.01: endpoint path radii 0.00999999993333205, 0.00999999993333205; midpoint 0.0100000000666667
+  max free radius=0.0014425035; max equation residual=1.73e-18
+r=0.003: endpoint path radii 0.00299999999819999, 0.00299999999819999; midpoint 0.0030000000018
+  max free radius=0.000432751048; max equation residual=0
+At tested radii, endpoints are good and their coordinate midpoint is bad.

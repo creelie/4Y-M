@@ -1,0 +1,11 @@
+r = 77/50, side r/2^3: 826 boxes meet R_r, 4124 new moment points
+  points 500/4124 315s
+  points 1000/4124 582s
+r = 77/50, side r/2^3: 826 boxes meet R_r, 3124 new moment points
+  points 500/3124 311s
+  points 1000/3124 565s
+  points 1500/3124 808s
+  points 2000/3124 1056s
+  points 2500/3124 1302s
+  points 3000/3124 1557s
+826 boxes, 2835s: tau <= 0.249240, lambda >= 0.053955, M <= 0.184989

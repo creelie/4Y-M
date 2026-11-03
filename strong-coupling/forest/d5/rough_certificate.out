@@ -1,0 +1,10 @@
+Exact four-link certificate on fine torus side 4
+All 64 average numerators: zero
+Nonzero plaquettes by (central sign, curl squared):
+  (-1, 1): 10
+  (-1, 4): 1
+  (+1, 1): 12
+Positive sum: 12; negative sum: 14; signed sum: -2
+Q second derivative for HS-unit generator: -4
+T(xi): 4; Q second derivative / T(xi): -1
+Wilson action beta_W*Q/4 second derivative: -beta_W

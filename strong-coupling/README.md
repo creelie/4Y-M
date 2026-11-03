@@ -73,7 +73,7 @@ results, proved by hand and not yet refereed (see
   corrector of degree two evaluated with the exact moments of the one-link
   measure at every staple sum, gives uniqueness, decay and a gap for
   β_W ≤ 3/4; blocks of the three free links of a plaquette extend it to
-  β_W ≤ 0.76;
+  β_W ≤ 0.77;
 - every compact simple group: with κ_G = h^∨/(2ℓ_ρ) the least Ricci
   curvature, uniqueness, clustering and a gap m_G(β) for N|β| < 2κ_G/29;
 - conditional: a Dobrushin–Shlosman condition on one cube of fixed physical

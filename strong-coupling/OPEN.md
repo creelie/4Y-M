@@ -18,7 +18,7 @@ Monte Carlo puts the crossover (β_W of order 2.2 for SU(2)).
 | SU(2), 2/9 ≤ β_W < 1/3 | proved by forest gauge fixing, not yet refereed; 1/3 is the ceiling of single-link Dobrushin after any forest gauge fixing | `gauge-fixed/forest.md` |
 | every SU(N), \|β\| < 1/29 (SU(3): β_W < 9/29) | proved by the gauge-fixed Hessian bound 29/2, not yet refereed | `gauge-fixed/curvature.md` |
 | SU(3), β_W ≤ 3/4 | proved by single-link Dobrushin in the forest gauge with an analytic spectral-gap bound for the one-link measure and a corrector of degree two in the matrix entries, evaluated with the exact moments of degree six of the one-link measure at every staple sum (reduction to diagonal staple sums, character expansion of the Haar measure with rigorous truncation and rounding bounds, a cover of the diagonal staple sums by 2341 boxes, ball arithmetic), not yet refereed; the blended corrector of the earlier version stopped near β_W ≈ 0.715, the corrector of degree two reaches 1.0018 only at r = 1.54 in floating point, close to the Galerkin values at matrices of the allowed set rK put the limit of single-link Dobrushin at or below β_W ≈ 0.77, beyond which blocks of several links are needed | `gauge-fixed/su3.md` |
-| SU(3), β_W ≤ 0.76 | proved by plaquette blocks in the forest gauge: α₃(0.76) ≤ 0.99950 from a second cover of the staple sums at r = 38/25 (1063 boxes, 2rΛ(r) ≤ 1.029967) and the Hessian and third cumulant of log Z on 784 boxes, ball arithmetic; not yet refereed; floating point puts the end of plaquette blocks near β_W ≈ 0.78 | `gauge-fixed/blocks/su3/` |
+| SU(3), β_W ≤ 0.77 | proved by plaquette blocks in the forest gauge: α₃(0.76) ≤ 0.99950 from a second cover of the staple sums at r = 38/25 (1063 boxes, 2rΛ(r) ≤ 1.029967) and the Hessian and third cumulant of log Z on 784 boxes, and α₃(0.77) ≤ 0.99978 from a third cover at r = 77/50 (2825 boxes, 2rΛ(r) ≤ 1.027468) and 826 boxes, ball arithmetic; not yet refereed; floating point puts the end of plaquette blocks near β_W ≈ 0.78 | `gauge-fixed/blocks/su3/` |
 | every compact simple group, N\|β\| < 2κ_G/29 | proved by the gauge-fixed Hessian bound 29/2 and the Ricci curvature κ_G = h^∨/(2ℓ_ρ), with gap m_G(β) = arccosh(1 + (κ_G/(N\|β\|) − 29/2)/12); not yet refereed | `forest/`, Theorem on every compact simple group |
 | the best gauge-fixed Hessian constant h_F | 9 + √17 ≤ h_F ≤ 14.420001 (computer-assisted certificate of T. Romanov, github.com/romanov360/yang-mills-4d-forest-certificate, derived in Appendix "certificate" of the forest paper and checked with our own programs; 29/2 by hand), so \|β\| < 1/28.840002 (SU(2) β_W < 0.1387, SU(3) β_W < 0.3121); numerically 13.9740139454, attained by an abelian field; certificates on one plaquette and one vertex stop at 14.3839 | open |
 | SU(2) from β_W = 1/3 to about 2.2 | no method; block (Dobrushin–Shlosman) criteria are the natural tool, and the paper's Theorem G gives one that is stable in every 't Hooft sector, but no box has been certified at these couplings | open |
@@ -230,7 +230,9 @@ correlations D(r) of the spatially smeared slice field at two fixed physical
 separations, so the open estimate is liminf D(r′)/D(r) > 0 for one pair
 r < r′ with r ≤ 2t₀ (Proposition "slice ratio"; a bound at a later pair only
 covers a packet shifted forward in time); it holds for the free field (limit
-0.6337 at the parameters of Remark "free slice") and for two-dimensional
+0.6337 at the parameters of Remark "free slice"), also for the composite
+magnetic slice field with or without the flow, even where the first-step
+energy diverges (Remark "composite free slice"), and for two-dimensional
 SU(N) lattice gauge theory on a circle of length ℓ with β = 2N/(g²a²), where
 the energies −(ℓ/a²) log ĉ_λ(β) converge to g²ℓC₂(λ)/2 (Remark "two
 dimensions"); in two dimensions there is no ultraviolet problem, and the

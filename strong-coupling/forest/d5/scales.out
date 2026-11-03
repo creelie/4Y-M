@@ -1,0 +1,14 @@
+beta_W = 0.3715 * log(mu/Lambda)
+m/Lambda=   1.0  n0=chart C_G              beta_top <=      13.7
+m/Lambda=   1.0  n0=Gaussian constrained   beta_top <=      14.2
+m/Lambda=   1.0  n0=Gaussian all scales    beta_top <=     708.6
+m/Lambda=  10.0  n0=chart C_G              beta_top <=      14.6
+m/Lambda=  10.0  n0=Gaussian constrained   beta_top <=      15.1
+m/Lambda=  10.0  n0=Gaussian all scales    beta_top <=     709.4
+m/Lambda= 100.0  n0=chart C_G              beta_top <=      15.4
+m/Lambda= 100.0  n0=Gaussian constrained   beta_top <=      15.9
+m/Lambda= 100.0  n0=Gaussian all scales    beta_top <=     710.3
+
+threshold chartdecay/fibrechart  beta >= 3.8e+38: needs log(n0/(ell Lambda)) >= 1.02e+39
+threshold off-chart window       beta >= 3.8e+97: needs log(n0/(ell Lambda)) >= 1.02e+98
+threshold islands                beta >= 8.3e+163: needs log(n0/(ell Lambda)) >= 2.23e+164
