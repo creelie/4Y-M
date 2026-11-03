@@ -1,5 +1,19 @@
 # The two walls, (D) and (E): where they stand (November 2026)
 
+**Latest finite interfaces (2026-11-03; proved conditional deductions).**
+`ISLAND_KERNEL.md` shows that a uniform connected collar-kernel bound
+survives arbitrary separate positive island weights, including hard
+supports and branch mixtures. The actual gauge-theory factorisation,
+calm interface and environment recursion are still open.
+`TRANSVERSE_FOLD.md` regularises the explicit scalar fold by solving a
+transverse non-path coordinate locally; it is not uniform bad-side SU(2)
+transport. `WEIGHTED_SCHUR.md` records one-step locality and perturbation
+amplification under Gaussian elimination; no RG construction is claimed.
+`POSITIVE_TIME_TIGHTNESS.md` turns a fixed-physical-time correlation-ratio
+bound into a normalised spectral-energy bound, assuming positivity.
+The requisite Yang--Mills ratio and continuum convergence remain open.
+(I1), the required D5, D7, (D), D8 and (E) are not closed by these lemmas.
+
 **Latest interfaces (proved conditional deductions):**
 `CONNECTED_NORMALIZERS.md` controls connected normalisers for continuous
 source changes inside the good graph law. `ENVIRONMENT_OBSTRUCTION.md`

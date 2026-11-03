@@ -1,5 +1,15 @@
 # James's supplied ideas: assessment and next directions (2026-11-03)
 
+**Implementation follow-up (proved / kernel checked).** The review below
+records the initial assessment. James's complete trimmed bridge has now
+been integrated as `WassersteinBridge.lean` and compiled against v4.33.0.
+Added measure-level cost theorems derive its `hmin` from finite weighted
+cost minimality. `CouplingMinimizer.lean` additionally proves existence
+of global continuous-cost minima on actual compact-space probability
+couplings. Measurable conditional selection and SU(2) update bounds remain
+open; no E construction was supplied or proved. Current formal status is
+in `COUPLING_INTERFACE.md` section 5.
+
 This reviews the locally supplied `james_ideas.txt`,
 `james_ideas_2.txt` and `james_ideas_3.txt`. The source messages, conversation excerpts and attached
 files are not incorporated into the repository. This is an assessment,

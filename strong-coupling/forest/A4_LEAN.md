@@ -108,3 +108,16 @@ The coupling type is abstract: existence of a minimising coupling,
 measurable coupled updates and their specification-dependent estimates
 remain to be instantiated. `COUPLING_INTERFACE.md` assesses the supplied
 WassersteinBridge text, which itself was not compiled in this pass.
+
+**Further progress (2026-11-03, kernel checked).**
+`WassersteinBridge.lean` now implements James's trimmed measure-level
+bridge and connects the local non-improvement assumption to global finite
+weighted-cost minimality. `CouplingMinimizer.lean` proves existence of an
+actual probability coupling minimising any continuous real cost on a
+compact metric space. Both compile against the pinned v4.33.0 toolchain
+and are imported by `YangMills.lean`; the complete default target was not
+rebuilt. G1 is still open: identify the weighted continuous cost with the
+discrepancy integrals, construct measurable conditional coupled updates
+and prove their specification-dependent bounds, then handle the requisite
+limit arguments. Global minimiser existence and conditional measurable
+selection are different obligations. See `COUPLING_INTERFACE.md` section 5.

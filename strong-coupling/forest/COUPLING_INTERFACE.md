@@ -1,9 +1,13 @@
 # The coupling bridge: minimality is enough for the recurrence
 
-This assesses the supplied `WassersteinBridge` text against the current
-repository. That large file was supplied in a message and is not present
-as a repository source file; its compilation is not claimed here.
-The new source is `YangMills/StrongCoupling/CouplingMinimality.lean`.
+**Latest status (2026-11-03, proved / kernel checked).** The trimmed
+`WassersteinBridge.lean` supplied by James is now a repository source and
+compiles against Lean/Mathlib v4.33.0. Added `local_nonimprovement_of_cost`
+and `cost_minimal_comparison` connect the existing abstract cost argument
+to actual finite discrepancy integrals. `CouplingMinimizer.lean` proves
+that fixed-marginal probability couplings on a compact metric space form
+a nonempty compact set and that every continuous real cost attains its
+minimum there. Both modules are imported by `YangMills.lean`.
 Nothing in this interface proves an SU(2) coupling construction, (I1),
 a lattice gap, or a continuum theorem.
 
@@ -63,10 +67,12 @@ rebuilt during this pass.
 the ordinary mathematical argument in the paper selects a cost-minimising
 coupling using compactness, then uses measurable conditional couplings to
 construct each pi_i with the required marginals and expected discrepancy.
-These existence and measure-theoretic statements still need a Lean
-implementation in this project. The supplied random-scan bridge is an
-alternative conditional interface, and its linear-algebra results are
-useful independently; they do not supply these objects automatically.
+The global continuous-cost minimiser now has a Lean implementation in
+`CouplingMinimizer.lean`. It uses weak compactness, continuous marginal
+maps and continuity of integration on compact spaces. The measurable
+conditional-coupling construction remains open. The older random-scan
+bridge is an alternative conditional interface; the implemented trimmed
+bridge instead uses cost minimality.
 
 The new minimality interface avoids asking for a coupling simultaneously
 invariant under every individually selected update kernel. It does not
@@ -84,7 +90,31 @@ suffice for the scalar comparison; separate subsolutions do not give a
 stability estimate. The measure recurrence is conditional on the supplied
 updates and coupling, and the random-scan argument only needs finite
 discrepancy expectations, rather than invariance under each update.
-This is a mathematical assessment of the supplied text, not a claim that
-its Lean syntax has been compiled. The new minimality source verifies an
-alternative finite interface to the same recurrence, with the remaining
-measure-theoretic obligations exposed.
+This paragraph originally assessed the larger supplied text mathematically.
+The trimmed minimality bridge has since been kernel checked; the omitted
+larger resolvent/random-scan source has not been compiled in this pass.
+
+## 5. Newly checked measure-level chain and remaining inputs
+
+**Proved (kernel checked, Lean/Mathlib v4.33.0).** The new bridge verifies
+coupling marginals under updates, integrated update bounds, real weighted
+comparison, observable bounds and the additive decay floor. The two added
+cost theorems require finite coordinate integrals before and after updates,
+positive weights and preservation of other coordinate expectations.
+`CouplingMinimizer.exists_minimizer` constructs a minimum of the integral
+of any continuous real cost among actual probability couplings; it does
+not merely assume a compact abstract coupling type.
+
+**Sketch / open.** Instantiate the continuous cost with the specification's
+weighted coordinate discrepancies, identify its ordinary integral with the
+finite extended-integral cost used by the bridge, and construct measurable
+coupled conditional updates with the desired one-step estimates. Existence
+of a global minimiser is distinct from measurable selection of local
+optimal couplings as the boundary varies. No such selection, SU(2)
+instantiation or infinite-volume theorem is asserted here.
+
+**Validation.** All four modules in this dependency chain were compiled
+from source against the pinned toolchain in an isolated build. The compact
+minimiser file has only unused-section-variable linter warnings. No `sorry`
+or additional axioms were introduced. The entire default target was not
+rebuilt. Source snapshots and compiler output are retained privately.
