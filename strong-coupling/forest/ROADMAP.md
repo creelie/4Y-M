@@ -304,3 +304,12 @@ composition. (I1), D7, the required D5, (D), D8 and (E) remain open.
   renormalised correlations for E. These tracks can proceed independently.
   The E ideas mentioned in the second text's final sentence are absent
   from the supplied file. No new item is closed; D8 is unchanged.
+
+**Third-text follow-up (assessment, 2026-11-03):** the complete trimmed
+bridge is now supplied and reviewed in `JAMES_IDEAS_REVIEW.md` section 3.
+It assumes local non-improvement (`hmin`); deriving it from a global
+cost-minimising measure still needs the existing finite interface to be
+instantiated with actual updates and finite coordinate integrals. The
+source remains uncompiled in this review. No new E argument is included;
+the workflow prompt remains truncated. G1 and the dynamical walls remain
+open.

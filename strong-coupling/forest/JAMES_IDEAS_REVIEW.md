@@ -1,7 +1,7 @@
 # James's supplied ideas: assessment and next directions (2026-11-03)
 
-This reviews the locally supplied `james_ideas.txt` and
-`james_ideas_2.txt`. The source messages, conversation excerpts and attached
+This reviews the locally supplied `james_ideas.txt`,
+`james_ideas_2.txt` and `james_ideas_3.txt`. The source messages, conversation excerpts and attached
 files are not incorporated into the repository. This is an assessment,
 not a new proof or a claim that supplied Lean code compiles.
 
@@ -68,7 +68,48 @@ impossibility statement. Neither the referenced AHR.py attachment nor
 ClaudeCode_YM_prompt.md is supplied by this text. Its final sentence
 mentions ideas on E, but those ideas are absent from the provided file.
 
-## 3. Priorities and unchanged status
+## 3. Third text: complete bridge, same remaining obligations
+
+**Assessment (mathematical review; not a compilation claim).** The third
+text supplies the complete trimmed `WassersteinBridge` code block. Its
+chain is coherent: preserve coupling marginals, integrate the one-step
+bound, use local non-improvement, convert finite extended integrals to
+real quantities, apply the weighted comparison, and control observables.
+This is usable source for a focused formalisation pass. The supplied
+header still explicitly says it was not compiled; this review did not
+compile it. The copied four arithmetic theorems at the start add no new
+mathematical estimates to `DobrushinComparison.lean`.
+
+**Assessment / important interface distinction.** `minimal_recurrence`
+assumes the local inequality
+
+    integral D_i d gamma <= integral D_i d (gamma Q_i).
+
+Its proof composes that hypothesis with `bind_step_le`. It does not prove
+existence of a minimiser or deduce that hypothesis from global weighted
+cost minimality. `minimal_comparison` also assumes it at every site.
+The existing `CouplingMinimality.lean` provides the complementary finite
+cost argument. Combining the two needs actual marginal-preserving
+updates, preservation of the other coordinate expectations, positive
+weights and finite costs. Thus the new text is a conditional measure
+interface, not a completed coupling construction or a closure of G1.
+
+**Sketch / next implementation.** Reuse the existing minimality arithmetic;
+add the measure-level marginal, integral and observable lemmas; instantiate
+the abstract discrepancy by finite coordinate integrals and derive `hmin`.
+Then discharge minimiser existence and measurable specification-dependent
+updates with their one-step estimates. A passing build would certify these
+conditional lemmas only, with their undischarged hypotheses retained.
+
+**Assessment / scope corrections.** The third text still contains a
+`Read more` truncation in the research workflow prompt. It supplies no
+new E construction or estimates, and no source/certificate for the
+claimed two-site stationary-coupling test. Its complete bridge resolves
+the missing-code issue from the second text, but not those missing inputs.
+The unrelated cryptographic discussion supplies no gauge-theory estimate.
+No cluster work is justified by this review alone.
+
+## 4. Priorities and unchanged status
 
 **Sketch / future directions:**
 
@@ -85,9 +126,10 @@ mentions ideas on E, but those ideas are absent from the provided file.
    physical-energy tightness and convergent correlations, together with
    the reconstruction hypotheses.
 
-**Status assessment.** Neither supplied text closes a new item in A--E,
+**Status assessment.** None of the three supplied texts closes a new item in A--E,
 (I1) or D8. The second offers a useful, narrower G1 implementation plan;
-the first improves the end-goal checklist. No new B or C estimate, GPU
+the third makes its proposed conditional measure interface available in
+full; the first improves the end-goal checklist. No new B or C estimate, GPU
 experiment or continuum construction is supplied. Formal proof progress
 and new analytical estimates are distinct tracks: G1 need not block
 independent work on D/I or E. No computation was launched for this review.
