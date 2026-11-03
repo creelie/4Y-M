@@ -288,3 +288,19 @@ on (D).
 The remaining priorities are bad-island constrained transport, connected
 label/island normalisers and the environment bootstrap, then multiscale
 composition. (I1), D7, the required D5, (D), D8 and (E) remain open.
+
+### Review of James's supplied ideas (2026-11-03)
+
+- **Assessment:** `JAMES_IDEAS_REVIEW.md` records both supplied texts. The
+  first is useful as a continuum/nontriviality checklist and conditional
+  coupling infrastructure, rather than a new dynamical estimate.
+- **Proved (existing kernel-checked interface):** the second text's useful
+  minimality refinement is already in `CouplingMinimality.lean`. Its
+  proposed measure bridge could instantiate that interface; the pasted
+  code is truncated and explicitly uncompiled.
+- **Sketch / next:** actual measurable coupled updates and cost-minimiser
+  existence for G1; bad-branch transport and connected hard-label
+  normalisers for D/I; physical-energy tightness and nonvanishing
+  renormalised correlations for E. These tracks can proceed independently.
+  The E ideas mentioned in the second text's final sentence are absent
+  from the supplied file. No new item is closed; D8 is unchanged.
