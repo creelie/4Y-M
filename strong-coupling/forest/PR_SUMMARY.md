@@ -7,7 +7,7 @@ partial inputs. The main continuum problems remain open. Detailed status
 and hypotheses are in [ROADMAP.md](ROADMAP.md),
 [D_STATUS.md](D_STATUS.md) and [RESEARCH_INDEX.md](RESEARCH_INDEX.md).
 
-## The eight standalone scientific programs
+## Programs 1–8: the eight standalone scientific programs
 
 All eight support finite calculations or conditional arguments. Generated
 outputs and private operational tooling are excluded from the contribution.
@@ -61,15 +61,24 @@ Yang--Mills estimates.
 | **B1 — three dimensions** | **Computation / power-counting assessment:** evidence supporting finite next-order corrections without the four-dimensional ultraviolet logarithm. No nonperturbative theorem. |
 | **B2 — slice-ratio route** | **Proved finite/perturbative reductions plus computation:** free-vacuum lattice analysis, exact finite-box interacting corrections and validated nonlinear-flow formulas. The full flowed interacting estimate and its uniform limits remain open. |
 | **B3 — stochastic quantisation** | **Literature assessment:** clarified why existing state-space results do not supply the needed slice measure or correlation estimate. |
+| **B4 — further unflowed 3D Monte Carlo** | **Not developed further:** retained existing diagnostics; no new uniform slice-ratio estimate follows. |
+| **C1 — sharper cube constants** | **Not pursued as a separate advance:** local constants alone do not resolve the composition problem. No new certified full cube estimate. |
 | **C2 — rarity** | **Proved deductions / computation:** torus rarity analysis, curvature witnesses and sharper overlap counting. Rarity still does not establish harmlessness. |
-| **D3/D5 — good-region contraction** | **Proved conditional deduction:** constructed and matched an actual good-window conditional law with covariance decay under explicit calmness and collar assumptions. Uniform comparison across exteriors remains open. |
-| **D4/D7 — bad regions** | **Proved obstructions and conditional lemmas:** identified branch/domain failures and proved an island-kernel integration lemma. Full bad-region transport, actual gauge-theory factorisation and environment control remain open. |
+| **C3 — continuum tree bounds** | **Open / no substantive closure:** the contribution does not construct the required continuum tree bounds. |
+| **D1 — Gaussian estimate at every scale** | **Already proved in the paper:** preserved the existing Gaussian result. This PR adds no nonlinear all-scale extension. |
+| **D2 — one composition step** | **Already proved in the paper:** preserved the existing constrained-energy and locality results. Finite weighted refinements are recorded under D8. |
+| **D3 — calm-fibre decay** | **Proved conditional deduction:** constructed a canonical relative chart and matched an actual good-window conditional law with covariance decay under explicit calmness and collar assumptions. This improves the usable good-region input. |
+| **D4 — off-chart mass without a calm completion** | **Proved obstructions / open estimate:** identified rough-background and multiple-branch failures of simpler reductions. Local scalar regularisation is available, but the required uniform bad-side bound remains open. |
+| **D5 — fibre decay to uniform cube contraction** | **Proved conditional reductions / open target:** supplied calm-case estimates and corrected chart/domain matching. Transport across exteriors, collar costs and the required uniform cube coefficient remain open. |
+| **D6 — large fields are rare** | **Proved torus setting / deductions:** preserved the paper's rarity result and added local witnesses, overlap bounds and finite-intersection analysis. No uniform rarity under every exterior is inferred. |
+| **D7 — large fields are harmless** | **Proved conditional lemmas / open application:** a common collar-kernel bound survives separate hard island weights and branch mixtures. Actual gauge-theory factorisation, hard-boundary transport and environment control remain open. |
 | **D8 — multiscale composition** | **Proved finite interfaces:** weighted locality and Gaussian elimination estimates. No all-scale renormalisation construction. |
 | **E — continuum existence** | **Proved conditional spectral criteria:** tightness and nontriviality inputs from fixed-physical-time correlation ratios. No continuum field construction or reconstruction theorem. |
+| **I1 — overarching cube-condition input** | **Partial ingredients improved; open:** the chart, rarity, transport and comparison work above does not yet prove continuum-uniform cube contraction. |
+| **I2 — overarching slice-ratio input** | **Partial ingredients improved; open:** free-vacuum reductions, exact finite-box corrections and positive-time spectral criteria do not yet prove the full interacting cutoff-uniform ratio. |
+| **I3 — overarching tree-bound input** | **No substantive closure:** continuum tree bounds remain open. |
 
-For the overarching **I1/I2/I3** inputs, cube contraction and slice ratios
-gained partial ingredients; tree bounds saw no substantive closure. Here
-I1 means the cube condition, I2 the slice ratio and I3 the tree bounds, as
+Here **I1/I2/I3** mean the cube condition, slice ratio and tree bounds, as
 in [IDEAS.md](IDEAS.md). The local mixture bootstrap in
 [ANNEALED.md](ANNEALED.md) also uses I1/I2 labels for its own intermediate
 hypotheses; those remain open as scoped in the latest status notes.
