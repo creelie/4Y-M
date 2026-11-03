@@ -1,0 +1,7 @@
+Rational proof: cutoff is in its transition branch at q=0
+Rational strict upper bound for f'(0): -91/3200 < 0
+Numerical f(0)=0.183143917834; f'(0)=-0.361264822427
+path angle q=-0.00642099318125, average angle f(q)=0.183143917834
+path angle q=0, average angle f(q)=0.183143917834
+path angle q=0.148576706208, average angle f(q)=0.183143917834
+Three path-link solutions for the same seven non-path links and average.

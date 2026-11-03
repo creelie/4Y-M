@@ -11,3 +11,11 @@
 __pycache__/
 *.so
 *.pkl
+
+# Local cluster tooling and operational data stay outside version control.
+/research/
+/scripts/aicr_research.py
+/aicr
+/aicr-research
+/aicr-audit/
+/strong-coupling/forest/RUN_LOG.md

@@ -219,3 +219,31 @@ lake env lean scripts/Axioms.lean   # prints the axioms of the main theorems
 cd strong-coupling/forest && latexmk -pdf main.tex
 cd strong-coupling/gauge-fixed/blocks && sh lean/check.sh
 ```
+
+
+## Research continuation and reproducible calculations
+
+The public research continuation is indexed in
+[strong-coupling/forest/RESEARCH_INDEX.md](strong-coupling/forest/RESEARCH_INDEX.md).
+Start with the newest section of
+[ROADMAP.md](strong-coupling/forest/ROADMAP.md) and
+[D_STATUS.md](strong-coupling/forest/D_STATUS.md) for current results and
+remaining obligations. Historical proposals and numerical diagnostics are
+retained with later corrections; they do not establish the open
+continuum-uniform cube estimate or continuum existence.
+
+The contribution includes four Lean modules for finite Dobrushin
+comparison, coupling-cost minimality, the measure-level update interface
+and compact-space cost minimisers. Their checked scope and remaining
+specification-dependent inputs are described in
+[A4_LEAN.md](strong-coupling/forest/A4_LEAN.md). Analytical notes cover
+relative charts, bad branches, large-field rarity, island/collar comparison,
+finite locality estimates and conditional spectral criteria.
+
+Standalone mathematical programs accompany the
+[finite Wick and nonlinear-flow calculations](strong-coupling/forest/wick/README.md)
+and [chart, branch and collar diagnostics](strong-coupling/forest/d5/README.md).
+Some older slice analyses require external source or separately supplied
+arrays, as documented. Private submission tooling, operational records and
+raw generated data are excluded. The current paper sources and release
+artifacts are preserved.
