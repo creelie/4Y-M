@@ -118,3 +118,13 @@ known. For a small perturbation the Kantorovich dual is a minimum-cost flow on (
   estimate of the minimum-cost flow (or a richer non-linear test family) should be done before any certificate.
 
 A2 stays parked, now with this sharper statement of what is missing.
+
+## Exact zero-exterior calibration (November 2026)
+
+**Proved deduction / exact computation:** for the displayed family B at
+zero exterior field the attained response is
+[1+I2(beta_W)/I1(beta_W)]/4, about 0.271825746653093 at 0.351.
+Thus (1+beta)/4 is its first-order approximation, not an exact response
+identity. `../../../forest/FRONTIER_LEMMAS.md` gives the derivation and
+rational Bessel-series bounds. This neither locates the full Lipschitz
+supremum nor improves the proved coupling endpoint; A2 remains open.

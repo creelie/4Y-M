@@ -175,3 +175,15 @@ running coupling.
 | `analyse_split.py`, `analyse_split.out` | Jackknife analysis of the split runs |
 | `split_existing.py`, `split_existing.out` | Parity split of the old `leak_norm` data |
 | `vertex_lat.out` | Output for (8, 400, all), (32, 200, 2), (32, 200, 6) |
+
+## Finite interacting-measure prototype (November 2026)
+
+**Proved finite reduction / computation, not closure of B2:**
+`../../B_WICK.md` computes complete order-g^2 coefficients for unflowed
+magnetic correlations on finite open SU(2) boxes, including action,
+observable and Haar terms. The smallest-box normalised correction is an
+exact positive rational and agrees in two maximal-tree gauges; larger
+CPU and B200 values agree numerically. Separate measure sectors change
+with the tree, so only the full correction is used as gauge-invariant
+evidence. The spatial-flow, infinite-volume interacting-vacuum correction
+and uniform cutoff bounds remain open.

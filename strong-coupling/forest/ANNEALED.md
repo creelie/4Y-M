@@ -167,3 +167,11 @@ updated to say so.
 - [BD86] L. A. Bassalygo, R. L. Dobrushin, Theory Probab. Appl. 31 (1986) 572–589.
 - [vdBM94] J. van den Berg, C. Maes, *Disagreement percolation in the study of Markov fields*, Ann. Probab. 22 (1994)
   749–763.
+
+**Follow-up (proved scope statement, November 2026).**
+`ENVIRONMENT_OBSTRUCTION.md` gives an explicit rare-label hidden-phase
+example satisfying every finite-intersection bound while retaining a
+distance-independent environment covariance, even with zero quenched
+covariance. `CONNECTED_NORMALIZERS.md` proves the connected normaliser
+estimate for continuous changes inside the good product chart; extending
+it to hard label flips and bad islands remains open.
