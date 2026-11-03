@@ -160,3 +160,16 @@ on (D).
   has attenuation 1 (heuristic).
 - **Unchanged:** D8. Chessboard rarity covers O(log β) scales only (≤ 19 at β = 10⁶⁴); RG-improved rarity is Bałaban's.
 - **Next:** the relative chart for ω ≠ ∅ (`LARGE_FIELD.md` §3a), then input (b).
+
+### Relative-chart audit and local witness (November 2026, `RELATIVE_CHART.md`)
+
+- **Proved (deductions from the paper):** the canonical reconstruction R(c) is in the full fibre of c. A link
+  farther than r from R(c) forces a plaquette defect > r/50 in a fixed block collar, for
+  r ≤ 50·10^(-8)ρ_G. This supplies a specified version of input (b), without an exterior-uniform rarity claim.
+- **Proved (limitations):** the chart product uses tangent coordinates, not physical links. Sandwiching domains
+  does not transfer covariance decay; h is not an inhomogeneous fibre projection. Full-fibre disintegration also
+  retains incoming averages at the window boundary.
+- **Sketch / open:** construct a chart solving all touching constraints and check its domain and Hessian;
+  prove constrained bad-side coefficients and the environment bootstrap hypothesis. The single-scale reduction
+  to two deterministic checks is not yet justified. The earlier β ≈ 4.5·10³⁷ is conditional ledger arithmetic,
+  with an unchecked witness threshold and finite-intersection losses. D8 is unchanged.
