@@ -6,6 +6,9 @@ section of `ROADMAP.md`, then `D_STATUS.md` and `FRONTIER_PLAN.md`.
 Older entries are retained as a research history; later corrections
 supersede earlier proposed thresholds and heuristic diagnoses.
 
+The complete upstream contribution is
+[draft PR #160](https://github.com/creelie/4Y-M/pull/160).
+
 ## Results and open fronts
 
 | Front | Contribution | Remaining obligation |
