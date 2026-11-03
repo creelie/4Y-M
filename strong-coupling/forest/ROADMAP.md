@@ -402,5 +402,6 @@ flow, branch, scalar collar and spectral diagnostics are now supplied in
 A2/A3 exact-response and ceiling language is explicitly superseded by the
 Bessel correction. The formal and analytical scopes remain those of the
 preceding implementation pass: no new (I1), D8 or continuum theorem is
-claimed by this integration. `UPSTREAM_STATUS.md` links the full PR form;
-GitHub CLI authentication is still required to create the PR from this node.
+claimed by this integration. The complete contribution is open as
+[draft PR #160](https://github.com/creelie/4Y-M/pull/160), with 129 changed
+files. `UPSTREAM_STATUS.md` records the reconciliation and earlier scope.

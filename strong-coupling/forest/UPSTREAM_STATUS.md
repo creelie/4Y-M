@@ -9,10 +9,11 @@ historical first candidate, not the requested final scope.
 source programs, validations and conflict resolutions. Current paper
 sources and release artifacts remain upstream's versions. Private
 submission tooling, machine configuration, raw data and audit records
-remain excluded. No PR has yet been opened because GitHub CLI lacks API
-authentication on this node.
+remain excluded. GitHub authentication became available after preparation,
+and the full contribution is now open as
+[draft PR #160](https://github.com/creelie/4Y-M/pull/160).
 
-[Open the complete upstream PR form](https://github.com/creelie/4Y-M/compare/main...romanov360:upstream/all-research?expand=1).
+[Review the complete contribution](https://github.com/creelie/4Y-M/pull/160).
 
 **Assessment.** Compared research head `6e0608b` with
 `creelie/4Y-M:main` at `fdd2dc5`. Their common ancestor is `5ca904f`;
