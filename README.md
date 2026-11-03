@@ -223,6 +223,9 @@ cd strong-coupling/gauge-fixed/blocks && sh lean/check.sh
 
 ## Research continuation and reproducible calculations
 
+[PR_SUMMARY.md](PR_SUMMARY.md) describes programs 1–8 and progress on every
+A/B/C/D/E/I subitem, including the remaining Clay-problem obligations.
+
 The public research continuation is indexed in
 [strong-coupling/forest/RESEARCH_INDEX.md](strong-coupling/forest/RESEARCH_INDEX.md).
 Start with the newest section of
