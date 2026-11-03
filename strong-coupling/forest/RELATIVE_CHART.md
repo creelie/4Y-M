@@ -1,5 +1,10 @@
 # Relative-chart audit and a local curvature witness (November 2026)
 
+**New obstruction (proved):** `ROUGH_BACKGROUND.md` gives a four-link
+negative constrained-action Hessian direction at R(c) with every relative
+physical link label good. Coarse-background calmness is an additional
+hypothesis; relative-link goodness alone cannot imply input (a).
+
 **Follow-up (proved deductions / open sketch):** `TOUCHING_CHART.md` constructs
 a local graph solving all touching constraints around an assumed calm completion,
 with finite-range solved links and an explicit disintegration density. It also

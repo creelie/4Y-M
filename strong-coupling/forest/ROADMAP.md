@@ -186,3 +186,14 @@ on (D).
   the graph-density Hessian, constrained bad-side response and the environment
   bootstrap. The graph is a local parametrisation, not relative chart decay.
   D7, (I1), (D) and D8 remain open; no working island threshold is certified.
+
+### Rough coarse backgrounds: an exact obstruction (`ROUGH_BACKGROUND.md`)
+
+- **Proved:** on a fine torus of side four there is a canonical reconstruction
+  R(c) with every relative physical link label good and an exact four-link
+  fibre curve with Q''(0)=-4. Its constrained action Hessian is negative.
+- **Computation:** an eigensolver found the obstruction; the final four-link
+  certificate uses integer arithmetic only (`d5/rough_certificate.py`).
+- **Sketch / next:** add a coarse-curvature hypothesis or label before seeking
+  relative chart decay. Background selection, the label domain and the
+  environment term remain separate checks. D8 is unchanged.

@@ -1,5 +1,10 @@
 # Touching constraints: a local graph and an explicit witness loss
 
+**New obstruction (proved):** `ROUGH_BACKGROUND.md` gives a four-link
+negative constrained-action Hessian direction at R(c) with every relative
+physical link label good. Coarse-background calmness is an additional
+hypothesis; relative-link goodness alone cannot imply input (a).
+
 Continues `RELATIVE_CHART.md`. **Proved** means a deduction from the stated
 paper lemmas, not a Lean verification. The relative decay theorem, (I1), D7
 and (D) remain open.
