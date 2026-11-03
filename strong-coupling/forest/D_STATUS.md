@@ -1,5 +1,13 @@
 # The two walls, (D) and (E): where they stand (November 2026)
 
+**Follow-up (proved deductions / open sketch):** `TOUCHING_CHART.md` constructs
+a local graph solving all touching constraints around an assumed calm completion,
+with finite-range solved links and an explicit disintegration density. It also
+computes a conservative finite-intersection loss for input (b):
+[6*2401*z(r/50)]^(|S|/2401), when 6*2401*z(r/50)<1.
+This does not prove a Hessian bound or match the actual label-conditioned
+domain. Relative decay and (I1) remain open; no island threshold is certified.
+
 A summary from a reader (Lockwood) of release v4.29.0:
 
 > (D), the one-cube estimate: the bounds on a single block have to hold uniformly as the lattice spacing goes to zero.
