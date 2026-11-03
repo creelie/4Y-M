@@ -178,3 +178,21 @@ then incorporate the spatial-flow observable and address infrared and
 renormalisation limits. Strong sector cancellations make a bound on each
 large gauge-dependent term separately unattractive. This is a prototype
 for that analysis, not a replacement for the missing B2 theorem or D8.
+
+## 6. Nonlinear-flow follow-up (2026-11-03)
+
+**Proved finite reductions / computation:** `NONLINEAR_FLOW_CHECK.md`
+gives full-link spatial-flow Taylor/Duhamel formulas through the required
+order, including the exponential-coordinate metric correction. A solvable
+one-variable SU(2) model shows that omitting nonlinear flow changes its
+normalised order-g^2 coefficient by a factor of three. Independent Haar
+quadrature checks that calibration. A separate finite spatial-action
+gradient check on a 3x2x2x2 box validates the local vertices and detects
+the error from freezing tree links during flow. The actual flowed Wick
+covariance and the uniform B2 estimate remain open.
+
+**Proved conditional B/E interface:** `POSITIVE_TIME_TIGHTNESS.md` turns a
+lower bound on C_a(s)/C_a(s/2) at fixed positive physical s into a uniform
+energy bound for the time-smoothed normalised state. The full interacting
+correlation ratio, not merely a finite perturbative coefficient, must
+supply that lower bound.

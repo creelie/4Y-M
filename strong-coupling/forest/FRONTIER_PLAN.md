@@ -6,6 +6,13 @@ continuum. James's ideas sharpen the formal interface but do not supply
 the missing dynamical estimates. This note records priorities, not new
 results or an experiment execution log.
 
+**Implementation follow-up (2026-11-03).** The latest `ROADMAP.md` section
+records the first pass through this plan: the measure bridge and compact
+cost-minimiser existence are kernel checked; finite collar/fold, flow and
+spectral interfaces are recorded with explicit limits. Current formal
+status is in `COUPLING_INTERFACE.md` section 5. The priorities below were
+the starting plan; no open Yang--Mills dynamical wall is declared closed.
+
 ## 1. Current status
 
 - **A -- proved, stated fixed-lattice regime:** existing strong-coupling

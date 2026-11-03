@@ -326,3 +326,47 @@ the next formalisation target; bad-island/environment bounds, all-scale
 locality and continuum nontriviality remain analytical obligations. The
 note records expectations and resource limits; no experiments were run
 and no new theorem is claimed.
+
+### Frontier implementation pass (2026-11-03)
+
+- **A/G1, proved / kernel checked:** James's trimmed measure bridge is now
+  `WassersteinBridge.lean`, with added actual-measure cost-minimality
+  connection theorems. `CouplingMinimizer.lean` proves nonempty compact
+  fixed-marginal probability couplings and existence of a minimum for
+  every continuous real cost on a compact metric space. All four modules
+  in the dependency chain compile against v4.33.0; the complete default
+  target was not rebuilt. Measurable conditional selection, discrepancy
+  instantiation, specification-dependent update bounds and limit arguments
+  remain open. No new strong-coupling endpoint is claimed.
+- **B, proved finite reduction + computation:** `NONLINEAR_FLOW_CHECK.md`
+  supplies the nonlinear full-link flow-jet formulas. The exact compact
+  one-variable calibration has a normalised correction three times the
+  linear-flow-only answer. CPU checks also validate local spatial-action
+  vertices on a 3x2x2x2 box and show that freezing tree links changes the
+  flow. The complete flowed Wick covariance and B2 remain open.
+- **C/D/I, proved finite-measure lemma + open application:**
+  `ISLAND_KERNEL.md` proves that a common positive collar kernel's uniform
+  cross-ratio bound survives arbitrary separate hard island weights and
+  branch mixtures, with a binary-label influence consequence. The actual
+  constrained gauge factorisation and uniform calm-interface estimates
+  are not yet supplied; the environment recursion remains open.
+- **D/I, proved scalar local result + computation:** `TRANSVERSE_FOLD.md`
+  solves a transverse variable through the explicit scalar path fold.
+  Independent quadrature representations agree, but hard-boundary fluxes
+  and uniform SU(2) bad-side transport remain uncontrolled.
+- **D8, proved finite interface:** `WEIGHTED_SCHUR.md` bounds locality and
+  perturbation amplification under one Gaussian elimination. No all-scale
+  Yang--Mills estimates or large-field RG construction are provided.
+- **E, proved conditional spectral lemma:**
+  `POSITIVE_TIME_TIGHTNESS.md` converts a fixed-physical-time half-time
+  correlation-ratio lower bound into tight normalised spectral weight and
+  nonzero normalised correlations. The Yang--Mills ratio bound, local-field
+  construction, convergence and reconstruction remain open.
+
+**Computation / resource assessment:** bounded reviewed CPU jobs supplied
+kernel checks and finite diagnostics. No GPU was allocated: the numerical
+pilots take seconds on CPUs. Submission tooling, exact source bundles,
+operational logs and raw results remain outside Git. The next targets are
+measurable conditional couplings, actual island/collar factorisation,
+hard-boundary transport and complete flowed Wick coefficients. (I1), D7,
+the required D5, (D), D8 and (E) remain open.
