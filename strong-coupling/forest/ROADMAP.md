@@ -197,3 +197,24 @@ on (D).
 - **Sketch / next:** add a coarse-curvature hypothesis or label before seeking
   relative chart decay. Background selection, the label domain and the
   environment term remain separate checks. D8 is unchanged.
+
+### A specified canonical graph law (`CANONICAL_CHART.md`, `COARSE_LABELS.md`)
+
+- **Proved (deduction using the paper's `smallfibre` and covariance argument):**
+  private-link fixed points around R(c), with the frozen exterior as input,
+  select a measurable background and solve all touching constraints.
+  The graph density has a local product of inverse determinants.
+- **Proved (deduction):** on the stated product graph domain, with
+  kappa_R+176t<=10^(-10) and lambda>=2*10^11, the effective Hessian is at
+  least lambda/104. With kappa_R+352t<=10^(-10), the same law has weighted
+  covariance decay at a conservative coarse-distance rate 10^(-14).
+  This is a theorem about a specified restricted chart law, not (I1).
+- **Proved:** coarse curvature has a fine witness at eta/105. A coverage
+  count improves the relative-link finite-intersection exponent denominator
+  from 2401 to 256; including coarse-curvature labels gives denominator 1296.
+- **Computation:** rational bounds with explicit Taylor remainders, finite
+  overlap checks, and a nonabelian determinant diagnostic accompany the notes.
+- **Sketch / open:** identify or replace the physical label-conditioned
+  domain, control bad-side constrained response, and prove the environment
+  comparison. D7 and (I1) are open; no island threshold is certified.
+  D8 and the continuum existence question are unchanged.
