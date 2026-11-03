@@ -51,5 +51,7 @@ def run(scale):
     assert residual<1e-13 and min(errors)<1e-7
     print(f'  fixed-point residual={residual:.3g}, iterations={iteration+1}')
 
-for scale in [1e-3,1e-4,1e-5]: run(scale)
-print('Nonabelian determinant diagnostic passed (floating computation only).')
+if __name__ == '__main__':
+    for scale in [1e-3,1e-4,1e-5]:
+        run(scale)
+    print('Nonabelian determinant diagnostic passed (floating computation only).')

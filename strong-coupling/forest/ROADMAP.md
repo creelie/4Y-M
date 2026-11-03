@@ -218,3 +218,26 @@ on (D).
   domain, control bad-side constrained response, and prove the environment
   comparison. D7 and (I1) are open; no island threshold is certified.
   D8 and the continuum existence question are unchanged.
+
+### Match the law by labelling independent links (`INDEPENDENT_LABELS.md`)
+
+- **Proved:** the original physical all-link label domain is nonconvex in
+  non-path coordinates even when c=I (`LABEL_DOMAIN.md`, analytic BCH proof).
+- **Proved:** if a pair's non-path links are within r of R(c), every path-link
+  solution is within 14r of c_k, including all cut-off branches. Hence the
+  path solution is unique in this regime; no component is discarded.
+- **Proved (deduction):** label only non-path physical links, plus coarse
+  curvature. On W with W^(+5) good, freeze links off A_W together with the
+  incoming path links as the enlarged free set. The full conditional law
+  equals the product graph law. Under eta+352r<=10^(-10) and
+  lambda>=2*10^11, the previous weighted covariance estimate therefore
+  holds for this actual enlarged good-window law.
+- **Proved:** bad non-path data can have three path-link solutions with the
+  same average (`BAD_BRANCHES.md`). Bad-side estimates must include branches.
+- **Computation:** quaternion endpoint/midpoint probes support the domain
+  obstruction; rational inequalities and numerical roots check the bad-branch
+  example. They are labelled separately from the analytic arguments.
+- **Sketch / next:** constrained bad-side transport (including branches),
+  island/collar comparison, and the environment covariance. The five-block
+  collar has not been entered into a working island ledger. (I1), D7, D5
+  and (D) remain open; D8 is unchanged.
