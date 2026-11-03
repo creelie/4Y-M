@@ -313,3 +313,16 @@ instantiated with actual updates and finite coordinate integrals. The
 source remains uncompiled in this review. No new E argument is included;
 the workflow prompt remains truncated. G1 and the dynamical walls remain
 open.
+
+### Frontier and next experiment/proof priorities (2026-11-03)
+
+**Assessment / future directions:** `FRONTIER_PLAN.md` consolidates the
+A--E/D8/I status, James's conditional bridge and the next efforts. CPU
+priorities are branch-complete bad-side transport diagnostics, connected
+two-island partition weights, and the complete spatial-flow correction.
+Larger B tensor contractions are a conditional B200 candidate only after
+CPU validation and a cost comparison. G1's measure-level construction is
+the next formalisation target; bad-island/environment bounds, all-scale
+locality and continuum nontriviality remain analytical obligations. The
+note records expectations and resource limits; no experiments were run
+and no new theorem is claimed.
