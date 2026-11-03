@@ -255,3 +255,36 @@ on (D).
   this formal interface does not establish (I1) or any new gauge-theory gap.
   Next research target remains bad-side transport including path branches,
   then island/environment comparison. D8 is unchanged.
+
+### Analytical interfaces and finite-box corrections (November 2026)
+
+- **A, proved deduction + exact computation:** the zero-exterior attainable
+  test response is [1+I2(beta_W)/I1(beta_W)]/4. The older (1+beta)/4 is its
+  first-order approximation, not a certified optimum. No endpoint changes.
+- **B, proved finite reduction + computation:** `B_WICK.md` includes the full
+  finite-box interacting-measure, observable and Haar corrections. One B200
+  pilot was independently reproduced on CPUs; an exact rational small-box
+  check gives a nonzero normalised order-g^2 correction and exact two-tree
+  invariance. Individual sectors depend on gauge coordinates. This is not
+  the infinite-volume flowed-vacuum correction of B2.
+- **C, proved scope limitation:** overlap-H witness information alone cannot
+  avoid the 1/H exponent loss (`FRONTIER_LEMMAS.md`). Better constants require
+  extra gauge geometry, not just another union bound.
+- **D/I, proved deductions:** `CONNECTED_NORMALIZERS.md` gives exponential
+  locality of connected log-normalisers for continuous source changes
+  inside the good product chart. `ENVIRONMENT_OBSTRUCTION.md` shows that
+  even all finite-intersection rarity bounds and zero quenched covariances
+  do not alone control the environment covariance. Hard label flips and
+  noncalm islands remain outside the new estimate.
+- **D8, proved finite interface:** quadratic-form perturbations survive
+  constrained minimisation, but do not imply locality; a weighted operator
+  estimate and scale-summable errors are sufficient additional inputs in
+  the stated finite setting (`FRONTIER_LEMMAS.md`). No RG construction.
+- **E, proved conditional lemma:** positive spectral weight and a uniform
+  physical-energy first moment imply a nonzero limiting correlation if
+  correlations converge. A physical gap alone does not imply nontriviality.
+  Neither tightness nor continuum existence is established.
+
+The remaining priorities are bad-island constrained transport, connected
+label/island normalisers and the environment bootstrap, then multiscale
+composition. (I1), D7, the required D5, (D), D8 and (E) remain open.

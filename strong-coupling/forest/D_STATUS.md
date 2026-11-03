@@ -1,5 +1,12 @@
 # The two walls, (D) and (E): where they stand (November 2026)
 
+**Latest interfaces (proved conditional deductions):**
+`CONNECTED_NORMALIZERS.md` controls connected normalisers for continuous
+source changes inside the good graph law. `ENVIRONMENT_OBSTRUCTION.md`
+shows why finite-intersection rarity alone cannot close the environment
+term. Hard label changes, bad-side transport, (I1), D7 and D8 remain open.
+`FRONTIER_LEMMAS.md` scopes the finite perturbation and nontriviality inputs.
+
 **Latest matching result (proved deduction):** `INDEPENDENT_LABELS.md`
 changes labels to non-path physical links plus coarse curvature. The bound
 d(d_k,c_k)<=14r controls every path branch. With a five-block good collar,
