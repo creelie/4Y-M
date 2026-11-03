@@ -1,0 +1,19 @@
+adjacency D: 8 = nearest neighbour, 80 = l-infinity (*-connected)
+
+D = 8
+  rho = beta^(-1/4)                        q<1 for beta_W >= 3.705e+6
+  rho = 0.1                                q<1 for beta_W >= 1.625e+5
+  rho = 0.01                               q<1 for beta_W >= 2.091e+7
+  rho = 3.25e-12 (Cor. localcalm, m=1)     q<1 for beta_W >= 6.033e+26
+  beta_W=1.0e+7, rho=beta^-1/4: log z <= -76.2564, q = 9.95e-32
+  beta_W=1.0e+8, rho=beta^-1/4: log z <= -489.798, q = 2.505e-211
+  beta_W=1.0e+10, rho=beta^-1/4: log z <= -6087.17, q = 3.107e-2642
+
+D = 80
+  rho = beta^(-1/4)                        q<1 for beta_W >= 3.864e+6
+  rho = 0.1                                q<1 for beta_W >= 1.664e+5
+  rho = 0.01                               q<1 for beta_W >= 2.13e+7
+  rho = 3.25e-12 (Cor. localcalm, m=1)     q<1 for beta_W >= 6.068e+26
+  beta_W=1.0e+7, rho=beta^-1/4: log z <= -76.2564, q = 9.95e-31
+  beta_W=1.0e+8, rho=beta^-1/4: log z <= -489.798, q = 2.505e-210
+  beta_W=1.0e+10, rho=beta^-1/4: log z <= -6087.17, q = 3.107e-2641
