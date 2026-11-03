@@ -9,7 +9,7 @@ supersede earlier proposed thresholds and heuristic diagnoses.
 The complete upstream contribution is
 [draft PR #160](https://github.com/creelie/4Y-M/pull/160).
 
-[PR_SUMMARY.md](../../../PR_SUMMARY.md) combines the eight-program overview with
+[PR_SUMMARY.md](PR_SUMMARY.md) combines the eight-program overview with
 the item-by-item A1--A4/B/C/D/E/I progress and its relation to the Clay
 problem.
 
