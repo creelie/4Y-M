@@ -173,3 +173,16 @@ on (D).
   prove constrained bad-side coefficients and the environment bootstrap hypothesis. The single-scale reduction
   to two deterministic checks is not yet justified. The earlier β ≈ 4.5·10³⁷ is conditional ledger arithmetic,
   with an unchecked witness threshold and finite-intersection losses. D8 is unchanged.
+
+### Touching-constraint graph and witness losses (November 2026, `TOUCHING_CHART.md`)
+
+- **Proved (deduction):** around an assumed calm completion, all touching averages
+  admit a smooth local graph after freeing incoming private links. The graph
+  has finite range, path-link Lipschitz constant <44, and an explicit
+  product of inverse path-link determinants as its Haar disintegration density.
+- **Proved (deduction):** input (b) gives finite-intersection torus rarity
+  [6*2401*z(r/50)]^(|S|/2401) when the bracket is below one.
+- **Sketch / open:** background selection, the actual label-domain geometry,
+  the graph-density Hessian, constrained bad-side response and the environment
+  bootstrap. The graph is a local parametrisation, not relative chart decay.
+  D7, (I1), (D) and D8 remain open; no working island threshold is certified.

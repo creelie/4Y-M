@@ -1,5 +1,13 @@
 # The large-field wall of (D): what can be moved (November 2026)
 
+**Follow-up (proved deductions / open sketch):** `TOUCHING_CHART.md` constructs
+a local graph solving all touching constraints around an assumed calm completion,
+with finite-range solved links and an explicit disintegration density. It also
+computes a conservative finite-intersection loss for input (b):
+[6*2401*z(r/50)]^(|S|/2401), when 6*2401*z(r/50)<1.
+This does not prove a Hessian bound or match the actual label-conditioned
+domain. Relative decay and (I1) remain open; no island threshold is certified.
+
 This note is a research pass on the two blockers of (D) named in `CALM_LINK.md` §4 and `ANNEALED.md` §5:
 - **(R1)/(I1):** one-point calm rarity under every exterior, and quenched coefficients for the laws μ^ω conditioned
   on the large-field set;
