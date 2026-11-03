@@ -11,6 +11,12 @@ A summary from a reader (Lockwood) of release v4.29.0:
 This note checks the summary against the paper and splits (D) into the pieces the paper leaves open. It records one
 observation made after the release (§3) and ranks the next targets (§4). Nothing here closes (D).
 
+**Latest follow-up:** `RELATIVE_CHART.md` audits the link-ball proposal of `LARGE_FIELD.md` §3a.
+**Proved (from the paper's lemmas):** a bad link relative to the canonical full-fibre reconstruction R(c) has a
+local plaquette witness at radius r/50. **Sketch / open:** the relative chart, constrained bad-side coefficients,
+and the environment-covariance bootstrap hypothesis. Neither (I1) nor D7 is proved, and the proposal's numerical
+island threshold remains conditional. The newest section of `ROADMAP.md` records this update.
+
 ## 1. Corrections to the summary
 
 - **Strong-coupling range.**

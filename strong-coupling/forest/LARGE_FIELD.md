@@ -7,6 +7,14 @@ This note is a research pass on the two blockers of (D) named in `CALM_LINK.md` 
 
 Every item is labelled **proved**, **sketch**, **heuristic** or **computation**. Nothing here closes (D).
 
+**Subsequent audit (proved deductions and open sketches):** `RELATIVE_CHART.md` checks §3a and input (b).
+Input (b) holds with a specified canonical reference R(V^sharp(U)) and plaquette threshold r₁/50, rather than the
+unchecked r₁/4 below. The relative chart remains open: tangent-coordinate products are not physical-link products,
+a domain sandwich does not transfer covariance estimates, and full-fibre conditioning retains incoming averages.
+The bad-side constrained coefficients and the environment bootstrap hypothesis also remain open. The ledger in
+§4 is conditional arithmetic; its β ≈ 4.5·10³⁷ is not a proved working threshold. Read the original proposal below
+with these corrections.
+
 The main outcome is §3. It changes what is conditioned on: a **fixed product of link balls in fibre gauge**, instead of
 plaquette-level calm conditions. This removes the thin-lens problem on both sides of the mixture of `ANNEALED.md` §5,
 and it moves the rarity threshold from K/(8n_P) ≈ 10⁻⁷⁹ to a fixed radius. The good side with no bad links is the paper's
@@ -57,11 +65,14 @@ recursion "calm boundary ⇒ calm interior with a gain" gets no gain from the le
 for each link ℓ in that gauge, the geodesic ball B_ℓ = B(1, r₁). The **good set** of a configuration is
 G = {ℓ : U_ℓ ∈ B_ℓ}, and the bad set is B = G^c. Mix over ω = B as in `ANNEALED.md` §5.
 
-**Bad side: no thin lens (proved, trivial).** Conditioned on ω, a bad link is restricted to the complement of a
+**Bad side: no thin lens (proved for an unconstrained fixed-support link law; constrained extension open).**
+Conditioned on ω, a bad link is restricted to the complement of a
 **fixed** ball, which does not move with its neighbours. Its conditional law is e^{−βS} times the indicator of a
 fixed set C. For a 1-Lipschitz f, the derivative of E[f] in a neighbour σ is −Cov(f, β∂_σS), because C does not depend
 on σ. So it is at most β sup|∂_σS| · diam G, uniformly in the field and in the mass of C. Hence (B) of `ANNEALED.md` §1
-holds on ω with Ā = O(β_W). Compare `ANNEALED.md` §4: there, the allowed sets were intersections of
+holds for that unconstrained update with Ā = O(β_W). On the fibre, a physical link is generally not a free
+coordinate; the constraint and coarea terms still need checking (`RELATIVE_CHART.md` §3).
+Compare `ANNEALED.md` §4: there, the allowed sets were intersections of
 balls centred at the neighbours, hence thin lenses with unbounded response.
 
 **Good side: a convex domain (sketch).** Conditioned on ω, the good links live in the product Π_{ℓ∈G} B_ℓ, which is
@@ -69,13 +80,15 @@ geodesically convex for r₁ below the injectivity radius. If the Hessian of βS
 this product (input (a) below), then:
 - **Bakry–Émery:** the conditional law satisfies an LSI with constant ≍ (βc₀)⁻¹, uniformly in the shape of G (convex
   restriction does not hurt Bakry–Émery);
-- **Herbst:** sub-Gaussian concentration of every Lipschitz function, so the rarity of "a plaquette > r₁/4" inside G
-  is e^{−cβr₁²} under the conditioned law, under any configuration of ω;
+- **Herbst:** sub-Gaussian concentration about the conditional mean. The originally claimed absolute rarity of
+  "a plaquette > r₁/4" under every configuration of ω does not follow without a bound on that mean
+  (`RELATIVE_CHART.md` §3, proved counterexample to that implication);
 - **Helffer–Sjöstrand / Brascamp–Lieb:** Cov ≤ ⟨∇F, (Hess)⁻¹∇H⟩, and Combes–Thomas gives exponential decay of the
   inverse Hessian at rate ≍ √c₀ in lattice units, because the Hessian is a local operator;
 - **no off-chart term:** the domain is the chart, so the error 320λ|V₁|ε_loc of `ISLANDS.md` §1 does not appear.
 
-So the quenched input (I1) for μ^ω reduces to input (a), a deterministic Hessian bound.
+**Sketch (not an established reduction):** a Hessian bound is one input for (I1); matching the actual
+conditioning domain, constrained bad-side coefficients, and the mixture estimates remain to be proved.
 
 **Rarity of the bad set (sketch).** A bad link forces, within its block closure, a plaquette with δ > r₁/4
 (input (b)). The torus chessboard of `rare/RARE.md` then gives P(S ⊂ B) ≤ q(r₁/4)^{|S|/c}, at a **fixed** threshold.
@@ -118,8 +131,9 @@ configuration is a background for W″ with plaquettes ≤ κ + 4r₁. Two point
    at scale s, Ω_{r/2}(U′) ⊂ (ball product around U_v) ⊂ Ω_{2r}(U′) for r₁ ≪ s, so a sandwich with two radii should
    suffice. Not checked.
 
-With 1 and 2, the island/collar/exit scheme of `ISLANDS.md` §2 runs with chart blocks whose responses are bounded by
-`chartdecay` and `D5.md` §2, and **no off-chart term at all**.
+**Sketch (superseded as a reduction):** the intended consequence of 1 and 2 was an island/collar/exit scheme with
+no off-chart term. `RELATIVE_CHART.md` §2–3 identifies additional missing hypotheses, so those two checks alone
+do not yet justify that consequence.
 
 ## 4. Ledger (computation; `d5/basin.py`, `d5/basin.out`)
 
@@ -175,5 +189,7 @@ coarse curvature must be rare at the coarse coupling, which is Bałaban's large-
 2. **Input (b):** the Poincaré-type estimate "bad link ⇒ large plaquette" in fibre gauge.
 3. **D8:** RG-improved coarse rarity. Nothing here helps; this remains Bałaban's large-field expansion.
 
-Net effect on the blockers: (R1)/(I1) at a single scale moves from "a piece of Bałaban's expansion" to two
-deterministic checks, the relative chart of §3a and input (b), with threshold β ≳ 4.5·10³⁷ (sketch). D8 is unchanged.
+**Updated status (sketch, with a proved local lemma):** input (b) is available at r₁/50 for the canonical
+reconstruction. The relative chart, constrained bad-side coefficients, and the environment bootstrap hypothesis
+remain open (`RELATIVE_CHART.md`). The reduction to just two deterministic checks is not established, and the
+β ≳ 4.5·10³⁷ ledger is not an established threshold for (I1). D8 is unchanged.
