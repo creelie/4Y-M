@@ -13669,8 +13669,9 @@ Theorem~\ref{thm:factorisation} through $K$ still holds as an identity of
 measures, with the constraints of the bad pairs of the layer kept as hard
 factors inside $K$, but $\mu_{x,y}$ is then no longer a good-window law,
 and the cross-ratio of $K$ is the comparison for the remaining islands:
-the corollary is the inductive step for two islands, and the induction
-over all the islands of a window is not performed here.
+the corollary is the inductive step for two islands, and
+Section~\ref{ssec:manyislands} keeps those constraints out of the layer and
+performs the induction.
 
 \begin{figure}[t]
 \centering
@@ -13729,6 +13730,470 @@ $\beta_W=\beta^*$.}
 \label{fig:layer}
 \end{figure}
 
+\subsection{Many islands}\label{ssec:manyislands}
+
+The paragraph after Corollary~\ref{cor:twoislands} leaves the case in which
+the layer between two islands contains further islands. If the constraints
+of those islands are kept inside the kernel, the law of the layer carries
+hard constraints and branches, and Theorem~\ref{thm:layerbound} does not
+apply to it. This subsection keeps them out of the layer. Every island
+receives its own collar, the integral over the island and its collar
+becomes a positive measure on the collar coordinates of that island, as
+$a_i$ and $b_j$ in Theorem~\ref{thm:factorisation}, and the layer between
+all the islands is a good window. The kernel of two islands is then a
+mixture, over the collar coordinates of the others, of good-window
+kernels. A mixture of kernels with small cross-ratios can have a large
+one, and Proposition~\ref{prop:hiddenbit} is such a mixture over one bit.
+Theorem~\ref{thm:manyislands} bounds the additional cross-ratio by the
+product of the sensitivities of the two islands to the collars of the
+others, with no condition on the other islands, and by a sum over chains
+of islands under a Dobrushin condition on them. The measures of the other
+islands enter only through their positivity.
+
+\emph{The data.} The data are those of Section~\ref{ssec:factorisation} with
+the following changes. Let $\mathcal I=\{a,b\}\cup\mathcal Q$ be a finite
+index set and $I_u\subset\Lambda$, $u\in\mathcal I$, pairwise disjoint sets
+of blocks with
+\[
+w_{uv}=\dist(I_u,I_v)-1\ge2s+7\qquad(u\ne v),
+\]
+which holds for distinct islands formed with the joining distance $2s+7$ of
+the paragraph after Theorem~\ref{thm:factorisation}, and with $w_{uv}\ge
+2s+8$ for the joining distance $2s+8$ of Corollary~\ref{cor:twoislands}.
+Every block of $\Lambda\setminus\bigcup_uI_u$ is good; on $I_a$ two patterns
+$\omega_a^0,\omega_a^1$ are prescribed, on $I_b$ two patterns
+$\omega_b^0,\omega_b^1$, and on each $I_q$, $q\in\mathcal Q$, one pattern
+$\omega_q$. The sector $(i,j)$ is the event that the labels of $\Lambda$ are
+these, with $\omega_a^i$ on $I_a$ and $\omega_b^j$ on $I_b$, and its weight
+$Z_{ij}$ is defined as in Section~\ref{ssec:factorisation}. With
+$d_u(y)=\dist(y,I_u)$, form for every $u\in\mathcal I$ the classes $L_u$,
+$p_u$, $x_u$ of Section~\ref{ssec:factorisation}, with $d_a$ replaced by $d_u$,
+let $z$ be every other non-path active link based in $\Lambda$, and solve
+the path link of every pair based at $d_u\ge s+2$ for every $u$. A link at
+$d_u\le s+3$ has $d_v\ge w_{uv}+1-(s+3)\ge s+5$ for $v\ne u$, so the classes
+are disjoint, and every block at $d_u\in\{s+1,s+2,s+3\}$ is good in all
+four sectors. Let $D_u$ be the product of the $r$-balls in the coordinates
+$\zeta_e$ of $x_u$ and $D_z$ that of $z$, let $n_u=45(N^u_{s+1}+N^u_{s+2})+
+17N^u_{s+3}$, with $N^u_d$ the number of blocks of $\Lambda$ at $d_u=d$, be
+the number of $x_u$-links, let $\Lambda_2$ be the largest operator norm of
+$\partial_{x_u}\nabla_z\mathcal U$ over $u\in\mathcal I$ and over
+$D_z\times\prod_uD_u$, and put
+\[
+\varDelta_{uv}=\frac{1920}{\beta_W}\Lambda_2^2r^2\sqrt{n_un_v}\,
+e^{-2\alpha_G(w_{uv}-2s-8)_+}\qquad(u\ne v),
+\]
+the quantity $\varDelta$ of Corollary~\ref{cor:twoislands} for the pair
+$I_u,I_v$ when $w_{uv}\ge2s+8$.
+
+\begin{lemma}[many islands, one kernel]\label{lem:manykernel}
+Let $s\ge1$ and $r\le10^{-4}$. There are finite positive measures $a_i$ on
+$D_a$, $b_j$ on $D_b$, $i,j\in\{0,1\}$, and $\gamma_q$ on $D_q$,
+$q\in\mathcal Q$, and a smooth function $\tilde K:\prod_{u\in\mathcal I}D_u
+\to(0,\infty)$ with
+\[
+Z_{ij}=\int\tilde K(x)\,a_i(dx_a)\,b_j(dx_b)\prod_{q\in\mathcal Q}
+\gamma_q(dx_q)\qquad(i,j\in\{0,1\}),
+\]
+such that:
+\begin{enumerate}[label=\textup{(\roman*)},leftmargin=*]
+\item $\tilde K$ and every $\gamma_q$ are the same in all four sectors;
+$a_i$ depends on $\omega_a^i$, $c$, $\beta_W$, $U^{\mathrm{ext}}$ only, and
+likewise $b_j$;
+\item $\tilde K(x)=\int_{D_z}e^{-\mathcal U(z;x)}dz$ with $\mathcal U=
+\beta_WS_K+\psi$ as in Theorem~\ref{thm:factorisation}(iv), smooth on a
+neighbourhood of $D_z\times\prod_uD_u$; no term of $\mathcal U$ depends on
+coordinates of $x_u$ and of $x_v$ for $u\ne v$, and $\nabla_z\partial_{x_u}
+\mathcal U$ is supported on the $z$-links based at $d_u\le s+4$;
+\item for $u\ne v$ the supports of $\nabla_z\partial_{x_u}\mathcal U$ and
+$\nabla_z\partial_{x_v}\mathcal U$ are at fine distance at least
+$d'_{uv}=2(w_{uv}-2s-8)_+$ between link midpoints.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+The proof of Theorem~\ref{thm:factorisation} treats each island through
+its own distance function, and runs with one class per island. Steps~1
+and~2 are unchanged, a pair being solved when it is based at distance at
+least $s+2$ from every island; its non-path links are then based at
+distance at least $s+1$ from every island, in good blocks. In Step~3 call a
+factor a $u$-factor if it depends on a coordinate of $L_u\cup p_u$, and
+assign the factors depending on $x_u$ alone to $u$. A $u$-factor depends
+only on $L_u$, $p_u$, $x_u$ and $U^{\mathrm{ext}}$, through links at
+$d_u\le s+2$, which have $d_v\ge w_{uv}+1-(s+2)\ge s+6$ for every $v\ne u$;
+so no factor is a $u$-factor and a $v$-factor, and the product $\Phi_K$ of
+the remaining factors, the $K$-factors, does not depend on the sector,
+which changes only the indicators of $I_a$ and $I_b$. The indicators of the
+bad blocks of $I_q$ involve links at $d_q\le1\le s$ and are $q$-factors.
+Step~4 with one bracket for each island gives the identity, with
+$\gamma_q(dx_q)$ the integral of the product of the $q$-factors over $L_q$
+and $p_q$ times $\prod_{e\in x_q}j\,d\zeta_e$ on $D_q$, and $a_i$, $b_j$,
+$\tilde K$ as there; this is (i). Step~5 gives the first clause of (ii).
+Step~6 is a statement about one island at a time, so it gives the support
+of $\nabla_z\partial_{x_u}\mathcal U$, and a $K$-term depending on $x_u$
+and on $x_v$ would contain a link at $d_u\le s+3$ and a link at $d_v\le
+s+3$ in blocks at distance at most one, so that $w_{uv}+1\le2s+7$, which
+is excluded. The two supports are at coarse distance at least
+$w_{uv}+1-2(s+4)=w_{uv}-2s-7$, and links based in blocks at coarse
+distance $D\ge1$ have midpoints at fine distance at least $2D-2$; this is
+(iii) for $w_{uv}\ge2s+8$, and (iii) is trivial for $w_{uv}=2s+7$.
+\end{proof}
+
+\begin{lemma}[the layer between many islands]\label{lem:manylayer}
+In addition, assume hypotheses (a)--(c) of Theorem~\ref{thm:layerbound},
+with $W'$ the set of blocks of $\Lambda$ at distance at least $s+3$ from
+every island. Then for every $x\in\prod_uD_u$ the law $\mu_x=e^{-\mathcal U
+(z;x)}dz/\tilde K(x)$ on $D_z$ satisfies~\eqref{eq:layerbound} with
+$\mathcal A=480/\beta_W$ and $\alpha=\alpha_G$, and for $u\ne v$ and vectors
+$h_u$, $h_v$ in the coordinates of $x_u$ and $x_v$,
+\[
+\bigl\lvert\partial_{h_u}\partial_{h_v}\log\tilde K(x)\bigr\rvert\le
+\frac{480}{\beta_W}\Lambda_2^2\lVert h_u\rVert\lVert h_v\rVert
+e^{-2\alpha_G(w_{uv}-2s-8)_+}.
+\]
+In particular the logarithm of the cross-ratio of $\tilde K$ in
+$(x_u,x_v)$, between two points of $D_u$ and two points of $D_v$ with the
+other arguments fixed, has modulus at most $\varDelta_{uv}$.
+\end{lemma}
+
+\begin{proof}
+The law $\mu_x$ is the law of Proposition~\ref{prop:graphlaw} for the
+window $W'$ in the coordinates of the labels, with the inside links of the
+blocks at distance $s+3$ from some island frozen and the exterior given by
+$x$ and $U^{\mathrm{ext}}$, by the identification in the paragraph on the
+layer law after Theorem~\ref{thm:factorisation}, which uses only that the
+$z$-links are the free non-path links of $W'$ and that the solved pairs are
+those of Lemma~\ref{lem:manykernel}. The proof of
+Theorem~\ref{thm:layerbound} uses the islands only in Step~1, through the
+goodness of the blocks at distance at most two from $W'$; these are at
+distance at least $s+1$ from every island, hence good in all sectors inside
+$\Lambda$ and good by (c) outside it. Steps~2 to~6 concern the window $W'$
+and are uniform in its exterior, and freezing the inside links at distance
+$s+3$ from any island restricts the Hessian to a principal submatrix. So
+\eqref{eq:layerbound} holds with the stated constants. For the derivative,
+Lemma~\ref{lem:connected} on the fixed domain $D_z$ gives
+$\partial_{h_u}\partial_{h_v}\log\tilde K=-\E_{\mu_x}[\partial_{h_u}
+\partial_{h_v}\mathcal U]+\Cov_{\mu_x}(\partial_{h_u}\mathcal U,
+\partial_{h_v}\mathcal U)$, and the first term vanishes by
+Lemma~\ref{lem:manykernel}(ii). As in the proof of
+Proposition~\ref{prop:layercross}, apply~\eqref{eq:layerbound} with
+$\varphi(e)=-\dist(e,\operatorname{supp}\nabla_z\partial_{h_u}\mathcal U)$,
+which vanishes on that support and is at most $-d'_{uv}$ on the support of
+$\nabla_z\partial_{h_v}\mathcal U$ by Lemma~\ref{lem:manykernel}(iii), with
+$\lVert\nabla_z\partial_{h_u}\mathcal U\rVert\le\Lambda_2\lVert h_u\rVert$
+and $\lVert\nabla_z\partial_{h_v}\mathcal U\rVert\le\Lambda_2\lVert h_v
+\rVert$ pointwise. For the cross-ratio, $D_u$ and $D_v$ are convex, the
+logarithm of the cross-ratio is the integral of the mixed derivative over
+the unit square, and two points of $D_u$ differ by at most $2r\sqrt{n_u}$.
+\end{proof}
+
+The other islands now enter only through the measures $\gamma_q$, and the
+kernel of $a$ and $b$ is $K(x_a,x_b)=\int\tilde K(x)\prod_q\gamma_q(dx_q)$,
+an integral against the probability law on $\prod_qD_q$ proportional to
+$\tilde K(x_a,x_b,\cdot\,)\prod_q\gamma_q$. The next lemma bounds the
+covariances of that law in terms of the cross-ratios of its density alone.
+
+\begin{lemma}[covariances over the islands]\label{lem:islandcov}
+Let $\mathcal Q$ be finite, $X_q$ compact metric spaces, $\gamma_q$ nonzero
+finite Borel measures on $X_q$, $X=\prod_qX_q$, $k:X\to(0,\infty)$
+continuous, and $P=k\prod_q\gamma_q/\int k\prod_q\gamma_q$. For $\xi\in X$
+and $\eta_q\in X_q$ let $\xi^{\eta_q}$ be $\xi$ with its $q$-coordinate
+replaced by $\eta_q$. For $q\ne q'$ let $\kappa_{qq'}$ bound
+$\lvert\log k(\xi^{\eta_q\eta_{q'}})+\log k(\xi)-\log k(\xi^{\eta_q})-\log
+k(\xi^{\eta_{q'}})\rvert$ for all $\xi,\eta_q,\eta_{q'}$, let $C_{qq'}=
+\tanh(\kappa_{qq'}/4)$ and $C_{qq}=0$, and for continuous $f$ on $X$ let
+$\delta_q(f)=\sup\{\lvert f(\xi^{\eta_q})-f(\xi)\rvert\}$. Then for
+continuous $f,g$:
+\begin{enumerate}[label=\textup{(\roman*)},leftmargin=*]
+\item $\lvert\Cov_P(f,g)\rvert\le\frac14\sum_q\delta_q(f)\sum_q\delta_q(g)$;
+\item if $\sum_{q'}C_{qq'}\le\theta<1$ for every $q$, then $D=\sum_{n\ge0}
+C^n$ converges and
+\[
+\lvert\Cov_P(f,g)\rvert\le\frac14\sum_{q,q'}\delta_q(f)\,D_{qq'}\,
+\delta_{q'}(g);
+\]
+\item if $\ell$ is a pseudometric on $\mathcal Q$, $\lambda\ge0$ and
+$\sum_{q'}C_{qq'}e^{\lambda\ell(q,q')}\le\theta<1$ for every $q$, then
+$0\le D_{qq'}\le e^{-\lambda\ell(q,q')}/(1-\theta)$.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+\emph{Conditional laws.} The law
+\[
+P_q(d\eta\mid\xi)=\frac{k(\xi^\eta)\,\gamma_q(d\eta)}{\int k(\xi^{\eta'})
+\,\gamma_q(d\eta')}
+\]
+on $X_q$ depends on $\xi$ through $\xi_{-q}$ only, its density with respect
+to $\gamma_q$ is continuous in $(\eta,\xi)$, and $P$ is invariant under
+resampling the $q$-coordinate from it.
+
+\emph{Tilts.} Let $\mu$ be a probability measure and $\mu'=h\mu/\mu(h)$
+with $h$ measurable and $0<\inf h\le\sup h\le e^\kappa\inf h$. For a Borel
+set $E$ with $0<\mu(E)<1$ the odds of $E$ under $\mu'$ and under $\mu$ have
+the ratio $\frac{\mu(h\mathbf 1_E)/\mu(E)}{\mu(h\mathbf 1_{E^c})/\mu(E^c)}
+\in[e^{-\kappa},e^\kappa]$, so the logistic bound in the proof of
+Corollary~\ref{cor:twolabels} gives $\lvert\mu'(E)-\mu(E)\rvert\le\tanh
+(\kappa/4)$, and $\mu'(E)=\mu(E)$ when $\mu(E)\in\{0,1\}$. Hence
+$\lVert\mu'-\mu\rVert_{\mathrm{TV}}\le\tanh(\kappa/4)$. If $\xi$ and $\xi'$
+differ only in the coordinate $q'\ne q$, the density of $P_q(\cdot\mid\xi')$
+with respect to $P_q(\cdot\mid\xi)$ is proportional to
+$k(\xi'^{\eta})/k(\xi^\eta)$, whose logarithm oscillates in $\eta$ by at
+most $\kappa_{qq'}$, so $\lVert P_q(\cdot\mid\xi)-P_q(\cdot\mid\xi')\rVert_
+{\mathrm{TV}}\le C_{qq'}$.
+
+\emph{Comparison.} Let $g$ be continuous, $t\in\R$, and $P^t=e^{tg}P/
+P(e^{tg})$, again of the form of the lemma; its conditional law at $q$ is
+the tilt of $P_q(\cdot\mid\xi)$ by $e^{tg(\xi^\eta)}$, so $b_q=\sup_\xi
+\lVert P^t_q(\cdot\mid\xi)-P_q(\cdot\mid\xi)\rVert_{\mathrm{TV}}\le\tanh
+(\lvert t\rvert\delta_q(g)/4)$. The couplings of $P$ and $P^t$ form a
+weakly compact set (Lemma~\ref{lem:minimiser}), and $\Psi(\pi)=\sum_q
+\varrho_q(\pi)$, $\varrho_q(\pi)=\pi\{\xi_q\ne\xi'_q\}$, is weakly lower
+semicontinuous, since $\{\xi_q\ne\xi'_q\}$ is open; let $\pi$ minimise it.
+For $q\in\mathcal Q$ replace $(\xi_q,\xi'_q)$ by a sample of the maximal
+coupling of $P_q(\cdot\mid\xi)$ and $P^t_q(\cdot\mid\xi')$, which, with
+$p,p'$ the two densities with respect to $\gamma_q$ and $m=\int\min\{p,p'\}
+d\gamma_q$, draws $\eta=\eta'$ from $\min\{p,p'\}\gamma_q/m$ with probability
+$m$ and otherwise, when $m<1$, $\eta$ and $\eta'$ independently from $(p-\min\{p,p'\})
+\gamma_q/(1-m)$ and $(p'-\min\{p,p'\})\gamma_q/(1-m)$; it is measurable in
+$(\xi,\xi')$ by the continuity of the densities, and it gives
+$\{\eta\ne\eta'\}$ probability at most $1-m=\lVert P_q(\cdot\mid\xi)-P^t_q
+(\cdot\mid\xi')\rVert_{\mathrm{TV}}$. Both marginals are invariant, so the
+result $\pi^{(q)}$ is again a coupling; it changes only $\varrho_q$, and
+changing the coordinates of $\xi_{-q}$ to those of $\xi'_{-q}$ one at a
+time,
+\[
+\varrho_q(\pi^{(q)})\le\E_\pi\sum_{q'}C_{qq'}\mathbf 1_{\xi_{q'}\ne
+\xi'_{q'}}+b_q=\sum_{q'}C_{qq'}\varrho_{q'}(\pi)+b_q .
+\]
+By minimality $\varrho_q(\pi)\le\varrho_q(\pi^{(q)})$, which is the argument
+of Lemma~\ref{lem:minimality} for the discrete metric, so $\varrho\le
+C\varrho+b$ componentwise. Under the hypothesis of (ii), $C^n\mathbf 1\le\theta^n
+\mathbf 1$ and $\varrho\le\mathbf 1$, so iterating gives $\varrho\le
+\sum_{k<n}C^kb+\theta^n\mathbf 1$ and, as $n\to\infty$, $\varrho\le Db$.
+Changing the coordinates one at a time,
+\[
+\begin{split}
+\lvert P^t(f)-P(f)\rvert&=\bigl\lvert\E_\pi[f(\xi')-f(\xi)]\bigr\rvert\\
+&\le\sum_q\delta_q(f)\varrho_q(\pi)\le\sum_{q,q'}\delta_q(f)D_{qq'}b_{q'} .
+\end{split}
+\]
+\emph{Covariances.} The functions $f$ and $g$ are bounded, so the
+derivative of $P^t(f)$ at $t=0$ is $\Cov_P(f,g)$, and $b_{q'}\le\lvert t
+\rvert\delta_{q'}(g)/4$; dividing by $\lvert t\rvert$ and letting $t\to0$
+gives (ii). For (i),
+$\lvert\Cov_P(f,g)\rvert\le(\Var_Pf\,\Var_Pg)^{1/2}$, a variance is at most
+a quarter of the squared oscillation, and changing the coordinates one at
+a time bounds the oscillation of $f$ by $\sum_q\delta_q(f)$. For (iii), by
+induction $(C^n)_{qq'}\le\theta^ne^{-\lambda\ell(q,q')}$: the case $n=0$ is
+$\ell(q,q)=0$, and $(C^{n+1})_{qq'}=\sum_kC_{qk}(C^n)_{kq'}\le\theta^ne^{-
+\lambda\ell(q,q')}\sum_kC_{qk}e^{\lambda\ell(q,k)}$ by the triangle
+inequality; summing over $n$ gives the bound, and the hypothesis of (iii)
+contains that of (ii).
+\end{proof}
+
+\begin{theorem}[many islands]\label{thm:manyislands}
+Let $s\ge1$, let the data be those above, assume hypotheses (a)--(c) of
+Theorem~\ref{thm:layerbound} with $W'$ as in Lemma~\ref{lem:manylayer}, and
+suppose $Z_{ij}>0$ for $i,j\in\{0,1\}$. Put $S_u=\sum_{q\in\mathcal Q}
+\varDelta_{uq}$ for $u\in\{a,b\}$, let $C$ be the $\mathcal Q\times\mathcal Q$
+matrix with $C_{qq}=0$ and $C_{qq'}=\tanh(\varDelta_{qq'}/4)$, and let
+\[
+\varDelta_*=\varDelta_{ab}+\frac14\,S_aS_b ;
+\]
+when $\sum_{q'}C_{qq'}<1$ for every $q$, let instead, with $D=\sum_{n\ge0}C^n$,
+\[
+\varDelta_*=\varDelta_{ab}+\frac14\min\Bigl\{S_aS_b,\ \sum_{q,q'\in
+\mathcal Q}\varDelta_{aq}D_{qq'}\varDelta_{q'b}\Bigr\}.
+\]
+Then
+\[
+\bigl\lvert\log Z_{11}+\log Z_{00}-\log Z_{10}-\log Z_{01}\bigr\rvert\le
+\varDelta_* ,
+\]
+the two island labels, the pattern of $I_a$ among $\omega_a^0,\omega_a^1$
+and that of $I_b$ among $\omega_b^0,\omega_b^1$, have conditional covariance at most
+$\frac14\tanh(\varDelta_*/4)$ given the labels of all other blocks of
+$\Lambda$, the coarse field and $U^{\mathrm{ext}}$, and for every bounded
+measurable $F\ge0$ of the links of $L_a\cup p_a\cup x_a$,
+\[
+e^{-\varDelta_*}\le\frac{\E_{i1}[F]}{\E_{i0}[F]}\le e^{\varDelta_*}
+\qquad(i=0,1)
+\]
+whenever the four expectations are positive. For $\mathcal Q=\emptyset$,
+$\varDelta_*=\varDelta_{ab}$, which for $w_{ab}\ge2s+8$ is the bound of
+Corollary~\ref{cor:twoislands}.
+\end{theorem}
+
+\begin{proof}
+By Lemma~\ref{lem:manykernel}, $Z_{ij}=\iint K\,da_i\,db_j$ with $K(x_a,x_b)
+=\int\tilde K(x)\prod_q\gamma_q(dx_q)$; $Z_{ij}>0$ forces every
+$\gamma_q\ne0$, and $K$ is smooth and positive on $D_a\times D_b$. Fix
+$x_a^0,x_a^1\in D_a$, $x_b^0,x_b^1\in D_b$, and let $x_a(\vartheta)=x_a^0+
+\vartheta(x_a^1-x_a^0)$, $x_b(\varphi)$ likewise, which stay in the convex
+sets $D_a$, $D_b$. The logarithm of the cross-ratio of $K$ at these points
+is $\int_0^1\!\int_0^1\partial_\vartheta\partial_\varphi\log K\,d\vartheta\,
+d\varphi$. With $P$ the law on $\prod_qD_q$ proportional to $\tilde K(x_a
+(\vartheta),x_b(\varphi),\cdot\,)\prod_q\gamma_q$, differentiation under
+the integral sign gives
+\[
+\partial_\vartheta\partial_\varphi\log K=\E_P\bigl[\partial_\vartheta
+\partial_\varphi\log\tilde K\bigr]+\Cov_P\bigl(\partial_\vartheta\log
+\tilde K,\partial_\varphi\log\tilde K\bigr).
+\]
+By Lemma~\ref{lem:manylayer} with $h_a=x_a^1-x_a^0$, $h_b=x_b^1-x_b^0$, the
+first term has modulus at most $\varDelta_{ab}$. Apply
+Lemma~\ref{lem:islandcov} with $X_q=D_q$, $k=\tilde K(x_a(\vartheta),
+x_b(\varphi),\cdot\,)$, $f=\partial_\vartheta\log\tilde K$ and $g=
+\partial_\varphi\log\tilde K$. Changing $x_q$ along the segment between two
+points of $D_q$ and integrating the mixed derivative of
+Lemma~\ref{lem:manylayer} for the pair $(a,q)$ gives $\delta_q(f)\le
+\varDelta_{aq}$, likewise $\delta_q(g)\le\varDelta_{bq}$, and the last
+statement of Lemma~\ref{lem:manylayer} for the pair $(q,q')$ shows that
+$\kappa_{qq'}=\varDelta_{qq'}$ is admissible, so the matrix of
+Lemma~\ref{lem:islandcov} is $C$. Parts (i) and (ii) of that lemma bound the covariance by
+$\varDelta_*-\varDelta_{ab}$, uniformly in $(\vartheta,\varphi)$. So the
+cross-ratio of $K$ is at most $e^{\varDelta_*}$ and at least
+$e^{-\varDelta_*}$ on $D_a\times D_b$, and Lemma~\ref{lem:kernel} gives the
+first bound. The joint law of the two labels given the others is
+$Z_{ij}/\sum Z$, so Corollary~\ref{cor:twolabels} gives the second. For the
+third, $F\Phi_a^i$ is a product of $a$-factors, so the identity holds with
+$Fa_i$ in place of $a_i$ and the same $K$ and $b_j$, and
+Lemma~\ref{lem:kernel} applied to $Fa_i$, $a_i$ and $b_1$, $b_0$ gives it,
+since $Z(Fa_i,b_j)/Z(a_i,b_j)=\E_{ij}[F]$.
+\end{proof}
+
+The first form of $\varDelta_*$ needs nothing of the other islands: their
+hard constraints, branches and masses are integrated in the $\gamma_q$ and
+never compared. Its mediated term $\frac14S_aS_b$ does not decay with
+$w_{ab}$ when other islands lie near both $I_a$ and $I_b$, since it treats
+every collar coordinate as able to reach every other. The second form
+keeps the interaction between the islands, through the matrix $C$, and
+under a weighted form of the Dobrushin condition
+$\sum_{q'}\tanh(\varDelta_{qq'}/4)<1$ it decays along chains of islands.
+
+\begin{corollary}[decay along chains of islands]\label{cor:islandchains}
+Under the hypotheses of Theorem~\ref{thm:manyislands}, let $\ell$ be the
+pseudometric on $\mathcal I$ given by the least value of $\sum_i(w_{u_iu_{i+1}}
+-2s-8)_+$ over the chains $u=u_0,u_1,\dots,u_k=v$ in $\mathcal I$, let
+$0\le\vartheta\le1$, and suppose
+\[
+\theta=\max_{q\in\mathcal Q}\sum_{q'\in\mathcal Q\setminus\{q\}}\tanh
+\frac{\varDelta_{qq'}}4\,e^{2\vartheta\alpha_G\ell(q,q')}<1 .
+\]
+Then
+\[
+\begin{gathered}
+\varDelta_*\le\varDelta_{ab}+\frac{e^{-2\vartheta\alpha_G\ell(a,b)}}
+{4(1-\theta)}\,T_aT_b ,\qquad T_u=\sum_{q\in\mathcal Q}\varDelta_{uq}
+e^{2\vartheta\alpha_G\ell(u,q)},\\
+T_u\le\frac{1920}{\beta_W}\Lambda_2^2r^2\sqrt{n_u}\sum_{q\in\mathcal Q}
+\sqrt{n_q}\,e^{-2(1-\vartheta)\alpha_G(w_{uq}-2s-8)_+}.
+\end{gathered}
+\]
+\end{corollary}
+
+\begin{proof}
+$\ell$ is a pseudometric since it is a least sum over chains, and
+$\ell(u,v)\le(w_{uv}-2s-8)_+$. Lemma~\ref{lem:islandcov}(iii) on $\mathcal Q$
+with $\lambda=2\vartheta\alpha_G$ gives $D_{qq'}\le e^{-\lambda\ell(q,q')}
+/(1-\theta)$ and the hypothesis of the second form of $\varDelta_*$, and
+$-\ell(q,q')\le-\ell(a,b)+\ell(a,q)+\ell(q',b)$ gives the first bound. The
+second is $\ell(u,q)\le(w_{uq}-2s-8)_+$ in each term.
+\end{proof}
+
+A chain crosses each island at no cost in $\ell$: an island is a set on
+which nothing is known, and the corollary charges only the good layers
+between consecutive islands of the chain. With $\vartheta=0$ the
+hypothesis is the Dobrushin condition $\sum_{q'}C_{qq'}\le\theta<1$.
+
+The sums $S_u$ and $T_u$ are sums over the islands near $I_u$, and the
+rarity of Theorem~\ref{thm:islandthreshold} controls them in the mean. For
+a bad block $y$ let $\lvert I(y)\rvert$ be the number of blocks of its
+island, and $\lvert I(y)\rvert=0$ for a good block.
+
+\begin{proposition}[the island sums in the mean]\label{prop:islandmass}
+Form the islands with the joining distance $2s+8$, so that $w_{uv}\ge2s+8$
+for distinct islands, let $N_s=(4s+17)^4-1$ be the number of neighbours of
+a block, $\varGamma\ge1$, and $\beta_W\ge\beta^*(\rho,s,\varGamma)$ of
+Theorem~\ref{thm:islandthreshold}(iii) with $N_s$ neighbours. Then:
+\begin{enumerate}[label=\textup{(\roman*)},leftmargin=*]
+\item for every block $y$, $\E_{\mu_L}\lvert I(y)\rvert\le2\varGamma(2
+\varGamma-1)^{-2}N_s^{-2}$;
+\item for every set $J$ of blocks of the torus and every $\kappa>0$,
+\[
+\E_{\mu_L}\sum_{y\notin J}\lvert I(y)\rvert e^{-\kappa\dist(J,y)}\le
+\frac{2\varGamma}{(2\varGamma-1)^2N_s^2}\,\lvert J\rvert\,\sigma(\kappa),
+\]
+where, with $x=e^{-\kappa}$,
+\[
+\sigma(\kappa)=\sum_{y\in\Z^4}e^{-\kappa\lVert y\rVert_\infty}=1+\frac{64x
+(1+4x+x^2)}{(1-x)^4}+\frac{16x}{(1-x)^2};
+\]
+\item in the setting of Theorem~\ref{thm:manyislands}, when every $I_q$,
+$q\in\mathcal Q$, is an island, with $B'=\bigcup_qI_q$,
+$0\le\vartheta\le1$ and $\kappa=2(1-\vartheta)\alpha_G$,
+\[
+\begin{split}
+T_u\le{}&\frac{1920}{\beta_W}\Lambda_2^2r^2\sqrt{45\,n_u}\,(2s+7)^2
+e^{\kappa(2s+9)}\\
+&\times\sum_{y\in B'}\lvert I(y)\rvert e^{-\kappa\dist(I_u,y)} .
+\end{split}
+\]
+\end{enumerate}
+At $\kappa=2\alpha_G=5\cdot10^{-4}$, $\sigma(\kappa)=6.144\cdot10^{15}$,
+and at $\varGamma=1$ the bound of (ii) is $3.249\cdot10^5\lvert J\rvert$
+for $s=1$ and $3.498\cdot10^3\lvert J\rvert$ for $s=5$.
+\end{proposition}
+
+\begin{proof}
+(i) The island paragraph of the proof of Theorem~\ref{thm:islandthreshold}
+gives $\mu_L\{\lvert I(y)\rvert=n\}\le N_s^{2(n-1)}A^{n/H}$, and its proof
+of (iii) gives $\varGamma N_s^2A^{1/H}\le\frac12$ at $\beta_W\ge\beta^*(\rho,
+s,\varGamma)$, so $\mu_L\{\lvert I(y)\rvert=n\}\le N_s^{-2}(2\varGamma)^{-n}$
+and $\E\lvert I(y)\rvert\le N_s^{-2}\sum_nn(2\varGamma)^{-n}=2\varGamma(2
+\varGamma-1)^{-2}N_s^{-2}$. (ii) By linearity it suffices that
+$\sum_ye^{-\kappa\dist(J,y)}\le\lvert J\rvert\sigma(\kappa)$; since
+$e^{-\kappa\dist(J,y)}\le\sum_{z\in J}e^{-\kappa\dist(z,y)}$, it suffices
+that $\sum_ye^{-\kappa\dist(z,y)}\le\sigma(\kappa)$ on the torus, which
+holds because each block of the torus has a preimage in $\Z^4$ at
+$\ell^\infty$ distance $\dist(z,y)$ from a preimage of $z$, distinct blocks
+having distinct preimages. The closed form counts the $(2k+1)^4-(2k-1)^4=
+64k^3+16k$ points of $\Z^4$ at distance $k\ge1$ and sums $\sum kx^k$ and
+$\sum k^3x^k$. (iii) In the second bound of
+Corollary~\ref{cor:islandchains}, $n_q\le45(2s+7)^4\lvert I_q\rvert$, since
+every $x_q$-link is based in a block at distance at most $s+3$ from $I_q$,
+so $\sqrt{n_q}\le\sqrt{45}(2s+7)^2\lvert I_q\rvert$; and $(w_{uq}-2s-8)_+
+\ge\dist(I_u,I_q)-2s-9$, while $\lvert I_q\rvert e^{-\kappa\dist(I_u,I_q)}$
+is the term of $\sum_{y\in I_q}\lvert I(y)\rvert e^{-\kappa\dist(I_u,y)}$ at
+a block of $I_q$ nearest to $I_u$. The numbers are computed in the archive.
+\end{proof}
+
+The proposition is annealed: it bounds the mean of the island sums under
+$\mu_L$ for a fixed set $J$, while Theorem~\ref{thm:manyislands} is a
+statement given all the labels, and it says nothing about the law of the
+islands near $I_u$ given that $I_u$ is an island. At $\varGamma=1$ its
+bound exceeds one, because the weighted volume $\sigma(2\alpha_G)=6.1\cdot
+10^{15}$ of the decay length $1/(2\alpha_G)=2000$ blocks of
+Theorem~\ref{thm:layerbound} exceeds $N_s^2$; for $\varGamma\ge2$ the bound of (ii) is at most $\lvert J\rvert
+\sigma(\kappa)/(\varGamma N_s^2)$, and Theorem~\ref{thm:islandthreshold}(iii)
+reaches every $\varGamma$ at the coupling $\beta^*(\rho,s,\varGamma)$.
+
+With Theorem~\ref{thm:manyislands} the comparison of item (ii) of
+Section~\ref{ssec:remains} holds with any number of islands, given the labels
+of all of them: the cross-ratio of two islands is at most $\varDelta_*$,
+explicit in the two-island quantities $\varDelta_{uv}$ of
+Corollary~\ref{cor:twoislands}, and the observables of one island change
+by a factor in $[e^{-\varDelta_*},e^{\varDelta_*}]$ under a flip of the
+other. The prefactor $\Lambda_2$ is bounded by Lemma~\ref{lem:lambdatwo},
+whose proof uses only the plaquettes at one collar and applies to each
+island $I_u$ when $r\le8\cdot10^{-5}$. Two things are not done. The Dobrushin condition of the second form
+and the smallness of $S_u$ or $T_u$ are conditions on the configuration of
+the islands, which Proposition~\ref{prop:islandmass} controls only in the
+mean. And the covariance of the two labels with the other labels averaged
+out differs from the conditional covariance by the covariance of the
+conditional probabilities of the two labels given the others, which is the
+term of Proposition~\ref{prop:hiddenbit} and is not bounded here.
+
 \subsection{What remains}\label{ssec:remains}
 
 The results of this section leave the following statements, which together
@@ -13758,11 +14223,13 @@ layer in the coordinates of the labels, and Corollary~\ref{cor:twoislands}
 bounds the cross-ratio by $\varDelta$, exponentially small in the width.
 Lemma~\ref{lem:lambdatwo} evaluates the prefactor, $\Lambda_2\le99.0001
 \beta_W+4.65\cdot10^6$, so that $\varDelta\le1$ at the threshold needs a good
-layer of width at least $99072$. What is not done is the
-induction over all the islands of a window, in which the layer between
-two islands contains further islands and its law is no longer a
-good-window law. Proposition~\ref{prop:hiddenbit} shows that no rarity
-bound replaces this comparison.
+layer of width at least $99072$. Theorem~\ref{thm:manyislands} performs the induction over all the
+islands of a window given their labels. What is not done is the
+smallness of its island sums, which Proposition~\ref{prop:islandmass}
+controls only in the mean, and the covariance of the conditional
+probabilities of two labels when the others are averaged.
+Proposition~\ref{prop:hiddenbit} shows that no rarity bound replaces this
+comparison.
 \item \emph{The island threshold.} Theorem~\ref{thm:islandthreshold}
 gives the explicit coupling $\beta^*(\rho,s)$ past which the islands of
 bad blocks at one scale are rare enough to beat their entropy, at the
@@ -13787,10 +14254,10 @@ relative bounds by a gauge-invariant form: an error bounded by a multiple
 of the Euclidean form grows by a factor at least $4/(1+2724\kappa)$ at each
 step.
 \end{enumerate}
-The induction of item (ii) is the single-scale part of (D) that remains
-open, item (i) being settled for the site of a pair by
-Theorem~\ref{thm:site} and item (ii) for two islands by
-Corollary~\ref{cor:twoislands};
+The island sums and the averaged covariance of item (ii) are the
+single-scale part of (D) that remains open, item (i) being settled for the
+site of a pair by Theorem~\ref{thm:site} and item (ii) given the labels
+of all islands by Theorem~\ref{thm:manyislands};
 item (iii) is settled by Theorem~\ref{thm:islandthreshold} at one scale
 and by Theorem~\ref{thm:islandswide} at every scale up to $a_{k_*}/8$;
 item (iv) is the multiscale part. On the continuum side, Lemmas~\ref{lem:positivetime}
@@ -13837,6 +14304,7 @@ two islands & one kernel, Thm.~\ref{thm:factorisation}\\
 layer law & chart bound, Thm.~\ref{thm:layerbound}\\
 two islands & $e^{-2\alpha_G(w-2s-8)}$, Cor.~\ref{cor:twoislands}\\
 two islands & $\frac14\tanh(\varDelta/4)$, Cor.~\ref{cor:twolabels}\\
+many islands & $\varDelta_*$, Thm.~\ref{thm:manyislands}\\
 rarity alone & floor $q^2/16$, Prop.~\ref{prop:hiddenbit}\\
 island of $n$ blocks & $2^{-n}$ past $\beta^*$, Thm.~\ref{thm:islandthreshold}\\
 islands at scale $j$ & $2^{-n}$ past $\beta^*_j$, Thm.~\ref{thm:islandscales}\\
