@@ -72,8 +72,8 @@ island threshold remains conditional. The newest section of `ROADMAP.md` records
 - **Strong-coupling range.**
   - SU(2): Theorem `blocks` gives β_W ≤ 0.351, with α(0.345) ≤ 0.9805 and α(0.351) ≤ 0.99995. The value 0.345 is
     the earlier endpoint, from before the sharpening in `gauge-fixed/blocks/sharp/`.
-  - SU(3): Theorem `su3blocks` gave β_W ≤ 0.76 in v4.29.0. It now gives β_W ≤ 0.77, with α₃(0.77) ≤ 0.99978
-    (direction A1 of `DIRECTIONS.md`).
+  - SU(3): Theorem `su3blocks` now gives β_W ≤ 0.52 with constants proved by hand, α₃(0.52) ≤ 0.9927; the certified
+    constants that reached 0.77 (direction A1 of `DIRECTIONS.md`) are a remark that no theorem uses.
 - **"Everything else is proved."** True of the paper's theorems, with two trust boundaries:
   - the numerical certificates are in Arb ball arithmetic, and only the final arithmetic is rechecked by the Lean
     kernel (`A4_LEAN.md`);
