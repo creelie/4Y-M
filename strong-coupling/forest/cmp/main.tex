@@ -24859,19 +24859,444 @@ through one further link, which for three single links is at most the
 sum of the two shorter distances and can be smaller. For the orders $k\ge4$ the
 representation needs derivatives of $v_F$ of order two, which these
 bounds do not control, and Proposition~\ref{prop:layerorders} shows that
-$(\mathrm W_{\mathcal A,\alpha})$ gives at most the rate $\alpha/(k-1)$;
-the tree form of order $k\ge4$ is not proved.
-Two further steps remain between these bounds and item~(ii) of
-Section~\ref{ssec:remains}. The differences of $\log Z^c$ over the labels of
-$k$ components are those of $\log\int\tilde K\prod_u\gamma_u$, in which
-the island coordinates of all the other components are integrated against
-$\tilde K$; carrying the bounds on $\log\tilde K$ to $\log Z^c$ needs decay
-of correlations in that gas of islands, which
-Corollary~\ref{cor:islandchains} gives only under its weighted Dobrushin
-condition. And uniformity in the coarse field stays excluded by
-Theorem~\ref{thm:fixedobstruction}(i). The tree form of the differences of
-$\log Z^c$, and with it the rate $2\alpha_G$ without a floor, is therefore
-not proved for any coarse field.
+$(\mathrm W_{\mathcal A,\alpha})$ gives at most the rate $\alpha/(k-1)$.
+What finite range adds at these orders, and what remains between the
+bounds on $\log\tilde K$ and item~(ii) of Section~\ref{ssec:remains}, is
+taken up next.
+\end{remark}
+
+The law of Proposition~\ref{prop:layerorders} owes its large cumulants
+to a $k$-body term whose $k$ sites are at mutual distance $D$, so its
+range grows with $D$. If every term of the potential has diameter at most
+a fixed $R$ and the potential is smooth with bounded derivatives, the
+energy method of the proof of Theorem~\ref{thm:thirdcumulant}, applied to
+the derivatives of every order of the Helffer--Sj\"ostrand solutions,
+gives the tree form at the full rate for every order. The setting is that
+of $(\mathrm W_{\mathcal A,\alpha})$. For nonempty sets $S_1,\dots,S_m
+\subset E$ let $\ell(S_1,\dots,S_m)$ be the least length of a tree whose
+vertices are $S_1,\dots,S_m$ and finitely many points of $E$, an edge
+between two vertices having the length of their distance; thus
+$\ell(S_1)=0$, $\ell(S_1,S_2)=d(S_1,S_2)$, and $\ell$ is at most the sum
+of the two smallest of $d(S_1,S_2)$, $d(S_1,S_3)$, $d(S_2,S_3)$ for
+$m=3$. Inside one of the sets the tree travels at no cost, as along the
+chains of Corollary~\ref{cor:islandchains}. For a smooth function $F$ on
+$\mathbb V$ and $j\ge1$, $D^jF(z)$ is the tensor with the blocks
+$\partial_{e_1}\cdots\partial_{e_j}F(z)\in\mathbb V_{e_1}\otimes\cdots
+\otimes\mathbb V_{e_j}$, and $\lvert\cdot\rvert$ is the Euclidean norm of
+a tensor or of a block. A smooth $H$ on $\mathbb V$ has range $R$ if
+$\partial_{e_1}\cdots\partial_{e_i}H\equiv0$ whenever $i\ge2$ and
+$d(e_p,e_q)>R$ for some $p,q$; for $i\ge3$ put
+\[
+\Lambda_i(H)=\sup_z\max_{e_1\in E}\sum_{e_2,\dots,e_i\in E}\bigl\lvert
+\partial_{e_1}\cdots\partial_{e_i}H(z)\bigr\rvert .
+\]
+
+\begin{theorem}[cumulants of every order under finite range]
+\label{thm:treeorders}
+Let $\mathcal A,\alpha,R>0$ and $k\ge2$. Let $H$ be smooth on $\mathbb V$,
+with bounded derivatives of every order at least two and range $R$, such
+that $(\mathrm W_{\mathcal A,\alpha})$ holds with $H_n=H$ for all $n$, and
+let $\mu$ have density proportional to $e^{-H}$. Let $0\le a\le\alpha$, let
+$F_1,\dots,F_k$ be smooth bounded functions with bounded derivatives of
+every order, $S_i$ the set of $e$ with $\partial_eF_i\not\equiv0$, all
+nonempty, $\ell=\ell(S_1,\dots,S_k)$,
+\[
+f=\max_{i\le k}\,\max_{1\le j\le k-1}\,\sup_z\lvert D^jF_i(z)\rvert,
+\qquad\Lambda=\max_{2\le i\le k-1}e^{aiR}\Lambda_{i+1}(H),
+\]
+with $\Lambda=0$ for $k=2$. Then
+\[
+\lvert\varkappa_\mu(F_1,\dots,F_k)\rvert\le K_kf^ke^{-a\ell},
+\]
+\[
+K_k=\bigl((k-1)!\bigr)^2e^{k-2}\mathcal A^{k-1}(1+\mathcal A\Lambda)^{
+(k-1)(k-2)/2}.
+\]
+In particular $K_2=\mathcal A$ and $K_3=4e\mathcal A^2(1+\mathcal A
+\Lambda)$.
+\end{theorem}
+
+\begin{proof}
+\emph{Helffer--Sj\"ostrand solutions.} Let $H'$ be smooth with bounded
+derivatives of order at least two and $\operatorname{Hess}H'\ge
+\mathcal A'^{-1}$, $\mu'$ its law, $\mathcal L'=-\Delta+\nabla H'\cdot
+\nabla$, and $G$ smooth with bounded derivatives of every order. Let
+$X^z_t$ solve $dX=-\nabla H'(X)\,dt+\sqrt2\,dB$, $X_0=z$, and $P_tG(z)=
+\E G(X^z_t)$. The derivative $J_t$ of $X^z_t$ in $z$ solves $\dot J=
+-\operatorname{Hess}H'(X_t)J$, so $\lvert J_t\rvert\le e^{-t/\mathcal
+A'}$; the derivative of order $j\ge2$ solves the same equation with a
+source made of products of at least two derivatives of lower order and
+of derivatives of $H'$, so by induction and the Duhamel formula it is at
+most $C_je^{-t/\mathcal A'}$. Hence every derivative of $P_tG$ of order
+$j\ge1$ is at most $C'_je^{-t/\mathcal A'}$, and $\lvert P_tG(z)-
+\E_{\mu'}G\rvert\le\sup\lvert\nabla G\rvert e^{-t/\mathcal A'}\E_{\mu'}
+\lvert z-z'\rvert$, by the coupling of $X^z$ and $X^{z'}$ with the same
+noise and the invariance of $\mu'$. So $\phi_G=\int_0^\infty(P_tG-
+\E_{\mu'}G)\,dt$ is smooth, its derivatives of every order $j\ge1$ are
+bounded by constants depending only on $\mathcal A'$ and on the bounds of
+the derivatives of $H'$ and $G$, and $\mathcal L'\phi_G=G-\E_{\mu'}G$;
+this is the solution of~\cite{HS94,NS97,Hel98}. Integration by parts
+gives $\Cov_{\mu'}(G,F)=\E_{\mu'}\langle\nabla\phi_G,\nabla F\rangle$.
+For smooth $F$ with bounded derivatives write $\Gamma'_FG=\langle\nabla
+\phi_G,\nabla F\rangle$, again smooth and bounded with bounded
+derivatives.
+
+\emph{The representation.} We show
+\begin{equation}\label{eq:treewords}
+\varkappa_{\mu'}(F_1,\dots,F_k)=\sum_\sigma\E_{\mu'}\bigl[\Gamma'_{F_{
+\sigma(k)}}\cdots\Gamma'_{F_{\sigma(2)}}F_1\bigr],
+\end{equation}
+the sum over the bijections $\sigma$ of $\{2,\dots,k\}$, for every $H'$
+as above, by induction on $k$; for $k=2$ it is the covariance formula.
+Let $k\ge3$, $\varepsilon_0=(2\mathcal A'\sup\lVert\operatorname{Hess}
+F_k\rVert)^{-1}$, and for $\lvert\varepsilon\rvert<\varepsilon_0$ let
+$\mu^\varepsilon$ have density proportional to $e^{-H'+\varepsilon F_k}$,
+with $\phi^\varepsilon$, $\Gamma^\varepsilon$, $\E_\varepsilon$ its
+objects; $\operatorname{Hess}(H'-\varepsilon F_k)\ge(2\mathcal A')^{-1}$,
+and the bounds above hold uniformly in $\varepsilon$. The joint cumulant
+is a mixed derivative of $\log\E e^{\sum_it_iF_i}$ at $t=0$, so
+$\varkappa_{\mu'}(F_1,\dots,F_k)$ is the derivative at $\varepsilon=0$ of
+$\varkappa_{\mu^\varepsilon}(F_1,\dots,F_{k-1})$, which by induction is
+a sum of $\E_\varepsilon$ of words in the $\Gamma^\varepsilon$. For $X$
+smooth with bounded derivatives, $\mathcal L_{\varepsilon'}=\mathcal
+L_\varepsilon-(\varepsilon'-\varepsilon)\nabla F_k\cdot\nabla$ gives
+\[
+\mathcal L_{\varepsilon'}(\phi^{\varepsilon'}_X-\phi^\varepsilon_X)=
+(\varepsilon'-\varepsilon)\Gamma^\varepsilon_{F_k}X-(\E_{\varepsilon'}X-
+\E_\varepsilon X),
+\]
+whose left side has mean zero under $\mu^{\varepsilon'}$; so $\nabla
+\phi^{\varepsilon'}_X-\nabla\phi^\varepsilon_X=(\varepsilon'-\varepsilon)
+\nabla\phi^{\varepsilon'}_{\Gamma^\varepsilon_{F_k}X}$. Applied twice, with
+the uniform bounds, this gives $\partial_\varepsilon\nabla\phi^\varepsilon
+_X=\nabla\phi^\varepsilon_{\Gamma^\varepsilon_{F_k}X}$, uniformly with all
+derivatives in $z$, and by linearity in $X$, for $X_\varepsilon$ smooth in
+$\varepsilon$,
+\[
+\partial_\varepsilon\bigl(\Gamma^\varepsilon_FX_\varepsilon\bigr)=
+\Gamma^\varepsilon_F\partial_\varepsilon X_\varepsilon+\Gamma^\varepsilon
+_F\Gamma^\varepsilon_{F_k}X_\varepsilon .
+\]
+With $\partial_\varepsilon\E_\varepsilon X_\varepsilon=\E_\varepsilon
+\partial_\varepsilon X_\varepsilon+\Cov_\varepsilon(X_\varepsilon,F_k)=
+\E_\varepsilon[\partial_\varepsilon X_\varepsilon+\Gamma^\varepsilon_{F_k}
+X_\varepsilon]$ and $\partial_\varepsilon F_1=0$, the derivative of a word
+with $k-2$ letters is the sum of the $k-1$ words obtained by inserting
+$\Gamma_{F_k}$ at each of its $k-1$ places, the outermost included, and
+each bijection of $\{2,\dots,k\}$ arises once. This is~\eqref{eq:treewords}.
+
+\emph{The weights.} For a family $\mathcal S=(S_1,\dots,S_m)$ of nonempty
+subsets of $E$ let $d_{\mathcal S}(e,e')$ be the least value of $\sum_i
+c(y_{i-1},y_i)$ over the chains $e=y_0,\dots,y_n=e'$, with $c(y,y')=0$ when
+$y,y'$ lie in a common $S_l$ and $c(y,y')=d(y,y')$ otherwise; it is a
+pseudometric and $d_{\mathcal S}\le d$. For $j\ge0$ and $e_1,\dots,e_j\in
+E$ let $\psi_{\mathcal S}(e_1,\dots,e_j)$ be the least $d_{\mathcal
+S}$-length of a tree with vertices in $E$ that contains $e_1,\dots,e_j$
+and a point of each $S_l$. Then:
+\begin{enumerate}[label=(\alph*),leftmargin=*]
+\item $\psi_{\mathcal S}$ is symmetric, and $1$-Lipschitz for $d$ in each
+argument, the others fixed: add an edge;
+\item $\psi_{(S_1)}(e_1,\dots,e_j)=0$ when every $e_i\in S_1$;
+\item $\psi_{\mathcal S}(e_1,\dots,e_j)\le\psi_{\mathcal S}(g,e_{i+1},
+\dots,e_j)+\sum_{p\le i}d(e_p,g)$: add the edges from $g$ to $e_p$;
+\item if $\mathcal S'$ is $\mathcal S$ with a set $S$ added, $g\in S$ and
+$e_{i+1},\dots,e_j\in S$, then $\psi_{\mathcal S'}(e_1,\dots,e_j)\le
+\psi_{\mathcal S}(e_1,\dots,e_i,g)$: the optimal tree for the right side
+meets $S$ at $g$, the edges from $g$ to $e_{i+1},\dots,e_j$ have
+$d_{\mathcal S'}$-length zero, and $d_{\mathcal S'}\le d_{\mathcal S}$;
+\item every tree with vertices in $E$ that meets each $S_l$ has
+$d_{\mathcal S}$-length at least $\ell(S_1,\dots,S_m)$.
+\end{enumerate}
+For (e) replace each edge by a chain that realises $d_{\mathcal S}$, each
+step of cost zero inside $S_l$ by two edges of length zero through the
+vertex $S_l$, and join every $S_l$ to a point of the tree in $S_l$ by an
+edge of length zero: the result is a connected graph on $S_1,\dots,S_m$
+and points of $E$ whose edges are at least as long as the distances of
+their ends, and one of its spanning trees is admissible for $\ell$.
+
+\emph{Energy bounds of every order.} From now on $\E$, $\Cov$ and
+$\lVert\cdot\rVert$ refer to $\mu$, $\phi_G$ and $\Gamma_F$ to $H'=H$,
+and $\lVert u\rVert^2=\E\lvert u\rvert
+^2$ for a tensor valued $u$. Let $\mathcal S$ be a family as above, $G$
+smooth and bounded with bounded derivatives, $\phi=\phi_G$, and for $j\ge1$
+let $w_j$ multiply the block $(e_1,\dots,e_j)$ by $e^{a\psi_{\mathcal S}
+(e_1,\dots,e_j)}$, $y_j=\lVert w_jD^jG\rVert$ and $c_j=\lVert w_jD^j\phi
+\rVert$. We show $c_1\le\mathcal Ay_1$ and, for $2\le j\le k-1$,
+\begin{equation}\label{eq:treeenergy}
+c_j\le\frac{\mathcal A}j\Bigl(y_j+\sum_{i=2}^j\binom jie^{aiR}
+\Lambda_{i+1}(H)\,c_{j-i+1}\Bigr).
+\end{equation}
+Differentiating $\mathcal L\phi=G-\E G$ in $z_{e_1},\dots,z_{e_j}$ and
+using the Leibniz rule on $\langle\nabla H,\nabla\phi\rangle$, with
+$u=D^j\phi$,
+\[
+\mathcal Lu+\sum_{p=1}^j\operatorname{Hess}_{(p)}u=D^jG-\sum_{\lvert P
+\rvert\ge2}R_P,
+\]
+where $\operatorname{Hess}_{(p)}$ applies $\operatorname{Hess}H$ in the
+$p$-th index, $P$ runs over the subsets of $\{1,\dots,j\}$ with at least
+two elements, and $(R_P)_{e_1\dots e_j}=\sum_g\partial_{e_P}\partial_gH\,
+\partial_{e_{P^c}}\partial_g\phi$, the contraction being in $\mathbb V_g$
+and $e_P$ the indices in $P$. Put $\tilde u=w_ju$, which is bounded since
+$E$ is finite. The weight is constant in $z$, so $\E\langle\tilde u,w_j
+\mathcal Lu\rangle=\E\langle\tilde u,\mathcal L\tilde u\rangle\ge0$. For
+fixed indices other than the $p$-th, $\psi_{\mathcal S}$ is a
+$1$-Lipschitz function of the $p$-th by (a), so
+$(\mathrm W_{\mathcal A,\alpha})$, applied to each component in an
+orthonormal basis of the other factors, gives
+$\langle\tilde u,w_j\operatorname{Hess}_{(p)}w_j^{-1}\tilde u\rangle\ge
+\mathcal A^{-1}\lvert\tilde u\rvert^2$. Hence
+\[
+\frac j{\mathcal A}\lVert\tilde u\rVert^2\le\lVert\tilde u\rVert\Bigl(
+\lVert w_jD^jG\rVert+\sum_{\lvert P\rvert\ge2}\lVert w_jR_P\rVert\Bigr).
+\]
+Let $\lvert P\rvert=i$. The block $\partial_{e_P}\partial_gH$ vanishes
+unless $d(e_p,g)\le R$ for $p\in P$, and then (c) gives $\psi_{\mathcal S}
+(e_1,\dots,e_j)\le\psi_{\mathcal S}(e_{P^c},g)+iR$. With $u'=D^{j-i+1}\phi$
+and $w'=w_{j-i+1}$,
+\[
+e^{a\psi_{\mathcal S}(e)}\lvert(R_P)_e\rvert\le e^{aiR}\sum_gM_{e_P,g}
+\bigl\lvert(w'u')_{e_{P^c},g}\bigr\rvert,
+\]
+with $M_{e_P,g}=\lvert\partial_{e_P}\partial_gH\rvert$. By the symmetry of
+the blocks, the sums of $M$ over $g$ for fixed $e_P$ and over $e_P$ for
+fixed $g$ are at most $\Lambda_{i+1}(H)$, so by Schur's test the matrix
+$M$ has norm at most $\Lambda_{i+1}(H)$ on $\ell^2$, and summing the
+squares over $e_{P^c}$ gives $\lVert w_jR_P\rVert\le e^{aiR}\Lambda_{i+1}
+(H)c_{j-i+1}$. There are $\binom ji$ sets $P$ of size $i$,
+and~\eqref{eq:treeenergy} follows; for $j=1$ there is no $R_P$.
+
+\emph{Products.} Let $\mathcal S'$ be $\mathcal S$ with $S=\{e:\partial_e
+F\not\equiv0\}$ added, $F$ smooth and bounded with bounded derivatives,
+$Y=\Gamma_FG=\sum_{g\in S}\langle\partial_g\phi,\partial_gF\rangle$, and
+$w'_j$, $y'_j=\lVert w'_jD^jY\rVert$ the objects of $\mathcal S'$. Then
+\[
+\partial_{e_1}\cdots\partial_{e_j}Y=\sum_{B}\sum_{g\in S}\bigl\langle
+\partial_{e_B}\partial_g\phi,\partial_{e_{B^c}}\partial_gF\bigr\rangle,
+\]
+the sum over $B\subset\{1,\dots,j\}$. The term of $B$ vanishes unless
+$e_{B^c}$ lie in $S$, and then (d) gives $\psi_{\mathcal S'}(e_1,\dots,
+e_j)\le\psi_{\mathcal S}(e_B,g)$. By the Cauchy--Schwarz inequality in $g$
+and the sum over $e_B$ and $e_{B^c}$, the term of $B$ has weighted norm at
+most $\sup\lvert D^{j-\lvert B\rvert+1}F\rvert\,c_{\lvert B\rvert+1}$, so
+\[
+y'_j\le\sum_{b=0}^j\binom jb\sup\lvert D^{j-b+1}F\rvert\,c_{b+1}.
+\]
+\emph{Assembly.} Fix $\sigma$, put $Y_1=F_1$ and $Y_m=\Gamma_{F_{\sigma
+(m)}}Y_{m-1}$, and let $\mathcal S_m=(S_1,S_{\sigma(2)},\dots,S_{\sigma
+(m)})$; the term of $\sigma$ in~\eqref{eq:treewords} is $\E Y_k$. Write
+$\hat y_{m,j}$ for $y_j/j!$ of $G=Y_m$ and $\mathcal S_m$, $\hat Y_{m,j}=
+\max_{i\le j}\hat y_{m,i}$, and $\hat c_j=c_j/j!$. Dividing
+\eqref{eq:treeenergy} by $j!$, with $\frac{j-i+1}j\le1$ and $\sum_{i\ge2}
+\frac1{i!}=e-2<1$,
+\[
+\hat c_j\le\mathcal A\hat y_j+\mathcal A\Lambda\sum_{i=2}^j\frac{\hat
+c_{j-i+1}}{i!},
+\]
+and induction on $j$ gives $\hat c_j\le\mathcal A\hat Y_j(1+\mathcal A
+\Lambda)^{j-1}$ for $j\le k-1$, with $\hat Y_j=\max_{i\le j}\hat y_i$. The product bound divided by $j!$ gives
+$\hat y_{m,j}\le f\sum_{b\le j}\frac{b+1}{(j-b)!}\hat c_{b+1}$, with
+$\hat c$ for $G=Y_{m-1}$ and $\mathcal S_{m-1}$, so
+\[
+\hat Y_{m,j}\le e(j+1)f\mathcal A(1+\mathcal A\Lambda)^j\hat Y_{m-1,j+1}
+\]
+whenever $j+1\le k-m+1$. By (b), $\hat Y_{1,k-1}\le f$. Iterating from
+$m=k-1$, $j=1$ down to $m=2$, $j=k-2$,
+\[
+\hat Y_{k-1,1}\le e^{k-2}(k-1)!\,f^{k-1}\mathcal A^{k-2}(1+\mathcal A
+\Lambda)^{(k-1)(k-2)/2},
+\]
+since $\prod_{m=2}^{k-1}(k-m+1)=(k-1)!$ and $\sum_{m=2}^{k-1}(k-m)=
+\frac{(k-1)(k-2)}2$. Finally $\E Y_k=\sum_{g\in S_{\sigma(k)}}\E\langle
+\partial_g\phi,\partial_gF_{\sigma(k)}\rangle$ with $\phi=\phi_{Y_{k-1}}$,
+and for $g\in S_{\sigma(k)}$ a tree admissible for $\psi_{\mathcal S_{k-1}}
+(g)$ meets all $k$ sets, so by (e) and $d_{\mathcal S_{k-1}}\ge d_{\mathcal
+S_k}$, $\psi_{\mathcal S_{k-1}}(g)\ge\ell$. The Cauchy--Schwarz inequality
+gives
+\[
+\lvert\E Y_k\rvert\le e^{-a\ell}f\,c_1\le e^{-a\ell}f\mathcal A\hat
+Y_{k-1,1}.
+\]
+Summing over the $(k-1)!$ bijections gives the bound.
+\end{proof}
+
+The rate is the rate $a$ of the covariance bound, for every order; for
+$k=3$ it is the rate of Theorem~\ref{thm:thirdtree}, here without walls. The
+case $j=2$ of~\eqref{eq:treeenergy} is a two-index bound on
+$\operatorname{Hess}\phi_F$ of the kind asked for in
+Remark~\ref{rem:treeformstatus}, with the weight $e^{a\psi(e,e')}$,
+$\psi(e,e')=\psi_{(S_F)}(e,e')$, in place of $e^{a(d(e,e')+d(e,S_F))}$.
+Finite range enters only through (c): the source $R_P$ of the equation
+for $D^j\phi$ is carried by indices within $R$ of a common point. In the
+law of Proposition~\ref{prop:layerorders} the range is $D$, the factor
+$e^{aiR}$ in $\Lambda$ is $e^{aiD}$, and the bound of the theorem is
+consistent with that proposition.
+
+\begin{remark}\label{rem:treeorderswalls}
+Theorem~\ref{thm:treeorders} applies to the smooth approximations of the
+layer law and not to the layer law. Each term of $\mathcal U$ involves
+links based in blocks at mutual coarse distance at most three, by Steps~1
+and~2 of the proof of Theorem~\ref{thm:factorisation}; the retraction
+$\tau$ and the penalty $V=\sum_ev(\lVert\zeta_e\rVert)$ of
+Theorem~\ref{thm:chartdecay}(ii) act link by link. So the potential
+$H_{x,n}$ of the approximation $\mu_{x,n}$ of $\mu_x$ in Step~6 of the
+proof of Theorem~\ref{thm:layerbound} has a finite range $R_0$ fixed by
+the geometry, bounded derivatives of every order, and
+$(\mathrm W_{480/\beta_W,\alpha_G})$. For distinct islands $u_1,\dots,u_k$,
+unit vectors $h_p$ in the coordinates of $x_{u_p}$ and
+$\tilde K_n(x)=\int e^{-H_{x,n}(z)}dz$, no term of $\mathcal U$ depends on
+two islands, so as in Corollary~\ref{cor:kthird}
+\[
+\partial_{h_1}\cdots\partial_{h_k}\log\tilde K_n=(-1)^k\varkappa_{\mu_{x,n}}
+(F_{h_1},\dots,F_{h_k}),
+\]
+and the theorem bounds it by $K_k(n)f^ke^{-\alpha_G\ell}$, with $\ell$
+the tree length of the supports $S_{u_p}$ of $\nabla_z\partial_{x_{u_p}}
+\mathcal U$ in the fine distance; by Lemma~\ref{lem:manykernel}(iii) any
+two of these supports are at fine distance at least $d'_{u_pu_q}$, so for
+$k=2$ the factor is $e^{-2\alpha_G(w_{u_1u_2}-2s-8)_+}$, the rate of
+Lemma~\ref{lem:manylayer}. As $n\to\infty$,
+$\tilde K_n$ decreases to $\tilde K$, so the mixed differences of
+$\log\tilde K$ are limits of those of $\log\tilde K_n$, and a bound on
+$K_k(n)$ uniform in $n$ would give the tree form of every order of the
+differences of $\log\tilde K$ at the rate $\alpha_G$ in the fine
+distance, the first input named in Remark~\ref{rem:treeform}. The constant depends on $n$ through
+$\Lambda$ only, and $\Lambda_3(H_{x,n})$ grows linearly in $n$, the
+penalty $nV$ contributing $n$ times the third derivatives of
+$v(\lVert\zeta_e\rVert)$, which do not vanish identically. The layer
+law itself has no smooth potential on $\mathbb V$: its density vanishes
+off $D_z$, and the walls of $D_z$ are the one hypothesis of
+Theorem~\ref{thm:treeorders} that it does not meet. For $k=3$ the walls
+are handled by Lemma~\ref{lem:twoindex}, which needs the energy bound
+only for $j=1$ and keeps the penalty in the diagonal blocks. Whether the
+differences of order $k\ge4$ of $\log\tilde K$ have a tree form with a
+rate independent of $k$ is not decided here; a proof along these lines
+needs the energy bounds~\eqref{eq:treeenergy} for $j\ge2$ on the box
+$D_z$, with the boundary of the balls in place of the penalty.
+\end{remark}
+
+The second step, from $\log\tilde K$ to the weights of the labels,
+integrates the coordinates of the other islands against $\tilde K$. Its
+derivatives in the island coordinates are given by the cumulants of that
+gas. In the setting of Theorem~\ref{thm:manyislands} let $\mathcal K
+\subset\mathcal I$ be a set of $k\ge2$ islands, $\mathcal Q'=\mathcal I
+\setminus\mathcal K$, suppose every $\gamma_q\ne0$, $q\in\mathcal Q'$, and
+put
+\[
+Z_{\mathcal K}(x_{\mathcal K})=\int\tilde K(x_{\mathcal K},x_{\mathcal Q'})
+\prod_{q\in\mathcal Q'}\gamma_q(dx_q),
+\]
+with $P_{x_{\mathcal K}}$ the law on $\prod_{q\in\mathcal Q'}D_q$
+proportional to $\tilde K(x_{\mathcal K},\cdot\,)\prod_q\gamma_q$.
+
+\begin{lemma}[derivatives through the gas of islands]\label{lem:islandgas}
+For vectors $h_u$ in the coordinates of $x_u$, $u\in\mathcal K$, and
+$B\subset\mathcal K$, let $g_B=\bigl(\prod_{u\in B}\partial_{h_u}\bigr)
+\log\tilde K$.
+Then
+\[
+\prod_{u\in\mathcal K}\partial_{h_u}\log Z_{\mathcal K}=\sum_\pi
+\varkappa_{P_{x_{\mathcal K}}}\bigl((g_B)_{B\in\pi}\bigr),
+\]
+the sum over the partitions $\pi$ of $\mathcal K$, the cumulant having one
+argument for each block of $\pi$.
+\end{lemma}
+
+\begin{proof}
+$\tilde K$ is smooth and positive on a neighbourhood of the compact set
+$\prod_uD_u$, so for smooth $G_1,\dots,G_m$ the cumulant $\varkappa_P(G_1,
+\dots,G_m)$ is the mixed derivative at $s=0$ of
+\[
+\log\int e^{\sum_is_iG_i}\tilde K\prod_q\gamma_q(dx_q),
+\]
+and differentiating under the integral,
+\begin{multline*}
+\partial_h\varkappa_P(G_1,\dots,G_m)=\sum_i\varkappa_P(G_1,\dots,
+\partial_hG_i,\dots,G_m)\\
++\varkappa_P(G_1,\dots,G_m,\partial_h\log\tilde K).
+\end{multline*}
+For $u\notin B$, $\partial_{h_u}g_B=g_{B\cup\{u\}}$. Order $\mathcal
+K=\{u_1,\dots,u_k\}$; $\partial_{h_{u_1}}\log Z_{\mathcal K}=\E_P\,
+g_{\{u_1\}}$, and if the derivative in $u_1,\dots,u_m$ is the sum over the
+partitions of $\{u_1,\dots,u_m\}$, the rule adds $u_{m+1}$ to one block or
+opens the block $\{u_{m+1}\}$, which gives each partition of $\{u_1,\dots,
+u_{m+1}\}$ once.
+\end{proof}
+
+For $k=2$ the identity is the formula in the proof of
+Theorem~\ref{thm:manyislands}. The partition $\pi=\{\mathcal K\}$ gives
+the mean of a mixed derivative of $\log\tilde K$, to which a tree form for
+$\log\tilde K$ applies directly. The partitions into two blocks give
+covariances under $P$, which Lemma~\ref{lem:islandcov} bounds through the
+oscillations $\delta_q(g_B)$, themselves mixed differences of $\log\tilde
+K$ of order $\lvert B\rvert+1$, under the weighted Dobrushin condition of
+Corollary~\ref{cor:islandchains}. The partitions into three or more
+blocks are joint cumulants of order at least three of the gas of islands,
+and no result of this paper bounds them; Lemma~\ref{lem:islandcov}
+concerns covariances only. A rate that does not depend on the strength of
+the pair interactions of the gas is excluded already for the
+covariances.
+
+\begin{proposition}[a chain of strongly coupled islands]
+\label{prop:islandchain}
+Let $N\ge1$, $J>0$, $X_q=\{-1,1\}$ with $\gamma_q$ the counting measure
+for $0\le q\le N$, and $k(\xi)=\exp(J\sum_{q<N}\xi_q\xi_{q+1})$. Then the
+mixed differences of $\log k$ of order at least three vanish, the second
+difference in $(\xi_q,\xi_{q'})$ is $\pm4J$ for $\lvert q-q'\rvert=1$ and
+$0$ otherwise, the coefficients of Lemma~\ref{lem:islandcov} are
+$C_{qq'}=\tanh J$ for $\lvert q-q'\rvert=1$, and under $P=k\prod_q\gamma_q
+/\int k\prod_q\gamma_q$
+\[
+\Cov_P(\xi_0,\xi_N)=(\tanh J)^N .
+\]
+\end{proposition}
+
+\begin{proof}
+$\log k$ is a sum of functions of two consecutive coordinates, so its
+mixed differences of order at least three vanish, as do those of order two
+in nonconsecutive coordinates; for consecutive ones the four values of
+$J\xi_q\xi_{q+1}$ give $4J$ in modulus, so $\kappa_{qq'}=4J$ and $C_{qq'}=
+\tanh J$. Put $\tau_q=\xi_{q-1}\xi_q$, $1\le q\le N$; the map $\xi\mapsto
+(\xi_0,\tau)$ is a bijection and $k=\prod_qe^{J\tau_q}$, so under $P$ the
+$\tau_q$ and $\xi_0$ are independent, $\E\xi_0=0$ and $\E\tau_q=\tanh J$.
+As $\xi_0\xi_N=\prod_q\tau_q$, the covariance is $(\tanh J)^N$.
+\end{proof}
+
+With $J=\varDelta/4$ the coefficients are those of
+Theorem~\ref{thm:manyislands} for islands whose pair cross-ratios are
+$\varDelta$, and $\varDelta_{qq'}$ grows with $\sqrt{n_qn_{q'}}$, the
+sizes of the islands. The covariance decays along the chain at the rate
+$-\log\tanh J$ per island, which tends to zero as $J\to\infty$, while,
+for consecutive islands at distance $t$ and every $\lambda>0$, the mixed
+differences of $\log k$ of every order obey the tree bound
+$4Je^{\lambda t}e^{-\lambda\ell}$. So a tree form for $\log\tilde K$, at any rate and of every
+order, does not carry over to $\log Z^c$ at a rate independent of the
+configuration of the islands: the passage needs a condition that bounds
+the pair cross-ratios against the gaps, such as the weighted Dobrushin
+condition of Corollary~\ref{cor:islandchains}, and, by
+Lemma~\ref{lem:islandgas}, bounds on the joint cumulants of order up to
+$k$ of the gas of islands under such a condition.
+
+\begin{remark}\label{rem:treeordersstatus}
+For item~(ii) of Section~\ref{ssec:remains} the results give the following.
+For a law with smooth potential of finite range and the weighted Hessian
+bound, the cumulants of every order obey the tree bound at the rate of
+the covariances (Theorem~\ref{thm:treeorders}); this answers, in that
+class, the question left by Proposition~\ref{prop:layerorders}, which
+shows that the finite range is needed. For the layer law the order three
+holds at the full rate with the walls (Corollary~\ref{cor:kthirdtree}),
+and the tree form of $\log\tilde K$ of order $k\ge4$ is proved only for
+the smooth approximations, with constants that grow with the
+approximation (Remark~\ref{rem:treeorderswalls}). The passage to
+$\log Z^c$ reduces, by Lemma~\ref{lem:islandgas}, to the decay of the
+joint cumulants of the gas of islands; their order two is given by
+Lemma~\ref{lem:islandcov} under the weighted Dobrushin condition, their
+orders three and more are not proved, and
+Proposition~\ref{prop:islandchain} shows that no rate uniform in the
+pair cross-ratios of the islands holds. Uniformity in the coarse field
+stays excluded by Theorem~\ref{thm:fixedobstruction}(i). The tree form of
+the differences of $\log Z^c$, and with it the rate $2\alpha_G$ without a
+floor, is therefore not proved for any coarse field.
 \end{remark}
 
 For a fixed coarse field $c$ the blocks that are bad for every labelling
@@ -32907,10 +33332,16 @@ Corollary~\ref{cor:kthirdtree} give them at the rate $2\alpha_G$ of the
 second differences, in the coarse length of the shortest joining tree,
 with the walls of $D_z$ included, using in addition the decay along trees
 of the derivatives of order three of $\mathcal U$ that its finite range
-supplies. The orders $k\ge4$, for which the Hessian bound gives no tree
-form uniform in the order (Proposition~\ref{prop:layerorders}), and the
-passage to $\log Z^c$ through the gas of islands are not proved
-(Remark~\ref{rem:treeformstatus}).
+supplies. For a smooth potential of finite range the tree form holds at
+every order at the rate of the covariances (Theorem~\ref{thm:treeorders});
+for the layer law the orders $k\ge4$, for which the Hessian bound alone
+gives no tree form uniform in the order (Proposition~\ref{prop:layerorders}),
+are proved only for its smooth approximations, with constants that grow
+with the approximation. The passage to $\log Z^c$ reduces to the joint
+cumulants of the gas of islands (Lemma~\ref{lem:islandgas}), of which only
+the covariances are bounded, and no rate uniform in the pair cross-ratios
+holds (Proposition~\ref{prop:islandchain},
+Remark~\ref{rem:treeordersstatus}).
 Proposition~\ref{prop:hiddenbit} shows that no rarity bound replaces this
 comparison.
 \item \emph{The island threshold.} Theorem~\ref{thm:islandthreshold}
