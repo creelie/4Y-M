@@ -65,4 +65,8 @@ files are their outputs.
 **Two islands and one kernel:** `island_width_threshold.py` recomputes
 the island threshold with the joining distance 2s+7 that the
 factorisation theorem requires, and the radius at which the chart
-hypothesis holds on the layer. The tracked `.out` file is its output.
+calmness hypothesis of the layer theorem holds, with the threshold at
+the joining distance 2s+8. `layer_constants.py` computes the constants of
+the Hessian of the layer law in the label coordinates (lower bound
+0.0185 lambda, weighted norm 2068.4 lambda, admissible rate 2.79e-4) and
+the corrected threshold. The tracked `.out` files are their outputs.
