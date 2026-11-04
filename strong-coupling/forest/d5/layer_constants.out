@@ -42,7 +42,9 @@
   check paper: rho=1e-08 s=1: |log q*|=21090.2 beta*=3.4267e+21
   check paper: rho=1e-08 s=5: |log q*|=33424.9 beta*=5.4007e+21
   check paper: rho=1e-09 s=1: |log q*|=21090.2 beta*=3.4312e+23
-  kappa_0 + s <= 2199 rho;  SU(2) chart hypothesis kappa_0 + s <= 6.0e-13  =>  rho <= 2.73e-16
-  rho=2.729e-16 s=1 join=10: |log q*|=32481.7 beta*=7.0966e+36
-  rho=2.729e-16 s=5 join=18: |log q*|=38354.1 beta*=8.3588e+36
+  kappa_0 + s <= 2758 rho;  SU(2) chart hypothesis kappa_0 + s <= 6.0e-13  =>  rho <= 2.17549e-16
+  rho=2.170e-16 s=1 join=10: |log q*|=32481.7 beta*=1.1221e+37
+  rho=2.170e-16 s=1 join=12: |log q*|=34289.4 beta*=1.1835e+37
+  rho=2.170e-16 s=5 join=18: |log q*|=38354.1 beta*=1.3216e+37
+  rho=2.170e-16 s=5 join=20: |log q*|=39418.4 beta*=1.3578e+37
   beta_W >= 4 C_lambda c_6 = 8.928e+17  (C_lambda = 240, c_6 <= 9.3e14 for SU(2))

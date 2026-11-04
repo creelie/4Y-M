@@ -8906,7 +8906,7 @@ the constrained law $\mu_U$ on $F$ gives the set of fields with a
 plaquette $p$ with a vertex in a block of $W^+$ and $\delta(U'_p,I)>K$ mass at
 most
 \[
-\varepsilon_W(K,\lambda)=\Bigl(\frac{3\cdot10^8\,n_P^{3/2}}{K^3}\Bigr)
+\varepsilon_W(K,\lambda)=\Bigl(\frac{2\cdot10^9\,n_P^{3/2}}{K^3}\Bigr)
 ^{45|W|}e^{-3\lambda K^2/4}.
 \]
 \end{proposition}
@@ -8923,7 +8923,7 @@ and $Q_W>K^2$. By~\eqref{eq:fibrevolume},
 \]
 
 For the denominator we solve the constraints for the path links. Let
-$L'=A_W\setminus\{d_k\}$, $\rho=K/(188\sqrt{n_P})$ and $R=44\rho$, and let
+$L'=A_W\setminus\{d_k\}$, $\rho=K/(360\sqrt{n_P})$ and $R=44\rho$, and let
 $D$ be the set of $z\in G^{L'}$ with $d(z_e,U_e)\le\rho$ for every $e\in L'$.
 The field $U$ satisfies the hypothesis of Lemma~\ref{lem:smallframes}, as
 $\kappa\le K/4$, and part (i) of the lemma gives $\delta(U_e,I)\le3\kappa$ for
@@ -8963,10 +8963,12 @@ to $\Gamma(D)$ is the image of $h^{\otimes L'}$ on $D$ divided by $\lvert\det
 h(B_\rho)=\frac{2\theta-\sin2\theta}{2\pi}\ge\frac{\rho^3}{14},
 \end{gather*}
 with $\theta=\rho/\sqrt2$ the angular radius, as $2\theta-\sin2\theta\ge
-\frac43\theta^3(1-\frac{\theta^2}5)$. Every plaquette has at most one path
-link, since two path links $(2y+e_\mu,\mu)$ and $(2y'+e_\mu,\mu)$ are never
-opposite sides of a plaquette, so on $\Gamma(D)$ each plaquette moves by at
-most $R+3\rho=47\rho$ and $\delta(U'_p,I)\le\kappa+47\rho\le K/(2\sqrt{n_P})$.
+\frac43\theta^3(1-\frac{\theta^2}5)$. A plaquette has at most two path links: two path links $(2y+e_\mu,\mu)$
+and $(2y'+e_\mu,\mu)$ of one direction are never opposite sides of a
+plaquette, since their bases have exactly one odd coordinate, $\mu$, and
+opposite sides differ by $e_\rho$, $\rho\ne\mu$; two of different
+directions can be adjacent sides. So on $\Gamma(D)$ each plaquette moves
+by at most $2R+2\rho=90\rho$ and $\delta(U'_p,I)\le\kappa+90\rho\le K/(2\sqrt{n_P})$.
 Hence $Q_W\le K^2/4$ there and
 \[
 \int_Fe^{-\lambda Q_W}\,d\nu_c\ge e^{-\lambda K^2/4}\,1.957^{-12|W|}
@@ -8974,10 +8976,10 @@ Hence $Q_W\le K^2/4$ there and
 \]
 Dividing,
 \[
-\mu_U(B)\le\bigl(M^41.957^{12}\bigr)^{|W|}\Bigl(\frac{14\cdot188^3n_P^{3/2}}
+\mu_U(B)\le\bigl(M^41.957^{12}\bigr)^{|W|}\Bigl(\frac{14\cdot360^3n_P^{3/2}}
 {K^3}\Bigr)^{45|W|}e^{-3\lambda K^2/4},
 \]
-and $(M^41.957^{12})^{1/45}<2.93$, $14\cdot188^3<9.31\cdot10^7$. Finally $n_P\le384|W|$, since each plaquette
+and $(M^41.957^{12})^{1/45}<2.93$, $2.93\cdot14\cdot360^3<2\cdot10^9$. Finally $n_P\le384|W|$, since each plaquette
 that contains a link of $A_W$ has the base of that link, a site of a block of
 $W$, as a vertex, and each site is a vertex of $24$ plaquettes.
 \end{proof}
@@ -9006,7 +9008,7 @@ proof of Theorem~\ref{thm:offchart}(iii).
 So the constrained law decorrelates on every fibre through a field whose
 plaquettes near $W$ are at most $K/(4\sqrt{n_P})$, with no average over
 fibres, once $\lambda K^2$ is a large multiple of $|W|\log(n_P/K)$; with
-$K<4.9\cdot10^{-18}$ this needs $\beta_W$ above $1.5\cdot10^{39}|W|$ under the
+$K<4.9\cdot10^{-18}$ this needs $\beta_W$ above $1.4\cdot10^{39}|W|$ under the
 Wilson measure. The restriction is on the fibre: the links off $A_W$ are
 fixed on it, so a fibre whose boundary links carry a large plaquette near
 $W$ contains no such field, and neither may a fibre with small boundary
@@ -9060,7 +9062,7 @@ links off $A_W$, and every regular $U\in F$,
 \begin{gather*}
 \mu_F\bigl(\{U'\in F:Q_W(U')>Q_W(U)+t\}\bigr)\le\varepsilon'_W(t,
 \lambda),\\
-\varepsilon'_W(t,\lambda)=\Bigl(\frac{5.2\cdot10^{10}\,n_P^3}{t^3}\Bigr)
+\varepsilon'_W(t,\lambda)=\Bigl(\frac{3.5\cdot10^{11}\,n_P^3}{t^3}\Bigr)
 ^{45|W|}e^{-3\lambda t/4}.
 \end{gather*}
 In particular $\mu_F(\{Q_W>q(F)+t\})\le\varepsilon'_W(t,\lambda)$ on every
@@ -9070,7 +9072,7 @@ fibre.
 \begin{proof}
 The numerator is bounded by~\eqref{eq:fibrevolume} as in the proof of
 Proposition~\ref{prop:calmfibre}, by $M^{4|W|}e^{-\lambda(Q_W(U)+t)}$. For
-the denominator take $\rho=t/(1076\,n_P)\le10^{-3}$, $R=44\rho$, and $D$ and
+the denominator take $\rho=t/(2040\,n_P)\le10^{-3}$, $R=44\rho$, and $D$ and
 $B_k$ as in that proof. At the field with links $z\in D$ on $L'$ and $\ell\in
 B_k$ on $d_k$, each $v_x$ of the pair $k$ lies within $R+2\rho=46\rho<0.043$
 of its value at $U$, and $\delta\le d$, so $\delta(v_x,I)<\frac14+0.043<
@@ -9082,19 +9084,19 @@ with $\lvert\det\partial_gC\rvert\le1.957^{3\cdot4|W|}$. So
 \nu_c\bigl(\Gamma(D)\bigr)\ge1.957^{-12|W|}\Bigl(\frac{\rho^3}{14}\Bigr)
 ^{45|W|}.
 \]
-On $\Gamma(D)$ each of the $n_P$ plaquettes moves by at most $47\rho$, and
+On $\Gamma(D)$ each of the $n_P$ plaquettes moves by at most $90\rho$, as in that proof, and
 $\delta(U_p,I)\le2\sqrt2$, so
 \begin{multline*}
-\delta(U'_p,I)^2\le\delta(U_p,I)^2+94\cdot2\sqrt2\,\rho+47^2\rho^2\\
-<\delta(U_p,I)^2+269\rho,
+\delta(U'_p,I)^2\le\delta(U_p,I)^2+180\cdot2\sqrt2\,\rho+90^2\rho^2\\
+<\delta(U_p,I)^2+510\rho,
 \end{multline*}
-and $Q_W\le Q_W(U)+269n_P\rho=Q_W(U)+\frac t4$ there. Dividing as before,
+and $Q_W\le Q_W(U)+510n_P\rho=Q_W(U)+\frac t4$ there. Dividing as before,
 \begin{multline*}
 \mu_F(\{Q_W>Q_W(U)+t\})\\
-\le\bigl(M^41.957^{12}\bigr)^{|W|}\Bigl(\frac{14\cdot1076^3n_P^3}{t^3}
+\le\bigl(M^41.957^{12}\bigr)^{|W|}\Bigl(\frac{14\cdot2040^3n_P^3}{t^3}
 \Bigr)^{45|W|}e^{-3\lambda t/4},
 \end{multline*}
-and $2.93\cdot14\cdot1076^3<5.2\cdot10^{10}$. For the last statement apply
+and $2.93\cdot14\cdot2040^3<3.5\cdot10^{11}$. For the last statement apply
 this to regular fields with $Q_W(U)$ decreasing to $q(F)$ and use the
 continuity of $\varepsilon'_W$ in $t$.
 \end{proof}
@@ -11759,8 +11761,8 @@ $\beta^*(10^{-8},1)=4.177\cdot10^{21}$ for $s=1$, $\lvert\log q^*\rvert=
 35087.3$ and $\beta^*(10^{-8},5)=5.667\cdot10^{21}$ for $s=5$, and
 $\beta^*(10^{-9},1)=4.181\cdot10^{23}$. With the layer between two enlarged
 islands of width at least $2s+8$, as Corollary~\ref{cor:twoislands} needs,
-the joining distance is $2s+10$ and $\beta^*=7.49\cdot10^{36}$ for $s=1$
-and $8.59\cdot10^{36}$ for $s=5$ at $\rho=2.73\cdot10^{-16}$.
+the joining distance is $2s+10$ and $\beta^*=1.19\cdot10^{37}$ for $s=1$
+and $1.36\cdot10^{37}$ for $s=5$ at $\rho=2.17\cdot10^{-16}$.
 
 \subsection{Counting bad labels}\label{ssec:counting}
 
@@ -13120,8 +13122,8 @@ Let $G=\SU(2)$, $\lambda=\beta_W/4$, and let the data be those of
 Theorem~\ref{thm:factorisation}. Let $W'$ be the set of blocks of
 $\Lambda$ at distance at least $s+3$ from both islands, and assume
 \begin{enumerate}[label=\textup{(\alph*)},leftmargin=*]
-\item $r\le8\cdot10^{-5}$ and $4\cdot10^5c_3(\eta+49r)\le\frac1{195}$,
-which holds when $\eta+49r\le6.0\cdot10^{-13}$;
+\item $r\le8\cdot10^{-5}$ and $4\cdot10^5c_3(\eta+62r)\le\frac1{195}$,
+which holds when $\eta+62r\le6.0\cdot10^{-13}$;
 \item $\lambda\ge240\,c_6$, which holds when $\beta_W\ge8.93\cdot10^{17}$;
 \item every block outside $\Lambda$ at distance at most two from $W'$ is
 good and the constraints of its pairs hold; this is void when $\Lambda$
@@ -13152,17 +13154,18 @@ the solutions $\Gamma_k(0)$ of Lemma~\ref{lem:branchbound}. Take a
 plaquette $p$ with a vertex in a block of $W'^+$. Its links are based in
 blocks at distance at most two from $W'$, which are good, by the sector
 event inside $\Lambda$ and by (c) outside it. A plaquette contains at most
-one path link: a path link $(2y+e_\mu,\mu)$ has exactly one odd
-coordinate at its base, and two such links on one plaquette would have
-to be opposite sides with bases differing by $e_\rho$, $\rho\ne\mu$,
-which gives one of them two odd coordinates. The plaquette of $R(c)$ at
+two path links, one of each of its directions: a path link $(2y+e_\mu,\mu)$
+has exactly one odd coordinate at its base, and two such links of one
+direction on one plaquette would have to be opposite sides with bases
+differing by $e_\rho$, $\rho\ne\mu$, which gives one of them two odd
+coordinates. The plaquette of $R(c)$ at
 $p$ is $I$ unless both coordinates of the corner in its plane are odd, and
 it is then the coarse plaquette of a good block, so
 $\delta(R(c)_p,I)\le\eta$. Replacing the four links one at a time, with
 $\delta\le d$ (Lemma~\ref{lem:logbound}), bi-invariance and
-$d(\Gamma_k,c_k)\le14r$, gives $\delta(U_p,I)\le\eta+14r+3r$. So the
+$d(\Gamma_k,c_k)\le14r$, gives $\delta(U_p,I)\le\eta+2\cdot14r+2r$. So the
 defect $\kappa_0$ of the background satisfies
-$\kappa_0+s'\le\eta+49r$, and (a) is the hypothesis
+$\kappa_0+s'\le\eta+62r$, and (a) is the hypothesis
 $4\cdot10^5c_3(\kappa_0+s')\le\frac1{195}$ of
 Theorem~\ref{thm:fibrechart}(iv) at radius $s'$; by
 Proposition~\ref{prop:explicitconstants} it implies $s'\le1/(6000c_3)$,
@@ -13320,16 +13323,16 @@ $\frac14\tanh(\varDelta/4)$, and every observable of one island and its
 collars changes by a factor in $[e^{-\varDelta},e^{\varDelta}]$ when the
 label of the other island is flipped. In the normalisation $r=43\rho$,
 $\eta=92\rho$ of Theorem~\ref{thm:islandthreshold}, hypothesis (a) of
-Theorem~\ref{thm:layerbound} holds for $\rho\le2.73\cdot10^{-16}$, where
+Theorem~\ref{thm:layerbound} holds for $\rho\le2.17\cdot10^{-16}$, where
 the island threshold with the joining distance $2s+8$ is
-$\beta^*=7.10\cdot10^{36}$ for $s=1$ and $8.36\cdot10^{36}$ for $s=5$,
+$\beta^*=1.13\cdot10^{37}$ for $s=1$ and $1.33\cdot10^{37}$ for $s=5$,
 and hypothesis (b) holds at every $\beta_W\ge\beta^*$.
 \end{corollary}
 
 \begin{proof}
 Proposition~\ref{prop:layercross} with $\mathcal A=480/\beta_W$ from
 Theorem~\ref{thm:layerbound} and $d'=2(w-2s-8)$. For the numbers,
-$\eta+49r=(92+49\cdot43)\rho=2199\rho$, and the threshold is the largest
+$\eta+62r=(92+62\cdot43)\rho=2758\rho$, and the threshold is the largest
 root of the equation of Theorem~\ref{thm:islandthreshold} with
 $(4s+17)^4-1$ neighbours, the count for the joining distance $2s+8$,
 which makes every layer between two islands of width at least $2s+8$:
