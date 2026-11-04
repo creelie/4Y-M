@@ -10,15 +10,15 @@ and `prop:massgrowth` of the paper.
   `1/4 + 681κ`, and `1/(1/4 + 681κ) = 4/(1 + 2724κ)`.
 * `inf_add_ge` : the infimum of a sum over a constraint set is at least the
   sum of the infima.
-* `calm_background`, `chart_inclusion` : `η + 14r + 3r + 32r = η + 49r`, and
+* `calm_background`, `chart_inclusion` : `η + 2·14r + 2r + 32r = η + 62r`, and
   the path links move by at most `31.5r < 32r` at `ρ₁ = 5r/4`.
 * `hessian_lower`, `hessian_weighted`, `rate_admissible` : the lower bound
   `0.0185 λ ≥ λ/60`, the weighted norm `2068.4 λ`, and `α_G = 2.5·10⁻⁴`
   within the admissible rate.
 * `covariance_constant`, `cross_ratio_constant` : `𝒜 = 2/m = 120/λ =
   480/β_W` and `4𝒜 = 1920/β_W`.
-* `radius_threshold`, `coupling_threshold` : `2199 ρ ≤ 6.0·10⁻¹³` at
-  `ρ = 2.7285·10⁻¹⁶`, and `4·240·c₆ ≤ 8.93·10¹⁷` for `c₆ ≤ 9.3·10¹⁴`.
+* `radius_threshold`, `coupling_threshold` : `2758 ρ ≤ 6.0·10⁻¹³` at
+  `ρ = 2.17·10⁻¹⁶`, and `4·240·c₆ ≤ 8.93·10¹⁷` for `c₆ ≤ 9.3·10¹⁴`.
 -/
 
 namespace YangMills.StrongCoupling.IslandLayer
@@ -52,12 +52,12 @@ theorem inf_add_ge {X : Type*} (S : Set X) (N T : X → ℝ)
   have h2 : sInf (T '' S) ≤ T x := csInf_le hT ⟨x, hx, rfl⟩
   nlinarith [mul_le_mul_of_nonneg_left h2 hε]
 
-/-- Calmness of the background: one path link per plaquette at `14r`, three
-further links at `r`, and the chart radius `32r`. -/
-theorem calm_background (η r : ℝ) : η + 14 * r + 3 * r + 32 * r = η + 49 * r := by
+/-- Calmness of the background: at most two path links per plaquette at
+`14r`, two further links at `r`, and the chart radius `32r`. -/
+theorem calm_background (η r : ℝ) : η + 2 * (14 * r) + 2 * r + 32 * r = η + 62 * r := by
   ring
 
-theorem normalisation : (92 : ℝ) + 49 * 43 = 2199 := by norm_num
+theorem normalisation : (92 : ℝ) + 62 * 43 = 2758 := by norm_num
 
 /-- `ρ₁ = 5r/4 ≤ 10⁻⁴` for `r ≤ 8·10⁻⁵`, and the path links move by
 `14r + 14ρ₁ = 31.5r < 32r`. -/
@@ -89,7 +89,7 @@ theorem covariance_constant (β : ℝ) (hβ : 0 < β) :
 
 theorem cross_ratio_constant (β : ℝ) : 4 * (480 / β) = 1920 / β := by ring
 
-theorem radius_threshold : (2199 : ℝ) * 2.7285e-16 ≤ 6.0e-13 := by norm_num
+theorem radius_threshold : (2758 : ℝ) * 2.17e-16 ≤ 6.0e-13 := by norm_num
 
 theorem coupling_threshold (c₆ : ℝ) (h : c₆ ≤ 9.3e14) :
     4 * 240 * c₆ ≤ 8.93e17 := by linarith
