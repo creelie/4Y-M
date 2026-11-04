@@ -131,8 +131,9 @@ rarity under every exterior, (R1), is **not** needed at this scale.
   What remains is the relative version for ω ≠ ∅.
 - **(b) Bad link ⇒ large plaquette.** In fibre gauge a link far from 1 should force curvature nearby, since the gauge
   is fixed by the block averages. **Correction (proved):** as an absolute statement for all tree-gauge links this is
-  false, even for a flat field, by `FLAT_HOLONOMY_OBSTRUCTION.md`. A background-relative or more restricted formulation
-  and its compatibility with the actual fibre labels remain open.
+  false, even for a flat field, by `FLAT_HOLONOMY_OBSTRUCTION.md`. The background-relative formulation and its
+  annealed rarity are already proved in `RELATIVE_CHART.md` and `COARSE_LABELS.md`; matching the relative labels to
+  the conditional law and controlling the environment remain open.
 - **(c) The Cov_ω term.** The environment covariance of `ANNEALED.md` §5 is still closed by the bootstrap Lemma 3, with
   ε ≍ q·|N|²/r₁² now, which is smaller than before.
 - **(d) D8.** See §4.

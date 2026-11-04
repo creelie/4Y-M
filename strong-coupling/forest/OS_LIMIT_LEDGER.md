@@ -34,6 +34,17 @@ whose squared norm is ell((Theta H)* H), not ell(H* H). A nonzero OS
 witness needs a positive lower bound for that reflection norm, after
 subtracting its vacuum component where appropriate.
 
+**Proved (explicit reflection-positive example).** Let X_+ and X_- be
+independent symmetric signs, let reflection exchange them, and let A_+
+consist of functions of X_+ alone. Then for every F in A_+,
+
+    E[conjugate(Theta F) F] = |E F|² >= 0.
+
+The observable H=X_+ has ordinary centered variance one but reflection
+norm E[X_- X_+]=0. Thus it represents zero in the OS quotient despite
+being nonconstant in the original probability space. This finite example
+isolates the distinction; it is not a lattice Yang--Mills model.
+
 ## What must still be supplied
 
 **Open (continuum Yang--Mills).** Identify a common algebra of

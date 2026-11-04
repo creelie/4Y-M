@@ -35,12 +35,10 @@ a conjugate of a plaquette holonomy or its inverse; bi-invariance and the
 triangle inequality give the bound by telescoping. No small-field
 assumption or commutativity is used.
 
-**Sketch / open.** The plausible repair for input (b) is to define badness
-relative to a locally chosen coarse parallel transport or to compare paths
-with the same endpoints, then prove that this definition is compatible with
-the constrained chart, labels and chessboard estimate. The required
-reference need not be close to I and may carry global holonomy. In
-particular, a relative witness does not automatically give the rarity or
-conditioning estimates needed for (I1). The existing path-block estimates
-in `main.tex` should be checked for the exact constants and domain before
-using this observation in a gauge proof.
+**Correction / existing proved result.** This repository already implements
+the relative repair: `RELATIVE_CHART.md` proves a local witness relative to
+the explicit full-fibre reconstruction R(c), and `COARSE_LABELS.md` derives
+annealed finite-intersection bounds with explicit coverage constants from
+the cited chessboard estimate. Those results do not establish the
+conditioning and environment estimates required for (I1). The present
+flat-holonomy example explains why the reference cannot simply be dropped.

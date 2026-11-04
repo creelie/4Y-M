@@ -60,6 +60,12 @@ on SU(2), κ ≥ 1, and let g₀ ∈ SU(2) and 0 < r ≤ π/2. The density f of 
 
 with C absolute and independent of u₀ and g₀.
 
+**Follow-up (proved, weaker bound):** `SU2_RADIAL_HAZARD.md` proves the
+uniform bound f(r) <= e sec²(1) (κ+1) P(d(U,g₀)>=r) for standard angular
+distance on SU(2) and r<=π/2. This supplies the O(λ) order used below when
+κ<=cλ and λ>=1, subject to the conditional-density and flux checks. It
+does not prove the sharper √κ+κr estimate stated in this lemma.
+
 *Reason.* In normal coordinates, U is close to a Gaussian of width κ^{−1/2} around u₀, and d(U, g₀) is a non-central
 χ variable with 3 degrees of freedom. Its hazard rate is at most C/σ before the centre and C(r − a)/σ² after it. ∎ (sketch)
 
