@@ -27477,6 +27477,358 @@ Theorem~\ref{thm:projresponse}\textup{(ii)} exceeds one at every $\beta_W$,
 so it gives no contraction across an interface either.
 \end{remark}
 
+The ends that enter the averages are taken up once more, through
+Lipschitz bounds in the end in place of oscillations. Fix a pair $k=(y,
+\rho)$ based in $W$ and an end $e$ of Lemma~\ref{lem:endpairs}. In
+case~(a), $e=u_b$ for some $b\ne0$, and $e$ enters only the path $P_{x_b}=
+u_b\ell_b$ of $k$; in case~(b), $e=w_b$, and $e$ enters only $P_{x'_b}=
+\ell_bw_b$. The \emph{links of the block of $e$} are the links $u_a$,
+$a\ne0$, in case~(a), and $w_a$, $a\ne0$, in case~(b); they lie in $I_W$,
+respectively off $A_W$, so they are fixed links of the fibre, and $e$ is
+one of them. For a measurable function $W\ge0$ of the eight private links
+$\ell=(\ell_0,\dots,\ell_7)$ that does not depend on $e$, and a value $c_k$,
+put
+\[
+Z^W_k(c_k;e)=\int W\,d\nu_k ,
+\]
+where $\nu_k$ is the factor of $k$ at the value $c_k$, built
+before~\eqref{eq:fibrevolume} from~\eqref{eq:densityformula}. For $W=1$
+this is $\rho(c_k)$, and for $W=e^{-\beta_WS_{\mathrm{dep}}}$, with
+$S_{\mathrm{dep}}$ the sum of $1-\frac12\ReTr U_p$ over the $36$
+plaquettes that contain a private link of $k$ (Lemma~\ref{lem:relnorm}),
+it is the integrated pair factor. No plaquette contains $e$ and a private
+link of $k$: both are $\rho$-links, the two $\rho$-links of a plaquette
+have the same coordinate $\rho$, and this coordinate is even for $e$ and
+odd for a private link. On $R_0$ the average is the path link, so the part
+of the fibre where $m>1$ is $\{\ell_0=c_k\}\times R_0(e)$, where $R_0(e)$
+is the set of $(\ell_a)_{a\ne0}$ at which $m>1$ for $\ell_0=c_k$, and
+there $\nu_k$ is Haar measure of the seven non-path links.
+
+\begin{lemma}[the boundary $\{m=1\}$]\label{lem:endboundary}
+Let $G=\SU(2)$, $r_0=\sqrt2\,\alpha$ and $B(p)=\{v:d(v,p)\le r_0\}$, and
+fix $c_k$ and every link other than the private links of $k$ and the end.
+\begin{enumerate}[label=\textup{(\roman*)},leftmargin=*]
+\item The complement of $R_0(e)$ is $\prod_{a\ne0}A_a$, where
+$A_a=B(u_a^{-1}c_k)\cap B(c_kw_a^{-1})$. For $W=1$ the part of $\rho(c_k)$ on $R_0$ is
+$1-\prod_{a\ne0}\lambda(s_a)$, where $s_a=d(c_k^{-1}u_ac_k,w_a)$ and
+$\lambda(s)=h(B(I)\cap B(z))$ for any $z$ with $d(I,z)=s$; in particular
+$\lambda\le q$.
+\item For every move $e\to e'$ of the end and every bounded measurable
+$W\ge0$,
+\begin{multline*}
+\Bigl\lvert\int_{R_0(e)}W(c_k,\cdot)\,dh^{\otimes7}-\int_{R_0(e')}W(c_k,
+\cdot)\,dh^{\otimes7}\Bigr\rvert\\
+\le\frac7{8\sqrt2\,\pi}\,q^6\lVert W\rVert_\infty\,d(e,e')<3.4\cdot
+10^{-8}\lVert W\rVert_\infty\,d(e,e').
+\end{multline*}
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+(i) By Lemma~\ref{lem:haarsu2}\textup{(iii)}, $\delta(v,I)\le1$ exactly
+when $d(v,I)\le r_0$. At $\ell_0=c_k$ the paths of offset zero give $v=I$,
+and for $a\ne0$, by bi-invariance, $d(c_k^{-1}u_a\ell_a,I)\le r_0$ exactly
+when $\ell_a\in B(u_a^{-1}c_k)$, and $d(c_k^{-1}\ell_aw_a,I)\le r_0$ exactly
+when $\ell_a\in B(c_kw_a^{-1})$. So $m\le1$ exactly when $\ell_a\in A_a$ for
+every $a\ne0$. The two centres are at distance $d(u_a^{-1}c_k,c_kw_a^{-1})=
+d(c_k^{-1}u_a^{-1}c_k,w_a^{-1})=s_a$, inversion being an isometry. The
+isometries of the round sphere act transitively on pairs of points at a
+given distance and preserve $h$, so $h(A_a)=\lambda(s_a)\le h(B(I))=q$, and
+the seven conditions bear on distinct coordinates.
+
+(ii) In case~(a) only $A_b$ depends on $e$, through the centre $p=e^{-1}
+c_k$, so the symmetric difference of $R_0(e)$ and $R_0(e')$ is $\prod_{a\ne
+0,b}A_a$ times the symmetric difference of $A_b(e)$ and $A_b(e')$, which
+lies in $B(p)\,\triangle\,B(p')$, $p'=e'^{-1}c_k$. Let $\gamma$ be a
+geodesic of unit speed from $e$ to $e'$, of length $s=d(e,e')$, and $p_t=
+\gamma(t)^{-1}c_k$. If $x\in B(p)\setminus B(p')$, the continuous function
+$t\mapsto d(x,p_t)$ is at most $r_0$ at $t=0$ and larger at $t=s$, so $x$
+lies on the sphere $\partial B(p_t)$ for some $t$; likewise for $B(p')
+\setminus B(p)$. Since $\partial B(p_t)=p_t\Sigma$ with $\Sigma=\partial
+B(I)$, the set $B(p)\triangle B(p')$ lies in the image of $\Phi(t,\sigma)=
+\gamma(t)^{-1}c_k\sigma$ on $[0,s]\times\Sigma$. For fixed $t$ the map
+$\sigma\mapsto\Phi(t,\sigma)$ is an isometry and $t\mapsto\Phi(t,\sigma)$
+has unit speed, so by the area formula the image has volume at most $s\,
+H^2(\Sigma)$. By Lemma~\ref{lem:haarsu2}, $\SU(2)$ is the unit sphere
+$S^3\subset\R^4$, with $d$ equal to $\sqrt2$ times the angle and $h$ the
+normalised surface measure; in these units $\Sigma$ is the two-sphere at
+angle $\alpha$ from $I$, of area $4\pi\sin^2\alpha=\frac{7\pi}4$, as
+$\sin\alpha=\frac{\sqrt7}4$, and the curve sweeps the angle $s/\sqrt2$. So
+\[
+h\bigl(B(p)\triangle B(p')\bigr)\le\frac s{\sqrt2}\cdot\frac{7\pi/4}{2\pi^2}
+=\frac{7s}{8\sqrt2\,\pi},
+\]
+and the symmetric difference of $R_0(e)$ and $R_0(e')$ has measure at most
+$q^6$ times this. In case~(b) the moving centre is $c_kw_b^{-1}$, and the
+same argument applies with $\Phi(t,\sigma)=\sigma c_k\gamma(t)^{-1}$.
+Finally $8\sqrt2\,\pi>35.54$, $\frac7{35.54}<0.19697$, and $q^6<1.706\cdot
+10^{-7}$ by the proof of Lemma~\ref{lem:almosthaar}\textup{(i)}.
+\end{proof}
+
+So the motion of the boundary $\{m=1\}$ costs at most $3.4\cdot10^{-8}$ per
+unit move of the end, for every coarse value and every configuration. The
+law of the coarse value itself moves by a bounded amount in the
+Kantorovich distance, with no condition at all.
+
+\begin{proposition}[the coarse value moves Lipschitz]\label{prop:endkantorovich}
+Let $G=\SU(2)$ and fix every link other than the private links of $k$ and
+the end, with no condition on them. Let $W\ge0$ be an integrable function
+of the private links that does not depend on $e$. Then $\int Z^W_k(c;e)\,
+dh(c)=\int W\,dh^{\otimes8}$ for every $e$, and for every function
+$\varphi$ on $\SU(2)$ that is $1$-Lipschitz for $d$ and every move $e\to
+e'$,
+\begin{multline*}
+\Bigl\lvert\int\varphi(c)\bigl(Z^W_k(c;e)-Z^W_k(c;e')\bigr)\,dh(c)
+\Bigr\rvert\\
+\le1.858\,d(e,e')\int W\,dh^{\otimes8}.
+\end{multline*}
+\end{proposition}
+
+\begin{proof}
+The measures $\nu_k$ at the values $c\in\SU(2)$ disintegrate Haar measure
+on the eight private links along $V^\sharp_k$, by the proof of
+Lemma~\ref{lem:averagedensity}, so $\int\varphi(c)\,Z^W_k(c;e)\,dh(c)=\int
+\varphi(V^\sharp_k(\ell;e))\,W(\ell)\,dh^{\otimes8}(\ell)$; $\varphi=1$ gives
+the first claim. Fix $\ell$ and move $e$ along a geodesic of unit speed.
+Write $V^\sharp_k=\ell_0e^Y$ with $Y=\chi N$. Only the path that contains
+$e$ moves, and its $v_x$ moves at unit speed. Since $\delta(\cdot,I)$ is
+$1$-Lipschitz for $d$, $m$ moves at speed at most $1$ and $\chi=\phi(m)$ at
+most $2$. On the open set of times at which $\chi>0$, every $v_x$ has
+$\delta(v_x,I)<1$, so $\lVert N\rVert\le\frac{14}{16}\sqrt2\,\alpha$, the
+two paths of offset zero giving $0$, and $N$ moves at speed at most
+$\frac1{16}\Lambda$; hence $Y$ moves at speed at most $\frac74\sqrt2\,\alpha
++\frac1{16}\Lambda<1.858$, by $\alpha<0.7228$ and $\Lambda<1.0927$. Where
+$\chi=0$, $Y=0$, and $Y$ is continuous, so $Y$ is $1.858$-Lipschitz along
+the move and $d(V^\sharp_k(\ell;e),V^\sharp_k(\ell;e'))\le\lVert Y-Y'
+\rVert\le1.858\,d(e,e')$. Integrate against $W$.
+\end{proof}
+
+\begin{corollary}[the derivative in the mean over the coarse link]\label{cor:endmean}
+In the setting of Lemma~\ref{lem:almosthaar}\textup{(iii)} with $E=\{e\}$,
+an end of the pair $k$, write $Z(e;c_k)$ for $Z(e)$ as a function of the
+coarse value $c_k$, the other coarse links being fixed. For every positive
+Lipschitz function $\psi$ on $\SU(2)$ and every move $e\to e'$,
+\[
+\Bigl\lvert\log\frac{\int\psi\,Z(e;\cdot)\,dh}{\int\psi\,Z(e';\cdot)\,dh}
+\Bigr\rvert\le\Bigl(3\sqrt2\,\beta_W+1.858\,\frac{\operatorname{Lip}\psi}
+{\min\psi}\Bigr)\,d(e,e'),
+\]
+uniformly in the other links off $A^-_W$ and in the other coarse links.
+\end{corollary}
+
+\begin{proof}
+Write $\lambda Q^-=\beta_W(S_{\mathrm{dep}}+S_e+S_{\mathrm r})$, with $S_e$
+the sum of $1-\frac12\ReTr U_p$ over the plaquettes that contain $e$ and a
+link of $A^-_W$, none of which contains a private link of $k$, and
+$S_{\mathrm r}$ the sum over the other plaquettes that contain a link of
+$A^-_W$; $S_{\mathrm r}$ depends neither on $e$ nor on the private links of
+$k$. By Lemma~\ref{lem:endpairs} only the factor $\nu_k$ of $\nu^-_c$
+depends on $e$, and only it depends on $c_k$. So, with $\zeta$ the links of
+$A^-_W$ other than the private links of $k$,
+\begin{gather*}
+Z(e;c_k)=\int d\Xi(\zeta)\,e^{-\beta_WS_e(e,\zeta)}\,Z^{W_\zeta}_k(c_k;e),\\
+W_\zeta=e^{-\beta_WS_{\mathrm{dep}}(\cdot,\zeta)},
+\end{gather*}
+where $\nu_k$ in $Z^{W_\zeta}_k$ is taken at the inside links in $\zeta$,
+and $d\Xi$ does not depend on $e$ or $c_k$. By
+Proposition~\ref{prop:endkantorovich} applied to $\psi/\operatorname{Lip}
+\psi$, the integral $I_\zeta(e)=\int\psi\,Z^{W_\zeta}_k(\cdot;e)\,dh$
+satisfies $\lvert I_\zeta(e)-I_\zeta(e')\rvert\le1.858\operatorname{Lip}
+\psi\,d(e,e')\int W_\zeta\,dh^{\otimes8}$, and $\int W_\zeta\,dh^{\otimes8}=
+\int Z^{W_\zeta}_k(\cdot;e)\,dh\le I_\zeta(e)/\min\psi$. The link $e$ lies
+in six plaquettes, and a move of $e$ by $d(e,e')$ changes each
+$1-\frac12\ReTr U_p$ by at most $d(e,e')/\sqrt2$, by the proof of
+Lemma~\ref{lem:wilsononly}. So the integrand at $e'$ is at most
+$e^{(3\sqrt2\beta_W+1.858\operatorname{Lip}\psi/\min\psi)d(e,e')}$ times
+the integrand at $e$, for every $\zeta$; integrate and exchange $e$ and
+$e'$.
+\end{proof}
+
+For a fixed coarse value the derivative needs the part of the pair factor
+on $R_1\cup R_2$, and this is where the relative chart of
+Lemma~\ref{lem:relchart} enters. Its hypothesis bears on the links of the
+block of the end only.
+
+\begin{lemma}[the derivative on the relative chart]\label{lem:endchart}
+Let $G=\SU(2)$ and $\beta_W\ge0$, and let the end $e$ move along a geodesic
+to $e'$ while the links of the block of $e$ stay within $\frac1{32}$ of
+$I$; the other links are arbitrary. Let $W(\ell)=\int e^{-\beta_W
+S_{\mathrm{dep}}(\ell,\zeta)}\,\omega(d\zeta)$ for a nonzero finite measure
+$\omega$ on the values $\zeta$ of the links other than the private links of
+$k$. Take $Z^W_k$ in the version $\int W(\Gamma(\xi))\,D(\xi)^{-1}d\xi$ of
+Lemma~\ref{lem:relchart}\textup{(iv)}, with $\xi_a=g^{-1}\ell_a$ and
+$\Gamma(\xi)=(G(\xi),G(\xi)\xi)$ in case~\textup{(a)}, and $\xi_a=\ell_a
+g^{-1}$ and $\Gamma(\xi)=(G(\xi),\xi G(\xi))$ in case~\textup{(b)}; it
+agrees with $\int W\,d\nu_k$ for almost every $c_k$. Then for every $c_k$,
+\begin{gather*}
+\Bigl\lvert\log\frac{Z^W_k(c_k;e)}{Z^W_k(c_k;e')}\Bigr\rvert\le L_*\,
+d(e,e'),\\
+L_*=128.07\,\beta_W+\bigl(180.4+50.6\,\mathcal A_{\mathrm{tie}}\bigr)\,
+e^{72\beta_W},
+\end{gather*}
+with $\mathcal A_{\mathrm{tie}}<\infty$ of Proposition~\ref{prop:tiearea}.
+\end{lemma}
+
+\begin{proof}
+Case~(a). By Lemma~\ref{lem:relchart}, applied along the move, the
+equation $V^\sharp_k=c_k$ has for every $\xi$ the unique solution
+$G(\xi)$, and $Z=Z^W_k(c_k;e)=\int f\,d\xi$ with $f=(W\circ\Gamma)/D$. Let
+$e'$ lie at distance $\delta\le0.08$ along the geodesic, with $G',\Gamma',
+D',f',Z'$.
+
+\emph{The weight.} By Lemma~\ref{lem:relchart}\textup{(ii)}, $d(G,G')\le
+L\delta$ with $L<2.064$, and the eight links of $\Gamma(\xi)$, which are
+$G$ and $G\xi_a$, move by $d(G,G')$ each. Each lies in six plaquettes of
+$S_{\mathrm{dep}}$, and a link that moves by $\varepsilon$ changes
+$1-\frac12\ReTr U_p$ by at most $\varepsilon/\sqrt2$, by the proof of
+Lemma~\ref{lem:wilsononly}; so for every $\zeta$, $\lvert S_{\mathrm{dep}}
+(\Gamma'(\xi),\zeta)-S_{\mathrm{dep}}(\Gamma(\xi),\zeta)\rvert\le24\sqrt2\,
+L\delta<70.06\,\delta$, and $\lvert W\circ\Gamma'-W\circ\Gamma\rvert\le
+(e^{70.06\beta_W\delta}-1)\,W\circ\Gamma$.
+
+\emph{The Jacobian.} By Lemma~\ref{lem:relchart}\textup{(iii)}, $D$ and
+$D'$ lie in $[(1-\lambda)^3,(1+\lambda)^3]$, the ratio of whose ends is less
+than $1.828$. So $D'^{-1}\le1.828\,D^{-1}$, and with $\varDelta=\log D-\log
+D'$, $\lvert D^{-1}-D'^{-1}\rvert=D^{-1}\lvert1-e^{\varDelta}\rvert\le1.828
+\,D^{-1}\lvert\varDelta\rvert$. Hence
+\[
+\int\lvert f-f'\rvert\,d\xi\le1.828\bigl(e^{70.06\beta_W\delta}-1\bigr)Z+
+1.828\int f\,\lvert\varDelta\rvert\,d\xi .
+\]
+Since $0\le S_{\mathrm{dep}}\le72$, $\sup W\le e^{72\beta_W}\inf W$, so $\sup
+f\le1.828\,e^{72\beta_W}\inf f\le1.828\,e^{72\beta_W}Z$, $d\xi$ being a
+probability. By Proposition~\ref{prop:jreduce}, whose hypotheses for
+$B=\SU(2)^7$ are those of the lemma (Theorem~\ref{thm:jholds}),
+$\int\lvert\varDelta\rvert\,d\xi\le(53.96+15.134\,\mathcal A_{\mathrm{tie}})
+\,\delta$. So $\lvert Z'-Z\rvert\le\varepsilon(\delta)Z$ with
+\begin{multline*}
+\varepsilon(\delta)=1.828\bigl(e^{70.06\beta_W\delta}-1\bigr)\\
++1.828^2e^{72\beta_W}\bigl(53.96+15.134\,\mathcal A_{\mathrm{tie}}\bigr)
+\delta .
+\end{multline*}
+Divide the geodesic into $n$ equal steps; then $\lvert\log Z(e)-\log Z(e')
+\rvert\le-n\log(1-\varepsilon(d(e,e')/n))$, which tends to $(1.828\cdot
+70.06\,\beta_W+1.828^2e^{72\beta_W}(53.96+15.134\,\mathcal A_{\mathrm{tie}}
+))\,d(e,e')$. Finally $1.828\cdot70.06<128.07$, $1.828^2<3.3416$, $3.3416
+\cdot53.96<180.4$ and $3.3416\cdot15.134<50.6$.
+
+Case~(b). The last part of Lemma~\ref{lem:relchart} gives (i)--(iv) in the
+coordinates $\xi_a=\ell_ag^{-1}$ with $\lambda_w\le\lambda$ and $L_w\le L$,
+the eight private links $G$ and $\xi_aG$ moving by $d(G,G')$. The inversion
+$\mathfrak i$ of the proof of Theorem~\ref{thm:jholds} maps the
+configuration to one of case~(a) whose links of the block of the moving
+link are within $\frac1{32}$ of $I$, preserves Haar measure and $D$, and so
+gives the same bound on $\int\lvert\varDelta\rvert\,d\xi$. The rest is
+unchanged.
+\end{proof}
+
+The links of the block of $e$ are the inside $\rho$-links of $B(y)$ in
+case~(a) and of $B(y+e_\rho)$ in case~(b), and these are non-path active
+links of the pair $(y-e_\rho,\rho)$, respectively $(y+e_\rho,\rho)$, based
+at the block across the end. The reconstruction $R(c)$ is $I$ on the links
+inside the blocks, so the hypothesis of Lemma~\ref{lem:endchart} holds
+whenever the block across the end, $y-e_\rho$ in case~(a) and $y+e_\rho$ in
+case~(b), is good for labels of radius $r\le\frac1{32}$ at the two values
+of the end; the labels of Sec.~\ref{ssec:factorisation} have $r\le10^{-4}$.
+
+\begin{corollary}[the derivative in an end]\label{cor:endchart}
+In the setting of Lemma~\ref{lem:almosthaar}\textup{(iii)} with $E=\{e\}$,
+suppose that the links of the block of $e$ stay within $\frac1{32}$ of $I$
+along the geodesic from $e$ to $e'$. Then, with the factor of $k$ in the
+version of Lemma~\ref{lem:endchart}, for every coarse field
+\begin{multline*}
+\Bigl\lvert\log\frac{Z(e)}{Z(e')}\Bigr\rvert\\
+\le\Bigl(132.32\,\beta_W+\bigl(180.4+50.6\,\mathcal A_{\mathrm{tie}}\bigr)
+e^{72\beta_W}\Bigr)\,d(e,e'),
+\end{multline*}
+uniformly in the other links off $A^-_W$.
+\end{corollary}
+
+\begin{proof}
+Use the decomposition of the proof of Corollary~\ref{cor:endmean}, apply
+Lemma~\ref{lem:endchart} with $\omega=\delta_\zeta$ at each $\zeta$, and
+bound the plaquettes through $e$ as there; $L_*+3\sqrt2\,\beta_W$ has the
+stated constants, as $128.07+3\sqrt2<132.32$.
+\end{proof}
+
+The same bound replaces the oscillation of the ends in
+Corollary~\ref{cor:tubeends}.
+
+\begin{corollary}[mixed differences along a tube]\label{cor:tubederiv}
+Let $G=\SU(2)$, $\beta_W\ge0$, and let $W$, $\rho$, the slabs, $a$, $b$,
+$E_a$, $E_b$, $a_0,a_1,b_0,b_1$ and $Z_{ij}$ be as in
+Corollary~\ref{cor:tubeends}. Suppose that for every link $e$ of $E_a$ that
+enters an average of a pair based in $W$, every link of the block of $e$
+lies within $\frac1{32}$ of $I$, at each of its values if it belongs to
+$E_a\cup E_b$. Put $L_e=3\sqrt2\,\beta_W+L_*$ for these links of $E_a$,
+$L_e=3\sqrt2\,\beta_W$ for the links of $E_a$ that enter no such average,
+and $\Lambda_a=\sum_{e\in E_a}L_e\,d(a_{0,e},a_{1,e})$. Then, with the
+factors of the pairs in the version of Lemma~\ref{lem:endchart},
+\[
+\Bigl\lvert\log\frac{Z_{11}Z_{00}}{Z_{10}Z_{01}}\Bigr\rvert\le\bigl(e^{2
+\Lambda_a}-1\bigr)\prod_{i=a+1}^{b-1}\bigl(1-e^{-D_i}\bigr).
+\]
+If $E_b$ satisfies the same hypothesis, and $\Lambda_b$ is defined in the
+same way, then also
+\[
+\Bigl\lvert\log\frac{Z_{11}Z_{00}}{Z_{10}Z_{01}}\Bigr\rvert\le\bigl(e^{2
+\Lambda_a}-1\bigr)\bigl(e^{2\Lambda_b}-1\bigr)\prod_{i=a+1}^{b-2}\bigl(1-
+e^{-D_i}\bigr).
+\]
+\end{corollary}
+
+\begin{proof}
+In the proof of Corollary~\ref{cor:tubeends}, $\mathcal A_{a_i}(s)$ is the
+integral of the factors of the slabs $1,\dots,a$ with $S_{a+1}=s$; it
+contains the private links of every pair whose average contains a link of
+$E_a$, and the links of $A^-_W$ in every plaquette through a link of $E_a$.
+Move the links of $E_a$ from $a_0$ to $a_1$ one at a time along geodesics;
+the links of the blocks stay within $\frac1{32}$ of $I$, since the
+geodesic ball of radius $\frac1{32}$ is convex. A link $e$ enters the
+integrand through the plaquettes that contain it, each of which changes by
+at most $d/\sqrt2$, and, if it enters an average, through the factor
+$\nu_k$ of the one pair $k$ whose average contains it
+(Lemma~\ref{lem:endpairs}), whose private links enter the integrand
+otherwise only through $S_{\mathrm{dep}}$. As in the proof of
+Corollary~\ref{cor:endchart}, Lemma~\ref{lem:endchart} with $\omega=
+\delta_\zeta$ at every value $\zeta$ of the other variables gives
+$e^{-\Lambda_a}\le\mathcal A_{a_1}(s)/\mathcal A_{a_0}(s)\le e^{\Lambda_a}$
+for every $s$. So the function $\Phi=\mathcal A_{a_1}/\mathcal A_{a_0}$ of
+that proof satisfies $\sup\Phi\le e^{2\Lambda_a}\inf\Phi$, and the rest of
+that proof gives the first bound.
+
+For the second, let $\iota_j$ be the law of $S_{b-1}$ under the measure
+with $a_0$ on $E_a$ and $b_j$ on $E_b$. Its density is proportional to
+$\mathcal L(s)\,\mathcal R_{b_j}(s)$, where $\mathcal L(s)$ is the
+integral of the factors of the slabs $1,\dots,b-1$ with $S_{b-1}=s$, and
+$\mathcal R_{b_j}(s)$ that of $\Psi_{b-1}(s,\cdot)$ and of the factors of
+the slabs $b,\dots,L-1$. Only $\mathcal R_{b_j}$ depends on $b_j$, and it
+integrates the private links of every pair whose average contains a link
+of $E_b$; the argument above gives $e^{-\Lambda_b}\le\mathcal R_{b_1}(s)/
+\mathcal R_{b_0}(s)\le e^{\Lambda_b}$ for every $s$, so $d\iota_1/d\iota_0
+\le e^{2\Lambda_b}$ and $\lVert\iota_1-\iota_0\rVert_{\rm TV}\le e^{2
+\Lambda_b}-1$. Given $S_{i+1}$, for $a+1\le i\le b-2$, the law of $S_i$
+under either measure is the backward kernel of the proof of
+Corollary~\ref{cor:tubeends}, which does not depend on $b_j$ and contracts
+the total variation distance by the factor $1-e^{-D_i}$. Hence the laws
+$\pi_j$ of $S_{a+1}$ satisfy $\lVert\pi_1-\pi_0\rVert_{\rm TV}\le(e^{2
+\Lambda_b}-1)\prod_{i=a+1}^{b-2}(1-e^{-D_i})$, and $\lvert\pi_1(\Phi)-
+\pi_0(\Phi)\rvert\le\lVert\pi_1-\pi_0\rVert_{\rm TV}(\sup\Phi-\inf\Phi)$
+ends the proof as before.
+\end{proof}
+
+For ends that enter no average the hypothesis is empty and $L_e=3\sqrt2\,
+\beta_W$; the second bound is then a mixed difference in the form of
+Corollary~\ref{cor:badcrossratio}, without a chart and without a bound on
+the plaquettes, at the rate of Theorem~\ref{thm:tube}. For ends in the
+averages the constant $L_*$ contains $e^{72\beta_W}$: the jumps of $\log D$
+across the ties are integrated against Haar measure in
+Proposition~\ref{prop:jreduce}, and the weight $e^{-\beta_W
+S_{\mathrm{dep}}}$ can exceed its mean by that factor on the set they sweep.
+Neither $L_*$ nor the rate of Theorem~\ref{thm:tube} has content in the
+range $\beta_W\ge2.3\cdot10^{17}$ of Theorem~\ref{thm:badcross}
+(Remark~\ref{rem:tuberate}).
+
 The last part of the section concerns the coarse fields with opposite
 fluxes at adjacent coarse plaquettes, for an arbitrary field. Let $P$ and
 $P'$ be the coarse plaquettes at $y$ and $y+e_\mu$ in a plane $\{\mu,\nu\}$
@@ -27714,13 +28066,28 @@ What these results leave open.
 \item \emph{Ends.} Lemma~\ref{lem:almosthaar}\textup{(iii)} and
 Corollary~\ref{cor:tubeends} bound the weight of the interior as a function
 of ends that enter averages, after integration over the non-path links,
-uniformly in the coarse links and in the moves of the ends. They are
-bounds on oscillations. The derivative in an end, uniform in $c_k$, and its
-decay in the distance between two ends at a rate independent of $\beta_W$,
-are not proved: in the region $R_0$ the derivative of the pair factor
-involves the motion of the boundary $\{m=1\}$ in the end, and in $R_1$,
-$R_2$ the motion of the boundaries of the sets $S_h$, and neither is
-estimated.
+uniformly in the coarse links and in the moves of the ends. For the
+derivative in an end, Lemma~\ref{lem:endboundary} bounds the motion of the
+boundary $\{m=1\}$ by $3.4\cdot10^{-8}$ per unit move at every
+configuration; Proposition~\ref{prop:endkantorovich} and
+Corollary~\ref{cor:endmean} bound the derivative after the coarse link is
+averaged against a positive Lipschitz weight, with no condition on the
+other links; and Lemma~\ref{lem:endchart} and Corollary~\ref{cor:endchart}
+bound it uniformly in $c_k$, with constant $132.32\,\beta_W+(180.4+50.6\,
+\mathcal A_{\mathrm{tie}})e^{72\beta_W}$, when the links of the block of
+the end lie within $\frac1{32}$ of $I$, in particular when the block across
+the end is good. Corollary~\ref{cor:tubederiv} gives from this mixed
+differences in two ends that decay along a tube at the rate of
+Theorem~\ref{thm:tube}. Four things are not proved: the derivative uniform
+in $c_k$ when the links of the block of the end are arbitrary, where the
+boundaries of the sets $S_h$ move with the end and the relative chart can
+fold (Proposition~\ref{prop:chartfolds}); an explicit value of $\mathcal
+A_{\mathrm{tie}}$; a constant without the factor $e^{72\beta_W}$; and a
+decay between two ends at a rate independent of $\beta_W$. The rate of
+Theorem~\ref{thm:tube} is the oscillation of the Wilson weight across one
+interface (Remark~\ref{rem:tuberate}), and the route through the chart of
+Theorem~\ref{thm:badcross} needs the derivative of the pair factor on the
+whole fibre, off the chart as well.
 \item \emph{Rate.} For $\beta_W\ge2.3\cdot10^{17}$ the decay across a bad
 component beyond the chart of Theorem~\ref{thm:badcross} is not proved;
 Remark~\ref{rem:tuberate} locates the loss in the oscillation of the Wilson
@@ -34531,8 +34898,16 @@ its mass changes by less than $3.2\cdot10^{-4}$ under every move
 two such ends decays by the factor $1-e^{-D_i}$ per slab, $D_i=\lvert
 \Sigma_i\rvert(72\beta_W+3.2\cdot10^{-4})$, at every $\beta_W$ and without a
 chart (Theorem~\ref{thm:tube}, Corollary~\ref{cor:tubeends}). That factor
-has no content for $\beta_W\ge2.3\cdot10^{17}$, and the derivative bound in
-the ends that the labels need is not proved
+has no content for $\beta_W\ge2.3\cdot10^{17}$. The derivative of the
+integrated pair factor in an end is bounded in the mean over the coarse
+link at every configuration (Corollary~\ref{cor:endmean}), and uniformly in
+the coarse link, with constant $132.32\,\beta_W+(180.4+50.6\,\mathcal
+A_{\mathrm{tie}})e^{72\beta_W}$, when the links of the block of the end lie
+within $\frac1{32}$ of $I$ (Corollary~\ref{cor:endchart}); along a tube
+this gives mixed differences in two ends that decay at the rate of
+Theorem~\ref{thm:tube} (Corollary~\ref{cor:tubederiv}). The bound uniform
+in $c_k$ for arbitrary links of the block of the end, and a decay between
+two ends at a rate independent of $\beta_W$, are not proved
 (Remarks~\ref{rem:badendsopen}, \ref{rem:tuberate}
 and~\ref{rem:endsmeanopen}).
 Lemma~\ref{lem:mobius} gives the mixed differences of every order in
