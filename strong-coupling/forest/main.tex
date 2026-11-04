@@ -106,7 +106,11 @@ of Ba{\l}aban's block averages costs action independent of the scale, that
 a translation of the Haar measures makes it rare at every scale for the
 abelian theory, and that for $\SU(2)$ every such translation transported
 along a forest reaches its constant on the gauge orbit of the vacuum, which
-fixes the one estimate that remains open.
+fixes the one estimate that remains open. We prove that, with the blocks
+labelled by their independent links and their coarse curvature, the good
+windows carry a product law with a determined path link, that two bad
+islands interact through one kernel on the good layer between them, and
+that the rarity of bad labels alone cannot control their covariance.
 \end{abstract}
 
 \maketitle
@@ -118,7 +122,8 @@ Primary 81T25, 82B20; Secondary 81T13, 60K35, 82B26, 22E30.
 \emph{PACS.} 11.15.Ha, 11.15.Tk, 05.50.+q, 02.50.Cw.
 \emph{Keywords.}
 Lattice gauge theory; mass gap; Dobrushin uniqueness; block averages;
-reflection positivity.}
+reflection positivity. An earlier version of this paper is available at
+\url{https://hexagonmath.org/2610.00341v6}.}
 \endgroup
 \addtocounter{footnote}{-1}
 
@@ -607,7 +612,10 @@ Sec.~\ref{sec:limits} measures what is left. Sec.~\ref{sec:bypass} proves
 (I1)--(I3), Sec.~\ref{sec:inputs} states and measures their open inputs, and
 Sec.~\ref{sec:blocks} poses the cube condition for block averages, composes the cut-off average
 across scales at small fields and locates the large fields under the
-Wilson measure. The appendices contain the
+Wilson measure. Sec.~\ref{sec:islands} proves what a labelling of the
+blocks into good and bad gives for the cube condition, where the natural
+labels fail, and what the single-scale and the multiscale parts of (D)
+still need. The appendices contain the
 residue table of the line field, the comparison lemma and its version for
 blocks, the blocks of the local Hessian inequality, the details of the
 certified computation, the reconstruction of the transfer matrix with the
@@ -1232,11 +1240,12 @@ $\beta_W=0.34$, against $0.2837$ from Lemma~\ref{lem:blockK}, and $40|\beta|$
 times it crosses one near $\beta_W=0.357$. Most of the difference is the
 two-site constant $C\approx0.038$, which the floating-point value suggests is
 about twice the true feedback between $y_1$ and $y_3$. No bound of this form
-passes $\beta_W\approx0.366$: at $b=0$ the function $f=\ip{y_1}e+
+passes $\beta_W\approx0.3666$: at $b=0$ the function $f=\ip{y_1}e+
 \operatorname{Re}(y_2y_3e)$ is $1$-Lipschitz for $d$ and has $\Cov_{\mu_b}(f,
-\ip{y_1}e)=\frac14(1+\beta)+O(\beta^2)$, so the sensitivity is at least
-$\frac14(1+|\beta|)+O(\beta^2)$ and $40|\beta|$ times it is $10|\beta|(1+|\beta|)+O(|\beta|^3)$. That computation is not certified
-and is not used in the proof. Past this point the gain from integrating out
+\ip{y_1}e)=\frac14(1+I_2(\beta_W)/I_1(\beta_W))$ exactly
+(Proposition~\ref{prop:blockresponse}), which is $0.2718$ at
+$\beta_W=0.351$ against $K\le0.2849$, so the sensitivity is at least this
+number and $40|\beta|$ times it crosses one at $\beta_W=0.3666$. Past this point the gain from integrating out
 one link is spent, and larger blocks are needed, such as the free links of a
 cube of the line field, whose sensitivity no longer reduces to two sites.
 \end{remark}
@@ -10942,6 +10951,869 @@ equivalent to a logarithmic Sobolev inequality uniform in the
 volume~\cite{SZ92}; the rarity of coarse defects is the part of that
 inequality that concerns the large fields.
 
+\section{Labels, islands and the environment}\label{sec:islands}
+
+The cube condition (D) is a statement about conditional laws under every
+exterior, and Sec.~\ref{ssec:fixedset} showed that one-point rarity of a
+bad set gives closeness of Gibbs measures but not decay. The route that
+remains is the one of the large-field expansions: label each block of a
+window good or bad, prove decay on the good windows, bound the bad islands
+by their rarity, and control the covariance that the labels themselves
+carry. This section proves what each of these four steps gives for the
+cut-off average of Sec.~\ref{ssec:pathblocks}, and proves, by explicit
+examples, where the natural choices of labels fail. The statements are
+exact and finite; none of them closes (D), and
+Sec.~\ref{ssec:remains} lists what they leave.
+
+Throughout, $G=\SU(2)$ with $\rho_G=1$, the lattice is in the tree gauge of
+Definition~\ref{def:blockgauge}, $d(g,h)=\lVert\log(g^{-1}h)\rVert$ is the
+bi-invariant geodesic distance in the Hilbert--Schmidt norm, so that
+$d(g,I)=\lVert X\rVert$ for $g=e^X$ with $\lVert X\rVert\le\pi\sqrt2$,
+and $\delta$ is the chordal distance. A \emph{pair} $k=(y,\mu)$ consists of
+a block and a direction; its \emph{path link} is $\ell_k=U_{2y+e_\mu,\mu}$,
+its \emph{private links} are the eight links leaving $B(y)$ in the direction
+$\mu$, which enter no other cut-off average, and the seven private links
+other than $\ell_k$ are its \emph{non-path} links. In the sixteen paths of
+$V^\sharp_k$ the path link occurs twice, as the two paths of transverse
+offset zero, and each non-path private link occurs twice, each time
+multiplied by one link inside $B(y)$ or $B(y+e_\mu)$. For a coarse field
+$c$ the reconstruction $R(c)$ of Sec.~\ref{ssec:pathblocks} puts $c_k$ on
+the private links of $k$ and $I$ on the links inside the blocks.
+
+\subsection{Backgrounds and the path links}\label{ssec:branches}
+
+The first question is which background the chart of
+Theorem~\ref{thm:chartdecay} should be centred at when a window is
+conditioned on its labels. The natural label of a link is its distance to
+the reconstruction of the coarse field, and the natural background is the
+reconstruction itself. The first result shows that this is not enough: a
+coarse field all of whose plaquettes are large has a reconstruction at
+which every relative link label is good and the constrained action has a
+negative second variation along the fibre.
+
+\begin{proposition}[a rough background]\label{prop:roughbackground}
+On the periodic lattice of side four, with coarse torus $(\Z/2\Z)^4$, let
+$c_{y,\mu}=(-I)^{\sum_{\nu<\mu}y_\nu}$. Then every coarse plaquette of $c$
+equals $-I$, the field $U=R(c)$ is in the tree gauge and has
+$V^\sharp(U)=c$, and $d(U_e,R_e(c))=0$ for every link. There is a curve
+$U(t)=U\exp(t\xi)$, $\xi$ supported on four links, such that
+$V^\sharp(U(t))=c$ for all small $|t|$, $d(U_e(t),R_e(c))\le|t|$, and the
+Wilson action $S=\sum_p(1-\frac12\ReTr U_p)$ satisfies
+\[
+\frac{d^2}{dt^2}\Bigl(\beta_WS(U(t))\Bigr)\Big|_{t=0}=-\beta_W,\qquad
+T(\xi)=\sum_e\lVert\xi_e\rVert^2=4 .
+\]
+Every first derivative of $S$ at $U$ vanishes, so the intrinsic Hessian
+of $\beta_WS$ on the fibre of $c$ at $U$ has an eigenvalue at most
+$-\beta_W/4$, in any smooth chart of the fibre.
+\end{proposition}
+
+\begin{proof}
+The coarse plaquette at $y$ in the plane $\{\mu,\nu\}$, $\mu<\nu$, is the
+product of $c_{y,\mu}$, $c_{y+e_\mu,\nu}$, $c_{y+e_\nu,\mu}^{-1}$ and
+$c_{y,\nu}^{-1}$; these are central, and the exponent of $-I$ is
+$\sum_{\rho<\mu}y_\rho+\sum_{\rho<\nu}(y+e_\mu)_\rho-\sum_{\rho<\mu}(y+e_\nu)_\rho
+-\sum_{\rho<\nu}y_\rho=1$ modulo two, since $\mu<\nu$ puts $e_\mu$ inside
+the second sum and $e_\nu$ outside the third. So every coarse plaquette is
+$-I$, also across the periodic seam. In $U=R(c)$ the links inside the
+blocks are $I$, in particular the tree links, and all sixteen paths of a
+pair $k$ equal $c_k$, so every $v_x=I$, the cut-off is one and $V^\sharp_k
+(U)=c_k$; the relative labels vanish by construction.
+
+Let $T\in\mathfrak{su}(2)$ have $\lVert T\rVert=1$, with eigenvalues $\pm
+i/\sqrt2$, and let $\xi_e=a_eT$ with $a_e=-1,+1,+1,-1$ on the links
+$((0,1,1,1),1)$, $((0,1,1,1),2)$, $((0,1,0,0),1)$, $((0,0,1,0),2)$ and
+$a_e=0$ elsewhere. All four links are private links; the last two are path
+links. The pair $((0,0,0,0),1)$ has the non-path link $((0,1,1,1),1)$ with
+$a=-1$ and the path link $((0,1,0,0),1)$ with $a=+1$, the pair
+$((0,0,0,0),2)$ has $((0,1,1,1),2)$ with $a=+1$ and the path link
+$((0,0,1,0),2)$ with $a=-1$, and no other pair contains a link of the
+support. Since the background is central, $P_x(t)=c_k\exp(ta_xT)$ for the
+sixteen paths, with $a_x$ the value on the private link of the path, so
+$v_x(t)=\exp(t(a_x-a_0)T)$ lies in the chart for small $|t|$, the cut-off
+is one, and
+\[
+V^\sharp_k(U(t))=c_k\exp\Bigl(\frac t{16}\sum_xa_xT\Bigr)=c_k ,
+\]
+because each private link occurs in exactly two paths and the two nonzero
+values of each pair cancel. The curve stays in the fibre, and
+$d(U_e(t),R_e(c))=|ta_e|\le|t|$.
+
+Write $U_p=s_pI$ with $s_p=\pm1$ and let $q_p=(d\,a)_p$ be the signed
+curl of the scalar field $a$ around $p$. Since the perturbations commute
+with the background, $U_p(t)=s_p\exp(tq_pT)$ and $\ReTr U_p(t)=2s_p
+\cos(tq_p/\sqrt2)$, so
+\[
+S(U(t))=\sum_p\bigl(1-s_p\cos(tq_p/\sqrt2)\bigr),\qquad
+S''(0)=\frac12\sum_ps_pq_p^2 .
+\]
+The plaquettes with $q_p\ne0$ are those containing a link of the support.
+A link $(x,\mu)$ lies in six plaquettes, two in each plane $\{\mu,\nu\}$,
+at $x$ and at $x-e_\nu$. Listing the six plaquettes of each of the four
+links, the plaquette at $(0,1,1,1)$ in the plane $\{1,2\}$ contains two
+links of the support, $((0,1,1,1),1)$ and $((0,1,1,1),2)$, with
+$q_p=-1-1=-2$; the other $22$ plaquettes contain one link each, with
+$q_p=\pm1$. The sign $s_p$ of a plaquette is
+$-1$ exactly when it has an odd number of links on which $U$ equals $-I$;
+counting through the four links, which is a finite check, gives twelve
+plaquettes with $s_p=1$, $q_p^2=1$, ten with $s_p=-1$, $q_p^2=1$, and the
+one with $s_p=-1$, $q_p^2=4$. Hence $\sum_ps_pq_p^2=12-10-4=-2$,
+$S''(0)=-1$, and $T(\xi)=4$.
+
+Every plaquette of $U$ is central, so every first derivative of $S$ at $U$
+vanishes and the second derivative along any curve through $U$ with
+velocity $\xi$ depends only on $\xi$: the intrinsic Hessian on the fibre
+has the value $-1$ at $\xi$, which has $T(\xi)=4$. The Haar density of the
+fibre, in a chart in which the path links are solved for, is the inverse
+Jacobian of the path-link equations, which at $U$ is a fixed positive
+number independent of $\beta_W$; its logarithmic second derivatives are
+bounded in any fixed chart, so no choice of chart turns the Hessian of
+$\beta_WS$ plus the log-density positive for all large $\beta_W$.
+\end{proof}
+
+The proposition does not contradict Theorem~\ref{thm:chartdecay}, which
+assumes small plaquettes; it shows that the hypothesis of that theorem on
+the coarse field cannot be dropped in favour of relative link labels. A
+coarse-curvature label is therefore part of any labelling, and the next
+lemma shows that it has a witness at the fine scale, so that it is as rare
+as a fine defect.
+
+\begin{lemma}[a fine witness for coarse curvature]\label{lem:coarsewitness}
+Let $P$ be the coarse plaquette at $y$ in the plane $\{\mu,\nu\}$ and
+suppose that $\delta(U_p,I)\le\kappa\le10^{-8}$ for every fine plaquette
+$p$ with a vertex in one of the blocks at $\ell^\infty$ distance at most
+one from $B(y)$, $B(y+e_\mu)$, $B(y+e_\nu)$ or $B(y+e_\mu+e_\nu)$. Then
+$c=V^\sharp(U)$ satisfies
+\[
+\delta(c_P,I)\le(4+28\pi)\kappa<92\kappa .
+\]
+\end{lemma}
+
+\begin{proof}
+For a pair $k$ among the four sides of $P$, Lemma~\ref{lem:smallframes}(i)
+gives $\delta(U_e,I)\le3\kappa$ for the link of each path inside a block
+and $\delta(U_e,\ell_k)\le21\kappa$ for its private link, so $\delta(P_x,
+\ell_k)\le24\kappa$ for every path, and by Lemma~\ref{lem:logbound}
+$\lVert\log(\ell_k^{-1}P_x)\rVert\le8\pi\kappa$. The two paths of offset
+zero contribute nothing, so $c_k=\ell_kM_k$ with $\lVert\log M_k\rVert\le
+\frac{14}{16}\,8\pi\kappa=7\pi\kappa$ and $\delta(c_k,\ell_k)\le7\pi\kappa$.
+The four path links around $P$ are the holonomy of the square of side two
+at $2y$: the other four links of its sides are the first links of the
+straight paths, which are tree links and equal $I$. That square is tiled
+by four fine plaquettes, and inserting them with their parallel transports
+gives $\delta(\ell_P,I)\le4\kappa$, where $\ell_P$ is that holonomy. Replacing
+the four $\ell_k$ by $c_k$ one at a time, bi-invariance of $\delta$ and the
+triangle inequality add $4\cdot7\pi\kappa$.
+\end{proof}
+
+With the coarse field calm, the chart has a centre. The next lemma shows
+that for a pair whose non-path links are near the reconstruction, the
+constraint $V^\sharp_k=c_k$ determines the path link, on every branch of
+the cut-off, and the fibre of the window over its non-path links is a
+single graph.
+
+\begin{lemma}[the path link is determined]\label{lem:branchbound}
+Let $k$ be a pair with cut-off average $c_k$, and suppose that each of its
+seven non-path private links and each link inside $B(y)$ and
+$B(y+e_\mu)$ is within geodesic distance $r$ of its reconstruction value.
+Then every path other than the two copies of $\ell_k$ has $d(P_x,c_k)\le
+2r$, and every $\ell_k$ with $V^\sharp_k=c_k$ satisfies
+\[
+d(\ell_k,c_k)\le14r ,\qquad d(v_x,I)\le16r\ \text{for every path}.
+\]
+If moreover $r\le10^{-4}$, the cut-off equals one at every such $\ell_k$,
+and $\ell_k$ is unique: it is the only fixed point of
+\[
+X\mapsto F(X)=-\frac1{16}\sum_{x}\log\bigl(e^{-X}c_k^{-1}P_x\bigr),
+\qquad \ell_k=c_ke^X ,
+\]
+in the ball $\lVert X\rVert\le14r$, where the sum runs over the fourteen
+paths of nonzero offset, and $F$ is a contraction of that ball with
+constant less than $0.9$.
+\end{lemma}
+
+\begin{proof}
+A path of nonzero offset is the product of a link inside a block, within
+$r$ of $I$, and a non-path private link, within $r$ of $c_k$, in one of
+the two orders; bi-invariance of $d$ and the triangle inequality give
+$d(P_x,c_k)\le2r$. If the cut-off is zero, $V^\sharp_k=\ell_k$, so $\ell_k=
+c_k$. Otherwise every $v_x=\ell_k^{-1}P_x$ has $\delta(v_x,I)<1$, its
+principal logarithm is defined and $\lVert\log v_x\rVert=d(v_x,I)=d(\ell_k,
+P_x)$. Put $D=d(\ell_k,c_k)$ and $N=\frac1{16}\sum_x\log v_x$, the two
+terms of offset zero being zero. Then $c_k=\ell_k\exp(\chi N)$ and
+\[
+D=d(e^{\chi N},I)\le\chi\lVert N\rVert\le\frac{14}{16}\max_xd(\ell_k,P_x)
+\le\frac78(D+2r),
+\]
+so $D\le14r$, and $d(v_x,I)\le D+2r\le16r$. For $r\le10^{-4}$ this is less
+than $\frac12$, so $\chi=1$, and $V^\sharp_k=c_k$ reads $X=F(X)$ for
+$\ell_k=c_ke^X$ with $\lVert X\rVert\le14r$. On that ball each $A_x=c_k^{-1}P_x$ has $d(A_x,I)\le2r$, so
+$d(e^{-X}A_x,I)\le16r$ and $\lVert F(X)\rVert\le\frac{14}{16}\cdot16r=14r$:
+$F$ maps the ball into itself. Writing $e^{-X}A_x=I+M$ with $\lVert M\rVert
+\le16r$, the series of the logarithm gives $\lVert D\log(I+M)\rVert\le
+1/(1-16r)$, and the differential of $X\mapsto e^{-X}A_x$ has norm at most
+$e^{14r}$; hence $\lVert DF\rVert\le\frac78e^{14r}/(1-16r)<0.9$, and the
+fixed point is unique by the contraction principle.
+\end{proof}
+
+\begin{proposition}[good windows are graphs]\label{prop:graphlaw}
+Let $W$ be a finite set of blocks, let $c$ be a coarse field, let $K_W$
+be the set of pairs based in $W$ or entering $W$ from a block outside it,
+and let $Z_W$ be the set of non-path active links with base in $\bigcup
+W$. Free the links of $A_W$ and the path links of the pairs entering $W$,
+fix every other link, and condition on $V^\sharp_k=c_k$ for every $k\in
+K_W$ and on the event that every link of $Z_W$ and every non-path link of
+a pair entering $W$ is within $r\le10^{-4}$ of its reconstruction value.
+Then the fibre of these constraints is the graph of a smooth map $\Gamma$
+from the product of the $r$-balls of the links of $Z_W$ to the path links
+of the pairs of $K_W$, and the conditional law is the Wilson weight times
+the Haar disintegration of this graph, whose density with respect to the
+product Haar measure on $Z_W$ is the product over $k\in K_W$ of the
+inverse Jacobians of $X\mapsto X-F(X)$ at the fixed point.
+\end{proposition}
+
+\begin{proof}
+The constraint of a pair $k\in K_W$ involves its own private links and
+the links inside two blocks, so it involves only its own path link, links
+of $Z_W$, and fixed links that are within $r$ of their reconstruction
+values; no other constraint involves a freed link, since the other pairs
+have their supports off the free set. Lemma~\ref{lem:branchbound} applies
+to every $k\in K_W$ with the same $r$ and gives one solution for each
+pair, a smooth function of the links of $Z_W$ by the implicit function
+theorem since $I-DF$ is invertible. The fibre is therefore the graph of $\Gamma$, and the coarea
+formula for the submersion $U\mapsto(V^\sharp_k)_{k}$ restricted to the
+product of the balls gives the stated density, since the derivative of the
+constraint of $k$ in its own path link is $I-DF$ in the chart at $c_k$ and
+the cross derivatives between different pairs vanish.
+\end{proof}
+
+The proposition says that, once the coarse field is calm and the labels
+are placed on the non-path links, the good windows carry the product
+structure that the proof of Theorem~\ref{thm:chartdecay} needs, with no
+branch of the cut-off to discard; the Hessian estimate of that theorem
+then applies on the graph. Two further examples show that the two obvious
+alternatives fail: labelling all physical links, including the path links,
+produces a nonconvex domain, and a bad pair can have several path links.
+
+\begin{proposition}[the all-link label domain is not convex]\label{prop:nonconvex}
+Let $c\equiv I$, freeze every link outside the eight private links of one
+pair at $I$, and write the seven non-path links as $e^{z_j}$ and the path
+link as $e^{X}$. For every sufficiently small $r>0$ the set of
+$(z_1,\dots,z_7)$ for which all eight links lie in the geodesic ball of
+radius $r$ at $I$ is not convex.
+\end{proposition}
+
+\begin{proof}
+With the cut-off equal to one, the constraint is $H(X,z)=X+\frac18\sum_{j
+=1}^7\log(e^{-X}e^{z_j})=0$, since each non-path link occurs in two of the
+sixteen paths and the two paths of offset zero contribute nothing. Take
+$A,B\in\mathfrak{su}(2)$ orthonormal for the Hilbert--Schmidt norm, so
+that $[A,[A,B]]=-2B$ and $[B,[B,A]]=-2A$, and put $z_1=-\frac a7A+hB$,
+$z_2=-\frac a7A-hB$, $z_3=\dots=z_7=-\frac a7A$ with $a>0$ small. The inner automorphism of $\SU(2)$ that fixes $A$ and negates $B$ and
+$[A,B]$ exchanges the logarithms of $e^{-xA}e^{z_1}$ and $e^{-xA}e^{z_2}$,
+so their sum lies along $A$ when $X=xA$, and the equation reduces to its
+$A$-component; by the implicit function theorem the solution is $X=x(a,h)A$
+with $x$ analytic, even in $h$ by the same symmetry, and $x(a,0)=a$ since
+$\log(e^{-xA}e^{bA})=(b-x)A$ gives $x+\frac78(b-x)=0$ at $h=0$. Let $L(x,b,h)$ be the $A$-component of $\log(e^{-xA}
+e^{bA+hB})$. The Baker--Campbell--Hausdorff series through degree three
+has one term of degree two in $h$ along $A$, namely $\frac1{12}[hB,[hB,
+-xA]]=\frac{xh^2}6A$, so $\partial_h^2L(x,b,0)=\frac x3+O((|x|+|b|)^2)$.
+The $A$-component of $H$ is $x+\frac18\bigl(2L(x,-\frac a7,h)+5(-\frac a7
+-x)\bigr)$, and $\partial_xL(x,b,0)=-1$; differentiating $H=0$ twice in
+$h$ at $h=0$ gives $\frac18\partial_h^2x+\frac14\partial_h^2L=0$, that is
+\[
+\partial_h^2x(a,0)=-2\,\partial_h^2L(a,-\tfrac a7,0)=-\frac{2a}3+O(a^2)<0 .
+\]
+Fix $r$ small and $\eta$ small, and take $a$ with $r<a<r(1+\frac{\eta^2}
+{4})$. The points $z^\pm$ with $h=\pm\eta$ and their midpoint $z^0$ with
+$h=0$ have all seven non-path links within $\sqrt{a^2/49+\eta^2}<r$ of
+$I$; the path link of $z^\pm$ is at distance $x(a,\pm\eta)=a-\frac a3
+\eta^2+O(a^2\eta^2+\eta^4)<r$ from $I$, while that of $z^0$ is at distance
+$x(a,0)=a>r$. So the endpoints lie in the domain and the midpoint does
+not.
+\end{proof}
+
+\begin{proposition}[a bad pair with three path links]\label{prop:branches}
+Let $c\equiv I$, freeze every link outside the eight private links of one
+pair at $I$, and take the private links in the one-parameter subgroup
+$\operatorname{diag}(e^{iq},e^{-iq})$: one non-path link at the angle
+$-\frac12$, the other six at the angle $\frac{49}{100}$. Then there are at
+least three values of the path-link angle $q$ with the same cut-off
+average, and the derivative of the cut-off average with respect to $q$
+vanishes at some $q\in(0,\frac15)$.
+\end{proposition}
+
+\begin{proof}
+On the subgroup all logarithms are scalar and the cut-off average has the
+angle $f(q)=q+\frac{\chi(q)}8\bigl(-\frac12+6\cdot\frac{49}{100}-7q\bigr)$,
+where $\chi(q)=\phi(m(q))$, $m(q)=\max_j2\sqrt2\,|\sin((\theta_j-q)/2)|$
+and $\theta_1=-\frac12$, $\theta_2=\dots=\theta_7=\frac{49}{100}$, the
+factor $2\sqrt2|\sin(\theta/2)|$ being the chordal distance of
+$\operatorname{diag}(e^{i\theta},e^{-i\theta})$ from $I$. At $q=0$ the
+maximum is attained at $\theta_1$ alone, with $m(q)=2\sqrt2\sin((q+\frac12)
+/2)$ near $0$ and $\frac12<m(0)<1$, so $\chi=2-2m$ is smooth near $0$ with
+$\chi'(0)=-2\sqrt2\cos\frac14$, and
+\[
+\begin{split}
+f'(0)&=1-\frac78\chi(0)+\frac{\chi'(0)}8\Bigl(-\frac12+\frac{294}{100}\Bigr)\\
+&=-\frac34+\sqrt2\Bigl(\frac72\sin\frac14-\frac{61}{100}\cos\frac14\Bigr)
+\end{split}
+\]
+after inserting $\chi(0)=2-4\sqrt2\sin\frac14$. With $\sin\frac14<\frac14$,
+$\cos\frac14>\frac{31}{32}$ and $1<\sqrt2<\frac32$ on the positive and the
+negative term separately, $f'(0)<-\frac{91}{3200}<0$. Put $\gamma=f(0)$,
+which lies in $(0,1)$. For $|q|=1$ the maximal chordal distance exceeds
+one, so $\chi=\pm1$ gives $f(\pm1)=\pm1$. Since $f$ decreases through
+$\gamma$ at $0$ and $f(-1)<\gamma<f(1)$, the intermediate value theorem
+gives one preimage of $\gamma$ in $(-1,0)$, one in $(0,1)$, and $q=0$. On
+$[0,\frac15]$ the maximiser stays $\theta_1$ and $\frac9{10}<m<1$ at
+$q=\frac15$, so $\chi(\frac15)<\frac15$ and $f'(\frac15)>1-\frac7{40}-
+3\cdot\frac{13}{100}>0$; with $f'(0)<0$, continuity gives a zero of $f'$ in
+$(0,\frac15)$.
+\end{proof}
+
+Hence the Jacobian of the path-link constraint, which enters the density of
+Proposition~\ref{prop:graphlaw}, has no positive lower bound on the bad
+side, and a bad pair contributes a sum over branches to any estimate of
+the conditional law. On the good side none of this happens: the labels
+of Proposition~\ref{prop:graphlaw} are placed on the non-path links only.
+
+\subsection{Counting bad labels}\label{ssec:counting}
+
+A label is bad when some fine plaquette in a fixed neighbourhood is bad:
+for the relative link labels this is the content of
+Theorem~\ref{thm:cutoff} and Lemma~\ref{lem:smallframes}, and for the
+coarse-curvature labels it is Lemma~\ref{lem:coarsewitness}. The chessboard
+estimate of Theorem~\ref{thm:defects} bounds the probability that a set of
+fine plaquettes is simultaneously bad by a product. The following lemma
+transfers such a bound to the labels, and the proposition after it shows
+that the loss it incurs is the true loss of this kind of argument.
+
+\begin{lemma}[coverage counting]\label{lem:coverage}
+Let a family of events $E_y$, indexed by a finite set, be such that each
+$E_y$ forces at least one of a specified set $Q_y$ of at most $M$ sites to
+be bad, and suppose that each site lies in at most $H$ of the sets $Q_y$
+and that $\Pr(\text{all sites of }T\text{ bad})\le p^{|T|}$ for every
+finite set $T$ of sites. Then for every nonempty set $S$ of $n$ labels and
+$k=\lceil n/H\rceil$,
+\[
+\Pr\Bigl(\bigcap_{y\in S}E_y\Bigr)\le\binom{Mn}k\,p^k\le(eMHp)^k ,
+\]
+and if $A=eMHp<1$ then $\Pr(\bigcap_{y\in S}E_y)\le A^{n/H}$.
+\end{lemma}
+
+\begin{proof}
+On the intersection, the union of the witness sets $Q_y$, $y\in S$,
+contains at least $k$ distinct bad sites, since one site witnesses at most
+$H$ labels; the union has at most $Mn$ sites. A union bound over its
+$k$-subsets and the product bound for each give the first inequality, and
+$\binom{Mn}k\le(eMn/k)^k\le(eMH)^k$ since $n/k\le H$. No choice of witness
+is required to be measurable, and no independence is used.
+\end{proof}
+
+\begin{proposition}[the exponent $1/H$ cannot be improved]\label{prop:coverageopt}
+In the setting of Lemma~\ref{lem:coverage} let $H$ labels share one site
+and let each be bad exactly when that site is bad, with probability $p$.
+Then $\Pr(\text{all }H\text{ labels bad})=p$, so every bound of the form
+$q^{|S|}$ valid for this class of families has $q\ge p^{1/H}$.
+\end{proposition}
+
+\begin{proof}
+The event that all $H$ labels are bad is the event that the one site is
+bad.
+\end{proof}
+
+For the labels of Sec.~\ref{ssec:branches} the witness sets are boxes of
+side $7$ for the relative link labels, $M=7^4$, $H=4^4$, and of side $11$
+when the coarse-curvature labels are included, $M=11^4$, $H=6^4$, with $p$
+the chessboard bound of Theorem~\ref{thm:defects} at the threshold of
+Lemma~\ref{lem:coarsewitness}. Lemma~\ref{lem:coverage} then charges a bad
+island of $n$ blocks at the rate $A^{n/H}$; the proposition shows that
+the denominator $H$ is not an artefact of the union bound but the price of
+knowing only that each label has a witness, and that a better exponent
+needs joint information on the gauge field.
+
+\subsection{Islands and the environment}\label{ssec:environment}
+
+Two bad islands are separated by good blocks, and the question is how the
+weight of one island depends on the state of the other. The following
+lemma answers it in terms of a single quantity: the cross-ratio of a
+kernel on the good layer between them. It integrates arbitrary measures on
+the two islands, including hard constraints and sums over branches, and
+their masses do not enter.
+
+\begin{lemma}[integration through a common kernel]\label{lem:kernel}
+Let $K(x,y)>0$ be measurable, let $a_0,a_1$ and $b_0,b_1$ be finite
+positive measures on the spaces of $x$ and of $y$, and suppose that
+$Z_{ij}=\iint K\,da_i\,db_j$ is finite and positive for the four pairs
+$i,j\in\{0,1\}$. If
+\[
+e^{-\varDelta}\le\frac{K(x_1,y_1)K(x_0,y_0)}{K(x_1,y_0)K(x_0,y_1)}\le
+e^{\varDelta}
+\]
+for all $x_i$ in the support of $a_i$ and $y_j$ in the support of $b_j$,
+then
+\[
+\bigl|\log Z_{11}+\log Z_{00}-\log Z_{10}-\log Z_{01}\bigr|\le\varDelta .
+\]
+\end{lemma}
+
+\begin{proof}
+Multiply the upper inequality by $K(x_1,y_0)K(x_0,y_1)$ and integrate
+against $da_1(x_1)\,da_0(x_0)\,db_1(y_1)\,db_0(y_0)$; by Tonelli the left
+side integrates to $Z_{11}Z_{00}$ and the right side to $e^{\varDelta}
+Z_{10}Z_{01}$. The lower inequality gives the reverse bound, and the four
+numbers are positive, so logarithms may be taken.
+\end{proof}
+
+\begin{corollary}[two labels]\label{cor:twolabels}
+Let $(A,B)$ be a pair of binary labels with joint law $\Pr(A=i,B=j)=Z_{ij}
+/\sum Z$, all $Z_{ij}>0$, and let $\varDelta$ bound the connected
+normaliser as in Lemma~\ref{lem:kernel}. Then
+\[
+\begin{gathered}
+\bigl|\Pr(B=1\mid A=1)-\Pr(B=1\mid A=0)\bigr|\le\tanh\frac\varDelta4,\\
+|\Cov(A,B)|\le\frac14\tanh\frac\varDelta4 .
+\end{gathered}
+\]
+\end{corollary}
+
+\begin{proof}
+The conditional odds of $B=1$ given $A=1$ and given $A=0$ are $Z_{11}/
+Z_{10}$ and $Z_{01}/Z_{00}$, whose logarithms differ by $\log(Z_{11}Z_{00}/
+Z_{10}Z_{01})$, of modulus at most $\varDelta$. For logistic probabilities
+$\sigma(u)=(1+e^{-u})^{-1}$ the difference $\sigma(u+s)-\sigma(u)$ is
+largest at $u=-s/2$ by the symmetry $\sigma(-u)=1-\sigma(u)$, where it
+equals $\sigma(s/2)-\sigma(-s/2)=\tanh(s/4)$, and it increases in $s$. The
+covariance is $\Pr(A=1)\Pr(A=0)$ times the difference of the conditional
+probabilities, and $\Pr(A=1)\Pr(A=0)\le\frac14$.
+\end{proof}
+
+When the kernel is the partition function of a calm layer, its cross-ratio
+is a connected second derivative of a log-normaliser, and that derivative
+is a covariance under the law of the layer.
+
+\begin{lemma}[connected normalisers]\label{lem:connected}
+Let $D$ be a fixed product of balls in the coordinates $z$ of a window, let
+$\mathcal U(z;\eta,\zeta)$ be smooth in all variables, with $\eta$ and
+$\zeta$ exterior parameters, and let $Z(\eta,\zeta)=\int_De^{-\mathcal U}
+dz$. Then for directions $u$ in $\eta$ and $v$ in $\zeta$,
+\[
+\partial_u\partial_v\log Z=-\E\bigl[\partial_u\partial_v\mathcal U\bigr]+
+\Cov\bigl(\partial_u\mathcal U,\partial_v\mathcal U\bigr),
+\]
+expectation and covariance under $e^{-\mathcal U}dz/Z$ on $D$. If
+$\mathcal U$ is a sum of local terms and the supports of $\eta$ and $\zeta$
+are farther apart than the range, the first term vanishes; and if the law
+on $D$ satisfies
+\[
+|\Cov(F,H)|\le\mathcal A\,\lVert\nabla F\rVert\,\lVert\nabla H\rVert\,
+e^{-\alpha\dist(\operatorname{supp}\nabla F,\operatorname{supp}\nabla H)}
+\]
+for all smooth $F$ and $H$, then for two segments $\eta_0\to\eta_1$ and
+$\zeta_0\to\zeta_1$ along which the domain $D$ and the bounds persist,
+\[
+\begin{split}
+&\bigl|\log Z(\eta_1,\zeta_1)-\log Z(\eta_1,\zeta_0)-\log Z(\eta_0,\zeta_1)
++\log Z(\eta_0,\zeta_0)\bigr|\\
+&\qquad\le\mathcal AL_\eta L_\zeta\,
+\lVert\eta_1-\eta_0\rVert\,\lVert\zeta_1-\zeta_0\rVert\,e^{-\alpha d'},
+\end{split}
+\]
+where $L_\eta,L_\zeta$ bound the gradients in $z$ of $\partial_u\mathcal U$
+and $\partial_v\mathcal U$ per unit of $u,v$, and $d'$ is the distance
+between the supports of those gradients.
+\end{lemma}
+
+\begin{proof}
+Differentiating under the integral sign on the fixed domain $D$ gives
+$\partial_v\log Z=-\E[\partial_v\mathcal U]$ and then the identity, the
+covariance arising from the derivative of the normalised density. The
+integrated bound is the identity, the covariance hypothesis, and the
+fundamental theorem of calculus along the two segments.
+\end{proof}
+
+On a good window the law of Proposition~\ref{prop:graphlaw}, with the
+Hessian bound of Theorem~\ref{thm:chartdecay} on the graph, supplies a
+covariance bound of the required form, so Lemma~\ref{lem:connected}
+controls the connected normaliser for continuous changes of the sources
+inside the chart, and Lemma~\ref{lem:kernel} then integrates the hard
+island weights on the two sides. What the three statements do not supply
+is the kernel bound when a label change moves the domain $D$, enters an
+island, or adds a branch of Proposition~\ref{prop:branches}; that is the
+open comparison of Sec.~\ref{ssec:remains}. The last result of this
+subsection shows that the comparison cannot be replaced by rarity, however
+strong.
+
+\begin{proposition}[rarity does not control the environment]\label{prop:hiddenbit}
+Fix $q\in(0,1)$. Let $S$ be a fair bit and, given $S$, let the labels $B_x$
+be independent Bernoulli variables with parameter $q/2$ if $S=0$ and $q$
+if $S=1$. Then $\Pr(B_x=1\ \forall x\in T)\le q^{|T|}$ for every finite
+$T$, and for all distinct $x,y$,
+\[
+\Cov(B_x,B_y)=\frac{q^2}{16} .
+\]
+If the configuration is a function of the labels, every covariance under
+the law conditioned on all labels vanishes, and the covariance of two
+observables is the covariance of their conditional expectations. More
+generally, for a binary label $B$ with $p=\Pr(B=1\mid\xi)\in(0,1)$ given
+the other labels $\xi$ and $\varDelta_F=\mu(F\mid B=1,\xi)-\mu(F\mid
+B=0,\xi)$,
+\[
+\begin{gathered}
+\Cov(F,\mathbf 1_B\mid\xi)=p(1-p)\varDelta_F,\\
+\Cov\bigl(\E[F\mid B,\xi],\E[H\mid B,\xi]\bigm|\xi\bigr)=p(1-p)\varDelta_F
+\varDelta_H .
+\end{gathered}
+\]
+\end{proposition}
+
+\begin{proof}
+Given $S$ the labels are independent, so $\Pr(B_x=1\ \forall x\in T)=
+\frac12((q/2)^{|T|}+q^{|T|})\le q^{|T|}$, and $\Cov(B_x,B_y)=\Var(\Pr(B_x=
+1\mid S))=\frac14(q-q/2)^2=q^2/16$ by the conditional covariance formula.
+The two identities follow by expanding the expectations over the two
+values of $B$.
+\end{proof}
+
+The example satisfies every finite-intersection rarity bound at every
+order, yet its labels have a covariance with a positive floor at all
+distances. A labelling argument must therefore bound $\varDelta_F
+\varDelta_H$, the change of the conditional expectations under a label
+flip, and not only the probability of the flip: small $p$ does not help
+when $\varDelta_F\varDelta_H$ does not decay, and normalising by $p$ can
+cancel it. That bound is the connected normaliser of
+Lemma~\ref{lem:kernel}, which is where the island comparison enters.
+
+\subsection{Coupling cost and the comparison lemma}\label{ssec:couplingcost}
+
+The proofs of Lemmas~\ref{lem:blockK} and~\ref{lem:comparison} take a
+coupling that minimises a weighted sum of expected displacements and
+derive, from its minimality, one inequality per site. The following lemma
+isolates this step; it needs neither stationarity of the optimal coupling
+under the local updates nor any property of the updates beyond the two
+stated ones, and its conclusion is exactly the recurrence that
+Lemma~\ref{lem:comparison} iterates.
+
+\begin{lemma}[minimality gives the recurrence]\label{lem:minimality}
+Let $I$ be a finite index set, let $\Pi$ be a set of couplings of two
+probability measures on a product of metric spaces indexed by $I$, let
+$d_i(\pi)=\E_\pi\dist(x_i,x'_i)$, and let $w_i>0$. Suppose $\pi\in\Pi$
+minimises $\sum_iw_id_i$ over $\Pi$, and that for each $i\notin S$ there
+is $\pi^{(i)}\in\Pi$ with $d_j(\pi^{(i)})=d_j(\pi)$ for $j\ne i$ and
+$d_i(\pi^{(i)})\le\sum_jC_{ij}d_j(\pi)$. Then $d_i(\pi)\le\sum_jC_{ij}
+d_j(\pi)$ for every $i\notin S$. If $\pi$ is minimal only up to
+$\varepsilon_i$ against $\pi^{(i)}$, then $d_i(\pi)\le\sum_jC_{ij}d_j(\pi)
++\varepsilon_i/w_i$. Consequently, if $C_{ij}\ge0$, $\sum_iw_iC_{ij}\le
+\theta w_j$ with $\theta<1$ and $d_i(\pi)\le D$ for $i\in S$, then
+$\sum_{i\notin S}w_id_i(\pi)\le\frac{\theta D}{1-\theta}\sum_{j\in S}w_j$.
+\end{lemma}
+
+\begin{proof}
+Since $\pi^{(i)}$ changes only the $i$-th displacement, minimality gives
+$w_id_i(\pi)\le w_id_i(\pi^{(i)})+\varepsilon_i$, and the bound on
+$d_i(\pi^{(i)})$ gives the recurrence. The last statement is the arithmetic
+of Lemma~\ref{lem:comparison}: with $X=\sum_{i\notin S}w_id_i$ and $Y=
+\sum_{i\in S}w_id_i\le D\sum_{i\in S}w_i$, the recurrence and the column
+condition give $X\le\sum_jd_j\sum_iw_iC_{ij}\le\theta(X+Y)$, so $X\le
+\theta Y/(1-\theta)$.
+\end{proof}
+
+\begin{lemma}[minimal couplings exist]\label{lem:minimiser}
+Let $\mu,\nu$ be probability measures on a compact metric space $\Omega$
+and $c$ a continuous cost on $\Omega\times\Omega$. The set of couplings of
+$\mu$ and $\nu$ is nonempty and compact in the weak topology, and $c$
+attains its minimum on it.
+\end{lemma}
+
+\begin{proof}
+The product $\mu\otimes\nu$ is a coupling; the marginal conditions are
+closed in the weak topology, and the probability measures on the compact
+space $\Omega\times\Omega$ form a compact set, so the couplings form a
+compact set on which the continuous functional $\pi\mapsto\int c\,d\pi$
+attains its minimum.
+\end{proof}
+
+The displacements $d_i$ are continuous costs on the compact product of
+copies of $\SU(2)$, so the minimal couplings of Lemma~\ref{lem:blockK} and
+of the block comparison exist by Lemma~\ref{lem:minimiser}, and the
+coupled update of one site is the choice of $\pi^{(i)}$ in
+Lemma~\ref{lem:minimality}. The recurrence, the column-weighted and
+row-weighted comparisons of Lemma~\ref{lem:comparison}, the decay with a
+floor of Lemma~\ref{lem:blockcomparison}, and the two lemmas above are
+also written in Lean~4 in the archive, with Mathlib as the library; the
+specification of $\SU(2)$ enters only through the
+hypotheses of Lemma~\ref{lem:minimality}, which the proofs of
+Secs.~\ref{sec:plaqblocks} and~\ref{sec:bypass} supply by hand.
+
+The block response that Lemma~\ref{lem:blockK} bounds can also be
+computed exactly in one direction, which measures the room that the
+coupling argument leaves.
+
+\begin{proposition}[the block response at zero field]\label{prop:blockresponse}
+Let $\mu_0$ be the law of three unit quaternions $(y_1,y_2,y_3)$ with
+density proportional to $\exp(\beta_W\operatorname{Re}(y_1y_2y_3))$ with
+respect to Haar measure, and $h$ a unit quaternion. Then $f=\ip{y_1}h+
+\ip{\overline{y_2y_3}}h$ is $1$-Lipschitz for the sum of the three chordal
+distances and
+\[
+\begin{split}
+\Cov_{\mu_0}\bigl(f,\ip{y_1}h\bigr)&=\frac14\Bigl(1+\frac{I_2(\beta_W)}
+{I_1(\beta_W)}\Bigr)\\
+&=\frac14\Bigl(1+\frac{\beta_W}4-\frac{\beta_W^3}{96}+O(\beta_W^5)\Bigr),
+\end{split}
+\]
+which equals $0.271826$ at $\beta_W=0.351$. Hence the Kantorovich
+modulus of the block in the field at $y_1$ is at least this number, and
+$10\beta_W$ times it exceeds one for $\beta_W>0.3666$.
+\end{proposition}
+
+\begin{proof}
+Given $y_1$, the product $w=y_2y_3$ is Haar distributed a priori, and the
+weight is $\exp(\beta_W\ip{y_1}{\bar w})$ since $\operatorname{Re}(pq)=
+\ip p{\bar q}$ for unit quaternions. So $\bar w$ given $y_1$ follows the
+von Mises--Fisher law on $S^3$ with mean direction $y_1$, whose mean
+resultant is $\E[\bar w\mid y_1]=A(\beta_W)y_1$ with $A=I_2/I_1$, the ratio
+of the Bessel functions of orders $\frac p2$ and $\frac p2-1$ for $p=4$,
+and the marginal of $y_1$ is Haar. Multiplication and conjugation preserve
+the chordal distance, so $f$ changes by at most the sum of the three
+displacements. Since $y_1$ is uniform, $\Var\ip{y_1}h=\frac14$ and
+$\Cov(\ip{\bar w}h,\ip{y_1}h)=\E[A\ip{y_1}h^2]=A/4$. The series of $A$
+follows from $I_\nu(x)=\sum_m(x/2)^{2m+\nu}/(m!\,\Gamma(m+\nu+1))$, and
+the derivative of $\mu_b(f)$ in the field $b_1$ at $b=0$ in the direction
+$h$ is the covariance, which bounds the modulus below; the crossing is
+the root of $\frac52\beta_W(1+A(\beta_W))=1$.
+\end{proof}
+
+\subsection{From one scale to the next}\label{ssec:scalestep}
+
+A multiscale version of Sec.~\ref{ssec:scales} would eliminate the fine
+coordinates of a window scale by scale. The following statements say what
+one elimination step preserves and what it does not, for the quadratic
+forms that Theorem~\ref{thm:chartdecay} controls at one scale. They are
+finite matrix lemmas; no all-scale construction is made here.
+
+\begin{lemma}[weighted Schur complements]\label{lem:schur}
+Let $H=\bigl(\begin{smallmatrix}A&B\\B^*&D\end{smallmatrix}\bigr)$ be
+positive definite in retained and eliminated coordinates, with
+$S=A-BD^{-1}B^*$ its constrained minimum form on the retained ones. Give
+both index sets a metric, and for a $1$-Lipschitz function $\phi$ and
+$\alpha\ge0$ write $\lVert M\rVert_\alpha$ for the supremum over $\phi$ of
+the operator norms of $e^{\alpha\phi}Me^{-\alpha\phi}$. If $\lVert A
+\rVert_\alpha\le a$, $\lVert B\rVert_\alpha\le b$ and $\lVert D^{-1}
+\rVert_\alpha\le g$, then $\lVert S\rVert_\alpha\le a+b^2g$, and
+$|S_{ij}|\le(a+b^2g)e^{-\alpha\dist(i,j)}$. If $H_0$ has blocks $A_0,B_0,
+D_0$ with the same bounds and $\lVert A-A_0\rVert_\alpha,\lVert B-B_0
+\rVert_\alpha,\lVert D-D_0\rVert_\alpha\le\varepsilon$, then
+\[
+\lVert S-S_0\rVert_\alpha\le\varepsilon(1+bg)^2 .
+\]
+\end{lemma}
+
+\begin{proof}
+Conjugation by $e^{\alpha\phi}$ respects products and inverses, so the
+weighted norm is submultiplicative on compatible blocks, and $\lVert B^*
+\rVert_\alpha=\lVert B\rVert_\alpha$ because $-\phi$ is admissible; the
+bound on $S$ follows from its formula. For the entry bound take $\phi(x)=
+\dist(x,j)$. For the difference write $BD^{-1}B^*-B_0D_0^{-1}B_0^*=(B-B_0)
+D^{-1}B^*+B_0D^{-1}(B-B_0)^*+B_0(D^{-1}-D_0^{-1})B_0^*$ with $D^{-1}-
+D_0^{-1}=-D^{-1}(D-D_0)D_0^{-1}$; the four terms are bounded by
+$\varepsilon$, $\varepsilon bg$, $\varepsilon bg$ and $\varepsilon b^2g^2$.
+\end{proof}
+
+\begin{proposition}[what form comparison preserves]\label{prop:formstability}
+Let $H_0,H$ be positive definite with $(1-\varepsilon)H_0\le H\le(1+
+\varepsilon)H_0$, $0\le\varepsilon<1$, and for a surjective linear map $Q$
+let $S(v)=\inf_{Qx=v}x^{\mathsf T}Hx$ and $S_0$ likewise. Then $(1-
+\varepsilon)S_0\le S\le(1+\varepsilon)S_0$. Form comparison does not
+preserve locality: on a path of $n$ sites, $H_0=I$ and $H=I+\varepsilon
+uu^{\mathsf T}$ with $u=(1,\dots,1)/\sqrt n$ satisfy the comparison, while
+$(H^{-1})_{1n}=-\varepsilon/((1+\varepsilon)n)$ decays in no exponential
+way. If instead, for $W=e^{\alpha\phi}$, $\lVert WH_0^{-1}W^{-1}\rVert\le
+G_0$ and $\lVert W(H-H_0)W^{-1}\rVert\le\varepsilon/G_0$, then $\lVert
+WH^{-1}W^{-1}\rVert\le G_0/(1-\varepsilon)$.
+\end{proposition}
+
+\begin{proof}
+The comparison of forms passes to infima over the same affine subspaces.
+The rank-one inverse is $H^{-1}=I-\frac\varepsilon{1+\varepsilon}uu^{\mathsf
+T}$, whose off-diagonal entries all equal $-\varepsilon/((1+\varepsilon)
+n)$. The last statement is the Neumann series $H^{-1}=\sum_m(-H_0^{-1}(H-
+H_0))^mH_0^{-1}$ in the weighted norm.
+\end{proof}
+
+Repeating the comparison over scales multiplies the factors $(1\pm
+\varepsilon_k)$, so the one-step errors must be summable, and
+Lemma~\ref{lem:schur} identifies the one-step amplification $(1+b_kg_k)^2$
+of the locality norm. Both are conditions that an effective action built
+from Theorem~\ref{thm:chartdecay} at every scale would have to meet; the
+theorem at one scale provides the bounds $a,b,g$ for the first step only.
+
+\subsection{Spectral weight at positive time}\label{ssec:spectralweight}
+
+Theorem~\ref{thm:flowlimit} makes the nontriviality of the continuum limit
+equivalent to a ratio of lattice two-point functions staying away from
+zero. The following two lemmas show that a ratio at a fixed physical time
+controls the spectral weight of the renormalised observable, so that the
+ratio criterion is a tightness condition on its spectral measure and not
+on its unsmeared moments, and the example after them shows that a mass
+gap by itself does not give nontriviality.
+
+\begin{lemma}[tightness at positive time]\label{lem:positivetime}
+Let $\sigma_a$ be positive measures on $[0,\infty)$ with Laplace
+transforms $C_a(t)=\int e^{-tE}d\sigma_a(E)$, let $s>0$ be fixed, and
+suppose $0<C_a(s/2)<\infty$ and $C_a(s)/C_a(s/2)\ge c>0$ uniformly in $a$.
+Let $d\nu_a=e^{-sE}d\sigma_a/C_a(s)$. Then
+\[
+\begin{gathered}
+\int E\,d\nu_a\le M_s=\frac2{esc},\qquad\nu_a([R,\infty))\le\frac{M_s}R,\\
+\frac{C_a(s+t)}{C_a(s)}\ge e^{-M_st}\quad(t\ge0).
+\end{gathered}
+\]
+\end{lemma}
+
+\begin{proof}
+Since $ue^{-u}\le1/e$, $Ee^{-sE}\le\frac2{es}e^{-sE/2}$; integrating and
+dividing by $C_a(s)$ gives the moment bound. Markov's inequality gives the
+tail, and Jensen's inequality for the probability $\nu_a$ gives $C_a(s+t)/
+C_a(s)=\int e^{-tE}d\nu_a\ge\exp(-t\int E\,d\nu_a)$.
+\end{proof}
+
+When $\sigma_a$ is the spectral measure of a centred observable $O_a$ for a
+nonnegative Hamiltonian, $\nu_a$ is the spectral law of the unit vector
+$e^{-sH_a/2}O_a\Omega_a/C_a(s)^{1/2}$; the lemma keeps its spectral mass
+from escaping to infinite physical energy. The ratio at the two
+separations $s/2$ and $s$ is the quantity that
+Proposition~\ref{prop:sliceratio} bounds by slice correlations.
+
+\begin{lemma}[nonvanishing limits]\label{lem:nonvanishing}
+If $\sigma_a([0,\infty))\ge v>0$ and $\int E\,d\sigma_a\le M$ uniformly in
+$a$, then $C_a(t)\ge ve^{-Mt/v}$ for all $t\ge0$, and every limit of the
+$C_a(t)$ is positive.
+\end{lemma}
+
+\begin{proof}
+With $v_a=\sigma_a([0,\infty))$, Jensen's inequality for the probability
+$\sigma_a/v_a$ gives
+\[
+C_a(t)\ge v_a\exp\Bigl(-\frac t{v_a}\int E\,d\sigma_a\Bigr)\ge v_ae^{-Mt/v_a},
+\]
+and $x\mapsto xe^{-Mt/x}$ is increasing.
+\end{proof}
+
+\begin{proposition}[a gap without a limit]\label{prop:gapnolimit}
+Let $X$ be the symmetric two-state Markov process with jump rate $m/2$ in
+each direction, sampled at times $na$, and let $O_a=a\,X$. The transfer
+matrix has eigenvalues $1$ and $e^{-ma}$, so the gap in physical units is
+$m$ for every $a$, while $C_a(t)=a^2e^{-mt}\to0$ and every moment of $O_a$
+tends to zero. The sampled process is reflection positive, and the
+spectral measure $\sigma_a$ is the atom $a^2\delta_m$, whose Laplace
+transform at $s/2$ and $s$ has the ratio $e^{-ms/2}$, uniform in $a$;
+Lemma~\ref{lem:positivetime} applies, and the limit vanishes because
+$\sigma_a([0,\infty))=a^2\to0$, which Lemma~\ref{lem:nonvanishing}
+excludes by its hypothesis on the mass.
+\end{proposition}
+
+\begin{proof}
+The correlation $\E[X_0X_t]=e^{-mt}$ for the two-state process, and
+$O_a$ scales it by $a^2$; the transfer matrix of the sampled chain is the
+matrix of its transition probabilities, with the stated eigenvalues.
+Reflection positivity of a stationary reversible Markov chain is
+standard. The rest is read off.
+\end{proof}
+
+The example separates the two conditions that Theorem~\ref{thm:flowlimit}
+keeps apart: a uniform gap and a nonvanishing ratio. For a sequence of
+measures whose mass does not vanish, Lemma~\ref{lem:nonvanishing} converts
+a bound on the first moment at positive time, which Lemma~\ref{lem:positivetime}
+derives from one ratio, into a positive lower bound for the limit; the
+mass itself is the normalisation of Theorem~\ref{thm:flowlimit}.
+
+\subsection{What remains}\label{ssec:remains}
+
+The results of this section leave the following statements, which together
+with Theorem~\ref{thm:chartdecay} and Sec.~\ref{ssec:coarse} are what the
+cube condition (D) needs for $\SU(2)$ past the Dobrushin ceiling.
+\begin{enumerate}[label=\textup{(\roman*)},leftmargin=*]
+\item \emph{The bad side.} For a pair whose non-path links are bad, a bound
+on the Kantorovich response of the conditional law of its path links that
+includes all branches of Proposition~\ref{prop:branches} and the
+disintegration density, uniform in the exterior.
+\item \emph{The island comparison.} The hypothesis of
+Lemma~\ref{lem:kernel}: that the weight of two bad islands factors through
+one kernel on the good layer between them, with a cross-ratio controlled by
+Lemma~\ref{lem:connected} on a domain that the labels of the islands do not
+move. Proposition~\ref{prop:hiddenbit} shows that no rarity bound replaces
+it.
+\item \emph{The island threshold.} A value of $\beta_W$ at which the
+rarity of Lemma~\ref{lem:coverage}, at the exponent $1/H$ of
+Proposition~\ref{prop:coverageopt} and the collar of
+Proposition~\ref{prop:graphlaw}, beats the entropy of the islands; the
+constants of Sec.~\ref{ssec:coarse} put every such value far beyond the
+range in which the chessboard estimate reaches the scale of the cube, so
+that (iv) is needed first.
+\item \emph{The scales.} An effective action at every scale whose
+one-step errors are summable in the sense of
+Proposition~\ref{prop:formstability} and whose locality norms obey
+Lemma~\ref{lem:schur}, down to the last $O(1)$ scales where the running
+coupling is of order one; this is the large-field expansion of
+Ba{\l}aban, and it is not carried out here.
+\end{enumerate}
+Items (i)--(iii) are the single-scale part of (D); item (iv) is the
+multiscale part. On the continuum side, Lemmas~\ref{lem:positivetime}
+and~\ref{lem:nonvanishing} reduce the nontriviality of the limit to a
+lower bound on one ratio of lattice two-point functions at a fixed
+physical time, uniform along the tuning, which is the open input of
+Theorem~\ref{thm:flowlimit}.
+
+\begin{figure*}[t]
+\centering
+\begin{minipage}[c]{0.5\textwidth}
+\centering
+\resizebox{\textwidth}{!}{%
+\begin{tikzpicture}[x=0.62cm,y=0.62cm,>={Stealth[length=1.6mm]}]
+\foreach \i in {0,...,15} \foreach \j in {0,...,9} {
+  \pgfmathsetmacro{\bad}{(\i==3 && \j==4) || (\i==4 && \j==4) || (\i==4 && \j==5) || (\i==11 && \j==2) || (\i==11 && \j==3) || (\i==12 && \j==7) ? 1 : 0}
+  \ifnum\bad=1 \fill[red!55] (\i,\j) rectangle ++(1,1); \else \fill[green!18] (\i,\j) rectangle ++(1,1); \fi
+  \draw[gray!50,line width=0.2pt] (\i,\j) rectangle ++(1,1);}
+\draw[blue!60!black,thick] (6,1) rectangle (10,8);
+\draw[blue!60!black,dashed] (5,0) rectangle (11,9);
+\node[blue!60!black,above] at (8,8) {\footnotesize $W$};
+\node[blue!60!black,below] at (8,0) {\footnotesize collar};
+\node[red!70!black] at (3.5,2.6) {\footnotesize bad island $a$};
+\node[red!70!black] at (12.4,4.9) {\footnotesize bad island $b$};
+\draw[<->,thick,orange!80!black] (5.2,4.5) -- (10.8,4.5) node[midway,above] {\footnotesize kernel $K(x,y)$};
+\end{tikzpicture}}
+\end{minipage}\hfill
+\begin{minipage}[c]{0.47\textwidth}
+\centering\footnotesize
+\begin{tabular}{@{}ll@{}}
+\toprule
+label & witness and result\\
+\midrule
+non-path link off $R(c)$ & fine defect, Theorem~\ref{thm:cutoff}\\
+coarse plaquette $>\eta$ & fine defect, Lemma~\ref{lem:coarsewitness}\\
+path link & none: determined, Lemma~\ref{lem:branchbound}\\
+all links & nonconvex, Proposition~\ref{prop:nonconvex}\\
+\midrule
+good window & graph law, Proposition~\ref{prop:graphlaw}\\
+$n$ bad labels & $A^{n/H}$, Lemma~\ref{lem:coverage}\\
+two islands & $\frac14\tanh(\varDelta/4)$, Corollary~\ref{cor:twolabels}\\
+rarity alone & floor $q^2/16$, Proposition~\ref{prop:hiddenbit}\\
+\bottomrule
+\end{tabular}
+\end{minipage}
+\caption{Left: a window $W$ of coarse blocks (solid) with its collar
+(dashed), good blocks in green and bad islands in red. On the good blocks
+the conditional law is the graph law of Proposition~\ref{prop:graphlaw};
+the weight of two islands is compared through a kernel on the good layer
+between them, whose cross-ratio bounds their covariance
+(Lemma~\ref{lem:kernel}, Corollary~\ref{cor:twolabels}). Right: the labels
+considered in Sec.~\ref{sec:islands}, their fine witnesses, and the
+estimate or the obstruction that each produces.}
+\label{fig:islands}
+\end{figure*}
+
 \section*{Acknowledgements}
 
 This paper rests on the work of many earlier scientists. Lattice gauge
@@ -10973,7 +11845,9 @@ python-flint (FLINT and Arb) and a C kernel for products of Taylor
 polynomials, their outputs and the list of certified boxes are in the
 repository \url{https://github.com/creelie/4Y-M}, release v4.31.0
 (\href{https://doi.org/10.5281/zenodo.23895262}{doi:10.5281/zenodo.23895262}), together
-with a Lean~4 certificate of the line field, independent exact or
+with a Lean~4 certificate of the line field, Lean~4 files for the
+comparison arithmetic and the coupling lemmas of
+Sec.~\ref{ssec:couplingcost}, independent exact or
 numerical checks of the other finite statements, our checks of the
 certificate of~\cite{Rom26}, and the certificate of
 Proposition~\ref{prop:blockgapsharp} with its exact check. The code was
