@@ -51,17 +51,17 @@ def fig_logic():
     ax.view_init(elev=14, azim=-72)
     lines = [
         (RED, 'open inputs'),
-        (RED, 'O1  cube estimate (D) along the tuning'),
+        (RED, 'O1  (D) or local BP along the tuning'),
         (RED, 'O2  slice ratio in four dimensions'),
         (RED, 'O3  tree bounds (T1)-(T3)'),
         (BLUE, 'proved implications'),
-        (BLUE, 'I1  (D) gives a gap for every limit'),
+        (BLUE, 'I1  (D) or local BP: gap for every limit'),
         (BLUE, 'I2  ratio iff nontrivial flowed limit'),
         (BLUE, 'I3  tree bounds give the ratio'),
         (GREEN, 'proved at fixed spacing'),
         (GREEN, 'P1  gap for every simple group'),
         (GREEN, 'P2  SU(2), SU(3) with blocks'),
-        (GREEN, 'P3  (D) at strong coupling'),
+        (GREEN, 'P3  (D) and BP at strong coupling'),
         ('0.25', 'arrows: an open input and the'),
         ('0.25', 'implication that consumes it'),
     ]

@@ -333,4 +333,77 @@ theorem endlinear_constants :
     by norm_num, by norm_num, by norm_num, by norm_num, by norm_num, by nlinarith,
     by norm_num, by nlinarith⟩
 
+/-! ## The averaged condition at weak coupling -/
+
+/-- Corollaries `cor:bpcharged` and `cor:bpcoupling`: on the torus of side
+`L = 2n + 4`, `L ≤ 4n` and `L⁴ ≤ 256 n⁴` for `n ≥ 2`. -/
+theorem torus_side_bounds (n : ℕ) (hn : 2 ≤ n) :
+    2 * n + 4 ≤ 4 * n ∧ (2 * n + 4) ^ 4 ≤ 256 * n ^ 4 := by
+  have h : 2 * n + 4 ≤ 4 * n := by omega
+  refine ⟨h, ?_⟩
+  calc (2 * n + 4) ^ 4 ≤ (4 * n) ^ 4 := Nat.pow_le_pow_left h 4
+    _ = 256 * n ^ 4 := by ring
+
+/-- Corollary `cor:bpcharged`: with `ϖ ≤ 4` in place of `ϖ ≤ 2` and `η₂ = 1`,
+`4096 ≤ 19200`; Corollary `cor:bpcoupling`: `38400 / 256 = 150`. -/
+theorem bpweak_constants :
+    (4 : ℝ) * 1024 = 4096 ∧ (4096 : ℝ) ≤ 19200 ∧ (38400 : ℝ) / 256 = 150 := by
+  refine ⟨by norm_num, by norm_num, by norm_num⟩
+
+/-- Proposition `prop:bpnoloc`: `5 ω |P_S| ≤ 60 N² |β| |S|` from
+`ω ≤ 2 N² |β|` and `|P_S| ≤ 6 |S|`. -/
+theorem bpnoloc_constant (N β ω P S : ℝ) (hβ : 0 ≤ β) (_hω0 : 0 ≤ ω)
+    (hω : ω ≤ 2 * N ^ 2 * β) (hP0 : 0 ≤ P) (hP : P ≤ 6 * S) :
+    5 * ω * P ≤ 60 * N ^ 2 * β * S := by
+  have hN : 0 ≤ N ^ 2 * β := mul_nonneg (sq_nonneg N) hβ
+  have h1 : 5 * ω * P ≤ 5 * (2 * N ^ 2 * β) * P :=
+    mul_le_mul_of_nonneg_right (by linarith) hP0
+  have h2 : 5 * (2 * N ^ 2 * β) * P ≤ 5 * (2 * N ^ 2 * β) * (6 * S) :=
+    mul_le_mul_of_nonneg_left hP (by positivity)
+  nlinarith
+
+/-- Corollary `cor:bpranges`(i): for `n ≥ 1` the threshold
+`4n² / (18n² + 18n - 3)` is below `2/9`, and at `n = 2` it is `16/105`. -/
+theorem bpranges_threshold (n : ℝ) (hn : 1 ≤ n) :
+    4 * n ^ 2 / (18 * n ^ 2 + 18 * n - 3) < 2 / 9 ∧
+    (4 : ℝ) * 2 ^ 2 / (18 * 2 ^ 2 + 18 * 2 - 3) = 16 / 105 := by
+  refine ⟨?_, by norm_num⟩
+  have hpos : 0 < 18 * n ^ 2 + 18 * n - 3 := by nlinarith
+  rw [div_lt_iff₀ hpos]; nlinarith
+
+/-- Lemma `lem:rayleighnogap`: the Rayleigh quotient `cos²θ + η sin²θ` of the
+two-dimensional example is at least `cos²θ`. -/
+theorem rayleigh_example (θ η : ℝ) (hη : 0 ≤ η) :
+    Real.cos θ ^ 2 ≤ Real.cos θ ^ 2 + η * Real.sin θ ^ 2 := by
+  have := mul_nonneg hη (sq_nonneg (Real.sin θ)); linarith
+
+/-- The values of `L_lin` quoted after Theorem `thm:endlinear`. -/
+theorem endlinear_values :
+    (7192 : ℝ) + 443620 * 1 + 1 * (79.69 + 27216 * 1) = 478107.69 ∧
+    (7192 : ℝ) + 443620 * 0.08 = 42681.6 := by
+  refine ⟨by norm_num, by norm_num⟩
+
+/-- `180.4 · e^{72} > 3 · 10³³` and `128.07 · 0.08 + 180.4 · e^{5.76} > 5 · 10⁴`. -/
+theorem endslinear_exp_bounds :
+    (3e33 : ℝ) < 180.4 * Real.exp 72 ∧
+    (5e4 : ℝ) < 128.07 * 0.08 + 180.4 * Real.exp 5.76 := by
+  have he := Real.exp_one_gt_d9
+  have hpow : ∀ k : ℕ, (2.7182818283 : ℝ) ^ k ≤ Real.exp 1 ^ k := fun k =>
+    pow_le_pow_left₀ (by norm_num) he.le k
+  have h72 : Real.exp 72 = Real.exp 1 ^ 72 := by
+    rw [← Real.exp_nat_mul]; norm_num
+  have h5 : Real.exp 5.76 = Real.exp 1 ^ 5 * Real.exp 0.76 := by
+    rw [← Real.exp_nat_mul, ← Real.exp_add]; norm_num
+  have hq : 1 + 0.76 + (0.76 : ℝ) ^ 2 / 2 ≤ Real.exp 0.76 :=
+    Real.quadratic_le_exp_of_nonneg (by norm_num)
+  refine ⟨?_, ?_⟩
+  · rw [h72]; have := hpow 72; norm_num at this ⊢; nlinarith
+  · rw [h5]
+    have h1 := hpow 5
+    have hpos : (0 : ℝ) ≤ (2.7182818283 : ℝ) ^ 5 := by positivity
+    have : (2.7182818283 : ℝ) ^ 5 * (1 + 0.76 + 0.76 ^ 2 / 2) ≤
+        Real.exp 1 ^ 5 * Real.exp 0.76 :=
+      mul_le_mul h1 hq (by norm_num) (by positivity)
+    norm_num at this ⊢; nlinarith
+
 end YangMills.Averaged
