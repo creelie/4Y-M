@@ -20220,6 +20220,163 @@ Section~\ref{ssec:remains} is accordingly posed in the mean over the coarse
 field or for the coarse fields of $\mathcal G_\Lambda$.
 \end{remark}
 
+The tree form named in Remarks~\ref{rem:labelcovopen}
+and~\ref{rem:fixedcopen} asks for a bound $C_0C^ke^{-2\alpha_G\ell}$ on the
+mixed differences of order $k\ge3$, with $\ell$ the length of the
+shortest tree joining the $k$ sets. The next two propositions show that
+it follows neither from the second differences in every environment,
+which are all that Lemma~\ref{lem:mobius} uses, nor from the layer
+bound~\eqref{eq:layerbound}, which is all that the proof of
+Theorem~\ref{thm:manyislands} uses of the layer law. The length of a tree
+whose vertices are blocks is the sum of the distances of its edges.
+
+\begin{proposition}[pair bounds give the diameter form]\label{prop:pairsonly}
+Let $s\ge1$, $\alpha_G$ and $b_*\nu_s\ge1$ be as above, $0<\epsilon'<1$,
+$3\le k\le16$, $D\ge2s+9$ an integer, and on a torus of side larger than
+$2D$ let $S$ be a set of $k$ vertices of a cube $a+\{0,D\}^4$, so that
+any two blocks of $S$ are at distance $D$. Put $J=e^{-2\alpha_G(D-2s-9)}$.
+There is a law $P$ with $(\mathrm X)$ and $(\mathrm R_{\epsilon'})$ such
+that:
+\begin{enumerate}[label=\textup{(\roman*)},leftmargin=*]
+\item every second difference of $\log P$ between the labels of two sets
+of blocks at distance $t$, all other labels fixed, vanishes unless both
+sets meet $S$, and then $t\le D$ and its modulus is at most $J\le
+e^{-2\alpha_G(t-2s-9)}$;
+\item the mixed difference of order $k$ of $\log P$ over the labels of the
+blocks of $S$ equals $J$;
+\item every tree whose vertices include $S$ has length at least $kD/2$.
+\end{enumerate}
+So the bound of Lemma~\ref{lem:mobius} by the second differences of a
+pair, in every environment, is attained up to its factor $2^{k-2}$, while a bound
+$C_0C^ke^{-2\alpha_G\ell}$ fails for this law as soon as $\alpha_G(k-2)D>
+\log(C_0C^k)-2\alpha_G(2s+9)$.
+\end{proposition}
+
+\begin{proof}
+Put $p=\epsilon'/e$ and let $P$ give the labelling with bad set $A\subset
+S$ the probability $N^{-1}p^{\lvert A\rvert}(1-p)^{k-\lvert A\rvert}e^{J
+\mathbf 1[A=S]}$, with $N=1+(e^J-1)p^k$, and every other labelling the
+probability zero; this is the law of the proof of
+Theorem~\ref{thm:fixedobstruction}(ii) on the set $S$. For $T\subset S$
+nonempty, $P(T\subset B)=(p^{\lvert T\rvert}+(e^J-1)p^k)/N\le e^Jp^{\lvert
+T\rvert}\le e^{1-\lvert T\rvert}\epsilon'^{\lvert T\rvert}\le\epsilon'^{
+\lvert T\rvert}$, as $J\le1$, and for $T\not\subset S$ it vanishes; this
+is $(\mathrm R_{\epsilon'})$. With $\sigma_y=\mathbf 1[y\in B]$, on the
+labellings of positive probability $\log P=\mathrm{const}+\lvert B\rvert
+\log\frac p{1-p}+J\prod_{y\in S}\sigma_y$. In $(\mathrm X)$ the
+computation of the proof of Theorem~\ref{thm:fixedobstruction}(ii) gives
+the ratio $e^{-J(x-x')(z-z')}$, which is one unless $S$ meets both $X$ and
+$X'$; then some $y\in S\cap X$ and $y'\in S\cap X'$ are at distance $D$, so
+both $\varDelta(X,X')$ and $\varDelta(X',X)$ are at least $b_*\nu_se^{
+-2\alpha_G(D-2s-9)}\ge J$. (i) The linear part has no second differences,
+and the second difference of $J\prod_y\sigma_y$ between two sets is $J$
+times the product of the differences of the two partial products and of
+the fixed labels of the rest of $S$, so its modulus is at most $J$, and it
+vanishes unless both sets meet $S$; then $t\le D$. (ii) The mixed
+difference of order $k\ge2$ of the linear part vanishes, and that of
+$J\prod_y\sigma_y$ is $J$. (iii) A closed walk around a tree of length
+$\lambda$ that starts at a block of $S$ and traverses each edge twice has
+length $2\lambda$ and visits every block of $S$. Cut it at the first visits of the $k$ blocks of $S$: it
+falls into $k$ walks, each between two distinct blocks of $S$, so each of
+length at least $D$, and $2\lambda\ge kD$. For the last assertion,
+$J>C_0C^ke^{-\alpha_GkD}$ is the inequality stated, and
+$\ell\ge kD/2$.
+\end{proof}
+
+\begin{proposition}[the layer bound and third cumulants]
+\label{prop:layerthird}
+Let $\alpha>0$, $D>0$, and give three sites $1,2,3$ the distances
+$d(i,j)=D$ for $i\ne j$. For $x\in\R^3$ let $\mu_x$ be the probability
+measure on $\R^3$ with density proportional to $e^{-U(z;x)}$,
+\[
+U(z;x)=\tfrac12\lvert z\rvert^2+J\sin z_1\sin z_2\sin z_3-x\cdot z,\qquad
+J=\tfrac16e^{-\alpha D},
+\]
+and let $K(x)=\int e^{-U(z;x)}\,dz$. Then:
+\begin{enumerate}[label=\textup{(\roman*)},leftmargin=*]
+\item for every $x$, every $\varphi$ with $\lvert\varphi(i)-\varphi(j)
+\rvert\le d(i,j)$ and all smooth $F,H$ with bounded derivatives,
+\[
+\lvert\Cov_{\mu_x}(F,H)\rvert\le2\,\bigl\lVert e^{-\alpha\varphi}\nabla
+F\bigr\rVert_{L^2(\mu_x)}\bigl\lVert e^{\alpha\varphi}\nabla H
+\bigr\rVert_{L^2(\mu_x)},
+\]
+which is~\eqref{eq:layerbound} with $\mathcal A=2$ and the rate $\alpha$;
+\item $\lvert\partial_{x_i}\partial_{x_j}\log K(x)\rvert=\lvert\Cov_{\mu_x}
+(z_i,z_j)\rvert\le2e^{-\alpha D}$ for $i\ne j$ and every $x$;
+\item $\partial_{x_1}\partial_{x_2}\partial_{x_3}\log K(0)$ is the third
+cumulant of $z_1,z_2,z_3$ under $\mu_0$, of modulus at least
+$\frac1{30}e^{-\alpha D}$, while every tree joining the three sites has
+length at least $\frac32D$.
+\end{enumerate}
+So~\eqref{eq:layerbound}, at every $x$ and with the second derivatives of
+$\log K$ decaying at the rate $\alpha$, gives no bound $Ce^{-\alpha\ell}$
+on the third derivatives, with $\ell$ the length of the shortest joining
+tree: here $C\ge\frac1{30}e^{\alpha D/2}$ for every $D$.
+\end{proposition}
+
+\begin{proof}
+(i) Write $\operatorname{Hess}_zU=I+JM$, where the entries of $M$ are
+$-\sin z_1\sin z_2\sin z_3$ on the diagonal and $\cos z_i\cos z_j\sin z_k$
+off it, all of modulus at most one. With $w=e^{\alpha\varphi}$ the entries
+of $wMw^{-1}$ have modulus at most $e^{\alpha D}$, so $\lVert J\,wMw^{-1}
+\rVert\le3Je^{\alpha D}=\frac12$, and the same holds for $M$. The
+potential is smooth with bounded derivatives of order at least two and
+$\operatorname{Hess}_zU\ge\frac12$, and the weighted Helffer--Sj\"ostrand
+representation in the proof of Theorem~\ref{thm:chartdecay}(ii) applies:
+$\operatorname{Re}\langle u,\mathcal A_wu\rangle\ge(1-\frac12)\lVert u
+\rVert^2$, so $\lVert\mathcal A_w^{-1}\rVert\le2$ and (i) follows.
+(ii) $\log K(x)-\log K(0)=\log\E_{\mu_0}e^{x\cdot z}$, so the derivatives of
+$\log K$ are the joint cumulants of $z$ under $\mu_x$; the second ones are
+covariances, and (i) with $F=z_i$, $H=z_j$ and $\varphi=-d(\cdot,i)$
+gives $2e^{-\alpha D}$.
+(iii) $U(\cdot;0)$ is invariant under $(z_1,z_2)\mapsto(-z_1,-z_2)$ and
+$(z_1,z_3)\mapsto(-z_1,-z_3)$, so $\E_{\mu_0}z_i=0$ and the third cumulant
+is $\E_{\mu_0}z_1z_2z_3$. Let $\gamma_1$ be the standard Gaussian measure
+on $\R$, $a_n=\int t\sin^nt\,d\gamma_1$ and $b_n=\int\sin^nt\,d\gamma_1$.
+Expanding $e^{-J\sin z_1\sin z_2\sin z_3}$, which is legitimate since the
+product is bounded,
+\[
+\E_{\mu_0}z_1z_2z_3=\frac{\sum_n(-J)^na_n^3/n!}{\sum_n(-J)^nb_n^3/n!} .
+\]
+By parity $a_n=0$ for even $n$ and $b_n=0$ for odd $n$; $b_0=1$ and
+$b_n\ge0$; $\lvert a_n\rvert\le\int t^2d\gamma_1=1$ for $n\ge1$, since
+$\lvert\sin t\rvert\le\min\{1,\lvert t\rvert\}$; and $a_1=\int\cos t\,
+d\gamma_1=e^{-1/2}$ by Gaussian integration by parts. So the numerator has
+modulus at least $Je^{-3/2}-(\sinh J-J)$ and the denominator lies in
+$[1,\cosh J]$. As $(2i+1)!\ge6\,(2i-2)!$, $\sinh J-J\le\frac{J^3}6\cosh J$,
+and with $J\le\frac16$, $\cosh J<1.014$ and $e^{-3/2}>0.2231$, as $e^{3/2}
+<2.71829\cdot1.64873<4.482$,
+\[
+\lvert\E_{\mu_0}z_1z_2z_3\rvert\ge\frac{J(0.2231-0.0047)}{1.014}>
+\frac J5=\frac{e^{-\alpha D}}{30}.
+\]
+The bound on trees is Proposition~\ref{prop:pairsonly}(iii) with $k=3$.
+\end{proof}
+
+\begin{remark}\label{rem:treeform}
+The tree form of the differences of order three and more is therefore
+not proved, and Propositions~\ref{prop:pairsonly} and~\ref{prop:layerthird}
+locate what it needs. In the law of Proposition~\ref{prop:layerthird} the
+third cumulant is carried by the term $J\sin z_1\sin z_2\sin z_3$, whose
+mixed third derivative couples three sites at mutual distance $D$ with
+size $e^{-\alpha D}$. The differences of order three of $\log\tilde K$ are
+third cumulants of the layer law (Remark~\ref{rem:labelcovopen}), and a
+proof of their tree form needs two inputs that~\eqref{eq:layerbound} does
+not contain: a bound in tree form on the mixed derivatives of order three
+of $\mathcal U$ in the coordinates $z$ and in the island coordinates, and
+a weighted representation of the third cumulants of $\mu_{x,y}$ through
+the Helffer--Sj\"ostrand operator and these derivatives, valid on the box
+$D_z$ with its walls. The proof of~\eqref{eq:layerbound} reaches the walls
+through the approximations $H_n$ of the proof of
+Theorem~\ref{thm:chartdecay}(ii), whose derivatives of order three grow
+with $n$, so that argument gives no bound on third cumulants uniform in
+$n$. With both inputs the
+differences of $\log\tilde K$ would still have to be carried to those of
+$\log Z^c$ through the island weights, and uniformity in the coarse field
+stays excluded by Theorem~\ref{thm:fixedobstruction}(i).
+\end{remark}
+
 For a fixed coarse field $c$ the blocks that are bad for every labelling
 are the corners of the coarse plaquettes with $\delta(c_P,I)>\eta$. On them
 no label restricts the active links, and $\mu^c$ there is the constrained
@@ -25583,17 +25740,327 @@ number of bad blocks among the $N_\ell$ blocks within distance $\ell$ of a
 block is at most $N_\ell A$.
 \end{proof}
 
-A bound on the size of the clusters uniform in the torus needs the
-structure that Lemma~\ref{lem:clusters}(iii) discards: a link longer than
-$\ell_m$ joins two clusters of more than $m$ blocks, so long links occur
-only between large clusters. Using it is a multiscale estimate for a
-growth process of reach $(6/\kappa)\log m$, of the kind of Bassalygo and
-Dobrushin~\cite{BD86} for Gibbs fields with a random potential, and it is
-not carried out. The paper gives no lower bound on the probability of a
-bad block, so whether such large clusters occur on a large torus is not
-decided. The covariance of the conditional probabilities of the labels,
-the term of Proposition~\ref{prop:hiddenbit}, is not touched by the
-clusters.
+The count of Theorem~\ref{thm:clustersizes} stops at $M_1$, and the factor
+$L^4$ in its term $\epsilon_{M_1}$ cannot be removed: on every large
+enough torus the clusters of the bad blocks percolate. Two facts give
+this. Every block is bad with a conditional probability bounded below,
+by the finite energy of the Wilson measure, and the separation of the
+clusters grows with their size, which Proposition~\ref{prop:clusterreach}(i)
+and Proposition~\ref{prop:separationneed} below show to be necessary.
+What replaces the clusters of the torus are the clusters of the bad
+blocks of a window. Lemma~\ref{lem:clusters}(i)--(iii) and their proofs
+use of $g$ only that it is nondecreasing and nonnegative, and so does the
+next lemma; for such $g$ the clusters are formed by~\eqref{eq:clusterrule}
+and $\ell_m=R+2g(m)$.
+
+\begin{lemma}[subsets and absorption]\label{lem:clustermono}
+Let $g\ge0$ be nondecreasing.
+\begin{enumerate}[label=\textup{(\roman*)},leftmargin=*]
+\item If $B'\subset B$ are finite sets of blocks, every cluster of $B'$
+lies in a cluster of $B$.
+\item If $C$ is a cluster of $B$ and $z\in B$ has $\dist(z,C)\le
+R+g(\lvert C\rvert)$, then $z\in C$.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+(i) Let $\mathcal P$ be the partition of $B$ into its clusters and
+$\mathcal P'$ the partition of $B'$ into the nonempty sets $U\cap B'$,
+$U\in\mathcal P$. For distinct $U,V\in\mathcal P$ meeting $B'$,
+\[
+\begin{split}
+\dist(U\cap B',V\cap B')&\ge\dist(U,V)>R+g(\lvert U\rvert)+g(\lvert
+V\rvert)\\
+&\ge R+g(\lvert U\cap B'\rvert)+g(\lvert V\cap B'\rvert),
+\end{split}
+\]
+since $g$ is nondecreasing, so $\mathcal P'$ is a separated partition of
+$B'$. The partition of $B'$ into its clusters is finer than $\mathcal P'$
+by Lemma~\ref{lem:clusters}(i), so each cluster of $B'$ lies in some
+$U\cap B'\subset U$.
+(ii) If $z$ lay in a cluster $V\ne C$, then $\dist(C,V)\le\dist(z,C)\le
+R+g(\lvert C\rvert)+g(\lvert V\rvert)$, against~\eqref{eq:clusterrule}.
+\end{proof}
+
+\begin{lemma}[clusters of a window]\label{lem:windowclusters}
+Let $\Lambda$ be a set of blocks of the torus, and form the clusters of
+$B\cap\Lambda$, with $g$ and the parameters of
+Theorems~\ref{thm:clustercomparison} and~\ref{thm:clustersizes}. Each of
+them lies in a cluster of $B$, and:
+\begin{enumerate}[label=\textup{(\roman*)},leftmargin=*]
+\item Theorem~\ref{thm:clustercomparison} holds with $I_u=U_u$ for the
+distinct clusters $U_u$ of $B\cap\Lambda$;
+\item Theorem~\ref{thm:clustersizes} holds with $U(y)$ the cluster of $y$
+in $B\cap\Lambda$, $I(y)$ the component of $y$ in $B\cap\Lambda$ at the
+joining distance $2s+8$, and $L^4$ replaced by $\lvert\Lambda\rvert$, with
+the same numbers.
+\end{enumerate}
+In a window $\Lambda$ of at most $10^{M_1/2}$ blocks, on a torus of any
+size, no cluster of $B\cap\Lambda$ has more than $M_1$ blocks outside
+probability $10^{-M_1/10}$, and for $s=1$ the expected number of blocks $y$
+of $\Lambda$ with $U(y)\ne I(y)$ is at most $\lvert\Lambda\rvert
+(10^{-28126}+10^{-M_1/10})$.
+\end{lemma}
+
+\begin{proof}
+The first assertion is Lemma~\ref{lem:clustermono}(i). (i) The proof of
+Theorem~\ref{thm:clustercomparison} uses of the clusters only that the
+sets $U_u$ are distinct parts of a separated partition of a set of blocks
+that contains every bad block of $\Lambda$, with $I_u=U_u\cap\Lambda$:
+through Lemma~\ref{lem:clusters}(ii), through $\lvert I_u\rvert\le
+\lvert U_u\rvert$, and through~\eqref{eq:clusterrule}. The clusters of
+$B\cap\Lambda$ are such parts, with $I_u=U_u$. (ii) The proof of
+Theorem~\ref{thm:clustersizes}(i) uses that $U(y)$ is connected at
+distance $\ell_m$, which Lemma~\ref{lem:clusters}(iii) gives for the
+clusters of $B\cap\Lambda$, and bounds $\mu_L(S\subset B)$ for each set
+$S$ it counts. In (ii), Lemma~\ref{lem:clusters}(iv) applied to
+$B\cap\Lambda$ gives a set of bad blocks containing a block of $\Lambda$,
+and the union bound runs over the $\lvert\Lambda\rvert$ blocks of
+$\Lambda$. In (iii) an edge of $U(y)$ between blocks of different
+components of $B\cap\Lambda$ has length between $2s+9$ and $\ell_{m_0}$,
+as before. For the last assertion, (ii) gives at most $\lvert\Lambda
+\rvert10^{-0.67M_1}\le10^{-0.17M_1}$, and (iii) with $m_0=10^5$ gives the
+bound for each block of $\Lambda$.
+\end{proof}
+
+\begin{lemma}[one link makes a block bad]\label{lem:onelinkbad}
+Let $G=\SU(2)$, let the labels have radius $r\le\frac1{10}$, let $B$ be
+the set of bad blocks of a torus under $\mu_L$, with the coarse field
+$c=V^\sharp(U)$ of the configuration, and put $p_0=\frac12e^{-12\beta_W}$.
+Let $\xi$ be a random set of blocks that contains each block
+independently with probability $p_0$. Then $\mu_L(B\in\mathcal E)\ge
+\mathbb P(\xi\in\mathcal E)$ for every increasing event $\mathcal E$, that
+is, every set of sets of blocks that contains each superset of each of
+its members.
+\end{lemma}
+
+\begin{proof}
+In the tree gauge $\mu_L$ has density proportional to $\exp(\beta_W
+\sum_p\frac12\ReTr U_p)$ with respect to the product of the Haar measures
+on the active links (Section~\ref{ssec:pathblocks}). For a block $y$ let $k=
+(y,1)$, with path link $\ell_k=U_{2y+e_1,1}$, let $f_y$ be the link
+$(2y+e_1+e_2,1)$, a non-path private link of $k$, and put
+\[
+G_y=\bigl\{d(U_{f_y},\ell_k)>r+\tfrac\pi3\bigr\}.
+\]
+\emph{$G_y$ makes $y$ bad.} The link $(2y,1)$ is a tree link, so
+$P_{2y}=\ell_k$, and by~\eqref{eq:cutoff} $c_k=\ell_ke^Y$ with $Y=\frac{
+\chi_k}{16}\sum_x\log(\ell_k^{-1}P_x)$. If $\chi_k=0$, $c_k=\ell_k$. If
+$\chi_k>0$, then $\delta(\ell_k^{-1}P_x,I)=\delta(P_x,\ell_k)<\rho_G=1$ for
+every $x$, so $\lVert\log(\ell_k^{-1}P_x)\rVert<\pi/3$ by
+Lemma~\ref{lem:logbound}, and $\lVert Y\rVert<\pi/3$; the eigenvalues of
+$Y$ are $\pm i\theta$ with $\theta<\pi$, so $\log e^Y=Y$ and $d(c_k,
+\ell_k)<\pi/3$. The reconstruction value of $f_y$ is $c_k$, and on $G_y$
+\[
+d(U_{f_y},c_k)\ge d(U_{f_y},\ell_k)-d(\ell_k,c_k)>r ,
+\]
+so $y$ is bad.
+
+\emph{One link.} The link $f_y$ lies in six plaquettes, each contributing
+$\beta_W\frac12\ReTr U_p\in[-\beta_W,\beta_W]$ to the exponent, so given
+all the other active links the law of $U_{f_y}$ has a density with respect
+to the Haar measure whose values lie within a factor $e^{12\beta_W}$ of
+each other, hence a density at least $e^{-12\beta_W}$, and $G_y$ is the
+complement of the ball of radius $r+\pi/3$ about $\ell_k$. For $\SU(2)$,
+$d(g,I)=\sqrt2\,\theta$ for $g$ with eigenvalues $e^{\pm i\theta}$,
+$0\le\theta\le\pi$, and $\theta$ has the Haar density $\frac2\pi\sin^2
+\theta$; by bi-invariance a ball of radius $\sqrt2\,t$ has Haar measure
+$\frac1\pi(t-\sin t\cos t)\le\frac{2t^3}{3\pi}$, since $\sin^2\theta\le
+\theta^2$. With $r+\pi/3\le1.15$, $t\le0.82$ and the measure is at most
+$2\cdot0.552/(3\pi)<\frac12$. So the conditional probability of $G_y$
+given all the other active links is at least $p_0$.
+
+\emph{The coupling.} Enumerate the blocks as $y_1,\dots,y_n$ and put
+$X_j=\mathbf 1_{G_{y_j}}$. The event $G_y$ depends only on the two private
+links $\ell_k$ and $U_{f_y}$ of the pair $(y,1)$, which belong to no other
+pair, so $X_1,\dots,X_{j-1}$ are functions of the active links other than
+$U_{f_{y_j}}$, and $\mathbb P(X_j=1\mid X_1,\dots,X_{j-1})\ge p_0$. Let
+$V_1,\dots,V_n$ be independent and uniform on $[0,1]$, and put
+recursively $X'_j=\mathbf 1[V_j\le\mathbb P(X_j=1\mid X_{<j}=X'_{<j})]$
+and $Y_j=\mathbf 1[V_j\le p_0]$. By induction on $j$ the vector $X'$ has
+the law of $X$, while $Y_j\le X'_j$ and the $Y_j$ are independent with
+mean $p_0$. With $G=\{y:X_y=1\}\subset B$, for increasing $\mathcal E$,
+$\mu_L(B\in\mathcal E)\ge\mu_L(G\in\mathcal E)=\mathbb P(X'\in\mathcal E)
+\ge\mathbb P(Y\in\mathcal E)$.
+\end{proof}
+
+The next theorem is about independent bad blocks of any density and any
+separation that grows at least logarithmically. Two blocks of a cube of
+side $a$, a translate of $\{0,\dots,a-1\}^4$, and of a neighbouring cube
+of the same grid, one whose grid index differs by at most one in each
+coordinate, are at distance at most $2a-1$.
+
+\begin{theorem}[the clusters percolate]\label{thm:clusterpercolation}
+Let $g\ge0$ be nondecreasing, $R\ge1$, $\gamma>0$, $c_0\ge0$, and suppose
+$R+g(m)\ge\gamma\log m-c_0$ for every $m\ge1$. Let $0<p<1$ and let $\xi$
+be a random set of blocks of a torus of side $L$ that contains each block
+independently with probability $p$. Let $a_0\ge2$ be an integer with
+$\gamma pa_0^3\ge24$ and $pa_0^4\ge23+4c_0/\gamma$, put $M_0=\lceil
+e^{(2a_0+c_0)/\gamma}\rceil$ and, for $j\ge1$,
+\begin{gather*}
+K_j=\bigl\lfloor e^{pa_{j-1}^4/8}\bigr\rfloor,\qquad a_j=\bigl\lfloor
+\gamma pa_{j-1}^4/8\bigr\rfloor,\\
+\ell_j=\max\{M_0,K_ja_{j-1}\}.
+\end{gather*}
+Then $a_j\ge2a_{j-1}$, and $K_j$ and $\ell_j$ increase to infinity. For
+$J\ge1$, $L\ge\ell_J$, a block $y$, $Q=y+\{0,\dots,\ell_J-1\}^4$ and a set
+$\Lambda\supset Q$ of blocks, there is an event that depends only on
+$\xi\cap Q$, of probability at least $\frac12p^{M_0}$, on which the
+cluster of $y$ in $\xi\cap\Lambda$ contains the $M_0$ blocks $y+ie_1$,
+$0\le i<M_0$, and has at least $K_J^4$ blocks.
+\end{theorem}
+
+\begin{proof}
+\emph{The scales.} Write $a=a_{j-1}$. Since $\lfloor t\rfloor\ge t-1$ and
+$\gamma pa^3\ge24$, $a_j\ge\gamma pa^4/8-1\ge3a-1\ge2a$, so $pa_j^4\ge
+16pa^4$ and $\gamma pa_j^3\ge\gamma pa^3$; by induction $pa_j^4\ge
+23\cdot16^j$, both conditions on $a_0$ hold for every $a_j$, and $K_j$ and
+$\ell_j$ increase to infinity. As $e^{pa^4/8}\ge1$ and $\lfloor t\rfloor
+\ge t/2$ for $t\ge1$, $\log K_j\ge pa^4/8-\log2$, so
+\begin{equation}\label{eq:percreach}
+\gamma\log K_j^4-c_0\ge\frac{\gamma pa^4}2-4\gamma\log2-c_0\ge
+\frac{\gamma pa^4}4\ge2a_j-1 ,
+\end{equation}
+the middle step by $pa^4\ge16\log2+4c_0/\gamma$, as $16\log2<12$. The
+boxes $y+\{0,\dots,K_ja_{j-1}-1\}^4$ and the segment $S_0=\{y+ie_1:0\le
+i<M_0\}$ lie in $Q$, which $L\ge\ell_J$ embeds in the torus, and the distance of
+the torus is at most that of $\Z^4$.
+
+\emph{The events.} Let $E_0=\{S_0\subset\xi\}$. For $1\le j\le J$ divide
+$y+\{0,\dots,K_ja_{j-1}-1\}^4$ into $K_j^4$ cubes of side $a_{j-1}$, the
+first of which contains $y$, and let $E_j$ be the event that each of them
+contains a block of $\xi\setminus S_0$. These events depend on $\xi\cap
+Q$, $E_0$ on $\xi\cap S_0$ and the others on $\xi\cap(Q\setminus S_0)$. A
+cube of side $a$ meets $S_0$ in at most $a$ blocks, so
+\[
+\mathbb P(E_j^c)\le K_j^4(1-p)^{a^4-a}\le e^{pa^4/2-pa^4+pa}\le
+e^{-pa^4/4},
+\]
+as $a^3\ge4$. Summing, $\sum_{j\ge1}\mathbb P(E_j^c)\le\sum_{i\ge0}
+e^{-23\cdot16^i/4}<e^{-5.75}(1+e^{-80})<0.004$, since $e^{5.75}>
+e^5\cdot2>296$. By independence, $\mathbb P(E_0\cap\dots\cap E_J)\ge
+p^{M_0}(1-0.004)\ge\frac12p^{M_0}$.
+
+\emph{The cluster.} On this event let $C$ be the cluster of $y$ in
+$\xi\cap\Lambda$. Consecutive blocks of $S_0$ are at distance $1\le R$,
+so $S_0\subset C$ by Lemma~\ref{lem:clusters}(ii), and $R+g(\lvert C\rvert)
+\ge\gamma\log M_0-c_0\ge2a_0$. Suppose $R+g(\lvert C\rvert)\ge2a_{j-1}-1$
+for some $1\le j\le J$. Order the cubes of $E_j$ so that each is a
+neighbour of an earlier one, the first containing $y$, and in each cube
+other than the first choose a block of $\xi\setminus S_0$. If the earlier
+cubes contain blocks of $C$, the chosen block of the next cube lies within
+distance $2a_{j-1}-1\le R+g(\lvert C\rvert)$ of $C$, so it lies in $C$ by
+Lemma~\ref{lem:clustermono}(ii). Hence every cube contains a block of
+$C$, $\lvert C\rvert\ge K_j^4$, and $R+g(\lvert C\rvert)\ge\gamma\log
+K_j^4-c_0\ge2a_j-1$ by~\eqref{eq:percreach}. Induction on $j$ gives
+$\lvert C\rvert\ge K_J^4$.
+\end{proof}
+
+\begin{corollary}[the bad blocks percolate]\label{cor:clusterpercolation}
+Let $G=\SU(2)$, $r\le\frac1{10}$, $\beta_W>0$, and let $B$ be the set of
+bad blocks of a torus of side $L$ under $\mu_L$. Let $g$, $R$, $\gamma$
+and $c_0$ be as in Theorem~\ref{thm:clusterpercolation}, which for the
+clusters of Definition~\ref{def:clusters} holds with $\gamma=3/\kappa$
+and $c_0=0$, and let $p=p_0=\frac12e^{-12\beta_W}$, with $a_0$, $M_0$,
+$K_j$, $\ell_j$ as there. Then for every $J\ge1$ and $L\ge\ell_J$:
+\begin{enumerate}[label=\textup{(\roman*)},leftmargin=*]
+\item for every block $y$ and every $\Lambda\supset y+\{0,\dots,\ell_J-1\}
+^4$, in particular the torus, the cluster of $y$ in $B\cap\Lambda$ has at
+least $\max\{M_0,K_J^4\}$ blocks with probability at least
+$\frac12p_0^{M_0}$;
+\item if $n\ge1$ is an integer with $n\ell_J\le L$, some cluster of $B$
+has at least $K_J^4$ blocks with probability at least $1-(1-\frac12p_0^{
+M_0})^{n^4}$.
+\end{enumerate}
+Hence, for every $K$, $\mu_L\{y\in B,\ \lvert U(y)\rvert>K\}\ge\frac12
+p_0^{M_0}$ on every large enough torus, and the probability that some
+cluster has more than $K$ blocks tends to one as $L\to\infty$. With
+$\gamma=3/\kappa$, $c_0=0$ and $a_0=\lceil\max\{(24/(\gamma p_0))^{1/3},
+(23/p_0)^{1/4},2\}\rceil$, if $\kappa\ge2.5\cdot10^{-4}$ and $\beta_W\ge
+10^{37}$, then $\log M_0>e^{10^{37}}$, so $M_0>M_1=10^{10^{1700}}$.
+\end{corollary}
+
+\begin{proof}
+For a set $\Lambda$ and a block $y$ the event that $y\in B$ and the
+cluster of $y$ in $B\cap\Lambda$ has at least $K$ blocks is increasing,
+by Lemma~\ref{lem:clustermono}(i), and so is the event that some cluster
+of $B$ has at least $K$ blocks. (i) is Lemma~\ref{lem:onelinkbad} and
+Theorem~\ref{thm:clusterpercolation}. (ii) Choose $n^4$ disjoint
+translates $Q_i=y_i+\{0,\dots,\ell_J-1\}^4$. The events of
+Theorem~\ref{thm:clusterpercolation} for $(y_i,Q_i,\Lambda=Q_i)$ depend on
+disjoint parts of $\xi$, so they are independent; on each, the cluster of
+$y_i$ in $\xi\cap Q_i$ has at least $K_J^4$ blocks, and it lies in a
+cluster of $\xi$ by Lemma~\ref{lem:clustermono}(i). Then apply
+Lemma~\ref{lem:onelinkbad}. The consequence follows since $K_J\to\infty$.
+For the numbers, $a_0\ge(24/(\gamma p_0))^{1/3}=(48/\gamma)^{1/3}e^{4
+\beta_W}$ and $\log M_0\ge2a_0/\gamma$. With $\gamma\le12000$, $2/\gamma
+\ge1/6000$ and $(48/\gamma)^{1/3}\ge250^{-1/3}>\frac17$, so $\log M_0>e^{4
+\beta_W}/42000>e^{4\beta_W-11}\ge e^{10^{37}}$, while $\log M_1=10^{1700}
+\log10<10^{1701}<e^{10^{37}}$.
+\end{proof}
+
+Theorem~\ref{thm:clustersizes} is not affected: its bound (i) concerns
+clusters of at most $M_1$ blocks, while the clusters of
+Corollary~\ref{cor:clusterpercolation} have more than $M_0>M_1$ blocks, and
+its bound (ii) grows with $L^4$. The corollary shows that this growth is
+not an artefact of the union bound. The next proposition shows that no
+choice of the separation avoids it while keeping the island sums
+bounded.
+
+\begin{proposition}[the separation the sums need]\label{prop:separationneed}
+Let $g\ge0$ be nondecreasing, $R\ge2s+8$ with $R>2g(1)$, and form the
+clusters with~\eqref{eq:clusterrule}. For $m\ge1$ put $h=R+\lfloor g(m)+
+g(1)\rfloor+1$, and on a torus of side at least $2(m+2)(h+1)$ let the bad
+blocks be $u_i=iRe_1$ and $v_i=u_i+(-1)^ihe_2$, $1\le i\le m$. Then the
+clusters are $U=\{u_1,\dots,u_m\}$ and $V_i=\{v_i\}$, and with
+$\bar\varDelta$ for clusters as in Proposition~\ref{prop:clusterreach} and
+$c_2=b_*\cdot45(2s+7)^4e^{-2\alpha_G(R+g(1)-2s-8)}$,
+\[
+\sum_i\bar\varDelta_{UV_i}\ge c_2\,m^{3/2}e^{-2\alpha_Gg(m)} .
+\]
+If these sums are at most $\tau_g$ for every $m$, then $R+g(m)\ge\gamma
+\log m-c_0$ for every $m$, with $\gamma=3/(4\alpha_G)$ and $c_0=\max\{0,
+(2\alpha_G)^{-1}\log(\tau_g/c_2)\}$, and the conclusions of
+Corollary~\ref{cor:clusterpercolation} hold for these clusters.
+\end{proposition}
+
+\begin{proof}
+The distances are $\dist(u_i,u_j)=\lvert i-j\rvert R$, $\dist(v_i,u_j)=
+\max\{\lvert i-j\rvert R,h\}$, and $\dist(v_i,v_j)\ge\min\{2R,2h\}=2R$ for
+$i\ne j$, since $v_i$ and $v_j$ differ by $2h$ in the direction $e_2$ when
+$i-j$ is odd; the side of the torus exceeds $2mR$ and $4h$, so these are
+the distances on the torus. The partition into $U$ and the $V_i$ is
+separated: $\dist(U,V_i)=h>R+g(m)+g(1)$ and $\dist(V_i,V_j)\ge2R>R+2g(1)$.
+Consecutive $u_i$ are at distance $R$, so they lie in one cluster by
+Lemma~\ref{lem:clusters}(ii); hence $U$ is a cluster, and the finest
+separated partition is this one. The neighbourhoods of radius $s+3$ of the
+$u_i$ are disjoint, since $R>2s+6$, so $\bar n_U=45m(2s+7)^4$ and $\bar
+n_{V_i}=45(2s+7)^4$, and $w_{UV_i}=h-1\le R+g(m)+g(1)$. So $\bar\varDelta
+_{UV_i}\ge c_2\sqrt m\,e^{-2\alpha_Gg(m)}$ for each of the $m$ values of
+$i$. If the sums are at most $\tau_g$, then $2\alpha_Gg(m)\ge\frac32\log m-
+\log(\tau_g/c_2)$, which with $R\ge0$ gives the condition of
+Theorem~\ref{thm:clusterpercolation}.
+\end{proof}
+
+For the clusters of Definition~\ref{def:clusters}, $g(m)=(3/\kappa)\log m$
+with $\kappa\le2\alpha_G$ exceeds $(3/(4\alpha_G))\log m$, as
+Theorem~\ref{thm:clustercomparison} needs. So every separation rule of the
+form~\eqref{eq:clusterrule} that bounds the island sums uniformly in the
+configuration produces clusters that percolate, by
+Corollary~\ref{cor:clusterpercolation}, and no bound on the size of the
+clusters of the torus is uniform in the torus. The clusters of a window
+replace them: by Lemma~\ref{lem:windowclusters} the comparison of
+Theorem~\ref{thm:clustercomparison} holds with the clusters of
+$B\cap\Lambda$ as units, and in a window of at most $10^{M_1/2}$ blocks
+their size is bounded uniformly in the torus. The size of the window
+enters only through the term $\lvert\Lambda\rvert10^{-0.67M_1}$, and it
+cannot be removed: by the proof of
+Corollary~\ref{cor:clusterpercolation}(ii), in a window that contains $n^4$
+disjoint boxes of side $\ell_1$ some cluster of $B\cap\Lambda$ has at
+least $M_0>M_1$ blocks with probability at least $1-(1-\frac12p_0^{M_0})
+^{n^4}$. The covariance of the conditional
+probabilities of the labels, the term of Proposition~\ref{prop:hiddenbit},
+is not touched by the clusters.
 
 \subsection{The comparison across one step and the conditional iteration}\label{ssec:iterate}
 
@@ -26582,8 +27049,15 @@ blocks, outside probability $10^{-166}$. With the clusters of Definition~\ref{de
 as units, Theorem~\ref{thm:clustercomparison} gives these conditions in
 every configuration of the labels and every window, and
 Theorem~\ref{thm:clustersizes} bounds the size of the clusters block by
-block, uniformly in the torus up to $M_1=10^{10^{1700}}$ blocks; a bound
-beyond $M_1$ is not proved (Proposition~\ref{prop:clusterreach}). Section~\ref{ssec:labelcov} bounds the
+block, uniformly in the torus up to $M_1=10^{10^{1700}}$ blocks. No bound on
+the size of the clusters of the torus is uniform in the torus: every block
+is bad with conditional probability at least $\frac12e^{-12\beta_W}$,
+and for every separation rule that bounds the island sums the clusters
+percolate on large tori (Corollary~\ref{cor:clusterpercolation},
+Proposition~\ref{prop:separationneed}). The clusters of the bad blocks of
+a window replace them: the comparison holds with them as units, and in a
+window of at most $10^{M_1/2}$ blocks their size is bounded uniformly in
+the torus (Lemma~\ref{lem:windowclusters}). Section~\ref{ssec:labelcov} bounds the
 covariance of the labels with the others averaged, and the covariance of
 two local observables under $\mu^c$, in the mean over the coarse field and
 on the whole torus: Theorem~\ref{thm:labelcov} improves the trivial bound
@@ -26623,7 +27097,11 @@ and the ends that enter the averages, on which the labels depend, are not
 treated (Remark~\ref{rem:badmassopen}).
 Lemma~\ref{lem:mobius} gives the mixed differences of every order in
 terms of the diameter; the rate $2\alpha_G$ needs them in terms of the
-length of the shortest joining tree (Remark~\ref{rem:fixedcopen}).
+length of the shortest joining tree (Remark~\ref{rem:fixedcopen}). That
+form is not proved, and it follows neither from the second differences in
+every environment (Proposition~\ref{prop:pairsonly}) nor from the layer
+bound~\eqref{eq:layerbound} (Proposition~\ref{prop:layerthird});
+Remark~\ref{rem:treeform} names the two inputs it needs.
 Proposition~\ref{prop:hiddenbit} shows that no rarity bound replaces this
 comparison.
 \item \emph{The island threshold.} Theorem~\ref{thm:islandthreshold}
