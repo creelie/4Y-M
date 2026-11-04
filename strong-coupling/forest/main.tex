@@ -18119,8 +18119,7 @@ derivatives of $\xi_be^{s\eta_b}$, with $\lVert\eta\rVert^2=\sum_b\lVert
 
 \begin{lemma}[the ties]\label{lem:ties}
 Let $\xi_0$ be a tie at the top of index $a$, and suppose $d(u_b,I)\le
-\frac1{32}$ for every $b\ne0$, $d(w_a,I)\le\frac1{32}$, and $d(w_c,I)\le
-\frac1{32}$ for some $c\ne0,a$. At $(g_0,\xi_0)$ let $\ell=D_gf^{(1)}$,
+\frac1{32}$ for every $b\ne0$; the links $w_b$ are arbitrary. At $(g_0,\xi_0)$ let $\ell=D_gf^{(1)}$,
 $A_2=\Phi(\operatorname{ad}Y)\,\phi\,D_gN$ and $\kappa_0=\ell((1+A_2)^{-1}N)$.
 \begin{enumerate}[label=\textup{(\roman*)},leftmargin=*]
 \item Near $\xi_0$, $h_1$ and $h_2$ have the same sign; $G=G_1$ and $D=D_1$
@@ -18183,13 +18182,15 @@ n\rVert=\sqrt2$, so $\lvert p\rvert=\sqrt2\sin\theta/(2\sqrt2\sin
 \frac\theta2)=\cos\frac\theta2=:\gamma$, and $\lvert q\rvert=\gamma$ as
 $z_2$ has the same $\delta$. As $m<1$, $\theta<\alpha$, so $\gamma^2>
 \cos^2\frac\alpha2=\frac12(1+\cos\alpha)=\frac78$, since $\cos\alpha=1-2
-\sin^2\frac\alpha2=\frac34$. Also $\lvert p-q\rvert\le\lVert z_1-z_2
-\rVert/m=\lVert\tilde u_a-w_a\rVert/m\le(\delta(u_a,I)+\delta(w_a,I))/m<
-\frac18$, because $m>\frac12$. Hence $\lvert p+q\rvert^2=4\gamma^2-
-\lvert p-q\rvert^2>\frac72-\frac1{64}$. Let $\eta_a$ be the vector dual to
-$(p+q)/(\gamma^2+\langle p,q\rangle)$; as $\gamma^2+\langle p,q\rangle=
-\frac12\lvert p+q\rvert^2>0$, $p(\eta_a)=q(\eta_a)=1$ and $\lVert\eta_a
-\rVert=2/\lvert p+q\rvert<2/(\frac72-\frac1{64})^{1/2}<1.0715$.
+\sin^2\frac\alpha2=\frac34$. Put $\varpi=p-(1-2\kappa_0)\,q$. Since
+$\lvert p\rvert=\lvert q\rvert=\gamma$ and $\lvert\kappa_0\rvert<\frac12$,
+\[
+\lvert\varpi\rvert\ge\bigl\lvert\,\lvert p\rvert-(1-2\kappa_0)\lvert q
+\rvert\,\bigr\rvert=2\gamma\lvert\kappa_0\rvert ,
+\]
+whatever the angle between $p$ and $q$. Let $\eta_a$ be the unit vector
+dual to $\varpi/\lvert\varpi\rvert$, and $\eta_a=0$ if $\varpi=0$; then
+$(p-q)(\eta_a)+2\kappa_0\,q(\eta_a)=\varpi(\eta_a)=\lvert\varpi\rvert$.
 
 Differentiating $F_2(G_2(\xi),\xi)=c_k$, translated to the identity as in
 the proof of Lemma~\ref{lem:relchart}(iii), gives $(1+A_2)\,dG_2(\eta)=
@@ -18210,27 +18211,39 @@ $\partial N(\eta)=\frac1{16}\sum_bT_b\eta_b$ with $T_b=\psi(\operatorname
 \alpha$, $\operatorname{ad}X$ is normal with eigenvalues $0,\pm2i\vartheta$,
 and $\psi(\pm2i\vartheta)=\vartheta e^{\pm i\vartheta}/\sin\vartheta$; so
 $\lVert\psi(\operatorname{ad}X)\rVert\le\Lambda$, and the symmetric part
-of $\psi(\operatorname{ad}X)$ has eigenvalues $1$ and $\vartheta\cot
+of $\psi(\operatorname{ad}X)$, which is also that of its transpose
+$\psi(-\operatorname{ad}X)$, has eigenvalues $1$ and $\vartheta\cot
 \vartheta\ge\alpha\cot\alpha=3\alpha/\sqrt7>0.8194$. Every path has
-$\delta<1$ at a tie at the top, so $\lVert T_a\rVert\le2\Lambda$, and, with
-$\lVert\operatorname{Ad}(w_c^{-1})-1\rVert\le\sigma$ as in the proof of
-Lemma~\ref{lem:relchart}(i),
+$\delta<1$ at a tie at the top, so $\lVert T_a\rVert\le2\Lambda$. For
+$b\ne0$, $\xi_b=\tilde u_b^{-1}e^{X_b}$ and $\xi_bw_b=e^{X'_b}$, so
+$w_b^{-1}=e^{-X'_b}\tilde u_b^{-1}e^{X_b}$ and $\operatorname{Ad}(w_b^{-1})
+=e^{-\operatorname{ad}X'_b}\operatorname{Ad}(\tilde u_b^{-1})e^{\operatorname
+{ad}X_b}$; with $\psi(z)e^{-z}=\psi(-z)$ this gives
 \[
-\langle T_c\zeta,\zeta\rangle\ge(2\cdot0.8194-1.0927\,\sigma)\lVert\zeta
-\rVert^2>1.5905\,\lVert\zeta\rVert^2 .
+T_b=S_b\,e^{\operatorname{ad}X_b},\qquad S_b=\psi(-\operatorname{ad}X_b)+
+\psi(-\operatorname{ad}X'_b)\operatorname{Ad}(\tilde u_b^{-1}) .
 \]
-Take $\eta_b=0$ for $b\ne a,c$, and $\eta_c=0$ if $\ell'=0$, otherwise
-$\eta_c$ the vector dual to $-\ell'(T_a\eta_a)\,T_c^*\ell'/\lvert T_c^*
-\ell'\rvert^2$. Then $\ell'(\partial N(\eta))=0$, and $\lvert T_c^*\ell'
-\rvert\,\lvert\ell'\rvert\ge\langle T_c\ell'^\sharp,\ell'^\sharp\rangle$
-gives $\lvert T_c^*\ell'\rvert\ge1.5905\,\lvert\ell'\rvert$, so $\lVert
-\eta_c\rVert\le2\Lambda\lVert\eta_a\rVert/1.5905<1.3741\,\lVert\eta_a
-\rVert$ and $\lVert\eta\rVert<1.0715\,(1+1.3741^2)^{1/2}<1.8210$. Hence
-$dh_2(\eta)=2\kappa_0$ and $2\lvert\kappa_0\rvert\le1.8210\,\lvert\nabla h_2
-\rvert$. Finally $\lvert\log(1-x)\rvert\le\lvert x\rvert/(1-\lvert x
-\rvert)$ for $\lvert x\rvert<1$ and $2\lvert\kappa_0\rvert<0.0808$ give
-$\lvert\log D_1-\log D_2\rvert\le2.1758\,\lvert\kappa_0\rvert\le2.1758\cdot
-0.9105\,\lvert\nabla h_2\rvert<1.9811\,\lvert\nabla h_2\rvert$.
+As $\lVert\operatorname{Ad}(\tilde u_b^{-1})-1\rVert=\lVert\operatorname
+{Ad}(u_b)-1\rVert\le\sigma$ by the proof of Lemma~\ref{lem:relchart}(i),
+\[
+\langle S_b\zeta,\zeta\rangle\ge(2\cdot0.8194-1.0927\,\sigma)\lVert\zeta
+\rVert^2>1.5905\,\lVert\zeta\rVert^2 ,
+\]
+and $e^{\operatorname{ad}X_b}$ is orthogonal, so $\lvert T_b^*\ell'\rvert=
+\lvert S_b^*\ell'\rvert\ge1.5905\,\lvert\ell'\rvert$ for every $b\ne0$,
+whatever the link $w_b$, since $\lvert S_b^*\ell'\rvert\,\lvert\ell'\rvert
+\ge\langle S_b\ell'^\sharp,\ell'^\sharp\rangle$. Fix $c\ne0,a$, take
+$\eta_b=0$ for $b\ne a,c$, and $\eta_c=0$ if $\ell'=0$, otherwise $\eta_c$
+the vector dual to $-\ell'(T_a\eta_a)\,T_c^*\ell'/\lvert T_c^*\ell'
+\rvert^2$. Then $\ell'(\partial N(\eta))=0$, $\lVert\eta_c\rVert\le2\Lambda
+/1.5905<1.3741$ and $\lVert\eta\rVert<(1+1.3741^2)^{1/2}<1.6995$. Hence
+$dh_2(\eta)=\lvert\varpi\rvert\ge2\gamma\lvert\kappa_0\rvert$, and with
+$\gamma>(\frac78)^{1/2}>0.93541$, $2\lvert\kappa_0\rvert\le(1.6995/\gamma)
+\lvert\nabla h_2\rvert<1.8169\,\lvert\nabla h_2\rvert$. Finally $\lvert
+\log(1-x)\rvert\le\lvert x\rvert/(1-\lvert x\rvert)$ for $\lvert x\rvert
+<1$ and $2\lvert\kappa_0\rvert<0.0808$ give $\lvert\log D_1-\log D_2\rvert
+\le2.1758\,\lvert\kappa_0\rvert\le2.1758\cdot0.9085\,\lvert\nabla h_2
+\rvert<1.9811\,\lvert\nabla h_2\rvert$.
 \end{proof}
 
 Near a tie at the top of index $a$ the ties of index $a$ are exactly the
@@ -18241,13 +18254,12 @@ $\SU(2)$ has volume $V=4\sqrt2\,\pi^2$. Put
 \[
 \mathcal A_{\mathrm{tie}}=\sup V^{-7}H^{20}(Z_a),
 \]
-the supremum over $a\ne0$, over $c_k$ and over inside links within
-$\frac1{32}$ of $I$.
+the supremum over $a\ne0$, over $c_k$, over links $u_b$ within
+$\frac1{32}$ of $I$ and over arbitrary links $w_b$.
 
 \begin{proposition}[the Jacobian across the ties]\label{prop:jreduce}
 Let $k$, $B$ and the move $e\to e'$ be as in
-Theorem~\textup{\ref{thm:relresponse}}, with $d(u_a,I),d(w_a,I)\le\frac1
-{32}$ for $a\ne0$ along the geodesic. Then
+Theorem~\textup{\ref{thm:relresponse}}. Then
 \[
 \int\bigl\lvert\log D-\log D'\bigr\rvert\,d\xi\le\bigl(53.96+15.134\,
 \mathcal A_{\mathrm{tie}}\bigr)\,d(e,e')
@@ -18448,17 +18460,65 @@ $a$.
 \end{proof}
 
 \begin{theorem}[condition (J)]\label{thm:jholds}
-Let $k$, $B$ and the move be as in Theorem~\textup{\ref{thm:relresponse}},
-with $d(u_a,I),d(w_a,I)\le\frac1{32}$ for $a\ne0$ along the geodesic. Then
-\textup{(J)} holds with $K=(148.2+41.6\,\mathcal A_{\mathrm{tie}})\,e^{72\beta_W}$, where
-$\mathcal A_{\mathrm{tie}}<\infty$ does not depend on $k$, $c_k$, the inside links or
-$\beta_W$. In particular \textup{(J)} holds for $B^{\mathrm{bad}}_r$ on
-every configuration that the labels produce.
+Let $k$, $B$ and the move be as in Theorem~\textup{\ref{thm:relresponse}}.
+Then \textup{(J)} holds with $K=(148.2+41.6\,\mathcal A_{\mathrm{tie}})\,
+e^{72\beta_W}$, where $\mathcal A_{\mathrm{tie}}<\infty$ does not depend on
+$k$, $c_k$, the inside links or $\beta_W$. In particular \textup{(J)}
+holds for $B^{\mathrm{bad}}_r$ on every configuration that the labels
+produce, and for $\SU(2)^7$ whenever the links $u_a$, $a\ne0$, stay within
+$\frac1{32}$ of $I$ along the geodesic, whatever the links $w_a$. For
+$B=\SU(2)^7$ and links $w_a$, $a\ne0$, that stay within $\frac1{32}$ of
+$I$ along the geodesic, \textup{(J)} holds with the same $K$ in the
+coordinates $\xi_a=\ell_ag^{-1}$ of Lemma~\textup{\ref{lem:relchart}},
+whatever the links $u_a$.
 \end{theorem}
 
 \begin{proof}
-Proposition~\ref{prop:jreduce} and Proposition~\ref{prop:tiearea}; the
-last statement by Proposition~\ref{prop:eightlabels}.
+Proposition~\ref{prop:jreduce} and Proposition~\ref{prop:tiearea}, whose
+hypotheses bound only the links $u_a$; the case of $B^{\mathrm{bad}}_r$
+by Proposition~\ref{prop:eightlabels}. For the last statement let $\mathfrak i$
+send each private link $\ell_a$ to $\ell_a^{-1}$ and the pair $(u_a,w_a)$
+of inside links to $(w_a^{-1},u_a^{-1})$, $a\ne0$. It maps $P_{2y}$ to
+$P_{2y}^{-1}$ and the paths from $x_a$ and $x'_a$ to the inverses of the
+paths from $x'_a$ and $x_a$. Since $\delta$ is invariant under inversion
+and $\log(P_{2y}P_x^{-1})=-\operatorname{Ad}(P_{2y})\log(P_{2y}^{-1}P_x)$,
+\eqref{eq:cutoff} gives $V^\sharp_k\circ\mathfrak i=(V^\sharp_k)^{-1}$. The
+map $\mathfrak i$ preserves Haar measure and the cost, and it maps the
+coordinates $\xi_a=\ell_ag^{-1}$ at the value $c_k$ to the coordinates
+$\bar g^{-1}\bar\ell_a=\xi_a^{-1}$ of the inverted links $\bar\ell=\mathfrak i
+(\ell)$ at $c_k^{-1}$, with $V^\sharp_k=\exp(\chi N')\,g$ turned into
+$\bar g\exp(-\chi N')$; inversion is an isometry, so the two Jacobians $D$
+agree at corresponding points. The action enters Lemmas~\ref{lem:relchart}
+and~\ref{lem:relnorm} and Proposition~\ref{prop:jreduce} only through
+the bounds $0\le S_{\mathrm{dep}}\le72$, which hold for every
+configuration. So \textup{(J)} in
+the coordinates $\ell_ag^{-1}$ for $(u,w)$ is \textup{(J)} in the
+coordinates $g^{-1}\ell_a$ for $(w^{-1},u^{-1})$, whose links of the
+first block are within $\frac1{32}$ of $I$, and the moving link keeps
+its distance.
+\end{proof}
+
+\begin{corollary}[the first set with one block near $I$]\label{cor:onenear}
+Let $B=\SU(2)^7$ and let one link $u_b$ or $w_b$, $b\ne0$, move from $e$ to
+$e'$. If the inside $\mu$-links of one of the two blocks, the $u_a$ or the
+$w_a$, $a\ne0$, stay within $\frac1{32}$ of $I$ along the geodesic, then,
+whatever the inside $\mu$-links of the other block,
+\[
+W_1(Q,Q')\le\bigl(16.52+2898\beta_W+41.37K\bigr)\,d(e,e')
+\]
+for the cost $\sum_a\delta$, with $K$ of Theorem~\textup{\ref{thm:jholds}}.
+\end{corollary}
+
+\begin{proof}
+If the $u_a$ stay within $\frac1{32}$ of $I$, this is
+Theorem~\ref{thm:relresponse} for $B=\SU(2)^7$ and
+Theorem~\ref{thm:jholds}. If the $w_a$ do, then $\sigma_w\le\frac{\sqrt2}
+{32}$, so $\lambda_w\le\lambda$, $L_w\le L$ and $R_w<1.828$, and the last
+bound of Theorem~\ref{thm:relresponse}, with (J) in the coordinates
+$\xi_a=\ell_ag^{-1}$ from Theorem~\ref{thm:jholds}, is at most
+$8L+16\sqrt2\cdot1.828\,(24\sqrt2\,L\beta_W+K)$ times $d(e,e')$; here
+$8L<16.52$, $768\cdot1.828\cdot2.064<2898$ and $16\sqrt2\cdot1.828<
+41.37$.
 \end{proof}
 
 The proof of Proposition~\ref{prop:tiearea} gives no value for $\mathcal A_{\mathrm{tie}}$:
@@ -18523,9 +18583,11 @@ the Jacobian condition (J) holds: for $B^{\mathrm{bad}}_r$ on every
 configuration that the labels produce, since there $d(u_a,I),d(w_a,I)\le r$
 by Proposition~\ref{prop:eightlabels}, and for $\SU(2)^7$ on every
 configuration whose links $u_a$ lie within $\frac1{32}$ of $I$.
-Theorem~\ref{thm:jholds} proves (J) there whenever the links $w_a$ also
-lie within $\frac1{32}$ of $I$, in particular for $B^{\mathrm{bad}}_r$;
-for $\SU(2)^7$ with some $w_a$ farther from $I$ it is not proved. By
+Theorem~\ref{thm:jholds} proves (J) there for every $w$, in particular for
+$B^{\mathrm{bad}}_r$, and in the coordinates $\ell_ag^{-1}$ when the $w_a$
+lie within $\frac1{32}$ of $I$, whatever the $u_a$;
+Corollary~\ref{cor:onenear} bounds the response of the first set in both
+cases. By
 Lemma~\ref{lem:relchart}(iii), $D$ lies in $[0.728,1.332]$ for all inside
 links, so (J) asks only for its continuity in the mean. The derivative of
 $Y=\chi N$ in $g$ contains $N\otimes\phi'(m)D_gm$, and $D_gm$ vanishes when
@@ -18555,8 +18617,115 @@ c_k\exp(-\chi N)\,\xi_0^{-1}$, and $h$ enters only through $\operatorname
 basing at $h=P_{x'_b}$ with $\xi_a=\ell_ah^{-1}$ leads in the same way to
 $\operatorname{Ad}(h)$ on the $w_a$ and to $\kappa\sigma_w$. When $\sigma_u
 \ge1/\kappa$ and $\sigma_w\ge1/\kappa$ the argument of
-Lemma~\ref{lem:relchart}(i) gives no contraction in these charts, and
-nothing is proved. The jumps of $D$ come from the two operations in the
+Lemma~\ref{lem:relchart}(i) gives no contraction in these charts, and for
+some such links no chart of this kind exists.
+
+\begin{proposition}[a fold of the relative charts]\label{prop:chartfolds}
+Fix $a\ne0$, let $\mathbf i=\operatorname{diag}(i,-i)$ and $\mathbf j=
+\bigl(\begin{smallmatrix}0&1\\-1&0\end{smallmatrix}\bigr)$, and take the
+inside $\mu$-links
+\[
+u_a=\mathbf j,\qquad w_a=\mathbf j\,e^{\mathbf i/10},\qquad u_b=w_b=I
+\quad(b\ne0,a),
+\]
+so that $\sigma_u=\sigma_w=2$. There are an open set $\mathcal U$ of
+values of the inside $\mu$-links containing this one and open sets $U
+\subset\SU(2)^7$, $O\subset\SU(2)$ such that, for all inside $\mu$-links in
+$\mathcal U$, $\xi\in U$ and $c_k\in O$, the equation $V^\sharp_k=c_k$ has
+at least two solutions $g$ with $\ell_a=g\xi_a$. The same holds, with other
+open sets, in the coordinates $\xi_a=\ell_ag^{-1}$. So on an open set of
+inside links with $\sigma_u,\sigma_w\ge1/\kappa$ the fibre
+$\{V^\sharp_k=c_k\}$ is a graph over $\xi$ in neither coordinates, and
+neither chart of Lemma~\textup{\ref{lem:relchart}} exists.
+\end{proposition}
+
+\begin{proof}
+Put $\mathbf k=\mathbf i\mathbf j$, so that $\mathbf j e^{t\mathbf i}=
+e^{-t\mathbf i}\mathbf j$, $\mathbf je^{t\mathbf k}=e^{-t\mathbf k}\mathbf
+j$ and $\mathbf j^2=-I$, and $\delta(e^{t\mathbf i},I)=2\sqrt2\sin\frac
+t2$ for $t\in[0,\pi]$. As $\operatorname{Ad}(u_a)$ and
+$\operatorname{Ad}(w_a)$ are rotations by $\pi$, $\sigma_u=\sigma_w=2$.
+Let $\theta=\frac12$, $g_0=I$, $\xi^0_a=-\mathbf je^{\theta\mathbf i}$ and
+$\xi^0_b=e^{-2\mathbf i/5}$ for $b\ne0,a$. Then $v_{x_a}=\tilde u_a\xi^0_a
+=e^{\theta\mathbf i}$, $v_{x'_a}=\xi^0_aw_a=e^{-2\mathbf i/5}$, $v_{x_b}=
+v_{x'_b}=e^{-2\mathbf i/5}$ for $b\ne0,a$, and the two paths of offset zero
+are $I$. By $t-t^3/6\le\sin t\le t$, $m=2\sqrt2\sin\frac14\in(0.6997,
+0.7072)$, attained at $x_a$ only, the other paths having $\delta\le2\sqrt2
+\sin\frac15<0.566$. So near $(g_0,\xi^0)$ and this configuration the
+maximum is attained at $x_a$ only, $\frac12<m<1$, and $F(g,\xi)=g\exp(\phi
+(f_{x_a})N)$ is analytic, with $Y=\chi N$, $\chi=2-2m$, and
+\[
+N=\tfrac1{16}\bigl(\theta-13\cdot\tfrac25\bigr)\mathbf i=-\tfrac{47}
+{160}\,\mathbf i .
+\]
+
+As in the proof of Lemma~\ref{lem:ties}(ii), translated to the identity
+$D_gF=\operatorname{Ad}(E^{-1})(1+A)$ with $A=\Phi(\operatorname{ad}Y)
+(-2N\otimes\ell+\chi\,D_gN)$, $\ell=D_gf_{x_a}$. Only $v_{x_a}$ depends on
+$g$, and along $g=e^{t\zeta}$ at fixed $\xi^0$ it is $v_{x_a}(t)=e^{-t\zeta}
+\mathbf je^{t\zeta}\xi^0_a$. For $\zeta=\mathbf j$ it is constant, so
+$A\mathbf j=0$. For $\zeta=\mathbf i$, $e^{-t\mathbf i}\mathbf je^{t\mathbf
+i}=\mathbf je^{2t\mathbf i}$ and $v_{x_a}(t)=e^{(\theta-2t)\mathbf i}$, so
+$f_{x_a}=2\sqrt2\sin(\frac\theta2-t)$, $\ell(\mathbf i)=-2\sqrt2\cos\frac
+14$, $D_gN(\mathbf i)=-\frac18\mathbf i$, and, since $\Phi(\operatorname{ad}
+Y)$ fixes $\mathbf i$,
+\[
+A\mathbf i=a\,\mathbf i,\qquad a=-\tfrac{47\sqrt2}{40}\cos\tfrac14-\tfrac
+\chi8<-\tfrac{47\cdot31\sqrt2}{40\cdot32}<-1.6 ,
+\]
+by $\cos\frac14\ge1-\frac1{32}$. For $\zeta=\mathbf k$, $e^{-t\mathbf k}
+\mathbf je^{t\mathbf k}=\mathbf je^{2t\mathbf k}$ and $v_{x_a}(t)=
+e^{-2t\mathbf k}e^{\theta\mathbf i}$, whose translated derivative $-2
+\operatorname{Ad}(e^{-\theta\mathbf i})\mathbf k$ lies in the span of
+$\mathbf j,\mathbf k$. This span is orthogonal to $\Pi(v_{x_a})=\sin\theta
+\,\mathbf i$, so $\ell(\mathbf k)=0$; it is invariant under $\psi(\operatorname
+{ad}(\theta\mathbf i))$, of norm $\theta/\sin\theta$ there, and under
+$\Phi(\operatorname{ad}Y)$, of norm at most $1$. So $A\mathbf k=b\,\mathbf j
++a'\mathbf k$ with $\lvert a'\rvert\le\frac\chi8\cdot\frac\theta{\sin\theta}
+<\frac18\cdot\frac{0.5}{0.479}<1$. In the basis $\mathbf i,\mathbf j,
+\mathbf k$ the matrix of $1+A$ is upper triangular, and
+\[
+\det(1+A)=(1+a)(1+a')<0 .
+\]
+As $\operatorname{Ad}(E^{-1})\in\mathrm{SO}(3)$, $\det D_gF<0$ at
+$(g_0,\xi^0)$.
+
+Let $c^0=F(g_0,\xi^0)$. By the inverse function theorem with parameters,
+applied to $F$ as a function of $g$, $\xi$ and the inside links, there are
+a closed ball $\bar B$ about $g_0$ with interior $B$ and open sets
+$\mathcal U$, $U\ni\xi^0$, $O\ni c^0$ such that for inside links in
+$\mathcal U$, $\xi\in U$ and $c\in O$ the equation $F(g,\xi)=c$ has
+exactly one solution in $\bar B$, which lies in $B$, and $\det D_gF<0$
+there. For fixed $\xi$ and inside links, $F_\xi(g)=g\exp Y(g,\xi)$ is a
+continuous map of $\SU(2)$ to itself, homotopic to the identity through
+$g\exp(sY(g,\xi))$, $0\le s\le1$, so of degree $1$. If the solution in $B$
+were the only solution of $F_\xi=c$, the degree would be the local degree
+there, which is $-1$, since $F_\xi$ is a local diffeomorphism there
+reversing the orientation \cite[Ch.~VIII, Sec.~4]{Dol95}. So $F_\xi=c$
+has a second solution, outside $\bar B$.
+
+For the coordinates $\xi_a=\ell_ag^{-1}$ let $\mathfrak i$ be the inversion of
+the proof of Theorem~\ref{thm:jholds}. It maps the configuration above to
+$u_a=w_a^{-1}=-e^{-\mathbf i/10}\mathbf j$, $w_a=u_a^{-1}=-\mathbf j$, the
+other links $I$. With $h=e^{-\mathbf i/20}\mathbf k$, $\operatorname{Ad}(h)
+\mathbf i=-\mathbf i$ and $\operatorname{Ad}(h)\mathbf j=-e^{-\mathbf i/10}
+\mathbf j$, so this is the configuration above conjugated by $h$.
+Conjugating the eight private links and the inside links by $h$ commutes
+with $V^\sharp_k$, since $\delta$ and $\log$ are equivariant, and maps the
+coordinates $g^{-1}\ell_a$ to their conjugates; so the first part holds for
+the conjugated configuration, with $h\mathcal Uh^{-1}$, $hUh^{-1}$ and
+$hOh^{-1}$. The involution $\mathfrak i$ maps the coordinates $g^{-1}\ell_a$ at
+the value $c_k$ to the coordinates $\ell_ag^{-1}$ at $c_k^{-1}$, which
+gives the statement in these coordinates.
+\end{proof}
+
+The proposition concerns the charts only. The law of the eight private
+links exists for every configuration, and its response to the inside links
+is neither bounded nor shown unbounded there; what fails is the
+description of that law as the image of a density in $\xi$ under one map,
+on which Theorem~\ref{thm:relresponse} rests.
+
+The jumps of $D$ come from the two operations in the
 definition of $\chi_{y,\mu}$ before~\eqref{eq:cutoff} that are not
 differentiable, the function $\phi$ and the maximum over the sites; that
 definition is made in this paper, and every result on the cut-off average
@@ -19456,8 +19625,35 @@ floor, and the mixed differences in tree form;
 \end{enumerate}
 The results that the paper proves towards (a) and (b) for $V^\sharp$, and
 the energy bounds of Sec.~\ref{ssec:coarse}, are not re-derived for
-$\widehat V$ (Remark~\ref{rem:projscope}). Neither (D) nor the mass gap is
-proved.
+$\widehat V$ (Remark~\ref{rem:projscope}). For $V^\sharp$ the first set
+can have no chart of the relative kind (Proposition~\ref{prop:chartfolds}),
+so the bad side is available only through $\widehat V$. The labels and the
+islands use the following results on the coarse map.
+Theorem~\ref{thm:cutoff}(ii) holds for $\widehat V$ by
+Proposition~\ref{prop:projavg}(ii). Parts (i)--(iii) of
+Lemma~\ref{lem:smallframes} do not involve the coarse map, and part (iv)
+is Proposition~\ref{prop:projtransfer}(i). Theorems~\ref{thm:smallfibre},
+\ref{thm:fibrechart} and~\ref{thm:chartdecay} and
+Propositions~\ref{prop:explicitconstants} and~\ref{prop:explicitdecay}
+are Proposition~\ref{prop:projtransfer}(ii), (iii).
+Lemma~\ref{lem:coarsewitness} is replaced by
+Proposition~\ref{prop:projwitness}, with its own constant.
+Theorem~\ref{thm:defects} and Lemma~\ref{lem:wilsonZ} concern the Wilson
+measure only. Not available for $\widehat V$:
+Proposition~\ref{prop:smallframessharp}; the fixed-point form of the
+path-link equation behind Lemma~\ref{lem:branchbound} and
+Propositions~\ref{prop:goodside} and~\ref{prop:graphlaw}, which the proof
+of Theorem~\ref{thm:factorisation} differentiates (for $\widehat V$ the
+equation has one solution at every field, Theorem~\ref{thm:projinverse},
+but that form is not derived); the energy bounds of
+Sec.~\ref{ssec:coarse}, Lemma~\ref{lem:coarseenergy},
+Proposition~\ref{prop:coarsechess}, Theorem~\ref{thm:haartilt},
+Corollary~\ref{cor:abeliancoarse} and Proposition~\ref{prop:tiltgrowth};
+and the composition across scales, Lemma~\ref{lem:torusstep} and
+Theorem~\ref{thm:torusscales}. Besides (a)--(c), the route through
+$\widehat V$ needs these, and the counting of the labels redone with the
+constant of Proposition~\ref{prop:projwitness}. Neither (D) nor the mass
+gap is proved.
 \end{remark}
 
 \subsection{Counting bad labels}\label{ssec:counting}
@@ -33255,9 +33451,12 @@ $g^{-1}\ell_a$, and Theorem~\ref{thm:relresponse} bounds the response for
 the two sets that the labels produce (Proposition~\ref{prop:eightlabels})
 under one condition, the continuity in the mean~(J) of the Jacobian of
 that chart. Theorem~\ref{thm:jholds} proves (J) when the inside
-$\mu$-links of both blocks lie within $\frac1{32}$ of $I$, which includes
-every configuration of $B^{\mathrm{bad}}_r$ that the labels produce, with a
-constant uniform in the configuration. The constant contains the largest
+$\mu$-links $u_a$ lie within $\frac1{32}$ of $I$, whatever the links $w_a$,
+and, in the coordinates $\ell_ag^{-1}$, when the $w_a$ do, whatever the
+$u_a$; this includes every configuration of $B^{\mathrm{bad}}_r$ that the
+labels produce, with a constant uniform in the configuration, and for the
+first set it bounds the response whenever the inside $\mu$-links of one
+block lie within $\frac1{32}$ of $I$ (Corollary~\ref{cor:onenear}). The constant contains the largest
 normalised area of the hypersurfaces where the two paths of one index tie
 at the top, which is finite by o-minimality (Proposition~\ref{prop:tiearea})
 and not computed; a bound of order $t$ on the Haar measure of the set where
@@ -33267,7 +33466,10 @@ response to the inside
 $\mu$-links of one block is bounded, when those of the other block equal
 $I$. For the first set the chart exists unless both blocks contain an
 inside $\mu$-link $u$ with $\lVert\operatorname{Ad}(u)-1\rVert\ge1/\kappa$,
-$\kappa<2.2670$, and nothing is proved in that case. The chains of Definition~\ref{def:linechain} carry the inside
+$\kappa<2.2670$; on an open set of such configurations neither chart
+exists, the equation $V^\sharp_k=c_k$ having two solutions over an open set
+of $\xi$ (Proposition~\ref{prop:chartfolds}), and the response there is not
+proved. The chains of Definition~\ref{def:linechain} carry the inside
 links among their variables, partition the bad side, and respond to every
 other link with the constants of Theorem~\ref{thm:site} in which $24$ is
 replaced by their size $n\le23n_b+1$ (Proposition~\ref{prop:linechain});
@@ -35644,6 +35846,10 @@ R.~L.~Dobrushin and S.~B.~Shlosman, Constructive criterion for the uniqueness
 of Gibbs field, in \emph{Statistical Physics and Dynamical Systems},
 Birkh\"auser, Boston, 1985, 347--370,
 \href{https://doi.org/10.1007/978-1-4899-6653-7_20}{doi:10.1007/978-1-4899-6653-7\_20}.
+
+\bibitem{Dol95}
+A.~Dold, \emph{Lectures on Algebraic Topology}, Springer, Berlin, 1995,
+\href{https://doi.org/10.1007/978-3-642-67821-9}{doi:10.1007/978-3-642-67821-9}.
 
 \bibitem{Dri89}
 B.~K.~Driver, YM$_2$: continuum expectations, lattice convergence, and lassos, Comm. Math. Phys. \textbf{123} (1989), 575--616, \href{https://doi.org/10.1007/BF01218586}{doi:10.1007/BF01218586}.
