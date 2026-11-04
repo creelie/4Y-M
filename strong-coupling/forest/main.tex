@@ -16726,14 +16726,306 @@ function theorem, the cut-off being one; Step~2 of the proof of
 Theorem~\ref{thm:eightlinkuniform} gives the last identity.
 \end{proof}
 
-Whether the law $\frac1Z\mathbf 1_BJ_8^{-1}e^{-\beta_WS}\mathrm{vol}_M$
-obeys $W_1\le C\,d(u,u')$ in the inside links for $B=\SU(2)^7$ and
-$B=B^{\mathrm{bad}}_r$, with $C$ independent of $c_k$ and of the other
-links, is not decided here. Theorem~\ref{thm:eightlinkuniform} shows that a
-proof must use the shape of these two sets, and
-Proposition~\ref{prop:eightlabels} that the mechanism of that theorem is
-absent from them. What the cube condition uses can instead be taken from
-the site, in a form whose units do not overlap.
+\emph{The relative chart.} The folds of
+Proposition~\ref{prop:insidefold} and Theorem~\ref{thm:eightlinkuniform}
+are folds of the projection of the fibre $M=\{V^\sharp_k=c_k\}$ to the
+seven non-path links. In the coordinates $g=\ell_0$ and
+$\xi_a=g^{-1}\ell_a$, $a\ne0$, the fibre is a single graph over $\xi$ as
+soon as the inside links of $B(y)$ are within $\frac1{32}$ of $I$, and the
+response of the law of the eight private links to an inside link reduces
+to one condition on a Jacobian. In these coordinates the paths are
+\[
+v_{x_a}=g^{-1}u_ag\,\xi_a,\qquad v_{x'_a}=\xi_aw_a,\qquad v_{2y}=I,
+\]
+so $V^\sharp_k=g\,E(g,\xi)$ with $E=\exp(\chi N)$, $\chi=\phi(m)$,
+$m=\max_x\delta(v_x,I)$ and $N=\frac1{16}\sum_x\log v_x$, and $E$
+depends on $g$ only through the conjugates $\tilde u_a=g^{-1}u_ag$. For
+fixed $g$ the map $(\ell_a)_{a\ne0}\mapsto\xi$ preserves Haar measure.
+With $\alpha=2\arcsin\frac1{2\sqrt2}$ and $\Lambda=\alpha/\sin\alpha$ as
+in Sec.~\ref{ssec:smallfibres}, put
+\begin{gather*}
+\lambda=\frac1{32}\Bigl(2\sqrt2\cdot\frac78\sqrt2\,\alpha+\frac7{16}
+\sqrt2\,\Lambda\Bigr)<0.1002,\\
+L=\frac{2\cdot\frac78\sqrt2\,\alpha+\frac1{16}\Lambda}{1-\lambda}<2.064 ,
+\end{gather*}
+by $0.7227<\alpha<0.7228$, $\Lambda<1.0927$ and $\sqrt2<1.41422$.
+
+\begin{lemma}[the relative chart]\label{lem:relchart}
+Fix every link other than the eight private links of $k$, and suppose
+$d(u_a,I)\le\frac1{32}$ for $a\ne0$; the links $w_a$ are arbitrary.
+\begin{enumerate}[label=\textup{(\roman*)},leftmargin=*]
+\item For fixed $\xi$, $d(E(g,\xi),E(g',\xi))\le\lambda\,d(g,g')$, and
+$V^\sharp_k=c_k$ has exactly one solution $g=G(\xi)$, the fixed point of
+the contraction $g\mapsto c_kE(g,\xi)^{-1}$.
+\item If one link $u_b$ or $w_b$ moves from $e$ to $e'$, the $u_a$
+staying within $\frac1{32}$ of $I$, then $d(G(\xi),G'(\xi))\le L\,d(e,e')$
+for every $\xi$, and the eight private links $G(\xi)$, $G(\xi)\xi_a$ move
+by at most $8L\,d(e,e')$ in the cost $\sum_a\delta$.
+\item Wherever $g\mapsto F(g)=gE(g,\xi)$ is differentiable, its
+differential has singular values in $[1-\lambda,1+\lambda]$, so
+$D(\xi)=\lvert\det D_gF(G(\xi))\rvert\in[(1-\lambda)^3,(1+\lambda)^3]
+\subset[0.728,1.332]$.
+\item For almost every $c_k$ and every measurable set $B$ of non-path
+links, the law $\frac1Z\mathbf 1_BJ_8^{-1}e^{-\beta_WS}\mathrm{vol}_M$ of
+the eight private links is the image under $\xi\mapsto(G(\xi),G(\xi)\xi)$
+of
+\begin{gather*}
+\hat Q(d\xi)=\frac1Z\,\mathbf 1_B(G(\xi)\xi)\,e^{-\beta_WS}\,D(\xi)^{-1}
+\,d\xi ,\\
+Z=\int\mathbf 1_B(G(\xi)\xi)\,e^{-\beta_WS}D(\xi)^{-1}d\xi ,
+\end{gather*}
+$S$ evaluated at $(G(\xi),G(\xi)\xi)$ and $d\xi$ Haar measure on
+$\SU(2)^7$.
+\end{enumerate}
+If every $u_a$ equals $I$, then $E$ does not depend on $g$, $D\equiv1$,
+and (ii) holds with $L$ replaced by $1.857$. If every $w_a$ equals $I$,
+the same holds with $u$ arbitrary in the coordinates $\xi_a=\ell_ag^{-1}$,
+in which $V^\sharp_k=\exp(\chi N')\,g$ with $N'=\frac1{16}\sum_x\log(P_x
+g^{-1})$, $P_{x_a}g^{-1}=u_a\xi_a$ and $P_{x'_a}g^{-1}=\xi_a$.
+\end{lemma}
+
+\begin{proof}
+(i) Let $g_t=ge^{t\zeta}$, $\lVert\zeta\rVert=1$. If $d(u,I)=\sqrt2\,
+\theta$, then $\operatorname{Ad}(u)-1$ has the eigenvalues $0$ and
+$e^{\pm2i\theta}-1$, so its norm is $2\sin\theta\le\sqrt2\,d(u,I)$, and by
+bi-invariance and $d(e^A,e^B)\le\lVert A-B\rVert$,
+\begin{multline*}
+d(\tilde u_a(t),\tilde u_a(t'))=d\bigl(e^{(t'-t)\operatorname{Ad}(\tilde
+u_a^{-1})\zeta},e^{(t'-t)\zeta}\bigr)\\
+\le\sqrt2\,d(u_a,I)\,|t'-t| .
+\end{multline*}
+So each $v_{x_a}$ moves at geodesic speed at most $\frac{\sqrt2}{32}$,
+and the other paths are fixed. Since $\delta(\cdot,I)$ is $1$-Lipschitz
+for $d$, $m$ moves at speed at most $\frac{\sqrt2}{32}$ and $\chi$ at most
+$\frac{2\sqrt2}{32}$. On an interval where $\chi>0$, every $\delta(v_x,I)
+<1$, so every eigenangle $\theta$ of $v_x$ has $2\sqrt2\sin\frac\theta2<1$,
+$\theta<\alpha$, $\lVert\log v_x\rVert=\sqrt2\,\theta<\sqrt2\,\alpha$, and
+the differential of $\log$ along the path has norm at most $\Lambda$; the
+two paths of offset zero contribute nothing, so $\lVert N\rVert\le
+\frac78\sqrt2\,\alpha$ and $N$ moves at speed at most $\frac7{16}\Lambda
+\frac{\sqrt2}{32}$. Hence $Y=\chi N$ moves at speed at most $\lambda$
+there. The set where $\chi>0$ is open and $Y=0$ off it, so $Y$ is
+$\lambda$-Lipschitz along the whole geodesic, and $d(E(g),E(g'))\le
+\lVert Y(g)-Y(g')\rVert\le\lambda\,d(g,g')$. Since $V^\sharp_k=gE(g,\xi)$,
+the equation $V^\sharp_k=c_k$ reads $g=c_kE(g,\xi)^{-1}$, and
+$d(c_kE^{-1},c_kE'^{-1})=d(E,E')$: the map is a contraction of the
+complete space $\SU(2)$, with a unique fixed point.
+
+(ii) A unit-speed move of $u_b$ moves $\tilde u_b$ and $v_{x_b}$, and a
+move of $w_b$ moves $v_{x'_b}$, at speed one, and no other path; so $m$
+moves at speed at most $1$, $\chi$ at most $2$, $N$ at most
+$\frac1{16}\Lambda$, and $Y$ at fixed $(g,\xi)$ at most
+$2\cdot\frac78\sqrt2\,\alpha+\frac1{16}\Lambda=(1-\lambda)L$. For the two
+fixed points, $d(G,G')\le d(E(G),E(G'))+(1-\lambda)L\,d(e,e')$, with
+$E,E'$ before and after the move at the same point, so $d(G,G')\le\lambda
+d(G,G')+(1-\lambda)L\,d(e,e')$. The geodesic ball of radius $\frac1{32}$
+is convex, so the hypothesis holds along the move. The eight private
+links are $G$ and $G\xi_a$, each at distance $d(G,G')$ from its new value,
+and $\delta\le d$.
+
+(iii) The derivative of $F$ along $ge^{t\zeta}$, translated back to the
+identity, is $F^{-1}\dot F=\operatorname{Ad}(E^{-1})\zeta+E^{-1}\dot E$,
+and $E^{-1}\dot E=E_{-Y}\dot Y$ has norm at most $\lVert\dot Y\rVert\le
+\lambda$ by (i). So $D_gF=\operatorname{Ad}
+(E^{-1})(I+K)$ with $\lVert K\rVert\le\lambda$, and $\operatorname{Ad}
+(E^{-1})$ is an isometry.
+
+(iv) For fixed $\xi$, $(1-\lambda)d(g,g')\le d(F(g),F(g'))\le(1+\lambda)
+d(g,g')$ by (i) and bi-invariance, and $F$ is onto by (i), so $F$ is a
+bi-Lipschitz homeomorphism of $\SU(2)$ with inverse $c\mapsto G_c(\xi)$.
+The area formula gives $\int h(F(g))\lvert\det D_gF\rvert\,dg=\int h(c)\,dc$,
+so for bounded measurable $\psi$ and $f$,
+\begin{multline*}
+\int\!\!\int\psi(F(g,\xi))f(g,\xi)\,dg\,d\xi\\
+=\int\psi(c)\int
+\frac{f(G_c(\xi),\xi)}{\lvert\det D_gF(G_c(\xi),\xi)\rvert}\,d\xi\,dc ,
+\end{multline*}
+the Jacobian being defined at $(G_c(\xi),\xi)$ for almost every $\xi$ for
+almost every $c$, by Fubini and the area formula applied to the null set
+where $F$ is not differentiable. The inner integral is a disintegration of
+Haar measure on the eight links along $V^\sharp_k$; so is
+$J_8^{-1}\mathrm{vol}_M$ by the coarea formula, and two disintegrations
+agree for almost every $c$. Multiplying by $\mathbf 1_Be^{-\beta_WS}$ gives
+(iv). If every $u_a=I$, then $\tilde u_a=I$, $E=E(\xi)$, $\lambda$ may be
+taken zero and the speed bound of (ii) is $1.857$. If every $w_a=I$,
+multiplying the paths by $g^{-1}$ on the right and conjugating the
+logarithms by $g$ gives the stated form, in which $g$ enters only as the
+right factor; the same proof applies with $\lambda=0$, and right
+translation preserves Haar measure.
+\end{proof}
+
+The normaliser has a lower bound that does not depend on the chart. Let
+$S_{\mathrm{dep}}$ be the sum of $1-\frac12\ReTr U_p$ over the plaquettes
+that contain a private link of $k$; the other plaquettes do not depend on
+the eight links and cancel from the normalised law, so $S$ may be replaced
+by $S_{\mathrm{dep}}$, and $Z$ below is defined with it.
+
+\begin{lemma}[the normaliser]\label{lem:relnorm}
+There are $36$ plaquettes that contain a private link of $k$, so $0\le
+S_{\mathrm{dep}}\le72$. For every $c_k$, every inside and exterior link and
+every $\beta_W\ge0$,
+\[
+Z_{\SU(2)^7}\ge\tfrac12e^{-72\beta_W},\qquad
+Z_{B^{\mathrm{bad}}_r}\ge\bigl(\tfrac12-b_r\bigr)e^{-72\beta_W},
+\]
+with $b_r=(2\vartheta-\sin2\vartheta)/(2\pi)$ and $\vartheta=r/\sqrt2$,
+where $Z_B=\int\mathbf 1_Be^{-\beta_WS_{\mathrm{dep}}}J_8^{-1}\mathrm{vol}_M$,
+and $b_r<2.3\cdot10^{-6}$ for $r\le\frac1{32}$.
+\end{lemma}
+
+\begin{proof}
+A private link $(x'_a,\mu)$ lies in two plaquettes of each plane $\{\mu,
+\nu\}$, at $x'_a$ and at $x'_a-e_\nu$, and the other $\mu$-link of exactly
+one of them, $(x'_a\pm e_\nu,\mu)$, is private. So the $48$ incidences
+cover $12$ plaquettes twice and $24$ once, $36$ in all, each term lying
+in $[0,2]$. Let $A$ be the set of configurations with $\ell_0=c_k$ and
+$\Re\Tr(c_k^{-1}u_1\ell_1)<0$. There $v_{x_1}=c_k^{-1}u_1\ell_1$ has
+$\delta(v_{x_1},I)^2=4-2\Re\Tr v_{x_1}>4$, so $m>1$ near $A$, the cut-off
+vanishes and $V^\sharp_k=\ell_0$ near $A$: the fibre contains $A$, and on it
+$D_{\ell}V^\sharp_k$ is the projection to the path link, so $J_8=1$ and
+$\mathrm{vol}_M$ is Haar measure in $\ell_1,\dots,\ell_7$. The map $\ell_1
+\mapsto c_k^{-1}u_1\ell_1$ preserves Haar measure and $X\mapsto-X$ exchanges
+the signs of $\Re\Tr X$, so $A$ has Haar measure $\frac12$ in $(\ell_a)_{a
+\ne0}$; with $S_{\mathrm{dep}}\le72$ this is the first bound. A point of
+$A$ outside $B^{\mathrm{bad}}_r$ has $d(\ell_1,c_k)\le r$, a geodesic ball
+whose Haar measure is $\frac2\pi\int_0^\vartheta\sin^2t\,dt=b_r$, the Haar
+density of the eigenangle $t\in[0,\pi]$ being $\frac2\pi\sin^2t$ and
+$d=\sqrt2\,t$. Finally $2\vartheta-\sin2\vartheta\le\frac43\vartheta^3$
+gives $b_r\le\frac{2\vartheta^3}{3\pi}\le\frac2{3\pi(32\sqrt2)^3}<2.3\cdot
+10^{-6}$.
+\end{proof}
+
+\begin{theorem}[the response in the relative chart]\label{thm:relresponse}
+Let $k$ be as in Lemma~\ref{lem:relchart}, let $B$ be $\SU(2)^7$ or
+$B^{\mathrm{bad}}_r$ with $r<\frac1{32}$, and in the second case suppose
+also $d(w_a,I)\le\frac1{32}$ for $a\ne0$. Let one of the links $u_b$,
+$w_b$, $b\ne0$, move from $e$ to $e'$, the hypotheses holding along the
+geodesic, and write $Q,Q'$ for the two laws of the eight private links,
+$\hat Q,\hat Q'$, $D,D'$ for the objects of Lemma~\ref{lem:relchart}(iv).
+Suppose that
+\[
+\textup{(J)}\qquad\int\bigl\lvert\log D-\log D'\bigr\rvert\,d\hat Q\le
+K\,d(e,e')
+\]
+for every such pair along the geodesic. Then, for the cost $\sum_a\delta$,
+\begin{multline*}
+W_1(Q,Q')\le\bigl(16.52+2898\beta_W+41.37K\\
++238.1\,\iota\,e^{72\beta_W}\bigr)\,d(e,e'),
+\end{multline*}
+with $\iota=0$ for $B=\SU(2)^7$ and $\iota=1$ for $B=B^{\mathrm{bad}}_r$.
+If every $u_a$ equals $I$ and $e$ is a link $w_b$, or every $w_a$ equals
+$I$ and $e$ is a link $u_b$, then \textup{(J)} holds with $K=0$, and for
+$B=\SU(2)^7$ the bound holds with $u$, respectively $w$, otherwise
+arbitrary.
+\end{theorem}
+
+\begin{proof}
+Since $W_1$ is a metric, it suffices to prove the bound with an error
+$o(d(e,e'))$ for nearby pairs and to add along a subdivision of the
+geodesic. Couple $\hat Q$ and $\hat Q'$ so that $\xi=\xi'$ with
+probability $1-\mathrm{TV}(\hat Q,\hat Q')$, and use the maps of
+Lemma~\ref{lem:relchart}(iv): by (ii) of that lemma the cost is at most
+$8L\,d(e,e')<16.52\,d(e,e')$ where $\xi=\xi'$, and at most the diameter
+$8\cdot2\sqrt2$ otherwise. So $W_1\le16.52\,d(e,e')+16\sqrt2\,
+\mathrm{TV}(\hat Q,\hat Q')$, and with $f,f'$ the unnormalised densities,
+$\mathrm{TV}(\hat Q,\hat Q')\le\frac1Z\int\lvert f-f'\rvert\,d\xi$.
+
+\emph{The action.} The links $u_b,w_b$ share no plaquette with a private
+link, the two $\mu$-links of a plaquette having one $\mu$-coordinate, so
+$S_{\mathrm{dep}}$ changes only through the eight links, each of which moves
+by at most $L\,d(e,e')$. Each of the $48$ incidences of a private link
+with a plaquette contributes at most $\frac1{\sqrt2}$ times its speed, by the
+proof of Lemma~\ref{lem:wilsononly}, so $\lvert S_{\mathrm{dep}}-
+S'_{\mathrm{dep}}\rvert\le\frac{48L}{\sqrt2}d(e,e')<70.06\,d(e,e')$ at every
+$\xi$, and
+\[
+\int_{B\cap B'}\frac{\lvert e^{-\beta_WS}-e^{-\beta_WS'}\rvert}{D'}\,d\xi
+\le\bigl(e^{70.06\beta_Wd(e,e')}-1\bigr)\Bigl(\frac{1+\lambda}{1-\lambda}
+\Bigr)^3Z ,
+\]
+with $(\frac{1+\lambda}{1-\lambda})^3<1.828$ by
+Lemma~\ref{lem:relchart}(iii); here $B,B'$ denote the sets of $\xi$ with
+$G(\xi)\xi$, respectively $G'(\xi)\xi$, in $B$.
+
+\emph{The Jacobian.} With $\varDelta=\log D-\log D'$, $\lvert\varDelta\rvert
+\le3\log\frac{1+\lambda}{1-\lambda}$ and $\lvert e^{\varDelta}-1\rvert\le
+1.828\lvert\varDelta\rvert$, so $\int_{B\cap B'}e^{-\beta_WS}\lvert D^{-1}-
+D'^{-1}\rvert\,d\xi\le1.828\,Z\int\lvert\varDelta\rvert\,d\hat Q\le1.828\,
+KZ\,d(e,e')$.
+
+\emph{The restricting set.} For $B=\SU(2)^7$ there is nothing to do. For
+$B=B^{\mathrm{bad}}_r$ let $\mathcal M(\xi)=\max_ad(G(\xi)\xi_a,c_k)$ and
+$\varepsilon=L\,d(e,e')$, with $r+\varepsilon\le\frac1{32}$. Then $\lvert
+\mathcal M-\mathcal M'\rvert\le d(G,G')\le\varepsilon$, so $B\setminus B'$
+and $B'\setminus B$ consist of $\xi$ whose eight links, before
+respectively after the move, satisfy $r<\max_ad(\ell_a,c_k)\le r+
+\varepsilon\le\frac1{32}$. On that shell, with every inside link within
+$\frac1{32}$ of $I$, Proposition~\ref{prop:goodside} with radius
+$\frac1{32}$ and the proof of Proposition~\ref{prop:eightlabels} show that
+the fibre is a graph over the non-path links with $J_8^{-1}\mathrm{vol}_M
+=\lvert\det D_gV\rvert^{-1}dz$, $\lvert\det D_gV\rvert^{-1}\le828$. Since
+$e^{-\beta_WS_{\mathrm{dep}}}\le1$ and Lemma~\ref{lem:relchart}(iv)
+identifies both disintegrations,
+\[
+\int_{B\setminus B'}f\,d\xi+\int_{B'\setminus B}f'\,d\xi\le2\cdot828
+\cdot7\cdot\frac{\varepsilon(r+\varepsilon)^2}{\sqrt2\,\pi},
+\]
+since the Haar measure of the shell $\{s<d(\ell,c)\le s+\varepsilon\}$
+is
+\[
+\frac2\pi\int_{s/\sqrt2}^{(s+\varepsilon)/\sqrt2}\sin^2t\,dt\le
+\frac{\varepsilon(s+\varepsilon)^2}{\sqrt2\,\pi} .
+\]
+Divided by $Z\ge(\frac12-2.3\cdot10^{-6})
+e^{-72\beta_W}$ (Lemma~\ref{lem:relnorm}) and with $r\le\frac1{32}$, this is
+at most $10.52\,e^{72\beta_W}d(e,e')+o(d(e,e'))$.
+
+Adding the three parts,
+\begin{multline*}
+\mathrm{TV}(\hat Q,\hat Q')\le\bigl(128.07\beta_W+1.828K+10.52\,\iota
+e^{72\beta_W}\bigr)\,d(e,e')\\
++o(d(e,e')),
+\end{multline*}
+with $1.828\cdot70.06<128.07$; multiplied by $16\sqrt2$, with
+$16\sqrt2\cdot128.07<2898$, $16\sqrt2\cdot1.828<41.37$ and $16\sqrt2\cdot
+10.52<238.1$, this gives the constants. If every $u_a=I$ and $e=w_b$, then $D\equiv D'\equiv1$
+by Lemma~\ref{lem:relchart}, and (J) holds with $K=0$; likewise in the
+coordinates $\xi_a=\ell_ag^{-1}$ if every $w_a=I$ and $e=u_b$, where
+Lemma~\ref{lem:relchart} needs no bound on $u$, and the case $B=\SU(2)^7$
+uses no bound on the inside links at all.
+\end{proof}
+
+The other inside links of the two blocks are not $\mu$-links, do not
+enter $V^\sharp_k$, and lie in at most one plaquette with a private link;
+the proof of Lemma~\ref{lem:wilsononly} applies to them unchanged and
+bounds the response to each of them by $8\beta_W$ for every $B$. So the
+response of the law of the eight private links to every inside link is
+bounded, with the constants of Theorem~\ref{thm:relresponse}, as soon as
+the Jacobian condition (J) holds: for $B^{\mathrm{bad}}_r$ on every
+configuration that the labels produce, since there $d(u_a,I),d(w_a,I)\le r$
+by Proposition~\ref{prop:eightlabels}, and for $\SU(2)^7$ on every
+configuration whose links $u_a$ lie within $\frac1{32}$ of $I$. Condition
+(J) is not proved. By
+Lemma~\ref{lem:relchart}(iii), $D$ lies in $[0.728,1.332]$ for all inside
+links, so (J) asks only for its continuity in the mean. The derivative of
+$Y=\chi N$ in $g$ contains $N\otimes\phi'(m)D_gm$, and $D_gm$ vanishes when
+the largest $\delta(v_x,I)$ is attained at a path from $x'_a$, which does
+not depend on $g$; so $D$ jumps across the sets where the maximal path
+passes between a path from some $x_a$ and another path while $\frac12<m<1$,
+and these sets move with the inside links. Off them $D$ is a smooth
+function of the inside links. Condition (J) is the statement that the
+$\hat Q$-mass swept by these sets, weighted by the jumps of $\log D$, is
+of order $d(e,e')$. The last part of the theorem shows that the obstruction
+needs both blocks: if all the inside links of one of them are $I$, the law
+responds boundedly to every inside link of the other, without (J). For the
+sets $B_\varepsilon$ of Theorem~\ref{thm:eightlinkuniform}, whose inside
+links are within $\frac1{32}$ of $I$, Lemma~\ref{lem:relchart} applies and
+the fibre is a graph over $\xi$; the bound fails there through the
+restricting set, whose boundary is not in the good shell and whose
+normaliser tends to zero with $\varepsilon$. For the first set with inside
+links farther than $\frac1{32}$ from $I$ in both blocks the chart is not
+available and nothing is proved. What the cube condition uses can instead
+be taken from the site, in a form whose units do not overlap.
 
 The sites of two consecutive bad pairs along $\mu$ share seven inside
 links, so the sites themselves do not partition the bad side. The
@@ -27667,9 +27959,14 @@ in an inside link. For $\mu=3$ the inside $\mu$-links are tree links and
 Lemma~\ref{lem:wilsononly} settles the law of the eight private links;
 for $\mu\le2$, Theorem~\ref{thm:eightlinkuniform} shows that its response
 to an inside link is not bounded uniformly in the set over which the
-non-path links are restricted, and whether it is bounded for the two sets
-that the labels produce (Proposition~\ref{prop:eightlabels}) is not
-decided. The chains of Definition~\ref{def:linechain} carry the inside
+non-path links are restricted. In the relative chart of
+Lemma~\ref{lem:relchart} the fibre is one graph over the coordinates
+$g^{-1}\ell_a$, and Theorem~\ref{thm:relresponse} bounds the response for
+the two sets that the labels produce (Proposition~\ref{prop:eightlabels})
+under one condition, the continuity in the mean~(J) of the Jacobian of
+that chart, which is not proved; it holds, and the response to the inside
+$\mu$-links of one block is bounded, when those of the other block equal
+$I$. The chains of Definition~\ref{def:linechain} carry the inside
 links among their variables, partition the bad side, and respond to every
 other link with the constants of Theorem~\ref{thm:site} in which $24$ is
 replaced by their size $n\le23n_b+1$ (Proposition~\ref{prop:linechain});
