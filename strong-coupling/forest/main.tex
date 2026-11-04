@@ -21019,6 +21019,194 @@ and every $\rho\le1$, $q_\rho(\beta_W)=1$, since the convex function
 $\beta/16-6(\log\beta+C_0)$ is negative at $\beta=1$ and at $\beta=10^3$.
 \end{remark}
 
+The fields that carry Theorem~\ref{thm:chessceiling} are critical points of
+the Wilson action. Every first variation of the action vanishes at them, so
+a bound that removes the coarse defects detected by a first-order estimate,
+such as the force events of Theorem~\ref{thm:haartilt} and
+Proposition~\ref{prop:foresttilt}, and treats the remaining defects by the
+chessboard estimate, still meets the ceiling. On $\Lambda_L$ write $S(U)=
+\sum_ps_p$, $s_p=1-\frac12\Tr U_p$, as in Lemma~\ref{lem:wilsonZ}, and for a
+link $e$ and $Y\in\mathfrak{su}(2)$ let $U^{e,tY}$ be the field with $U_e$
+replaced by $U_ee^{tY}$. A field $U$ is a \emph{critical point} of $S$ when
+$\partial_tS(U^{e,tY})|_{t=0}=0$ for every link $e$ and every $Y$. A
+\emph{field of directions} is a family $Y=(Y_e)$ of continuous maps from
+the fields on $\Lambda_L$ to $\mathfrak{su}(2)$, and
+\[
+D_YS(U)=\partial_tS\bigl((U_ee^{tY_e(U)})_e\bigr)\big|_{t=0}.
+\]
+The force $D_rS$ of Theorem~\ref{thm:haartilt} is $D_YS$ with the constant
+directions $Y_e=r_e$, and the force $D^F_rS$ of
+Proposition~\ref{prop:foresttilt} is $D_YS$ with $Y_e(U)=\operatorname{Ad}
+(h_y(U)^{-1})r_e$, which is continuous because $h_y(U)$ is a product of link
+variables.
+
+\begin{lemma}[constant curvature is critical]\label{lem:constantcritical}
+Every field $U$ of Proposition~\ref{prop:constantcurvature} is a critical
+point of $S$. Consequently $D_YS(U)=0$ for every field of directions $Y$.
+\end{lemma}
+
+\begin{proof}
+The field takes values in the torus $\exp(\R T)$, every plaquette of the
+plane $\{0,1\}$ has $U_p=\exp(\theta T)$ with one orientation, and every
+other plaquette has $U_p=I$ (Proposition~\ref{prop:constantcurvature}). Fix
+a link $e$ of direction $\mu$ and $Y\in\mathfrak{su}(2)$, and write $Y=yT+
+Y_\perp$ with $y\in\R$ and $Y_\perp$ off-diagonal. As in the proof of
+Theorem~\ref{thm:haartilt}(i), for a plaquette $p$ through $e$ the
+plaquette variable of $U^{e,tY}$ is $e^{\epsilon_pt\operatorname{Ad}(h_p)Y}
+U_p$, where $h_p$ is a product of link variables of $U$ and $\epsilon_p=+1$
+if $p$ traverses $e$ forwards and $-1$ if backwards. Since $h_p$ lies in the
+torus, $\operatorname{Ad}(h_p)Y=yT+Y'_\perp$ with $Y'_\perp$ off-diagonal,
+and $\Tr(Y'_\perp U_p)=0$ because $U_p$ is diagonal. Hence
+\[
+\partial_ts_p\big|_{t=0}=-\tfrac12\epsilon_p\,y\,\Tr(TU_p),
+\]
+which depends on $p$ only through $\epsilon_p$ and $U_p$. For each
+$\nu\ne\mu$ the link $e$ lies in exactly two plaquettes of the plane
+$\{\mu,\nu\}$, on the two sides of $e$ in the direction $\nu$; with
+$U_p=U_1U_2U_3^{-1}U_4^{-1}$ one of them traverses $e$ forwards and the
+other backwards, and the two have the same variable $U_p$, namely $\exp
+(\theta T)$ if $\{\mu,\nu\}=\{0,1\}$ and $I$ otherwise. Their contributions
+cancel, and summing over the three planes gives $\partial_tS(U^{e,tY})|_{t=0}
+=0$. Finally $S$ is a smooth function of the links, so by the chain rule
+$D_YS(U)=\sum_e\partial_tS(U^{e,tY_e(U)})|_{t=0}=0$.
+\end{proof}
+
+\begin{theorem}[the ceiling at the critical points]\label{thm:criticalceiling}
+Let $G=\SU(2)$, $\beta_W\ge1$, $0<\eta<\eta_c$ and $j\ge0$, and for every
+torus $\Lambda_L$ let $\mathcal N_L$ be an open set of fields on $\Lambda_L$
+that contains every critical point of $S$. Then
+Theorem~\ref{thm:chessceiling} holds, with the same constants, when in the
+hypotheses of its parts \textup{(i)} and \textup{(ii)} the words ``every
+field at which'' are replaced by ``almost every field of $\mathcal N_L$, for
+the product of the Haar measures, at which''. So does
+Corollary~\ref{cor:chessceiling}.
+\end{theorem}
+
+\begin{proof}
+Take $L$, $\theta$ and the field $U$ as in the proof of
+Theorem~\ref{thm:chessceiling}(i), so that $\theta_j<\theta$ and $4^{j+1}
+\theta\le\frac1{12}$. By Lemma~\ref{lem:constantcritical}, $U\in\mathcal
+N_L$.
+
+\emph{Continuity.} For $i\le j+1$ and every plaquette $P$ of the lattice of
+spacing $2^i$, the function $V\mapsto\delta(V^{(i)}_P,I)$ is continuous on
+the fields on $\Lambda_L$. Indeed $V^{(i)}$ is obtained by $i$ steps, each
+of which puts the field into the tree gauge by the gauge transformation
+whose value at a site is the product of the links along the tree path from
+the root of its block, a continuous function of the field, and then applies
+the cut-off average, which is continuous by Theorem~\ref{thm:cutoff}; the
+other choices of the tree gauge differ by transformations constant on the
+blocks, which conjugate the plaquette holonomies and leave $\delta(V^{(i)}_P,
+I)$ unchanged. The functions $s_p$ are continuous as well.
+
+\emph{A neighbourhood.} At $U$ every block is $\eta$-bad at scale $j$, with
+strict inequality, and every plaquette of $U^{(i)}$ has $\delta(U^{(i)}_P,I)
+\le2\sqrt2\sin(4^i\theta/2\sqrt2)$; every plaquette of the plane $\{0,1\}$
+has $s_p=2\sin^2(\theta/2\sqrt2)\le\theta^2/4$, and every other plaquette has
+$s_p=0$. The torus has finitely many plaquettes at each scale, so for every
+$\epsilon>0$ there is an open neighbourhood $N_\epsilon\subset\mathcal N_L$
+of $U$ on which every block is $\eta$-bad at scale $j$, every plaquette of
+$V^{(i)}$ has $\delta(V^{(i)}_P,I)<2\sqrt2\sin(4^i\theta/2\sqrt2)+\epsilon$
+for $i\le j+1$, and every fine plaquette has $s_p(V)<s_p(U)+\epsilon$. A
+nonempty open set has positive Haar measure, so the weakened hypotheses
+apply to some field $V\in N_\epsilon$.
+
+(i) The field $V$ has a plaquette of $V^{(i)}$ with $\delta(V^{(i)}_P,I)>
+\rho_i$, so $\rho_i<2\sqrt2\sin(4^i\theta/2\sqrt2)+\epsilon$. Letting
+$\epsilon\to0$ and then $\theta$ decrease to $\theta_j$ gives the conclusion
+of Theorem~\ref{thm:chessceiling}(i), and part (ii)(a) follows from it as
+there.
+
+(ii)(b) The field $V$ lies in some $E_z$, so its reflection lies in $E$,
+and the plaquettes of $[0,b]^4$ carry at the reflection the action that
+those of $z+[0,b]^4$ carry at $V$. The closed cube contains $b^2(b+1)^2$
+plaquettes of each of the six planes, so
+\[
+A\le\frac{b^2(b+1)^2\theta^2}4+6b^2(b+1)^2\epsilon .
+\]
+Letting $\epsilon\to0$ and $\theta$ decrease to $\theta_j$ gives $A\le b^2
+(b+1)^2\theta_j^2/4$, the only property of $E$ that the proof of
+Theorem~\ref{thm:chessceiling}(ii)(b) uses. Parts (ii)(c) and (iii) of that
+theorem, and Corollary~\ref{cor:chessceiling}, use only the inequalities of
+(i), (ii)(a) and (ii)(b).
+\end{proof}
+
+\begin{corollary}[first-order estimates]\label{cor:firstorder}
+Let $Y^1,\dots,Y^m$ be fields of directions on $\Lambda_L$, let $x_1,\dots,
+x_m>0$, and put
+\[
+\mathcal N=\bigl\{U:\lvert D_{Y^k}S(U)\rvert<x_k\text{ for }k=1,\dots,m
+\bigr\}.
+\]
+\begin{enumerate}[label=\textup{(\roman*)},leftmargin=*]
+\item $\mathcal N$ is open and contains every critical point of $S$.
+\item If $0<\eta<\eta_c$ and $2\sqrt2\pi<4^{-j-1}L^2(\frac1{12}-\tilde\eta)$,
+the set of fields in $\mathcal N$ at which a given block is $\eta$-bad at
+scale $j$ has positive $\mu_L$-measure. So the event that a block is
+$\eta$-bad is not contained, up to a $\mu_L$-null set, in the union of the
+events $\lvert D_{Y^k}S\rvert\ge x_k$.
+\item Every bound of the form
+\[
+\mu_L\{y\ \eta\text{-bad at scale }j\}\le\sum_{k=1}^m\mu_L\bigl(\lvert
+D_{Y^k}S\rvert\ge x_k\bigr)+B,
+\]
+in which $B$ is a bound of Theorem~\ref{thm:defects} or
+Proposition~\ref{prop:coarsechess} for events that cover almost every field
+of $\mathcal N$ at which $y$ is $\eta$-bad, as in the hypotheses of
+Theorem~\ref{thm:chessceiling}, has $B<1$ only under the conditions of
+Theorem~\ref{thm:chessceiling}\textup{(ii)}, and then
+Theorem~\ref{thm:chessceiling}\textup{(iii)} applies. This holds for the
+forces of Theorem~\ref{thm:haartilt} and Proposition~\ref{prop:foresttilt}
+with any directions $r$.
+\end{enumerate}
+\end{corollary}
+
+\begin{proof}
+(i) Each $D_{Y^k}S(U)=dS(U)[(U_eY^k_e(U))_e]$ is continuous, since $S$ is
+smooth and $Y^k$ continuous, so $\mathcal N$ is open, and it vanishes at
+every critical point.
+
+(ii) The interval $(\theta_j,4^{-j-1}/12]$ has length $4^{-j-1}(\frac1{12}-
+\tilde\eta)>2\sqrt2\pi/L^2$, so it contains $\theta=2\sqrt2\pi n/L^2$ for
+some integer $n\ge1$. The proof of Theorem~\ref{thm:criticalceiling} with
+this $\theta$ and $\mathcal N_L=\mathcal N$ gives a nonempty open subset of
+$\mathcal N$ on which every block is $\eta$-bad at scale $j$. It has positive
+Haar measure, and $\mu_L$ has a positive density with respect to Haar
+measure.
+
+(iii) This is Theorem~\ref{thm:criticalceiling} with $\mathcal N_L=\mathcal
+N$, which is admissible by (i).
+\end{proof}
+
+\begin{remark}[what the critical points leave]\label{rem:criticalceiling}
+At the fields of constant curvature the rarity of a coarse defect can only
+come from the size of the action, which is a second-order or global quantity
+there, and through the chessboard estimate that size, at most $(1+1/b)^2b^4
+\theta_j^2/4$ in a cube of side $b$, is compared with a normalisation of
+order $b^4\log\beta_W$. The first-order estimates themselves charge no
+fluctuation volume: Theorem~\ref{thm:haartilt} bounds the force events
+uniformly in the exterior with the exponent $\beta_Wx^2/(2K_r)$, which
+contains no factor $\log\beta_W$ per site. What they lack near these fields
+is detection, by Corollary~\ref{cor:firstorder}(ii). Criticality is not
+special to $\SU(2)$: the $\U(1)$ field with link angles $\varphi x_0$ on the
+links of direction $1$, $-\varphi Lx_1$ on the links of direction $0$ with
+$x_0=L-1$, and $0$ on the others, $\varphi=2\pi n/L^2<\pi$, has plaquette angle
+$\varphi$ on every plaquette of the plane $\{0,1\}$ and $0$ on the others, so
+the derivative of the $\U(1)$ action in the link angle $e$, $\sum_{p\ni e}
+\pm\sin\theta_p$, vanishes by the cancellation of the proof of
+Lemma~\ref{lem:constantcritical}. The force $\sum_p\sin\theta_p\,(da)_p$ of
+Corollary~\ref{cor:abeliancoarse} therefore vanishes at it, so
+$\sum_p\theta_p(da)_p=0$, and by the identity of that corollary its coarse
+flux $(d_kV^{(k)}(\theta))_P$ is the term $2\pi\sum_pn_p(da)_p$. Theorems~\ref{thm:chessceiling}
+and~\ref{thm:criticalceiling} say nothing about three kinds of bound: the
+chessboard estimate with the probability $\mu_L(\bigcap_zE_z)$ of the global
+event bounded otherwise than by its unnormalised weight $e^{-\beta_W(L/b)^4
+A/4}$ divided by $Z_L$, for instance by a map that preserves the Haar
+measures, acts at a finite distance and lowers the action on that event;
+bounds for the law of $U^{(j)}$ through an effective action, which is item
+(iv) of Sec.~\ref{ssec:remains}; and labels with $\eta\ge\eta_c$.
+\end{remark}
+
 \subsection{Two islands factorise through one kernel}\label{ssec:factorisation}
 
 Item (ii) of Sec.~\ref{ssec:remains}, in its original form, asks for the
@@ -28525,7 +28713,8 @@ Gaussian block-spin form of $\log c$ is not; the linearised propagator with
 the block-spin constraint decays at an explicit rate, which is the input that
 an expansion around a gauge-invariant leading term would use. For the shell,
 in the linearisation of the model the relative activities are not bounded
-under the calm law, at any $\lambda$ and $\kappa$. For the remainder,
+under the calm law, at any $\lambda$ and $\kappa$, and for $\SU(2)$ they
+are not bounded at any $\lambda$ and $\kappa\le10^{-8}$. For the remainder,
 $Z_\perp(I)>0$ for $\SU(2)$ at every $\lambda$ and every $\kappa\le
 10^{-8}$, and $Z_\perp$ is bounded in the mean over $c$ by the probability
 of a rough block.
@@ -28943,15 +29132,248 @@ squeezes into a corner of area $(3-R)^2/2$, while the rough completions keep
 a mass of order one. Weak coupling does not help, since the same holds at
 every $\lambda$; and the bound of Theorem~\ref{thm:sfcalm} does not apply,
 since at these boundary values every completion has a face at least
-$1-3t$, above $\kappa'$. In $\SU(2)$ the Bianchi identity holds up to
-commutators of order $\kappa^2$, so the same construction squeezes the calm
-completions only to a scale of order $\kappa^2$; whether
-$\rho_X\le e^{-9|X|}$ fails almost surely for $\SU(2)$ in the shell is not
-decided here. The hypothesis of Proposition~\ref{prop:sfrelative}(ii) can
+$1-3t$, above $\kappa'$. In $\SU(2)$ the Bianchi identity of the cube holds
+exactly up to conjugation, and $\rho_X$ is not essentially bounded under
+the calm law either, at every $\lambda$ and every $\kappa\le10^{-8}$
+(Theorem~\ref{thm:sfshellsu2} below). The hypothesis of Proposition~\ref{prop:sfrelative}(ii) can
 therefore hold at best in a form that excludes such boundary values, for
 example in the mean under the calm law, and Proposition~\ref{prop:sfrelative}
 (ii) is not proved in such a form for $\SU(2)$. In the linear model the mean
 form holds, with an explicit constant (Corollary~\ref{cor:sfglshell}).
+\end{remark}
+
+\emph{The shell for $\SU(2)$.} The Bianchi identity of a cube holds in
+$\SU(2)$ exactly, up to conjugation, and the calm condition is invariant
+under conjugation. This makes the construction of
+Theorem~\ref{thm:sfshelllin} work for $\SU(2)$ at every $\lambda$.
+
+For $g\in\SU(2)$ let $\theta(g)\in[0,\pi]$ be its angle, so that the
+eigenvalues of $g$ are $e^{\pm i\theta(g)}$. Then $\delta(g,I)=2\sqrt2\sin
+(\theta(g)/2)$ and $d(g,I)=\lVert\log g\rVert=\sqrt2\,\theta(g)$. On the unit
+quaternions $\theta(g)$ is the geodesic distance from $1$ to $g$, and left
+and right multiplications are isometries, so
+\[
+\theta(gh)\le\theta(g)+\theta(h),\qquad\theta(g^{-1})=\theta(kgk^{-1})=
+\theta(g),
+\]
+and under $h$ the angle has the density $\frac2\pi\sin^2\theta$ on
+$[0,\pi]$. Put $\theta_\kappa=2\arcsin(\kappa/(2\sqrt2))$, so that
+$\delta(g,I)\le\kappa$ if and only if $\theta(g)\le\theta_\kappa$. For a
+field $U$, a site $x$ and $\mu\ne\nu$ let $F^x_{\mu\nu}=U_{x,\mu}U_{x+e_\mu,
+\nu}U_{x+e_\nu,\mu}^{-1}U_{x,\nu}^{-1}$ be the holonomy of the plaquette at
+$x$ in the plane $\{\mu,\nu\}$, based at $x$.
+
+\begin{lemma}\label{lem:sfcorner}
+For every field $U$ and every site $x$,
+\[
+F^x_{01}F^x_{12}F^x_{20}=U_{x,0}\,H\,U_{x,0}^{-1},
+\]
+where $H=U_{x+e_0,1}U_{x+e_1,0}^{-1}U_{x+e_1,2}U_{x+e_2,1}^{-1}U_{x+e_2,0}
+U_{x+e_0,2}^{-1}$ is the holonomy of the hexagon of the unit cube at $x$
+in the directions $0,1,2$ that avoids $x$ and the opposite corner. If
+$\delta(F^x_{\mu\nu},I)\le\kappa$ for the three plaquettes, then $\theta
+(H)\le3\theta_\kappa$ and $\theta(F^x_{01}),\theta(F^x_{12})\ge\theta(H)-
+2\theta_\kappa$.
+\end{lemma}
+
+\begin{proof}
+In the product the factors $U_{x,1}^{-1}U_{x,1}$ and $U_{x,2}^{-1}U_{x,2}$
+cancel, which leaves $U_{x,0}HU_{x,0}^{-1}$. Hence $\theta(H)=\theta(F^x_
+{01}F^x_{12}F^x_{20})$, which is at most the sum of the three angles and at
+most $\theta(F^x_{01})+2\theta_\kappa$; the same holds for $F^x_{12}$.
+\end{proof}
+
+In the abelian case the identity is $F_1-F_2+F_3=R$ of the proof of
+Theorem~\ref{thm:sfshelllin}, $R$ being the circulation of the hexagon. The faces at $x$ enter
+only through their angles, so the commutators that separate $\SU(2)$ from
+the linear model do not weaken the constraint, and its extremal case
+$\theta(H)=3\theta_\kappa$ is attained by abelian fields with three aligned
+faces.
+
+\begin{theorem}\label{thm:sfshellsu2}
+Let $G=\SU(2)$, $0<\kappa\le10^{-8}$, $\lambda>0$, $c=I$ and $X=\{y\}$.
+There is $c_0>0$ such that for every $0<t\le\frac1{16}$ the calm law
+$\mu^\circ_I$ gives positive probability to $\{\rho_X\ge c_0t^{-2}\}$. So
+$\rho_X$ is not essentially bounded under the calm law, and the hypothesis
+of Proposition~\ref{prop:sfrelative}\textup{(ii)} fails for $\SU(2)$ at
+every $\lambda>0$ and every $\kappa\le10^{-8}$.
+\end{theorem}
+
+\begin{proof}
+\emph{Setting.} Let $x=2y+(1,1,1,0)$ and $l_\mu=(x,\mu)$ for $\mu=0,1,2$. As
+in the proof of Theorem~\ref{thm:sfshelllin}, the edge $(x+\varepsilon,\mu)$
+of the cube at $x$, $\varepsilon\in\{0,1\}^3\times\{0\}$, $\varepsilon_\mu
+=0$, is a private link of the pair $(y+\varepsilon,\mu)$. So $l_\mu$ is a
+private link of $(y,\mu)\in\mathcal P_X$, and not its path link
+$(2y+e_\mu,\mu)$; the six links $(x+e_\nu,\mu)$ of $H$ are private to pairs
+whose two blocks lie off $X$, so they are not in $\mathcal V_X$, and $H$
+is a function $H(o)$ of the outer variables $o$, the links off
+$\mathcal V_X$. The three plaquettes at $x$ are owned by $y$, and
+$F^x_{01}=l_0Al_1^{-1}$, $F^x_{12}=l_1Bl_2^{-1}$ with $A$, $B$ products of
+outer links. Here $X=\{y\}$ has $|\mathcal P_X|=8$, $|\hat X|=11$, and
+$L'$, the links of $\mathcal V_X$ other than the eight path links, has
+$73$ links. On the geodesically convex ball $N_0=\{v:\delta(v,I)\le
+\frac1{100}\}$ the derivative of $\log$ at $e^X$ is $\Phi(\pm\operatorname
+{ad}_X)$ in the trivialisations of the proof of
+Lemma~\ref{lem:smallframes}(iv), of norm at most $1+2\lVert X\rVert\le
+1.021$, since $\lVert X\rVert\le\frac\pi{300}$ by Lemma~\ref{lem:logbound};
+so $\lVert\log v-\log v'\rVert\le1.021\,d(v,v')$ on $N_0$.
+
+\emph{Step 1: the calm completions.} Let $o$ have $\varPhi_X(o)>0$ and
+$S_X(o)>0$, and put $s(o)=3\theta_\kappa-\theta(H(o))$. We show $s(o)\ge0$ and
+\[
+S_X(o)\le C_1\theta_\kappa^4s(o)^2,\qquad C_1=\frac{4\cdot9^{24}}{\pi^2}.
+\]
+There is a completion $U''$ at which every block of $\hat X$ is calm, and
+the blocks off $\hat X$ are calm because $\varPhi_X(o)>0$; so every
+plaquette is at most $\kappa$, and $s(o)\ge0$ by
+Lemma~\ref{lem:sfcorner}. As in the proof of Theorem~\ref{thm:sfperp},
+Lemma~\ref{lem:smallframes}(i),~(iv) with $c=I$ put every link of $U''$
+within $\varDelta=(21+8\pi)\kappa<46.14\kappa$ of $I$, every path link $v$
+within $d(v,I)\le8\pi\kappa$, and so, by Lemma~\ref{lem:logbound}, every
+link within $d\le\varDelta_1=50\kappa$ of $I$. These bounds hold for the
+outer links, which all completions share.
+
+Let $D_*$ be the set of $z\in G^{L'}$ with $d(z_e,I)\le\varDelta_1$ for every
+$e$, and $B_*$ the ball $d(\ell,I)\le R_*=45\varDelta_1$. For $z\in D_*$, a
+pair $k$ and $\ell\in B_*$ on its path link, one site of $k$ equals $I$,
+one is a single link of $L'$ or an outer link, and the other fourteen are
+$\ell^{-1}$ times a product of two such links; so all lie within $47
+\varDelta_1<\frac1{100}$ of $I$, the cut-off equals one, and
+$V^\sharp_k=\ell e^{N_k(\ell)}$ with $N_k$ the mean of the logarithms. The
+map $\Psi(\ell)=e^{-N_k(\ell)}$ satisfies $d(\Psi(\ell),I)\le\lVert N_k
+\rVert\le\frac{1.021}{16}(14\cdot47+1)\varDelta_1<42.1\varDelta_1<R_*$ and,
+since fourteen sites move by $d(\ell,\ell')$, $d(\Psi(\ell),\Psi(\ell'))\le
+\frac{14}{16}1.021\,d(\ell,\ell')$. So $\Psi$ has a unique fixed point
+$\psi_k(z)\in B_*$, which gives an injective map $\varGamma_*$ from $D_*$
+into the completions. Every completion with its free links in $D_*$ and its
+path links in $B_*$ is $\varGamma_*(z)$, since its path link is a fixed point
+of $\Psi$ in $B_*$; by the previous paragraph this includes every calm
+completion. Near $\varGamma_*(D_*)$ the averages are smooth. As in the proof
+of Proposition~\ref{prop:calmfibre}, the right trivialised derivative of
+$V^\sharp_k$ in its path link is $\operatorname{Ad}(\ell)T$ with
+$T=1-E_{N_k}\frac1{16}\sum_xL_{X_x}$, the sum over the fourteen sites that
+move, $E_N$ the derivative of the exponential map at $N$ and $L_{X_x}$
+that of the logarithm at $v_x=e^{X_x}$. Since every $\lVert X_x\rVert$ and $\lVert N_k\rVert$ is below
+$2.4\cdot10^{-5}$, the bounds $|\Phi(z)-1|,|\Psi(z)-1|\le|z|$ of the proof of
+Lemma~\ref{lem:smallframes}(iv) give $\lVert E_{N_k}L_{X_x}-1\rVert<10^{-4}$,
+so $\lVert T-\frac18\rVert<10^{-4}$ and $\lvert\det\partial_{d_k}V^\sharp_k
+\rvert\ge9^{-3}$. As in the proof of Theorem~\ref{thm:sfcalm}, $\lambda_X$
+restricted to $\varGamma_*(D_*)$ is the image of $h^{\otimes L'}$ on $D_*$
+divided by $\prod_k\lvert\det\partial_{d_k}V^\sharp_k\rvert$, and the
+integrand of $S_X$ is at most one and vanishes unless the completion is
+calm. By Lemma~\ref{lem:sfcorner}, at a calm completion $F^x_{01}$ and
+$F^x_{12}$ lie in the shell $E=\{g:\theta_\kappa-s(o)\le\theta(g)\le
+\theta_\kappa\}$, so
+\[
+S_X(o)\le9^{24}\,h^{\otimes L'}\bigl(\{z:F^x_{01}\in E,\ F^x_{12}\in
+E\}\bigr).
+\]
+For fixed values of the other links, $(l_0,l_1,l_2)\mapsto(F^x_{01},F^x_
+{12},l_1)$ is a bijection of $G^3$ that preserves $h^{\otimes3}$, since
+for fixed $l_1$ the maps $l_0\mapsto l_0Al_1^{-1}$ and $l_2\mapsto l_1Bl_2^
+{-1}$ preserve $h$. So the measure on the right is at most $h(E)^2$, and
+$h(E)\le\frac2\pi\theta_\kappa^2s(o)$.
+
+\emph{Step 2: the rough completions.} Let $\varphi_1$, $w$ and $\delta_0=
+\frac27$ be as in the proof of Theorem~\ref{thm:sfshelllin}, $w$ being the
+field equal to $-1$ on $l_1$, to $1$ on the path link $(2y+e_1,1)$ and to
+$0$ elsewhere. For $0<t\le\frac1{16}$ let $U_t$ and $U'_t$ equal
+\[
+\exp\bigl(\theta_\kappa(1-t)\varphi_1\,i\sigma_3\bigr),\qquad\exp\bigl(
+\theta_\kappa((1-t)\varphi_1+w/7)\,i\sigma_3\bigr)
+\]
+on every active link. These fields are abelian, the angle of a plaquette is
+$\theta_\kappa$ times the modulus of the linear plaquette, and every link
+has $d\le\sqrt2\cdot\frac9{14}\theta_\kappa$, as $|\varphi_1|\le\frac12$ and
+$|w|\le1$. Their sites lie within $3\theta_\kappa$ of $I$, so they are
+regular, and $V^\sharp=\exp(\theta_\kappa V(\cdot)\,i\sigma_3)=I$ since
+$V(\varphi_1)=V(w)=0$. Since $\varphi_1$ vanishes on $\mathcal V_X$ and $w$
+off it, $U_t$ and $U'_t$ are completions of the same outer variables
+$o_t$, with $\theta(H(o_t))=3(1-t)\theta_\kappa$, as $(F_1,F_2,F_3)=(1,-1,
+1)$. Every plaquette of $U_t$ has angle at most $(1-t)\theta_\kappa$. At
+$U'_t$ the plaquette at $x$ in the plane $\{0,1\}$ has angle $((1-t)+\frac17)
+\theta_\kappa\ge\frac{121}{112}\theta_\kappa$, and the plaquettes owned by
+the blocks of $\hat X\setminus X$, which are not faces of the cube, have
+angle at most $(\frac57+\frac17)\theta_\kappa$.
+
+Let $\rho_0=\theta_\kappa/1000$ and let $o$ be outer variables with
+$d(o_e,(o_t)_e)\le\rho_0$ for every outer link $e$. Let $z'$ and $\ell'_k$
+be the free and the path links of $U'_t$, $D$ the set of $z\in G^{L'}$ with
+$d(z_e,z'_e)\le\rho_0$, and $B_k$ the ball of radius $R=44\rho_0$ about
+$\ell'_k$. At $(o,z,\ell)$ with $\ell\in B_k$ fourteen sites of $k$ lie
+within $R+2\rho_0$ of their values at $U'_t$ and one within $\rho_0$, all in
+$N_0$. With $\Psi(\ell)=e^{-N_k(\ell)}$ formed at $(o,z)$, $d(\Psi(\ell),
+\ell'_k)\le\frac{1.021}{16}(14\cdot46+1)\rho_0<41.2\rho_0<R$, and $\Psi$ is a
+contraction as in Step 1. Its fixed points give an injective map
+$\varGamma_o$ from $D$ into the completions of $o$, near whose image the
+averages are smooth with $\lvert\det\partial_{d_k}V^\sharp_k\rvert\le1$,
+by the bound on $T$ of Step 1. As in the proof of Theorem~\ref{thm:sfcalm},
+\[
+\lambda_X\bigl(\varGamma_o(D)\bigr)\ge\Bigl(\frac{\rho_0^3}{14}\Bigr)^{73}.
+\]
+A plaquette has at most two path links, so on $\varGamma_o(D)$ each
+plaquette lies within $d\le2R+2\rho_0=90\rho_0$ of its value at $U'_t$, and
+its angle moves by less than $64\rho_0=0.064\,\theta_\kappa$. Hence $y$ is
+rough there, $\frac{121}{112}-0.064>1$, and the blocks of $\hat X\setminus X$
+are calm, $\frac67+0.064<1$; with $f_w\ge e^{-768\lambda}$ for each of the
+eleven blocks of $\hat X$,
+\[
+K_X(o)\ge k_0=\Bigl(\frac{\rho_0^3}{14}\Bigr)^{73}e^{-8448\lambda}.
+\]
+
+\emph{Step 3: positive probability.} Let $\rho_1=t\theta_\kappa/3000$. The
+construction in the proof of Theorem~\ref{thm:lfaction}(ii), with $\rho_1$ in
+place of the $\rho$ chosen there and the regular field $U_t\in F_I$, gives a
+set $\varGamma_t\subset F_I$ with $\nu_I(\varGamma_t)>0$ on which every link
+lies within $d\le44\rho_1$ of its value at $U_t$ and every plaquette within
+$90\rho_1$. On $\varGamma_t$ every plaquette has angle at most $(1-t+0.022t)
+\theta_\kappa<\theta_\kappa$, so every block is calm and $\varPhi_X>0$ at
+the outer variables $o$ of the field; these satisfy $d(o_e,(o_t)_e)\le44
+\rho_1\le\rho_0$, as $t\le\frac1{16}$; and $\theta(H(o))\ge3(1-t)
+\theta_\kappa-6\cdot44\rho_1/\sqrt2$, so $s(o)\le3.07\,t\,\theta_\kappa$. By
+Steps 1 and 2, wherever $S_X(o)>0$,
+\[
+\rho_X=\frac{K_X(o)}{S_X(o)}\ge\frac{k_0}{C_1\theta_\kappa^4(3.07t\theta_
+\kappa)^2}\ge\frac{c_0}{t^2},\qquad c_0=\frac{k_0\pi^2}{37.7\cdot9^{24}
+\theta_\kappa^6}.
+\]
+The integrand $\prod_yf_ys_y$ of $\mu^\circ_I$ is positive on
+$\varGamma_t$, so $\mu^\circ_I(\varGamma_t)>0$, and by the proof of
+Proposition~\ref{prop:sfrelative}(i) the calm law gives no mass to
+$\{S_X=0\}$. So $\mu^\circ_I\{\rho_X\ge c_0t^{-2}\}\ge\mu^\circ_I(
+\varGamma_t)>0$.
+\end{proof}
+
+\begin{remark}\label{rem:sfshellsu2}
+\begin{enumerate}[label=\textup{(\alph*)},leftmargin=*]
+\item The obstruction lies at the trivial coarse field and holds at every
+$\lambda$; the boundary values that cause it have every plaquette calm, the
+three plaquettes at $x$ in the shell $(\kappa/30,\kappa]$ and close to
+$\kappa$, and the hexagon close to its largest possible angle
+$3\theta_\kappa$. They squeeze the two faces $F^x_{01}$, $F^x_{12}$ of every
+calm completion into a shell of angular width $s(o)$, while the rough
+completions keep a mass bounded below.
+\item Since $\rho_X\ge0$ and the calm law of the outer variables has
+density proportional to $\varPhi_XS_X$, the mean of a product of relative
+activities is $\E_{\mu^\circ_c}[\prod_i\rho_{X_i}]\le Z_X(c)/Z_\emptyset(c)=
+\mu_c\{R=X\}/\mu_c\{R=\emptyset\}$, with equality when $Z_\perp$ receives
+nothing from $X$. A bound in the mean is therefore a bound on the
+constrained law at a fixed coarse field, which
+Theorem~\ref{thm:lfsuppression} gives only absolutely or under its
+hypothesis. These means do not factor over the components of $X$, so they
+are not activities to which Theorem~\ref{thm:lfkp} applies. In the
+Gaussian layer the mean bound of Corollary~\ref{cor:sfglshell} rests on the
+Gaussian correlation inequality, for which no $\SU(2)$ form is proved here.
+\item Lemma~\ref{lem:sfcorner} holds for every condition that confines the
+three plaquettes at $x$ to an angle $\theta_1$: the completions vanish
+when $\theta(H)>3\theta_1$ and are confined to the shell
+$\theta\ge\theta(H)-2\theta_1$ otherwise. Moving the threshold to
+$\kappa''\le10^{-8}$, as in Remark~\ref{rem:sfshell}, reproduces the
+configuration of the proof with $\kappa''$ in place of $\kappa$. For
+$\kappa>10^{-8}$ Step~1 is not proved, since Lemma~\ref{lem:smallframes}
+needs $\kappa\le10^{-8}$.
+\end{enumerate}
 \end{remark}
 
 \emph{The remainder $Z_\perp$.} Let $\mu_c=Z(c)^{-1}e^{-\lambda Q}\nu_c$ be
@@ -29152,15 +29574,17 @@ under the same condition, nonlocal, and its linear propagator decays at
 the explicit rate of
 Theorem~\ref{thm:sfprop}. In the linear model the relative activities are
 unbounded under the calm law at every $\lambda$ (Theorem~\ref{thm:sfshelllin}),
-so the almost sure hypothesis of Proposition~\ref{prop:sfrelative}(ii)
-fails there, while their mean is at most $e^{-9.2|X|}$ for $\lambda\kappa^2
+and for $\SU(2)$ at every $\lambda$ and $\kappa\le10^{-8}$
+(Theorem~\ref{thm:sfshellsu2}), so the almost sure hypothesis of
+Proposition~\ref{prop:sfrelative}(ii) fails in both, while in the linear
+model their mean is at most $e^{-9.2|X|}$ for $\lambda\kappa^2
 \ge16$, and the Gaussian layer of the step reproduces itself at every scale
 with the same constants (Theorem~\ref{thm:sfglstep},
 Corollaries~\ref{cor:sfglscales} and~\ref{cor:sfglshell} below); and
 $Z_\perp(I)>0$ for $\SU(2)$ (Theorem~\ref{thm:sfperp}). Not
-proved are a local expansion around a gauge-invariant leading term, any
-bound on the relative activities in the shell for $\SU(2)$, and a bound on
-$Z_\perp/Z_\emptyset$ uniform in $c$.
+proved are a local expansion around a gauge-invariant leading term, a
+bound in the mean on the relative activities in the shell for $\SU(2)$, and
+a bound on $Z_\perp/Z_\emptyset$ uniform in $c$.
 
 \paragraph*{The Gaussian layer of the step.}
 The linear model of Theorem~\ref{thm:sfshelllin} is the Gaussian layer of
@@ -32139,10 +32563,20 @@ normalisation of Lemma~\ref{lem:wilsonZ} or, for $\beta_W\ge10^3$, the exact
 one. For $\alpha\le\frac12$ and the labels of Theorem~\ref{thm:islandswide}
 the cube lies at least three dyadic scales higher, and for the calm labels
 at least twenty
-(Corollary~\ref{cor:chessceiling}). What is missing is a bound on the weight
+(Corollary~\ref{cor:chessceiling}). The fields of constant curvature that
+carry the ceiling are critical points of the action
+(Lemma~\ref{lem:constantcritical}), so every first-order estimate vanishes
+at them, the forces of Theorem~\ref{thm:haartilt} and
+Proposition~\ref{prop:foresttilt} included. By
+Theorem~\ref{thm:criticalceiling} the ceiling stays when the chessboard
+estimate need cover only the defects in an open set that contains the
+critical points, in particular those left by finitely many first-order
+estimates, which never cover a neighbourhood of these fields
+(Corollary~\ref{cor:firstorder}). What is missing is a bound on the weight
 of the coarse defects relative to $Z_L$ that does not charge the
-fluctuation volume of the cube (Remark~\ref{rem:chessceiling}), and (iv)
-is needed before any threshold bears on the gap.
+fluctuation volume of the cube and detects the defects near the critical
+points (Remarks~\ref{rem:chessceiling} and~\ref{rem:criticalceiling}), and
+(iv) is needed before any threshold bears on the gap.
 \item \emph{The scales.} An effective action at every scale whose
 one-step errors are summable in the sense of
 Proposition~\ref{prop:formstability} and whose locality norms obey
@@ -32185,9 +32619,17 @@ the weight of a coarse field is an exact sum over large-field regions, and
 the large-field sum is the calm weight times the mean of a polymer sum
 under the calm law (Proposition~\ref{prop:sfrelative}), whose activities are
 at most $e^{-9}$ per block wherever the boundary values admit a completion
-calm at $\kappa/30$ (Theorem~\ref{thm:sfcalm}). Not proved are that bound
-at calm fields with plaquettes in the shell $(\kappa/30,\kappa]$, a bound
-on the term $Z_\perp$, and the locality of the calm weight in $c$; by
+calm at $\kappa/30$ (Theorem~\ref{thm:sfcalm}). That bound fails at calm
+fields with plaquettes in the shell $(\kappa/30,\kappa]$: the Bianchi identity
+of a cube holds in $\SU(2)$ exactly up to conjugation
+(Lemma~\ref{lem:sfcorner}), and at the trivial coarse field the relative
+activity of one block is not essentially bounded under the calm law, at
+every $\lambda$ and every $\kappa\le10^{-8}$ (Theorem~\ref{thm:sfshellsu2}).
+So Proposition~\ref{prop:sfrelative}(ii) does not apply, and the shell needs
+a bound in the mean, which is a bound on the ratios $\mu_c\{R=X\}/\mu_c\{R=
+\emptyset\}$ of the constrained law and is not proved
+(Remark~\ref{rem:sfshellsu2}). Not proved are also a bound on the term
+$Z_\perp$ and the locality of the calm weight in $c$; by
 Theorem~\ref{thm:sfgauss} the calm weight is not a product of local factors
 times a polymer sum if the rational number $(M_W)_{AB}$ of that theorem is
 nonzero, as an exact computation finds (Remark~\ref{rem:sfgaussvalue}), and
