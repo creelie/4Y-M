@@ -15919,6 +15919,224 @@ $\mathcal O^\perp$ and has $|w|^2=C_n^-Q_1(w)\ge\frac14C_n^-S_W(w)$, by
 Lemma~\ref{lem:windowgap}(iii).
 \end{proof}
 
+\emph{Loop remainders.} Hypothesis (H) is an absolute bound, and
+Proposition~\ref{prop:relstep}(iii) shows that it costs the factor $C_n$. A
+remainder built from Wilson loops that are filled by plaquettes obeys a
+relative bound instead, at every flat background, and then $C_n$ falls on
+the Haar term alone. Let $G\subset\U(N)$, with $\ip XY=-\Tr(XY)$ on $\g$,
+and put
+\[
+s(g)=1-\frac1N\ReTr g=\frac1{2N}\lVert I-g\rVert_{HS}^2\qquad(g\in\U(N)),
+\]
+which is invariant under conjugation and inversion. For a coarse path $C$
+let $V_C$ be its holonomy, the ordered product of its links. An
+\emph{ordered filling} of a closed path $C$ is an identity
+\begin{equation}\label{eq:filling}
+V_C=\prod_{j=1}^{A_C}h_jV_{p_j}^{\epsilon_j}h_j^{-1},\qquad\epsilon_j=\pm1,
+\end{equation}
+valid for every field, in which each $h_j$ is the holonomy of a path and
+$V_{p_j}$ the holonomy around a plaquette $p_j$ read from one of its
+corners. Let $m_{Cp}$ be the number of $j$ with $p_j=p$. This is the lattice
+form of the non-abelian Stokes theorem of Brali\'c~\cite{Bra80}.\footnote{In
+words: the holonomy of a loop is a product of plaquette holonomies, each
+carried to the base point along a path. The order of the factors matters,
+the field does not.}
+
+\begin{lemma}[filled loops]\label{lem:loopfill}
+\begin{enumerate}[label=\textup{(\roman*)},leftmargin=*]
+\item For $g_1,\dots,g_A\in\U(N)$,
+\[
+s(g_1\cdots g_A)\le A\sum_{j=1}^As(g_j).
+\]
+\item Every closed path of length $\ell$ in $\Z^4$ has an ordered filling
+by at most $\ell(\ell-1)/2$ plaquettes, all in the smallest box that
+contains the path.
+\item If $C$ has an ordered filling, then $s(V_C)\le A_C\sum_pm_{Cp}\,
+s(V_p)$ for every field $V$.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+(i) Since $I-g_1\cdots g_A=\sum_jg_1\cdots g_{j-1}(I-g_j)$ and the
+Hilbert--Schmidt norm is unitarily invariant,
+\[
+\lVert I-g_1\cdots g_A\rVert_{HS}\le\sum_j\lVert I-g_j\rVert_{HS}.
+\]
+Square, apply Cauchy--Schwarz and divide by $2N$.
+
+(ii) Write $C$ as a word of unit steps from its base point. Suppose two
+consecutive steps $u$, from $x$ to $x+e$, and $v$, from $x+e$ to $x+e+f$,
+point in different directions, with $e,f\in\{\pm e_\mu\}$. Let $v'$ be the
+step from $x$ to $x+f$ and $u'$ the step from $x+f$ to $x+e+f$. The loop
+$uv(u')^{-1}(v')^{-1}$ is the boundary of a plaquette $p$ read from its
+corner $x$, so $V_uV_v=V_p^{\pm1}V_{v'}V_{u'}$. If $P$ is the part of $C$
+before $u$ and $C'$ is $C$ with $uv$ replaced by $v'u'$, then
+\[
+V_C=\bigl(V_PV_p^{\pm1}V_P^{-1}\bigr)V_{C'}.
+\]
+Each exchange of two adjacent steps of different directions therefore puts
+one factor of the form~\eqref{eq:filling} in front. Sort the steps by
+their direction in this way, keeping the order of the steps of one
+direction. The number of exchanges is the number of pairs of steps out of
+order, at most $\ell(\ell-1)/2$. The sorted path is a succession of runs
+along single lines. Since $C$ is closed, each run returns to its starting
+point, and a closed path on a line has holonomy $I$: it contains a step
+followed by its reverse, which cancel. So $V_C$ is the product of the
+factors. The new corner $x+f$ has each coordinate equal to the coordinate
+of $x$ or of $x+e+f$, so every path in the process, and every plaquette,
+stays in the smallest box containing $C$.
+
+(iii) Apply (i) to~\eqref{eq:filling}; conjugation and inversion do not
+change $s$.
+\end{proof}
+
+At $V_0\in G^K$, with the links off $K$ fixed, write $D_pw=\frac d{dt}
+V_p(V_0e^{tw})|_{t=0}$ for the derivative of the holonomy of $p$. If $V_0$
+is flat on $p$, that is $V_{0,p}=I$, then $D_pw\in\g$, and changing the
+corner from which $p$ is read conjugates $D_pw$ and leaves $\lVert D_pw
+\rVert$ unchanged. At $V_0=I$, $D_pw=\pm(dw)_p$, so $\sum_p\lVert D_pw
+\rVert^2=Q_1(w)$.
+
+\begin{proposition}[loop remainders at flat backgrounds]\label{prop:flatloops}
+Let $R(V)=\sum_Cr_C\,s(V_C)$, a sum over closed coarse paths $C$, each with a
+chosen ordered filling, such that
+\[
+\mathcal L=\sup_p\sum_C\lvert r_C\rvert A_Cm_{Cp}<\infty
+\]
+and the series converges with its first two derivatives near $V_0$.
+\begin{enumerate}[label=\textup{(\roman*)},leftmargin=*]
+\item $\lvert R(V)\rvert\le\mathcal L\sum_ps(V_p)$ for every field $V$,
+including large fields.
+\item If $V_0$ is flat on every plaquette of the fillings, then $\nabla R(0)
+=0$ and, in the coordinates $V_0e^\omega$,
+\[
+\bigl\lvert\Hess R(0)[w,w]\bigr\rvert\le\frac{\mathcal L}N\sum_p\lVert D_pw
+\rVert^2\qquad(w\in\g^K).
+\]
+\item Under (ii), $\Hess R(0)[w,d_{V_0}\eta]=0$ for every $w$ and every
+$\eta\in\g^{W^\circ}$.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+(i) By Lemma~\ref{lem:loopfill}(iii),
+\[
+\lvert R(V)\rvert\le\sum_C\lvert r_C\rvert A_C\sum_pm_{Cp}s(V_p),
+\]
+and the order of the nonnegative sums may be exchanged.
+
+(ii) For a $C^2$ path $g(t)$ in $\U(N)$ with $g(0)=I$, differentiating
+$s(g)=\frac1{2N}\lVert I-g\rVert_{HS}^2$ twice gives
+\[
+\frac d{dt}s(g(t))\Big|_0=0,\qquad\frac{d^2}{dt^2}s(g(t))\Big|_0=\frac1N
+\lVert\dot g(0)\rVert_{HS}^2.
+\]
+Along $V(t)=V_0e^{tw}$ every factor of~\eqref{eq:filling} equals $I$ at
+$t=0$, so $V_C(0)=I$, and the derivative of the product is the sum of the
+derivatives of the factors. Since $V_{p_j}(0)=I$, the derivatives of $h_j$
+and of $h_j^{-1}$ cancel, and
+\[
+\dot V_C(0)=\sum_{j=1}^{A_C}\epsilon_j\,h_j(0)\,D_{p_j}w\,h_j(0)^{-1}.
+\]
+Hence
+\[
+\begin{split}
+\frac{d^2}{dt^2}s(V_C(t))\Big|_0&=\frac1N\lVert\dot V_C(0)\rVert^2\le
+\frac1N\Bigl(\sum_j\lVert D_{p_j}w\rVert\Bigr)^2\\
+&\le\frac{A_C}N\sum_pm_{Cp}\lVert D_pw\rVert^2.
+\end{split}
+\]
+In the coordinates $\omega$ the path is the line
+$\omega=tw$, so this second derivative is $\Hess s(V_C)(0)[w,w]$, and the
+first derivative vanishes. Summing with the weights $\lvert r_C\rvert$ gives
+(ii).
+
+(iii) $R$ is $\Gamma_W$-invariant: a gauge transformation conjugates $V_C$
+by its value at the base point. Since $\nabla R(0)=0$,
+Lemma~\ref{lem:invariantslice}(i) gives (iii).
+\end{proof}
+
+The flat backgrounds include the pure gauges $V_{0,y,\mu}=g_yg_{y+e_\mu}
+^{-1}$, whose links may be far from $I$.
+
+\begin{corollary}[one step with a loop remainder]\label{cor:loopstep}
+Let $U=I$, so that $V_0=I$, and let $A=A_0+R$ near $0$, where $\Hess A_0(0)
+[\sigma,\sigma]=2\lambda S_W(\sigma)$ for $\sigma\in\mathcal O^\perp$ and
+$R$ is as in Proposition~\ref{prop:flatloops}, with all its paths and
+fillings in the box $\Lambda$, and $\mathcal L\le N\lambda\varepsilon$.
+Then the error $E$ of Proposition~\ref{prop:relstep} vanishes on $\g^K\times
+\mathcal O$ and
+\[
+\begin{split}
+\lvert E(w,w)\rvert&\le\lambda\varepsilon Q_1(w)+\delta_G\lvert\Pi w
+\rvert^2\le\varepsilon''\cdot2\lambda S_W(w),\\
+\varepsilon''&=\Bigl(\varepsilon+\frac{\delta_GC_n}\lambda\Bigr)
+\frac1{2c_*}.
+\end{split}
+\]
+For $\SU(2)$, $\lambda=10^{100}$ and $\varepsilon=1.63\cdot10^{-9}$,
+$\varepsilon''\le5.60\cdot10^{-9}$ for $n\le10^{40}$ and $\varepsilon''\le
+0.1$ for $n\le9.2\cdot10^{49}$, against $n\le8455$ under (H).
+\end{corollary}
+
+\begin{proof}
+Part (i) of Proposition~\ref{prop:relstep} does not use (H). As in its
+part (ii),
+\[
+E(w,w)=\Hess R(0)[\Pi w,\Pi w]+\frac1{12}\sum_k\Tr\bigl(\operatorname
+{ad}_{(\Pi w)_k}^2\bigr),
+\]
+since the term of $A_0$ is $2\lambda S_W(\Pi w)=2\lambda S_W(w)$.
+Proposition~\ref{prop:flatloops}(ii) at $V_0=I$ bounds
+the first term by $\lambda\varepsilon Q_1(\Pi w)$, and $Q_1(\Pi w)=Q_1(w)$
+because $Q_1$ is positive semidefinite and vanishes on $\mathcal O$
+(Lemma~\ref{lem:windowgap}(i)). The second term is at most $\delta_G|\Pi
+w|^2\le\delta_GC_nQ_1(w)$ by Lemma~\ref{lem:windowgap}(ii), and $Q_1\le
+S_W/c_*$ by Lemma~\ref{lem:windowgap}(iii). The numbers follow from $2c_*>
+0.29131$ and $C_n\le\frac54+n^2/\pi^2$.
+\end{proof}
+
+Proposition~\ref{prop:relstep}(iii) and Corollary~\ref{cor:loopstep} do not
+conflict. The function $F$ there has the error $\frac12\lambda\varepsilon
+|\sigma|^2$ in the slice variable, a sum over links that is not a function
+of loops. The Hessian of a loop remainder at a flat background is a sum of
+squares of combinations of the curvature derivatives $D_pw$, so $Q_1$
+itself controls it.
+
+\begin{remark}[what the loop bound does not give]\label{rem:valueshessians}
+The bound has three limits.
+\begin{enumerate}[label=\textup{(\alph*)},leftmargin=*]
+\item \emph{Winding loops.} On the whole coarse torus of side $L$, a loop
+winding around the torus has no filling. Take the field with $V_{y,\mu}=I$
+for $\mu\ne0$ and
+\[
+V_{y,0}=g=\operatorname{diag}\bigl(e^{i\pi/2L},e^{-i\pi/2L}\bigr)\in\SU(2).
+\]
+Every plaquette holonomy is $I$, while the loop along direction $0$ has
+holonomy $g^L=\operatorname{diag}(i,-i)$, and $s(g^L)=1$. No bound of $s(V_C)$ by a
+multiple of the plaquette action holds for it. In the box $\Lambda$ every
+closed path has a filling, by Lemma~\ref{lem:loopfill}(ii).
+\item \emph{Values are not Hessians.} For $\SU(2)$, $m\in4\mathbb N$ and
+$g(\theta)=\operatorname{diag}(e^{i\theta},e^{-i\theta})$, the function
+$R_m(g(\theta))=\epsilon(1-\cos\theta)\cos(m\theta)$ is a class function,
+smooth because $\cos(m\theta)=T_m(\frac12\Tr g)$ with $T_m$ the Chebyshev
+polynomial. It satisfies $\lvert R_m\rvert\le\epsilon s$ everywhere, while
+\[
+\frac{d^2}{d\theta^2}R_m(g(\theta))\Big|_{\theta=\pi/2}=-\epsilon m^2,
+\]
+since $\cos\frac{m\pi}2=1$ and $\sin\frac{m\pi}2=0$. Composed with one
+plaquette holonomy it is a gauge-invariant action term with a relative
+bound on its values and an unbounded Hessian at a background where that
+plaquette has holonomy $g(\pi/2)$. A relative bound on the values of the
+remainder therefore gives no Hessian bound at curved backgrounds; part (ii)
+of Proposition~\ref{prop:flatloops} uses flatness through $V_C(0)=I$.
+\item \emph{The representation.} The induced action is not shown here to be
+a series of filled loops with small $\mathcal L$. Its determinants and
+coarea factors are not of this form as they stand, and the Haar term
+$\delta_G$ keeps the factor $C_n$.
+\end{enumerate}
+\end{remark}
+
 \emph{The induced action.} Let $e^{-A(\omega)}$ be the density in $\omega$
 of the cut-off averages of a window under the Wilson measure restricted by a
 cut-off. The small-field restriction is an example: it is a soft box in the
@@ -15940,7 +16158,9 @@ open.
 one point is an absolute bound, of the kind by which
 Theorems~\ref{thm:smallfibre} and~\ref{thm:fibrechart} control the
 non-Gaussian terms, and only its restriction to $\mathcal O^\perp$ is used.
-It is not proved in this paper. For $\SU(2)$, $\lambda=10^{100}$ and
+It is not proved in this paper. Corollary~\ref{cor:loopstep} replaces it
+by a loop representation of the remainder, under which $C_n$ falls on the
+Haar term alone. For $\SU(2)$, $\lambda=10^{100}$ and
 $\varepsilon=1.63\cdot10^{-9}$, interval arithmetic gives $\varepsilon'\le
 8.40\cdot10^{-9}$ at $n=2$, $1.52\cdot10^{-8}$ at $n=4$, $1.52\cdot
 10^{-7}$ at $n=16$ and $5.95\cdot10^{-4}$ at $n=1024$, and $\varepsilon'
@@ -16004,7 +16224,9 @@ The part $n_1^2/3$ is the conversion cost. It is the absolute error carried
 to the last scale, $4^{K-1}\approx n_1^2$, so it is finite for a fixed
 window but not uniform in the volume. Removing it needs a gauge-invariant
 localisation of the one-step bound, which is part of
-Ba{\l}aban's analysis~\cite{Bal89b}. The part $K$ is marginal. The Haar term $\delta_G/\lambda_k$ is of order
+Ba{\l}aban's analysis~\cite{Bal89b}. For a remainder that is a series of filled
+Wilson loops, Corollary~\ref{cor:loopstep} removes it from $\varepsilon_k$
+and leaves it on the Haar term $\delta_G/\lambda_k$. The part $K$ is marginal. The Haar term $\delta_G/\lambda_k$ is of order
 $g_k^2$, and $\sum_kg_k^2$ diverges logarithmically along the one-loop
 coupling by Remark~\ref{rem:constrainedopen}(c). The order $g^2$ of the
 one-step error must therefore be absorbed into the running coupling and the
@@ -16881,10 +17103,13 @@ of the Euclidean form grows by a factor at least $4/(1+2724\kappa)$ at each
 step. Proposition~\ref{prop:relstep} gives such a relative bound
 for one step at the trivial background on a box of side $n$, from an
 absolute bound on the Hessian of the induced action off the gauge
-directions; its factor $C_n$, of order $n^2$, is necessary
-(Remark~\ref{rem:relscales}) and is removed only by a gauge-invariant
-localisation, and the bound at curved backgrounds and away from critical
-points is not proved. Sec.~\ref{ssec:lfstep} carries out the large-field
+directions; its factor $C_n$, of order $n^2$, is necessary for an
+absolute bound (Remark~\ref{rem:relscales}). For a remainder made of
+filled Wilson loops the bound is relative at every flat background
+(Proposition~\ref{prop:flatloops}), and $C_n$ falls on the Haar term alone
+(Corollary~\ref{cor:loopstep}); that the induced action has this form is
+not proved, and a relative bound on values gives no Hessian bound at curved
+backgrounds (Remark~\ref{rem:valueshessians}). Sec.~\ref{ssec:lfstep} carries out the large-field
 part of one step for $\SU(2)$: each rough block costs $e^{-\lambda\kappa^2}$,
 the weight of a coarse field is an exact sum over large-field regions, and
 Theorem~\ref{thm:lfkp} sums the regions once the small-field part is local
@@ -18849,6 +19074,9 @@ M.~Biskup, Reflection positivity and phase transitions in lattice spin
 models, in \emph{Methods of Contemporary Mathematical Statistical Physics},
 Lecture Notes in Math. 1970, Springer, Berlin, 2009, 1--86,
 \href{https://doi.org/10.1007/978-3-540-92796-9_1}{doi:10.1007/978-3-540-92796-9\_1}.
+
+\bibitem{Bra80}
+N.~E.~Brali\'c, Exact computation of loop averages in two-dimensional Yang--Mills theory, Phys. Rev. D \textbf{22} (1980), 3090--3103, \href{https://doi.org/10.1103/PhysRevD.22.3090}{doi:10.1103/PhysRevD.22.3090}.
 
 \bibitem{BFS79}
 D.~Brydges, J.~Fr\"ohlich and E.~Seiler, On the construction of quantized gauge fields. I. General results, Ann. Physics \textbf{121} (1979), 227--284, \href{https://doi.org/10.1016/0003-4916(79)90098-8}{doi:10.1016/0003-4916(79)90098-8}.
