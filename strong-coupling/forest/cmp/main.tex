@@ -69,7 +69,7 @@ nonconvex bad side and its three-preimage branch family
 of the path-link law: the response to the links that enter only the
 action, the good side to radius $1/32$, and the fold across which the law
 jumps for every coupling (Lemma~\ref{lem:wilsononly},
-Propositions~\ref{prop:goodside} and~\ref{prop:fold}), the bounded response of the $24$-link site of a bad pair, which carries its inside links among its variables, to every other link (Theorem~\ref{thm:site}), the exact factorisation of the weight of two bad islands through one kernel on the good layer between them, on a domain that their labels do not move, with the covariance bound of the chart for the layer law in the coordinates of the labels and a cross-ratio exponentially small in the width of the layer (Theorems~\ref{thm:factorisation} and~\ref{thm:layerbound}, Proposition~\ref{prop:layercross}, Corollaries~\ref{cor:twolabels} and~\ref{cor:twoislands}), the growth by a factor four per step of an error bounded by a multiple of the Euclidean form, which forces the one-step errors of an effective action to be relative and gauge invariant (Proposition~\ref{prop:massgrowth}), the floor $q^2/16$ on the covariance of
+Propositions~\ref{prop:goodside} and~\ref{prop:fold}), the bounded response of the $24$-link site of a bad pair, which carries its inside links among its variables, to every other link (Theorem~\ref{thm:site}), the exact factorisation of the weight of two bad islands through one kernel on the good layer between them, on a domain that their labels do not move, with the covariance bound of the chart for the layer law in the coordinates of the labels and a cross-ratio exponentially small in the width of the layer (Theorems~\ref{thm:factorisation} and~\ref{thm:layerbound}, Proposition~\ref{prop:layercross}, Corollaries~\ref{cor:twolabels} and~\ref{cor:twoislands}), the evaluation of the prefactor of that cross-ratio (Lemma~\ref{lem:lambdatwo}), the bound on the cross-ratio of two islands given the labels of all the others (Theorem~\ref{thm:manyislands}), the growth by a factor four per step of an error bounded by a multiple of the Euclidean form, which forces the one-step errors of an effective action to be relative and gauge invariant (Proposition~\ref{prop:massgrowth}), the floor $q^2/16$ on the covariance of
 rare labels (Proposition~\ref{prop:hiddenbit}), the explicit island
 threshold $\beta^*(\rho,s)$ past which the islands of bad blocks at one
 scale are rarer than their entropy (Theorem~\ref{thm:islandthreshold}),
@@ -107,33 +107,18 @@ Theorem~\ref{thm:blocks} state them.}
 averages, reflection positivity}
 
 \begin{abstract}
-\itshape
 We prove that four-dimensional lattice Yang--Mills theory with any compact
 simple gauge group has a unique infinite-volume state and an explicit
 transfer-matrix gap in a forest gauge, up to $\beta_W=0.351$ for $\SU(2)$
-and $\beta_W=0.77$ for $\SU(3)$. We prove that a Dobrushin--Shlosman
-estimate in one cube of fixed physical size gives a mass gap in every
-continuum limit, and that the cube needs a side of order
-$(\beta_W/\log\beta_W)^{1/4}$ lattice spacings. We prove that the curvature
-of Ba{\l}aban's block averages costs action independent of the scale, that
-a translation of the Haar measures makes it rare at every scale for the
-abelian theory, and that for $\SU(2)$ every such translation transported
-along a forest reaches its constant on the gauge orbit of the vacuum, which
-fixes the one estimate that remains open. We prove that, once the blocks
-are labelled by their independent links and their coarse curvature, every
-good window carries an exact product law in which each path link is
-determined by its pair, that the weight of two bad islands factorises exactly through one kernel on the good layer between them, on a domain that their labels do not move, with covariance at most $\frac14\tanh(\varDelta/4)$ and $\varDelta$ exponentially small in the width of that layer, and that the exact response of a plaquette block
-at zero field, $\frac14(1+I_2(\beta_W)/I_1(\beta_W))$, bounds every
-Dobrushin estimate of this form by $\beta_W=0.3666$. We give the explicit
-coupling, $\beta_W=5.4\cdot10^{13}$ at the label radius $10^{-4}$, past
-which the islands of bad blocks at one scale are rarer than their entropy,
-and carry it to every scale up to $1/8$ of the scale that the defect
-propagation reaches.
-We prove that the rarity of bad labels alone cannot control their
-covariance, that a rough coarse background makes the constrained action
-nonconvex, and that the law of a path link given bad neighbours jumps
-across a fold for every coupling, which locates the one estimate that
-remains open.
+and $\beta_W=0.77$ for $\SU(3)$, and that a Dobrushin--Shlosman estimate in
+one cube of fixed physical size gives a mass gap in every continuum limit.
+Towards that estimate we label the blocks of Ba{\l}aban's averages, prove
+that the weight of bad islands factorises through kernels on the good
+layers between them, with cross-ratios exponentially small in the widths of
+the layers, and give the explicit coupling past which bad islands are rarer
+than their entropy at every scale up to $1/8$ of the scale that defects
+reach. The averaged covariance of the labels and the effective action
+across scales remain open.
 \end{abstract}
 
 \maketitle
@@ -13743,11 +13728,21 @@ $a_i$ and $b_j$ in Theorem~\ref{thm:factorisation}, and the layer between
 all the islands is a good window. The kernel of two islands is then a
 mixture, over the collar coordinates of the others, of good-window
 kernels. A mixture of kernels with small cross-ratios can have a large
-one, and Proposition~\ref{prop:hiddenbit} is such a mixture over one bit.
+one, and Proposition~\ref{prop:hiddenbit} is such a mixture over one bit.\footnote{The cross-ratio $Z_{11}Z_{00}/(Z_{10}Z_{01})$ of the four
+weights with the two islands in their two patterns measures how much the
+pattern of one island changes the odds of the pattern of the other: it is
+one exactly when the two islands are independent. A mixture of independent
+pairs need not be independent: if a hidden switch raises the chance of both
+patterns at once, the two islands are correlated however weakly each one
+depends on the switch.}
 Theorem~\ref{thm:manyislands} bounds the additional cross-ratio by the
 product of the sensitivities of the two islands to the collars of the
 others, with no condition on the other islands, and by a sum over chains
-of islands under a Dobrushin condition on them. The measures of the other
+of islands under a Dobrushin condition on them.\footnote{Dobrushin's
+condition asks that the conditional law of each island move by less than a
+fixed fraction $\theta<1$ in total when the islands around it are changed;
+an influence then fades by the factor $\theta$ at each island it passes
+through, and the sum over chains converges.} The measures of the other
 islands enter only through their positivity.
 
 \emph{The data.} The data are those of Section~\ref{ssec:factorisation} with
@@ -13983,7 +13978,11 @@ derivative of $P^t(f)$ at $t=0$ is $\Cov_P(f,g)$, and $b_{q'}\le\lvert t
 gives (ii). For (i),
 $\lvert\Cov_P(f,g)\rvert\le(\Var_Pf\,\Var_Pg)^{1/2}$, a variance is at most
 a quarter of the squared oscillation, and changing the coordinates one at
-a time bounds the oscillation of $f$ by $\sum_q\delta_q(f)$. For (iii), by
+a time bounds the oscillation of $f$ by $\sum_q\delta_q(f)$; the bound on
+the variance is Popoviciu's inequality~\cite{Pop35}. Part (ii) is
+F\"ollmer's covariance estimate~\cite{Fol82} under Dobrushin's
+condition~\cite{Dob68,Dob70}, with the coefficients $C_{qq'}$ read off
+from the cross-ratios of $k$. For (iii), by
 induction $(C^n)_{qq'}\le\theta^ne^{-\lambda\ell(q,q')}$: the case $n=0$ is
 $\ell(q,q)=0$, and $(C^{n+1})_{qq'}=\sum_kC_{qk}(C^n)_{kq'}\le\theta^ne^{-
 \lambda\ell(q,q')}\sum_kC_{qk}e^{\lambda\ell(q,k)}$ by the triangle
@@ -14194,6 +14193,21 @@ out differs from the conditional covariance by the covariance of the
 conditional probabilities of the two labels given the others, which is the
 term of Proposition~\ref{prop:hiddenbit} and is not bounded here.
 
+\begin{figure}[t]
+\centering
+\includegraphics[width=\textwidth]{figures/fig_manyislands.png}
+\caption{(a) Islands of bad blocks (red: the two islands $I_a$, $I_b$
+compared; blue: other islands $I_q$) in a window whose remaining blocks are
+good. The solid arc is the two-island bound $\varDelta_{ab}$ of
+Corollary~\ref{cor:twoislands}; the dashed arcs are the bounds
+$\varDelta_{uq}$ through which the other islands enter
+$\varDelta_*$ in Theorem~\ref{thm:manyislands}. (b) The bound
+$\varDelta$ for two islands against the width $w$ of the good layer
+between them, with $\Lambda_2$ from Lemma~\ref{lem:lambdatwo} at the
+threshold coupling; it falls below one at $w=99072$.}
+\label{fig:manyislands}
+\end{figure}
+
 \subsection{What remains}\label{ssec:remains}
 
 The results of this section leave the following statements, which together
@@ -14332,13 +14346,32 @@ lattice form, with the first proof of a gap at strong coupling, to
 Osterwalder and Seiler~\cite{OSei78,Sei82}. The uniqueness method is
 Dobrushin's~\cite{Dob68,Dob70,DS85}, the curvature method is that of Bakry
 and \'Emery~\cite{BE85,BGL14} in the form of Shen, Zhu and Zhu~\cite{SZZ23},
+the covariance estimate under Dobrushin's condition is F\"ollmer's~\cite{Fol82},
+the chessboard estimate is that of Fr\"ohlich, Israel, Lieb and
+Simon~\cite{FILS78} and Fr\"ohlich and Spencer~\cite{FS82}, disagreement
+percolation is due to van den Berg and Maes~\cite{vdBM94}, the
+Brascamp--Lieb inequality to Brascamp and Lieb~\cite{BL76}, the
+correlation representation to Helffer and Sj\"ostrand~\cite{HS94} and
+Naddaf and Spencer~\cite{NS97}, the perturbation lemma to Holley and
+Stroock~\cite{HS87}, the derivative of a matrix function to Daleckii and
+Krein~\cite{DK65}, and the strict positivity of the transfer matrix to
+L\"uscher~\cite{Lus77},
 the gauge fixing on a forest is Creutz's~\cite{Cre77}, and the curvature of
 Lie groups is Milnor's~\cite{Mil76}; the localisation estimate of
 Section~\ref{ssec:constrained} is that of Combes and Thomas~\cite{CT73}. The analysis of the single-link law
 uses results of Barta~\cite{Bar37}, Biernacki and Krzy\.z~\cite{BK55},
 McShane~\cite{McS34}, Stein and Weiss~\cite{SW71} and Watson~\cite{Wat44}, and
 the continuum problem is the one formulated by Jaffe and Witten~\cite{JW06}
-and studied by Ba{\l}aban~\cite{Bal84a,Bal85a,Bal89b}.
+and studied by Ba{\l}aban~\cite{Bal84a,Bal85a,Bal89b} through the
+renormalisation group, in the account of Dimock~\cite{Dim13}; gauge fields
+with cut-offs were constructed by Brydges, Fr\"ohlich and
+Seiler~\cite{BFS79} and by Magnen, Rivasseau and S\'en\'eor~\cite{MRS93};
+recent probabilistic work on lattice Yang--Mills
+theory is due to Chatterjee~\cite{Chat19,Chat19b}, Basu and
+Ganguly~\cite{BG18}, Adhikari and Cao~\cite{AC25}, and Cao, Nissim and
+Sheffield~\cite{CNS25}, and the two-dimensional theory was constructed by
+Driver~\cite{Dri89}, Gross, King and Sengupta~\cite{GKS89} and
+L\'evy~\cite{Lev03}.
 
 \section*{Declarations}
 
@@ -14364,16 +14397,26 @@ Proposition~\ref{prop:blockgapsharp} with its exact check. The code was
 written by Deep Bhattacharjee, James Montgomery Lockwood and Tristan
 Romanov.
 
+\subsection*{Author contributions}
+Deep Bhattacharjee conceived the project, proved the main results, wrote
+the programs of the certified computations and wrote the paper. Ushashi
+Bhattacharya checked the proofs and the references and edited the text.
+James Montgomery Lockwood contributed the analysis of constrained
+cubes~\cite{Loc26} and its code. Tristan Romanov contributed the certified
+bound on the forest-gauge Hessian~\cite{Rom26}, the first form of
+Section~\ref{sec:islands} and its code. All four authors approved the final
+text.
+
+\subsection*{Use of artificial intelligence}
 The computations, the checks and parts of the drafting were done with AI
-assistance (Claude Opus~5.5,
-Claude Fable~5.1, GPT-6.1 Sol Ultra and GPT-6 Astra Ultra) under the
-direction of Deep Bhattacharjee. The combination of the forest gauge with
-the sharp quarter behind Theorem~\ref{thm:su2} was first assembled by
-Anaxia, the reasoning engine of the BLLM system~\cite{Bha26,Bha26b}; the line
-field, the free-boundary limit, the ceiling, the curvature bound, the
-$\SU(3)$ part, the plaquette blocks and the certified constants are the
-authors' own. All four authors
-approved the final text.
+assistance (Claude Opus~5.5, Claude Fable~5.1, GPT-6.1 Sol Ultra and GPT-6
+Astra Ultra) under the direction of Deep Bhattacharjee, who checked every
+statement and is responsible for the text. The combination of the forest
+gauge with the sharp quarter behind Theorem~\ref{thm:su2} was first
+assembled by Anaxia, the reasoning engine of the BLLM
+system~\cite{Bha26,Bha26b}; the line field, the free-boundary limit, the
+ceiling, the curvature bound, the $\SU(3)$ part, the plaquette blocks and
+the certified constants are the authors' own.
 
 \subsection*{Funding}
 None.
@@ -16262,6 +16305,9 @@ Fulton, W., Harris, J.: Representation Theory: A First Course. Grad. Texts
 in Math., vol.~129. Springer, New York (1991; reprinted 2004).
 \href{https://doi.org/10.1007/978-1-4612-0979-9}{https://doi.org/10.1007/978-1-4612-0979-9}
 
+\bibitem{Fol82}
+F\"ollmer, H.: A covariance estimate for Gibbs measures. J. Funct. Anal. \textbf{46}, 387--395 (1982). \href{https://doi.org/10.1016/0022-1236(82)90053-2}{https://doi.org/10.1016/0022-1236(82)90053-2}
+
 \bibitem{FILS78}
 J.~Fr\"ohlich, R.~Israel, E.~H. Lieb and B.~Simon, Phase transitions and
 reflection positivity. I. General theory and long range lattice models,
@@ -16414,6 +16460,9 @@ Commun. Math. Phys. \textbf{42}, 281--305 (1975).
 Osterwalder, K., Seiler, E.: Gauge field theories on a lattice. Ann. Phys.
 \textbf{110}, 440--471 (1978).
 \href{https://doi.org/10.1016/0003-4916(78)90039-8}{https://doi.org/10.1016/0003-4916(78)90039-8}
+
+\bibitem{Pop35}
+Popoviciu, T.: Sur les \'equations alg\'ebriques ayant toutes leurs racines r\'eelles. Mathematica (Cluj) \textbf{9}, 129--145 (1935)
 
 \bibitem{RS80}
 M.~Reed and B.~Simon, \emph{Methods of Modern Mathematical Physics I:
