@@ -59,7 +59,7 @@ Road, Golpark, Kolkata 700029, West Bengal, India}
 \urladdr{\href{https://orcid.org/0000-0003-0466-750X}{orcid.org/0000-0003-0466-750X}}
 \thanks{$^{*}$Corresponding author: Deep Bhattacharjee, itsdeep@live.com.}
 \thanks{\scriptsize An earlier version of this paper is available at
-\url{https://hexagonmath.org/2610.00341v6}. Compared with it, this paper adds Section~\ref{sec:islands}, on the labels of the blocks, the islands of bad blocks and the effective action across one scale, and Subsection~\ref{ssec:osaxioms}, on the Osterwalder--Schrader axioms for the flowed fields.}
+\url{https://hexagonmath.org/2610.00341v6}. Compared with it, this paper adds Section~\ref{sec:islands}, on the labels of the blocks, the islands of bad blocks and the effective action across one scale, and Subsection~\ref{ssec:osaxioms}, on the Osterwalder--Schrader axioms for the flowed fields, and it proves by hand every constant that the earlier version took from computer certificates.}
 
 \author[U. Bhattacharya]{Ushashi Bhattacharya}
 \address{Formerly, National Taiwan University, Taipei 106319, Taiwan}
@@ -85,7 +85,7 @@ averages, reflection positivity}
 We prove that four-dimensional lattice Yang--Mills theory with any compact
 simple gauge group has a unique infinite-volume state and an explicit
 transfer-matrix gap in a forest gauge, up to $\beta_W=0.348$ for $\SU(2)$
-and $\beta_W=0.77$ for $\SU(3)$, and that a Dobrushin--Shlosman estimate in
+and $\beta_W=0.52$ for $\SU(3)$, and that a Dobrushin--Shlosman estimate in
 one cube of fixed physical size gives a mass gap in every continuum limit.
 Towards that estimate we label the blocks of Ba{\l}aban's averages, prove
 that the weight of bad islands factorises through kernels on the good
@@ -328,50 +328,64 @@ the six plaquettes through $e$ have variable $-1$, and along a geodesic
 through $Q_e$ the Hessian of $-\frac{\beta_W}2\sum_p\ReTr Q_p$ is $-6\beta_W$
 times the metric of the unit sphere $S^3$, whose Ricci curvature is $2$, so
 the Bakry--\'Emery tensor is negative there once $\beta_W>\frac13$. For $\SU(3)$
-the Dobrushin route goes much further.
+the Dobrushin route goes further.
 
 \begin{theorem}[$\SU(3)$]\label{thm:su3}
-Let $G=\SU(3)$ and $0\le\beta_W\le\frac34$. Then the conclusions
-of Theorem~\ref{thm:su2} hold, with decay at every rate below
-$-\log(1.33319\,\beta_W)$ and a transfer-matrix gap
+Let $G=\SU(3)$ and $0\le\beta_W\le0.515$, put $r=2\beta_W$ and
 \[
-m\ge-\log(1.33319\,\beta_W)>0 .
+\epsilon(r)=1-\frac{5\,e^{-r/5}}{9\,Z_*(r)},\qquad\alpha_1(\beta_W)=
+\frac{2r\sqrt{\epsilon(r)}}{\gamma(r)},
 \]
+where $\gamma(r)=\frac{283}{128}-\frac r2$ and $Z_*(r)=\int_{\SU(3)}
+e^{r\ReTr U}dU$. The number $\alpha_1(\beta_W)$ is increasing,
+$\alpha_1(\frac12)\le0.9491$ and $\alpha_1(0.515)\le0.9924$. The
+conclusions of Theorem~\ref{thm:su2} hold with decay at every rate below
+$-\log\alpha_1(\beta_W)$ and a transfer-matrix gap
+\[
+m\ge-\log\alpha_1(\beta_W)>0 ;
+\]
+at $\beta_W=\frac12$ this gives $m\ge0.052$.
 \end{theorem}
 
 The proof of Theorem~\ref{thm:su3} bounds the Kantorovich modulus of the
 one-link measure $\nu_b(dU)\propto e^{\ReTr(Ub)}dU$ on $\SU(3)$ uniformly over
-staple sums $b$. Its analytic part is a lower bound for the spectral gap of
-$\nu_b$ through Bochner's formula with a cross term
-(Lemma~\ref{lem:gap}), a corrector chosen box by box among
-polynomials of degree two in the matrix entries (Lemma~\ref{lem:corrector}), the reduction of
-$b$ to diagonal matrices (Lemma~\ref{lem:orbits}), the character expansion
-of the moments of $\nu_b$ (Lemma~\ref{lem:characters}) and an interpolation
-inequality on boxes of staple sums (Lemma~\ref{lem:boxes}). The remaining
-step evaluates the resulting bound on $2341$ boxes with rigorous error bounds;
-the theorem rests on that computation, which is described in full in
-Section~\ref{ssec:cover} and Appendix~\ref{app:cover}.
+staple sums $b$. It uses a lower bound $\gamma(r)$ for the spectral gap of
+$\nu_b$ through Bochner's formula with a cross term (Lemma~\ref{lem:gap}),
+the Poincar\'e inequality twice, and a bound for the mean of
+$|\nabla\ReTr(Uh)|^2$ under $\nu_b$ through Jensen's inequality and Haar
+integrals of degree three (Lemma~\ref{lem:su3modulus}); $Z_*$ is a series in
+the moments of $\Tr U$, which are counts of standard tableaux
+(Lemma~\ref{lem:su3haar}). A sharper bound for the same modulus, evaluated
+by a computer on boxes of staple sums, would carry the range to
+$\beta_W=\frac34$; Remark~\ref{rem:su3cover} describes it, and no result
+uses it.
 
 The plaquette blocks of Theorem~\ref{thm:blocks} work for $\SU(3)$ as well.
 They use the same modulus of the one-link measure, but only through the
 three links of a block, so they need $\Lambda(2\beta_W)$ small and not
-$2r\Lambda(r)<1$: near the end of Theorem~\ref{thm:su3} they give a much
-larger gap, and they go past it.
+$2r\Lambda(r)<1$: near the end of Theorem~\ref{thm:su3} they give a larger
+gap, and they go past it.
 
 \begin{theorem}[$\SU(3)$ with plaquette blocks]\label{thm:su3blocks}
-Let $G=\SU(3)$ and $0\le\beta_W\le\frac{77}{100}=0.77$. Then
-$\alpha_3(\beta_W)<1$ for the number of~\eqref{eq:blockconst3}, with
-$\alpha_3(0.72)\le0.9182$, $\alpha_3(\frac34)\le0.9653$ and
-$\alpha_3(0.76)\le0.99950$ and $\alpha_3(0.77)\le0.99978$. The conclusions of Theorem~\ref{thm:su2} hold
-with decay at every rate below $-\frac12\log\alpha_3(\beta_W)$ and a
-transfer-matrix gap
+Let $G=\SU(3)$ and $0\le\beta_W\le0.52$, let $r$, $\epsilon(r)$, $\gamma(r)$
+be as in Theorem~\ref{thm:su3}, and let $\alpha_3(\beta_W)$ be the
+number of~\eqref{eq:blockconst3} with $\Lambda(r)$, $\tau$, $\lambda_*$ and
+$M$ replaced by $\sqrt{\epsilon(r)}/\gamma(r)$, $\epsilon(r)/\gamma(r)$, $0$
+and $2\sqrt3\,\epsilon(r)/\gamma(r)$. Then $\alpha_3(\beta_W)<1$, with
+$\alpha_3(0.515)\le0.9742$ and $\alpha_3(0.52)\le0.9927$. The conclusions of
+Theorem~\ref{thm:su2} hold with decay at every rate below
+$-\frac12\log\alpha_3(\beta_W)$ and a transfer-matrix gap
 \[
 m\ge-\tfrac12\log\alpha_3(\beta_W)>0 ;
 \]
-at $\beta_W=\frac34$ this gives $m\ge0.0177$, against $1.1\cdot10^{-4}$ from
-Theorem~\ref{thm:su3}, and at $\beta_W=0.76$ and $0.77$, where Theorem~\ref{thm:su3}
-no longer applies, $m\ge2.5\cdot10^{-4}$ and $m\ge1.1\cdot10^{-4}$.
+at $\beta_W=0.515$ this gives $m\ge0.013$, against $0.0076$ from
+Theorem~\ref{thm:su3}, and at $\beta_W=0.52$, outside the range of
+Theorem~\ref{thm:su3}, $m\ge0.0036$.
 \end{theorem}
+
+The constants of Theorem~\ref{thm:su3blocks} are the bounds of
+Lemma~\ref{lem:su3modulus}; Remark~\ref{rem:su3blocks} records what
+computed constants would give.
 
 \begin{table}[tb]
 \caption{Explicit ranges of uniqueness, decay and a transfer-matrix gap for
@@ -386,8 +400,8 @@ Curvature, Shen--Zhu--Zhu~\cite{SZZ23}&$<\frac1{12}$&$<\frac3{16}$\\
 Curvature, sharp~\cite{BB26a}&$<\frac18$&$<\frac9{32}$\\
 Dobrushin, sharp quarter~\cite{BB26a}&$<\frac29$&\\
 Curvature, forest gauge&$<\frac4{29}$&$<\frac9{29}$\\
-Dobrushin, forest gauge&$<\frac13$&$\le\frac34$\\
-Plaquette blocks, forest gauge&$\le0.348$&$\le0.77$\\
+Dobrushin, forest gauge&$<\frac13$&$\le0.515$\\
+Plaquette blocks, forest gauge&$\le0.348$&$\le0.52$\\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -1654,7 +1668,7 @@ method reaches $|\beta|<\frac1{29}$ and stops before $\frac1{26.25}$; the
 computation moves the first value to $1/28.840002$.
 \end{remark}
 
-\section{SU(3) up to 3/4}\label{sec:su3}
+\section{SU(3) up to 0.515}\label{sec:su3}
 
 In this section $G=\SU(3)$, $\beta\ge0$ and $\beta_W=9\beta$. The distance on
 $\SU(3)$ is $d(U,V)=\|U-V\|_{\rm HS}$, which is at most the geodesic distance
@@ -1802,6 +1816,199 @@ $(\sqrt{\mu_0}-\frac g2r)^2+\frac32-r$ with $g^2=\max_W\|PA(W)\|^2=2.0655$;
 it is exact at $b=0$, where the gap is $\frac83$, but falls below $\gamma$
 for $r>0.24$ and vanishes before $r=1$.}
 
+\subsection{The modulus by hand}\label{ssec:su3modulus}
+
+For $h\in\C^{3\times3}$ let $E_2(h)=\frac12((\Tr h)^2-\Tr h^2)$, the sum
+of the principal $2\times2$ minors of $h$. All integrals are over $\SU(3)$
+with Haar measure; put $t=\Tr U$,
+\[
+Z_*(r)=\int e^{r\ReTr U}dU,\qquad m_n=\int(\ReTr U)^ndU .
+\]
+
+\begin{lemma}\label{lem:su3haar}
+\begin{enumerate}[label=\textup{(\roman*)},leftmargin=*]
+\item The integral of a monomial of degree $j$ in the entries of $U$ and
+$k$ in those of $\bar U$ vanishes unless $j\equiv k$ modulo three;
+$\int u_{ij}\bar u_{kl}dU=\frac13\delta_{ik}\delta_{jl}$ and $\int u_{ab}
+u_{cd}u_{ef}dU=\frac16\varepsilon_{ace}\varepsilon_{bdf}$.
+\item For every $h$ the integrals of $\Tr(hUhU)$ and $(\Tr hU)^2$
+vanish, $\int|\Tr hU|^2dU=\frac13\|h\|_{\rm HS}^2$,
+\begin{gather*}
+\int\Tr(hUhU)\Tr U\,dU=-\tfrac13E_2(h),\\
+\int(\Tr hU)^2\Tr U\,dU=\tfrac13E_2(h),
+\end{gather*}
+and $|E_2(h)|\le\|h\|_{\rm HS}^2$.
+\item $\int t^a\bar t^bdU$ vanishes unless $a\equiv b$ modulo three, does
+not change when $a$ and $b$ are exchanged, and equals $1$ at $(a,b)=
+(0,0)$, $(1,1)$, $(3,0)$, $2$ at $(2,2)$, $3$ at $(4,1)$, $5$ at $(6,0)$,
+$6$ at $(3,3)$, $11$ at $(5,2)$, $21$ at $(7,1)$ and $23$ at $(4,4)$.
+Hence $m_0=1$, $m_1=0$,
+\[
+(m_2,\dots,m_8)=\bigl(\tfrac12,\tfrac14,\tfrac34,\tfrac{15}{16},
+\tfrac{65}{32},\tfrac{231}{64},\tfrac{973}{128}\bigr),
+\]
+and $m_n\le3^{n-8}m_8$ for $n\ge8$.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+(iii) By the proof of Lemma~\ref{lem:characters}, $t^a=\sum_{\lambda\vdash
+a}f^\lambda s_\lambda(U)$, and on $\SU(3)$ the Schur polynomial $s_\lambda$
+vanishes when $\lambda$ has more than three rows and is otherwise the
+irreducible character of highest weight $(\lambda_1-\lambda_3,\lambda_2-
+\lambda_3)$. By Schur orthogonality~\cite[Ch.~2]{Bum13}, $\int t^a\bar
+t^bdU$ is the sum of $f^\lambda f^\mu$ over the pairs $\lambda\vdash a$,
+$\mu\vdash b$ with at most three rows and $\lambda-\mu$ a multiple of
+$(1,1,1)$; such pairs exist only when $a\equiv b$ modulo three, and the sum
+is symmetric in $a,b$. For $a\ge b$ and $a+b\le8$ the pairs are
+$((1),(1))$; $((1,1,1),\varnothing)$; $\lambda=\mu\in\{(2),(1,1)\}$;
+$((2,1,1),(1))$; $((2,2,2),\varnothing)$; $\lambda=\mu\in\{(3),(2,1),
+(1,1,1)\}$; $((3,1,1),(2))$ and $((2,2,1),(1,1))$; $((3,2,2),(1))$; and
+$\lambda=\mu\in\{(4),(3,1),(2,2),(2,1,1)\}$. The hook length formula gives
+$f^{(2,1)}=2$, $f^{(3,1)}=f^{(2,1,1)}=3$, $f^{(2,2)}=2$, $f^{(2,2,2)}=5$,
+$f^{(3,1,1)}=6$, $f^{(2,2,1)}=5$ and $f^{(3,2,2)}=21$, hence the values, the
+last one being $1+9+4+9$. Since $(\ReTr U)^n=2^{-n}\sum_a\binom nat^a\bar
+t^{n-a}$,
+\begin{gather*}
+m_2=\tfrac{2}{4},\quad m_3=\tfrac28,\quad m_4=\tfrac{6\cdot2}{16},\quad
+m_5=\tfrac{2\cdot5\cdot3}{32},\\
+m_6=\tfrac{2\cdot5+20\cdot6}{64},\quad m_7=\tfrac{2\cdot21\cdot11}{128},
+\quad m_8=\tfrac{2\cdot8\cdot21+70\cdot23}{256}.
+\end{gather*}
+The eigenvalues of $U$ have modulus one, so $|\ReTr U|\le3$ and
+$|\ReTr U|^n\le3^{n-8}(\ReTr U)^8$ for $n\ge8$.
+
+(i) The map $U\mapsto\omega U$, $\omega=e^{2\pi i/3}$, preserves Haar
+measure and multiplies the monomial by $\omega^{j-k}$. For a unitary
+representation $\pi$ of $\SU(3)$, $\int\pi(U)dU$ is the orthogonal
+projection onto the invariant vectors, whose dimension is the mean of the
+character of $\pi$. On $\C^3\otimes\overline{\C^3}$ the invariant vectors
+are the multiples of the identity, which gives the second formula. On
+$(\C^3)^{\otimes3}$ the character is $t^3$, whose mean is $1$ by (iii), and
+$\varepsilon$ is invariant because $\det U=1$; the projection onto the line
+of $\varepsilon$, whose squared norm is $6$, gives the third formula.
+
+(ii) The first two integrals have degree two in $U$ and none in $\bar U$,
+and $\int|\Tr hU|^2dU=\frac13\sum|h_{ji}|^2$ by (i). By (i),
+$\int h_{pa}u_{aq}h_{qc}u_{cp}u_{ee}dU=\frac16h_{pa}h_{qc}\varepsilon_{ace}
+\varepsilon_{qpe}$, summed over repeated indices, and $\sum_e
+\varepsilon_{ace}\varepsilon_{qpe}=\delta_{aq}\delta_{cp}-\delta_{ap}
+\delta_{cq}$, which gives $\frac16(\Tr h^2-(\Tr h)^2)$; the second integral
+is the same with $\varepsilon_{pqe}$ in place of $\varepsilon_{qpe}$, which
+changes the sign. Finally $E_2(h)$ is the trace of the second exterior power
+of $h$, whose singular values are the products $\sigma_i\sigma_j$, $i<j$, of
+those of $h$; so $|E_2(h)|\le\sum_{i<j}\sigma_i\sigma_j=\frac12((\sum_i
+\sigma_i)^2-\sum_i\sigma_i^2)\le\sum_i\sigma_i^2$.
+\end{proof}
+
+\begin{lemma}\label{lem:su3modulus}
+Let $r\ge0$ with $\gamma(r)>0$, put
+\[
+\epsilon(r)=1-\frac{5\,e^{-r/5}}{9\,Z_*(r)},
+\]
+and let $b\in rK$ and $\|h\|_{\rm HS}=1$. Then
+\[
+\nu_b|\nabla\varphi_h|^2\le\epsilon(r),\quad\Var_{\nu_b}(\varphi_h)\le
+\frac{\epsilon(r)}{\gamma(r)},\quad L_h(b)\le\frac{\sqrt{\epsilon(r)}}
+{\gamma(r)},
+\]
+so that $\Lambda(r)\le\sqrt{\epsilon(r)}/\gamma(r)$. The function $\epsilon$
+is nondecreasing on $[0,\infty)$.
+\end{lemma}
+
+\begin{proof}
+By Lemma~\ref{lem:gradients}, $\nabla\varphi_h(U)=-PA(M)$ with $M=hU$, and
+$\|M\|_{\rm HS}=1$. The anti-Hermitian part has $|A(M)|^2=\frac12(\|M\|^2-
+\ReTr M^2)$, and $P$ removes from it the multiple $\frac13\Tr A(M)=\frac i3
+\ImTr M$ of the identity, whose squared norm is $\frac13(\ImTr M)^2$. Hence
+\begin{gather*}
+|\nabla\varphi_h|^2=1-\tfrac12F_h,\\
+F_h(U)=1+\ReTr(hUhU)+\tfrac23(\ImTr hU)^2 ,
+\end{gather*}
+and $F_h\ge0$ because $|\ReTr M^2|\le\|M\|^2$. For complex numbers
+$X,Y$, $\operatorname{Re}X\operatorname{Re}Y=\frac12\operatorname{Re}(XY)+
+\frac12\operatorname{Re}(X\bar Y)$ and $(\operatorname{Im}X)^2=\frac12|X|^2-
+\frac12\operatorname{Re}X^2$. With these identities, the vanishing of the
+integrals of degree two in $U$ and one in $\bar U$, or the converse, and
+Lemma~\ref{lem:su3haar}(ii),
+\[
+\int F_h\,dU=1+\tfrac23\cdot\tfrac16=\tfrac{10}9,\quad\int F_h\ReTr U\,dU=
+-\tfrac29\operatorname{Re}E_2(h),
+\]
+the second as the sum of $-\frac16\operatorname{Re}E_2(h)$ and $\frac23
+\cdot(-\frac1{12})\operatorname{Re}E_2(h)$. For $W\in\SU(3)$ the
+substitution $U\mapsto W^{-1}U$ and Lemma~\ref{lem:su3haar}(ii) give
+\[
+\int F_h\ReTr(WU)\,dU=\int F_{hW^{-1}}\ReTr U\,dU\ge-\tfrac29 .
+\]
+
+Write $b=r\sum_i\lambda_iW_i$ as a convex combination of elements of
+$\SU(3)$ and $V=\ReTr(Ub)$. Under the probability measure $\pi=\frac9{10}
+F_h\,dU$ the mean of $V$ is at least $-\frac9{10}\cdot\frac29r=-\frac r5$,
+so Jensen's inequality gives $\int F_he^VdU=\frac{10}9\pi(e^V)\ge\frac{10}9
+e^{-r/5}$. The function $c\mapsto\log\int e^{\ReTr(Uc)}dU$ is convex by
+H\"older's inequality and equals $\log Z_*(r)$ at every $c=rW$, $W\in
+\SU(3)$, by the invariance of Haar measure; hence $\int e^VdU\le Z_*(r)$
+and $\nu_b(F_h)\ge\frac{10}9e^{-r/5}/Z_*(r)$, which is the first bound.
+
+The spectral gap of $\nu_b$ is at least $\gamma(r)$ by Lemma~\ref{lem:gap}.
+The Poincar\'e inequality gives $\Var_{\nu_b}(\varphi_h)\le\nu_b|\nabla
+\varphi_h|^2/\gamma(r)$, the second bound, and, for $g$ $1$-Lipschitz for
+$d$, hence for the geodesic distance, $\Var_{\nu_b}(g)\le1/\gamma(r)$; so
+$\Cov_{\nu_b}(g,\varphi_h)\le\mathrm{sd}(g)\,\mathrm{sd}(\varphi_h)\le
+\sqrt{\epsilon(r)}/\gamma(r)$. Finally $\log Z_*$ is convex in $r$ with
+derivative $m_1=0$ at $r=0$, so $Z_*$ and $\epsilon$ are nondecreasing on
+$[0,\infty)$.
+\end{proof}
+
+\begin{proof}[Proof of Theorem~\ref{thm:su3}]
+Let $r=2\beta_W\le1.03$, so that $\gamma(r)\ge\gamma(1.03)>1.69$. By
+\eqref{eq:alpha} and Lemma~\ref{lem:su3modulus}, the Dobrushin constant
+satisfies $\alpha\le2r\Lambda(r)\le\alpha_1(\beta_W)$, and $\alpha_1$ is
+increasing because $\epsilon$ is nondecreasing and $\gamma$ is decreasing.
+By Lemma~\ref{lem:su3haar}(iii), and since $\sum_{n\ge9}x^n/n!\le
+\frac{x^9}{9!}(1-\frac x{10})^{-1}$ for $0\le x<10$,
+\[
+Z_*(r)\le\sum_{n=0}^8\frac{m_nr^n}{n!}+\frac{m_8}{3^8}\,
+\frac{(3r)^9}{9!}\Bigl(1-\frac{3r}{10}\Bigr)^{-1}.
+\]
+At $r=1$ the terms of the sum, rounded up, are $1$, $0$, $0.25$,
+$0.0416667$, $0.03125$, $0.0078125$, $0.0028212$, $0.0007162$ and
+$0.0001886$, with sum at most $1.3344552$, and the last term is
+$\frac{973}{128\cdot6561}\cdot\frac{19683}{362880}\cdot\frac{10}7<9\cdot
+10^{-5}$; so $Z_*(1)\le1.334546$. Since $e^{-x}\ge1-x+\frac{x^2}2-\frac{x^3}
+6$ for $x\ge0$, $e^{-1/5}\ge0.818666$, so $\frac{5e^{-1/5}}{9Z_*(1)}\ge
+0.340800$ and $\epsilon(1)\le0.659200<0.81192^2$. With $\gamma(1)=
+\frac{219}{128}$,
+\[
+\alpha_1(\tfrac12)\le\frac{2\cdot0.81192\cdot128}{219}\le0.9491 .
+\]
+At $r=1.03$ the terms are at most
+\begin{gather*}
+1,\ 0,\ 0.265225,\ 0.0455303,\ 0.0351722,\\
+0.0090569,\ 0.0033687,\ 0.0008808,\ 0.0002389,
+\end{gather*}
+with sum at most $1.3594728$, and the last term is less than $1.2\cdot10^{-4}$;
+so $Z_*(1.03)\le1.359593$, $e^{-0.206}\ge0.813760$, $\frac{5e^{-0.206}}
+{9Z_*(1.03)}\ge0.332517$ and $\epsilon(1.03)\le0.667483<0.817^2$. With
+$\gamma(1.03)=\frac{5427}{3200}$, $\alpha_1(0.515)\le2.06\cdot0.817\cdot
+\frac{3200}{5427}\le0.9924$. Proposition~\ref{prop:state} applies with the
+Hilbert--Schmidt metric. With $y=1-\alpha_1$, $-\log\alpha_1\ge y+
+\frac{y^2}2$, which is at least $0.052$ at $\beta_W=\frac12$ and $0.0076$ at
+$0.515$.
+\end{proof}
+
+The losses in this bound are Jensen's inequality, the Poincar\'e inequality
+for $\varphi_h$, which replaces the true variance of $\varphi_h$ by
+$\nu_b|\nabla\varphi_h|^2/\gamma(r)$, and the gap $\gamma(r)$ itself: at
+$b=0$ the variance is $\frac16$ and the gap $\frac83$, so that $L_h(0)=
+\frac14$, while the lemma gives $\frac23/\gamma(0)=0.302$. Evaluated in
+floating point, $\alpha_1$ reaches one near $\beta_W=0.5176$. The rest of this
+section describes a sharper bound for $\Lambda(r)$, with a corrector of
+degree two, the reduction to diagonal staple sums, exact moments and an
+interpolation over boxes of staple sums; its evaluation by a computer is
+the subject of Remark~\ref{rem:su3cover}, and no result uses it.
+
 \subsection{A corrector of degree two}
 
 \begin{lemma}\label{lem:corrector}
@@ -1830,9 +2037,10 @@ $\nu_b|\nabla\psi|\le\sqrt{\nu_b|\nabla u|^2}+\sqrt{\nu_b|\nabla
 The best $u$ is $\psi$ itself, and then the second term vanishes. With
 $u=s\varphi_h$, Lemma~\ref{lem:gradients} gives $\varphi_h+Lu=(1-s\lambda_F)
 \varphi_h+s\Gamma$ with $\Gamma=\ip{\nabla V}{\nabla\varphi_h}$; the choice
-$s=1/\lambda_F$ removes $\varphi_h$ and leaves the drift. This blended
-corrector reaches $\beta_W=\frac{45}{64}$ and stops near $0.715$
-(Section~\ref{sec:limits}). We take $u$ in a space of polynomials of degree two.
+$s=1/\lambda_F$ removes $\varphi_h$ and leaves the drift. In floating
+point this blended corrector keeps $2r\sup_hL_h$ below one up to about
+$\beta_W=0.715$ (Section~\ref{sec:limits}). We take $u$ in a space of
+polynomials of degree two.
 
 Let $\mathcal P_2$ be the real vector space of real polynomials of degree one
 or two in the entries $u_{ij}$ of $U$ and $\bar u_{ij}$ of $\bar U$. It has
@@ -2014,7 +2222,7 @@ nonnegative weights of sum one; integrate over $U$ and divide by $Z(b)$,
 bounded below by (i).
 \end{proof}
 
-\subsection{The cover and the theorem}\label{ssec:cover}
+\subsection{The cover}\label{ssec:cover}
 
 Fix a box $Q$ and a matrix $C$. For any constant $\kappa$, $\Var(X_h)\le
 \nu_b[(X_h-\kappa)^2]$; take $\kappa=\ip{\kappa(b)}h$ with $\kappa(b)$ affine in
@@ -2053,70 +2261,43 @@ when a linear functional $\ell(b)=\ReTr(c^*b)$ satisfies $\min_Q\ell>r\max_T
 \ell$, which separates it from $r\operatorname{conv}T$ and hence, by
 Lemma~\ref{lem:orbits}(iii), from $\mathcal R_r$.
 
-\begin{proposition}\label{prop:cover}
-$2r\Lambda(r)\le0.999887$ at $r=\frac32$.
-\end{proposition}
-
-\begin{proof}
-The box $[0,r]^2\times[-r,r]\times[0,r]$ is cut into $8192$ boxes of side
-$r/8$. Of these, $841$ survive the two tests, and $581$ satisfy
-$2rB_Q<1$ for the right side $B_Q$ of~\eqref{eq:BQ}, with $\gamma(r)=
-\frac{187}{128}$. Each of the other $260$ is cut into sixteen boxes of side
-$r/16$; $1760$ of these survive the tests, and all satisfy $2rB_Q<1$. The
-$2341$ certified boxes cover $\mathcal R_r$. The largest bound is $0.999887$,
-on the box $[1.3125,1.5]\times[0.9375,1.125]\times[0.5625,0.75]
-\times[0,0.1875]$, and the median is $0.983$. Figure~\ref{fig:cover} shows the cover, and
-Appendix~\ref{app:cover} the error analysis.
-\end{proof}
-
-The same cover at a larger $r$ bounds $\Lambda(r)$ where $2r\Lambda(r)$ is
-no longer below one; the plaquette blocks of Section~\ref{sec:su3blocks} use
-that bound.
-
-\begin{proposition}\label{prop:cover2}
-$2r\Lambda(r)\le1.029967$ at $r=\frac{38}{25}$ and $2r\Lambda(r)\le1.027468$
-at $r=\frac{77}{50}$.
-\end{proposition}
-
-\begin{proof}
-As in the proof of Proposition~\ref{prop:cover}, with $\gamma(r)=
-\frac{4643}{3200}$ and the threshold $2rB_Q<1.03$: of the $8192$ boxes of
-side $r/8$, $784$ survive the two tests and $690$ satisfy the threshold; each
-of the other $94$ is cut into sixteen boxes of side $r/16$, of which $373$
-survive the tests, and all satisfy it. The $1063$ certified boxes cover
-$\mathcal R_r$, and the largest bound is $1.029967$. At $r=\frac{77}{50}$,
-with $\gamma(r)=\frac{4611}{3200}$ and the threshold $2rB_Q<1.0275$: $826$
-boxes of side $r/8$ survive the tests and $513$ satisfy the threshold; the
-other $313$ are cut into sixteen, of which $2311$ survive and $2281$ satisfy
-it; the other $30$ are cut into sixteen, of which $31$ survive, and all
-satisfy it. The $2825$ certified boxes cover $\mathcal R_r$, and the largest
-bound is $1.027468$.
-\end{proof}
-
-\begin{proof}[Proof of Theorem~\ref{thm:su3}]
-Proposition~\ref{prop:cover} gives
-\[
-\Lambda\bigl(\tfrac32\bigr)\le\frac{0.999887}3<0.333296 .
-\]
-For $\beta_W\le\frac34$ we have $2\beta_W\le\frac32$,
-and~\eqref{eq:alpha} with the monotonicity of $\Lambda$ gives
-\[
-\alpha\le4\beta_W\Lambda\bigl(\tfrac32\bigr)<1.333183\,\beta_W\le
-\tfrac34\cdot1.333183<1 .
-\]
-Proposition~\ref{prop:state} applies with the Hilbert--Schmidt metric.
-\end{proof}
+\begin{remark}[a computation, used by no theorem]\label{rem:su3cover}
+At $r=\frac32$, with $\gamma(r)=\frac{187}{128}$, the box $[0,r]^2\times
+[-r,r]\times[0,r]$ is cut into $8192$ boxes of side $r/8$. Of these, $841$
+survive the two tests, and for $581$ the right side $B_Q$
+of~\eqref{eq:BQ}, evaluated with the error bounds of
+Appendix~\ref{app:cover}, satisfies $2rB_Q<1$. Each of the other $260$ is
+cut into sixteen boxes of side $r/16$; $1760$ of these survive the tests,
+and all satisfy $2rB_Q<1$. The $2341$ boxes cover $\mathcal R_r$; the
+largest bound is $0.999887$, on the box $[1.3125,1.5]\times[0.9375,1.125]
+\times[0.5625,0.75]\times[0,0.1875]$, and the median is $0.983$
+(Figure~\ref{fig:cover}). This computation gives $2r\Lambda(r)\le0.999887$
+at $r=\frac32$, and with it~\eqref{eq:alpha} and the monotonicity of
+$\Lambda$ would give $\alpha\le4\beta_W\Lambda(\frac32)<1.333183\,\beta_W<1$
+for $\beta_W\le\frac34$, and so the conclusions of Theorem~\ref{thm:su2}, with
+$m\ge-\log(1.33319\,\beta_W)$, on that range. The same computation with
+$\gamma(r)=\frac{4643}{3200}$ and the threshold $2rB_Q<1.03$ at $r=
+\frac{38}{25}$ (of the $8192$ boxes, $784$ survive the tests and $690$
+satisfy the threshold; each of the other $94$ is cut into sixteen, of which
+$373$ survive and all satisfy it), and with $\gamma(r)=\frac{4611}{3200}$
+and the threshold $2rB_Q<1.0275$ at $r=\frac{77}{50}$ ($826$ survive and
+$513$ satisfy it; the other $313$ are cut into sixteen, of which $2311$
+survive and $2281$ satisfy it; the other $30$ are cut into sixteen, of
+which $31$ survive and all satisfy it), gives $2r\Lambda(r)\le1.029967$ at
+$r=\frac{38}{25}$ and $2r\Lambda(r)\le1.027468$ at $r=\frac{77}{50}$. No
+result of the paper uses these numbers.
+\end{remark}
 
 \begin{figure}[tb]
 \centering
 \includegraphics[width=\textwidth]{figures/fig_cover.png}
-\caption{The $2341$ certified boxes at $r=\frac32$, plotted at their
+\caption{The $2341$ boxes of Remark~\ref{rem:su3cover} at $r=\frac32$, plotted at their
 centres in the coordinates $(a_1,a_2)$ of the staple sum
-$\operatorname{diag}(a_1,a_2,x_3+iy_3)$, coloured by the certified bound on
+$\operatorname{diag}(a_1,a_2,x_3+iy_3)$, coloured by the computed bound on
 $2r\sup_hL_h$ over the box; the larger points are the boxes of side $r/8$.
 (a) All boxes, with height $|x_3+iy_3|$. (b) The $419$ boxes with bound
 above $0.99$, with height $x_3$; the largest bounds sit in the interior of
-$\mathcal R_r$, not at its extreme points.}
+$\mathcal R_r$, not at its extreme points. No result uses this computation.}
 \label{fig:cover}
 \end{figure}
 
@@ -2228,16 +2409,56 @@ d_3)\le K_3\varepsilon$.
 
 \subsection{The constants and the proof of Theorem~\ref{thm:su3blocks}}
 
-\begin{lemma}\label{lem:su3const}
-At $r=\frac32$ every eigenvalue of $\Hess g$ on $rK$ lies in
-$[0.056015,0.247316]$, and $|D^3g(c)(u,v,v)|\le0.182126$ for $c\in rK$ and
-unit vectors $u,v$. At $r=\frac{38}{25}$ the same holds with
-$[0.054978,0.248280]$ and $0.183546$, and at $r=\frac{77}{50}$ with
-$[0.053955,0.249240]$ and $0.184989$.
-\end{lemma}
+\begin{proof}[Proof of Theorem~\ref{thm:su3blocks}]
+Let $r=2\beta_W\le1.04$ and $\gamma=\gamma(r)$. For $c\in rK$ and unit $h$,
+$\Hess g(c)(h,h)=\Var_{\nu_c}(\varphi_h)$ lies in $[0,\epsilon(r)/\gamma]$ by
+Lemma~\ref{lem:su3modulus}, which also gives $\Lambda(r)\le\sqrt{\epsilon(r)}
+/\gamma$; so $\lambda_*=0$ and $\tau=\epsilon(r)/\gamma$ are admissible. The
+third derivative $D^3g(c)(u,v,v)$ is the third cumulant $\nu_c[(\varphi_u-
+\nu_c\varphi_u)(\varphi_v-\nu_c\varphi_v)^2]$. Since $U$ and $m(c)$ lie in
+$K$, whose elements have Hilbert--Schmidt norm at most $\sqrt3$,
+$|\varphi_u(U)-\nu_c\varphi_u|=|\ReTr((U-m(c))u)|\le2\sqrt3$ for unit $u$,
+so $|D^3g(c)(u,v,v)|\le2\sqrt3\Var_{\nu_c}(\varphi_v)\le2\sqrt3\,\tau=M$.
+With these constants $\sqrt{\tau/\gamma}=\sqrt{\epsilon(r)}/\gamma$, the bound
+used for $\Lambda(r)$, and $\sqrt3N\beta Me^w/\gamma=6N\beta\tau e^w/\gamma$.
+Every field met in Lemmas~\ref{lem:onesite3} and~\ref{lem:blockK3} lies in
+$rK$. Since $\epsilon$ is nondecreasing and $\gamma$ decreasing in $r$,
+every quantity in~\eqref{eq:blockconst3} is nondecreasing in $\beta_W$ while
+$C<1$, so it suffices to bound $\alpha_3$ at $\beta_W=0.52$. Changing an
+active link $j$ by $\eta$ changes one staple of each of its ten partners
+outside its block by a matrix of norm $\eta$, so the field $b_i$ of each
+such partner moves by $N\beta\eta$, and Lemma~\ref{lem:blockK3} gives
+$\sum_BC_{Bj}\le10N\beta K_3=\alpha_3(\beta_W)$.
+Proposition~\ref{prop:blockstate}, whose proof does not use the group,
+applies with the Hilbert--Schmidt metric.
 
-\begin{proof}
-For $V,W\in\SU(3)$, $g(VcW)=g(c)$ and $x\mapsto VxW$ is an isometry, so the
+For the numbers we use $e^w\le(1-w)^{-1}$. At $\beta_W=0.515$, $N\beta=
+\frac{103}{600}$, and the proof of Theorem~\ref{thm:su3} gives $\epsilon
+(1.03)\le0.667483<0.817^2$ and $\gamma=\frac{5427}{3200}$; hence $\Lambda(r)
+\le0.48174$, $\tau\le0.39358$, $w\le0.017398$, $s\le0.49043$, $C\le
+0.064287$, $K_3\le0.56747$ and $\alpha_3\le0.9742$. At $\beta_W=0.52$,
+$N\beta=\frac{13}{75}$ and $\gamma=\frac{5411}{3200}$. The terms of the
+series for $Z_*(1.04)$ in the proof of Theorem~\ref{thm:su3} are at most
+$1$, $0$, $0.2704$, $0.0468694$, $0.0365581$, $0.0095052$, $0.0035697$,
+$0.0009424$ and $0.0002581$, with sum at most $1.3681029$, and the last term
+is less than $1.31\cdot10^{-4}$; so $Z_*(1.04)\le1.368234$, $e^{-0.208}\ge
+0.812132$, $\frac{5e^{-0.208}}{9Z_*(1.04)}\ge0.329756$ and $\epsilon(1.04)\le
+0.670244<0.81869^2$. Hence $\Lambda(r)\le0.48417$, $\tau\le0.39638$, $w\le
+0.017864$, $s\le0.49314$, $C\le0.066654$, $K_3\le0.5727$ and $\alpha_3\le
+0.9927$. With $y=1-\alpha_3$, $-\frac12\log\alpha_3\ge\frac12(y+\frac{y^2}2)$,
+which is at least $0.013$ at $\beta_W=0.515$ and $0.0036$ at $0.52$.
+\end{proof}
+
+\begin{remark}[a computation, used by no theorem]\label{rem:su3blocks}
+The single-link criterion ends where $2r\Lambda(r)$ reaches one. Before the
+corrections for the three links the block sum is $\frac{10}{12}$ of the
+single-link sum $2r\Lambda(r)$, so it can stay below one while $2r\Lambda(r)$
+is slightly above one. With the constants of Lemma~\ref{lem:su3modulus} the
+corrections use most of that room: evaluated in floating point, $\alpha_3$
+of Theorem~\ref{thm:su3blocks} reaches one near $\beta_W=0.522$, and the
+bound $\alpha_1$ of Theorem~\ref{thm:su3} near $0.5176$.
+
+Computed constants go further. For $V,W\in\SU(3)$, $g(VcW)=g(c)$ and $x\mapsto VxW$ is an isometry, so the
 eigenvalues of $\Hess g$ and the norm of $D^3g$ are constant on the orbits,
 and by Lemma~\ref{lem:orbits} it suffices to bound them on $\mathcal R_r$. The
 derivatives of $g$ are the cumulants of $\varphi$ under $\nu_c$. Cut the box
@@ -2277,49 +2498,25 @@ $|\nu_b(G)|\le(\max_i|\nu_{b_i}(G)|+\varepsilon\max_i\nu_{b_i}|G|)/(1-
 value of the $18\times324$ unfolding of $T_{b_i}$, and $\nu_{b_i}|G|\le2\sqrt3
 \,\nu_{b_i}[(\varphi_v-k_v)^2]$, since $\|U-k\|_{\rm HS}\le2\sqrt3$. The
 largest eigenvalues and singular values are bounded as in
-Section~\ref{ssec:cover}, and the maxima over these boxes are the numbers
-stated (Appendix~\ref{app:plaqblocks}).
-\end{proof}
-
-\begin{proof}[Proof of Theorem~\ref{thm:su3blocks}]
-Let first $\beta_W\le\frac34$, so that $r=2\beta_W\le\frac32$. Every field
-met in Lemmas~\ref{lem:onesite3} and~\ref{lem:blockK3} lies in $\frac32K$, so
-the constants of Lemma~\ref{lem:su3const} at $\frac32$,
-$\Lambda(\frac32)\le\frac{0.999887}3$ from Proposition~\ref{prop:cover} and
-$\gamma=\gamma(\frac32)=\frac{187}{128}$ apply; with these fixed constants every
-quantity in~\eqref{eq:blockconst3} is increasing in $\beta_W$. For
-$\frac34<\beta_W\le\frac{19}{25}$ the fields lie in $\frac{38}{25}K$, and the
-constants of Lemma~\ref{lem:su3const} at $\frac{38}{25}$,
-$\Lambda(\frac{38}{25})\le\frac{1.029967}{3.04}$ from
-Proposition~\ref{prop:cover2} and $\gamma(\frac{38}{25})=\frac{4643}{3200}$
-apply in the same way; for $\frac{19}{25}<\beta_W\le\frac{77}{100}$ the
-same holds at $\frac{77}{50}$, with $\Lambda(\frac{77}{50})\le\frac{1.027468}{3.08}$
-and $\gamma(\frac{77}{50})=\frac{4611}{3200}$. Changing an active link $j$ by $\eta$ changes one
-staple of each of its ten partners outside its block by a matrix of norm
-$\eta$, so the field $b_i$ of each such partner moves by $N\beta\eta$, and
-Lemma~\ref{lem:blockK3} gives $\sum_BC_{Bj}\le10N\beta K_3=\alpha_3(\beta_W)$.
-In ball arithmetic, at $\beta_W=\frac34$, $w\le0.017935$, $s\le0.34088$,
-$C\le0.043520$, $K_3\le0.38609$ and $\alpha_3\le0.96521$; at $\beta_W=0.72$,
-$\alpha_3\le0.91815$; at $\beta_W=0.76$, with the second set of constants,
-$w\le0.018609$, $s\le0.34673$, $C\le0.045770$, $K_3\le0.39454$ and
-$\alpha_3\le0.99950$; at $\beta_W=0.77$, with the third set,
-$w\le0.019298$, $s\le0.34186$, $C\le0.047232$, $K_3\le0.38953$ and
-$\alpha_3\le0.99978$. Proposition~\ref{prop:blockstate}, whose proof does not
-use the group, applies with the Hilbert--Schmidt metric.
-\end{proof}
-
-\begin{remark}\label{rem:su3blocks}
-Theorem~\ref{thm:su3} ends where $2r\Lambda(r)$ reaches one. The blocks
-remove the factor $\frac{12}{10}$ of the single-link sum and keep most of it
-after paying for the three links: at $\beta_W=\frac34$ the gap bound rises
-from $1.1\cdot10^{-4}$ to $0.0177$, and the block bound is the better one for
-$\beta_W\ge0.715$. Before the corrections for the three links their sum is
-$\frac{10}{12}$ of the single-link sum $2r\Lambda(r)$, so it can stay below one
-while $2r\Lambda(r)$ is slightly above one; Proposition~\ref{prop:cover2} certifies
-$2r\Lambda(r)\le1.03$ at $r=1.52$ and $\le1.0275$ at $r=1.54$, which is
-enough at $\beta_W=0.76$ and $0.77$, with little room. Evaluated in floating point with the constants of a scan of
-$\mathcal R_r$, the block sum stays below one up to $\beta_W\approx0.78$;
-that computation is not certified and is not used.
+Section~\ref{ssec:cover}, and the maxima over these boxes are given below
+(Appendix~\ref{app:plaqblocks}).
+In this way every eigenvalue of $\Hess g$ on $rK$ lies in $[0.056015,
+0.247316]$ at $r=\frac32$ and $|D^3g(c)(u,v,v)|\le0.182126$ for unit
+$u,v$; at $r=\frac{38}{25}$ the numbers are $[0.054978,0.248280]$ and
+$0.183546$, and at $r=\frac{77}{50}$ they are $[0.053955,0.249240]$ and
+$0.184989$. With these constants and the bounds for $2r\Lambda(r)$ of
+Remark~\ref{rem:su3cover}, the quantities of~\eqref{eq:blockconst3}
+evaluated in ball arithmetic are, at $\beta_W=\frac34$, $w\le0.017935$,
+$s\le0.34088$, $C\le0.043520$, $K_3\le0.38609$ and $\alpha_3\le0.96521$;
+at $\beta_W=0.72$, $\alpha_3\le0.91815$; at $\beta_W=0.76$, $w\le0.018609$,
+$s\le0.34673$, $C\le0.045770$, $K_3\le0.39454$ and $\alpha_3\le0.99950$; at
+$\beta_W=0.77$, $w\le0.019298$, $s\le0.34186$, $C\le0.047232$, $K_3\le
+0.38953$ and $\alpha_3\le0.99978$. They would carry the block criterion to
+$\beta_W=0.77$, with a gap of $0.0177$ at $\frac34$, where the cover of
+Remark~\ref{rem:su3cover} alone gives $1.1\cdot10^{-4}$. Evaluated in
+floating point with the constants of a scan of $\mathcal R_r$, the block
+sum stays below one up to $\beta_W\approx0.78$. No result of the paper uses
+these numbers.
 \end{remark}
 
 \section{Where the methods stop}\label{sec:limits}
@@ -2337,7 +2534,11 @@ method in this gauge between $|\beta|=\frac1{29}$ and $\frac1{26.25}$; the
 computation of Remark~\ref{rem:certificate}, which no result uses, moves
 the first value to $1/28.840002$.
 
-\emph{$\SU(3)$.} The route of Section~\ref{sec:su3} bounds the
+\emph{$\SU(3)$.} Theorems~\ref{thm:su3} and~\ref{thm:su3blocks} use the
+bound of Lemma~\ref{lem:su3modulus}, whose losses are Jensen's inequality and
+the Poincar\'e inequality for $\varphi_h$; evaluated in floating point, it
+keeps $\alpha_1$ below one up to $\beta_W\approx0.5176$ and $\alpha_3$ up to
+$0.522$. The route of Section~\ref{sec:su3} with a corrector bounds the
 $H^{-1}(\nu_b)$ norm of $\varphi_h-\nu_b\varphi_h$, which is at least
 $L_h(b)$, and needs it uniformly on $rK$. Its Galerkin values (polynomials
 of degree two) at matrices of $rK$ give $2r$ times the norm equal to $0.79$
@@ -2350,16 +2551,16 @@ $2r$ times the bound is $0.9458$ at $r=1.36$, $0.9767$ at $r=1.40$ and $1.0080$
 at $r=1.44$, so this corrector ends near $\beta_W\approx0.715$. With $u=q_h$
 of degree two the largest values on the same face are $0.9305$ at $r=1.44$,
 $0.9729$ at $r=1.50$ and $1.0018$ at $r=1.54$ (Figure~\ref{fig:face}), close to the
-Galerkin values. Lemma~\ref{lem:gap} therefore costs
-little at these couplings, and most of the distance between the
-floating-point value at $r=1.5$ and the certified $0.999887$ of
-Proposition~\ref{prop:cover} is the interpolation over boxes. Between
-$\beta_W=\frac34$ and $0.77$ there is room only for smaller boxes. The
-plaquette blocks of Theorem~\ref{thm:su3blocks} use $\Lambda(2\beta_W)$ as
-well, with a little more room: they reach $0.77$ with the certified cover of
-Proposition~\ref{prop:cover2} and near $0.78$ in floating point
-(Remark~\ref{rem:su3blocks}); past that one needs larger blocks, whose
-sensitivity does not go through the one-link modulus.
+Galerkin values. Lemma~\ref{lem:gap} therefore costs little at these
+couplings, and most of the distance between the floating-point value at
+$r=1.5$ and the computed $0.999887$ of Remark~\ref{rem:su3cover} is the
+interpolation over boxes. With this corrector the single-link bound would
+reach $\frac34$ and the blocks $0.77$ (Remarks~\ref{rem:su3cover}
+and~\ref{rem:su3blocks}), but these evaluations are computations and no
+result uses them; a bound for the corrector of degree two that holds on all
+of $rK$ and is derived by hand is the missing step. Past $0.78$ one needs
+larger blocks, whose sensitivity does not go through the one-link
+modulus.
 
 \begin{figure}[tb]
 \centering
@@ -2370,8 +2571,8 @@ a function of $\rho/r$, for $r=1.44$, $1.50$ and $1.54$: dashed with the
 corrector $u=s\varphi_h$ for the best $s$, solid with $u=q_h$ of degree two
 for the best $C$. The grey plane is the Dobrushin threshold one. The first
 corrector is above it already at $r=1.44$; the second stays below it at
-$r=1.50$, where Proposition~\ref{prop:cover} certifies the bound on all of
-$\mathcal R_r$, and crosses it by $r=1.54$.}
+$r=1.50$, where the computation of Remark~\ref{rem:su3cover} bounds it on
+all of $\mathcal R_r$, and crosses it by $r=1.54$.}
 \label{fig:face}
 \end{figure}
 
@@ -2388,8 +2589,8 @@ coupling; (2) the crossover from strong coupling to Ba{\l}aban's
 weak-coupling regime; (3) the continuum limit with the
 Osterwalder--Schrader axioms; and (4) a gap in physical units. The present
 paper moves the boundary of (1): for $\SU(2)$ from $\beta_W=\frac29$ to
-$0.348$, for $\SU(3)$ from $\frac9{32}$ to $0.77$, with a gap at $\frac34$ of
-$0.0177$ in lattice units, and for every compact simple
+$0.348$, for $\SU(3)$ from $\frac9{32}$ to $0.52$, with a gap at $\frac12$ of
+$0.052$ in lattice units, and for every compact simple
 group, the exceptional groups included, past the curvature ceiling of the
 ungauged measure, with an explicit gap. It does not close (1); the region
 between these values and the scaling region, near $\beta_W\approx2.2$ for
@@ -4292,7 +4493,7 @@ replaces the gap part by the cube estimate (D), which concerns one box and
 one coupling at each spacing.
 \item \emph{Computation.} At a fixed coupling and a fixed small $n$,
 $D(n,\alpha)$ is a finite set of Kantorovich bounds and could in principle be
-certified as in Propositions~\ref{prop:cover} and~\ref{prop:cover2}; for
+evaluated as in Remark~\ref{rem:su3cover}; for
 $n=2$ and $\SU(2)$ the block already has $48$ links and $144$ real variables.
 (D) asks for it at infinitely many couplings with $n\to\infty$, which no
 finite computation covers.
@@ -21074,22 +21275,26 @@ Proposition~\ref{prop:blockresponse}, of
 Subsection~\ref{ssec:manyislands} and of Subsection~\ref{ssec:relstep}
 hold for $G$ as stated, with $\delta_G=\kappa_G/3$.
 \end{enumerate}
-For $\SU(3)$, $d=8$, $N=3$, $\kappa_G=\frac32$, $\rho_G=1$, $C_0(G)=
-10.44721$, $f_G(\beta)=16\log\beta+6C_0(G)-\beta\rho^2/24$, and
-$\beta^*(10^{-8},1)=5.269\cdot10^{21}$, $\beta^*(10^{-8},5)=8.231\cdot
-10^{21}$, $\beta^*(10^{-9},1)=5.286\cdot10^{23}$, $\beta^*(10^{-9},5)=
-8.248\cdot10^{23}$, $\beta^*(10^{-8},5,10^{30})=2.972\cdot10^{22}$, with
-$0.026<\epsilon_G<0.045$ in the first four. At scale $j$, for $s=5$ and
-$\rho=10^{-8}$, $\beta^*_1=4.368\cdot10^{23}$, $\beta^*_2=6.991\cdot
-10^{24}$, $\beta^*_3=1.786\cdot10^{26}$ and $16^{-j}\beta^*_j\le4.38\cdot
-10^{22}$ for $1\le j\le12$. In~(iii) for $\SU(3)$, $c_3\le25980.8$,
-$c_6\le3.678\cdot10^{15}$, (b) holds for $\beta_W\ge5.30\cdot10^{18}$,
-(a) for $\rho\le1.789\cdot10^{-16}$, and at $\rho=1.78\cdot10^{-16}$ the
-threshold with the joining distance $2s+8$ is $\beta^*=2.570\cdot10^{37}$
-for $s=1$ and $3.015\cdot10^{37}$ for $s=5$, where (b) holds;
-$\Lambda_2\le66.0001\beta_W+1.24\cdot10^7$, and the constant $c_2$ of
-Theorem~\ref{thm:islandwindow} at $s=1$, $\vartheta=0$ is at most
-$10^{22.14}$.
+For $\SU(3)$, $d=8$, $N=3$, $\kappa_G=\frac32$, $\rho_G=1$, $C_0(G)\in
+[10.44720,10.44721]$, $f_G(\beta)=16\log\beta+6C_0(G)-\beta\rho^2/24$, and
+\begin{gather*}
+\beta^*(10^{-8},1)\in[5.268,5.270]\cdot10^{21},\\
+\beta^*(10^{-8},5)\in[8.230,8.232]\cdot10^{21},\\
+\beta^*(10^{-9},1)\in[5.285,5.287]\cdot10^{23},\\
+\beta^*(10^{-9},5)\in[8.247,8.249]\cdot10^{23},\\
+\beta^*(10^{-8},5,10^{30})\in[2.971,2.973]\cdot10^{22},
+\end{gather*}
+with $0.026<\epsilon_G<0.045$ in the first four. At scale $j$, for $s=5$ and
+$\rho=10^{-8}$, $\beta^*_1\in[4.367,4.368]\cdot10^{23}$, $\beta^*_2\in
+[6.990,6.992]\cdot10^{24}$, $\beta^*_3\in[1.785,1.787]\cdot10^{26}$ and
+$16^{-j}\beta^*_j\le4.38\cdot10^{22}$ for $1\le j\le12$. In~(iii) for
+$\SU(3)$, $c_3\le25980.8$, $c_6\le3.678\cdot10^{15}$, (b) holds for
+$\beta_W\ge5.30\cdot10^{18}$, (a) for $\rho\le1.789\cdot10^{-16}$, and at
+$\rho=1.78\cdot10^{-16}$ the threshold with the joining distance $2s+8$
+lies in $[2.569,2.571]\cdot10^{37}$ for $s=1$ and in $[3.014,3.016]\cdot
+10^{37}$ for $s=5$, where (b) holds; $\Lambda_2\le66.0001\beta_W+1.24\cdot
+10^7$, and the constant $c_2$ of Theorem~\ref{thm:islandwindow} at $s=1$,
+$\vartheta=0$ is at most $10^{22.14}$.
 \end{theorem}
 
 \begin{proof}
@@ -21154,10 +21359,58 @@ group enters them only through the results of Section~\ref{sec:blocks},
 stated for every $G$, through the constants of~(iii) and~(iv), and
 through $\delta_G$ in Subsection~\ref{ssec:relstep}, which is
 $\kappa_G/3$ by Lemma~\ref{lem:adspread}(ii).
-The numbers are the roots of $f_G=\log q^*$ and the values of the
-constants above, evaluated with outward-rounded interval arithmetic; each
-root is bracketed by two points of relative distance $10^{-25}$ at which
-$f_G-\log q^*$ has opposite signs, to the right of the maximum of $f_G$.
+
+\emph{The numbers for $\SU(3)$.} Here $K=\kappa_G/7=\frac3{14}$, $KN=
+\frac9{14}$ and $I_8(\pi)=\int_0^\pi\sin^7u\,du=\frac{32}{35}$, so $d\,I_d
+(\pi)=\frac{256}{35}$, and the factorisations $\frac{256}{35}(\frac{224}9)^4
+(\frac{96}{95})^7=2^{63}3^{-1}5^{-8}7^3\,19^{-7}$ and $7^2=2\cdot5^2\cdot
+\frac{49}{50}$, $19=2^5\cdot3\cdot5^{-1}\cdot\frac{95}{96}$ give
+\begin{multline*}
+C_0(G)=\tfrac12+\tfrac23\bigl(\tfrac{59}2\log2-8\log3+2\log5\\
+-\tfrac32\log\tfrac{50}{49}+7\log\tfrac{96}{95}\bigr).
+\end{multline*}
+The logarithms of the proof of Theorem~\ref{thm:islandthreshold}, with
+$\log\frac{50}{49}=2\operatorname{artanh}\frac1{99}$ and $\log\frac{96}{95}
+=2\operatorname{artanh}\frac1{191}$, give $C_0(G)$ within $10^{-7}$ of
+$10.4472096$. The function $g_G(\beta)=\beta\rho^2/24-16\log\beta-6C_0(G)-
+\lvert\log q^*\rvert-H\log\varGamma$ increases for $\beta>384/\rho^2$, and
+$\beta^*$ is its largest zero. With $\lvert\log q^*\rvert$ within $10^{-3}$
+of $21090.194$ and $33424.872$ (Theorem~\ref{thm:islandthreshold}), at the
+ends of each of the five stated intervals $g_G$ is negative and positive,
+with margins above $2$, so that $\log\beta$ to two decimals decides the
+signs; $\epsilon_G=(16\log\beta^*_G+6C_0(G))/\lvert\log q^*\rvert$
+increases with $\beta^*_G$, and its values at the ends of the first four
+intervals lie between $0.02603$ and $0.04442$. At scale $j$, $\rho_0=\rho/
+(c\,4^j)$ with $c=1.01\cdot1.023$ and $24c^2\le25.6215417$, and
+$\lvert\log q^*_j\rvert$ is as in the proof of
+Theorem~\ref{thm:islandscales}: within $10^{-3}$ of $105605.899$ and
+$105608.929$ for $j=1,2$, and at most $169144.64+4j\log2$ for $j\ge3$. The
+same sign check, with margins above $11$, gives the three intervals for
+$\beta^*_1$, $\beta^*_2$, $\beta^*_3$. For $b>384c^2/\rho^2$,
+\begin{multline*}
+g_{G,j}(16^jb)=\frac{b\rho^2}{24c^2}-16\log b-6C_0(G)\\
+-\bigl(\lvert\log q^*_j\rvert+64j\log2\bigr),
+\end{multline*}
+and at $b=4.38\cdot10^{22}$ the first term is at least $170949.9$, the next
+two at most $834.15$ and $62.684$, and the bracket, for $j\le12$, at most
+$105697.7$ when $j\le2$ and $169144.64+68j\log2\le169710.3$ when $j\ge3$;
+so $g_{G,j}(16^jb)>0$ and $16^{-j}\beta^*_j\le4.38\cdot10^{22}$. In~(iii),
+$c_3=1.5\cdot10^4\sqrt3\le25980.8$, $c_6=6.81\cdot10^5\cdot8\cdot6.75\cdot
+10^8=3.6774\cdot10^{15}$, $480\cdot3\cdot c_6=5.295456\cdot10^{18}$ and
+$2758\cdot7.8\cdot10^7\cdot25980.8\le5.5891\cdot10^{15}$, which give (b)
+and (a). For the joining distance $2s+8$, $\lvert\log q^*\rvert$ lies
+within $10^{-2}$ of $32481.67$ for $s=1$ and of $38354.07$ for $s=5$
+(Theorem~\ref{thm:islandwindow}), and the sign check at $\rho=1.78\cdot
+10^{-16}$, with margins above $7$, gives the two intervals. In~(iv),
+$\frac{198.0002}3\le66.0001$ and $\frac{4.65\cdot10^6\cdot8}3=1.24\cdot
+10^7$. Finally, with $960N=2880$, $r=43\rho$ and $\kappa=2\alpha_G=5\cdot
+10^{-4}$,
+\[
+c_2=2880\,\beta^*r^2\Bigl(66.0001+\frac{1.24\cdot10^7}{\beta^*}\Bigr)^2
+\cdot45\cdot14^2\cdot9^2e^{0.008},
+\]
+which increases with $\beta^*$ and is at most $10^{22.134}$ at $\beta^*=
+2.571\cdot10^{37}$.
 \end{proof}
 
 \begin{remark}\label{rem:groups13}
@@ -21176,7 +21429,7 @@ other groups.
 \end{remark}
 
 \begin{remark}\label{rem:groups13blocks}
-For $\SU(3)$ the plaquette blocks reach $\beta_W\le0.77$
+For $\SU(3)$ the plaquette blocks reach $\beta_W\le0.52$
 (Theorem~\ref{thm:su3blocks}), in place of $0.348$ for $\SU(2)$. For
 other groups the block constant~\eqref{eq:blockconst3} needs the
 modulus $\Lambda(r)$ of~\eqref{eq:alpha}, a gap of the one-link measure
@@ -24071,19 +24324,15 @@ L\'evy~\cite{Lev03}.
 \section*{Declarations}
 
 \subsection*{Data and code availability}
-The proofs are analytic except for the following results, which rest on
-computations. For $\SU(3)$, Propositions~\ref{prop:cover}
-and~\ref{prop:cover2}, Lemma~\ref{lem:su3const} and
-Theorems~\ref{thm:su3} and~\ref{thm:su3blocks} rest on evaluations in
-interval arithmetic with rigorous error bounds. Remarks~\ref{rem:blockgapsharp} and~\ref{rem:certificate} report
-computations with certificates checked in exact arithmetic; no result uses
-them. The numerical values stated in
-Theorem~\ref{thm:groups13} (for $\SU(3)$) are enclosed in interval
-arithmetic. The value of $(M_W)_{AB}$ in Remark~\ref{rem:sfgaussvalue} is
-computed in exact rational arithmetic; no proof uses it, and the statements
-that the calm weight is not local are conditional on $(M_W)_{AB}\ne0$.
-Every
-other number used in a proof is derived in the text. The programs of these steps, in Python with
+The proofs are analytic. Remarks~\ref{rem:su3cover} and~\ref{rem:su3blocks}
+report evaluations for $\SU(3)$ in interval arithmetic with rigorous error
+bounds, and Remarks~\ref{rem:blockgapsharp} and~\ref{rem:certificate}
+report computations with certificates checked in exact arithmetic; no
+result uses them. The value of $(M_W)_{AB}$ in
+Remark~\ref{rem:sfgaussvalue} is computed in exact rational arithmetic; no
+proof uses it, and the statements that the calm weight is not local are
+conditional on $(M_W)_{AB}\ne0$. Every number used in a proof is derived
+in the text. The programs of these steps, in Python with
 python-flint (FLINT and Arb) and a C kernel for products of Taylor
 polynomials, their outputs and the list of certified boxes are in the
 repository \url{https://github.com/creelie/4Y-M}, release v4.33.0
@@ -24370,16 +24619,16 @@ three derivatives in $s=r^2$ summed to forty-eight terms with the tail
 bounded by twice the first omitted term; these sharper constants are not
 used by any result.
 
-For $\SU(3)$ the bounds of Lemma~\ref{lem:su3const} are evaluated on the
+For $\SU(3)$ the constants of Remark~\ref{rem:su3blocks} are evaluated on the
 $841$ boxes of side $\frac3{16}$ at $r=\frac32$ and the $784$ boxes of side
 $\frac{19}{100}$ at $r=\frac{38}{25}$ and the $826$ boxes of side
 $\frac{77}{400}$ at $r=\frac{77}{50}$ with the moments of
 Appendix~\ref{app:cover}, and the constants of~\eqref{eq:blockconst3} and
-$\alpha_3$ are evaluated from these bounds and the cover of
-Proposition~\ref{prop:cover} or Proposition~\ref{prop:cover2} in ball
-arithmetic at $120$ bits. The cover of Proposition~\ref{prop:cover2} is
-computed as in Appendix~\ref{app:cover} with $r=\frac{38}{25}$ and the
-threshold $1.03$, and with $r=\frac{77}{50}$ and the threshold $1.0275$.
+$\alpha_3$ are evaluated from these bounds and the covers of
+Remark~\ref{rem:su3cover} in ball arithmetic at $120$ bits. The covers at
+$r=\frac{38}{25}$ and $\frac{77}{50}$ are computed as in Appendix~\ref{app:cover} with $r=\frac{38}{25}$ and the
+threshold $1.03$, and with $r=\frac{77}{50}$ and the threshold $1.0275$. No result of the paper uses these numbers; Theorem~\ref{thm:su3blocks}
+uses the constants of Lemma~\ref{lem:su3modulus}.
 
 \section{The blocks of Lemma~\ref{lem:local}}\label{app:blocks}
 
@@ -24447,6 +24696,10 @@ $\frac{21}{10}$, $\frac54$, $\frac9{10}$ trades against the constant
 $\frac{29}2$.
 
 \section{The certified computation}\label{app:cover}
+
+This appendix describes the computation of Remark~\ref{rem:su3cover}, which
+no result of the paper uses.
+
 
 \emph{Truncation.} For a corner $b$ of a box the moments of
 Lemma~\ref{lem:characters} are derivatives of $Z$ at $(b,\bar b)$. The

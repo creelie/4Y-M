@@ -18,7 +18,7 @@ The detail behind each line is in the linked files. The split of (D) into pieces
 
 Current proved ranges:
 - SU(2): β_W ≤ 0.351.
-- SU(3): β_W ≤ 0.77.
+- SU(3): β_W ≤ 0.52, proved by hand (the certified route to 0.77 is a remark that no theorem uses).
 
 **Relation to (D): none.** Track A is about fixed coupling, while (D) is posed along β_W → ∞. Pushing the range by
 0.01 leaves the gap to the scaling region near β_W ≈ 2.2 essentially unchanged. A4 raises trust in proved results; it
