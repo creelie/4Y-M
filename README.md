@@ -22,6 +22,8 @@ continuum tuning and a nontrivial continuum limit are not proved.
 - `strong-coupling/forest/`: the paper, its figures, scripts and notes.
 - `strong-coupling/gauge-fixed/`: the certified constants (`blocks/`, `su3/`).
 - `YangMills/`: the Lean 4 / Mathlib files (`lake exe cache get && lake build`).
+- `preprints/`: the Hexagon PDF (`preprintshexagon/`), the MDPI PDF
+  (`preprintsmdpi/`) and their TeX sources (`texsources/`).
 - `YangMills_masterzipfinal2.zip`: the repository at the current release with
   the Hexagon package of the paper.
 
