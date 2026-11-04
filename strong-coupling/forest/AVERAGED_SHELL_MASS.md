@@ -29,6 +29,26 @@ condition; it is not automatic for arbitrary measurable h and fibres.
 There is no lower bound on fibre normalizers in (1)--(2): they are already
 absorbed in rho, the actual distribution of the coarse averages.
 
+**Proved (a sufficient regularity condition for the identification).**
+Fix a compact fibre without boundary of dimension d, with a C¹ density w relative to its volume,
+and suppose that near the compact level set {h=r}, h is C¹ and its fibre
+gradient is nonzero. If q is continuous there, then the one-sided shell
+averages converge to
+
+    integral_{h=r} q w / |grad_fibre h| d H^(d-1).                 (2a)
+
+Apply the coarea formula and continuity of the resulting level integral,
+which follows from finitely many implicit-function charts on the compact
+level set and a partition of unity. If this condition holds for rho-almost
+every fibre, Fatou and (2) control the averaged mass (2a) without requiring
+a uniform lower bound on the fibre gradients. The same conclusion holds for
+a finite piecewise-C¹ maximum if each active smooth piece is regular, the
+tie set has zero (d-1)-dimensional measure on the level, and the resulting
+one-sided level integrals converge; these last properties must be checked.
+If the relevant flux integrand is (Vh)w, its absolute surface flux is at
+most (2a) with q=|Vh|, provided that coarea expression is indeed the flux
+obtained from differentiating the constrained law.
+
 ## The path maximum and its speed
 
 **Proved (deterministic speed bound).** Let h be the maximum, over a fixed
