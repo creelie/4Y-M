@@ -124,7 +124,7 @@ reflection positivity.
 \scriptsize An earlier version of this paper is available at
 \url{https://hexagonmath.org/2610.00341v6}.\ifx\preprintsDOI\empty\else{} The paper is also
 available on Preprints.org,
-\href{https://doi.org/\preprintsDOI}{doi:\preprintsDOI}.\fi{} Compared with it, this paper adds Sec.~\ref{sec:islands}, on the labels of the blocks, the islands of bad blocks, the bad side of a projected block average, the obstructions to the remaining routes and the effective action across one scale, Secs.~\ref{ssec:averaged}--\ref{ssec:bpup}, on an averaged form of the cube condition, its local form, the couplings where it holds and fails, its neutral part on small tori, its passage to block variables and the upward step, and Secs.~\ref{ssec:osaxioms} and~\ref{ssec:limitE}, on the Osterwalder--Schrader axioms for the flowed fields and the limit at separated points of the fields without flow, and it proves by hand every constant that the earlier version took from computer certificates.}
+\href{https://doi.org/\preprintsDOI}{doi:\preprintsDOI}.\fi{} Compared with it, this paper adds Sec.~\ref{sec:islands}, on the labels of the blocks, the islands of bad blocks, the bad side of a projected block average, the obstructions to the remaining routes and the effective action across one scale, Secs.~\ref{ssec:averaged}--\ref{ssec:bprefine}, on an averaged form of the cube condition, its local form, the couplings where it holds and fails, its neutral part on small tori, its passage to block variables, the upward step and the measures for which it holds, and Secs.~\ref{ssec:osaxioms} and~\ref{ssec:limitE}, on the Osterwalder--Schrader axioms for the flowed fields and the limit at separated points of the fields without flow, and it proves by hand every constant that the earlier version took from computer certificates.}
 \endgroup
 \addtocounter{footnote}{-1}
 
@@ -6876,9 +6876,11 @@ the product of Haar measures, where the condition holds with constant one
 tuning has to use the split form.
 
 Not proved: (H1) and (H2) for the tuned Wilson measures; the split
-inequality, with $C_B$ close to $(n'/(bn))^4$, for any measure other than
-the product of Haar measures, in particular at strong coupling, for $\U(1)$
-at $\beta\ne0$, and for $\SU(2)$ at weak coupling on calm fibres. At strong
+inequality, with $C_B$ close to $(n'/(bn))^4$, for any Wilson measure at
+$\beta\ne0$, in particular at strong coupling, for $\U(1)$ at $\beta\ne0$,
+and for $\SU(2)$ at weak coupling on calm fibres; Sec.~\ref{ssec:bprefine}
+proves it, with the constants of the product measure, for the Haar
+refinements, which are not Wilson measures. At strong
 coupling, Theorem~\ref{thm:bpup}(iii) and Corollary~\ref{cor:bpranges} give
 (A) at the top step of a tower, where $\mu'$ is the Wilson measure, with
 $C_A=1/(1-\alpha_{n'})$ whenever $\alpha_{n'}<1$; what is missing is the
@@ -6888,12 +6890,411 @@ $f$ that the fibre and the coarse field see are orthogonal; for an
 interacting measure they are not, and the term dropped in the proof of
 Theorem~\ref{thm:bpdescent}(i), the information that the fine field outside
 a fine cube carries on the block variables inside the coarse cube beyond
-the coarse field outside it, vanishes for the product measure and is not
-bounded here for any other. Theorem~\ref{thm:eightlinkuniform} and
+the coarse field outside it, vanishes for the product measure and its Haar
+refinements (Proposition~\ref{prop:bpfinesplit}(ii),
+Lemma~\ref{lem:bprefine}(ii)) and is not bounded here for any other. Theorem~\ref{thm:eightlinkuniform} and
 Proposition~\ref{prop:chartfolds} concern bounds uniform in the conditioning
 on block variables, while (A) and $\mathrm S$ are posed in the mean over
 $\mu'$, so they do not decide them. Neither $\mathrm{BP}$ along the tuning
 nor the mass gap is proved here.
+\end{remark}
+
+\subsection{Haar refinements}\label{ssec:bprefine}
+
+This subsection proves the split inequality, with the constants of
+Proposition~\ref{prop:bpuphaar}(i), for a class of interacting measures:
+those whose conditional law given the block variables of the straight-path
+map is the Haar law of the fibres, while the law of the block variables is
+an arbitrary gauge-invariant measure. Along a tower of such refinements the
+upward step carries the condition at the coarsest scale to every finer
+scale without loss. The proof rests on an exact splitting of the fine
+Dirichlet form into a fibre form and a coarse form, valid for every
+measure; for a general measure the coarse form is reduced by the
+information that the fine field outside a fine cube carries on the block
+variables, and the Wilson measure at $\beta\ne0$ is not a refinement.
+
+Throughout, $c$ is the straight-path map with blocks of side $b\ge2$ from
+$\Lambda_{bL}$ to $\Lambda_L$, $\pi(e)$ is the path of the $b$ links that
+$c$ multiplies for $e\in E$, and $E'_0=E'\setminus\bigcup_{e\in E}\pi(e)$ is
+the set of links on no path. A gauge transformation acts by $(gU)_{(x,\mu)}
+=g(x)U_{(x,\mu)}g(x+e_\mu)^{-1}$, and $\lambda_S$ denotes the product of
+the Haar measures on $G^S$. For $W\in G$ and $m\ge1$ let $\nu^{(m)}_W$ be the
+law of $(U_1,\dots,U_m)$ with $U_1,\dots,U_{m-1}$ independent Haar
+variables and $U_m=(U_1\cdots U_{m-1})^{-1}W$, the uniform law on the
+tuples with product $W$. For $V\in G^E$ let $\nu_V$ be the product of the
+laws $\nu^{(b)}_{V_e}$ of the links of $\pi(e)$, taken in their order along
+the path, over $e\in E$, and of $\lambda_{E'_0}$; then $c=V$ holds
+$\nu_V$-almost surely.
+
+\begin{lemma}\label{lem:bpfibrelaw}
+Let $W\in G$ and $m\ge2$, and let $(U_1,\dots,U_m)$ have law $\nu^{(m)}_W$.
+\begin{enumerate}[label=\textup{(\roman*)},leftmargin=*]
+\item Any $m-1$ of the $U_k$ are independent Haar variables, and so are the
+partial products $A_k=U_1\cdots U_k$, $1\le k\le m-1$.
+\item For $h_0,\dots,h_m\in G$ the law of $(h_{k-1}U_kh_k^{-1})_{k\le m}$
+is $\nu^{(m)}_{h_0Wh_m^{-1}}$.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+(i) For the coordinates $k\ne m$ this is the definition. Leave out $U_i$
+with $i<m$ and condition on the $U_k$ with $k\ne i,m$. Then $U_m=QU_i^{-1}
+R$ with $Q,R$ fixed, and $U_m$ is a Haar variable independent of the
+conditioning variables, by the invariance of Haar measure under
+$U\mapsto U^{-1}$ and under translations. The map $(U_1,\dots,U_{m-1})
+\mapsto(A_1,\dots,A_{m-1})$ is the composite of the translations $A_k=
+A_{k-1}U_k$, $A_0=I$, so the $A_k$ are independent Haar variables.
+
+(ii) The variables $h_{k-1}U_kh_k^{-1}$, $k\le m-1$, are independent Haar
+variables, and the product of all $m$ of them is $h_0Wh_m^{-1}$.
+\end{proof}
+
+\begin{definition}\label{def:bprefine}
+For a probability measure $\varrho$ on $G^E$, the \emph{Haar refinement}
+of $\varrho$ along $c$ is the probability measure $R(\varrho)=\int\varrho
+(dV)\,\nu_V$ on $G^{E'}$.
+\end{definition}
+
+For $x'\in\Lambda_{bL}$ write $\mathcal F_{x'}$ for the $\sigma$-algebra of
+the links outside $V'_{x'}$, $\mathcal H_{x'}=\mathcal F_{x'}\vee\sigma(c)$,
+and $T(x')$ for the set of $e\in E$ with $\pi(e)\cap V'_{x'}\ne\emptyset$.
+A link of $\pi(e)$ with $e\notin T(x')$ lies outside $V'_{x'}$, so
+$\sigma(c_{E\setminus T(x')})\subset\mathcal F_{x'}$. For a probability
+measure $\varrho$ on $G^E$ and $T\subset E$ let $P^\varrho_T$ be the
+conditional expectation under $\varrho$ given the coarse links outside $T$.
+Every site of $\Lambda_{bL}$ that is not a block corner $by$ and lies on a
+path is an inner point $s=by+ke_\nu$, $1\le k\le b-1$, of exactly one path
+$\pi(y,\nu)$. For a configuration $U$ let $g_U$ be the gauge transformation
+equal to the partial product $U_{(by,\nu)}U_{(by+e_\nu,\nu)}\cdots
+U_{(by+(k-1)e_\nu,\nu)}$ at each such inner point and to $I$ at all other
+sites, put $M(U)=(g_UU)_{E'_0}$, and let $\Theta(V,m)\in G^{E'}$, for $V\in
+G^E$ and $m\in G^{E'_0}$, have the links $I,\dots,I,V_e$ along each path
+$\pi(e)$ and $m$ on $E'_0$.
+
+\begin{lemma}\label{lem:bprefine}
+Let $\varrho$ be a gauge-invariant probability measure on $G^E$ and
+$\mu'=R(\varrho)$.
+\begin{enumerate}[label=\textup{(\roman*)},leftmargin=*]
+\item $\mu'$ is gauge invariant, $c_*\mu'=\varrho$, and the conditional law of
+$U$ given $c$ is $\nu_{c(U)}$. $R(\lambda_E)=\lambda_{E'}$, and if $\varrho$
+has density $r$ with respect to $\lambda_E$, then $\mu'$ has density $r\circ
+c$ with respect to $\lambda_{E'}$.
+\item For every $x'$ and every $f\in L^2(\mu')$, $\E[\E[f\mid\mathcal F_{x'}]
+\mid c]=(P^\varrho_{T(x')}F)\circ c$, where $\E[f\mid c]=F\circ c$.
+\item $g_UU=\Theta(c(U),M(U))$; under $\mu'$, $M$ is independent of $c$ and
+of the partial products along the paths, with law $\lambda_{E'_0}$; and every
+$f\in\mathcal A'$ satisfies $f=\tilde f(c,M)$ $\mu'$-almost everywhere for a
+Borel function $\tilde f$ on $G^E\times G^{E'_0}$.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+(i) Let $g$ be a gauge transformation of $\Lambda_{bL}$ and $\hat g(y)=
+g(by)$. By Lemma~\ref{lem:bpfibrelaw}(ii) with $h_k=g(by+ke_\nu)$ on each
+path $\pi(y,\nu)$, and by the invariance of $\lambda_{E'_0}$, the image of
+$\nu_V$ under $g$ is $\nu_{\hat gV}$; hence the image of $\mu'$ is $\int
+\varrho(dV)\nu_{\hat gV}$, which is $\mu'$ because $\varrho$ is invariant
+under $\hat g$. As $c=V$ holds $\nu_V$-almost surely, $\mu'(\psi(c)k)=\int
+\varrho(dV)\psi(V)\nu_V(k)$ for bounded Borel $\psi,k$, which gives the law of
+$c$ and the conditional law. Under $\lambda_{E'}$ the links of a path
+satisfy: $U_b$ is a Haar variable independent of $U_1,\dots,U_{b-1}$, hence
+so is $U_1\cdots U_b$, and given $U_1,\dots,U_{b-1}$ and the product the last
+link is determined; so $\lambda_{E'}=\int\lambda_E(dV)\nu_V$. The last claim
+follows, since $\int r(V)\lambda_E(dV)\nu_V=(r\circ c)\int\lambda_E(dV)
+\nu_V$.
+
+(ii) Let $T=T(x')$ and $\mathcal F=\mathcal F_{x'}$. Under $\nu_V$ the links
+outside $V'_{x'}$ are independent families: the links of $\pi(e)$ for $e
+\notin T$, with law $\nu^{(b)}_{V_e}$; for $e\in T$, the links of $\pi(e)$
+outside $V'_{x'}$, a proper subset of the path, which are independent Haar
+variables by Lemma~\ref{lem:bpfibrelaw}(i); and the links of $E'_0$ outside
+$V'_{x'}$, with Haar law. So for bounded $\mathcal F$-measurable $k$,
+$\nu_V(k)=\kappa(V_{E\setminus T})$ depends only on $V_{E\setminus T}$, and
+for bounded Borel $\psi$ on $G^E$,
+\[
+\mu'(k\,\psi\circ c)=\int\varrho(dV)\psi(V)\kappa(V_{E\setminus T})=
+\mu'\bigl(k\,(P^\varrho_T\psi)\circ c\bigr).
+\]
+By density this holds for $k\in L^2(\mathcal F)$. With $k=\E[f\mid
+\mathcal F]$, and since $(P^\varrho_T\psi)\circ c$ is $\mathcal
+F$-measurable,
+\[
+\begin{split}
+\mu'(\E[f\mid\mathcal F]\,\psi\circ c)&=\mu'\bigl(f\,(P^\varrho_T\psi)\circ
+c\bigr)\\
+&=\varrho(F\,P^\varrho_T\psi)=\varrho\bigl((P^\varrho_TF)\psi\bigr),
+\end{split}
+\]
+which is the claim.
+
+(iii) On each path $\pi(y,\nu)$ with links $U_1,\dots,U_b$ and partial
+products $A_k$, $A_0=I$, the transformed links are $A_{k-1}U_kA_k^{-1}=I$
+for $k\le b-1$ and $A_{b-1}U_b=c_{(y,\nu)}$, since $g_U=I$ at the block
+corners; this is the first claim. Under $\nu_V$ the partial products along
+the paths and the links of $E'_0$ are independent Haar variables
+(Lemma~\ref{lem:bpfibrelaw}(i)), and given the partial products each
+$M_{e'}$, $e'\in E'_0$, is a translate on both sides of $U_{e'}$ by fixed
+elements; so given $V$ and the partial products, $M$ has law
+$\lambda_{E'_0}$, for every $V$. For $f\in\mathcal A'$ let $\bar f(U)=
+\int f(gU)\,dg$, the integral over the Haar measure of the compact gauge
+group, where it converges absolutely, and $\bar f(U)=0$ elsewhere. Since
+$\mu'$ is gauge invariant, $\iint\lvert f(gU)-f(U)\rvert\,dg\,d\mu'=\int
+\lVert f\circ g-f\rVert_{L^1(\mu')}dg=0$, so $\bar f=f$ almost everywhere,
+and $\bar f(hU)=\bar f(U)$ for every gauge transformation $h$ and every
+$U$. Hence $f=\bar f(g_UU)=\bar f(\Theta(c,M))$ almost everywhere, and
+$\tilde f=\bar f\circ\Theta$.
+\end{proof}
+
+The following splitting holds for every measure. Write $\Pi_{\mathcal B}$
+for the conditional expectation given a $\sigma$-algebra $\mathcal B$ under
+the measure at hand, and put
+\[
+\Phi(f)=\frac1{n'^4}\sum_{x'\in\Lambda_{bL}}\mu'\bigl(\Var(f\mid\mathcal
+H_{x'})\bigr),
+\]
+the Dirichlet form of the cube dynamics on the fibres of $c$, which
+resamples the links of a fine cube given the links outside it and the block
+variables.
+
+\begin{proposition}[the fine form splits]\label{prop:bpfinesplit}
+Let $\mu'$ be a gauge-invariant probability measure on $G^{E'}$, $\mu^c=
+c_*\mu'$, $n'\ge2$ and $bL\ge2n'+4$ even.
+\begin{enumerate}[label=\textup{(\roman*)},leftmargin=*]
+\item For every real $f\in L^2(\mu')$, with $\E[f\mid c]=F_f\circ c$,
+\[
+\begin{split}
+\mathcal E'_{n'}(f)&=\Phi(f)+\frac1{n'^4}\sum_{x'}\mu'\bigl((\Pi_{\mathcal
+H_{x'}}f-\Pi_{\mathcal F_{x'}}f)^2\bigr)\\
+&\ge\Phi(f)+\frac1{n'^4}\sum_{x'}\mu'\bigl((F_f\circ c-\Pi_{\sigma(c)}
+\Pi_{\mathcal F_{x'}}f)^2\bigr).
+\end{split}
+\]
+\item For every real $F\in L^2(\mu^c)$,
+\[
+\begin{split}
+\mathcal E'_{n'}(F\circ c)={}&\frac1{n'^4}\sum_{x'}\mu^c\bigl((F-P^{\mu^c}
+_{T(x')}F)^2\bigr)\\
+&-\frac1{n'^4}\sum_{x'}\mu'\bigl((\Pi_{\mathcal F_{x'}}(F\circ c)-(P^{\mu^c}
+_{T(x')}F)\circ c)^2\bigr).
+\end{split}
+\]
+\end{enumerate}
+In particular, if $\Phi(f)\ge\mu'(\Var(f\mid c))/C_A$ and the last sum in
+\textup{(i)} is at least $n'^4\mathcal E^c_n(F_f)/C_B$ for every real $f\in
+\mathcal A'$, then $\mathrm S(n',n;C_A,C_B)$ holds for $(\mu',c)$.
+\end{proposition}
+
+\begin{proof}
+(i) Since $\mathcal F_{x'}\subset\mathcal H_{x'}$, $f-\Pi_{\mathcal
+H_{x'}}f$ is orthogonal to $\Pi_{\mathcal H_{x'}}f-\Pi_{\mathcal F_{x'}}f$,
+and $\mu'((f-P'_{x'}f)^2)=\mu'(\Var(f\mid\mathcal H_{x'}))+\mu'((\Pi_{\mathcal
+H_{x'}}f-\Pi_{\mathcal F_{x'}}f)^2)$. The projection $\Pi_{\sigma(c)}$ does not
+increase the norm, and $\Pi_{\sigma(c)}\Pi_{\mathcal H_{x'}}=\Pi_{\sigma(c)}$
+because $\sigma(c)\subset\mathcal H_{x'}$.
+
+(ii) For bounded $\psi$ of the coarse links outside $T=T(x')$, $\mu'((F\circ
+c)(\psi\circ c))=\mu^c(F\psi)=\mu^c((P^{\mu^c}_TF)\psi)$, so $\Pi_{\sigma(c_{E
+\setminus T})}(F\circ c)=(P^{\mu^c}_TF)\circ c$. As $\sigma(c_{E\setminus T})
+\subset\mathcal F_{x'}$, Pythagoras' theorem gives $\mu'((F\circ c-(P^{\mu^c}
+_TF)\circ c)^2)=\mu'((F\circ c-\Pi_{\mathcal F_{x'}}(F\circ c))^2)+\mu'((\Pi_{
+\mathcal F_{x'}}(F\circ c)-(P^{\mu^c}_TF)\circ c)^2)$. The last statement
+follows from (i).
+\end{proof}
+
+The two conditions of the last statement bound disjoint parts of the fine
+form, so, unlike (A) and (B) of Definition~\ref{def:bpsplit}, they give the
+split inequality with their own constants. The term subtracted in (ii) is the
+information that the fine field outside $V'_{x'}$ carries on $F$ beyond the
+block variables of the links whose paths avoid $V'_{x'}$, the exact form of
+the term dropped in the proof of Theorem~\ref{thm:bpdescent}(i) and named in
+Remark~\ref{rem:bpdescent}. By Lemma~\ref{lem:bprefine}(ii) it vanishes for
+a Haar refinement, which therefore has, among all measures with the same law
+of the block variables, the largest fine Dirichlet form on every function
+of the block variables.
+
+\begin{theorem}[the split inequality for Haar refinements]\label{thm:bprefine}
+Let $\varrho$ be a gauge-invariant probability measure on $G^E$, $\mu'=
+R(\varrho)$, and $n,n'\ge2$ with $n'\ge bn$, $L\ge2n+4$ and $bL\ge2n'+4$
+even. Then $\mu^c=\varrho$, every real $f\in\mathcal A'$ satisfies
+\[
+\Phi(f)\ge\mu'\bigl(\Var(f\mid c)\bigr),\qquad\mathcal E'_{n'}(f)\ge\Phi(f)
++\Bigl(\frac{bn}{n'}\Bigr)^4\mathcal E^c_n(F_f),
+\]
+and $\mathrm S(n',n;1,(n'/(bn))^4)$ holds for $(\mu',c)$. Constants for which
+$\mathrm S(n',n;C_A,C_B)$ or \textup{(A)} holds satisfy $C_A\ge(1+2/n')^{-1}$.
+\end{theorem}
+
+\begin{proof}
+$\mu^c=\varrho$ by Lemma~\ref{lem:bprefine}(i). \emph{The coarse term.} By
+Proposition~\ref{prop:bpfinesplit}(i) and Lemma~\ref{lem:bprefine}(ii),
+\[
+\mathcal E'_{n'}(f)\ge\Phi(f)+\frac1{n'^4}\sum_{x'}\varrho\bigl((F_f-P^\varrho
+_{T(x')}F_f)^2\bigr).
+\]
+For $y\in\Lambda_L$ and $w\in[0,b)^4$ let $x'=by-w$. By Step~3 of the proof
+of Proposition~\ref{prop:bpuphaar}, the map $(y,w)\mapsto by-w$ is a
+bijection onto $\Lambda_{bL}$ and $V'_{x'}$ contains the first link of
+$\pi(z,\nu)$ for every $z\in y+[0,n)^4$, because $n'\ge bn$; so $V_y\subset
+T(x')$, the coarse links outside $T(x')$ lie outside $V_y$, $P^\varrho_
+{T(x')}=P^\varrho_{T(x')}P^c_y$, and by Pythagoras' theorem $\varrho((F-
+P^\varrho_{T(x')}F)^2)\ge\varrho((F-P^c_yF)^2)$. Summing over $(y,w)$, the last sum is at least $b^4
+\sum_y\varrho((F_f-P^c_yF_f)^2)=b^4n^4\mathcal E^c_n(F_f)$.
+
+\emph{The fibre term.} Let $\tilde f$ and $M$ be as in
+Lemma~\ref{lem:bprefine}(iii). Under $\mu'$ the pair $(c,M)$ has law $\varrho
+\otimes\lambda_{E'_0}$, so the decomposition of the proof of
+Proposition~\ref{prop:avgsup}(ii), in the variables $m\in G^{E'_0}$ with $V$
+as a parameter, writes $\tilde f=\sum_{B\subset E'_0}\tilde f_B$, where
+$\tilde f_B(V,m)$ depends on $m$ only through $m_B$ and has integral zero in
+each $m_{e'}$, $e'\in B$; the terms are orthogonal in $L^2(\varrho\otimes
+\lambda_{E'_0})$, $\E[f\mid c]=\tilde f_\emptyset(c)$, and $\mu'(\Var(f\mid
+c))=\sum_{B\ne\emptyset}\lVert\tilde f_B\rVert^2$. Fix $x'$, let $J=E'_0\cap
+V'_{x'}$, and let $\mathcal G$ be the $\sigma$-algebra generated by $c$, the
+partial products along all paths and the links of $E'_0\setminus J$. Each
+link of a path is a function of $c$ and of the partial products along its
+path, so $\mathcal H_{x'}\subset\mathcal G$, and $M_{E'_0\setminus J}$ is
+$\mathcal G$-measurable. Given $\mathcal G$, the links of $J$ are
+independent Haar variables, by Lemma~\ref{lem:bprefine}(i) and
+Lemma~\ref{lem:bpfibrelaw}(i), and $M_J$ is
+their translate on both sides by $\mathcal G$-measurable elements; so $M_J$
+has law $\lambda_J$ and is independent of $\mathcal G$, and $\E[f\mid
+\mathcal G]=\int\tilde f(c,m_J,M_{E'_0\setminus J})\,\lambda_J(dm_J)=
+\sum_{B\cap J=\emptyset}\tilde f_B(c,M)$. Hence
+\[
+\mu'\bigl(\Var(f\mid\mathcal H_{x'})\bigr)\ge\mu'\bigl(\Var(f\mid\mathcal G)
+\bigr)=\sum_{B\cap J\ne\emptyset}\lVert\tilde f_B\rVert^2 .
+\]
+A link lies in $n'^4$ of the sets $V'_{x'}$, so summing over $x'$ gives
+$n'^4\Phi(f)\ge n'^4\sum_{B\ne\emptyset}\lVert\tilde f_B\rVert^2$.
+
+\emph{The constant $C_A$.} A plaquette $p$ of $\Lambda_{bL}$ contains a link
+of $E'_0$: of its two links of direction $\mu$, based at $x'$ and $x'+e_\nu$,
+at most one has its $\nu$-coordinate divisible by $b$. Under $\mu'$ a link of
+$E'_0$ is a Haar variable independent of all other links. Let $h$ be a real
+class function with Haar mean zero and $\int h^2dU=1$ and $f=h(U_p)$; then
+$f\in\mathcal A'$, $\E[f\mid c]=0$ by integration over that link, and
+$\mu'(\Var(f\mid c))=1$. Each term $\mu'((f-P'_{x'}f)^2)$ is at most $1$ and
+vanishes unless $V'_{x'}$ meets $p$, which happens for $n'^4+2n'^3$ points
+(proof of Proposition~\ref{prop:bpuphaar}(ii)); so $\mathcal E'_{n'}(f)\le1
++2/n'$, and (A) and $\mathrm S$ force $1\le C_A(1+2/n')$.
+\end{proof}
+
+For $\varrho=\lambda_E$ the theorem is Proposition~\ref{prop:bpuphaar}(i) on
+$\mathcal A'$. In the proof, the gauge transformation $g_U$ puts the fine
+field in an axial gauge along the paths, in which a refinement becomes the
+product of the law of the block variables and of independent Haar variables
+on $E'_0$; the fibre form then only resamples Haar variables, and the coarse
+form sees the block variables through the sets $T(x')$, which contain the
+coarse cubes. The refinements compose along a tower: with $c_j$ and the
+tori $\Lambda_{L_j}$ as before Theorem~\ref{thm:bpuptower}, $c_j$ the
+straight-path maps and $R_j$ the refinement along $c_j$, put $\mu_0=
+\varrho$ and $\mu_j=R_j(\mu_{j-1})$; then $(c_j)_*\mu_j=\mu_{j-1}$ by
+Lemma~\ref{lem:bprefine}(i), so $(\mu_j)$ is the tower of $\mu_K$.
+
+\begin{corollary}[towers of refinements]\label{cor:bprefinetower}
+Let $b\ge2$, $K\ge1$, $n_0\ge2$, $L_0\ge2n_0+4$ even, $n_j=b^jn_0$, and let
+$\varrho$ be a gauge-invariant probability measure on the links of
+$\Lambda_{L_0}$ for which $\mathrm{BP}_\varrho(n_0,\varpi_0)$ holds. Then
+$\mathrm{BP}_{\mu_K}(n_K,\min(\varpi_0,1))$ holds. For $G=\SU(2)$ and
+$\varrho$ the Wilson measure of $\Lambda_{L_0}$ at $\lvert\beta_W\rvert<
+\frac{16}{105}$, $\mu_K$ is the probability measure on the links of
+$\Lambda_{b^KL_0}$ with density proportional to $\prod_P\varphi(c^{(K)}
+_P(U))$ with respect to $\lambda_{E'}$, where $c^{(K)}=c_1\circ\dots\circ
+c_K$ and $c^{(K)}_P(U)$ is the product of the links of $U$ around the square
+of side $b^K$ with corner $b^Ky$ that $c^{(K)}$ assigns to the plaquette $P$
+of $\Lambda_{L_0}$ at $y$, and $\mathrm{BP}_{\mu_K}(n_K,1-\alpha_{n_0})$
+holds with $\alpha_{n_0}$ as in Corollary~\ref{cor:bpranges}(i), for every
+$K$ and every such $L_0$.
+\end{corollary}
+
+\begin{proof}
+For $1\le j\le K$, $L_j=b^jL_0\ge2n_j+4$, and Theorem~\ref{thm:bprefine}
+with $n'=n_j=bn_{j-1}$ gives $\mathrm S(n_j,n_{j-1};1,1)$ for $(\mu_j,c_j)$.
+Theorem~\ref{thm:bpuptower} with $C_{A,j}=1$ and $\Gamma_j=1$ gives the
+first claim. For the Wilson measure, Corollary~\ref{cor:bpranges}(i) gives
+$\mathrm{BP}_\varrho(n_0,1-\alpha_{n_0})$, since the threshold $4n^2/(18n^2+
+18n-3)$ increases with $n$ and equals $\frac{16}{105}$ at $n=2$; the density
+follows from Lemma~\ref{lem:bprefine}(i) by induction on $K$, and
+$c^{(K)}$ is the straight-path map with blocks of side $b^K$.
+\end{proof}
+
+The measures $\mu_K$ are interacting, with Wilson weights on the loops of
+side $b^K$, but on all finer scales they are Haar: every plaquette has
+expectation zero. The tuned Wilson measures are of the opposite kind.
+
+\begin{proposition}\label{prop:bpnotrefine}
+Let $G=\SU(N)$, $N\ge2$, and $\mu'_\beta$ the Wilson measure of
+$\Lambda_{bL}$ with $\varphi=e^{N\beta\ReTr(\cdot)}$. Every Haar refinement
+along $c$ gives every plaquette expectation $\mu'(\ReTr U_p)=0$, while
+$\mu'_\beta(\ReTr U_p)$ has the sign of $\beta$. So $\mu'_\beta$ is not a
+Haar refinement for $\beta\ne0$; in particular $\mu'_\beta\ne R(c_*
+\mu'_\beta)$.
+\end{proposition}
+
+\begin{proof}
+By the proof of Theorem~\ref{thm:bprefine}, $p$ contains a link of $E'_0$,
+which under a refinement is a Haar variable $U_{e'}$ independent of the other
+links. Up to a cyclic permutation, $U_p=AU_{e'}^{\pm1}B$ with $A,B$ products
+of the other links of $p$, and integrating over $U_{e'}$ first gives
+$\ReTr(A(\int U^{\pm1}dU)B)=0$, because $\int U\,dU=0$ on $\SU(N)$. For the Wilson measure, the translations and the
+hypercubic group of $\Lambda_{bL}$ act transitively on the plaquettes and
+preserve $\mu'_\beta$, so $m(\beta)=\mu'_\beta(\ReTr U_p)$ does not depend on
+$p$. With $S=\sum_p\ReTr U_p$ and $Z(\beta)=\int e^{N\beta S}d\lambda_{E'}$,
+\[
+\frac{d}{d\beta}\log Z=N\lvert P\rvert\,m(\beta),\qquad
+\frac{d^2}{d\beta^2}\log Z=N^2\Var_{\mu'_\beta}(S)>0,
+\]
+the variance being positive because $S$ is continuous and not constant,
+with $S=N\lvert P\rvert$ at $U\equiv I$ and Haar mean zero, and $\mu'_\beta$
+has a positive continuous density. So $m$ is strictly increasing, and $m(0)=
+0$.
+\end{proof}
+
+\begin{remark}[what the refinements give and what they
+leave]\label{rem:bprefine}
+Proved: for every gauge-invariant law $\varrho$ of the block variables, its
+Haar refinement along the straight-path map satisfies the split inequality
+with the constants $C_A=1$ and $C_B=(n'/(bn))^4$ of the product of Haar
+measures, and $C_A=1$ is optimal up to the factor $1+2/n'$
+(Theorem~\ref{thm:bprefine}); along a tower of refinements, (H2) holds with
+$C_{A,j}=1$ and $\Gamma_j=1$ and (H1) is the condition for $\varrho$, so the
+condition at the coarsest scale passes to every finer scale without loss,
+and for $\varrho$ a Wilson measure in the range of
+Corollary~\ref{cor:bpranges} it holds at every scale with the constant
+$1-\alpha_{n_0}$, uniformly in the number of scales and the torus
+(Corollary~\ref{cor:bprefinetower}); for every measure the fine Dirichlet
+form splits into the fibre form $\Phi$ and a coarse form, and the split
+inequality follows from one bound on each with the same constants, while
+on functions of the block variables the fine form falls short of that of
+the refinement by the information of the fine exterior on the block
+variables (Proposition~\ref{prop:bpfinesplit}).
+
+Not proved: the split inequality for any Wilson measure at $\beta\ne0$,
+which is not a refinement (Proposition~\ref{prop:bpnotrefine}), at strong
+coupling, for $\U(1)$ at $\beta>0$, or for $\SU(2)$ on calm fibres; for them
+neither the bound $\Phi(f)\ge\mu'(\Var(f\mid c))/C_A$, a Poincar\'e
+inequality for the fine links given the block variables in the mean over
+$\mu'$, nor a bound on the subtracted term of
+Proposition~\ref{prop:bpfinesplit}(ii) is proved, and whether that term
+vanishes for them is not decided. Whether the split inequality with $C_B$
+near $(n'/(bn))^4$ holds or fails along the tuning is not decided; no
+obstruction to it is proved here. For a general $\varrho$ the optimal $C_B$
+in Theorem~\ref{thm:bprefine} is not determined; for $\varrho=\lambda_E$ it
+is $(n'/(bn))^4$ by Proposition~\ref{prop:bpuphaar}(ii). The condition (H1)
+does not follow from the results of this paper along the tuning:
+Corollary~\ref{cor:bpranges} concerns Wilson measures through the
+single-link coefficients of their conditional laws, which are not computed
+for the laws $\mu^{(0)}_{k,L}$ of the block variables. Through
+Corollary~\ref{cor:bpdescent} with $j=0$ and $\ell_0=\ell$ it gives (H1) at
+the cube size $n_0+4$, with the constant $(1-\alpha_{n_k})(n_0/(n_0+4))^4$,
+for $\SU(2)$, $L_0\ge2n_0+12$ and those $k$ with $\lvert\beta_{k,W}\rvert<
+\frac{16}{105}$, which along a tuning with $\beta_k\to\infty$ are finitely
+many. Corollary~\ref{cor:bprefinetower} concerns measures that are Haar on
+all scales below the coarsest, and says nothing about the tuned Wilson
+measures; it shows that the split mechanism tolerates an arbitrary
+interaction of the block variables, and Proposition~\ref{prop:bpfinesplit}
+places the remaining difficulty in the interaction at the finer scales.
+Neither $\mathrm{BP}$ along the tuning nor the mass gap is proved here.
 \end{remark}
 
 \section{The open inputs}\label{sec:inputs}
@@ -40279,13 +40680,21 @@ bounds posed jointly as a split inequality give the upward step, and along
 the tuning the condition at the coarsest scale with the split inequality at
 every scale, its constants bounded in product, gives $\mathrm{BP}(n_k,
 \varpi)$ with an explicit $\varpi$; the split inequality holds with the
-exact constants for the product of Haar measures, the two bounds posed
-separately lose a fixed factor at each scale already there, and neither the
-split inequality for any interacting measure nor the condition at the
-coarsest scale along the tuning is proved (Theorems~\ref{thm:bpup}
-and~\ref{thm:bpuptower}, Corollaries~\ref{cor:bpuptuning}
-and~\ref{cor:bpupseparate}, Proposition~\ref{prop:bpuphaar},
-Remark~\ref{rem:bpup}). Sec.~\ref{ssec:groups13} carries the single-scale results of this section to every compact simple group, with explicit constants, except the parts listed in Remark~\ref{rem:groups13}. On the continuum side, Lemmas~\ref{lem:positivetime}
+exact constants for the product of Haar measures and, with the same
+constants, for the Haar refinement of every gauge-invariant law of the
+block variables, so that along a tower of refinements the condition at the
+coarsest scale passes to every finer scale without loss, the two bounds
+posed separately lose a fixed factor at each scale already for the product
+measure, the fine Dirichlet form splits into a fibre form and a coarse form
+for every measure, the Wilson measure at $\beta\ne0$ is not a Haar
+refinement, and neither the split inequality for any Wilson measure at
+$\beta\ne0$ nor the condition at the coarsest scale along the tuning is
+proved (Theorems~\ref{thm:bpup}, \ref{thm:bpuptower}
+and~\ref{thm:bprefine}, Corollaries~\ref{cor:bpuptuning},
+\ref{cor:bpupseparate} and~\ref{cor:bprefinetower},
+Propositions~\ref{prop:bpuphaar}, \ref{prop:bpfinesplit}
+and~\ref{prop:bpnotrefine}, Remarks~\ref{rem:bpup}
+and~\ref{rem:bprefine}). Sec.~\ref{ssec:groups13} carries the single-scale results of this section to every compact simple group, with explicit constants, except the parts listed in Remark~\ref{rem:groups13}. On the continuum side, Lemmas~\ref{lem:positivetime}
 and~\ref{lem:nonvanishing} reduce the nontriviality of the limit to a
 lower bound on one ratio of lattice two-point functions at a fixed
 physical time, uniform along the tuning, which is the open input of
