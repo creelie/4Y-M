@@ -439,3 +439,31 @@ rank test shows why the scalar hard-boundary counterexample cannot satisfy
 those hypotheses. **Open:** whether the actual gauge labels admit compatible
 uniform lifts and score bounds; the bulk private-link submersion alone does
 not establish them. No gauge-island or continuum result is claimed.
+
+### Three-front decomposition (2026-11-04)
+
+- **Proved finite obstruction:** `RARE_LABEL_INFLUENCE.md` shows that even
+  arbitrarily rare labels can have conditional influence tending to one.
+  Graded control or conditional collar estimates remain to be proved.
+- **Proved scalar recursion / open gauge input:** `CROSSOVER_COUNT.md`
+  quantifies the number of steps and accumulated one-loop-size errors and
+  lists five separate D8 obligations, including matching physical units.
+- **Proved symmetry obstruction:** `CONTINUUM_SYMMETRY_TEST.md` shows that
+  tightness and exact hypercubic symmetry do not imply continuum rotation
+  invariance. The required rotation-defect and reconstruction bounds remain
+  open. None of these results closes D, D8 or the Clay problem.
+
+### Flat-holonomy correction to input (b) (2026-11-04)
+
+**Proved gauge-field counterexample:** `FLAT_HOLONOMY_OBSTRUCTION.md`
+exhibits a flat SU(2) configuration in block tree gauge with links far from
+identity. Thus the unrestricted absolute version of bad-link-implies-large-
+plaquette is false, not merely unchecked. A same-endpoints path comparison
+is proved there; a relative label and its rarity are open. This correction
+does not settle the constrained bad-region estimate.
+
+**Proved conditional counting:** `WITNESS_COUNTING.md` turns any local
+finite-multiplicity curvature witness plus joint plaquette rarity into a
+joint bad-label rarity bound, with explicit entropy and overlap factors.
+The corrected relative witness and the necessary gauge probabilities are
+still open, and the result is annealed rather than uniform in the exterior.
