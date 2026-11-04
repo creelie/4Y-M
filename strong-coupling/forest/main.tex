@@ -18997,6 +18997,352 @@ energy for $\SU(2)$ at every scale, of the kind
 Proposition~\ref{prop:torusenergy} gives for torus-valued fields. It is not
 proved here, and this subsection gives no bound on the mass gap.
 
+Theorem~\ref{thm:islandwindow} is a union bound over the window, and its
+conclusion concerns every island of $W$, so it is void in windows of
+more than $10^{28166}$ blocks. The data of Theorem~\ref{thm:manyislands} do not need islands as
+their units: the sets $I_u$ are any pairwise separated sets of blocks
+off which every block of $\Lambda$ is good. If the islands are grouped into
+clusters whose separation grows with their size, the island sums and the
+weighted Dobrushin condition hold in every configuration of the labels, on
+every torus and in every window. The rarity of the bad blocks then
+enters only through the size of the clusters, and it bounds that size
+block by block, with no union bound over a window.
+
+\begin{definition}[clusters of bad blocks]\label{def:clusters}
+Let $R\ge2s+8$ be an integer and $\kappa>0$, and put $g(m)=(3/\kappa)\log
+m$ and $\ell_m=R+2g(m)$ for $m\ge1$. A partition $\mathcal P$ of a finite
+set $B$ of blocks of the torus is \emph{separated} if
+\begin{equation}\label{eq:clusterrule}
+\dist(U,V)>R+g(\lvert U\rvert)+g(\lvert V\rvert)
+\end{equation}
+for all distinct $U,V\in\mathcal P$.
+\end{definition}
+
+\begin{lemma}[clusters]\label{lem:clusters}
+Let $B$ be a finite set of blocks of the torus.
+\begin{enumerate}[label=\textup{(\roman*)},leftmargin=*]
+\item Among the separated partitions of $B$ there is a finest one; its
+parts are the \emph{clusters} of $B$. Starting from the partition into
+single blocks and merging, in any order, two parts that
+violate~\eqref{eq:clusterrule}, one reaches it after finitely many
+merges.
+\item Two blocks of $B$ at distance at most $R$ lie in one cluster; in
+particular every island formed with the joining distance $2s+8$ lies in
+one cluster, and distinct clusters are at distance more than $R$.
+\item A cluster of $m$ blocks is connected in the graph on $B$ in which
+two blocks are adjacent when their distance is at most $\ell_m$; its
+blocks lie within distance $(m-1)\ell_m$ of each other.
+\item If some cluster has more than $M_1$ blocks, then $B$ contains a set
+of between $M_1+1$ and $2M_1$ blocks that is connected in the graph of
+distance at most $\ell_{M_1}$.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+(i) Let $\mathcal Q$ be finer than a separated partition $\mathcal P$, and
+let $U,V\in\mathcal Q$ violate~\eqref{eq:clusterrule}. If $U\subset U'$ and
+$V\subset V'$ with distinct $U',V'\in\mathcal P$, then, since $g$
+increases,
+\[
+\dist(U',V')\le\dist(U,V)\le R+g(\lvert U'\rvert)+g(\lvert V'\rvert),
+\]
+which contradicts the separation of $\mathcal P$; so $U\cup V$ lies in one
+part of $\mathcal P$, and the partition obtained by merging $U$ and $V$ is
+again finer than $\mathcal P$. The partition $\{B\}$ is separated, so the
+merging starts below every separated partition and stays below it at each
+step. Each merge lowers the number of parts, so the process stops, at a
+separated partition finer than every separated partition, which is
+therefore the finest one and does not depend on the order of the merges.
+(ii) Two single blocks at distance at most $R$
+violate~\eqref{eq:clusterrule}, since $g(1)=0$, so by the first step of
+(i) they lie in one part of every separated partition. An island is
+connected through steps of length at most $2s+8\le R$. The last assertion
+is~\eqref{eq:clusterrule} with $g\ge0$.
+(iii) By induction over the merges, every part of $m$ blocks of an
+intermediate partition is connected at distance $\ell_m$: a single block
+is, and if $U$ and $V$ are merged, with $\lvert U\rvert+\lvert V\rvert=m$,
+then $\dist(U,V)\le R+g(\lvert U\rvert)+g(\lvert V\rvert)\le\ell_m$, while
+$U$ and $V$ are connected at distances $\ell_{\lvert U\rvert},\ell_{\lvert
+V\rvert}\le\ell_m$. Two blocks of a connected set of $m$ blocks are joined
+by a path of at most $m-1$ steps.
+(iv) Consider the first merge of the process of (i) that produces a part
+of more than $M_1$ blocks. It merges two parts of at most $M_1$ blocks
+each, at distance at most $R+2g(M_1)=\ell_{M_1}$, and each of them is
+connected at distance $\ell_{M_1}$ by (iii).
+\end{proof}
+
+\begin{theorem}[the island sums for clusters]\label{thm:clustercomparison}
+Let $s\ge1$, $r\le8\cdot10^{-5}$, $0\le\vartheta<1$, $\kappa=2(1-\vartheta)
+\alpha_G$, $R\ge2s+8$, and form the clusters of the set of bad blocks of
+the torus with these $R$ and $\kappa$. Let the data be those of
+Theorem~\ref{thm:manyislands} on a set $\Lambda$ of blocks, under its
+hypotheses, with $I_u=U_u\cap\Lambda$ for distinct clusters $U_u$,
+$u\in\mathcal I$, every bad block of $\Lambda$ lying in some $I_u$. Put
+\begin{gather*}
+c_1=\frac{1920}{\beta_W}\bar\Lambda_2^2r^2\cdot45(2s+7)^4
+e^{\kappa(2s+9)},\\
+\tau=c_1e^{-\kappa R/2}\sigma(\kappa/2),
+\end{gather*}
+with $\bar\Lambda_2$ as before Theorem~\ref{thm:islandwindow} and
+$\sigma(\cdot)$ as in Proposition~\ref{prop:islandmass}, and for
+$u\in\mathcal I$ let $\hat T_u=\sum_{v\in\mathcal I\setminus\{u\}}
+\varDelta_{uv}e^{2\vartheta\alpha_G\ell(u,v)}$, with $\ell$ the
+pseudometric of Corollary~\ref{cor:islandchains}. Then, for every
+configuration of the labels:
+\begin{enumerate}[label=\textup{(\roman*)},leftmargin=*]
+\item $\hat T_u\le\tau$ for every $u\in\mathcal I$; hence $S_a,S_b\le\tau$,
+the sums $T_a,T_b$ of Corollary~\ref{cor:islandchains} are at most $\tau$,
+and
+\[
+\varDelta_{ab}\le\min\bigl\{\tau,\ c_1e^{-\kappa R/2}e^{-\kappa\dist(I_a,
+I_b)/2}\bigr\};
+\]
+\item $\varDelta_*\le\varDelta_{ab}+\frac14\tau^2$, and if $\tau<4$ the
+weighted Dobrushin condition of Corollary~\ref{cor:islandchains} holds with
+$\theta\le\tau/4$ and
+\[
+\varDelta_*\le\varDelta_{ab}+\frac{e^{-2\vartheta\alpha_G\ell(a,b)}
+\tau^2}{4-\tau};
+\]
+\item for $\beta_W\ge\beta_0>0$ at fixed $R$, $\tau(\beta_W)\le(\beta_W/
+\beta_0)\,\tau(\beta_0)$.
+\end{enumerate}
+At $\rho=2.17\cdot10^{-16}$, $r=43\rho$ and $\beta_W=\beta^*$ of
+Theorem~\ref{thm:islandwindow}: for $s=1$, $\log_{10}c_1\le21.74$ and
+$\tau\le10^{-1047}$ at $\vartheta=0$, $R=10^7$, and $\tau\le10^{-1045}$ at
+$\vartheta=\frac12$, $R=2\cdot10^7$; for $s=5$, $\tau\le10^{-1045}$ and
+$\tau\le10^{-1044}$ at the same $\vartheta$ and $R$. By (iii) the same
+bounds hold at $\beta_W\ge\beta^*$ with $R$ replaced by $R+\lceil(2/\kappa)
+\log(\beta_W/\beta^*)\rceil$.
+\end{theorem}
+
+\begin{proof}
+\emph{The data.} The sets $I_u$ are pairwise disjoint and, by
+Lemma~\ref{lem:clusters}(ii), at distance more than $R\ge2s+8$, so
+$w_{uv}\ge2s+8$, and every block of $\Lambda$ outside $\bigcup_uI_u$ is
+good. The proof of Lemma~\ref{lem:lambdatwo} bounds the norm of
+$\partial_{x_u}\nabla_z\mathcal U$ by the largest sum, over one $x_u$-link
+or one $z$-link, of the norms of the blocks of that matrix, and these are
+determined by the plaquettes at one link; as in the paragraph before
+Theorem~\ref{thm:islandwindow}, it applies to each $I_u$ and gives
+$\Lambda_2\le\bar\Lambda_2$. Every $x_u$-link is based in a block at
+distance at most $s+3$ from $I_u$, so $n_u\le45(2s+7)^4\lvert I_u\rvert
+\le45(2s+7)^4m_u$, where $m_u=\lvert U_u\rvert$.
+
+\emph{One pair.} Let $u\ne v$ and $d=\dist(I_u,I_v)$, so that $w_{uv}-2s-8
+=d-2s-9\ge0$ and $\ell(u,v)\le d-2s-9$. Since $2\alpha_G-2\vartheta
+\alpha_G=\kappa$,
+\[
+\varDelta_{uv}e^{2\vartheta\alpha_G\ell(u,v)}\le c_1\sqrt{m_um_v}\,
+e^{-\kappa d} .
+\]
+By~\eqref{eq:clusterrule}, $d\ge\dist(U_u,U_v)>R+g(m_u)+g(m_v)$, so
+that
+\[
+e^{-\kappa d}\le e^{-\kappa d/2}e^{-\kappa R/2}(m_um_v)^{-3/2},
+\]
+since $e^{-\kappa g(m)/2}=m^{-3/2}$. Hence
+\[
+\varDelta_{uv}e^{2\vartheta\alpha_G\ell(u,v)}\le c_1e^{-\kappa R/2}\,
+\frac{e^{-\kappa d/2}}{m_um_v}\le\frac{c_1e^{-\kappa R/2}}{m_u}\,
+e^{-\kappa d/2}.
+\]
+\emph{The sum.} For $v\ne u$ let $y_v$ be a block of $I_v$ nearest to
+$I_u$; distinct $v$ give distinct $y_v$, and $e^{-\kappa\dist(I_u,I_v)/2}
+\le\sum_{x\in I_u}e^{-\kappa\dist(x,y_v)/2}$. Summing over $v$ and using
+the preimages of the proof of Proposition~\ref{prop:islandmass}(ii),
+\[
+\sum_{v\ne u}e^{-\kappa\dist(I_u,I_v)/2}\le\lvert I_u\rvert\,
+\sigma(\kappa/2)\le m_u\,\sigma(\kappa/2),
+\]
+so $\hat T_u\le\tau$. The sums $S_a$, $T_a$ and the row sums of the
+corollary are sums of terms of $\hat T_a$ or $\hat T_q$, with factors at
+most one in the case of $S_a$, and $\varDelta_{ab}$ is one term of
+$\hat T_a$; the second bound on $\varDelta_{ab}$ is the bound of one pair
+with $m_am_b\ge1$ and $e^{-2\vartheta\alpha_G\ell(a,b)}\le1$. This
+proves (i).
+
+(ii) The first form of $\varDelta_*$ in Theorem~\ref{thm:manyislands} and
+(i) give the first bound. By $\tanh t\le t$, the sum of
+Corollary~\ref{cor:islandchains} at $q$ is at most $\frac14\hat T_q\le
+\tau/4$, so $\theta\le\tau/4<1$, and the corollary with $T_a,T_b\le\tau$
+gives the second.
+
+(iii) $\bar\Lambda_2(\beta)/\beta$ decreases, so $\bar\Lambda_2(\beta_W)
+\le(\beta_W/\beta_0)\bar\Lambda_2(\beta_0)$ and $\bar\Lambda_2^2/\beta_W$
+grows at most linearly. The numbers are enclosed in interval arithmetic in
+the archive.
+\end{proof}
+
+The theorem has no exceptional event: the conditions that
+Theorem~\ref{thm:islandwindow} obtains outside probability
+$10^{-28166}\lvert W\rvert$ hold for the clusters in every window of every
+size. What the rarity has to give is that the clusters are small, and this
+is a statement about one block at a time. Write $U(y)$ for the cluster of
+a bad block $y$ and $I(y)$ for its island.
+
+\begin{theorem}[the size of the clusters]\label{thm:clustersizes}
+Let $G=\SU(2)$, $s\ge1$, $\rho$, $r$, $\eta$, $\beta^*$, $q^*$, $M=11^4$
+and $H=6^4$ be as in Theorem~\ref{thm:islandwindow}, $\beta_W\ge\beta^*$,
+$p=q_\rho(\beta_W)\le q^*$, $A=eMHp$, and form the clusters of the bad
+blocks of a torus of $L^4$ blocks with $R\ge2s+8$ and $\kappa>0$. Put
+$N_5=11^4-1$, $N_\ell=(2\ell+1)^4-1$ for $\ell\ge5$, and
+\[
+\nu_\ell=4\bigl(N_5+N_\ell A^{1/2}\bigr)A^{1/(2H)} .
+\]
+\begin{enumerate}[label=\textup{(\roman*)},leftmargin=*]
+\item For every block $y$ and $m\ge1$,
+$\mu_L\{y\in B,\ \lvert U(y)\rvert=m\}\le A^{(H+1)/(2H)}\nu_{\ell_m}^{m-1}$.
+\item If $\nu_{\ell_{M_1}}<1$, then
+\[
+\begin{split}
+\mu_L\{&\text{a cluster has more than }M_1\text{ blocks}\}\\
+&\le\frac{L^4A^{(H+1)/(2H)}\nu_{\ell_{M_1}}^{M_1}}{1-\nu_{\ell_{M_1}}}.
+\end{split}
+\]
+\item If $1\le m_0\le M_1$ and $\nu_{\ell_{M_1}}<1$, then
+$\mu_L\{y\in B,\ U(y)\ne I(y)\}$ is at most
+\[
+\begin{split}
+&(2(m_0-1)\ell_{m_0}+1)^4(2\ell_{m_0}+1)^4(Mp)^2\\
+&+\frac{A^{(H+1)/(2H)}\nu_{\ell_{M_1}}^{m_0}}{1-\nu_{\ell_{M_1}}}
++\epsilon_{M_1},
+\end{split}
+\]
+with $\epsilon_{M_1}$ the bound of (ii).
+\end{enumerate}
+At $\rho=2.17\cdot10^{-16}$, $\beta_W=\beta^*$, $s=1$, $\vartheta=0$,
+$\kappa=2\alpha_G$, $R=10^7$ and $M_1=10^{10^{1700}}$: $\ell_{M_1}\le
+10^{1705}$, $\nu_\ell\le0.2130$ for every $\ell\le\ell_{M_1}$, the bound of
+(ii) is at most $L^4\,10^{-0.67M_1}$, and (iii) with $m_0=10^5$ gives
+\[
+\mu_L\{y\in B,\ U(y)\ne I(y)\}\le10^{-28126}+L^4\,10^{-0.67M_1}.
+\]
+At $\vartheta=\frac12$, $R=2\cdot10^7$ the first term is $10^{-28124}$.
+For $s=5$, $\nu_\ell\le0.0222$, the bound of (ii) is at most
+$L^4\,10^{-1.65M_1}$, and the first term of (iii) is $10^{-33227}$. The
+same numbers hold at $\beta_W\ge\beta^*$ with $R$ replaced by
+$R+\lceil(2/\kappa)\log(\beta_W/\beta^*)\rceil$.
+\end{theorem}
+
+\begin{proof}
+(i) By Lemma~\ref{lem:clusters}(iii), on the event $U(y)$ is a set $S\ni
+y$ of $m$ bad blocks, connected at distance $\ell=\ell_m$. Let $S_1,\dots,
+S_k$ be the components of $S$ in the graph of distance at most $5$; they
+are pairwise at distance at least $6$, so Step~1 of the proof of
+Theorem~\ref{thm:islandwindow} gives
+\[
+\mu_L(S\subset B)\le\prod_iA^{\lceil\lvert S_i\rvert/H\rceil}\le
+A^{k/2+m/(2H)},
+\]
+since $\lceil n/H\rceil\ge\frac12(1+n/H)$ and $A<1$. Choose a spanning
+tree of $S$ formed by spanning trees of the $S_i$ at distance $5$ and
+$k-1$ further edges of length at most $\ell$, which exist because $S$ is
+connected at distance $\ell$. A walk of $2(m-1)$ steps around the tree
+from $y$ recovers $S$: it is fixed by the positions of the $m-1$ forward
+steps, at most $4^{m-1}$ choices, by which $k-1$ of them are long, at most
+$\binom{m-1}{k-1}$, and by their offsets, $N_5$ for a short step and
+$N_\ell$ for a long one. Summing over $k$,
+\[
+\begin{split}
+\mu_L\{&y\in B,\ \lvert U(y)\rvert=m\}\\
+&\le A^{\frac12+\frac m{2H}}\sum_{k=1}^m4^{m-1}\binom{m-1}{k-1}
+N_5^{m-k}N_\ell^{k-1}A^{\frac{k-1}2}\\
+&=A^{\frac12+\frac m{2H}}\bigl(4(N_5+N_\ell A^{1/2})\bigr)^{m-1},
+\end{split}
+\]
+which is (i).
+(ii) By Lemma~\ref{lem:clusters}(iv) some block lies in a set of $m\in
+(M_1,2M_1]$ bad blocks connected at distance $\ell_{M_1}$; the count of
+(i) with $\ell=\ell_{M_1}$, summed over $m>M_1$ and over the $L^4$ blocks,
+gives (ii).
+(iii) If $\lvert U(y)\rvert>m_0$, either $\lvert U(y)\rvert\le M_1$,
+which by (i) and $\nu_{\ell_m}\le\nu_{\ell_{M_1}}$ for $m\le M_1$ has
+probability at most the second term, or some cluster has more than $M_1$
+blocks. If $\lvert U(y)\rvert\le m_0$ and $U(y)$ contains a second island,
+then $U(y)$, connected at distance $\ell_{m_0}$, has an edge between
+blocks $z,z'$ of different islands: $z$ lies within distance
+$(m_0-1)\ell_{m_0}$ of $y$, and $2s+9\le\dist(z,z')\le\ell_{m_0}$. Step~1
+of the proof of Theorem~\ref{thm:islandwindow} with $S_1=\{z\}$,
+$S_2=\{z'\}$ gives $(Mp)^2$, and a union bound over $z$ and $z'$ gives
+the first term.
+
+For $\beta_W=t\beta^*$, $t\ge1$, Step~6 of the proof of
+Theorem~\ref{thm:islandwindow} gives $\log(p/q^*)\le f(\beta_W)-f(\beta^*)
+\le6\log t-32481(t-1)$, since $\beta^*\rho^2/16>33022$ for $s=1$ and
+$>38896$ for $s=5$. With $R$ raised by $\lceil(2/\kappa)\log t\rceil$, the
+first term of (iii) is multiplied by at most $(1+4\cdot10^{-4}\log t)^8
+t^{12}e^{-64962(t-1)}\le1$, the factor $N_\ell$ in $\nu_\ell$ by a power
+of $1+\log t$ that $A^{1/2}$ absorbs, and the other factors decrease. The
+numbers are enclosed in interval arithmetic in the archive.
+\end{proof}
+
+On a torus of at most $10^{M_1/2}$ blocks, $M_1=10^{10^{1700}}$, the
+theorem gives, outside probability $10^{-M_1/10}$, that no cluster has
+more than $M_1$ blocks, and the expected number of blocks of a window $W$
+that lie in a cluster other than a single island is at most
+$\lvert W\rvert(10^{-28126}+10^{-M_1/10})$ for $s=1$: a density, not a
+union bound. Theorems~\ref{thm:clustercomparison}
+and~\ref{thm:clustersizes} thus remove the window size from the island
+comparison of item~(ii) of Sec.~\ref{ssec:remains}, given the labels and
+with clusters as the units. The size of the torus remains only in the term $\epsilon_{M_1}$
+of Theorem~\ref{thm:clustersizes}, at sizes far beyond any other in this
+paper. The next proposition shows that a separation growing
+with the size of the units is needed, and where the count of (i) stops.
+
+\begin{proposition}[the reach of the clusters]\label{prop:clusterreach}
+\leavevmode
+\begin{enumerate}[label=\textup{(\roman*)},leftmargin=*]
+\item Let $R'\ge2s+8$ and $m\ge1$, and on a torus of side at least
+$2(m+2)(R'+1)$ let the bad blocks be $u_i=iR'e_1$ and $v_i=u_i+(-1)^i
+(R'+1)e_2$, $1\le i\le m$. In the finest partition of these blocks into
+parts at mutual distance more than $R'$, the $u_i$ form one part $U$ and
+each $v_i$ is a part $V_i$, and with $c_0=\frac{1920}{\beta_W}
+\bar\Lambda_2^2r^2\cdot45(2s+7)^4e^{-2\alpha_G(R'-2s-8)}$,
+\[
+\sum_i\bar\varDelta_{UV_i}=c_0m^{3/2},\qquad
+\sum_{i,j}\bar\varDelta_{u_jv_i}\ge c_0m .
+\]
+So no partition whose parts are separated by a distance independent of
+their size bounds the sums $\hat T_u$, through $\bar\varDelta$ either for
+the parts or for their islands, uniformly in the configuration.
+\item With $A=eMHq^*$, $s=1$: $\nu_\ell<1$ for $\log_{10}\ell\le1763.2$
+and $\nu_\ell>1$ for $\log_{10}\ell\ge1763.3$, and $N_\ell A\ge1$ for
+$\log_{10}\ell\ge3524.5$. For $\ell_{M_1}$ beyond the first value the
+count of Theorem~\ref{thm:clustersizes}(i) is void, and beyond the second
+the bound $N_\ell A$ on the expected number of bad blocks within distance
+$\ell$ of a block exceeds one.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+(i) Consecutive $u_i$ are at distance $R'$ and so lie in one part; the
+distance of $v_i$ to $u_j$ is $\max\{\lvert i-j\rvert R',R'+1\}$, and to
+$v_j$, $j\ne i$, at least $\min\{2R',2R'+2\}>R'$, so the finest partition
+is the one stated, with $\dist(U,V_i)=R'+1$ and $w_{UV_i}=R'$. The
+neighbourhoods of radius $s+3$ of the $u_i$ are disjoint, since
+$R'>2s+6$, so $\bar n_U=45\,m(2s+7)^4$ and $\bar n_{V_i}=45(2s+7)^4$,
+which gives the first identity. The pair $(u_i,v_i)$ alone contributes
+$c_0$ to the second sum. Both sums grow without bound in $m$ at fixed
+$R'$.
+(ii) $\nu_\ell<1$ is $N_\ell<A^{-1/2}(A^{-1/(2H)}/4-N_5)$; the values
+follow from the enclosure of $\log_{10}A$ in the archive. The expected
+number of bad blocks among the $N_\ell$ blocks within distance $\ell$ of a
+block is at most $N_\ell A$.
+\end{proof}
+
+A bound on the size of the clusters uniform in the torus needs the
+structure that Lemma~\ref{lem:clusters}(iii) discards: a link longer than
+$\ell_m$ joins two clusters of more than $m$ blocks, so long links occur
+only between large clusters. Using it is a multiscale estimate for a
+growth process of reach $(6/\kappa)\log m$, of the kind of Bassalygo and
+Dobrushin~\cite{BD86} for Gibbs fields with a random potential, and it is
+not carried out. The paper gives no lower bound on the probability of a
+bad block, so whether such large clusters occur on a large torus is not
+decided. The covariance of the conditional probabilities of the labels,
+the term of Proposition~\ref{prop:hiddenbit}, is not touched by the
+clusters.
+
 \subsection{What remains}\label{ssec:remains}
 
 The results of this section leave the following statements, which together
@@ -19036,7 +19382,12 @@ Lemma~\ref{lem:lambdatwo} evaluates the prefactor, $\Lambda_2\le99.0001
 layer of width at least $99072$. Theorem~\ref{thm:manyislands} performs the induction over all the
 islands of a window given their labels. Theorem~\ref{thm:islandwindow} gives the smallness of its island sums
 and its Dobrushin condition in every window of at most $10^{28000}$
-blocks, outside probability $10^{-166}$. Sec.~\ref{ssec:labelcov} bounds the
+blocks, outside probability $10^{-166}$. With the clusters of Definition~\ref{def:clusters}
+as units, Theorem~\ref{thm:clustercomparison} gives these conditions in
+every configuration of the labels and every window, and
+Theorem~\ref{thm:clustersizes} bounds the size of the clusters block by
+block, uniformly in the torus up to $M_1=10^{10^{1700}}$ blocks; a bound
+beyond $M_1$ is not proved (Proposition~\ref{prop:clusterreach}). Sec.~\ref{ssec:labelcov} bounds the
 covariance of the labels with the others averaged, and the covariance of
 two local observables under $\mu^c$, in the mean over the coarse field and
 on the whole torus: Theorem~\ref{thm:labelcov} improves the trivial bound
