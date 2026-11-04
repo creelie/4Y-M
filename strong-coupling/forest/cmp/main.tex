@@ -69,7 +69,7 @@ nonconvex bad side and its three-preimage branch family
 of the path-link law: the response to the links that enter only the
 action, the good side to radius $1/32$, and the fold across which the law
 jumps for every coupling (Lemma~\ref{lem:wilsononly},
-Propositions~\ref{prop:goodside} and~\ref{prop:fold}), the exact factorisation of the weight of two bad islands through one kernel on the good layer between them, on a domain that their labels do not move, with the covariance bound $\frac14\tanh(\varDelta/4)$ once the layer law obeys the covariance bound of the chart (Theorem~\ref{thm:factorisation}, Proposition~\ref{prop:layercross}, Corollary~\ref{cor:twolabels}), the floor $q^2/16$ on the covariance of
+Propositions~\ref{prop:goodside} and~\ref{prop:fold}), the exact factorisation of the weight of two bad islands through one kernel on the good layer between them, on a domain that their labels do not move, with the covariance bound of the chart for the layer law in the coordinates of the labels and a cross-ratio exponentially small in the width of the layer (Theorems~\ref{thm:factorisation} and~\ref{thm:layerbound}, Proposition~\ref{prop:layercross}, Corollaries~\ref{cor:twolabels} and~\ref{cor:twoislands}), the floor $q^2/16$ on the covariance of
 rare labels (Proposition~\ref{prop:hiddenbit}), the explicit island
 threshold $\beta^*(\rho,s)$ past which the islands of bad blocks at one
 scale are rarer than their entropy (Theorem~\ref{thm:islandthreshold}),
@@ -122,7 +122,7 @@ along a forest reaches its constant on the gauge orbit of the vacuum, which
 fixes the one estimate that remains open. We prove that, once the blocks
 are labelled by their independent links and their coarse curvature, every
 good window carries an exact product law in which each path link is
-determined by its pair, that the weight of two bad islands factorises exactly through one kernel on the good layer between them, on a domain that their labels do not move, with covariance at most $\frac14\tanh(\varDelta/4)$ once the layer law obeys the covariance bound of the chart, and that the exact response of a plaquette block
+determined by its pair, that the weight of two bad islands factorises exactly through one kernel on the good layer between them, on a domain that their labels do not move, with covariance at most $\frac14\tanh(\varDelta/4)$ and $\varDelta$ exponentially small in the width of that layer, and that the exact response of a plaquette block
 at zero field, $\frac14(1+I_2(\beta_W)/I_1(\beta_W))$, bounds every
 Dobrushin estimate of this form by $\beta_W=0.3666$. We give the explicit
 coupling, $\beta_W=5.4\cdot10^{21}$ at the label radius $10^{-8}$, past
@@ -629,7 +629,7 @@ Wilson measure. Section~\ref{sec:islands} proves what a labelling of the
 blocks into good and bad gives for the cube condition, where the natural
 labels fail, the explicit coupling past which the bad islands of one
 scale are rarer than their entropy (Theorem~\ref{thm:islandthreshold}),
-the fold across which the path-link law of a bad pair jumps (Proposition~\ref{prop:fold}), the factorisation of two bad islands through one kernel (Theorem~\ref{thm:factorisation}), and what the single-scale and the multiscale parts of (D) still need. The appendices contain the
+the fold across which the path-link law of a bad pair jumps (Proposition~\ref{prop:fold}), the factorisation of two bad islands through one kernel (Theorem~\ref{thm:factorisation}) and the exponential decay of their comparison in the width of the good layer between them (Theorem~\ref{thm:layerbound}, Corollary~\ref{cor:twoislands}), and what the single-scale and the multiscale parts of (D) still need. The appendices contain the
 residue table of the line field, the comparison lemma and its version for
 blocks, the blocks of the local Hessian inequality, the details of the
 certified computation, the reconstruction of the transfer matrix with the
@@ -12642,39 +12642,253 @@ The last bound is the quantity that Proposition~\ref{prop:hiddenbit} says
 a labelling argument must control: the change of the conditional
 expectation of an observable of one island under a flip of the label of
 the other, with the branches, the hard label constraints and the
-disintegration densities of both islands integrated, not compared. What
-separates \eqref{eq:layerbound} from Theorem~\ref{thm:chartdecay}(ii) is
-exact. The chart law of that theorem is written in the coordinates $\xi$
-of $T_U$, on the product of balls $\Omega_r$, with a density whose Hessian
-is at least $\lambda/60$; the label coordinate of a non-path link is
-$\zeta_e=\xi_e+h_e(S\xi)$ with $h(0)=0$, $Dh(0)=0$ and
-$\lVert h\rVert_\infty\le s/2$ by Theorem~\ref{thm:fibrechart}(i), so the
-label event $\prod\{\lVert\zeta_e\rVert\le r\}$ is a smooth deformation of
-$\Omega_r$ of relative size $O(r)$, convex in $\zeta$ and not in $\xi$,
-and the Hessian of the density in $\zeta$ acquires the term
-$\sum_a\partial_a\bar H\,D^2\xi_a$, which is not coordinate invariant,
-and whose kernel is exponentially local but not of finite range. The
-proof of Theorem~\ref{thm:chartdecay}(ii) has to be repeated in $\zeta$;
-this is not done here. Freezing the inside links at distance $s+3$ leaves
-a product of balls and a principal submatrix of the Hessian, which changes
-nothing. The calmness that the theorem needs on the layer is available:
-on the sector events every plaquette with a vertex in the layer has its
-links within $r$ of $R(c)$, whose plaquettes are $I$ inside the blocks and
-within $\eta$ of $I$ across them, so its defect is at most $\eta+4r$, by
-the bi-invariance of $\delta$ and the triangle inequality over four
-links; the hypothesis $\kappa+6s'\le10^{-8}$ with the chart radius
-$s'=32r$ then needs $\eta+196r\le10^{-8}$, that is $\rho\le1.17\cdot
-10^{-12}$ in the normalisation $r=43\rho$, $\eta=92\rho$ of
-Theorem~\ref{thm:islandthreshold}, where the threshold is
-$\beta^*=3.70\cdot10^{29}$ for $s=1$ and $4.44\cdot10^{29}$ for $s=5$.
-If further bad blocks lie in $\Lambda$ at distance at least $s+4$ from
-both islands, the factorisation of Theorem~\ref{thm:factorisation}
-through $K$ still holds as an identity of measures, with the constraints
-of the bad pairs of the layer kept as hard factors inside $K$, but
-$\mu_{x,y}$ is then no longer a good-window law, and the cross-ratio of
-$K$ is the comparison for the remaining islands: the theorem is the
-factorisation of the inductive step, and the induction is not performed
-here.
+disintegration densities of both islands integrated, not compared. The
+hypothesis~\eqref{eq:layerbound} is Theorem~\ref{thm:chartdecay}(ii) for
+the layer law, but in other coordinates. The chart law of that theorem is
+written in the coordinates $\xi$ of $T_U$, on the product of balls
+$\Omega_r$; the label coordinate of a non-path link is
+$\zeta_e=\xi_e+h_e(S\xi)$, so the label event
+$\prod_e\{\lVert\zeta_e\rVert\le r\}$ is a deformation of
+$\Omega_r$, convex in $\zeta$ and not in $\xi$, and the Hessian of
+the density in $\zeta$ acquires the term $\langle\nabla_\xi\bar H,
+D^2\xi\rangle$, which is not coordinate invariant. The next theorem
+carries the proof over to the coordinates $\zeta$; it needs the layer
+calmer than Theorem~\ref{thm:chartdecay} needs a chart, and a coupling
+four times larger.
+
+\begin{theorem}[the layer law obeys the chart bound]\label{thm:layerbound}
+Let $G=\SU(2)$, $\lambda=\beta_W/4$, and let the data be those of
+Theorem~\ref{thm:factorisation}. Let $W'$ be the set of blocks of
+$\Lambda$ at distance at least $s+3$ from both islands, and assume
+\begin{enumerate}[label=\textup{(\alph*)},leftmargin=*]
+\item $r\le8\cdot10^{-5}$ and $4\cdot10^5c_3(\eta+49r)\le\frac1{195}$,
+which holds when $\eta+49r\le6.0\cdot10^{-13}$;
+\item $\lambda\ge240\,c_6$, which holds when $\beta_W\ge8.93\cdot10^{17}$;
+\item every block outside $\Lambda$ at distance at most two from $W'$ is
+good and the constraints of its pairs hold; this is void when $\Lambda$
+contains the blocks at distance at most two from $W'$.
+\end{enumerate}
+Then~\eqref{eq:layerbound} holds with $\mathcal A=120/\lambda=480/
+\beta_W$ and every $\alpha\le\alpha_G=2.5\cdot10^{-4}$, uniformly in
+$(x,y)\in D_x\times D_y$, in $U^{\mathrm{ext}}$, in $\Lambda$ and in the
+width $w$.
+\end{theorem}
+
+\begin{proof}
+All constants without a name are those of the proofs of
+Theorems~\ref{thm:fibrechart} and~\ref{thm:chartdecay} and of
+Proposition~\ref{prop:explicitdecay}, at $\vartheta=0$ unless a weight is
+written: $\mathcal G=BB^*\ge\frac1{17}$, $\lVert B^*z\rVert_\infty\le0.88
+\max_k\lVert z_k\rVert$, $\lVert R_k(X)\rVert\le12c_3\lVert X
+\rVert_\infty^2$, the rows of $A-B$ of norm at most $7.35c_3s$,
+$Y=B^*(AB^*)^{-1}$ with $\lVert Y\rVert\le11.32$, $\bar P=S-Y(A-B)S$ with
+$\lVert\bar P\rVert\le4.80$ and $\lVert\bar P\rVert_{1\to1}\le3.003$,
+$x_v=\bar Pv$ and $x_{vv'}=-YD^2c(X)[x_v,x_{v'}]$ with
+$\lVert x_{vv'}\rVert_1\le1564.3\,c_3\lvert v\rvert\lvert v'\rvert$. Put
+$s'=32r$ for the chart radius.
+
+\emph{Step 1: the background is calm.} Let $U$ be the point of the fibre
+whose non-path links in $W'$ are $R(c)$ and whose path links there are
+the solutions $\Gamma_k(0)$ of Lemma~\ref{lem:branchbound}. Take a
+plaquette $p$ with a vertex in a block of $W'^+$. Its links are based in
+blocks at distance at most two from $W'$, which are good, by the sector
+event inside $\Lambda$ and by (c) outside it. A plaquette contains at most
+one path link: a path link $(2y+e_\mu,\mu)$ has exactly one odd
+coordinate at its base, and two such links on one plaquette would have
+to be opposite sides with bases differing by $e_\rho$, $\rho\ne\mu$,
+which gives one of them two odd coordinates. The plaquette of $R(c)$ at
+$p$ is $I$ unless both coordinates of the corner in its plane are odd, and
+it is then the coarse plaquette of a good block, so
+$\delta(R(c)_p,I)\le\eta$. Replacing the four links one at a time, with
+$\delta\le d$ (Lemma~\ref{lem:logbound}), bi-invariance and
+$d(\Gamma_k,c_k)\le14r$, gives $\delta(U_p,I)\le\eta+14r+3r$. So the
+defect $\kappa_0$ of the background satisfies
+$\kappa_0+s'\le\eta+49r$, and (a) is the hypothesis
+$4\cdot10^5c_3(\kappa_0+s')\le\frac1{195}$ of
+Theorem~\ref{thm:fibrechart}(iv) at radius $s'$; by
+Proposition~\ref{prop:explicitconstants} it implies $s'\le1/(6000c_3)$,
+$\kappa_0+6s'\le10^{-8}$ and $c_3s'\le1.29\cdot10^{-8}$.
+
+\emph{Step 2: the two coordinates.} Let $\rho_1=\frac54r$, which is at
+most $10^{-4}$ by (a). For $\zeta$ with every $\lVert\zeta_e\rVert\le
+\rho_1$ let $U'$ be the point of the fibre with non-path links
+$R_e(c)e^{\zeta_e}$, and $X=\log(U^{-1}U')$ link by link. On the non-path
+links $\lVert X_e\rVert\le\rho_1$; on a path link, by
+Lemma~\ref{lem:branchbound} at the radii $r$ and $\rho_1$,
+$\lVert X_{d_k}\rVert\le14r+14\rho_1=31.5r$. So $t=\lVert X\rVert_\infty
+<s'$, and $BX=-R(X)$ with $\lVert R_k(X)\rVert\le12c_3t^2$. With
+$z=\mathcal G^{-1}BX$ and $\nu=X-B^*z\in T_U$ we get $\max_k\lVert z_k
+\rVert\le204c_3t^2\le8.2\cdot10^{-5}r$ and $\lVert\nu\rVert_\infty\le
+t(1+180c_3t)\le31.51r<s'$, and $z$ is the fixed point that defines
+$h(\nu)$, so $U'=\Phi(\nu)$ with $\lVert h(\nu)\rVert_\infty\le
+7.2\cdot10^{-5}r$. Hence the map $\Psi(\xi)=\xi+g(\xi)$,
+$g(\xi)=h(S\xi)$ restricted to the non-path links, which sends the chart
+coordinate to the label coordinate, maps a subset of
+$\Omega_{2r}$ onto $\{\lVert\zeta_e\rVert\le\rho_1\}$; it is
+injective there because two chart points with the same non-path links
+within $\rho_1$ of $R(c)$ have the same path links by
+Lemma~\ref{lem:branchbound}. Its derivative is $1+Dg$ with
+$Dg=-Y(A-B)S$ restricted to the non-path links, so
+\[
+\begin{gathered}
+\lVert Dg\rVert\le3.6\cdot10^{-5},\qquad\lVert Dg\rVert_{(0.197)}\le
+7.0\cdot10^{-5},\\
+\lVert Dg\rVert_{1\to1}\le2.0\cdot10^{-5},
+\end{gathered}
+\]
+from $\lVert S\rVert_{1\to1}\le1+2\cdot8.01(\frac18+260\kappa_0)$, the
+rows of $A-B$, and the weighted bounds of
+Proposition~\ref{prop:explicitdecay}. Thus $\Psi$ is a diffeomorphism
+onto the $\rho_1$-balls, and $J=D\xi=(1+Dg)^{-1}$ has the norms
+$j_0=1+3.6\cdot10^{-5}$, $j_\vartheta=1+7.0\cdot10^{-5}$ and
+$j_1=1+2.0\cdot10^{-5}$ in the three norms.
+
+\emph{Step 3: the density.} By Theorem~\ref{thm:fibrechart}(iii) and the
+proof of Theorem~\ref{thm:chartdecay}, the constrained law on the chart
+has density $e^{-\bar H(\xi)}$ in $\xi$. By Step 2 and the change of
+variables $\zeta=\Psi(\xi)$, the law conditioned on the label event has
+density $e^{-\tilde U}\mathbf 1_{\{\lVert\zeta_e\rVert\le r\}}$ with
+\[
+\tilde U(\zeta)=\bar H(\xi(\zeta))+\log\det\bigl(1+Dg(\xi(\zeta))\bigr),
+\]
+smooth on the $\rho_1$-balls. It is the law of
+Proposition~\ref{prop:graphlaw}, since the disintegration of a smooth
+positive density along a submersion is unique up to a factor constant on
+each fibre, and the layer law $\mu_{x,y}$ is this law with the inside
+links at distance $s+3$ frozen.
+
+\emph{Step 4: the lower bound on the Hessian.} By the chain rule, with
+$a=Jv$ and $M=1+Dg$,
+\[
+\begin{split}
+\partial_v^2\tilde U={}&\operatorname{Hess}_\xi\bar H[a,a]+\bigl\langle
+\nabla_\xi\bar H,D^2\xi[v,v]\bigr\rangle\\
+&+\operatorname{Tr}\bigl(M^{-1}M''\bigr)-\operatorname{Tr}\bigl((M^{-1}
+M')^2\bigr),
+\end{split}
+\]
+where $M'=D^2g[a,\cdot\,]$, $M''=D^3g[a,a,\cdot\,]+D^2g[D^2\xi[v,v],\cdot\,]$
+and $D^2\xi[v,v]=-JD^2g[a,a]$. The first term is at least
+$(\frac\lambda{30}-c_6)\lvert a\rvert^2$ by
+Theorem~\ref{thm:fibrechart}(ii), (iii), since
+$\frac1{26}-4\cdot10^5c_3(\kappa_0+s')\ge\frac1{30}$. For the second, the
+gradient of $\bar H$ in one link is the sum of $\lambda DQ[x_v]$, the
+derivative of the Haar densities and the derivatives of the two
+determinants; $\lvert DQ[x_v]\rvert\le12(\kappa_0+6s')\lVert x_v\rVert_1$,
+the Haar part is at most $0.84\lVert x_v\rVert_1$, and the determinants
+give $\operatorname{Re}\operatorname{Tr}(A^*(AA^*)^{-1}A_v)$ and
+$\operatorname{Re}\operatorname{Tr}(\bar P(\bar P^*\bar P)^{-1}\bar P^*
+YA_v)$ with $A_v=D^2c(X)[x_v,\cdot\,]$, bounded by $5\lVert A_v\rVert_1$ and
+$11.32\lVert A_v\rVert_1$ since $AA^*\ge\frac1{25}$ and the second operator
+is $Y$ followed by a projection; and $\lVert A_v\rVert_1\le2\dim G\,c_3
+\lVert x_v\rVert_1$ because each row of $D^2c$ has rank at most $\dim G$
+and each link enters two rows. So every component of $\nabla_\xi\bar H$
+is at most $12\lambda(\kappa_0+6s')\cdot3.003+296.5\,c_3$, and with
+$\lVert D^2\xi[v,v]\rVert_1\le j_1j_0^2\cdot1564.3\,c_3\lvert v\rvert^2$ the
+second term is at most $(4.35\cdot10^{-3}\lambda+4.64\cdot10^5c_3^2)
+\lvert v\rvert^2$. The derivatives of $g$ are those of $X$:
+$D^2g[a,\cdot\,]=-YA_a\bar P$ and
+\[
+\begin{split}
+D^3g[a,b,\cdot\,]={}&YA_aYA_b\bar P+YA_bYA_a\bar P\\
+&-YD^3c[x_a,x_b,\cdot\,]\bar P-YD^2c[x_{ab},\cdot\,]\bar P,
+\end{split}
+\]
+restricted to the non-path links, and the Hilbert--Schmidt bound
+$\lVert A_a\rVert_2^2\le2\dim G\,c_3^2\lVert\bar P\rVert^2\lvert a\rvert^2$
+together with $\lvert\operatorname{Tr}(ST)\rvert\le\lVert S\rVert
+\lVert T\rVert_1$ and $\lVert ST\rVert_1\le\lVert S\rVert_2\lVert T
+\rVert_2$ bounds the two traces term by term by
+$(4.07+1.70+0.08+5.10+15.30)\cdot10^5c_3^2\lvert v\rvert^2$. Since
+$c_6=6.81\cdot10^5\dim G\,c_3^2$, the part of $\partial_v^2\tilde U$
+that does not grow with $\lambda$, beyond the $c_6$ of the first term, is
+at most $1.512\,c_6\lvert v\rvert^2$, and by (b)
+\[
+\begin{split}
+\operatorname{Hess}_\zeta\tilde U&\ge\lambda\Bigl(\frac{1/30-1/240}
+{(1+3.6\cdot10^{-5})^2}-4.35\cdot10^{-3}-\frac{1.512}{240}\Bigr)\\
+&\ge0.0185\,\lambda\ge\frac\lambda{60}.
+\end{split}
+\]
+\emph{Step 5: locality of the Hessian.} The same four terms, with the
+vectors $p=wu$, $q=w^{-1}u'$ for $w=e^{\vartheta\varphi}$,
+$\vartheta=0.197$, are bounded as in the paragraph ``The Hessian'' of the
+proof of Proposition~\ref{prop:explicitdecay}: the weights of $x_p$ and
+$x_q$ on the links of one pair cancel up to $e^{2\vartheta}$, the
+conjugation of $A_a$ by $w$ costs at most $e^\vartheta$, and the other
+factors are bounded in $\lVert\cdot\rVert_{(\vartheta)}$ by
+$\bar p\le5.80$, $y\le14.96$ and $j_\vartheta$. With
+$\lVert\operatorname{Hess}_\xi\bar H\rVert_{(0.197)}\le2068\lambda$ this
+gives
+\[
+\begin{split}
+\lVert\operatorname{Hess}_\zeta\tilde U\rVert_{(0.197)}&\le\lambda\Bigl(
+2068\,j_\vartheta^2+9.41\cdot10^{-3}+\frac{5.88}{240}\Bigr)\\
+&\le2068.4\,\lambda .
+\end{split}
+\]
+\emph{Step 6: the covariance bound.} The proof of
+Theorem~\ref{thm:chartdecay}(ii) now applies word for word with
+$\Omega_r$ replaced by the product of the $r$-balls in $\zeta$, both
+being products of balls in the coordinates in which the Hessian bounds of
+Steps 4 and 5 hold, and with the radii of the approximation
+$\frac32r,\frac74r,2r$ replaced by $1.1r,1.2r,1.25r$, for which the
+convex penalty has Hessian at least $\frac1{22}$ outside $1.1r$.
+Lemma~\ref{lem:weightednorms}(ii) gives
+$\lVert\operatorname{Re}(\operatorname{Hess}H_n)^w-\operatorname{Hess}
+H_n\rVert\le\frac\lambda{120}$ for $\alpha\le0.197(240\cdot2068.4)^{-1/2}
+=2.79\cdot10^{-4}$, which contains $\alpha_G$, and the weighted
+Helffer--Sjöstrand representation gives the bound with $\mathcal A=2/m=
+120/\lambda$. Freezing the inside links at distance $s+3$ restricts the
+Hessian to a principal submatrix, which keeps both bounds, and the
+argument runs on the free links with the same constants.
+\end{proof}
+
+\begin{corollary}[two islands in a good region]\label{cor:twoislands}
+Under the hypotheses of Theorems~\ref{thm:factorisation}
+and~\ref{thm:layerbound}, with $w\ge2s+8$, every pair of label patterns
+with all $Z_{ij}>0$ satisfies
+\[
+\begin{gathered}
+\bigl\lvert\log Z_{11}+\log Z_{00}-\log Z_{10}-\log Z_{01}\bigr\rvert
+\le\varDelta,\\
+\varDelta=\frac{1920}{\beta_W}\Lambda_2^2r^2\sqrt{n_xn_y}\,
+e^{-2\alpha_G(w-2s-8)},
+\end{gathered}
+\]
+the two island labels have conditional covariance at most
+$\frac14\tanh(\varDelta/4)$, and every observable of one island and its
+collars changes by a factor in $[e^{-\varDelta},e^{\varDelta}]$ when the
+label of the other island is flipped. In the normalisation $r=43\rho$,
+$\eta=92\rho$ of Theorem~\ref{thm:islandthreshold}, hypothesis (a) of
+Theorem~\ref{thm:layerbound} holds for $\rho\le2.73\cdot10^{-16}$, where
+the island threshold with the joining distance $2s+8$ is
+$\beta^*=7.10\cdot10^{36}$ for $s=1$ and $8.36\cdot10^{36}$ for $s=5$,
+and hypothesis (b) holds at every $\beta_W\ge\beta^*$.
+\end{corollary}
+
+\begin{proof}
+Proposition~\ref{prop:layercross} with $\mathcal A=480/\beta_W$ from
+Theorem~\ref{thm:layerbound} and $d'=2(w-2s-8)$. For the numbers,
+$\eta+49r=(92+49\cdot43)\rho=2199\rho$, and the threshold is the largest
+root of the equation of Theorem~\ref{thm:islandthreshold} with
+$(4s+17)^4-1$ neighbours, the count for the joining distance $2s+8$,
+which makes every layer between two islands of width at least $2s+8$:
+$\lvert\log q^*\rvert=32481.7$ for $s=1$ and $38354.1$ for $s=5$.
+\end{proof}
+
+The covariance therefore decays exponentially in the width of the good
+layer, at the rate of the chart, with an amplitude that is finite and
+explicit in $\Lambda_2$; the prefactor $\Lambda_2$, the largest mixed
+derivative of the action of the layer, is of the form $\beta_Wc_W+c_\psi$
+and is not evaluated here. If further bad blocks lie in $\Lambda$ at
+distance at least $s+4$ from both islands, the factorisation of
+Theorem~\ref{thm:factorisation} through $K$ still holds as an identity of
+measures, with the constraints of the bad pairs of the layer kept as hard
+factors inside $K$, but $\mu_{x,y}$ is then no longer a good-window law,
+and the cross-ratio of $K$ is the comparison for the remaining islands:
+the corollary is the inductive step for two islands, and the induction
+over all the islands of a window is not performed here.
 
 \subsection{What remains}\label{ssec:remains}
 
@@ -12692,13 +12906,24 @@ of that law to every link that enters only the action, and
 Proposition~\ref{prop:goodside} settles the good side to radius $1/32$.
 What is not bounded is the response to the inside links, which move the
 fibre $\{V^\sharp_k=c_k\}$ while the bad set does not.
-\item \emph{The island comparison.} The covariance bound~\eqref{eq:layerbound} for the law of the good layer between two islands in the coordinates of the labels. Theorem~\ref{thm:factorisation} proves that the weight of the two islands factors through one kernel on that layer, on a domain that their labels do not move, and Proposition~\ref{prop:layercross} turns~\eqref{eq:layerbound} into the cross-ratio bound that Lemma~\ref{lem:kernel} needs; what is not done is the proof of Theorem~\ref{thm:chartdecay}(ii) in the label coordinates, whose Hessian carries a term that the chart coordinates do not have. Proposition~\ref{prop:hiddenbit} shows that no rarity bound replaces it.
+\item \emph{The island comparison.} For two islands in a good region,
+Theorem~\ref{thm:factorisation} factorises their weight through one
+kernel on the good layer between them, Theorem~\ref{thm:layerbound}
+proves the covariance bound~\eqref{eq:layerbound} for the law of that
+layer in the coordinates of the labels, and Corollary~\ref{cor:twoislands}
+bounds the cross-ratio by $\varDelta$, exponentially small in the width.
+What is not done is the evaluation of the prefactor $\Lambda_2$ and the
+induction over all the islands of a window, in which the layer between
+two islands contains further islands and its law is no longer a
+good-window law. Proposition~\ref{prop:hiddenbit} shows that no rarity
+bound replaces this comparison.
 \item \emph{The island threshold.} Theorem~\ref{thm:islandthreshold}
 gives the explicit coupling $\beta^*(\rho,s)$ past which the islands of
 bad blocks at one scale are rare enough to beat their entropy, at the
 exponent $1/H$ of Proposition~\ref{prop:coverageopt} and the collar of
 Proposition~\ref{prop:graphlaw}. What is not given is the same statement
-at the scale of the cube: $\beta^*$ is of order $10^{21}$, far beyond the
+at the scale of the cube: $\beta^*$ is of order $10^{21}$, and of order
+$10^{37}$ under the calmness of Corollary~\ref{cor:twoislands}, far beyond the
 range in which the chessboard estimate reaches that scale, so that (iv) is
 needed before the threshold bears on the gap.
 \item \emph{The scales.} An effective action at every scale whose
@@ -12712,7 +12937,9 @@ $a_{k_*}/512$, and Proposition~\ref{prop:constantcurvature} shows that
 fine witnesses carry it no further; the law of the iterates given their
 labels, which the effective action is for, is untouched.
 \end{enumerate}
-Items (i) and (ii) are the single-scale part of (D) that remains open;
+Item (i) and the induction of item (ii) are the single-scale part of (D)
+that remains open, item (ii) being settled for two islands by
+Corollary~\ref{cor:twoislands};
 item (iii) is settled by Theorem~\ref{thm:islandthreshold} at one scale
 and by Theorem~\ref{thm:islandscales} at every scale up to $a_{k_*}/512$;
 item (iv) is the multiscale part. On the continuum side, Lemmas~\ref{lem:positivetime}
@@ -12755,6 +12982,8 @@ all links & nonconvex, Prop.~\ref{prop:nonconvex}\\
 good window & graph law, Prop.~\ref{prop:graphlaw}\\
 $n$ bad labels & $A^{n/H}$, Lem.~\ref{lem:coverage}\\
 two islands & one kernel, Thm.~\ref{thm:factorisation}\\
+layer law & chart bound, Thm.~\ref{thm:layerbound}\\
+two islands & $e^{-2\alpha_G(w-2s-8)}$, Cor.~\ref{cor:twoislands}\\
 two islands & $\frac14\tanh(\varDelta/4)$, Cor.~\ref{cor:twolabels}\\
 rarity alone & floor $q^2/16$, Prop.~\ref{prop:hiddenbit}\\
 island of $n$ blocks & $2^{-n}$ past $\beta^*$, Thm.~\ref{thm:islandthreshold}\\
