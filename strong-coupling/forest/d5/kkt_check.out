@@ -1,0 +1,9 @@
+L=4: |T|=16  V(phi*)=gamma_B: True  d^T d phi* = V^T(32 gamma_B) on all links: True
+   Q(phi*)=1024 = 64|T|: True   Q_1(gamma_B)=256 = 16|T|: True   |gamma_B|^2=32 = 2|T|: True
+L=8: |T|=256  V(phi*)=gamma_B: True  d^T d phi* = V^T(32 gamma_B) on all links: True
+   Q(phi*)=16384 = 64|T|: True   Q_1(gamma_B)=4096 = 16|T|: True   |gamma_B|^2=512 = 2|T|: True
+L=16: |T|=4096  V(phi*)=gamma_B: True  d^T d phi* = V^T(32 gamma_B) on all links: True
+   Q(phi*)=262144 = 64|T|: True   Q_1(gamma_B)=65536 = 16|T|: True   |gamma_B|^2=8192 = 2|T|: True
+L=32: |T|=65536  V(phi*)=gamma_B: True  d^T d phi* = V^T(32 gamma_B) on all links: True
+   Q(phi*)=4194304 = 64|T|: True   Q_1(gamma_B)=1048576 = 16|T|: True   |gamma_B|^2=131072 = 2|T|: True
+ALL CHECKS PASSED
