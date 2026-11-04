@@ -6872,15 +6872,14 @@ the product of Haar measures, where the condition holds with constant one
 tuning has to use the split form.
 
 Not proved: (H1) and (H2) for the tuned Wilson measures; the split
-inequality, with $C_B$ close to $(n'/(bn))^4$, for any Wilson measure at
-$\beta\ne0$, in particular at strong coupling, for $\U(1)$ at $\beta\ne0$,
-and for $\SU(2)$ at weak coupling on calm fibres; Sec.~\ref{ssec:bprefine}
+inequality, with $C_B$ close to $(n'/(bn))^4$, for the Wilson measure
+outside the strong-coupling range, for $\U(1)$ at $\beta\ne0$, and for
+$\SU(2)$ at weak coupling on calm fibres; Sec.~\ref{ssec:bprefine}
 proves it, with the constants of the product measure, for the Haar
-refinements, which are not Wilson measures. At strong
-coupling, Theorem~\ref{thm:bpup}(iii) and Corollary~\ref{cor:bpranges} give
-(A) at the top step of a tower, where $\mu'$ is the Wilson measure, with
-$C_A=1/(1-\alpha_{n'})$ whenever $\alpha_{n'}<1$; what is missing is the
-coarse term. The proof of Proposition~\ref{prop:bpuphaar} uses the
+refinements, which are not Wilson measures, and
+Sec.~\ref{ssec:bpsplitstrong} proves it for the Wilson measure at strong
+coupling, with constants within factors $1+O(\beta)$ of those
+(Theorem~\ref{thm:bpsplitstrong}). The proof of Proposition~\ref{prop:bpuphaar} uses the
 orthogonal decomposition of the product measure, in which the components of
 $f$ that the fibre and the coarse field see are orthogonal; for an
 interacting measure they are not, and the term dropped in the proof of
@@ -6888,7 +6887,10 @@ Theorem~\ref{thm:bpdescent}(i), the information that the fine field outside
 a fine cube carries on the block variables inside the coarse cube beyond
 the coarse field outside it, vanishes for the product measure and its Haar
 refinements (Proposition~\ref{prop:bpfinesplit}(ii),
-Lemma~\ref{lem:bprefine}(ii)) and is not bounded here for any other. Theorem~\ref{thm:eightlinkuniform} and
+Lemma~\ref{lem:bprefine}(ii)), is bounded at strong coupling by a factor $q^2$
+of order $\beta^2$ times the coarse form of the refinement
+(Theorem~\ref{thm:bpexterior}), and is not
+bounded here for any other measure. Theorem~\ref{thm:eightlinkuniform} and
 Proposition~\ref{prop:chartfolds} concern bounds uniform in the conditioning
 on block variables, while (A) and $\mathrm S$ are posed in the mean over
 $\mu'$, so they do not decide them. Neither $\mathrm{BP}$ along the tuning
@@ -7256,7 +7258,9 @@ for every gauge-invariant measure (Theorem~\ref{thm:bpdescent}) and up one
 scale under the split inequality S (Theorem~\ref{thm:bpup}). (b)~S holds
 for every Haar refinement (Theorem~\ref{thm:bprefine}), the product of
 Haar measures included; a Wilson measure at $\beta\ne0$ is not a Haar
-refinement (Proposition~\ref{prop:bpnotrefine}), and for it S is open.}\label{fig:bptower}
+refinement (Proposition~\ref{prop:bpnotrefine}); for it S holds at strong
+coupling (Theorem~\ref{thm:bpsplitstrong}) and is open at weak
+coupling.}\label{fig:bptower}
 \end{figure*}
 
 \begin{remark}[what the refinements give and what they
@@ -7278,16 +7282,17 @@ on functions of the block variables the fine form falls short of that of
 the refinement by the information of the fine exterior on the block
 variables (Proposition~\ref{prop:bpfinesplit}).
 
-Not proved: the split inequality for any Wilson measure at $\beta\ne0$,
-which is not a refinement (Proposition~\ref{prop:bpnotrefine}), at strong
-coupling, for $\U(1)$ at $\beta>0$, or for $\SU(2)$ on calm fibres; for them
-neither the bound $\Phi(f)\ge\mu'(\Var(f\mid c))/C_A$, a Poincar\'e
-inequality for the fine links given the block variables in the mean over
-$\mu'$, nor a bound on the subtracted term of
-Proposition~\ref{prop:bpfinesplit}(ii) is proved, and whether that term
-vanishes for them is not decided. Whether the split inequality with $C_B$
-near $(n'/(bn))^4$ holds or fails along the tuning is not decided; no
-obstruction to it is proved here. For a general $\varrho$ the optimal $C_B$
+Not proved: the split inequality for the Wilson measure, which is not a
+refinement (Proposition~\ref{prop:bpnotrefine}), outside the
+strong-coupling range treated in Sec.~\ref{ssec:bpsplitstrong}, for $\U(1)$
+at $\beta>0$, or for $\SU(2)$ on calm fibres; for them neither the bound
+$\Phi(f)\ge\mu'(\Var(f\mid c))/C_A$, a Poincar\'e inequality for the fine
+links given the block variables in the mean over $\mu'$, nor a bound on the
+subtracted term of Proposition~\ref{prop:bpfinesplit}(ii) is proved, and
+whether that term vanishes for them is not decided. Whether the split
+inequality with $C_B$ near $(n'/(bn))^4$ holds or fails along the tuning is
+not decided; no obstruction to it is proved here, and the obstructions on
+small tori give none (Proposition~\ref{prop:bpsmalltori}). For a general $\varrho$ the optimal $C_B$
 in Theorem~\ref{thm:bprefine} is not determined; for $\varrho=\lambda_E$ it
 is $(n'/(bn))^4$ by Proposition~\ref{prop:bpuphaar}(ii). The condition (H1)
 does not follow from the results of this paper along the tuning:
@@ -7302,6 +7307,659 @@ measures; it shows that the split mechanism tolerates an arbitrary
 interaction of the block variables, and Proposition~\ref{prop:bpfinesplit}
 places the remaining difficulty in the interaction at the finer scales.
 Neither $\mathrm{BP}$ along the tuning nor the mass gap is proved here.
+\end{remark}
+
+\subsection{The split inequality at strong coupling}\label{ssec:bpsplitstrong}
+
+This subsection proves the split inequality for the Wilson measure in the
+strong-coupling range of Corollary~\ref{cor:bpranges}, on every torus, with
+constants that tend to those of Theorem~\ref{thm:bprefine} as $\beta\to0$.
+The two parts of the fine Dirichlet form in
+Proposition~\ref{prop:bpfinesplit} are bounded separately. In the axial
+gauge of Lemma~\ref{lem:bprefine}(iii) the conditional law of the fine field
+given the block variables is a Gibbs measure on the links of $E'_0$ with the
+Wilson specification, and the single-link coefficients give a Poincar\'e
+inequality for the fibre form $\Phi$. The information that the fine
+exterior of a cube carries on the block variables, which vanishes for the
+refinements, is bounded by the square of the response of the cube to one
+coarse link, and the contributions of distant cubes are almost orthogonal
+because correlations in the fibres decay. The split inequality is first
+derived from three bounds that can be posed for every measure. The
+subsection closes with the weak-coupling obstructions of
+Theorems~\ref{thm:bpfixed} and~\ref{thm:bpneutral}: carried through
+Theorem~\ref{thm:bpup}, they bound the condition for the law of the block
+variables and put no constraint on the split inequality.
+
+Throughout, $c$, $\pi(e)$, $E'_0$, $\mathcal F_{x'}$, $\mathcal H_{x'}$,
+$T(x')$, $\Phi$, $\lambda_S$ and $\nu_V$ are as in Sec.~\ref{ssec:bprefine},
+$\mu'$ is a gauge-invariant probability measure on $G^{E'}$, $\mu^c=c_*
+\mu'$, $Q=\Pi_{\sigma(c)}$, so that $Qf=F_f\circ c$, and $\mathcal G'_{x'}=
+\sigma(c_{E\setminus T(x')})\subset\mathcal F_{x'}$. Norms are those of
+$L^2(\mu')$ or of $L^2(\mu^c)$. The projection $P^{\mu^c}_{T(x')}$ maps
+$\mathcal A^c$ into itself, since a gauge transformation of $\Lambda_L$ acts
+on each coarse link separately and preserves $\mu^c$. For a real $g\in
+\mathcal A^c$ with $P^{\mu^c}_{T(x')}g=0$ put
+\[
+w_{x'}(g)=(I-Q)\,\Pi_{\mathcal F_{x'}}(g\circ c),
+\]
+the part of the information of the fine exterior of $V'_{x'}$ on $g$ that is
+not a function of the block variables.
+
+\begin{theorem}[the split inequality from three bounds]\label{thm:bpsplitcond}
+Let $n,n'\ge2$ with $n'\ge bn$, $L\ge2n+4$ and $bL\ge2n'+4$ even. Let $C_F>0$,
+$\rho\ge0$ and $R>0$ be such that:
+\begin{enumerate}[leftmargin=*]
+\item[\textup{(F)}] $\mu'(\Var(f\mid c))\le C_F\,\Phi(f)$ for every real
+$f\in\mathcal A'$;
+\item[\textup{(X)}] $\lVert\Pi_{\mathcal F_{x'}}(g\circ c)\rVert\le\rho\lVert
+g\rVert$ for every $x'$ and every real $g\in\mathcal A^c$ with
+$P^{\mu^c}_{T(x')}g=0$;
+\item[\textup{(D)}] $\lVert\sum_{x'}w_{x'}(g_{x'})\rVert^2\le R\sum_{x'}\lVert
+w_{x'}(g_{x'})\rVert^2$ for every family of such $g_{x'}$.
+\end{enumerate}
+Put $\eta=\rho(RC_F)^{1/2}/n'^2$. If $\rho^2+\eta<1$, then every real
+$f\in\mathcal A'$ satisfies
+\[
+\mathcal E'_{n'}(f)\ge(1-\eta)\,\Phi(f)+(1-\rho^2-\eta)\Bigl(\frac{bn}{n'}
+\Bigr)^4\mathcal E^c_n(F_f),
+\]
+and $\mathrm S(n',n;C_F/(1-\eta),(n'/(bn))^4/(1-\rho^2-\eta))$ holds for
+$(\mu',c)$.
+\end{theorem}
+
+\begin{proof}
+Let $f\in\mathcal A'$ be real, $F=F_f$, $g=F\circ c=Qf$ and $k=f-g$, so that
+$Qk=0$. Fix $x'$ and write $T=T(x')$, $\mathcal F=\mathcal F_{x'}$,
+$\mathcal H=\mathcal H_{x'}$. Then $g_{x'}=F-P^{\mu^c}_TF$ is a real element
+of $\mathcal A^c$ with $P^{\mu^c}_Tg_{x'}=0$, and $g=g_{x'}\circ c+
+(P^{\mu^c}_TF)\circ c$, where the second term is $\mathcal G'_{x'}$-measurable,
+hence $\mathcal F$-measurable. Put $u_{x'}=\Pi_{\mathcal F}(g_{x'}\circ c)$
+and $w_{x'}=w_{x'}(g_{x'})=u_{x'}-Qu_{x'}$.
+
+The function $g-\Pi_{\mathcal F}g=g_{x'}\circ c-u_{x'}$ is orthogonal to
+$L^2(\mathcal F)$, which contains $\Pi_{\mathcal F}k$, and $\ip gk=0$; so
+\[
+\begin{split}
+\lVert f-\Pi_{\mathcal F}f\rVert^2&=\lVert g-\Pi_{\mathcal F}g\rVert^2+\lVert
+k-\Pi_{\mathcal F}k\rVert^2\\
+&\quad-2\ip{\Pi_{\mathcal F}g}k.
+\end{split}
+\]
+By Pythagoras' theorem and (X), $\lVert g-\Pi_{\mathcal F}g\rVert^2=\lVert
+g_{x'}\rVert^2-\lVert u_{x'}\rVert^2\ge(1-\rho^2)\lVert g_{x'}\rVert^2$. Since
+$\mathcal F\subset\mathcal H$ and $g$ is $\mathcal H$-measurable, $\lVert k-
+\Pi_{\mathcal F}k\rVert^2\ge\lVert k-\Pi_{\mathcal H}k\rVert^2=\lVert f-
+\Pi_{\mathcal H}f\rVert^2=\mu'(\Var(f\mid\mathcal H))$. The functions
+$(P^{\mu^c}_TF)\circ c$ and $Qu_{x'}$ are $\sigma(c)$-measurable and $Qk=0$, so
+$\ip{\Pi_{\mathcal F}g}k=\ip{u_{x'}}k=\ip{w_{x'}}k$. Summing over $x'$, with
+$W=\sum_{x'}w_{x'}$ and $\Sigma_0=\sum_{x'}\lVert g_{x'}\rVert^2$,
+\[
+n'^4\mathcal E'_{n'}(f)\ge(1-\rho^2)\Sigma_0+n'^4\Phi(f)-2\ip Wk .
+\]
+By (D) and (X), $\lVert W\rVert^2\le R\sum_{x'}\lVert w_{x'}\rVert^2\le R
+\sum_{x'}\lVert u_{x'}\rVert^2\le R\rho^2\Sigma_0$, and by (F), $\lVert k
+\rVert^2=\mu'(\Var(f\mid c))\le C_F\Phi(f)$. Hence
+\[
+2\lvert\ip Wk\rvert\le2\rho(RC_F)^{1/2}(\Sigma_0\Phi(f))^{1/2}\le\eta\Sigma_0
++\eta n'^4\Phi(f),
+\]
+because $2\rho(RC_F)^{1/2}=2\eta n'^2$. So $\mathcal E'_{n'}(f)\ge(1-\eta)
+\Phi(f)+(1-\rho^2-\eta)n'^{-4}\Sigma_0$. As in the proof of
+Theorem~\ref{thm:bprefine} (the coarse term), $V_y\subset T(by-w)$ for
+$w\in[0,b)^4$, so $\lVert F-P^{\mu^c}_{T(by-w)}F\rVert^2\ge\mu^c((F-P^c_yF)^2)$,
+and $n'^{-4}\Sigma_0\ge(bn/n')^4\mathcal E^c_n(F)$. With (F), $(1-\eta)\Phi(f)
+\ge(1-\eta)\mu'(\Var(f\mid c))/C_F$.
+\end{proof}
+
+Hypothesis (D) holds with $R=(bL)^4$ by the Cauchy--Schwarz inequality, and
+(X) with $\rho=1$; the content of (D) is a constant $R$ independent of the
+torus, an almost orthogonality of the exterior information of different
+cubes, which (F) and (X), each posed for one cube, do not give. For a Haar
+refinement, (X) holds with $\rho=0$ by Lemma~\ref{lem:bprefine}(ii), so
+$w_{x'}=0$ and (D) is empty, and (F) holds with $C_F=1$ by the proof of
+Theorem~\ref{thm:bprefine}; then $\eta=0$ and the theorem is
+Theorem~\ref{thm:bprefine}.
+
+For the Wilson measure the three bounds are proved from the single-link
+coefficients. A \emph{marking} $l$ assigns to each $e\in E$ a link $l(e)\in
+\pi(e)$. For a configuration $U$ let $g^l_U$ be the gauge transformation
+equal to $I$ at the block corners and at the sites on no path and, at an
+inner point $s$ of a path $\pi(e)$, equal to the product of the links of
+$\pi(e)$ from its first site to $s$ if $s$ lies before $l(e)$ on the path,
+and to the inverse of the product of the links of $\pi(e)$ from $s$ to its
+last site if $s$ lies after $l(e)$. Put $M^l(U)=(g^l_UU)_{E'_0}$, and for
+$V\in G^E$ and $m\in G^{E'_0}$ let $\Theta^l(V,m)\in G^{E'}$ have the link
+$V_e$ at $l(e)$, $I$ at the other links of $\pi(e)$, $e\in E$, and $m$ on
+$E'_0$. For the marking by the last links of the paths these are $g_U$, $M$
+and $\Theta$ of Lemma~\ref{lem:bprefine}(iii).
+
+\begin{lemma}[the fibres of the Wilson measure]\label{lem:bpwilsonfibre}
+Let $\mu'$ have the density $D=Z^{-1}\prod_p\varphi(U_p)$ with respect to
+$\lambda_{E'}$, with $\varphi$ a positive continuous class function, and let
+$l$ be a marking.
+\begin{enumerate}[label=\textup{(\roman*)},leftmargin=*]
+\item $V\mapsto\nu_V(D)$ is continuous and positive, $\mu^c$ has the density
+$\nu_V(D)$ with respect to $\lambda_E$, and $\nu^\varphi_V=D\,\nu_V/\nu_V(D)$
+is a conditional law of $U$ given $c=V$, defined for every $V$.
+\item $g^l_UU=\Theta^l(c(U),M^l(U))$. Under $\nu^\varphi_V$ the values of
+$g^l_U$ at the inner points of the paths are independent Haar variables,
+independent of $M^l$, and $M^l$ has the law $\varsigma^l_V=\gamma^0_{E'_0}
+(\cdot\mid\Theta^l(V,\cdot))$, the conditional law of the links of $E'_0$
+given those of the paths, at the path links of $\Theta^l(V,\cdot)$; its
+conditional law of $m_J$ given $m_{E'_0\setminus J}$, $J\subset E'_0$, is
+$\gamma^0_J(\cdot\mid\Theta^l(V,m))$. Under $\mu'$ the pair $(c,M^l)$ has
+the law $\mu^c(dV)\,\varsigma^l_V(dm)$.
+\item Every real $f\in\mathcal A'$ satisfies $f=\tilde f^l(c,M^l)$
+$\mu'$-almost everywhere, with $\tilde f^l=\bar f\circ\Theta^l$ and $\bar f$
+the gauge average of the proof of Lemma~\ref{lem:bprefine}(iii), and
+$\E[f\mid c]=\varsigma^l_c(\tilde f^l(c,\cdot))$.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+Let $U_1,\dots,U_b$ be the links of a path $\pi(e)$, $s_k$ the site after
+$U_k$, $A_k=U_1\cdots U_k$, $A_0=I$, and $l(e)=U_{k_e}$. The values of
+$g^l_U$ at the inner points are $A_k$ for $k<k_e$ and $(U_{k+1}\cdots U_b)^{-1}
+=c_e^{-1}A_k$ for $k_e\le k\le b-1$, and $I$ at $s_0$, $s_b$. So the
+transformed links are $A_{k-1}U_kA_k^{-1}=I$ for $k<k_e$, $(U_k\cdots
+U_b)^{-1}U_k(U_{k+1}\cdots U_b)=I$ for $k>k_e$, and $A_{k_e-1}U_{k_e}U_{k_e+1}
+\cdots U_b=c_e$ for $k=k_e$; this is the first claim of (ii). Under $\nu_V$
+the $A_k$, $k\le b-1$, are independent Haar variables
+(Lemma~\ref{lem:bpfibrelaw}(i)), so are their left translates by the fixed
+elements $V_e^{-1}$, and the links of $E'_0$ are Haar variables independent of
+the paths; each $M^l_{e'}$ is a translate of $U_{e'}$ on both sides by values
+of $g^l_U$. Hence under $\nu_V$ the values of $g^l_U$ at the inner points and
+$M^l$ are independent with Haar laws, and $U=(g^l_U)^{-1}\Theta^l(V,M^l)$, so
+$\nu_V$ is the image of $\lambda\otimes\lambda_{E'_0}$ under $(h,m)\mapsto h^{-1}
+\Theta^l(V,m)$, which depends continuously on $V$.
+
+(i) By Lemma~\ref{lem:bprefine}(i),
+\[
+\lambda_{E'}=\int\lambda_E(dV)\,\nu_V,\qquad\mu'=\int\lambda_E(dV)\,D\,
+\nu_V .
+\]
+As $D$ is continuous and positive and $\nu_V$
+depends continuously on $V$, $\nu_V(D)$ is continuous and positive; as $c=V$
+holds $\nu_V$-almost surely, $\mu'(\psi(c)k)=\int\lambda_E(dV)\nu_V(D)\psi(V)
+\nu^\varphi_V(k)$ for bounded Borel $\psi$, $k$.
+
+(ii) $D$ is gauge invariant, so $D(U)=D(\Theta^l(V,M^l))$ $\nu_V$-almost
+surely, and under $\nu^\varphi_V$ the values of $g^l_U$ keep their Haar law
+and remain independent of $M^l$, whose law has density proportional to
+$D(\Theta^l(V,m))$ with respect to $\lambda_{E'_0}$. Every plaquette contains a
+link of $E'_0$ (proof of Theorem~\ref{thm:bprefine}), so $D(\Theta^l(V,m))$ is
+proportional to $\prod_{p\cap E'_0\ne\emptyset}\varphi(\Theta^l(V,m)_p)$, the
+density of $\gamma^0_{E'_0}(\cdot\mid\Theta^l(V,m))$; its conditional laws are
+those of the specification. The law of $(c,M^l)$ follows from (i).
+
+(iii) $f=\bar f$ almost everywhere and $\bar f$ is invariant under every gauge
+transformation, so $\bar f(U)=\bar f(g^l_UU)=\bar f(\Theta^l(c,M^l))$ for every
+$U$; the conditional expectation follows from (i) and (ii).
+\end{proof}
+
+For sets $A,B$ of links of a torus let $d(A,B)$ be the least $k$ for which
+there are links $e_0\in A$, $e_1,\dots,e_k$ with $e_k\in B$ and $e_{i-1}$,
+$e_i$ partners, and $d(j,A)=d(\{j\},A)$. The coefficients of
+Sec.~\ref{ssec:bpstrong} are those of the measure at hand.
+
+\begin{lemma}[decay of the response of a block]\label{lem:bpdecay}
+Let $\mu$ be as in Sec.~\ref{ssec:averaged} on $\Lambda_L$, $L\ge3$, with
+$C^0_{ee'}\le\mathfrak c$ for all partners and $\xi=18\mathfrak c<1$.
+\begin{enumerate}[label=\textup{(\roman*)},leftmargin=*]
+\item Let $V$ be finite, $A\subset V$, $j\notin V$, and $U$, $U'$ differ only
+at $j$. The laws of $\sigma_A$ under $\gamma^0_V(\cdot\mid U)$ and
+$\gamma^0_V(\cdot\mid U')$ are at Kantorovich distance at most $\xi^{d(j,A)}
+\delta(U_j,U'_j)/(1-\xi)$ for $d_A$.
+\item Let $V_0$ be finite, $\gamma=\gamma^0_{V_0}(\cdot\mid U)$ for some $U$,
+$A,B\subset V_0$ with $d(A,B)\ge1$, $\phi\in L^2(\gamma)$ a function of
+$\sigma_A$ with $\gamma(\phi)=0$ and $\psi\in L^2(\gamma)$ a function of
+$\sigma_B$. Then
+\[
+\lvert\gamma(\phi\psi)\rvert\le\frac{\xi^{d(A,B)}}{1-\xi}\lVert\phi
+\rVert_{L^2(\gamma)}\lVert\psi\rVert_{L^2(\gamma)}.
+\]
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+(i) As in the proof of Lemma~\ref{lem:bpblock}, a minimising coupling of the
+two laws for $\sum_{e\in V}\E\delta(\sigma_e,\sigma'_e)$ exists, and $\varrho
+(e)=\E\delta(\sigma_e,\sigma'_e)$ satisfies $\varrho\le\mathbf C\varrho+
+\delta(U_j,U'_j)\mathbf c$ entrywise, with $\mathbf C=(C^0_{ek})_{e,k\in V}$
+and $\mathbf c=(C^0_{ej})_{e\in V}$. Each column of $\mathbf C$ and the
+vector $\mathbf c$ have sums at most $18\mathfrak c=\xi$, since a link has
+eighteen partners; iterating, and since $\sum_e(\mathbf C^N\varrho)(e)\le
+\xi^N\sum_e\varrho(e)\to0$, $\varrho\le\delta(U_j,U'_j)\sum_{m\ge0}\mathbf C^m
+\mathbf c$. The entry of $\mathbf C^m\mathbf c$ at $e$ is a sum over chains
+$e,k_1,\dots,k_m,j$ of consecutive partners, so it vanishes unless $m+1\ge
+d(j,e)$, and $\sum_{e\in A}(\mathbf C^m\mathbf c)(e)\le\xi^{m+1}$. Hence
+$\sum_{e\in A}\varrho(e)\le\delta(U_j,U'_j)\sum_{m\ge d(j,A)-1}\xi^{m+1}=
+\delta(U_j,U'_j)\xi^{d(j,A)}/(1-\xi)$, and the coupling restricted to $A$
+bounds the distance.
+
+(ii) Let $\theta=(\xi^d/(1-\xi))^2$, $d=d(A,B)$, and let $\Pi_A$, $\Pi_B$ be
+the conditional expectations under $\gamma$ given $\sigma_A$, $\sigma_B$,
+with the versions given by the specification: given $\sigma_B$, the links
+of $V_0\setminus B$ have the law $\gamma^0_{V_0\setminus B}(\cdot\mid\sigma_B,
+U)$. If $h$ is a function of $\sigma_A$ with Lipschitz constant $\Lambda$ for
+$d_A$ and $\sigma_B$, $\sigma'_B$ differ at one link $j\in B$, then (i) with
+$V=V_0\setminus B$ and $d(j,A)\ge d$ gives $\lvert\Pi_Bh(\sigma_B)-\Pi_Bh(
+\sigma'_B)\rvert\le\Lambda\xi^d\delta/(1-\xi)$; so $\Pi_B$ maps such functions
+to functions of $\sigma_B$ with Lipschitz constant $\Lambda\xi^d/(1-\xi)$ for
+$d_B$, and likewise $\Pi_A$ in the other direction. The operator $\mathcal
+R=\Pi_A\Pi_B$ on the functions of $\sigma_A$ in $L^2(\gamma)$ equals $\Pi_A
+\Pi_B\Pi_A$ there, so it is self-adjoint with $0\le\mathcal R\le I$ and
+$\mathcal R1=1$, and it multiplies Lipschitz constants by at most $\theta$.
+As in the proof of Proposition~\ref{prop:avgsup}(i), $\Var_\gamma(\mathcal
+R^th)\le\frac12\theta^{2t}\Lambda^2D^2\lvert A\rvert^2$, the spectral measure
+of $h-\gamma(h)$ lives on $[0,\theta]$, and by density of the Lipschitz
+functions $\ip\phi{\mathcal R\phi}\le\theta\lVert\phi\rVert^2$ for every
+$\phi$ as in the statement. Then $\gamma(\phi\psi)=\ip{\Pi_B\phi}\psi$ and
+$\lVert\Pi_B\phi\rVert^2=\ip\phi{\mathcal R\phi}\le\theta\lVert\phi\rVert^2$.
+\end{proof}
+
+For $A=V$, (i) is Lemma~\ref{lem:bpblock} with the bound $\sum_{e\in V}C^0_{ej}
+\le18\mathfrak c$. In the rest of this subsection $\mu'$ is as in
+Lemma~\ref{lem:bpwilsonfibre}, its single-link coefficients on $\Lambda_{bL}$
+satisfy $C^0_{ee'}\le\mathfrak c$ for all partners, $\xi=18\mathfrak c<1$,
+$q=\xi/(1-\xi)$, and for $n'\ge2$
+\[
+\alpha_{n'}=\frac{\mathfrak c\,(18n'-3)}{(1-18\mathfrak c)\,n'^2},
+\]
+the number of Theorem~\ref{thm:bpstrong}(i).
+
+\begin{theorem}[the fibre inequality at strong coupling]\label{thm:bpfibrepoinc}
+Let $n'\ge2$, $bL\ge2n'+4$ and $\alpha_{n'}<1$. Then every real $f\in
+\mathcal A'$ satisfies $\Phi(f)\ge(1-\alpha_{n'})\,\mu'(\Var(f\mid c))$.
+\end{theorem}
+
+\begin{proof}
+Use the marking by the last links and write $\varsigma_V$, $\tilde f$ for
+$\varsigma^l_V$, $\tilde f^l$ and $\tilde f_V=\tilde f(V,\cdot)$. Fix $x'$, let
+$J=E'_0\cap V'_{x'}$ and $\mathcal G$ the $\sigma$-algebra of the links
+outside $J$. It contains $\mathcal F_{x'}$ and $\sigma(c)$, so $\mu'(\Var(f
+\mid\mathcal H_{x'}))\ge\mu'(\Var(f\mid\mathcal G))$. The links outside $J$
+determine $c$, the values of $g_U$ at the inner points, which are partial
+products of path links, and $M_{E'_0\setminus J}$, and are determined by
+them; by Lemma~\ref{lem:bpwilsonfibre}(ii) the conditional law of $M_J$ given
+$\mathcal G$ is $\gamma^0_J(\cdot\mid\Theta(c,M))$. Let $\Pi^V_J$ be the
+conditional expectation under $\varsigma_V$ given $m_{E'_0\setminus J}$,
+$\Pi^V_Jh(m)=\int h(\sigma,m_{E'_0\setminus J})\,\gamma^0_J(d\sigma\mid
+\Theta(V,m))$. By Lemma~\ref{lem:bpwilsonfibre}(ii),(iii), $\E[f\mid
+\mathcal G]=(\Pi^c_J\tilde f_c)(M)$,
+\[
+\begin{split}
+\mu'\bigl(\Var(f\mid\mathcal G)\bigr)&=\int\mu^c(dV)\,\varsigma_V\bigl((
+\tilde f_V-\Pi^V_J\tilde f_V)^2\bigr),\\
+\mu'\bigl(\Var(f\mid c)\bigr)&=\int\mu^c(dV)\Var_{\varsigma_V}(\tilde f_V).
+\end{split}
+\]
+It suffices to prove, for every $V$ and every real $h\in L^2(\varsigma_V)$,
+\[
+\sum_{x'}\varsigma_V\bigl((h-\Pi^V_{J(x')}h)^2\bigr)\ge(1-\alpha_{n'})n'^4
+\Var_{\varsigma_V}(h),
+\]
+with $J(x')=E'_0\cap V'_{x'}$. Let $N=(bL)^4$, $\mathcal K=N^{-1}\sum_{x'}
+\Pi^V_{J(x')}$ and $d(m,m')=\sum_{e\in E'_0}\delta(m_e,m'_e)$, and let $m$,
+$m'$ differ only at $i\in E'_0$. Couple $\mathcal K(m,\cdot)$ and $\mathcal
+K(m',\cdot)$ by choosing the same $x'$. If $i\in V'_{x'}$, then $i\in J(x')$,
+$\Theta(V,m)$ and $\Theta(V,m')$ agree outside $J(x')$, and the two laws
+coincide; this happens for $n'^4$ points $x'$. Otherwise $\Theta(V,m)$ and
+$\Theta(V,m')$ differ only at $i$, an optimal coupling costs at most
+$C^0_{J(x'),i}\delta(m_i,m'_i)$, and the link $i$ adds $\delta(m_i,m'_i)$. By
+Lemma~\ref{lem:bpblock}, $C^0_{J(x'),i}$ is at most $\mathfrak c/(1-18
+\mathfrak c)$ times the number of partners of $i$ in $V'_{x'}$, and by
+Lemma~\ref{lem:bpcount}(i) on $\Lambda_{bL}$ the sum of these bounds over the
+$x'$ with $i\notin V'_{x'}$ is at most $\mathfrak c(18n'^3-3n'^2)/(1-18
+\mathfrak c)=\alpha_{n'}n'^4$. So $W_1^d(\mathcal K(m,\cdot),\mathcal K(m',
+\cdot))\le(1-\kappa)\delta(m_i,m'_i)$ with $\kappa=(1-\alpha_{n'})n'^4/N$, and
+the argument of the proof of Proposition~\ref{prop:avgsup}(i) for the
+self-adjoint operator $0\le\mathcal K\le I$ on $L^2(\varsigma_V)$ gives
+$\ip h{(I-\mathcal K)h}\ge\kappa\Var_{\varsigma_V}(h)$, which is the claim.
+\end{proof}
+
+\begin{theorem}[the exterior information at strong coupling]\label{thm:bpexterior}
+The information of the fine exterior of a cube on the block variables
+satisfies the following.
+\begin{enumerate}[label=\textup{(\roman*)},leftmargin=*]
+\item For every $x'$ and every real $g\in L^2(\mu^c)$ with
+$P^{\mu^c}_{T(x')}g=0$, $\lVert\Pi_{\mathcal F_{x'}}(g\circ c)\rVert\le q
+\lVert g\rVert$.
+\item Let $n,n'\ge2$ with $n'\ge bn$, $L\ge2n+4$ and $bL\ge2n'+4$ even. Every
+real $F\in L^2(\mu^c)$ satisfies
+\[
+\begin{split}
+(1-q^2)\,\Sigma(F)\le\mathcal E'_{n'}(F\circ c)\le\Sigma(F),\\
+\Sigma(F)=\frac1{n'^4}\sum_{x'}\mu^c\bigl((F-P^{\mu^c}_{T(x')}F)^2\bigr),
+\end{split}
+\]
+and $\Sigma(F)\ge(bn/n')^4\mathcal E^c_n(F)$.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+(i) Fix $x'$ and write $T=T(x')$, $V'=V'_{x'}$, $\mathcal F=\mathcal F_{x'}$
+and $P=P^{\mu^c}_T$. For bounded Borel $g$ on $G^E$ put
+\[
+\mathcal Mg(V)=\int\nu^\varphi_V(dU)\int\gamma^0_{V'}(d\sigma\mid U)\,g\bigl(
+c(\sigma,U_{E'\setminus V'})\bigr),
+\]
+where $(\sigma,U_{E'\setminus V'})$ has the links $\sigma$ on $V'$ and those of
+$U$ outside. By Lemma~\ref{lem:bpwilsonfibre}(i), $(\mathcal Mg)\circ c=Q
+\Pi_{\mathcal F}(g\circ c)$, so $\mathcal M$ extends to a self-adjoint
+operator $0\le\mathcal M\le I$ on $L^2(\mu^c)$ with $\ip g{\mathcal Mg}=
+\lVert\Pi_{\mathcal F}(g\circ c)\rVert^2$. It fixes the functions of
+$c_{E\setminus T}$, which composed with $c$ are $\mathcal F$-measurable, so
+$\mathcal MP=P$ and, taking adjoints, $P\mathcal M=P$. For $e\notin T$ the
+links of $\pi(e)$ lie outside $V'$, so $\mathcal M(V,\cdot)$ is carried by
+$\{\tilde V:\tilde V_{E\setminus T}=V_{E\setminus T}\}$.
+
+Let $V$, $\tilde V$ differ only at $e\in T$, and choose a marking $l$ with
+$l(e)\in\pi(e)\cap V'$. Let $h$ have the Haar law on the inner points and
+$(M,\tilde M)$, independent of $h$, be an optimal coupling of
+$\varsigma^l_V$ and $\varsigma^l_{\tilde V}$ for $d_{E'_0}$, and put $U=h^{-1}
+\Theta^l(V,M)$, $\tilde U=h^{-1}\Theta^l(\tilde V,\tilde M)$, which have the
+laws $\nu^\varphi_V$, $\nu^\varphi_{\tilde V}$ by
+Lemma~\ref{lem:bpwilsonfibre}(ii). The two laws $\varsigma^l$ are
+$\gamma^0_{E'_0}$ at configurations that differ outside $E'_0$ only at
+$l(e)$, with the values $V_e$, $\tilde V_e$; by Lemma~\ref{lem:bpblock} and
+the eighteen partners of $l(e)$, $\E d_{E'_0}(M,\tilde M)\le q\,\delta(V_e,
+\tilde V_e)$. The path links of $U$ and $\tilde U$ agree except at $l(e)\in
+V'$, and $\delta(U_{e'},\tilde U_{e'})=\delta(M_{e'},\tilde M_{e'})$ for
+$e'\in E'_0$ by bi-invariance. Given $U$, $\tilde U$, couple $\gamma^0_{V'}(
+\cdot\mid U)$ and $\gamma^0_{V'}(\cdot\mid\tilde U)$ optimally for $d_{V'}$,
+measurably~\cite[Cor.~5.22]{Vil09}; changing the links of $E'_0\setminus V'$
+one at a time, Lemma~\ref{lem:bpblock} gives an expected distance at most
+$q\sum_{e'\in E'_0\setminus V'}\delta(U_{e'},\tilde U_{e'})$. The coarse
+values $c(\sigma,U_{E'\setminus V'})$ and $c(\tilde\sigma,\tilde U_{E'
+\setminus V'})$ agree outside $T$, and at $e''\in T$ they are products along
+$\pi(e'')$ of links that agree outside $V'$; as $\delta(XY,X'Y')\le\delta(X,
+X')+\delta(Y,Y')$ and the paths are disjoint, their distance for $d_T$ is at
+most $d_{V'}(\sigma,\tilde\sigma)$. Hence $W_1^{d_T}(\mathcal M(V,\cdot),
+\mathcal M(\tilde V,\cdot))\le q^2\delta(V_e,\tilde V_e)$, and, as $\mathcal
+M(V,\cdot)$ does not depend on the marking, $W_1^{d_T}\le q^2d_T(V,\tilde
+V)$ whenever $V_{E\setminus T}=\tilde V_{E\setminus T}$.
+
+Let $g$ be bounded with $\lvert g(V)-g(\tilde V)\rvert\le\Lambda d_T(V,\tilde
+V)$ whenever $V_{E\setminus T}=\tilde V_{E\setminus T}$. Then $\mathcal M^tg$
+has this property with $\Lambda q^{2t}$, its oscillation on each set
+$\{V_{E\setminus T}=\text{const}\}$ is at most $\Lambda q^{2t}D\lvert T\rvert$,
+and since $P\mathcal M=\mathcal MP=P$,
+\[
+\lVert\mathcal M^t(g-Pg)\rVert^2=\lVert\mathcal M^tg-P\mathcal M^tg\rVert^2
+\le(\Lambda q^{2t}D\lvert T\rvert)^2 .
+\]
+$\mathcal M$ maps $L^2(\mu^c)\ominus L^2(\mathcal G'_{x'})$ into itself, so
+the spectral measure of $g-Pg$ for $\mathcal M$ lives on $[0,q^2]$. The
+functions $g-Pg$ with $g$ Lipschitz for $d_E$ are dense in $L^2(\mu^c)
+\ominus L^2(\mathcal G'_{x'})$, by the Stone--Weierstrass theorem, so
+$\ip g{\mathcal Mg}\le q^2\lVert g\rVert^2$ whenever $Pg=0$.
+
+(ii) The function $(P^{\mu^c}_{T(x')}F)\circ c$ is $\mathcal
+F_{x'}$-measurable, so the subtracted term of
+Proposition~\ref{prop:bpfinesplit}(ii) is $\lVert\Pi_{\mathcal F_{x'}}((F-
+P^{\mu^c}_{T(x')}F)\circ c)\rVert^2$, at most $q^2\lVert F-P^{\mu^c}_{T(x')}F
+\rVert^2$ by (i). The last inequality is the coarse term of the proof of
+Theorem~\ref{thm:bprefine}.
+\end{proof}
+
+So on functions of the block variables the fine form lies between
+$1-q^2$ times that of the refinement of $\mu^c$ and that form itself, and
+(B) holds there with $C_B=(n'/(bn))^4/(1-q^2)$.
+
+\begin{theorem}[the split inequality at strong coupling]\label{thm:bpsplitstrong}
+Let $n,n'\ge2$ with $n'\ge bn$, $L\ge2n+4$ and $bL\ge2n'+4$ even, and
+$\alpha_{n'}<1$. Put
+\[
+\begin{split}
+R_{n'}&=(2n'+3)^4+\frac{10(n'+2)^3\,\xi\,(8-5\xi+4\xi^2-\xi^3)}{(1-\xi)^5},
+\\
+\eta&=q\Bigl(\frac{R_{n'}}{(1-\alpha_{n'})n'^4}\Bigr)^{1/2}.
+\end{split}
+\]
+If $q^2+\eta<1$, every real $f\in\mathcal A'$ satisfies
+\[
+\begin{split}
+\mathcal E'_{n'}(f)\ge{}&(1-\eta)(1-\alpha_{n'})\,\mu'\bigl(\Var(f\mid c)
+\bigr)\\
+&+(1-q^2-\eta)\Bigl(\frac{bn}{n'}\Bigr)^4\mathcal E^c_n(F_f),
+\end{split}
+\]
+and $\mathrm S(n',n;C_A,C_B)$ holds for $(\mu',c)$ with
+\[
+C_A=\frac1{(1-\eta)(1-\alpha_{n'})},\qquad C_B=\frac{(n'/(bn))^4}{1-q^2-
+\eta}.
+\]
+\end{theorem}
+
+\begin{proof}
+By Theorems~\ref{thm:bpfibrepoinc} and~\ref{thm:bpexterior}(i), (F) holds
+with $C_F=1/(1-\alpha_{n'})$ and (X) with $\rho=q$. Then $\rho(RC_F)^{1/2}/
+n'^2=\eta$ for $R=R_{n'}$, and Theorem~\ref{thm:bpsplitcond} gives the claim
+once (D) is proved with $R=R_{n'}$.
+
+Use the marking by the last links, $\varsigma_V=\varsigma^l_V$. Let $g_{x'}\in
+\mathcal A^c$ be real with $P^{\mu^c}_{T(x')}g_{x'}=0$. Replacing $g_{x'}$ by
+its average over the gauge group of $\Lambda_L$, as in the proof of
+Lemma~\ref{lem:bprefine}(iii), changes it on a $\mu^c$-null set only, so we
+may take $g_{x'}(\hat gV)=g_{x'}(V)$ for all $\hat g$ and $V$. Then
+\[
+\phi_{x'}(U)=\int\gamma^0_{V'_{x'}}(d\sigma\mid U)\,g_{x'}\bigl(c(\sigma,
+U_{E'\setminus V'_{x'}})\bigr)
+\]
+is a version of $\Pi_{\mathcal F_{x'}}(g_{x'}\circ c)$. For a gauge
+transformation $g$ of $\Lambda_{bL}$, $\gamma^0_{V'_{x'}}(\cdot\mid gU)$ is
+the image of $\gamma^0_{V'_{x'}}(\cdot\mid U)$ under $g$, and $c\circ g=\hat
+g\circ c$ by (B2); so $\phi_{x'}$ is gauge invariant and $\phi_{x'}(U)=
+\phi_{x'}(\Theta(c(U),M(U)))$. The law $\gamma^0_{V'_{x'}}(\cdot\mid\Theta(V,
+m))$ depends on $m$ only through $m_{B(x')}$, with $B(x')=E'_0\cap\partial
+V'_{x'}$, and the coarse values $c(\sigma,\Theta(V,m)_{E'\setminus V'_{x'}})$
+are products of links of $\sigma$ and of path links of $\Theta(V,m)$; so
+$\phi_{x'}(\Theta(V,m))=\tilde\phi_{x'}(V,m_{B(x')})$. By
+Lemma~\ref{lem:bpwilsonfibre}(ii), $w_{x'}(g_{x'})=\tilde w_{x'}(c,M)$ with
+$\tilde w_{x'}(V,m)=\tilde\phi_{x'}(V,m_{B(x')})-\varsigma_V(\tilde\phi_{x'}(V,
+\cdot))$, a function of $m_{B(x')}$ of mean zero under $\varsigma_V$, and
+\[
+\ip{w_{x'}}{w_{x''}}=\int\mu^c(dV)\,\varsigma_V\bigl(\tilde w_{x'}(V,\cdot)
+\tilde w_{x''}(V,\cdot)\bigr).
+\]
+
+Let $s=\lvert x'-x''\rvert_\infty$ and $r_{x'x''}=1$ for $s\le n'+1$,
+$r_{x'x''}=\xi^{s-n'-1}/(1-\xi)$ for $s\ge n'+2$. The base points of the links
+of $\partial V'_{x'}$ lie in $x'+[-1,n']^4$. For $s\ge n'+2$ choose a
+coordinate $i$ in which the representative $t\in(-bL/2,bL/2]$ of $x''_i-x'_i$
+has $\lvert t\rvert=s$; the $i$-th coordinates of base points of $B(x')$ and
+$B(x'')$ differ by $t+a$ with $\lvert a\rvert\le n'+1$, at distance at least
+$\min(s,bL-s)-n'-1=s-n'-1$ from $bL\Z$. The base points of partners differ by
+at most one in $\lvert\cdot\rvert_\infty$ (proof of Lemma~\ref{lem:bpcount}),
+so $d(B(x'),B(x''))\ge s-n'-1\ge1$. As $\varsigma_V=\gamma^0_{E'_0}(\cdot\mid
+\Theta(V,\cdot))$, Lemma~\ref{lem:bpdecay}(ii) with $V_0=E'_0$, or the
+Cauchy--Schwarz inequality for $s\le n'+1$, bounds $\lvert\varsigma_V(\tilde
+w_{x'}\tilde w_{x''})\rvert$ by $r_{x'x''}$ times the product of the norms in
+$L^2(\varsigma_V)$, and the Cauchy--Schwarz inequality in $V$ gives $\lvert
+\ip{w_{x'}}{w_{x''}}\rvert\le r_{x'x''}\lVert w_{x'}\rVert\lVert w_{x''}
+\rVert$. Since $r$ is symmetric,
+\[
+\Bigl\lVert\sum_{x'}w_{x'}\Bigr\rVert^2\le\sum_{x'}\lVert w_{x'}\rVert^2
+\sup_{x'}\sum_{x''}r_{x'x''} .
+\]
+At most $(2n'+3)^4$ points have $s\le n'+1$ and at most $(2s+1)^4-(2s-1)^4=
+64s^3+16s\le80s^3$ have $\lvert x''-x'\rvert_\infty=s$. With $n'+1+t\le(n'+2)
+(1+t)/2$ for $t\ge1$ and $\sum_{t\ge0}(t+1)^3\xi^t=(1+4\xi+\xi^2)/(1-\xi)^4$,
+\[
+\begin{split}
+\sum_{s\ge n'+2}\frac{80s^3\xi^{s-n'-1}}{1-\xi}&\le\frac{10(n'+2)^3}{1-\xi}
+\sum_{t\ge1}(t+1)^3\xi^t\\
+&=\frac{10(n'+2)^3\,\xi\,(8-5\xi+4\xi^2-\xi^3)}{(1-\xi)^5},
+\end{split}
+\]
+so $\sup_{x'}\sum_{x''}r_{x'x''}\le R_{n'}$, which is (D).
+\end{proof}
+
+The numbers $\alpha_{n'}$ and $R_{n'}/n'^4$ decrease in $n'$, so $\eta$
+decreases in $n'$, and $R_{n'}/n'^4\to16$, so $\eta\to4q$ as $n'\to\infty$.
+As $\beta\to0$, $\eta=O(\beta)$
+uniformly in $L$ and in $n'\ge2$, since $\eta$ is largest at $n'=2$; the constants are $C_A=1+O(\beta)$
+and $C_B=(n'/(bn))^4(1+O(\beta))$, those of Theorem~\ref{thm:bprefine} up to
+factors $1+O(\beta)$.
+
+\begin{corollary}[explicit ranges]\label{cor:bpsplitranges}
+Theorem~\ref{thm:bpsplitstrong} applies, whenever $\alpha_{n'}<1$ and $q^2+
+\eta<1$, in the following cases.
+\begin{enumerate}[label=\textup{(\roman*)},leftmargin=*]
+\item $G=\SU(2)$, $\lvert\beta_W\rvert<\frac29$, with $\xi=\frac92\lvert
+\beta_W\rvert$. For $\lvert\beta_W\rvert\le\frac1{100}$ and every $n'\ge8$,
+$\eta<0.272$, $C_A<1.39$ and $C_B<1.39\,(n'/(bn))^4$.
+\item $G=\SU(3)$, $\beta_W\ge0$ with $\zeta(\beta_W)<1$, with $\xi=\zeta(
+\beta_W)$ as in Corollary~\ref{cor:bpranges}(ii).
+\item $G\subset\U(N)$ closed and connected with semisimple Lie algebra,
+$24N\lvert\beta\rvert<\kappa_G$, with $\xi=18N\lvert\beta\rvert/(\kappa_G-
+6N\lvert\beta\rvert)$.
+\end{enumerate}
+\end{corollary}
+
+\begin{proof}
+The bounds $C^0_{ee'}\le\mathfrak c$ with $18\mathfrak c=\xi$ are those of
+the proof of Corollary~\ref{cor:bpranges}: $\mathfrak c=\lvert\beta_W\rvert/4$
+for $\SU(2)$, $18\mathfrak c=\zeta(\beta_W)$ for $\SU(3)$, and $\mathfrak c=N
+\lvert\beta\rvert/(\kappa_G-6N\lvert\beta\rvert)$ from
+Lemma~\ref{lem:bponelink}. The numbers $q$, $\alpha_{n'}$, $R_{n'}$ and $\eta$
+increase with $\xi$, so in (i) it suffices to take $\xi=\frac9{200}$ and $n'=
+8$. Then $q=\frac9{191}<0.04713$, $\mathfrak c=\frac1{400}$ and $\alpha_8=
+\frac{141}{24448}<0.0058$. As $\xi(8-5\xi+4\xi^2-\xi^3)\le8\xi=0.36$ and
+$(1-\xi)^5\ge1-5\xi=0.775$, $R_8\le19^4+10^4\cdot0.36/0.775<130321+4646=
+134967$, and $R_8/((1-\alpha_8)8^4)<134967/(0.9942\cdot4096)<33.15$. So
+$\eta<0.04713\cdot5.758<0.2714$, $q^2<0.0023$, $1-q^2-\eta>0.7263$ and
+$(1-\eta)(1-\alpha_8)>0.7286\cdot0.9942>0.724$, which give the bounds.
+\end{proof}
+
+At strong coupling $\mathrm{BP}$ for the Wilson measure is already given by
+Corollary~\ref{cor:bpranges}; Theorem~\ref{thm:bpsplitstrong} shows that the
+split mechanism of Theorem~\ref{thm:bprefine} survives a nonzero interaction
+at the finest scale, with constants close to the best ones. It is (H2) at
+the top step of a tower whose finest measure is a Wilson measure in the
+range above. The measures $\mu^{(j)}$, $j<K$, of the tower are laws of block
+variables, not Wilson measures, and the proofs above do not apply to them:
+they use that the conditional law of the fine field given the path links is
+the nearest-neighbour Wilson specification, with every link having eighteen
+partners.
+
+The weak-coupling obstructions bound $\mathrm{BP}$ on the smallest tori. The
+following proposition shows where they act in the upward step. Let $X_n(
+\beta)=38400\,n^4(\log\beta+6.11)/\beta$ be the bound of
+Corollary~\ref{cor:bpresponse}.
+
+\begin{proposition}[the obstructions on small tori]\label{prop:bpsmalltori}
+Let $G=\SU(N)$, $N\ge2$, $\beta\ge1$, $b\ge2$, $n\ge2$, $L\ge2n+4$ even, $\mu'$
+the Wilson measure of $\Lambda_{bL}$ at $\beta$ and $\mu^c=c_*\mu'$.
+\begin{enumerate}[label=\textup{(\roman*)},leftmargin=*]
+\item Every coarse plaquette satisfies $\mu^c(\lVert c_P-I\rVert_{\rm HS}^2)\le
+b^4\mu'(\lVert U_p-I\rVert_{\rm HS}^2)$, the right side being the same for
+every fine plaquette $p$. If $L=2n+4$ and $\mathrm{BP}_{\mu^c}(n,\varpi_c)$
+holds, then $\varpi_c\le C'_Nb^4n^4\mu'(\lVert U_p-I\rVert_{\rm HS}^2)$ with
+$C'_N$ of Proposition~\ref{prop:bpcoarsenec}(ii); for $N=2$, $\varpi_c\le b^4
+X_n(\beta)$.
+\item Let $N=2$, $L=2n+4$ and $n'=bn+2b-2$, so that $bL=2n'+4$. If
+$\mathrm{BP}_{\mu^c}(n,\varpi_c)$ and $\mathrm S(n',n;C_A,C_B)$ hold with $C_B
+\ge1$, then the constant $\varpi'=\min(1/C_A,\varpi_c/C_B)$ of
+Theorem~\ref{thm:bpup}(i) satisfies $\varpi'\le X_{n'}(\beta)$, the bound of
+Theorem~\ref{thm:bpfixed}(ii) for $\mu'$, for every $C_A>0$, by (i) alone.
+\item Let $N=2$, $\beta\ge2$, $bL\ge8$ and $T=\Tr P_0$. If $\mathrm{BP}_{\mu^c}
+(n,\varpi_c)$ holds, then
+\[
+\mu'\bigl(T^2(4-T^2)\bigr)^2\le\frac{9\cdot2^{19}\,b^{12}L^{11}n\,(\log\beta+
+6.11)^3}{\varpi_c\beta}.
+\]
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+(i) The coarse plaquette $c_P$ is the holonomy of the boundary of a square of
+$b^2$ fine plaquettes, so by Lemma~\ref{lem:bpstokes} and the Cauchy--Schwarz
+inequality $\lVert c_P-I\rVert_{\rm HS}^2\le b^2\sum_p\lVert U_p-I\rVert_{\rm
+HS}^2$ over these plaquettes, and the symmetries of $\Lambda_{bL}$ act
+transitively on the plaquettes. The fine twist that multiplies the links
+$(x,0)$ with $x_0=0$ by $z^{c_1}$ and the links $(x,1)$ with $x_1=0$ by
+$z^{d_1}$ preserves $\mu'$; on a path $\pi(y,0)$ it changes only the first
+link, and only when $y_0=0$, and likewise in direction $1$, so it induces the
+coarse twist $Z_{c_1,d_1}$ and $\mu^c$ is invariant under the coarse twists.
+$\mu^c$ has a continuous positive density (Lemma~\ref{lem:bpwilsonfibre}(i)),
+so $\Var_{\mu^c}(\ReTr c_P)>0$. Proposition~\ref{prop:bpcoarsenec}(ii) gives
+the bound, and for $N=2$ Lemma~\ref{lem:bpflat} gives $\mu'(\lVert U_p-I
+\rVert_{\rm HS}^2)=2\mu'(2-\Tr U_p)\le2(\log\beta+6.11)/\beta$, with $2\cdot
+19200=38400$.
+
+(ii) $\varpi'\le\varpi_c/C_B\le\varpi_c\le b^4X_n(\beta)\le X_{n'}(\beta)$,
+since $bn\le n'$.
+
+(iii) The coarse Polyakov loop $P^c_0$ through $0$ in direction $0$ is the
+product of the $bL$ fine links $(te_0,0)$, so $P^c_0\circ c=P_0$, and $h=(\Tr
+P^c_0)^2/4$ is a real element of $\mathcal A^c$ with $h\circ c=T^2/4$. The proof of
+Theorem~\ref{thm:bpneutral}(i) on $\Lambda_L$, with the coarse plaquettes and
+their largest mean $\varepsilon^c$ of $\lVert c_P-I\rVert_{\rm HS}^2$, gives
+$\mathcal E^c_n(h)\le4L^3n\varepsilon^c$, and $\varepsilon^c\le2b^4(\log\beta+
+6.11)/\beta$ by (i). So $\Var_{\mu'}(h\circ c)=\Var_{\mu^c}(h)\le8b^4L^3n(\log
+\beta+6.11)/(\varpi_c\beta)$. By~\eqref{eq:bpanticonc} and
+Lemma~\ref{lem:bpflow}(iii) on $\Lambda_{bL}$, $\mu'(T^2(4-T^2))^2\le16\Var_{
+\mu'}(h\circ c)\cdot36864(bL)^8(\log\beta+6.11)^2$, and $16\cdot8\cdot36864=9
+\cdot2^{19}$.
+\end{proof}
+
+Through Theorem~\ref{thm:bpup}(i), Theorems~\ref{thm:bpfixed}(ii)
+and~\ref{thm:bpneutral}(i) for the Wilson measure $\mu'$ on $\Lambda_{bL}$
+bound $\varpi'=\min(1/C_A,\varpi_c/C_B)$ from above. By (ii) the first bound
+follows from the bound (i) on $\varpi_c$ alone when $C_B\ge1$; and since
+$(bL)^{11}n'C_B/\varpi_c\ge b^{12}L^{11}n/\varpi_c$ for $C_B\ge1$, the second,
+$\mu'(T^2(4-T^2))^2\le9\cdot2^{19}(bL)^{11}n'(\log\beta+6.11)^3/(\varpi'\beta)$,
+follows from (iii). So these obstructions give no lower bound on $C_A$ and
+none on $C_B\ge1$: they bound the condition for the law of the block
+variables on the coarse torus, the analogue of (H1) at that scale. On a tower
+of straight-path maps over $\Lambda_{2n_0+4}$, whose composite is the
+straight-path map with blocks of side $b^K$, (i) with $b^K$ in place of $b$,
+equivalently Proposition~\ref{prop:bpcoarsenec}(iii) with
+Lemma~\ref{lem:bpstokes}, bounds the constant of (H1) by $X_{n_K}(\beta)$ for
+$n_K=b^Kn_0$ and $N=2$; along the
+continuum tuning $n_k^4$ grows faster than $\beta_k$
+(Remark~\ref{rem:bpstatus}), and this bound exceeds one for large $k$.
+Corollary~\ref{cor:bpuptuning} uses an infinite set of tori for each $k$ and
+does not need the smallest one.
+
+\begin{remark}[what is proved about the split inequality for Wilson
+measures]\label{rem:bpsplitstrong}
+Proved: for every gauge-invariant measure, the split inequality follows from
+a fibre Poincar\'e inequality (F), a bound (X) on the information of the fine
+exterior of one cube on the block variables, and the almost orthogonality
+(D) of that information for different cubes, with explicit constants; the
+Haar refinements are the case $\rho=0$ (Theorem~\ref{thm:bpsplitcond}). For
+the Wilson measure with single-link coefficients at most $\mathfrak c$,
+$18\mathfrak c<1$, on every torus: the fibre form satisfies $\Phi\ge(1-
+\alpha_{n'})\mu'(\Var(f\mid c))$ (Theorem~\ref{thm:bpfibrepoinc}); the
+exterior information is at most $q^2$ times the coarse form of the
+refinement, so the fine form of a function of the block variables lies
+between $1-q^2$ times that form and the form itself
+(Theorem~\ref{thm:bpexterior}); correlations in the fibres decay
+geometrically (Lemma~\ref{lem:bpdecay}); and $\mathrm S(n',n;1/((1-\eta)(1-
+\alpha_{n'})),(n'/(bn))^4/(1-q^2-\eta))$ holds whenever $q^2+\eta<1$, with
+constants within factors $1+O(\beta)$ of those of the refinements
+(Theorem~\ref{thm:bpsplitstrong}), for $\SU(2)$, $\SU(3)$ and every compact
+connected group with semisimple Lie algebra at small $\beta$, for $\SU(2)$ at
+$\lvert\beta_W\rvert\le\frac1{100}$ and $n'\ge8$ with $C_A<1.39$ and $C_B<
+1.39(n'/(bn))^4$ (Corollary~\ref{cor:bpsplitranges}). The obstructions of
+Theorems~\ref{thm:bpfixed} and~\ref{thm:bpneutral} on small tori, carried
+through Theorem~\ref{thm:bpup}, follow from bounds on the condition for the
+law of the block variables and put no constraint on $C_A$ or on $C_B\ge1$
+(Proposition~\ref{prop:bpsmalltori}).
+
+Not proved: the split inequality for the laws $\mu^{(j)}$ of the block
+variables below the finest scale of a tower, which are not Wilson measures
+and to which the proofs above do not apply; the split inequality for the
+Wilson measure outside the strong-coupling range, in particular along the
+tuning, where the range contains finitely many $k$, for $\U(1)$ at $\beta>0$
+and for $\SU(2)$ on calm fibres, where none of (F), (X), (D) is proved; the
+optimal constants at strong coupling; whether the split inequality holds or
+fails at weak coupling, on small tori or on large ones; (H1) along the
+tuning. Neither $\mathrm{BP}$ along the tuning nor the mass gap is proved
+here.
 \end{remark}
 
 \subsection{The condition at the coarsest scale}\label{ssec:bpcoarse}
@@ -43963,14 +44621,24 @@ coarsest scale passes to every finer scale without loss, the two bounds
 posed separately lose a fixed factor at each scale already for the product
 measure, the fine Dirichlet form splits into a fibre form and a coarse form
 for every measure, the Wilson measure at $\beta\ne0$ is not a Haar
-refinement, and neither the split inequality for any Wilson measure at
-$\beta\ne0$ nor the condition at the coarsest scale along the tuning is
-proved (Theorems~\ref{thm:bpup}, \ref{thm:bpuptower}
-and~\ref{thm:bprefine}, Corollaries~\ref{cor:bpuptuning},
-\ref{cor:bpupseparate} and~\ref{cor:bprefinetower},
-Propositions~\ref{prop:bpuphaar}, \ref{prop:bpfinesplit}
-and~\ref{prop:bpnotrefine}, Remarks~\ref{rem:bpup}
-and~\ref{rem:bprefine}); the condition at the coarsest scale follows, for
+refinement, the split inequality follows for every measure from a fibre
+Poincar\'e inequality, a bound on the information of the fine exterior of a
+cube on the block variables and the almost orthogonality of that information
+for different cubes, and it holds for the Wilson measure in the
+strong-coupling range on every torus, with constants within factors
+$1+O(\beta)$ of those of the refinements, while the obstructions at weak
+coupling on small tori bound the condition for the law of the block
+variables and put no constraint on it; neither the split inequality for the
+laws of the block variables below the finest scale or for the Wilson
+measure outside the strong-coupling range nor the condition at the coarsest
+scale along the tuning is proved (Theorems~\ref{thm:bpup},
+\ref{thm:bpuptower}, \ref{thm:bprefine}, \ref{thm:bpsplitcond}
+and~\ref{thm:bpsplitstrong}, Corollaries~\ref{cor:bpuptuning},
+\ref{cor:bpupseparate}, \ref{cor:bprefinetower}
+and~\ref{cor:bpsplitranges}, Propositions~\ref{prop:bpuphaar},
+\ref{prop:bpfinesplit}, \ref{prop:bpnotrefine}
+and~\ref{prop:bpsmalltori}, Remarks~\ref{rem:bpup}, \ref{rem:bprefine}
+and~\ref{rem:bpsplitstrong}); the condition at the coarsest scale follows, for
 every measure with a continuous positive density and without locality,
 from a bound of Dobrushin type on the single-link coefficients of the law
 of the block variables or from a Hessian bound on its induced action,
