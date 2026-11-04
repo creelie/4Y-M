@@ -6,9 +6,9 @@ Deep Bhattacharjee and Ushashi Bhattacharya.
 
 `prd/main.tex` is the paper "Mass Gap of Lattice Yang–Mills Theory up to the
 Dobrushin Ceiling", in REVTeX 4-2 (Physical Review D, two columns, 29 pages),
-compiled as `prd/YangMillsDobrushinCeiling.pdf` (also at
+compiled as
 `preprintYangMillsDobrushinCeiling/YangMillsDobrushinCeiling.pdf` in the
-repository root). Build with `latexmk -pdf -bibtex- main.tex`; the
+repository root. Build with `latexmk -pdf -bibtex- main.tex`; the
 bibliography is written by hand and every DOI was checked. The figures are
 200 dpi PNG files written by `prd/figures/make_figures.py` from the data in
 `prd/figures/data/`.

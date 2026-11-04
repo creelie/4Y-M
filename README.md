@@ -1,10 +1,10 @@
-# Yang–Mills Mass Gap Follows from One Cube
+# One Cube Estimate Implies the Yang–Mills Mass Gap
 
 Deep Bhattacharjee, Ushashi Bhattacharya, James Montgomery Lockwood and
 Tristan Romanov.
 
 The paper is `strong-coupling/forest/main.tex` (REVTeX, two columns; PDF at
-`preprintYangMillsForestGauge/YangMillsForestGauge.pdf`), with a one-column
+`preprints/preprintshexagon/YangMills_Hexagon.pdf`), with a one-column
 version in `strong-coupling/forest/cmp/main.tex`. Both build with
 `latexmk -pdf main.tex`. An earlier version is the Hexagon preprint
 [2610.00341](https://hexagonmath.org/2610.00341v6).
