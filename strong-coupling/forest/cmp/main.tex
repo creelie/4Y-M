@@ -9231,6 +9231,21 @@ statement of (ii) is Lemma~\ref{lem:boxenergy}, since
 $\epsilon_k(\kappa,\eta)\le3$.
 \end{proof}
 
+Figure~\ref{fig:centreodd} draws the box, the observable $\Phi$ and the energy bound.
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\textwidth]{figures/fig_centreodd.png}
+\caption{The box of Theorem~\ref{thm:centreodd}. (a)~The spatial torus
+$(\Z/L\Z)^3$ as a cube with identified faces, the winding loops $W_1$ and
+$W_2$ of~\eqref{eq:centreoddPhi}, and a plane $x_1=\text{const}$ across
+which the centre transformation multiplies the links of direction $1$ by
+$-1$; $\Tr W_1$ and $\Tr W_1W_2$ change sign. (b)~The energy bound
+$\varepsilon(b)=3(\log b+5)/(2b)$ of Lemma~\ref{lem:boxenergy} against the
+threshold $1/(1600L^4)$ of Theorem~\ref{thm:centreodd}(ii) at $L=3$.}
+\label{fig:centreodd}
+\end{figure}
+
 \begin{corollary}\label{cor:centreodd}
 Under the hypotheses of Theorem~\textup{\ref{thm:centreodd}}, let $u\ge0$ and
 $\sigma>0$ be dyadic, and let $\rho_k(\beta_W)=\rho_k(u,\sigma)$ at the
@@ -22536,6 +22551,21 @@ q_0}\ge1-p>\frac56$, so $15\lvert W\rvert e^{-2843.5\beta_Wr^2}<\ln\frac65<
 second bound of Theorem~\ref{thm:offchartmass}.
 \end{proof}
 
+Figure~\ref{fig:offchartmass} draws the bound of Theorem~\ref{thm:offchartmass} and the couplings at which Theorem~\ref{thm:badcross} improves on the trivial bound.
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\textwidth]{figures/fig_offchartmass.png}
+\caption{The mass off the chart in a bad component $W$
+(Theorem~\ref{thm:offchartmass}). (a)~The lower bound
+$1-\exp(-15\lvert W\rvert e^{-10^{-24}\beta_W})$ on $p$ over
+$\beta_W/10^{24}$ and $\log_{10}\lvert W\rvert$. (b)~The curve
+$\beta_W=10^{24}(4.40+\ln\lvert W\rvert)$, above which the bound of
+Theorem~\ref{thm:badcross} improves on the trivial one, and the region in
+which the lower bound on $p$ exceeds $\frac12$.}
+\label{fig:offchartmass}
+\end{figure}
+
 So the absence of a cost in the length in Theorem~\ref{thm:badcross} is
 carried entirely by $p$: a product chart in all the coordinates of the
 component, which the Helffer--Sj\"ostrand argument of
@@ -27685,6 +27715,22 @@ K_j^4-c_0\ge2a_j-1$ by~\eqref{eq:percreach}. Induction on $j$ gives
 $\lvert C\rvert\ge K_J^4$.
 \end{proof}
 
+Figure~\ref{fig:percolation} draws the construction and the clusters of a window.
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\textwidth]{figures/fig_percolation.png}
+\caption{Clusters of bad blocks, schematic, in three of the four dimensions.
+(a)~The hierarchical construction of Theorem~\ref{thm:clusterpercolation}:
+bad blocks grouped into clusters of the first level in boxes of side
+$a_1$, and these joined into one cluster of the second level in a box of
+side $a_2$; the joining distance grows like the logarithm of the size.
+(b)~A window $\Lambda$ of the torus: a cluster of the torus that crosses
+its boundary is cut into clusters of the window, the units of
+Lemma~\ref{lem:windowclusters}.}
+\label{fig:percolation}
+\end{figure}
+
 \begin{corollary}[the bad blocks percolate]\label{cor:clusterpercolation}
 Let $G=\SU(2)$, $r\le\frac1{10}$, $\beta_W>0$, and let $B$ be the set of
 bad blocks of a torus of side $L$ under $\mu_L$. Let $g$, $R$, $\gamma$
@@ -28684,6 +28730,23 @@ Theorem~\ref{thm:effectiveupper} and $R_k=2\lambda_kS_k$. The reference is
 built from infima, $R_{k+1}=\frac{\lambda_{k+1}}{\lambda_k}\mathcal M_kR_k$,
 and not from a comparison with $\lambda_kQ_k$ at each step.
 \end{proof}
+
+Figure~\ref{fig:induction} draws the induction and the growth of its constants.
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\textwidth]{figures/fig_induction.png}
+\caption{The induction over scales of Theorem~\ref{thm:allscales}, schematic in
+(a). (a)~The tori of the scales $k=0,\dots,4$, the statement $P_k$ on each
+and the condition~(C) on each step; the couplings $\lambda_k$ are at least
+$809300$ on the blue tori and below it on the red ones, and along the
+one-loop running more than $1.257\cdot10^7$ steps lie between $809300$ and
+$1$ (Proposition~\ref{prop:iteratestatus}). (b)~The lower bound
+$\Lambda_k\ge48^{6^k}$ on the constants of the induction, as
+$\log_{10}\log_{10}$, against the bound $\sigma_k\le0.4865$, which holds
+for every $k$.}
+\label{fig:induction}
+\end{figure}
 
 \begin{remark}[how the constants evolve]\label{rem:allscalesconstants}
 Along the induction of Theorem~\ref{thm:allscales}:
