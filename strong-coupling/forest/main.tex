@@ -14699,8 +14699,8 @@ block or island. Two facts give this. The bound of
 Proposition~\ref{prop:islandmass}(i) charges an island of $n$ blocks the
 factor $A^{n/H}$, while Lemma~\ref{lem:coverage} gives $A^{\lceil n/H
 \rceil}$, which is $A$ for $n\le H$; with the ceiling, the mean mass of the
-island of a block is at most $G_0<2H2^{-H}N_s^{-2}$ below,
-instead of $2N_s^{-2}$. And two bad
+island of a block is at most $G_0$ below, about $H$ times the rarity of
+one bad block, instead of $2N_s^{-2}$. And two bad
 blocks at distance at least six have disjoint witness boxes, so that two
 islands near each other cost the product of two rarities. For two islands
 $I_u\ne I_v$ of the torus, formed with the joining distance $2s+8$, put
@@ -14730,7 +14730,7 @@ $\varDelta$, $\log q^*=-H(\log2+2\log N_s)-\log(eMH)$ its right side, $C_0$ that
 Lemma~\ref{lem:wilsonZ},
 $\beta_W\ge\beta^*$, and
 \[
-G_0=\frac{H\,2^{-H}}{(N_s^2-1)(1-2^{-H})^2}.
+G_0=H\Bigl(Mq^*+\frac{A^*2^{-H}}{1-2^{-H}}\Bigr),\qquad A^*=eMHq^*.
 \]
 \begin{enumerate}[label=\textup{(\roman*)},leftmargin=*]
 \item For every block $y$, $\E_{\mu_L}\lvert I(y)\rvert\le G_0$, and
@@ -14767,16 +14767,16 @@ and
 At $\rho=2.17\cdot10^{-16}$ and $s=1$: $\beta^*=1.12206\cdot10^{37}$,
 $\lvert\log q^*\rvert=32481.67$, $Mq^*\le10^{-14102.4}$, the bound $A$ of
 Theorem~\ref{thm:islandthreshold}(i) is at most $10^{-14098.8}$,
-$G_0\le10^{-397.6}$, and the bound of (i) for
+$G_0\le10^{-14099.3}$, and the bound of (i) for
 Proposition~\ref{prop:islandmass}(ii) at $\kappa=2\alpha_G$ is
-$G_0\sigma(2\alpha_G)\lvert J\rvert\le10^{-381.8}\lvert J\rvert$, in place of
+$G_0\sigma(2\alpha_G)\lvert J\rvert\le10^{-14083.5}\lvert J\rvert$, in place of
 $3.249\cdot10^5\lvert J\rvert$. For $\vartheta=0$, $c_2\le10^{22.13}$; with
-$R=15$, $\epsilon\le\lvert W\rvert(10^{-28194}+10^{-14462}/\sigma)$, and
+$R=15$, $\epsilon\le\lvert W\rvert(10^{-28194}+10^{-28163.8}/\sigma)$, and
 with $R=2\cdot10^8$, $\epsilon\le10^{-28166}\lvert W\rvert$ for every
 $\sigma\in[10^{-1000},4)$; for $\vartheta=\frac12$ and $R=4\cdot10^8$,
 $\epsilon\le10^{-28165}\lvert W\rvert$ on the same range. At $s=5$:
 $\beta^*=1.32163\cdot10^{37}$, $Mq^*\le10^{-16652.7}$, $G_0\le
-10^{-399.5}$, and with $\vartheta=0$, $R=2\cdot10^8$,
+10^{-16649.6}$, and with $\vartheta=0$, $R=2\cdot10^8$,
 $\epsilon\le10^{-33267}\lvert W\rvert$ for $\sigma\in[10^{-1000},4)$.
 \end{theorem}
 
@@ -14807,23 +14807,32 @@ in each $Q_{S_i}$ gives $\sum_ik_i$ distinct bad cubes, and the union bound
 over the choices with Theorem~\ref{thm:defects} gives the first
 inequality. The second is that of Lemma~\ref{lem:coverage}.
 
-\emph{Step 2: the mass of an island.} Let $x=N_s^2A^{1/H}$, which is at
-most $\frac12$ by Theorem~\ref{thm:islandthreshold}(i). There are at most
-$N_s^{2(n-1)}$ connected sets of $n$ blocks containing a block $y$ in the
-graph of the joining distance, and for $(k-1)H<n\le kH$,
-$N_s^{2(n-1)}A^k=x^{kH}N_s^{-2(kH+1-n)}$. Hence
+\emph{Step 2: the mass of an island.} Let $u=N_s^{2H}A$, which is at
+most $2^{-H}$ by Theorem~\ref{thm:islandthreshold}(i), and let $T$ be a
+set of blocks at distance at least $6$ from a block $y$, or empty. Let
+$n\ge1$ and $k=\lfloor(n-1)/H\rfloor$. If $\lvert I(y)\rvert\ge n$, a
+spanning tree of $I(y)$ in the graph of the joining distance, cut at
+$kH+1$ vertices from $y$, gives a connected set $C\ni y$ of exactly $kH+1$
+bad blocks; there are at most $N_s^{2kH}$ such sets, since a walk around a
+spanning tree of $C$ from $y$ has $2kH$ steps. By Step~1, $\mu_L(T\subset B,
+\,C\subset B)\le\mu_L(T\subset B)'A^{k+1}$ when $T$ is at distance at least
+$6$ from $C$, with $\mu_L(T\subset B)'$ the factor of Step~1 for $T$, so
 \begin{equation}\label{eq:islandmassG}
-\begin{split}
-\sum_{C\ni y}\lvert C\rvert A^{\lceil\lvert C\rvert/H\rceil}&\le
-\sum_{k\ge1}kH\,x^{kH}\sum_{j\ge1}N_s^{-2j}\\
-&=\frac{Hx^H}{(N_s^2-1)(1-x^H)^2}\le G_0 ,
-\end{split}
+\mu_L\bigl(T\subset B,\,\lvert I(y)\rvert\ge n\bigr)\le\mu_L(T\subset B)'
+\min\{Mp,\,Au^k\}.
 \end{equation}
-the sum over connected sets $C$ containing $y$, the last inequality since
-$t/(1-t)^2$ increases on $[0,1)$. Since $\mu_L\{I(y)=C\}\le\mu_L\{C\subset
-B\}\le A^{\lceil\lvert C\rvert/H\rceil}$ by Lemma~\ref{lem:coverage},
-$\E\lvert I(y)\rvert\le G_0$. The proof of
-Proposition~\ref{prop:islandmass}(ii) uses only this mean, which gives (i).
+Summing over $n$ in groups of $H$, with $Mp$ for $n\le H$ and $Au^k$ for
+$kH<n\le(k+1)H$,
+\[
+\begin{aligned}
+\E\bigl[\mathbf 1_{T\subset B}\lvert I(y)\rvert\bigr]
+&\le\mu_L(T\subset B)'\,H\Bigl(Mp+\frac{Au}{1-u}\Bigr)\\
+&\le\mu_L(T\subset B)'\,G_0,
+\end{aligned}
+\]
+since $p\le q^*$ and $A\le A^*$ by Step~6. With $T$ empty, $\E\lvert I(y)
+\rvert\le G_0$. The proof of Proposition~\ref{prop:islandmass}(ii) uses
+only this mean, which gives (i).
 
 \emph{Step 3: no near pair.} Let $\mathcal G$ be the event that no two
 bad blocks $y\in W^{+5}$ and $y'$ satisfy $6\le\dist(y,y')\le R$. On
@@ -14865,10 +14874,10 @@ within distance $R$ of each,
 For $y\in W$, $\E[\mathbf 1_{y\in B}F(y)]$ is a sum over $y'$ with
 $\dist(y,y')>R$ of $e^{-\kappa\dist(y,y')}$ times a sum over the connected
 sets $C'\ni y'$ with $y\notin C'$ of $\lvert C'\rvert\mu_L\{y\in B,\,I(y')=C'\}$.
-On that event $y$ and $C'$ lie in different islands, so $\dist(y,C')\ge
-2s+9\ge6$, and Step 1 with $S_1=\{y\}$, $S_2=C'$ bounds the probability by
-$Mp\,A^{\lceil\lvert C'\rvert/H\rceil}$; by~\eqref{eq:islandmassG} the sum
-over $C'$ is at most $Mp\,G_0$. The sum over $y'$ is at most $\sum_z
+On that event $y$ and $I(y')$ lie in different islands, so $y$ is at
+distance at least $2s+9\ge6$ from every subset of $I(y')$, and Step~2
+with $T=\{y\}$, whose factor in Step~1 is $Mp$, bounds the sum over $C'$
+by $Mp\,G_0$. The sum over $y'$ is at most $\sum_z
 e^{-\kappa\lVert z\rVert_\infty}$ over $z\in\Z^4$ with $\lVert z
 \rVert_\infty>R$, by the preimages of the proof of
 Proposition~\ref{prop:islandmass}(ii), which is at most $\sigma(\kappa)$
@@ -14920,7 +14929,7 @@ of Theorem~\ref{thm:manyislands} and Corollary~\ref{cor:islandchains} with
 $\sigma=10^{-1000}$. No coupling beyond the threshold $\beta^*$ of the joining distance $2s+8$
 and no factor $\varGamma>1$ is needed: the
 weighted volume $\sigma(2\alpha_G)=6.1\cdot10^{15}$ of the decay length is
-beaten by $G_0\le10^{-397.6}$. The bound is void for windows of more
+beaten by $G_0\le10^{-14099.3}$. The bound is void for windows of more
 than $10^{28167}$ blocks, and it is a statement about the labels
 under $\mu_L$, not about the law of the labels near $I_u$ given that $I_u$
 is an island; the covariance of two labels with the others averaged is
