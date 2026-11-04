@@ -1,0 +1,48 @@
+=== Part 1: the chain of prop:explicitdecay at theta = 0.197 (paper: 0.862, 17.37, 14.96, 5.80, 7.41, 1966)
+  b     <= 0.86117
+  g0    <= 17.368
+  h0    <= 17.368
+  g1    <= 17.369
+  y     <= 14.957
+  sbar  <= 5.7988
+  pbar  <= 5.7989
+  g2    <= 7.4046
+  k1    <= 1965.6
+  x1    <= 3391.2
+
+=== Part 2: constants of the zeta-coordinate Hessian (thm:layerbound, Step 4)
+  ||S||_1->1 <= 3.00255, ||Pbar||_1->1 = q1 <= 3.00257, ||Dg||_1->1 <= 1.94e-05, j1 <= 1.0000194
+  theta = 0:
+    ||Dg|| <= 3.57e-05,  j0 = ||J|| <= 1.0000357,  y0 <= 11.317,  pbar0 <= 4.796,  x1(0) <= 1564.3
+    n0 <= 296.5 (x c_3),  12 q1 (c3 kappa') <= 2.775e-06 (x lambda / c_3)
+    middle term: 0.004341 lambda + 463800.0 c_3^2
+    third term : W3a..W3e = 406600.0, 169600.0, 7491.0, 509500.0, 1530000.0  sum = 2623000.0 c_3^2
+    lambda-independent total (besides c_6): 3087000.0 c_3^2 = 1.511 c_6
+    C_lambda =   60:  m'/lambda >= -0.01285   (1/60 = 0.01667)  --
+    C_lambda =  120:  m'/lambda >= +0.00807   (1/60 = 0.01667)  --
+    C_lambda =  180:  m'/lambda >= +0.01504   (1/60 = 0.01667)  --
+    C_lambda =  200:  m'/lambda >= +0.01644   (1/60 = 0.01667)  --
+    C_lambda =  220:  m'/lambda >= +0.01758   (1/60 = 0.01667)  OK
+    C_lambda =  240:  m'/lambda >= +0.01853   (1/60 = 0.01667)  OK
+    C_lambda =  300:  m'/lambda >= +0.02062   (1/60 = 0.01667)  OK
+    C_lambda =  400:  m'/lambda >= +0.02271   (1/60 = 0.01667)  OK
+    least integer C_lambda with m' >= lambda/60: 204
+  theta = 0.197:
+    ||Dg||_(th) <= 6.94e-05,  j_th <= 1.0000694
+    middle term: 0.00941 lambda + 1228000.0 c_3^2
+    third term : W3a..W3e = 2742000.0, 945500.0, 25960.0, 1766000.0, 5300000.0  sum = 10780000.0 c_3^2
+    with lambda >= 240 c_6:  K'/lambda <= 2068.4
+    admissible alpha <= theta'(lambda/(240 K'))^(1/2) = 0.0002797  (need >= 2.5e-4: OK)
+    with lambda >= 60 c_6 instead: K'/lambda <= 2068.4
+
+=== Part 2b: chart inclusion (thm:layerbound, Step 2) and the size of h
+  c_3 r <= 4.04e-10;  max_k||z_k|| <= 8.17e-05 r;  ||eta||_inf <= 31.5001 r < 32 r;  ||h||_inf <= 7.19e-05 r
+
+=== Part 3: island threshold arithmetic (cor:twoislands)
+  check paper: rho=1e-08 s=1: |log q*|=21090.2 beta*=3.4267e+21
+  check paper: rho=1e-08 s=5: |log q*|=33424.9 beta*=5.4007e+21
+  check paper: rho=1e-09 s=1: |log q*|=21090.2 beta*=3.4312e+23
+  kappa_0 + s <= 2199 rho;  SU(2) chart hypothesis kappa_0 + s <= 6.0e-13  =>  rho <= 2.73e-16
+  rho=2.729e-16 s=1 join=10: |log q*|=32481.7 beta*=7.0966e+36
+  rho=2.729e-16 s=5 join=18: |log q*|=38354.1 beta*=8.3588e+36
+  beta_W >= 4 C_lambda c_6 = 8.928e+17  (C_lambda = 240, c_6 <= 9.3e14 for SU(2))
