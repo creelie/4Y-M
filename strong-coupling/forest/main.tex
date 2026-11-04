@@ -135,7 +135,7 @@ nonconvex bad side and its three-preimage branch family
 of the path-link law: the response to the links that enter only the
 action, the good side to radius $1/32$, and the fold across which the law
 jumps for every coupling (Lemma~\ref{lem:wilsononly},
-Propositions~\ref{prop:goodside} and~\ref{prop:fold}), the bounded response of the $24$-link site of a bad pair, which carries its inside links among its variables, to every other link (Theorem~\ref{thm:site}), the exact factorisation of the weight of two bad islands through one kernel on the good layer between them, on a domain that their labels do not move, with the covariance bound of the chart for the layer law in the coordinates of the labels and a cross-ratio exponentially small in the width of the layer (Theorems~\ref{thm:factorisation} and~\ref{thm:layerbound}, Proposition~\ref{prop:layercross}, Corollaries~\ref{cor:twolabels} and~\ref{cor:twoislands}), the evaluation of the prefactor of that cross-ratio (Lemma~\ref{lem:lambdatwo}), the bound on the cross-ratio of two islands given the labels of all the others (Theorem~\ref{thm:manyislands}), the growth by a factor four per step of an error bounded by a multiple of the Euclidean form, which forces the one-step errors of an effective action to be relative and gauge invariant (Proposition~\ref{prop:massgrowth}), the floor $q^2/16$ on the covariance of
+Propositions~\ref{prop:goodside} and~\ref{prop:fold}), the bounded response of the site of a bad pair and of the chains of bad blocks, which carry the inside links among their variables, to every other link, and the absence of a bound for the eight private links alone that is uniform in the restricting set (Theorem~\ref{thm:site}, Propositions~\ref{prop:insidefold} and~\ref{prop:linechain}, Theorem~\ref{thm:eightlinkuniform}), the exact factorisation of the weight of two bad islands through one kernel on the good layer between them, on a domain that their labels do not move, with the covariance bound of the chart for the layer law in the coordinates of the labels and a cross-ratio exponentially small in the width of the layer (Theorems~\ref{thm:factorisation} and~\ref{thm:layerbound}, Proposition~\ref{prop:layercross}, Corollaries~\ref{cor:twolabels} and~\ref{cor:twoislands}), the evaluation of the prefactor of that cross-ratio (Lemma~\ref{lem:lambdatwo}), the bound on the cross-ratio of two islands given the labels of all the others (Theorem~\ref{thm:manyislands}), the growth by a factor four per step of an error bounded by a multiple of the Euclidean form, which forces the one-step errors of an effective action to be relative and gauge invariant (Proposition~\ref{prop:massgrowth}), the floor $q^2/16$ on the covariance of
 rare labels (Proposition~\ref{prop:hiddenbit}), the explicit island
 threshold $\beta^*(\rho,s)$ past which the islands of bad blocks at one
 scale are rarer than their entropy (Theorem~\ref{thm:islandthreshold}),
@@ -12479,28 +12479,445 @@ link, the atom moves at speed at most $0.5993$, $\lvert\partial_tS_t\rvert
 +0.5993<87\beta_W+1103$. Kantorovich duality gives the bound on $W_1$.
 \end{proof}
 
-If the inside $\mu$-links of $B(y)$ are themselves off, so that $k'$ is not
-on the good side, the site is continued along $\mu$ through the private
-and inside links of $k'$, and so on in both directions, up to the first
-pair on each side whose non-path links lie within $r$ of their coarse
-value and whose inside links lie within $r$ of $I$; the proofs of
-Lemma~\ref{lem:sitelaw} and Theorem~\ref{thm:site} apply to this chain
-unchanged, with the diameter $24\cdot2\sqrt2$ replaced by $2\sqrt2$ times
-the number of its links. The chain lies in the island together with its
-$\mu$-neighbours. The site therefore costs one block of collar on each
-side of an island: with the bad blocks joined at $\ell^\infty$ distance at
-most $2s+3$, the islands enlarged by one block are separated by layers of
-good blocks of width at least $2s+1$, no constraint of a pair based in a
-window of such a layer contains a site link, and the witnesses $M=11^4$,
-$H=6^4$ of Lemma~\ref{lem:coverage} are unchanged. Every statement of
-Theorem~\ref{thm:islandthreshold} then holds with $(4s+7)^4-1$ neighbours
-in place of $(4s+3)^4-1$: $\lvert\log q^*\rvert=25777.3$ and
-$\beta^*(10^{-8},1)=4.177\cdot10^{21}$ for $s=1$, $\lvert\log q^*\rvert=
-35087.3$ and $\beta^*(10^{-8},5)=5.667\cdot10^{21}$ for $s=5$, and
-$\beta^*(10^{-9},1)=4.181\cdot10^{23}$. With the layer between two enlarged
-islands of width at least $2s+8$, as Corollary~\ref{cor:twoislands} needs,
-the joining distance is $2s+10$ and $\beta^*=1.183\cdot10^{37}$ for $s=1$
-and $1.358\cdot10^{37}$ for $s=5$ at $\rho=2.17\cdot10^{-16}$.
+\emph{The eight private links alone.} The fold of
+Proposition~\ref{prop:fold} is also reached by moving one inside link, and
+the law of the eight private links restricted to a fixed set of non-path
+links then has no response bound that holds for every such set. The
+direction matters: a link $(x,\mu)$ with $o_\mu=0$ is a tree link when
+$o_\nu=0$ for every $\nu>\mu$, so a block has $p_\mu=8-2^\mu$ active
+inside $\mu$-links, $7$, $6$, $4$ and $0$ for $\mu=0,1,2,3$. For $\mu=3$
+every $u_a$ and $w_a$ is a tree link, the law of the eight private links
+does not depend on them, and Lemma~\ref{lem:wilsononly} is the whole
+answer. For the other three directions the next two results show that
+the answer depends on the set over which the non-path links are
+integrated.
+
+\begin{proposition}[an inside link at the fold]\label{prop:insidefold}
+Take the configuration of Proposition~\ref{prop:fold} for a direction
+$\mu\le2$, with $c_k=c_{\gamma^*}$ and the offsets chosen so that the
+inside link $u_b$ of one of the six non-path links at the angle
+$\frac{49}{100}$ is active. Replace $u_b$ by $u_b(t)=\operatorname{diag}
+(e^{it},e^{-it})$, keep every other link, and let $\pi^{(t)}$ be the
+law~\eqref{eq:pathlaw}. There is $\tau>0$ such that for $0<|t|<\tau$
+every preimage of $c_k$ lies on the torus and is regular; for $t>0$ there
+is one, $g_L(t)$, and for $t<0$ there are three, $g_L(t)$ and $g_\pm(t)=
+e^{iq_\pm(t)}$ with $q_\pm(t)\to q^*$, where $g_L(t)\to g_L^*$. The weight
+of $g_L(t)$ tends to that of $g_L^*$, at most $2.78$, and the weights of
+$g_\pm(t)$ tend to infinity as $t\uparrow0$, for every $\beta_W\ge0$.
+Hence $\pi^{(t)}\to\delta_{g^*}$ as $t\uparrow0$ and $\pi^{(t)}\to
+\delta_{g_L^*}$ as $t\downarrow0$, and for every $\beta_W\ge0$ and
+$\varepsilon>0$ there are $t<0<t'$ with $d(u_b(t),u_b(t'))=\sqrt2\,(t'-t)
+<\varepsilon$ and $W_1^\delta(\pi^{(t)},\pi^{(t')})\ge0.126$.
+\end{proposition}
+
+\begin{proof}
+\emph{The action and the paths.} The inside link $u_b$ has $\mu$-coordinate
+$2y_\mu$ and the private links $2y_\mu+1$, and the two $\mu$-links of a
+plaquette have the same $\mu$-coordinate, so $u_b$ shares no plaquette
+with the path link and $S(g)$ is that of Proposition~\ref{prop:fold}. All
+links lie in $T$, so conjugation by $T$ is still a symmetry, and the
+fourteen paths of nonzero offset have the angles $-\frac12$ twice,
+$\frac{49}{100}$ eleven times, and $\frac{49}{100}+t$ once, on the path from
+$x_b$. For $g=g_0+g_1i+g_2j+g_3k$ with $g_0+ig_1=\varrho e^{iq}$,
+$\varrho>0$, the real part of $g^{-1}e^{i\theta}$ is $\varrho\cos(\theta-q)$,
+and $\delta(h,I)$ decreases in the real part of $h$; so the order of the
+distances $\delta(v_x,I)$ is the order of the numbers $|\theta-q|$, for
+every such $g$ and not only on $T$.
+
+\emph{Localisation.} $V$ is jointly continuous in $(g,t)$ and $\SU(2)$ is
+compact, and by Proposition~\ref{prop:fold}(i) the preimages of $c_k$ at
+$t=0$ are $g_L^*$ and $g^*$. So for open neighbourhoods $U_L$ of $g_L^*$
+and $U^*$ of $g^*$ there is $\tau>0$ such that every preimage at $|t|<\tau$
+lies in $U_L\cup U^*$; take $\tau\le10^{-3}$.
+
+\emph{Near $g^*$.} For $q\in[0.05,0.1]$ and $|t|\le10^{-3}$, $(\frac12+q)-
+(\frac{49}{100}+|t|-q)\ge0.109$, so the far link is the strict maximiser,
+$m=2\sqrt2\sin\frac{q+1/2}2\in(0.76,0.84)\subset(\frac12,1)$, and $V$ is
+real-analytic in $(g,t)$ near $(g^*,0)$. On $T$ its angle is
+\begin{gather*}
+f(q;t)=f_0(q)+\frac{\chi_0(q)}{16}\,t ,\\
+\chi_0(q)=2-4\sqrt2\sin\tfrac{q+1/2}2\in(0.32,0.48),
+\end{gather*}
+since only the angle sum changes, by $t$. Since $|\chi_0''|=\sqrt2\sin
+\frac{q+1/2}2$ is less than $\frac12$, the second derivative of $f$
+exceeds $4.6-10^{-4}$ on $[0.05,0.1]$, and by Step~1 of the proof of
+Proposition~\ref{prop:fold} both $f(0.05;t)$ and $f(0.1;t)$ exceed
+$\gamma^*+10^{-3}-\frac{|t|}{32}>\gamma^*$. Hence for $t>0$, $f(q;t)>f_0(q)\ge\gamma^*$ on
+$[0.05,0.1]$ and there is no torus preimage in $U^*$, and for $t<0$,
+$f(q^*;t)<\gamma^*$ and strict convexity give exactly two, $q_-(t)<q^*<
+q_+(t)$, with $f'(q_\pm(t);t)\ne0$; since $f(\cdot;t)\to f_0$ in $C^2$ and
+$q^*$ is the only zero of $f_0-\gamma^*$ on $[0.05,0.1]$, $q_\pm(t)\to q^*$
+and $f'(q_\pm(t);t)\to f_0'(q^*)=0$. Off the torus, every $g\in U^*$ is
+$T$-conjugate to $g(q,s)=\cos s\,e^{iq}+\sin s\,k$ with $s\ge0$ small and $q$
+near $q^*$, and conjugation by $T$ preserves $d(\cdot,g^*)$. The
+certificate of Proposition~\ref{prop:fold} gives $\partial_sV_k(q^*,0;0)>0$,
+so by continuity $\partial_sV_k>0$ near $(q^*,0,0)$ and $V_k(q,s;t)>0$ for
+small $s>0$: shrinking $U^*$ and $\tau$, there is no preimage off $T$ in
+$U^*$. As in Step~3 of that proof, $\lvert\det D_gV\rvert=|f'|\lambda_\perp
+^2$ at torus points, with $\lambda_\perp=|\partial_sV_k|\le0.7326+o(1)$
+near $q^*$; so the weights of $g_\pm(t)$ are at least $e^{-12\beta_W}/(
+|f'(q_\pm(t);t)|(0.7326+o(1))^2)\to\infty$.
+
+\emph{Near $g_L^*$.} For $q\in[-0.0182,-0.0146]$ and $|t|\le10^{-3}$, the
+six near paths are farther from $g$ than the far link by at least
+$(\frac{49}{100}-q-10^{-3})-(\frac12+q)\ge0.0182$ in angle, and their
+chordal distance $2\sqrt2\sin\frac{\theta}2$, $\theta\in[0.503,0.510]$,
+lies in $(0.70,0.72)\subset(\frac12,1)$. Let $\Psi_+$ and $\Psi_-$ be the
+cut-off averages computed with the maximum taken, respectively, at the
+path from $x_b$, of angle $\frac{49}{100}+t$, and at an unmoved near path,
+of angle $\frac{49}{100}$. Both are real-analytic in $(g,t)$ near
+$(g_L^*,0)$, and both equal $V(\cdot;0)$ near $g_L^*$ at $t=0$, when the
+two paths coincide. The difference of the real parts of the two path
+variables is
+\[
+\varrho\bigl(\cos(\tfrac{49}{100}-q)-\cos(\tfrac{49}{100}+t-q)\bigr)
+=2\varrho\sin(\tfrac{49}{100}+\tfrac t2-q)\sin\tfrac t2 ,
+\]
+and $\sin(\frac{49}{100}+\frac t2-q)>0.48$, so near $g_L^*$ the moved path
+is the maximiser for $t>0$ and an unmoved one for $t<0$: $V=\Psi_+$ for
+$t\ge0$ and $V=\Psi_-$ for $t\le0$. Since $D_g\Psi_\pm(g_L^*,0)=D_gV(g_L^*;0)$
+is invertible, with determinant $f_0'(q_L^*)\lambda_\perp(q_L^*)^2>0$, the
+implicit function theorem gives a closed ball $\bar U_L$ about $g_L^*$ and
+$\tau>0$ such that each equation $\Psi_\pm(g;t)=c_k$, $|t|<\tau$, has
+exactly one solution in $\bar U_L$, at which $D_g\Psi_\pm$ is invertible.
+Conjugation by $T$ fixes $g_L^*$ and maps $\bar U_L$ onto itself, so the
+solution is fixed by it and lies in $T$. This is the one preimage $g_L(t)$
+in $U_L$, for either sign of $t$; it is regular, it tends to $g_L^*$, and
+its weight tends to that of $g_L^*$, which is at most $1/(1.36\cdot
+0.5149^2)<2.78$ by Proposition~\ref{prop:fold}(ii).
+
+\emph{The limits.} For $t>0$, $\pi^{(t)}=\delta_{g_L(t)}\to\delta_{g_L^*}$.
+For $t<0$, with $f=\delta(\cdot,g^*)$ and $w_\pm$ the weights of
+$g_\pm(t)$, $\pi^{(t)}(f)\le2.78(1+o(1))\,2\sqrt2/(w_++w_-)+\max_\pm\delta(g_\pm(t),g^*)\to0$, so $\pi^{(t)}\to
+\delta_{g^*}$. As $\delta(g^*,g_L^*)\ge0.1268$ by
+Proposition~\ref{prop:fold}(iii), Kantorovich duality with $f$ gives the
+last statement; $t\mapsto e^{it}$ has geodesic speed $\sqrt2$.
+\end{proof}
+
+So the path-link law responds to an inside link as it does to the
+non-path links in Proposition~\ref{prop:fold}(iv). The law of all eight
+private links is the one that the bad side asks about, and the next
+theorem shows that its response to an inside link is not bounded
+independently of the set $B$ of non-path links over which it is
+restricted, in contrast with Lemma~\ref{lem:wilsononly}.
+
+\begin{theorem}[no bound uniform in the restricting set]\label{thm:eightlinkuniform}
+In the configuration of Proposition~\ref{prop:insidefold}, let $z_0$ be its
+seven non-path links, let $B_\varepsilon$ be the set of $z$ with
+$d(\ell_a,\ell_a(z_0))<\varepsilon$ for $a\ne0$, and let $Q_{t,\varepsilon}$
+be the law of the eight private links given $u_b=u_b(t)$, the other links,
+$V^\sharp_k=c_k$ and $z\in B_\varepsilon$, that is $\frac1Z\mathbf
+1_{B_\varepsilon}J_8^{-1}e^{-\beta_WS}\mathrm{vol}_M$. For every $\beta_W
+\ge0$ and $L>0$ there are $t<0<t'$ with $\sqrt2\,(t'-t)<1/L$ and
+$\varepsilon>0$ such that
+\[
+W_1\bigl(Q_{t,\varepsilon},Q_{t',\varepsilon}\bigr)\ge0.12
+\]
+for the cost $\sum_a\delta(\ell_a,\ell'_a)$. For $\varepsilon<0.4$ the set
+$B_\varepsilon$ lies in the bad set $\{\max_{a\ne0}d(\ell_a,c_k)>r\}$ for
+every $r\le\frac1{32}$. So there is no constant $C$, for any $\beta_W$,
+with $W_1\le C\,d(u_b,u'_b)$ for the law of the eight private links
+restricted to every fixed measurable set of non-path links.
+\end{theorem}
+
+\begin{proof}
+\emph{Step 1, the fibre over $B_\varepsilon$.} Fix $t$ with $0<|t|<\tau$,
+and let $g_1,\dots,g_n$ be the preimages at $z_0$ of
+Proposition~\ref{prop:insidefold}, all regular.
+By compactness and continuity, for small $\varepsilon$ every solution of
+$V(g,z)=c_k$ with $z\in B_\varepsilon$ has $g$ in one of disjoint balls
+$U_i$ about the $g_i$. At $g_\pm(t)$ ($t<0$) the far link is the strict
+maximiser, and at $g_L(t)$ for $t>0$ the moved path is, by the margins of
+that proof; there $V$ is real-analytic in $(g,z)$ near $(g_i,z_0)$, and the
+implicit function theorem gives a smooth $G_i$ on $B_\varepsilon$ with
+$M\cap(U_i\times B_\varepsilon)=\{(G_i(z),z)\}$. At $g_L(t)$ for $t<0$ the
+maximum at $(g_i,z_0)$ is attained by the six functions $m_a=\delta(g^{-1}
+\ell_a,I)$ of the near offsets $a$ (for $a=b$ through the path from
+$x'_b$) and by no other path, since the moved path is shorter by a margin
+proportional to $|t|$ and the far link by $0.0182$. Near $(g_i,z_0)$, $V$
+equals at each point one of the six real-analytic functions $\Psi_a=g\exp(
+\phi(m_a)N)$, one with the largest $m_a$, and at $z=z_0$ the six coincide
+as functions of $g$. In the chart $F(X,z)=\log(c_k^{-1}V(g_ie^X,z))$,
+with $F_a$ defined from $\Psi_a$ in the same way, the derivatives
+$D_XF_a(0,z_0)$ are therefore one invertible map $A_i$, and the function $s\mapsto F(X+s(X'-X),z)$ is
+a continuous selection of finitely many $C^1$ functions; at a point of
+differentiability that is not an isolated point of any of the closed sets
+where it equals one of them, its derivative equals theirs, and the
+exceptional points are countable. Hence, for $\lVert X\rVert,\lVert X'
+\rVert\le\varrho$ and $z\in B_\varepsilon$,
+\[
+\bigl\lVert F(X',z)-F(X,z)-A_i(X'-X)\bigr\rVert\le\eta\,\lVert X'-X\rVert,
+\]
+with $\eta=\eta(\varrho,\varepsilon)\to0$, as every $D_X F_a$ is within
+$\eta$ of $A_i$ there. With $\eta\lVert A_i^{-1}\rVert\le\frac12$ and
+$\varepsilon$ small, $X\mapsto X-A_i^{-1}F(X,z)$ is a contraction of the
+$\varrho$-ball into itself, and $V(\cdot,z)=c_k$ has exactly one solution
+$G_i(z)$ there, Lipschitz in $z$ with constant at most $2\lVert A_i^{-1}
+\rVert\operatorname{Lip}_zV$. In all cases $M\cap(\SU(2)\times
+B_\varepsilon)$ is the disjoint union of the graphs $\Gamma_i$ of the
+$G_i$, and $\lvert\det D_gV\rvert$, wherever $V$ is differentiable on
+$\Gamma_i$, lies within a factor $1\pm\eta'$ of $\lvert\det A_i\rvert$,
+$\eta'\to0$ with $\varrho,\varepsilon$.
+
+\emph{Step 2, the density on a graph.} At a point of $\Gamma_i$ where $V$ is
+differentiable and $G_i$ is differentiable at $z$, write $DV=(A\ B)$ with
+$A=D_gV$, $B=D_zV$; then $DG_i=-A^{-1}B$, and by the determinant identity
+$\det(I+PQ)=\det(I+QP)$,
+\[
+J_8=\det(AA^*+BB^*)^{1/2}=\lvert\det A\rvert\det(I+DG_i^*DG_i)^{1/2}.
+\]
+The second factor is the area element of the Lipschitz graph $\Gamma_i$
+over $z$, so $J_8^{-1}\mathrm{vol}_M=\lvert\det D_gV\rvert^{-1}dz$ on
+$\Gamma_i$, $dz$ Haar measure on the seven links carried by $G_i$,
+provided the two differentiability conditions hold for almost every $z$.
+For $G_i$ this is Rademacher's theorem. $V$ is differentiable at
+$(G_i(z),z)$ except where two of the six $m_a$ tie, and for $a\ne a'$ the
+tie set is null: write $\ell_a=he^{is}$ along the circles $\ell_aT$, along
+which Haar measure is uniform, fix the other coordinates, and let
+$\psi(s)$ be $m_a-m_{a'}$ at $(G_i(z_s),z_s)$. Its almost-everywhere
+derivative is at least $\partial_sm_a-\lVert D_gm_a-D_gm_{a'}\rVert\,
+\sqrt2\operatorname{Lip}G_i$; here $\partial_sm_a=\sqrt2\cos\frac\theta2$
+on $T$, with $\theta$ the angle of $g^{-1}\ell_a$, which is at least
+$1.36$ at $(g_i,z_0)$ and exceeds $1.3$ near it, while $D_gm_a-D_gm_{a'}$ vanishes at $z=z_0$, where
+$\ell_a=\ell_{a'}$. So $\psi$ is strictly increasing for small $\varrho,
+\varepsilon$, has one zero on each circle, and the tie set is null by
+Fubini, the circles meeting $B_\varepsilon$ in arcs.
+
+\emph{Step 3, the limit $\varepsilon\to0$.} By Steps 1 and 2,
+\[
+Q_{t,\varepsilon}(\varphi)=\frac{\sum_i\int_{B_\varepsilon}\varphi(G_i(z),
+z)\,e^{-\beta_WS}\lvert\det D_gV\rvert^{-1}\,dz}{\sum_i\int_{B_\varepsilon}
+e^{-\beta_WS}\lvert\det D_gV\rvert^{-1}\,dz},
+\]
+the integrands evaluated at $(G_i(z),z)$. As $\varepsilon\to0$, $G_i(z)\to
+g_i$ uniformly on $B_\varepsilon$ and the weights converge uniformly to
+those of $g_i$ in $\pi^{(t)}$, so $Q_{t,\varepsilon}(\varphi)\to\pi^{(t)}
+(\varphi(\cdot,z_0))$ for every continuous $\varphi$.
+
+\emph{Step 4, the gap.} Let $\varphi(\ell)=\delta(\ell_0,g^*)$, which is
+$1$-Lipschitz for the cost. By Proposition~\ref{prop:insidefold} choose
+$t<0<t'$ with $\sqrt2\,(t'-t)<1/L$, $\pi^{(t)}(\varphi)\le0.0017$ and
+$\pi^{(t')}(\varphi)\ge0.1268-0.0017$, then $\varepsilon$ by Step~3 with
+$|Q_{t,\varepsilon}(\varphi)-\pi^{(t)}(\varphi)|\le0.0017$ and likewise
+for $t'$. Kantorovich duality gives $W_1\ge0.1268-4\cdot0.0017=0.12$.
+Finally $d(\ell_a(z_0),c_k)\ge\sqrt2\,(\frac{49}{100}-\gamma^*)>0.45$ for the
+near links, so $B_\varepsilon$ lies in the bad set for $\varepsilon<0.4$.
+\end{proof}
+
+The proof uses that $B_\varepsilon$ is chosen after $t$ and $t'$: the
+boundary of $B_\varepsilon$ meets the fibre near a fold of its projection
+to the non-path links, which is the tangency named after
+Proposition~\ref{prop:fold}. On a bad block the labels of
+Sec.~\ref{ssec:factorisation} restrict the non-path links to two sets only, and neither has its boundary
+near a fold.
+
+\begin{proposition}[the sets of the labels]\label{prop:eightlabels}
+Let $k=(y,\mu)$, $r\le\frac1{32}$, and fix every link other than the eight
+private links of $k$. The event that the labels of a set of blocks
+containing $y$ take given values, with $y$ bad, restricts $z$ to
+$\SU(2)^7$ if $y$ is bad through a coarse plaquette or through a non-path
+active link that is not private to $k$, and to
+\[
+B^{\mathrm{bad}}_r=\Bigl\{z:\max_{a\ne0}d(\ell_a,c_k)>r\Bigr\}
+\]
+otherwise. In the second case $d(u_a,I),d(w_a,I)\le r$ for $a\ne0$, and
+over the shell $\{z:r\le\max_{a\ne0}d(\ell_a,c_k)\le\frac1{32}\}$, which
+contains the boundary of $B^{\mathrm{bad}}_r$, the fibre $M$ is the graph
+of one smooth map $z\mapsto g(z)$, with $\lvert\det D_gV\rvert^{-1}\in
+[0.147,828]$ and $J_8^{-1}\mathrm{vol}_M=\lvert\det D_gV\rvert^{-1}dz$.
+\end{proposition}
+
+\begin{proof}
+The private links of $k$ are non-path active links of $k$ only, so they
+enter the label of $y$ and of no other block, and the label of $y$ is the
+union of the events $G_e^c$ over the non-path active links $e$ of the
+four pairs based at $y$ and of the coarse events at the corner $y$. Given
+the other links, this union is everything when one of its other members
+holds, and is $B^{\mathrm{bad}}_r$ otherwise; in the second case the
+fourteen inside $\mu$-links of $k$, which are non-path active links of $k$
+or tree links, are within $r$ of $I$. Over the shell the hypothesis of
+Proposition~\ref{prop:goodside} holds, so $V=c_k$ has exactly one solution,
+regular, with the stated density, and it is smooth in $z$ by the implicit
+function theorem, the cut-off being one; Step~2 of the proof of
+Theorem~\ref{thm:eightlinkuniform} gives the last identity.
+\end{proof}
+
+Whether the law $\frac1Z\mathbf 1_BJ_8^{-1}e^{-\beta_WS}\mathrm{vol}_M$
+obeys $W_1\le C\,d(u,u')$ in the inside links for $B=\SU(2)^7$ and
+$B=B^{\mathrm{bad}}_r$, with $C$ independent of $c_k$ and of the other
+links, is not decided here. Theorem~\ref{thm:eightlinkuniform} shows that a
+proof must use the shape of these two sets, and
+Proposition~\ref{prop:eightlabels} that the mechanism of that theorem is
+absent from them. What the cube condition uses can instead be taken from
+the site, in a form whose units do not overlap.
+
+The sites of two consecutive bad pairs along $\mu$ share seven inside
+links, so the sites themselves do not partition the bad side. The
+following units do.
+
+\begin{definition}\label{def:linechain}
+Fix a direction $\mu$ and a line of blocks $y_j=y_0+je_\mu$, and join two
+bad blocks $y_j,y_{j'}$ of the line when $|j-j'|\le2$. For a connected set
+of bad blocks of the line, with smallest index $j_0$ and largest $j_1$,
+its \emph{chain} $\mathcal C$ is the set of the following links: the eight
+private links of each pair $k_j=(y_j,\mu)$ with $y_j$ bad; the active inside
+$\mu$-links of the blocks $y_j$, $j_0\le j\le j_1+1$; and the path links of
+the pairs $k_j$, $j_0-1\le j\le j_1+1$, with $y_j$ good. The pairs $k_j$,
+$j_0-1\le j\le j_1+1$, are the pairs of the chain, \emph{inner} when $y_j$
+is bad and \emph{outer} otherwise. The cost on $\mathcal C$ is $\sum_{e
+\in\mathcal C}\delta$.
+\end{definition}
+
+\begin{proposition}[the law of a chain]\label{prop:linechain}
+Let $r\le\frac1{32}$, let $\mathcal C$ be a chain with $n_b$ inner pairs,
+and suppose that the non-path links of every outer pair $k_j$ are within
+$r$ of $c_{k_j}$ and the active inside $\mu$-links of the blocks
+$y_{j_0-1}$ and $y_{j_1+2}$ within $r$ of $I$. Let $E$ be a measurable set
+of values of the links of $\mathcal C$ contained in $\{d(e,I)\le r\}$ for
+every inside link $e\in\mathcal C$ of a block $y_j$ with $y_{j-1}$ or $y_j$
+good.
+\begin{enumerate}[label=\textup{(\roman*)},leftmargin=*]
+\item Distinct chains, of the same or of different lines and directions,
+are disjoint. Every link of $\mathcal C$ is based in a block at
+$\ell^\infty$ distance at most one from a bad block of its connected set,
+and the cut-off averages that contain a link of $\mathcal C$ are those of
+the pairs of the chain.
+\item The law of $\mathcal C$ given the other links $\sigma$, the
+constraints $V^\sharp_{k_j}=c_{k_j}$ of the pairs of the chain and $E$ is
+\[
+\frac1Z\,e^{-\beta_WS}\mathbf 1_E\,J_{\mathcal C}^{-1}\mathrm{vol}_{M_
+{\mathcal C}}\prod_{k_j\text{ outer}}\frac{\delta_{\Gamma_j}(d\ell_0^{(j)})}
+{\lvert\det D_{\ell_0^{(j)}}V^\sharp_{k_j}\rvert},
+\]
+where $M_{\mathcal C}$ is the set where the constraints of the inner pairs
+hold, in the links of $\mathcal C$ other than the outer path links
+$\ell_0^{(j)}$, $J_{\mathcal C}\ge\sigma_0^{3n_b}$ almost everywhere, each
+$\Gamma_j$ is the unique solution of Proposition~\ref{prop:goodside} for
+$k_j$, and the determinants lie in $[(1-\kappa_0)^3,(1+\kappa_0)^3]$.
+\item If $\sigma,\sigma'$ differ only at one link $e'\notin\mathcal C$,
+then for the law $\pi$ of (ii) and $n=|\mathcal C|$,
+\[
+W_1\bigl(\pi(\cdot\mid\sigma),\pi(\cdot\mid\sigma')\bigr)\le C_{e'}\,
+d(\sigma_{e'},\sigma'_{e'})
+\]
+for the cost on $\mathcal C$, with $C_{e'}=n\,n_p(e')\beta_W$ if $e'$
+enters only the Wilson weight, $n_p(e')\le6$ the number of its plaquettes
+that contain a link of $\mathcal C$;
+\[
+C_{e'}=\sqrt2\,n(5.793\beta_W+64.94)+1.1986
+\]
+if $e'$ is a non-path link of an outer pair; and
+\[
+C_{e'}=\sqrt2\,n(2.543\beta_W+32.47)+0.5993
+\]
+if $e'$ is an active inside $\mu$-link of $y_{j_0-1}$ or $y_{j_1+2}$. The
+constants do not depend on the $c_{k_j}$, on $E$ or on the rest of
+$\sigma$.
+\item $n=8n_b+p_\mu(j_1-j_0+2)+(j_1-j_0+3-n_b)\le7n_b+8(j_1-j_0)+17\le
+23n_b+1$. For one inner pair and $p_\mu=7$, $\mathcal C$ is the site
+$\mathcal S_k$, and (ii), (iii) are Lemma~\ref{lem:sitelaw} and
+Theorem~\ref{thm:site}.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+(i) A chain for $\mu$ consists of $\mu$-links. A private link belongs to
+one pair and an inside link to one block, so chains of different lines are
+disjoint. On one line two connected sets satisfy $j'_0\ge j_1+3$, so the
+pairs $j_0-1,\dots,j_1+1$ and the blocks $j_0,\dots,j_1+1$ of the first and
+those of the second are disjoint. The links of $\mathcal C$ are based in
+the blocks $y_j$, $j_0-1\le j\le j_1+1$, and each such block is bad or
+adjacent to a bad block of the set, gaps having length one. A private link
+of $(y,\mu)$ enters only $V^\sharp_{y,\mu}$, and an inside $\mu$-link of
+$B(y)$ enters only $V^\sharp_{y,\mu}$ and $V^\sharp_{y-e_\mu,\mu}$, since the
+path of $V^\sharp_{y',\nu}$ from a site $x$ consists of $(x,\nu)$ and
+$(x+e_\nu,\nu)$.
+
+(ii) The constraint of an outer pair $k_j$ contains its path link, which
+enters no other constraint, its non-path links, fixed within $r$ of
+$c_{k_j}$, and the inside $\mu$-links of $y_j$ and $y_{j+1}$, which are
+within $r$ of $I$ on $E$ or by hypothesis, because $y_j$ is good. So
+Proposition~\ref{prop:goodside} applies and gives the atom and the
+determinant bounds, as in the proof of Lemma~\ref{lem:sitelaw}. The
+remaining constraints, of the inner pairs, form a Lipschitz map $\Phi$
+into $\SU(2)^{n_b}$, differentiable off a null set by
+Lemma~\ref{lem:privatesubmersion}, and the coarea formula gives
+$J_{\mathcal C}^{-1}\mathrm{vol}_{M_{\mathcal C}}$ with $J_{\mathcal C}=
+\det(D\Phi D\Phi^*)^{1/2}$. The private links of an inner pair enter only
+its own constraint, so the part of $D\Phi D\Phi^*$ from the private links
+is block diagonal with blocks at least $\sigma_0^2$ by
+Lemma~\ref{lem:privatesubmersion}, and $D\Phi D\Phi^*$ dominates it.
+
+(iii) This is the proof of Theorem~\ref{thm:site} with the diameter
+$24\cdot2\sqrt2$ replaced by $n\cdot2\sqrt2$. By (i) an exterior link
+enters the law through the Wilson weight, or as a non-path link of one
+outer pair, which moves one atom at speed at most $1.1986$ and shares at
+most one plaquette with a link of $\mathcal C$, the path link of its pair,
+because the $\mu$-links of a plaquette have a common $\mu$-coordinate and
+by the argument of Lemma~\ref{lem:wilsononly}; or as an inside link of
+$y_{j_0-1}$ or $y_{j_1+2}$, which moves one atom at speed at most $0.5993$
+and shares no plaquette with a link of $\mathcal C$, the other $\mu$-links
+at its $\mu$-coordinate being inside links of its own block. The density
+terms are those of Lemma~\ref{lem:goodsidedensity}, and the Wilson terms
+are $(1+6\cdot1.1986)/\sqrt2\le5.793$ and $6\cdot0.5993/\sqrt2\le2.543$
+as there.
+
+(iv) The chain has $8n_b$ private links of inner pairs, $p_\mu$ inside
+links in each of $j_1-j_0+2$ blocks and one path link for each of the
+$j_1-j_0+3-n_b$ outer pairs; $p_\mu\le7$, and consecutive bad blocks of
+the set differ by at most two in index, so $j_1-j_0\le2(n_b-1)$.
+\end{proof}
+
+The chains of all bad blocks are disjoint, contain the eight private links
+of every pair based at a bad block, and each responds to every link
+outside it with the bound of (iii), uniformly in the exterior. Where the
+cube condition calls for the response of the private links of a bad pair,
+the law of the chain of that pair can be used, with the constants of
+Theorem~\ref{thm:site} in which $24$ is replaced by $n\le23n_b+1$. The chains
+cost nothing in the counting of islands, except at the collar $s=1$.
+
+\begin{corollary}[the chains and the islands]\label{cor:linechain}
+Let $s\ge1$ be the collar.
+\begin{enumerate}[label=\textup{(\roman*)},leftmargin=*]
+\item In Theorem~\ref{thm:factorisation}, every link of a chain of a bad
+block of $I_a$ is based at $d_a\le1\le s$ and lies in the class $L_a$, which
+is integrated in $a_i$; likewise for $I_b$. So the chains need no change of
+the joining distances of Theorem~\ref{thm:factorisation},
+Corollary~\ref{cor:twoislands} and the results built on them.
+\item Let $s\ge2$, and let every block at $\ell^\infty$ distance at most
+$s$ from a window $W$ be good. Then no link of a chain is freed in the law of
+Proposition~\ref{prop:graphlaw} for $W$, and no constraint of a pair of
+$K_W$ contains a link of a chain. So the chains and the windows of
+Theorem~\ref{thm:islandthreshold} have disjoint variables and constraints
+at the joining distance $2s+1$ of that theorem, with $\varDelta=(4s+3)^4-1$,
+and its values for $s\ge2$ stand, among them $\beta^*(10^{-8},5)=5.401
+\cdot10^{21}$.
+\item For $s=1$ the statement of (ii) fails: if $y$ is bad and every block
+at distance at most one from $y+2e_\mu$ is good, the window
+$W=\{y+2e_\mu\}$ is admissible, the outer pair $(y+e_\mu,\mu)$ of the chain
+of $y$ enters $W$, and its path link is freed in the window law. With the
+collar $s=2$ instead, $\varDelta=11^4-1$, $\lvert\log q^*\rvert=25777.3$,
+$\beta^*(10^{-8},2)=4.177\cdot10^{21}$ and $\beta^*(10^{-9},2)=4.181\cdot
+10^{23}$.
+\end{enumerate}
+\end{corollary}
+
+\begin{proof}
+(i) By Proposition~\ref{prop:linechain}(i) every link of the chain is
+based within distance one of a bad block of its connected set; the bad
+blocks lie in $I_a\cup I_b$, whose distance exceeds $2s+7>2$, so a
+connected set lies in one of them; and a link based at $d_a\le s$ is
+in $L_a$ by the definition of the classes. (ii) A block of $W$ is at
+distance at least $s+1\ge3$ from every bad block, a pair entering $W$ is
+based at distance at least $s\ge2$, and the constraint of a pair of $K_W$
+contains links based in its own block and in the next one along its
+direction, both at distance at least $s\ge2$. The links freed for $W$ are
+based in $W$ or are path links of pairs entering it. Links of chains are
+based at distance at most one. The rest is the proof of
+Theorem~\ref{thm:islandthreshold} unchanged. (iii) The window is
+admissible because $y$ is at distance two from it; the numbers are those
+of Theorem~\ref{thm:islandthreshold} at $s=2$.
+\end{proof}
 
 \subsection{Counting bad labels}\label{ssec:counting}
 
@@ -17842,12 +18259,19 @@ integrated over the bad set; Lemma~\ref{lem:wilsononly} bounds the response
 of that law to every link that enters only the action, and
 Proposition~\ref{prop:goodside} settles the good side to radius $1/32$.
 The inside links move the fibre $\{V^\sharp_k=c_k\}$ while the bad set
-does not; Theorem~\ref{thm:site} puts them among the variables and bounds
-the response of the law of the $24$ links of the site of the pair to every
-other link by at most $197\beta_W+2206$, uniformly in the exterior, at the
-cost of one block of collar on each side of an island. Whether the law of
-the eight private links alone is Lipschitz in the inside links is not
-decided.
+does not; Proposition~\ref{prop:insidefold} shows that the path-link law also jumps
+in an inside link. For $\mu=3$ the inside $\mu$-links are tree links and
+Lemma~\ref{lem:wilsononly} settles the law of the eight private links;
+for $\mu\le2$, Theorem~\ref{thm:eightlinkuniform} shows that its response
+to an inside link is not bounded uniformly in the set over which the
+non-path links are restricted, and whether it is bounded for the two sets
+that the labels produce (Proposition~\ref{prop:eightlabels}) is not
+decided. The chains of Definition~\ref{def:linechain} carry the inside
+links among their variables, partition the bad side, and respond to every
+other link with the constants of Theorem~\ref{thm:site} in which $24$ is
+replaced by their size $n\le23n_b+1$ (Proposition~\ref{prop:linechain});
+they cost no collar for $s\ge2$, and for $s=1$ the collar $s=2$
+(Corollary~\ref{cor:linechain}).
 \item \emph{The island comparison.} For two islands in a good region,
 Theorem~\ref{thm:factorisation} factorises their weight through one
 kernel on the good layer between them, Theorem~\ref{thm:layerbound}
@@ -17922,7 +18346,7 @@ The covariance of item (ii) for a fixed coarse field and uniform in the
 exterior, with decay at the rate $2\alpha_G$ without a floor, is the
 single-scale part of (D) that remains open, its mean over the coarse field
 being bounded by Theorems~\ref{thm:labelcov} and~\ref{thm:fibrecov}, item (i) being settled for the
-site of a pair by Theorem~\ref{thm:site} and item (ii) given the labels
+chains of the bad blocks by Proposition~\ref{prop:linechain} and item (ii) given the labels
 of all islands by Theorem~\ref{thm:manyislands};
 item (iii) is settled by Theorem~\ref{thm:islandthreshold} at one scale
 and by Theorem~\ref{thm:islandswide} at every scale up to $a_{k_*}/8$;
@@ -17968,7 +18392,8 @@ non-path link off $R(c)$ & fine defect, Theorem~\ref{thm:cutoff}\\
 coarse plaquette $>\eta$ & fine defect, Lemma~\ref{lem:coarsewitness}\\
 path link & none: determined, Lemma~\ref{lem:branchbound}\\
 bad non-path links & fold, Proposition~\ref{prop:fold}\\
-bad pair & site, Theorem~\ref{thm:site}\\
+bad pair & chain, Proposition~\ref{prop:linechain}\\
+inside link & fold, Proposition~\ref{prop:insidefold}\\
 all links & nonconvex, Proposition~\ref{prop:nonconvex}\\
 \midrule
 good window & graph law, Proposition~\ref{prop:graphlaw}\\
