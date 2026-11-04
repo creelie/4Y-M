@@ -41,8 +41,9 @@ The singular mass is ≤ 2 sup|Y| × the level-surface mass of `AVERAGED_SHELL_M
 O(κ+1)·μ(m ≥ ρ_G/2). Tie surfaces fall under the same hazard lemma: condition on everything except the
 private link, with measurable centre and level.
 
-**Missing standard fact:** a Gauss–Green/divergence theorem on the stratified, piecewise real-analytic
-fibre with Lipschitz Y. Expected routine, not written.
+**Gauss–Green: now written** in `GAUSS_GREEN.md` (Lemma GG, ambient averaged form, proved modulo Federer).
+That note also fixes the localisation (ψ₄ = (Σδ⁸)^{1/4}, giving supp(1−θ) ⊂ {m ≥ ρ/8}). The tie-set
+hazard step remains a sketch.
 
 ## 3. Consequence and what stays open
 
@@ -63,7 +64,7 @@ observable and a local large-field event. Its decay in d is **Conjecture L** (lo
 which is the quantity called H in the earlier version of this note. Under an arbitrary exterior it needs (R1), and
 `CALM_LINK.md` §4 shows that (R1) pointwise in the exterior is false in general (uniform-field boundaries). So:
 
-- Conjecture B, bounded local F: **sketch, done here** (modulo the stratified Gauss–Green lemma).
+- Conjecture B, bounded Lipschitz local F, φ-averaged: **sketch** (`GAUSS_GREEN.md` §4; only the tie-set step and C_G remain).
 - Conjecture B with separation decay ⇔ Conjecture L ⇐ averaged (R1) + averaged cube coefficient: **open**.
 - D4, D5 (global), D7, D8 and E: **open**. The wall is unchanged. It is the large-field part of a multiscale
   expansion (Bałaban/Dimock), where large-field regions are summed in a polymer expansion over the torus measure
