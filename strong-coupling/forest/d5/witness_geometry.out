@@ -1,0 +1,17 @@
+j=1: corner range [-14,15], side=30 (formula 30), per-coordinate overlap 8 -> H_j=4096 (formula 4096)
+j=2: corner range [-30,33], side=64 (formula 64), per-coordinate overlap 8 -> H_j=4096 (formula 4096)
+j=3: corner range [-62,69], side=132 (formula 132), per-coordinate overlap 9 -> H_j=6561 (formula 6561)
+j=4: corner range [-126,141], side=268 (formula 268), per-coordinate overlap 9 -> H_j=6561 (formula 6561)
+j=5: corner range [-254,285], side=540 (formula 540), per-coordinate overlap 9 -> H_j=6561 (formula 6561)
+j=6: corner range [-510,573], side=1084 (formula 1084), per-coordinate overlap 9 -> H_j=6561 (formula 6561)
+
+chart-calm labels rho=1e-10 (eta=9.2e-9<=1e-8), s=5:
+  j=0: beta*_j=5.4096e+25  16^-j beta*_j=5.4096e+25  k_*(beta*_j)=11  k_*-j=11
+  j=1: beta*_j=2.8973e+27  16^-j beta*_j=1.8108e+26  k_*(beta*_j)=12  k_*-j=11
+  j=2: beta*_j=4.6366e+28  16^-j beta*_j=1.8112e+26  k_*(beta*_j)=13  k_*-j=11
+  j=3: beta*_j=1.1866e+30  16^-j beta*_j=2.8969e+26  k_*(beta*_j)=15  k_*-j=12
+  j=4: beta*_j=1.8987e+31  16^-j beta*_j=2.8972e+26  k_*(beta*_j)=16  k_*-j=12
+  j=5: beta*_j=3.0383e+32  16^-j beta*_j=2.8976e+26  k_*(beta*_j)=17  k_*-j=12
+  j=6: beta*_j=4.8619e+33  16^-j beta*_j=2.8979e+26  k_*(beta*_j)=18  k_*-j=12
+  j=7: beta*_j=7.7799e+34  16^-j beta*_j=2.8982e+26  k_*(beta*_j)=19  k_*-j=12
+  j=8: beta*_j=1.2449e+36  16^-j beta*_j=2.8986e+26  k_*(beta*_j)=20  k_*-j=12
