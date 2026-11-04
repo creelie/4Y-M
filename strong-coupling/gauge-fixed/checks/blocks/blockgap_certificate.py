@@ -1,4 +1,4 @@
-"""Independent exact check of the certificate for Proposition prop:blockgapsharp of the forest paper:
+"""Independent exact check of the certificate for Remark rem:blockgapsharp of the forest paper (a computation no result uses):
 for every set of blocks W and every phi in Phi_W (Def. def:blockgauge, Thm. thm:blockgap),
     sum_e phi_e^2 <= (1/c) Q(phi),   c = 537/5000.
 
