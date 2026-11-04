@@ -64,7 +64,7 @@ observable and a local large-field event. Its decay in d is **Conjecture L** (lo
 which is the quantity called H in the earlier version of this note. Under an arbitrary exterior it needs (R1), and
 `CALM_LINK.md` §4 shows that (R1) pointwise in the exterior is false in general (uniform-field boundaries). So:
 
-- Conjecture B, bounded Lipschitz local F, φ-averaged: **sketch** (`GAUSS_GREEN.md` §4; only the tie-set step and C_G remain).
+- Conjecture B, bounded Lipschitz local F, φ-averaged: **proved** (`GAUSS_GREEN.md` §4; C_G not evaluated).
 - Conjecture B with separation decay ⇔ Conjecture L ⇐ averaged (R1) + averaged cube coefficient: **open**.
 - D4, D5 (global), D7, D8 and E: **open**. The wall is unchanged. It is the large-field part of a multiscale
   expansion (Bałaban/Dimock), where large-field regions are summed in a polymer expansion over the torus measure
