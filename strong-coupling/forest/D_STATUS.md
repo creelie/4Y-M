@@ -2,9 +2,10 @@
 
 **Latest shell advance (proved / application open).** `SU2_RADIAL_HAZARD.md`
 proves a uniform O(1+κ) radial hazard bound for a von Mises--Fisher law on
-SU(2), replacing the Gaussian-level heuristic by a rigorous bound of the
-order needed in the fixed-radius flux ledger. The actual maximum-shell
-flux and the conditional large-field displacement are not established;
+SU(2), and extends it to a maximum of dependent radii under explicit
+conditional-law assumptions. This gives the order needed in the fixed-radius
+flux ledger. The actual SU(2) path conditioning and identification with
+maximum-shell flux, and the conditional large-field displacement, are not established;
 this does not close (I1) or D. The relative curvature witness and its
 annealed rarity already appear in `RELATIVE_CHART.md` and `COARSE_LABELS.md`.
 

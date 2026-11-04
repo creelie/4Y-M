@@ -482,5 +482,8 @@ annealed rather than uniform in the exterior.
 **Proved:** `SU2_RADIAL_HAZARD.md` gives a uniform O(1+kappa) radial
 hazard bound on SU(2), sufficient in order for the fixed-threshold shell
 ledger in `CALM_LINK.md` if its conditioning and flux assumptions are
-verified. The sharper Gaussian-scale estimate, the actual maximum-shell
-flux, and large-field displacement remain open.
+verified. It also proves a shell bound for the dependent maximum and applies
+it to the fourteen nontrivial two-link paths before the coarse averages are
+conditioned, when the exterior leaves the seven private links free. The
+sharper Gaussian-scale estimate, the weighted fibre flux, and large-field
+displacement remain open.
