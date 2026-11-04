@@ -49,7 +49,7 @@
 
 \begin{document}
 
-\title[Yang--Mills mass gap on the lattice and one cube]{Yang--Mills Mass Gap on the Lattice and One Cube from the Continuum}
+\title[Yang--Mills mass gap and its reduction to one cube]{Yang--Mills Mass Gap on the Lattice and Its Reduction to One Cube of the Continuum}
 
 \author[D. Bhattacharjee]{Deep Bhattacharjee$^{*}$}
 \address{Formerly, Electro-Gravitational Space Propulsion Laboratory
@@ -69,7 +69,10 @@ nonconvex bad side and its three-preimage branch family
 interaction of two bad islands with the covariance bound
 $\frac14\tanh(\varDelta/4)$ (Lemma~\ref{lem:kernel},
 Corollary~\ref{cor:twolabels}), the floor $q^2/16$ on the covariance of
-rare labels (Proposition~\ref{prop:hiddenbit}), the coupling-cost
+rare labels (Proposition~\ref{prop:hiddenbit}), the explicit island
+threshold $\beta^*(\rho,s)$ past which the islands of bad blocks at one
+scale are rarer than their entropy (Theorem~\ref{thm:islandthreshold}),
+the coupling-cost
 minimality lemmas (Lemmas~\ref{lem:minimality} and~\ref{lem:minimiser}),
 the exact block response $\frac14(1+I_2(\beta_W)/I_1(\beta_W))$ and its
 crossing at $\beta_W=0.3666$ (Proposition~\ref{prop:blockresponse}), the
@@ -118,12 +121,14 @@ are labelled by their independent links and their coarse curvature, every
 good window carries an exact product law in which each path link is
 determined by its pair, that two bad islands interact only through one
 kernel on the good layer between them, with covariance at most
-$\frac14	anh(\varDelta/4)$, and that the exact response of a plaquette block
+$\frac14\tanh(\varDelta/4)$, and that the exact response of a plaquette block
 at zero field, $\frac14(1+I_2(\beta_W)/I_1(\beta_W))$, bounds every
-Dobrushin estimate of this form by $\beta_W=0.3666$. We prove that the
-rarity of bad labels alone cannot control their covariance and that a rough
-coarse background makes the constrained action nonconvex, which locates the
-one estimate that remains open.
+Dobrushin estimate of this form by $\beta_W=0.3666$. We give the explicit
+coupling, $\beta_W=5.4\cdot10^{21}$ at the label radius $10^{-8}$, past
+which the islands of bad blocks at one scale are rarer than their entropy.
+We prove that the rarity of bad labels alone cannot control their
+covariance and that a rough coarse background makes the constrained action
+nonconvex, which locates the one estimate that remains open.
 \end{abstract}
 
 \maketitle
@@ -617,8 +622,9 @@ and Section~\ref{sec:blocks} poses the cube condition for block averages, compos
 across scales at small fields and locates the large fields under the
 Wilson measure. Section~\ref{sec:islands} proves what a labelling of the
 blocks into good and bad gives for the cube condition, where the natural
-labels fail, and what the single-scale and the multiscale parts of (D)
-still need. The appendices contain the
+labels fail, the explicit coupling past which the bad islands of one
+scale are rarer than their entropy (Theorem~\ref{thm:islandthreshold}),
+and what the single-scale and the multiscale parts of (D) still need. The appendices contain the
 residue table of the line field, the comparison lemma and its version for
 blocks, the blocks of the local Hessian inequality, the details of the
 certified computation, the reconstruction of the transfer matrix with the
@@ -11716,6 +11722,133 @@ a bound on the first moment at positive time, which Lemma~\ref{lem:positivetime}
 derives from one ratio, into a positive lower bound for the limit; the
 mass itself is the normalisation of Theorem~\ref{thm:flowlimit}.
 
+\subsection{The island threshold at one scale}\label{ssec:islandthreshold}
+
+The counting of Lemma~\ref{lem:coverage} and the collar of
+Proposition~\ref{prop:graphlaw} determine a coupling past which the bad
+blocks of one scale form islands whose entropy is beaten by their rarity.
+This subsection computes that coupling. Fix a radius $r$ for the relative
+link labels and a radius $\eta$ for the coarse plaquettes: a block $y$ is
+\emph{bad} when some non-path active link of a pair based at $y$ is at
+distance more than $r$ from its reconstruction value, or some coarse
+plaquette with corner $y$ has $\delta(c_P,I)>\eta$, and \emph{good}
+otherwise. Fix an integer collar $s\ge1$: a window $W$ is conditioned as in
+Proposition~\ref{prop:graphlaw} when every block at $\ell^\infty$ distance
+at most $s$ from $W$ is good. Join two blocks when they are at $\ell^\infty$
+distance at most $2s+1$, and call a maximal connected set of bad blocks an
+\emph{island}; two islands are then separated by a layer of good blocks of
+width at least $2s+1$, so that every block of the layer is at distance more
+than $s$ from both, and the good layer of Lemma~\ref{lem:kernel} is
+available between them. Each block has $\varDelta=(4s+3)^4-1$ neighbours
+in this graph, and the witness sets of Lemma~\ref{lem:coverage} are the
+boxes of side $11$, $M=11^4$, $H=6^4$.
+
+\begin{theorem}[the island threshold]\label{thm:islandthreshold}
+Let $G=\SU(2)$, let $\rho=\min\{r/43,\eta/92\}\le10^{-8}$, and put
+\begin{gather*}
+\log q^*=-H\bigl(\log2+2\log\varDelta\bigr)-\log(eMH),\\
+f(\beta)=6(\log\beta+C_0)-\frac{\beta\rho^2}{16},
+\end{gather*}
+with $C_0$ as in Lemma~\ref{lem:wilsonZ}. The equation $f(\beta)=\log q^*$
+has a largest solution $\beta^*=\beta^*(\rho,s)>96/\rho^2$, and for every
+$\beta_W\ge\beta^*$:
+\begin{enumerate}[label=\textup{(\roman*)},leftmargin=*]
+\item every block is bad with probability at most $A=eMH\,q_\rho(\beta_W)
+\le(2\varDelta^2)^{-H}$;
+\item for every block $y$ and every $n\ge1$,
+\[
+\mu_L\{y\text{ lies in an island of at least }n\text{ blocks}\}\le
+2^{1-n}\varDelta^{-2}\le2^{-n},
+\]
+and the expected number of islands of at least $n$ blocks on a torus of
+$L^4$ blocks is at most $L^4\,2^{-n}/n$;
+\item if an estimate charges every bad block a factor $\varGamma\ge1$ and is
+summed over the islands through a given block, the sum
+$\sum_{n\ge1}\varDelta^{2(n-1)}(\varGamma A^{1/H})^n$ is at most $1$ as
+soon as $\beta_W\ge\beta^*(\rho,s,\varGamma)$, the largest solution of
+$f(\beta)=\log q^*-H\log\varGamma$.
+\end{enumerate}
+Numerically, $\beta^*(10^{-8},1)=3.427\cdot10^{21}$,
+$\beta^*(10^{-8},5)=5.401\cdot10^{21}$, $\beta^*(10^{-9},1)=3.431\cdot
+10^{23}$, $\beta^*(10^{-9},5)=5.405\cdot10^{23}$ and
+$\beta^*(10^{-8},5,10^{30})=1.973\cdot10^{22}$; in every case
+$\beta^*=16\lvert\log q^*\rvert\rho^{-2}(1+\epsilon)$ with
+$0<\epsilon<2\cdot10^{-2}$, and $\lvert\log q^*\rvert=21090.2$ for $s=1$ and
+$33424.9$ for $s=5$.
+\end{theorem}
+
+\begin{proof}
+\emph{Witnesses.} Let $y$ be bad because of a non-path link $e$ of the pair
+$k=(y,\mu)$, and let $\kappa$ be the largest defect $\delta(U_p,I)$ over
+the plaquettes with a vertex in a block at $\ell^\infty$ distance at most
+one from $B(y)$ or $B(y+e_\mu)$. If $\kappa\le10^{-8}$, Lemma~\ref{lem:smallframes}(i)
+with $W=\{y,y+e_\mu\}$ gives $\delta(U_e,I)\le3\kappa$ when $e$ lies
+inside a block, where $R_e(c)=I$, and $\delta(U_e,\ell_k)\le21\kappa$ when
+$e$ leaves $B(y)$, where $R_e(c)=c_k$ and $\ell_k$ is the path link; the
+proof of Lemma~\ref{lem:coarsewitness} gives $\delta(c_k,\ell_k)\le7\pi
+\kappa$, so $\delta(U_e,R_e(c))\le(21+7\pi)\kappa<43\kappa$. Since the
+label is bad, either $\kappa>10^{-8}\ge\rho$ or $43\kappa>r$, and in both
+cases some plaquette of that set has defect more than $\rho$. If $y$ is
+bad because of a coarse plaquette with corner $y$, Lemma~\ref{lem:coarsewitness}
+gives in the same way a plaquette with defect more than $\min\{10^{-8},
+\eta/92\}\ge\rho$ among those with a vertex in a block at distance at most
+one from the four corner blocks. All these plaquettes lie in cubes whose
+corners are at $\ell^\infty$ distance at most five from $2y$, the box of
+side $11$ of the fine lattice, and a cube lies in the box of at most $6^4$
+blocks. With the sites of Lemma~\ref{lem:coverage} the unit cubes and
+$p=q_\rho(\beta_W)$, Theorem~\ref{thm:defects} gives the product bound,
+and the lemma gives $\mu_L(\text{all blocks of }S\text{ bad})\le A^{n/H}$
+for every set $S$ of $n$ blocks when $A=eMHp<1$, and $\le A$ for one block.
+
+\emph{The threshold.} The function $f$ is concave on $(0,\infty)$ with
+its maximum at $\beta=96/\rho^2$, where $f=6\log(96/\rho^2)+6C_0-6>0>\log
+q^*$; since $f(\beta)\to-\infty$, the equation $f=\log q^*$ has exactly two
+solutions and the larger one, $\beta^*$, exceeds $96/\rho^2$, with $f\le
+\log q^*$ on $[\beta^*,\infty)$. For $\beta_W\ge\beta^*$ this gives
+$q_\rho(\beta_W)\le e^{f(\beta_W)}\le q^*$, hence $A\le eMHq^*=(2\varDelta^2)
+^{-H}$ and $\varDelta^2A^{1/H}\le\frac12$, which is (i).
+
+\emph{Islands.} A connected set of $n$ blocks containing $y$ in the graph
+of the collar is recovered from a walk of length $2(n-1)$ around a spanning
+tree, each step to one of $\varDelta$ neighbours, so there are at most
+$\varDelta^{2(n-1)}$ of them, and the island of $y$ has at least $n$
+blocks only if some connected set of exactly $n$ blocks containing $y$
+consists of bad blocks. The probability that a given set of $n$ blocks is
+bad is at most $A^{n/H}$, so
+\[
+\mu_L\{y\text{ in an island of $n$ blocks}\}\le\varDelta^{2(n-1)}A^{n/H}
+\le\varDelta^{-2}\,2^{-n},
+\]
+and summing over the sizes $m\ge n$ of the island gives $2^{1-n}\varDelta^{-2}$.
+An island of at least $n$ blocks contains at least $n$ blocks that lie in
+islands of at least $n$ blocks, so the number of such islands is at most
+$1/n$ times the number of such blocks, whose expectation is at most
+$L^4\,2^{1-n}\varDelta^{-2}\le L^42^{-n}$; on a torus the number of
+neighbours of a block is at most $\varDelta$, which is all the count
+uses. For (iii), replace $A$ by $\varGamma^HA$ in the
+threshold: then $\varGamma\varDelta^2A^{1/H}\le\frac12$ and the sum is at
+most $\varDelta^{-2}\sum_n2^{-n}\le1$. The numerical values are the roots
+of $f=\log q^*$ computed to thirty digits, and the two-term expression
+follows from $f(\beta)=\log q^*$ with $6(\log\beta+C_0)\le0.02\,\lvert\log
+q^*\rvert$ at these values.
+\end{proof}
+
+The theorem gives the value asked for in item (iii) of the earlier
+versions of this section, but only at the block scale and in lattice
+units: at $\beta_W=5\cdot10^{21}$ the lattice spacing is far below every
+physical length, the correlation length of the theory in lattice units is
+astronomically larger than the side of a block, and the rarity of the
+islands at that scale says nothing yet about the islands of the effective
+theory at the scale of the cube, which is what condition (D) needs. The
+threshold therefore closes the entropy count of one scale, and leaves the
+comparison between scales to the effective action of
+Proposition~\ref{prop:formstability} and Lemma~\ref{lem:schur}. The
+numbers also show where the loss sits: the factor $16/\rho^2$ comes from
+the witness radius $\rho\le10^{-8}$ of Lemma~\ref{lem:smallframes}, and
+the factor $\lvert\log q^*\rvert\approx2H\log\varDelta$ from the exponent
+$1/H$, which Proposition~\ref{prop:coverageopt} shows cannot be improved
+without joint information on the gauge field.
+
 \subsection{What remains}\label{ssec:remains}
 
 The results of this section leave the following statements, which together
@@ -11732,13 +11865,14 @@ one kernel on the good layer between them, with a cross-ratio controlled by
 Lemma~\ref{lem:connected} on a domain that the labels of the islands do not
 move. Proposition~\ref{prop:hiddenbit} shows that no rarity bound replaces
 it.
-\item \emph{The island threshold.} A value of $\beta_W$ at which the
-rarity of Lemma~\ref{lem:coverage}, at the exponent $1/H$ of
-Proposition~\ref{prop:coverageopt} and the collar of
-Proposition~\ref{prop:graphlaw}, beats the entropy of the islands; the
-constants of Section~\ref{ssec:coarse} put every such value far beyond the
-range in which the chessboard estimate reaches the scale of the cube, so
-that (iv) is needed first.
+\item \emph{The island threshold.} Theorem~\ref{thm:islandthreshold}
+gives the explicit coupling $\beta^*(\rho,s)$ past which the islands of
+bad blocks at one scale are rare enough to beat their entropy, at the
+exponent $1/H$ of Proposition~\ref{prop:coverageopt} and the collar of
+Proposition~\ref{prop:graphlaw}. What is not given is the same statement
+at the scale of the cube: $\beta^*$ is of order $10^{21}$, far beyond the
+range in which the chessboard estimate reaches that scale, so that (iv) is
+needed before the threshold bears on the gap.
 \item \emph{The scales.} An effective action at every scale whose
 one-step errors are summable in the sense of
 Proposition~\ref{prop:formstability} and whose locality norms obey
@@ -11746,8 +11880,9 @@ Lemma~\ref{lem:schur}, down to the last $O(1)$ scales where the running
 coupling is of order one; this is the large-field expansion of
 Ba{\l}aban, and it is not carried out here.
 \end{enumerate}
-Items (i)--(iii) are the single-scale part of (D); item (iv) is the
-multiscale part. On the continuum side, Lemmas~\ref{lem:positivetime}
+Items (i) and (ii) are the single-scale part of (D) that remains open;
+item (iii) is settled at one scale by Theorem~\ref{thm:islandthreshold};
+item (iv) is the multiscale part. On the continuum side, Lemmas~\ref{lem:positivetime}
 and~\ref{lem:nonvanishing} reduce the nontriviality of the limit to a
 lower bound on one ratio of lattice two-point functions at a fixed
 physical time, uniform along the tuning, which is the open input of
@@ -11787,6 +11922,7 @@ good window & graph law, Prop.~\ref{prop:graphlaw}\\
 $n$ bad labels & $A^{n/H}$, Lem.~\ref{lem:coverage}\\
 two islands & $\frac14\tanh(\varDelta/4)$, Cor.~\ref{cor:twolabels}\\
 rarity alone & floor $q^2/16$, Prop.~\ref{prop:hiddenbit}\\
+island of $n$ blocks & $2^{-n}$ past $\beta^*$, Thm.~\ref{thm:islandthreshold}\\
 \bottomrule
 \end{tabular}
 \end{minipage}
