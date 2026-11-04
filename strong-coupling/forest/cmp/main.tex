@@ -20227,9 +20227,11 @@ law of Section~\ref{ssec:smallfibres}, with the links outside as exterior. The
 rest of this subsection determines what the chart estimates of that section
 give for this law, in the $\SU(2)$ model and not in the class
 $(\mathrm X)+(\mathrm R)$: a component on which the coarse field stays below
-the scale of the chart is crossed at the rate $\alpha_G$, uniformly in its
-length, up to the mass of the constrained law off the chart; above a fixed
-threshold of the coarse curvature no point of the fibre carries a chart. The
+the scale of the chart is crossed at the rate $\alpha_G$, with no cost in
+its length beyond the mass of the constrained law off the chart, and that
+mass tends to one as the length grows at fixed $\beta_W$; above four times
+the chart threshold of the coarse curvature no point of the fibre carries
+a chart. The
 mass off the chart is a ratio of two weights of the fibre, and the next
 lemma records why its denominator has to be controlled.
 
@@ -20278,6 +20280,95 @@ link tends to $\delta_{g^*}$ for every $\beta_W$. So no bound on the
 conditioned probability of a branch in terms of the action alone holds
 uniformly in the coarse field.
 
+For $\SU(2)$ the constant $4+28\pi$ of Lemma~\ref{lem:coarsewitness}
+improves to $4$, up to a term of second order.
+
+\begin{lemma}[the sharp witness]\label{lem:coarsewitnesssharp}
+Let $G=\SU(2)$. Under the hypotheses of Lemma~\ref{lem:coarsewitness},
+\[
+\delta(c_P,I)\le4\kappa+7700\kappa^2 .
+\]
+\end{lemma}
+
+\begin{proof}
+Three facts about $\SU(2)$ with the Hilbert--Schmidt norm are used.
+
+(a) For $X,Y\in\g$, $\delta(e^Xe^Y,e^{X+Y})\le\lVert X\rVert\lVert Y
+\rVert$. Indeed, with $g(t)=e^{-t(X+Y)}e^{tX}e^{tY}$, $g'(t)=e^{-t(X+Y)}
+[e^{tX},Y]e^{tY}$ and $[e^{tX},Y]=\int_0^te^{uX}[X,Y]e^{(t-u)X}\,du$, so
+$\lVert g'(t)\rVert\le t\lVert[X,Y]\rVert\le2t\lVert X\rVert\lVert Y
+\rVert$, and $\delta(e^Xe^Y,e^{X+Y})=\delta(g(1),I)\le\int_0^1\lVert g'
+\rVert$. Applying this three times, with bi-invariance of $\delta$ and the
+triangle inequality,
+\[
+\delta\bigl(e^{X_1}e^{X_2}e^{X_3}e^{X_4},e^{X_1+X_2+X_3+X_4}\bigr)\le
+\sum_{i<j}\lVert X_i\rVert\lVert X_j\rVert .
+\]
+
+(b) If $\delta(g,I)\le1$, then $\lVert\log g\rVert\le\delta(g,I)(1+\delta(g,
+I)^2)$. Let $e^{\pm i\psi}$, $0\le\psi\le\pi$, be the eigenvalues of $g$ and
+$t=\psi/2$. Then $\lVert\log g\rVert=2\sqrt2\,t$, $\delta(g,I)=2\sqrt2\sin
+t$, and $\delta(g,I)\le1$ gives $t<\pi/2$. Since $t-\sin t\le t^3/6$ and
+$t\le\frac\pi2\sin t$, $t\le\sin t+\frac{\pi^3}{48}\sin^3t\le\sin t\,(1+8
+\sin^2t)$.
+
+(c) If $X\in\g$ and $\lVert X\rVert<\sqrt2\pi$, then $\log e^X=X$, as the
+eigenvalues $\pm i\psi$ of $X$ have $\sqrt2\psi=\lVert X\rVert<\sqrt2\pi$;
+and $\delta(e^X,I)\le\lVert X\rVert$ by Lemma~\ref{lem:logbound}.
+
+Let the sides $k=1,\dots,4$ of $P$ be the pairs $(y,\mu)$, $(y+e_\mu,\nu)$,
+$(y+e_\nu,\mu)$, $(y,\nu)$, with path links $\ell_k$, and for $x\in B(y)$
+let $P^k_x$ be the path of the pair $k$ from $x+o_k$, where $o_1=o_4=0$,
+$o_2=2e_\mu$, $o_3=2e_\nu$. As in the proof of
+Lemma~\ref{lem:coarsewitness}, $\delta(P^k_x,\ell_k)\le24\kappa<\frac12$,
+so the cut-off of each side equals one, $Z^x_k=\log(\ell_k^{-1}P^k_x)$ is
+defined, and by (b) $\lVert Z^x_k\rVert\le24\kappa(1+576\kappa^2)\le a=
+24.001\kappa$. Then $c_k=\ell_ke^{\bar Z_k}$ with $\bar Z_k=\frac1{16}
+\sum_xZ^x_k$ and $\lVert\bar Z_k\rVert\le a$.
+
+The loop $H_x=P^1_xP^2_x(P^3_x)^{-1}(P^4_x)^{-1}$ is the holonomy around
+the square of side two at $x$ in the plane $\{\mu,\nu\}$, whose four fine
+plaquettes have their vertices in the four corner blocks; as in the proof
+of Lemma~\ref{lem:coarsewitness}, $\delta(H_x,I)\le4\kappa$. At $x=2y$ every
+$P^k_x$ is $\ell_k$, so $\ell_P=\ell_1\ell_2\ell_3^{-1}\ell_4^{-1}=H_{2y}$
+has $\delta(\ell_P,I)\le4\kappa$, and $Y=\log\ell_P$ has $\lVert Y\rVert\le
+4.001\kappa$ by (b).
+
+Let $g_1=\ell_1$, $g_2=\ell_1\ell_2$, $g_3=\ell_1\ell_2\ell_3^{-1}$, and for
+$Z\in\g^4$
+\begin{gather*}
+\Psi(Z)=\ell_1e^{Z_1}\ell_2e^{Z_2}e^{-Z_3}\ell_3^{-1}e^{-Z_4}\ell_4^{-1},\\
+\mathsf L(Z)=\operatorname{Ad}(g_1)Z_1+\operatorname{Ad}(g_2)(Z_2-Z_3)-
+\operatorname{Ad}(g_3)Z_4 .
+\end{gather*}
+Moving the $\ell_k$ to the right,
+\[
+\Psi(Z)=e^{\operatorname{Ad}(g_1)Z_1}e^{\operatorname{Ad}(g_2)Z_2}e^{-
+\operatorname{Ad}(g_2)Z_3}e^{-\operatorname{Ad}(g_3)Z_4}\ell_P,
+\]
+and $H_x=\Psi(Z^x)$, $c_P=\Psi(\bar Z)$.
+The maps $\operatorname{Ad}(g_i)$ are isometries, so by (a), for $Z$ with
+$\lVert Z_k\rVert\le a$,
+\begin{gather*}
+\delta\bigl(\Psi(Z),e^{\mathsf L(Z)}\ell_P\bigr)\le6a^2\le3457\kappa^2,\\
+\delta\bigl(e^{\mathsf L(Z)}\ell_P,e^{\mathsf L(Z)+Y}\bigr)\le4a\cdot4.001
+\kappa\le385\kappa^2 .
+\end{gather*}
+For every $x$ this gives $\delta(e^{\mathsf L(Z^x)+Y},I)\le4\kappa+3842
+\kappa^2$; as $\lVert\mathsf L(Z^x)+Y\rVert\le4a+4.001\kappa<\sqrt2\pi$,
+(c) and (b) give $\lVert\mathsf L(Z^x)+Y\rVert\le4\kappa+3843\kappa^2$,
+since $(4\kappa+3842\kappa^2)^3\le\kappa^2$. The average over $x$ is
+$\mathsf L(\bar Z)+Y$, so $\delta(e^{\mathsf L(\bar Z)+Y},I)\le\lVert
+\mathsf L(\bar Z)+Y\rVert\le4\kappa+3843\kappa^2$, and
+\[
+\delta(c_P,I)\le(3457+385)\kappa^2+4\kappa+3843\kappa^2=4\kappa+7685
+\kappa^2 .\qedhere
+\]
+\end{proof}
+
+Proposition~\ref{prop:uniformflux} below shows that the constant $4$
+cannot be lowered.
+
 \begin{proposition}[coarse curvature and the chart]\label{prop:badchart}
 Let $G=\SU(2)$ and let $c$ be a coarse field.
 \begin{enumerate}[label=\textup{(\roman*)},leftmargin=*]
@@ -20286,9 +20377,9 @@ $\{\mu,\nu\}$ has $R(c)_p=I$ unless both coordinates $\mu$ and $\nu$ of
 its corner are odd; then its corner lies in a block $y$ and $R(c)_p=c_P$,
 with $P$ the coarse plaquette at $y$ in that plane.
 \item Let $W$ be a set of blocks that contains the four corner blocks of
-a coarse plaquette $P$ with $\delta(c_P,I)>5.57\cdot10^{-11}$. Then every
+a coarse plaquette $P$ with $\delta(c_P,I)>2.418\cdot10^{-12}$. Then every
 field $U$ with $V^\sharp_k(U)=c_k$ for the four sides $k$ of $P$ has a
-plaquette with a vertex in a block of $W^+$ and $\delta(U_p,I)>6.05\cdot
+plaquette with a vertex in a block of $W^+$ and $\delta(U_p,I)>6.044\cdot
 10^{-13}$. Consequently no background $U$ of the fibre over $W$ satisfies
 the hypothesis $4\cdot10^5c_3(\kappa+s)\le\frac1{195}$ of
 Theorem~\ref{thm:fibrechart}\textup{(iv)} with the constant $c_3=1.5\cdot
@@ -20314,15 +20405,15 @@ odd and $x\in B(y)$, the four links are $c_{y,\mu}$, $c_{y+e_\mu,\nu}$,
 $c_{y+e_\nu,\mu}$, $c_{y,\nu}$, since $x+e_\mu\in B(y+e_\mu)$ and $x+e_\nu
 \in B(y+e_\nu)$, and their product is $c_P$.
 
-(ii) Put $\kappa=6.05\cdot10^{-13}\le10^{-8}$. If every plaquette with a
+(ii) Put $\kappa=6.044\cdot10^{-13}\le10^{-8}$. If every plaquette with a
 vertex in one of the blocks at distance at most one from the four corner
-blocks had $\delta(U_p,I)\le\kappa$, Lemma~\ref{lem:coarsewitness} would
-give $\delta(c_P,I)\le(4+28\pi)\kappa<5.57\cdot10^{-11}$. Those blocks lie
-in $W^+$. A background with plaquettes up to $\kappa'\ge\kappa$ on $W^+$
-has $4\cdot10^5c_3\kappa'\ge4\cdot10^5c_3\kappa>\frac1{195}$, since
+blocks had $\delta(U_p,I)\le\kappa$, Lemma~\ref{lem:coarsewitnesssharp}
+would give $\delta(c_P,I)\le4\kappa+7700\kappa^2<2.4177\cdot10^{-12}$, as
+$4\kappa=2.4176\cdot10^{-12}$ and $7700\kappa^2<3\cdot10^{-21}$. Those
+blocks lie in $W^+$. A background with plaquettes up to $\kappa'>\kappa$ on
+$W^+$ has $4\cdot10^5c_3\kappa'>4\cdot10^5c_3\kappa>\frac1{195}$, since
 $195\cdot4\cdot10^5\cdot1.5\cdot10^4\sqrt2>1.6546\cdot10^{12}$ gives
-$1/(195\cdot4\cdot10^5c_3)<6.044\cdot10^{-13}$; and $4+28\pi<91.97$
-gives $(4+28\pi)\kappa<5.565\cdot10^{-11}$.
+$1/(195\cdot4\cdot10^5c_3)<6.044\cdot10^{-13}$.
 \end{proof}
 
 At $\rho=2.17\cdot10^{-16}$, $\eta=92\rho<2.0\cdot10^{-14}$. So the coarse
@@ -20330,9 +20421,11 @@ plaquettes that make a block bad for every labelling range over three
 scales: up to $6.0\cdot10^{-13}$, thirty times $\eta$, part (i) gives a
 background with plaquettes below the chart threshold of
 Proposition~\ref{prop:explicitconstants} whenever the exterior near the
-window agrees with $R(c)$; above $5.57\cdot10^{-11}$, part (ii) excludes
-every background; in between neither statement is made. Where a background
-exists, the constrained law of the component decays across it at the rate
+window agrees with $R(c)$; above $2.418\cdot10^{-12}$, part (ii) excludes
+every background; in between, Proposition~\ref{prop:uniformflux} gives
+backgrounds for some exteriors, and for the exterior $R(c)$ none is
+constructed. Where a background exists, the constrained law of the
+component decays across it at the rate
 of the chart.
 
 \begin{theorem}[a bad component on the chart]\label{thm:badcross}
@@ -20389,16 +20482,20 @@ of the blocks of $W$.
 
 \begin{remark}\label{rem:badcompopen}
 Theorem~\ref{thm:badcross} bounds the response inside a bad component by
-the chart, with no cost growing with its length, and leaves three things.
+the chart, with no cost growing with its length except through $p$, and
+leaves three things.
 First, the mass $p$. By Lemma~\ref{lem:condweights} it is bounded by the
 excess action off the chart times the reference mass off the chart,
 divided by the reference mass of the chart in the fibre; the first factor
 is a Peierls bound, the reference masses carry the coarea weights, and
 Proposition~\ref{prop:fold} shows that these weights are not controlled by
-the action. In the mean over the coarse field $\E_c$ the mass off the chart
+the action. In the other direction Theorem~\ref{thm:offchartmass} bounds
+$p$ from below: at fixed $\beta_W$ it tends to one as the component grows,
+and it exceeds $1-e^{-5.5\lvert W\rvert}$ for $\beta_W\le10^{24}$
+(Corollary~\ref{cor:offchartmass}). In the mean over the coarse field $\E_c$ the mass off the chart
 is a probability under $\mu_L$; for a fixed coarse field it is the open
 step of Remark~\ref{rem:smallfibreopen}(c) and Remark~\ref{rem:fibrechartopen}(a).
-Second, the coarse fields above $5.57\cdot10^{-11}$, where by
+Second, the coarse fields above $2.418\cdot10^{-12}$, where by
 Proposition~\ref{prop:badchart}(ii) the chart applies at no point; there
 the fibre law near the component is that of a large field, which
 Proposition~\ref{prop:fold} shows to jump, and no estimate of this paper
@@ -20413,8 +20510,13 @@ Theorem~\ref{thm:factorisation} solves the path links of the entering
 pairs by Lemma~\ref{lem:branchbound}, writes the weight through a kernel
 on a domain that the ends do not move, and Lemma~\ref{lem:connected}
 turns the cross-ratio into a covariance of the layer law. Both steps use
-non-path links within $r$ of the reconstruction; for a bad component
-neither is carried out here.
+non-path links within $r$ of the reconstruction. For a bad component
+Proposition~\ref{prop:badpassage} moves the links that bind the entering
+averages to the exterior, so that the constrained law of the reduced fibre
+is the conditional law under $\mu^c$, and Corollary~\ref{cor:badcrossratio}
+bounds the cross-ratio for ends that enter the action only; ends that
+enter the averages, on which the labels depend, are not treated
+(Remark~\ref{rem:badmassopen}).
 
 The other two routes do not reach the interior of a component. A
 single-link Dobrushin or disagreement-percolation bound needs row sums
@@ -20434,6 +20536,441 @@ it. In the law of Theorem~\ref{thm:fixedobstruction}(i) the second
 difference over the labels of $a$ and $b$, all other labels fixed, is $J$,
 and a bound on it decaying with $\dist(a,b)$ is exactly the response
 across the component.
+\end{remark}
+
+The bound of Theorem~\ref{thm:badcross} contains the mass $p$ of the
+constrained law off the product chart $\Phi(\Omega_r)$, and that chart asks
+every one of the $45\lvert W\rvert$ coordinates $\eta_e$, $e\in L'$, to lie
+in a ball of radius $r$. On the chart the law has a density whose Hessian
+is bounded above, so each coordinate leaves its ball with a conditional
+probability bounded below, and $p$ grows with $\lvert W\rvert$. The next
+lemma is the elementary estimate behind this.
+
+\begin{lemma}[leaving a ball]\label{lem:ballexit}
+Let $E$ be a Euclidean space, $r>0$, $B_t=\{x\in E:\lvert x\rvert\le t\}$,
+and let $f$ be a real function of class $C^2$ on a neighbourhood of
+$B_{2r}$ with $\lVert\Hess f(x)\rVert\le\Lambda$ for $x\in B_{2r}$. Then
+\[
+\int_{B_{2r}\setminus B_r}e^{-f}\,dx\ge\frac13e^{-5.5\Lambda r^2}
+\int_{B_{2r}}e^{-f}\,dx .
+\]
+\end{lemma}
+
+\begin{proof}
+Choose a unit vector $u$ with $\nabla f(0)\cdot u\le0$. For $x\in B_{2r}$,
+$\nabla f(x)\cdot u\le\nabla f(0)\cdot u+\Lambda\lvert x\rvert\le\Lambda
+\lvert x\rvert$, and for $x,x+v\in B_{2r}$, the segment between them lying
+in the convex set $B_{2r}$, $f(x+v)\le f(x)+\nabla f(x)\cdot v+\frac12
+\Lambda\lvert v\rvert^2$. Put $O=B_{2r}\setminus B_r$, $S_+=\{x\in B_r:x
+\cdot u\ge0\}$ and $S_-=B_r\setminus S_+$.
+
+For $x\in S_+$, $\lvert x+ru\rvert^2=\lvert x\rvert^2+2r\,x\cdot u+r^2$
+lies in $[r^2,4r^2]$ and exceeds $r^2$ unless $x=0$, so the translation
+$x\mapsto x+ru$ maps $S_+$ into $O$ up to a null set, and
+$f(x+ru)\le f(x)+r\Lambda\lvert x\rvert+\frac12\Lambda r^2\le f(x)+
+1.5\Lambda r^2$. Hence $\int_Oe^{-f}\ge e^{-1.5\Lambda r^2}\int_{S_+}
+e^{-f}$. The reflection $R(x)=x-2(x\cdot u)u$ maps $S_-$ into $S_+$ and
+preserves Lebesgue measure; for $x\in S_-$, $R(x)=x+tu$ with $t=2\lvert x
+\cdot u\rvert\le2r$, so $f(R(x))\le f(x)+t\Lambda r+\frac12\Lambda t^2\le
+f(x)+4\Lambda r^2$, and $\int_{S_+}e^{-f}\ge e^{-4\Lambda r^2}\int_{S_-}
+e^{-f}$. Therefore
+\[
+\int_{B_r}e^{-f}\le\bigl(1+e^{4\Lambda r^2}\bigr)e^{1.5\Lambda r^2}
+\int_Oe^{-f},
+\]
+and $\int_Oe^{-f}\big/\int_{B_{2r}}e^{-f}\ge(1+e^{1.5\Lambda r^2}+e^{5.5
+\Lambda r^2})^{-1}\ge\frac13e^{-5.5\Lambda r^2}$.
+\end{proof}
+
+\begin{theorem}[the mass off the chart]\label{thm:offchartmass}
+Under the hypotheses of Theorem~\ref{thm:badcross},
+\begin{align*}
+p&\ge1-\Bigl(1-\frac13e^{-2843.5\beta_Wr^2}\Bigr)^{45\lvert W\rvert}\\
+&\ge1-\exp\bigl(-15\lvert W\rvert e^{-10^{-24}\beta_W}\bigr).
+\end{align*}
+\end{theorem}
+
+\begin{proof}
+Write $\mathrm{Box}_t$ for the product over $e\in L'$ of the balls
+$\{\lVert\xi_e\rVert\le t\}$ in $\g$, so that $\Omega_t=S(\mathrm{Box}_t)$
+in the notation of the proof of Theorem~\ref{thm:chartdecay}. Since $S(
+\mathrm{Box}_{2r})\subset K_{30.2r}$ and $30.2r<s$, the paragraph on the
+density in that proof, which uses Theorem~\ref{thm:fibrechart}\textup{(iii)}
+on $K_s$ only, shows that the constrained law $\mu_W$ conditioned on $\Phi(
+\Omega_{2r})$ has, in the coordinates $\xi\in\g^{L'}$, the density
+proportional to $e^{-\bar H}$ on $\mathrm{Box}_{2r}$, with $\bar H$ smooth on
+the preimage under $S$ of the interior of $K_s$, a neighbourhood of
+$\mathrm{Box}_{2r}$. By
+Proposition~\ref{prop:explicitdecay} and
+Lemma~\ref{lem:weightednorms}\textup{(i)}, $\lVert\Hess\bar H\rVert\le
+\lVert\Hess\bar H\rVert_{(\vartheta)}\le2068\lambda$ on $\mathrm{Box}_{2r}$,
+with $\lambda=\beta_W/4$.
+
+Let $a=\mu_W(\Phi(\Omega_{2r}))$. If $a=0$, then $p=1$. Otherwise let $\nu$
+be the conditioned law in the coordinates $\xi$, enumerate $L'=\{e_1,\dots,
+e_N\}$ with $N=45\lvert W\rvert$, and let $A_i=\{\lVert\xi_{e_i}\rVert\le
+r\}$. Under $\nu$, given the coordinates other than $\xi_{e_i}$, the
+coordinate $\xi_{e_i}$ has the density proportional to $e^{-f}$ on the
+ball of radius $2r$ in $\g$, where $f$ is $\bar H$ with the other
+coordinates fixed and $\lVert\Hess f\rVert\le2068\lambda$. By
+Lemma~\ref{lem:ballexit} with $\Lambda=2068\lambda$, the conditional
+probability of $A_i$ is at most $1-q_0$, with
+\[
+q_0=\tfrac13e^{-5.5\cdot2068\lambda r^2}=\tfrac13e^{-2843.5\beta_Wr^2}.
+\]
+The events $A_{i+1},\dots,A_N$ are functions of the other coordinates, so
+$\nu(A_i\cap\dots\cap A_N)\le(1-q_0)\,\nu(A_{i+1}\cap\dots\cap A_N)$, and by
+induction $\nu(\mathrm{Box}_r)\le(1-q_0)^N$. As $\Phi$ is injective,
+$\mu_W(\Phi(\Omega_r))=a\,\nu(\mathrm{Box}_r)\le(1-q_0)^N$, which is the
+first bound. For the second, $1-q\le e^{-q}$, and $\kappa+s\le6.0\cdot
+10^{-13}$ gives $r\le1.875\cdot10^{-14}$, so $2843.5r^2<10^{-24}$.
+\end{proof}
+
+\begin{corollary}\label{cor:offchartmass}
+Under the hypotheses of Theorem~\ref{thm:badcross}:
+\begin{enumerate}[label=\textup{(\roman*)},leftmargin=*]
+\item if $\beta_W\le10^{24}$, then $p\ge1-e^{-5.5\lvert W\rvert}$; at
+$\beta_W=2.3\cdot10^{17}$, $p\ge1-e^{-14.99\lvert W\rvert}$;
+\item the bound of Theorem~\ref{thm:badcross} is smaller than the trivial
+bound $\lVert\tilde F\rVert_\infty\lVert\tilde G\rVert_\infty$ only if
+$\beta_W>10^{24}(4.40+\ln\lvert W\rvert)$;
+\item for fixed $\beta_W$, $p\to1$ as $\lvert W\rvert\to\infty$.
+\end{enumerate}
+\end{corollary}
+
+\begin{proof}
+(i) For $\beta_W\le10^{24}$, $q_0\ge\frac13e^{-1}>0.1226$ and $45q_0>5.5$;
+at $\beta_W=2.3\cdot10^{17}$, $q_0\ge\frac13(1-2.3\cdot10^{-7})$ and
+$45q_0>14.99$. Use $(1-q_0)^N\le e^{-Nq_0}$. (ii) The bound contains $6p
+\lVert\tilde F\rVert_\infty\lVert\tilde G\rVert_\infty$, so it is smaller
+than the trivial bound only if $p<\frac16$. Then $e^{-45\lvert W\rvert
+q_0}\ge1-p>\frac56$, so $15\lvert W\rvert e^{-2843.5\beta_Wr^2}<\ln\frac65<
+0.1824$; as $2843.5r^2<10^{-24}$, this gives $10^{-24}\beta_W>\ln(15
+\lvert W\rvert/0.1824)>4.40+\ln\lvert W\rvert$. (iii) follows from the
+second bound of Theorem~\ref{thm:offchartmass}.
+\end{proof}
+
+So the absence of a cost in the length in Theorem~\ref{thm:badcross} is
+carried entirely by $p$: a product chart in all the coordinates of the
+component, which the Helffer--Sj\"ostrand argument of
+Theorem~\ref{thm:chartdecay} uses, holds the whole component near the
+background, and a component of $n$ blocks leaves it unless $\beta_Wr^2$
+exceeds a multiple of $\ln n$. With the constants of
+Proposition~\ref{prop:explicitconstants} the radius $r$ is at most
+$1.875\cdot10^{-14}$, so the threshold $2.3\cdot10^{17}$ of the theorem is
+seven orders of magnitude below the coupling at which $p$ can be small for
+a single block. In the other direction Corollary~\ref{cor:calmfibres} gives
+$p\le\varepsilon_W(K,\lambda)$ on every fibre through a field whose
+plaquettes near $W$ are at most $K/(4\sqrt{n_P})$, with $s\ge1.24\cdot10^5K$,
+which needs $\lambda K^2$ larger than a multiple of $\lvert W\rvert\ln(n_P/
+K)$; the necessary condition grows like $\ln\lvert W\rvert$ and the
+sufficient one like $\lvert W\rvert$.
+
+The fibres to which the theorem applies include arbitrarily long bad
+components, and their coarse plaquettes come arbitrarily close to four
+times the bound $6.0\cdot10^{-13}$ on $\kappa+s$, which by
+Lemma~\ref{lem:coarsewitnesssharp} no such fibre exceeds by more than
+$7700\kappa^2$. Let $T_0=\operatorname{diag}(i,-i)\in\g$, so that
+$\delta(e^{\theta T_0},I)=2\sqrt2\lvert\sin(\theta/2)\rvert$ for real
+$\theta$.
+
+\begin{proposition}[a uniform field strength]\label{prop:uniformflux}
+Let $G=\SU(2)$, let the side $2L$ of the periodic lattice have $L\ge4$
+even, let $\mu\ne\nu$ be two directions and $0<f\le7\cdot10^{-9}$. Let
+$g(t)=f\min\{t,2L-t\}$ for $t\in\{0,\dots,2L-1\}=\Z/2L\Z$, so that $g(t+1)-
+g(t)=f$ for $0\le t\le L-1$ and $g(t+1)-g(t)=-f$ for $L\le t\le2L-1$, let $U^f$ have the links $U^f_{x,\mu}=e^{-g(x_\nu)T_0}$ and
+all other links $I$, and let $\tilde U$ be its image in the tree gauge
+under the gauge transformation that equals $I$ at the corner of every
+block. Put $\kappa_f=2\sqrt2\sin(f/2)$.
+\begin{enumerate}[label=\textup{(\roman*)},leftmargin=*]
+\item Every plaquette has $\delta(\tilde U_p,I)\le\kappa_f$.
+\item The coarse field $c=V^\sharp(\tilde U)$ takes values in $\{e^{\theta
+T_0}\}$, and for every block $y$ with $0\le y_\nu\le L/2-2$ the coarse
+plaquette $P$ at $y$ in the plane $\{\mu,\nu\}$ has $c_P=e^{4fT_0}$, so
+that
+\[
+\delta(c_P,I)=2\sqrt2\sin2f=4\cos\tfrac f2\cos f\;\kappa_f\ge4(1-f^2)
+\kappa_f .
+\]
+\item For every set $W$ of blocks the fibre of $\tilde U$ over $W$ satisfies
+the hypotheses of Theorem~\ref{thm:badcross} with $U=\tilde U$ and $\kappa=
+\kappa_f$, for every $\beta_W\ge2.3\cdot10^{17}$ and every $s>0$ with $s\le1/(6000c_3)$, $\kappa_f+6s\le
+10^{-8}$ and $\kappa_f+s\le6.0\cdot10^{-13}$.
+\end{enumerate}
+In particular, for every $t\in(0,2.39\cdot10^{-12}]$ there are a coarse
+field with a coarse plaquette $P$ of $\delta(c_P,I)=t$ and, for every $W$,
+an exterior whose fibre over $W$ satisfies the hypotheses of
+Theorem~\ref{thm:badcross} with $s=2.4\cdot10^{-15}$; and the constant $4$
+of Lemma~\ref{lem:coarsewitnesssharp} cannot be lowered.
+\end{proposition}
+
+\begin{proof}
+(i) Every link of $U^f$ lies in the torus $\{e^{\theta T_0}\}$, and we give
+it the real angle $\theta_{x,\mu}=-g(x_\nu)$, or $0$. The real sum of a
+plaquette at $x$, $\theta_1+\theta_2-\theta_3-\theta_4$ in the notation of
+Section~\ref{ssec:smallfibres}, is $g(x_\nu+1)-g(x_\nu)=\pm f$ in the plane
+$\{\mu,\nu\}$, and $0$ in every other plane, since a plaquette in the plane
+$\{\mu,\rho\}$, $\rho\ne\nu$, has its two $\mu$-links at the same
+coordinate $\nu$. The gauge transformation is $e^{\lambda_xT_0}$ with
+$\lambda_x$ real, $0$ at the corners, and fixed along the tree of each
+block by the condition that the real angles $\tilde\theta_{x,\rho}=
+\theta_{x,\rho}+\lambda_x-\lambda_{x+e_\rho}$ of the tree links vanish. The
+real sums of the plaquettes do not change, so every plaquette of $\tilde U$
+is $e^{\pm fT_0}$ or $I$.
+
+(ii) Let $k$ be a pair, $v=P_{2y}$ its path link and $v_x=v^{-1}P_x$. By
+(i) and Lemma~\ref{lem:smallframes}(i), which applies as $\kappa_f\le\sqrt2
+f\le10^{-8}$, $\delta(v_x,I)\le24\kappa_f<\frac12$, so the cut-off equals one, and $v_x=e^{\varphi_xT_0}$ with
+$\varphi_x=\tilde\theta(P_x)-\tilde\theta(v)$, where $\tilde\theta$ of a
+path is the sum of the real angles along it. The principal logarithm of
+$v_x$ is $\varphi'_xT_0$ with $\varphi'_x\equiv\varphi_x$ modulo $2\pi$.
+As functions of $f\in[0,7\cdot10^{-9}]$, $\varphi_x$ is linear, since
+$g$ and the gauge transformation are, and $\varphi'_x$ is continuous, since
+$v_x$ stays within $24\kappa_f<1$ of $I$, where the principal logarithm is
+continuous; their difference lies in $2\pi\Z$ and vanishes at $f=0$, so
+$\varphi'_x=\varphi_x$. Hence
+\[
+c_k=v\exp\Bigl(\frac1{16}\sum_x\varphi_xT_0\Bigr)=\exp\Bigl(\frac1{16}
+\sum_x\tilde\theta(P_x)\,T_0\Bigr).
+\]
+With the sides $k=1,\dots,4$ of $P$ as in the proof of
+Proposition~\ref{prop:badchart}(i) and the sites $x\in B(y)$, $x+2e_\mu$,
+$x+2e_\nu$ of the same offset,
+\[
+c_P=\exp\Bigl(\frac1{16}\sum_{x\in B(y)}\tilde\theta(\partial S_x)\,T_0
+\Bigr),
+\]
+where $\partial S_x$ is the boundary of the square of side two at $x$ in
+the plane $\{\mu,\nu\}$. Its real angle is the sum of the real sums of its
+four plaquettes, whose coordinates $\nu$ lie in $\{2y_\nu,2y_\nu+1,2y_\nu+
+2\}\subset\{0,\dots,L-1\}$, so each is $f$ and $c_P=e^{4fT_0}$. Finally
+$\sin2f=4\sin\frac f2\cos\frac f2\cos f$, and $\cos\frac f2\cos f\ge(1-
+\frac{f^2}8)(1-\frac{f^2}2)\ge1-f^2$.
+
+(iii) $\tilde U$ lies in its own fibre and has every plaquette at most
+$\kappa_f$; the other hypotheses are the conditions on $\beta_W$ and $s$.
+
+For the last statement let $f=\frac12\arcsin(t/(2\sqrt2))$, so that $2\sqrt2
+\sin2f=t$ and $f<4.3\cdot10^{-13}$. Then $\kappa_f\le t/(4(1-f^2))<5.976
+\cdot10^{-13}$, so $s=2.4\cdot10^{-15}$ satisfies the conditions of (iii),
+as $1/(6000c_3)>7.8\cdot10^{-9}$. By (ii) the ratio $\delta(c_P,I)/\kappa_f$
+tends to $4$ as $f\to0$, while $\kappa_f\le10^{-8}$ and every plaquette of $\tilde U$ is at most
+$\kappa_f$.
+\end{proof}
+
+The blocks with $0\le y_\nu\le L/2-1$ are corners of the coarse plaquettes
+of (ii), which exceed $\eta$ once $2\sqrt2\sin2f>\eta$, so they lie in one
+component bad for every labelling, of $L^4/2$ blocks. On these fibres
+Theorem~\ref{thm:badcross} applies for every $\lvert W\rvert$, and
+Corollary~\ref{cor:offchartmass} shows that its bound loses its content as
+$\lvert W\rvert$ grows.
+
+Under $\mu^c$ the links of a window are not distributed by $\mu_W$: the
+averages of the pairs that enter $W$ from outside are fixed too, and they
+contain links of $A_W$. These links can be moved to the exterior. Let
+$I_W$ be the set of active links $(x,\mu)$ inside a block $B(y)$, $y\in W$,
+with $y-e_\mu\notin W$, let $A^-_W=A_W\setminus I_W$, $L'^-=A^-_W\setminus
+\{d_k\}$, and for a field $U$ let $F^-$ be the set of fields that agree with
+$U$ off $A^-_W$ and have the same averages $V^\sharp_{y,\mu}$ as $U$ for
+$y\in W$. The measure $\nu^-_c$ on $F^-$ and the constrained law $\mu^-_W=
+e^{-\lambda Q^-}\nu^-_c/\nu^-_c(e^{-\lambda Q^-})$, with $Q^-$ the sum of
+$\delta(U_p,I)^2$ over the plaquettes that contain a link of $A^-_W$, are
+defined as $\nu_c$ and $\mu_F$ before~\eqref{eq:fibrevolume}, with the
+links of $I_W$ among the fixed links.
+
+\begin{proposition}[the window under $\mu^c$]\label{prop:badpassage}
+Let $G=\SU(2)$ and let $W$ be a set of blocks.
+\begin{enumerate}[label=\textup{(\roman*)},leftmargin=*]
+\item Every average $V^\sharp_{y',\mu}$ with $y'\notin W$ is a function of
+the links off $A^-_W$. For $\E_c$-almost every $c$, the constrained law
+$\mu^-_W$ on the fibre through a field is a version of the conditional law
+under $\mu^c$ of the links of $A^-_W$ given the links off $A^-_W$.
+\item Theorems~\ref{thm:fibrechart}, \ref{thm:chartdecay},
+\ref{thm:offchart}\textup{(i)}, \ref{thm:badcross} and~\ref{thm:offchartmass}
+and Propositions~\ref{prop:explicitconstants} and~\ref{prop:explicitdecay}
+hold for $F^-$, $A^-_W$ and $L'^-$ in place of $F$, $A_W$ and $L'$, with the
+same constants, and with $45\lvert W\rvert$ replaced by $\lvert L'^-\rvert
+\ge28\lvert W\rvert$ in Theorem~\ref{thm:offchartmass}.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+(i) An inside link $(x,\mu)$ of a block $B(y)$ enters only the averages of
+$(y,\mu)$, as the first link of the path from $x$, and of $(y-e_\mu,\mu)$,
+as the second link of the path from $x-e_\mu$; a private link enters only
+the average of its pair. So $V^\sharp_{y',\mu}$, $y'\notin W$, depends on
+the links of $B(y')$ and the private links of $(y',\mu)$, which are not in
+$A_W$, and on inside links of $B(y'+e_\mu)$, which lie in $I_W$ when
+$y'+e_\mu\in W$. In the tree gauge the active links have density
+proportional to $e^{-\beta_WS}$ with respect to product Haar measure $h$
+(proof of Theorem~\ref{thm:offchart}(ii)). Write the active links as $(E,z)$
+with $z$ the links of $A^-_W$, and $C=(C_{\rm out},C_W)$ for the averages
+of the pairs based off and in $W$, so that $C_{\rm out}$ is a function of
+$E$. The construction of~\eqref{eq:fibrevolume}, with the links of $I_W$
+fixed, gives $h(dz)=\int\nu^-_{E,c_W}(dz)\,dh(c_W)$, so
+\[
+e^{-\beta_WS}h(dE)\,h(dz)=e^{-\beta_WS}h(dE)\int\nu^-_{E,c_W}(dz)\,
+dh(c_W),
+\]
+and the conditional law of $z$ given $(E,C_W)$ is proportional to
+$e^{-\beta_WS}\nu^-_{E,C_W}$, which is $\mu^-_W$, the plaquettes without a
+link of $A^-_W$ giving a factor that does not depend on $z$. Since $C_{\rm
+out}$ is a function of $E$, conditioning on $(E,C)$ is conditioning on
+$(E,C_W)$, and by the tower property this is the conditional law under
+$\mu^c$ given $E$, for almost every $c$.
+
+(ii) Let $J:\g^{A^-_W}\to\g^{A_W}$ be extension by zero. The fibre $F^-$
+is $F$ with the links of $I_W$ fixed, so $\xi$ is tangent to $F^-$ exactly
+when $J\xi$ is tangent to $F$, and on $F^-$ the difference $Q-Q^-$ depends
+only on links off $A^-_W$ and is constant. The window enters the proofs of
+the listed results only through the following objects, and each has a
+counterpart on $F^-$ with the same bound.
+\begin{enumerate}[label=\textup{(\alph*)},leftmargin=*]
+\item The derivative $DC_k=\tilde B_k+R_k$ of
+Lemma~\ref{lem:smallframes}(iv), with $\lVert R_k\rVert\le260\kappa$; on
+$F^-$ it is $DC_kJ=\tilde B_kJ+R_kJ$, and $\lVert R_kJ\rVert\le\lVert R_k
+\rVert$, $\lVert\tilde B_kJ\rVert\le\lVert\tilde B_k\rVert$.
+\item The Gram matrix $\mathcal G=DC\,DC^*$. Its diagonal blocks are at
+least $\frac18-227\kappa$ because the squared coefficients of $V_{y,\mu}$
+on the eight private links of $(y,\mu)$ add up to $\frac18$; these links
+lie in $A^-_W$, so $\tilde B_kJJ^*\tilde B_k^*\ge\frac18$ and the
+perturbation $2\lVert\tilde B_kJ\rVert\,260\kappa+(260\kappa)^2\le227\kappa$
+is the same. The upper bounds $\frac3{16}+227\kappa$ on the diagonal blocks
+and $\frac1{32}+227\kappa$ on the two off-diagonal blocks of a row bound
+sums of the norms of the contributions of single links, which only lose
+terms. So $\mathcal G^-=DC\,JJ^*DC^*$ has the block bounds from which the
+proofs of Theorem~\ref{thm:fibrechart} and
+Proposition~\ref{prop:explicitdecay} derive $\mathcal G\ge\frac1{16}-700
+\kappa$, $\lVert\mathcal G^{-1}\rVert\le17$ and the weighted norms of
+$\mathcal G^{-1}$.
+\item The derivative bounds with the constants $c_3$ and $c_6$ for $c_k$,
+$Q$ and $j$, and $A=Dc(X)$: on vectors supported on $A^-_W$ they hold as
+before, and $AJ$, $DC\,J$ have the same block sparsity.
+\item The section: $(S^-\xi)_e=\xi_e$ for $e\in L'^-$ and $(S^-\xi)_{d_k}=
+-B_{k,d_k}^{-1}\sum_{e\in A^-_W\setminus\{d_k\}}B_{k,e}\xi_e$, that is
+$JS^-=SJ$. The path link $d_k$ lies in $A^-_W$ and enters only $V_k$, and
+the bound $15.1$ is a sum of norms over $e$ that only loses terms.
+\end{enumerate}
+The function $\bar H$ and the matrices $P$, $\bar P$ on $F^-$ are defined
+by the same formulas from $AJ$, $DC\,J$ and $S^-$, and their bounds are
+derived in those proofs from (a)--(d) by the same computations. The
+distance $d$ on $L'^-$ is the restriction of that on $L'$. The proof of
+Theorem~\ref{thm:offchart}(i) applies to fields that agree off $A^-_W$,
+since these agree off $A_W$. Since $DC\,J$ is onto by (b), $F^-$ has
+codimension $4\lvert W\rvert\dim G$ and $\dim T_U=\lvert L'^-\rvert\dim G$.
+The $28\lvert W\rvert$ private links other than the path links lie in
+$L'^-$.
+\end{proof}
+
+The weight of the interior as a function of two ends follows, for ends
+that enter only the action.
+
+\begin{corollary}\label{cor:badcrossratio}
+Let $G=\SU(2)$ and let $E_a$, $E_b$ be disjoint sets of links off $A^-_W$,
+none of which enters an average $V^\sharp_{y,\mu}$ with $y\in W$, such that
+no plaquette contains a link of $E_a$ and a link of $E_b$. Fix the other
+links off $A^-_W$, let $a_0,a_1\in G^{E_a}$, $b_0,b_1\in G^{E_b}$, $X_e,
+Y_e\in\g$ with $a_{1,e}=a_{0,e}e^{X_e}$, $b_{1,e}=b_{0,e}e^{Y_e}$, and
+$x_a=\max_e\lVert X_e\rVert$, $x_b=\max_e\lVert Y_e\rVert$. Let $Z_{ij}=
+\nu^-_c(e^{-\lambda Q^-})$ on the fibre with the links $a_i$ on $E_a$ and
+$b_j$ on $E_b$, and let $N_a$, $N_b$ be the links of $A^-_W$ that share a
+plaquette with a link of $E_a$, of $E_b$. Suppose that at the links
+$a_0e^{\sigma X}$, $b_0e^{\tau Y}$, for all $\sigma,\tau\in[0,1]$, the
+fibre satisfies the hypotheses of Theorem~\ref{thm:badcross} with fixed
+$\kappa$ and $s$, and let $\bar p$ bound its mass off the chart. Then
+\begin{multline*}
+\Bigl\lvert\log\frac{Z_{11}Z_{00}}{Z_{10}Z_{01}}\Bigr\rvert\le3.9\cdot10^6
+\beta_Wx_ax_b\bigl(\lvert N_a\rvert\lvert N_b\rvert\bigr)^{1/2}e^{-\alpha_G
+d(N_a,N_b)}\\
++432\,\beta_W^2\,\bar p\,\lvert E_a\rvert\lvert E_b\rvert x_ax_b .
+\end{multline*}
+\end{corollary}
+
+\begin{proof}
+Neither the fibre $F^-$ nor $\nu^-_c$ depends on the links of $E_a\cup
+E_b$, since these enter no constraint, so $Z(\sigma,\tau)=\nu^-_c(e^{-
+\lambda Q^-})$ at the links $a_0e^{\sigma X}$, $b_0e^{\tau Y}$ is an integral
+over a fixed space, and differentiating under the integral,
+$\partial_\sigma\partial_\tau\log Z=\Cov(\phi_a,\phi_b)$ under $\mu^-_W$,
+with $\phi_a=\partial_\sigma\lambda Q^-$ and $\phi_b=\partial_\tau\lambda
+Q^-$, because no plaquette contains links of both sets, so that
+$\partial_\sigma\partial_\tau Q^-=0$. The function $\phi_a$ depends on the
+links of $N_a$. For a plaquette $p$, $\delta(U_p,I)^2=4-2\ReTr U_p$; moving
+a link $e$ of $p$ along $X_e$ inserts $X_e$ between unitary factors, and
+$\ReTr(VX)=\ReTr((V-I)X)$ for skew-Hermitian $X$, so the derivative is at
+most $2\delta(U_p,I)\lVert X_e\rVert$, and the mixed derivative along $X_e$
+and along a unit vector at another link of $p$ is at most $2\lVert X_e
+\rVert$. A link lies in six plaquettes, and a plaquette with a link of
+$A^-_W$ has at most three links of $E_a$; so the left-invariant gradient of
+$\phi_a$ has norm at most $6\cdot3\cdot2\lambda x_a=36\lambda x_a$ in each
+link. As $\delta(U_p,I)\le2\sqrt2$, summing over the links $e\in E_a$ and
+the six plaquettes through each gives $\lVert\phi_a\rVert_\infty\le6\lvert
+E_a\rvert\cdot2\cdot2\sqrt2\,\lambda x_a=24\sqrt2\lambda\lvert E_a\rvert
+x_a$, and likewise for $\phi_b$. By
+Proposition~\ref{prop:badpassage}(ii), Theorem~\ref{thm:badcross} applied
+to $\phi_a/(36\lambda x_a)$ and $\phi_b/(36\lambda x_b)$ gives
+\[
+\begin{split}
+\lvert\Cov(\phi_a,\phi_b)\rvert\le{}&\frac{4.8\cdot10^4}{\beta_W}(36
+\lambda)^2x_ax_b\\
+&\times\bigl(\lvert N_a\rvert\lvert N_b\rvert\bigr)^{1/2}e^{-\alpha_G
+d(N_a,N_b)}\\
+&+6\bar p\,(24\sqrt2\lambda)^2\lvert E_a\rvert\lvert E_b\rvert x_ax_b,
+\end{split}
+\]
+and with $\lambda=\beta_W/4$ the two coefficients are $81\cdot4.8\cdot10^4
+\beta_W=3.888\cdot10^6\beta_W$ and $6\cdot1152\beta_W^2/16=432\beta_W^2$. Integrate over $(\sigma,\tau)\in[0,1]^2$.
+\end{proof}
+
+The first term decays at the rate $\alpha_G$ in the distance between the
+ends, with no cost in the length of $W$; the second needs $\bar p$ small
+against $\beta_W^{-2}$, which by Theorem~\ref{thm:offchartmass} requires
+$\beta_Wr^2$ larger than a multiple of $\ln\beta_W+\ln\lvert W\rvert$.
+
+\begin{remark}\label{rem:badmassopen}
+What remains of the bad regions in item (ii) of Section~\ref{ssec:remains}:
+\begin{enumerate}[label=\textup{(\alph*)},leftmargin=*]
+\item \emph{The mass off the chart.} Theorem~\ref{thm:offchartmass} shows
+that no bound on $p$ uniform in the length of the component exists, for
+any coarse field and exterior to which Theorem~\ref{thm:badcross} applies,
+and that $p$ is close to one for $\beta_W\le10^{24}$. A bound on the
+response across a component uniform in its length therefore cannot pass
+through a single product chart of the whole component; it needs charts
+local in the component, around which the links far from the observables
+may leave the chart, that is a decomposition of the fibre into small-field
+and large-field regions with a convex chart on each small-field region.
+This is not carried out here. For fixed $\lvert W\rvert$, a bound on $p$
+for a fixed coarse field is Corollary~\ref{cor:calmfibres}, whose
+condition grows linearly in $\lvert W\rvert$, against the logarithmic
+necessary condition of Corollary~\ref{cor:offchartmass}(ii).
+\item \emph{Larger coarse fields.} Above $2.418\cdot10^{-12}$ no field of
+the fibre carries a chart (Proposition~\ref{prop:badchart}(ii)). Between
+$6.0\cdot10^{-13}$ and $2.418\cdot10^{-12}$ the fibres of
+Proposition~\ref{prop:uniformflux} carry backgrounds. For the exterior
+$R(c)$, whose plaquettes carry each coarse plaquette in one fine plaquette,
+a background would have to spread the coarse curvature over the plaquettes
+of the window, almost aligned and almost of equal size as in the proof of
+Lemma~\ref{lem:coarsewitnesssharp}, while matching $R(c)$ off $A_W$.
+The exact condition is that the fibre over $W$ of a field agreeing with
+$R(c)$ off $A_W$ contain a field $U$ with $\delta(U_p,I)\le\kappa$ for every
+plaquette with a vertex in a block of $W^+$, for some $\kappa<6.0\cdot
+10^{-13}$; under it Theorems~\ref{thm:badcross} and~\ref{thm:offchartmass}
+apply with every $s\le6.0\cdot10^{-13}-\kappa$, and whether it holds is not
+decided.
+\item \emph{Ends in the averages.} Corollary~\ref{cor:badcrossratio} needs
+ends that enter no average of a pair of $W$. The links of $I_W$, and the
+inside links of a block $y+e_\mu\notin W$ in the direction $\mu$ for
+$y\in W$, enter those averages, and the labels of the blocks adjoining the
+component depend on such links; moving them moves the fibre, and
+Proposition~\ref{prop:insidefold} shows that off the chart the law then
+jumps. On the chart the dependence is smooth. The exact missing
+statement is the bound of Corollary~\ref{cor:badcrossratio} for ends $E_a$,
+$E_b$ that contain such links, that is a bound on the mixed derivative of
+$\log\nu^-_c(e^{-\lambda Q^-})$ in two links that move the constraints,
+decaying in their distance; it needs the transport of the chart along the
+ends with a locality bound on its derivative, which is not carried out
+here.
+\end{enumerate}
 \end{remark}
 
 \subsection{The one-step error in gauge-invariant form}\label{ssec:relstep}
@@ -23830,7 +24367,8 @@ $\rho_X\le e^{-9|X|}$ fails almost surely for $\SU(2)$ in the shell is not
 decided here. The hypothesis of Proposition~\ref{prop:sfrelative}(ii) can
 therefore hold at best in a form that excludes such boundary values, for
 example in the mean under the calm law, and Proposition~\ref{prop:sfrelative}
-(ii) is not proved in such a form.
+(ii) is not proved in such a form for $\SU(2)$. In the linear model the mean
+form holds, with an explicit constant (Corollary~\ref{cor:sfglshell}).
 \end{remark}
 
 \emph{The remainder $Z_\perp$.} Let $\mu_c=Z(c)^{-1}e^{-\lambda Q}\nu_c$ be
@@ -24032,10 +24570,465 @@ the explicit rate of
 Theorem~\ref{thm:sfprop}. In the linear model the relative activities are
 unbounded under the calm law at every $\lambda$ (Theorem~\ref{thm:sfshelllin}),
 so the almost sure hypothesis of Proposition~\ref{prop:sfrelative}(ii)
-fails there, and $Z_\perp(I)>0$ for $\SU(2)$ (Theorem~\ref{thm:sfperp}). Not
+fails there, while their mean is at most $e^{-9.2|X|}$ for $\lambda\kappa^2
+\ge16$, and the Gaussian layer of the step reproduces itself at every scale
+with the same constants (Theorem~\ref{thm:sfglstep},
+Corollaries~\ref{cor:sfglscales} and~\ref{cor:sfglshell} below); and
+$Z_\perp(I)>0$ for $\SU(2)$ (Theorem~\ref{thm:sfperp}). Not
 proved are a local expansion around a gauge-invariant leading term, any
 bound on the relative activities in the shell for $\SU(2)$, and a bound on
 $Z_\perp/Z_\emptyset$ uniform in $c$.
+
+\paragraph*{The Gaussian layer of the step.}
+The linear model of Theorem~\ref{thm:sfshelllin} is the Gaussian layer of
+the step. This paragraph expands it around its Gaussian form at every scale.
+The thresholds are placed on the fluctuation about the minimiser of the form
+at given averages, the background, and not on the field. With this choice
+the large-field remainder does not depend on the coarse field, its relative
+weights are bounded by $e^{-9.2}$ per block for $\lambda\kappa_{\rm f}^2\ge
+16$, uniformly in the coarse field, the volume and the scale, and the only
+hypothesis on the form, that it dominates the plaquette form, is reproduced
+by the step. The conditioning on boundary values, which defeats the almost
+sure bound in Theorem~\ref{thm:sfshelllin}, is replaced by Royen's Gaussian
+correlation inequality, used in the mean over the boundary values. The
+$\SU(2)$ step is not treated, and the nonlocality of the Gaussian form is
+not decided here; Remark~\ref{rem:sfglsu2} states what the $\SU(2)$ step
+needs beyond this paragraph.
+
+Let $\Lambda$ be a torus of even side at least four, with the blocks
+$B(y)$ of Definition~\ref{def:blockgauge}, coarse torus $\Lambda'$, tree
+links and active links as there, and $\Pi(y)$ the $96$ plaquettes owned by
+the block $y$ (Lemma~\ref{lem:lfowned}). Let $\mathcal A(\Lambda)$ be the
+space of real fields on the active links, $Q_\Lambda(\varphi)=\sum_p
+(d\varphi)_p^2$ over the plaquettes of $\Lambda$, and $V:\mathcal A(\Lambda)
+\to\R^{\Lambda'\times\{0,\dots,3\}}$ the block averages. For a real field
+$\gamma$ on the coarse links put $\mathcal V_\gamma=\{\varphi\in\mathcal A
+(\Lambda):V(\varphi)=\gamma\}$, with Lebesgue measure $m_\gamma$ in the
+coordinates given by the values on the links other than the path links, as
+in the linear model. Since the path link of a pair enters its average alone,
+with coefficient $\frac18$, and enters no other average, $\mathcal V_\gamma$
+is not empty and $m_\gamma$ is the image of $m_0$ under $\psi\mapsto\varphi_0
++\psi$ for every $\varphi_0\in\mathcal V_\gamma$. The proofs of
+Theorem~\ref{thm:blockgap}, of Lemma~\ref{lem:blocktree} and of
+Proposition~\ref{prop:effective}(i),~(ii) use only the plaquettes and links
+of one block and of two neighbouring blocks, and their counts are the same
+on such a torus; so they hold on $\Lambda$, and on $\Lambda'$ when its side
+is even and at least four.
+
+\begin{definition}\label{def:sfglclass}
+$\mathcal G(\Lambda)$ is the set of positive semidefinite quadratic forms
+$q$ on $\mathcal A(\Lambda)$ with $q\ge Q_\Lambda$. For $q\in\mathcal G
+(\Lambda)$ and $\lambda>0$, $\mu_q$ is the probability measure on
+$\mathcal V_0$ with density $Z_q^{-1}e^{-\lambda q}$ with respect to $m_0$,
+where $Z_q=\int_{\mathcal V_0}e^{-\lambda q}\,dm_0$.
+\end{definition}
+
+The restriction of $Q_\Lambda$ to $\mathcal A(\Lambda)$ belongs to
+$\mathcal G(\Lambda)$.
+
+\begin{lemma}\label{lem:sfglsplit}
+Let $q\in\mathcal G(\Lambda)$ and $\lambda>0$.
+\begin{enumerate}[label=\textup{(\roman*)},leftmargin=*]
+\item $Z_q<\infty$. For every $\gamma$ the form $q$ has a unique minimiser
+$\varphi^*_q(\gamma)$ on $\mathcal V_\gamma$, which is linear in $\gamma$,
+and with $q'(\gamma)=q(\varphi^*_q(\gamma))$,
+\[
+q\bigl(\varphi^*_q(\gamma)+\psi\bigr)=q'(\gamma)+q(\psi)\qquad
+(\psi\in\mathcal V_0).
+\]
+\item $q'(\gamma)\ge Q_{\Lambda'}(\gamma)$ for every real field $\gamma$ on
+the coarse links. If the side of $\Lambda'$ is at least four, the restriction
+of $q'$ to $\mathcal A(\Lambda')$ belongs to $\mathcal G(\Lambda')$. If
+$q(\varphi+d\tilde h)=q(\varphi)$ for every function $\tilde h$ constant on
+the blocks, then $q'(\gamma+d'h)=q'(\gamma)$ for every function $h$ on the
+coarse sites, where $(d'h)_{y,\mu}=h_y-h_{y+e_\mu}$.
+\item For distinct plaquettes $p_1,\dots,p_n$ of $\Lambda$ the covariance
+matrix $\Sigma$ of $((d\psi)_{p_1},\dots,(d\psi)_{p_n})$ under $\mu_q$
+satisfies $\Sigma\le(2\lambda)^{-1}I$.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+(i) By Theorem~\ref{thm:blockgap} with $W$ the set of all blocks, $q(\psi)
+\ge Q_\Lambda(\psi)\ge\frac1{52}\sum_e\psi_e^2$ on $\mathcal V_0$, so $q$ is
+positive definite there and $Z_q<\infty$. Fix $\varphi_0\in\mathcal
+V_\gamma$ depending linearly on $\gamma$, for instance the field of
+Proposition~\ref{prop:effective}(ii). The function $\psi\mapsto q(\varphi_0+
+\psi)$ on $\mathcal V_0$ is a quadratic polynomial with positive definite
+leading part, so it has a unique minimiser, a linear function of
+$\varphi_0$. At the minimiser $\varphi^*$ the derivative vanishes:
+$q(\varphi^*,\psi)=0$ for the bilinear form of $q$ and every $\psi\in
+\mathcal V_0$, which gives the identity.
+
+(ii) By Proposition~\ref{prop:effective}(i), $q'(\gamma)=q(\varphi^*_q
+(\gamma))\ge Q_\Lambda(\varphi^*_q(\gamma))\ge Q_{\Lambda'}(V(\varphi^*_q
+(\gamma)))=Q_{\Lambda'}(\gamma)$, and $q'$ is positive semidefinite as a
+minimum of a positive semidefinite form over an affine family depending
+linearly on $\gamma$. For $h$ on the coarse sites let $\tilde h$ equal $h_y$
+on $B(y)$. Then $d\tilde h$ vanishes on the links inside the blocks, so
+$d\tilde h\in\mathcal A(\Lambda)$, and $V(\varphi+d\tilde h)=V(\varphi)+
+d'h$ by Lemma~\ref{lem:blocktree}(ii). So $\varphi\mapsto\varphi+d\tilde h$
+maps $\mathcal V_\gamma$ onto $\mathcal V_{\gamma+d'h}$ and preserves $q$.
+
+(iii) Identify $\mathcal V_0$ with $\R^N$ by the coordinates of $m_0$ and
+write $q(\psi)=\psi^{\rm T}K\psi$ with $K$ positive definite. Then $\mu_q$ is
+the centred Gaussian law with covariance $(2\lambda K)^{-1}$, and for a
+linear function $\ell(\psi)=l^{\rm T}\psi$, by the Cauchy--Schwarz inequality
+for the inner product of $K$,
+\[
+\Var_{\mu_q}(\ell)=\frac{l^{\rm T}K^{-1}l}{2\lambda}=\frac1{2\lambda}
+\sup_{\psi\ne0}\frac{\ell(\psi)^2}{q(\psi)} .
+\]
+For $a\in\R^n$ and $\ell(\psi)=\sum_ia_i(d\psi)_{p_i}$, $\ell(\psi)^2\le
+|a|^2\sum_i(d\psi)_{p_i}^2\le|a|^2Q_\Lambda(\psi)\le|a|^2q(\psi)$, as the
+plaquettes are distinct. So $a^{\rm T}\Sigma a\le|a|^2/(2\lambda)$.
+\end{proof}
+
+\begin{lemma}\label{lem:sfgltail}
+\begin{enumerate}[label=\textup{(\roman*)},leftmargin=*]
+\item If $Z$ is a centred real Gaussian variable with $\Var Z\le\sigma^2$,
+then $\Pr(|Z|>s)\le e^{-s^2/(2\sigma^2)}$ for every $s\ge0$.
+\item If $(Z_1,\dots,Z_n)$ is a centred Gaussian vector with covariance at
+most $\sigma^2I$ and $s^2\ge\sigma^2$, then
+\[
+\Pr\Bigl(\sum_iZ_i^2>ns^2\Bigr)\le\Bigl(\frac{es^2}{\sigma^2}\Bigr)^{n/2}
+e^{-ns^2/(2\sigma^2)} .
+\]
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+(i) It suffices to take $\Var Z=\sigma^2>0$ and $\sigma=1$, since
+$\Pr(|Z|>s)$ increases with the variance. Let $f(u)=e^{-u^2/2}-
+\sqrt{2/\pi}\int_u^\infty e^{-v^2/2}dv$. Then $f(0)=0$, $f(u)\to0$ as
+$u\to\infty$, and $f'(u)=e^{-u^2/2}(\sqrt{2/\pi}-u)$, so $f$ increases and
+then decreases, and $f\ge0$ on $[0,\infty)$. (ii) Write the covariance as
+$ODO^{\rm T}$ with $O$ orthogonal and $D$ diagonal with entries $d_i\le
+\sigma^2$. Then $\sum_iZ_i^2$ has the law of $\sum_id_ig_i^2$ with
+independent standard Gaussian $g_i$, and for $0\le\theta<1/(2\sigma^2)$,
+$\E e^{\theta\sum_id_ig_i^2}=\prod_i(1-2\theta d_i)^{-1/2}\le(1-2\theta
+\sigma^2)^{-n/2}$. By Markov's inequality the probability is at most
+$(1-2\theta\sigma^2)^{-n/2}e^{-\theta ns^2}$, and $\theta=(1-\sigma^2/s^2)/
+(2\sigma^2)$ gives the bound.
+\end{proof}
+
+Royen's Gaussian correlation inequality, in the form proved
+in~\cite{LM17}, states that a centred Gaussian measure $\mu$ on $\R^N$ has
+$\mu(K\cap K')\ge\mu(K)\mu(K')$ for any two closed convex sets $K$, $K'$
+symmetric about the origin. Taking complements, $\mu(K'\setminus K)\le
+\mu(K')\bigl(1-\mu(K)\bigr)$. For a slab $K$ and $K'$ an intersection of
+slabs this is the inequality of \v{S}id\'ak.
+
+\emph{Thresholds on the fluctuation.} Let $q\in\mathcal G(\Lambda)$,
+$\lambda>0$ and $\kappa_{\rm f}>0$. For $\varphi\in\mathcal V_\gamma$ let
+$\psi=\varphi-\varphi^*_q(\gamma)\in\mathcal V_0$ be its fluctuation. A block
+$y$ of $\Lambda'$ is \emph{calm relative to the background} if $|(d\psi)_p|
+\le\kappa_{\rm f}$ for every $p\in\Pi(y)$, and \emph{rough relative to the
+background} otherwise; $R^{\rm f}(\varphi)$ is the set of these rough
+blocks, and for $\psi\in\mathcal V_0$, $R^{\rm f}(\psi)$ is taken at
+$\gamma=0$. For $X\subset\Lambda'$ put
+\[
+Z_X(\gamma)=\int_{\mathcal V_\gamma}e^{-\lambda q}\,\mathbf 1\{R^{\rm f}=X\}
+\,dm_\gamma,\qquad\pi_X=\mu_q\{R^{\rm f}=X\},
+\]
+and, with $t=\lambda\kappa_{\rm f}^2$,
+\[
+\epsilon_1(t)=96\sqrt{2et}\,e^{-t},\qquad\epsilon(t)=\frac{\epsilon_1(t)}
+{(1-e^{-t})^{96}} .
+\]
+
+\begin{theorem}\label{thm:sfglstep}
+Let $q\in\mathcal G(\Lambda)$, $\lambda>0$, $\kappa_{\rm f}>0$ and $t=
+\lambda\kappa_{\rm f}^2\ge\frac12$.
+\begin{enumerate}[label=\textup{(\roman*)},leftmargin=*]
+\item For every coarse field $\gamma$ and every $X\subset\Lambda'$,
+\[
+Z_X(\gamma)=Z_q\,\pi_X\,e^{-\lambda q'(\gamma)},
+\]
+and $\sum_X\pi_X=1$, so that $\int_{\mathcal V_\gamma}e^{-\lambda q}\,
+dm_\gamma=\sum_XZ_X(\gamma)=Z_qe^{-\lambda q'(\gamma)}$.
+\item For every set $Y$ of blocks, $\mu_q\{Y\cap R^{\rm f}=\emptyset\}\ge
+(1-e^{-t})^{96|Y|}$; in particular $\pi_\emptyset\ge(1-e^{-t})^{96|
+\Lambda'|}$.
+\item For disjoint sets $X$, $Y$ of blocks,
+\[
+\mu_q\{X\subset R^{\rm f},\ Y\cap R^{\rm f}=\emptyset\}\le\epsilon_1(t)^{|X|}
+\,\mu_q\{Y\cap R^{\rm f}=\emptyset\}.
+\]
+\item For every $X\subset\Lambda'$, $\pi_X\le\epsilon(t)^{|X|}\pi_\emptyset$.
+\item $\epsilon$ decreases on $[\frac12,\infty)$, and $\epsilon(t)<e^{-9.2}$
+for $t\ge16$.
+\end{enumerate}
+The bounds do not depend on $\gamma$, on the side of $\Lambda$ or on $q\in
+\mathcal G(\Lambda)$.
+\end{theorem}
+
+\begin{proof}
+(i) By Lemma~\ref{lem:sfglsplit}(i) and the translation $\varphi=\varphi^*_q
+(\gamma)+\psi$, which maps $m_0$ to $m_\gamma$,
+\[
+Z_X(\gamma)=e^{-\lambda q'(\gamma)}\int_{\mathcal V_0}e^{-\lambda q(\psi)}
+\mathbf 1\{R^{\rm f}(\psi)=X\}\,dm_0(\psi),
+\]
+since $R^{\rm f}$ depends on $\varphi$ only through $\psi$. The events
+$\{R^{\rm f}=X\}$ partition $\mathcal V_0$.
+
+(ii) The event is the intersection of the slabs $\{|(d\psi)_p|\le\kappa_{\rm
+f}\}$, $p\in\Pi(Y)$, which are closed, convex and symmetric, and $|\Pi(Y)|=
+96|Y|$ by Lemma~\ref{lem:lfowned}(i). Removing one slab at a time with the
+correlation inequality gives $\mu_q\ge\prod_p\mu_q\{|(d\psi)_p|\le\kappa_{\rm
+f}\}$. By Lemma~\ref{lem:sfglsplit}(iii), $\Var(d\psi)_p\le(2\lambda)^{-1}$,
+so by Lemma~\ref{lem:sfgltail}(i) each factor is at least $1-e^{-\lambda
+\kappa_{\rm f}^2}$.
+
+(iii) If $X\subset R^{\rm f}$, every $y\in X$ owns a plaquette $p_y$ with
+$|(d\psi)_{p_y}|>\kappa_{\rm f}$; the $p_y$ are distinct, and $\sum_{y\in X}
+(d\psi)_{p_y}^2>|X|\kappa_{\rm f}^2$. So $\{X\subset R^{\rm f}\}$ is
+contained in the union, over the at most $96^{|X|}$ choices of $(p_y)_{y\in
+X}$ with $p_y\in\Pi(y)$, of the events $E=\{\sum_y(d\psi)_{p_y}^2>|X|
+\kappa_{\rm f}^2\}$. The complement of $E$ and $C_Y=\{Y\cap R^{\rm f}=
+\emptyset\}$ are closed, convex and symmetric, so $\mu_q(E\cap C_Y)\le
+\mu_q(E)\mu_q(C_Y)$ by the correlation inequality. By
+Lemma~\ref{lem:sfglsplit}(iii) the covariance of $((d\psi)_{p_y})_{y\in X}$
+is at most $(2\lambda)^{-1}I$, and Lemma~\ref{lem:sfgltail}(ii) with
+$\sigma^2=(2\lambda)^{-1}$, $s=\kappa_{\rm f}$, $s^2/\sigma^2=2t\ge1$ and
+$n=|X|$ gives $\mu_q(E)\le(2et)^{|X|/2}e^{-t|X|}$.
+
+(iv) Let $Y=\Lambda'\setminus X$. By (iii), $\pi_X\le\mu_q\{X\subset R^{\rm
+f},\ Y\cap R^{\rm f}=\emptyset\}\le\epsilon_1^{|X|}\mu_q(C_Y)$. By the
+correlation inequality and (ii), $\pi_\emptyset=\mu_q(C_X\cap C_Y)\ge
+\mu_q(C_X)\mu_q(C_Y)\ge(1-e^{-t})^{96|X|}\mu_q(C_Y)$, and $\mu_q(C_Y)>0$.
+
+(v) The derivative of $\log\epsilon(t)$ is $\frac1{2t}-1-\frac{96e^{-t}}
+{1-e^{-t}}<0$ for $t>\frac12$. With $\log96=5\log2+\log3$ and the bounds
+on $\log2$, $\log3$ of the proof of Theorem~\ref{thm:lfkp}(ii),
+\[
+\log\epsilon_1(16)=\tfrac{15}2\log2+\log3-15.5<-9.20278 .
+\]
+As $e>2.7$, $e^{16}>2.7^{16}>7.9\cdot10^6$, and $-\log(1-x)\le x/(1-x)$
+gives $-96\log(1-e^{-16})<10^{-4}$. So $\log\epsilon(16)<-9.2$.
+\end{proof}
+
+The large-field remainder of the Gaussian layer is therefore exact: the
+weight of a fibre is the Gaussian factor $e^{-\lambda q'(\gamma)}$ times a
+constant, the calm part carries the factor $\pi_\emptyset$, and the parts with
+a rough region $X$ carry $\pi_X\le\epsilon(t)^{|X|}\pi_\emptyset$, none of
+which depends on $\gamma$. The weights $\pi_X$ need not factorise over the
+components of $X$, and no polymer representation of them is needed, since
+they do not depend on the coarse field. For $t\ge16$ they satisfy the bound
+$e^{-9|X|}$ that Theorem~\ref{thm:lfkp} asks of activities, and
+$-\log\pi_\emptyset\le96|\Lambda'|e^{-t}/(1-e^{-t})$. Part (iii) is the
+analogue of Theorem~\ref{thm:lfsuppression}(ii) without its hypothesis on the
+exterior: the exterior is not fixed but integrated, under the condition that
+it is calm.
+
+\begin{corollary}\label{cor:sfglscales}
+Let $\Lambda_0$ be a torus of side $2^m$, $m\ge2$, let $\Lambda_k$ be its
+$k$-th coarse torus, $q_0=Q_{\Lambda_0}$, and for $k\le m-3$ let $q_{k+1}$ be
+the restriction of $q_k'$ to $\mathcal A(\Lambda_{k+1})$. Then for $0\le k
+\le m-2$, $q_k\in\mathcal G(\Lambda_k)$, $q_k$ is invariant under the
+gauge transformations of $\Lambda_k$ that are constant on its blocks, and
+Theorem~\ref{thm:sfglstep} holds at the scale $k$ with the same $\lambda$,
+the same $\kappa_{\rm f}$ and the same $\epsilon(t)$.
+\end{corollary}
+
+\begin{proof}
+$Q_{\Lambda_0}$ is invariant under all gauge transformations. For $k\le
+m-3$ the side of $\Lambda_{k+1}$ is even and at least four, and
+Lemma~\ref{lem:sfglsplit}(ii) passes both properties from $q_k$ to
+$q_{k+1}$: the gauge transformations of $\Lambda_{k+1}$ constant on its
+blocks are of the form $d'h$.
+\end{proof}
+
+So the hypotheses of the Gaussian layer reproduce themselves exactly: the
+form at the next scale again dominates the plaquette form of its lattice,
+the coupling $\lambda$ does not change, and every constant of
+Theorem~\ref{thm:sfglstep} is the same at every scale. The restriction to
+$\mathcal A(\Lambda_{k+1})$ is the tree gauge of the coarse field. By the
+gauge invariance in Lemma~\ref{lem:sfglsplit}(ii), and since every coarse
+field is $\gamma_0+d'h$ with $\gamma_0\in\mathcal A(\Lambda_{k+1})$ by
+Lemma~\ref{lem:blocktree}(i) on $\Lambda_{k+1}$, the weight
+$e^{-\lambda q_k'}$ is determined by its values on $\mathcal
+A(\Lambda_{k+1})$, as the weight of $\SU(2)$ is by Lemma~\ref{lem:sfgaugeinv}.
+
+\emph{The shell in the mean.} At $\gamma=0$ the background vanishes and
+the thresholds relative to the background are the thresholds of the linear
+model. For $X\subset T$ with components $X_i$ let $K^{\rm lin}_{X_i}$ and
+$S^{\rm lin}_{X_i}$ be the integrals of Theorem~\ref{thm:lfmarkov}(i) and of
+the calm weight $S_{X_i}$, formed in the linear model at $\gamma=0$ as
+$K^{\rm lin}_X$ and $S^{\rm lin}_X$ are for $X=\{y\}$, and $\rho^{\rm lin}
+_{X_i}=K^{\rm lin}_{X_i}/S^{\rm lin}_{X_i}$, defined almost surely under the
+calm law $\mu^\circ$ of the linear model.
+
+\begin{corollary}\label{cor:sfglshell}
+In the linear model on the torus $\Lambda_L$ with $\gamma=0$, let $\kappa>0$
+and $\lambda\kappa^2\ge\frac12$. For every nonempty $X\subset T$ with
+components $X_i$,
+\[
+\E_{\mu^\circ}\Bigl[\prod_i\rho^{\rm lin}_{X_i}\Bigr]\le\epsilon(\lambda
+\kappa^2)^{|X|},
+\]
+and $\mu^\circ\{\prod_i\rho^{\rm lin}_{X_i}>R\}\le\epsilon(\lambda\kappa^2)
+^{|X|}/R$ for $R>0$. For $\lambda\kappa^2\ge16$ the mean is at most
+$e^{-9.2|X|}$.
+\end{corollary}
+
+\begin{proof}
+Lemma~\ref{lem:sfkernel} and the factorisation of
+Theorem~\ref{thm:lfmarkov}(i) concern only which links a factor involves, so
+they hold in the linear model, and as in the proof of
+Proposition~\ref{prop:sfrelative}(i) the law of the outer variables of $X$
+under $\mu^\circ$ has density $Z^{-1}_\emptyset\varPhi_X\prod_iS^{\rm lin}
+_{X_i}$ with respect to Lebesgue measure on them, where $Z_\emptyset=\int
+e^{-\lambda Q}\prod_ys_y\,dm_0$. Hence
+\[
+\E_{\mu^\circ}\Bigl[\prod_i\rho^{\rm lin}_{X_i}\Bigr]\le Z_\emptyset^{-1}
+\int\varPhi_X\prod_iK^{\rm lin}_{X_i},
+\]
+and
+\[
+Z_\emptyset^{-1}\int\varPhi_X\prod_iK^{\rm lin}_{X_i}=\frac{\int
+e^{-\lambda Q}\,\mathbf 1\{R=X\}\,dm_0}{\int e^{-\lambda Q}\,\mathbf 1\{R=
+\emptyset\}\,dm_0}=\frac{\pi_X}{\pi_\emptyset},
+\]
+the last for $q=Q_{\Lambda_L}$, $\gamma=0$ and $\kappa_{\rm f}=\kappa$, where
+the rough set $R$ of the linear model is $R^{\rm f}$. Apply
+Theorem~\ref{thm:sfglstep}(iv),~(v) and Markov's inequality.
+\end{proof}
+
+So in the linear model the relative activities are not essentially bounded
+under the calm law (Theorem~\ref{thm:sfshelllin}) but are bounded in the
+mean, with the explicit bound $\epsilon(\lambda\kappa^2)^{|X|}$, uniformly in
+the volume and for every $X$; the boundary values of
+Theorem~\ref{thm:sfshelllin}, at which the ratio is large, have calm-law
+probability at most $\epsilon^{|X|}/R$. This is the mean form asked for in
+Remark~\ref{rem:sfconditioning}. In the mean the regress of
+Remark~\ref{rem:sfshell} does not arise, because the outer variables are
+integrated and not fixed in the shell.
+
+\emph{The sharp threshold away from $\gamma=0$.} For $\gamma\ne0$ the
+threshold of the linear model is placed on $\varphi=\varphi^*_q(\gamma)+
+\psi$. When the background is calm with a margin, the sharp calm weight
+lies within the factor $\pi_\emptyset$ of the Gaussian form.
+
+\begin{proposition}\label{prop:sfglbackground}
+Let $L\ge32$ and $q=Q_{\Lambda_L}$, and for a coarse field $\gamma$ let
+$\kappa_c(\gamma)$ be the largest $|(d'\gamma)_P|$ over the coarse
+plaquettes $P$. Then for every plaquette $p$ of $\Lambda_L$,
+\[
+\bigl|(d\varphi^*_q(\gamma))_p\bigr|\le K_*\,\kappa_c(\gamma),\qquad K_*<
+1.64\cdot10^{19}.
+\]
+\end{proposition}
+
+\begin{proof}
+In the notation of Theorem~\ref{thm:sfprop}, $\varphi^*_q(\gamma)=L_0\gamma-
+PH^{-1}B^{\rm T}\gamma$. By Proposition~\ref{prop:effective}(ii) every
+plaquette of $L_0\gamma$ is $0$ or a curvature $(d'\gamma)_P$, and since
+$\gamma^{\rm T}Bv=\sum_p(dL_0\gamma)_p(dPv)_p$,
+\[
+(B^{\rm T}\gamma)_i=\sum_p(dL_0\gamma)_p(dPe_i)_p,\qquad|(B^{\rm T}\gamma)_i|
+\le12\sqrt2\,\kappa_c(\gamma),
+\]
+by the bound $\sum_p|(dPe_i)_p|\le6\cdot2\sqrt2$ of the proof of
+Theorem~\ref{thm:sfprop}(i). With $\sum_j|(dPe_j)_p|\le4p_1$ from the same
+proof and $S_H=\max_i\sum_j|(H^{-1})_{ij}|$,
+\[
+\bigl|(d\varphi^*_q(\gamma))_p\bigr|\le\bigl(1+48\sqrt2\,p_1S_H\bigr)\kappa_c
+(\gamma)=\bigl(1+\bar SS_H\bigr)\kappa_c(\gamma).
+\]
+By Theorem~\ref{thm:sfprop}(ii) at $\alpha=\frac1{500}$, $|(H^{-1})_{ij}|\le
+66.3\,e^{-\alpha d(i,j)}$. A block carries $17+28=45$ coordinates, and at
+most $(2d+1)^4-(2d-1)^4=64d^3+16d$ blocks lie at distance $d\ge1$ from a
+given one. With $x=e^{-\alpha}$, $\sum_{d\ge1}dx^d\le(1-x)^{-2}$ and
+$\sum_{d\ge1}d^3x^d=x(1+4x+x^2)(1-x)^{-4}\le6(1-x)^{-4}$, and $1-x\ge\alpha-
+\alpha^2/2$ gives $(1-x)^{-1}<500.51=:r$, so $r^2<250511$ and $r^4<6.2756
+\cdot10^{10}$. Hence
+\begin{align*}
+S_H&\le66.3\cdot45\bigl(1+384r^4+16r^2\bigr)\\
+&<66.3\cdot45\cdot2.4100\cdot10^{13}<7.20\cdot10^{16},
+\end{align*}
+and $K_*=1+\bar SS_H<1+227.40\cdot7.20\cdot10^{16}<1.64\cdot10^{19}$.
+\end{proof}
+
+The constant is far from the truth. It comes from bounding $H^{-1}$ by
+the slow rate $\frac1{500}$ of Theorem~\ref{thm:sfprop}, and it is used only
+to state the margin condition below in terms of the coarse field.
+
+\begin{corollary}\label{cor:sfglsharp}
+Let $q\in\mathcal G(\Lambda)$, $0<\kappa_{\rm f}<\kappa$, $t=\lambda
+\kappa_{\rm f}^2\ge\frac12$, and let $\gamma$ be a coarse field whose
+background has $|(d\varphi^*_q(\gamma))_p|\le\kappa-\kappa_{\rm f}$ for every
+plaquette $p$; for $q=Q_{\Lambda_L}$ and $L\ge32$ this holds when $\kappa_c
+(\gamma)\le(\kappa-\kappa_{\rm f})/K_*$. Let $Z^{\rm lin}_\emptyset(\gamma)=
+\int_{\mathcal V_\gamma}e^{-\lambda q}\prod_ys_y\,dm_\gamma$, where $s_y$ is
+the indicator that every plaquette of $\Pi(y)$ has $|(d\varphi)_p|\le
+\kappa$. Then
+\[
+0\le-\log Z^{\rm lin}_\emptyset(\gamma)-\lambda q'(\gamma)+\log Z_q\le
+-\log\pi_\emptyset\le\frac{96|\Lambda'|e^{-t}}{1-e^{-t}} .
+\]
+\end{corollary}
+
+\begin{proof}
+Since $\prod_ys_y\le1$, Theorem~\ref{thm:sfglstep}(i) gives the upper
+bound $Z^{\rm lin}_\emptyset(\gamma)\le Z_qe^{-\lambda q'(\gamma)}$. If every block is
+calm relative to the background, then $|(d\varphi)_p|\le|(d\varphi^*_q
+(\gamma))_p|+|(d\psi)_p|\le\kappa$ for every $p$, so $\prod_ys_y\ge\mathbf 1
+\{R^{\rm f}=\emptyset\}$ and $Z^{\rm lin}_\emptyset(\gamma)\ge Z_\emptyset
+(\gamma)=Z_q\pi_\emptyset e^{-\lambda q'(\gamma)}$. Finally Theorem~\ref
+{thm:sfglstep}(ii) and $-\log(1-x)\le x/(1-x)$.
+\end{proof}
+
+So on the coarse fields whose background is calm with the margin
+$\kappa_{\rm f}$, the sharp calm weight of the linear model is the Gaussian
+form up to a factor between $\pi_\emptyset$ and one, and this factor costs at
+most $96e^{-t}/(1-e^{-t})$ per block. This is a bound on the total, not a
+local representation of $\gamma\mapsto-\log Z^{\rm lin}_\emptyset(\gamma)-
+\lambda q'(\gamma)$. With the sharp threshold the calm events at
+$\gamma\ne0$ are not symmetric, the correlation inequality does not apply to
+them, and the comparison of the proof of Theorem~\ref{thm:sfglstep}(iv)
+leaves the factor $(1-e^{-t})^{-96|\Lambda'|}$, which is not uniform in the
+volume. This is why the thresholds are placed on the fluctuation.
+
+\begin{remark}[what the $\SU(2)$ step needs beyond the Gaussian
+layer]\label{rem:sfglsu2}
+Theorem~\ref{thm:sfglstep} and its corollaries concern the linear model
+only. A one-step expansion of the calm weight $Z_\emptyset(c)$ of $\SU(2)$ as
+a Gaussian factor times a polymer remainder with the same properties is not
+proved here, and the following parts of it are missing.
+\begin{enumerate}[label=\textup{(\alph*)},leftmargin=*]
+\item \emph{The background.} The minimiser of $Q$ on the fibre $F_c$ of the
+cut-off average, its existence and uniqueness near the linear minimiser,
+and a bound of its plaquettes by the coarse curvature, the nonlinear
+analogue of Proposition~\ref{prop:sfglbackground}. By
+Theorem~\ref{thm:sfgaugeobst} the leading term must be invariant under
+coarse gauge transformations, so the background is needed for every $c$ in
+the class of Corollary~\ref{cor:sfcoarse}, not only for $c$ near $I$.
+\item \emph{The non-Gaussian density.} In the chart of
+Theorem~\ref{thm:fibrechart}(iii) around the background, the constrained
+law has the density $e^{-\lambda Q(\Phi(\eta))-\psi(\eta)}$, a log-concave
+perturbation of a Gaussian law for large $\lambda$; the mass outside the
+chart is not bounded (Remark~\ref{rem:fibrechartopen}(a)).
+\item \emph{The conditioning bound.} Royen's inequality, used in
+Theorem~\ref{thm:sfglstep}(ii)--(iv), is a property of Gaussian measures.
+A strongly log-concave law conditioned on a convex set is again strongly
+log-concave, with the same constant, and concentrates about its conditional
+mean; so the missing input for $\SU(2)$ is a bound on the conditional means
+of the plaquette fluctuations, uniform in the convex conditioning event.
+\item \emph{Locality.} The Gaussian form $q'$ is not of finite range. Its
+kernel decays at the first step by Theorem~\ref{thm:sfprop}(iv), and its
+decay at the later scales of Corollary~\ref{cor:sfglscales} is not proved.
+Whether it couples blocks three apart is the question whether
+$(M_W)_{AB}$ of Theorem~\ref{thm:sfgauss} vanishes, and $(M_W)_{AB}\ne0$ is not
+proved by hand (Remark~\ref{rem:sfgaussvalue}).
+\item \emph{Thresholds at all scales.} With thresholds on the fluctuation at
+every scale, a fine plaquette is a sum of the lifts of the fluctuations of
+all scales and of the last background. A bound of these lifts, which would
+connect Corollary~\ref{cor:sfglscales} with the single-scale thresholds of
+Theorem~\ref{thm:lfmarkov}, is not proved.
+\end{enumerate}
+\end{remark}
 
 \paragraph*{The next step.}
 To repeat the step at the coarse scale with constants $(\lambda_1,
@@ -24912,8 +25905,10 @@ nonempty $\ell^\infty$-connected sets $X_i$ of blocks of scale $k+1$ of
 products $\prod_i\rho_{X_i}$, with $0\le\rho_X\le e^{-9|X|}$ almost
 surely and compatibility as in Theorem~\ref{thm:lfkp}.
 \end{enumerate}
-For $k=0$, (H3) is the hypothesis of Proposition~\ref{prop:sfrelative}(ii)
-together with $Z_\perp=0$.
+For $k=0$, the hypothesis of Proposition~\ref{prop:sfrelative}(ii) gives
+(H3) only when $Z_\perp=0$. For $\SU(2)$, $Z_\perp(I)>0$
+(Theorem~\ref{thm:sfperp}), so (H3) at $k=0$ has to keep $Z_\perp$ as part
+of the weight, and is not available in the form stated.
 
 \begin{theorem}[conditional iteration]\label{thm:iterate}
 Suppose that (H1)--(H3) hold at every step $k<K$, and let $\sigma=\sum_{k<K}
@@ -24987,11 +25982,12 @@ loop representation of the remainder that is not proved.
 local as a form uniformly in $k$ on $\Z^4$ (Theorem~\ref{thm:effectivelocal}),
 and Theorem~\ref{thm:chartdecay} gives decay of covariances at one scale.
 The bound on $H_{k+1}-R_{k+1}$ is not proved for any $k$.
-\item (H3) at $k=0$ holds with activities $\rho_X\le e^{-9|X|}$ where the
+\item (H3) at $k=0$: the activities satisfy $\rho_X\le e^{-9|X|}$ where the
 boundary values admit a completion calm at $\kappa/30$, for $\lambda\ge
 \lambda^{**}(\kappa)$ (Theorem~\ref{thm:sfcalm},
 Proposition~\ref{prop:sfrelative}); the shell $(\kappa/30,\kappa]$ and
-$Z_\perp$ are not bounded, and nothing is proved for $k\ge1$.
+$Z_\perp$, which is positive for $\SU(2)$, are not bounded, so (H3) is not
+proved at $k=0$, and nothing is proved for $k\ge1$.
 \item The rates of Theorems~\ref{thm:lfmarkov}(iii) and~\ref{thm:sfcalm}
 are increasing in $\kappa$, and $\kappa<\kappa_c$ is required, where
 $0.0837613\le\kappa_c\le0.0837617$ (Section~\ref{ssec:witnessradius}). For
@@ -25050,6 +26046,497 @@ Lemma~\ref{lem:smallstep}, whose bound is linear in $\eta$; at the linear
 level there is no loss, since $q_1\ge Q_1$, and the long-wavelength fields
 of Theorem~\ref{thm:stepsharp}(iii) show that no lower constant above
 $t_L^{-2}$ holds.
+\end{remark}
+
+\subsection{The induction over scales}\label{ssec:allscales}
+
+This subsection asks which hypotheses of Theorem~\ref{thm:iterate} follow
+from the conclusions of the previous step, at the trivial background. The
+relative error (H1) and the large-field cost (H3) are inputs of one step
+each; they are not implied by the earlier steps. The locality hypothesis
+(H2) is different: it bounds the inverse of the whole Hessian, and
+Proposition~\ref{prop:h2volume} shows that it cannot hold with constants
+independent of the volume, since the inverse carries the long-wavelength
+modes. It is replaced below by a bound on the form $H_k$ itself. The
+induction step is then proved: the relative comparison, the fibre gap and
+the locality of the fibre covariance pass from step $k$ to step $k+1$ under
+one condition (C) on the error of the step $k$ alone, relative and local
+(Proposition~\ref{prop:fibreinherit}, Theorem~\ref{thm:allscales}), the
+locality with constants that grow with $k$. Theorem~\ref{thm:allscales}
+states the induction, and
+Proposition~\ref{prop:scalecount} counts the scales.
+
+\emph{Setting.} Throughout, $H_0=2\lambda_0\sum_p\lVert(dX)_p\rVert^2$ on
+$\mathcal X_0$, $\lambda_k=\lambda_0-tk$ with $t=11\log2/(12\pi^2)$ as in
+Theorem~\ref{thm:iterate}(b), and $R_k=2\lambda_kS_k$. The torus of scale
+$k$ has side $n_k=L/2^k$ in units of its spacing. Let $\hat{\mathcal X}_k$
+be the $\g$-valued fields on all links of that torus, so that $\mathcal X_k
+\subset\hat{\mathcal X}_k$, and let $\hat R_k=2\lambda_kS_k$ on $\hat
+{\mathcal X}_k$; $R_k$ is its restriction to $\mathcal X_k$. The map $B_k=V$
+sends $\mathcal X_k$ onto $\hat{\mathcal X}_{k+1}$ (Proposition~\ref
+{prop:effective}(ii)), $\mathcal M_kH$ is a form on $\hat{\mathcal X}_{k+1}
+$, and (H1) compares its restriction to $\mathcal X_{k+1}$ with $H_{k+1}$.
+All forms are written as symmetric matrices with blocks $H_{ab}\in
+\operatorname{End}(\g)$ indexed by links, and $\lVert H_{ab}\rVert$ is the
+operator norm. A link of scale $k$ sits at its midpoint, measured in units
+of the spacing $2^k$, and $d_k$ is the $\ell^\infty$ distance on the torus
+between midpoints. For a matrix $M$ indexed by a set with a pseudometric
+$d$ and $\alpha\ge0$ put
+\[
+\lVert M\rVert_{(\alpha)}=\sup_a\sum_b\lVert M_{ab}\rVert e^{\alpha d(a,b)}.
+\]
+For symmetric $M$ the Schur test gives $\lVert M\rVert\le\lVert M\rVert_{(0)}
+\le\lVert M\rVert_{(\alpha)}$, and $\lVert\cdot\rVert_{(\alpha)}$ does not
+increase under restriction to a subset of the indices.
+
+\begin{lemma}\label{lem:weightedcount}
+For $0<u\le1$ and every link $a$ of a torus of any scale, or of $\Z^4$,
+$\sum_be^{-u\,d(a,b)}\le2532\,u^{-4}$.
+\end{lemma}
+
+\begin{proof}
+The midpoints of the links of one direction form a translate of a lattice
+$\Z^4$, or of a discrete torus, and the number of its points at
+$\ell^\infty$ distance at most $r$ from a given point is at most $(2r+1)^4$.
+Writing $e^{-ud}=\int_d^\infty ue^{-ur}\,dr$ and exchanging sum and integral,
+the sum over one direction is at most $\int_0^\infty ue^{-ur}(2r+1)^4\,dr=
+384u^{-4}+192u^{-3}+48u^{-2}+8u^{-1}+1$, since $\int_0^\infty ue^{-ur}r^j
+\,dr=j!\,u^{-j}$. For $u\le1$ this is at most $633u^{-4}$, and there are
+four directions.
+\end{proof}
+
+\begin{proposition}[(H2) depends on the volume]\label{prop:h2volume}
+Let $k\ge1$ with $n_k\ge4$, and let $\mathcal Y\subset\mathcal X_k$ be a
+subspace on which $R_k$ is positive definite and with $\mathcal Y+(\mathcal
+X_k\cap\ker R_k)=\mathcal X_k$. Every slice of the coarse gauge orbits on
+which $R_k$ is positive definite has this property, since the gauge
+directions lie in $\ker R_k$.
+\begin{enumerate}[label=\textup{(\roman*)},leftmargin=*]
+\item There is $\tilde w\in\hat{\mathcal X}_k$, orthogonal to $\ker\hat
+R_k$, with $\hat R_k(\tilde w)\le10\pi^2\lambda_k|\tilde w|^2/n_k^2$, and
+\[
+\lVert(R_k|_{\mathcal Y})^{-1}\rVert\ge\frac{n_k^2}{10\pi^2\lambda_k}.
+\]
+\item If the bounds of (H2) hold on $\mathcal Y$ at scale $k$ with
+constants $G_k$, $\ell_k$, then $G_k\ge n_k^2/(10\pi^2\lambda_k)$ and
+$\lVert(H_k-R_k)|_{\mathcal Y}\rVert\le10\pi^2\ell_k\lambda_k/n_k^2$; and
+the norm of $H_k^{-1}$ on $\mathcal Y$, bounded by $G_k/(1-\ell_k)$ in
+Theorem~\ref{thm:iterate}(c), is at least $n_k^2/(10\pi^2\lambda_k)(1+
+\ell_k)^{-1}$.
+\item If $\mathcal Y$ is the orthogonal complement of $\mathcal X_k\cap
+\ker R_k$ in $\mathcal X_k$, then $H_k=cR_k$ with $c>0$ satisfies the
+bounds of (H2) at scale $k$ only if $|c-1|<5\pi^2/(6n_k^2)$.
+\item On the same $\mathcal Y$, the form $E=\varepsilon\lambda_k|x|^2$
+satisfies $|E|\le\varepsilon'R_k$ on $\mathcal Y$ only if $\varepsilon'\ge
+\varepsilon n_k^2/(10\pi^2)$.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+(i) Write $n=n_k$, $N=2^kn$, $q=2\pi/N$, and fix $Z\in\g$ with $\lVert Z
+\rVert=1$. Let $\varphi$ be the fine field with $\varphi_{(x,0)}=\cos(qx_1)
+Z$ and $\varphi=0$ on the links of the other directions. Its only nonzero
+curvatures are on the plaquettes of the plane $\{0,1\}$, where $(d\varphi)_p
+=(\cos qx_1-\cos q(x_1+1))Z=2\sin\frac q2\sin q(x_1+\frac12)Z$, so
+\[
+Q(\varphi)=N^3\cdot4\sin^2\frac\pi N\sum_{x_1=0}^{N-1}\sin^2q\Bigl(x_1+
+\frac12\Bigr)=2N^4\sin^2\frac\pi N .
+\]
+By Lemma~\ref{lem:straightpaths}(i), an identity of linear maps that holds
+on the torus as well, $V^{(k)}(\varphi)$ vanishes off the direction $0$
+and
+\[
+V^{(k)}_{y,0}(\varphi)=\sum_{j=0}^{2^k-1}\cos q(2^ky_1+j)=\rho\,\tilde
+w_{y,0},
+\]
+with $\tilde w_{y,0}=\cos(2\pi y_1/n+c_0)Z$, $c_0=q(2^k-1)/2$, $\tilde w=0$
+on the other directions, and $\rho=\sin(\pi/n)/\sin(\pi/N)$. Since $n\ge3$,
+$|\tilde w|^2=n^4/2$. Hence
+\begin{align*}
+\frac{S_k(\tilde w)}{|\tilde w|^2}&\le\frac{Q(\varphi)}{\rho^2|\tilde w|^2}
+=\frac{4\cdot16^k\sin^4(\pi/N)}{\sin^2(\pi/n)}\\
+&\le\frac{4\pi^4}{n^4\sin^2(\pi/n)}\le\frac{4\pi^2}{0.8049\,n^2}<\frac{5
+\pi^2}{n^2},
+\end{align*}
+using $\sin x\le x$, and $\sin x\ge x(1-x^2/6)$ at $x=\pi/n\le\pi/4$ with
+$(1-\pi^2/96)^2>0.8049$. So $\hat R_k(\tilde w)\le10\pi^2\lambda_k|\tilde
+w|^2/n^2$.
+
+$\tilde w$ is orthogonal to $\ker\hat R_k$. Indeed $S_k\ge Q_k$ by
+Proposition~\ref{prop:effective}(i), whose proof applies on every lattice,
+so a field $w$ in $\ker\hat R_k$ has zero curvature. The curvature of a
+plaquette in the plane $\{0,1\}$ at $y$ is $w_{y,0}+w_{y+e_0,1}-w_{y+e_1,0}
+-w_{y,1}$; summed over $y_0$ around the torus, the terms in the direction $1$
+cancel, so $f(y_1,y_2,y_3)=\sum_{y_0}w_{y,0}$ does not depend on $y_1$. Then
+$\langle\tilde w,w\rangle=\sum_{y_2,y_3}\langle Z,f(\cdot,y_2,y_3)\rangle
+\sum_{y_1}\cos(2\pi y_1/n+c_0)=0$.
+
+The form $S_k$ is invariant under the coarse gauge directions: for $h$ on
+the sites of scale $k$, let $h_f$ be the fine function equal to $h(y)$ on
+$B_k(y)$; then $V^{(k)}(dh_f)=-d_kh$ by Lemma~\ref{lem:straightpaths}(ii),
+so $\varphi\mapsto\varphi-dh_f$ maps the fields with $V^{(k)}(\varphi)=w$
+onto those with $V^{(k)}(\varphi)=w+d_kh$ and preserves $Q$. As in the
+proof of Lemma~\ref{lem:straightpaths}(iii), applied to the blocks of side
+two of the lattice of scale $k$, there is $h$ with $t=\tilde w+d_kh\in
+\mathcal X_k$, and $t-\tilde w\in\ker\hat R_k$. By hypothesis $t=y+z$ with
+$y\in\mathcal Y$ and $z\in\mathcal X_k\cap\ker R_k\subset\ker\hat R_k$. A
+positive semidefinite form is constant on the cosets of its kernel, so
+$R_k(y)=\hat R_k(\tilde w)$; and $y\in\tilde w+\ker\hat R_k$ with $\tilde
+w\perp\ker\hat R_k$, so $|y|\ge|\tilde w|$. Therefore $\lVert(R_k|_{\mathcal
+Y})^{-1}\rVert\ge|y|^2/R_k(y)\ge n^2/(10\pi^2\lambda_k)$.
+
+(ii) The function $\phi=0$ is $1$-Lipschitz, so (H2) contains $\lVert(R_k|_
+{\mathcal Y})^{-1}\rVert\le G_k$ and $\lVert(H_k-R_k)|_{\mathcal Y}\rVert
+\le\ell_k/G_k$; apply (i). At the vector $y$ of (i), $H_k(y)\le R_k(y)+
+\lVert(H_k-R_k)|_{\mathcal Y}\rVert|y|^2\le(1+\ell_k)\,10\pi^2\lambda_k
+|y|^2/n^2$, which gives the last bound.
+
+(iii) $R_k$ is block diagonal for $\mathcal X_k=\mathcal Y\oplus(\mathcal X
+_k\cap\ker R_k)$, so its norm on $\mathcal Y$ is its largest eigenvalue on
+$\mathcal X_k$, which is at least $R_k(\delta_eZ)$ for the field $\delta_e
+Z$ equal to $Z$ on one active link $e$ and zero elsewhere. By
+Proposition~\ref{prop:effective}(iii), $R_k(\delta_eZ)\ge2\lambda_kQ_k(
+\delta_eZ)=12\lambda_k$, since a link lies in six plaquettes. If $H_k=cR_k$,
+then $\lVert(H_k-R_k)|_{\mathcal Y}\rVert=|c-1|\lVert R_k|_{\mathcal Y}
+\rVert\ge12|c-1|\lambda_k$, and (ii) with $\ell_k<1$ gives $12|c-1|<10\pi^2
+/n^2$.
+
+(iv) At the vector $y$ of (i), $\varepsilon\lambda_k|y|^2$ is at most
+$\varepsilon'R_k(y)$, which is at most $10\pi^2\varepsilon'\lambda_k|y|^2/
+n^2$.
+\end{proof}
+
+The norm of $H_k^{-1}$ on a slice is therefore of order $n_k^2/\lambda_k$
+for every $H_k$ with $\lVert H_k-R_k\rVert<\lambda_k$ on it, and the entry
+bound of Theorem~\ref{thm:iterate}(c) is at least $n_k^2/(10\pi^2\lambda_k)
+(1+\ell_k)^{-1}$ at distance zero: the covariance of the massless modes
+does not decay exponentially, uniformly in the volume. By (iii), (H2)
+excludes a change of the coupling by any factor independent of $L$, even
+one that (H1) allows with $\varepsilon_k$ fixed. Part (iv) is the torus
+form of the conversion cost $C_n$ of Remark~\ref{rem:relscales}. The
+exponential decay that holds uniformly is that of the fibre covariance,
+where Proposition~\ref{prop:effective}(iv) gives a gap, and it follows
+from a bound on the form $H_k$ rather than on its inverse:
+\begin{enumerate}[label=\textup{(H2$^*$)},leftmargin=*]
+\item \emph{local form:} $\lVert H_k\rVert_{(\alpha_k)}\le\Lambda_k
+\lambda_k$ on $\mathcal X_k$ with the distance $d_k$, for some $0<\alpha_k
+\le1$ and $\Lambda_k\ge1$;
+\end{enumerate}
+\begin{enumerate}[label=\textup{(D)},leftmargin=*]
+\item \emph{local one-step error:} the difference $D_k=H_{k+1}-
+\frac{\lambda_{k+1}}{\lambda_k}\mathcal M_kH_k|_{\mathcal X_{k+1}}$ has
+$\lVert D_k\rVert_{(\alpha_{k+1})}\le\delta_k\lambda_{k+1}$ with the
+distance $d_{k+1}$.
+\end{enumerate}
+At $k=0$, $H_0=2\lambda_0Q$ has diagonal blocks $12\lambda_0$ and, in each
+row, eighteen further blocks of norm $2\lambda_0$, at the other links of
+the six plaquettes of the link, all at distance at most one; so
+(H2$^*$) holds at $k=0$ for every $\alpha_0\in(0,1]$ with $\Lambda_0=12+
+36e^{\alpha_0}$. Hypothesis (D) concerns one integration only, while (H2)
+concerns the composition of all earlier ones.
+
+For $k<K$ let $\mathcal C_k$ be the inverse of $H_k$ on $\ker B_k\cap
+\mathcal X_k$, extended by zero on its orthogonal complement in $\mathcal
+X_k$ (the covariance of the fibre, up to the factor of the Gaussian
+normalisation), and $\mathcal T_k:\hat{\mathcal X}_{k+1}\to\mathcal X_k$
+the map that sends $w$ to the minimiser of $H_k$ on $\{B_kx=w\}$. A coarse
+link $(y,\mu)$ is placed, in the units of scale $k$, at the centre $2y+e_
+\mu+\frac12(1,1,1,1)$ of $B(y)\cup B(y+e_\mu)$; on the union of the links
+of scale $k$ and these points $d$ denotes the $\ell^\infty$ distance in
+units of scale $k$, so that $d=2d_{k+1}$ between two coarse links.
+
+\begin{proposition}[what passes from step $k$ to step $k+1$]
+\label{prop:fibreinherit}
+Let $k<K$ with $n_k\ge4$, and let $H_k$ be positive semidefinite on
+$\mathcal X_k$.
+\begin{enumerate}[label=\textup{(\roman*)},leftmargin=*]
+\item If $k=0$, or if (H1) holds at the steps $j<k$ with $\sigma_k=\sum_{j<
+k}\varepsilon_j\le\frac12$, then $H_k(x)\ge\lambda_k|x|^2/52$ for $x\in
+\ker B_k\cap\mathcal X_k$.
+\item Suppose the bound of (i) and (H2$^*$) at scale $k$, and put
+$\alpha_*=\alpha_k/(11900\Lambda_k)$. Then for all links $a,b$ of scale $k$
+and $i,j$ of scale $k+1$,
+\begin{gather*}
+\lVert(\mathcal C_k)_{ab}\rVert\le\frac{2186}{\lambda_k}e^{-\alpha_*d(a,b)},
+\\
+\lVert(\mathcal T_k)_{ai}\rVert\le2186\,\Lambda_ke^{-\alpha_*d(a,i)},\\
+\lVert(\mathcal M_kH_k)_{ij}\rVert\le2186\,\Lambda_k^2\lambda_k\,e^{-2
+\alpha_*d_{k+1}(i,j)} .
+\end{gather*}
+\item Under the same hypotheses, with $C_*=2186\cdot2532\cdot11900^4$,
+which is less than $1.11\cdot10^{23}$,
+\[
+\Bigl\lVert\frac{\lambda_{k+1}}{\lambda_k}\mathcal M_kH_k|_{\mathcal X_{k+
+1}}\Bigr\rVert_{(\alpha_*)}\le C_*\frac{\Lambda_k^6}{\alpha_k^4}\lambda_{k+
+1};
+\]
+so if (D) holds with $\alpha_{k+1}=\alpha_*$, then (H2$^*$) holds at scale
+$k+1$ with $\Lambda_{k+1}=C_*\Lambda_k^6\alpha_k^{-4}+\delta_k$.
+\item For every positive semidefinite $H$ on $\mathcal X_k$ and $\varepsilon
+\ge0$, the form $E=\varepsilon\lambda_k|x|^2$ has $\lVert E\rVert_{(\alpha)}
+=\varepsilon\lambda_k$ for every $\alpha$, while $\mathcal M_k(H+E)-\mathcal
+M_kH\ge4\varepsilon\lambda_k|w|^2$ on $\hat{\mathcal X}_{k+1}$. So no bound
+$\lVert\mathcal M_k(H+E)-\mathcal M_kH\rVert\le C\lVert E\rVert_{(\alpha)}$
+holds for all $H$ and $E$ with $C<4$.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+\emph{The averages.} By the formula of the proof of
+Theorem~\ref{thm:blockgap}, $V_{y,\mu}$ has the coefficient $\frac18$ on the
+eight links $(x,\mu)$, $x\in B(y)$, $o_\mu=1$, which are never tree links,
+and $\frac1{16}$ on the links of direction $\mu$ with $o_\mu=0$ in $B(y)$
+and in $B(y+e_\mu)$. So a row of $B=B_k$ has absolute sum at most $2$, a
+link has total weight at most $\frac18$ in the rows, and every link in the
+support of a row lies within distance $1$ of the point of its coarse link:
+the transverse coordinates of the midpoints differ from those of the centre
+by $\frac12$, and the coordinate $\mu$ by at most $1$. The diagonal entries
+of $BB^\top$ are at least $8/64$, and the row $(y,\mu)$ meets only the rows
+$(y\pm e_\mu,\mu)$, in at most eight links with coefficients $\frac1{16}$,
+so its off-diagonal entries add up to at most $2\cdot\frac8{256}$. By
+Gershgorin, $BB^\top\ge\frac1{16}$, and likewise $BB^\top\le\frac8{64}+
+\frac{16}{256}+\frac2{32}=\frac14$. These bounds act on each component in
+an orthonormal basis of $\g$.
+
+(i) At $k=0$, $H_0=R_0$. Otherwise Theorem~\ref{thm:iterate}(a), whose
+proof uses only (H1), gives $H_k\ge(1-\sigma_k)R_k\ge\lambda_kS_k$, and
+Proposition~\ref{prop:effective}(iv), whose proof uses only
+Theorem~\ref{thm:blockgap} and $S_k\ge Q_k$ and so applies on the torus,
+gives $S_k(x)\ge|x|^2/52$ on $\ker B_k\cap\mathcal X_k$, the space $\Phi_W$
+of the lattice of scale $k$ with $W$ all its blocks.
+
+(ii) Let $\lambda=\lambda_k$, $\Lambda=\Lambda_k$, $s=\Lambda\lambda$, and
+$K=\bigl(\begin{smallmatrix}H_k&sB^\top\\sB&0\end{smallmatrix}\bigr)$ on
+$\mathcal X_k\oplus\hat{\mathcal X}_{k+1}$. Lemma~\ref{lem:saddle} applies
+with $h=\lVert H_k\rVert\le\Lambda\lambda$, $\beta=\frac1{16}$ and $a=
+\lambda/52$: with $\Lambda\ge1$, $|x_1|\le4|g|/(\Lambda\lambda)$,
+\begin{gather*}
+|x|\le\frac{52(|f|+4|g|)+4|g|}{\lambda}=\frac{52|f|+212|g|}\lambda,\\
+|y|\le\frac{4|f|}{\Lambda\lambda}+4|x|\le\frac{212|f|+848|g|}\lambda,
+\end{gather*}
+so $|x|+|y|\le(264|f|+1060|g|)/\lambda$, and $\lVert K^{-1}\rVert\le1093/
+\lambda$ since $264^2+1060^2<1093^2$. With weights $e^{\alpha_kd}$, a row
+of $H_k$ in $K$ has sum at most $\Lambda\lambda+\frac18se^{\alpha_k}$, and a
+row of $sB$ at most $2se^{\alpha_k}$; with $\alpha_k\le1$ both are at most
+$2e\Lambda\lambda\le5.44\Lambda\lambda$. Lemma~\ref{lem:combes} needs a
+finite range, and is replaced as follows. For $1$-Lipschitz $\phi$ and
+$0\le\alpha\le\alpha_k$, $e^{\alpha\phi}Ke^{-\alpha\phi}=K+E$ with
+$\lVert E_{ab}\rVert\le(e^{\alpha d(a,b)}-1)\lVert K_{ab}\rVert$, and
+$e^{\alpha r}-1\le(\alpha/\alpha_k)(e^{\alpha_kr}-1)$ by convexity in
+$\alpha$; by the Schur test $\lVert E\rVert\le(\alpha/\alpha_k)\,5.44
+\Lambda\lambda$. For $\alpha=\alpha_*$, $\lVert K^{-1}E\rVert\le5.44\cdot
+1093/11900<\frac12$, and as in Lemma~\ref{lem:combes}
+$\lVert e^{\alpha_*\phi}K^{-1}e^{-\alpha_*\phi}\rVert\le2186/\lambda$. With
+$\phi=d(\cdot,b)$ every block of $K^{-1}$ satisfies $\lVert(K^{-1})_{ab}
+\rVert\le(2186/\lambda)e^{-\alpha_*d(a,b)}$. If $K(x,y)=(f,0)$, then $x\in
+\ker B$ and $H_kx-f\perp\ker B$, so $\mathcal C_k$ is the upper left block
+of $K^{-1}$. If $K(x,y)=(0,sw)$, then $Bx=w$ and $H_kx+sB^\top y=0$, the
+Lagrange condition of the minimum, which is unique by (i); so $\mathcal T_k=
+s(K^{-1})_{12}$, and $H_k(x)=-s\langle Bx,y\rangle=-s^2\langle w,(K^{-1})_
+{22}w\rangle$, that is, $\mathcal M_kH_k=-s^2(K^{-1})_{22}$. The three
+bounds follow, with $d=2d_{k+1}$ between coarse links.
+
+(iii) By (ii) and Lemma~\ref{lem:weightedcount} with $u=\alpha_*\le1$,
+\begin{align*}
+\Bigl\lVert\frac{\lambda_{k+1}}{\lambda_k}\mathcal M_kH_k\Bigr\rVert_{(
+\alpha_*)}&\le2186\Lambda_k^2\lambda_{k+1}\sup_i\sum_je^{-\alpha_*d_{k+1}(
+i,j)}\\
+&\le2186\cdot2532\,\Lambda_k^2\alpha_*^{-4}\lambda_{k+1},
+\end{align*}
+which is the bound, and restriction to $\mathcal X_{k+1}$ does not increase
+it. Adding $D_k$ gives (H2$^*$) at scale $k+1$.
+
+(iv) The infimum of a sum is at least the sum of the infima, and
+$\inf\{|x|^2:Bx=w\}=\langle w,(BB^\top)^{-1}w\rangle\ge4|w|^2$ because
+$BB^\top\le\frac14$. This is Proposition~\ref{prop:massgrowth} at
+$\kappa=0$.
+\end{proof}
+
+For $k<K$ write $D_k=H_{k+1}-\frac{\lambda_{k+1}}{\lambda_k}\mathcal M_k
+H_k|_{\mathcal X_{k+1}}$ for the error of the step $k$, and consider the
+single condition on these errors
+\begin{enumerate}[label=\textup{(C)},leftmargin=*]
+\item \emph{one-step error, relative and local:} for every $k<K$,
+\[
+-\frac{\lambda_{k+1}}{\lambda_k^{\vphantom1}}\frac{\mathcal M_kH_k}{
+\lambda_{k+1}^2}\le D_k\le\frac{\lambda_{k+1}}{\lambda_k}\frac{\mathcal M_k
+H_k}{\lambda_{k+1}^2}\quad\text{on }\mathcal X_{k+1},
+\]
+and $\lVert D_k\rVert_{(\alpha_{k+1})}\le\delta_k\lambda_{k+1}$ for some
+$\delta_k\ge0$.
+\end{enumerate}
+It is (H1) with $\varepsilon_k=\lambda_{k+1}^{-2}$ together with (D); both
+concern one integration only.
+
+\begin{theorem}[the induction over scales under one condition]
+\label{thm:allscales}
+Let $L/2^K\ge4$, $\lambda_K\ge32$, $0<\alpha_0\le1$, $\Lambda_0=12+36e^{
+\alpha_0}$, and define recursively $\alpha_{k+1}=\alpha_k/(11900\Lambda_k)$
+and $\Lambda_{k+1}=C_*\Lambda_k^6\alpha_k^{-4}+\delta_k$, with $C_*$ as in
+Proposition~\ref{prop:fibreinherit}(iii). For $k\le K$ let $P_k$ be the
+conjunction of
+\begin{enumerate}[label=\textup{(\alph*)},leftmargin=*]
+\item $(1-\sigma_k)R_k\le H_k\le e^{\sigma_k}R_k$, where $\sigma_k=\sum_{j<
+k}\lambda_{j+1}^{-2}$;
+\item if $k<K$, $H_k(x)\ge\lambda_k|x|^2/52$ on $\ker B_k\cap\mathcal X_k$;
+\item (H2$^*$) at scale $k$ with $(\alpha_k,\Lambda_k)$, and, if $k<K$, the
+bounds of Proposition~\ref{prop:fibreinherit}(ii) for the fibre covariance,
+the minimiser map and the block infimum.
+\end{enumerate}
+\begin{enumerate}[label=\textup{(\roman*)},leftmargin=*]
+\item $P_0$ holds, and for every $k<K$, $P_k$ and (C) at the step $k$
+imply $P_{k+1}$. No other hypothesis enters.
+\item Hence under (C), $P_k$ holds for every $k\le K$, with $\sigma_k\le
+0.4865$, so $\frac12R_k\le H_k\le1.65\,R_k$; the bounds of (a) and (b) are
+uniform in $\lambda_0$, $K$ and $L$, and those of (c) are uniform in $L$.
+\item The reference chain $H_k=R_k$ satisfies (C) with $D_k=0$, so $P_k$
+holds for it for every $k$, unconditionally.
+\item The constants of (c) are not bounded in $k$: $\Lambda_k\ge48^{6^k}$
+and $\alpha_{k+1}\le\alpha_k/(5.7\cdot10^5)$.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+(i) $P_0$: $H_0=R_0$, Proposition~\ref{prop:fibreinherit}(i) at $k=0$, and
+the computation after (D). Let $P_k$ and (C) at the step $k$ hold. By the
+first half of (C), (H1) holds at the step $k$ with $\varepsilon_k=\lambda_{
+k+1}^{-2}<1$; as in the proof of Theorem~\ref{thm:iterate}(a), $\mathcal
+M_k$ is monotone and positively homogeneous, so (a) at $k$ gives $(1-\sigma
+_k)(1-\varepsilon_k)R_{k+1}\le H_{k+1}\le e^{\sigma_k}(1+\varepsilon_k)R_{
+k+1}$, which is (a) at $k+1$ since $(1-\sigma_k)(1-\varepsilon_k)\ge1-
+\sigma_{k+1}$. The bound $\sigma_{k+1}\le\sigma_K\le0.4865$ of
+Theorem~\ref{thm:iterate}(b) with $c_\varepsilon=1$ and $\lambda_K\ge32$,
+and Proposition~\ref{prop:fibreinherit}(i), give (b) at $k+1$. The bounds of
+(c) at $k$ are Proposition~\ref{prop:fibreinherit}(ii), from (b) and (H2$^*
+$) at $k$, and (H2$^*$) at $k+1$ is Proposition~\ref{prop:fibreinherit}(iii)
+with the second half of (C). (ii) Induction with (i); $1-0.4865\ge\frac12$
+and $e^{0.4865}\le1.65$. (iii) $R_{k+1}=\frac{\lambda_{k+1}}{\lambda_k}
+\mathcal M_kR_k$ by definition. (iv) $\Lambda_0\ge48$, $C_*\ge1$ and
+$\alpha_k\le1$ give $\Lambda_{k+1}\ge\Lambda_k^6$, and $11900\cdot48>5.7
+\cdot10^5$.
+\end{proof}
+
+Hypothesis (H2) is not used, and by Proposition~\ref{prop:h2volume} it does
+not hold with $G_k$ and $\ell_k$ independent of $L$. The large-field cost
+(H3) is independent of (C): it concerns the values of the action far from
+the background, which no bound on Hessians at the background controls, and
+the proof of Theorem~\ref{thm:iterate}(d) uses (H3) alone, so that part
+holds at every step at which (H3) holds. The theorem is the induction that
+the present estimates support: the relative comparison and the fibre gap
+pass from step $k$ to step $k+1$ with constants independent of $k$, and the
+locality of the fibre passes with constants that grow faster than any
+exponential. The decay length of the fibre covariance at scale $k$,
+$\alpha_k^{-1}$ in units of $2^k$, is more than $(5.7\cdot10^5)^k$ in those
+units, so the bound of (c) says nothing beyond the first steps at any
+volume. A bound uniform in $k$ cannot come from
+Proposition~\ref{prop:fibreinherit}(ii), (iii) alone, which use only the
+size of $H_k$ and its gap, and by part (iv) of that proposition a
+comparison of $H_k$ with the uniformly local reference $R_k$
+(Theorem~\ref{thm:effectivelocal}) in an absolute weighted norm loses a
+factor of at least four per step. Condition (C) is not proved for any $k$
+(Proposition~\ref{prop:iteratestatus}(i), Remark~\ref{rem:relstepinputs}).
+
+\begin{proposition}[the count of scales]\label{prop:scalecount}
+Along the one-loop running $\lambda_k=\lambda_0-tk$, with $\beta=4\lambda$
+and $b=11/(3\pi^2)$, so that $4t=b\log2$:
+\begin{enumerate}[label=\textup{(\roman*)},leftmargin=*]
+\item The hypothesis $\lambda_K\ge32$ of Theorem~\ref{thm:allscales}
+allows $K=\lfloor(\lambda_0-32)/t\rfloor$ steps, which is unbounded as
+$\lambda_0\to\infty$; under (C) the bounds (a) and (b) of
+Theorem~\ref{thm:allscales} hold uniformly over all of them.
+\item The large-field estimates of Section~\ref{ssec:lfstep}, in the form
+proved at the first step (Theorem~\ref{thm:sfcalm},
+Proposition~\ref{prop:sfrelative}), give no activity bound at a coupling
+$\lambda\le809300$, so at most the steps with $\lambda_k>809300$ can
+receive (H3) from them. At least $(809300-\lambda_K)/t-1$ steps $k<K$ have
+$\lambda_k\le809300$, more than $1.257\cdot10^7$ when $\lambda_K\le1$,
+whatever $\lambda_0$. The lattice spacing at the last scale with
+$\lambda_k>809300$ is less than $e^{-8.713\cdot10^6}$ times the spacing of
+the scale at which $\lambda_k$ reaches one.
+\item The islands of Theorem~\ref{thm:islandscales} at the Wilson coupling
+$\beta_W=4\lambda_0$ are controlled at the scales $j\le j_{\max}$, and if
+$j_{\max}\ge1$ then $j_{\max}\le1+\log_{16}(\beta_W/(2.895\cdot10^{23}))$,
+while the running from $\beta_W$ to $\beta=4$ has $(\beta_W-4)/(b\log2)$
+steps.
+\item Under (H1) with $\varepsilon_k\le\lambda_{k+1}^{-2}$ and $\lambda_K
+\ge32$, the ratio of the upper to the lower comparison constant of $H_k$
+with $R_k$ is at most $3.3$ for every $k$, and on $\Z^4$, $2\lambda_kQ_k\le
+R_k\le512\lambda_kQ_k$ for every $k$. The factor four of
+Theorem~\ref{thm:stepsharp} enters $R_k$ once and does not compound.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+(i) $\lambda_K=\lambda_0-tK\ge32$ if and only if $K\le(\lambda_0-32)/t$.
+(ii) By Proposition~\ref{prop:iteratestatus}(iv), for every $\kappa<
+\kappa_c$ the rates satisfy $a(\lambda,\kappa)<9$ and $a_2(\lambda,\kappa)<
+9$ for $100\le\lambda\le809300$, and the estimates require $\lambda\ge100$.
+The steps $k<K$ with $\lambda_k\le809300$ are those with $(\lambda_0-809300)
+/t\le k\le K-1$, and $K=(\lambda_0-\lambda_K)/t$; the bound $(809300-1)/t>
+1.257\cdot10^7$ is in Proposition~\ref{prop:iteratestatus}(iv). With the
+same count for the coupling $\lambda_{k+1}$ of the step, the conclusion is
+unchanged. One step doubles the spacing, and $k$ steps lower $\beta$ by
+$bk\log2$; so between $\beta=4\cdot809300=3237200$ and $\beta=4$ the spacing
+grows by $2^{(3237200-4)/(b\log2)}=e^{(3237200-4)/b}$, and $b\le0.371512$
+gives $(3237200-4)/b>8.713\cdot10^6$.
+(iii) $\beta^*_{j+1}>16\beta^*_j$ and $\beta^*_1\ge2.895\cdot10^{23}$ give
+$\beta^*_j\ge16^{j-1}\cdot2.895\cdot10^{23}$, and $\beta_W\ge\beta^*_{j_{\max}}
+$. The count of steps is (i) with $\lambda_K=1$ and $t=b\log2/4$.
+(iv) Theorem~\ref{thm:allscales}(ii) gives the constants $\frac12$ and
+$1.65$, whose ratio is $3.3$. The second statement is
+Theorem~\ref{thm:effectiveupper} and $R_k=2\lambda_kS_k$. The reference is
+built from infima, $R_{k+1}=\frac{\lambda_{k+1}}{\lambda_k}\mathcal M_kR_k$,
+and not from a comparison with $\lambda_kQ_k$ at each step.
+\end{proof}
+
+\begin{remark}[how the constants evolve]\label{rem:allscalesconstants}
+Along the induction of Theorem~\ref{thm:allscales}:
+\begin{enumerate}[label=\textup{(\roman*)},leftmargin=*]
+\item the coupling decreases by $t$ per step; the number of steps is
+unbounded as $\lambda_0\to\infty$, and nothing in $P_k$ requires it to
+be bounded;
+\item the summed relative error $\sigma$ is at most $\lambda_K^{-2}+1/(t
+\lambda_K)$ for errors $\varepsilon_k\le\lambda_{k+1}^{-2}$, uniformly in
+$\lambda_0$; errors $\varepsilon_k\ge c\lambda_{k+1}^{-1}$ give $\sigma\ge
+(c/t)\log(\lambda_0/\lambda_K)$ (Theorem~\ref{thm:iterate}(b)), so
+one-step errors of order $g^2$ do not close;
+\item the comparison constants of $H_k$ with $R_k$ stay in $[\frac12,1.65]$
+and the fibre gap stays $\lambda_k/52$; the lower constant $1/2956$ and the
+factors $\theta(\kappa_0)$ of Theorem~\ref{thm:stepconstants} concern the
+coarse action $A_1$, not $H_k$, and their products over the steps tend to
+zero (Remark~\ref{rem:iteratelinear});
+\item the locality constants obey $\alpha_{k+1}=\alpha_k/(11900\Lambda_k)$
+and $\Lambda_{k+1}=C_*\Lambda_k^6\alpha_k^{-4}+\delta_k$ and are unbounded;
+an absolute weighted bound on $H_k-R_k$ grows by a factor of at least four
+per step (Proposition~\ref{prop:fibreinherit}(iv)), as in
+Remark~\ref{rem:relscales};
+\item the large-field input fails first: with the first-step estimates it
+stops at $\lambda=809300$, more than $1.257\cdot10^7$ steps above coupling
+one (Proposition~\ref{prop:scalecount}(ii));
+\item the island thresholds grow by a factor of more than $16$ per scale, so
+the islands are controlled on $O(\log\beta_W)$ of the
+$(\beta_W-4)/(b\log2)$ scales;
+\item at a curved background, outside the setting of this subsection, the
+one-step factor of a plaquette remainder is $1+130\lVert\kappa^{(j)}
+\rVert_2$ at scale $j$ (Proposition~\ref{prop:actionloops}(iii)), and the
+product over the scales is bounded exactly when $\sum_j\lVert\kappa^{(j)}
+\rVert_2<\infty$ (Remark~\ref{rem:actioniteration}); on calm windows at the
+levels $K_j$ this holds if $\sum_jK_j<\infty$ (Corollary~\ref{cor:actioncalm}).
+Levels $K_j\le c\lambda_{j+1}^{-2}$ have $\sum_jK_j\le c(\lambda_K^{-2}+1/(t
+\lambda_K))$, as in Theorem~\ref{thm:iterate}(b). Levels $K_j\ge c\lambda_
+{j+1}^{-1/2}$, the order of the calm thresholds that the large-field rate
+condition requires (Remark~\ref{rem:iteratelinear}), have $\sum_{j<K}K_j\ge
+(2c/t)(\lambda_0^{1/2}-\lambda_K^{1/2})$, since $t\lambda_{j+1}^{-1/2}\ge
+\int_{\lambda_{j+1}}^{\lambda_j}\lambda^{-1/2}d\lambda$; then the
+sufficient condition of Remark~\ref{rem:actioniteration} fails as $\lambda_0
+\to\infty$.
+\end{enumerate}
+So the induction step is proved, and the induction closes over all scales
+under the one condition (C): uniformly in $\lambda_0$ for the relative
+comparison and the fibre gap, and with constants growing in $k$ for
+locality. The first open input on the way is (C) at $k=0$. The large-field
+cost is a separate input, and the estimates proved for it at the first
+step give nothing at $\lambda_k\le809300$.
 \end{remark}
 
 \subsection{What remains}\label{ssec:remains}
@@ -25115,15 +26602,25 @@ best stretched exponential, and across a component that is bad for every
 labelling they bound nothing. In the $\SU(2)$ model,
 Theorem~\ref{thm:badcross} bounds the constrained law inside such a
 component by the chart, at the rate $\alpha_G$ and with no cost in its
-length, up to the mass $p$ of that law off the chart, whenever the fibre
+length beyond the mass $p$ of that law off the chart, whenever the fibre
 has a background with plaquettes below $6.0\cdot10^{-13}$; by
 Proposition~\ref{prop:badchart} this holds for coarse plaquettes up to
-that size when the exterior agrees with $R(c)$, and no background exists
-once a coarse plaquette exceeds $5.57\cdot10^{-11}$. The mass $p$ for a
-fixed coarse field, the larger coarse fields, and the passage from that
-law to $\mu^c$ and to the labels are not done; by
-Lemma~\ref{lem:condweights} and Proposition~\ref{prop:fold} the first is
-not controlled by the action alone (Remark~\ref{rem:badcompopen}).
+that size when the exterior agrees with $R(c)$, by
+Proposition~\ref{prop:uniformflux} it holds for some exteriors up to
+$2.39\cdot10^{-12}$, and no background exists once a coarse plaquette
+exceeds $2.418\cdot10^{-12}$. Theorem~\ref{thm:offchartmass} shows that
+$p$ tends to one as the component grows at fixed $\beta_W$, so that the
+bound improves on the trivial one only for $\beta_W>10^{24}(4.40+\ln
+\lvert W\rvert)$. Proposition~\ref{prop:badpassage} identifies the
+constrained law, with the links that bind the entering averages moved to
+the exterior, as the conditional law under $\mu^c$, and
+Corollary~\ref{cor:badcrossratio} bounds the cross-ratio of the weight of
+the interior for ends that enter the action only, at the rate $\alpha_G$
+up to a term $432\beta_W^2\bar p$. A bound uniform in the length needs
+charts local in the component, the coarse fields between $6.0\cdot
+10^{-13}$ and $2.418\cdot10^{-12}$ with exterior $R(c)$ are not decided,
+and the ends that enter the averages, on which the labels depend, are not
+treated (Remark~\ref{rem:badmassopen}).
 Lemma~\ref{lem:mobius} gives the mixed differences of every order in
 terms of the diameter; the rate $2\alpha_G$ needs them in terms of the
 length of the shortest joining tree (Remark~\ref{rem:fixedcopen}).
@@ -25199,7 +26696,12 @@ none is proved beyond the first step in the required form
 (Proposition~\ref{prop:iteratestatus}), and the large-field estimates
 of Section~\ref{ssec:lfstep} give no activity bound for
 $\beta_W<3.2372\cdot10^6$, more than $1.257\cdot10^7$ one-loop steps
-above coupling one.
+above coupling one. The locality hypothesis cannot hold uniformly in the
+volume (Proposition~\ref{prop:h2volume}). Theorem~\ref{thm:allscales}
+proves the step from one scale to the next under a single condition on the
+error of that step, relative and local; under it the relative comparison
+and the fibre gap pass to every scale uniformly in $\lambda_0$, and the
+locality of the fibre with constants that are not bounded in the scale.
 \end{enumerate}
 The covariance of item (ii) for a fixed coarse field and uniform in the
 exterior, with decay at the rate $2\alpha_G$ without a floor, is the
@@ -25210,9 +26712,10 @@ Theorems~\ref{thm:labelcov}, \ref{thm:fibrecov} and
 Corollary~\ref{cor:labelstretched}, and by Theorem~\ref{thm:fixedobstruction} the rest needs the mixed
 differences of $\log Z^c$ in tree form and the response of the law across
 a bad component, which Theorem~\ref{thm:badcross} gives on the chart up
-to the mass of the law off the chart, for coarse plaquettes below
-$6.0\cdot10^{-13}$ and for none above $5.57\cdot10^{-11}$
-(Proposition~\ref{prop:badchart}, Remark~\ref{rem:badcompopen}); item (i) being settled for the
+to the mass of the law off the chart, which tends to one as the component
+grows, for coarse plaquettes below $6.0\cdot10^{-13}$ and for none above
+$2.418\cdot10^{-12}$ (Proposition~\ref{prop:badchart},
+Theorem~\ref{thm:offchartmass}, Remark~\ref{rem:badmassopen}); item (i) being settled for the
 chains of the bad blocks by Proposition~\ref{prop:linechain} and item (ii) given the labels
 of all islands by Theorem~\ref{thm:manyislands};
 item (iii) is settled by Theorem~\ref{thm:islandthreshold} at one scale
@@ -27435,6 +28938,12 @@ Comm. Math. Phys. \textbf{103} (1986), 491--498,
 Kogut, J., Susskind, L.: Hamiltonian formulation of Wilson's lattice gauge
 theories. Phys. Rev. D \textbf{11}, 395--408 (1975).
 \href{https://doi.org/10.1103/PhysRevD.11.395}{https://doi.org/10.1103/PhysRevD.11.395}
+
+\bibitem{LM17}
+Lata{\l}a, R., Matlak, D.: Royen's proof of the Gaussian correlation
+inequality. In: Geometric Aspects of Functional Analysis, Lecture Notes in
+Math. \textbf{2169}, pp. 265--275. Springer, Cham (2017).
+\href{https://doi.org/10.1007/978-3-319-45282-1_17}{https://doi.org/10.1007/978-3-319-45282-1\_17}
 
 \bibitem{Lev03}
 L\'evy, T.: Yang--Mills measure on compact surfaces. Mem. Amer. Math. Soc. \textbf{166}(790) (2003). \href{https://doi.org/10.1090/memo/0790}{https://doi.org/10.1090/memo/0790}
