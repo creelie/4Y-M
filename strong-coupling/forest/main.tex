@@ -149,7 +149,7 @@ nonconvex bad side and its three-preimage branch family
 of the path-link law: the response to the links that enter only the
 action, the good side to radius $1/32$, and the fold across which the law
 jumps for every coupling (Lemma~\ref{lem:wilsononly},
-Propositions~\ref{prop:goodside} and~\ref{prop:fold}), the exact factorisation of the weight of two bad islands through one kernel on the good layer between them, on a domain that their labels do not move, with the covariance bound of the chart for the layer law in the coordinates of the labels and a cross-ratio exponentially small in the width of the layer (Theorems~\ref{thm:factorisation} and~\ref{thm:layerbound}, Proposition~\ref{prop:layercross}, Corollaries~\ref{cor:twolabels} and~\ref{cor:twoislands}), the growth by a factor four per step of an error bounded by a multiple of the Euclidean form, which forces the one-step errors of an effective action to be relative and gauge invariant (Proposition~\ref{prop:massgrowth}), the floor $q^2/16$ on the covariance of
+Propositions~\ref{prop:goodside} and~\ref{prop:fold}), the bounded response of the $24$-link site of a bad pair, which carries its inside links among its variables, to every other link (Theorem~\ref{thm:site}), the exact factorisation of the weight of two bad islands through one kernel on the good layer between them, on a domain that their labels do not move, with the covariance bound of the chart for the layer law in the coordinates of the labels and a cross-ratio exponentially small in the width of the layer (Theorems~\ref{thm:factorisation} and~\ref{thm:layerbound}, Proposition~\ref{prop:layercross}, Corollaries~\ref{cor:twolabels} and~\ref{cor:twoislands}), the growth by a factor four per step of an error bounded by a multiple of the Euclidean form, which forces the one-step errors of an effective action to be relative and gauge invariant (Proposition~\ref{prop:massgrowth}), the floor $q^2/16$ on the covariance of
 rare labels (Proposition~\ref{prop:hiddenbit}), the explicit island
 threshold $\beta^*(\rho,s)$ past which the islands of bad blocks at one
 scale are rarer than their entropy (Theorem~\ref{thm:islandthreshold}),
@@ -657,7 +657,7 @@ Wilson measure. Sec.~\ref{sec:islands} proves what a labelling of the
 blocks into good and bad gives for the cube condition, where the natural
 labels fail, the explicit coupling past which the bad islands of one
 scale are rarer than their entropy (Theorem~\ref{thm:islandthreshold}),
-the fold across which the path-link law of a bad pair jumps (Proposition~\ref{prop:fold}), the factorisation of two bad islands through one kernel (Theorem~\ref{thm:factorisation}) and the exponential decay of their comparison in the width of the good layer between them (Theorem~\ref{thm:layerbound}, Corollary~\ref{cor:twoislands}), and what the single-scale and the multiscale parts of (D) still need. The appendices contain the
+the fold across which the path-link law of a bad pair jumps (Proposition~\ref{prop:fold}) and the bounded response of its site (Theorem~\ref{thm:site}), the factorisation of two bad islands through one kernel (Theorem~\ref{thm:factorisation}) and the exponential decay of their comparison in the width of the good layer between them (Theorem~\ref{thm:layerbound}, Corollary~\ref{cor:twoislands}), and what the single-scale and the multiscale parts of (D) still need. The appendices contain the
 residue table of the line field, the comparison lemma and its version for
 blocks, the blocks of the local Hessian inequality, the details of the
 certified computation, the reconstruction of the transfer matrix with the
@@ -11612,6 +11612,200 @@ links $u_a,w_a$, which move the fibre $\{V=c_k\}$ while the bad set does
 not, and the question is the mass that the law gives to the set where the
 fibre is tangent to the boundary of the bad set.
 
+\emph{The site of a bad pair.} The response of the eight private links to
+the inside links $u_a,w_a$ is avoided by putting those links into the
+variables of the law. Let $k=(y,\mu)$, $k'=(y-e_\mu,\mu)$ and
+$k''=(y+e_\mu,\mu)$. The inside links of $k'$ in $B(y)$ are the links
+$u_a$ of $k$, and the inside links of $k''$ in $B(y+e_\mu)$ are the links
+$w_a$ of $k$: consecutive pairs along $\mu$ share their inside
+$\mu$-links. The \emph{site} of $k$ is the set $\mathcal S_k$ of the $24$
+links $\ell_a$, $u_a$, $w_a$ ($a\ne0$ for the last two) and the path links
+$\ell'_0$, $\ell''_0$ of $k'$ and $k''$, with the cost
+$\sum_{e\in\mathcal S_k}\delta(\cdot,\cdot)$. Its links are based in
+$B(y-e_\mu)\cup B(y)\cup B(y+e_\mu)$, and the cut-off averages that contain
+a link of $\mathcal S_k$ are $V^\sharp_k$, which contains site links only,
+$V^\sharp_{k'}$, whose other links are the non-path links $z'$ of $k'$ and
+its inside links $u'$ in $B(y-e_\mu)$, and $V^\sharp_{k''}$, with $z''$ and
+$w''$ in $B(y+2e_\mu)$. Every other link enters the law of the site only
+through the Wilson weight.
+
+\begin{lemma}[the law of a site]\label{lem:sitelaw}
+Let $r\le\frac1{32}$, suppose $d(\ell'_a,c_{k'})$, $d(u'_a,I)$,
+$d(\ell''_a,c_{k''})$, $d(w''_a,I)\le r$ for $a\ne0$, and let $E$ be a
+measurable set of site variables contained in $\{d(u_a,I)\le r,\
+d(w_a,I)\le r,\ a\ne0\}$. Then the law of the site given the exterior
+$\sigma$, the three constraints $V^\sharp_k=c_k$, $V^\sharp_{k'}=c_{k'}$,
+$V^\sharp_{k''}=c_{k''}$ and $E$ is
+\[
+\frac1Z\,e^{-\beta_WS}\mathbf 1_E\,J_{22}^{-1}\mathrm{vol}_{M_k}(d\ell\,du
+\,dw)\,\frac{\delta_{\Gamma'}(d\ell'_0)}{\lvert\det D_{\ell'_0}V^\sharp_{k'}
+\rvert}\,\frac{\delta_{\Gamma''}(d\ell''_0)}{\lvert\det D_{\ell''_0}
+V^\sharp_{k''}\rvert},
+\]
+where $M_k=\{V^\sharp_k=c_k\}$ in the $22$ variables $(\ell,u,w)$, $J_{22}=
+\det(DV^\sharp_kDV^{\sharp*}_k)^{1/2}\ge\sigma_0^3$ almost everywhere,
+$\Gamma'=\Gamma'(z',u',u)$ and $\Gamma''=\Gamma''(z'',w'',w)$ are the
+unique solutions of Proposition~\ref{prop:goodside} for $k'$ and $k''$, and
+the two determinants lie in $[(1-\kappa_0)^3,(1+\kappa_0)^3]$.
+\end{lemma}
+
+\begin{proof}
+Only the three named constraints involve site variables. For $k'$ the
+hypothesis of Proposition~\ref{prop:goodside} holds, its inside links in
+$B(y)$ being the $u_a$, which $E$ keeps within $r$ of $I$; so
+$\ell'_0\mapsto V^\sharp_{k'}$ has the single regular preimage $\Gamma'$,
+the Haar disintegration of $\ell'_0$ along it is the atom divided by the
+determinant, and the determinant bounds are those of the proposition;
+likewise for $k''$. The Haar disintegration of $(\ell,u,w)$ along
+$V^\sharp_k$ is $J_{22}^{-1}\mathrm{vol}_{M_k}$ by the coarea formula.
+Since $DV^\sharp_kDV^{\sharp*}_k$ is the sum over the variables of the
+nonnegative terms $D_eV^\sharp_k(D_eV^\sharp_k)^*$, it dominates the sum
+over the eight private links, which is at least $\sigma_0^2$ by
+Lemma~\ref{lem:privatesubmersion}. The product of the three
+disintegrations is the disintegration of the product Haar measure along
+the three constraints, and the Wilson weight and $\mathbf 1_E$ multiply it.
+\end{proof}
+
+The constraint of the site's own pair is thus a fixed measure on
+$M_k\cap E$: the exterior enters only through $S$, through the positions
+$\Gamma'$, $\Gamma''$ of two atoms, and through two densities on the good
+side, whose variation the next lemma bounds.
+
+\begin{lemma}[the good-side density is log-Lipschitz]\label{lem:goodsidedensity}
+Under the hypothesis of Proposition~\ref{prop:goodside}, let one link of
+the pair move along a unit-speed geodesic. Then
+$\bigl|\frac d{dt}\log\lvert\det D_gV\rvert\bigr|\le67.41$ when the link
+is a non-path link and $\le33.71$ when it is an inside link.
+\end{lemma}
+
+\begin{proof}
+By the proof of Proposition~\ref{prop:goodside}, $\lvert\det D_gV\rvert=
+\lvert\det T\rvert$ with $T=I-\frac78E_N\bar L$, so $\frac d{dt}\log
+\lvert\det T\rvert=\operatorname{tr}(T^{-1}\dot T)$, which is at most
+$3\lVert T^{-1}\rVert\lVert\dot T\rVert$ on the three-dimensional $\g$, with
+$\lVert T^{-1}\rVert\le(1-\kappa_0)^{-1}$ and $\dot T=-\frac78(\dot E_N\bar L
++E_N\dot{\bar L})$, $\lVert\bar L\rVert\le\Lambda_0:=\theta_0/\sin\theta_0
+=1.02115$, $\lVert E_N\rVert\le1$.
+
+For an entire function $\varphi$ and a normal operator $A$ with spectral
+projections $P_i$ and eigenvalues $\lambda_i$, the derivative is
+$d\varphi(A)[B]=\sum_{i,j}\varphi[\lambda_i,\lambda_j]P_iBP_j$, with the
+divided differences $\varphi[\lambda_i,\lambda_j]$ of
+Daleckii--Krein~\cite{DK65}; the blocks $P_iBP_j$ are orthogonal for the
+Hilbert--Schmidt product, so $\lVert d\varphi(A)[B]\rVert\le\max_{i,j}
+\lvert\varphi[\lambda_i,\lambda_j]\rvert\lVert B\rVert_{HS}$. With
+$E_Y=e(\operatorname{ad}Y)$, $L_Y=f(\operatorname{ad}Y)$, $e(x)=(e^x-1)/x$,
+$f(x)=x/(e^x-1)$, and $\lVert\operatorname{ad}W\rVert_{HS}=2\lVert W\rVert$,
+this gives $\lVert\dot L_{Y}\rVert\le2M_L\lVert\dot Y\rVert$ and
+$\lVert\dot E_N\rVert\le2M_E\lVert\dot N\rVert$, where $M_L$ and $M_E$ bound
+the divided differences of $f$ and $e$ on the spectra $\{0,\pm ia'\}$,
+$a'\le\sqrt2\cdot16r\le\frac{\sqrt2}2$, and $\{0,\pm ib'\}$,
+$b'\le\sqrt2\cdot14r\le0.6188$. With $f(iy)=\frac y2\cot\frac y2-\frac{iy}2$
+one has $f[0,0]=f[ia',-ia']=-\frac12$,
+$f[0,ia']=-\frac12-i\frac{u(a')-1}{a'}$ with $u(y)=\frac y2\cot\frac y2$
+and $\lvert u(y)-1\rvert\le\frac{y^2}{12}(1-\frac{y^2}{24})^{-1}$, and
+$f'(ia')=-\frac12-i\frac{\sin a'-a'}{4\sin^2(a'/2)}$, so
+$M_L\le\bigl(\frac14+\frac{a^2}{36}(1-\frac{a^2}{24})^{-4}\bigr)^{1/2}\le
+0.5149$ at $a=\frac{\sqrt2}2$. With $e(iy)=\frac{\sin y}y+i\frac{1-\cos y}y$
+one has $e[0,0]=\frac12$, $e[ib',-ib']=\frac{1-\cos b'}{b'^2}\le\frac12$,
+$\lvert e[0,ib']\rvert^2\le\frac14+\frac{b'^2}{36}$ and $\lvert e'(ib')
+\rvert^2\le\frac14+\frac{b'^2}9$, so $M_E\le(\frac14+\frac{b^2}9)^{1/2}\le
+0.5409$ at $b=0.6188$.
+
+Along the motion the fixed point $X$ moves with $\lVert\dot X\rVert\le\dot x$,
+$\dot x=1.1986$ for a non-path link and $0.5993$ for an inside link, by the
+proof of Proposition~\ref{prop:goodside}. For a path that does not contain
+the moving link, $\dot Y_x=-L_{Y_x}E_{-X}\dot X$, so $\lVert\dot Y_x\rVert\le
+\Lambda_0\dot x$; for a path that contains it, $\log(e^Ye^{t\zeta'})=Y+
+tL_{-Y}\zeta'+O(t^2)$ adds $\Lambda_0$. With $n=2$ moving paths for a
+non-path link and $n=1$ for an inside link, $\lVert\dot N\rVert\le
+\frac{\Lambda_0}{16}(14\dot x+n)$ and $\lVert\dot{\bar L}\rVert\le2M_L
+\Lambda_0(\dot x+\frac n{14})$. Hence
+\[
+\Bigl|\frac d{dt}\log\lvert\det T\rvert\Bigr|\le\frac{21}8\,
+\frac{2M_E\Lambda_0\lVert\dot N\rVert+\lVert\dot{\bar L}\rVert}{1-\kappa_0},
+\]
+which is at most $67.41$ and $33.71$ in the two cases, with
+$(1-\kappa_0)^{-1}\le9.390$.
+\end{proof}
+
+\begin{theorem}[the site of a bad pair responds boundedly]\label{thm:site}
+Under the hypotheses of Lemma~\ref{lem:sitelaw}, let $\sigma,\sigma'$ differ
+only at one link $e'$ outside $\mathcal S_k$, and let $\pi(\cdot\mid\sigma)$
+be the law of the site of that lemma. Then
+\[
+W_1\bigl(\pi(\cdot\mid\sigma),\pi(\cdot\mid\sigma')\bigr)\le C_{e'}\,
+d(\sigma_{e'},\sigma'_{e'}),
+\]
+for the cost $\sum_{e\in\mathcal S_k}\delta$, with $C_{e'}=48\,n_p(e')
+\beta_W$ if $e'$ enters only the Wilson weight, $n_p(e')\le6$ the number of
+its plaquettes that contain a site link, $C_{e'}=394\beta_W+2289$ if $e'$
+is a non-path link of $k'$ or $k''$, and $C_{e'}=173\beta_W+1145$ if $e'$
+is an inside link of $k'$ in $B(y-e_\mu)$ or of $k''$ in $B(y+2e_\mu)$. The
+constants do not depend on $c_k$, $c_{k'}$, $c_{k''}$, $E$ or the rest of
+$\sigma$, and every branch of $V^\sharp_k=c_k$ inside the site is
+integrated, not compared.
+\end{theorem}
+
+\begin{proof}
+Move $\sigma_{e'}$ along a unit-speed geodesic, $0\le t\le T=d(\sigma_{e'},
+\sigma'_{e'})$. By Lemma~\ref{lem:sitelaw}, $\pi_t=(\Phi_t)_*\mu_t$ with
+$\Phi_t(\ell,u,w)=(\ell,u,w,\Gamma'_t,\Gamma''_t)$ and $\mu_t$ the law on
+$M_k\cap E$ with density $h_t=e^{-\beta_WS_t}J'^{-1}_tJ''^{-1}_t$ against
+the fixed measure $\mathbf 1_EJ_{22}^{-1}\mathrm{vol}_{M_k}$; plaquettes
+without a site link are constant on $M_k$ and cancel. For $f$ Lipschitz
+with constant one for the site cost, whose oscillation is at most the
+diameter $24\cdot2\sqrt2$,
+\[
+\pi_T(f)-\pi_0(f)=(\mu_T-\mu_0)(f\circ\Phi_T)+\mu_0(f\circ\Phi_T-f\circ
+\Phi_0).
+\]
+The second term is at most $\dot x\,T$ by Proposition~\ref{prop:goodside},
+since one atom moves, and it vanishes when $e'$ enters only the Wilson
+weight. For the first, $\frac d{dt}\mu_t(\varphi)=\Cov_{\mu_t}(\varphi,
+\partial_t\log h_t)$ and $\lvert\Cov(\varphi,\psi)\rvert\le\frac14
+\operatorname{osc}\varphi\operatorname{osc}\psi$, so the first term is at
+most $24\sqrt2\,T\sup\lvert\partial_t\log h_t\rvert$, and
+$\lvert\partial_t\log h_t\rvert\le\beta_W\lvert\partial_tS_t\rvert+
+\lvert\partial_t\log J'_t\rvert$. A link moving at geodesic speed $v$
+changes $\delta(U_p,I)$ at rate at most $v$, by bi-invariance and $\delta
+\le d$, so $\lvert\dot s_p\rvert\le\sqrt2\,v$ for $s_p=\frac14\delta(U_p,
+I)^2$. If $e'$ enters only the Wilson weight, $\operatorname{osc}
+\partial_tS_t\le2\sqrt2\,n_p(e')$ and $J'$ does not move, which gives
+$48n_p\beta_W$. If $e'=\ell'_a$, it shares at most one plaquette with a
+site link, and the atom $\Gamma'$ moves at speed at most $1.1986$ through
+its six plaquettes, so $\lvert\partial_tS_t\rvert\le\sqrt2(1+6\cdot1.1986)
+\le11.585$, and Lemma~\ref{lem:goodsidedensity} bounds the density term by
+$67.41$; hence $C_{e'}\le24\sqrt2(11.585\beta_W+67.41)+1.1986<394\beta_W+
+2289$. If $e'=u'_a$, it shares no plaquette with a site link, the atom
+moves at speed at most $0.5993$, $\lvert\partial_tS_t\rvert\le6\sqrt2\cdot
+0.5993\le5.086$, and $C_{e'}\le24\sqrt2(5.086\beta_W+33.71)+0.5993<
+173\beta_W+1145$. Kantorovich duality gives the bound on $W_1$.
+\end{proof}
+
+If the inside $\mu$-links of $B(y)$ are themselves off, so that $k'$ is not
+on the good side, the site is continued along $\mu$ through the private
+and inside links of $k'$, and so on in both directions, up to the first
+pair on each side whose non-path links lie within $r$ of their coarse
+value and whose inside links lie within $r$ of $I$; the proofs of
+Lemma~\ref{lem:sitelaw} and Theorem~\ref{thm:site} apply to this chain
+unchanged, with the diameter $24\cdot2\sqrt2$ replaced by $2\sqrt2$ times
+the number of its links. The chain lies in the island together with its
+$\mu$-neighbours. The site therefore costs one block of collar on each
+side of an island: with the bad blocks joined at $\ell^\infty$ distance at
+most $2s+3$, the islands enlarged by one block are separated by layers of
+good blocks of width at least $2s+3$, no constraint of a pair based in a
+window of such a layer contains a site link, and the witnesses $M=11^4$,
+$H=6^4$ of Lemma~\ref{lem:coverage} are unchanged. Every statement of
+Theorem~\ref{thm:islandthreshold} then holds with $(4s+7)^4-1$ neighbours
+in place of $(4s+3)^4-1$: $\lvert\log q^*\rvert=25777.3$ and
+$\beta^*(10^{-8},1)=4.177\cdot10^{21}$ for $s=1$, $\lvert\log q^*\rvert=
+35087.3$ and $\beta^*(10^{-8},5)=5.667\cdot10^{21}$ for $s=5$, and
+$\beta^*(10^{-9},1)=4.181\cdot10^{23}$. With the layer between two enlarged
+islands of width at least $2s+8$, as Corollary~\ref{cor:twoislands} needs,
+the joining distance is $2s+10$ and $\beta^*=7.49\cdot10^{36}$ for $s=1$
+and $8.59\cdot10^{36}$ for $s=5$ at $\rho=2.73\cdot10^{-16}$.
+
 \subsection{Counting bad labels}\label{ssec:counting}
 
 A label is bad when some fine plaquette in a fixed neighbourhood is bad:
@@ -13048,8 +13242,13 @@ alone to its non-path links is infinite, so the non-path links must be
 integrated over the bad set; Lemma~\ref{lem:wilsononly} bounds the response
 of that law to every link that enters only the action, and
 Proposition~\ref{prop:goodside} settles the good side to radius $1/32$.
-What is not bounded is the response to the inside links, which move the
-fibre $\{V^\sharp_k=c_k\}$ while the bad set does not.
+The inside links move the fibre $\{V^\sharp_k=c_k\}$ while the bad set
+does not; Theorem~\ref{thm:site} puts them among the variables and bounds
+the response of the law of the $24$ links of the site of the pair to every
+other link by at most $394\beta_W+2289$, uniformly in the exterior, at the
+cost of one block of collar on each side of an island. Whether the law of
+the eight private links alone is Lipschitz in the inside links is not
+decided.
 \item \emph{The island comparison.} For two islands in a good region,
 Theorem~\ref{thm:factorisation} factorises their weight through one
 kernel on the good layer between them, Theorem~\ref{thm:layerbound}
@@ -13085,8 +13284,9 @@ relative bounds by a gauge-invariant form: an error bounded by a multiple
 of the Euclidean form grows by a factor at least $4/(1+2724\kappa)$ at each
 step.
 \end{enumerate}
-Item (i) and the induction of item (ii) are the single-scale part of (D)
-that remains open, item (ii) being settled for two islands by
+The induction of item (ii) is the single-scale part of (D) that remains
+open, item (i) being settled for the site of a pair by
+Theorem~\ref{thm:site} and item (ii) for two islands by
 Corollary~\ref{cor:twoislands};
 item (iii) is settled by Theorem~\ref{thm:islandthreshold} at one scale
 and by Theorem~\ref{thm:islandscales} at every scale up to $a_{k_*}/512$;
@@ -13125,6 +13325,7 @@ non-path link off $R(c)$ & fine defect, Theorem~\ref{thm:cutoff}\\
 coarse plaquette $>\eta$ & fine defect, Lemma~\ref{lem:coarsewitness}\\
 path link & none: determined, Lemma~\ref{lem:branchbound}\\
 bad non-path links & fold, Proposition~\ref{prop:fold}\\
+bad pair & site, Theorem~\ref{thm:site}\\
 all links & nonconvex, Proposition~\ref{prop:nonconvex}\\
 \midrule
 good window & graph law, Proposition~\ref{prop:graphlaw}\\
@@ -15033,6 +15234,12 @@ multiparticle Schr\"odinger operators, Comm. Math. Phys. \textbf{34} (1973),
 
 \bibitem{Dim13}
 J.~Dimock, The renormalization group according to Balaban, I. Small fields, Rev. Math. Phys. \textbf{25} (2013), 1330010, \href{https://doi.org/10.1142/S0129055X13300100}{doi:10.1142/S0129055X13300100}.
+
+\bibitem{DK65}
+Ju.~L.~Daleckii and S.~G.~Krein, Integration and differentiation of
+functions of Hermitian operators and applications to the theory of
+perturbations, Amer. Math. Soc. Transl. Ser. 2 \textbf{47} (1965), 1--30,
+\href{https://doi.org/10.1090/trans2/047/01}{doi:10.1090/trans2/047/01}.
 
 \bibitem{Dob68}
 R.~L.~Dobrushin, The description of a random field by means of conditional
