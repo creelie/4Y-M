@@ -25,7 +25,7 @@ continuum tuning and a nontrivial continuum limit are not proved.
 - `preprints/`: the Hexagon PDF (`preprintshexagon/`), the MDPI PDF
   (`preprintsmdpi/`) and their TeX sources (`texsources/`).
 - `YangMills_masterzipfinal2.zip`: the repository at the current release with
-  the Hexagon package of the paper.
+  the submission notes of the paper (`hexagon-package/`).
 
 Archived on Zenodo under the concept DOI
 [10.5281/zenodo.23444338](https://doi.org/10.5281/zenodo.23444338), which
