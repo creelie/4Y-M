@@ -144,11 +144,14 @@ def beta_star(rho, s, join):
 for rho, s in ((mpf('1e-8'),1),(mpf('1e-8'),5),(mpf('1e-9'),1)):
     b, lq = beta_star(rho, s, 2*s+1)
     print(f"  check paper: rho={float(rho):.0e} s={s}: |log q*|={float(-lq):.1f} beta*={float(b):.4e}")
-# calmness: kappa_0 <= eta + 17 r, s = 32 r, r = 43 rho, eta = 92 rho:
-coef = 92 + 17*43 + 32*43
-print(f"  kappa_0 + s <= {coef} rho;  SU(2) chart hypothesis kappa_0 + s <= 6.0e-13  =>  rho <= {up(mpf('6.0e-13')/coef,3)}")
-rho_c = mpf('6.0e-13')/coef
+# calmness: kappa_0 <= eta + 30 r (a plaquette has at most two path links),
+# s = 32 r, r = 43 rho, eta = 92 rho:
+coef = 92 + 30*43 + 32*43
+print(f"  kappa_0 + s <= {coef} rho;  SU(2) chart hypothesis kappa_0 + s <= 6.0e-13  =>  rho <= {float(mpf('6.0e-13')/coef):.5e}")
+rho_c = mpf('2.17e-16')   # below 6.0e-13/coef = 2.1755e-16
+assert coef*rho_c <= mpf('6.0e-13')
 for s in (1,5):
-    b, lq = beta_star(rho_c, s, 2*s+8)
-    print(f"  rho={float(rho_c):.3e} s={s} join={2*s+8}: |log q*|={float(-lq):.1f} beta*={float(b):.4e}")
+  for join in (2*s+8, 2*s+10):
+    b, lq = beta_star(rho_c, s, join)
+    print(f"  rho={float(rho_c):.3e} s={s} join={join}: |log q*|={float(-lq):.1f} beta*={float(b):.4e}")
 print(f"  beta_W >= 4 C_lambda c_6 = {float(4*CL*mpf('9.3e14')):.3e}  (C_lambda = {CL}, c_6 <= 9.3e14 for SU(2))")
