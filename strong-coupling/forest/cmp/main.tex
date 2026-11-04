@@ -59,7 +59,7 @@ Road, Golpark, Kolkata 700029, West Bengal, India}
 \urladdr{\href{https://orcid.org/0000-0003-0466-750X}{orcid.org/0000-0003-0466-750X}}
 \thanks{$^{*}$Corresponding author: Deep Bhattacharjee, itsdeep@live.com.}
 \thanks{\scriptsize An earlier version of this paper is available at
-\url{https://hexagonmath.org/2610.00341v6}. Compared with it, this paper adds Section~\ref{sec:islands}, on the labels of the blocks, the islands of bad blocks, the bad side of a projected block average, the obstructions to the remaining routes and the effective action across one scale, Subsections~\ref{ssec:averaged}--\ref{ssec:bpneutral}, on an averaged form of the cube condition, its local form, the couplings where it holds and fails and its neutral part on small tori, and Subsections~\ref{ssec:osaxioms} and~\ref{ssec:limitE}, on the Osterwalder--Schrader axioms for the flowed fields and the limit at separated points of the fields without flow, and it proves by hand every constant that the earlier version took from computer certificates.}
+\url{https://hexagonmath.org/2610.00341v6}. Compared with it, this paper adds Section~\ref{sec:islands}, on the labels of the blocks, the islands of bad blocks, the bad side of a projected block average, the obstructions to the remaining routes and the effective action across one scale, Subsections~\ref{ssec:averaged}--\ref{ssec:bpblock}, on an averaged form of the cube condition, its local form, the couplings where it holds and fails, its neutral part on small tori and its passage to block variables, and Subsections~\ref{ssec:osaxioms} and~\ref{ssec:limitE}, on the Osterwalder--Schrader axioms for the flowed fields and the limit at separated points of the fields without flow, and it proves by hand every constant that the earlier version took from computer certificates.}
 
 \author[U. Bhattacharya]{Ushashi Bhattacharya}
 \address{Formerly, National Taiwan University, Taipei 106319, Taiwan}
@@ -6145,6 +6145,300 @@ bounds the correlation of every slow function with every local one, and its
 failure produces a slow neutral function correlated with a local one.
 \end{remark}
 
+\subsection{The averaged condition under block-spin maps}\label{ssec:bpblock}
+
+A bootstrap of the averaged condition across scales compares the cube chain
+of a fine lattice with a cube chain of block variables. This subsection
+proves the comparison in the direction of the block-spin transformation, for
+every local gauge-covariant block-spin map and every gauge-invariant measure:
+$\mathrm{BP}$ passes from the fine lattice to the image measure of the block
+variables, with a loss that tends to one as the cube grows. Along the tuning,
+$\mathrm{BP}(n_k,\varpi)$ therefore implies the condition at one cube size,
+with one constant, for the image measures at a fixed coarser spacing. The
+local form passes only in an integrated form, which bounds the integrated
+autocorrelation time of a local function and gives no spectral gap. The
+opposite direction, which a bootstrap needs, is not obtained.
+
+\emph{Setting.} The definitions of Section~\ref{ssec:averaged} apply to every
+probability measure $\varrho$ on $G^E$, $E$ the links of $\Lambda_L$, that is
+invariant under the gauge group: $P^\varrho_x$ is the conditional expectation
+under $\varrho$ given the links outside $V_x$, an orthogonal projection on
+$L^2(\varrho)$; $\mathcal A^\varrho$ is the space of gauge-invariant functions in
+$L^2(\varrho)$; $\mathcal E^\varrho_n(f)=n^{-4}\sum_x\varrho((f-P^\varrho_xf)^2)$,
+$\mathcal K^\varrho=L^{-4}\sum_xP^\varrho_x$, and $\mathrm{BP}_\varrho(n,\varpi)$ and
+$\mathrm{BP}_{{\rm loc},\varrho}(n,\varpi)$ are Definitions~\ref{def:avgcube}
+and~\ref{def:bploc}(a) with $\varrho$ in place of $\mu$. A gauge
+transformation $g$ maps the functions of the links outside $V_x$ onto
+themselves and preserves $\varrho$, so $(P^\varrho_xf)\circ g=P^\varrho_x(f\circ g)$
+and $P^\varrho_x$ maps $\mathcal A^\varrho$ into itself. The proofs of
+Proposition~\ref{prop:bpscales}(i) and of the first statement of
+Theorem~\ref{thm:bplocal}(iv) use only that the $P^\varrho_x$ are orthogonal
+projections that preserve $\mathcal A^\varrho$ and the constants, with $P_W=
+P_WP_V$ for $V\subset W$; so both hold for every such $\varrho$.
+
+Let $b\ge1$ and $r\ge1$ be integers. The fine torus is $\Lambda_{bL}$ with
+links $E'$, the coarse torus is $\Lambda_L$ with links $E$, and the block of
+$y\in\Lambda_L$ is $B_y=by+[0,b)^4\subset\Lambda_{bL}$. A measurable map
+$c:G^{E'}\to G^E$ is a \emph{block-spin map of range $r$} if
+\begin{enumerate}[label=\textup{(B\arabic*)},leftmargin=*]
+\item for every coarse link $(y,\nu)$, $c_{(y,\nu)}(U)$ depends only on the
+links of $E'$ with base point in a block $B_w$ with $\lvert w-y
+\rvert_\infty\le r$;
+\item for every gauge transformation $g$ of $\Lambda_{bL}$ there is a gauge
+transformation $\hat g$ of $\Lambda_L$ with $c(gU)=\hat gc(U)$ for all $U$,
+and every gauge transformation of $\Lambda_L$ is of this form.
+\end{enumerate}
+The map that assigns to $(y,\nu)$ the product of the $b$ links along the
+straight path from $by$ to $by+be_\nu$ is a block-spin map of range one,
+with $\hat g(y)=g(by)$. For $b=2$ so is the cut-off average~\eqref{eq:cutoff}, evaluated on the links put in the tree
+gauge of Definition~\ref{def:blockgauge} in every block by the gauge
+transformation equal to $I$ at the root $2y$: that gauge transformation is a
+function of the tree links of the block, so the gauge-fixed links of the
+paths that start in $B(y)$ are functions of the links with base point in
+$B(y)\cup B(y+e_\nu)$; a gauge transformation $g$ changes the gauge-fixed
+field by the transformation equal to $g(2y)$ on each block $B(y)$, which
+acts on the cut-off average as $\hat g(y)=g(2y)$ by
+Theorem~\ref{thm:cutoff}.
+
+For a gauge-invariant probability measure $\mu'$ on $G^{E'}$ let $\mu^c=
+c_*\mu'$ be the law of the block variables. It is invariant under the gauge
+group of $\Lambda_L$: given $\hat g$, choose $g$ as in (B2); then $c^{-1}(
+\hat g^{-1}A)=g^{-1}c^{-1}(A)$ for every Borel set $A$, and $\mu'$ is
+invariant under $g$. Write $\mathcal E'_{n'}$, $\mathcal A'$, $P'_{x'}$ for
+the objects of $\mu'$ on $\Lambda_{bL}$ and $\mathcal E^c_n$, $\mathcal A^c$,
+$P^c_y$ for those of $\mu^c$ on $\Lambda_L$.
+
+\begin{theorem}[descent along block-spin maps]\label{thm:bpdescent}
+Let $c$ be a block-spin map of range $r$ with blocks of side $b$, let $n\ge
+2r+2$, let $L\ge2n+4$ be even, let $2\le n'\le b(n-2r-1)+1$ with $bL\ge
+2n'+4$, let $\mu'$ be a gauge-invariant probability measure on $G^{E'}$, and
+put $\varpi_c=\varpi'(n'/(bn))^4$.
+\begin{enumerate}[label=\textup{(\roman*)},leftmargin=*]
+\item For every real $F\in\mathcal A^c$, $F\circ c\in\mathcal A'$,
+$\Var_{\mu'}(F\circ c)=\Var_{\mu^c}(F)$ and
+\[
+\mathcal E'_{n'}(F\circ c)\le\Bigl(\frac{bn}{n'}\Bigr)^4\mathcal E^c_n(F).
+\]
+\item $\mathrm{BP}_{\mu'}(n',\varpi')$ implies $\mathrm{BP}_{\mu^c}(n,
+\varpi_c)$. For $n'=b(n-2r-1)+1$, $\varpi_c\ge\varpi'(1-(2r+1)/n)^4$.
+\item If $\mathrm{BP}_{{\rm loc},\mu'}(n',\varpi')$ holds, then every real
+$F\in\mathcal A^c$ that depends only on the coarse links with base points
+in a box of side at most $L/2-2r$, and every real $H\in\mathcal A^c$,
+satisfy
+\[
+\Cov_{\mu^c}(F,H)^2\le\Var_{\mu^c}(F)\,\frac{\mathcal E^c_n(H)}{\varpi_c}.
+\]
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+(i) For every gauge transformation $g$ of $\Lambda_{bL}$, $F\circ c\circ g=
+F\circ\hat g\circ c$, and $F\circ\hat g=F$ holds $\mu^c$-almost everywhere,
+hence $F\circ\hat g\circ c=F\circ c$ holds $\mu'$-almost everywhere; so
+$F\circ c\in\mathcal A'$. The law of $F\circ c$ under $\mu'$ is that of $F$
+under $\mu^c$.
+
+For $x'\in\Lambda_{bL}$ with coordinates $x'_i\in\{0,\dots,bL-1\}$ let
+$y(x')\in\Lambda_L$ have coordinates $\lfloor x'_i/b\rfloor-r$ modulo $L$,
+and for $y\in\Lambda_L$ let $Q_y=by+br\mathbf 1+[0,b(n-2r))^4$, the union of
+the blocks $B_w$ with $w\in y+[r,n-r)^4$. Each $y$ is $y(x')$ for exactly
+$b^4$ points $x'$. With $y=y(x')$, $b(y_i+r)=b\lfloor x'_i/b\rfloor\le x'_i$
+and $x'_i+n'-1\le b\lfloor x'_i/b\rfloor+b-2+n'\le b(y_i+r)+b(n-2r)-1$, by
+the bound on $n'$; so the base points of the links of $V'_{x'}$ lie in
+$Q_y$. Let $(z,\nu)$ be a coarse link with $z\notin y+[0,n)^4$. By (B1),
+$c_{(z,\nu)}$ depends only on links with base point in blocks $B_w$ with
+$\lvert w-z\rvert_\infty\le r$; if such a block lay in $Q_y$, then $w-y$
+would be congruent to a vector in $[r,n-r)^4$ and $z-y$ to one in $[0,n)^4$,
+which is excluded. The blocks partition the sites, so $c_{(z,\nu)}$ depends
+only on links with base point outside $Q_y$, which lie outside $V'_{x'}$.
+
+Let $\mathcal G_y$ be the $\sigma$-algebra on $G^{E'}$ generated by the
+$c_{(z,\nu)}$ with $z\notin y+[0,n)^4$. It is contained in the
+$\sigma$-algebra of the links outside $V'_{x'}$, onto whose $L^2$ space
+$P'_{x'}$ projects orthogonally. For bounded $\psi$ of the coarse links
+outside $V_y$, $\mu'((F\circ c)(\psi\circ c))=\mu^c(F\psi)=\mu^c((P^c_yF)
+\psi)=\mu'(((P^c_yF)\circ c)(\psi\circ c))$, so $\E_{\mu'}[F\circ c\mid
+\mathcal G_y]=(P^c_yF)\circ c$. Hence, with $f=F\circ c$,
+\[
+\mu'\bigl((f-P'_{x'}f)^2\bigr)\le\mu'\bigl((f-(P^c_yF)\circ c)^2\bigr)
+=\mu^c\bigl((F-P^c_yF)^2\bigr),
+\]
+and summing over $x'$, each $y$ occurring $b^4$ times,
+\[
+n'^4\mathcal E'_{n'}(f)\le b^4\sum_{y\in\Lambda_L}\mu^c\bigl((F-P^c_yF)^2
+\bigr)=b^4n^4\mathcal E^c_n(F).
+\]
+
+(ii) For real $F\in\mathcal A^c$, (i) and $\mathrm{BP}_{\mu'}(n',\varpi')$
+give
+\[
+\varpi'\Var_{\mu^c}(F)=\varpi'\Var_{\mu'}(F\circ c)\le\mathcal E'_{n'}(F
+\circ c)\le\Bigl(\frac{bn}{n'}\Bigr)^4\mathcal E^c_n(F).
+\]
+For $n'=b(n-2r-1)+1$, $n'/(bn)\ge(n-2r-1)/n$.
+
+(iii) Each coarse link with base point in the box $y_0+[0,s)^4$, $s\le
+L/2-2r$, depends by (B1) on links with base point in the blocks of $y_0-r
+\mathbf 1+[0,s+2r)^4$, a box of $\Lambda_{bL}$ of side $b(s+2r)\le bL/2$;
+so $F\circ c$ is local. The first statement of Theorem~\ref{thm:bplocal}(iv)
+for $\mu'$, with $f=F\circ c$ and $h=H\circ c\in\mathcal A'$, gives
+$\Cov_{\mu^c}(F,H)^2=\Cov_{\mu'}(f,h)^2\le\Var_{\mu^c}(F)\,\mathcal
+E'_{n'}(h)/\varpi'$, and (i) bounds $\mathcal E'_{n'}(h)$ by $(bn/n')^4
+\mathcal E^c_n(H)$.
+\end{proof}
+
+The inequality of (iii) is weaker than $\mathrm{BP}_{{\rm loc},\mu^c}(n,
+\varpi_c)$. For a self-adjoint operator $0\le K\le I$ and a vector $g$ with
+spectral measure $\nu_g$, the sum $\sum_{t\ge0}\ip g{K^tg}=\int(1-\lambda)^{
+-1}d\nu_g$ is the integrated autocorrelation time of $g$.
+
+\begin{lemma}\label{lem:bpintegrated}
+Let $\varrho$ be a gauge-invariant probability measure on $G^E$, $n\ge2$,
+$\varpi>0$, $\epsilon=\varpi n^4/L^4<1$, $f\in\mathcal A^\varrho$ real, $g=f-
+\varrho(f)$, and $\nu_g$ the spectral measure of $\mathcal K^\varrho$ at $g$.
+\begin{enumerate}[label=\textup{(\roman*)},leftmargin=*]
+\item The following are equivalent:
+\begin{enumerate}[label=\textup{(\alph*)},leftmargin=*]
+\item $\Cov_\varrho(f,h)^2\le\Var_\varrho(f)\,\mathcal E^\varrho_n(h)/\varpi$ for
+every real $h\in\mathcal A^\varrho$;
+\item $\int_{[0,1]}\epsilon(1-\lambda)^{-1}d\nu_g(\lambda)\le\lVert g
+\rVert_2^2$, the integrand being $+\infty$ at $\lambda=1$.
+\end{enumerate}
+\item The inequality of $\mathrm{BP}_{{\rm loc},\varrho}(n,\varpi)$ for $f$
+implies \textup{(b)}.
+\item \textup{(b)} implies $\nu_g((1-\delta,1])\le\delta\lVert g\rVert_2^2/
+\epsilon$ for $0<\delta\le1$ and $\lVert(\mathcal K^\varrho)^tg\rVert_2^2\le
+\lVert g\rVert_2^2/(\epsilon(2t+1))$ for every integer $t\ge0$.
+\item For every $0<\eta<\epsilon$ there are a self-adjoint $0\le K\le I$ on
+$\R^2$ and a unit vector $g$ that satisfies \textup{(b)} for $K$ and has
+$\nu_g((1-\epsilon,1])>0$.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+Let $\mathcal H$ be the real Hilbert space of the real functions of
+$\mathcal A^\varrho$ with mean zero. Each $P^\varrho_x$ maps it into itself, so
+$K=\mathcal K^\varrho$ restricts to a self-adjoint operator on $\mathcal H$ with
+$0\le K\le I$, and so does every bounded Borel function of $K$; the
+spectral measure of $g$ for this restriction has the moments $\ip g{K^mg}$,
+so it is $\nu_g$. Put $A=I-K$.
+For real $h\in\mathcal A^\varrho$ and $h_0=h-\varrho(h)\in\mathcal H$,
+$\Cov_\varrho(f,h)=\ip g{h_0}$ and $\ip{h_0}{Ah_0}=n^4L^{-4}\mathcal E^\varrho_n(h)$,
+since $P^\varrho_x$ fixes the constants. So (a) says $\ip gh^2\le\epsilon^{-1}
+\lVert g\rVert_2^2\ip h{Ah}$ for every $h\in\mathcal H$.
+
+(i) Assume (b). Then $\nu_g(\{1\})=0$. Let $\psi_M(\lambda)=\min\{(1-
+\lambda)^{-1/2},M\}$. By dominated convergence, with the integrable bound
+$(1-\lambda)^{-1}$, the vectors $\psi_M(K)g$ converge as $M\to\infty$ to some
+$v\in\mathcal H$ with $\lVert v\rVert_2^2=\int(1-\lambda)^{-1}d\nu_g\le
+\lVert g\rVert_2^2/\epsilon$, and $A^{1/2}\psi_M(K)g\to g$, since $(1-
+\lambda)^{1/2}\psi_M(\lambda)\to1$ boundedly on $[0,1)$. For $h\in\mathcal
+H$, $\ip gh=\lim_M\ip{\psi_M(K)g}{A^{1/2}h}=\ip v{A^{1/2}h}$, and the
+Cauchy--Schwarz inequality gives (a). Conversely, assume (a) and let $h=
+\varphi_M(K)g$ with $\varphi_M(\lambda)=\min\{(1-\lambda)^{-1},M\}$. Then
+$\ip gh=\int\varphi_Md\nu_g$ and $\ip h{Ah}=\int(1-\lambda)\varphi_M^2d\nu_g
+\le\int\varphi_Md\nu_g$, so (a) gives $\int\varphi_Md\nu_g\le\lVert g
+\rVert_2^2/\epsilon$, and monotone convergence as $M\to\infty$ gives (b).
+
+(ii) By Lemma~\ref{lem:cyclicgap}, $\nu_g$ is carried by $[0,1-\epsilon]$,
+where $\epsilon(1-\lambda)^{-1}\le1$.
+
+(iii) On $(1-\delta,1]$ the integrand of (b) is at least $\epsilon/\delta$.
+For $\lambda\in[0,1]$, $\lambda^{2t}(1-\lambda)\le(2t/(2t+1))^{2t}/(2t+1)
+\le1/(2t+1)$, the maximum being at $\lambda=2t/(2t+1)$, so $\lVert K^tg
+\rVert_2^2=\int\lambda^{2t}d\nu_g\le\epsilon^{-1}(2t+1)^{-1}\int\epsilon(1-
+\lambda)^{-1}d\nu_g$.
+
+(iv) Take $K=\operatorname{diag}(0,1-\eta)$ and $g=(\cos\theta,\sin\theta)$
+with $0<\sin^2\theta\le\eta(1-\epsilon)/(\epsilon(1-\eta))$. Then $\int
+\epsilon(1-\lambda)^{-1}d\nu_g=\epsilon+\epsilon\sin^2\theta(\eta^{-1}-1)
+\le1$, and $\nu_g(\{1-\eta\})=\sin^2\theta$ with $1-\eta\in(1-\epsilon,1]$.
+\end{proof}
+
+So under $\mathrm{BP}_{{\rm loc},\mu'}(n',\varpi')$, if $\varpi_cn^4<L^4$,
+every function $F$ as in Theorem~\ref{thm:bpdescent}(iii), with $G=F-\mu^c(F)$
+and $\mathcal K^c$ the coarse cube chain, satisfies $\sum_{t\ge0}\ip G{(
+\mathcal K^c)^tG}\le L^4\lVert G\rVert_2^2/(\varpi_cn^4)$ and $\lVert(\mathcal
+K^c)^tG\rVert_2\le(2\varpi_c\tau)^{-1/2}\lVert G\rVert_2$ at the time $\tau=
+tn^4/L^4>0$; in the
+proof of Theorem~\ref{thm:avgdecay} this bound replaces $e^{-\epsilon T}$ by
+$(\epsilon(2T+1))^{-1/2}$, which gives no exponential decay. Along the
+continuum tuning the full condition gives the following.
+
+\begin{corollary}\label{cor:bpdescent}
+Let $a_k=2^{-k}a_0$, let $0<\ell_0\le\ell$ and $n_k\ge2$ with $\ell_0\le
+n_ka_k\le\ell$, and suppose that $\mathrm{BP}(n_k,\varpi)$ holds for the
+Wilson measure $\mu_{k,L}$ of $\Lambda_L$ at $\beta_k$ for every $L$ in a
+set $\mathcal L_k$ of even integers $L\ge2n_k+4$. Fix $j\ge0$, put $n_j^*=4+
+\lfloor\ell/a_j\rfloor$, and for $k\ge j$ let $c_k$ be a block-spin map of
+range one with blocks of side $2^{k-j}$. Then for every $k\ge j$ and every
+$L\in\mathcal L_k$ divisible by $2^{k-j+1}$ with $L\ge2^{k-j}(2n_j^*+4)$, the
+measure $(c_k)_*\mu_{k,L}$ on $\Lambda_{L/2^{k-j}}$ satisfies
+\[
+\mathrm{BP}\Bigl(n_j^*,\ \varpi\Bigl(\frac{\ell_0}{\ell+4a_j}\Bigr)^4
+\Bigr).
+\]
+\end{corollary}
+
+\begin{proof}
+Put $b=2^{k-j}$, $L_c=L/b$, even, and $n=3+\lceil(n_k-1)/b\rceil\ge4$.
+Since $(n_k-1)/b<n_ka_k/a_j\le\ell/a_j$, $n\le n_j^*$, so $L_c\ge2n+4$, and
+$n_k\le b(n-3)+1$. Theorem~\ref{thm:bpdescent}(ii) with $r=1$, $n'=n_k$ and
+the fine torus $\Lambda_L=\Lambda_{bL_c}$ gives $\mathrm{BP}(n,\varpi(n_k/
+(bn))^4)$ for $(c_k)_*\mu_{k,L}$, and Proposition~\ref{prop:bpscales}(i),
+which holds for this measure, gives $\mathrm{BP}(n_j^*,\varpi(n_k/(bn_j^*)
+)^4)$. Finally $n_k/b=n_ka_k/a_j\ge\ell_0/a_j$ and $n_j^*\le4+\ell/a_j$.
+\end{proof}
+
+\begin{remark}[what the descent gives and what a bootstrap
+needs]\label{rem:bpdescent}
+Proved: for every local gauge-covariant block-spin map and every
+gauge-invariant measure, the averaged condition passes from the fine lattice
+to the law of the block variables with the factor $(n'/(bn))^4$, which is
+$(1-(2r+1)/n)^4$ for the largest admissible fine cube
+(Theorem~\ref{thm:bpdescent}); along the tuning, with $n_ka_k$ between
+$\ell_0$ and $\ell$, $\mathrm{BP}(n_k,\varpi)$ gives $\mathrm{BP}$ at the one
+cube size $4+\lfloor\ell/a_j\rfloor$ with the constant $\varpi(\ell_0/(\ell
++4a_j))^4$ for the laws of the block variables at the spacing $a_j$, for
+every $k\ge j$ (Corollary~\ref{cor:bpdescent}). A proof of
+$\mathrm{BP}(n_k,\varpi)$ along the tuning therefore contains a proof of the
+condition at a fixed scale for the sequence of measures that the block-spin
+transformation produces from the tuned couplings; the results of
+Sections~\ref{ssec:bpstrong} and~\ref{ssec:bpneutral} are proved for Wilson
+measures and do not apply to these measures as they stand. The local form
+passes only in the integrated form of Lemma~\ref{lem:bpintegrated}, which
+bounds the integrated autocorrelation time of a local function and gives no
+spectral gap (Lemma~\ref{lem:bpintegrated}(iv)).
+
+Not proved: the opposite direction. For $f\in\mathcal A'$,
+\[
+\Var_{\mu'}(f)=\mu'\bigl(\Var_{\mu'}(f\mid c)\bigr)+\Var_{\mu^c}\bigl(
+\E_{\mu'}[f\mid c]\bigr),
+\]
+and a passage from $\mathrm{BP}_{\mu^c}$ to $\mathrm{BP}_{\mu'}$ needs two
+bounds by $\mathcal E'_{n'}(f)$: of the first term, the Poincar\'e
+inequality for the fine links given the block variables named in
+Remark~\ref{rem:bpneutralstatus}, here in the mean over the block variables
+but for every $f\in\mathcal A'$; and of the coarse Dirichlet form of $\E_{
+\mu'}[f\mid c]$, an inequality of the kind of Theorem~\ref{thm:bpdescent}(i)
+in the reverse direction. With $\mathcal F_{x'}$ the $\sigma$-algebra of the
+links outside $V'_{x'}$ and $y=y(x')$ as in the proof of (i), $\mathcal
+G_y\subset\mathcal F_{x'}$ gives, for $f=F\circ c$,
+\[
+\begin{split}
+\mu'\bigl(\Var(f\mid\mathcal G_y)\bigr)={}&\mu'\bigl(\Var(f\mid\mathcal
+F_{x'})\bigr)\\
+&+\mu'\bigl(\Var(\E[f\mid\mathcal F_{x'}]\mid\mathcal G_y)\bigr);
+\end{split}
+\]
+the proof of (i) drops the last term, and a reverse inequality has to bound
+it, that is, the information that the fine field outside the fine cube
+carries on $F$ beyond the coarse field outside the coarse cube. No such
+bound is proved here. The bounds of~\cite{Bal84a,Bal85a,Bal89b} concern effective actions
+in a box of fixed physical size, while Corollary~\ref{cor:bpdescent} poses
+the condition at the scale $a_j$ on tori of every size.
+\end{remark}
+
 \section{The open inputs}\label{sec:inputs}
 
 This section states the two unproved inputs of Section~\ref{sec:bypass}, the cube
@@ -6187,7 +6481,9 @@ from which reflection positivity in every coordinate direction, clustering
 in every direction and, for constants fixed by one reflected correlation,
 nontriviality follow; for the two-point functions, with constants fixed by
 the largest reflected norm, that moment bound is equivalent to a comparison
-of reflected norms at short distance (Corollary~\ref{cor:limitEtwo}).
+of reflected norms at short distance (Corollary~\ref{cor:limitEtwo}), which
+bounds the physical gap from above and fails in the strong-coupling range
+(Proposition~\ref{prop:limitEsd}).
 
 \begin{remark}\label{rem:cubeheuristic}
 The following count relates (D) to a correlation length. Suppose that the
@@ -13733,6 +14029,969 @@ to it along the subsequence. Under (NE), $S_2(\bar g_0\circ\theta_0,g_0)$ is
 at least the $\liminf$ in (NE), so $\mathcal H^{(1)}\ne0$.
 \end{proof}
 
+\emph{The short-distance comparison.} The comparison (SD) is a statement
+about the spectrum of the transfer matrices. For $\Lambda>0$ let
+$\mathbb E_k(\Lambda)$ be the spectral projection of $\mathbb T_k$ on
+$[e^{-\Lambda a_k},1]$, the states of energy at most $\Lambda$ in physical
+units, put $\mathsf K=\mathsf K_{1+a_0}=(5+2a_0)^4$ and, for $(r+1)a_k\le
+\varepsilon$,
+\[
+\begin{split}
+\mathcal N_k(\varepsilon;\Lambda)=\sup\bigl\{&\ip{\Psi_{A_k(h)}}{\mathbb
+E_k(\Lambda)\Psi_{A_k(h)}}:\\
+&\operatorname{supp}h\subset B_\varepsilon,\ \|h\|_\infty\le1\bigr\}.
+\end{split}
+\]
+\begin{enumerate}[label=\textup{(UV)},leftmargin=*]
+\item For every $\varepsilon'\in(0,\varepsilon)$ there are $\Lambda<\infty$
+and $c>0$ with $\mathcal N_k(\varepsilon';\Lambda)\ge c\,\mathcal
+N_k(\varepsilon')$ for all large $k$.
+\end{enumerate}
+(UV) says that the largest reflected norm of a unit packet near the
+reflection plane is carried, up to a fixed fraction, by energies bounded in
+physical units.
+
+\begin{proposition}\label{prop:limitEsd}
+Assume the hypothesis of Theorem~\textup{\ref{thm:limitEtwo}}.
+
+\textup{(i)} For $(r+1)a_k\le\varepsilon'<\varepsilon$,
+\[
+\mathcal N_k(\varepsilon)\le\mathsf K^2\gamma_k^{2\lfloor(\varepsilon-
+\varepsilon')/a_k\rfloor}\mathcal N_k(\varepsilon')\le\mathsf K^2
+e^{-2m_*(\varepsilon-\varepsilon'-a_k)}\mathcal N_k(\varepsilon') .
+\]
+
+\textup{(ii)} \textup{(SD)} holds if and only if \textup{(UV)} holds.
+
+\textup{(iii)} If \textup{(SD)} holds, then for every $\varepsilon'\in(0,
+\varepsilon)$
+\[
+\limsup_k\frac1{a_k}\log\frac1{\gamma_k}\le\frac{\log(\mathsf K^2
+C_{\varepsilon'})}{2(\varepsilon-\varepsilon')},\qquad C_{\varepsilon'}=
+\limsup_k\frac{\mathcal N_k(\varepsilon')}{\mathcal N_k(\varepsilon)} .
+\]
+In particular, if $\gamma_k\le e^{-m_{\mathrm{lat}}}$ for a fixed
+$m_{\mathrm{lat}}>0$ and all $k$, then $\mathcal N_k(\varepsilon')/\mathcal
+N_k(\varepsilon)\to\infty$ for every $\varepsilon'\in(0,\varepsilon)$ and
+\textup{(SD)} fails; this is the case under the hypotheses of
+Corollary~\textup{\ref{cor:limitEstrong}} whenever $\mathcal
+N_k(\varepsilon)>0$ for large $k$.
+\end{proposition}
+
+\begin{proof}
+(i) Let $h$ be supported in $B_\varepsilon$ with $\|h\|_\infty\le1$, put
+$n=\lfloor(\varepsilon-\varepsilon')/a_k\rfloor$ and $h'=h(\cdot+na_ke_0)$,
+supported in a cube of side $1+a_0$ in $\{x_0\ge\varepsilon'\}$. By
+Lemma~\ref{lem:limitElattice}(i) and the proof of
+Lemma~\ref{lem:limitElattice}(iii), $\Psi_{A_k(h)}=\mathbb T_k^n
+\Psi_{A_k(h')}$, and $\Psi_{A_k(h')}\perp\Omega_k$ because the packet is
+centred. So $\|\Psi_{A_k(h)}\|\le\gamma_k^n\|\Psi_{A_k(h')}\|\le\gamma_k^n
+\mathsf K\mathcal N_k(\varepsilon')^{1/2}$ by Lemma~\ref{lem:limitEbox}, and
+$\gamma_k^n\le e^{-m_*a_kn}\le e^{-m_*(\varepsilon-\varepsilon'-a_k)}$.
+
+(ii) First a version of Lemma~\ref{lem:limitEbox} for $\mathbb E=\mathbb
+E_k(\Lambda)$. For a function $F$ of links in $\{x_0\ge1\}$ and $v\in\Z^4$
+with $v_0=0$, the spectral measures of $\mathbb T_k$ at $\Psi_F$ and at
+$\Psi_{\tau_vF}$ are measures on $[0,1]$ with the same moments
+$\omega_k(\vartheta(\bar F)\tau_jF)=\omega_k(\tau_v(\vartheta(\bar F)
+\tau_jF))$, $j\ge0$, so they coincide and $\|\mathbb E\Psi_{\tau_vF}\|=
+\|\mathbb E\Psi_F\|$. If $g$ is supported in a cube of side $L$ in
+$\{x_0\ge\varepsilon\}$, the proof of Lemma~\ref{lem:limitEbox} writes
+$\Psi_{A_k(g)}$ as a sum of at most $\mathsf K_L$ vectors $\mathbb
+T_k^{n_m}\Psi_{\tau_{v_m}A_k(h'_m)}$ with $(v_m)_0=0$, $h'_m$ supported in
+$B_\varepsilon$ and $\|h'_m\|_\infty\le\|g\|_\infty$; since $\mathbb E$
+commutes with $\mathbb T_k$ and $\|\mathbb T_k\|\le1$,
+\[
+\|\mathbb E\Psi_{A_k(g)}\|\le\mathsf K_L\,\mathcal N_k(\varepsilon;
+\Lambda)^{1/2}\|g\|_\infty .
+\]
+
+Assume (UV) and let $\varepsilon'\in(0,\varepsilon)$, with $\Lambda$, $c$ as
+in (UV). Take $h$ supported in $B_{\varepsilon'}$ with $\|h\|_\infty\le1$
+and $\ip{\Psi}{\mathbb E\Psi}\ge\frac c2\mathcal N_k(\varepsilon')$,
+$\Psi=\Psi_{A_k(h)}$, let $n=\lceil(\varepsilon-\varepsilon')/a_k\rceil$ and
+$h_n=h(\cdot-na_ke_0)$, supported in a cube of side $1+a_0$ in
+$\{x_0\ge\varepsilon\}$. With $\nu$ the spectral measure of $\mathbb T_k$ at
+$\Psi$,
+\[
+\begin{split}
+\|\Psi_{A_k(h_n)}\|^2&=\int\lambda^{2n}d\nu(\lambda)\ge e^{-2\Lambda a_kn}
+\nu\bigl([e^{-\Lambda a_k},1]\bigr)\\
+&\ge e^{-2\Lambda(\varepsilon-\varepsilon'+a_k)}\tfrac c2\mathcal
+N_k(\varepsilon'),
+\end{split}
+\]
+and Lemma~\ref{lem:limitEbox} bounds the left side by $\mathsf K^2\mathcal
+N_k(\varepsilon)$. So $\mathcal N_k(\varepsilon')/\mathcal N_k(\varepsilon)
+\le2c^{-1}\mathsf K^2e^{2\Lambda(\varepsilon-\varepsilon'+a_k)}$, which is
+(SD).
+
+Conversely, let (SD) hold and $\varepsilon'\in(0,\varepsilon)$, and fix a
+number $C$ greater than $\limsup_k\mathcal N_k(\varepsilon')/\mathcal
+N_k(\varepsilon)$, and put $\Lambda=\log(4C\mathsf K^2)/(\varepsilon-
+\varepsilon')$. For $h$, $n$ and $h'$ as in the proof of (i), $\|\mathbb T_k(1-\mathbb E)\|\le
+e^{-\Lambda a_k}$, so
+\[
+\|\Psi_{A_k(h)}\|=\|\mathbb T_k^n\Psi_{A_k(h')}\|\le\|\mathbb E
+\Psi_{A_k(h')}\|+e^{-\Lambda a_kn}\|\Psi_{A_k(h')}\|,
+\]
+and the two forms of Lemma~\ref{lem:limitEbox} give
+\[
+\mathcal N_k(\varepsilon)\le2\mathsf K^2\bigl(\mathcal N_k(\varepsilon';
+\Lambda)+e^{-2\Lambda a_kn}\mathcal N_k(\varepsilon')\bigr).
+\]
+For large $k$, $a_k\le
+\frac12(\varepsilon-\varepsilon')$, so $a_kn\ge\frac12(\varepsilon-
+\varepsilon')$ and $2C\mathsf K^2e^{-2\Lambda a_kn}\le\frac12$; with
+$\mathcal N_k(\varepsilon')\le C\mathcal N_k(\varepsilon)$ this gives
+$\mathcal N_k(\varepsilon')\le4C\mathsf K^2\mathcal
+N_k(\varepsilon';\Lambda)$, which is (UV) at $\varepsilon'$.
+
+(iii) By (i), $\mathcal N_k(\varepsilon')/\mathcal N_k(\varepsilon)\ge
+\mathsf K^{-2}\gamma_k^{-2n}$ with $n\ge(\varepsilon-\varepsilon')/a_k-1$;
+in particular $\mathsf K^2C_{\varepsilon'}\ge1$. For $C>C_{\varepsilon'}$
+and large $k$ this gives $2n\log(1/\gamma_k)\le\log(\mathsf K^2C)$, that is
+$a_k^{-1}\log(1/\gamma_k)\le\log(\mathsf K^2C)/(2(\varepsilon-\varepsilon'
+-a_k))$, and $C\downarrow C_{\varepsilon'}$ gives the bound. Under a lattice
+gap the same inequality gives $\mathcal N_k(\varepsilon')/\mathcal
+N_k(\varepsilon)\ge\mathsf K^{-2}e^{2m_{\mathrm{lat}}((\varepsilon-
+\varepsilon')/a_k-1)}\to\infty$. Corollary~\ref{cor:limitEstrong} provides
+the lattice gap $m_{\mathrm{lat}}=3.28/(625e^2)$.
+\end{proof}
+
+So (SD) bounds the physical gap from above, and it fails in the
+strong-coupling range of Corollary~\ref{cor:limitEstrong}. It does not
+follow from invariance, reflection positivity and a gap bounded above and
+below in physical units: a heavy species with a growing weight removes it.
+
+\begin{proposition}\label{prop:limitEheavy}
+Let $m>0$, $\varrho\in(0,1)$, $q_k=e^{-ma_k}$, let $\phi^{(1)}_k$ and
+$\phi^{(2)}_k$ be independent centred Gaussian fields on $\Z^4$ with
+covariances $\prod_\mu q_k^{|x_\mu-y_\mu|}$ and $\prod_\mu
+\varrho^{|x_\mu-y_\mu|}$, let $\lambda_k>0$, $\phi_k=\phi^{(1)}_k+\lambda_k
+\phi^{(2)}_k$, $A_k(f)=\sum_xa_k^4f(a_kx)\phi_k(x)$, and form $\mathcal
+N_k(\varepsilon)$ with these packets and $r=0$.
+
+\textup{(a)} The law of $\phi_k$ is invariant under translations and $B_4$
+and reflection positive for the reflections in coordinate hyperplanes
+through sites and bisecting links. For $q_k\ge \varrho$ the spectrum of its
+transfer matrix in each coordinate direction on $\Omega_k^\perp$ lies in
+$[0,q_k]$ and contains $q_k$: the gap is $m$ in physical units.
+
+\textup{(b)} Given $\varepsilon>0$, there are $\lambda_k$ with $\mathcal
+N_k(\varepsilon')/\mathcal N_k(\varepsilon)\to\infty$ for every
+$\varepsilon'\in(0,\varepsilon)$, so that \textup{(SD)} fails.
+
+\textup{(c)} For these $\lambda_k$ and every $Z_k$ for which
+\textup{(M$_{\mathrm s}$)} holds at $n=2$, $Z_k^2\omega_k(A_k(f)A_k(g))\to0$
+for every separated pair: every limit of the two-point functions vanishes.
+\end{proposition}
+
+\begin{proof}
+(a) Each $\phi^{(i)}_k$ is the field of
+Proposition~\ref{prop:osobstruction}(a), with $q_k$ replaced by $\varrho$
+for $i=2$, which has the invariance and the
+reflection positivity, with the transfer operators $P_1$, $P_2$ of spectra
+$\{q_k^N\}$ and $\{\varrho^N\}$, $1$ simple, given in its proof. The pair
+$(\phi^{(1)}_k,\phi^{(2)}_k)$ is then a reversible Markov chain in each
+coordinate direction with transfer operator $P_1\otimes P_2$, of spectrum
+$\{q_k^N\varrho^{N'}\}$ with $1$ simple, and the argument of that proof gives
+$\E[\vartheta(\bar F)F']=\ip{g_F}{g_{F'}}$ for functions $F,F'$ of the pair
+at positive times. The functions of $\phi_k$ at positive times are functions
+of the pair there, so $\phi_k$ is reflection positive, its transfer matrix
+is the restriction of $P_1\otimes P_2$ to an invariant subspace, and its
+spectrum on $\Omega_k^\perp$ lies in $[0,\max(q_k,\varrho)]=[0,q_k]$. For a site
+$x$ at positive time, $g_{\phi_k(x)}$ is a sum of two orthogonal
+eigenvectors, of eigenvalues $q_k$ and $\varrho$, the first one nonzero, so $q_k$
+is in the spectrum.
+
+(b) Let $\vartheta$ fix the plane $\{x_0=c\}$, $|c|\le\frac12$, so that
+$\vartheta x=(2c-x_0,\mathbf x)$. By independence and centring,
+$\omega_k(\vartheta(\overline{A_k(h)})A_k(h))=\mathcal N^{(1)}(h)+
+\lambda_k^2\mathcal N^{(2)}(h)$, with $\mathcal N^{(i)}(h)\ge0$ formed with
+$\phi^{(i)}_k$. For $h$ supported in $\{x_0\ge a_k\}$,
+\[
+\begin{split}
+\mathcal N^{(2)}(h)&=a_k^8\sum_{\mathbf x,\mathbf y}\overline{H(\mathbf x)}
+H(\mathbf y)\prod_{i=1}^3\varrho^{|x_i-y_i|},\\
+H(\mathbf x)&=\sum_{x_0}h(a_kx)\varrho^{x_0-c} .
+\end{split}
+\]
+If $h$ is supported in $B_\varepsilon$ with $\|h\|_\infty\le1$ and
+$a_k\le1$, then $|H|\le \varrho^{\varepsilon/a_k-1/2}/(1-\varrho)$, at most
+$((2+a_0)/a_k)^3$ points $\mathbf x$ have $H(\mathbf x)\ne0$, and
+$\sum_{\mathbf y}\prod_i\varrho^{|x_i-y_i|}=((1+\varrho)/(1-\varrho))^3$, so
+\[
+\mathcal N^{(2)}(h)\le U_k(\varepsilon)=c_\varrho a_k^5\varrho^{2\varepsilon/a_k},\qquad
+c_\varrho=\frac{(2+a_0)^3(1+\varrho)^3}{\varrho(1-\varrho)^5} .
+\]
+For $\varepsilon'>0$ and $\tau\in(0,\frac12)$ let $h_*$ be continuous with
+values in $[0,1]$, supported in $B_{\varepsilon'}$ and equal to $1$ on
+$D=[\varepsilon'+\tau,\varepsilon'+1]\times[\tau,1]^3$. All terms of
+$\mathcal N^{(2)}(h_*)$ are nonnegative; keeping $x=y$ with $x_0=\lceil
+(\varepsilon'+\tau)/a_k\rceil$ and $a_k\mathbf x\in[\tau,1]^3$, for
+$a_k\le\frac12(1-\tau)$,
+\[
+\mathcal N^{(2)}(h_*)\ge L_k(\varepsilon')=\Bigl(\frac{1-\tau}2\Bigr)^3
+a_k^5\varrho^{2(\varepsilon'+\tau)/a_k+3} .
+\]
+Let $\mathcal N^{(1)}_k(\varepsilon)$ be the supremum of $\mathcal
+N^{(1)}(h)$ over $h$ supported in $B_\varepsilon$ with $\|h\|_\infty\le1$.
+For $a_kx,a_ky\in D_\varepsilon=[\varepsilon+\frac14,\varepsilon+1]\times
+[\frac14,1]^3$ the covariance of $\phi^{(1)}_k(\vartheta x)$ and
+$\phi^{(1)}_k(y)$ is at least $e^{-m(2\varepsilon+6)}$; with the function
+$h_*$ for $\varepsilon$ and $\tau=\frac14$ this gives
+$\mathcal N^{(1)}_k(\varepsilon)\ge\ell_0=(\frac38)^8e^{-m(2\varepsilon+6)}
+>0$ for $a_k\le\frac38$, and it is finite. Put $\lambda_k^2=\mathcal
+N^{(1)}_k(\varepsilon)/U_k(\varepsilon)$. Then $\mathcal N_k(\varepsilon)\le
+\mathcal N^{(1)}_k(\varepsilon)+\lambda_k^2U_k(\varepsilon)=2\mathcal
+N^{(1)}_k(\varepsilon)$ and $\mathcal N_k(\varepsilon')\ge\lambda_k^2
+L_k(\varepsilon')$, so for $\tau<\varepsilon-\varepsilon'$
+\[
+\begin{split}
+\frac{\mathcal N_k(\varepsilon')}{\mathcal N_k(\varepsilon)}&\ge
+\frac{L_k(\varepsilon')}{2U_k(\varepsilon)}\\
+&=\Bigl(\frac{1-\tau}2\Bigr)^3\frac{\varrho^4(1-\varrho)^5\,
+\varrho^{-2(\varepsilon-\varepsilon'-\tau)/a_k}}{2(2+a_0)^3(1+\varrho)^3}
+\to\infty .
+\end{split}
+\]
+
+(c) Let $(f,g)\in\mathcal C_2(Q_0,\delta)$, $Q_0$ of side $L_0$, and fix
+$\varepsilon',\tau>0$ with $\varepsilon'+\tau<\min(\varepsilon,\delta/2)$
+and $\tau<\frac12$. For $a_k\le\varepsilon'$ the pair $(\bar h_*\circ
+\theta_{0,k},h_*)$ lies in $\mathcal C_2(Q',\varepsilon')$ for a cube $Q'$
+independent of $k$, so (M$_{\mathrm s}$) gives $Z_k^2\lambda_k^2
+L_k(\varepsilon')\le Z_k^2\omega_k(\vartheta(A_k(h_*))A_k(h_*))\le
+M=M_2(Q',\varepsilon')$, that is $Z_k^2\mathcal N^{(1)}_k(\varepsilon)\le MU_k(
+\varepsilon)/L_k(\varepsilon')$. The covariance of $\phi^{(1)}_k$ is at
+most $1$ and at most $(L_0/a_k+1)^4$ sites carry $f$ or $g$, so
+$|\E[A^{(1)}_k(f)A^{(1)}_k(g)]|\le(L_0+1)^8\|f\|_\infty\|g\|_\infty$ for
+$a_k\le1$, and
+\[
+Z_k^2\bigl|\E[A^{(1)}_k(f)A^{(1)}_k(g)]\bigr|\le\frac{M(L_0+1)^8}{\ell_0}
+\,\frac{U_k(\varepsilon)}{L_k(\varepsilon')}\|f\|_\infty\|g\|_\infty\to0 .
+\]
+For the second field the sites carrying $f$ and $g$ are at
+$\ell^\infty$ distance at least $\delta/a_k$, and $\sum_{|z|_\infty\ge d}
+\prod_\mu \varrho^{|z_\mu|}\le8\varrho^d(1+\varrho)^3/(1-\varrho)^4$, so
+$\lambda_k^2|\E[A^{(2)}_k(f)A^{(2)}_k(g)]|\le\lambda_k^2C_1a_k^4
+\varrho^{\delta/a_k}\|f\|_\infty\|g\|_\infty$ with $C_1=8(L_0+1)^4(1+\varrho)^3/
+(1-\varrho)^4$. Since $Z_k^2\lambda_k^2\le M/L_k(\varepsilon')$,
+\[
+\begin{split}
+&Z_k^2\lambda_k^2\bigl|\E[A^{(2)}_k(f)A^{(2)}_k(g)]\bigr|\\
+&\quad\le MC_1\Bigl(\frac2{1-\tau}\Bigr)^3\frac{\varrho^{(\delta-2
+\varepsilon'-2\tau)/a_k-3}}{a_k}\|f\|_\infty\|g\|_\infty\to0 ,
+\end{split}
+\]
+because $\delta>2(\varepsilon'+\tau)$. The cross terms vanish.
+\end{proof}
+
+In the example the part $\lambda_k^2\mathcal N^{(2)}$ of the reflected norm,
+which produces the growth, is carried by energies at least
+$a_k^{-1}\log(1/\varrho)\to\infty$, and (UV) fails, by the proof of
+Proposition~\ref{prop:limitEsd}(ii), which uses only the invariance,
+reflection positivity and the gap. For $\lambda_k=0$ it is the field of
+Proposition~\ref{prop:osobstruction}(a), for which (SD) and
+(M$_{\mathrm s}$) hold. Like that field, it is not a lattice gauge theory; it shows that
+(SD), equivalently (UV), is an input on the ultraviolet behaviour of the
+Wilson measure that reflection positivity and the gap do not supply.
+
+\emph{The nonvanishing condition.} Under (SD) the condition (NE) is
+exactly the nontriviality of the limits. Write $R_k(g)=\omega_k(\vartheta(\overline{
+A_k(g)})A_k(g))/\mathcal N_k(\varepsilon)$ for $g$ supported in
+$\{x_0\ge(r+1)a_k\}$.
+
+\begin{proposition}\label{prop:limitEne}
+Assume the hypothesis of Theorem~\textup{\ref{thm:limitEtwo}} and
+\textup{(SD)}.
+
+\textup{(i)} The following are equivalent: \textup{(NE)}; every limit $S_2$
+of Corollary~\textup{\ref{cor:limitEtwo}(b)} is not identically zero; every
+such limit has $\mathcal H^{(1)}\ne0$.
+
+\textup{(ii)} If $\omega_k(\Phi_0\Phi_z)\ge c_k^2$ for all large $k$ and all
+$z\in\Z^4$ with $|z|_\infty\ge2r+1$, then $R_k(g_0)\ge1$ for large $k$ and
+every continuous $g_0$ with values in $[0,1]$, equal to $1$ on
+$B_\varepsilon$ and supported in $\{x_0\ge\varepsilon/2\}$; in particular
+\textup{(NE)} holds.
+\end{proposition}
+
+\begin{proof}
+(i) The first statement implies the second by
+Corollary~\ref{cor:limitEtwo}(b). The second and the third are equivalent:
+$\mathcal H^{(1)}\ne0$ means $S_2(\bar g\circ\theta_0,g)>0$ for some $g$
+supported in $\{x_0>0\}$, and the proof of Corollary~\ref{cor:limitEtwo}(b)
+shows that a limit with this property for no $g$ vanishes identically.
+
+Suppose (NE) fails, so that $\liminf_kR_k(g)=0$ for every $g\in C_c(\R^4)$
+supported in $\{x_0>0\}$. Let $g_1,\dots,g_J$ be supported in a cube of side
+$L$ and in $\{x_0\ge\eta\}$, $\eta>0$, let $D>0$ be dyadic and
+$G=\sum_jg_j(\cdot-jDe_1)$. For large $k$, $jD/a_k\in\Z$ and
+$R_k(g_j(\cdot-jDe_1))=R_k(g_j)$ by Lemma~\ref{lem:limitElattice}(i),(iii).
+For $i\ne j$ the cross term $\ip{\Psi_{A_k(g_i(\cdot-iDe_1))}}
+{\Psi_{A_k(g_j(\cdot-jDe_1))}}$ equals $\omega_k(A_k(\bar g_i(\cdot-iDe_1)
+\circ\theta_{0,k})A_k(g_j(\cdot-jDe_1)))$, two packets in cubes of side $L$
+whose projections on the $e_1$ axis are at distance at least $|i-j|D-L$; by
+Theorem~\ref{thm:limitEtwo}(i) in the direction $e_1$ with $d=D-L-4
+\varepsilon$, its modulus is at most $\mathcal N_k(\varepsilon)\mathsf
+K_L^2e^{-m_*(D-L-4\varepsilon-1)}\max_j\|g_j\|_\infty^2$. Hence
+$\sum_jR_k(g_j)\le R_k(G)+J^2\mathsf K_L^2e^{-m_*(D-L-4\varepsilon-1)}
+\max_j\|g_j\|_\infty^2$ for large $k$, and since $\liminf_kR_k(G)=0$ and $D$
+is arbitrary, $\liminf_k\sum_jR_k(g_j)=0$.
+
+Enumerate as $g_1,g_2,\dots$ the elements of the countable set $\mathcal G$
+of the proof of Theorem~\ref{thm:limitEsep}(i) that are supported in
+$\{x_0>0\}$, and choose $k_1<k_2<\cdots$ with $\sum_{j\le J}R_{k_J}(g_j)<
+1/J$. Then $R_{k_J}(g_j)\to0$ for every $j$. Let $g$ be supported in a cube
+of side $L$ and in $\{x_0\ge\eta\}$, and let $\tau\in(0,\min(\eta,1)/2]$. That proof
+gives $g_j\in\mathcal G$ with $\|g-g_j\|_\infty<\tau$ and support within
+$\tau$ of $\operatorname{supp}g$, so $g-g_j$ is supported in a cube of side
+$L+1$ in $\{x_0\ge\eta/2\}$, and by Lemma~\ref{lem:limitEbox}
+\[
+R_k(g)^{1/2}\le R_k(g_j)^{1/2}+\mathsf K_{L+1}\Bigl(\frac{\mathcal N_k(
+\eta/2)}{\mathcal N_k(\varepsilon)}\Bigr)^{1/2}\tau .
+\]
+The ratio has finite $\limsup$, by (SD) if $\eta/2<\varepsilon$ and by
+Proposition~\ref{prop:limitEsd}(i) otherwise. As $\tau$ is arbitrary,
+$R_{k_J}(g)\to0$. By Corollary~\ref{cor:limitEtwo}(b) a subsequence of
+$(k_J)$ has a limit $S_2$, and by the approximation of $\theta_{0,k}$ by
+$\theta_0$ in the proof of Theorem~\ref{thm:limitEsep}(iii), $S_2(\bar g
+\circ\theta_0,g)=\lim_JR_{k_J}(g)=0$ for every $g$ supported in
+$\{x_0>0\}$. So this limit vanishes identically, and the second statement
+fails.
+
+(ii) Let $h$ be supported in $B_\varepsilon$ with $\|h\|_\infty\le1$, and
+$(r+1)a_k\le\varepsilon/2$. By Lemma~\ref{lem:limitElattice}(i),
+$\omega_k(\vartheta(\overline{A_k(h)})A_k(h))=\sum_{x,y}a_k^8\overline{h(a_k
+x)}h(a_ky)K(x,y)$ with $K(x,y)=\omega_k(\Phi_{\vartheta x}\Phi_y)-c_k^2=
+\omega_k(\Phi_0\Phi_{y-\vartheta x})-c_k^2$. For $a_kx_0,a_ky_0\ge
+\varepsilon/2$, $x_0,y_0\ge r+1$ and the time component of $y-\vartheta x$
+is $x_0+y_0-2c\ge2r+1$, so $K(x,y)\ge0$ and the sum is at most
+$\sum_{x,y}a_k^8g_0(a_kx)g_0(a_ky)K(x,y)=\omega_k(\vartheta(A_k(g_0))
+A_k(g_0))$, because $|h|\le g_0$. Taking the supremum over $h$ gives
+$\mathcal N_k(\varepsilon)\le\omega_k(\vartheta(A_k(g_0))A_k(g_0))$.
+\end{proof}
+
+The condition of (ii) is a correlation inequality of Griffiths type for the
+connected two-point function of $\Phi$; it is not proved here for the
+Wilson measure.
+
+\emph{Products of packets.} For $n\ge3$ the moment bound reduces to
+reflected norms of products. Consider
+\begin{enumerate}[label=\textup{(RN)},leftmargin=*]
+\item For every $m\ge1$, every cube $Q$ and every $\delta>0$ there are
+$R_m(Q,\delta)<\infty$ and $k_0$ such that
+\[
+Z_k^{2m}\omega_k\bigl(\vartheta(\bar P_k)P_k\bigr)\le R_m(Q,\delta)
+\prod_{j=1}^m\|f_j\|_\infty^2,\qquad P_k=\prod_{j=1}^mA_k(f_j),
+\]
+for all $k\ge k_0$ and $(f_1,\dots,f_m)\in\mathcal C_m(Q,\delta)$ with
+supports in $\{x_0\ge\delta\}$.
+\end{enumerate}
+We write (RN$_m$) for the statement at a fixed $m$, and (M$_{\mathrm s,n}$)
+for (M$_{\mathrm s}$) at a fixed $n$.
+
+\begin{proposition}\label{prop:limitEreflect}
+Assume the hypothesis of Theorem~\textup{\ref{thm:avgtransfer}}.
+
+\textup{(i)} \textup{(M$_{\mathrm s,2m}$)} implies \textup{(RN$_m$)}.
+
+\textup{(ii)} Let $n\ge2$. If \textup{(RN$_i$)} holds for $1\le i\le n-1$, then
+\textup{(M$_{\mathrm s,n}$)} holds, with
+\[
+M_n(Q,\delta)=\mathsf K_{2nL/\delta}^{\,n}\max_{1\le i\le n-1}\bigl(R_i(Q^*,
+\delta_n)R_{n-i}(Q^*,\delta_n)\bigr)^{1/2}
+\]
+for $Q$ of side $L$, $Q^*=[-L-2,L+2]^4$ and $\delta_n=\delta/(16(n+1))$.
+
+\textup{(iii)} \textup{(M$_{\mathrm s}$)} holds if and only if
+\textup{(RN)} holds, and \textup{(M$_{\mathrm s,2}$)} if and only if
+\textup{(RN$_1$)}. With $Z_k=\mathcal N_k(\varepsilon)^{-1/2}$ as in
+Theorem~\textup{\ref{thm:limitEtwo}}, \textup{(RN$_1$)} is equivalent to
+\textup{(SD)}, and \textup{(M$_{\mathrm s,3}$)} follows from \textup{(SD)}
+and \textup{(RN$_2$)}.
+\end{proposition}
+
+\begin{proof}
+(i) Let $(f_j)\in\mathcal C_m(Q,\delta)$ be supported in $\{x_0\ge\delta\}$
+and $a_k\le\delta$. The functions $\bar f_j\circ\theta_{0,k}$ are supported in
+$\{x_0\le a_k-\delta\}$, so the $2m$-tuple of these and the $f_j$ lies in
+$\mathcal C_{2m}(Q',\delta)$ for a cube $Q'$ containing $Q$ and all
+$\theta_{0,k}(Q)$, and $\omega_k(\vartheta(\bar P_k)P_k)=\omega_k(\prod_j
+A_k(\bar f_j\circ\theta_{0,k})\prod_jA_k(f_j))$ by
+Lemma~\ref{lem:limitElattice}(i). (M$_{\mathrm s,2m}$) gives (RN$_m$) with
+$R_m(Q,\delta)=M_{2m}(Q',\delta)$.
+
+(ii) Let $(f_j)\in\mathcal C_n(Q,\delta)$, $s=\delta/(2n)$, and decompose
+every $f_j$ with the functions $\chi^s_\kappa$ of the proof of
+Theorem~\ref{thm:limitEsep}(vi); at most $\mathsf K_{L/s}=\mathsf
+K_{2nL/\delta}$ pieces of each are nonzero, each with norm at most
+$\|f_j\|_\infty$. Fix a nonzero term, with pieces in closed cubes
+$C_1,\dots,C_n$ of side $s$, points $p\in C_1$ and $q\in C_2$ in the supports
+and $\mu$ with $q_\mu-p_\mu\ge\delta$ (after exchanging $f_1$ and $f_2$).
+The projections of the $C_j$ on the $\mu$ axis have total length $\delta/2$,
+so their complement in $[p_\mu,q_\mu]$ contains an interval of length at
+least $\delta/(2(n+1))$; let $c$ be its midpoint. Every projection is at
+distance at least $\delta/(4(n+1))=4\delta_n$ from $c$; let $I$ and $J$ be
+the indices of the cubes below and above $c$, nonempty since $1\in I$ and
+$2\in J$. Translate all pieces by one vector of $a_k\Z^4$ so that $c$ moves
+within $a_k/2$ of the plane $\{x_\mu=a_kc_\mu\}$ fixed by $\theta_{\mu,k}$,
+$|c_\mu|\le\frac12$, and so that the pieces lie in $Q^*$; the moment does not
+change. For $a_k\le2\delta_n$ the pieces of $I$ lie in $\{x_\mu\le a_kc_\mu
+-3\delta_n\}$ and those of $J$ in $\{x_\mu\ge a_kc_\mu+3\delta_n\}$. With
+$F=\prod_{j\in I}A_k(\bar f'_j\circ\theta_{\mu,k})$ and $G=\prod_{j\in J}
+A_k(f'_j)$, $f'_j$ the translated pieces, Lemma~\ref{lem:limitElattice}(i)
+gives $\prod_{j\in I}A_k(f'_j)=\vartheta_\mu(\bar F)$, and by the invariance
+under $\pi_\mu$ and the Cauchy--Schwarz inequality for the positive form of
+Lemma~\ref{lem:limitElattice}(iii),
+\[
+\Bigl|\omega_k\Bigl(\prod_{j=1}^nA_k(f'_j)\Bigr)\Bigr|=|\omega_k(
+\vartheta(\overline{\pi_\mu F})\pi_\mu G)|\le N_0(\pi_\mu F)N_0(\pi_\mu G).
+\]
+The factors of $\pi_\mu F$ and $\pi_\mu G$ are supported in $Q^*$ and in
+$\{x_0\ge3\delta_n-a_k\}\subset\{x_0\ge\delta_n\}$, pairwise at distance at
+least $\delta$, so (RN$_{|I|}$) and (RN$_{|J|}$) bound $Z_k^nN_0(\pi_\mu F)
+N_0(\pi_\mu G)$ by $(R_{|I|}R_{|J|})^{1/2}\prod_j\|f_j\|_\infty$ for large $k$.
+Summing over the at most $\mathsf K_{2nL/\delta}^n$ terms gives the claim.
+
+(iii) The first two statements follow from (i) and (ii). For $Z_k=\mathcal
+N_k(\varepsilon)^{-1/2}$, (RN$_1$) at $Q\supset B_{\varepsilon'}$ and
+$\delta=\varepsilon'$ gives $\mathcal N_k(\varepsilon')\le R_1\mathcal
+N_k(\varepsilon)$, which is (SD); conversely Lemma~\ref{lem:limitEbox}
+bounds the left side of (RN$_1$) by $\mathsf K_L^2\|f\|_\infty^2$ times
+$\mathcal N_k(\delta)/\mathcal N_k(\varepsilon)$, which is bounded by (SD)
+for $\delta<\varepsilon$ and by Proposition~\ref{prop:limitEsd}(i) for
+$\delta\ge\varepsilon$. The last claim is (ii) for $n=3$.
+\end{proof}
+
+The Cauchy--Schwarz inequality of reflection positivity bounds a moment by
+the reflected norms of the products of the two groups of packets on the two
+sides of a plane, and for $n\ge3$ one group contains at least two packets;
+the reduction therefore stops at (RN$_m$) with $m\ge2$, the reflected norms
+of products of separated packets. If the packets are jointly Gaussian,
+Wick's formula writes $\omega_k(\vartheta(\bar P_k)P_k)$ as a sum of
+$(2m-1)!!$ products of covariances of separated pairs, and (RN) follows from
+(RN$_1$) by (ii) with $n=2$; for the Wilson measure (RN$_m$) with $m\ge2$ is
+not proved.
+
+\emph{Rotations at separated points.} The hypercubic group fixes the
+lowest anisotropy that a separated two-point function can carry. Let
+$\mathcal P_l$ be the space of homogeneous polynomials of degree $l$ on
+$\R^4$, $\mathcal Y_l\subset\mathcal P_l$ the harmonic ones, and
+$\mathcal Y_l^{B_4}$ the elements of $\mathcal Y_l$ invariant under $B_4$.
+Put
+\[
+\begin{split}
+Y_4(z)&=\sum_\mu z_\mu^4-\tfrac12|z|^4,\\
+Y_6(z)&=\sum_\mu z_\mu^6-\tfrac54|z|^2\sum_\mu z_\mu^4+\tfrac5{16}|z|^6 .
+\end{split}
+\]
+
+\begin{lemma}\label{lem:limitEharm}
+$\mathcal Y_l^{B_4}=0$ for odd $l$, and $\dim\mathcal Y_{2j}^{B_4}=
+p(j)-p(j-1)$ for $j\ge1$, where $p(j)$ is the number of partitions of $j$
+into at most four parts. In particular $\dim\mathcal Y_l^{B_4}$ is $0$, $1$,
+$1$, $2$ for $l=2,4,6,8$, and $\mathcal Y_4^{B_4}=\R Y_4$,
+$\mathcal Y_6^{B_4}=\R Y_6$.
+\end{lemma}
+
+\begin{proof}
+A sign change $z_\mu\mapsto-z_\mu$ multiplies a monomial by $-1$ to the
+power of its degree in $z_\mu$, so a polynomial invariant under the sign
+changes contains only monomials of even degree in every variable; it is a
+polynomial in $w_\mu=z_\mu^2$, and invariance under the permutations makes
+it symmetric in $w_0,\dots,w_3$. The monomial symmetric polynomials
+$m_\kappa(w)$, $\kappa$ a partition of $j$ into at most four parts, form a
+basis of the symmetric polynomials of degree $j$ in four variables, so
+$\dim\mathcal P_{2j}^{B_4}=p(j)$ and $\mathcal P_l^{B_4}=0$ for odd $l$.
+By~\cite[Ch.~IV]{SW71}, $\mathcal P_l=\mathcal Y_l\oplus|z|^2\mathcal
+P_{l-2}$, and both summands are invariant under $\mathrm O(4)$, so the
+projections on them commute with $B_4$ and $\mathcal P_l^{B_4}=\mathcal
+Y_l^{B_4}\oplus|z|^2\mathcal P_{l-2}^{B_4}$; multiplication by $|z|^2$ is
+injective. This gives the dimension, and $p(0),\dots,p(4)$ are $1,1,2,3,5$.
+In $\R^4$, $\Delta|z|^{2i}=2i(2i+2)|z|^{2i-2}$, $\Delta\sum_\mu z_\mu^{2i}=
+2i(2i-1)\sum_\mu z_\mu^{2i-2}$ and $\Delta(|z|^2\sum_\mu z_\mu^4)=
+24\sum_\mu z_\mu^4+12|z|^4$, so $\Delta Y_4=12|z|^2-\frac12\cdot24|z|^2=0$
+and $\Delta Y_6=30\sum_\mu z_\mu^4-\frac54(24\sum_\mu z_\mu^4+12|z|^4)+
+\frac5{16}\cdot48|z|^4=0$. Both are invariant and nonzero, since
+$Y_4(e_0)=\frac12$ and $Y_6(e_0)=\frac1{16}$.
+\end{proof}
+
+\begin{proposition}\label{prop:limitEaniso}
+Let $S_2$ be a bilinear form on the separated pairs, invariant under the
+translations and $B_4$, with $S_2(f,g)=\iint f(x)g(y)K(x-y)\,dx\,dy$ for
+separated pairs, where $K$ is square integrable on every compact subset of
+$\R^4\setminus\{0\}$.
+
+\textup{(i)} For $\varphi\in C_c(\R^4\setminus\{0\})$ and $g_\varepsilon=
+\varepsilon^{-4}\chi(\cdot/\varepsilon)$, $\chi\ge0$ continuous with
+$\int\chi=1$ and support in $[-1,1]^4$,
+\[
+\int K\varphi\,dz=\lim_{\varepsilon\to0}S_2(\varphi,g_\varepsilon),
+\]
+so $K$ is determined almost everywhere by $S_2$. For $R\in\mathrm O(4)$,
+$S_2(f\circ R^{-1},g\circ R^{-1})=S_2(f,g)$ for all separated pairs if and
+only if $K\circ R=K$ almost everywhere; in particular $K\circ g=K$ for
+$g\in B_4$.
+
+\textup{(ii)} For almost every $\rho>0$, $K(\rho\,\cdot)\in L^2(S^3)$ and
+$K(\rho\omega)=\sum_{j\ge0}K_{2j}(\rho,\omega)$ in $L^2(S^3)$, with
+$K_{2j}(\rho,\cdot)$ the restriction of an element of
+$\mathcal Y_{2j}^{B_4}$. Hence $K_2=0$, $K_0(\rho)$ is the mean of $K$ on
+the sphere of radius $\rho$, and there are measurable $k_4,k_6$ with
+\[
+K_4(\rho,\omega)=k_4(\rho)Y_4(\omega),\qquad K_6(\rho,\omega)=
+k_6(\rho)Y_6(\omega).
+\]
+
+\textup{(iii)} The following are equivalent: \textup{(a)} $S_2$ is
+invariant under $\mathrm O(4)$ on the separated pairs; \textup{(b)} it is
+invariant under one $R\in\mathrm O(4)$ of infinite order; \textup{(c)}
+$K_{2j}(\rho,\cdot)=0$ for every $j\ge2$ and almost every $\rho$;
+\textup{(d)} $K(z)=K_0(|z|)$ for almost every $z$.
+\end{proposition}
+
+\begin{proof}
+(i) Let $\varphi$ be supported in $\{|z|_\infty\ge3\eta\}$ and
+$\varepsilon\le\eta$; the pair $(\varphi,g_\varepsilon)$ is separated by
+at least $2\eta$, and
+\[
+S_2(\varphi,g_\varepsilon)=\int K(z)\varphi_\varepsilon(z)\,dz,\qquad
+\varphi_\varepsilon(z)=\int\varphi(z+y)g_\varepsilon(y)\,dy .
+\]
+The functions $\varphi_\varepsilon$ are supported in one compact subset of
+$\R^4\setminus\{0\}$ and converge uniformly to $\varphi$, and $K$ is
+integrable there. For $R\in\mathrm O(4)$ the substitution $x=Ru$, $y=Rv$
+gives $S_2(f\circ R^{-1},g\circ R^{-1})=\iint f(u)g(v)K(R(u-v))\,du\,dv$, so
+invariance holds if and only if the form with kernel $K\circ R-K$ vanishes
+on the separated pairs, and by the formula just proved this happens if and
+only if $K\circ R=K$ almost everywhere.
+
+(ii) By Fubini's theorem in polar coordinates, $K(\rho\,\cdot)\in L^2(S^3)$
+for almost every $\rho$, and for each of the finitely many $g\in B_4$,
+$K(\rho g\,\cdot)=K(\rho\,\cdot)$ for almost every $\rho$. The restrictions
+of the spaces $\mathcal Y_l$ to $S^3$ are orthogonal in $L^2(S^3)$ and span
+it~\cite[Ch.~IV]{SW71}; each is invariant under $\mathrm O(4)$, so the
+orthogonal projections on them commute with composition by elements of
+$\mathrm O(4)$. The component of degree $l$ of $K(\rho\,\cdot)$ is
+therefore invariant under $B_4$, and Lemma~\ref{lem:limitEharm} gives the
+claims.
+
+(iii) Let $G_K$ be the set of $R\in\mathrm O(4)$ with $K\circ R=K$ almost
+everywhere. On every closed annulus $A=\{r\le|z|\le r'\}$, $0<r<r'$, the
+map $R\mapsto K\circ R$ into $L^2(A)$ is continuous, as one sees by
+approximating $K$ in $L^2(A)$ by continuous functions; so $G_K$ is a closed
+subgroup of $\mathrm O(4)$, and it contains $B_4$ by (i). By the proof of
+Proposition~\ref{prop:rotations}(iv), which uses only these two properties,
+$G_K$ is finite or equal to $\mathrm O(4)$, so (a) and (b) are equivalent
+by (i). If (a) holds, let $R_1,R_2,\dots$ be dense in $\mathrm O(4)$; for
+almost every $\rho$, $K(\rho R_i\,\cdot)=K(\rho\,\cdot)$ in $L^2(S^3)$ for
+every $i$, hence, by continuity of $R\mapsto u\circ R$ in $L^2(S^3)$, for
+every $R$, and each component $K_l(\rho,\cdot)$ is the restriction of an
+$\mathrm O(4)$-invariant element of $\mathcal Y_l$. Such an element is
+constant on spheres, hence equal to $c|z|^l$, and
+$\Delta|z|^l=l(l+2)|z|^{l-2}$ vanishes only for $l=0$; so (d) holds. (d)
+implies (c), (c) implies (d) because $K_2=0$, and (d) implies (a) by (i).
+\end{proof}
+
+So the part of a separated two-point kernel that is invariant under $B_4$
+and not under $\mathrm O(4)$ has no components of degree below four, and
+its component of degree four has the fixed angular profile $Y_4$, with one
+radial coefficient $k_4$; by (i), $\int K(z)Y_4(z)\psi(|z|)\,dz=\lim_{\varepsilon\to0}
+S_2(Y_4\psi(|\cdot|),g_\varepsilon)$ for $\psi\in C_c((0,\infty))$, a
+separated two-point function of packets. By (iii), (W$_{\mathrm s}$) for
+$n=2$ is the vanishing of all $K_{2j}$ with $j\ge2$. Reflection positivity
+and clustering do not remove the component of degree four, by
+Proposition~\ref{prop:limitEproduct}(iv) below.
+
+Two statements about the lattice moments
+\[
+M_k(x)=\omega_k\Bigl(\prod_{j=1}^n(\Phi_{x_j}-c_k)\Bigr),\qquad
+x=(x_1,\dots,x_n)\in(\Z^4)^n,
+\]
+give (W$_{\mathrm s}$). For $0<\delta<\Lambda$ let $\mathcal W_k(\delta,
+\Lambda)$ be the set of $x\in(\Z^4)^n$ with $\delta/a_k\le|x_i-x_j|\le
+\Lambda/a_k$ for $i\ne j$, $|\cdot|$ being the Euclidean norm. For $n\ge2$:
+\begin{enumerate}[label=\textup{(SB$_n$)},leftmargin=*]
+\item for $0<\delta<\Lambda$,
+\[
+b_n(\delta,\Lambda)=\limsup_k\sup_{x\in\mathcal W_k(\delta,\Lambda)}
+Z_k^n|M_k(x)|<\infty ;
+\]
+\end{enumerate}
+\begin{enumerate}[label=\textup{(RI$_n$)},leftmargin=*]
+\item for $0<\delta<\Lambda$, $\lim_k\sup Z_k^n|M_k(x)-M_k(x')|=0$, the
+supremum over the pairs $x,x'\in\mathcal W_k(\delta,\Lambda)$ with
+$\bigl||x_i-x_j|-|x'_i-x'_j|\bigr|\le4$ for all $i<j$.
+\end{enumerate}
+(SB$_n$) is a pointwise bound of Symanzik type on the renormalised lattice
+moments at separated points. (RI$_n$) says that at separations of physical
+size, that is of order $1/a_k$ lattice units, the renormalised moments
+depend on the configuration only through its mutual Euclidean distances,
+up to an error that tends to zero, when these distances are changed by at
+most four lattice units. This is rotation invariance at large lattice
+distance, the form in which the restoration of rotation invariance
+predicted by Symanzik's improvement programme enters; neither statement is
+proved here for the Wilson measure.
+
+\begin{theorem}\label{thm:limitErot}
+Let the states $\omega_k$ be invariant under the translations of $\Z^4$,
+let $\Phi$ be as above and $Z_k>0$, and let $n\ge2$.
+
+\textup{(i)} \textup{(SB$_n$)} implies \textup{(M$_{\mathrm s}$)} for this
+$n$.
+
+\textup{(ii)} \textup{(SB$_n$)} and \textup{(RI$_n$)} imply that for every
+$R\in\mathrm O(4)$ and every separated $n$-tuple
+\[
+\lim_k\Bigl[\omega_k\Bigl(\prod_jZ_kA_k(f_j\circ R^{-1})\Bigr)-\omega_k
+\Bigl(\prod_jZ_kA_k(f_j)\Bigr)\Bigr]=0 .
+\]
+
+\textup{(iii)} If \textup{(SB$_n$)} and \textup{(RI$_n$)} hold for every
+$n\ge2$, then \textup{(M$_{\mathrm s}$)} holds and \textup{(W$_{\mathrm
+s}$)} holds for every $R$. Under the hypothesis of
+Theorem~\textup{\ref{thm:avgtransfer}} every limit of
+Theorem~\textup{\ref{thm:limitEsep}} then has $G_S=\mathrm O(4)$, and with
+\textup{(U$_{\mathrm s}$)} the conclusions of
+Corollary~\textup{\ref{cor:limitEexact}} hold.
+
+\textup{(iv)} Under \textup{(SB$_2$)} and \textup{(RI$_2$)}, every
+subsequence has a further subsequence along which
+$\lim_kZ_k^2\omega_k(A_k(f)A_k(g))=\iint f(x)g(y)K(x-y)\,dx\,dy$ for every
+separated pair, with $K(z)=K_0(|z|)$ and $K_0$ bounded on every compact
+subset of $(0,\infty)$.
+\end{theorem}
+
+\begin{proof}
+For $u\in\R^4$ let $\varrho_k(u)$ be the point of $\Z^4$ nearest to
+$u/a_k$, ties broken by a fixed rule. Then $|u/a_k-\varrho_k(u)|\le1$, the
+half diagonal of the unit cube of $\Z^4$, and each set
+$\varrho_k^{-1}(x)$ is, up to a null set, the cube of side $a_k$ centred at
+$a_kx$. Let $(f_j)\in\mathcal C_n(Q,\delta)$, $Q$ of side $L$, so that all
+supports lie in a ball $B$ of radius $L$, points of different supports are
+at Euclidean distance between $\delta$ and $2L$, and the same holds for the
+rotated functions $f_j\circ R^{-1}$ with the ball $RB$ about the rotated
+centre. Let $a_k\le\min(\delta/4,L/2)$ and put $F(u)=\prod_jf_j(u_j)$,
+$\mathcal B_k(F)=\omega_k(\prod_jZ_kA_k(f_j))$ and
+\[
+I_k(F)=\int F(u)\,Z_k^nM_k\bigl(\varrho_k(u_1),\dots,\varrho_k(u_n)\bigr)
+\,du .
+\]
+
+(i) $\mathcal B_k(F)=Z_k^na_k^{4n}\sum_x\prod_jf_j(a_kx_j)M_k(x)$, the nonzero terms
+have $x\in\mathcal W_k(\delta,2L)$, and at most $(3L/a_k)^4$ sites $x_j$
+have $a_kx_j\in B$, because the cubes of side $a_k$ about them are disjoint
+and lie in a ball of radius $L+a_k\le\frac32L$ and volume at most
+$\frac{\pi^2}2(\frac32L)^4<(3L)^4$. So $|\mathcal B_k(F)|\le(b_n(\delta,2L)+1)(3L)^{4n}
+\prod_j\|f_j\|_\infty$ for large $k$.
+
+(ii) Since $\varrho_k$ is constant on the cubes,
+\[
+I_k(F)-\mathcal B_k(F)=\sum_xZ_k^nM_k(x)\int_{\prod_j\varrho_k^{-1}(x_j)}
+\bigl(F(u)-F(a_kx)\bigr)du .
+\]
+A nonzero term has $|u_j-a_kx_j|\le a_k$ for some $u_j$ in the support of
+$f_j$, hence $x\in\mathcal W_k(\delta/2,3L)$, and the number of such $x$
+is at most $(3L/a_k)^{4n}$, the cubes about the $x_j$ lying in a ball of
+radius $L+2a_k\le2L$ and volume $8\pi^2L^4<(3L)^4$. So $|I_k(F)-\mathcal B_k(F)|\le(b_n(\delta/2,3L)+1)
+(3L)^{4n}\varpi_F(a_k)$ for large $k$, with $\varpi_F(s)$ the largest
+change of $F$ when every $u_j$ moves by at most $s$; it tends to $0$, and
+the same holds for $F_R(u)=\prod_jf_j(R^{-1}u_j)$. By the substitution
+$u=Rv$,
+\[
+I_k(F_R)-I_k(F)=\int F(v)Z_k^n\bigl[M_k(x'(v))-M_k(x(v))\bigr]dv,
+\]
+with $x_j(v)=\varrho_k(v_j)$ and $x'_j(v)=\varrho_k(Rv_j)$. For $v$ in the
+support of $F$, $|x_i-x_j|$ and $|x'_i-x'_j|$ differ from $|v_i-v_j|/a_k=
+|Rv_i-Rv_j|/a_k$ by at most $2$, hence from each other by at most $4$, and
+both configurations lie in $\mathcal W_k(\delta/2,3L)$. By
+(RI$_n$) the bracket is at most $\epsilon_k\to0$, and $|I_k(F_R)-I_k(F)|\le
+\epsilon_k\prod_j\|f_j\|_{L^1}$.
+
+(iii) The first claims are (i) and (ii) for every $n$, and the rest is
+Theorem~\ref{thm:limitEsep}(vii) and Corollary~\ref{cor:limitEexact}.
+
+(iv) By translation invariance $M_k(x_1,x_2)=G_k(x_2-x_1)$ with
+$G_k(y)=M_k(0,y)$; put $\kappa_k(z)=Z_k^2G_k(\varrho_k(z))$. For separated
+$f,g$ as above, $y=\varrho_k(v)-\varrho_k(u)$ and $y'=\varrho_k(v-u)$ have
+$|y|$ and $|y'|$ within $2$ and $1$ of $|v-u|/a_k$, so (RI$_2$) and the
+proof of (ii) give $Z_k^2\omega_k(A_k(f)A_k(g))-\iint f(u)g(v)\kappa_k(v-u)
+\,du\,dv\to0$. For $r\le|z|\le r'$ and large $k$, $|\varrho_k(z)|\in[r/(2a_k),
+2r'/a_k]$, so $|\kappa_k|\le b_2(r/2,2r')+1$ there, and $|\kappa_k(Rz)-
+\kappa_k(z)|\to0$ uniformly there for every $R\in\mathrm O(4)$ by (RI$_2$),
+since $|\varrho_k(Rz)|$ and $|\varrho_k(z)|$ differ by at most $2$. A
+diagonal subsequence converges weakly-$*$ in $L^\infty$ of every annulus
+to some $K$, and then $K\circ R=K$ almost everywhere for every $R$. For
+separated $f,g$, $\iint f(u)g(v)\kappa_k(v-u)\,du\,dv=\int\kappa_k(z)
+\Theta(z)\,dz$ with $\Theta(z)=\int f(u)g(u+z)\,du$ integrable and
+supported in an annulus, so the limit is $\iint f(u)g(v)K(v-u)\,du\,dv$, and
+$K(-z)=K(z)$. Proposition~\ref{prop:limitEaniso}(iii) gives $K(z)=K_0(|z|)$
+almost everywhere.
+\end{proof}
+
+Part (i) does not use the averaged condition, and parts (i), (ii), (iv) use
+of the states only their translation invariance. (SB$_n$) alone does not
+give (W$_{\mathrm s}$), and neither do reflection positivity, the gap in
+every coordinate direction and non-Gaussian moments, by the following
+family; it is not a lattice gauge theory, and, as in
+Remark~\ref{rem:limitEscope}, the proofs of this subsection use the states
+only through the properties in (i) below.
+
+\begin{proposition}\label{prop:limitEproduct}
+Let $m>0$, $q_k=e^{-ma_k}$, $p\ge1$, let $\phi^{(1)},\dots,\phi^{(p)}$ be
+independent copies of the Gaussian field of
+Proposition~\textup{\ref{prop:osobstruction}(a)}, $\Phi_x=\prod_i
+\phi^{(i)}_x$, $A_k(f)=\sum_xa_k^4f(a_kx)\Phi_x$ and $Z_k=1$.
+
+\textup{(i)} The law of $(\phi^{(1)},\dots,\phi^{(p)})$ is invariant under
+translations and $B_4$, reflection positive for the reflections in
+coordinate hyperplanes through sites and bisecting links, and its transfer
+matrix in each coordinate direction has spectrum $\{q_k^N:N\ge0\}$ with $1$
+a simple eigenvalue.
+
+\textup{(ii)} For all $n$ and $f_j\in C_c(\R^4)$ the moments converge,
+\[
+\begin{split}
+&\lim_k\omega_k\Bigl(\prod_jA_k(f_j)\Bigr)\\
+&\quad=\int\prod_jf_j(u_j)\Bigl(\sum_\pi\prod_{\{a,b\}\in\pi}
+e^{-m\|u_a-u_b\|_1}\Bigr)^pdu,
+\end{split}
+\]
+the sum over the perfect matchings $\pi$ of $\{1,\dots,n\}$; for $f_j$
+supported in a cube of side $L\ge a_k$ they are at most
+$(n!)^p(2L)^{4n}\prod_j\|f_j\|_\infty$. So \textup{(M)},
+\textup{(M$_{\mathrm s}$)}, \textup{(SB$_n$)} and \textup{(U$_{\mathrm
+s}$)} hold.
+
+\textup{(iii)} For $p\ge2$ the limit is not Gaussian.
+
+\textup{(iv)} $G_S=B_4$, \textup{(RI$_2$)} fails, and the kernel
+$K(z)=e^{-pm\|z\|_1}$ of $S_2$ has $k_4\ne0$ on a set of positive measure.
+\end{proposition}
+
+\begin{proof}
+(i) In each coordinate direction the field $(\phi^{(1)},\dots,\phi^{(p)})$
+is the stationary reversible Markov chain with transition operator
+$P^{\otimes p}$, $P$ that of the proof of
+Proposition~\ref{prop:osobstruction}(a); the spectrum of $P^{\otimes p}$
+consists of the products $q^{N_1+\dots+N_p}$, and $1$ is simple. That proof
+uses only these properties.
+
+(ii) By independence and Wick's formula, $\omega_k(\prod_j\Phi_{x_j})=
+\bigl(\sum_\pi\prod_{\{a,b\}\in\pi}w_k(x_a-x_b)\bigr)^p$ with $w_k(z)=
+\prod_\mu q_k^{|z_\mu|}=e^{-ma_k\|z\|_1}$, so $c_k=0$; this is at most the
+number of matchings to the power $p$ when $n$ is even and $0$ otherwise,
+and the moments are Riemann sums of a bounded continuous function. At most
+$(L/a_k+1)^4\le(2L/a_k)^4$ sites $x$ have $a_kx$ in a cube of side $L\ge
+a_k$, which gives the bound, hence (M), (M$_{\mathrm s}$) and (SB$_n$), and
+the convergence of the whole sequence gives (U$_{\mathrm s}$).
+
+(iii) For $n=4$ write $a=w_{12}w_{34}$, $b=w_{13}w_{24}$, $c=w_{14}w_{23}$
+with $w_{ij}=e^{-m\|u_i-u_j\|_1}$. The Gaussian family with the same $S_2$
+has the integrand $a^p+b^p+c^p$, and $(a+b+c)^p>a^p+b^p+c^p$ for $p\ge2$ and
+$a,b,c>0$; so $S_4$ differs from it for nonnegative nonzero $f_j$.
+
+(iv) $B_4\subset G_S\subset G_{S_2}$, and $G_{S_2}=B_4$ by the argument of
+Proposition~\ref{prop:osobstruction}(a) with $pm$ in place of $m$. For
+$y=(2N,0,0,0)$ and $y'=(N,N,N,N)$, $|y|=|y'|=2N$ and $M_k(0,y)-M_k(0,y')=
+e^{-2pma_kN}-e^{-4pma_kN}$; with $N=\lceil\delta/a_k\rceil$ both lie in
+$\mathcal W_k(\delta,3\delta)$ for large $k$, and the difference tends to
+$e^{-2pm\delta}-e^{-4pm\delta}>0$, so (RI$_2$) fails. Finally
+$Y_4(z)=\frac12\sum_\mu z_\mu^4-\sum_{\mu<\nu}z_\mu^2z_\nu^2$, and with
+$I_i=\int_\R|t|^ie^{-M|t|}dt=2\,i!/M^{i+1}$, $M=pm$,
+\[
+\int_{\R^4}K(z)Y_4(z)\,dz=2I_4I_0^3-6I_2^2I_0^2=\frac{768-384}{M^8}>0 .
+\]
+In polar coordinates the left side is $\|Y_4\|^2_{L^2(S^3)}\int_0^\infty
+\rho^7k_4(\rho)\,d\rho$, by the orthogonality of the components in
+Proposition~\ref{prop:limitEaniso}(ii), so $k_4$ is not almost everywhere
+zero.
+\end{proof}
+
+For a product kernel $K(z)=\prod_\mu k(z_\mu)$ with $k\ge0$ and moments
+$I_i=\int|t|^ik(t)\,dt$ the same computation gives $\int KY_4\,dz=2I_0^2
+I_2^2(I_4I_0/I_2^2-3)$: the weighted coefficient $\int\rho^7k_4\,d\rho$
+has the sign of the excess kurtosis of $k$, which is $3$ for $e^{-M|t|}$
+and $0$ for a Gaussian $k$. The family satisfies every hypothesis of
+Theorem~\ref{thm:limitErot} except (RI$_2$), so among the lattice
+statements used here it is (RI$_n$) that excludes it.
+
+\emph{The scale.} For a family $S=(S_n)$ on the separated tuples and
+$\lambda,c>0$ put
+\[
+(D_{\lambda,c}S)_n(f_1,\dots,f_n)=c^nS_n\bigl(f_1(\lambda\,\cdot),\dots,
+f_n(\lambda\,\cdot)\bigr) ;
+\]
+this is a family on the separated tuples, because the map taking $f$ to
+$f(\lambda\,\cdot)$ takes $\mathcal C_n(Q,\delta)$ onto $\mathcal
+C_n(\lambda^{-1}Q,\delta/\lambda)$. Moreover
+$D_{\lambda,c}D_{\lambda',c'}=D_{\lambda\lambda',cc'}$. For a nontrivial limit $S$ of
+Theorem~\ref{thm:limitEsep} let $m(S)=\min(\sigma(H_0)\setminus\{0\})$,
+which exists and is at least $m_*$ by Theorem~\ref{thm:limitEsep}(iv),
+(vi).
+
+\begin{lemma}\label{lem:limitEdil}
+Let $S$ be a limit of Theorem~\textup{\ref{thm:limitEsep}} and
+$\lambda,c>0$. For $P$ at positive $0$-times let $P^{\lambda,c}$ be
+obtained by replacing every $f_{\beta,j}$ by $f_{\beta,j}(\lambda\,\cdot)$
+and every coefficient $c_\beta$ by $c^{n_\beta}c_\beta$. Then
+$D_{\lambda,c}S(\theta_0\bar P\cdot P')=S(\theta_0\overline{P^{\lambda,c}}
+\cdot P'^{\lambda,c})$, and $\Psi'(P)\mapsto\Psi_0(P^{\lambda,c})$ extends to
+a unitary map $V$ of the Hilbert space $\mathcal H'$ of $D_{\lambda,c}S$
+onto $\mathcal H_0$ with $V\Omega'=\Omega_0$. With
+$H'=\lambda^{-1}V^{-1}H_0V$, $\Psi'(\tau_{te_0}P)=e^{-tH'}\Psi'(P)$ for
+$t\ge0$, and $\sigma(H')=\lambda^{-1}\sigma(H_0)$; when $D_{\lambda,c}S$ is
+itself a limit of Theorem~\textup{\ref{thm:limitEsep}}, its Hamiltonian in
+the time direction is $H'$, and for nontrivial $S$, $m(D_{\lambda,c}S)=
+m(S)/\lambda$. If $S$ is nontrivial and
+$D_{\lambda,c}S=S$, then $\lambda=c=1$.
+\end{lemma}
+
+\begin{proof}
+Since $\theta_0$ is linear, $(f\circ\theta_0)(\lambda\,\cdot)=f(\lambda\,
+\cdot)\circ\theta_0$, which gives the identity; it shows that the form of
+$D_{\lambda,c}S$ is positive and that $V$ is isometric, and $V$ has dense
+range because $P=(P^{1/\lambda,1/c})^{\lambda,c}$. Further
+$(f(\cdot-te_0))(\lambda\,\cdot)=(f(\lambda\,\cdot))(\cdot-\frac t\lambda
+e_0)$, so $V\Psi'(\tau_{te_0}P)=\Psi_0(\tau_{(t/\lambda)e_0}P^{\lambda,c})=
+e^{-(t/\lambda)H_0}V\Psi'(P)$. A semigroup with this property is
+determined by its values on the dense set of the $\Psi'(P)$, which gives
+the claim on the Hamiltonian of a limit. If $D_{\lambda,c}S=S$, the two
+constructions coincide, $\sigma(H_0)=\lambda^{-1}\sigma(H_0)$, and the
+least point $m(S)$ of $\sigma(H_0)\setminus\{0\}$ satisfies $m(S)=m(S)/
+\lambda$; so $\lambda=1$, and $c^nS_n=S_n$ with $S_n\ne0$ for some $n\ge2$
+by Theorem~\ref{thm:limitEsep}(vi) gives $c=1$.
+\end{proof}
+
+The normalisation of Proposition~\ref{prop:limitEnorm}(ii) fixes the size
+of the field, not the scale: assigning the states to the spacings with a
+shift produces a dilated limit with the same normalisation.
+
+\begin{proposition}\label{prop:limitEscale}
+Assume the hypothesis of Theorem~\textup{\ref{thm:avgtransfer}}, and
+suppose that the moments $\omega_k(\prod_jZ_kA_k(f_j))$ converge for every
+separated tuple to a nontrivial family $S$. Let $j\ge1$, and let
+$\omega''_k=\omega_k$ for even $k$ and $\omega''_k=\omega_{k+j}$ for odd
+$k$, with the packets $A''_k$ formed from $\omega''_k$ at the spacing $a_k$.
+
+\textup{(i)} $(\omega''_k)$ satisfies the hypothesis of
+Theorem~\textup{\ref{thm:avgtransfer}} with $2^j\ell$ in place of $\ell$.
+
+\textup{(ii)} For every choice of $Z''_k>0$ for which \textup{(M$_{\mathrm
+s}$)} holds along $(\omega''_k)$, the moments $\omega''_k(\prod_jZ''_k
+A''_k(f_j))$ either fail to converge for some separated tuple or converge
+to the trivial family.
+
+\textup{(iii)} If $C''_k(0)>0$ for large $k$ and \textup{(M$_{\mathrm s}$)}
+holds along $(\omega''_k)$ for $Z''_k=C''_k(\sigma_0)^{-1/2}$, then
+\textup{(U$_{\mathrm s}$)} fails for it.
+\end{proposition}
+
+\begin{proof}
+(i) For odd $k$, $\omega_{k+j}$ satisfies $\mathrm{BP}(n_{k+j},\varpi)$ and
+$n_{k+j}a_k=2^jn_{k+j}a_{k+j}\le2^j\ell$.
+
+(ii) For odd $k$, $a_k=2^ja_{k+j}$ gives $A''_k(f)=2^{4j}A_{k+j}(f(2^j\,
+\cdot))$. Write $Z''_k=\zeta_kZ_k$ for even $k$ and $Z''_k=\zeta_k2^{-4j}
+Z_{k+j}$ for odd $k$. The even moments are $\zeta_k^n$ times moments that
+converge to $S_n(f_1,\dots,f_n)$, and the odd ones $\zeta_k^n$ times
+moments that converge to $(D_{2^j,1}S)_n(f_1,\dots,f_n)$. Both families are
+nontrivial, so (M$_{\mathrm s}$) bounds $\zeta_k$. Along a subsequence
+$\zeta_k\to\zeta_e$ on the even and $\zeta_k\to\zeta_o$ on the odd $k$, and
+the two limits are $D_{1,\zeta_e}S$ and $D_{2^j,\zeta_o}S$. If they
+coincide and $\zeta_e\zeta_o\ne0$, then $D_{2^j,\zeta_o/\zeta_e}S=S$,
+contrary to Lemma~\ref{lem:limitEdil}; if exactly one of $\zeta_e,\zeta_o$
+vanishes, one limit is trivial and the other not. So a common limit has
+$\zeta_e=\zeta_o=0$ and is trivial.
+
+(iii) By Proposition~\ref{prop:limitEnorm}(ii) every limit is nontrivial,
+so by (ii) some separated moment does not converge, and by
+Corollary~\ref{cor:limitEexact} (U$_{\mathrm s}$) fails.
+\end{proof}
+
+The scale is fixed by a mass. With $f_0$, $\sigma_0$, $C_k$ as in
+Proposition~\ref{prop:limitEnorm} and $\gamma_k$ the norm of $\mathbb T_k$
+on $\Omega_k^\perp$, consider for $m_0>0$:
+\begin{enumerate}[label=\textup{(MC$_{m_0}$)},leftmargin=*]
+\item $\liminf_k a_k^{-1}\log(1/\gamma_k)\ge m_0$, and there are $c_0>0$
+and $k_1$ with $C_k(t)\ge c_0e^{-m_0t}C_k(\sigma_0)$ for $k\ge k_1$ and
+$t\in a_k\Z$, $t\ge\sigma_0$;
+\end{enumerate}
+and the statement that the limits differ at most by the scale and the size
+of the field:
+\begin{enumerate}[label=\textup{(O$_{\mathrm s}$)},leftmargin=*]
+\item for any two limits $S,S'$ of Theorem~\ref{thm:limitEsep} along
+subsequences there are $\lambda,c>0$ with $S'=D_{\lambda,c}S$.
+\end{enumerate}
+
+\begin{theorem}\label{thm:limitEunique}
+Assume the hypothesis of Theorem~\textup{\ref{thm:avgtransfer}},
+$C_k(0)>0$ for large $k$, $Z_k=C_k(\sigma_0)^{-1/2}$ and
+\textup{(M$_{\mathrm s}$)}.
+
+\textup{(i)} Every limit $S$ of Theorem~\textup{\ref{thm:limitEsep}}
+satisfies
+\[
+\ip{\Psi_0(f_0)}{e^{-\sigma_0H_0}\Psi_0(f_0)}=1,
+\]
+and under \textup{(MC$_{m_0}$)} it has $m(S)=m_0$.
+
+\textup{(ii)} Under \textup{(MC$_{m_0}$)} and \textup{(O$_{\mathrm s}$)},
+\textup{(U$_{\mathrm s}$)} holds and the moments converge for every
+separated tuple.
+
+\textup{(iii)} For the Gaussian field of
+Proposition~\textup{\ref{prop:osobstruction}(a)} at mass $m$,
+\textup{(MC$_m$)} holds; for the same field at two masses $m\ne m'$,
+interleaved, \textup{(O$_{\mathrm s}$)} holds and \textup{(MC$_{m_0}$)}
+fails for every $m_0$.
+\end{theorem}
+
+\begin{proof}
+(i) The first claim and nontriviality are
+Proposition~\ref{prop:limitEnorm}(ii). The proof of
+Theorem~\ref{thm:limitEsep}(iv) with $\gamma_k^{t/a_k}$ in place of
+$e^{-m_*t}$ gives $\ip v{e^{-tH_0}v}\le\limsup_k\gamma_k^{t/a_k}\|v\|^2\le
+e^{-m_0t}\|v\|^2$ on a dense set of $v\in\Omega_0^\perp$, so $m(S)\ge m_0$.
+By the approximation of $\theta_{0,k}$ by $\theta_0$, as in the proof of
+Proposition~\ref{prop:limitEnorm}(ii), $\ip{\Psi_0(f_0)}{e^{-tH_0}
+\Psi_0(f_0)}=\lim_kZ_k^2C_k(t)\ge c_0e^{-m_0t}$ for dyadic $t\ge\sigma_0$.
+Since $\Psi_0(f_0)\perp\Omega_0$, its spectral measure for $H_0$ is carried
+by $[m(S),\infty)$, and the left side is at most $e^{-m(S)t}\|\Psi_0(f_0)
+\|^2$; letting $t\to\infty$ gives $m(S)\le m_0$.
+
+(ii) Let $S,S'$ be two limits and $S'=D_{\lambda,c}S$. By (i) and
+Lemma~\ref{lem:limitEdil}, $m_0=m(S')=m(S)/\lambda=m_0/\lambda$, so
+$\lambda=1$; then $S'_2=c^2S_2$, and the normalisation in (i) gives $c=1$.
+Convergence follows as in the proof of Corollary~\ref{cor:limitEexact}.
+
+(iii) The transfer matrix has $\gamma_k=q_k=e^{-ma_k}$. The packet
+$\vartheta(\overline{A_k(f_0)})$ involves sites at negative times and
+$\tau_{t/a_k}A_k(f_0)$ sites at positive times, so the time factor of the
+covariance is $q_k^{y_0-x_0}$ and $C_k(t)=e^{-mt}C_k(0)$; this is
+(MC$_m$). At two masses the limits are the two Gaussian families with
+kernels $\kappa e^{-m\|z\|_1}$ and $\kappa'e^{-m'\|z\|_1}$, and
+$D_{\lambda,c}$ with $\lambda=m/m'$ and $c^2=\kappa'\lambda^8/\kappa$ maps
+the first to the second, Gaussian families being determined by $S_2$.
+The first part of (MC$_{m_0}$) needs $m_0\le\min(m,m')$, and the second,
+since $C_k(t)/C_k(\sigma_0)=e^{-m_k(t-\sigma_0)}$ with $m_k\in\{m,m'\}$,
+needs $m_0\ge\max(m,m')$.
+\end{proof}
+
+(O$_{\mathrm s}$) is the form, for the separated moments, of the statement
+that the continuum theory has no free dimensionless parameter; it is not
+proved here, nor is (MC$_{m_0}$) for the Wilson measure along any tuning.
+The second part of (MC$_{m_0}$) asks that the reflected correlation of
+$f_0$ decay no faster than at the rate $m_0$, which holds when $f_0$
+couples to the lowest state; together with the first part it fixes the
+mass of every limit. A condition fixing the ratio $C_k(\sigma_0)/C_k(0)$,
+the analogue of (RC), fixes the scale within a set of limits related by
+dilations only where the corresponding ratio of the limits is injective
+along that set, which is not proved.
+
 \begin{remark}\label{rem:limitEscope}
 \emph{What is proved.} Given the averaged condition along the tuning,
 Theorem~\ref{thm:limitEsep} turns (M$_{\mathrm s}$) into Schwinger
@@ -13747,7 +15006,13 @@ condition enters only through Lemma~\ref{lem:limitElattice}(iii), that is,
 through Corollary~\ref{cor:avggap}. For the two-point functions,
 Theorem~\ref{thm:limitEtwo} and Corollary~\ref{cor:limitEtwo} reduce
 (M$_{\mathrm s}$) for $n=2$ and nontriviality to (SD) and (NE), statements about
-reflected norms of single packets under the Wilson measure.
+reflected norms of single packets under the Wilson measure. For the
+rotations, Proposition~\ref{prop:limitEaniso} shows that the anisotropy of a
+separated two-point kernel has no components of degree below four and the
+angular profile $Y_4$ in degree four, and Theorem~\ref{thm:limitErot}
+derives (W$_{\mathrm s}$) from (SB$_n$) and (RI$_n$); for the limit,
+Theorem~\ref{thm:limitEunique} derives (U$_{\mathrm s}$) from
+(MC$_{m_0}$) and (O$_{\mathrm s}$).
 
 \emph{Which inputs are needed.} (M$_{\mathrm s}$) with constants that keep a
 reflected correlation fixed is not implied by the averaged condition, by
@@ -13761,7 +15026,12 @@ only through these properties, with $m$ in place of $m_*$. Its limit has
 the continuous kernel $\kappa e^{-m\|x-y\|_1}$, so invariance under $R$ on
 the separated pairs forces $\|Rz\|_1=\|z\|_1$ for $z\ne0$, and $G_S=B_4$.
 The same example at two interleaved masses violates (U$_{\mathrm s}$), by
-the argument of Proposition~\ref{prop:uniquelimit}(ii).
+the argument of Proposition~\ref{prop:uniquelimit}(ii); it satisfies
+(O$_{\mathrm s}$) and violates (MC$_{m_0}$) for every $m_0$
+(Theorem~\ref{thm:limitEunique}(iii)). Products of independent copies of
+the field are not Gaussian, have the same properties and $G_S=B_4$, and
+violate (RI$_2$) (Proposition~\ref{prop:limitEproduct}). The normalisation
+by $C_k(\sigma_0)$ does not fix the scale (Proposition~\ref{prop:limitEscale}).
 
 \emph{Relation to Theorem~\ref{thm:srladder}.} Under the hypothesis of
 Theorem~\ref{thm:transfer}, Corollary~\ref{cor:srladder} shows that, when
@@ -13776,8 +15046,17 @@ from (M$_{\mathrm s}$) and the choice of $Z_k$, not from positivity at short
 distance.
 
 \emph{What is not proved.} (M$_{\mathrm s}$) for $n\ge3$ with the constants
-of Proposition~\ref{prop:limitEnorm}(ii); (SD) and (NE); (W$_{\mathrm s}$);
-(U$_{\mathrm s}$); the extension of the $S_n$ to the test functions
+of Proposition~\ref{prop:limitEnorm}(ii), equivalently the bounds (RN$_m$),
+$m\ge2$, on reflected norms of products of separated packets
+(Proposition~\ref{prop:limitEreflect}); (SD), equivalently the spectral
+condition (UV) (Proposition~\ref{prop:limitEsd}), which fails under a gap in
+lattice units and is not implied by reflection positivity and a gap bounded
+in physical units (Proposition~\ref{prop:limitEheavy}); (NE), which under
+(SD) is the nontriviality of every limit (Proposition~\ref{prop:limitEne});
+(W$_{\mathrm s}$), and (SB$_n$), (RI$_n$); (U$_{\mathrm s}$), and
+(MC$_{m_0}$), (O$_{\mathrm s}$); whether $\mathrm O(4)$ invariance of $S_2$
+together with the other properties gives (W$_{\mathrm s}$); the extension
+of the $S_n$ to the test functions
 of~\cite{OS73} with the linear growth condition of~\cite{OS75}; and the
 averaged condition along the tuning. None of these is proved here, and the
 mass gap of the continuum theory is not proved.
@@ -37955,7 +39234,14 @@ Corollary~\ref{cor:bpcharged}), the failure of the neutral part on small
 tori reduces for $\SU(2)$ to a lower bound on the law of the Polyakov loop
 (Theorem~\ref{thm:bpneutral}), and neither form is proved for any
 non-abelian group along the tuning (Remark~\ref{rem:avgstatus},
-Remarks~\ref{rem:bpweakstatus} and~\ref{rem:bpneutralstatus}). Section~\ref{ssec:groups13} carries the single-scale results of this section to every compact simple group, with explicit constants, except the parts listed in Remark~\ref{rem:groups13}. On the continuum side, Lemmas~\ref{lem:positivetime}
+Remarks~\ref{rem:bpweakstatus} and~\ref{rem:bpneutralstatus}); the condition
+passes from the fine lattice to the law of the block variables of every
+local gauge-covariant block-spin map, so that along the tuning it contains
+the condition at one cube size for those laws at a fixed coarser spacing,
+the local form passes only in an integrated form that gives no gap, and the
+opposite direction, which a bootstrap across scales needs, is not proved
+(Theorem~\ref{thm:bpdescent}, Corollary~\ref{cor:bpdescent},
+Remark~\ref{rem:bpdescent}). Section~\ref{ssec:groups13} carries the single-scale results of this section to every compact simple group, with explicit constants, except the parts listed in Remark~\ref{rem:groups13}. On the continuum side, Lemmas~\ref{lem:positivetime}
 and~\ref{lem:nonvanishing} reduce the nontriviality of the limit to a
 lower bound on one ratio of lattice two-point functions at a fixed
 physical time, uniform along the tuning, which is the open input of
@@ -37984,7 +39270,7 @@ This is the summability required in item~(iv), now for the ratio, and $(\mathrm 
 Osterwalder--Schrader axioms for the spatially flowed fields, with the
 symmetry $\mathrm O(3)\times\mathrm O(1)$, follow from three statements, a
 moment bound (M), one spatial rotation (W) and one limit (U), each of
-them necessary and none of them proved. Full $\mathrm O(4)$ invariance is not among these conclusions: at positive flow time the spatial flow breaks it even for the free field (Proposition~\ref{prop:osobstruction}(c)), so it has to be posed for $\mathrm O(4)$-covariant observables, such as fields of the four-dimensional flow, and the four-dimensional flow loses reflection positivity already for the free field (Proposition~\ref{prop:fourflow}). Of the three statements, (M) is a local moment bound together with the bound $\sup_k\Upsilon_k<\infty$, which contains $(\mathrm N_0)$ for product packets and fails in the strong-coupling range (Proposition~\ref{prop:msplit}), and the flow alone cannot give it (Proposition~\ref{prop:stationary}); its spatial comparison (M$_{\mathrm{sp}}$) follows from spatial reflection positivity (SR$_0$) of the slice field (Theorem~\ref{thm:spatialrp}), which cannot hold for a field and its Laplacian together in a state that clusters in space (Corollary~\ref{cor:srladder}) and is destroyed by the linear heat flow (Proposition~\ref{prop:heatrp}); (W) is the Ward identity for one spatial generator (Proposition~\ref{prop:wardform}); and under the renormalisation condition (RC), (U) is the vanishing of the moment differences between consecutive scales together with a totally disconnected set of limits, and a first-order bound in the running coupling for those differences does not give it (Proposition~\ref{prop:tuned}).
+them necessary and none of them proved. Full $\mathrm O(4)$ invariance is not among these conclusions: at positive flow time the spatial flow breaks it even for the free field (Proposition~\ref{prop:osobstruction}(c)), so it has to be posed for $\mathrm O(4)$-covariant observables, such as fields of the four-dimensional flow, and the four-dimensional flow loses reflection positivity already for the free field (Proposition~\ref{prop:fourflow}). Of the three statements, (M) is a local moment bound together with the bound $\sup_k\Upsilon_k<\infty$, which contains $(\mathrm N_0)$ for product packets and fails in the strong-coupling range (Proposition~\ref{prop:msplit}), and the flow alone cannot give it (Proposition~\ref{prop:stationary}); its spatial comparison (M$_{\mathrm{sp}}$) follows from spatial reflection positivity (SR$_0$) of the slice field (Theorem~\ref{thm:spatialrp}), which cannot hold for a field and its Laplacian together in a state that clusters in space (Corollary~\ref{cor:srladder}) and is destroyed by the linear heat flow (Proposition~\ref{prop:heatrp}); (W) is the Ward identity for one spatial generator (Proposition~\ref{prop:wardform}); and under the renormalisation condition (RC), (U) is the vanishing of the moment differences between consecutive scales together with a totally disconnected set of limits, and a first-order bound in the running coupling for those differences does not give it (Proposition~\ref{prop:tuned}). For unsmoothed local fields at separated points (Section~\ref{ssec:limitE}) the inputs are of the same kind: the separated moment bound (M$_{\mathrm s}$) for $n\ge3$ is equivalent to bounds on reflected norms of products of separated packets (Proposition~\ref{prop:limitEreflect}); for $n=2$ it is equivalent to the comparison (SD), which holds if and only if the largest reflected norm of a unit packet near the reflection plane is carried by energies bounded in physical units, bounds the physical gap from above, fails in the strong-coupling range and is not implied by reflection positivity and a gap bounded above and below in physical units (Propositions~\ref{prop:limitEsd} and~\ref{prop:limitEheavy}); and under (SD) the nonvanishing condition (NE) is the nontriviality of every limit (Proposition~\ref{prop:limitEne}). The rotations (W$_{\mathrm s}$) and the uniqueness (U$_{\mathrm s}$) follow from rotation invariance of the renormalised lattice moments at large lattice distance with a pointwise bound (Theorem~\ref{thm:limitErot}), and from a mass condition together with uniqueness of the limit up to dilations (Theorem~\ref{thm:limitEunique}), and the normalisation by one reflected correlation does not fix the scale (Proposition~\ref{prop:limitEscale}). None of these inputs is proved for the Wilson measure.
 
 \begin{figure}[t]
 \centering
