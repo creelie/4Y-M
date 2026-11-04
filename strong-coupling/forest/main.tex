@@ -16301,18 +16301,23 @@ and the expected number of such islands on the torus is at most
 $(L/2^{j+1})^42^{-n}\varDelta^{-2}/n$; the weighted variant (iii) of
 Theorem~\ref{thm:islandthreshold} holds with $\log q^*_j-H_j\log\varGamma$.
 \end{enumerate}
-For $s=5$ and $\rho=10^{-8}$, $\beta^*_1=2.896\cdot10^{23}$,
-$\beta^*_2=4.634\cdot10^{24}$, $\beta^*_3=1.186\cdot10^{26}$, and
-$16^{-j}\beta^*_j\le2.90\cdot10^{22}$ for $1\le j\le12$. Hence, for
-$\beta^*_1\le\beta_W<\beta^*_{12}$, the conclusions hold at every scale
-$j\le j_{\max}$ with
+The thresholds increase, $\beta^*_{j+1}>16\beta^*_j$. Let $j_{\max}$ be the
+largest $j\ge0$ with $\beta_W\ge\beta^*_j$, where $\beta^*_0=\beta^*(\rho,s)$
+is the threshold of Theorem~\ref{thm:islandthreshold}; the conclusions hold
+at every scale $j\le j_{\max}$. For $s=5$ and $\rho=10^{-8}$,
+\begin{gather*}
+\beta^*_1\in[2.895,2.897]\cdot10^{23},\quad
+\beta^*_2\in[4.633,4.635]\cdot10^{24},\\
+\beta^*_3\in[1.185,1.187]\cdot10^{26},
+\end{gather*}
+and $16^{-j}\beta^*_j\le2.90\cdot10^{22}$ for $1\le j\le12$. Hence, for
+$\beta^*_1\le\beta_W<\beta^*_{12}$,
 \[
 2^{j_{\max}}\ge\frac12\Bigl(\frac{\beta_W}{2.90\cdot10^{22}}\Bigr)^{1/4},
 \]
-while the scale $k_*$ of Corollary~\ref{cor:defectscales} satisfies
-$k_*-j_{\max}\in\{8,9\}$ at every one of $2001$ couplings spaced evenly in
-the logarithm between $10^{22}$ and $10^{42}$: the islands of the composed
-average are rare up to the scale $a_{k_*}/512$.
+and for every $\beta_W\in[10^{22},10^{42}]$ the scale $k_*$ of
+Corollary~\ref{cor:defectscales} satisfies $k_*-j_{\max}\in\{8,9\}$: the
+islands of the composed average are rare up to the scale $a_{k_*}/512$.
 \end{theorem}
 
 \begin{proof}
@@ -16328,12 +16333,80 @@ and that $q_{\rho_0}(\beta_W)\le q^*_j$ for $\beta_W\ge\beta^*_j$, hence
 $A_j\le(2\varDelta^2)^{-H_j}$ and $\varDelta^2A_j^{1/H_j}\le\frac12$.
 (ii) is the island paragraph of that proof on the torus of
 $(L/2^{j+1})^4$ blocks of scale $j$, where a block has at most $\varDelta$
-neighbours. The numbers are the roots of $f_j=\log q^*_j$ to thirty
-digits; $\beta^*_{j+1}/\beta^*_j\ge16$ for $1\le j\le12$ since
-$\rho_0$ falls by $4$ and $\lvert\log q^*_j\rvert$ increases, so the largest
-$j$ with $\beta_W\ge\beta^*_j$ satisfies $16^{j_{\max}+1}>\beta_W/(2.90
-\cdot10^{22})$, which is the displayed bound; $k_*$ is computed from its
-definition at the same couplings.
+neighbours.
+
+\emph{The thresholds.} Put $c=1.01\cdot1.023$, so that $16c^2\le
+17.0810278$ and $\rho_0=\rho/(c\,4^j)$, and $g_j(\beta)=\beta\rho_0^2/16-
+6(\log\beta+C_0)-\lvert\log q^*_j\rvert$; $g_j$ increases for $\beta>96/
+\rho_0^2$, and $\beta^*_j$ is its largest zero, so that $\beta^*_j\le\beta$
+exactly when $g_j(\beta)\ge0$, for $\beta>96/\rho_0^2$. Since
+$\rho_0^2$ at $j+1$ is $\rho_0^2/16$ at $j$,
+$g_{j+1}(16\beta)=g_j(\beta)-6\log16-(\lvert\log q^*_{j+1}\rvert-\lvert\log
+q^*_j\rvert)$, and $\lvert\log q^*_j\rvert$ increases with $j$ because $H_j$
+and $M_j$ do; at $\beta=\beta^*_j$ this is negative, so $\beta^*_{j+1}>
+16\beta^*_j$. In particular $\beta^*_j\le\beta_W$ for every $j\le j_{\max}$,
+and if $\beta_W<\beta^*_{12}$ then $\beta_W<\beta^*_{j_{\max}+1}\le
+16^{j_{\max}+1}\cdot2.90\cdot10^{22}$ by the bound proved below, which is
+the displayed bound.
+
+\emph{The numbers.} We have
+\[
+\lvert\log q^*_j\rvert=H_j(\log2+2\log\varDelta)+1+4\log(17\cdot2^j-4)+
+\log H_j
+\]
+with $\varDelta=23^4-1$. The logarithms of the proof of
+Theorem~\ref{thm:islandthreshold}, together with $\log17=4\log2+2
+\operatorname{artanh}\frac1{33}$, give $\lvert\log q^*_1\rvert$,
+$\lvert\log q^*_2\rvert$ and $\mathsf A=6561(\log2+2\log\varDelta)+1+8\log3$
+within $10^{-3}$ of $105605.899$, $105608.929$ and $169133.301$. For $j\ge3$,
+$\lvert\log q^*_j\rvert=\mathsf A+4\log(17\cdot2^j-4)$, and $\mathsf A+4
+\log17\le169144.64$, so that
+\[
+169152.831\le\lvert\log q^*_3\rvert\le\lvert\log q^*_j\rvert\le169144.64+
+4j\log2 .
+\]
+With $C_0\in[4.90816,4.90817]$, at
+the ends of the three stated intervals $g_1$, $g_2$, $g_3$ are negative and
+positive, with margins above $18$, so that $\log\beta$ to two decimals
+decides the signs. For $b>96c^2/\rho^2$,
+\[
+g_j(16^jb)=\frac{b\rho^2}{16c^2}-6(\log b+C_0)-\bigl(\lvert\log q^*_j\rvert+
+24j\log2\bigr),
+\]
+whose last bracket increases with $j$ and is at most $169144.64+28j\log2$
+for $j\ge3$. At $b=2.90\cdot10^{22}$ the three terms are at least
+$169779.0$, at most $339.8$ and, for $j\le12$, at most $169377.6$; so
+$g_j(16^jb)>0$, that is $16^{-j}\beta^*_j\le2.90\cdot10^{22}$, for $1\le j
+\le12$.
+
+\emph{The scale $k_*$.} By its definition, $16^{k_*}\le\beta_W/D<
+16^{k_*+1}$ with
+\[
+D=1.0201\cdot96\cdot10^8(\log\beta_W+C_1),
+\]
+and $C_1\in[6.48436,6.48437]$ gives $5.595\cdot10^{11}\le D\le1.0106\cdot
+10^{12}$ for $\beta_W\in[10^{22},10^{42}]$. At $b=3\cdot10^{22}$ the three
+terms of $g_j(16^jb)$ are at least $175633.4$, at most $340.0$ and, for
+$j\le17$, at most $169474.6$. At $b=5.4\cdot10^{21}$ the first is at most
+$31614.1$, which is less than $\lvert\log q^*_1\rvert$. With $\beta^*_0\in
+[5.400,5.402]\cdot10^{21}$ this gives
+\[
+5.4\cdot10^{21}\le16^{-j}\beta^*_j\le3\cdot10^{22}\qquad(0\le j\le17),
+\]
+and $\beta^*_j>\beta^*_{17}>10^{42}$ for $j>17$. So, with $x=\log_{16}
+\beta_W$, $j_{\max}\ge0$,
+\[
+\lfloor x-\log_{16}(3\cdot10^{22})\rfloor\le j_{\max}\le\lfloor x-
+\log_{16}(5.4\cdot10^{21})\rfloor,
+\]
+and $k_*=\lfloor x-\log_{16}D\rfloor$. Since $\lfloor a\rfloor-\lfloor b\rfloor$ is
+$\lfloor a-b\rfloor$ or $\lfloor a-b\rfloor+1$,
+\[
+\Bigl\lfloor\log_{16}\frac{5.4\cdot10^{21}}D\Bigr\rfloor\le k_*-j_{\max}\le
+\Bigl\lfloor\log_{16}\frac{3\cdot10^{22}}D\Bigr\rfloor+1,
+\]
+and $16^8D\le4.35\cdot10^{21}$, $16^9D\ge3.84\cdot10^{22}$ give $8\le k_*-
+j_{\max}\le9$.
 \end{proof}
 
 The theorem settles the entropy count of the islands at every scale that
@@ -16543,19 +16616,22 @@ Let $G=\SU(2)$.
 Theorem~\ref{thm:islandscales} hold with it replaced by $\rho\le1.023\cdot
 10^{-4}$.
 \item At $\rho=10^{-4}$,
-\[
-\beta^*(10^{-4},1)=3.40906\cdot10^{13},\quad
-\beta^*(10^{-4},5)=5.38304\cdot10^{13},
-\]
-and for $s=5$, $\beta^*_1=2.89281\cdot10^{15}$, $\beta^*_2=4.62936\cdot
-10^{16}$, $\beta^*_3=1.18541\cdot10^{18}$,
+\begin{gather*}
+\beta^*(10^{-4},1)\in[3.408,3.410]\cdot10^{13},\\
+\beta^*(10^{-4},5)\in[5.382,5.384]\cdot10^{13},
+\end{gather*}
+and for $s=5$
+\begin{gather*}
+\beta^*_1\in[2.892,2.894]\cdot10^{15},\quad
+\beta^*_2\in[4.628,4.630]\cdot10^{16},\\
+\beta^*_3\in[1.185,1.186]\cdot10^{18},
+\end{gather*}
 $16^{-j}\beta^*_j\le2.90\cdot10^{14}$ for $1\le j\le20$, and for $\beta^*_1
 \le\beta_W<\beta^*_{20}$ the conclusions of Theorem~\ref{thm:islandscales}
 hold at every scale $j\le j_{\max}$ with $2^{j_{\max}}\ge\frac12(\beta_W/2.90
 \cdot10^{14})^{1/4}$.
-\item At every one of $2001$ couplings spaced evenly in the logarithm between
-$10^{22}$ and $10^{42}$, $k_*-j_{\max}\in\{2,3\}$: the islands of the
-composed average are rare up to the scale $a_{k_*}/8$.
+\item For every $\beta_W\in[10^{22},10^{42}]$, $k_*-j_{\max}\in\{2,3\}$: the
+islands of the composed average are rare up to the scale $a_{k_*}/8$.
 \end{enumerate}
 \end{theorem}
 
@@ -16574,12 +16650,25 @@ Theorem~\ref{thm:defectscales}(i), (ii), with $\rho_G=1$, and in
 Theorem~\ref{thm:islandscales}(i) through the hypothesis $4^j\eta_0\le10^{-4}$
 of Theorem~\ref{thm:defectscales}(iv), which reads $\rho\le1.023\cdot10^{-4}$;
 then $\eta_i\le\rho\le10^{-3}$ for $i\le j$.
-(ii), (iii) Each $\beta^*$ is enclosed by $g(\beta_{\rm lo})>0>g(\beta_{\rm
-hi})$ with $g=f_j-\log q^*_j$ decreasing past $96/\rho_0^2$, to relative width
-$10^{-12}$, and $k_*$ by enclosing $\log_4(10^{-4}/1.01\rho(\beta))$ away from
-the integers; the same computation reproduces the values of
-Theorem~\ref{thm:islandscales} at $\rho=10^{-8}$. The value of $k_*-j_{\max}$
-is $2$ at $1731$ of the couplings and $3$ at $270$.
+(ii), (iii) The proof of Theorem~\ref{thm:islandscales} applies at
+$\rho=10^{-4}$, with the same functions $g_j$ and the same values of
+$\lvert\log q^*_j\rvert$; for $s=1$, $\lvert\log q^*\rvert=1296(\log2+2\log
+2400)+1+4\log11+4\log6$ lies within $10^{-3}$ of $21090.194$. At the ends of
+the five stated intervals $g$ is negative and positive, with margins above
+$5$. At $b=2.90\cdot10^{14}$ the three terms of $g_j(16^jb)$ are at least
+$169779.0$, at most $229.3$ and, for $j\le20$, at most $169532.8$, which
+gives $16^{-j}\beta^*_j\le2.90\cdot10^{14}$ for $1\le j\le20$ and (ii). At
+$b=2.92\cdot10^{14}$ they are at least $170949.9$, at most $229.3$ and, for
+$j\le23$, at most $169591.1$, and at $b=2.88\cdot10^{14}$ the first is at
+most $168608.2<\lvert\log q^*_3\rvert$; so $2.88\cdot10^{14}\le16^{-j}\beta^*_j
+\le2.92\cdot10^{14}$ for $3\le j\le23$. Since $16^6\cdot2.92\cdot10^{14}<
+10^{22}$ and $16^{23}\cdot2.88\cdot10^{14}>10^{42}$, $6\le j_{\max}\le22$ for
+$\beta_W\in[10^{22},10^{42}]$, and the floor argument of that proof gives
+\[
+\Bigl\lfloor\log_{16}\frac{2.88\cdot10^{14}}D\Bigr\rfloor\le k_*-j_{\max}\le
+\Bigl\lfloor\log_{16}\frac{2.92\cdot10^{14}}D\Bigr\rfloor+1;
+\]
+with $16^2D\le2.59\cdot10^{14}$ and $16^3D\ge2.29\cdot10^{15}$ this is (iii).
 \end{proof}
 
 The two or three scales that remain are not a matter of radius. With
@@ -17474,15 +17563,26 @@ Together,
 c_W=9+27\gamma+63\gamma^2+120\kappa C_2,\qquad c_\psi=40L .
 \end{equation}
 
-\emph{Step 8: the numbers.} At $r=8\cdot10^{-5}$: $m_1=1+1.4\cdot10^{-7}$,
-$\varepsilon_T=1.924\cdot10^{-3}$, $\mathsf m=8.110$, $\gamma=1.01365$,
-$M_G=1.04618$, $B_2=16.825$, $B_3=227.72$, $X_2=165.77$, $C_2=166.80$,
-$M_1=17.026$, $M_2=2717.1$, $L=1.2329\cdot10^5$; every constant increases
-with $r$, so for $r\le8\cdot10^{-5}$ and $\kappa\le10^{-8}$,
-$c_W\le101.1001+0.0003$ and $c_\psi\le4.94\cdot10^6$. Under hypothesis (a)
-of Theorem~\ref{thm:layerbound}, $62r\le6.0\cdot10^{-13}$, so
-$r\le9.68\cdot10^{-15}$, $\varepsilon_T\le3.0\cdot10^{-13}$, $\gamma\le
-1+2.1\cdot10^{-12}$, $C_2\le160.02$, $L\le1.1614\cdot10^5$, and
+\emph{Step 8: the numbers.} Since $\sin x\ge x-x^3/6$, $m(\theta)\le
+(1-\theta^2/24)^{-1}$ and $1-1/m(\theta)\le\theta^2/24$; the series of
+$e^{1/2}$, whose tail after the term $k=8$ is at most twice its first term,
+gives $e^{1/2}\le1.6487213$ and $M_G\le1.046176$; and $e^{14r}\le
+(1-14r)^{-1}$ in $C_2$. Every constant of Steps 3 to 7 increases with $r$,
+and $c_W$ with $\kappa$, so it suffices to take $r$ and $\kappa$ at their
+largest values; each bound below is computed from the rounded bounds before
+it, with $\sqrt2\le1.4142136$. At $r=8\cdot10^{-5}$: $\theta_Z\le1.8102\cdot
+10^{-3}$, $\theta_X\le1.5840\cdot10^{-3}$, $m_1\le1+1.4\cdot10^{-7}$,
+$1-1/m(\theta_X)\le1.046\cdot10^{-7}$, $\varepsilon_T\le1.924\cdot10^{-3}$,
+$\mathsf m\le8.110$, $\gamma\le1.01366$, $B_2\le16.825$, $B_3\le227.72$,
+$14\gamma^2+4\gamma+1\le19.44$, $X_2\le165.8$, $C_2\le166.9$, $M_1\le17.03$,
+$M_2\le2718$ and $L\le1.234\cdot10^5$; so for $r\le8\cdot10^{-5}$ and
+$\kappa\le10^{-8}$, $c_W\le101.11$ and $c_\psi\le4.94\cdot10^6$. Under
+hypothesis (a) of Theorem~\ref{thm:layerbound}, $62r\le6.0\cdot10^{-13}$, so
+$r\le9.68\cdot10^{-15}$, and the same chain gives $m_1\le1+10^{-26}$,
+$\varepsilon_T\le2.328\cdot10^{-13}$, $\gamma\le1+1.7\cdot10^{-12}$,
+$\mathsf m\le8(1+1.7\cdot10^{-12})$, $B_2\le16.73882$, $B_3\le225.975$,
+$14\gamma^2+4\gamma+1\le19+10^{-10}$, $X_2\le159.019$, $C_2\le160.02$,
+$M_1\le16.7389$, $M_2\le2597.5$, $L\le1.1614\cdot10^5$, and
 $9+27\gamma+63\gamma^2\le99+4\cdot10^{-10}$. For the condition on
 $\kappa$, let $k=(y,\mu)$ be solved with a $z$-link among its arguments.
 A $z$-link is based in a block of $W'$, so $y$ or $y+e_\mu$ lies in $W'$,
@@ -18149,7 +18249,7 @@ and
 {4-\sigma}\le\sigma+\frac{\sigma^2}{4-\sigma}.
 \]
 \end{enumerate}
-At $\rho=2.17\cdot10^{-16}$ and $s=1$: $\beta^*=1.12206\cdot10^{37}$,
+At $\rho=2.17\cdot10^{-16}$ and $s=1$: $\beta^*\in[1.1220,1.1221]\cdot10^{37}$,
 $\lvert\log q^*\rvert=32481.67$, $Mq^*\le10^{-14102.4}$, the bound $A$ of
 Theorem~\ref{thm:islandthreshold}(i) is at most $10^{-14098.8}$,
 $G_0\le10^{-14099.3}$, and the bound of (i) for
@@ -18160,7 +18260,7 @@ $R=15$, $\epsilon\le\lvert W\rvert(10^{-28194}+10^{-28163.8}/\sigma)$, and
 with $R=2\cdot10^8$, $\epsilon\le10^{-28166}\lvert W\rvert$ for every
 $\sigma\in[10^{-1000},4)$; for $\vartheta=\frac12$ and $R=4\cdot10^8$,
 $\epsilon\le10^{-28165}\lvert W\rvert$ on the same range. At $s=5$:
-$\beta^*=1.32163\cdot10^{37}$, $Mq^*\le10^{-16652.7}$, $G_0\le
+$\beta^*\in[1.3216,1.3217]\cdot10^{37}$, $Mq^*\le10^{-16652.7}$, $G_0\le
 10^{-16649.6}$, and with $\vartheta=0$, $R=2\cdot10^8$,
 $\epsilon\le10^{-33267}\lvert W\rvert$ for $\sigma\in[10^{-1000},4)$.
 \end{theorem}
@@ -18294,10 +18394,47 @@ Corollary~\ref{cor:islandchains} at $q$ is at most $\frac14\bar T_q\le
 \frac14\sigma$, so $\theta\le\sigma/4<1$, and the corollary with $T_a,T_b
 \le\sigma$ gives the last display.
 
-\emph{The numbers} are enclosed in interval arithmetic in the archive: the
-roots by $f(\beta_{\rm lo})-\log q^*>0>f(\beta_{\rm hi})-\log q^*$ to
-relative width $10^{-20}$, and every power of ten through its decimal
-logarithm, with $c_2$ evaluated at $\beta_{\rm hi}$.
+\emph{The numbers.} Here $H=6^4$, $M=11^4$ and $\lvert\log q^*\rvert=H(\log2
++2\log N_s)+1+4\log11+4\log6$, with $N_1=21^4-1=2^4\cdot5\cdot11\cdot13\cdot
+17$ and $\log N_5=4\log37+\log(1-37^{-4})$, where $-x/(1-x)\le\log(1-x)\le
+-x$. The logarithms of the proof of Theorem~\ref{thm:islandthreshold},
+together with $\log\frac{13}{12}=2\operatorname{artanh}\frac1{25}$,
+$\log\frac{17}{16}=2\operatorname{artanh}\frac1{33}$ and $\log\frac{37}{36}=
+2\operatorname{artanh}\frac1{73}$, give $\lvert\log q^*\rvert$ within
+$10^{-2}$ of $32481.67$ for $s=1$ and of $38354.07$ for $s=5$. The function
+$g(\beta)=\beta\rho^2/16-6(\log\beta+C_0)-\lvert\log q^*\rvert$ increases
+for $\beta>96/\rho^2$, and at the ends of the two stated intervals it is
+negative and positive, with margins above $0.5$. With $\log10=\log2+\log5$,
+$\log_{10}(Mq^*)=(4\log11-\lvert\log q^*\rvert)/\log10$ lies within
+$10^{-3}$ of $-14102.446$ for $s=1$ and of $-16652.797$ for $s=5$, and
+$\log_{10}(eH)\le3.547$ gives $A\le A^*\le10^{-14098.8}$ at $s=1$. Since
+$2eH2^{-H}\le10^{-300}$, $G_0\le HMq^*(1+10^{-300})$, and $\log_{10}H\le
+3.1127$ gives the two bounds on $G_0$; with $\sigma(2\alpha_G)\le6.151\cdot
+10^{15}$ from Proposition~\ref{prop:islandmass}, $G_0\sigma(2\alpha_G)\le
+10^{-14083.5}$.
+
+By Lemma~\ref{lem:lambdatwo}, $\frac{1920}{\beta^*}\bar\Lambda_2(\beta^*)^2
+r^2=1920\beta^*r^2(99.0001+4.65\cdot10^6/\beta^*)^2$, which increases with
+$\beta^*$ and is therefore at most its value at the upper end of the
+interval for $\beta^*$: at most $10^{16.2645}$ for $s=1$ and $10^{16.3356}$
+for $s=5$. The remaining factors of $c_2$ at $\kappa=2\alpha_G=5\cdot
+10^{-4}$ give $c_2\le10^{22.122}$ for $s=1$ and $c_2\le10^{23.140}$ for
+$s=5$, and $c_2$ is smaller at $\kappa=\alpha_G$. For the sums $\sigma$,
+write $x=1-v$; then $x(1+4x+x^2)=6-12v+7v^2-v^3$, the function
+$(6-12v+7v^2)v^{-4}$ decreases for $v>0$, and $v\ge u=\kappa-\kappa^2/2$,
+so the closed form of Proposition~\ref{prop:islandmass} gives $\sigma(\kappa)
+\le1+64(6-12u+7u^2)u^{-4}+16u^{-2}$, hence $\sigma(\alpha_G)\le9.831\cdot
+10^{16}$ and $\sigma(\alpha_G/2)\le1.573\cdot10^{18}$.
+
+In $\epsilon$, the first term has $\log_{10}(11^4(2R+1)^4(Mq^*)^2)$ at most
+$-28194.76$ for $R=15$, $-28166.31$ for $R=2\cdot10^8$ and $-28165.11$ for
+$R=4\cdot10^8$ at $s=1$, and $-33267.01$ for $R=2\cdot10^8$ at $s=5$. For
+$R=15$, $\tau\le\sigma(2\alpha_G)$ and $Mq^*c_2G_0\tau\le10^{-28163.86}$.
+For $R=2\cdot10^8$ with $\kappa=2\alpha_G$, and for $R=4\cdot10^8$ with
+$\kappa=\alpha_G$, $\kappa R/2=5\cdot10^4$ and $e^{-5\cdot10^4}\le
+10^{-21714}$, so $\tau\le10^{-21714}\sigma(\kappa/2)$ and the second term
+is at most $10^{-48000}\lvert W\rvert$ for $\sigma\ge10^{-1000}$, which the
+margins of the first term absorb.
 \end{proof}
 
 The bound is a union bound over the window and is linear in $\lvert W
@@ -18909,9 +19046,24 @@ logarithmic derivatives of $b_*\epsilon^{1/2}$ and $b_*\epsilon$ are at
 most $4/\beta_W-\rho^2/32$ and $7/\beta_W-\rho^2/16$, both negative since
 $\beta^*\rho^2/16>8$; so $\varPhi_R$ and $\epsilon^{1/2}\varPhi_R$ are at
 most their values at $\beta^*$. At $\beta^*$ of
-Theorem~\ref{thm:islandwindow}, $b_*\nu_s\le10^{22.084}$ for $s=1$ and
-$10^{23.104}$ for $s=5$, $\sigma(\alpha_G)\le9.831\cdot10^{16}$, and
-$-\log g_{2s+9}\ge8105.1$ for $s=1$ and $9571.0$ for $s=5$.
+Theorem~\ref{thm:islandwindow}, $b_*\nu_s\le10^{22.0833}$ for $s=1$ and
+$10^{23.1039}$ for $s=5$, $\sigma(\alpha_G)\le9.831\cdot10^{16}$, and
+$-\log g_{2s+9}\ge8105.1$ for $s=1$ and $9571.0$ for $s=5$. Indeed, the
+proof of that theorem gives $b_*(\beta^*)\le10^{16.2645}$ and $10^{16.3356}$,
+$\sigma(\alpha_G)\le9.831\cdot10^{16}$, $\lvert\log q^*\rvert$ within
+$10^{-2}$ of $32481.67$ and $38354.07$, and $\log_{10}(Mq^*)$ within
+$10^{-3}$ of $-14102.446$ and $-16652.797$; here $\nu_1=45\cdot11^4$,
+$\nu_5=45\cdot19^4$ with $\log19=\log18+2\operatorname{artanh}\frac1{37}$,
+and at $\epsilon=Mq^*$
+\[
+-\log g_R=\tfrac14\bigl(\lvert\log q^*\rvert-4\log11\bigr)-\tfrac12\log2-
+4\log(2R+1),
+\]
+which at $2R+1=4s+19$, that is $23$ and $39=3\cdot13$, lies within
+$10^{-2}$ of $8105.13$ and $9571.12$. Every number below is a decimal
+logarithm of a product of these factors, computed with $\log10=\log2+
+\log5$; and $b_*(\beta^*)\ge1920r^2\cdot99^2\beta^*>10^{16}$, so $10\le
+\frac94b_*\nu_s$.
 
 (i) Theorem~\ref{thm:labelcov}: $t\ge3R$, $t\le d/10^4+3R$ and $(6s+34)
 (1-10^{-4})\ge6s+33$, so $d\ge t+6$; $d-5-t-2s-9\ge(1-10^{-4})d-8s-41$, so
@@ -18931,9 +19083,38 @@ d/2-1\ge2000\sqrt d+1\ge R$, and $t/R\ge\sqrt d/4001\ge1$, so $\lfloor t/R
 7623.9$ for $s=1$ and $9092.0$ for $s=5$. The third term carries
 $e^{-\alpha_GR}\le e^{-\sqrt d/2}$, and $d-t-2s-9\ge d/2-2s-9$; the ratios
 of the chain and main terms to $e^{-\sqrt d/2}$ decrease in $d$ on $[10^8,
-\infty)$, and at $d=10^8$ they are at most $10^{-1965.2}$ and $10^{-8663}$,
-the coefficient of the third term at most $10^{-14062}$, and $V\le V^{3/2}$.
-The numbers are enclosed in interval arithmetic in the archive.
+\infty)$, and $V\le V^{3/2}$.
+
+\emph{The numbers}, for $s=1$ and $s=5$. In (i),
+\begin{gather*}
+\log_{10}\bigl(11^4b_*\nu_se^{2\alpha_G(8s+41)}\bigr)\le26.2596,\ 27.2871,
+\\
+-\log g_R/(10^4R)\ge0.07368,\ 0.05037,\\
+\log_{10}\bigl(2b_*\nu_s\sigma(\alpha_G)(Mq^*)^{1/2}e^{\alpha_G(2s+8)}
+\bigr)\\
+\le-7011.84,\ -8285.99,
+\end{gather*}
+which give $c_s$, $\lambda_s$ and $f_s$. In (ii), $-\log g_R/(10^4R)\ge2
+\alpha_G$ and
+\begin{gather*}
+\log_{10}\bigl(\tfrac92b_*\nu_se^{4\alpha_G(2s+9)}\bigr)\le22.742,\
+23.766,\\
+\log_{10}\bigl(\tfrac{17}4b_*\nu_s\sigma(\alpha_G)Mq^*e^{\alpha_G(2s+8)}
+\bigr)\\
+\le-14062.73,\ -16612.06,
+\end{gather*}
+which give $a_s$ and $a'_s$. In (iii), at $2R+1\le4\cdot10^{53}+3$ the
+display for $-\log g_R$ gives $\lambda=-\log g_R\ge7623.9$ and $9092.0$, so
+that $\lambda/8002>\frac12$. The chain and main ratios are at most
+\begin{gather*}
+10e^{-(\lambda/8002-1/2)\sqrt d},\\
+\tfrac94b_*\nu_se^{-2\alpha_G(d/2-2s-9)+\sqrt d/2};
+\end{gather*}
+the first decreases in $d$, and the second for $\sqrt d>1/(4\alpha_G)=
+1000$. At $d=10^8$ the chain ratio is at most $10^{-1965.2}$ and
+$10^{-2761}$, the main ratio at most $10^{-8663.4}$ and $10^{-8662.4}$, and
+the coefficient $\frac{17}4b_*\nu_s\sigma(\alpha_G)Mq^*e^{\alpha_G(4s+17)}$
+of the third term at most $10^{-14062.7}$ and $10^{-16612}$.
 \end{proof}
 
 The groups make the Dobrushin condition on the islands unnecessary in these
@@ -19125,8 +19306,18 @@ and $g_R$ are at most their values at $\beta^*$. At $\beta^*$ and
 $d=10^8$, the coefficient of the far term times $\epsilon$ is at most
 $10^{-21114.22}$ for $s=1$ and $10^{-24938.64}$ for $s=5$, and the main
 and chain ratios are below $10^{-24000}$ and $10^{-86000}$; with $V^{1/2},
-V\le V^{3/2}$ and $2t+1\le d+1$ this gives the bound. The numbers are
-enclosed in interval arithmetic in the archive.
+V\le V^{3/2}$ and $2t+1\le d+1$ this gives the bound.
+
+\emph{The numbers} come from the factors listed in the proof of
+Corollary~\ref{cor:fibrecovnumbers}. The display for $-\log g_R$ there at
+$2R+1\le4\cdot10^{52}+3$ gives $\lambda\ge7633.1$ and $9101.2$. With
+$\epsilon\le Mq^*$, the decimal logarithm of $2b_*\nu_s\sigma(\alpha_G)
+(Mq^*)^{3/2}e^{\alpha_G(4s+17)}$ is at most $-21114.28$ for $s=1$ and
+$-24938.79$ for $s=5$; that of $11^4b_*\nu_se^{2\alpha_G(2s+14)}e^{-\alpha_G
+d+\sqrt d/20}Mq^*$ at $d=10^8$ is at most $-24716$ and $-27265$; and the
+chain ratio times $\epsilon$ is at most $4\cdot401^4d^2e^{-\lambda(\sqrt
+d/401-3)+\sqrt d/20}Mq^*$, whose decimal logarithm at $d=10^8$ is at most
+$-86581$ and $-103119$.
 \end{proof}
 
 The next theorem shows that no argument which uses only $(\mathrm X)$ and a
@@ -21058,10 +21249,11 @@ $8\lambda$ times the coarse curvature, up to a volume term. It also states
 which bound the next step would need, and how far
 Theorem~\ref{thm:islandswide} supplies it. The small-field part and its
 locality are the subject of item~(iv) of Sec.~\ref{ssec:remains} and are
-not treated here. The lattice counts are proved by hand; the numerical
-constants of Theorems~\ref{thm:lfkp} and~\ref{thm:sfgauss}(i) and of
-Proposition~\ref{prop:lfinherited}(iii) are enclosed in interval arithmetic
-and are not proved by hand.
+not treated here. The lattice counts and the numerical constants are
+proved by hand. The one exception is the value of the coupling $(M_W)_{AB}$
+of Theorem~\ref{thm:sfgauss}, which is computed in
+Remark~\ref{rem:sfgaussvalue} and used by no proof; the statements that the
+calm weight is not local are conditional on $(M_W)_{AB}\ne0$.
 
 Throughout, $\Lambda_L$ is the torus of side $L=2^m\ge32$ in the tree gauge,
 $T$ is the coarse torus of the blocks $B(y)$, $|T|=L^4/16$, $\lambda=\beta_W/4$,
@@ -21276,7 +21468,7 @@ So the coarse action is $\lambda$ times a quantity between $Q_1/C_*$ and
 $8Q_1$, up to $O(\log\lambda)$ per block; the volume term $67.5\log\lambda$
 is the Gaussian count of the $135$ real fluctuation coordinates of a block.
 Neither constant is near one. For example $c_1(10^{12},1)<2737.5$ and
-$4\log M<40.28$.
+$4\log M<40.35$.
 
 \paragraph*{The large-field representation.}
 Write $s_y=1-r_y$. For $X\subset T$ let $X_1,\dots,X_n$ be its components
@@ -21448,10 +21640,10 @@ $1/10$ in absolute value, and the logarithm is at most $|T|/10$ in modulus.
 \hline
 $\kappa$ & $\beta^*$ & $\lambda^*\kappa^2$\\
 \hline
-$0.08$ & $1.13074\cdot10^{6}$ & $1809.2$\\
-$10^{-2}$ & $8.39984\cdot10^{7}$ & $2100.0$\\
-$10^{-4}$ & $1.09584\cdot10^{12}$ & $2739.6$\\
-$10^{-8}$ & $1.60348\cdot10^{20}$ & $4008.7$\\
+$0.08$ & $1.13125\cdot10^{6}$ & $1810$\\
+$10^{-2}$ & $8.404\cdot10^{7}$ & $2101$\\
+$10^{-4}$ & $1.0964\cdot10^{12}$ & $2741$\\
+$10^{-8}$ & $1.604\cdot10^{20}$ & $4010$\\
 \hline
 \end{tabular}
 \end{center}
@@ -21466,11 +21658,41 @@ $81|X|$ blocks within distance one of $X$. Hence
 \[
 \sum_{X'\not\sim X}|w(X')|e^{|X'|/10}\le81|X|\frac u{1-6400u},
 \]
-with $u=e^{-8.9}$, and the right side is below $0.0870|X|<|X|/10$. This is
-the hypothesis of the theorem of Koteck\'y and Preiss, whose conclusion is
-the statement. (ii) $a$ is increasing for $\lambda>67.5/\kappa^2$, and the
-thresholds are enclosed by bisection in interval arithmetic to relative
-width $10^{-8}$.
+with $u=e^{-8.9}$. Since $8.9>\log7290=\log2+6\log3+\log5$, $u<1/7290$,
+and the right side, which increases with $u$, is below $81|X|/(7290-6400)
+<0.092|X|<|X|/10$. This is the hypothesis of the theorem of Koteck\'y and
+Preiss, whose conclusion is the statement.
+
+(ii) Write $L_p=\log p$. With its tail bounded geometrically, the series
+$\log\frac{1+x}{1-x}=2\sum_{k\ge0}\frac{x^{2k+1}}{2k+1}$ at $x=\frac13$,
+$\frac15$, $\frac19$ and $\frac1{99}$ gives $\log2$, $\log\frac32$,
+$\log\frac54$ and $\log\frac{50}{49}$ to within $10^{-10}$, hence
+\begin{gather*}
+0.69314718<L_2<0.69314719,\\
+1.09861228<L_3<1.09861229,\\
+1.60943791<L_5<1.60943792,\\
+1.94591014<L_7<1.94591015,
+\end{gather*}
+and $\log10=L_2+L_5$. By Lemma~\ref{lem:averagedensity}, $\log M<\log(2.4
+\cdot10^4)=6L_2+L_3+3L_5$, and $\log1.957<\log1.96=2L_7-2L_5$. With
+$\log14=L_2+L_7$ and $\log23040=9L_2+2L_3+L_5$, for $\lambda\ge100$
+\[
+8\log M+c_1(\lambda,1)\le K_0+67.5\log\lambda,
+\]
+where $K_0=67.5+700.5L_2+143L_3+67.5L_5+69L_7<953.06$. Put $t=\lambda
+\kappa^2$. Then $a(\lambda,\kappa)\ge t-67.5\log t-K_0-67.5\log
+\kappa^{-2}$, whose right side increases with $t$ for $t>67.5$. So $a\ge9$
+for $\lambda\ge\max\{\lambda^*,100\}$ once $t^*=\lambda^*\kappa^2$
+satisfies
+\[
+t^*-67.5\log t^*\ge962.06+67.5\log\kappa^{-2}.
+\]
+In the four rows of the table $\log\kappa^{-2}$ equals $4L_5-2L_2$,
+$4\log10$, $8\log10$ and $16\log10$, and, by $\log(1+x)\le x$, $\log t^*$
+is at most $\log1800+\frac1{180}$, $\log2100+\frac1{2100}$, $\log2744$ and
+$\log4000+\frac1{400}$, with $1800=2^33^25^2$, $2100=2^2\cdot3\cdot5^2
+\cdot7$, $2744=2^37^3$ and $4000=2^55^3$. With these bounds the left side
+exceeds the right by more than $0.6$ in each row.
 \end{proof}
 
 Theorem~\ref{thm:lfkp} applies to the large fields once the small-field
@@ -21490,10 +21712,13 @@ calm weight of its region whenever the boundary values admit a completion
 that is calm at a smaller threshold $\kappa'$. Second, the large-field sum
 is exactly the calm weight times a mean, under the calm law, of products of
 these ratios, and the polymer sums of Theorem~\ref{thm:lfkp} bound it once
-the ratios are small. Third, the calm weight is not a product of local
-factors to within $e^{\pm o(\lambda)}$: to leading order in $\lambda$ its
-logarithm is $-\lambda$ times the Gaussian block-spin form, which couples
-coarse links at every distance. What remains open is stated at the end.
+the ratios are small. Third, to leading order in $\lambda$ the logarithm of
+the calm weight is $-\lambda$ times the Gaussian block-spin form, so that
+the calm weight is a product of local factors to within $e^{\pm
+o(\lambda)}$ only if this form does not couple distant coarse links; its
+coefficient at two coarse links three blocks apart is a rational number
+$(M_W)_{AB}$, which a computation not used in the proofs finds nonzero.
+What remains open is stated at the end.
 
 \emph{The calm weight.} Fix $X\ne\emptyset$ and the outer variables of
 $K_X$. Let $\lambda_X$ be the measure of $K_X$, the product of $h$ on the
@@ -21593,20 +21818,28 @@ takes the place of $c_1$ because $K_X$ integrates up to $73$ rather than
 $45$ links per block. With $\kappa'=\kappa/30$ and $\eta=1$,
 $a_2=0.52\lambda\kappa^2-8\log M-c_2(\lambda,1)$, and $a_2\ge9$, the rate
 that Theorem~\ref{thm:lfkp} needs, holds for $\lambda\ge\lambda^{**}(\kappa)$,
-with $\beta^{**}=4\lambda^{**}$ enclosed in interval arithmetic as in
-Theorem~\ref{thm:lfkp}(ii):
+with $\beta^{**}=4\lambda^{**}$ as follows:
 \begin{center}
 \begin{tabular}{lll}
 \hline
-$\kappa$ & $\beta^{**}\le$ & $\lambda^{**}\kappa^2\le$\\
+$\kappa$ & $\beta^{**}$ & $\lambda^{**}\kappa^2$\\
 \hline
-$0.08$ & $3.66191\cdot10^{6}$ & $5859.06$\\
-$10^{-2}$ & $2.70604\cdot10^{8}$ & $6765.10$\\
-$10^{-4}$ & $3.50359\cdot10^{12}$ & $8758.98$\\
-$10^{-8}$ & $5.08658\cdot10^{20}$ & $12716.45$\\
+$0.08$ & $3.6625\cdot10^{6}$ & $5860$\\
+$10^{-2}$ & $2.7064\cdot10^{8}$ & $6766$\\
+$10^{-4}$ & $3.504\cdot10^{12}$ & $8760$\\
+$10^{-8}$ & $5.0872\cdot10^{20}$ & $12718$\\
 \hline
 \end{tabular}
 \end{center}
+Indeed, as in the proof of Theorem~\ref{thm:lfkp}(ii), now with $2\cdot
+15979<32000=2^85^3$, $8\log M+c_2(\lambda,1)\le K_2+109.5\log\lambda$ for
+$\lambda\ge100$, where $K_2=109.5+997L_2+8L_3+304.5L_5+121L_7<1534.89$, and
+$0.52t-109.5\log t$ increases for $t>211$. In the four rows, with $t=
+\lambda^{**}\kappa^2$, $\log t$ is at most $\log5832+\frac7{1458}$,
+$\log6750+\frac8{3375}$, $\log8750+\frac1{875}$ and $\log12600+
+\frac{59}{6300}$, where $5832=2^33^6$, $6750=2\cdot3^35^3$, $8750=2\cdot
+5^47$ and $12600=2^33^25^27$, and $0.52t-109.5\log t$ exceeds $1543.89+
+109.5\log\kappa^{-2}$ by more than $0.14$.
 At these couplings $\rho\le(\kappa-\kappa')/90$ and $\rho\le7.92\cdot10^{-4}$.
 The same construction bounds the calm weight of the whole torus.
 
@@ -21776,7 +22009,7 @@ and $s,t\in\{0,1\}$ let $c^{st}_\varepsilon$ equal $e^{\varepsilon s\tau}$
 on $A$, $e^{\varepsilon t\tau}$ on $B$ and $I$ on the other coarse links of
 $W$. Write $\Delta F=\sum_{s,t}(-1)^{s+t}F(c^{st}_\varepsilon)$.
 \begin{enumerate}[label=\textup{(\roman*)},leftmargin=*]
-\item $(M_W)_{AB}=-0.035264626\ldots$, a rational number computed exactly.
+\item $(M_W)_{AB}$ is a rational number.
 \item There is $\varepsilon_0>0$ such that for $0<\varepsilon\le
 \varepsilon_0$
 \[
@@ -21792,8 +22025,9 @@ on $c_B$,
 (c^{st}_\varepsilon)\Bigr\rvert\ge\frac{\lambda\varepsilon^2\lvert(M_W)_{AB}
 \rvert}{5}.
 \]
-In particular, if $\lambda>\max\{\lambda_0,2/(\varepsilon^2|(M_W)_{AB}|)\}$,
-then at these four coarse fields $Z^\circ_W$ is not of the form
+In particular, if $(M_W)_{AB}$ is not zero and $\lambda$ exceeds
+$\max\{\lambda_0,2/(\varepsilon^2|(M_W)_{AB}|)\}$, then at these four
+coarse fields $Z^\circ_W$ is not of the form
 \[
 \prod_{y\in W}\phi_y(c)\sum\prod_iw(X_i),
 \]
@@ -21808,7 +22042,8 @@ connected subsets of $W$, compatible as in Theorem~\ref{thm:lfkp}.
 Lagrange conditions, which has $196$ unknowns, $16$ multipliers and the
 $605$ plaquettes, and $(M_W)_{AB}=\varphi_A^{\rm T}G\varphi_B$ with
 $\varphi_k$ the minimiser for $\gamma=e_k$ and $G$ the matrix of
-$\sum_p(d\varphi)_p^2$. It is solved in rational arithmetic.
+$\sum_p(d\varphi)_p^2$. The system has rational coefficients and a unique
+solution, so $\varphi_A$, $\varphi_B$ and $(M_W)_{AB}$ are rational.
 
 (ii) All constants $C$ below depend on $W$ only. \emph{Two-sided bounds.}
 Since $\nu_c(F_c)\le M^{4|W|}$, $Z^\circ_W(c)\le M^{16}e^{-\lambda
@@ -21869,7 +22104,8 @@ bound.
 Hence every limit point of $-\lambda^{-1}\Delta\log Z^\circ_W$ lies within
 $4C\varepsilon^3$ of $\Delta(\varepsilon^2q^{\rm lin})=2\varepsilon^2(M_W)
 _{AB}$, and $\varepsilon_0=\min\{\varepsilon_1,|(M_W)_{AB}|/(4C)\}$ gives
-(ii).
+(ii) if $(M_W)_{AB}\ne0$; otherwise (ii) holds with $\varepsilon_0=
+\varepsilon_1$, its right side being zero.
 
 (iii) $\Delta\phi_j=0$ for every $j$, since a function that does not depend
 on $c_A$ takes the same value at $c^{1t}$ and $c^{0t}$, and likewise for
@@ -21885,10 +22121,15 @@ therefore give $\lambda\varepsilon^2|(M_W)_{AB}|/5\le2/5$, that is,
 $\lambda\le2/(\varepsilon^2|(M_W)_{AB}|)$.
 \end{proof}
 
-The coupling decays with the length of the row but does not vanish. For
-the rows $W_n=\{0,\dots,(n-1)e_0\}$ and the end links $A=(0,1)$, $B=((n-1)
-e_0,1)$, the same exact computation gives $(M_{W_n})_{AA}=20.0796\ldots$
-for $n\ge4$ and
+\begin{remark}[a computation, not used by any result]\label{rem:sfgaussvalue}
+Solving the system of the proof of Theorem~\ref{thm:sfgauss}(i) in exact
+rational arithmetic gives $(M_W)_{AB}=-0.035264626\ldots$, so that the
+hypothesis $(M_W)_{AB}\ne0$ of the last assertion of
+Theorem~\ref{thm:sfgauss}(iii) holds by this computation; no proof in
+this paper uses it, and no hand proof of $(M_W)_{AB}\ne0$ is given. For the
+rows $W_n=\{0,\dots,(n-1)e_0\}$ and the end links $A=(0,1)$, $B=((n-1)e_0,
+1)$, the same computation gives $(M_{W_n})_{AA}=20.0796\ldots$ for $n\ge4$
+and
 \begin{center}
 \begin{tabular}{lllllll}
 \hline
@@ -21899,10 +22140,13 @@ $10^{n-2}(M_{W_n})_{AB}$ & $-3.32$ & $3.35$ & $-3.53$ & $3.88$
 \hline
 \end{tabular}
 \end{center}
-a factor between $8$ and $10$ per block. By the argument of
-Theorem~\ref{thm:sfgauss}, a product of factors of finite range $r$
-reproduces the calm weight of $W_n$, $n-1>2r$, only up to an error of
-order $\lambda\varepsilon^2|(M_{W_n})_{AB}|$. To leading order in
+so in this computation the coupling decays by a factor between $8$ and
+$10$ per block and does not vanish.
+\end{remark}
+
+By the argument of Theorem~\ref{thm:sfgauss}, a product of factors of
+finite range $r$ reproduces the calm weight of $W_n$, $n-1>2r$, only up to
+an error of order $\lambda\varepsilon^2|(M_{W_n})_{AB}|$. To leading order in
 $\lambda$ the calm weight is $e^{-\lambda q}$ with $q$ the Gaussian
 block-spin form, whose kernel decays at a rate independent of $\lambda$
 with amplitude proportional to $\lambda$. A local expansion of the
@@ -21910,8 +22154,8 @@ small-field part therefore has to keep this form and expand around it, as
 the Gaussian small-field expansion of Ba{\l}aban does; a product of
 factors of range one times a polymer sum with activities $e^{-9|X|}$,
 which is the form (H1) below asks for, fails for the calm weight of $W$
-at every $\lambda>\max\{\lambda_0,2/(\varepsilon^2|(M_W)_{AB}|)\}$, by
-Theorem~\ref{thm:sfgauss}(iii).
+at every $\lambda>\max\{\lambda_0,2/(\varepsilon^2|(M_W)_{AB}|)\}$ when
+$(M_W)_{AB}\ne0$, by Theorem~\ref{thm:sfgauss}(iii).
 
 So the small-field part of one step stands as follows. The kernels are
 local, with the second layer $\partial^=X$ (Lemma~\ref{lem:sfkernel}). The calm weight of a region with boundary
@@ -21925,8 +22169,9 @@ fields with plaquettes in the shell $(\kappa',\kappa]$
 (Remark~\ref{rem:sfshell}), a bound on $Z_\perp$, and the locality of
 $-\log Z_\emptyset(c)$ and of $\log\E_{\mu^\circ_c}[e^\varLambda]$ in $c$.
 For the first of these the form of the answer is fixed by
-Theorem~\ref{thm:sfgauss}: it is a Gaussian form with a nonlocal kernel of
-amplitude $\lambda$, and no product of local factors.
+Theorem~\ref{thm:sfgauss}: to leading order it is the Gaussian block-spin
+form with amplitude $\lambda$, and, if $(M_W)_{AB}\ne0$, no product of
+local factors.
 
 \paragraph*{Locality, the shell and the remainder.}
 The three questions left open above are taken up in turn. For the locality
@@ -22069,7 +22314,8 @@ The defect is the failure of $\log$ to intertwine the coarse gauge action:
 $q^{\rm lin}(\log c)$ is invariant only under gauge transformations that
 commute with $c$. A representation of the required kind needs a leading term
 invariant under the coarse gauge group, such as $\lambda S_1(c)$ with $S_1(c)
-=\inf_{F_c}Q$; by Theorem~\ref{thm:sfgauss} it is not local, and its Hessian
+=\inf_{F_c}Q$; by Theorem~\ref{thm:sfgauss} it is not local if $(M_W)_{AB}
+\ne0$, and its Hessian
 at $c=I$ is $2\lambda$ times the form $q^{\rm lin}$. Whether
 $Z_\emptyset(c)e^{\lambda S_1(c)}$, or the same with another invariant form
 of this Hessian, is a polymer sum with local activities is not decided here.
@@ -22226,8 +22472,8 @@ They are cited for the method only. His averaging operations are not
 the cut-off average $V^\sharp$, and no proof here uses his results.
 By Theorems~\ref{thm:sfgauss} and~\ref{thm:sfgaugeobst} the small-field
 part of the present step calls for the same structure: a leading term of
-amplitude $\lambda$ that is nonlocal, which cannot be $\lambda q^{\rm
-lin}(\log c)$, and an expansion around it. Theorem~\ref{thm:sfprop} is the linear propagator bound of such
+amplitude $\lambda$, nonlocal if $(M_W)_{AB}\ne0$, which cannot be
+$\lambda q^{\rm lin}(\log c)$, and an expansion around it. Theorem~\ref{thm:sfprop} is the linear propagator bound of such
 an expansion at the trivial background; the background field of $V^\sharp$
 and the expansion around it are not carried out.
 \end{remark}
@@ -22556,9 +22802,10 @@ the bound of Theorem~\ref{thm:lfmarkov}(ii) on $K_X$; a bound on $Z_\perp(c)
 The small-field part therefore stands as follows. The representation of the
 calm weight as $e^{-\lambda q^{\rm lin}(\log c)}$ times local factors and a
 polymer sum fails at every $\lambda>0.5472$ (Theorem~\ref{thm:sfgaugeobst}),
-and as a product of local factors at large $\lambda$
-(Theorem~\ref{thm:sfgauss}); the leading term must be gauge invariant and
-nonlocal, and its linear propagator decays at the explicit rate of
+and, if $(M_W)_{AB}\ne0$, as a product of local factors at large $\lambda$
+(Theorem~\ref{thm:sfgauss}); the leading term must be gauge invariant and,
+under the same condition, nonlocal, and its linear propagator decays at
+the explicit rate of
 Theorem~\ref{thm:sfprop}. In the linear model the relative activities are
 unbounded under the calm law at every $\lambda$ (Theorem~\ref{thm:sfshelllin}),
 so the almost sure hypothesis of Proposition~\ref{prop:sfrelative}(ii)
@@ -22606,12 +22853,13 @@ and
 A_j=\max_{s>0}\Bigl(\frac{a_0-s}{H_j}-m_j\log(1+e^{-s})\Bigr).
 \]
 \item With $a_0=a(\beta_W/4,\rho_0)$ and $\rho=10^{-4}$, $A_j\ge9$ holds for
-$\beta_W\ge\beta^{\rm pw}_j$, where $\beta^{\rm pw}_1=2.7321\cdot10^{14}$,
-$\beta^{\rm pw}_2=4.39218\cdot10^{15}$, $\beta^{\rm pw}_3=1.09464\cdot
-10^{17}$, and $1.70\cdot10^{13}\le16^{-j}\beta^{\rm pw}_j\le2.90\cdot10^{13}$
-for $1\le j\le30$. At each of the $2001$ couplings of
-Theorem~\ref{thm:islandswide}(iii), the largest such $j$ satisfies
-$k_*-j\in\{1,2\}$.
+$\beta_W\ge\beta^{\rm pw}_j$, where $\beta^{\rm pw}_1=2.733\cdot10^{14}$,
+$\beta^{\rm pw}_2=4.393\cdot10^{15}$ and $\beta^{\rm pw}_3=1.095\cdot
+10^{17}$, and for $\beta_W\ge2.90\cdot10^{13}\cdot16^j$ whenever $1\le j\le
+30$; $A_j<9$ for $\beta_W<1.57\cdot10^{13}\cdot16^j$. For every $\beta_W\in
+[10^{22},10^{42}]$, the largest $j\le30$ with $\beta_W\ge2.90\cdot10^{13}
+\cdot16^j$ satisfies $k_*-j\in\{1,2\}$, with $k_*$ as in
+Corollary~\ref{cor:defectscales}.
 \end{enumerate}
 \end{proposition}
 
@@ -22625,9 +22873,50 @@ by one of these. The number of boxes met by a fine block is the count of
 that lemma for the two cubes of the block per coordinate, which is $H_j$. A set $X$ meeting all the boxes of $Y$
 has $|X|\ge|Y|/H_j$ and lies in a set of at most $m_j|Y|$ blocks. So the
 sum is at most $\sum_{k\ge|Y|/H_j}\binom{m_j|Y|}ke^{-a_0k}\le e^{-(a_0-s)
-|Y|/H_j}(1+e^{-s})^{m_j|Y|}$. (iii) The maximum is at $e^{s}=m_jH_j-1$, and
-the thresholds and $k_*$ of Corollary~\ref{cor:defectscales} are enclosed
-in interval arithmetic.
+|Y|/H_j}(1+e^{-s})^{m_j|Y|}$.
+
+(iii) Let $\lambda=\beta_W/4$, $b=16^{-j}\beta_W$ and $c=1.01\cdot1.023$, so
+that $\lambda\rho_0^2=b/(4c^2\cdot10^8)$ with $4.27025<4c^2<4.27026$, and,
+with $L_p=\log p$ as in the proof of Theorem~\ref{thm:lfkp}(ii), $\log
+\lambda=\log b+(4j-2)L_2$. By that proof $a_0\ge\lambda\rho_0^2-67.5\log
+\lambda-K_0$ with $K_0<953.06$. Taking $e^s=m_jH_j$ in the maximum, and
+using $m_j\log(1+1/(m_jH_j))\le1/H_j$,
+\[
+A_j\ge\frac{a_0-1-\log(m_jH_j)}{H_j}.
+\]
+So $A_j\ge9$ holds when $E(b)\ge R_j$, where
+\begin{gather*}
+E(b)=\frac b{4c^2\cdot10^8}-67.5\log b,\\
+R_j=954.06+9H_j+\log(m_jH_j)+67.5(4j-2)L_2 .
+\end{gather*}
+$E$ increases for $b>3\cdot10^{10}$. Since $m_j<17^4\,2^{4j-4}$ and $\log17
+<4L_2+\frac1{16}$, $\log(m_jH_j)<\frac14+(4j+24)L_2$ for $j\le2$ and
+$<\frac14+(4j+12)L_2+8L_3$ for $j\ge3$; so $R_1<37931.3$, $R_2<38121.3$, $R_3<
+60496.7$, and $R_j\le R_{30}<65624.6$ for $1\le j\le30$. With $\log(1.728
+\cdot10^{13})=6L_2+3L_3+10\log10$, $\log(2.7\cdot10^{13})=3L_3+12\log10$
+and $\log(3\cdot10^{13})=L_3+13\log10$ as upper bounds for $\log b$, $E(b)$
+exceeds $37938$ at $b=2.733\cdot10^{14}/16$, $38127$ at $b=4.393\cdot
+10^{15}/16^2$, $60505$ at $b=1.095\cdot10^{17}/16^3$ and $65816$ at
+$b=2.90\cdot10^{13}$, which gives the thresholds. Conversely $A_j<a_0/H_j<
+\lambda\rho_0^2/H_j$, since $\log M\ge0$ and $c_1(\lambda,1)>0$, so $A_j
+\ge9$ needs $b>9H_j\cdot4c^2\cdot10^8\ge36864\cdot4.27025\cdot10^8>1.57\cdot
+10^{13}$.
+
+For the last assertion let $j$ be that largest integer, so that $16^j\le
+\beta_W/(2.90\cdot10^{13})<16^{j+1}$, and $1\le j\le23$ because $2.90\cdot
+10^{13}\cdot16<10^{22}$ and $2.90\cdot10^{13}\cdot16^{24}>10^{42}$. By
+Corollary~\ref{cor:defectscales}, $X=10^{-4}/(1.01\rho(\beta_W))$ satisfies
+$16^{k_*}\le X^2<16^{k_*+1}$ with $X^2=10^{-8}\beta_W/(1.0201\cdot96(\log
+\beta_W+C_1))$, and $57<\log\beta_W+C_1<104$, since $C_1=C_0+\frac16(9L_2
++2L_5)$ with $C_0\in[4.90816,4.90817]$ (proof of
+Theorem~\ref{thm:islandthreshold}). Hence
+\begin{gather*}
+16^{k_*-j}\le\frac{X^2}{16^j}<\frac{16\cdot2.90\cdot10^{13}X^2}{\beta_W}
+<\frac{4.64\cdot10^6}{97.92\cdot57}<16^3,\\
+16^{k_*-j}>\frac{X^2}{16^{j+1}}\ge\frac{2.90\cdot10^{13}X^2}{16\beta_W}>
+\frac{2.90\cdot10^5}{1567\cdot104}>1,
+\end{gather*}
+and $k_*-j\in\{1,2\}$.
 \end{proof}
 
 So the next step stands as follows.
@@ -22825,8 +23114,47 @@ gives the second.
 
 (iii) $\bar\Lambda_2(\beta)/\beta$ decreases, so $\bar\Lambda_2(\beta_W)
 \le(\beta_W/\beta_0)\bar\Lambda_2(\beta_0)$ and $\bar\Lambda_2^2/\beta_W$
-grows at most linearly. The numbers are enclosed in interval arithmetic in
-the archive.
+grows at most linearly.
+
+\emph{The numbers.} Let $L_p=\log p$ with the bounds of the proof of
+Theorem~\ref{thm:lfkp}(ii); the same series at $x=\frac1{21}$ and
+$\frac1{73}$ gives $\log\frac{11}{10}$ and $\log\frac{37}{36}$ to within
+$10^{-10}$, so $2.39789527<L_{11}<2.39789528$ and $3.61091791<L_{37}<
+3.61091792$. The function $g(\beta)=\beta\rho^2/16-6(\log\beta+C_0)-\lvert
+\log q^*\rvert$ increases for $\beta>96/\rho^2$ and $\beta^*$ is its
+largest zero, with $C_0<4.90817$ (proof of
+Theorem~\ref{thm:islandthreshold}) and $\rho^2=4.7089\cdot10^{-32}$. Since
+$N_s<(4s+17)^4$,
+\[
+\lvert\log q^*\rvert<H\bigl(L_2+8\log(4s+17)\bigr)+1+4L_{11}+4L_2+4L_3,
+\]
+which is below $32481.69$ for $s=1$, with $\log21=L_3+L_7$, and below
+$38354.08$ for $s=5$. At $\beta_1=1.1221\cdot10^{37}$, $\beta_1\rho^2/16>
+33024.10$ and, with $\log1.1221<\log\frac98$, $6(\log\beta_1+C_0)<541.33$,
+so $g(\beta_1)>1$; at $\beta_5=1.3217\cdot10^{37}$, $\beta_5\rho^2/16>
+38898.45$ and, with $\log1.3217<\log\frac43$, $6(\log\beta_5+C_0)<542.35$,
+so $g(\beta_5)>2$. Hence $\beta^*<\beta_s$ for $s=1,5$. As $\bar\Lambda_2^2
+/\beta_W=(99.0001+4.65\cdot10^6/\beta_W)^2\beta_W$ increases with
+$\beta_W$, and $e^x\le1+x+x^2$ for $0\le x\le1$, at $\beta_W=\beta^*$
+\[
+c_1\le1920\cdot99.0002^2\cdot43^2\cdot45(2s+7)^4\bigl(1+x+x^2\bigr)
+\beta_s\rho^2,
+\]
+where $x=\kappa(2s+9)$.
+For $s=1$ this is below $5.4581\cdot10^{21}$ at $\vartheta=0$ and
+$5.4431\cdot10^{21}$ at $\vartheta=\frac12$, and for $s=5$ below $8.2171
+\cdot10^{22}$ and $8.1779\cdot10^{22}$. In particular $\log_{10}c_1<21.74$
+for $s=1$, $\vartheta=0$, as $5.4581<3^7/400$ and $7L_3-4L_2-2L_5<0.74\log
+10$. By the proof of Proposition~\ref{prop:islandmass}, $\sigma(\kappa/2)
+\le1+384(\kappa/2-\kappa^2/8)^{-4}+16(\kappa/2-\kappa^2/8)^{-2}$, which is
+below $9.8354\cdot10^{16}$ at $\vartheta=0$, $\kappa/2=2.5\cdot10^{-4}$, and
+below $1.5733\cdot10^{18}$ at $\vartheta=\frac12$. In all four cases
+$\kappa R/2=2500$, and $e^{-2500}<10^{-1085.736}$ since $1085.736\log10<
+2500$. The product $c_1\sigma(\kappa/2)$ is below $5.37\cdot10^{38}<
+10^{38.736}$ for $s=1$, $\vartheta=0$, as $\log5.4=3L_3-L_5<0.736\log10$;
+below $10^{40}$ for $s=1$, $\vartheta=\frac12$ and for $s=5$, $\vartheta=
+0$; and below $1.3\cdot10^{41}<10^{41.736}$ for $s=5$, $\vartheta=
+\frac12$. This gives the four bounds on $\tau$.
 \end{proof}
 
 The theorem has no exceptional event: the conditions that
@@ -22873,9 +23201,11 @@ $\kappa=2\alpha_G$, $R=10^7$ and $M_1=10^{10^{1700}}$: $\ell_{M_1}\le
 \[
 \mu_L\{y\in B,\ U(y)\ne I(y)\}\le10^{-28126}+L^4\,10^{-0.67M_1}.
 \]
-At $\vartheta=\frac12$, $R=2\cdot10^7$ the first term is $10^{-28124}$.
-For $s=5$, $\nu_\ell\le0.0222$, the bound of (ii) is at most
-$L^4\,10^{-1.65M_1}$, and the first term of (iii) is $10^{-33227}$. The
+At $\vartheta=\frac12$, $R=2\cdot10^7$ the first term is at most
+$10^{-28124}$. For $s=5$, $\nu_\ell\le0.0222$, the bound of (ii) is at most
+$L^4\,10^{-1.65M_1}$, and the first term of (iii) is at most
+$10^{-33227}$ at $\vartheta=0$, $R=10^7$ and $10^{-33224}$ at $\vartheta=
+\frac12$, $R=2\cdot10^7$. The
 same numbers hold at $\beta_W\ge\beta^*$ with $R$ replaced by
 $R+\lceil(2/\kappa)\log(\beta_W/\beta^*)\rceil$.
 \end{theorem}
@@ -22924,12 +23254,53 @@ the first term.
 
 For $\beta_W=t\beta^*$, $t\ge1$, Step~6 of the proof of
 Theorem~\ref{thm:islandwindow} gives $\log(p/q^*)\le f(\beta_W)-f(\beta^*)
-\le6\log t-32481(t-1)$, since $\beta^*\rho^2/16>33022$ for $s=1$ and
-$>38896$ for $s=5$. With $R$ raised by $\lceil(2/\kappa)\log t\rceil$, the
-first term of (iii) is multiplied by at most $(1+4\cdot10^{-4}\log t)^8
-t^{12}e^{-64962(t-1)}\le1$, the factor $N_\ell$ in $\nu_\ell$ by a power
-of $1+\log t$ that $A^{1/2}$ absorbs, and the other factors decrease. The
-numbers are enclosed in interval arithmetic in the archive.
+\le6\log t-32481(t-1)$, since $\beta^*\rho^2/16>\lvert\log q^*\rvert>
+32481$ for $s=1$ and $s=5$, by the bounds below. With $R$ raised by
+$\lceil(2/\kappa)\log t\rceil\le1+(2/\kappa)\log t$, the length
+$\ell_{m_0}\ge R$ is multiplied by at most $1+10^{-7}+4\cdot10^{-4}\log t$,
+and the first term of (iii) by at most $(1+10^{-7}+4\cdot10^{-4}\log t)^8
+t^{12}e^{-64962(t-1)}<1+10^{-6}$, since $\log t\le t-1$; the margins below
+absorb this factor. The factor $N_\ell$ in $\nu_\ell$ grows by a power of
+$1+\log t$ that $A^{1/2}$ absorbs, and the other factors decrease.
+
+\emph{The numbers.} Let $L_p=\log p$ with the bounds of the proofs of
+Theorems~\ref{thm:lfkp}(ii) and~\ref{thm:clustercomparison}. By the
+definition of $q^*$, with $N_s=(4s+17)^4-1$ as in
+Theorem~\ref{thm:islandwindow}, $A\le eMHq^*=(2N_s^2)^{-H}$ and $Mp\le Mq^*=(2N_s^2)^{-H}
+/(eH)$. From $4\log(4s+17)-1/N_s\le\log N_s<4\log(4s+17)$, $\log(2N_s^2)$
+exceeds $25.049316$ at $s=1$ and $29.580489$ at $s=5$, while $\log(eH)=1+4L_2+4L_3>
+8.167037$. Let $s=1$ and $\vartheta=0$, so $\kappa=5\cdot10^{-4}$, $6/\kappa
+=12000$ and $\ell_{M_1}=10^7+12000\cdot10^{1700}\log10<10^{1705}$; at
+$\vartheta=\frac12$, $\ell_{M_1}<2\cdot10^7+24000\cdot10^{1700}\log10<
+10^{1705}$ as well. Since $2N_1^2=75644940800>275000^2$, $A^{1/(2H)}<
+1/275000$, and $A^{1/2}<10^{-6998}$ as $2N_1^2>10^{11}/1.5>10^{10.8}$, by $1.5^5<10$; with $N_\ell<
+10^{6822}$ for $\ell\le10^{1705}$,
+\[
+\nu_\ell<\frac{4\cdot14640}{275000}+10^{-176}<0.2130<\frac{16}{75}<
+10^{-0.67},
+\]
+the last since $\log\frac{16}{75}=4L_2-L_3-2L_5<-0.67\log10$. As
+$A^{(H+1)/(2H)}<10^{-6998}$ and $1/(1-\nu_\ell)<2$, the bound of (ii) is at
+most $L^4\,10^{-0.67M_1}$. In (iii), $\ell_{m_0}=10^7+60000\log10<
+10138156$ and $(2(m_0-1)\ell_{m_0}+1)(2\ell_{m_0}+1)<4.125\cdot10^{19}=
+\frac{33}8\cdot10^{19}$, so the logarithm of the first term is below
+\begin{multline*}
+4\bigl(L_3+L_{11}-3L_2+19\log10\bigr)\\
+-2592\cdot25.049316-2\cdot8.167037<-64763.49,
+\end{multline*}
+while $28126\log10<64762.51$; the second term is below $10^{-6998}\cdot
+0.213^{10^5}$, so the sum of the first two terms is below $10^{-28126}$.
+At $\vartheta=\frac12$, $R=2\cdot10^7$, $\ell_{m_0}<20276311$, the product
+is below $1.65\cdot10^{20}=3\cdot5\cdot11\cdot10^{18}$, and the logarithm of
+the first term is below $4(L_3+L_5+L_{11}+18\log10)-2592\cdot25.049316-2
+\cdot8.167037<-64757.95<-28124\log10$. For $s=5$, $2N_s^2>2650000^2$ gives
+$\nu_\ell<4\cdot14640/2650000+10^{-176}<0.0222<\frac1{45}<10^{-1.65}$, since
+$\log\frac1{45}=-2L_3-L_5<-1.65\log10$, hence the bound of (ii); and the
+logarithm of the first term of (iii) is below $4(L_3+L_{11}-3L_2+19\log10)-
+2592\cdot29.580489-2\cdot8.167037<-76508.29<-33227\log10$ at
+$\vartheta=0$, and, with the bracket $4(L_3+L_5+L_{11}+18\log10)$ of
+$\vartheta=\frac12$, below $-76502.75<-33224\log10$ at $\vartheta=
+\frac12$.
 \end{proof}
 
 On a torus of at most $10^{M_1/2}$ blocks, $M_1=10^{10^{1700}}$, the
@@ -22980,8 +23351,18 @@ $R'>2s+6$, so $\bar n_U=45\,m(2s+7)^4$ and $\bar n_{V_i}=45(2s+7)^4$,
 which gives the first identity. The pair $(u_i,v_i)$ alone contributes
 $c_0$ to the second sum. Both sums grow without bound in $m$ at fixed
 $R'$.
-(ii) $\nu_\ell<1$ is $N_\ell<A^{-1/2}(A^{-1/(2H)}/4-N_5)$; the values
-follow from the enclosure of $\log_{10}A$ in the archive. The expected
+(ii) $\nu_\ell<1$ is $N_\ell<A^{-1/2}(A^{-1/(2H)}/4-N_5)$. By the
+definition of $q^*$, $A=(2N_1^2)^{-H}$, so $A^{-1/(2H)}=\sqrt2N_1\in(275036,
+275037)$, as $275036^2<2N_1^2=75644940800<275037^2$, and $A^{-1/(2H)}/4-N_5$
+lies between $54000=2^43^35^3$ and $54675=3^75^2$. With the
+bounds of the proof of Theorem~\ref{thm:clustersizes},
+$25.049316<\log(2N_1^2)<25.049327$, so the logarithm of the right side lies
+between $16242.85$ and $16242.88$. For $\log_{10}\ell\le1763.2$, $\log
+N_\ell<4\log(2\cdot10^{1763.2}+1)<4(L_2+1763.2\log10)+10^{-1000}<16242.45$,
+and for
+$\log_{10}\ell\ge1763.3$, $\log N_\ell\ge4(L_2+1763.3\log10)>16243.36$. For
+$\log_{10}\ell\ge3524.5$, $\log N_\ell>32464.6>H\log(2N_1^2)=-\log A$. The
+expected
 number of bad blocks among the $N_\ell$ blocks within distance $\ell$ of a
 block is at most $N_\ell A$.
 \end{proof}
@@ -23262,7 +23643,8 @@ Constants close to one on both sides hold for the fibre infimum itself:
 by Theorem~\ref{thm:lfaction}, $\lambda S_1(c)-4|T|\log M\le A_1(c)\le(1+
 \eta)\lambda Q(U)+c_1(\lambda,\eta)|T|$ for every regular $U\in F_c$. At
 the linear level $S_1$ is the block-spin form $q_1$, which is not a sum of
-local terms (Theorem~\ref{thm:sfgauss}). The reference forms $R_k$ below
+local terms if $(M_W)_{AB}\ne0$ (Theorem~\ref{thm:sfgauss}). The reference
+forms $R_k$ below
 are built from the block-spin form for this reason.
 \end{remark}
 
@@ -23388,33 +23770,45 @@ boundary values admit a completion calm at $\kappa/30$, for $\lambda\ge
 Proposition~\ref{prop:sfrelative}); the shell $(\kappa/30,\kappa]$ and
 $Z_\perp$ are not bounded, and nothing is proved for $k\ge1$.
 \item The rates of Theorems~\ref{thm:lfmarkov}(iii) and~\ref{thm:sfcalm}
-are increasing in $\kappa$, and $\kappa<\kappa_c=0.0837613\ldots$ is
-required. For every $\kappa<\kappa_c$, $a(\lambda,\kappa)<9$ when $100\le
-\lambda\le245007$ and $a_2(\lambda,\kappa)<9$ when $100\le\lambda\le
-809322$, whatever $M\ge1$; with $M<2.3621\cdot10^4$, $a(\lambda,\kappa_c)
-\ge9$ for $\lambda\ge256948$ and $a_2(\lambda,\kappa_c)\ge9$ for $\lambda
-\ge832243$. So, with $\beta^*$ and $\beta^{**}$ at $\kappa_c$ defined by
-these rates,
+are increasing in $\kappa$, and $\kappa<\kappa_c$ is required, where
+$0.0837613\le\kappa_c\le0.0837617$ (Sec.~\ref{ssec:witnessradius}). For
+every $\kappa<\kappa_c$, $a(\lambda,\kappa)<9$ when $100\le\lambda\le245000$
+and $a_2(\lambda,\kappa)<9$ when $100\le\lambda\le809300$, whatever $M\ge1$;
+with $M<2.3621\cdot10^4$, $a(\lambda,\kappa_c)\ge9$ for $\lambda\ge257000$
+and $a_2(\lambda,\kappa_c)\ge9$ for $\lambda\ge833000$. So, with $\beta^*$
+and $\beta^{**}$ at $\kappa_c$ defined by these rates,
 \begin{gather*}
-9.800\cdot10^5<\beta^*(\kappa_c)\le1.0278\cdot10^6,\\
-3.2372\cdot10^6<\beta^{**}(\kappa_c)\le3.3290\cdot10^6,
+9.800\cdot10^5<\beta^*(\kappa_c)\le1.028\cdot10^6,\\
+3.2372\cdot10^6<\beta^{**}(\kappa_c)\le3.332\cdot10^6,
 \end{gather*}
 and along the one-loop running more than $1.257\cdot10^7$ steps lie between
-$\lambda=809322$ and $\lambda=1$.
+$\lambda=809300$ and $\lambda=1$.
 \end{enumerate}
 \end{proposition}
 
 \begin{proof}
 (i)--(iii) restate the cited results. (iv) Both rates contain $\kappa$
-only through $\lambda\kappa^2$ with a positive coefficient. The constants
-$c_1(\lambda,1)$, $c_2(\lambda,1)$ increase with $\lambda$, with $c_1(100,1)
->1183$ and $c_2(100,1)>1958$, and $\log M\ge0$. At $\kappa_c$, $a$
-increases for $\lambda\ge10^4>67.5/\kappa_c^2$ and $a<9$ below $10^4$;
-$a_2$ increases for $\lambda\ge10^5>109.5/(0.52\kappa_c^2)$ and $a_2<9$
-below $10^5$. The four end points follow by evaluating the closed forms of the rates
-there, and the same evaluation at $\kappa=0.08$ gives the values $\beta^*(0.08)=1.13074\cdot10^6$
-and $\beta^{**}(0.08)\le3.66191\cdot10^6$ of Theorems~\ref{thm:lfkp}
-and~\ref{thm:sfcalm}. The count is $(809322-1)/t$.
+only through $\lambda\kappa^2$ with a positive coefficient, and $\log M\ge
+0$, so for $\kappa<\kappa_c$, $a(\lambda,\kappa)<h(\lambda)=\lambda
+\kappa_c^2-c_1(\lambda,1)$ and $a_2(\lambda,\kappa)<h_2(\lambda)=0.52\lambda
+\kappa_c^2-c_2(\lambda,1)$. Since $c_1(\lambda,1)$ and $c_2(\lambda,1)$ are
+affine in $\log\lambda$ with positive coefficients $67.5$ and $109.5$, $h$
+and $h_2$ are convex, so on an interval they are below the larger of their
+values at its ends. The logarithms of $1.957$, $14$, $23040\lambda$,
+$31958\lambda$ and $23621$ at the values of $\lambda$ used follow from
+$x=2^ky$ with $1\le y<2$ and $\log y=2\operatorname{artanh}\frac{y-1}
+{y+1}$, the series with its tail bounded geometrically. They give $c_1(100,
+1)>1183$ and $c_2(100,1)>1958$, so $h(100)<0$ and $h_2(100)<0$, and, with
+$\kappa_c\le0.0837617$, $h(245000)\le8.966$ and $h_2(809300)\le8.947$. With
+$\kappa_c\ge0.0837613$ and $\log M<\log23621$, $a(\lambda,\kappa_c)\ge
+\lambda\kappa_c^2-8\log23621-c_1(\lambda,1)$, which increases for $\lambda>
+67.5/\kappa_c^2$, where $67.5/\kappa_c^2<9621$, and is at least $9.35$ at
+$\lambda=257000$; and $a_2(\lambda,\kappa_c)\ge0.52\lambda\kappa_c^2-8\log
+23621-c_2(\lambda,1)$, which increases for $\lambda>109.5/(0.52\kappa_c^2)$,
+where $109.5/(0.52\kappa_c^2)<30015$, and is at least $11.66$ at $\lambda=
+833000$. With $\beta=4\lambda$ this gives the display. The count is
+$(809300-1)/t$ with $t=11\log2/(12\pi^2)$, and $\pi\ge3.14159265$ gives
+$1/t\ge15.53326$, so $(809300-1)/t>1.2571\cdot10^7$.
 \end{proof}
 
 \begin{remark}\label{rem:iteratelinear}
@@ -23561,7 +23955,9 @@ calm at $\kappa/30$ (Theorem~\ref{thm:sfcalm}). Not proved are that bound
 at calm fields with plaquettes in the shell $(\kappa/30,\kappa]$, a bound
 on the term $Z_\perp$, and the locality of the calm weight in $c$; by
 Theorem~\ref{thm:sfgauss} the calm weight is not a product of local factors
-times a polymer sum, so a local form has to expand around the Gaussian block-spin form. Nor can the leading term be $\lambda q^{\rm lin}(\log c)$ for $\lambda>0.5472$, by gauge invariance (Theorem~\ref{thm:sfgaugeobst}); the linear propagator of such an expansion decays at an explicit rate (Theorem~\ref{thm:sfprop}); in the linear model the relative activities in the shell are unbounded under the calm law at every $\lambda$ (Theorem~\ref{thm:sfshelllin}); and $Z_\perp(I)>0$ for $\SU(2)$ (Theorem~\ref{thm:sfperp}). The coarse action is comparable to $\lambda$ times the
+times a polymer sum if the rational number $(M_W)_{AB}$ of that theorem is
+nonzero, as an exact computation finds (Remark~\ref{rem:sfgaussvalue}), and
+then a local form has to expand around the Gaussian block-spin form. Nor can the leading term be $\lambda q^{\rm lin}(\log c)$ for $\lambda>0.5472$, by gauge invariance (Theorem~\ref{thm:sfgaugeobst}); the linear propagator of such an expansion decays at an explicit rate (Theorem~\ref{thm:sfprop}); in the linear model the relative activities in the shell are unbounded under the calm law at every $\lambda$ (Theorem~\ref{thm:sfshelllin}); and $Z_\perp(I)>0$ for $\SU(2)$ (Theorem~\ref{thm:sfperp}). The coarse action is comparable to $\lambda$ times the
 coarse curvature only up to a constant factor. Sec.~\ref{ssec:iterate} replaces the factor $C_*$ of the
 comparison by $2956$ for every coarse field and by $1+O(\kappa_0)$ on the
 coarse plaquettes below $\kappa_1\approx0.19\,\kappa_0$
@@ -23726,12 +24122,11 @@ Theorems~\ref{thm:su3} and~\ref{thm:su3blocks} rest on evaluations in
 interval arithmetic with rigorous error bounds. Remarks~\ref{rem:blockgapsharp} and~\ref{rem:certificate} report
 computations with certificates checked in exact arithmetic; no result uses
 them. The numerical values stated in
-Theorems~\ref{thm:islandscales}, \ref{thm:islandswide}(ii), (iii),
-\ref{thm:islandwindow}, \ref{thm:groups13} (for $\SU(3)$), \ref{thm:lfkp},
-\ref{thm:sfgauss}(i), \ref{thm:clustercomparison} and~\ref{thm:clustersizes},
-Corollaries~\ref{cor:fibrecovnumbers} and~\ref{cor:labelstretched} and
-Propositions~\ref{prop:lfinherited}(iii), \ref{prop:clusterreach}(ii)
-and~\ref{prop:iteratestatus}(iv) are enclosed in interval arithmetic. Every
+Theorem~\ref{thm:groups13} (for $\SU(3)$) are enclosed in interval
+arithmetic. The value of $(M_W)_{AB}$ in Remark~\ref{rem:sfgaussvalue} is
+computed in exact rational arithmetic; no proof uses it, and the statements
+that the calm weight is not local are conditional on $(M_W)_{AB}\ne0$.
+Every
 other number used in a proof is derived in the text. The programs of these steps, in Python with
 python-flint (FLINT and Arb) and a C kernel for products of Taylor
 polynomials, their outputs and the list of certified boxes are in the
