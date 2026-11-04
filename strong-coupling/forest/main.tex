@@ -106,11 +106,17 @@ of Ba{\l}aban's block averages costs action independent of the scale, that
 a translation of the Haar measures makes it rare at every scale for the
 abelian theory, and that for $\SU(2)$ every such translation transported
 along a forest reaches its constant on the gauge orbit of the vacuum, which
-fixes the one estimate that remains open. We prove that, with the blocks
-labelled by their independent links and their coarse curvature, the good
-windows carry a product law with a determined path link, that two bad
-islands interact through one kernel on the good layer between them, and
-that the rarity of bad labels alone cannot control their covariance.
+fixes the one estimate that remains open. We prove that, once the blocks
+are labelled by their independent links and their coarse curvature, every
+good window carries an exact product law in which each path link is
+determined by its pair, that two bad islands interact only through one
+kernel on the good layer between them, with covariance at most
+$\frac14	anh(\varDelta/4)$, and that the exact response of a plaquette block
+at zero field, $\frac14(1+I_2(\beta_W)/I_1(\beta_W))$, bounds every
+Dobrushin estimate of this form by $\beta_W=0.3666$. We prove that the
+rarity of bad labels alone cannot control their covariance and that a rough
+coarse background makes the constrained action nonconvex, which locates the
+one estimate that remains open.
 \end{abstract}
 
 \maketitle
@@ -123,7 +129,26 @@ Primary 81T25, 82B20; Secondary 81T13, 60K35, 82B26, 22E30.
 \emph{Keywords.}
 Lattice gauge theory; mass gap; Dobrushin uniqueness; block averages;
 reflection positivity. An earlier version of this paper is available at
-\url{https://hexagonmath.org/2610.00341v6}.}
+\url{https://hexagonmath.org/2610.00341v6}. New in this version is
+Sec.~\ref{sec:islands}: the product law on good windows with each path link
+determined by its pair (Lemma~\ref{lem:branchbound},
+Proposition~\ref{prop:graphlaw}), the rough background with negative
+constrained curvature (Proposition~\ref{prop:roughbackground}), the
+nonconvex bad side and its three-preimage branch family
+(Propositions~\ref{prop:nonconvex} and~\ref{prop:branches}), the one-kernel
+interaction of two bad islands with the covariance bound
+$\frac14\tanh(\varDelta/4)$ (Lemma~\ref{lem:kernel},
+Corollary~\ref{cor:twolabels}), the floor $q^2/16$ on the covariance of
+rare labels (Proposition~\ref{prop:hiddenbit}), the coupling-cost
+minimality lemmas (Lemmas~\ref{lem:minimality} and~\ref{lem:minimiser}),
+the exact block response $\frac14(1+I_2(\beta_W)/I_1(\beta_W))$ and its
+crossing at $\beta_W=0.3666$ (Proposition~\ref{prop:blockresponse}), the
+weighted Schur locality lemma with its perturbation ledger
+(Lemma~\ref{lem:schur}, Proposition~\ref{prop:formstability}), and the
+positive-time spectral bounds (Lemmas~\ref{lem:positivetime}
+and~\ref{lem:nonvanishing}, Proposition~\ref{prop:gapnolimit}); the
+abstract, the introduction and the remark after
+Theorem~\ref{thm:blocks} state them.}
 \endgroup
 \addtocounter{footnote}{-1}
 
@@ -11843,8 +11868,8 @@ Theorem~\ref{thm:certificate}, whose certificates are checked in exact
 arithmetic. The programs of these steps, in Python with
 python-flint (FLINT and Arb) and a C kernel for products of Taylor
 polynomials, their outputs and the list of certified boxes are in the
-repository \url{https://github.com/creelie/4Y-M}, release v4.31.0
-(\href{https://doi.org/10.5281/zenodo.23895262}{doi:10.5281/zenodo.23895262}), together
+repository \url{https://github.com/creelie/4Y-M}, release v4.32.0
+(\href{https://doi.org/10.5281/zenodo.23933856}{doi:10.5281/zenodo.23933856}), together
 with a Lean~4 certificate of the line field, Lean~4 files for the
 comparison arithmetic and the coupling lemmas of
 Sec.~\ref{ssec:couplingcost}, independent exact or
