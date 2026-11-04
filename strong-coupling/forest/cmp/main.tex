@@ -7707,7 +7707,7 @@ The constants do not depend on $L$, $W$, $U$ or $\lambda$.
 \end{theorem}
 
 For $\SU(2)$ and the Wilson action, $\lambda=\beta/4$, so (iv) is a
-Brascamp--Lieb inequality with constant $240/\beta$ on a chart of the fibre
+Brascamp--Lieb inequality~\cite{BL76} with constant $240/\beta$ on a chart of the fibre
 around every background with small plaquettes, for $\beta\ge240c_6$.
 
 \begin{proof}
@@ -8237,7 +8237,7 @@ and $\Delta_n$, so by Lemma~\ref{lem:kernels}(ii)
 to $e^{-H_n}$ on $\g^{L'}$ and $\mathcal L_n=-\Delta+\nabla H_n\cdot\nabla$
 on $L^2(\mu_n)$. For $H_n$ smooth with $\operatorname{Hess}H_n\ge m>0$ and
 bounded derivatives of order at least two, and $F,G$ smooth with bounded
-derivatives, the Helffer--Sj\"ostrand representation~\cite{HS94} reads
+derivatives, the Helffer--Sj\"ostrand representation~\cite{HS94,NS97} reads
 $\operatorname{Cov}_{\mu_n}(F,G)=\langle\nabla F,\mathcal A^{-1}\nabla G
 \rangle_{L^2(\mu_n)}$ with $\mathcal A=\mathcal L_n\otimes1+\operatorname{Hess}
 H_n$ acting on $L^2(\mu_n;\g^{L'})$. With $w=e^{\alpha\varphi}$, constant in
@@ -8245,7 +8245,8 @@ $\xi$, $\mathcal A_w=w\mathcal Aw^{-1}=\mathcal L_n\otimes1+w\operatorname
 {Hess}H_nw^{-1}$, and $\operatorname{Re}\langle u,\mathcal A_wu\rangle\ge
 \frac m2\lVert u\rVert^2$ because $\mathcal L_n\ge0$; the adjoint satisfies
 the same bound, so $\lVert\mathcal A_w^{-1}\rVert\le\frac2m=\frac{120}
-\lambda$. Since $\mathcal A^{-1}=w^{-1}\mathcal A_w^{-1}w$,
+\lambda$; this is the weighted form of the representation used
+in~\cite{BJS00,Hel98}. Since $\mathcal A^{-1}=w^{-1}\mathcal A_w^{-1}w$,
 \[
 \begin{split}
 \lvert\operatorname{Cov}_{\mu_n}(F,G)\rvert&=\bigl\lvert\langle w^{-1}\nabla
@@ -12646,10 +12647,10 @@ disintegration densities of both islands integrated, not compared. The
 hypothesis~\eqref{eq:layerbound} is Theorem~\ref{thm:chartdecay}(ii) for
 the layer law, but in other coordinates. The chart law of that theorem is
 written in the coordinates $\xi$ of $T_U$, on the product of balls
-$\Omega_r$; the label coordinate of a non-path link is
+$\mathrm{Box}_r$; the label coordinate of a non-path link is
 $\zeta_e=\xi_e+h_e(S\xi)$, so the label event
 $\prod_e\{\lVert\zeta_e\rVert\le r\}$ is a deformation of
-$\Omega_r$, convex in $\zeta$ and not in $\xi$, and the Hessian of
+$\mathrm{Box}_r$, convex in $\zeta$ and not in $\xi$, and the Hessian of
 the density in $\zeta$ acquires the term $\langle\nabla_\xi\bar H,
 D^2\xi\rangle$, which is not coordinate invariant. The next theorem
 carries the proof over to the coordinates $\zeta$; it needs the layer
@@ -12724,7 +12725,7 @@ $h(\nu)$, so $U'=\Phi(\nu)$ with $\lVert h(\nu)\rVert_\infty\le
 7.2\cdot10^{-5}r$. Hence the map $\Psi(\xi)=\xi+g(\xi)$,
 $g(\xi)=h(S\xi)$ restricted to the non-path links, which sends the chart
 coordinate to the label coordinate, maps a subset of
-$\Omega_{2r}$ onto $\{\lVert\zeta_e\rVert\le\rho_1\}$; it is
+$\mathrm{Box}_{2r}$ onto $\{\lVert\zeta_e\rVert\le\rho_1\}$; it is
 injective there because two chart points with the same non-path links
 within $\rho_1$ of $R(c)$ have the same path links by
 Lemma~\ref{lem:branchbound}. Its derivative is $1+Dg$ with
@@ -12829,7 +12830,7 @@ gives
 \]
 \emph{Step 6: the covariance bound.} The proof of
 Theorem~\ref{thm:chartdecay}(ii) now applies word for word with
-$\Omega_r$ replaced by the product of the $r$-balls in $\zeta$, both
+$\mathrm{Box}_r$ replaced by the product of the $r$-balls in $\zeta$, both
 being products of balls in the coordinates in which the Hessian bounds of
 Steps 4 and 5 hold, and with the radii of the approximation
 $\frac32r,\frac74r,2r$ replaced by $1.1r,1.2r,1.25r$, for which the
@@ -14903,6 +14904,19 @@ renormalization group flow in chiral Yang--Mills--Higgs theory. Preprints
 \bibitem{BTBS26}
 Bhattacharjee, D., Nath Thakur, S., Bhattacharya, S., Samal, P.: $\SU(n)$ holonomy deviations in Calabi--Yau manifolds (CY1--CY4). Preprints (2026). \href{https://doi.org/10.20944/preprints202602.0023.v1}{https://doi.org/10.20944/preprints202602.0023.v1}
 
+\bibitem{BL76}
+H.~J.~Brascamp and E.~H.~Lieb, On extensions of the Brunn--Minkowski and
+Pr\'ekopa--Leindler theorems, including inequalities for log concave
+functions, and with an application to the diffusion equation, J. Funct.
+Anal. \textbf{22} (1976), 366--389,
+\href{https://doi.org/10.1016/0022-1236(76)90004-5}{doi:10.1016/0022-1236(76)90004-5}.
+
+\bibitem{BJS00}
+V.~Bach, T.~Jecko and J.~Sj\"ostrand, Correlation asymptotics of classical
+lattice spin systems with nonconvex Hamilton function at low temperature,
+Ann. Henri Poincar\'e \textbf{1} (2000), 59--100,
+\href{https://doi.org/10.1007/PL00001002}{doi:10.1007/PL00001002}.
+
 \bibitem{BK55}
 Biernacki, M., Krzy\.z, J.: On the monotonity of certain functionals in the theory of analytic functions. Ann. Univ. Mariae Curie-Sk{\l}odowska Sect. A \textbf{9}, 135--147 (1955)
 
@@ -15008,6 +15022,12 @@ Gross, L., King, C., Sengupta, A.: Two dimensional Yang--Mills theory via stocha
 \bibitem{Gut80}
 Guth, A.H.: Existence proof of a nonconfining phase in four-dimensional $\U(1)$ lattice gauge theory. Phys. Rev. D \textbf{21}, 2291--2307 (1980). \href{https://doi.org/10.1103/PhysRevD.21.2291}{https://doi.org/10.1103/PhysRevD.21.2291}
 
+\bibitem{Hel98}
+B.~Helffer, Remarks on decay of correlations and Witten Laplacians,
+Brascamp--Lieb inequalities and semiclassical limit, J. Funct. Anal.
+\textbf{155} (1998), 571--586,
+\href{https://doi.org/10.1006/jfan.1997.3239}{doi:10.1006/jfan.1997.3239}.
+
 \bibitem{Hel01}
 Helgason, S.: Differential Geometry, Lie Groups, and Symmetric Spaces.
 Grad. Stud. Math., vol.~34. Amer. Math. Soc., Providence, RI (2001).
@@ -15105,6 +15125,12 @@ Math. \textbf{21}, 293--329 (1976).
 Montvay, I., M\"unster, G.: Quantum Fields on a Lattice. Cambridge
 University Press, Cambridge (1994).
 \href{https://doi.org/10.1017/CBO9780511470783}{https://doi.org/10.1017/CBO9780511470783}
+
+\bibitem{NS97}
+A.~Naddaf and T.~Spencer, On homogenization and scaling limit of some
+gradient perturbations of a massless free field, Comm. Math. Phys.
+\textbf{183} (1997), 55--84,
+\href{https://doi.org/10.1007/BF02509796}{doi:10.1007/BF02509796}.
 
 \bibitem{OS73}
 Osterwalder, K., Schrader, R.: Axioms for Euclidean Green's functions.
