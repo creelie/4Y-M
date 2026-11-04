@@ -640,7 +640,8 @@ certified computation, the reconstruction of the transfer matrix with the
 equivalence of a gap and exponential clustering
 (Appendix~\ref{app:transfer}), the facts on spectral measures and on the
 character expansion that the continuum step uses
-(Appendices~\ref{app:spectral} and~\ref{app:characters}), and a complete
+(Appendices~\ref{app:spectral} and~\ref{app:characters}), the Haar measure
+of $\SU(2)$ (Appendix~\ref{app:haar}), and a complete
 proof of the sharp quarter for the single-link law of $\SU(2)$
 (Appendices~\ref{app:sharp}--\ref{app:bessel}), so that the paper does not
 depend on our earlier one for any step.
@@ -5049,7 +5050,7 @@ functions, has $\varepsilon\le(K_1+K_3/\beta_W)/\beta_W$.
 \begin{proof}
 Write $\beta=\beta_W$, $Z(\beta)=\int e^{-\beta S}dU$ with $S=\sum_ps_p$, and
 $\theta\in[0,\pi]$ for the angle of an element $\cos\theta\,I+\sin\theta\,J$
-of $\SU(2)$; it has Haar density $\frac2\pi\sin^2\theta$, it is a
+of $\SU(2)$; it has Haar density $\frac2\pi\sin^2\theta$ (Lemma~\ref{lem:haarsu2}), it is a
 bi-invariant distance from $I$, and $\frac12\Tr U=\cos\theta$. The measure
 $\mu_L$ is invariant under the translations and the hypercubic group of the
 torus, so $\E_{\mu_L}S=6L^4\varepsilon_L$.
@@ -9022,6 +9023,9 @@ $q=2-\Tr(VWV^{-1}W^{-1})\in[0,4]$. Then
 \[
 x^2+y^2+z^2-xyz=4-q,\qquad x^2+y^2+z^2\ge3-\tfrac34q .
 \]
+The identity is the trace identity of Fricke for $\mathrm{SL}(2)$.\footnote{Fricke's identity
+expresses the trace of a commutator through $\Tr V$, $\Tr W$ and $\Tr VW$;
+the proof below derives it from the Cayley--Hamilton theorem.}
 
 \textup{(b)} For unitary $g_1,\dots,g_n$, $|g_1\cdots g_n-I|\le\sum_i|g_i-I|$.
 For $U_i,V_i\in\SU(2)$, $|\Tr(U_1\cdots U_m)-\Tr(V_1\cdots V_m)|\le\sqrt2
@@ -10462,7 +10466,8 @@ Proposition~\ref{prop:slowline}); hence $Z(a)\ge e^{a-1/2}\eta^3/24$ and the
 density is at most $24e^{1/2}a'^{3/2}$ (for $a<1$ directly, since $Z\ge1$ by
 Jensen's inequality). A chordal ball of radius $r$ is a geodesic ball of
 radius $\theta$ with $2\sin(\theta/2)=r$, so $\theta\le\pi r/2$, and its
-measure is $(\theta-\sin\theta\cos\theta)/\pi\le2\theta^3/(3\pi)\le\pi^2r^3/12$.
+measure is $(\theta-\sin\theta\cos\theta)/\pi\le2\theta^3/(3\pi)\le\pi^2r^3/12$
+(Lemma~\ref{lem:haarsu2}).
 With $r=\frac29a'^{-1/2}$,
 \[
 \mu_e\bigl(\delta(1,Q_e)<r\bigr)\le24e^{1/2}a'^{3/2}\,\frac{\pi^2r^3}{12}
@@ -27665,12 +27670,9 @@ $\beta_W\frac12\ReTr U_p\in[-\beta_W,\beta_W]$ to the exponent, so given
 all the other active links the law of $U_{f_y}$ has a density with respect
 to the Haar measure whose values lie within a factor $e^{12\beta_W}$ of
 each other, hence a density at least $e^{-12\beta_W}$, and $G_y$ is the
-complement of the ball of radius $r+\pi/3$ about $\ell_k$. For $\SU(2)$,
-$d(g,I)=\sqrt2\,\theta$ for $g$ with eigenvalues $e^{\pm i\theta}$,
-$0\le\theta\le\pi$, and $\theta$ has the Haar density $\frac2\pi\sin^2
-\theta$; by bi-invariance a ball of radius $\sqrt2\,t$ has Haar measure
-$\frac1\pi(t-\sin t\cos t)\le\frac{2t^3}{3\pi}$, since $\sin^2\theta\le
-\theta^2$. With $r+\pi/3\le1.15$, $t\le0.82$ and the measure is at most
+complement of the ball of radius $r+\pi/3$ about $\ell_k$. For $\SU(2)$, by
+Lemma~\ref{lem:haarsu2} and bi-invariance a ball of radius $\sqrt2\,t$
+has Haar measure at most $\frac{2t^3}{3\pi}$. With $r+\pi/3\le1.15$, $t\le0.82$ and the measure is at most
 $2\cdot0.552/(3\pi)<\frac12$. So the conditional probability of $G_y$
 given all the other active links is at least $p_0$.
 
@@ -27696,7 +27698,10 @@ coordinate, are at distance at most $2a-1$.
 
 \begin{theorem}[the clusters percolate]\label{thm:clusterpercolation}
 Let $g\ge0$ be nondecreasing, $R\ge1$, $\gamma>0$, $c_0\ge0$, and suppose
-$R+g(m)\ge\gamma\log m-c_0$ for every $m\ge1$. Let $0<p<1$ and let $\xi$
+$R+g(m)\ge\gamma\log m-c_0$ for every $m\ge1$.\footnote{The proof is a multiscale construction: the occupied boxes of
+one scale are the sites of the next, and joining distances that grow like
+the logarithm of the size connect them, as in hierarchical and long-range
+percolation.} Let $0<p<1$ and let $\xi$
 be a random set of blocks of a torus of side $L$ that contains each block
 independently with probability $p$. Let $a_0\ge2$ be an integer with
 $\gamma pa_0^3\ge24$ and $pa_0^4\ge23+4c_0/\gamma$, put $M_0=\lceil
@@ -28422,7 +28427,10 @@ satisfies $|E|\le\varepsilon'R_k$ on $\mathcal Y$ only if $\varepsilon'\ge
 \begin{proof}
 (i) Write $n=n_k$, $N=2^kn$, $q=2\pi/N$, and fix $Z\in\g$ with $\lVert Z
 \rVert=1$. Let $\varphi$ be the fine field with $\varphi_{(x,0)}=\cos(qx_1)
-Z$ and $\varphi=0$ on the links of the other directions. Its only nonzero
+Z$ and $\varphi=0$ on the links of the other directions.\footnote{This is
+the lowest nonconstant Fourier mode of the torus. Its energy is of order
+$N^{-2}$ times its norm, the gap of the discrete Laplacian, and this is why
+the bound depends on the volume.} Its only nonzero
 curvatures are on the plaquettes of the plane $\{0,1\}$, where $(d\varphi)_p
 =(\cos qx_1-\cos q(x_1+1))Z=2\sin\frac q2\sin q(x_1+\frac12)Z$, so
 \[
@@ -29846,6 +29854,47 @@ the correlation of the quadratic term with $h-1$ contribute $O(\beta^{-2})$. Fin
 spin $j$ the integrals are explicit, $\hat c_j(\beta)=I_{2j+1}(\beta)/
 I_1(\beta)$ with the modified Bessel functions $I_n$, in agreement with
 $C_2=j(j+1)$.
+\end{proof}
+
+\section{Haar measure on SU(2)}\label{app:haar}
+
+Write $\mathbf i,\mathbf j,\mathbf k$ for the matrices $i\sigma_3$,
+$i\sigma_2$, $i\sigma_1$. The map $(a,b)\mapsto aI+b_1\mathbf i+b_2\mathbf j
++b_3\mathbf k$ identifies $\R^4$ with the real span of $\SU(2)$, and
+$\SU(2)$ with the unit sphere $S^3$; the Hilbert--Schmidt norm of
+$aI+b\cdot(\mathbf i,\mathbf j,\mathbf k)$ is $\sqrt2\,(a^2+\lvert b
+\rvert^2)^{1/2}$. Left and right multiplication by elements of $\SU(2)$
+preserve this norm, so they act on $S^3$ by rotations, and the normalised
+Haar measure is the normalised surface measure of $S^3$. Every $U\in\SU(2)$
+is conjugate to $\operatorname{diag}(e^{i\theta},e^{-i\theta})$ for one
+$\theta\in[0,\pi]$, its eigenangle, and $\frac12\Tr U=\cos\theta$ is the
+inner product of $U$ and $I$ in $\R^4$; so $\theta$ is the angle between
+$U$ and $I$ on $S^3$.
+
+\begin{lemma}\label{lem:haarsu2}
+\textup{(i)} The eigenangle $\theta$ has Haar density $\frac2\pi\sin^2
+\theta$ on $[0,\pi]$.
+
+\textup{(ii)} $\operatorname{Haar}\{\theta\le t\}=\frac1\pi(t-\sin t\cos t)
+\le\frac{2t^3}{3\pi}$ for $0\le t\le\pi$.
+
+\textup{(iii)} $\lvert U-I\rvert=2\sqrt2\sin\frac\theta2$, and the distance
+of the bi-invariant metric induced by the Hilbert--Schmidt inner product is
+$d(U,I)=\sqrt2\,\theta$. With this metric $\SU(2)$ is the round sphere of
+radius $\sqrt2$.
+\end{lemma}
+
+\begin{proof}
+(i) The unit vectors at angle $\theta$ from $I$ form a two-sphere of radius
+$\sin\theta$ and area $4\pi\sin^2\theta$, and $S^3$ has area $2\pi^2$.
+
+(ii) $\int_0^t\sin^2\theta\,d\theta=\frac12(t-\sin t\cos t)$, and
+$\sin^2\theta\le\theta^2$.
+
+(iii) The eigenvalues of $U-I$ are $e^{\pm i\theta}-1$, so $\lvert U-I
+\rvert^2=2\lvert e^{i\theta}-1\rvert^2=8\sin^2\frac\theta2$. By the first
+paragraph the metric is that of the sphere of radius $\sqrt2$, on which the
+points at angle $\theta\le\pi$ are at distance $\sqrt2\,\theta$.
 \end{proof}
 
 \section{The single-link law of SU(2)}\label{app:sharp}
