@@ -14,3 +14,4 @@ import YangMills.StrongCoupling.DobrushinComparison
 import YangMills.StrongCoupling.CouplingMinimality
 import YangMills.StrongCoupling.WassersteinBridge
 import YangMills.StrongCoupling.CouplingMinimizer
+import YangMills.StrongCoupling.IslandLayer
