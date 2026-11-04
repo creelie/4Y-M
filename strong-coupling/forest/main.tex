@@ -15339,6 +15339,435 @@ error of the first scale carried to the last. No effective action is constructed
 scale, and item~(iv) of Sec.~\ref{ssec:remains} remains open.
 \end{remark}
 
+\subsection{One step of the block map: the large fields}\label{ssec:lfstep}
+
+This subsection carries out, for $G=\SU(2)$, the large-field part of one
+step of the block map $U\mapsto c=V^\sharp(U)$ on the whole torus. It proves
+three things. A set of rough blocks is suppressed by $e^{-\lambda\kappa^2}$
+per block, either absolutely or in the mean. The weight of a coarse field
+is an exact sum over large-field regions of kernels with this suppression.
+The coarse action lies between $\lambda/(1.65\cdot10^6)$ and
+$8\lambda$ times the coarse curvature, up to a volume term. It also states
+which bound the next step would need, and how far
+Theorem~\ref{thm:islandswide} supplies it. The small-field part and its
+locality are the subject of item~(iv) of Sec.~\ref{ssec:remains} and are
+not treated here. The constants are enclosed in interval arithmetic and the
+lattice counts are exact enumerations.
+
+Throughout, $\Lambda_L$ is the torus of side $L=2^m\ge32$ in the tree gauge,
+$T$ is the coarse torus of the blocks $B(y)$, $|T|=L^4/16$, $\lambda=\beta_W/4$,
+so that the Wilson weight is $e^{-\lambda Q}$ with $Q=\sum_p\delta(U_p,I)^2$,
+and $\nu_c$ is the fibre measure of Sec.~\ref{ssec:largefields} with $W=T$.
+For a coarse field $c$ write $c_P$ for the holonomy of a coarse plaquette
+and $Q_1(c)=\sum_P\delta(c_P,I)^2$.
+
+\begin{definition}\label{def:lfrough}
+The plaquette at $x$ in the plane $\{\mu,\nu\}$ is \emph{owned} by the block
+containing $x$; $\Pi(y)$ is the set of plaquettes owned by $y$, and
+$\Pi(X)=\bigcup_{y\in X}\Pi(y)$. For $\kappa>0$ a block $y$ is \emph{calm}
+if $\delta(U_p,I)\le\kappa$ for every $p\in\Pi(y)$, and \emph{rough}
+otherwise; $R(U)$ is the set of rough blocks. For a block $y$ let $I_y$ be
+the $17$ active links inside $B(y)$, $P_{y,\mu}$ the eight private links of
+the pair $(y,\mu)$, and $\varXi_y=(I_y,P_{y,0},\dots,P_{y,3})$.
+\end{definition}
+
+\begin{lemma}\label{lem:lfowned}
+\begin{enumerate}[label=\textup{(\roman*)},leftmargin=*]
+\item Every plaquette has exactly one owner, and $|\Pi(y)|=96$.
+\item Every $p\in\Pi(y)$ in the plane $\{\mu,\nu\}$ contains an active link
+with base in $B(y)$, and each of its links has its base in $B(y)$,
+$B(y+e_\mu)$ or $B(y+e_\nu)$.
+\item The variables $\varXi_y$, $y\in T$, are the active links, each once.
+The factor $f_y=\exp(-\lambda\sum_{p\in\Pi(y)}\delta(U_p,I)^2)$ and the
+indicator $r_y$ of $\{y\text{ rough}\}$ are functions of $\varXi_y$ and
+$\varXi_{y+e_\mu}$, $0\le\mu\le3$, and $e^{-\lambda Q}=\prod_yf_y$.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+(i) A plaquette has one corner, and each of the $16$ sites of a block is
+the corner of six plaquettes. (ii) Let $o$ be the offset of the corner $x$.
+If $o_\mu=1$ the link $(x,\mu)$ leaves $B(y)$ and is private, and likewise
+if $o_\nu=1$. If $o_\mu=o_\nu=0$ the four vertices lie in $B(y)$ and the
+plaquette is a cycle in the block, which the fifteen tree links, a tree by
+Lemma~\ref{lem:blocktree}(i), cannot contain; so one of its links, all
+based in $B(y)$, is active. The links of $p$ are based at $x$, $x+e_\mu$ and
+$x+e_\nu$. (iii) A link based in $B(y)$ is a tree link, an active link inside
+$B(y)$, or a private link of a pair $(y,\mu)$, by
+Lemma~\ref{lem:blocktree}(i); the rest follows from (ii).
+\end{proof}
+
+An enumeration of the $96$ plaquettes of a block confirms (i) and (ii).
+
+\paragraph*{Suppression.}
+For a set $X$ of blocks let $A_X$, $Q_X$, $\nu^X_c$, $\pi_E$ and $Q_*(E)$ be
+as in Sec.~\ref{ssec:largefields} with $W=X$, so that $\nu^X_c$ lives on the
+fibre of $X$ with the links off $A_X$ fixed.
+
+\begin{theorem}\label{thm:lfsuppression}
+Let $G=\SU(2)$, $\kappa>0$, $\lambda>0$ and let $X$ be a set of blocks.
+\begin{enumerate}[label=\textup{(\roman*)},leftmargin=*]
+\item For every $c$ and every choice of the links off $A_X$,
+\[
+\int\mathbf 1\{X\subset R(U)\}\,e^{-\lambda Q_X}\,d\nu^X_c\le M^{4|X|}
+e^{-\lambda\kappa^2|X|},
+\]
+with $M<2.3621\cdot10^4$ the constant of Lemma~\ref{lem:averagedensity}.
+\item Let $\kappa\le1$ and $0<\tau\le1$. If the exterior $E$ of $X$ has
+$Q_*(E)\le(1-\tau)\kappa^2|X|$, then
+\[
+\pi_E\{X\subset R\}\le\Bigl(\frac{5.9\cdot10^{14}}{(\tau\kappa^2)^3}
+\Bigr)^{49|X|}e^{-3\lambda\tau\kappa^2|X|/4}.
+\]
+\item If $\beta_W\ge1$ and $\kappa\le1$, then $\mu_L\{X\subset R\}\le
+(16\,q_\kappa(\beta_W))^{|X|}$, with $q_\kappa$ as in
+Theorem~\ref{thm:defects}.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+On $\{X\subset R\}$ each block of $X$ owns a plaquette with $\delta(U_p,I)
+>\kappa$; these plaquettes are distinct and, by Lemma~\ref{lem:lfowned}(ii),
+contain links of $A_X$. Hence $Q_X>\kappa^2|X|$ there.
+
+(i) The integrand is at most $e^{-\lambda\kappa^2|X|}$, and $\nu^X_c$ has
+mass at most $M^{4|X|}$ by~\eqref{eq:fibrevolume}.
+
+(ii) With $t=\tau\kappa^2|X|$, $\{X\subset R\}\subset\{Q_X>Q_*(E)+t\}$. The
+proof of Proposition~\ref{prop:fibrecompare} uses $t\le1$ only to have
+$\rho=t/(90.6\,n_P)<1.5\cdot10^{-4}$. Each of the $49|X|$ links of $A_X$
+lies in six plaquettes and a plaquette contains at most four of them, so
+$n_P\ge73.5|X|$ and $\rho\le\tau\kappa^2/6659<1.51\cdot10^{-4}$, which
+still gives $16\sqrt2\rho+16\rho^2<22.63\rho$. The proof therefore gives
+the bound $(14\cdot90.6^3n_P^3/t^3)^{49|X|}e^{-3\lambda t/4}$, and $n_P\le
+384|X|$ with $14\cdot90.6^3\cdot384^3<5.9\cdot10^{14}$.
+
+(iii) The plaquette at $x$ lies in the unit cube $\mathcal C_x$, so a rough
+block $y$ lies in $\bigcup_{x\in B(y)}B_x$. Expanding the intersection over
+$y\in X$ of these unions gives at most $16^{|X|}$ intersections $\bigcap_{y
+\in X}B_{x(y)}$ with $x(y)\in B(y)$, each over $|X|$ distinct cubes, and
+Theorem~\ref{thm:defects} bounds each by $q_\kappa^{|X|}$.
+\end{proof}
+
+Part (i) is uniform in the exterior and in $c$, but it is an absolute
+bound: it does not compare rough with calm completions. The comparison (ii)
+needs its hypothesis. For the frustrated exterior described after
+Corollary~\ref{cor:defectscales}, a plaquette through the link $e$ is bad
+with conditional probability tending to one. No conditional bound uniform in
+the exterior holds.
+
+\paragraph*{Coarse curvature.}
+For a coarse plaquette $P$ let $N(P)$ be the fine plaquettes with a vertex in
+one of the $144$ blocks at $\ell^\infty$ distance at most one from the four
+blocks of $P$, the witness region of Lemma~\ref{lem:coarsewitness}, and let
+$N_{\rm ov}$ be the largest number of witness regions that contain one fine
+plaquette. An enumeration gives $N_{\rm ov}=1441$, and $2310$ witness
+regions meet $\Pi(y)$.
+
+\begin{lemma}\label{lem:lfcoarseenergy}
+Let $G=\SU(2)$, $C_E=8/\kappa_c^2<1140.26$ and $C_*=1441\,C_E<1.6432\cdot
+10^6$. For every field $U$ in the tree gauge, $c=V^\sharp(U)$ and every
+coarse plaquette $P$,
+\[
+\delta(c_P,I)^2\le C_E\max_{p\in N(P)}\delta(U_p,I)^2 ,
+\]
+and if $\kappa<\kappa_c$ and $\delta(c_P,I)>16.003\,\kappa$, some $p\in N(P)$
+has $\delta(U_p,I)>\kappa$. Consequently $Q_1(c)\le C_*\,Q(U)$, and
+\[
+Q_1^{>}(c):=\sum_{\delta(c_P,I)>16.003\kappa}\delta(c_P,I)^2\le C_*
+\sum_{\delta(U_p,I)>\kappa}\delta(U_p,I)^2 .
+\]
+In particular $Q(U)\ge r^2/1140.26$ whenever some coarse plaquette has
+$\delta(c_P,I)\ge r$.
+\end{lemma}
+
+\begin{proof}
+Let $m$ be the maximum over $N(P)$. If $m<\kappa_c$, then
+Proposition~\ref{prop:smallframessharp}(iv), applied with every $\kappa\in
+(m,\kappa_c)$, gives $\delta(c_P,I)\le16.003\,m$, and $16.003^2<256.1<C_E$.
+If $m\ge\kappa_c$, then $\delta(c_P,I)\le2\sqrt2$, the diameter of
+$\SU(2)$, so $\delta(c_P,I)^2\le8\le C_Em^2$. The second statement is the
+same proposition. Summing $\delta(c_P,I)^2\le C_E\sum_{p\in N(P)}\delta(U_p,
+I)^2$ over $P$ counts each fine plaquette at most $N_{\rm ov}$ times; for
+$Q_1^{>}$ keep in each sum only the plaquettes above $\kappa$, among which
+the maximum lies.
+\end{proof}
+
+The last statement is the first step of Proposition~\ref{prop:torusenergy}
+for $\SU(2)$, with $1140.26$ in place of $1154$; it is a bound for one step
+only.
+
+\paragraph*{The coarse action.}
+Since $h=\int\nu_c\,dh(c)$, the law of $c=V^\sharp(U)$ under the Wilson
+measure is $Z_L^{-1}e^{-A_1(c)}\,dh(c)$ with
+\[
+e^{-A_1(c)}=Z(c)=\nu_c\bigl(e^{-\lambda Q}\bigr).
+\]
+Let $S_1(c)=\inf_{F_c}Q$. In the reconstruction $R(c)$ of
+Sec.~\ref{ssec:pathblocks}, with $c_{y,\mu}$ on the private links of
+$(y,\mu)$ and $I$ on the links inside the blocks, every path of $V^\sharp_
+{y,\mu}$ has holonomy $c_{y,\mu}$. So $v_x=I$ at every site, $R(c)$ is
+regular, and $V^\sharp(R(c))=c$. A plaquette at $x$ in the plane
+$\{\mu,\nu\}$ of $R(c)$ is $c_P$ when $o_\mu=o_\nu=1$ and $I$ otherwise,
+so $Q(R(c))=4Q_1(c)$.
+
+\begin{theorem}\label{thm:lfaction}
+Let $G=\SU(2)$. For every coarse field $c$:
+\begin{enumerate}[label=\textup{(\roman*)},leftmargin=*]
+\item $A_1(c)\ge\lambda S_1(c)-4|T|\log M$, and $S_1(c)\ge Q_1(c)/C_*$;
+\item for $\lambda\ge100$, $\eta>0$ and every regular $U\in F_c$,
+$A_1(c)\le(1+\eta)\lambda Q(U)+c_1(\lambda,\eta)|T|$, where
+\begin{multline*}
+c_1(\lambda,\eta)=12\log1.957+45\log14\\
++67.5\bigl(1+\log(11520(1+\eta^{-1})\lambda)\bigr);
+\end{multline*}
+in particular $A_1(c)\le8\lambda Q_1(c)+c_1(\lambda,1)|T|$.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+(i) $Z(c)\le\nu_c(F_c)e^{-\lambda S_1(c)}$ and $\nu_c(F_c)\le M^{4|T|}$ by
+\eqref{eq:fibrevolume}; then Lemma~\ref{lem:lfcoarseenergy}.
+
+(ii) Let $\rho^2=135/(2\cdot96\cdot8100(1+\eta^{-1})\lambda)$, so $\rho\le
+9.32\cdot10^{-4}$ and $46\rho<0.043$. The proof of
+Proposition~\ref{prop:everyfibre} with $W=T$ uses $t\le1$ only through this
+bound on $46\rho$. It gives a set $\Gamma(D)\subset F_c$ with $\nu_c(\Gamma(D))
+\ge1.957^{-12|T|}(\rho^3/14)^{45|T|}$ on which each of the $n_P=96|T|$
+plaquettes moves by at most $90\rho$. There $\delta(U'_p,I)\le\delta(U_p,
+I)+90\rho$, so
+\[
+Q(U')\le(1+\eta)Q(U)+(1+\eta^{-1})\,96|T|\,8100\rho^2 .
+\]
+Hence $A_1(c)\le(1+\eta)\lambda Q(U)+|T|g(\rho)$ with $g(\rho)=(1+
+\eta^{-1})777600\lambda\rho^2+135\log\rho^{-1}+12\log1.957+45\log14$, and
+the chosen $\rho$ minimises $g$, with value $c_1(\lambda,\eta)$. For the
+last statement take $U=R(c)$ and $\eta=1$.
+\end{proof}
+
+So the coarse action is $\lambda$ times a quantity between $Q_1/C_*$ and
+$8Q_1$, up to $O(\log\lambda)$ per block; the volume term $67.5\log\lambda$
+is the Gaussian count of the $135$ real fluctuation coordinates of a block.
+Neither constant is near one. For example $c_1(10^{12},1)<2737.5$ and
+$4\log M<40.28$.
+
+\paragraph*{The large-field representation.}
+Write $s_y=1-r_y$. For $X\subset T$ let $X_1,\dots,X_n$ be its components
+for $\ell^\infty$ adjacency of blocks, so that distinct components are at
+$\ell^\infty$ distance at least two, and let $\partial^-X_i$ be the blocks
+$z\notin X$ with $z+e_\mu\in X_i$ for some $\mu$. By the definition of
+$\nu_c$,
+\[
+\nu_c(d\varXi)=\prod_yh(dI_y)\prod_{y,\mu}\nu^{y,\mu}_{c}(dP_{y,\mu}\mid
+I_y,I_{y+e_\mu}),
+\]
+where $\nu^{y,\mu}_c$ is the measure of~\eqref{eq:densityformula} on the
+private links of the pair, of mass at most $M$.
+
+\begin{theorem}\label{thm:lfmarkov}
+Let $G=\SU(2)$ and $\kappa>0$.
+\begin{enumerate}[label=\textup{(\roman*)},leftmargin=*]
+\item For every $c$, $Z(c)=\sum_{X\subset T}Z_X(c)$ with
+\[
+Z_X(c)=\int\nu^{\rm out}_{c,X}(d\varXi)\prod_{y\notin X\cup\partial^-X}
+f_ys_y\prod_iK_{X_i}(c;\varXi).
+\]
+Here $\nu^{\rm out}_{c,X}$ is the product of the factors of $\nu_c$ for
+the links inside the blocks off $X$ and for the pairs with both blocks off
+$X$. The kernel $K_{X_i}$ is the integral of $\prod_{y\in X_i}f_yr_y
+\prod_{z\in\partial^-X_i}f_zs_z$ against the factors of $\nu_c$ for the
+links inside $X_i$, the pairs from $X_i$ and the pairs $(z,\mu)$ with $z\in
+\partial^-X_i$ and $z+e_\mu\in X_i$. It depends on the integration variable
+of $\nu^{\rm out}_{c,X}$ only through the blocks at $\ell^\infty$ distance
+one from $X_i$, and no two kernels share a factor or a variable.
+\item For $\kappa<\kappa_c$, uniformly in the outer variables,
+\[
+0\le K_{X_i}\le M^{8|X_i|}\exp\Bigl(-\lambda\max\Bigl\{\kappa^2|X_i|,
+\frac{Q^{(i)}(c)}{C_*}\Bigr\}\Bigr),
+\]
+where $Q^{(i)}(c)$ is the sum of $\delta(c_P,I)^2>(16.003\kappa)^2$ over
+the coarse plaquettes $P$ with $\emptyset\ne N(P)\cap\Pi(X)\subset\Pi(X_i)$.
+\item With $N_\lambda=e^{-c_1(\lambda,1)}$, $K_{X_i}\le N_\lambda^{|X_i|}
+e^{-a(\lambda,\kappa)|X_i|}$, where
+\[
+a(\lambda,\kappa)=\lambda\kappa^2-8\log M-c_1(\lambda,1),
+\]
+and $Z(c)\ge N_\lambda^{|T|}e^{-8\lambda Q_1(c)}$ for $\lambda\ge100$.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+(i) Expand $\prod_y(f_yr_y+f_ys_y)$ and group the terms by $X=\{y:r_y\}$;
+then apply Fubini to the nonnegative integrands. By
+Lemma~\ref{lem:lfowned}(iii), $f_y$ and $r_y$ involve $\varXi_y$ and
+$\varXi_{y+e_\mu}$, and $\nu^{y,\mu}_c$ involves $P_{y,\mu}$, $I_y$ and
+$I_{y+e_\mu}$. A factor or measure involving a variable of $X_i$ therefore
+belongs to a block of $X_i\cup\partial^-X_i$ or to a pair from it. Such a
+factor cannot involve a variable of $X_j$ for $j\ne i$, since $z+e_\mu\in
+X_i$ and $z+e_\nu\in X_j$ would put $X_i$ and $X_j$ at distance one.
+(ii) The measures in $K_{X_i}$ have mass at most $M$ for each of the
+$4|X_i|$ pairs from $X_i$ and the at most $4|X_i|$ pairs into it, and $h$
+is a probability. The integrand is at most $e^{-\lambda Q_{\Pi(X_i)}}$
+and vanishes unless every block of $X_i$ is rough. Then $Q_{\Pi(X_i)}>
+\kappa^2|X_i|$, and every fine plaquette above $\kappa$ is owned by a rough
+block. So for the $P$ counted in $Q^{(i)}$ the plaquettes above $\kappa$
+in $N(P)$ lie in $\Pi(X_i)$, and Lemma~\ref{lem:lfcoarseenergy} gives
+$Q^{(i)}(c)\le C_*Q_{\Pi(X_i)}$.
+(iii) The first bound is (ii) with the definition of $a$; the second is
+Theorem~\ref{thm:lfaction}(ii) with $U=R(c)$.
+\end{proof}
+
+The representation is exact, and every kernel carries $e^{-\lambda\kappa^2}$
+per block, uniformly in its boundary values and in $c$. When the coarse
+field is curved its kernel also carries $e^{-\lambda Q^{(i)}/C_*}$. The
+small-field factor $\prod f_ys_y$, however, is not a product of local
+factors once the outer variables are integrated. The comparison of a kernel
+with the calm weight $S_{X_i}$, the same integral with $s_y$ in place of
+$r_y$ on $X_i$, would give the relative activities $K_{X_i}/S_{X_i}$. It
+fails where $S_{X_i}=0<K_{X_i}$, that is, where the boundary values admit
+no calm completion; Theorem~\ref{thm:lfsuppression}(ii) bounds the ratio
+only under its hypothesis.
+
+\begin{theorem}\label{thm:lfkp}
+Call two nonempty $\ell^\infty$-connected sets of blocks compatible when
+their $\ell^\infty$ distance is at least two, and let $w$ be activities
+with $|w(X)|\le e^{-9|X|}$.
+\begin{enumerate}[label=\textup{(\roman*)},leftmargin=*]
+\item The criterion of Koteck\'y and Preiss~\cite{KP86} holds with $a(X)=
+|X|/10$. So $\log\sum\prod_iw(X_i)$, the sum over families of pairwise
+compatible sets, is the absolutely convergent sum of the connected
+clusters. The clusters incompatible with a given block contribute at most
+$1/10$ in absolute value, and the logarithm is at most $|T|/10$ in modulus.
+\item The rate of Theorem~\ref{thm:lfmarkov}(iii) satisfies $a(\lambda,
+\kappa)\ge9$ for $\lambda\ge\max\{\lambda^*(\kappa),100\}$, with $\beta^*=
+4\lambda^*$ given below.
+\end{enumerate}
+\begin{center}
+\begin{tabular}{lll}
+\hline
+$\kappa$ & $\beta^*$ & $\lambda^*\kappa^2$\\
+\hline
+$0.08$ & $1.13074\cdot10^{6}$ & $1809.2$\\
+$10^{-2}$ & $8.39984\cdot10^{7}$ & $2100.0$\\
+$10^{-4}$ & $1.09584\cdot10^{12}$ & $2739.6$\\
+$10^{-8}$ & $1.60348\cdot10^{20}$ & $4008.7$\\
+\hline
+\end{tabular}
+\end{center}
+\end{theorem}
+
+\begin{proof}
+(i) A connected set of $n$ blocks through a given block is recovered from
+a walk of length $2(n-1)$ around a spanning tree, with $80$ neighbours at
+each step, as in Corollary~\ref{cor:defectclusters}; so there are at most
+$6400^{n-1}$. A set incompatible with $X$ contains one of the at most
+$81|X|$ blocks within distance one of $X$. Hence
+\[
+\sum_{X'\not\sim X}|w(X')|e^{|X'|/10}\le81|X|\frac u{1-6400u},
+\]
+with $u=e^{-8.9}$, and the right side is below $0.0870|X|<|X|/10$. This is
+the hypothesis of the theorem of Koteck\'y and Preiss, whose conclusion is
+the statement. (ii) $a$ is increasing for $\lambda>67.5/\kappa^2$, and the
+thresholds are enclosed by bisection in interval arithmetic to relative
+width $10^{-8}$.
+\end{proof}
+
+Theorem~\ref{thm:lfkp} applies to the large fields once the small-field
+part is in local form. Then each region costs its kernel divided by the
+calm weight of the same region, and $a\ge9$ beats the entropy of connected
+regions if that calm weight is at least $N_\lambda$ per block. This lower
+bound on the calm weight with boundary values is not proved. It is the
+small-field cluster expansion of item~(iv) of Sec.~\ref{ssec:remains}, and
+it must have the relative and local form required by
+Propositions~\ref{prop:formstability} and~\ref{prop:massgrowth} and
+Lemma~\ref{lem:schur}.
+
+\paragraph*{The next step.}
+To repeat the step at the coarse scale with constants $(\lambda_1,
+\kappa_1)$, the proofs above need three properties of the weight
+$e^{-A_1(c)}$ in place of $e^{-\lambda Q}$:
+(H1) it is a product of nonnegative factors attached to the coarse blocks,
+each depending on $c$ within distance one, up to a polymer expansion of the
+kind just described;
+(H2) the factor of a block that owns a coarse plaquette with $\delta(c_P,I)
+>\kappa_1$ is at most $e^{-\lambda_1\kappa_1^2}$ times the calm weight,
+with $\lambda_1\kappa_1^2-8\log M-c_1(\lambda_1,1)\ge9$;
+(H3) the averages of calm coarse fields are calm.
+Item (H3) holds at every step for $\kappa_1<\kappa_c$, since
+Proposition~\ref{prop:smallframessharp}(iv) is a statement about one field
+on any lattice; the threshold then grows by $16.003$ per step, or by
+$4\cdot1.023$ along the composed average of Theorem~\ref{thm:defectscales}.
+The suppression actually available for (H2) is inherited from the fine
+scale, as follows.
+
+\begin{proposition}\label{prop:lfinherited}
+Let $G=\SU(2)$, $\kappa<\kappa_c$ and $j\ge1$.
+\begin{enumerate}[label=\textup{(\roman*)},leftmargin=*]
+\item If $\delta(c_P,I)>16.003\kappa$, then $N(P)$ meets $\Pi(R(U))$. Each
+rough block meets at most $2310$ witness regions, so at most $2310|R(U)|$
+coarse plaquettes exceed $16.003\kappa$. On them the kernels carry
+$e^{-\lambda Q^{(i)}/C_*}$, that is, the coupling $\lambda/C_*$.
+\item Let $\rho\le1.023\cdot10^{-4}$, $\rho_0=\rho/(1.01\cdot1.023\cdot4^j)$,
+and call a fine block rough at level $\rho_0$. By
+Lemma~\ref{lem:scalewitness} and Theorem~\ref{thm:islandswide}(i), every
+bad block of scale $j$ has a rough fine block among the $m_j=(17\cdot2^{j-1}
+-2)^4$ blocks that meet its box. A fine block meets the boxes of at most
+$H_j$ blocks of scale $j$, with $H_j$ as in that lemma. Hence for a set
+$Y$ of blocks of scale $j$ and $a_0>0$,
+$\sum_Xe^{-a_0|X|}\le e^{-A_j|Y|}$, where the sum runs over the sets $X$
+of fine blocks inside the union of the boxes of $Y$ that meet every box,
+and
+\[
+A_j=\max_{s>0}\Bigl(\frac{a_0-s}{H_j}-m_j\log(1+e^{-s})\Bigr).
+\]
+\item With $a_0=a(\beta_W/4,\rho_0)$ and $\rho=10^{-4}$, $A_j\ge9$ holds for
+$\beta_W\ge\beta^{\rm pw}_j$, where $\beta^{\rm pw}_1=2.7321\cdot10^{14}$,
+$\beta^{\rm pw}_2=4.39218\cdot10^{15}$, $\beta^{\rm pw}_3=1.09464\cdot
+10^{17}$, and $1.70\cdot10^{13}\le16^{-j}\beta^{\rm pw}_j\le2.90\cdot10^{13}$
+for $1\le j\le30$. At each of the $2001$ couplings of
+Theorem~\ref{thm:islandswide}(iii), the largest such $j$ satisfies
+$k_*-j\in\{1,2\}$.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+(i) is Lemma~\ref{lem:lfcoarseenergy} and Theorem~\ref{thm:lfmarkov}(ii),
+with the count from the enumeration. (ii) The box of
+Lemma~\ref{lem:scalewitness} has $17\cdot2^j-4$ points per coordinate, from
+an even to an odd coordinate, so it meets $\frac12(17\cdot2^j-4)$ fine
+blocks per coordinate. A witness plaquette with corner in the box is owned
+by one of these. The number of boxes met by a fine block is the count of
+that lemma for the two cubes of the block per coordinate, which the
+enumeration confirms to be $H_j$. A set $X$ meeting all the boxes of $Y$
+has $|X|\ge|Y|/H_j$ and lies in a set of at most $m_j|Y|$ blocks. So the
+sum is at most $\sum_{k\ge|Y|/H_j}\binom{m_j|Y|}ke^{-a_0k}\le e^{-(a_0-s)
+|Y|/H_j}(1+e^{-s})^{m_j|Y|}$. (iii) The maximum is at $e^{s}=m_jH_j-1$, and
+the thresholds and $k_*$ of Corollary~\ref{cor:defectscales} are enclosed
+in interval arithmetic.
+\end{proof}
+
+So the next step stands as follows.
+Theorem~\ref{thm:islandswide} gives (H3) up to $a_{k_*}/8$ as a statement
+about probabilities under the Wilson measure: the labels of the composed
+average are rare. It gives neither (H1) nor (H2), which concern the
+weight $e^{-A_1}$ for every coarse field. Proposition~\ref{prop:lfinherited}(iii)
+reaches $a_{k_*}/4$, but it bounds sums of fine kernels with entropy of
+$\ell^\infty$ adjacency rather than of the joining distance of the islands,
+and only for activities of the form $e^{-a_0|X|}$ relative to the calm
+weight, the hypothesis that is not proved. In both cases the suppression at
+scale $j$ is the fine one at the radius $\rho_0\propto4^{-j}$, that is, the
+coupling $\lambda/16^{j}$ in units of the scale-$j$ threshold. By
+Proposition~\ref{prop:constantcurvature}, fine witnesses carry it no further
+than $a_{k_*}$. Iterating the step instead loses the factor $C_*$ of
+Theorem~\ref{thm:lfaction}(i), or $H_j\ge4096$ in
+Proposition~\ref{prop:lfinherited}(ii), at every scale. What the iteration
+needs is (H2) with $\lambda_1\ge(1-\varepsilon_1)\lambda$ and summable
+$\varepsilon_k$, a lower bound $A_1\ge(1-\varepsilon)\lambda S_1$ on large
+fields, local and relative to the calm weight. That requires a coarse
+energy for $\SU(2)$ at every scale, of the kind
+Proposition~\ref{prop:torusenergy} gives for torus-valued fields. It is not
+proved here, and this subsection gives no bound on the mass gap.
+
 \subsection{What remains}\label{ssec:remains}
 
 The results of this section leave the following statements, which together
@@ -15405,7 +15834,13 @@ absolute bound on the Hessian of the induced action off the gauge
 directions; its factor $C_n$, of order $n^2$, is necessary
 (Remark~\ref{rem:relscales}) and is removed only by a gauge-invariant
 localisation, and the bound at curved backgrounds and away from critical
-points is not proved.
+points is not proved. Sec.~\ref{ssec:lfstep} carries out the large-field
+part of one step for $\SU(2)$: each rough block costs $e^{-\lambda\kappa^2}$,
+the weight of a coarse field is an exact sum over large-field regions, and
+Theorem~\ref{thm:lfkp} sums the regions once the small-field part is local
+with calm weight at least $N_\lambda$ per block, which is not proved; the
+coarse action is comparable to $\lambda$ times the coarse curvature only up
+to the factor $C_*$, so the step does not iterate.
 \end{enumerate}
 The averaged covariance of item (ii), with the island sums in windows
 of more than $10^{28000}$ blocks, is the single-scale part of (D) that
@@ -17518,6 +17953,11 @@ V.~G.~Kac, \emph{Infinite-Dimensional Lie Algebras}, 3rd ed., Cambridge Universi
 O.~Kallenberg, \emph{Foundations of Modern Probability}, 3rd ed., Springer,
 Cham, 2021, \href{https://doi.org/10.1007/978-3-030-61871-1}
 {doi:10.1007/978-3-030-61871-1}.
+
+\bibitem{KP86}
+R.~Koteck\'y and D.~Preiss, Cluster expansion for abstract polymer models,
+Comm. Math. Phys. \textbf{103} (1986), 491--498,
+\href{https://doi.org/10.1007/BF01211762}{doi:10.1007/BF01211762}.
 
 \bibitem{KS75}
 J.~Kogut and L.~Susskind, Hamiltonian formulation of Wilson's lattice gauge
