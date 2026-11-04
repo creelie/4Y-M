@@ -4292,6 +4292,429 @@ has to be an estimate such as (D).
 \end{enumerate}
 \end{remark}
 
+\subsection{The ratio, the strong-coupling range and the cube estimate}\label{ssec:ratiocube}
+
+This subsection states the open input of Theorem~\ref{thm:flowlimit}
+exactly, proves that it fails along every sequence of couplings in the range
+where the paper has a gap, shows that the hypothesis of
+Theorem~\ref{thm:transfer} holds along some of these sequences and therefore
+cannot imply the input, and replaces the input by a condition that is
+necessary and sufficient and asks only for an upper bound on an energy and a
+lower bound on one overlap.
+
+The notation is that of Theorem~\ref{thm:flowlimit}: translation invariant
+states $\omega_k$ at couplings $\beta_k$, with transfer matrices $\mathbb T_k$
+and vacua $\Omega_k$ (Appendix~\ref{app:transfer}), the centred flowed packet
+$A_k$ of a nonzero $f_0\in C_c(\R^4)$ supported in $\{t>0\}$, and
+$C_k(t)=\omega_k(\vartheta(\bar A_k)\tau_{t/a_k}A_k)$ for $t\in a_k\Z_{\ge0}$,
+with $C_k(0)>0$. For $u\ge0$ and $\sigma>0$ in $a_k\Z$ put
+\[
+\rho_k(u,\sigma)=\frac{C_k(2u+\sigma)}{C_k(2u)} ,
+\]
+so that $\rho(\sigma)$ of Theorem~\ref{thm:flowlimit} is a limit of
+$\rho_k(0,\sigma)$. Let $f_{0,u}=f_0(\cdot-(u,0))$; for $u/a_k\in\Z$ its packet
+is $\tau_{u/a_k}A_k$, and $\Psi_{k,u}=C_k(2u)^{-1/2}\Psi_{\tau_{u/a_k}A_k}$ is
+the corresponding unit vector. For dyadic $u\ge0$ consider
+\begin{enumerate}[label=\textup{(N$_u$)},leftmargin=*]
+\item $\liminf_{k\to\infty}\rho_k(u,\sigma)>0$ for some dyadic $\sigma>0$.
+\end{enumerate}
+
+\begin{proposition}\label{prop:ratioexact}
+\textup{(i)} $C_k(t)>0$ for every $t\in a_k\Z_{\ge0}$, and $\log C_k$ is
+convex and nonincreasing on $a_k\Z_{\ge0}$.
+
+\textup{(ii)} $0<\rho_k(u,\sigma)\le1$; $\rho_k(u,\sigma)$ is nondecreasing in
+$u$ and nonincreasing in $\sigma$, and
+$\rho_k(u,\sigma')\ge\rho_k(u,\sigma)^{\sigma'/\sigma}$ for $\sigma'\ge\sigma$.
+
+\textup{(iii)} For $u\ge0$ dyadic, Theorem~\ref{thm:flowlimit} applies to
+$f_{0,u}$, with reflected norm $C_k(2u)$ and ratio $\rho_k(u,\sigma)$. Every
+limit it produces along subsequences is nontrivial if and only if
+$(\mathrm N_u)$ holds, and some limit is nontrivial if and only if
+$\limsup_k\rho_k(u,\sigma)>0$. If $(\mathrm N_u)$ holds for one $\sigma$, it
+holds for every dyadic $\sigma>0$, and $(\mathrm N_u)$ implies
+$(\mathrm N_{u'})$ for $u'\ge u$.
+
+\textup{(iv)} Let $\mu_{k,u}$ be the spectral measure, in energies
+$E=-a_k^{-1}\log\lambda$, of $\mathbb T_k$ at $\Psi_{k,u}$. If
+$\rho_k(u,\sigma)\ge c>0$, then $\mu_{k,u}([0,\Lambda])\ge c/2$ with
+$\Lambda=\sigma^{-1}\log(2/c)$; if $\mu_{k,u}([0,\Lambda])\ge v$, then
+$\rho_k(u,\sigma)\ge ve^{-\sigma\Lambda}$. So $(\mathrm N_u)$ holds if and only
+if a fixed fraction of the spectral mass of $\Psi_{k,u}$ stays at bounded
+physical energy, uniformly in $k$.
+\end{proposition}
+
+\begin{proof}
+(i) The function $f_0$ is supported in $\{t>0\}$, so the lattice points with
+$f_0(a_kx)\ne0$ have $x_0\ge1$, and $A_k=\sum_{n\ge1}\tau_nB_n$ is a finite
+sum in which $B_n$ is a function of the spatial links of the slice at time
+$0$, by Proposition~\ref{prop:spatialflow}(i). In the reconstruction~\cite{OS73,OS75,OSei78}, as in the proof of
+Theorem~\ref{thm:flowlimit}, $\Psi_{\tau_nB}=\mathbb T_k^n\Psi_B$, hence
+$\Psi_{A_k}=\mathbb T_k\xi$ with $\xi=\sum_n\mathbb T_k^{n-1}\Psi_{B_n}$. The
+transfer matrix is self-adjoint and positive~\cite{OSei78,Lus77,Sei82}, and
+its range is orthogonal to its kernel,
+so the spectral measure $\nu_k$ of $\mathbb T_k$ at
+$\Psi_k=C_k(0)^{-1/2}\Psi_{A_k}$ (Lemma~\ref{lem:spectralmeasure}) has no atom
+at $0$. Therefore $C_k(t)/C_k(0)=\int\lambda^{t/a_k}d\nu_k>0$. Convexity and
+monotonicity are Proposition~\ref{prop:sliceratio}(ii).
+
+(ii) The first claims follow from (i). On a lattice, a convex function has
+chord slopes that increase in both end points; this gives monotonicity in
+$u$, and, comparing the chords $[2u,2u+\sigma]$ and $[2u,2u+\sigma']$, the
+power bound. Monotonicity in $\sigma$ is that of $C_k$.
+
+(iii) Translation invariance and $\vartheta\tau_u=\tau_{-u}\vartheta$ give,
+with times written in lattice steps,
+\[
+\omega_k\bigl(\vartheta(\tau_u\bar A_k)\,\tau_{t+u}A_k\bigr)
+=\omega_k\bigl(\vartheta(\bar A_k)\,\tau_{t+2u}A_k\bigr),
+\]
+which gives the reflected norm and the ratio. The function $f_{0,u}$ is nonzero and
+supported in $\{t>u\}$. If $\liminf_k\rho_k(u,\sigma)=0$, a subsequence has
+$\rho_k(u,\sigma)\to0$, and a refinement given by
+Theorem~\ref{thm:flowlimit}(ii) has a trivial limit by part (iv) of that
+theorem; if the $\liminf$ is at least $c>0$, every limit has $\rho(\sigma)\ge
+c$ and is nontrivial. The statement with $\limsup$ is the last part of
+Theorem~\ref{thm:flowlimit}(iv). Independence of $\sigma$ follows from (ii),
+by the power bound for $\sigma'\ge\sigma$ and by monotonicity for
+$\sigma'\le\sigma$, and the last claim from monotonicity in $u$.
+
+(iv) The vector $\Psi_{k,u}$ has no spectral weight at $\lambda=0$, by the
+proof of (i), and $\rho_k(u,\sigma)=\int e^{-\sigma E}d\mu_{k,u}$. This
+integral is at most $\mu_{k,u}([0,\Lambda])+e^{-\sigma\Lambda}$ and at least
+$e^{-\sigma\Lambda}\mu_{k,u}([0,\Lambda])$.
+\end{proof}
+
+The open input of Theorem~\ref{thm:flowlimit} is therefore exactly
+$(\mathrm N_u)$ for one packet $f_0$ and one dyadic $u\ge0$. It is a uniformity
+statement and nothing else: at each fixed $k$ the ratio is positive by (i).
+The required uniformity is in $k$ along the tuning, at fixed physical
+separations $u$ and $\sigma$, so that $\sigma/a_k\to\infty$ lattice steps;
+the constant may depend on $G$, $\Phi$, $\tau$, $f_0$, $u$, $\sigma$ and on the
+tuning, and nothing is required uniformly in $f_0$ or in $\tau$. The ratio
+does not change when $A_k$ is multiplied by a constant, so the renormalisation
+$Z_k$ plays no role in it. The case $u=0$ is the strongest and implies all the
+others. Proposition~\ref{prop:flowshift}(i) assumes $(\mathrm N_0)$ and
+renormalises the packet shifted by $\sigma/2$. The hypothesis of
+Lemma~\ref{lem:positivetime} is $(\mathrm N_{s/4})$ at $\sigma=s/2$; it is
+weaker than $(\mathrm N_0)$, as the example after
+Proposition~\ref{prop:sliceratio} shows, and it suffices for a nontrivial
+limit of the packet shifted by $s/4$. Granted the convergence asked for in (E), the
+clause of (E) that the limit is not that of the vacuum alone is, for the
+flowed packets, $(\mathrm N_u)$ for one $f_0$ and one $u$; the convergence of
+the whole sequence, Euclidean invariance and the higher correlations
+remain~\cite{JW06}.
+No bound is required at one lattice step: the first-step energy
+$-a_k^{-1}\log\rho_k(u,a_k)$ may diverge while $(\mathrm N_u)$ holds, as
+Remark~\ref{rem:compositeslice} shows for the slice field of the unflowed
+magnetic energy.
+
+\emph{The strong-coupling range.} In the range where the paper proves a
+gap, the ratio has two-sided bounds in lattice units, and the upper one rules
+out every continuum tuning there. Put
+\[
+m_0=-\tfrac12\log0.99995 ,
+\]
+so that $m_0\ge2.5\cdot10^{-5}$ by $-\log(1-x)\ge x$; interval arithmetic gives
+$m_0\in[2.50006250\cdot10^{-5},2.50006251\cdot10^{-5}]$.
+
+\begin{theorem}\label{thm:strongratio}
+Let $G=\SU(2)$, let $\beta_{W,k}\in[0,0.351]$ be any couplings, and let
+$\omega_k$ be the states of Theorems~\ref{thm:su2} and~\ref{thm:blocks}. Then
+for every $\Phi$, $\tau$ and $f_0$ with $C_k(0)>0$, every dyadic $u\ge0$ and
+$\sigma>0$, and every $k$ with $u/a_k,\sigma/a_k\in\Z$,
+\[
+\rho_k(0,a_k)^{\sigma/a_k}\le\rho_k(u,\sigma)\le e^{-m_0\sigma/a_k} .
+\]
+Consequently every limit of Theorem~\textup{\ref{thm:flowlimit}} along these
+couplings, for every packet $f_{0,u}$, is trivial, and if $(\mathrm N_u)$ holds
+for some packet along a tuning $(\beta_{W,k})$ of $\SU(2)$, then
+$\beta_{W,k}>0.351$ for all large $k$.
+\end{theorem}
+
+\begin{proof}
+By Theorem~\ref{thm:blocks} the transfer matrix of $\omega_k$ has gap
+$m_k\ge-\frac12\log\alpha(\beta_{W,k})$ on $\Omega_k^\perp$, and $\alpha$ is
+increasing with $\alpha(0.351)\le0.99995$, so $m_k\ge m_0$. The vector
+$\Psi_{k,u}$ is a unit vector orthogonal to $\Omega_k$, because $A_k$ is
+centred, and $\mathbb T_k$ preserves $\Omega_k^\perp$, so
+$\rho_k(u,\sigma)=\ip{\Psi_{k,u}}{\mathbb T_k^{\sigma/a_k}\Psi_{k,u}}\le
+e^{-m_0\sigma/a_k}$. For the lower bound, $\rho_k(u,\sigma)\ge\rho_k(0,\sigma)$
+by Proposition~\ref{prop:ratioexact}(ii), and Jensen's inequality for the
+convex function $\lambda^{\sigma/a_k}$ and the probability measure $\nu_k$ of
+the proof of Proposition~\ref{prop:ratioexact}(i) gives
+$\rho_k(0,\sigma)=\int\lambda^{\sigma/a_k}d\nu_k\ge(\int\lambda\,d\nu_k)^{
+\sigma/a_k}=\rho_k(0,a_k)^{\sigma/a_k}$, with $\rho_k(0,a_k)>0$ by
+Proposition~\ref{prop:ratioexact}(i). The upper bound tends to zero as
+$a_k\to0$, which gives triviality by Proposition~\ref{prop:ratioexact}(iii).
+If $(\mathrm N_u)$ held along a tuning with $\beta_{W,k}\le0.351$ for
+infinitely many $k$, the upper bound along those $k$ would contradict it.
+\end{proof}
+
+Writing $\rho_k(u,\sigma)=e^{-\varepsilon_k\sigma/a_k}$, the theorem says
+$m_0\le\varepsilon_k\le-\log\rho_k(0,a_k)$: both ends are rates in lattice
+units, and $(\mathrm N_u)$ asks for $\varepsilon_k=O(a_k)$. Reflection
+positivity gives the positivity of the lower end, through the range of
+$\mathbb T_k$, and the transfer-matrix gap gives the upper bound; neither
+bears on the size of $\varepsilon_k/a_k$ except to exclude the range. The size
+of $\rho_k(0,a_k)$ is not estimated here; any estimate of it at strong
+coupling is in lattice units, and it is at most $e^{-m_0}$. The same holds for
+every compact simple $G$ and couplings in $[0,\beta_1]$ with
+$N\beta_1<\frac2{29}\kappa_G$, with $m_0=m_G(\beta_1)$ of
+Theorem~\ref{thm:groups}; for fixed $\beta$ this is
+Proposition~\ref{prop:treecritical}(i). So the strong-coupling range bears on
+the continuum tuning only negatively: a tuning with a nontrivial limit leaves
+it for good. That the tuning has to go to $\beta_W\to\infty$ is the
+expectation from asymptotic freedom and is not proved here.
+
+\emph{The cube estimate in the same range.} The hypothesis of
+Theorem~\ref{thm:transfer} holds at fixed strong coupling with cubes of fixed
+physical size, and with every $\alpha$.
+
+\begin{proposition}\label{prop:cubecompatible}
+\textup{(i)} Suppose $D(n_k,\alpha_k)$ holds at $\beta_k$ with $n_ka_k\le\ell$.
+Then $\rho_k(u,\sigma)\le\alpha_k^{\sigma/(2\ell)}$ for every $u$ and
+$\sigma$. Hence $(\mathrm N_u)$ with constant $c$ at $\sigma$ forces
+$\alpha_k\ge c^{2\ell/\sigma}$ for large $k$, and the physical mass of
+Theorem~\textup{\ref{thm:transfer}} obeys $m_*\le\sigma^{-1}\log(1/c)$.
+
+\textup{(ii)} Let $G=\SU(2)$, $0\le\beta_W<\frac13$ fixed, $\ell>0$, and
+$n_k=2\lfloor\ell/(2a_k)\rfloor$. For every $\alpha\in(0,1)$, $D(n_k,\alpha)$
+holds at $\beta_W$ for all $k$ with $n_k\ge2$ and
+$5\beta_W\le\alpha(1-3\beta_W)n_k$, and $n_ka_k\le\ell$. So the hypothesis of
+Theorem~\textup{\ref{thm:transfer}} holds along the constant tuning, from
+some $k$ on, with every $\alpha\in(0,1)$, while every limit of
+Theorem~\textup{\ref{thm:flowlimit}} is trivial.
+\end{proposition}
+
+\begin{proof}
+(i) By Theorem~\ref{thm:onescale} the gap of $\mathbb T_k$ on
+$\Omega_k^\perp$ is at least $\log(1/\alpha_k)/(2n_k)\ge a_k\log(1/\alpha_k)
+/(2\ell)$, and $\rho_k(u,\sigma)\le e^{-m_k\sigma/a_k}$ as in the proof of
+Theorem~\ref{thm:strongratio}. The bound on $m_*$ is the case $\alpha_k=
+\alpha$, since then $\alpha^{\sigma/(2\ell)}=e^{-m_*\sigma}$.
+
+(ii) Proposition~\ref{prop:cubesmall} gives $D(n,\alpha)$ for every
+$\alpha\ge\hat\alpha_n$, and $\hat\alpha_n\le5\beta_W/((1-3\beta_W)n)$.
+Triviality is Theorem~\ref{thm:strongratio}.
+\end{proof}
+
+Part (i) shows that (D) is itself a triviality statement when its constant
+improves along the tuning: if $\alpha_k\to0$ with $n_ka_k\le\ell$, every limit
+is trivial. Along the constant tuning of part (ii) with $\beta_W>0$ this gives
+$\rho_k(u,\sigma)\le(5\beta_W/((1-3\beta_W)n_k))^{\sigma/(2\ell)}$, a power of
+$a_k$, from the cube estimate alone. Part (ii) shows that no argument that
+uses (D) only through the hypothesis of Theorem~\ref{thm:transfer}, or through
+Theorem~\ref{thm:onescale}, can give $(\mathrm N_u)$: that hypothesis is
+satisfied by Wilson measures whose continuum limits are trivial. Statement
+(D) of Sec.~\ref{sec:inputs} adds that $\beta\to\infty$ along the tuning, and an
+implication that uses this and the weak-coupling structure besides (D) is not
+excluded; it would use information that (D) does not contain.
+
+\emph{Trial states.} The input is equivalent to the existence of states of
+bounded physical energy with a fixed overlap with the packet.
+
+\begin{lemma}\label{lem:trial}
+Let $\mathbb T$ be self-adjoint with $0\le\mathbb T\le1$, let $a>0$ and let
+$\Psi$ be a unit vector.
+
+\textup{(a)} Let $\chi$ be a unit vector with $\ip\chi{(1-\mathbb T)\chi}\le
+\kappa a$ and $|\ip\chi\Psi|\ge v>0$. Then for $\sigma\ge2a$,
+\[
+\ip\Psi{\mathbb T^{\sigma/a}\Psi}\ge\Bigl(v-\sqrt{\kappa\sigma/2}\Bigr)_+^2 ,
+\]
+and if $a\Lambda\le1$ with $\Lambda=8\kappa/v^2$, the spectral projection
+$P=\mathbf1_{[e^{-a\Lambda},1]}(\mathbb T)$ has $\|P\Psi\|\ge v/2$.
+
+\textup{(b)} Conversely, if $\ip\Psi{\mathbb T^{\sigma/a}\Psi}\ge c>0$ with
+$\sigma/a\in\Z_{>0}$, put $\Lambda=\sigma^{-1}\log(2/c)$ and
+$P=\mathbf1_{[e^{-a\Lambda},1]}(\mathbb T)$. Then $\chi=P\Psi/\|P\Psi\|$ is a
+unit vector with $\ip\chi{(1-\mathbb T)\chi}\le a\Lambda$ and
+$\ip\chi\Psi=\|P\Psi\|\ge(c/2)^{1/2}$. If $\mathbb T\Omega=\Omega$ and
+$\Psi\perp\Omega$, then $\chi\perp\Omega$.
+\end{lemma}
+
+\begin{proof}
+(a) Let $m=\sigma/(2a)\ge1$ and let $\nu_\chi$ be the spectral measure at
+$\chi$. For $\lambda\in[0,1]$, $0\le1-\lambda^m\le m(1-\lambda)$ by
+Bernoulli's inequality, so
+\[
+\|(1-\mathbb T^m)\chi\|^2=\int(1-\lambda^m)^2d\nu_\chi\le
+m\int(1-\lambda)\,d\nu_\chi\le\frac{\kappa\sigma}2 .
+\]
+Hence $\|\mathbb T^m\Psi\|\ge|\ip{\mathbb T^m\chi}\Psi|\ge|\ip\chi\Psi|-
+\|(1-\mathbb T^m)\chi\|\ge v-\sqrt{\kappa\sigma/2}$, and
+$\ip\Psi{\mathbb T^{\sigma/a}\Psi}=\|\mathbb T^m\Psi\|^2$. For the projection,
+$1-\lambda>1-e^{-a\Lambda}\ge a\Lambda/(1+a\Lambda)\ge a\Lambda/2$ off
+$[e^{-a\Lambda},1]$, so $\|(1-P)\chi\|^2\le2\kappa/\Lambda=v^2/4$, and
+$\|P\Psi\|\ge|\ip\chi{P\Psi}|\ge|\ip\chi\Psi|-\|(1-P)\chi\|\ge v/2$.
+
+(b) With $\nu$ the spectral measure at $\Psi$,
+$c\le\int\lambda^{\sigma/a}d\nu\le\|P\Psi\|^2+e^{-\sigma\Lambda}=\|P\Psi\|^2+
+c/2$. On the range of $P$, $1-\mathbb T\le1-e^{-a\Lambda}\le a\Lambda$. Since
+$P\Omega=\Omega$, $\ip\Omega{P\Psi}=\ip\Omega\Psi=0$.
+\end{proof}
+
+\begin{corollary}\label{cor:trial}
+$(\mathrm N_u)$ holds if and only if there are $\kappa,v>0$ and unit vectors
+$\chi_k$ in the reconstructed spaces of the $\omega_k$ such that, for all
+large $k$,
+\[
+\ip{\chi_k}{(1-\mathbb T_k)\chi_k}\le\kappa a_k,\qquad
+|\ip{\chi_k}{\Psi_{k,u}}|\ge v .
+\]
+Then $\rho_k(u,\sigma)\ge(v-\sqrt{\kappa\sigma/2})_+^2$ for $\sigma\ge2a_k$,
+and the $\chi_k$ may be taken of the form $\Psi_{X_k}/\|\Psi_{X_k}\|$ for
+gauge-invariant local functions $X_k$ at positive times, at the cost of
+replacing $(\kappa,v)$ by $(2\kappa,v/2)$. If moreover $D(n_k,\alpha)$ holds
+with $n_ka_k\le\ell$, then $m_*=\log(1/\alpha)/(2\ell)\le8\kappa/v^2$.
+\end{corollary}
+
+\begin{proof}
+Sufficiency is Lemma~\ref{lem:trial}(a) with $\Psi=\Psi_{k,u}$, $a=a_k$, and
+Proposition~\ref{prop:ratioexact}(ii) extends the bound from small $\sigma$ to
+every $\sigma$. Necessity is Lemma~\ref{lem:trial}(b) with
+$\kappa=\sigma^{-1}\log(2/c)$ and $v=(c/2)^{1/2}$. The vectors $\Psi_X$ with
+$X$ local are dense (Appendix~\ref{app:transfer}), and both conditions are
+continuous in $\chi_k$ for fixed $k$, $1-\mathbb T_k$ being bounded. Under
+$D(n_k,\alpha)$, Theorem~\ref{thm:onescale} puts the spectral measure of
+$\Psi_{k,u}\perp\Omega_k$ in $[0,e^{-a_km_*}]$; if $m_*>8\kappa/v^2$, the
+projection of Lemma~\ref{lem:trial}(a) annihilates $\Psi_{k,u}$ for large $k$,
+which is impossible.
+\end{proof}
+
+For $\chi_k=\Psi_{X_k}/\|\Psi_{X_k}\|$ the two conditions are statements about
+lattice correlations:
+\[
+\begin{split}
+&\omega_k\bigl(\vartheta(\bar X_k)X_k\bigr)-\omega_k\bigl(\vartheta(\bar
+X_k)\tau_1X_k\bigr)\le\kappa a_k\,\omega_k\bigl(\vartheta(\bar X_k)X_k\bigr),\\
+&\bigl|\omega_k\bigl(\vartheta(\bar X_k)\tau_{u/a_k}A_k\bigr)\bigr|^2\ge v^2\,
+\omega_k\bigl(\vartheta(\bar X_k)X_k\bigr)\,C_k(2u).
+\end{split}
+\]
+The first is an upper bound on a one-slab Dirichlet form, which is the
+direction of variational and perturbative estimates and the opposite of a
+mass gap; the second is a lower bound on one correlation. The choice
+$\chi_k=\Psi_{k,u}$ is Proposition~\ref{prop:flowshift}(ii), and the order-two
+tree and saturation bounds give it by Proposition~\ref{prop:treeenergy}(iii);
+the corollary shows that the trial vector need not be the packet itself.
+
+\emph{A soft component of the slice field.} For product packets the trial
+vector can be built from a part of the slice field of
+Proposition~\ref{prop:sliceratio}, and the conditions become one first-step
+bound for that part and one bound for the rest at the earliest time of the
+packet. Let $f_0=g\otimes h$ with $g\ge0$ supported in $[t_0,t_1]$, and let
+$u_k$, $n_0$, $n_1$ be as in Proposition~\ref{prop:sliceratio}.
+
+\begin{theorem}\label{thm:softhard}
+Suppose that for all large $k$ there is a decomposition
+$u_k=u^{\mathrm s}_k+u^{\mathrm h}_k$ with $\mathbb T_k^{n_0}u^{\mathrm s}_k\ne0$
+and, for constants $\kappa>0$ and $\theta\in[0,1)$ with $\kappa a_k\le\frac12$,
+\begin{enumerate}[label=\textup{(S\arabic*)},leftmargin=*]
+\item $\ip{u^{\mathrm s}_k}{(1-\mathbb T_k)u^{\mathrm s}_k}\le\kappa a_k
+\|u^{\mathrm s}_k\|^2$;
+\item $\|\mathbb T_k^{n_0}u^{\mathrm h}_k\|\le\theta e^{-2\kappa(t_1-t_0)}
+\|\mathbb T_k^{n_0}u^{\mathrm s}_k\|$.
+\end{enumerate}
+Then the hypothesis of Corollary~\textup{\ref{cor:trial}} holds for $u=0$
+with $\kappa e^{4\kappa(t_1-t_0)}$ in place of $\kappa$ and
+$v=(1-\theta)/(1+\theta)$; in particular $(\mathrm N_0)$ holds and
+\[
+\frac{C_k(\sigma)}{C_k(0)}\ge\Bigl(\frac{1-\theta}{1+\theta}-
+\sqrt{\tfrac12\kappa\sigma e^{4\kappa(t_1-t_0)}}\Bigr)_+^2
+\]
+for $\sigma\ge2a_k$.
+\end{theorem}
+
+\begin{proof}
+By the proof of Proposition~\ref{prop:sliceratio},
+$\Psi_{A_k}=W(\mathbb T_k)u_k$ with $W(\lambda)=\sum_nw_n\lambda^n$, $w_n\ge0$,
+$w_n=0$ unless $n_0\le n\le n_1$, and $\|w\|_1\lambda^{n_1}\le W(\lambda)\le
+\|w\|_1\lambda^{n_0}$ on $[0,1]$, with $\|w\|_1>0$ because $C_k(0)>0$. Write
+$\nu$ for the spectral measure at $u^{\mathrm s}_k$ and
+$y=\mathbb T_k^{n_0}u^{\mathrm s}_k$. For a probability measure, a
+nondecreasing and a nonincreasing function have $\int fg\le\int f\int g$,
+because $\iint(f(x)-f(x'))(g(x)-g(x'))\le0$; with $f=\lambda^{2n_0}$,
+$g=1-\lambda$ and (S1),
+\[
+\int\lambda^{2n_0}(1-\lambda)\,d\nu\le\kappa a_k\|y\|^2 .
+\]
+So $y$ satisfies (S1) as well, and Jensen's inequality for $\lambda^{2j}$,
+$j=n_1-n_0$, gives $\|\mathbb T_k^jy\|^2\ge\|y\|^2(1-\kappa a_k)^{2j}\ge
+\|y\|^2e^{-4\kappa(t_1-t_0)}$, since $\log(1-x)\ge-2x$ on $[0,\frac12]$ and
+$a_kj\le t_1-t_0$. Hence
+\[
+\|W(\mathbb T_k)u^{\mathrm s}_k\|\ge\|w\|_1\|\mathbb T_k^{n_1}u^{\mathrm s}_k\|
+\ge\|w\|_1e^{-2\kappa(t_1-t_0)}\|y\| ,
+\]
+while $\|W(\mathbb T_k)u^{\mathrm h}_k\|\le\|w\|_1\|\mathbb T_k^{n_0}
+u^{\mathrm h}_k\|\le\theta\|W(\mathbb T_k)u^{\mathrm s}_k\|$ by (S2). Let
+$\chi_k=W(\mathbb T_k)u^{\mathrm s}_k/\|W(\mathbb T_k)u^{\mathrm s}_k\|$. Its
+energy is
+\[
+\frac{\int W^2(1-\lambda)\,d\nu}{\int W^2d\nu}\le
+\frac{\|w\|_1^2\kappa a_k\|y\|^2}{\|w\|_1^2e^{-4\kappa(t_1-t_0)}\|y\|^2}
+=\kappa a_ke^{4\kappa(t_1-t_0)} ,
+\]
+and with $r=\|W(\mathbb T_k)u^{\mathrm h}_k\|/\|W(\mathbb T_k)u^{\mathrm s}_k\|
+\le\theta$ its overlap with $\Psi_k=\Psi_{A_k}/\|\Psi_{A_k}\|$ is at least
+$(1-r)/(1+r)\ge(1-\theta)/(1+\theta)$. Corollary~\ref{cor:trial} gives the
+rest.
+\end{proof}
+
+Condition (S1) asks for a soft component of the slice field whose first-step
+energy is bounded in physical units. Remark~\ref{rem:compositeslice} shows why
+the whole slice field is not a candidate: at next order its first-step energy
+grows like $\log(\sqrt\tau/a_k)$, through a hard component of norm of order
+$g^2$. Condition (S2) asks that this hard component, propagated to the
+earliest time $t_0$ of the packet, be a fixed fraction of the soft part.
+For the free field of Remark~\ref{rem:freeslice}, (S1) holds with
+$u^{\mathrm h}_k=0$: since $(1-e^{-a_k\omega})/a_k\le\omega\le
+a_k^{-1}\sinh(a_k\omega)$, the first-step energy
+$\ip{u_k}{(1-\mathbb T_k)u_k}/(a_k\|u_k\|^2)$ has a numerator whose
+integrand is at most a multiple of $e^{-8t_f|p|^2/\pi^2}$, and a denominator $D_k(0)$ with a positive limit, as
+in that remark. For the unflowed magnetic energy the whole slice field
+violates (S1) by a factor of order $1/a_k$, and the decomposition has to
+separate its hard modes. Both conditions concern energies of order $1/a_k$ at
+physical times below $t_0$; they are ultraviolet statements, the subject of a
+renormalisation group analysis between the scales $a_k$ and
+$t_0$~\cite{Bal84a,Bal85a,Bal89b}, and they are not proved here. By
+Corollary~\ref{cor:trial} the trial-state condition is the least hypothesis
+that gives $(\mathrm N_u)$, since it is also necessary; by
+Proposition~\ref{prop:cubecompatible}(ii) it is not a consequence of the cube
+estimate in the form used by Theorem~\ref{thm:transfer}; and (S1)--(S2) are
+its form for the slice field.
+
+\begin{remark}\label{rem:independence}
+There is no circularity between $(\mathrm N_u)$ and (D). The proofs of
+Proposition~\ref{prop:ratioexact}, Lemma~\ref{lem:trial},
+Corollary~\ref{cor:trial} and Theorem~\ref{thm:softhard} use reflection
+positivity, the transfer matrix and the spectral theorem only, and
+Theorem~\ref{thm:flowlimit}(i)--(iv), including the renormalisation
+$Z_k=C_k(0)^{-1/2}$, does not use (D). Conversely, Theorems~\ref{thm:onescale}
+and~\ref{thm:transfer} use no lower bound on any correlation. The two
+statements are opposite inequalities on the same spectral measures: (D)
+bounds $\rho_k$ from above by $e^{-m_*\sigma}$, $(\mathrm N_u)$ from below.
+Their joint validity requires only the compatibility relations
+$\alpha\ge c^{2\ell/\sigma}$, $m_*\le\sigma^{-1}\log(1/c)$ and
+$m_*\le8\kappa/v^2$ of Proposition~\ref{prop:cubecompatible} and
+Corollary~\ref{cor:trial}, all of them statements in physical units. Neither
+implies the other. Strong-coupling Wilson measures satisfy the hypothesis of
+Theorem~\ref{thm:transfer} and violate $(\mathrm N_u)$
+(Proposition~\ref{prop:cubecompatible}(ii)). In the free abelian theory the
+quadratic approximation of the forest gauge violates (D) at every size and
+stiffness (Proposition~\ref{prop:gaussforest}), while the zero-momentum packet
+of the magnetic energy has slice ratios with positive limits
+(Remark~\ref{rem:compositeslice}) and so satisfies $(\mathrm N_0)$ by
+Proposition~\ref{prop:sliceratio}(iii); (D) depends on the gauge and
+$(\mathrm N_u)$ does not. Theorem~\ref{thm:higher}(iv) derives $(\mathrm N_0)$
+from the order-two cases of (T1) and (T2), and
+Proposition~\ref{prop:treecritical} shows that those cases fail wherever the
+lattice gap is bounded below, in particular in the strong-coupling range,
+where the hypothesis of Theorem~\ref{thm:transfer} holds.
+\end{remark}
+
 \subsection{Estimates uniform in the coupling}\label{ssec:uniform}
 
 Some local quantities of the Wilson measure can be controlled uniformly in
@@ -14230,13 +14653,250 @@ Corollary~\ref{cor:twoislands}, and the observables of one island change
 by a factor in $[e^{-\varDelta_*},e^{\varDelta_*}]$ under a flip of the
 other. The prefactor $\Lambda_2$ is bounded by Lemma~\ref{lem:lambdatwo},
 whose proof uses only the plaquettes at one collar and applies to each
-island $I_u$ when $r\le8\cdot10^{-5}$. Two things are not done. The Dobrushin condition of the second form
+island $I_u$ when $r\le8\cdot10^{-5}$. Two things remain. The Dobrushin condition of the second form
 and the smallness of $S_u$ or $T_u$ are conditions on the configuration of
 the islands, which Proposition~\ref{prop:islandmass} controls only in the
 mean. And the covariance of the two labels with the other labels averaged
 out differs from the conditional covariance by the covariance of the
 conditional probabilities of the two labels given the others, which is the
 term of Proposition~\ref{prop:hiddenbit} and is not bounded here.
+
+The first of them, the smallness of the island sums together with the
+Dobrushin condition, holds in every window of bounded size
+outside an event whose probability is at most the size of the window times
+the product of two rarities: that of one bad block and that of a second bad
+block or island. Two facts give this. The bound of
+Proposition~\ref{prop:islandmass}(i) charges an island of $n$ blocks the
+factor $A^{n/H}$, while Lemma~\ref{lem:coverage} gives $A^{\lceil n/H
+\rceil}$, which is $A$ for $n\le H$; with the ceiling, the mean mass of the
+island of a block is at most $G_0<2H2^{-H}N_s^{-2}$ below,
+instead of $2N_s^{-2}$. And two bad
+blocks at distance at least six have disjoint witness boxes, so that two
+islands near each other cost the product of two rarities. For two islands
+$I_u\ne I_v$ of the torus, formed with the joining distance $2s+8$, put
+\begin{gather*}
+\bar n_u=45\,\bigl\lvert\{y:\dist(y,I_u)\le s+3\}\bigr\rvert,\\
+\bar\Lambda_2=99.0001\,\beta_W+4.65\cdot10^6,\\
+\bar\varDelta_{uv}=\frac{1920}{\beta_W}\bar\Lambda_2^2r^2\sqrt{\bar n_u
+\bar n_v}\,e^{-2\alpha_G(w_{uv}-2s-8)},
+\end{gather*}
+and, for $0\le\vartheta<1$, $\bar T_u=\sum_v\bar\varDelta_{uv}e^{2\vartheta
+\alpha_G(w_{uv}-2s-8)}$, the sum over all islands $I_v\ne I_u$ of the
+torus. These are functions of the labels alone. In the setting of
+Theorem~\ref{thm:manyislands}, when the sets $I_u$ are islands,
+$n_u\le\bar n_u$, Lemma~\ref{lem:lambdatwo}, applied to each island as
+above, gives $\Lambda_2\le\bar\Lambda_2$, and $\ell(u,v)\le w_{uv}-2s-8$;
+hence $\varDelta_{uv}\le\bar\varDelta_{uv}$, and $S_u\le\bar T_u$ and
+$T_u\le\bar T_u$ for the $T_u$ of Corollary~\ref{cor:islandchains} with
+the same $\vartheta$. Write $W^{+t}$ for the set of blocks at distance at
+most $t$ from a set $W$ of blocks.
+
+\begin{theorem}[the island sums in a window]\label{thm:islandwindow}
+Let $G=\SU(2)$, $s\ge1$, $2758\rho\le6.0\cdot10^{-13}$, $r=43\rho$,
+$\eta=92\rho$, form the islands of the torus with the joining distance
+$2s+8$, and let $N_s=(4s+17)^4-1$. Let $\beta^*$ be the largest solution
+of the equation of Theorem~\ref{thm:islandthreshold} with $N_s$ in place of
+$\varDelta$, $\log q^*=-H(\log2+2\log N_s)-\log(eMH)$ its right side, $C_0$ that of
+Lemma~\ref{lem:wilsonZ},
+$\beta_W\ge\beta^*$, and
+\[
+G_0=\frac{H\,2^{-H}}{(N_s^2-1)(1-2^{-H})^2}.
+\]
+\begin{enumerate}[label=\textup{(\roman*)},leftmargin=*]
+\item For every block $y$, $\E_{\mu_L}\lvert I(y)\rvert\le G_0$, and
+Proposition~\ref{prop:islandmass}(ii) holds at $\varGamma=1$ with
+$2\varGamma(2\varGamma-1)^{-2}N_s^{-2}$ replaced by $G_0$.
+\item Let $0\le\vartheta<1$, $\kappa=2(1-\vartheta)\alpha_G$, let $R\ge
+2s+13$ be an integer, $\sigma>0$, $W$ a set of blocks,
+\begin{gather*}
+c_2=\frac{1920}{\beta^*}\bar\Lambda_2(\beta^*)^2r^2\cdot45(2s+12)^2
+(2s+7)^2e^{\kappa(2s+14)},\\
+\tau=\min\bigl\{\sigma(\kappa),\,e^{-\kappa R/2}\sigma(\kappa/2)\bigr\},
+\end{gather*}
+with $\bar\Lambda_2(\beta^*)$ the value of $\bar\Lambda_2$ at $\beta_W=
+\beta^*$ and $\sigma(\cdot)$ as in Proposition~\ref{prop:islandmass}.
+Outside an event of $\mu_L$-probability at most
+\[
+\epsilon=\lvert W\rvert\,Mq^*\Bigl(11^4(2R+1)^4Mq^*+\frac{c_2G_0\tau}
+\sigma\Bigr),
+\]
+every island $I_u$ meeting $W$ has $\ell^\infty$ diameter at most $5$,
+hence at most $6^4$ blocks, lies at distance more than $R$ from every other
+island, and satisfies $\bar T_u\le\sigma$.
+\item Outside the same event, in the setting of
+Theorem~\ref{thm:manyislands} with $I_a$, $I_b$ and every $I_q$ islands
+meeting $W$: $S_a,S_b\le\sigma$ and $\varDelta_*\le\varDelta_{ab}+\frac14
+\sigma^2\le\sigma+\frac14\sigma^2$; if $\sigma<4$, the weighted Dobrushin
+condition of Corollary~\ref{cor:islandchains} holds with $\theta\le\sigma/4$,
+and
+\[
+\varDelta_*\le\varDelta_{ab}+\frac{e^{-2\vartheta\alpha_G\ell(a,b)}\sigma^2}
+{4-\sigma}\le\sigma+\frac{\sigma^2}{4-\sigma}.
+\]
+\end{enumerate}
+At $\rho=2.17\cdot10^{-16}$ and $s=1$: $\beta^*=1.12206\cdot10^{37}$,
+$\lvert\log q^*\rvert=32481.67$, $Mq^*\le10^{-14102.4}$, the bound $A$ of
+Theorem~\ref{thm:islandthreshold}(i) is at most $10^{-14098.8}$,
+$G_0\le10^{-397.6}$, and the bound of (i) for
+Proposition~\ref{prop:islandmass}(ii) at $\kappa=2\alpha_G$ is
+$G_0\sigma(2\alpha_G)\lvert J\rvert\le10^{-381.8}\lvert J\rvert$, in place of
+$3.249\cdot10^5\lvert J\rvert$. For $\vartheta=0$, $c_2\le10^{22.13}$; with
+$R=15$, $\epsilon\le\lvert W\rvert(10^{-28194}+10^{-14462}/\sigma)$, and
+with $R=2\cdot10^8$, $\epsilon\le10^{-28166}\lvert W\rvert$ for every
+$\sigma\in[10^{-1000},4)$; for $\vartheta=\frac12$ and $R=4\cdot10^8$,
+$\epsilon\le10^{-28165}\lvert W\rvert$ on the same range. At $s=5$:
+$\beta^*=1.32163\cdot10^{37}$, $Mq^*\le10^{-16652.7}$, $G_0\le
+10^{-399.5}$, and with $\vartheta=0$, $R=2\cdot10^8$,
+$\epsilon\le10^{-33267}\lvert W\rvert$ for $\sigma\in[10^{-1000},4)$. The
+larger values $1.13\cdot10^{37}$ and $1.33\cdot10^{37}$ used in
+Corollary~\ref{cor:twoislands} are therefore admissible.
+\end{theorem}
+
+\begin{proof}
+Write $p=q_\rho(\beta_W)$ and $B$ for the set of bad blocks, and let $Q_y$
+be the set of unit cubes with corner at $\ell^\infty$ distance at most five
+from $2y$. By the witness paragraph of the proof of
+Theorem~\ref{thm:islandthreshold}, which applies since $\rho\le10^{-8}$, a
+bad block $y$ has a cube of $Q_y$ on which the event of
+Theorem~\ref{thm:defects} holds; $\lvert Q_y\rvert\le M$, and a cube lies
+in at most $H$ of the sets $Q_y$. For a set $S$ of blocks put
+$Q_S=\bigcup_{y\in S}Q_y$.
+
+\emph{Step 1: separated sets.} Let $S_1,\dots,S_m$ be nonempty sets of
+blocks with $\dist(S_i,S_j)\ge6$ for $i\ne j$, and $k_i=\lceil\lvert S_i
+\rvert/H\rceil$. Then
+\[
+\mu_L\Bigl(\,\bigcup_iS_i\subset B\Bigr)\le\prod_i\binom{M\lvert S_i\rvert}
+{k_i}p^{k_i}\le\prod_iA^{k_i},
+\]
+and the factor of a set of one block is $Mp$. Two blocks at distance at
+least six have a coordinate in which the corners $2y$ differ by at least
+twelve modulo the side of the torus, while a cube of $Q_y\cap Q_{y'}$ would
+put $2y$ and $2y'$ within ten of each other in every coordinate; so the sets
+$Q_{S_i}$ are pairwise disjoint. On the event, $Q_{S_i}$ contains at least $k_i$ distinct bad
+cubes, since one cube witnesses at most $H$ blocks; choosing $k_i$ of them
+in each $Q_{S_i}$ gives $\sum_ik_i$ distinct bad cubes, and the union bound
+over the choices with Theorem~\ref{thm:defects} gives the first
+inequality. The second is that of Lemma~\ref{lem:coverage}.
+
+\emph{Step 2: the mass of an island.} Let $x=N_s^2A^{1/H}$, which is at
+most $\frac12$ by Theorem~\ref{thm:islandthreshold}(i). There are at most
+$N_s^{2(n-1)}$ connected sets of $n$ blocks containing a block $y$ in the
+graph of the joining distance, and for $(k-1)H<n\le kH$,
+$N_s^{2(n-1)}A^k=x^{kH}N_s^{-2(kH+1-n)}$. Hence
+\begin{equation}\label{eq:islandmassG}
+\begin{split}
+\sum_{C\ni y}\lvert C\rvert A^{\lceil\lvert C\rvert/H\rceil}&\le
+\sum_{k\ge1}kH\,x^{kH}\sum_{j\ge1}N_s^{-2j}\\
+&=\frac{Hx^H}{(N_s^2-1)(1-x^H)^2}\le G_0 ,
+\end{split}
+\end{equation}
+the sum over connected sets $C$ containing $y$, the last inequality since
+$t/(1-t)^2$ increases on $[0,1)$. Since $\mu_L\{I(y)=C\}\le\mu_L\{C\subset
+B\}\le A^{\lceil\lvert C\rvert/H\rceil}$ by Lemma~\ref{lem:coverage},
+$\E\lvert I(y)\rvert\le G_0$. The proof of
+Proposition~\ref{prop:islandmass}(ii) uses only this mean, which gives (i).
+
+\emph{Step 3: no near pair.} Let $\mathcal G$ be the event that no two
+bad blocks $y\in W^{+5}$ and $y'$ satisfy $6\le\dist(y,y')\le R$. On
+$\mathcal G$ let $I_u$ be an island meeting $W$ at $y_0$. Every block of
+$I_u$ is within distance $5$ of $y_0$: otherwise a path $y_0=z_0,z_1,\dots$
+in $I_u$ with steps at most $2s+8$ has a first block $z_k$ at distance more
+than $5$ from $y_0$, and $6\le\dist(y_0,z_k)\le5+2s+8\le R$. So
+$I_u\subset W^{+5}$, two blocks of $I_u$ are at distance at most $10<R$,
+hence at most $5$, and $I_u$ lies in a box of side $6$. If another island
+$I_q$ had $\dist(I_u,I_q)\le R$, a pair realising this distance would
+consist of a bad block of $W^{+5}$ and a bad block at distance between
+$2s+9\ge6$ and $R$. This proves the first two assertions of (ii) on
+$\mathcal G$.
+
+\emph{Step 4: the island sums on $\mathcal G$.} For $y\in B$ put
+\[
+F(y)=\sum_{y'}\lvert I(y')\rvert e^{-\kappa\dist(y,y')},
+\]
+the sum over $y'\in B\setminus I(y)$ with $\dist(y,y')>R$, and let
+$c_2(\beta_W)$ be $c_2$ with $\beta_W$ in place of $\beta^*$. On
+$\mathcal G$, let $I_u$ meet $W$ at $y$. For an island $I_q\ne I_u$ let
+$y_q\in I_q$ realise $\dist(I_u,I_q)$; then $\dist(y,y_q)\le\dist(I_u,I_q)
++5$, $\dist(y,y_q)>R$ by Step 3, and $w_{uq}-2s-8=\dist(I_u,I_q)-2s-9\ge
+\dist(y,y_q)-2s-14$. The box of side $2s+12$ around $I_u$ contains every
+block at distance at most $s+3$ from it, so $\bar n_u\le45(2s+12)^4$, and
+$\bar n_q\le45(2s+7)^4\lvert I_q\rvert$ as in the proof of
+Proposition~\ref{prop:islandmass}(iii). With $\sqrt{\lvert I_q\rvert}\le
+\lvert I_q\rvert$ and distinct islands giving distinct $y_q$,
+\[
+\bar T_u=\frac{1920}{\beta_W}\bar\Lambda_2^2r^2\sqrt{\bar n_u}\sum_q
+\sqrt{\bar n_q}\,e^{-\kappa(w_{uq}-2s-8)}\le c_2(\beta_W)F(y).
+\]
+\emph{Step 5: probabilities.} By Step 1 with two single blocks, at most
+$11^4\lvert W\rvert$ blocks of $W^{+5}$ and at most $(2R+1)^4$ blocks
+within distance $R$ of each,
+\[
+\mu_L(\mathcal G^c)\le11^4(2R+1)^4\lvert W\rvert(Mp)^2 .
+\]
+For $y\in W$, $\E[\mathbf 1_{y\in B}F(y)]$ is a sum over $y'$ with
+$\dist(y,y')>R$ of $e^{-\kappa\dist(y,y')}$ times a sum over the connected
+sets $C'\ni y'$ with $y\notin C'$ of $\lvert C'\rvert\mu_L\{y\in B,\,I(y')=C'\}$.
+On that event $y$ and $C'$ lie in different islands, so $\dist(y,C')\ge
+2s+9\ge6$, and Step 1 with $S_1=\{y\}$, $S_2=C'$ bounds the probability by
+$Mp\,A^{\lceil\lvert C'\rvert/H\rceil}$; by~\eqref{eq:islandmassG} the sum
+over $C'$ is at most $Mp\,G_0$. The sum over $y'$ is at most $\sum_z
+e^{-\kappa\lVert z\rVert_\infty}$ over $z\in\Z^4$ with $\lVert z
+\rVert_\infty>R$, by the preimages of the proof of
+Proposition~\ref{prop:islandmass}(ii), which is at most $\sigma(\kappa)$
+and, by $e^{-\kappa\lVert z\rVert_\infty}\le e^{-\kappa R/2}e^{-\kappa
+\lVert z\rVert_\infty/2}$ there, at most $e^{-\kappa R/2}\sigma(\kappa/2)$.
+So $\E[\mathbf 1_{y\in B}F(y)]\le Mp\,G_0\tau$, and by Step 4, Markov's
+inequality and a union bound over $W$,
+\begin{multline*}
+\mu_L\bigl(\mathcal G\cap\{\bar T_u>\sigma\text{ for some }I_u\text{
+meeting }W\}\bigr)\\
+\le\frac{c_2(\beta_W)}\sigma\,\lvert W\rvert\,Mp\,G_0\tau .
+\end{multline*}
+\emph{Step 6: the coupling.} By Theorem~\ref{thm:defects}, $p\le e^{f(
+\beta_W)}$ with $f$ of Theorem~\ref{thm:islandthreshold}, which decreases
+on $[96/\rho^2,\infty)$, so $p\le e^{f(\beta^*)}=q^*$. Since
+$\bar\Lambda_2\ge99.0001\,\beta_W$, the logarithmic derivative of
+$c_2(\beta)e^{f(\beta)}$ is at most $2/\beta-1/\beta+6/\beta-\rho^2/16$,
+which is negative for $\beta\ge\beta^*$ because $\beta^*\rho^2/16=
+\lvert\log q^*\rvert+6(\log\beta^*+C_0)>7$. Hence $c_2(\beta_W)p\le
+c_2q^*$, and Step 5 gives the bound $\epsilon$ on the complement of the
+event of (ii).
+
+\emph{Step 7: the consequences.} Outside that event, $\varDelta_{ab}\le
+\bar\varDelta_{ab}\le\bar T_a\le\sigma$, since $\bar\varDelta_{ab}$ is a term
+of $\bar T_a$ with a factor at least one, and $S_a,S_b\le\sigma$, which
+gives the first form of $\varDelta_*$ in Theorem~\ref{thm:manyislands}. By
+$\tanh t\le t$ and $\ell(q,q')\le w_{qq'}-2s-8$, the sum of
+Corollary~\ref{cor:islandchains} at $q$ is at most $\frac14\bar T_q\le
+\frac14\sigma$, so $\theta\le\sigma/4<1$, and the corollary with $T_a,T_b
+\le\sigma$ gives the last display.
+
+\emph{The numbers} are enclosed in interval arithmetic in the archive: the
+roots by $f(\beta_{\rm lo})-\log q^*>0>f(\beta_{\rm hi})-\log q^*$ to
+relative width $10^{-20}$, and every power of ten through its decimal
+logarithm, with $c_2$ evaluated at $\beta_{\rm hi}$.
+\end{proof}
+
+The bound is a union bound over the window and is linear in $\lvert W
+\rvert$; for $\lvert W\rvert\le10^{28000}$ it is at most $10^{-166}$. Its
+content lies in the windows where Theorem~\ref{thm:islandthreshold} does not
+exclude islands: the probability that $W$ contains a bad block at all is at
+most $\lvert W\rvert A\le10^{-14098.8}\lvert W\rvert$, so for $10^{14099}\le
+\lvert W\rvert\le10^{28000}$ that theorem does not exclude bad blocks in
+$W$, and
+Theorem~\ref{thm:islandwindow} shows that, outside probability $10^{-166}$,
+every island they form is a cluster of diameter at most $5$, at distance
+more than $2\cdot10^8$ from every other island, and meets the conditions
+of Theorem~\ref{thm:manyislands} and Corollary~\ref{cor:islandchains} with
+$\sigma=10^{-1000}$. No coupling beyond the threshold $\beta^*$ of the joining distance $2s+8$
+and no factor $\varGamma>1$ is needed: the
+weighted volume $\sigma(2\alpha_G)=6.1\cdot10^{15}$ of the decay length is
+beaten by $G_0\le10^{-397.6}$. The bound is void for windows of more
+than $10^{28167}$ blocks, and it is a statement about the labels
+under $\mu_L$, not about the law of the labels near $I_u$ given that $I_u$
+is an island; the covariance of the conditional probabilities of two labels
+with the others averaged, the second open point above, is not touched.
 
 \begin{figure*}[t]
 \centering
@@ -14283,10 +14943,12 @@ bounds the cross-ratio by $\varDelta$, exponentially small in the width.
 Lemma~\ref{lem:lambdatwo} evaluates the prefactor, $\Lambda_2\le99.0001
 \beta_W+4.65\cdot10^6$, so that $\varDelta\le1$ at the threshold needs a good
 layer of width at least $99072$. Theorem~\ref{thm:manyislands} performs the induction over all the
-islands of a window given their labels. What is not done is the
-smallness of its island sums, which Proposition~\ref{prop:islandmass}
-controls only in the mean, and the covariance of the conditional
-probabilities of two labels when the others are averaged.
+islands of a window given their labels. Theorem~\ref{thm:islandwindow} gives the smallness of its island sums
+and its Dobrushin condition in every window of at most $10^{28000}$
+blocks, outside probability $10^{-166}$. What is not done is the same
+statement in larger windows, which a union bound cannot give, and the
+covariance of the conditional probabilities of two labels when the others
+are averaged.
 Proposition~\ref{prop:hiddenbit} shows that no rarity bound replaces this
 comparison.
 \item \emph{The island threshold.} Theorem~\ref{thm:islandthreshold}
@@ -14313,8 +14975,9 @@ relative bounds by a gauge-invariant form: an error bounded by a multiple
 of the Euclidean form grows by a factor at least $4/(1+2724\kappa)$ at each
 step.
 \end{enumerate}
-The island sums and the averaged covariance of item (ii) are the
-single-scale part of (D) that remains open, item (i) being settled for the
+The averaged covariance of item (ii), with the island sums in windows
+of more than $10^{28000}$ blocks, is the single-scale part of (D) that
+remains open, item (i) being settled for the
 site of a pair by Theorem~\ref{thm:site} and item (ii) given the labels
 of all islands by Theorem~\ref{thm:manyislands};
 item (iii) is settled by Theorem~\ref{thm:islandthreshold} at one scale
@@ -14323,7 +14986,10 @@ item (iv) is the multiscale part. On the continuum side, Lemmas~\ref{lem:positiv
 and~\ref{lem:nonvanishing} reduce the nontriviality of the limit to a
 lower bound on one ratio of lattice two-point functions at a fixed
 physical time, uniform along the tuning, which is the open input of
-Theorem~\ref{thm:flowlimit}.
+Theorem~\ref{thm:flowlimit}; Sec.~\ref{ssec:ratiocube} states it exactly as the
+condition $(\mathrm N_u)$, shows that neither the strong-coupling range nor
+the cube estimate in the form of Theorem~\ref{thm:transfer} supplies it,
+and reduces it to the trial states of Corollary~\ref{cor:trial}.
 
 \begin{figure*}[t]
 \centering
