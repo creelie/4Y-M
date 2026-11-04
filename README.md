@@ -10,7 +10,7 @@ version in `strong-coupling/forest/cmp/main.tex`. Both build with
 [2610.00341](https://hexagonmath.org/2610.00341v6).
 
 It proves a unique state and an explicit transfer-matrix gap for lattice
-Yang–Mills theory in a forest gauge (SU(2) to β_W = 0.351, SU(3) to 0.77,
+Yang–Mills theory in a forest gauge (SU(2) to β_W = 0.348, SU(3) to 0.77,
 every compact simple group at small coupling), and that a Dobrushin–Shlosman
 estimate on one cube of fixed physical size gives a mass gap in every
 continuum limit. Towards that estimate it labels the blocks of Bałaban's

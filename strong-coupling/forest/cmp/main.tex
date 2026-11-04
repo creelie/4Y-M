@@ -84,7 +84,7 @@ averages, reflection positivity}
 \begin{abstract}
 We prove that four-dimensional lattice Yang--Mills theory with any compact
 simple gauge group has a unique infinite-volume state and an explicit
-transfer-matrix gap in a forest gauge, up to $\beta_W=0.351$ for $\SU(2)$
+transfer-matrix gap in a forest gauge, up to $\beta_W=0.348$ for $\SU(2)$
 and $\beta_W=0.77$ for $\SU(3)$, and that a Dobrushin--Shlosman estimate in
 one cube of fixed physical size gives a mass gap in every continuum limit.
 Towards that estimate we label the blocks of Ba{\l}aban's averages, prove
@@ -203,15 +203,15 @@ spheres instead of one, which we bound analytically by integrating out the
 middle link of the block.
 
 \begin{theorem}[$\SU(2)$ with plaquette blocks]\label{thm:blocks}
-Let $G=\SU(2)$ and $0\le\beta_W\le0.351$. The number $\alpha(\beta_W)$
-of~\eqref{eq:alphablock} is increasing, $\alpha(\frac13)\le0.9428$,
-$\alpha(0.345)\le0.9805$ and $\alpha(0.351)\le0.99995$. The conclusions of Theorem~\ref{thm:su2} hold
+Let $G=\SU(2)$ and $0\le\beta_W\le0.348$. The number $\alpha(\beta_W)$
+of~\eqref{eq:alphablock} is increasing, $\alpha(\frac13)\le0.9456$,
+$\alpha(0.345)\le0.9837$ and $\alpha(0.348)\le0.9936$. The conclusions of Theorem~\ref{thm:su2} hold
 with decay at every rate below $-\frac12\log\alpha(\beta_W)$ and a
 transfer-matrix gap
 \[
 m\ge-\tfrac12\log\alpha(\beta_W)>0 ;
 \]
-at $\beta_W=\frac13$ this gives $m\ge0.0294$. For $-0.351\le\beta_W<0$ all
+at $\beta_W=\frac13$ this gives $m\ge0.0279$. For $-0.348\le\beta_W<0$ all
 statements except reflection positivity and the gap hold.
 \end{theorem}
 
@@ -280,7 +280,7 @@ gives without gauge fixing, and an explicit gap.\footnote{With the computer-assi
 Theorem~\ref{thm:certificate} in place of $\frac{29}2$, every range of
 Table~\ref{tab:groups} grows by the factor $29/28.840002=1.0055$.
 Appendix~\ref{app:certificate} derives that bound from a certificate of
-T.~Romanov.} As $\beta\to0$ the gap grows like $\log\frac{\kappa_G}{6N|\beta|}$.
+T.~Romanov; no result of the paper uses it.} As $\beta\to0$ the gap grows like $\log\frac{\kappa_G}{6N|\beta|}$.
 
 \begin{table}[tb]
 \caption{Least Ricci curvature $\kappa_G=h^\vee/(2\ell_\rho)$ of the compact
@@ -387,7 +387,7 @@ Curvature, sharp~\cite{BB26a}&$<\frac18$&$<\frac9{32}$\\
 Dobrushin, sharp quarter~\cite{BB26a}&$<\frac29$&\\
 Curvature, forest gauge&$<\frac4{29}$&$<\frac9{29}$\\
 Dobrushin, forest gauge&$<\frac13$&$\le\frac34$\\
-Plaquette blocks, forest gauge&$\le0.351$&$\le0.77$\\
+Plaquette blocks, forest gauge&$\le0.348$&$\le0.77$\\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -537,7 +537,7 @@ On the fibres of the cut-off average, at a background whose plaquettes are
 at most $\kappa\le10^{-8}$, the gap $\frac1{52}$ of the averages\footnote{By the certificate of
 Proposition~\ref{prop:blockgapsharp} this gap is at least
 $\frac{537}{5000}=0.1074$, within $0.09$ per cent of the best constant on $\Z^4$, a
-floating-point value.}
+floating-point value. No result of the paper uses the certificate.}
 persists up
 to a factor $1+O(\kappa)$, and the Hessian of the action along the fibre is
 at least $\lambda(\frac1{26}-c\kappa)$, however far the links are from $I$
@@ -1138,25 +1138,79 @@ Write $g(c)=\varphi(|c|^2)$ and $r=|c|$. For $c\ne0$ the eigenvalues of
 $\Hess g(c)$ are $2\varphi'(r^2)$, three times, and $2\varphi'(r^2)+4r^2
 \varphi''(r^2)$, and the norm of $D^3g(c)$ is
 \[
-\max\Bigl(|A+\Gamma|,\tfrac23|A|\Bigr),\qquad A=12r\varphi''(r^2),\quad
+\max\Bigl(|P+\Gamma|,\tfrac23|P|\Bigr),\qquad P=12r\varphi''(r^2),\quad
 \Gamma=8r^3\varphi'''(r^2).
 \]
-On the ball $r\le2.106$ every eigenvalue of $\Hess g$ lies between
-$0.156381$ and $0.25000001$, and the norm of $D^3g$ is at most $0.0615172$; on
-the ball $r\le1.755$, $|\nabla g|\le0.391443$.
+On the ball $r\le2.088$ every eigenvalue of $\Hess g$ lies between
+$0.15435$ and $\frac14$, and the norm of $D^3g$ is at most $0.1071$; on
+the ball $r\le1.74$, $|\nabla g|\le0.38944$.
 \end{lemma}
 
 \begin{proof}
 Differentiating $\varphi(|c|^2)$ gives $D^2g(v,v)=2\varphi'|v|^2+4\varphi''
 \ip cv^2$ and $D^3g(v,v,v)=12\varphi''\ip cv|v|^2+8\varphi'''\ip cv^3$. For
-$|v|=1$ and $t=\ip{c/r}v\in[-1,1]$ the cubic form is $At+\Gamma t^3$, whose
+$|v|=1$ and $t=\ip{c/r}v\in[-1,1]$ the cubic form is $Pt+\Gamma t^3$, whose
 largest absolute value is attained at $t=\pm1$ or at an interior critical
-point, where it equals $\frac23|A||t|\le\frac23|A|$; by Banach's
+point, where it equals $\frac23|P||t|\le\frac23|P|$; by Banach's
 theorem~\cite{Ban38} the supremum of a symmetric trilinear form on the
-diagonal of the unit sphere is its norm. The numerical bounds are obtained
-in ball arithmetic~\cite{Joh17} from the series of $Z_0$, truncated after
-forty-eight terms with a proved bound on the tail, on $2\cdot10^5$ subintervals of
-$[0,2.106]$, with $|\nabla g(c)|=r\cdot2\varphi'(r^2)$; the program is described in Appendix~\ref{app:plaqblocks}.
+diagonal of the unit sphere is its norm.
+
+The numbers follow from the Bessel ratio $A=I_2/I_1$ of
+Lemma~\ref{q-lem:moments}. Since $Z_0(c)=2I_1(r)/r$, the radial derivative
+of $g$ is $A(r)$, so $2r\varphi'(r^2)=A(r)$ and $|\nabla g(c)|=A(r)$.
+Differentiating $2\varphi'(r^2)=A/r$ in $r$ gives $4r\varphi''(r^2)=
+(rA'-A)/r^2$, so the eigenvalues are $A/r$, three times, and $A'$, and
+$P=3(rA'-A)/r^2$; differentiating once more gives $4\varphi''+8r^2\varphi'''
+=A''/r-2(rA'-A)/r^3$, so $\Gamma=A''-P$ and $P+\Gamma=A''$. Write
+$\kappa=r$, $u=1+\sqrt{\kappa^2+9}$ and $v=\frac32+\sqrt{\kappa^2+25/4}$, so
+that $\kappa^2=(u-4)(u+2)=(v-4)(v+1)$. By Lemma~\ref{q-lem:moments}(ii)
+and~(iv), $\kappa/v\le A\le\kappa/u$, and $A'=1-A^2-3A/\kappa$.
+
+\emph{Eigenvalues.} By Lemma~\ref{q-lem:moments}(iii), $A'\le A/\kappa\le
+\frac14$; at $c=0$, $\Hess g=\frac14I$. The function $1-a^2-3a/\kappa$
+decreases in $a\ge0$, so $A'\ge1-\kappa^2/u^2-3/u=(8-u)/u^2$, and
+$(8-u)/u^2$ decreases in $u\in[4,8]$, hence in $\kappa$. At $\kappa=2.088$,
+$\kappa^2+9=13.359744<3.6551^2$, so $u<4.6551$ and $(8-u)/u^2>3.3449/
+21.67>0.15435$.
+
+\emph{Gradient.} $A(r)\le r/(1+\sqrt{r^2+9})$, which increases in $r$. At
+$r=1.74$, $r^2+9=12.0276>3.468^2$, so $A\le1.74/4.468<0.38944$.
+
+\emph{Third derivative.} First, $\frac23|P|=2|A-\kappa A'|/\kappa^2$ and
+$A-\kappa A'=4A-\kappa+\kappa A^2$, which increases in $A$. At $A=\kappa/v$
+it equals $\kappa(v-4)/v^2\ge0$, and at $A=\kappa/u$ it equals
+$2\kappa(u-4)/u^2$; since $u-4=\kappa^2/(\sqrt{\kappa^2+9}+3)\le\kappa^2/6$
+and $u\ge4$, $0\le\frac23|P|\le4(u-4)/(\kappa u^2)\le\kappa/24\le0.087$.
+Second, differentiating the Riccati equation gives $-A''=H(A,\kappa)$ with
+\[
+H(a,\kappa)=\Bigl(1-a^2-\frac{3a}\kappa\Bigr)\Bigl(2a+\frac3\kappa\Bigr)-
+\frac{3a}{\kappa^2},
+\]
+and $\partial_aH=-(2a+3/\kappa)^2+2(1-a^2-3a/\kappa)-3/\kappa^2\le2-12/
+\kappa^2<0$ for $a\ge0$ and $\kappa^2<6$. Hence $H(\kappa/u,\kappa)\le-A''
+\le H(\kappa/v,\kappa)$. Substituting $\kappa^2=(u-4)(u+2)$ and $\kappa^2=
+(v-4)(v+1)$,
+\begin{gather*}
+H(\kappa/u,\kappa)=\frac{(u-4)(32+6u-2u^2)}{\kappa u^3}\ge0,\\
+H(\kappa/v,\kappa)=\frac{(5v+8)(v-4)}{\kappa v^3}=\frac{\kappa(5v+8)}
+{(v+1)v^3},
+\end{gather*}
+the first because $4\le u<5.7$ for $\kappa\le2.088$, the last by
+$v-4=\kappa^2/(v+1)$. Call the last expression $G(\kappa)$. As a function
+of $v$, $\log G=\frac12\log(v-4)+\log(5v+8)-\frac12\log(v+1)-3\log
+v$, whose derivative is half of
+\[
+\Bigl(\frac1{v-4}-\frac6v\Bigr)+\Bigl(\frac{10}{5v+8}-\frac1{v+1}\Bigr).
+\]
+Both brackets decrease on $(4,6)$. At $\kappa=2.088$ one has $\kappa^2+
+\frac{25}4=10.609744$, which lies between $3.2572^2$ and $3.2573^2$, so
+$v\in[4.7572,4.7573]$ and the brackets are at least $0.059$ and $0.140$. So $G$ increases on $(0,2.088]$, and
+\begin{multline*}
+0\le-A''\le G(2.088)\le\frac{2.088\,(5\cdot4.7573+8)}{5.7572\cdot4.7572^3}\\
+\le\frac{66.371}{619.81}<0.1071 .
+\end{multline*}
+The norm of $D^3g$ is therefore at most $\max(0.1071,0.087)=0.1071$ on the
+ball $r\le2.088$.
 \end{proof}
 
 \subsection{The proof of Theorem~\ref{thm:blocks}}
@@ -1188,8 +1242,8 @@ most three and moves them by at most one, which changes only the constants.
 \end{proof}
 
 \begin{proof}[Proof of Theorem~\ref{thm:blocks}]
-Let $|\beta|\le0.351/4$ and take the constants of Lemma~\ref{lem:vmfconst},
-whose balls $r\le2.106$ and $r\le1.755$ contain $|c|\le24|\beta|$ and $|c|\le20|\beta|$. With these fixed constants
+Let $|\beta|\le0.348/4=0.087$ and take the constants of Lemma~\ref{lem:vmfconst},
+whose balls $r\le2.088$ and $r\le1.74$ contain $|c|\le24|\beta|$ and $|c|\le20|\beta|$: $\lambda_*=0.15435$, $\tau=\frac14$, $M=0.1071$ and $A=0.38944$. With these fixed constants
 every quantity in~\eqref{eq:blockconst} is increasing in $|\beta|$, and so is
 \begin{equation}\label{eq:alphablock}
 \alpha(\beta_W)=40|\beta|K .
@@ -1198,11 +1252,23 @@ Changing an active link $j$ by $\eta$ changes one staple of each of its ten
 partners outside its block by an isometric image of the displacement, so the
 field $b_i$ of each such partner $i$ moves by at most $4|\beta|\eta$, and
 Lemma~\ref{lem:blockK}, applied once for each of these ten fields, gives
-$\sum_BC_{Bj}\le40|\beta|K$. Evaluating~\eqref{eq:blockconst} in ball
-arithmetic at $\beta_W=0.351$ gives $w\le0.0057670$, $s\le0.2516793$,
-$C\le0.0390392$, $K\le0.2848858$ and $\alpha\le0.99995$; at $\beta_W=0.345$ and
-$\beta_W=\frac13$ it gives $\alpha\le0.98044$ and $\alpha\le0.94279$. At
-$\beta_W=0.3511$ the same evaluation exceeds one. Proposition~\ref{prop:blockstate} applies.
+$\sum_BC_{Bj}\le40|\beta|K$. At $|\beta|=0.087$, $8\beta^2=0.060552$ and
+$\tau-\lambda_*=0.09565$, so $w\le0.0057918$. Since $e^w\le1+w+w^2$ for
+$0\le w\le1$ and $\sqrt{1/12}\le0.288676$, $e^w\le1.0058254$ and $s\le\frac14+
+0.0058594\cdot0.288676\le0.2516915$. Then
+\begin{multline*}
+C\le0.348\cdot0.2516915\cdot0.38944\\
++\tfrac{320}3\,0.087^3\cdot0.1071\cdot1.0058254\\
+\le0.0341107+0.0075670\le0.0416777,
+\end{multline*}
+$K\le1.087\cdot0.2516915/0.9583223\le0.285490$ and $\alpha\le3.48\cdot
+0.285490\le0.99351$. The same evaluation at $|\beta|=0.345/4$ gives
+$w\le0.0056924$, $s\le0.2516621$, $C\le0.041185$, $K\le0.285110$ and
+$\alpha\le0.98363$, and at $|\beta|=\frac1{12}$ it gives $w\le0.0053139$,
+$s\le0.2515504$, $C\le0.0393011$, $K\le0.2836611$ and $\alpha\le0.94554$.
+Proposition~\ref{prop:blockstate} applies. At $\beta_W=\frac13$,
+$-\frac12\log\alpha\ge\frac12(y+\frac{y^2}2)$ with $y=1-0.9456=0.0544$, which
+is at least $0.0279$.
 \end{proof}
 
 \begin{remark}\label{rem:blockgap}
@@ -1210,16 +1276,14 @@ Most of the range is kept. A second bound for the same sensitivity, which
 keeps the law of the middle link instead of linearising it, evaluated in
 floating point on a quadrature grid and maximised over the fields $b$ by a
 random search followed by the Nelder--Mead method, gives $0.2783$ at
-$\beta_W=0.34$, against $0.2837$ from Lemma~\ref{lem:blockK}, and $40|\beta|$
-times it crosses one near $\beta_W=0.357$. Most of the difference is the
-two-site constant $C\approx0.038$, which the floating-point value suggests is
-about twice the true feedback between $y_1$ and $y_3$. No bound of this form
-passes $\beta_W\approx0.3666$: at $b=0$ the function $f=\ip{y_1}e+
+$\beta_W=0.34$, and $40|\beta|$ times it crosses one near $\beta_W=0.357$;
+this evaluation is an illustration and no result uses it. No bound of this
+form passes $\beta_W=0.3667$: at $b=0$ the function $f=\ip{y_1}e+
 \operatorname{Re}(y_2y_3e)$ is $1$-Lipschitz for $d$ and has $\Cov_{\mu_b}(f,
 \ip{y_1}e)=\frac14(1+I_2(\beta_W)/I_1(\beta_W))$ exactly
-(Proposition~\ref{prop:blockresponse}), which is $0.2718$ at
-$\beta_W=0.351$ against $K\le0.2849$, so the sensitivity is at least this
-number and $40|\beta|$ times it crosses one at $\beta_W=0.3666$. Past this point the gain from integrating out
+(Proposition~\ref{prop:blockresponse}), which is at least $0.2718$ at
+$\beta_W=0.351$, so the sensitivity is at least this number and $40|\beta|$
+times it exceeds one for $\beta_W>0.3667$. Past this point the gain from integrating out
 one link is spent, and larger blocks are needed, such as the free links of a
 cube of the line field, whose sensitivity no longer reduces to two sites.
 \end{remark}
@@ -2262,12 +2326,12 @@ that computation is not certified and is not used.
 every forest gauge at $\beta_W=\frac13$. Blocks of several links, where the
 influence of a boundary link on a whole block is bounded at once, in the
 spirit of the Dobrushin--Shlosman criterion~\cite{DS85}, pass it:
-plaquette blocks reach $\beta_W=0.351$ (Theorem~\ref{thm:blocks}), and the
-sharper floating-point bound of Remark~\ref{rem:blockgap} stops near
-$0.357$. Larger blocks are the next step.
+plaquette blocks reach $\beta_W=0.348$ (Theorem~\ref{thm:blocks}), and the
+floating-point bound of Remark~\ref{rem:blockgap}, which no result uses,
+stops near $0.357$. Larger blocks are the next step.
 
 \emph{Curvature.} Remark~\ref{rem:hf} locates the end of the curvature
-method in this gauge between $|\beta|=1/28.840002$, by the
+method in this gauge between $|\beta|=1/28.840002$, by the computer-assisted
 certificate of Appendix~\ref{app:certificate}, and $\frac1{26.25}$.
 
 \emph{$\SU(3)$.} The route of Section~\ref{sec:su3} bounds the
@@ -2321,7 +2385,7 @@ coupling; (2) the crossover from strong coupling to Ba{\l}aban's
 weak-coupling regime; (3) the continuum limit with the
 Osterwalder--Schrader axioms; and (4) a gap in physical units. The present
 paper moves the boundary of (1): for $\SU(2)$ from $\beta_W=\frac29$ to
-$0.351$, for $\SU(3)$ from $\frac9{32}$ to $0.77$, with a gap at $\frac34$ of
+$0.348$, for $\SU(3)$ from $\frac9{32}$ to $0.77$, with a gap at $\frac34$ of
 $0.0177$ in lattice units, and for every compact simple
 group, the exceptional groups included, past the curvature ceiling of the
 ungauged measure, with an explicit gap. It does not close (1); the region
@@ -4358,13 +4422,12 @@ magnetic energy.
 gap, the ratio has two-sided bounds in lattice units, and the upper one rules
 out every continuum tuning there. Put
 \[
-m_0=-\tfrac12\log0.99995 ,
+m_0=-\tfrac12\log0.9936 ,
 \]
-so that $m_0\ge2.5\cdot10^{-5}$ by $-\log(1-x)\ge x$; interval arithmetic gives
-$m_0\in[2.50006250\cdot10^{-5},2.50006251\cdot10^{-5}]$.
+so that $m_0\ge0.0032$ by $-\log(1-x)\ge x$.
 
 \begin{theorem}\label{thm:strongratio}
-Let $G=\SU(2)$, let $\beta_{W,k}\in[0,0.351]$ be any couplings, and let
+Let $G=\SU(2)$, let $\beta_{W,k}\in[0,0.348]$ be any couplings, and let
 $\omega_k$ be the states of Theorems~\ref{thm:su2} and~\ref{thm:blocks}. Then
 for every $\Phi$, $\tau$ and $f_0$ with $C_k(0)>0$, every dyadic $u\ge0$ and
 $\sigma>0$, and every $k$ with $u/a_k,\sigma/a_k\in\Z$,
@@ -4374,13 +4437,13 @@ $\sigma>0$, and every $k$ with $u/a_k,\sigma/a_k\in\Z$,
 Consequently every limit of Theorem~\textup{\ref{thm:flowlimit}} along these
 couplings, for every packet $f_{0,u}$, is trivial, and if $(\mathrm N_u)$ holds
 for some packet along a tuning $(\beta_{W,k})$ of $\SU(2)$, then
-$\beta_{W,k}>0.351$ for all large $k$.
+$\beta_{W,k}>0.348$ for all large $k$.
 \end{theorem}
 
 \begin{proof}
 By Theorem~\ref{thm:blocks} the transfer matrix of $\omega_k$ has gap
 $m_k\ge-\frac12\log\alpha(\beta_{W,k})$ on $\Omega_k^\perp$, and $\alpha$ is
-increasing with $\alpha(0.351)\le0.99995$, so $m_k\ge m_0$. The vector
+increasing with $\alpha(0.348)\le0.9936$, so $m_k\ge m_0$. The vector
 $\Psi_{k,u}$ is a unit vector orthogonal to $\Omega_k$, because $A_k$ is
 centred, and $\mathbb T_k$ preserves $\Omega_k^\perp$, so
 $\rho_k(u,\sigma)=\ip{\Psi_{k,u}}{\mathbb T_k^{\sigma/a_k}\Psi_{k,u}}\le
@@ -4392,7 +4455,7 @@ $\rho_k(0,\sigma)=\int\lambda^{\sigma/a_k}d\nu_k\ge(\int\lambda\,d\nu_k)^{
 \sigma/a_k}=\rho_k(0,a_k)^{\sigma/a_k}$, with $\rho_k(0,a_k)>0$ by
 Proposition~\ref{prop:ratioexact}(i). The upper bound tends to zero as
 $a_k\to0$, which gives triviality by Proposition~\ref{prop:ratioexact}(iii).
-If $(\mathrm N_u)$ held along a tuning with $\beta_{W,k}\le0.351$ for
+If $(\mathrm N_u)$ held along a tuning with $\beta_{W,k}\le0.348$ for
 infinitely many $k$, the upper bound along those $k$ would contradict it.
 \end{proof}
 
@@ -4815,9 +4878,20 @@ after dropping the term $-\frac5{8L}(\frac12\log\frac2\pi-\frac32\log
 \lambda)$, which is negative. The factor $(\sin\delta/\delta)^2$ contributes
 at most $\frac54(1+\frac1{48})\frac{y}{1-y}$ with $y=\delta^2/6\le c/(6\beta)$,
 by $\sin\delta/\delta\ge1-y$ and $-\log(1-y)\le y/(1-y)$, which is at
-most $K_3/\beta$ inside the bracket. Interval arithmetic gives $K_1\in
-[3.714728,3.714729]$, $K_2\in[0.469833,0.469834]$ and $\frac54\cdot\frac{49}
-{48}\cdot\frac{c/6}{1-c/6}\in[0.148376,0.148377]$. At fixed $\lambda$ the
+most $K_3/\beta$ inside the bracket. With $\lambda=\frac15$ and $c=\frac58$
+the logarithms collect to
+\begin{gather*}
+K_1=\tfrac54\bigl(2\log2+\tfrac12\log3+\tfrac14\log\pi+\tfrac34\bigr),\\
+K_2=\tfrac5{24}\bigl(\tfrac72\log2+\log3+\log\pi-\tfrac32\log5\bigr),
+\end{gather*}
+and $\frac54\cdot\frac{49}{48}\cdot\frac{c/6}{1-c/6}=\frac{1225}{8256}<
+0.1484$. The series $2\operatorname{artanh}x=2\sum_{k\ge0}x^{2k+1}/(2k+1)$,
+whose tail after any term is at most the next term divided by $1-x^2$,
+applied to $\log2=2\operatorname{artanh}\frac13$, $\log\frac32=2\operatorname
+{artanh}\frac15$ and $\log\frac54=2\operatorname{artanh}\frac19$, gives
+$\log2<0.6931472$, $\log3<1.0986123$ and $\log5>1.6094379$. With $\pi<3.1416$
+and $\log(1+x)\le x-\frac{x^2}2+\frac{x^3}3$ at $x=0.0472$, $\log\pi<\log3+
+0.046122<1.144735$. Hence $K_1<3.71474$ and $K_2<0.46984$. At fixed $\lambda$ the
 value $c=\frac58$ minimises $K_1$. The last claim holds because $s_p$ is a local
 function.
 \end{proof}
@@ -5704,7 +5778,7 @@ built scale by scale along the one-loop tuning, it must be exact to first
 order in the running coupling at every scale.
 
 \begin{proposition}\label{prop:upperbounds}
-Let $G=\SU(2)$, let $\beta_{W,k}\in[0,0.351]$ be any couplings, let
+Let $G=\SU(2)$, let $\beta_{W,k}\in[0,0.348]$ be any couplings, let
 $\omega_k$ be the states of Theorems~\ref{thm:su2} and~\ref{thm:blocks}, and
 let $m_0$ be as in Theorem~\ref{thm:strongratio}.
 
@@ -5998,8 +6072,10 @@ e^{-\sum_jc_{k,j}}$ gives the converse of the last statement. By (i),
 +hi)^2}\le\frac1{(\beta^-_\sigma)^2}+\int_0^\infty\frac{dt}{(\beta^-_\sigma+
 ht)^2},
 \]
-and the integral is $1/(h\beta^-_\sigma)$. Interval arithmetic gives
-$h\in[0.2575118,0.2575119]$.
+and the integral is $1/(h\beta^-_\sigma)$. For $\SU(2)$, $h=b\log2=11\log2/
+(3\pi^2)$, and $0.6931471805<\log2<0.6931471806$, from the series of
+$2\operatorname{artanh}\frac13$, with $3.1415926535<\pi<3.1415926536$ give
+$h\in[0.2575118,0.2575119]$, so $4/h<15.534$.
 \end{proof}
 
 With $g_j^2=4/\beta^{(j)}_k$, part (ii) says that a scale-by-scale
@@ -6107,7 +6183,7 @@ $\Lambda\ge\Lambda_g$ and every $\sigma\in a_k\Z_{\ge0}$
 \]
 Hence \textup{(M$_Z$)} implies $(\mathrm N_u)$ for every dyadic $u\ge0$.
 
-\textup{(v)} Let $G=\SU(2)$, $\beta_{W,k}\in[0,0.351]$ and $\omega_k$ the
+\textup{(v)} Let $G=\SU(2)$, $\beta_{W,k}\in[0,0.348]$ and $\omega_k$ the
 states of Theorem~\textup{\ref{thm:strongratio}}, and let $f_0$ be as in
 \textup{(iv)}. Then for $a_k\le\min(\ell_I/4,m_0/(2\Lambda_g))$
 \[
@@ -6254,7 +6330,7 @@ By Remark~\ref{rem:markov}, (M$_{\mathrm{loc}}$) does not follow from
 bounds on two-point functions. Every inequality that holds, with
 constants independent of $k$, for the states of
 Theorem~\ref{thm:strongratio} along all sequences of couplings in
-$[0,0.351]$ holds along sequences on which (M$_Z$) fails by (v), and (M)
+$[0,0.348]$ holds along sequences on which (M$_Z$) fails by (v), and (M)
 fails with it; so no such inequality implies (M$_Z$) or (M). This applies
 to every consequence of reflection positivity at all $\beta_W\ge0$, such
 as the chessboard estimates~\cite{FILS78}, and to the bounds of class (H)
@@ -6605,7 +6681,7 @@ A\cup B$.
 $u\ge0$, and every limit of Theorem~\textup{\ref{thm:flowlimit}} along a
 subsequence is nontrivial and has $\rho(\sigma_0)=\rho_*$. Under the
 hypothesis of Theorem~\textup{\ref{thm:transfer}}, $m_*\le\sigma_0^{-1}
-\log(1/\rho_*)$. For $\SU(2)$, \textup{(RC)} implies $\beta_{W,k}>0.351$
+\log(1/\rho_*)$. For $\SU(2)$, \textup{(RC)} implies $\beta_{W,k}>0.348$
 for all large $k$. Under \textup{(M)}, every $S\in\mathfrak L$ has
 $S_2(\bar f_0\circ\theta,f_0(\cdot-(\sigma_0,0)))=\rho_*$.
 
@@ -6896,7 +6972,7 @@ $\omega_n\in\mathcal S(\beta_n)$, then $\omega_n\to\omega_\beta$ weak-$*$.
 This applies under the hypotheses of Propositions~\ref{prop:state}
 and~\ref{prop:blockstate} and of Theorem~\ref{thm:onescale}, where
 $\mathcal S(\beta_W)=\{\omega_\beta\}$ by Lemma~\ref{lem:admissible}(iii),
-in particular for $G=\SU(2)$ and $0\le\beta_W\le0.351$.
+in particular for $G=\SU(2)$ and $0\le\beta_W\le0.348$.
 \end{lemma}
 
 \begin{proof}
@@ -6940,7 +7016,7 @@ Theorems~\ref{thm:su2} and~\ref{thm:blocks} are proved through
 Propositions~\ref{prop:state} and~\ref{prop:blockstate}.
 \end{proof}
 
-For $\SU(2)$ and $\beta_W\le0.351$ the upper bound of
+For $\SU(2)$ and $\beta_W\le0.348$ the upper bound of
 Theorem~\ref{thm:strongratio} therefore holds for every admissible state.
 For the other groups in the range of Theorem~\ref{thm:groups} the bound holds
 for the state of that theorem; uniqueness of the Gibbs measure of $\gamma^F$
@@ -7081,7 +7157,7 @@ Proposition~\textup{\ref{prop:boxratio}}, $\omega_k$ is the state of the box.
 \end{definition}
 
 \begin{theorem}\label{thm:ratiotuning}
-Let $G=\SU(2)$, $r\in(0,1)$ and $\beta_-\in(0,0.351]$, and assume
+Let $G=\SU(2)$, $r\in(0,1)$ and $\beta_-\in(0,0.348]$, and assume
 \textup{(P$_k$)} on every compact interval in $[\beta_-,\infty)$, for all
 large $k$.
 
@@ -7095,7 +7171,7 @@ $(\mathrm N_u)$. In the box the same holds without \textup{(P$_k$)} and
 without the condition $\beta_k\ge\beta_-$.
 
 \textup{(ii)} Every ratio tuning at level $r$ in infinite volume has
-$\beta_k>0.351$ for all large $k$, and along every ratio tuning, in infinite
+$\beta_k>0.348$ for all large $k$, and along every ratio tuning, in infinite
 volume or in the box:
 \begin{enumerate}[label=\textup{(\alph*)},leftmargin=*]
 \item $\rho_k(u',\sigma)\ge r$ for $u'\ge u$; for dyadic $\sigma'$ with
@@ -7140,7 +7216,7 @@ implication is clear. If the $\liminf$ is $c$ and $r<c$, then
 $\rho^{\omega_k}_k\ge r$ for large $k$. In the box,
 Proposition~\ref{prop:boxratio}(ii) replaces this argument.
 
-(ii) For large $k$ every admissible state at $\beta_W\le0.351$ has
+(ii) For large $k$ every admissible state at $\beta_W\le0.348$ has
 $\rho_k(u,\sigma)\le e^{-m_0\sigma/a_k}<r$, by Lemma~\ref{lem:gibbsunique}
 and Theorem~\ref{thm:strongratio}. Part (a) is
 Proposition~\ref{prop:ratioexact}(ii), the power bound applied once to the
@@ -7163,7 +7239,7 @@ Proposition~\ref{prop:uniquelimit}(i) the convergence of the moments.
 The same holds for $\SU(N)$ with $\beta_-$ in the range of
 Theorem~\ref{thm:groups} and $m_0=m_G(\beta_-/N^2)$, provided the state of
 that theorem is the only admissible state at $\beta_-$; in (ii) the bound
-$\beta_k>0.351$ is then replaced by the exclusion of the couplings at which
+$\beta_k>0.348$ is then replaced by the exclusion of the couplings at which
 the admissible state is that of Theorem~\ref{thm:groups}. Part (d) is the
 precise sense in which the tuning has to leave every region of couplings
 with a lattice gap bounded below: the lattice gap at $\beta_k$ is at most
@@ -7185,7 +7261,7 @@ $\alpha^{\sigma/(2\ell)}$, and for $r>\rho_k(u,\sigma)|_{\beta_-}$ the value
 $r$ is attained on $I$ if and only if $\max_I\rho_k(u,\sigma)\ge r$.
 Consequently, given such intervals $I_k$ for all large $k$, with
 $\rho_k(u,\sigma)<r$ at $\beta_-$ (for $\SU(2)$ this holds for large $k$ when
-$\beta_-\le0.351$), a ratio tuning at level $r$ with $\beta_k\in I_k$ exists
+$\beta_-\le0.348$), a ratio tuning at level $r$ with $\beta_k\in I_k$ exists
 if and only if $(\mathrm N_u)$ holds
 with $\rho_k(u,\sigma)\ge r$ along some sequence $\beta_k\in I_k$, and then
 $r\le\alpha^{\sigma/(2\ell)}$.
@@ -7391,7 +7467,7 @@ is zero.
 \emph{What is proved.} In infinite volume: the admissible states form
 compact convex sets with closed graph; the ratio is continuous in the state,
 continuous in the coupling wherever the admissible state is unique (for
-$\SU(2)$ at $\beta_W\le0.351$, and wherever (D) holds), and its values over a
+$\SU(2)$ at $\beta_W\le0.348$, and wherever (D) holds), and its values over a
 compact interval of couplings form a compact interval under (P$_k$). In the
 box: (P$_k$) holds, the ratio is real-analytic in $\beta_W>0$ and tends to
 zero at $\beta_W=0$, and the couplings at which it equals $r$ form a discrete
@@ -7407,7 +7483,7 @@ loops predict, it is not a one-loop tuning of bounded $M$.
 equivalent to $(\mathrm N_u)$ along some sequence; (P$_k$) is open in
 infinite volume; $\beta_k\to\infty$ is equivalent to $\lim_kR_k(B)<r$ for
 every $B$ and follows from a lattice gap bounded below on compact sets of
-couplings, proved only for $\beta_W\le0.351$; (D), (M) and $\mathfrak F$
+couplings, proved only for $\beta_W\le0.348$; (D), (M) and $\mathfrak F$
 along the ratio tuning remain hypotheses, and
 Proposition~\ref{prop:ratiodregion} shows that (D) along it is the joint
 input of Section~\ref{ssec:ratiocube} unchanged. Monotonicity of the ratio in
@@ -8742,8 +8818,9 @@ best constant is the inverse of the Bloch value $0.1074878$ quoted below,
 that is $9.3034$, so $\frac{5000}{537}$ is within $0.09$ per cent of it;
 the semidefinite optimum for this window and this class of multipliers is
 $c^*=0.107488$. These floating-point values are not used. The theorems below are stated with $52$, which
-is proved by hand. Where they use only Theorem~\ref{thm:blockgap}, they hold
-with $52$ replaced by $\frac{5000}{537}$.
+is proved by hand. If the certificate is accepted, those that use only
+Theorem~\ref{thm:blockgap} hold with $52$ replaced by $\frac{5000}{537}$; no
+result of the paper relies on this.
 
 With $W$ all blocks the bound extends to $\ell^2$, so the block-constrained
 quadratic form on $\Z^4$ has a spectral gap at least $\frac1{52}$; it removes
@@ -9533,24 +9610,41 @@ For $\phi(r)=e^{\lambda r}-1\le\lambda re^{\lambda r}$ and $\lambda\le\eta/2$,
 \end{multline*}
 since at most $8r^3$ points have $|z|_1=r\ge1$ and $\sum_{r\ge1}r^pe^{-xr}\le
 e^xp!/x^{p+1}$. The entries of $sB^\top$ add at most $\frac s8(e^\lambda-1)$
-and a row of $sB$ gives $2s(e^\lambda-1)$. At $\lambda=\lambda_1$ the sums
-are below $3\cdot10^{-4}<\frac1{2M_0}$, so
-Lemma~\ref{lem:combeslong} gives $\|e^{\lambda_1d}K^{-1}e^{-\lambda_1d}\|\le
-210$. By~\eqref{eq:Srows}, $\|e^{\lambda_1d}f\|\le24Ce^{\lambda_1}\sum_z
-e^{-(\eta-\lambda_1)|z|_1}=24Ce^{\lambda_1}\coth^4\frac{\eta-\lambda_1}2<
-4\cdot10^{172}$, and $\|e^{\lambda_1d}sg\|\le e^{\lambda_1}s/16$, which gives the
-first bound. The links with base at $\ell^\infty$ distance $m$ from the base
+and a row of $sB$ gives $2s(e^\lambda-1)$. At $\lambda=\lambda_1$, with
+$C=10^{26}$, $\eta=10^{-36}$ and $(2/\eta)^5=3.2\cdot10^{181}$, the first
+sum is at most
+\[
+2.4\cdot10^{-188}e^{\lambda_1}(1+384e^{\eta/2}\cdot3.2\cdot10^{181})<2.95
+\cdot10^{-4},
+\]
+while the other two add at most $\frac{17}8s(e^{\lambda_1}-1)<10^{-209}$.
+So all the sums are below $3\cdot10^{-4}<\frac1{2M_0}$, and
+Lemma~\ref{lem:combeslong} gives
+\[
+\|e^{\lambda_1d}K^{-1}e^{-\lambda_1d}\|\le210 .
+\]
+By~\eqref{eq:Srows},
+\begin{multline*}
+\|e^{\lambda_1d}f\|\le24Ce^{\lambda_1}\sum_ze^{-(\eta-\lambda_1)|z|_1}\\
+=24Ce^{\lambda_1}\coth^4\frac{\eta-\lambda_1}2<4\cdot10^{172},
+\end{multline*}
+since $\coth x\le\frac1x+\frac x3$ and $2/(\eta-\lambda_1)
+\le2.0001\cdot10^{36}$, and $\|e^{\lambda_1d}sg\|\le e^{\lambda_1}s/16$, which gives the
+first bound, as $(210(4\cdot10^{172}+2\cdot10^3))^2<10^{350}$. The links with base at $\ell^\infty$ distance $m$ from the base
 of $j$ number at most $4(64m^3+16m)$, with midpoints at distance at least
 $m-1$, so
 \[
 Z(x)=\sum_ee^{-xd(e)}\le4e^x\Bigl(1+\frac{384e^x}{x^4}+\frac{16e^x}{x^2}
 \Bigr),
 \]
-and $Z(\lambda_1)<10^{864}$.
+and $Z(\lambda_1)\le4.004(1+384.4\cdot10^{860}+16.1\cdot10^{430})<10^{864}$,
+by $e^{2\lambda_1}\le1.001$.
 As $d\ge r_j$ on $V$, the Cauchy--Schwarz inequality gives $\|u_j\|_1^2\le
 10^{350}e^{-\lambda_1r_j}Z(\lambda_1)$. Finally $(r^{(k)}_w,y)$ solves
 $K(r^{(k)}_w,y)=(0,se_w)$; measuring $d$ from the centre of the row $w$,
-we get $\sum_ee^{2\lambda_1d(e)}r^{(k)}_w(e)^2\le(210s)^2$ and $L^{(k)}_w\le210s\,
+we get $\sum_ee^{2\lambda_1d(e)}r^{(k)}_w(e)^2\le(210s)^2$ and, since
+$Z(2\lambda_1)\le4.004(1+24.1\cdot10^{860}+4.1\cdot10^{430})<9.7\cdot
+10^{861}<(9.85\cdot10^{430})^2$ and $210s<5.17\cdot10^6$, $L^{(k)}_w\le210s\,
 Z(2\lambda_1)^{1/2}<10^{438}$.
 
 (iii) The exterior links of a class have their bases at $\ell^\infty$ distance
@@ -9561,7 +9655,11 @@ $q=\lambda_1/2$, (ii) gives
 K^{{\rm c},k}_c\le10^{607}\cdot128\,e^{2q}\Bigl(\frac{n^3}q+\frac{48}{q^4}
 \Bigr),
 \]
-which is at most $\alpha N_n=\alpha(n/2)^4$ when $n\ge10^{827}/\alpha$.
+which is at most $\alpha N_n=\alpha(n/2)^4$ when $n\ge10^{827}/\alpha$: with
+$1/q=2\cdot10^{215}$ and $e^{2q}\le1.001$ the first term is at most
+$2.57\cdot10^{824}n^3\le\alpha n^4/32$ for $n\ge8.3\cdot10^{825}/\alpha$, and
+the second at most $9.9\cdot10^{1471}\le\alpha n^4/32$ for
+$n^4\ge3.2\cdot10^{1473}/\alpha$, which holds since $n^4\ge10^{3308}/\alpha^4$.
 
 (iv) The proof of Corollary~\ref{cor:compose} uses the plaquette form only
 through Theorem~\ref{thm:constrainedcube}, the translation property of (i)
@@ -9569,7 +9667,7 @@ and the bound on $L_w$, which (i)--(iii) provide.
 \end{proof}
 
 The constants are poor because the strip of Theorem~\ref{thm:effectivelocal}
-has width $10^{-36}$; they are checked in exact arithmetic in the archive.
+has width $10^{-36}$.
 What the theorem adds is that none of them depends on the scale: the
 constrained cube condition holds with one cube side at every scale, and the
 weights $L^{(k)}_w$ of the metrics $d_L$ are bounded uniformly. It does not
@@ -15619,9 +15717,9 @@ distances and
 &=\frac14\Bigl(1+\frac{\beta_W}4-\frac{\beta_W^3}{96}+O(\beta_W^5)\Bigr),
 \end{split}
 \]
-which equals $0.271826$ at $\beta_W=0.351$. Hence the Kantorovich
-modulus of the block in the field at $y_1$ is at least this number, and
-$10\beta_W$ times it exceeds one for $\beta_W>0.3666$.
+which lies between $0.2718$ and $0.27183$ at $\beta_W=0.351$. Hence the
+Kantorovich modulus of the block in the field at $y_1$ is at least this
+number, and $10\beta_W$ times it exceeds one for $\beta_W>0.3667$.
 \end{proposition}
 
 \begin{proof}
@@ -15637,8 +15735,14 @@ displacements. Since $y_1$ is uniform, $\Var\ip{y_1}h=\frac14$ and
 $\Cov(\ip{\bar w}h,\ip{y_1}h)=\E[A\ip{y_1}h^2]=A/4$. The series of $A$
 follows from $I_\nu(x)=\sum_m(x/2)^{2m+\nu}/(m!\,\Gamma(m+\nu+1))$, and
 the derivative of $\mu_b(f)$ in the field $b_1$ at $b=0$ in the direction
-$h$ is the covariance, which bounds the modulus below; the crossing is
-the root of $\frac52\beta_W(1+A(\beta_W))=1$.
+$h$ is the covariance, which bounds the modulus below. By
+Lemma~\ref{q-lem:moments}(ii) and~(iv), $0.08721\le A(0.351)\le0.08731$,
+because $6.373201\le2.52453^2$ and $9.123201\ge3.02046^2$; this gives the
+two bounds at $0.351$. The function $\frac52\beta_W(1+A(\beta_W))$
+increases, since $A'$ is a variance by Lemma~\ref{q-lem:moments}(i), and at
+$\beta_W=0.3667$, where $0.3667^2+\frac{25}4\le2.52676^2$,
+Lemma~\ref{q-lem:moments}(iv) gives $A\ge0.3667/4.02676>0.09106>
+\frac4{3.667}-1$, so it exceeds one there.
 \end{proof}
 
 \subsection{From one scale to the next}\label{ssec:scalestep}
@@ -15884,13 +15988,18 @@ $\varDelta^{-2}$ as
 soon as $\beta_W\ge\beta^*(\rho,s,\varGamma)$, the largest solution of
 $f(\beta)=\log q^*-H\log\varGamma$.
 \end{enumerate}
-Numerically, $\beta^*(10^{-8},1)=3.427\cdot10^{21}$,
-$\beta^*(10^{-8},5)=5.401\cdot10^{21}$, $\beta^*(10^{-9},1)=3.431\cdot
-10^{23}$, $\beta^*(10^{-9},5)=5.405\cdot10^{23}$ and
-$\beta^*(10^{-8},5,10^{30})=1.973\cdot10^{22}$; in every case
-$\beta^*=16\lvert\log q^*\rvert\rho^{-2}(1+\epsilon)$ with
-$0<\epsilon<2\cdot10^{-2}$, and $\lvert\log q^*\rvert=21090.2$ for $s=1$ and
-$33424.9$ for $s=5$.
+In particular
+\begin{gather*}
+\beta^*(10^{-8},1)\in[3.426,3.428]\cdot10^{21},\\
+\beta^*(10^{-8},5)\in[5.400,5.402]\cdot10^{21},\\
+\beta^*(10^{-9},1)\in[3.430,3.432]\cdot10^{23},\\
+\beta^*(10^{-9},5)\in[5.404,5.406]\cdot10^{23},\\
+\beta^*(10^{-8},5,10^{30})\in[1.972,1.974]\cdot10^{22};
+\end{gather*}
+in
+every case $\beta^*=16(\lvert\log q^*\rvert+H\log\varGamma)\rho^{-2}
+(1+\epsilon)$ with $0<\epsilon<2\cdot10^{-2}$, and $\lvert\log q^*\rvert$ lies
+within $10^{-3}$ of $21090.194$ for $s=1$ and of $33424.872$ for $s=5$.
 \end{theorem}
 
 \begin{proof}
@@ -15947,10 +16056,20 @@ $L^4\,2^{-n}\varDelta^{-2}$; on a torus the number of neighbours of a
 block is at most $\varDelta$, which is all the count uses. For (iii),
 replace $A$ by $\varGamma^HA$ in the threshold: then $\varGamma\varDelta^2
 A^{1/H}\le\frac12$ and the sum is at most $\varDelta^{-2}\sum_n2^{-n}=
-\varDelta^{-2}$. The numerical values are the roots
-of $f=\log q^*$ computed to thirty digits, and the two-term expression
-follows from $f(\beta)=\log q^*$ with $6(\log\beta+C_0)\le0.02\,\lvert\log
-q^*\rvert$ at these values.
+\varDelta^{-2}$. For the numbers, $\lvert\log q^*\rvert=H(\log2+2\log\varDelta)
++1+4\log11+4\log6$, with $\varDelta=2400=2^5\cdot3\cdot5^2$ for $s=1$ and
+$\varDelta=23^4-1$ for $s=5$. The series $2\operatorname{artanh}x=2\sum_k
+x^{2k+1}/(2k+1)$, with its tail bounded geometrically, at $x=\frac13,\frac15,
+\frac19,\frac1{21},\frac1{47}$ gives $\log2$, $\log\frac32$, $\log\frac54$,
+$\log\frac{11}{10}$ and $\log\frac{24}{23}$ to within $10^{-9}$, hence
+$\lvert\log q^*\rvert$ to within $10^{-4}$, and with $3.14159265<\pi<
+3.14159266$ it gives $C_0=\frac12+\frac23\log(24\pi^3)\in[4.90816,4.90817]$.
+The function $g(\beta)=\beta\rho^2/16-6(\log\beta+C_0)-\lvert\log q^*\rvert-
+H\log\varGamma$ increases for $\beta>96/\rho^2$ and $\beta^*$ is its largest
+zero; at the two ends of each stated interval $g$ is negative and positive,
+with margins above $0.5$, so that $\log\beta$ to two decimals decides the
+signs. Since $\epsilon=6(\log\beta^*+C_0)/(\lvert\log q^*\rvert+H\log
+\varGamma)$ and $\log\beta^*<55$, $0<\epsilon<2\cdot10^{-2}$.
 \end{proof}
 
 The theorem gives the value asked for in item (iii) of the earlier
@@ -16148,10 +16267,16 @@ $\delta(g,I)=2\sqrt2\sin(\angle g/2)\le\sqrt2\angle g$ and $\lVert\log g
 \rVert=\sqrt2\angle g$ for $\angle g<\pi$. Put $p(\kappa)=2\arcsin(\kappa/
 2\sqrt2)$, the largest angle of a plaquette with $\delta(U_p,I)\le\kappa$, and
 \[
-\psi_c=\tfrac13\arcsin\tfrac1{4\sqrt2},\qquad
-\kappa_c=2\sqrt2\sin\tfrac{\psi_c}2=0.0837613\ldots,
+\begin{gathered}
+\psi_c=\tfrac13\arcsin\tfrac1{4\sqrt2},\\
+\kappa_c=2\sqrt2\sin\tfrac{\psi_c}2\in[0.0837613,0.0837617],
+\end{gathered}
 \]
-so that $p(\kappa)<\psi_c$ exactly when $\kappa<\kappa_c$, and $\sqrt2\,p(\kappa)
+by $1.4142135<\sqrt2<1.4142136$, the arcsine series, whose partial sums
+are lower bounds and whose terms after $y^5$ add at most $y^7/(6(1-y^2))$,
+which give $0.05923686\le\psi_c\le0.0592371$, and $x-\frac{x^3}6\le\sin x\le
+x-\frac{x^3}6+\frac{x^5}{120}$; in particular $8/\kappa_c^2<1140.26$. Then
+$p(\kappa)<\psi_c$ exactly when $\kappa<\kappa_c$, and $\sqrt2\,p(\kappa)
 \le1.00015\,\kappa$ for $\kappa\le\kappa_c$, since $\sqrt2\,p(\kappa)/\kappa=
 \frac{p/2}{\sin(p/2)}$ increases with $\kappa$.
 
@@ -16229,8 +16354,19 @@ $\epsilon_x$, of norm at most $2\sin(9p)\lVert\xi_{x,\mu}\rVert$ for $x_\mu$
 even and $2\sin(3p)\lVert\xi_{x,\mu}\rVert$ for $x_\mu$ odd, add
 $\frac1{16}\sqrt{8(18p)^2+8(6p)^2}\,N_{y,\mu}$ by Cauchy--Schwarz. The sum is $p\,G(p)$ with $G$ increasing and $p/\kappa$
 increasing, so its supremum over $\kappa\le\kappa_c$, divided by $\kappa$, is
-attained at $\kappa_c$, where interval arithmetic encloses it in
-$[28.0374,28.0375]$.
+at most $G(\psi_c)\psi_c/\kappa_c$. Since $\arcsin y\le y+y^3/(6(1-y^2))$ and
+$1/(4\sqrt2)\le0.1767767$, $\psi_c\le0.059243$, and $\sin x\ge x-x^3/6$ gives
+$\kappa_c\ge\sqrt2\,\psi_c(1-\psi_c^2/24)\ge1.414006\,\psi_c$. At
+$p=0.059243$ the Taylor series of the exponential with its tail bounded
+geometrically gives $e^{6p}\le1.42686$, so $\hat\psi(6p)\le0.253595$ and
+$\hat\varphi(12p)\le0.400945$, so that $\hat\psi(6p)(1+\hat\varphi(12p))+
+\hat\varphi(12p)\le0.756218$. With $1+\frac{\sqrt3}4\le1.4330128$ and
+$\sqrt{2880}\le53.66564$,
+\[
+G(\psi_c)\le18+\frac{53.66564}{16}+\frac{1.4330128\cdot0.756218}{0.059243}
+\le39.6461,
+\]
+and the supremum is at most $39.6461/1.414006<28.04$.
 
 (iii) Let $L=2^m$, $\varphi=2\pi n/L^2$ and $T=\frac1{\sqrt2}\operatorname{diag}
 (i,-i)$, and multiply the three torus-valued fields of
@@ -16244,9 +16380,9 @@ $(1,1,1)$ the angle of $v^{-1}P_x$ is $6\varphi$ and $\delta(P_x,v)=2\sqrt2
 \le p(\kappa)$: every plaquette has $\delta(U_p,I)\le\kappa$, the cut-off
 $\phi(\delta(P_x,v))=2-2\delta(P_x,v)$ is below one, and the logarithms
 $\log w_x$ are nonnegative multiples of one element with mean of angle
-$3\varphi\ne0$, so $V^\sharp\ne v\exp M$ and (iv) fails. For $L=32$,
-$n=10$ one has $\kappa=0.0867614\ldots$, $\delta(P_x,v)=0.517715\ldots$ and
-cut-off $0.964570\ldots$.
+$3\varphi\ne0$, so $V^\sharp\ne v\exp M$ and (iv) fails. For example, for
+$L=32$, $n=10$ one has $\kappa=0.0867614\ldots$, $\delta(P_x,v)=0.517715\ldots$
+and cut-off $0.964570\ldots$; the argument does not use these values.
 
 (iv) By (ii), $c_k=\ell_ke^{M_k}$ with $\angle e^{M_k}\le3p$. A link leaving
 $B(y)$ has $\angle(c_k^{-1}U_e)\le9p+3p$, and a link inside a block has
@@ -17741,9 +17877,9 @@ e^{\kappa(2s+9)}\\
 \end{split}
 \]
 \end{enumerate}
-At $\kappa=2\alpha_G=5\cdot10^{-4}$, $\sigma(\kappa)=6.144\cdot10^{15}$,
-and at $\varGamma=1$ the bound of (ii) is $3.249\cdot10^5\lvert J\rvert$
-for $s=1$ and $3.498\cdot10^3\lvert J\rvert$ for $s=5$.
+At $\kappa=2\alpha_G=5\cdot10^{-4}$, $\sigma(\kappa)\le6.151\cdot10^{15}$,
+and at $\varGamma=1$ the bound of (ii) is at most $3.253\cdot10^5\lvert J\rvert$
+for $s=1$ and $3.503\cdot10^3\lvert J\rvert$ for $s=5$.
 \end{proposition}
 
 \begin{proof}
@@ -17766,7 +17902,11 @@ every $x_q$-link is based in a block at distance at most $s+3$ from $I_q$,
 so $\sqrt{n_q}\le\sqrt{45}(2s+7)^2\lvert I_q\rvert$; and $(w_{uq}-2s-8)_+
 \ge\dist(I_u,I_q)-2s-9$, while $\lvert I_q\rvert e^{-\kappa\dist(I_u,I_q)}$
 is the term of $\sum_{y\in I_q}\lvert I(y)\rvert e^{-\kappa\dist(I_u,y)}$ at
-a block of $I_q$ nearest to $I_u$. The numbers are computed in the archive.
+a block of $I_q$ nearest to $I_u$. For the numbers, $x\le1$ and $1-x\ge
+\kappa-\kappa^2/2$ give $\sigma(\kappa)\le1+384(\kappa-\kappa^2/2)^{-4}+16
+(\kappa-\kappa^2/2)^{-2}\le6.151\cdot10^{15}$ at $\kappa=5\cdot10^{-4}$, and
+$N_1=21^4-1=194480$, $N_5=37^4-1=1874160$, so that $2\cdot6.151\cdot10^{15}/
+N_1^2\le3.253\cdot10^5$ and $2\cdot6.151\cdot10^{15}/N_5^2\le3.503\cdot10^3$.
 \end{proof}
 
 The proposition is annealed: it bounds the mean of the island sums under
@@ -17874,7 +18014,7 @@ Theorem~\ref{thm:islandthreshold}(i) is at most $10^{-14098.8}$,
 $G_0\le10^{-14099.3}$, and the bound of (i) for
 Proposition~\ref{prop:islandmass}(ii) at $\kappa=2\alpha_G$ is
 $G_0\sigma(2\alpha_G)\lvert J\rvert\le10^{-14083.5}\lvert J\rvert$, in place of
-$3.249\cdot10^5\lvert J\rvert$. For $\vartheta=0$, $c_2\le10^{22.13}$; with
+$3.253\cdot10^5\lvert J\rvert$. For $\vartheta=0$, $c_2\le10^{22.13}$; with
 $R=15$, $\epsilon\le\lvert W\rvert(10^{-28194}+10^{-28163.8}/\sigma)$, and
 with $R=2\cdot10^8$, $\epsilon\le10^{-28166}\lvert W\rvert$ for every
 $\sigma\in[10^{-1000},4)$; for $\vartheta=\frac12$ and $R=4\cdot10^8$,
@@ -20323,11 +20463,11 @@ Theorems~\ref{thm:smallfibre} and~\ref{thm:fibrechart} control the
 non-Gaussian terms, and only its restriction to $\mathcal O^\perp$ is used.
 It is not proved in this paper. Corollary~\ref{cor:loopstep} replaces it
 by a loop representation of the remainder, under which $C_n$ falls on the
-Haar term alone. For $\SU(2)$, $\lambda=10^{100}$ and
-$\varepsilon=1.63\cdot10^{-9}$, interval arithmetic gives $\varepsilon'\le
-8.40\cdot10^{-9}$ at $n=2$, $1.52\cdot10^{-8}$ at $n=4$, $1.52\cdot
-10^{-7}$ at $n=16$ and $5.95\cdot10^{-4}$ at $n=1024$, and $\varepsilon'
-\le0.1$ for every $n\le8455$.
+Haar term alone. As an illustration that no result uses, for $\SU(2)$,
+$\lambda=10^{100}$ and $\varepsilon=1.63\cdot10^{-9}$, interval arithmetic
+gives $\varepsilon'\le8.40\cdot10^{-9}$ at $n=2$, $1.52\cdot10^{-8}$ at
+$n=4$, $1.52\cdot10^{-7}$ at $n=16$ and $5.95\cdot10^{-4}$ at $n=1024$, and
+$\varepsilon'\le0.1$ for every $n\le8455$.
 \item \emph{The cut-off.} The construction replaces a non-invariant cut-off
 off the slice by its gauge transport. Ba{\l}aban defines the small-field
 regions by gauge-invariant conditions on
@@ -20750,7 +20890,7 @@ other groups.
 
 \begin{remark}\label{rem:groups13blocks}
 For $\SU(3)$ the plaquette blocks reach $\beta_W\le0.77$
-(Theorem~\ref{thm:su3blocks}), in place of $0.351$ for $\SU(2)$. For
+(Theorem~\ref{thm:su3blocks}), in place of $0.348$ for $\SU(2)$. For
 other groups the block constant~\eqref{eq:blockconst3} needs the
 modulus $\Lambda(r)$ of~\eqref{eq:alpha}, a gap of the one-link measure
 and bounds on the Hessian of $\log Z$, and none of them has been
@@ -20777,8 +20917,10 @@ $8\lambda$ times the coarse curvature, up to a volume term. It also states
 which bound the next step would need, and how far
 Theorem~\ref{thm:islandswide} supplies it. The small-field part and its
 locality are the subject of item~(iv) of Section~\ref{ssec:remains} and are
-not treated here. The constants are enclosed in interval arithmetic and the
-lattice counts are exact enumerations.
+not treated here. The lattice counts are proved by hand; the numerical
+constants of Theorems~\ref{thm:lfkp} and~\ref{thm:sfgauss}(i) and of
+Proposition~\ref{prop:lfinherited}(iii) are enclosed in interval arithmetic
+and are not proved by hand.
 
 Throughout, $\Lambda_L$ is the torus of side $L=2^m\ge32$ in the tree gauge,
 $T$ is the coarse torus of the blocks $B(y)$, $|T|=L^4/16$, $\lambda=\beta_W/4$,
@@ -20823,7 +20965,8 @@ $B(y)$, or a private link of a pair $(y,\mu)$, by
 Lemma~\ref{lem:blocktree}(i); the rest follows from (ii).
 \end{proof}
 
-An enumeration of the $96$ plaquettes of a block confirms (i) and (ii).
+A computer enumeration of the $96$ plaquettes of a block agrees with (i)
+and (ii); the proof does not use it.
 
 \paragraph*{Suppression.}
 For a set $X$ of blocks let $A_X$, $Q_X$, $\nu^X_c$, $\pi_E$ and $Q_*(E)$ be
@@ -20887,8 +21030,25 @@ For a coarse plaquette $P$ let $N(P)$ be the fine plaquettes with a vertex in
 one of the $144$ blocks at $\ell^\infty$ distance at most one from the four
 blocks of $P$, the witness region of Lemma~\ref{lem:coarsewitness}, and let
 $N_{\rm ov}$ be the largest number of witness regions that contain one fine
-plaquette. An enumeration gives $N_{\rm ov}=1441$, and $2310$ witness
-regions meet $\Pi(y)$.
+plaquette. Then $N_{\rm ov}=1441$, and $2310$ witness regions meet
+$\Pi(y)$. Indeed, let $P$ have the blocks $z$, $z+e_\mu$, $z+e_\nu$,
+$z+e_\mu+e_\nu$, with $B(z)=2z+\{0,1\}^4$. The $144$ blocks fill the box of
+fine sites $w$ with $w_i-2z_i\in[-2,5]$ for $i\in\{\mu,\nu\}$ and
+$w_i-2z_i\in[-2,3]$ otherwise, and the plaquette at $x$ in the plane
+$\{\alpha,\beta\}$ has a vertex in it exactly when, for each $i$, $x_i$ lies
+in the $i$-th interval, enlarged by one site to the left when $i\in\{\alpha,
+\beta\}$. For fixed $x$ the number of admissible $z_i$ is $4$ for
+$i\in\{\mu,\nu\}$ and $3$ otherwise, plus one when $i\in\{\alpha,\beta\}$
+and $x_i$ is odd. With $x_\alpha,x_\beta$ odd the six planes $\{\mu,\nu\}$
+give $5\cdot5\cdot3\cdot3$, four times $5\cdot4\cdot4\cdot3$ and
+$4^4$, which sum to $225+960+256=1441$, and no parity gives more. For the
+second count take $y=0$: the plaquettes of $\Pi(0)$ have corners in
+$\{0,1\}^4$ and any plane. For each $i$ the admissible $z_i$ are those with
+$z_i\in[-2,1]$ for $i\in\{\mu,\nu\}$ and $z_i\in[-1,1]$ otherwise, and
+$z_i=2$, which needs $x_i=1$ and $i\in\{\alpha,\beta\}$; so $z$ is admissible
+exactly when at most two coordinates equal $2$. Of the $5\cdot5\cdot4\cdot4
+=400$ points of the enlarged box, $8+6+1=15$ have three or four
+coordinates equal to $2$, and the six planes give $6\cdot385=2310$.
 
 \begin{lemma}\label{lem:lfcoarseenergy}
 Let $G=\SU(2)$, $C_E=8/\kappa_c^2<1140.26$ and $C_*=1441\,C_E<1.6432\cdot
@@ -21045,16 +21205,19 @@ A link of $\mathcal V_X$ is based in a block of $X$, or is a private link
 $(x,\mu)$ of a pair $(z,\mu)$ with $z+e_\mu\in X$, which ends at $x+e_\mu\in
 B(z+e_\mu)$. The owner of a plaquette that contains it involves it, so it
 lies in $\hat X$ by (ii). Since $\mathcal V_X\subset\bigcup_{x\in X}\mathcal
-V_{\{x\}}$, the count is at most $|X|$ times that for one block, which an
-enumeration gives as $216$. There are $4|X|$ pairs from $X$, and
+V_{\{x\}}$, the count is at most $|X|$ times the number of plaquettes with
+a vertex in one block $B(y)=2y+\{0,1\}^4$. The plaquette at $c$ in the plane
+$\{\alpha,\beta\}$ has a vertex in $B(y)$ exactly when $c_i-2y_i\in\{0,1\}$
+for $i\notin\{\alpha,\beta\}$ and $c_i-2y_i\in\{-1,0,1\}$ for
+$i\in\{\alpha,\beta\}$, so there are $6\cdot2^2\cdot3^2=216$ of them. There are $4|X|$ pairs from $X$, and
 $(z,\mu)\mapsto(z+e_\mu,\mu)$ is injective on the others. The plaquettes of
 $\Pi(X)$ contain an active link with base in a block of $X$, by
 Lemma~\ref{lem:lfowned}(ii).
 \end{proof}
 
-An exhaustive enumeration confirms (i), and confirms (ii)--(iv) for $300$
+A computer enumeration agrees with (i), and with (ii)--(iv) for $300$
 random $\ell^\infty$-connected sets of up to seven blocks and for $300$
-random pairs of such sets at distance at least two.
+random pairs of such sets at distance at least two; the proof does not use it.
 
 \begin{theorem}\label{thm:lfmarkov}
 Let $G=\SU(2)$ and $\kappa>0$.
@@ -22307,13 +22470,12 @@ $k_*-j\in\{1,2\}$.
 
 \begin{proof}
 (i) is Lemma~\ref{lem:lfcoarseenergy} and Theorem~\ref{thm:lfmarkov}(ii),
-with the count from the enumeration. (ii) The box of
+with $N_{\rm ov}=1441$. (ii) The box of
 Lemma~\ref{lem:scalewitness} has $17\cdot2^j-4$ points per coordinate, from
 an even to an odd coordinate, so it meets $\frac12(17\cdot2^j-4)$ fine
 blocks per coordinate. A witness plaquette with corner in the box is owned
 by one of these. The number of boxes met by a fine block is the count of
-that lemma for the two cubes of the block per coordinate, which the
-enumeration confirms to be $H_j$. A set $X$ meeting all the boxes of $Y$
+that lemma for the two cubes of the block per coordinate, which is $H_j$. A set $X$ meeting all the boxes of $Y$
 has $|X|\ge|Y|/H_j$ and lies in a set of at most $m_j|Y|$ blocks. So the
 sum is at most $\sum_{k\ge|Y|/H_j}\binom{m_j|Y|}ke^{-a_0k}\le e^{-(a_0-s)
 |Y|/H_j}(1+e^{-s})^{m_j|Y|}$. (iii) The maximum is at $e^{s}=m_jH_j-1$, and
@@ -23411,13 +23573,22 @@ L\'evy~\cite{Lev03}.
 \section*{Declarations}
 
 \subsection*{Data and code availability}
-The proofs are analytic except for the evaluations in
-Propositions~\ref{prop:cover} and~\ref{prop:cover2} and
-Lemma~\ref{lem:su3const} and the numerical bounds of
-Lemma~\ref{lem:vmfconst}, which are computations in interval arithmetic with
-rigorous error bounds, and for Proposition~\ref{prop:blockgapsharp} and
-Theorem~\ref{thm:certificate}, whose certificates are checked in exact
-arithmetic. The programs of these steps, in Python with
+The proofs are analytic except for the following results, which rest on
+computations. For $\SU(3)$, Propositions~\ref{prop:cover}
+and~\ref{prop:cover2}, Lemma~\ref{lem:su3const} and
+Theorems~\ref{thm:su3} and~\ref{thm:su3blocks} rest on evaluations in
+interval arithmetic with rigorous error bounds. Proposition~\ref{prop:blockgapsharp}
+and Theorem~\ref{thm:certificate} rest on certificates checked in exact
+arithmetic; no other result uses them. The inequalities ($\ast$) of
+Proposition~\ref{prop:fold}, on which Proposition~\ref{prop:insidefold}
+rests, are verified in interval arithmetic. The numerical values stated in
+Theorems~\ref{thm:islandscales}, \ref{thm:islandswide}(ii), (iii),
+\ref{thm:islandwindow}, \ref{thm:groups13} (for $\SU(3)$), \ref{thm:lfkp},
+\ref{thm:sfgauss}(i), \ref{thm:clustercomparison} and~\ref{thm:clustersizes},
+Corollaries~\ref{cor:fibrecovnumbers} and~\ref{cor:labelstretched} and
+Propositions~\ref{prop:lfinherited}(iii), \ref{prop:clusterreach}(ii)
+and~\ref{prop:iteratestatus}(iv) are enclosed in interval arithmetic. Every
+other number used in a proof is derived in the text. The programs of these steps, in Python with
 python-flint (FLINT and Arb) and a C kernel for products of Taylor
 polynomials, their outputs and the list of certified boxes are in the
 repository \url{https://github.com/creelie/4Y-M}, release v4.33.0
@@ -23696,16 +23867,13 @@ $x$&plane&$x$&plane\\
 In closed form, the plaquette at $x$ in $\{0,1\}$ is a block plaquette when
 $x_0\equiv x_1$ and the plaquette at $x$ in $\{2,3\}$ when $x_2\equiv x_3$; the
 blocks do not depend on the line field beyond the fact that every plaquette
-contains one fixed link. The bounds of Lemma~\ref{lem:vmfconst} are evaluated in ball arithmetic
-at $128$ bits: the series of $Z_0$ and of its first three derivatives in
-$s=r^2$ is summed to forty-eight terms, and the tail is bounded for $s\le5$ by
-twice the first omitted term, because consecutive
-terms decrease by a factor below one half. The program also writes the
-constants, rounded outward to $10^{-12}$, for a check of the chain~\eqref{eq:blockconst}
-at $\beta_W=\frac13$, $0.345$, $0.35$, $0.351$ in exact rational arithmetic by the Lean kernel
-(\texttt{gauge-fixed/blocks/sharp}). The constants
-of~\eqref{eq:blockconst} and $\alpha$ are then evaluated at a given $\beta_W$
-from exact input.
+contains one fixed link. The bounds of Lemma~\ref{lem:vmfconst} and the
+chain~\eqref{eq:blockconst} are proved by hand in Section~\ref{sec:plaqblocks}.
+The archive also evaluates the functions of Lemma~\ref{lem:vmfconst} in
+ball arithmetic at $128$ bits, from the series of $Z_0$ and of its first
+three derivatives in $s=r^2$ summed to forty-eight terms with the tail
+bounded by twice the first omitted term; these sharper constants are not
+used by any result.
 
 For $\SU(3)$ the bounds of Lemma~\ref{lem:su3const} are evaluated on the
 $841$ boxes of side $\frac3{16}$ at $r=\frac32$ and the $784$ boxes of side
