@@ -49,3 +49,15 @@ witnesses, and the scale of the defect propagation at the same couplings;
 constant curvature and reproduces the factor four per step;
 `grid_check.py` compares the two scales on a grid of couplings. The
 tracked `.out` files are their outputs.
+
+**The two sides of the path-link law (mpmath interval arithmetic):**
+`fold_intervals.py` is the interval library (rigorous enclosures of the
+cut-off average and of its transverse derivative on boxes, built on
+`mpmath.iv` with outward rounding); `fold_certificate.py` verifies the two
+inequalities of the fold proposition that are not proved by hand: the
+transverse component of the cut-off average is positive off the torus on
+the strip, and the transverse stretching lies in the stated ranges at the
+branches; `fold_selftest.py` checks the enclosures against floating-point
+evaluation; `goodside_constants.py` prints the contraction constant and
+the response constants of the good side at radius 1/32. The tracked `.out`
+files are their outputs.

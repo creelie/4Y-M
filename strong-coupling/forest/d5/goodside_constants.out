@@ -1,0 +1,8 @@
+16 r = 0.5  (<= 1/2: cut-off equals one at every branch)
+theta = 16r/sqrt2 = 0.353553390593273762200422181052   theta/sin theta = 1.02114120912651222454380753866
+contraction constant (7/8) theta/sin theta = 0.89349855798569819647583159633  < 0.8936: True
+singular values of the path-link derivative in [1-k, 1+k] = [ 0.10650144201430180352416840367 , 1.89349855798569819647583159633 ]
+|det| in [ 0.00120799869272451686788868881937 , 6.78883004004240797722561311874 ]
+response to one non-path private link: (2/16) L /(1-k) = 1.19850631809917865885841255694
+response to one inside link u_a or w_a: (1/16) L /(1-k) = 0.599253159049589329429206278472
+pi/3 = 1.04719755119659774615421446109  (conversion d <= (pi/3) delta for delta <= 1)
