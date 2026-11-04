@@ -6628,9 +6628,10 @@ contained in the conclusion. For straight-path maps $c_j$, whose composites
 are straight-path maps of range one, and $L_0\ge2n_0+12$,
 Corollary~\ref{cor:bpdescent} with $\ell_0=\ell$ turns $\mathrm{BP}(n_k,
 \varpi)$ for all $k$ into $\mathrm{BP}(n_j+4,\varpi(\ell/(\ell+4a_j))^4)$ for
-$\mu^{(j)}_{k,L}$, $0\le j\le k$: for $j=0$ this is (H1) at the cube size
-$n_0+4$, and by Theorem~\ref{thm:bpup}(iii) it gives (A) at every step of
-the tower, with the cube sizes $n_j+4$. The split inequality with a
+$\mu^{(j)}_{k,L}$, $0\le j\le k$, and by Theorem~\ref{thm:bpup}(iii) it
+gives (A) at every step of the tower, with the cube sizes $n_j+4$; for $j=0$
+Proposition~\ref{prop:bpcoarsezero} gives (H1) at the cube size $n_0+1$ when
+$L_0\ge2n_0+6$. The split inequality with a
 bounded product of the constants $C_{B,j}$ is not contained in the
 conclusion as far as is proved here. For $\varphi\equiv1$ and the
 straight-path maps every hypothesis of Theorem~\ref{thm:bpuptower} holds
@@ -7261,19 +7262,630 @@ obstruction to it is proved here. For a general $\varrho$ the optimal $C_B$
 in Theorem~\ref{thm:bprefine} is not determined; for $\varrho=\lambda_E$ it
 is $(n'/(bn))^4$ by Proposition~\ref{prop:bpuphaar}(ii). The condition (H1)
 does not follow from the results of this paper along the tuning:
-Corollary~\ref{cor:bpranges} concerns Wilson measures through the
-single-link coefficients of their conditional laws, which are not computed
-for the laws $\mu^{(0)}_{k,L}$ of the block variables. Through
-Corollary~\ref{cor:bpdescent} with $j=0$ and $\ell_0=\ell$ it gives (H1) at
-the cube size $n_0+4$, with the constant $(1-\alpha_{n_k})(n_0/(n_0+4))^4$,
-for $\SU(2)$, $L_0\ge2n_0+12$ and those $k$ with $\lvert\beta_{k,W}\rvert<
-\frac{16}{105}$, which along a tuning with $\beta_k\to\infty$ are finitely
-many. Corollary~\ref{cor:bprefinetower} concerns measures that are Haar on
+Section~\ref{ssec:bpcoarse} reduces it to bounds on the single-link
+coefficients of the laws $\mu^{(0)}_{k,L}$ of the block variables, which are
+not proved outside the strong-coupling range, and gives it at the cube size
+$n_0+1$ for $\SU(2)$ and those $k$ with $\lvert\beta_{k,W}\rvert<\frac{16}
+{105}$, which along a tuning with $\beta_k\to\infty$ are finitely many
+(Proposition~\ref{prop:bpcoarsezero}). Corollary~\ref{cor:bprefinetower} concerns measures that are Haar on
 all scales below the coarsest, and says nothing about the tuned Wilson
 measures; it shows that the split mechanism tolerates an arbitrary
 interaction of the block variables, and Proposition~\ref{prop:bpfinesplit}
 places the remaining difficulty in the interaction at the finer scales.
 Neither $\mathrm{BP}$ along the tuning nor the mass gap is proved here.
+\end{remark}
+
+\subsection{The condition at the coarsest scale}\label{ssec:bpcoarse}
+
+This subsection treats the hypothesis (H1) of
+Corollary~\ref{cor:bpuptuning}, the condition $\mathrm{BP}(n_0,\varpi_0)$
+for the laws $\mu^{(0)}_{k,L}$ of the block variables at the coarsest
+spacing $a_0$. These laws are not Wilson measures: for the straight-path
+maps they have smooth positive densities whose logarithms, the induced
+actions, couple every pair of coarse links. The first part proves a
+criterion for $\mathrm{BP}$ that uses only the single-link conditional laws
+of such a measure, with no product form of the action and no finite range:
+a Dobrushin condition on the Kantorovich coefficients of the single links,
+or a bound of Bakry--\'Emery type on the Hessian of the induced action. It
+recovers the leading term of Corollary~\ref{cor:bpranges}(iii) for the
+Wilson action. The second part places (H1) among the other statements. It
+follows from $\mathrm{BP}(n_k,\varpi)$ along the tuning with the coarse cube
+enlarged by one, so that under (H2) it is equivalent to the conclusion of
+Corollary~\ref{cor:bpuptuning} up to one unit of cube size; it is
+independent of (H2); and it fails for the block laws of a measure whose
+local gauge-invariant covariances vanish beyond a fixed distance, the
+failure being carried by the Polyakov loops of the coarse torus.
+
+\emph{Setting.} Let $G\subset\U(N)$ be compact, $\delta$ a bi-invariant
+metric of diameter $D$ on $G$, $n\ge2$, $\Lambda_L$ the torus with $L\ge2n+
+4$ even and $E$ its links, with $V_x$, $P^\varrho_x$ and $\mathcal E^\varrho_n$
+as in Section~\ref{ssec:bpblock}. Let $\varrho$ be a probability measure on
+$G^E$ with a continuous positive density $\rho$ with respect to
+$\lambda_E$. For $V\subset E$ and $U\in G^E$ put
+\[
+\gamma^\varrho_V(d\sigma\mid U)=\frac{\rho(\sigma,U_{E\setminus V})\,
+\lambda_V(d\sigma)}{\int\rho(\sigma',U_{E\setminus V})\,\lambda_V(d\sigma')} .
+\]
+This law depends only on $U_{E\setminus V}$ and continuously on it,
+$P^\varrho_xf(U)=\int f\,d\gamma^\varrho_{V_x}(\cdot\mid U)$ is a version of the
+conditional expectation under $\varrho$ given the links outside $V_x$, and
+for $e\in V$ the conditional law of $\sigma_e$ under $\gamma^\varrho_V(\cdot
+\mid U)$ given the other links of $V$ is $\gamma^\varrho_{\{e\}}(\cdot\mid
+\sigma,U_{E\setminus V})$, for every $U$ and $\sigma$. For $j\notin V$ let
+\[
+C^\varrho_{V,j}=\sup\frac{W_1^{d_V}\bigl(\gamma^\varrho_V(\cdot\mid U),
+\gamma^\varrho_V(\cdot\mid U')\bigr)}{\delta(U_j,U'_j)},
+\]
+the supremum over the pairs $U,U'$ that differ only at $j$, and $C^\varrho_{
+ee'}=C^\varrho_{\{e\},e'}$ for $e\ne e'$. For a Wilson measure these are the
+coefficients $C^0_{V,j}$, $C^0_{ee'}$ of Section~\ref{ssec:bpstrong}; for a
+general $\varrho$, $C^\varrho_{ee'}$ need not vanish when $e$ and $e'$ are not
+partners. For links $e\ne j$ with base points $b(e)$, $b(j)$ let $\Delta=
+b(e)-b(j)$, with coordinates in $(-L/2,L/2]$, and
+\[
+w_n(e,j)=\sum_{\nu=0}^3\min\bigl(\lvert\Delta_\nu\rvert,n\bigr).
+\]
+
+\begin{lemma}\label{lem:bpcoarseblock}
+Suppose that $c_\varrho=\max_{k\in E}\sum_{e\in E\setminus\{k\}}C^\varrho_{ek}<
+1$. Then for every $V\subset E$ and every link $j\notin V$,
+\[
+C^\varrho_{V,j}\le\frac1{1-c_\varrho}\sum_{e\in V}C^\varrho_{ej}.
+\]
+\end{lemma}
+
+\begin{proof}
+The proof of Lemma~\ref{lem:bpblock} applies with the kernels
+$\gamma^\varrho$. Let $U,U'$ differ only at $j$, let $\pi^*$ be a coupling of
+$\gamma=\gamma^\varrho_V(\cdot\mid U)$ and $\gamma'=\gamma^\varrho_V(\cdot\mid
+U')$ that minimises $\sum_{e\in V}\E_\pi\delta(\sigma_e,\sigma'_e)$, and
+$\varrho^*(e)=\E_{\pi^*}\delta(\sigma_e,\sigma'_e)$. Resampling the pair at
+$e\in V$ from an optimal coupling of $\gamma^\varrho_{\{e\}}(\cdot\mid\sigma,
+U_{E\setminus V})$ and $\gamma^\varrho_{\{e\}}(\cdot\mid\sigma',U'_{E\setminus
+V})$, chosen measurably~\cite[Cor.~5.22]{Vil09}, gives a coupling of $\gamma$
+and $\gamma'$. The two conditioning configurations differ at the links of
+$V\setminus\{e\}$ and at $j$; changing them one at a time and using the
+definition of the coefficients bounds the new expected distance at $e$ by
+$\sum_{k\in V\setminus\{e\}}C^\varrho_{ek}\varrho^*(k)+C^\varrho_{ej}\delta(U_j,
+U'_j)$, and minimality gives
+\[
+\varrho^*(e)\le\sum_{k\in V\setminus\{e\}}C^\varrho_{ek}\varrho^*(k)+C^\varrho_{
+ej}\,\delta(U_j,U'_j).
+\]
+Summing over $e\in V$ and using $\sum_{e\in V\setminus\{k\}}C^\varrho_{ek}\le
+c_\varrho$ gives
+\[
+(1-c_\varrho)\sum_e\varrho^*(e)\le\delta(U_j,U'_j)\sum_{e\in V}C^\varrho_{ej},
+\]
+and $W_1^{d_V}(\gamma,\gamma')\le\sum_e\varrho^*(e)$.
+\end{proof}
+
+\begin{theorem}[a single-link criterion for general measures]
+\label{thm:bpcoarse}
+Let $\varrho$ be as in the setting, $n\ge2$ and $L\ge2n+4$ even.
+\begin{enumerate}[label=\textup{(\roman*)},leftmargin=*]
+\item If $\sum_{x:\,j\notin V_x}C^\varrho_{V_x,j}\le\alpha n^4$ for every link
+$j$, with $\alpha<1$, then $(1-\alpha)\Var_\varrho(f)\le\mathcal E^\varrho_n(f)$
+for every real $f\in L^2(\varrho)$; if $\varrho$ is gauge invariant,
+$\mathrm{BP}_\varrho(n,1-\alpha)$ holds.
+\item If $c_\varrho<1$, the hypothesis of \textup{(i)} holds with
+\[
+\alpha=\alpha_n(\varrho)=\frac1{(1-c_\varrho)\,n}\max_{j\in E}\sum_{e\ne j}
+C^\varrho_{ej}\,w_n(e,j),
+\]
+so $\mathrm{BP}_\varrho(n,1-\alpha_n(\varrho))$ holds for gauge-invariant
+$\varrho$ whenever $\alpha_n(\varrho)<1$. With $m_\varrho=\max_j\sum_{e\ne j}
+C^\varrho_{ej}\lvert\Delta\rvert_1$ and, for $R\ge1$, $t_\varrho(R)=\max_j
+\sum_{e:\,\lvert\Delta\rvert_\infty>R}C^\varrho_{ej}$,
+\[
+\alpha_n(\varrho)\le\frac{m_\varrho}{(1-c_\varrho)\,n},\qquad\alpha_n(\varrho)
+\le\frac4{1-c_\varrho}\Bigl(\frac{Rc_\varrho}n+t_\varrho(R)\Bigr).
+\]
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+(i) Let $U,U'$ differ only at a link $i$, and couple $\mathcal K^\varrho(U,
+\cdot)$ and $\mathcal K^\varrho(U',\cdot)$ by choosing the same $x$. If $i\in
+V_x$, the two exteriors agree, so do the laws of the resampled cube, and
+the identity coupling costs nothing. If $i\notin V_x$, an optimal coupling
+of the two cube laws costs at most $C^\varrho_{V_x,i}\delta(U_i,U'_i)$, and
+the link $i$ adds $\delta(U_i,U'_i)$. The $x$ with $i\notin V_x$ number
+$L^4-n^4$, so
+\[
+W_1^{d_E}\bigl(\mathcal K^\varrho(U,\cdot),\mathcal K^\varrho(U',\cdot)\bigr)
+\le\Bigl(1-\frac{(1-\alpha)n^4}{L^4}\Bigr)\delta(U_i,U'_i).
+\]
+This is the contraction of the proof of Proposition~\ref{prop:avgsup}(i)
+with $\kappa_0=(1-\alpha)n^4/L^4$; the rest of that proof uses only that
+the $P^\varrho_x$ are the orthogonal projections of $L^2(\varrho)$ given by
+everywhere defined kernels, and it gives $\ip f{(I-\mathcal K^\varrho)f}\ge
+\kappa_0\Var_\varrho(f)$, which is the claim after multiplication by
+$L^4/n^4$.
+
+(ii) By Lemma~\ref{lem:bpcoarseblock},
+\[
+\sum_{x:\,j\notin V_x}C^\varrho_{V_x,j}\le\frac1{1-c_\varrho}\sum_{e\ne j}
+C^\varrho_{ej}\,\#\{x:e\in V_x,\ j\notin V_x\}.
+\]
+A link with base point $b'$ lies in $V_x$ exactly when $b'-x\in[0,n)^4$
+modulo $L$. Since $L\ge2n$, for $t\in[0,n)$ and $\lvert d\rvert\le L/2$ the
+residue of $t+d$ lies in $[0,n)$ only if $t+d\in[0,n)$, so the $x$ with
+$e,j\in V_x$ number $\prod_\nu(n-\lvert\Delta_\nu\rvert)_+$. With $s_\nu=
+\min(\lvert\Delta_\nu\rvert,n)/n\in[0,1]$ and $\prod_\nu(1-s_\nu)\ge1-
+\sum_\nu s_\nu$,
+\[
+\#\{x:e\in V_x,\ j\notin V_x\}=n^4-\prod_\nu(n-\lvert\Delta_\nu\rvert)_+\le
+n^3w_n(e,j),
+\]
+which gives $\alpha_n(\varrho)$. Finally $w_n(e,j)\le\lvert\Delta\rvert_1\le4
+\lvert\Delta\rvert_\infty$ and $w_n(e,j)\le4n$; splitting the sum at
+$\lvert\Delta\rvert_\infty=R$ gives the last bound.
+\end{proof}
+
+The criterion depends on $\varrho$ only through the column sums of its
+single-link coefficients and their first moment or tail; it uses no
+locality of the specification, and the bound holds on all of $L^2(\varrho)$.
+For $\varrho$ given by an action the coefficients are bounded by its
+Hessian.
+
+\begin{lemma}\label{lem:bpcoarsehess}
+Let $G\subset\U(N)$ be closed and connected with semisimple Lie algebra,
+$\delta$ the geodesic distance of $\ip XY=-\Tr(XY)$, and $\varrho$ the
+probability measure with density proportional to $e^{-H}$, $H\in C^2(G^E)$.
+For a link $e$, a configuration $U$ and $X\in\g$ let $U^{e,X}$ be $U$ with
+$U_e$ replaced by $U_ee^X$. Suppose that there are $h_e<\kappa_G$ and
+$J_{ee'}\ge0$ with
+\[
+\frac{d^2}{dt^2}H(U^{e,tX})\Big|_{t=0}\ge-h_e\lvert X\rvert^2
+\]
+and
+\[
+\Bigl\lvert\frac{\partial^2}{\partial s\,\partial t}H\bigl((U^{e,sX})^{e',tY}
+\bigr)\Big|_{0}\Bigr\rvert\le J_{ee'}\lvert X\rvert\,\lvert Y\rvert
+\]
+for all $U$, all $X,Y\in\g$ and all links $e\ne e'$. Then
+$C^\varrho_{ee'}\le J_{ee'}/(\kappa_G-h_e)$.
+\end{lemma}
+
+\begin{proof}
+Given the other links, the law of $U_e$ is $\nu\propto e^{-V}dU$ with
+$V(\sigma)=H(\sigma,U_{E\setminus e})$. The geodesics of the bi-invariant
+metric through $\sigma$ are the curves $\sigma e^{tX}$, so the first
+hypothesis says $\Hess V\ge-h_e$, and $\Ric_G+\Hess V\ge K_1=\kappa_G-h_e>
+0$. As in the proof of Lemma~\ref{lem:bponelink}, $\lvert\Cov_\nu(g,u)\rvert
+\le\lVert\nabla g\rVert_\infty\lVert\nabla u\rVert_\infty/K_1$ for smooth $g,u$.
+Let $U,U'$ differ only at $e'$, with $U'_{e'}=U_{e'}e^{\delta X}$, $\lvert X
+\rvert=1$ and $\delta=\delta(U_{e'},U'_{e'})$, along a minimising geodesic,
+and let $\nu_s\propto e^{-V_s}$ be the law of $U_e$ given the configuration
+$U^{e',sX}$ outside $e$. Then $\frac d{ds}\nu_s(g)=-\Cov_{\nu_s}(g,\partial_s
+V_s)$, and by the second hypothesis the gradient of $\sigma\mapsto\partial_s
+V_s(\sigma)$ has norm at most $J_{ee'}$. For smooth $g$ that are
+$1$-Lipschitz for $\delta$ this gives $\lvert\nu_0(g)-\nu_\delta(g)\rvert\le
+J_{ee'}\delta/K_1$, and the approximation and duality argument of that
+proof gives the bound.
+\end{proof}
+
+\begin{corollary}\label{cor:bpcoarsehess}
+Under the hypotheses of Lemma~\textup{\ref{lem:bpcoarsehess}} put
+$\theta_{ej}=J_{ej}/(\kappa_G-h_e)$ and $c_H=\max_k\sum_{e\ne k}\theta_{ek}$.
+If $c_H<1$ and $L\ge2n+4$, then every real $f\in L^2(\varrho)$ satisfies
+$(1-\alpha)\Var_\varrho(f)\le\mathcal E^\varrho_n(f)$ with
+\[
+\alpha=\frac1{(1-c_H)\,n}\max_j\sum_{e\ne j}\theta_{ej}\,w_n(e,j)
+\]
+whenever $\alpha<1$. For the Wilson action, $H=-N\beta\sum_p\ReTr U_p$, one
+may take $h_e=6N\lvert\beta\rvert$ and $J_{ee'}=N\lvert\beta\rvert$ for
+partners and $0$ otherwise, and $\alpha=18N\lvert\beta\rvert/((\kappa_G-24N
+\lvert\beta\rvert)n)$, the leading term of $\alpha_n$ in
+Corollary~\textup{\ref{cor:bpranges}(iii)}. The numbers $h_e$ and $J_{ee'}$
+may be taken subadditive in $H$: if $H=H_1+H_2$ and they are admissible for
+$H_1$ and for $H_2$, their sums are admissible for $H$.
+\end{corollary}
+
+\begin{proof}
+By Lemma~\ref{lem:bpcoarsehess}, $c_\varrho\le c_H$ and $\alpha_n(\varrho)\le
+\alpha$, and Theorem~\ref{thm:bpcoarse} applies. For the Wilson action the
+proof of Lemma~\ref{lem:bponelink} gives the second derivative at least
+$-6N\lvert\beta\rvert\lvert X\rvert^2$ and, by Lemma~\ref{lem:mixed}, the mixed
+derivatives of the one plaquette that contains two partners at most
+$N\lvert\beta\rvert\lvert X\rvert\lvert Y\rvert$; partners of $j$ have $w_n=1,
+1,0,1,1,2$ in each of the three planes through $j$, eighteen in all, and
+$1-c_H=(\kappa_G-24N\lvert\beta\rvert)/(\kappa_G-6N\lvert\beta\rvert)$.
+Subadditivity is the triangle inequality for second derivatives.
+\end{proof}
+
+So the criterion holds for every $C^2$ perturbation of a Wilson action in
+the range of Corollary~\ref{cor:bpranges}(iii) whose Hessian blocks are
+small in the norms above, local or not; this is the analogue of
+Proposition~\ref{prop:cubeopen} without the gauge and without a finite
+range. The block laws are of this kind of object.
+
+\begin{lemma}\label{lem:bpcoarselaw}
+Let $c$ be the straight-path map with blocks of side $b\ge2$ from
+$\Lambda_{bL}$ to $\Lambda_L$.
+\begin{enumerate}[label=\textup{(\roman*)},leftmargin=*]
+\item If $\mu'$ has a continuous positive density $r$ with respect to
+$\lambda_{E'}$, then $c_*\mu'$ has the continuous positive density $V\mapsto
+\nu_V(r)$ with respect to $\lambda_E$, of class $C^m$ if $r$ is.
+\item Let $c'$ be the straight-path map with blocks of side $b'\ge2$ from
+$\Lambda_{b'bL}$ to $\Lambda_{bL}$, and $R$, $R'$, $R''$ the Haar
+refinements along $c$, $c'$ and the straight-path map $c\circ c'$ with
+blocks of side $bb'$. Then $R'(R(\varrho))=R''(\varrho)$ for every
+probability measure $\varrho$ on $G^E$.
+\item For $G=\SU(N)$, $c\circ Z_{c_1,d_1}=Z_{c_1,d_1}\circ c$ for the centre
+twists of Section~\textup{\ref{ssec:bpstrong}} on $\Lambda_{bL}$ and on
+$\Lambda_L$, and $c$ intertwines the translations by $b$ of $\Lambda_{bL}$
+with the unit translations of $\Lambda_L$. So $c_*\mu'$ inherits invariance
+under these maps from $\mu'$.
+\end{enumerate}
+In particular, for straight-path maps $c_j$ in Corollary~\textup{\ref{cor:bpuptuning}},
+$\mu^{(0)}_{k,L}=(c^{(k)})_*\mu_{k,L}$ with $c^{(k)}=c_1\circ\dots\circ c_k$
+the straight-path map with blocks of side $2^k$; it has the smooth positive
+density $V\mapsto\nu_V(\prod_p\varphi(U_p))/Z$, it is gauge invariant and
+invariant under the centre twists and the translations of
+$\Lambda_{L_0}$, and Theorem~\textup{\ref{thm:bpcoarse}} and
+Lemma~\textup{\ref{lem:bpcoarsehess}} apply to it, with the induced action
+$H^{(0)}_{k,L}(V)=-\log\nu_V(\prod_p\varphi(U_p))$ in place of $H$.
+\end{lemma}
+
+\begin{proof}
+(i) By Lemma~\ref{lem:bprefine}(i), $\lambda_{E'}=\int\lambda_E(dV)\nu_V$, so
+$\mu'(\psi\circ c)=\int\lambda_E(dV)\psi(V)\nu_V(r)$ for bounded Borel $\psi$.
+Under $\nu_V$ the first $b-1$ links of each path and the links of $E'_0$
+are independent Haar variables $u$, and the last link of $\pi(e)$ is the
+inverse of the product of the others times $V_e$; so $\nu_V(r)=\int r(\Phi(V,
+u))\,du$ with $\Phi$ smooth. Continuity and differentiability under the
+integral follow from the uniform continuity of $r$ and of its derivatives
+on the compact group, and $\nu_V(r)\ge\min r>0$.
+
+(ii) The map $c\circ c'$ multiplies the $bb'$ links of the straight path
+from $b'by$ to $b'b(y+e_\nu)$, which consists of the paths of $c'$ of the
+$b$ links of the path $\pi(y,\nu)$ of $c$. It suffices to show $\int\nu_V(dW)
+\,\nu'_W=\nu''_V$ for every $V$, with the obvious notation. Under $\nu_V$ the
+links $W_1,\dots,W_{b-1}$ of $\pi(e)$ and the links of $E'_0$ are
+independent Haar variables and $W_b=(W_1\cdots W_{b-1})^{-1}V_e$. If $W_i$
+is a Haar variable and the links of its $c'$-path have law $\nu'^{(b')}_{
+W_i}$ given $W_i$, then by Lemma~\ref{lem:bpfibrelaw}(i) all $b'$ of them are
+independent Haar variables. Hence under $\int\nu_V(dW)\nu'_W$ the first
+$bb'-1$ links of the path of $c\circ c'$ are independent Haar variables, the
+last is the inverse of their product times $V_e$, and every link on no path
+of $c\circ c'$, which lies on the $c'$-path of a link of $E'_0$ or is on no
+$c'$-path, is an independent Haar variable. This is $\nu''_V$.
+
+(iii) The coarse link $(y,0)$ is the product of the fine links
+$(by+te_0,0)$, $0\le t<b$, and exactly one of them has $0$-coordinate $0$
+when $y_0=0$, none otherwise; the twist multiplies it by a central element.
+The links of the other directions are not affected, and likewise for the
+direction $1$. The statement on translations is immediate, and the
+Wilson measure is invariant under the twists and the translations.
+
+The composite statement is (ii)--(iii) and the identity $c_1\circ\dots\circ
+c_k=c^{(k)}$, and the density is (i) with $r\propto\prod_p\varphi(U_p)$.
+\end{proof}
+
+Through Theorem~\ref{thm:bpcoarse}, (H1) reduces to bounds on single coarse
+links, uniform along the tuning, and the cube side $n_0$ is free.
+
+\begin{corollary}[what the criterion needs from the block laws]
+\label{cor:bpcoarseH1}
+In Corollary~\textup{\ref{cor:bpuptuning}} let the $c_j$ be straight-path
+maps, and write $C^{(k,L)}_{ej}$ for the single-link coefficients of
+$\mu^{(0)}_{k,L}$ on $\Lambda_{L_0}$, $L=2^kL_0$. Suppose that there are
+$c<1$ and $R\ge1$ with
+\[
+\sum_{e\ne j}C^{(k,L)}_{ej}\le c,\qquad\sum_{e:\,\lvert\Delta\rvert_\infty>R}
+C^{(k,L)}_{ej}\le\frac{1-c}{16}
+\]
+for all $k$, all $L\in\mathcal L_k$ and all links $j$. Then (H1) holds with
+$\varpi_0=\frac12$ for every $n_0\ge\max(2,16Rc/(1-c))$ for which every
+$L\in\mathcal L_k$ has $L_0\ge2n_0+4$. The same holds if the induced actions
+$H^{(0)}_{k,L}$ satisfy the hypotheses of
+Lemma~\textup{\ref{lem:bpcoarsehess}} with $\theta_{ej}=J_{ej}/(\kappa_G-h_e)$
+in place of $C^{(k,L)}_{ej}$.
+\end{corollary}
+
+\begin{proof}
+By Theorem~\ref{thm:bpcoarse}(ii),
+\[
+\alpha_{n_0}\le\frac{4Rc}{(1-c)\,n_0}+\frac{4t(R)}{1-c}\le\frac14+\frac14 .
+\]
+For the second statement use
+Lemma~\ref{lem:bpcoarsehess} and the monotonicity of these bounds in the
+coefficients.
+\end{proof}
+
+These are statements about the induced action of $k$ steps at the spacing
+$a_0$, uniform in $k$ and in the torus. The results of this paper do not
+supply them for any $k$ with $\beta_k$ outside the strong-coupling range:
+Corollary~\ref{cor:bpranges} bounds the coefficients of Wilson measures,
+Theorem~\ref{thm:chartdecay} and Section~\ref{sec:islands} concern the law of
+the fine field given the block variables, and
+Proposition~\ref{prop:relstep} concerns one step of the cut-off average at
+weak coupling. For the finitely many $k$ in the strong-coupling range the
+criterion is not needed, since the descent of Section~\ref{ssec:bpblock}
+already gives (H1) there, with the cube enlarged by one.
+
+\begin{proposition}[the place of (H1)]\label{prop:bpcoarsezero}
+\begin{enumerate}[label=\textup{(\roman*)},leftmargin=*]
+\item Let $\mu'$ be a gauge-invariant probability measure on $G^{E'}$,
+$c$ the straight-path map with blocks of side $b\ge2$, $n\ge2$, $L\ge2n+4$
+even, $2\le n'\le b(n-1)+1$ with $bL\ge2n'+4$, and $\varpi_c=\varpi'(n'/
+(bn))^4$. Then $\mathrm{BP}_{\mu'}(n',\varpi')$ implies
+$\mathrm{BP}_{c_*\mu'}(n,\varpi_c)$.
+\item In Corollary~\textup{\ref{cor:bpuptuning}} with straight-path maps,
+if $\mathrm{BP}(n_k,\varpi)$ holds for $\mu_{k,L}$ and $L_0\ge2n_0+6$, then
+$\mathrm{BP}(n_0+1,\varpi_1)$ holds for $\mu^{(0)}_{k,L}$, with $\varpi_1=
+\varpi(n_0/(n_0+1))^4$. For
+$G=\SU(2)$ and $\lvert\beta_{k,W}\rvert<\frac{16}{105}$ this holds with
+$\varpi=1-\alpha_{n_k}$, $\alpha_{n_k}$ as in
+Corollary~\textup{\ref{cor:bpranges}(i)}.
+\item Under \textup{(H2)}, \textup{(H1)} implies $\mathrm{BP}(n_k,\varpi)$ for
+all $k$ with $\varpi=\min(\varpi_0,1/C_A)/\Gamma$, which implies \textup{(H1)}
+at the cube size $n_0+1$, with the constant $\varpi(n_0/(n_0+1))^4$, on the
+tori with $L_0\ge2n_0+6$.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+(i) The straight-path map satisfies (B1) with $r=0$, since $c_{(y,\nu)}$
+depends only on the links with base points $by+te_\nu\in B_y$, and the proof
+of Theorem~\ref{thm:bpdescent}(i),(ii) holds with $r=0$: then $y(x')$ has
+coordinates $\lfloor x'_i/b\rfloor$, $Q_y=by+[0,bn)^4$, and $x'_i+n'-1\le
+by_i+b-2+n'\le by_i+bn-1$ by the bound on $n'$, so $V'_{x'}$ has its base
+points in $Q_y$; a coarse link $(z,\nu)$ with $z\notin y+[0,n)^4$ depends
+only on links with base points in $B_z$, which is disjoint from $Q_y$. The
+rest of that proof does not involve $r$.
+
+(ii) Apply (i) to $c^{(k)}$, with $b=2^k$, $n'=n_k=b\,n_0$ and $n=n_0+1$, so
+that $n'\le b(n-1)+1$; the coarse torus $\Lambda_{L_0}$ has $L_0\ge2n+4$, and
+$L=2^kL_0\ge2n_k+4$. The constant is $\varpi(n_k/(bn))^4=\varpi(n_0/(n_0+
+1))^4$. For $\SU(2)$, Corollary~\ref{cor:bpranges}(i) gives
+$\mathrm{BP}(n_k,1-\alpha_{n_k})$ on every torus, since the threshold $4n^2/
+(18n^2+18n-3)$ increases with $n$ and equals $\frac{16}{105}$ at $n=2$.
+
+(iii) Corollary~\ref{cor:bpuptuning} and (ii).
+\end{proof}
+
+Part (iii) says
+that, given (H2), the coarsest condition is necessary and sufficient for
+the conclusion of Corollary~\ref{cor:bpuptuning} up to one unit of cube
+size, so no proof of $\mathrm{BP}(n_k,\varpi)$ by the upward step avoids it.
+The condition also imposes two necessary conditions on the block laws,
+which hold for every gauge-invariant measure and use no locality.
+
+\begin{proposition}[what the condition forces]\label{prop:bpcoarsenec}
+Let $\varrho$ be a gauge-invariant probability measure on the links of
+$\Lambda_L$ for which $\mathrm{BP}_\varrho(n,\varpi)$ holds, and $P_y$ the
+Polyakov loops of Section~\textup{\ref{ssec:bpstrong}}.
+\begin{enumerate}[label=\textup{(\roman*)},leftmargin=*]
+\item The averaged Polyakov loops satisfy
+\[
+\Var_\varrho\Bigl(L^{-3}\sum_{y:\,y_0=0}\ReTr P_y\Bigr)\le\frac{N^2n^2}{\varpi
+L^2},
+\]
+and the same holds for the imaginary parts.
+\item Let $G=\SU(N)$, $L=2n+4$, let $\varrho$ be invariant under the centre
+twists $Z_{c_1,d_1}$, let $\Var_\varrho(\ReTr U_p)>0$ for some plaquette $p$,
+and $\varepsilon=\max_p\varrho(\lVert U_p-I\rVert_{\rm HS}^2)$. Then $\varpi\le
+C'_Nn^4\varepsilon$, with $C'_2=19200$ and $C'_N=\max(2048(N^2-1)N^2(N-1)^2
+/c_N,\,2048/\eta_N^2)$, $c_N,\eta_N$ as in
+Lemma~\textup{\ref{lem:bpcommute}}.
+\item In Corollary~\textup{\ref{cor:bpuptuning}} with straight-path maps,
+\textup{(H1)} implies, for all $k$ and $L\in\mathcal L_k$,
+\[
+\Var_{\mu_{k,L}}\Bigl(L_0^{-3}\sum_{y:\,y_0=0}\ReTr P_{2^ky}\Bigr)\le\frac{N^2
+n_0^2}{\varpi_0L_0^2},
+\]
+the $P_{2^ky}$ being Polyakov loops of $\Lambda_L$; and if $G=\SU(N)$ and
+$L=2^k(2n_0+4)\in\mathcal L_k$, the holonomies $W$ of the squares of side
+$2^k$ with corners in $2^k\Z^4$ satisfy $\max_W\mu_{k,L}(\lVert W-I\rVert_{\rm
+HS}^2)\ge\varpi_0/(C'_Nn_0^4)$.
+\item If $G=\SU(2)$ and $\varrho$ on $\Lambda_{2n+4}$ has a continuous positive
+density, is invariant under the centre twists and satisfies the hypothesis
+of Theorem~\textup{\ref{thm:bpcoarse}(i)} with $\alpha\le\frac12$, then
+$\varepsilon\ge1/(38400\,n^4)$.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+(i) This is the proof of Theorem~\ref{thm:bpfixed}(i) without the symmetry:
+$\lVert g_y-P^\varrho_xg_y\rVert_2\le N$ for $g_y=\ReTr P_y$, so the right side
+of $\mathrm{BP}$ for the average is at most $N^2n^2/L^2$, and the left side is
+$\varpi$ times its variance.
+
+(ii) The proof of Theorem~\ref{thm:bpfixed}(ii),(iii), before the use of
+Lemma~\ref{lem:bpflat}, uses the measure only through its invariance under
+the $Z_{c_1,d_1}$, which makes the traces $F_{ab}$ centred, through the mean
+of $\lVert U_p-I\rVert_{\rm HS}^2$ at each plaquette, which enters as an upper
+bound and may be replaced by $\varepsilon$, and through $\varpi\le2$, which
+the proof of Proposition~\ref{prop:bpscales}(ii) gives from the plaquette
+$p$. Lemmas~\ref{lem:bpstokes} and~\ref{lem:bpcommute} are deterministic.
+
+(iii) By Lemma~\ref{lem:bpcoarselaw}, $\mu^{(0)}_{k,L}$ is gauge invariant,
+invariant under the centre twists, and has a continuous positive density,
+so $\Var(\ReTr c_P)>0$. The Polyakov loops of $\Lambda_{L_0}$ are those of
+$\Lambda_L$ through the sites $2^ky$, and the plaquette variables $c_P$ are
+the holonomies $W$. Apply (i) and (ii).
+
+(iv) Theorem~\ref{thm:bpcoarse}(i) gives $\mathrm{BP}(n,\frac12)$, and (ii)
+gives $\frac12\le19200\,n^4\varepsilon$.
+\end{proof}
+
+Part (iv) is an obstruction to the criterion on the smallest torus: a law
+of the block variables whose plaquettes are close to $I$ in the mean cannot
+satisfy it there. The condition (H1) is posed on all $L\in\mathcal L_k$, and
+on large tori (i) asks that the spatially averaged Polyakov loops of the
+coarse torus decorrelate. That requirement is not implied by the decay of
+local correlations, and it is independent of (H2), as the following
+measure shows. For $G=\SU(N)$, $N\ge2$, and $\theta\in[0,2\pi)$ let
+$h_\theta$ be the configuration of $\Lambda_L$ with $(h_\theta)_{(y,0)}=
+\operatorname{diag}(e^{i\theta},e^{-i\theta},1,\dots,1)$ and $(h_\theta)_{(y,
+\nu)}=I$ for $\nu\ne0$, and let $\tau_L$ be the law of the configuration
+$\hat g\cdot h_\theta$, $(\hat gh_\theta)_{(y,\nu)}=\hat g(y)(h_\theta)_{(y,
+\nu)}\hat g(y+e_\nu)^{-1}$, with $\theta$ uniform and $\hat g$ a Haar
+distributed gauge transformation independent of $\theta$. It is a random
+flat connection with a uniformly distributed holonomy around the direction
+$0$.
+
+\begin{proposition}[a flat coarse law]\label{prop:bpcoarseflat}
+Let $G=\SU(N)$, $N\ge2$, $n\ge2$ and $L\ge\max(2n+4,8)$ even.
+\begin{enumerate}[label=\textup{(\roman*)},leftmargin=*]
+\item $\tau_L$ is gauge invariant; every gauge-invariant function of the
+links with base points in a box of side at most $L/2$ is $\tau_L$-almost
+surely constant; and $\varpi\Var_{\tau_L}(f)\le\mathcal E^{\tau_L}_n(f)$ fails
+for $\varpi>n^2/L^2$ both for the charged function $f=L^{-3}\sum_{y:\,y_0=0}
+\ReTr P_y$ and for the neutral function $f=L^{-3}\sum_{y:\,y_0=0}\lvert\Tr
+P_y\rvert^2$. So $\mathrm{BP}_{\tau_L}(n,\varpi)$ and its restriction to
+$\mathcal A_0$ fail for $\varpi>n^2/L^2$.
+\item Let $c$ be the straight-path map with blocks of side $b\ge2$ and
+$\mu'=R(\tau_L)$ on $\Lambda_{bL}$. Then $c_*\mu'=\tau_L$, and $\Cov_{\mu'}(f,
+g)=0$ for all continuous gauge-invariant $f,g$ that depend only on the links
+with base points in boxes $B,B'$ of side at most $bL/2$ with $d(B,B')\ge
+b$.
+\item Let $n_0\ge2$, $L_0\ge\max(2n_0+4,8)$ even, and for each $k$ let
+$\mu_{k}=R^{(k)}(\tau_{L_0})$ be the Haar refinement along $c^{(k)}$, on
+$\Lambda_{2^kL_0}$, with the tower of straight-path maps $c_j$ of side two.
+Then $\mu^{(j)}=R_j\circ\dots\circ R_1(\tau_{L_0})$, $\mathrm S(n_j,n_{j-1};1,1)$
+holds for $(\mu^{(j)},c_j)$ with $n_j=2^jn_0$, so (H2) holds with $C_A=1$ and
+$\Gamma=1$; $\mu^{(0)}=\tau_{L_0}$, so $\mathrm{BP}(n_0,\varpi_0)$ fails for it
+when $\varpi_0>n_0^2/L_0^2$; and the local gauge-invariant covariances of
+$\mu_k$ vanish at distance at least $2^k$, that is, at physical distance
+$a_0$.
+\item Let $b\ge2$, $L\ge2n+4$ and $bL\ge2n'+4$, let $\tau'$ be the law of
+$(\hat g(x)(h_\theta)_{(x,\mu)}\hat g(x+e_\mu)^{-1})_{(x,\mu)\in E'_0}$, with
+$h_\theta$ and $\hat g$ now on $\Lambda_{bL}$, and $\mu'=\lambda_{E'\setminus
+E'_0}\otimes\tau'$. Then $\mu'$ is gauge invariant, $c_*\mu'=\lambda_E$
+satisfies $\mathrm{BP}(n,1)$, $\mathrm{BP}_{\mu'}(n',\varpi')$ fails for
+$\varpi'>\frac{64}{49}n'^2/(bL)^2$, and constants for which $\mathrm S(n',n;
+C_A,C_B)$ holds for $(\mu',c)$ satisfy $\max(C_A,C_B)\ge\frac{49}{64}(bL)^2/
+n'^2$.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+\emph{An averaging bound.} Let $\varrho$ be a probability measure on the links
+of $\Lambda_M$, $S$ a set of sites with $y_0=0$, and $g_y$, $y\in S$, a
+function of the links of the line through $y$ in the direction $0$, such
+that $\varrho$-almost surely all $g_y$ equal one random variable of variance
+$v>0$. For $f=\lvert S\rvert^{-1}\sum_{y\in S}g_y$, $\Var_\varrho(f)=v$; $P^\varrho_x
+g_y=g_y$ unless the line meets $V_x$, which happens for at most $n^3$ points
+$y\in S$, and $\lVert g_y-P^\varrho_xg_y\rVert_2\le\lVert g_y-\varrho(g_y)\rVert_2=
+\sqrt v$ because $P^\varrho_x$ is an orthogonal projection that fixes the
+constants. Hence $\mathcal E^\varrho_n(f)\le n^{-4}M^4(n^3\sqrt v/\lvert S
+\rvert)^2$, and $\varpi v\le\mathcal E^\varrho_n(f)$ forces $\varpi\le n^2M^4/
+\lvert S\rvert^2$.
+
+(i) A gauge transformation $g$ maps $\hat g\cdot h_\theta$ to $(g\hat g)\cdot
+h_\theta$, and $g\hat g$ is again Haar distributed. Let $f$ depend on the
+links with base points in a box of side at most $L/2$; their end points lie
+in a box $Q$ of side at most $L/2+1\le L-1$, and with coordinates on $Q$
+taken in an interval of length less than $L$, $k(y)=(h_\theta)_{(0,0)}^{-y_0}$
+satisfies $k(y)k(y+e_\nu)^{-1}=(h_\theta)_{(y,\nu)}$ on these links. So
+$f(\hat g\cdot h_\theta)=f(h_\theta)=f(k\cdot I)=f(I)$ almost surely. Almost
+surely $P_y=\hat g(y)(h_\theta)_{(0,0)}^L\hat g(y)^{-1}$ for every $y$, so
+$\ReTr P_y=2\cos(L\theta)+N-2$ and $\lvert\Tr P_y\rvert^2=(2\cos(L\theta)+
+N-2)^2$, with variances $2$ and $2+8(N-2)^2$; the second function is
+neutral by Proposition~\ref{prop:bpcentre}. The averaging bound with $M=L$,
+$\lvert S\rvert=L^3$ gives the claim.
+
+(ii) $c_*\mu'=\tau_L$ by Lemma~\ref{lem:bprefine}(i). By the proof of
+Lemma~\ref{lem:bprefine}(i), the image of $\nu_V$ under the gauge
+transformation equal to $\hat g(y)$ at $by$ and to $I$ elsewhere is
+$\nu_{\hat gV}$; so $\mu'$ is the law of $g\cdot U$ with $U$ distributed as
+$\int\nu_{h_\theta}\,d\theta$ and $g$ a random gauge transformation, and
+$\mu'(fg)=\int\nu_{h_\theta}(fg)\,d\theta$, $\mu'(f)=\int\nu_{h_\theta}(f)\,
+d\theta$. Fix $\theta$. Under $\nu_{h_\theta}$ the links of distinct paths
+and of $E'_0$ are independent. The base points of a path lie in $b$
+consecutive sites of a line, so no path has links with base points in both
+$B$ and $B'$, and $\nu_{h_\theta}(fg)=\nu_{h_\theta}(f)\nu_{h_\theta}(g)$.
+The coarse links whose paths meet $B$ have end points in a box of
+$\Lambda_L$ of side at most $L/2+3\le L-1$, on which $h_\theta=k\cdot I$ as in
+(i). By Lemma~\ref{lem:bpfibrelaw}(ii), path by path, and the invariance of
+Haar measure on $E'_0$, the links with base points in $B$ have under
+$\nu_{h_\theta}$ the law of $g_k\cdot U$ with $U$ distributed as $\nu_I$,
+$g_k$ equal to $k(y)$ at $by$ and to $I$ elsewhere; so $\nu_{h_\theta}(f)=
+\nu_I(f)$, independent of $\theta$, and likewise for $g$. Hence $\Cov_{\mu'}(f,
+g)=0$.
+
+(iii) By Lemma~\ref{lem:bpcoarselaw}(ii) and induction, $R^{(k)}=R_k\circ
+R^{(k-1)}$, so $\mu_k=R_k\circ\dots\circ R_1(\tau_{L_0})$, and by
+Lemma~\ref{lem:bprefine}(i) the tower of $\mu_k$ is $\mu^{(j)}=R_j\circ\dots
+\circ R_1(\tau_{L_0})$, with $\mu^{(0)}=\tau_{L_0}$. Theorem~\ref{thm:bprefine}
+with $n'=n_j=2n_{j-1}$ gives $\mathrm S(n_j,n_{j-1};1,1)$. The rest is (i)
+and (ii) with $b=2^k$.
+
+(iv) The gauge group acts on the links of $E'\setminus E'_0$ and of $E'_0$
+separately; Haar measure is invariant, and so is $\tau'$, as in (i). The map
+$c$ depends only on the links of the paths, which are independent Haar
+variables, so $c_*\mu'=\lambda_E$, and Proposition~\ref{prop:avgsup}(ii) gives
+$\mathrm{BP}(n,1)$. A link of direction $0$ lies on a path exactly when the
+coordinates $1,2,3$ of its base point are divisible by $b$, so for the set
+$S$ of the $(bL)^3-L^3\ge\frac78(bL)^3$ sites $y$ with $y_0=0$ and
+$(y_1,y_2,y_3)\notin(b\Z)^3$ the lines through $y$ lie in $E'_0$, and
+$\ReTr P_y=2\cos(bL\theta)+N-2$ for all of them, almost surely. The averaging
+bound with $M=bL$ gives $\varpi'\le\frac{64}{49}n'^2/(bL)^2$. By
+Theorem~\ref{thm:bpup}(i), $\mathrm S(n',n;C_A,C_B)$ and $\mathrm{BP}(n,1)$
+for $c_*\mu'$ give $\mathrm{BP}_{\mu'}(n',\min(1/C_A,1/C_B))$.
+\end{proof}
+
+Replacing $\tau_{L_0}$ in (iii) by the $\SU(2)$ Wilson measure at $\lvert
+\beta_W\rvert<\frac{16}{105}$ for finitely many $k$ gives towers for which
+$\mathrm{BP}$ holds at every level (Corollary~\ref{cor:bprefinetower}). So
+(H2) with the best constants, together with $\mathrm{BP}$ at every level of
+finitely many towers, does not imply (H1); and by (iv), (H1) does not imply
+(H2). The measures of (ii) and (iii) have local gauge-invariant
+covariances of finite range, uniformly in the torus, while the coarse law
+fails $\mathrm{BP}$ in both the charged and the neutral sector; the failure
+lies in functions spread over the coarse torus, on which the cube moves of
+a flat law act only through the curvature they create. The local form
+$\mathrm{BP}_{\rm loc}$ holds for $\tau_{L_0}$ trivially, but it does not
+enter the upward step as proved: Theorem~\ref{thm:bpup}(i) applies the
+coarse condition to $F_f=\E[f\mid c]$, which for a general measure depends
+on all block variables even when $f$ is local.
+
+\begin{remark}[what is proved about the coarsest condition]
+\label{rem:bpcoarse}
+Proved: for every measure with a continuous positive density on the links
+of a torus, a Dobrushin bound $c_\varrho<1$ on the column sums of the
+single-link Kantorovich coefficients gives $\mathrm{BP}(n,1-\alpha_n(\varrho))$
+on all of $L^2(\varrho)$, with $\alpha_n(\varrho)\le m_\varrho/((1-c_\varrho)n)$
+explicit and no locality or product form assumed; the coefficients are
+bounded by the Hessian of the action, which recovers the leading term of
+Corollary~\ref{cor:bpranges}(iii) and is stable under perturbations small
+in the Hessian norms (Theorem~\ref{thm:bpcoarse},
+Lemma~\ref{lem:bpcoarsehess}, Corollary~\ref{cor:bpcoarsehess}); the laws
+of the block variables of the straight-path maps have smooth positive
+densities, so the criterion applies to them, and (H1) follows for every
+large $n_0$ from coefficient bounds uniform along the tuning
+(Lemma~\ref{lem:bpcoarselaw}, Corollary~\ref{cor:bpcoarseH1}); (H1) at the
+cube size $n_0+1$ follows from $\mathrm{BP}(n_k,\varpi)$, and given (H2) it is
+equivalent to the conclusion of Corollary~\ref{cor:bpuptuning} up to one
+unit of cube size (Proposition~\ref{prop:bpcoarsezero}); it forces the
+decorrelation of the averaged coarse Polyakov loops on every torus and, on
+the smallest torus, a lower bound on the curvature of the coarse
+plaquettes, which also obstructs the criterion there
+(Proposition~\ref{prop:bpcoarsenec}); it is independent of (H2), and it
+fails for the coarse law of a measure whose local covariances have range
+$a_0$ (Proposition~\ref{prop:bpcoarseflat}).
+
+Not proved: (H1) along the tuning; the bounds of
+Corollary~\ref{cor:bpcoarseH1} for the induced actions $H^{(0)}_{k,L}$ for
+any $k$ with $\beta_k$ outside the strong-coupling range, that is, a
+single-link Hessian of the induced action of $k$ steps below $\kappa_G$
+and summable mixed blocks at the scale where the running coupling is of
+order one, which is the large-field and effective-action problem of
+item~(iv) of Section~\ref{ssec:remains}; whether $\mathrm{BP}(n_k,\varpi)$ gives
+(H1) at the cube size $n_0$ itself; the decorrelation of the coarse
+Polyakov loops of Proposition~\ref{prop:bpcoarsenec}(iii) for the tuned
+measures. The measures of Proposition~\ref{prop:bpcoarseflat} are flat on
+the coarse scale and are not Wilson measures, and nothing is claimed about
+the tuned measures from them. For the measures of
+Corollary~\ref{cor:bprefinetower}, where $\mathrm{BP}$ holds at every scale,
+Lemma~\ref{lem:bpcoarsehess} gives no conclusion once $K$ is large, since a
+fine link of a path enters six loops of $4b^K$ links; the criterion is a
+statement for the coarsest scale. Neither $\mathrm{BP}$ along the tuning nor
+the mass gap is proved here.
 \end{remark}
 
 \section{The open inputs}\label{sec:inputs}
@@ -43314,6 +43926,19 @@ and~\ref{thm:bprefine}, Corollaries~\ref{cor:bpuptuning},
 \ref{cor:bpupseparate} and~\ref{cor:bprefinetower},
 Propositions~\ref{prop:bpuphaar}, \ref{prop:bpfinesplit}
 and~\ref{prop:bpnotrefine}, Remarks~\ref{rem:bpup}
+and~\ref{rem:bprefine}); the condition at the coarsest scale follows, for
+every measure with a continuous positive density and without locality,
+from a bound of Dobrushin type on the single-link coefficients of the law
+of the block variables or from a Hessian bound on its induced action,
+uniform along the tuning, and these bounds are not proved outside the
+strong-coupling range; given the split inequality the condition is
+equivalent to the conclusion of the bootstrap up to one unit of cube
+size, it is independent of the split inequality, and it fails for the
+coarse law of a measure whose local gauge-invariant covariances vanish
+beyond the coarsest spacing (Theorem~\ref{thm:bpcoarse},
+Corollaries~\ref{cor:bpcoarsehess} and~\ref{cor:bpcoarseH1},
+Propositions~\ref{prop:bpcoarsezero}, \ref{prop:bpcoarsenec}
+and~\ref{prop:bpcoarseflat}, Remarks~\ref{rem:bpcoarse}
 and~\ref{rem:bprefine}). Section~\ref{ssec:groups13} carries the single-scale results of this section to every compact simple group, with explicit constants, except the parts listed in Remark~\ref{rem:groups13}. Section~\ref{ssec:chainG} states the conditional continuum chain for every compact simple group, with the averaged condition in its local form, the centre sectors of $Z(G)$ and the Schwinger functions at separated points (Theorem~\ref{thm:chainG}, Proposition~\ref{prop:bpcentreG}), proves the averaged condition and the triviality of the limits for $N\beta\le\kappa_G/48$ (Corollary~\ref{cor:limitEstrongG}), and extends the obstruction at fixed cube size under a condition (CP) that holds for $\SU(N)$ and fails for $\mathrm{Sp}(n)$ with $n$ even (Proposition~\ref{prop:bpfixedG}); its hypotheses are not proved for any group, and an analogue of the sharp quarter for $G\ne\SU(2)$ is not proved (Proposition~\ref{prop:modulusG}). On the continuum side, Lemmas~\ref{lem:positivetime}
 and~\ref{lem:nonvanishing} reduce the nontriviality of the limit to a
 lower bound on one ratio of lattice two-point functions at a fixed
