@@ -4834,7 +4834,12 @@ $f\in L^2(\mu)$ in the following cases.
 \alpha_n=\frac{\lvert\beta_W\rvert(18n-3)}{(4-18\lvert\beta_W\rvert)n^2},
 \]
 whenever $\lvert\beta_W\rvert<4n^2/(18n^2+18n-3)$; for $n=2$ this is
-$\lvert\beta_W\rvert<\frac{16}{105}$. At $\lvert\beta_W\rvert\le\frac18$,
+$\lvert\beta_W\rvert<\frac{16}{105}$.\footnote{With $c=\lvert\beta_W
+\rvert/4$ the condition $18c<1$ of Theorem~\ref{thm:bpstrong} reads
+$\lvert\beta_W\rvert<\frac29$, and $\alpha_n<1$ reads $\lvert\beta_W\rvert
+(18n-3)<(4-18\lvert\beta_W\rvert)n^2$, that is, $\lvert\beta_W\rvert(18n^2+
+18n-3)<4n^2$; at $n=2$ this is $105\lvert\beta_W\rvert<16$. As $n\to
+\infty$ the threshold $4n^2/(18n^2+18n-3)$ increases to $\frac29$.} At $\lvert\beta_W\rvert\le\frac18$,
 $\alpha_n\le\alpha_2\le0.59$ for every $n\ge2$; at $\lvert\beta_W\rvert\le
 \frac15$, $\alpha_n\le0.982$ for every $n\ge9$.
 \item $G=\SU(3)$ and $\beta_W\ge0$ with
@@ -5169,6 +5174,28 @@ exteriors: the response grows linearly with the cube, the behaviour that
 Remark~\ref{rem:cubeheuristic} assigns to cubes smaller than the
 correlation length.
 
+Fig.~\ref{fig:bpranges} places the two results of this subsection in the
+plane of the coupling and the cube side.
+
+\begin{figure*}[t]
+\centering
+\includegraphics[width=0.95\textwidth]{figures/fig_bpranges.png}
+\caption{The averaged condition at strong coupling and at fixed cube size.
+(a)~The bound $\log_{10}\bigl(38400\,n^4(\log\beta+6.11)/\beta\bigr)$ of
+Theorem~\ref{thm:bpfixed}(ii) for $\SU(2)$ over the cube side $n$ and
+$\log_{10}\beta$; where it lies below the plane $\varpi=1$ (red),
+$\mathrm{BP}(n,1)$ fails on $\Lambda_{2n+4}$, and the black curve is the
+crossing. (b)~For $\SU(2)$ in the variables $\beta_W=4\beta$ and $n$: the
+range $\lvert\beta_W\rvert<\frac29$ of Corollary~\ref{cor:bpranges}, where
+$\mathrm{BP}(n,\varpi)$ holds on every torus for all $n\ge n_0(\beta_W)$
+(green); the region where Theorem~\ref{thm:bpfixed}(ii) excludes
+$\mathrm{BP}(n,\frac12)$ on $\Lambda_{2n+4}$ (red); and the continuum
+tuning $n\propto e^{3\pi^2\beta_W/11}$ at fixed physical cube size
+(dashed, schematic, the power prefactor omitted), which runs through the
+region where neither result applies.}
+\label{fig:bpranges}
+\end{figure*}
+
 \begin{remark}[what is proved about the averaged condition]\label{rem:bpstatus}
 Proved: $\mathrm{BP}(n,1-\alpha_n)$ on every torus and on all of $L^2(\mu)$
 for $\SU(2)$ with $\lvert\beta_W\rvert<\frac29$, for $\SU(3)$ with $\zeta(
@@ -5316,7 +5343,13 @@ inequality on every $\mathcal A_r$ are equivalent. For $r\ne0$, $\mu(f)=\ip
 A local gauge-invariant function, such as a Wilson loop of a contractible
 loop or a function of the plaquettes of a box, is therefore neutral, while
 the trace of a Polyakov loop of direction $\nu$ lies in $\mathcal A_r$ with
-$r=e_\nu$, since the loop crosses each slice $\{y_\nu=t\}$ once. The
+$r=e_\nu$, since the loop crosses each slice $\{y_\nu=t\}$ once.\footnote{The
+twists $Z^\nu_t$ are the lattice form of the centre symmetry of the pure
+gauge theory on a torus. They change no plaquette, so they are invisible
+to the action, and the trace of a Polyakov loop, which they multiply by
+$\omega$, is the order parameter of the deconfinement transition at
+finite temperature; by Proposition~\ref{prop:bpcentre}(v) its mean is zero
+on every torus.} The
 continuum step needs the condition only on neutral functions, and only
 through local ones. Call $f\in L^2(\mu)$ \emph{local} if it depends only on
 the links with base points in some box of side at most $L/2$.
@@ -5341,7 +5374,12 @@ measure $\nu_g$, $\lVert\mathcal K^tg\rVert_2^2=\int\lambda^{2t}d\nu_g$; so
 the inequality of (a) for all $t$ says that $\nu_g$ is carried by $[0,1-
 \epsilon]$ for $g=f-\mu(f)$, the spectral gap of the cube chain on the cyclic
 subspace of each local function. Condition (a) involves no function of
-links spread over the torus.
+links spread over the torus.\footnote{The distinction is the one between
+a spectral gap of the whole generator and a gap on the cyclic subspaces of
+the observables that are measured. Only the latter enters a bound on
+their correlations, and a lower bound on the Rayleigh quotient of a
+function does not give it; Appendix~\ref{app:cyclic} proves both
+statements in the generality of a self-adjoint contraction.}
 
 \begin{theorem}[the local form of the averaged condition]\label{thm:bplocal}
 Let $G$, $\varphi$ and $\Lambda_L$ be as in Sec.~\ref{ssec:averaged}.
@@ -5428,6 +5466,27 @@ $\nu_h$ is carried by $(1-\epsilon,1]$, $\ip h{(I-\mathcal K)h}=\int(1-
 \lambda)\,d\nu_h<\epsilon\lVert h\rVert_2^2$, that is, $\mathcal E_n(h)<
 \varpi\Var_\mu(h)$.
 \end{proof}
+
+Fig.~\ref{fig:bpsectors} shows the sectors and the spectral picture
+behind Theorem~\ref{thm:bplocal}.
+
+\begin{figure*}[t]
+\centering
+\includegraphics[width=0.95\textwidth]{figures/fig_bpsectors.png}
+\caption{Centre sectors and the local form of the averaged condition.
+(a)~A three-dimensional section of the torus with the slices $\{y_0=t\}$.
+The twist $Z^0_t$ multiplies the links that cross one slice by the central
+element $z$ (gold) and leaves every plaquette unchanged; a Polyakov loop
+of direction $0$ crosses every slice once and is charged, while a
+gauge-invariant function of a box that misses one slice is neutral
+(Proposition~\ref{prop:bpcentre}). (b)~Spectral measures of the cube chain
+$\mathcal K$, schematic: under $\mathrm{BP}_{\rm loc}$ the measure of a
+local function puts no mass on $(1-\epsilon,1]$ (green), while a charged
+function may carry mass there (red), as the test functions of
+Theorem~\ref{thm:bpfixed} do at weak coupling (Theorem~\ref{thm:bplocal},
+Corollary~\ref{cor:bpcharged}).}
+\label{fig:bpsectors}
+\end{figure*}
 
 By (iv), under $\mathrm{BP}_{\rm loc}$ the functions on which the cube
 chain is slow are nearly orthogonal to every local gauge-invariant function,
@@ -5615,7 +5674,12 @@ E_n(f)$. For the Wilson weight, $5\omega_\varphi\lvert P_S\rvert\le60N^2
 
 So a sequence of functions with $\mathcal E_n(f_j)/\Var_\mu(f_j)\to0$, on
 tori of growing side at fixed $n$ and $\beta$, depends on growing sets of
-links, and no subsequence converges to a function of finitely many links.
+links,\footnote{The exponent $5\omega_\varphi\lvert P_S\rvert$ is the cost
+of comparing the conditional laws of the links of $S$ with Haar measure,
+in the manner of the perturbation lemma of Holley and
+Stroock~\cite{HS87}; it depends on $S$ through the plaquettes that touch
+it, and not on the torus. At fixed $\beta$ it forces
+$\lvert S\rvert\to\infty$ as $\varpi\to0$, linearly in $\log(1/\varpi)$.} and no subsequence converges to a function of finitely many links.
 This does not give $\mathrm{BP}_{\rm loc}$: Proposition~\ref{prop:bpnoloc}
 bounds the Rayleigh quotient of a local function, which is the mean of
 $1-\lambda$ under its spectral measure, while $\mathrm{BP}_{\rm loc}$ asks
@@ -29236,7 +29300,24 @@ The constant $L_{\mathrm{lin}}$ is linear in $\beta_W$. For $\beta_W\ge
 0.08$ its part free of $\mathfrak b_{\mathrm{tie}}$ is smaller than the
 part of $L_*$ free of $\mathcal A_{\mathrm{tie}}$, and in the range
 $\beta_W\ge2.3\cdot10^{17}$ of Theorem~\ref{thm:badcross} it replaces a
-factor $e^{72\beta_W}$ by a factor of order $\beta_W$.
+factor $e^{72\beta_W}$ by a factor of order $\beta_W$.\footnote{At
+$\beta_W=1$ and $\mathfrak b_{\mathrm{tie}}=1$, $L_{\mathrm{lin}}=
+478107.69$, while the part $180.4\,e^{72}$ of $L_*$ alone exceeds
+$3\cdot10^{33}$. At $\beta_W=0.08$ the two parts free of the ties are
+$42682.6$ and more than $57000$.} Fig.~\ref{fig:endslinear} compares the
+two constants.
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=0.95\columnwidth]{figures/fig_endslinear.png}
+\caption{The derivative in an end (Theorem~\ref{thm:endlinear}):
+$\log_{10}$ of $L_*=128.07\,\beta_W+(180.4+50.6\,\mathcal
+A_{\mathrm{tie}})e^{72\beta_W}$, with $\mathcal A_{\mathrm{tie}}<1.5756\,
+\mathfrak b_{\mathrm{tie}}$ (red), and of $L_{\mathrm{lin}}=7192+443620\,
+\beta_W+\mathfrak b_{\mathrm{tie}}(79.69+27216\,\beta_W)$ (blue), over
+$\beta_W$ and the tie length $\mathfrak b_{\mathrm{tie}}$.}
+\label{fig:endslinear}
+\end{figure}
 
 The hypothesis of Lemma~\ref{lem:endchart} bears on the links of the block
 of the end. It may bear on the other block instead.
@@ -37441,6 +37522,99 @@ d\nu(s)$ with $\nu$ a positive measure and $\chi(0)=\nu([0,\infty))>0$, then
 $\chi$ vanishes nowhere. The cutoff $\chi_\sigma$ of~\cite[Sec.~9,
 Eqs.~(9.11), (9.12)]{FaS26} equals $1$ on $[0,\sigma]$ and $0$ on
 $[2\sigma,\infty)$ and is asserted to have such a representation.
+
+\section{Spectral gaps on cyclic subspaces}\label{app:cyclic}
+
+The local form $\mathrm{BP}_{\rm loc}$ of Definition~\ref{def:bploc} asks
+for a spectral gap of the cube chain on the cyclic subspace of each local
+function. This appendix records the elementary facts about such gaps that
+Sec.~\ref{ssec:bpweak} uses, for a self-adjoint operator $K$ on a real or
+complex Hilbert space $H$ with $0\le K\le I$. For $g\in H$ let $\nu_g$ be
+its spectral measure, so that $\ip g{\phi(K)g}=\int\phi\,d\nu_g$ for
+bounded Borel $\phi$ on $[0,1]$, and for a Borel set $B$ let $E(B)$ be the
+spectral projection.
+
+\begin{lemma}\label{lem:cyclicgap}
+Let $g\in H$ and $0<\epsilon<1$. The following are equivalent.
+\begin{enumerate}[label=\textup{(\roman*)},leftmargin=*]
+\item $\lVert K^tg\rVert\le(1-\epsilon)^t\lVert g\rVert$ for every integer
+$t\ge0$.
+\item $\nu_g((1-\epsilon,1])=0$.
+\item $E((1-\epsilon,1])g=0$.
+\end{enumerate}
+Under these conditions $\ip{g'}{(I-K)g'}\ge\epsilon\lVert g'\rVert^2$ for
+every $g'$ in the closed cyclic subspace generated by $g$.
+\end{lemma}
+
+\begin{proof}
+$\lVert E(B)g\rVert^2=\nu_g(B)$, so (ii) and (iii) are equivalent. Under
+(ii), $\lVert K^tg\rVert^2=\int\lambda^{2t}d\nu_g\le(1-\epsilon)^{2t}\nu_g(
+[0,1])$, which is (i). If (ii) fails, there is $\eta>0$ with $m=\nu_g((1-
+\epsilon+\eta,1])>0$, since these sets increase to $(1-\epsilon,1]$ as
+$\eta\downarrow0$; then $\lVert K^tg\rVert^2\ge m(1-\epsilon+\eta)^{2t}$,
+which exceeds $(1-\epsilon)^{2t}\lVert g\rVert^2$ for large $t$, and (i)
+fails. The closed cyclic subspace of $g$ is the closure of $\{\phi(K)g\}$
+over polynomials $\phi$; it lies in the range of $E([0,1-\epsilon])$,
+since $E((1-\epsilon,1])$ commutes with $K$, and on that range $I-K\ge
+\epsilon$.
+\end{proof}
+
+\begin{lemma}\label{lem:cyclicspan}
+Let $F\subset H$ and $0<\epsilon<1$. Every $g\in F$ satisfies the
+conditions of Lemma~\ref{lem:cyclicgap} if and only if the range of
+$E((1-\epsilon,1])$ is orthogonal to $F$, and then every vector of the
+closed linear span of $F$ satisfies them. In that case, for every $g$ in
+that span and every $h\in H$,
+\[
+\lvert\ip gh\rvert^2\le\lVert g\rVert^2\,\frac{\ip h{(I-K)h}}\epsilon .
+\]
+\end{lemma}
+
+\begin{proof}
+$E=E((1-\epsilon,1])$ is an orthogonal projection, so $Eg=0$ if and only if
+$g$ is orthogonal to the range of $E$; the set of such $g$ is a closed
+subspace. For $g$ in it, $g$ and $h'=(I-E)h$ lie in the range $R$ of $I-E$,
+which is invariant under $K$ and on which $I-K\ge\epsilon$. Let $T$ be the
+restriction of $(I-K)^{1/2}$ to $R$; it is invertible with $\lVert T^{-1}
+\rVert\le\epsilon^{-1/2}$. Then $\ip gh=\ip g{h'}=\ip{T^{-1}g}{Th'}$, and
+\[
+\begin{split}
+\lvert\ip gh\rvert^2&\le\frac{\lVert g\rVert^2}\epsilon\,\ip{h'}{(I-K)h'}\\
+&\le\frac{\lVert g\rVert^2}\epsilon\,\ip h{(I-K)h},
+\end{split}
+\]
+the last step because $E$ commutes with $K$ and $\ip{Eh}{(I-K)Eh}\ge0$.
+\end{proof}
+
+So $\mathrm{BP}_{\rm loc}(n,\varpi)$ on $\Lambda_L$ says that the spectral
+projection of the cube chain for $(1-\varpi n^4/L^4,1]$ annihilates the
+closed span of the local gauge-invariant functions of mean zero, and the
+inequality of Theorem~\ref{thm:bplocal}(iv) is Lemma~\ref{lem:cyclicspan}
+for that span. The span is not an algebra: a product of two local
+functions in distant boxes is not local, and $\mathrm{BP}_{\rm loc}$ says
+nothing about it. A Poincar\'e inequality for one function bounds the
+mean of $1-\lambda$ under its spectral measure and does not give a gap on
+its cyclic subspace.
+
+\begin{lemma}\label{lem:rayleighnogap}
+For all $0<\eta<\epsilon<1$ and $0<\theta<\frac\pi2$ there are $H$, $K$ and
+$g$ with $\lVert g\rVert=1$, $\ip g{(I-K)g}\ge\cos^2\theta$, and
+$\lVert K^tg\rVert\ge(1-\eta)^t\sin\theta$ for every integer $t\ge0$; so
+$g$ fails the conditions of Lemma~\ref{lem:cyclicgap}.
+\end{lemma}
+
+\begin{proof}
+Take $H=\mathbb R^2$, $K=\operatorname{diag}(0,1-\eta)$ and $g=(\cos\theta,
+\sin\theta)$. Then $\ip g{(I-K)g}=\cos^2\theta+\eta\sin^2\theta$ and
+$K^tg=(0,(1-\eta)^t\sin\theta)$ for $t\ge1$, and $\nu_g(\{1-\eta\})=
+\sin^2\theta>0$ with $1-\eta\in(1-\epsilon,1]$.
+\end{proof}
+
+With $\theta$ close to $0$ the Rayleigh quotient of $g$ is close to one,
+the best possible value, while a fraction $\sin^2\theta$ of its spectral
+mass relaxes at the rate $\eta$ only. This is why
+Proposition~\ref{prop:bpnoloc}, a Poincar\'e inequality for each function
+of a finite set of links, does not give $\mathrm{BP}_{\rm loc}$.
 
 \section{The character expansion}\label{app:characters}
 
