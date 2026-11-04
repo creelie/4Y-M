@@ -109,9 +109,7 @@ along a forest reaches its constant on the gauge orbit of the vacuum, which
 fixes the one estimate that remains open. We prove that, once the blocks
 are labelled by their independent links and their coarse curvature, every
 good window carries an exact product law in which each path link is
-determined by its pair, that two bad islands interact only through one
-kernel on the good layer between them, with covariance at most
-$\frac14\tanh(\varDelta/4)$, and that the exact response of a plaquette block
+determined by its pair, that the weight of two bad islands factorises exactly through one kernel on the good layer between them, on a domain that their labels do not move, with covariance at most $\frac14\tanh(\varDelta/4)$ once the layer law obeys the covariance bound of the chart, and that the exact response of a plaquette block
 at zero field, $\frac14(1+I_2(\beta_W)/I_1(\beta_W))$, bounds every
 Dobrushin estimate of this form by $\beta_W=0.3666$. We give the explicit
 coupling, $\beta_W=5.4\cdot10^{21}$ at the label radius $10^{-8}$, past
@@ -145,10 +143,7 @@ nonconvex bad side and its three-preimage branch family
 of the path-link law: the response to the links that enter only the
 action, the good side to radius $1/32$, and the fold across which the law
 jumps for every coupling (Lemma~\ref{lem:wilsononly},
-Propositions~\ref{prop:goodside} and~\ref{prop:fold}), the one-kernel
-interaction of two bad islands with the covariance bound
-$\frac14\tanh(\varDelta/4)$ (Lemma~\ref{lem:kernel},
-Corollary~\ref{cor:twolabels}), the floor $q^2/16$ on the covariance of
+Propositions~\ref{prop:goodside} and~\ref{prop:fold}), the exact factorisation of the weight of two bad islands through one kernel on the good layer between them, on a domain that their labels do not move, with the covariance bound $\frac14\tanh(\varDelta/4)$ once the layer law obeys the covariance bound of the chart (Theorem~\ref{thm:factorisation}, Proposition~\ref{prop:layercross}, Corollary~\ref{cor:twolabels}), the floor $q^2/16$ on the covariance of
 rare labels (Proposition~\ref{prop:hiddenbit}), the explicit island
 threshold $\beta^*(\rho,s)$ past which the islands of bad blocks at one
 scale are rarer than their entropy (Theorem~\ref{thm:islandthreshold}),
@@ -656,8 +651,7 @@ Wilson measure. Sec.~\ref{sec:islands} proves what a labelling of the
 blocks into good and bad gives for the cube condition, where the natural
 labels fail, the explicit coupling past which the bad islands of one
 scale are rarer than their entropy (Theorem~\ref{thm:islandthreshold}),
-the fold across which the path-link law of a bad pair jumps
-(Proposition~\ref{prop:fold}), and what the single-scale and the multiscale parts of (D) still need. The appendices contain the
+the fold across which the path-link law of a bad pair jumps (Proposition~\ref{prop:fold}), the factorisation of two bad islands through one kernel (Theorem~\ref{thm:factorisation}), and what the single-scale and the multiscale parts of (D) still need. The appendices contain the
 residue table of the line field, the comparison lemma and its version for
 blocks, the blocks of the local Hessian inequality, the details of the
 certified computation, the reconstruction of the transfer matrix with the
@@ -12356,6 +12350,370 @@ annealed statement about the pushforward of $\mu_L$: it says nothing about
 the law of $U^{(j)}$ given its labels, which is what the effective action
 of item (iv) below is for.
 
+\subsection{Two islands factorise through one kernel}\label{ssec:factorisation}
+
+Item (ii) of Sec.~\ref{ssec:remains}, in its original form, asks for the
+hypothesis of Lemma~\ref{lem:kernel}: a kernel on the good layer between
+two bad islands through which the weight of every pair of label patterns
+factors, a domain that the labels of the islands do not move, and a
+cross-ratio of the kernel controlled by Lemma~\ref{lem:connected}. This
+subsection proves the first two unconditionally, for every exterior and
+every pair of patterns, once the layer is seven blocks wider than the
+collar, and reduces the third to one covariance bound for the law of the
+layer, which is the bound of Theorem~\ref{thm:chartdecay}(ii) in the
+coordinates of the labels.
+
+\emph{The data.} Let $G=\SU(2)$, fix a coarse field $c$ with its
+reconstruction $R(c)$, the radii $r\le10^{-4}$ and $\eta$, and the labels
+of Sec.~\ref{ssec:islandthreshold}. Given $c$ the coarse-plaquette part of
+every label is a constant, and the event that a block $y$ is good is the
+intersection, over the non-path active links $e$ of the pairs based at $y$,
+of the single-link events $G_e=\{d(U_e,R_e(c))\le r\}$; these links are
+based in $B(y)$ and in the four blocks $B(y+e_\mu)$. Let $\Lambda$ be a
+finite set of blocks, $U^{\mathrm{ext}}$ an arbitrary configuration on the
+active links based outside $\Lambda$, $I_a,I_b\subset\Lambda$ two disjoint
+sets of blocks, $s\ge1$ the collar, and
+\[
+w=\dist(I_a,I_b)-1
+\]
+the number of block layers strictly between them, distances between blocks
+being $\ell^\infty$ distances of their coarse coordinates. Every block of
+$\Lambda\setminus(I_a\cup I_b)$ is good; on $I_a$ a pattern
+$\omega_a^i$, $i\in\{0,1\}$, is prescribed, with $\omega_a^0$ the pattern
+in which every block is good, and likewise $\omega_b^j$ on $I_b$. The
+sector $(i,j)$ is the event that the labels of $\Lambda$ are these, and its
+weight is
+\[
+Z_{ij}=\int\prod_{e}dU_e\;e^{-\beta_WS(U)}\prod_{k\in K_\Lambda}
+\delta\bigl(V^\sharp_k(U)-c_k\bigr)\,\mathbf 1_{(i,j)}(U),
+\]
+the product over the active links based in $\Lambda$, $S$ the sum of the
+Wilson terms of the plaquettes containing one of them, $K_\Lambda$ the
+pairs based in $\Lambda$, and the constraints understood through the
+coarea formula as in Proposition~\ref{prop:graphlaw}; the pairs entering
+$\Lambda$ from outside have their path link in the exterior and their
+constraints are not imposed. Only ratios of the $Z_{ij}$ are used.
+
+\emph{The coordinates.} Write every non-path active link as
+$U_e=R_e(c)e^{\zeta_e}$, $\zeta_e\in\g$, so that on a good block the event
+$G_e$ is the ball $\{\lVert\zeta_e\rVert\le r\}$ and Haar measure is
+$j(\zeta_e)\,d\zeta_e$ with $j$ smooth and positive on it. A pair all of
+whose non-path links lie in good blocks has, on the sector event, exactly
+one path link compatible with its constraint, by
+Lemma~\ref{lem:branchbound}: $\ell_k=\Gamma_k$, a smooth function of its
+$23$ non-path links, with cut-off one. Let $d_a(y)=\dist(y,I_a)$ and
+$d_b$ likewise, and form the classes
+\begin{itemize}[leftmargin=*]
+\item $L_a$: all active links based at $d_a\le s$, path links included,
+all free;
+\item $p_a$: the path links of the pairs based at $d_a=s+1$, free;
+\item $x$: the non-path active links based at $d_a\in\{s+1,s+2\}$ and the
+$17$ inside active links of every block at $d_a=s+3$;
+\item $z$: every other non-path active link based in $\Lambda$;
+\item $L_b$, $p_b$, $y$: the mirror classes for $I_b$,
+\end{itemize}
+and solve the path link of every pair based at $d_a\ge s+2$ and
+$d_b\ge s+2$. For $w\ge2s+6$ a link at $d_a\le s+3$ has $d_b\ge s+4$, so
+the classes are disjoint. Let $D_x$ and $D_y$ be the products of the
+$r$-balls in the coordinates $\zeta_e$ of $x$ and of $y$; they are fixed
+by $r$ and the geometry, since every block carrying an $x$- or $y$-link is
+good in all four sectors.
+
+\begin{theorem}[two islands and one kernel]\label{thm:factorisation}
+Let $s\ge1$, $r\le10^{-4}$ and $w\ge2s+7$. There are finite positive
+measures $a_i$ on $D_x$ and $b_j$ on $D_y$, $i,j\in\{0,1\}$, and a smooth
+function $K:D_x\times D_y\to(0,\infty)$ with
+\[
+Z_{ij}=\int_{D_x}\int_{D_y}K(x,y)\,a_i(dx)\,b_j(dy)\qquad(i,j\in\{0,1\}),
+\]
+such that:
+\begin{enumerate}[label=\textup{(\roman*)},leftmargin=*]
+\item $K$ does not depend on $i$ or $j$; it depends on $c$, $r$,
+$\beta_W$, $U^{\mathrm{ext}}$ and on the labels of the blocks at distance
+at least $s+2$ from both islands only;
+\item $a_i$ depends on $\omega_a^i$, on $c$, $\beta_W$ and
+$U^{\mathrm{ext}}$, and on nothing else; it carries every branch of the
+constraints of the pairs based at $d_a\le s+1$, integrated, every label
+indicator that involves a link of $L_a$, and the coarea densities of the
+pairs at $d_a=s+2$; likewise $b_j$;
+\item the supports of all four measures lie in $D_x$, $D_y$: the labels
+of the islands do not move the domain;
+\item $K(x,y)=\int_{D_z}e^{-\mathcal U(z;x,y)}dz$, where $D_z$ is the
+product of the $r$-balls of the $z$-coordinates and
+$\mathcal U=\beta_WS_K+\psi$ is smooth on a neighbourhood of
+$D_z\times D_x\times D_y$, $S_K$ the sum of the Wilson terms assigned to
+$K$ with the solved path links substituted, $\psi$ the sum of
+$-\log j$ over the $z$-links and of $-\log J_k$ over the solved pairs
+based at distance at least $s+3$ from both islands, $J_k$ the inverse
+Jacobian of Proposition~\ref{prop:graphlaw};
+\item no term of $\mathcal U$ depends on both an $x$- and a
+$y$-coordinate, $\nabla_z\partial_x\mathcal U$ is supported on the
+$z$-links based at $d_a\le s+4$ and $\nabla_z\partial_y\mathcal U$ on those
+at $d_b\le s+4$, at coarse distance at least $w-2s-7$ and, for
+$w\ge2s+8$, at fine distance at least $d'=2(w-2s-8)$ between link
+midpoints;
+\item $Z_{ij}>0$ if and only if $a_i\ne0$ and $b_j\ne0$, that is, if and
+only if each pattern is realisable on its own side together with its
+collar; $a_0$ and $b_0$ are nonzero.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+\emph{Step 1: the factors.} The weight of a sector is the product Haar
+measure times a product of factors of three kinds: the Wilson factor of a
+plaquette, whose four links are based in blocks at mutual distance at most
+one; the constraint of a pair $k=(y,\mu)$, which involves the $24$ links
+of its paths, based in $B(y)\cup B(y+e_\mu)$; and the label indicator of a
+block, which for a good block is the product of the $\mathbf 1_{G_e}$ over
+the non-path links of its pairs and for a bad block is one minus that
+product, all these links being based in $B(y)$ and $B(y+e_\mu)$.
+
+\emph{Step 2: solving the far path links.} A pair based at $d_a\ge s+2$
+and $d_b\ge s+2$ has its non-path links based at distance at least $s+1$
+from both islands, hence in good blocks, hence inside their balls on the
+sector event. Lemma~\ref{lem:branchbound} applies, the fibre of its
+constraint over its non-path links is the one point $\ell_k=\Gamma_k$,
+and since $\ell_k$ is private to $k$ the integration of $\ell_k$ against
+the constraint replaces $\ell_k$ by $\Gamma_k$ in every factor and
+multiplies the weight by $J_k$, as in Proposition~\ref{prop:graphlaw};
+the cross derivatives between different pairs vanish, so the order is
+immaterial. After this step every factor is a function of the free
+coordinates and of $U^{\mathrm{ext}}$, and a solved path link based at
+distance $d$ depends on non-path links based at distances $d-1$, $d$,
+$d+1$.
+
+\emph{Step 3: the assignment.} We list what each factor depends on,
+distances being from $I_a$. A solved path link at $s+2$ depends on
+non-path links at $s+1,s+2,s+3$, those at $s+3$ being the second links of
+its paths, inside $B(y+e_\mu)$: all of them are $x$-coordinates. A solved
+path link at $d\ge s+3$ depends on $x$- and $z$-coordinates. Hence: a
+plaquette with a link at $d\le s$ depends on $L_a$, $p_a$ and $x$; one
+with its nearest link at $s+1$ on $p_a$ and $x$; one with its nearest
+link at $s+2$ on $x$ and $z$ (its path links at $s+2$ are functions of
+$x$, its private links at $s+3$ are $z$, its path links at $s+3$ are
+functions of $x$ and $z$); one with all links at $d\ge s+3$ on $x$ and
+$z$. A pair based at $d\le s$ has its path link in $L_a$ and its non-path
+links in $L_a$ and $x$; one at $s+1$ has its path link in $p_a$ and its
+non-path links in $L_a$ and $x$; one at $s+2$ is solved with $J_k$ a
+function of $x$; one at $d\ge s+3$ is solved with $J_k$ a function of $x$
+and $z$, of $z$ alone for $d\ge s+5$. The bad-block indicators of $I_a$
+involve links at $d\le1\le s$, in $L_a$; the good single-link indicators
+are assigned to the class of their link. Call a factor an $a$-factor if
+it depends on a coordinate of $L_a\cup p_a$, a $b$-factor if on
+$L_b\cup p_b$, and a $K$-factor otherwise; factors depending on $x$ alone
+go with $a$, on $y$ alone with $b$. An $a$-factor depends only on
+$L_a,p_a,x$ and $U^{\mathrm{ext}}$, through links at $d_a\le s+2$, which
+have $d_b\ge w+1-(s+2)\ge s+6$ for $w\ge2s+7$, so it contains no
+coordinate of $L_b\cup p_b$ and no factor is both. The sector changes
+only the indicators of $I_a$ and $I_b$, which are $a$- and $b$-factors,
+so the product $\Phi_K$ of the $K$-factors is the same in all four
+sectors.
+
+\emph{Step 4: Tonelli.} All factors are nonnegative and the Haar measures
+finite, so, with $\Phi^i_a$ the product of the $a$-factors in sector
+$(i,j)$ and $\Phi^j_b$ that of the $b$-factors,
+\begin{multline*}
+Z_{ij}=\int\Bigl[\int\Phi^i_a\,dL_a\,dp_a\Bigr]\Bigl[\int\Phi_K\,dz\Bigr]
+\Bigl[\int\Phi^j_b\,dL_b\,dp_b\Bigr]\\
+\times\prod_{e\in x}j\,d\zeta_e\prod_{e\in y}j\,d\zeta_e ,
+\end{multline*}
+the inner integrals over $L_a,p_a$ being the coarea integrals of the
+unsolved pairs, in which every branch of every constraint is integrated
+and none discarded, and the $x$- and $y$-integrals restricted to $D_x$ and
+$D_y$ because every $x$-link carries its indicator $\mathbf 1_{G_e}$.
+Define $a_i(dx)$ as the first bracket times $\prod_{e\in x}j\,d\zeta_e$,
+$b_j(dy)$ likewise and $K$ as the middle bracket with the $j$-factors of
+the $z$-links included. This is the factorisation; (i), (ii) and (iii)
+are read off Step 3.
+
+\emph{Step 5: the kernel.} $\Phi_K$ is a product of positive smooth
+functions of $(z,x,y)$ (Wilson factors, Jacobians $J_k>0$ since
+$\lVert DF_k\rVert<0.9$, densities $j>0$) and of the indicators of the
+$z$-balls; the solved $\Gamma_k$ are smooth on a neighbourhood of the
+closed product of balls, the contraction of Lemma~\ref{lem:branchbound}
+still applying at radius $1.01r$. So $K=\int_{D_z}e^{-\mathcal U}dz$ with
+$\mathcal U$ smooth and finite near the compact set
+$D_z\times D_x\times D_y$, $K$ is smooth and
+$K\ge\lvert D_z\rvert e^{-\sup\mathcal U}>0$. This is (iv).
+
+\emph{Step 6: supports.} Two facts of the tree gauge are used. First, an
+inside link $(a,\nu)$, $o_\nu(a)=0$, and a path link $(2y+e_\mu,\mu)$ lie
+in a common plaquette only if $a\in B(y)\cup B(y+e_\mu)$: as opposite
+sides they would have the same direction and bases differing by a unit
+vector $e_\rho$, $\rho\ne\mu$, forcing $o_\mu(a)=1$; as adjacent sides the
+shared corner is $2y+e_\mu$ or $2y+2e_\mu$ (then $a$ or, when $\nu=\mu$,
+$a+e_\mu$ is that corner, so $a\in B(y)\cup B(y+e_\mu)$), or it is
+$a+e_\nu$ with $\nu\ne\mu$ equal to one of them, forcing $o_\nu(a)=1$.
+Second, if $d_a(y)=s+4$ and $d_a(y+e_\mu)=s+3$, then $d_a(y-e_\nu)\le s+4$
+for every $\nu\ne\mu$, since some $a'\in I_a$ has
+$\lVert y+e_\mu-a'\rVert_\infty=s+3$, so $\lvert y_\nu-a'_\nu\rvert\le
+s+3$ for $\nu\ne\mu$. We claim that a $K$-term depending on an
+$x$-coordinate has all its links based at $d_a\le s+4$, one of them at
+$d_a\le s+3$, and its $z$-gradient supported at $d_a\le s+4$. A Jacobian
+$J_k$ depends on $x$ only when $k$ is based at $s+3$, or at $s+4$ pointing
+inward, and then every link of $k$ is at $d_a\le s+4$. A Wilson term
+depends on $x$ only through an $x$-link (non-path at $s+2$, inside at
+$s+3$) or through a solved path link at $s+2$, at $s+3$, or inward at
+$s+4$. In the first two cases all links of the plaquette are at
+$d_a\le s+4$, and a path link of it at $s+4$ lies within one block of a
+link at $\le s+3$: if that link is inside at $s+3$ the path link points
+into its block by the first fact and depends on links at $s+3,s+4$; a
+plaquette cannot contain links at $s+2$ and at $s+4$; and a path link
+$\ell'$ at $s+4$ in a plaquette with a path link at $s+3$ cannot point
+outward to a block at $s+5$, since its base block is adjacent to a block
+at $s+3$, so $\ell'$ depends on links at $d_a\le s+4$. In the third case
+the plaquettes through an inward path link $(2y+e_\mu,\mu)$ with
+$d_a(y)=s+4$ lie in the planes $(\mu,\nu)$ at $2y+e_\mu$ and at
+$2y+e_\mu-e_\nu$, with links based in $B(y)$, $B(y+e_\mu)$, $B(y-e_\nu)$,
+$B(y+e_\mu-e_\nu)$, all at $d_a\le s+4$ by the second fact, and their
+path links are within one block of $B(y+e_\mu)$ at $s+3$, so point to
+blocks at $d_a\le s+4$. This proves the claim, and its mirror for $b$.
+Hence $\nabla_z\partial_x\mathcal U$ lives at $d_a\le s+4$ and
+$\nabla_z\partial_y\mathcal U$ at $d_b\le s+4$; since
+$d_b\ge w+1-d_a$ their coarse distance is at least $w-2s-7$, and two
+links based in blocks at coarse distance $D\ge1$ have midpoints at fine
+$\ell^\infty$ distance at least $2D-2$, which gives $d'$. A $K$-term
+depending on both $x$ and $y$ would contain a link at $d_a\le s+3$ and a
+link at $d_b\le s+3$ at mutual block distance at most one, so
+$w+1\le2s+7$; for $w\ge2s+7$ there is none. This is (v).
+
+\emph{Step 7: positivity.} Since $K>0$ on $D_x\times D_y$ and the
+measures live there, $Z_{ij}>0$ exactly when $a_i(D_x)>0$ and
+$b_j(D_y)>0$; $a_i(D_x)$ is the constrained weight of $\omega_a^i$ with
+its two collars, which for the all-good pattern is positive by
+Proposition~\ref{prop:graphlaw}. This is (vi).
+\end{proof}
+
+The theorem uses only Lemma~\ref{lem:branchbound}; it does not use
+$\beta_W$ large, $\eta$, or Theorem~\ref{thm:chartdecay}. The three
+dangers named after Lemma~\ref{lem:connected} do not arise: the island
+labels change $a_i$ and $b_j$ only, the domain $D_x\times D_y\times D_z$
+is fixed by the labels of the layer, which are good in every sector, and
+every branch of every bad pair is integrated inside $a_i$ or $b_j$ and
+never compared across sectors. The price is the width. Joining two bad
+blocks in Sec.~\ref{ssec:islandthreshold} at $\ell^\infty$ distance at
+most $2s+7$ instead of $2s+1$, so that two islands are separated by a
+layer of width at least $2s+7$, changes only the number of neighbours
+$\varDelta$ of Theorem~\ref{thm:islandthreshold}, from $(4s+3)^4-1$ to
+$(4s+15)^4-1$: $\lvert\log q^*\rvert$ becomes $31444.0$ for $s=1$ and
+$37777.9$ for $s=5$, and $\beta^*(10^{-8},1)=5.084\cdot10^{21}$,
+$\beta^*(10^{-8},5)=6.097\cdot10^{21}$,
+$\beta^*(10^{-9},1)=5.088\cdot10^{23}$, by the same formula
+$\beta^*=16\lvert\log q^*\rvert\rho^{-2}(1+\epsilon)$.
+
+\emph{The layer law.} For $(x,y)\in D_x\times D_y$ let $\mu_{x,y}$
+be the law $e^{-\mathcal U(z;x,y)}dz/K(x,y)$ on $D_z$. It is the law of
+Proposition~\ref{prop:graphlaw} for the window of the blocks at distance
+at least $s+3$ from both islands, in the coordinates $\zeta$ of the labels,
+with the inside links of the blocks at distance $s+3$ frozen and the
+exterior given by $(x,y,U^{\mathrm{ext}})$. The covariance bound of
+Theorem~\ref{thm:chartdecay}(ii) for this law reads: there are
+$\mathcal A>0$ and $\alpha>0$ such that for all $(x,y)$, every
+$\varphi$ on the $z$-links with $\lvert\varphi(e)-\varphi(e')\rvert\le
+d(e,e')$ and all smooth $F,H$ near $D_z$,
+\begin{equation}\label{eq:layerbound}
+\lvert\Cov_{\mu_{x,y}}(F,H)\rvert\le\mathcal A\,\bigl\lVert e^{-\alpha
+\varphi}\nabla_zF\bigr\rVert_{L^2(\mu_{x,y})}\bigl\lVert e^{\alpha\varphi}
+\nabla_zH\bigr\rVert_{L^2(\mu_{x,y})}.
+\end{equation}
+Let $n_x=45(N_{s+1}+N_{s+2})+17N_{s+3}$, with $N_d$ the number of blocks
+of $\Lambda$ at $d_a=d$, be the number of $x$-links, $n_y$ likewise, and
+let $\Lambda_2$ be the largest operator norm of $\partial_x\nabla_z
+\mathcal U$ and $\partial_y\nabla_z\mathcal U$ on
+$D_z\times D_x\times D_y$; it is finite, of the form $\beta_Wc_W+c_\psi$
+with $c_W$, $c_\psi$ depending on $r$ and the geometry only.
+
+\begin{proposition}[the cross-ratio under the layer bound]\label{prop:layercross}
+Let $s\ge1$, $r\le10^{-4}$, $w\ge2s+8$, and assume~\eqref{eq:layerbound}.
+Then for all $x_0,x_1\in D_x$ and $y_0,y_1\in D_y$,
+\[
+\begin{gathered}
+\Bigl|\log\frac{K(x_1,y_1)K(x_0,y_0)}{K(x_1,y_0)K(x_0,y_1)}\Bigr|\le
+\varDelta,\\
+\varDelta:=\mathcal A\Lambda_2^2\lVert x_1-x_0\rVert\lVert y_1-y_0\rVert
+e^{-\alpha d'}\le4\mathcal A\Lambda_2^2r^2\sqrt{n_xn_y}\,e^{-\alpha d'},
+\end{gathered}
+\]
+so that, for every pair of patterns with all $Z_{ij}>0$,
+$\lvert\log Z_{11}+\log Z_{00}-\log Z_{10}-\log Z_{01}\rvert\le\varDelta$
+and the two island labels have conditional covariance at most
+$\frac14\tanh(\varDelta/4)$ given the labels of the layer and
+$U^{\mathrm{ext}}$. Moreover, for every bounded $F\ge0$ depending on the
+links of $L_a\cup p_a\cup x$ only, with $\E_{ij}$ the expectation in
+sector $(i,j)$,
+\[
+e^{-\varDelta}\le\frac{\E_{i1}[F]}{\E_{i0}[F]}\le e^{\varDelta}
+\qquad(i=0,1)
+\]
+whenever the four expectations are positive.
+\end{proposition}
+
+\begin{proof}
+$D_x$ and $D_y$ are convex, so the segments $x(\sigma)$, $y(\tau)$ stay in
+them, and $\log K$ is smooth near $D_x\times D_y$ by
+Theorem~\ref{thm:factorisation}(iv), so the cross-ratio is the double
+integral of $\partial_\sigma\partial_\tau\log K$ over the unit square.
+Lemma~\ref{lem:connected} with the fixed domain $D_z$ gives
+$\partial_\sigma\partial_\tau\log K=-\E[\partial_\sigma\partial_\tau
+\mathcal U]+\Cov(\partial_\sigma\mathcal U,\partial_\tau\mathcal U)$, and
+the first term vanishes by Theorem~\ref{thm:factorisation}(v). Put
+$F=\partial_\sigma\mathcal U$, $H=\partial_\tau\mathcal U$: $\nabla_zF$ is
+supported on the $z$-links at $d_a\le s+4$, $\nabla_zH$ on those at
+$d_b\le s+4$, at distance at least $d'$, with
+$\lVert\nabla_zF\rVert\le\Lambda_2\lVert x_1-x_0\rVert$ and
+$\lVert\nabla_zH\rVert\le\Lambda_2\lVert y_1-y_0\rVert$ pointwise. Apply
+\eqref{eq:layerbound} with $\varphi(e)=-\dist(e,\operatorname{supp}
+\nabla_zF)$, which is $1$-Lipschitz, equal to $0$ on the support of
+$\nabla_zF$ and at most $-d'$ on that of $\nabla_zH$; this gives the bound
+on the covariance uniformly in $(\sigma,\tau)$, and
+$\lVert x_1-x_0\rVert\le2r\sqrt{n_x}$ since each coordinate is a vector of
+$\g$ of norm at most $r$. The consequences are Lemma~\ref{lem:kernel}
+applied to $a_i,b_j,K$ and Corollary~\ref{cor:twolabels}. For the last
+statement, $F\Phi_a^i$ is again a product of $a$-factors, so the
+factorisation holds with the measures $Fa_i$ and $a_i$, the same $K$ and
+the same $b_j$, and Lemma~\ref{lem:kernel} for these gives
+$\lvert\log Z(Fa_i,b_1)+\log Z(a_i,b_0)-\log Z(Fa_i,b_0)-\log Z(a_i,b_1)
+\rvert\le\varDelta$ with $Z(Fa_i,b_j)/Z(a_i,b_j)=\E_{ij}[F]$.
+\end{proof}
+
+The last bound is the quantity that Proposition~\ref{prop:hiddenbit} says
+a labelling argument must control: the change of the conditional
+expectation of an observable of one island under a flip of the label of
+the other, with the branches, the hard label constraints and the
+disintegration densities of both islands integrated, not compared. What
+separates \eqref{eq:layerbound} from Theorem~\ref{thm:chartdecay}(ii) is
+exact. The chart law of that theorem is written in the coordinates $\xi$
+of $T_U$, on the product of balls $\Omega_r$, with a density whose Hessian
+is at least $\lambda/60$; the label coordinate of a non-path link is
+$\zeta_e=\xi_e+h_e(S\xi)$ with $h(0)=0$, $Dh(0)=0$ and
+$\lVert h\rVert_\infty\le s/2$ by Theorem~\ref{thm:fibrechart}(i), so the
+label event $\prod\{\lVert\zeta_e\rVert\le r\}$ is a smooth deformation of
+$\Omega_r$ of relative size $O(r)$, convex in $\zeta$ and not in $\xi$,
+and the Hessian of the density in $\zeta$ acquires the term
+$\sum_a\partial_a\bar H\,D^2\xi_a$, which is not coordinate invariant,
+and whose kernel is exponentially local but not of finite range. The
+proof of Theorem~\ref{thm:chartdecay}(ii) has to be repeated in $\zeta$;
+this is not done here. Freezing the inside links at distance $s+3$ leaves
+a product of balls and a principal submatrix of the Hessian, which changes
+nothing. The calmness that the theorem needs on the layer is available:
+on the sector events every plaquette with a vertex in the layer has its
+links within $r$ of $R(c)$, whose plaquettes are $I$ inside the blocks and
+within $\eta$ of $I$ across them, so its defect is at most $\eta+4r$, by
+the bi-invariance of $\delta$ and the triangle inequality over four
+links; the hypothesis $\kappa+6s'\le10^{-8}$ with the chart radius
+$s'=32r$ then needs $\eta+196r\le10^{-8}$, that is $\rho\le1.17\cdot
+10^{-12}$ in the normalisation $r=43\rho$, $\eta=92\rho$ of
+Theorem~\ref{thm:islandthreshold}, where the threshold is
+$\beta^*=3.70\cdot10^{29}$ for $s=1$ and $4.44\cdot10^{29}$ for $s=5$.
+If further bad blocks lie in $\Lambda$ at distance at least $s+4$ from
+both islands, the factorisation of Theorem~\ref{thm:factorisation}
+through $K$ still holds as an identity of measures, with the constraints
+of the bad pairs of the layer kept as hard factors inside $K$, but
+$\mu_{x,y}$ is then no longer a good-window law, and the cross-ratio of
+$K$ is the comparison for the remaining islands: the theorem is the
+factorisation of the inductive step, and the induction is not performed
+here.
+
 \subsection{What remains}\label{ssec:remains}
 
 The results of this section leave the following statements, which together
@@ -12372,12 +12730,7 @@ of that law to every link that enters only the action, and
 Proposition~\ref{prop:goodside} settles the good side to radius $1/32$.
 What is not bounded is the response to the inside links, which move the
 fibre $\{V^\sharp_k=c_k\}$ while the bad set does not.
-\item \emph{The island comparison.} The hypothesis of
-Lemma~\ref{lem:kernel}: that the weight of two bad islands factors through
-one kernel on the good layer between them, with a cross-ratio controlled by
-Lemma~\ref{lem:connected} on a domain that the labels of the islands do not
-move. Proposition~\ref{prop:hiddenbit} shows that no rarity bound replaces
-it.
+\item \emph{The island comparison.} The covariance bound~\eqref{eq:layerbound} for the law of the good layer between two islands in the coordinates of the labels. Theorem~\ref{thm:factorisation} proves that the weight of the two islands factors through one kernel on that layer, on a domain that their labels do not move, and Proposition~\ref{prop:layercross} turns~\eqref{eq:layerbound} into the cross-ratio bound that Lemma~\ref{lem:kernel} needs; what is not done is the proof of Theorem~\ref{thm:chartdecay}(ii) in the label coordinates, whose Hessian carries a term that the chart coordinates do not have. Proposition~\ref{prop:hiddenbit} shows that no rarity bound replaces it.
 \item \emph{The island threshold.} Theorem~\ref{thm:islandthreshold}
 gives the explicit coupling $\beta^*(\rho,s)$ past which the islands of
 bad blocks at one scale are rare enough to beat their entropy, at the
@@ -12439,6 +12792,7 @@ all links & nonconvex, Proposition~\ref{prop:nonconvex}\\
 \midrule
 good window & graph law, Proposition~\ref{prop:graphlaw}\\
 $n$ bad labels & $A^{n/H}$, Lemma~\ref{lem:coverage}\\
+two islands & one kernel, Theorem~\ref{thm:factorisation}\\
 two islands & $\frac14\tanh(\varDelta/4)$, Corollary~\ref{cor:twolabels}\\
 rarity alone & floor $q^2/16$, Proposition~\ref{prop:hiddenbit}\\
 island of $n$ blocks & $2^{-n}$ past $\beta^*$, Theorem~\ref{thm:islandthreshold}\\
