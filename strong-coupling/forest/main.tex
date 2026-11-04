@@ -28380,6 +28380,490 @@ Neither $L_*$ nor the rate of Theorem~\ref{thm:tube} has content in the
 range $\beta_W\ge2.3\cdot10^{17}$ of Theorem~\ref{thm:badcross}
 (Remark~\ref{rem:tuberate}).
 
+The factor $e^{72\beta_W}$ in $L_*$ comes from bounding the weight
+$f=(W\circ\Gamma)/D$ of Lemma~\ref{lem:endchart} by its supremum on the sets
+swept by the events and the ties. Along the curves used below the
+logarithm of $W\circ\Gamma$ is Lipschitz with a constant linear in
+$\beta_W$, and integral-geometric trace inequalities replace the
+supremum by the integral. The ties are counted by a crossing number.
+
+Write $\mathcal P$ for the set of parameters $P=(c_k,(u_b,w_b)_{b\ne0})$
+with $d(u_b,I)\le\frac1{32}$ for every $b\ne0$, and $Z_a(P)$ for the set
+$Z_a$ of Proposition~\ref{prop:jreduce} at $P$. For $b\ne0$, $\xi\in
+\SU(2)^7$ and a unit vector $\eta\in\mathfrak{su}(2)$ let $C_{b,\xi,\eta}$
+be the orbit of $\xi$ under the flow $\Theta_s$ that replaces $\xi_b$ by
+$\xi_be^{s\eta}$ and fixes the other coordinates. Since $\eta$ has the
+eigenvalues $\pm i/\sqrt2$, the orbit is a great circle in the factor $b$,
+of length $T_0=2\sqrt2\,\pi$, run at unit speed, and $\Theta_s$ preserves
+Haar measure.
+
+\begin{definition}\label{def:tiecross}
+The \emph{crossing number} $\mathfrak b_{\mathrm{tie}}$ is the supremum
+of $\#(Z_a(P)\cap C_{b,\xi,\eta})$ over $a,b\ne0$, $P\in\mathcal P$, $\xi
+\in\SU(2)^7$ and unit vectors $\eta$, among the intersections that are
+finite.
+\end{definition}
+
+\begin{lemma}[crossings]\label{lem:tiecross}
+\textup{(i)} $\mathfrak b_{\mathrm{tie}}<\infty$.
+\textup{(ii)} For fixed $a$, $b$, $P$ and $\eta$, the set of $\xi$ for
+which $Z_a(P)\cap C_{b,\xi,\eta}$ is infinite is Haar-null.
+\end{lemma}
+
+\begin{proof}
+(i) By the proof of Proposition~\ref{prop:tiearea}, $Z_a(P)$ is a
+definable family over $\mathcal P$ in $\R_{\mathrm{an}}$. With $\eta=n/
+\sqrt2$, $n^2=-1$, $\xi_be^{s\eta}=\xi_b(\cos\frac s{\sqrt2}+\sin\frac s
+{\sqrt2}\,n)$, and $\sin$ and $\cos$ on $[0,2\pi]$ are restricted analytic,
+so the sets $\{s\in[0,T_0):\Theta_s\xi\in Z_a(P)\}$ form a definable family
+of subsets of $\R$ with the parameters $(a,b,P,\xi,\eta)$. By uniform
+finiteness \cite[Ch.~3]{Dri98} there is an $N$ such that every finite
+member has at most $N$ points.
+
+(ii) An infinite definable subset of $[0,T_0)$ contains an open interval.
+On that interval the orbit lies in the $C^1$ hypersurface $Z=Z_a(P)$, so
+its velocity, the left-invariant field $\eta$ in the factor $b$, is
+tangent to $Z$ there, that is $\ip{\nu_b}\eta=0$, where $\nu=(\nu_c)_{c\ne
+0}$ is a unit normal of $Z$ written in the left-invariant frame. So $\xi$
+lies in $\Psi(Z^0\times[0,T_0])$, where $Z^0=\{z\in Z:\ip{\nu_b(z)}\eta
+=0\}$ and $\Psi(z,s)=\Theta_s z$. The map $\Psi$ is $C^1$ on $Z\times\R$,
+and its Jacobian is $\lvert\ip{\nu_b}\eta\rvert$: each $\Theta_s$ is an
+isometry, and its differential maps the field $\eta$ at $z$ to the field
+$\eta$ at $\Theta_sz$, as $\operatorname{Ad}(e^{-s\eta})\eta=\eta$. By the
+area formula \cite[3.2.20]{Fed69} the image of $Z^0\times[0,T_0]$ is
+null.
+\end{proof}
+
+\begin{lemma}[traces on curves]\label{lem:traces}
+Let $\gamma$ be a curve of length $T$ run at unit speed and $w>0$ a
+function on it such that $w\circ\gamma$ is Lipschitz and $\lvert(\log w
+\circ\gamma)'\rvert\le K$ almost everywhere. If $\gamma$ is closed, then
+$\sup w\circ\gamma\le(\frac1T+\frac K2)\int_0^Tw(\gamma(s))\,ds$; if
+$\gamma$ is a segment, then $\sup w\circ\gamma\le(\frac1T+K)\int_0^Tw(
+\gamma(s))\,ds$.
+\end{lemma}
+
+\begin{proof}
+For $s_0,s$ let $\Gamma(s,s_0)$ be the shorter arc of a closed curve
+between them, or the interval between them on a segment. Then $w(\gamma(
+s_0))\le w(\gamma(s))+\int_{\Gamma(s,s_0)}\lvert(w\circ\gamma)'\rvert\le w(
+\gamma(s))+K\int_{\Gamma(s,s_0)}w\circ\gamma$. Average over $s$: a point
+$u$ lies in $\Gamma(s,s_0)$ for a set of $s$ of measure at most $\frac T2$
+on a closed curve and at most $T$ on a segment.
+\end{proof}
+
+\begin{proposition}[the ties against a weight]\label{prop:tiecrofton}
+Let $a\ne0$, $P\in\mathcal P$, $Z=Z_a(P)$, and let $w>0$ be a Lipschitz
+function on $\SU(2)^7$ with $\lvert\frac d{ds}\log w(\Theta_s\xi)\rvert
+\le K$ almost everywhere, for every $b$, $\xi$ and unit $\eta$. Then
+\[
+V^{-7}\int_Zw\,dH^{20}\le14\,\mathfrak b_{\mathrm{tie}}\Bigl(\frac1{T_0}
++\frac K2\Bigr)\int w\,d\xi .
+\]
+\end{proposition}
+
+\begin{proof}
+Fix $b$ and $\eta$, and let $\Psi(z,s)=\Theta_sz$ on $Z\times[0,T_0)$,
+with Jacobian $\lvert\ip{\nu_b}\eta\rvert$ as in the proof of
+Lemma~\ref{lem:tiecross}. A point $x$ has one preimage $(z,s)$ for each
+$z\in Z\cap C_{b,x,\eta}$, the flow having period $T_0$. The area formula
+with the function $(z,s)\mapsto w(z)$ gives
+\[
+T_0\int_Zw\,\lvert\ip{\nu_b}\eta\rvert\,dH^{20}=\int\sum_{z\in Z\cap
+C_{b,x,\eta}}w(z)\,d\mathrm{vol}(x) .
+\]
+For almost every $x$ the sum has at most $\mathfrak b_{\mathrm{tie}}$
+terms, by Lemma~\ref{lem:tiecross}, and by Lemma~\ref{lem:traces} it is at
+most $\mathfrak b_{\mathrm{tie}}(\frac1{T_0}+\frac K2)\int_0^{T_0}w(
+\Theta_sx)\,ds$. Since $\Theta_s$ preserves Haar measure,
+\[
+\int\!\!\int_0^{T_0}w(\Theta_sx)\,ds\,d\mathrm{vol}(x)=T_0\int w\,
+d\mathrm{vol},
+\]
+so
+\[
+\int_Zw\,\lvert\ip{\nu_b}\eta\rvert\,dH^{20}\le\mathfrak b_{\mathrm{tie}}
+\Bigl(\frac1{T_0}+\frac K2\Bigr)\int w\,d\mathrm{vol} .
+\]
+The mean of $\lvert\ip{\nu_b}\eta\rvert$ over the unit sphere of
+$\mathfrak{su}(2)\cong\R^3$ is $\frac12\lvert\nu_b\rvert$, and $\sum_b
+\lvert\nu_b\rvert\ge(\sum_b\lvert\nu_b\rvert^2)^{1/2}=1$. Average over
+$\eta$, sum over the seven values of $b$ and divide by $V^7$.
+\end{proof}
+
+With $w=1$ and $K=0$ this is an explicit form of
+Proposition~\ref{prop:tiearea}.
+
+\begin{corollary}\label{cor:tieareab}
+$\mathcal A_{\mathrm{tie}}\le14\,\mathfrak b_{\mathrm{tie}}/T_0<1.5756\,
+\mathfrak b_{\mathrm{tie}}$, so that $L_*\le128.07\,\beta_W+(180.4+79.73\,
+\mathfrak b_{\mathrm{tie}})e^{72\beta_W}$.
+\end{corollary}
+
+\begin{proof}
+$14/(2\sqrt2\,\pi)<1.57556$ and $50.6\cdot1.5756<79.73$.
+\end{proof}
+
+\begin{proposition}[the Jacobian across the ties against the weight]\label{prop:jweighted}
+Let $B=\SU(2)^7$, let the links $u_a$, $a\ne0$, and the move of one link
+$u_b$ or $w_b$ be as in Theorem~\ref{thm:relresponse}, take the
+coordinates $\xi_a=g^{-1}\ell_a$, and let $W$ be as in
+Lemma~\ref{lem:endchart}. Let $e'$ lie at distance $\delta\le0.08$ from
+$e$ along the geodesic, and let $f=(W\circ\Gamma)/D$ and $\varDelta=\log
+D-\log D'$. Then
+\[
+\int f\,\lvert\varDelta\rvert\,d\xi\le C(\beta_W)\,\delta\int f\,d\xi
+\]
+with
+\[
+C(\beta_W)=3934+242610\,\beta_W+\mathfrak b_{\mathrm{tie}}\bigl(43.59+
+14888\,\beta_W\bigr).
+\]
+\end{proposition}
+
+\begin{proof}
+Write $w=W\circ\Gamma$. A private link lies in six plaquettes of
+$S_{\mathrm{dep}}$, and a link that moves by $\varepsilon$ changes $1-\frac
+12\ReTr U_p$ by at most $\varepsilon/\sqrt2$; so for every $\zeta$ the
+ratio of $e^{-\beta_WS_{\mathrm{dep}}(\ell,\zeta)}$ at two values of the
+eight links is at most $e^{3\sqrt2\beta_W\sum_jd(\ell_j,\ell'_j)}$, and
+the same holds for $W$. By Lemma~\ref{lem:relchart}\textup{(iii)}, $D$
+takes values in $[D_-,D_+]$ with $D_+/D_-<1.828$, so $w/D_+\le f\le w/
+D_-$ almost everywhere. We follow the proof of
+Proposition~\ref{prop:jreduce}, whose three parts bound $\lvert
+\varDelta\rvert$ pointwise.
+
+\emph{Where the type is kept.} Off the $\xi$ that meet an event,
+$\lvert\varDelta\rvert\le11.87\,\delta+\sum_t1.9811\lvert\nabla h_2
+\rvert$, and the first term contributes $11.87\,\delta\int f\,d\xi$.
+
+\emph{The events.} Fix an event of index $a$, the coordinates $\xi_c$,
+$c\ne a$, and the coordinate $v=\tilde u_a(G(\xi))\xi_a$ of the proof of
+Proposition~\ref{prop:jreduce}, with $t=\omega\delta$, $\omega<1.1825$.
+Write $v=\exp(\theta\nu)$. The $\xi$ that meet the event during the move
+lie in $\{\lvert h\rvert\le t\}$ and in $\{0.4\le f_{x_a}\le1.1\}$, and
+$f_{x_a}=2\sqrt2\sin\frac\theta2$. So on each ray of fixed $\nu$ they
+form a set $I_\nu$ of length at most $2t/1.154<1.7332\,t$ inside the
+interval $J=\{\theta:0.4\le2\sqrt2\sin\frac\theta2\le1.1\}=[\theta_-,
+\theta_+]$, with $\sin^2\theta_-=4\cdot\frac1{50}\cdot\frac{49}{50}=0.0784$,
+$\theta_+<0.7990$ and $\lvert J\rvert>0.515099$. Along the ray $v$ moves at
+speed $\sqrt2$ per unit of $\theta$, $\xi_a$ at speed at most $\sqrt2/
+0.9054<1.5620$, $G$ at speed at most $2.140\cdot1.5620<3.3427$, and the
+eight links $G$, $G\xi_c$ together at speed at most $8\cdot3.3427+1.5620$;
+so $\lvert\frac d{d\theta}\log w\rvert\le K_\theta=3\sqrt2(8\cdot3.3427+
+1.5620)\beta_W<120.09\,\beta_W$. By Lemma~\ref{lem:traces} on the segment
+$J$, with Haar density $\frac2\pi\sin^2\theta$ and $\sin^2\theta\le0.5146$
+on $J$,
+\begin{multline*}
+\int_{I_\nu}w\,\tfrac2\pi\sin^2\theta\,d\theta\le\tfrac2\pi\,0.5146\,
+\lvert I_\nu\rvert\Bigl(\frac1{\lvert J\rvert}+K_\theta\Bigr)\int_Jw\,
+d\theta\\
+\le\frac{0.5146}{0.0784}\,1.7332\,t\,(1.9414+K_\theta)\int_Jw\,
+\tfrac2\pi\sin^2\theta\,d\theta .
+\end{multline*}
+Integrating over $\nu$, and passing between $v$ and $\xi_a$ with the
+factors $1.348$ and $1.0946^3<1.3115$ of the bi-Lipschitz map $\xi_a
+\mapsto v$, the set $S$ of $\xi$ that meet the event satisfies $\int_S
+w\,d\xi\le20.113\,t\,(1.9414+K_\theta)\int w\,d\xi$, and hence, as
+$D_+/D_-<1.828$ and $1.828\cdot20.113<36.77$,
+\[
+\int_Sf\,d\xi\le36.77\,t\,(1.9414+K_\theta)\int f\,d\xi .
+\]
+On $S$, $\lvert\varDelta\rvert<0.6034$. The $77$ events therefore
+contribute at most $77\cdot0.6034\cdot36.77\cdot1.1825\,\delta(1.9414+
+K_\theta)\int f<2020.2\,\delta(1.9414+120.09\,\beta_W)\int f$.
+
+\emph{The ties.} By the area and coarea formulas of the proof of
+Proposition~\ref{prop:jreduce}, applied to the function $1.9811\lvert
+\nabla_\xi H\rvert\,w/D_-$, which dominates $1.9811\lvert\nabla_\xi H
+\rvert f$ almost everywhere,
+\begin{multline*}
+\int f\sum_{t:\,\xi\in Z_a(t)}1.9811\lvert\nabla h_2\rvert\,d\xi\\
+\le\frac{1.9811\cdot1.0913}{D_-}\int_0^\delta V^{-7}\!\int_{Z_a(t)}w\,
+dH^{20}\,dt .
+\end{multline*}
+Along the flow $\Theta_s$ the coordinate $\xi_b$ moves at unit speed, $G$
+at speed at most $2.140$ by the proof of Proposition~\ref{prop:jreduce},
+and the eight links together at speed at most $8\cdot2.140+1$; so $w$
+satisfies the hypothesis of Proposition~\ref{prop:tiecrofton} with $K=3
+\sqrt2\cdot18.12\,\beta_W<76.877\,\beta_W$, at every parameter $t$ of the
+move. With $\int w\,d\xi\le D_+\int f\,d\xi$ the ties of index $a$
+contribute at most
+\[
+1.9811\cdot1.0913\cdot1.828\cdot14\,\mathfrak b_{\mathrm{tie}}\Bigl(
+\frac1{T_0}+38.4385\,\beta_W\Bigr)\delta\int f\,d\xi ,
+\]
+and the seven indices at most $\mathfrak b_{\mathrm{tie}}(43.59+14888\,
+\beta_W)\,\delta\int f$, by $7\cdot1.9811\cdot1.0913<15.134$, $25.592/T_0<
+2.8802$ and $25.592\cdot38.4385<983.72$.
+
+\emph{Conclusion.} $11.87+2020.2\cdot1.9414<3934$ and $2020.2\cdot120.09<
+242610$.
+\end{proof}
+
+\begin{theorem}[the derivative on the chart, linear in $\beta_W$]\label{thm:endlinear}
+In the setting of Lemma~\ref{lem:endchart}, for every $c_k$,
+\begin{gather*}
+\Bigl\lvert\log\frac{Z^W_k(c_k;e)}{Z^W_k(c_k;e')}\Bigr\rvert\le
+L_\natural\,d(e,e'),\qquad L_\natural=\min(L_*,L_{\mathrm{lin}}),\\
+L_{\mathrm{lin}}=7192+443620\,\beta_W+\mathfrak b_{\mathrm{tie}}\bigl(
+79.69+27216\,\beta_W\bigr).
+\end{gather*}
+\end{theorem}
+
+\begin{proof}
+For $\delta\le0.08$ the proof of Lemma~\ref{lem:endchart} gives
+\[
+\int\lvert f-f'\rvert\,d\xi\le1.828\bigl(e^{70.06\beta_W\delta}-1\bigr)Z
++1.828\int f\lvert\varDelta\rvert\,d\xi .
+\]
+Bound the last integral by
+Proposition~\ref{prop:jweighted} in place of $\sup f$, so that $\lvert Z'-Z
+\rvert\le\varepsilon(\delta)Z$ with $\varepsilon(\delta)=1.828(e^{70.06
+\beta_W\delta}-1)+1.828\,C(\beta_W)\delta$. Subdividing the geodesic as
+there, $\lvert\log Z(e)-\log Z(e')\rvert\le(128.07\,\beta_W+1.828\,C(
+\beta_W))\,d(e,e')$, and $1.828\cdot3934<7192$, $128.07+1.828\cdot242610
+<443620$, $1.828\cdot43.59<79.69$, $1.828\cdot14888<27216$. In
+case~\textup{(b)} the inversion $\mathfrak i$ of the proof of
+Lemma~\ref{lem:endchart} maps the configuration to one of case~(a); it
+preserves Haar measure, $D$ and $\int f\,d\xi$, and maps $W$ to $W\circ
+\mathfrak i$. The proof of Proposition~\ref{prop:jweighted} uses $W$ only
+through the bound $e^{3\sqrt2\beta_W\sum_jd(\ell_j,\ell'_j)}$ on its
+ratio at two values of the eight links, which $W\circ\mathfrak i$
+satisfies, inversion being an isometry. So
+Proposition~\ref{prop:jweighted} holds in case~(b) with the same
+constant.
+\end{proof}
+
+The constant $L_{\mathrm{lin}}$ is linear in $\beta_W$. For $\beta_W\ge
+0.08$ its part free of $\mathfrak b_{\mathrm{tie}}$ is smaller than the
+part of $L_*$ free of $\mathcal A_{\mathrm{tie}}$, and in the range
+$\beta_W\ge2.3\cdot10^{17}$ of Theorem~\ref{thm:badcross} it replaces a
+factor $e^{72\beta_W}$ by a factor of order $\beta_W$.
+
+The hypothesis of Lemma~\ref{lem:endchart} bears on the links of the block
+of the end. It may bear on the other block instead.
+
+\begin{lemma}[the other block]\label{lem:endotherblock}
+Lemma~\ref{lem:endchart} and Theorem~\ref{thm:endlinear} hold, with the
+same constants, when the inside $\rho$-links of the other block of the
+pair, the $w_a$ in case~\textup{(a)} and the $u_a$ in case~\textup{(b)},
+$a\ne0$, stay within $\frac1{32}$ of $I$ along the move, the links of the
+block of the end being arbitrary. The version of $Z^W_k$ is then taken in
+the coordinates $\xi_a=\ell_ag^{-1}$ in case~\textup{(a)} and $\xi_a=g^{-1}
+\ell_a$ in case~\textup{(b)}.
+\end{lemma}
+
+\begin{proof}
+Case~(a), $e=u_b$. By the last part of Lemma~\ref{lem:relchart}, with
+$\sigma_w$ in place of $\sigma_u$, (i)--(iv) hold for every $u$ in the
+coordinates $\xi_a=\ell_ag^{-1}$, with $\lambda_w\le\lambda$ and $L_w\le
+L$, and (ii) applies to the move of $u_b$; the eight private links $G$,
+$\xi_aG$ move by $d(G,G')$ each. By the last statement of
+Theorem~\ref{thm:jholds}, Proposition~\ref{prop:jreduce} holds in these
+coordinates, through the inversion $\mathfrak i$, which maps the
+configuration to one whose first block $w^{-1}$ is within $\frac1{32}$ of
+$I$ and in which the moving link $u_b^{-1}$ is a link of the second block.
+The proof of Proposition~\ref{prop:jweighted} transfers through
+$\mathfrak i$ in the same way. The rest of the proofs of
+Lemma~\ref{lem:endchart} and Theorem~\ref{thm:endlinear} is unchanged.
+Case~(b), $e=w_b$ with the $u_a$ near $I$, is
+Lemma~\ref{lem:relchart} itself in the coordinates $\xi_a=g^{-1}\ell_a$,
+whose part~(ii) covers a move of $w_b$, and
+Proposition~\ref{prop:jreduce} as stated.
+\end{proof}
+
+So Corollaries~\ref{cor:endchart} and~\ref{cor:tubederiv} hold with $L_*$
+replaced by $L_\natural$, and in Corollary~\ref{cor:endchart} with the
+constant $L_\natural+3\sqrt2\,\beta_W$, which is at most $7192+443625\,
+\beta_W+\mathfrak b_{\mathrm{tie}}(79.69+27216\,\beta_W)$. Both also hold when, for
+each end in an average, the inside $\rho$-links of the other block of its
+pair lie off $A^-_W$ and within $\frac1{32}$ of $I$ at each of their values,
+in place of the links of the block of the end: the proofs apply
+Lemma~\ref{lem:endchart} at fixed values of the integrated links, and
+Lemma~\ref{lem:endotherblock} needs the other block fixed.
+
+The derivative in an end is uniform in the coarse value on the whole pair
+fibre, on and off the window chart of Theorem~\ref{thm:badcross}, since
+the relative chart of Lemma~\ref{lem:relchart} covers the fibre of the
+pair. Integrating the private links of the end pairs before applying
+Theorem~\ref{thm:badcross} gives the analogue of
+Corollary~\ref{cor:badcrossratio} for ends in the averages, at the rate
+$\alpha_G$.
+
+\begin{theorem}[two ends in the averages]\label{thm:endsdecay}
+Let $G=\SU(2)$, $\beta_W\ge2.3\cdot10^{17}$, $W$ a set of blocks, and
+$E_a$, $E_b$ disjoint sets of links off $A^-_W$. Let $K_a$, $K_b$ be the
+sets of pairs based in $W$ whose average contains a link of $E_a$, of
+$E_b$, and $P_a$, $P_b$ their private links. Suppose:
+\begin{enumerate}[label=\textup{(H\arabic*)},leftmargin=*]
+\item $K_a\cap K_b=\emptyset$, and no plaquette contains a link of
+$E_a\cup P_a$ and a link of $E_b\cup P_b$;
+\item for every pair $(y,\rho)\in K_a\cup K_b$, neither $y-e_\rho$ nor
+$y+e_\rho$ lies in $W$;
+\item for every pair of $K_a\cup K_b$, the inside $\rho$-links of one of
+its two blocks lie within $\frac1{32}$ of $I$ at all the values below.
+\end{enumerate}
+Fix the other links off $A^-_W$, and let $a_0,a_1\in G^{E_a}$, $b_0,b_1\in
+G^{E_b}$, the links being moved one at a time along geodesics, and let
+$Z_{ij}=\nu^-_c(e^{-\lambda Q^-})$ with $a_i$ on $E_a$, $b_j$ on $E_b$, and
+the factors of the pairs of $K_a\cup K_b$ in the versions of
+Lemmas~\ref{lem:endchart} and~\ref{lem:endotherblock}. Put $L_e=3\sqrt2\,
+\beta_W+L_\natural$ for the links that enter an average of a pair based in
+$W$ and $L_e=3\sqrt2\,\beta_W$ for the others, $L'_e=\beta_W(12.39+8.486
+\,L_e)$, $d_e$ the length of the move of $e$, and
+\[
+\Lambda_a=\sum_{e\in E_a}L_ed_e,\qquad\Lambda'_a=\sum_{e\in E_a}L'_ed_e ,
+\]
+and likewise $\Lambda_b$, $\Lambda'_b$. Let $N_a$, $N_b$ be the links of
+$A^-_W$ outside $P_a\cup P_b$ that share a plaquette with a link of
+$E_a\cup P_a$, of $E_b\cup P_b$. Suppose that at all the intermediate
+values of the ends the fibre satisfies the hypotheses of
+Theorem~\ref{thm:badcross}, as in Proposition~\ref{prop:badpassage}%
+\textup{(ii)}, with fixed $\kappa$ and $s$, and let $\bar p$ bound its
+mass off the chart. Then
+\begin{multline*}
+\Bigl\lvert\log\frac{Z_{11}Z_{00}}{Z_{10}Z_{01}}\Bigr\rvert\le\frac{4.8
+\cdot10^4}{\beta_W}\,\Lambda'_a\Lambda'_b\bigl(\lvert N_a\rvert\lvert N_b
+\rvert\bigr)^{1/2}e^{-\alpha_Gd(N_a,N_b)}\\
++6\bar p\,\Lambda_a\Lambda_b .
+\end{multline*}
+\end{theorem}
+
+\begin{proof}
+\emph{Factorisation.} Let $\mathcal P_a$ be the plaquettes of $Q^-$ that
+contain a link of $E_a\cup P_a$, and likewise $\mathcal P_b$; by (H1) they
+are disjoint. By Lemma~\ref{lem:endpairs} only the factors of the pairs
+of $K_a$ depend on $E_a$. By (H2) the inside $\rho$-links of the two
+blocks of a pair of $K_a\cup K_b$ lie in $I_W$ or off $A_W$, so they are
+fixed links of the fibre, and by (H3) each such pair has a relative chart
+(Lemmas~\ref{lem:relchart} and~\ref{lem:endotherblock}). Let $\zeta$ be
+the links of $A^-_W$ outside $P_a\cup P_b$, and $\xi^a=(\xi^k)_{k\in K_a}$
+the chart coordinates of the pairs of $K_a$. Then
+\begin{gather*}
+Z(a,b)=\int\Xi(d\zeta)\,\mathcal A_a(\zeta)\,\mathcal B_b(\zeta),\\
+\mathcal A_a(\zeta)=\int A(\xi^a;\zeta,a)\,d\xi^a ,
+\end{gather*}
+where $A=\prod_{k\in K_a}D_k^{-1}\exp(-\beta_W\sum_{p\in\mathcal P_a}(1-
+\frac12\ReTr U_p))$, the links of $P_a$ being $\Gamma_k(\xi^k)$, $\mathcal
+B_b$ is defined in the same way, and the measure $\Xi$, which collects
+the other pair factors, the Haar measure of the inside links in $A^-_W$
+and the other plaquettes, depends neither on $a$ nor on $b$. Neither
+$\Gamma_k$ nor $D_k$ depends on $\zeta$, so $\mathcal A_a$ is a smooth
+function of the links of $N_a$, and
+\[
+\frac{Z_{11}Z_{00}}{Z_{10}Z_{01}}=\frac{\mu(R_aR_b)}{\mu(R_a)\,\mu(
+R_b)},\qquad R_a=\frac{\mathcal A_{a_1}}{\mathcal A_{a_0}},\quad R_b=
+\frac{\mathcal B_{b_1}}{\mathcal B_{b_0}},
+\]
+where $\mu$ is the law of $\zeta$ under the constrained law $\mu^-_W$ at
+$(a_0,b_0)$.
+
+\emph{One step.} Move one end $e\in E_a$ of a pair $k\in K_a$ by $\delta
+\le0.08$ along its geodesic, and let $\varepsilon_e(\delta)$ be such that
+$\int\lvert A_{e'}-A_e\rvert\,d\xi^a\le\varepsilon_e(\delta)\int A_e\,
+d\xi^a$. The proofs of Lemma~\ref{lem:endchart} and
+Theorem~\ref{thm:endlinear}, applied at fixed $\xi^{k'}$, $k'\ne k$, and
+$\zeta$, with $\omega$ a multiple of the point mass at these values,
+together with the six plaquettes through $e$, none of which contains a
+private link of $k$, give $\varepsilon_e(\delta)\le e^{3\sqrt2\beta_W\delta}(1+
+\varepsilon(\delta))-1$, with $\varepsilon(\delta)$ of those proofs, so
+$\varepsilon_e(\delta)\le L_e\delta+o(\delta)$; for an end that enters
+no average, $D$ and $\Gamma$ do not move and $\varepsilon_e(\delta)\le e^{3
+\sqrt2\beta_W\delta}-1$. In particular $\lvert\log\mathcal A_{e'}-\log
+\mathcal A_e\rvert\le L_e\delta+o(\delta)$. Differentiating under the
+integral, for a link $z$ of $N_a$,
+\[
+\nabla_z\log\mathcal A_e=-\beta_WE^e\bigl[h_e\bigr],\qquad h_e=\nabla_z
+\sum_{p\in\mathcal P_a}\bigl(1-\tfrac12\ReTr U_p\bigr),
+\]
+with $E^e$ the probability with density $A_e/\int A_e$ in $\xi^a$. The
+link $z$ lies in at most six plaquettes. For $U_p=MzN$ the left-invariant
+gradient of $1-\frac12\ReTr U_p$ in $z$ is $\frac12\Pi(NMz)$ up to sign,
+of norm at most $\frac1{\sqrt2}$, and it changes by at most $\frac12\,
+d(M,M')+\frac12\,d(N,N')$ when the other links move; so $\lVert h_e\rVert
+\le3\sqrt2$. In the step only $e$ and the eight links of $k$ move, these
+by at most $L\delta$, $L<2.064$; a plaquette contains at most two
+$\rho$-links, and none contains $e$ and a private link of $k$, so each
+plaquette through $z$ has at most two moving links, which move by at most
+$L\delta$ each, and $\sup\lVert h_{e'}-h_e\rVert\le6L\delta$. The two
+densities differ in $L^1$ by at most $2\varepsilon_e(\delta)$. Hence
+\[
+\bigl\lVert\nabla_z\log\mathcal A_{e'}-\nabla_z\log\mathcal A_e\bigr\rVert
+\le\beta_W\bigl(6L\delta+3\sqrt2\cdot2\varepsilon_e(\delta)\bigr).
+\]
+Summing over a subdivision of the moves and letting the step tend to
+$0$, $\lvert\log R_a\rvert\le\Lambda_a$ and $\lVert\nabla_z\log R_a\rVert
+\le\Lambda'_a$ for every $z$, by $6L<12.39$ and $6\sqrt2<8.486$; the same
+holds for every part of the moves, with the corresponding parts of
+$\Lambda_a$ and $\Lambda'_a$, and for $R_b$.
+
+\emph{Cells.} Parametrise the moves of $E_a$ by $\sigma\in[0,1]$ and of
+$E_b$ by $\tau\in[0,1]$, and cut each interval into $n$ cells on which
+every end moves by at most $1/n$ of its total move. For the cell $(i,j)$
+let $R^{(i)}_a$, $R^{(j)}_b$ be the ratios above between the ends of the
+cell, $\Lambda^{(i)}_a$, $\Lambda'^{(i)}_a$, $\Lambda^{(j)}_b$,
+$\Lambda'^{(j)}_b$ the parts of the sums, and $\mu_{ij}$ the law of
+$\zeta$ at the corner $(\sigma_i,\tau_j)$. The logarithm of the cross-ratio
+is the sum over the cells of $\log(1+x_{ij})$ with $x_{ij}=\Cov_{\mu_{ij}}(
+R^{(i)}_a,R^{(j)}_b)/(\mu_{ij}(R^{(i)}_a)\mu_{ij}(R^{(j)}_b))$. The
+functions $R^{(i)}_a$ depend on the links of $N_a$ only, are bounded by
+$e^{\Lambda^{(i)}_a}$, have gradient at most $e^{\Lambda^{(i)}_a}
+\Lambda'^{(i)}_a$ in each link, satisfy $\lVert R^{(i)}_a-1\rVert_\infty\le
+e^{\Lambda^{(i)}_a}-1$ and $\mu_{ij}(R^{(i)}_a)\ge e^{-\Lambda^{(i)}_a}$,
+and likewise for $R^{(j)}_b$. A covariance does not change when constants
+are subtracted, so Theorem~\ref{thm:badcross}, through
+Proposition~\ref{prop:badpassage}\textup{(ii)}, gives
+\begin{multline*}
+\lvert x_{ij}\rvert\le e^{2\Lambda^{(i)}_a+2\Lambda^{(j)}_b}\Bigl(\frac
+{4.8\cdot10^4}{\beta_W}\Lambda'^{(i)}_a\Lambda'^{(j)}_b\\
+\times\bigl(\lvert N_a\rvert\lvert N_b\rvert\bigr)^{1/2}e^{-\alpha_G
+d(N_a,N_b)}+6\bar p\,\Lambda^{(i)}_a\Lambda^{(j)}_b\Bigr),
+\end{multline*}
+by $e^x-1\le xe^x$. With $\lvert\log(1+x)\rvert\le\lvert x\rvert/(1-
+\lvert x\rvert)$, the sums of $\Lambda^{(i)}_a\Lambda^{(j)}_b$ and of
+$\Lambda'^{(i)}_a\Lambda'^{(j)}_b$ over the cells being $\Lambda_a
+\Lambda_b$ and $\Lambda'_a\Lambda'_b$, and $\max_{i,j}(\Lambda^{(i)}_a+
+\Lambda^{(j)}_b+\lvert x_{ij}\rvert)\to0$ as $n\to\infty$, the claim
+follows.
+\end{proof}
+
+The rate $\alpha_G$ does not depend on $\beta_W$, and the prefactor is a
+polynomial in $\beta_W$ and $\mathfrak b_{\mathrm{tie}}$, of degree three
+in $\beta_W$. As in Corollary~\ref{cor:badcrossratio}, the second term
+needs the mass off the chart small, against $\Lambda_a\Lambda_b$, which is
+of order $\beta_W^2$ times the moves; by
+Theorem~\ref{thm:offchartmass} this fails for long components at
+$\beta_W\le10^{24}$.
+
+\begin{remark}\label{rem:endsfoldopen}
+What remains of the ends after Theorems~\ref{thm:endlinear}
+and~\ref{thm:endsdecay}.
+\begin{enumerate}[label=\textup{(\alph*)},leftmargin=*]
+\item \emph{Both blocks far from $I$.} Lemma~\ref{lem:endotherblock}
+needs the inside $\rho$-links of one of the two blocks of the pair within
+$\frac1{32}$ of $I$. When both blocks have links far from $I$, the fibre of
+the pair is a graph over $\xi$ in neither coordinates on an open set of
+configurations (Proposition~\ref{prop:chartfolds}), the proof of
+Lemma~\ref{lem:ties} uses $\lVert\operatorname{Ad}(u_b)-1\rVert\le\frac
+{\sqrt2}{32}$, and the derivative uniform in $c_k$ is not proved. No
+configuration with an unbounded derivative is known either.
+\item \emph{The crossing number.} $\mathfrak b_{\mathrm{tie}}$ is finite by
+o-minimality and is not computed, so $L_\natural$ and the bound $1.5756\,
+\mathfrak b_{\mathrm{tie}}$ on $\mathcal A_{\mathrm{tie}}$ are explicit up
+to this one integer.
+\item \emph{The rate off the chart.} Theorem~\ref{thm:endsdecay} decays at
+the rate $\alpha_G$ up to the term $6\bar p\Lambda_a\Lambda_b$, and needs
+the blocks next to each end pair outside $W$ (H2), so that the links that
+enter the averages besides the ends are fixed; a pair whose second block
+lies in $W$ has random inside links, and the ratio $R_a$ then depends on
+them through the chart and the Jacobian. A decay between two ends at a
+rate independent of $\beta_W$ off the chart, or without (H2), is not
+proved; along a tube the rate of Theorem~\ref{thm:tube} remains the only
+one without a chart.
+\end{enumerate}
+\end{remark}
+
 The last part of the section concerns the coarse fields with opposite
 fluxes at adjacent coarse plaquettes, for an arbitrary field. Let $P$ and
 $P'$ be the coarse plaquettes at $y$ and $y+e_\mu$ in a plane $\{\mu,\nu\}$
@@ -28624,21 +29108,27 @@ configuration; Proposition~\ref{prop:endkantorovich} and
 Corollary~\ref{cor:endmean} bound the derivative after the coarse link is
 averaged against a positive Lipschitz weight, with no condition on the
 other links; and Lemma~\ref{lem:endchart} and Corollary~\ref{cor:endchart}
-bound it uniformly in $c_k$, with constant $132.32\,\beta_W+(180.4+50.6\,
-\mathcal A_{\mathrm{tie}})e^{72\beta_W}$, when the links of the block of
-the end lie within $\frac1{32}$ of $I$, in particular when the block across
-the end is good. Corollary~\ref{cor:tubederiv} gives from this mixed
-differences in two ends that decay along a tube at the rate of
-Theorem~\ref{thm:tube}. Four things are not proved: the derivative uniform
-in $c_k$ when the links of the block of the end are arbitrary, where the
-boundaries of the sets $S_h$ move with the end and the relative chart can
-fold (Proposition~\ref{prop:chartfolds}); an explicit value of $\mathcal
-A_{\mathrm{tie}}$; a constant without the factor $e^{72\beta_W}$; and a
-decay between two ends at a rate independent of $\beta_W$. The rate of
-Theorem~\ref{thm:tube} is the oscillation of the Wilson weight across one
-interface (Remark~\ref{rem:tuberate}), and the route through the chart of
-Theorem~\ref{thm:badcross} needs the derivative of the pair factor on the
-whole fibre, off the chart as well.
+bound it uniformly in $c_k$ when the links of the block of the end lie
+within $\frac1{32}$ of $I$, in particular when the block across the end is
+good. Theorem~\ref{thm:endlinear} replaces the constant $128.07\,\beta_W+
+(180.4+50.6\,\mathcal A_{\mathrm{tie}})e^{72\beta_W}$ by one linear in
+$\beta_W$, Corollary~\ref{cor:tieareab} gives $\mathcal A_{\mathrm{tie}}
+<1.5756\,\mathfrak b_{\mathrm{tie}}$ with the crossing number of
+Definition~\ref{def:tiecross}, and Lemma~\ref{lem:endotherblock} allows
+the condition on the other block of the pair in place of the block of the
+end. Corollary~\ref{cor:tubederiv} gives mixed differences in two ends
+that decay along a tube at the rate of Theorem~\ref{thm:tube}, and
+Theorem~\ref{thm:endsdecay} gives, on the chart of
+Theorem~\ref{thm:badcross}, mixed differences in two ends in the averages
+that decay at the rate $\alpha_G$, independent of $\beta_W$, up to a term
+proportional to the mass off the chart. Three things are not proved
+(Remark~\ref{rem:endsfoldopen}): the derivative uniform in $c_k$ when both
+blocks of the pair have links far from $I$, where the relative chart can
+fold (Proposition~\ref{prop:chartfolds}); the value of $\mathfrak
+b_{\mathrm{tie}}$; and a decay between two ends at a rate independent of
+$\beta_W$ off the chart, or for pairs whose second block lies in $W$. The
+rate of Theorem~\ref{thm:tube} is the oscillation of the Wilson weight
+across one interface (Remark~\ref{rem:tuberate}).
 \item \emph{Rate.} For $\beta_W\ge2.3\cdot10^{17}$ the decay across a bad
 component beyond the chart of Theorem~\ref{thm:badcross} is not proved;
 Remark~\ref{rem:tuberate} locates the loss in the oscillation of the Wilson
@@ -35452,15 +35942,21 @@ chart (Theorem~\ref{thm:tube}, Corollary~\ref{cor:tubeends}). That factor
 has no content for $\beta_W\ge2.3\cdot10^{17}$. The derivative of the
 integrated pair factor in an end is bounded in the mean over the coarse
 link at every configuration (Corollary~\ref{cor:endmean}), and uniformly in
-the coarse link, with constant $132.32\,\beta_W+(180.4+50.6\,\mathcal
-A_{\mathrm{tie}})e^{72\beta_W}$, when the links of the block of the end lie
-within $\frac1{32}$ of $I$ (Corollary~\ref{cor:endchart}); along a tube
-this gives mixed differences in two ends that decay at the rate of
-Theorem~\ref{thm:tube} (Corollary~\ref{cor:tubederiv}). The bound uniform
-in $c_k$ for arbitrary links of the block of the end, and a decay between
-two ends at a rate independent of $\beta_W$, are not proved
-(Remarks~\ref{rem:badendsopen}, \ref{rem:tuberate}
-and~\ref{rem:endsmeanopen}).
+the coarse link when the links of one of the two blocks of its pair lie
+within $\frac1{32}$ of $I$ (Corollary~\ref{cor:endchart},
+Lemma~\ref{lem:endotherblock}), with a constant linear in $\beta_W$ that
+involves one integer, the crossing number $\mathfrak b_{\mathrm{tie}}$,
+finite by o-minimality and not computed (Theorem~\ref{thm:endlinear}).
+Along a tube this gives mixed differences in two ends that decay at the
+rate of Theorem~\ref{thm:tube} (Corollary~\ref{cor:tubederiv}), and on the
+chart of Theorem~\ref{thm:badcross} mixed differences that decay at the
+rate $\alpha_G$, independent of $\beta_W$, up to a term proportional to
+the mass off the chart, when the blocks next to the end pairs lie outside
+$W$ (Theorem~\ref{thm:endsdecay}). The bound uniform in $c_k$ when both
+blocks of the pair have links far from $I$, and a decay between two ends
+at a rate independent of $\beta_W$ off the chart, are not proved
+(Remarks~\ref{rem:badendsopen}, \ref{rem:tuberate},
+\ref{rem:endsmeanopen} and~\ref{rem:endsfoldopen}).
 Lemma~\ref{lem:mobius} gives the mixed differences of every order in
 terms of the diameter; the rate $2\alpha_G$ needs them in terms of the
 length of the shortest joining tree (Remark~\ref{rem:fixedcopen}). That
