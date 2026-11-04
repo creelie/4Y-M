@@ -9,6 +9,14 @@ maximum-shell flux, and the conditional large-field displacement, are not establ
 this does not close (I1) or D. The relative curvature witness and its
 annealed rarity already appear in `RELATIVE_CHART.md` and `COARSE_LABELS.md`.
 
+**Latest averaging step (proved conditional bound).**
+`AVERAGED_SHELL_MASS.md` proves that fibre normalization cancels exactly
+when shell weights are averaged over the induced coarse distribution. It
+combines the SU(2) hazard bound with a deterministic transport-speed bound
+to control one-sided approximations to the averaged shell mass. Identifying
+those approximations with the actual signed constraint flux and bounding
+the large-field displacement remain open.
+
 **Latest finite interfaces (2026-11-03; proved conditional deductions).**
 `ISLAND_KERNEL.md` shows that a uniform connected collar-kernel bound
 survives arbitrary separate positive island weights, including hard
