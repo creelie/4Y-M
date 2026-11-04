@@ -89,7 +89,7 @@ strong coupling, and that one averaged estimate in a single cube of fixed
 physical size gives a mass gap to every continuum limit. For $\SU(2)$ the
 block variables approach the Haar measure in every representation as the
 coupling is tuned to the continuum, and this proves the estimate at the
-coarsest scale on every torus of side up to $4^k$ after $k$ blocking steps.
+coarsest scale on every torus of side up to $e^{2^k/(17k)}$ after $k$ blocking steps.
 The estimate along the whole tuning remains open.
 \end{abstract}
 
@@ -529,7 +529,7 @@ representation; along every tuning with $\beta_k=O(k)$ the single-link
 curvature of the induced action therefore tends to zero, and the mixed
 derivatives are covariances of the scores of the interior path products
 under one posterior law, each tending to zero, which gives the condition at
-the coarsest scale on every torus of side at most $4^k$
+the coarsest scale on every torus of side at most $e^{2^k/(17k)}$
 (Theorems~\ref{thm:bppathdensity} and~\ref{thm:bppathmixed},
 Corollary~\ref{cor:bppathfourk}); on tori of every size it needs these
 covariances to be summable uniformly in the torus
@@ -10240,8 +10240,8 @@ law, each at most $K_b^2$ with $K_b\to0$ (Theorem~\ref{thm:bppathmixed}).
 A column sum of single-link coefficients at most $\frac13$ gives
 $\mathrm{BP}(n,\frac12)$ for every cube side, with no condition on the tails
 (Corollary~\ref{cor:bppathcolumn}), and together these give
-$\mathrm{BP}(n,\frac12)$ after $k\ge14$ blocking steps with $\beta_k\le k+2$
-on every coarse torus of side at most $4^k$
+$\mathrm{BP}(n,\frac12)$ after $k\ge12$ blocking steps with $\beta_k\le k+2$
+on every coarse torus of side at most $e^{2^k/(17k)}$
 (Corollary~\ref{cor:bppathfourk}). Two standard routes to a bound on every
 torus fail along the tuning, Dobrushin's condition for the posterior law
 and the Koteck\'y--Preiss condition for the unresummed cube surface
@@ -10563,47 +10563,71 @@ C^\varrho_{ej}\,\#\{x:e\in V_x\}\le\frac{c_\varrho}{1-c_\varrho}\,n^4\le
 and Theorem~\ref{thm:bpcoarse}(i) applies with $\alpha=\frac12$.
 \end{proof}
 
-\begin{corollary}[tori of side up to $4^k$]\label{cor:bppathfourk}
-Let $k\ge14$, $b=2^k$, $0\le\beta_W\le k+2$, $n\ge2$ and $L$ even with
-$2n+4\le L\le4^k$. Then the law $\mu^c$ of the block variables of the
-$\SU(2)$ Wilson measure of $\Lambda_{bL}$ under the straight-path map
+\begin{corollary}[tori of side up to $e^{2^k/(17k)}$]\label{cor:bppathfourk}
+Let $k\ge12$, $b=2^k$, $0\le\beta_W\le k+2$, $n\ge2$ and $L$ even with
+$2n+4\le L\le e^{2^k/(17k)}$. Then the law $\mu^c$ of the block variables of
+the $\SU(2)$ Wilson measure of $\Lambda_{bL}$ under the straight-path map
 satisfies $\mathrm{BP}(n,\frac12)$.
 \end{corollary}
 
 \begin{proof}
-Put $N_k=4k+9$ and $t_k=48(6k+13)^2\,2^{-(8k-25)}$. Since $q_W\le1-1/N_k$ and
-$(1-1/N_k)^{N_k}<e^{-1}<\frac12$,
+Put $N_k=4k+9$, $B_k=6(k+2)$, $M_k=2^k/(17k)$ and $s_k=48(6k+13)^2
+e^{-(2^k-4)/N_k}$. Since $q_W\le1-1/N_k$ and $\log(1-x)\le-x$,
 \[
-\eta_{b-2}=48(1+6\beta_W)^2q_W^{b-4}\le48(6k+13)^2\,2^{-\lfloor(2^k-4)/N_k
-\rfloor}\le t_k ,
+\eta_{b-2}=48(1+6\beta_W)^2q_W^{b-4}\le s_k .
 \]
-where the last step uses $\lfloor(2^k-4)/N_k\rfloor\ge8k-25$, which follows
-from $2^k\ge R(k)=32k^2-28k-221$: this holds at $k=12$, where $R(12)=4051$,
-and $2R(k)-R(k+1)=32(k-12)^2+676(k-12)+3279>0$ carries it from $k$ to
-$k+1$. Let $B_k=6(k+2)$. Then $t_{12}<2^{-52}$, $t_{k+1}/t_k<\frac1{64}$
-and $B_{k+1}/B_k<2$, so $\eta_{b-2}\le\frac12$,
+We first show that
+\begin{equation}\label{eq:bppathrange}
+96B_k^2s_k^2e^{4M_k}\le1 .
+\end{equation}
+In logarithms this reads $P_k\le Q_k$, with $P_k=\log(96\cdot48^2)+2\log B_k
++4\log(6k+13)$ and
 \[
-h_{b-2}\le2(B_k^2+B_k)t_k+4B_k^2t_k^2\le\frac12 ,\qquad K_b\le2B_kt_k .
+Q_k=\frac{2(2^k-4)}{N_k}-4M_k=2^k\,\frac{18k-36}{17kN_k}-\frac8{N_k} .
+\]
+For $k\ge12$ one has $18k-36\ge15k$ and $N_k\le5k$, so $Q_k\ge R_k-1$ with
+$R_k=3\cdot2^k/(17k)$. At $k=12$, $\log221184<12.31$, $\log84<4.44$ and
+$\log85<4.45$ give $P_{12}+1<40<60<R_{12}$. From $k$ to $k+1$, $R$ grows by
+$R_k(k-1)/(k+1)\ge R_k/2\ge30$, while $P$ grows by $2\log\frac{k+3}{k+2}+4
+\log\frac{6k+19}{6k+13}<\frac2{k+2}+\frac{24}{6k+13}<1$; so $P_k+1<R_k$ for
+every $k\ge12$, which proves~\eqref{eq:bppathrange}. Moreover $\log B_k\le
+M_k$ for $k\ge12$: it holds at $k=12$, where $\log84<5<20<M_{12}$, and from
+$k$ to $k+1$ the left side grows by less than $1$ and the right side by
+$M_k(k-1)/(k+1)\ge10$.
+
+By~\eqref{eq:bppathrange}, $B_ks_k\le e^{-2M_k}/9$, so $B_k^2s_k\le
+e^{-M_k}/9<10^{-9}$ and $s_k\le\frac12$. Hence $\eta_{b-2}\le\frac12$,
+$K_b\le2B_ks_k$ since $B_W\le B_k$, and
+\[
+h_{b-2}\le2(B_k^2+B_k)s_k+4B_k^2s_k^2\le5B_k^2s_k\le\frac12 .
 \]
 By Theorem~\ref{thm:bppathmixed} and Lemma~\ref{lem:bpcoarsehess} with
 $\kappa_G=1$, $C^{\mu^c}_{ej}\le K_b^2/(1-h_{b-2})\le2K_b^2$, and the
-$4L^4-1$ links $e\ne j$ give
+$4L^4-1$ links $e\ne j$ give, with $L^4\le e^{4M_k}$,
 \[
-3c_{\mu^c}\le\frac{3(4L^4-1)K_b^2}{1-h_{b-2}}\le96L^4B_k^2t_k^2\le A_k=
-96\cdot2^{8k}B_k^2t_k^2 .
+3c_{\mu^c}\le\frac{3(4L^4-1)K_b^2}{1-h_{b-2}}\le96L^4B_k^2s_k^2\le1 .
 \]
-Here $A_{14}=21512615283\cdot2^{-39}<\frac1{25}$ and $A_{k+1}/A_k<
-\frac14$, so $c_{\mu^c}\le\frac13$, $\mu^c$ is gauge invariant, and
+So $c_{\mu^c}\le\frac13$, $\mu^c$ is gauge invariant, and
 Corollary~\ref{cor:bppathcolumn} applies.
 \end{proof}
 
-The range is not (H1): that condition asks for a bound on an infinite set
+The side $e^{2^k/(17k)}$ exceeds $4^k$ from $k=12$ on and grows faster
+than every power of the block size; in physical units the coarse torus has
+side up to $a_0e^{2^k/(17k)}$, which tends to infinity along the tuning.
+The range is still not (H1). Theorem~\ref{thm:avgtransfer} passes to
+infinite volume at fixed $k$, so (H1) asks for a bound on an infinite set
 of tori at each $k$, and the entrywise bound $K_b^2$ summed over $4L^4$
-links fails once $L$ is large at fixed $k$. Figure~\ref{fig:bppaths} shows
-the interiors, the multipliers of Lemma~\ref{lem:bppathmodes} and the
-numbers $\eta_{b-2}$, $K_b^2$ and $h_{b-2}$ along the tuning. The next
-proposition shows that two standard routes to a bound on every torus fail
-in the range that matters.
+links fails once $L$ is large at fixed $k$. If the volume and the cut-off
+are removed together, along coarse tori of side $L_k\le e^{2^k/(17k)}$
+with $L_k\to\infty$, the corollary gives the condition at the coarsest
+scale on every torus of the sequence. That route needs, in place of
+Theorem~\ref{thm:avgtransfer}, a lower bound on the gap of the transfer
+matrix of a finite torus that is uniform in its time extent and follows
+from $\mathrm{BP}$ on that torus, together with (H2) on the same tori;
+neither is proved here. Figure~\ref{fig:bppaths} shows the interiors, the
+multipliers of Lemma~\ref{lem:bppathmodes} and the numbers $\eta_{b-2}$,
+$K_b^2$ and $h_{b-2}$ along the tuning. The next proposition shows that two
+standard routes to a bound on every torus fail in the range that matters.
 
 \begin{figure}[t]
 \centering
@@ -10735,9 +10759,9 @@ the path interiors, and its mixed derivatives are posterior covariances of
 the scores of the interior products, each at most $K_b^2$
 (Lemma~\ref{lem:bppathint}, Theorem~\ref{thm:bppathmixed}); a column sum at
 most $\frac13$ gives $\mathrm{BP}(n,\frac12)$ for every $n$ with no
-condition on the tails (Corollary~\ref{cor:bppathcolumn}); for $k\ge14$
+condition on the tails (Corollary~\ref{cor:bppathcolumn}); for $k\ge12$
 and $\beta_k\le k+2$ the law of the block variables satisfies
-$\mathrm{BP}(n,\frac12)$ on every coarse torus of side at most $4^k$
+$\mathrm{BP}(n,\frac12)$ on every coarse torus of side at most $e^{2^k/(17k)}$
 (Corollary~\ref{cor:bppathfourk}); Dobrushin's condition for the posterior
 on single fine links fails for $b\ge256$, $\beta_W\ge\frac83$, and the
 Koteck\'y--Preiss condition for the unresummed cube surface fails for
@@ -47361,7 +47385,7 @@ those of the Haar measure, the single-link curvature of the induced action
 tends to zero along every tuning with $\beta_k=O(k)$, and the mixed
 derivatives are posterior covariances of the scores of the interior path
 products, each tending to zero; this gives the condition at the coarsest
-scale on every torus of side at most $4^k$, a column sum at most $\frac13$
+scale on every torus of side at most $e^{2^k/(17k)}$, a column sum at most $\frac13$
 gives it with no condition on the tails, and a bound on the sums of the
 posterior covariances uniform in the torus, which is not proved, gives (H1)
 (Theorems~\ref{thm:bppathproduct}, \ref{thm:bppathdensity}
@@ -47477,7 +47501,7 @@ those of the product measure (Theorem~\ref{thm:bpsplitstrong}). For
 $\SU(2)$ the block variables of the straight-path map approach the Haar
 measure in every representation, their single-link curvature vanishes
 along every tuning with $\beta_k=O(k)$, and the condition at the coarsest
-scale holds on every torus of side up to $4^k$
+scale holds on every torus of side up to $e^{2^k/(17k)}$
 (Corollary~\ref{cor:bppathfourk}). On tori of every size it follows from a
 bound, uniform in the torus, on the sum of the posterior covariances of the
 scores of the interior path products (Proposition~\ref{prop:bppathsuff}).
