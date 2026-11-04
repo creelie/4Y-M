@@ -4595,9 +4595,13 @@ from its supremum form $D^0_L(n,\alpha)$ with $\varpi=1-\alpha$, holds at
 $\beta=0$ with $\varpi=1$ (Proposition~\ref{prop:avgsup}), holds on every
 torus at strong coupling for every cube size past an explicit $n_0(\beta)$,
 with $\varpi\to1$ as $n\to\infty$ (Corollary~\ref{cor:bpranges}), fails on
-the torus of side $2n+4$ once $\beta\gg n^4\log\beta$
-(Theorem~\ref{thm:bpfixed}), and fails in the Coulomb phase of the Villain
-theory at every cube size (Corollary~\ref{cor:avgcoulomb}). The obstructions of the forest gauge,
+the torus of side $2n+4$ once $\beta\gg n^4\log\beta$, already on the
+functions of nonzero centre charge (Theorem~\ref{thm:bpfixed},
+Corollary~\ref{cor:bpcharged}), and fails in the Coulomb phase of the Villain
+theory at every cube size (Corollary~\ref{cor:avgcoulomb}); the conclusion of
+Theorem~\ref{thm:avgtransfer} follows from the weaker local form
+$\mathrm{BP}_{\rm loc}$, which for $\SU(N)$ is implied by the condition on
+the neutral sector (Theorem~\ref{thm:bplocal}). The obstructions of the forest gauge,
 Propositions~\ref{prop:gaussforest}, \ref{prop:gaussevery}
 and~\ref{prop:tetra}, Theorem~\ref{thm:cubeneeds} and
 Corollary~\ref{cor:cubefails}, bound $K_c$ from below through Lipschitz
@@ -4611,7 +4615,8 @@ which concern bounds uniform in the coarse field and arguments from rarity,
 since the condition contains no supremum and no labels. Not proved: the
 condition $\mathrm{BP}(n_k,\varpi)$ along the continuum tuning for any
 non-abelian group, or outside the strong-coupling ranges of
-Corollary~\ref{cor:bpranges}; the relation between $\mathrm{BP}$ and
+Corollary~\ref{cor:bpranges}, and its local form $\mathrm{BP}_{\rm loc}$
+along the tuning; the relation between $\mathrm{BP}$ and
 $D(n,\alpha)$; and (E). Remark~\ref{rem:bpstatus} lists what
 Section~\ref{ssec:bpstrong} proves about the dependence on $n$ and $\beta$. Corollary~\ref{cor:avgcoulomb}
 shows that a proof of $\mathrm{BP}$ has to use the non-abelian structure of
@@ -5161,7 +5166,597 @@ not need, since it uses an infinite set of $L$. Not proved:
 $\mathrm{BP}(n_k,\varpi)$ along the continuum tuning for any non-abelian
 group, or at any coupling outside the ranges above; a transfer from small
 cubes to large ones without the loss $(n/m)^4$; an obstruction on large
-tori at weak coupling.
+tori at weak coupling. Section~\ref{ssec:bpweak} shows that the obstruction on
+$\Lambda_{2n+4}$ lies in the centre-charged part of $\mathcal A$, that the
+continuum step needs only the local form $\mathrm{BP}_{\rm loc}$, and that
+the comparison of cube sizes loses exactly $(n/m)^4$
+(Remark~\ref{rem:bpweakstatus}).
+\end{remark}
+
+\subsection{The averaged condition at weak coupling: centre sectors and
+local slow modes}\label{ssec:bpweak}
+
+The condition $\mathrm{BP}(n_k,\varpi)$ along the continuum tuning is the
+spectral gap that Theorem~\ref{thm:avgtransfer} needs, and it is not proved
+here. This subsection separates the part of the condition that the continuum
+step uses from the part that Theorem~\ref{thm:bpfixed} obstructs, and it
+records what each available route to the condition gives. Three facts
+organise it. For $\SU(N)$ the cube moves commute with the centre twists of
+the torus, so the condition splits into centre sectors; the test functions of
+Theorem~\ref{thm:bpfixed} are charged, and every local gauge-invariant
+function is neutral. The proof of Theorem~\ref{thm:avgdecay} uses the
+condition only through the spectral measures of local functions, so a local
+form of it suffices for the continuum step. Functions of a bounded set of
+links satisfy a Poincar\'e inequality for the cube chain uniformly in the
+torus, so the slow functions that the condition excludes are spread over
+growing sets of links.
+
+The setting is that of Section~\ref{ssec:averaged} on the torus $\Lambda_L$,
+$L\ge2n+4$ even, with $\mathcal K=L^{-4}\sum_x\mathcal P_x$. Put
+\[
+\mathcal E_n(f)=\frac1{n^4}\sum_{x\in X}\mu\bigl(\lvert f-\mathcal P_xf
+\rvert^2\bigr),\qquad f\in L^2(\mu),
+\]
+so that $\ip f{(I-\mathcal K)f}=n^4L^{-4}\mathcal E_n(f)$, and
+$\mathrm{BP}(n,\varpi)$ reads $\varpi\Var_\mu(f)\le\mathcal E_n(f)$ for real
+$f\in\mathcal A$; here $\Var_\mu(f)=\mu(\lvert f-\mu(f)\rvert^2)$. Let
+$\mathcal A_\C$ be the space of complex gauge-invariant functions in
+$L^2(\mu)$. For $G=\SU(N)$, $N\ge2$, put $\omega=e^{2\pi i/N}$ and $z=\omega
+I$. For a direction $\nu$ and $t\in\Z/L\Z$ let $Z^\nu_t$ be the map that
+multiplies every link $(y,\nu)$ with $y_\nu=t$ by $z$ and fixes the other
+links; the maps $Z_{c,d}$ of Section~\ref{ssec:bpstrong} are $(Z^0_0)^c
+(Z^1_0)^d$.
+
+\begin{proposition}[centre sectors]\label{prop:bpcentre}
+Let $G=\SU(N)$, $N\ge2$.
+\begin{enumerate}[label=\textup{(\roman*)},leftmargin=*]
+\item Each $Z^\nu_t$ preserves $\mu$, maps $\mathcal A_\C$ onto itself, and
+satisfies $(\mathcal P_xf)\circ Z^\nu_t=\mathcal P_x(f\circ Z^\nu_t)$ for
+every $x$ and every $f\in L^2(\mu)$.
+\item For $f\in\mathcal A_\C$ the function $f\circ Z^\nu_t$ does not depend
+on $t$; write $f\circ Z^\nu$ for it.
+\item For $r\in(\Z/N\Z)^4$ let $\mathcal A_r=\{f\in\mathcal A_\C:f\circ Z^\nu
+=\omega^{r_\nu}f,\ \nu=0,\dots,3\}$. Then $\mathcal A_\C$ is the orthogonal
+sum of the $\mathcal A_r$, each $\mathcal A_r$ is invariant under every
+$\mathcal P_x$, the constants lie in $\mathcal A_0$, and complex conjugation
+maps $\mathcal A_r$ onto $\mathcal A_{-r}$.
+\item If $f\in\mathcal A_\C$ depends only on the links with base points in a
+box $b+[0,s)^4$ with $s\le L-1$, then $f\in\mathcal A_0$.
+\item $\mathrm{BP}(n,\varpi)$ holds if and only if $\varpi\Var_\mu(f)\le
+\mathcal E_n(f)$ for every $r$ and every $f\in\mathcal A_r$; for $r\ne0$ and
+$f\in\mathcal A_r$, $\mu(f)=0$.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+(i) A plaquette that contains a link $(y,\nu)$ with $y_\nu=t$ lies in a plane
+$\{\nu,\nu'\}$ and contains exactly one other link of direction $\nu$, with
+the same $\nu$-coordinate and the opposite orientation; a plaquette in a
+plane without $\nu$ contains no link of direction $\nu$. Since $z$ is
+central, $Z^\nu_t$ leaves every $U_p$ unchanged, and it preserves Haar
+measure, so it preserves $\mu$. Since $z$ is central, it also commutes with
+every gauge transformation, so it maps $\mathcal A_\C$ into itself, and onto
+it, as $(Z^\nu_t)^N$ is the identity. Write $Z^\nu_t$ as $Z_V\times Z'$ on
+$G^{V_x}\times G^{E\setminus V_x}$. The density of $\gamma^0_{V_x}(\cdot\mid
+U)$ at $\sigma$ is proportional to the product of $\varphi$ over the
+plaquettes meeting $V_x$ of the configuration equal to $\sigma$ on $V_x$
+and to $U$ elsewhere, and $Z^\nu_t$ leaves these plaquettes unchanged; with
+the invariance of Haar measure under $Z_V$, the law $\gamma^0_{V_x}(\cdot
+\mid Z^\nu_tU)$ is the image of $\gamma^0_{V_x}(\cdot\mid U)$ under $Z_V$.
+Hence
+\[
+\begin{split}
+\mathcal P_x(f\circ Z^\nu_t)(U)&=\int f(Z_V\sigma,Z'U_{E\setminus V_x})\,
+\gamma^0_{V_x}(d\sigma\mid U)\\
+&=(\mathcal P_xf)(Z^\nu_tU).
+\end{split}
+\]
+
+(ii) Let $g$ be the gauge transformation equal to $z^{-1}$ at the sites $y$
+with $y_\nu=t+1$ and to $I$ elsewhere. It multiplies the links $(y,\nu)$
+with $y_\nu=t$ by $z$ and those with $y_\nu=t+1$ by $z^{-1}$, and it fixes
+every other link, because $z$ is central and the two ends of a link of
+direction $\nu'\ne\nu$ have the same $\nu$-coordinate. Hence $Z^\nu_t$ is
+$Z^\nu_{t+1}$ followed by $g$, and $f\circ Z^\nu_t=f\circ Z^\nu_{t+1}$ for
+gauge-invariant $f$.
+
+(iii) By (i) and (ii) the maps $f\mapsto f\circ Z^\nu$ are unitary on
+$\mathcal A_\C$, commute with one another and have order $N$. So the
+operators $\Pi_rf=N^{-4}\sum_j\omega^{-r\cdot j}f\circ(Z^0)^{j_0}\cdots
+(Z^3)^{j_3}$, $j\in(\Z/N\Z)^4$, are orthogonal projections onto the
+$\mathcal A_r$ with $\sum_r\Pi_r=I$ and $\Pi_r\Pi_{r'}=0$ for $r\ne r'$, and
+by (i) they commute with every $\mathcal P_x$. Constants are fixed by every
+$Z^\nu$, and $\bar f\circ Z^\nu=\overline{f\circ Z^\nu}$.
+
+(iv) The residue $t=b_\nu-1$ is not among $b_\nu,\dots,b_\nu+s-1$ modulo
+$L$, since $s\le L-1$. So $Z^\nu_t$ fixes every link on which $f$ depends,
+and $f\circ Z^\nu=f\circ Z^\nu_t=f$ for each $\nu$.
+
+(v) Let $f\in\mathcal A_\C$ and $f_r=\Pi_rf$. Since $\Pi_r$ commutes with
+$\mathcal P_x$ and with the projection onto the constants, and the
+$\mathcal A_r$ are orthogonal, $\Var_\mu(f)$ and $\mathcal E_n(f)$ are the
+sums over $r$ of $\Var_\mu(f_r)$ and $\mathcal E_n(f_r)$. Since $\mathcal
+P_x$ maps real functions to real functions, both are also the sums of their
+values at $\operatorname{Re}f$ and $\operatorname{Im}f$. So the inequality
+for real $f\in\mathcal A$, the inequality for all $f\in\mathcal A_\C$ and the
+inequality on every $\mathcal A_r$ are equivalent. For $r\ne0$, $\mu(f)=\ip
+1f=0$, since $1\in\mathcal A_0$.
+\end{proof}
+
+A local gauge-invariant function, such as a Wilson loop of a contractible
+loop or a function of the plaquettes of a box, is therefore neutral, while
+the trace of a Polyakov loop of direction $\nu$ lies in $\mathcal A_r$ with
+$r=e_\nu$, since the loop crosses each slice $\{y_\nu=t\}$ once. The
+continuum step needs the condition only on neutral functions, and only
+through local ones. Call $f\in L^2(\mu)$ \emph{local} if it depends only on
+the links with base points in some box of side at most $L/2$.
+
+\begin{definition}\label{def:bploc}
+Let $G$, $\varphi$ and $\Lambda_L$ be as in Section~\ref{ssec:averaged}, $n\ge2$
+and $\varpi>0$, and put $\epsilon=\varpi n^4/L^4$.
+\begin{enumerate}[label=\textup{(\alph*)},leftmargin=*]
+\item $\mathrm{BP}_{\rm loc}(n,\varpi)$: for every local real $f\in\mathcal
+A$ and every integer $t\ge0$,
+\[
+\bigl\lVert\mathcal K^t\bigl(f-\mu(f)\bigr)\bigr\rVert_2\le(1-\epsilon)^t
+\bigl\lVert f-\mu(f)\bigr\rVert_2 .
+\]
+\item For $G=\SU(N)$, $\mathrm{BP}_0(n,\varpi)$: $\varpi\Var_\mu(f)\le
+\mathcal E_n(f)$ for every real $f\in\mathcal A_0$.
+\end{enumerate}
+\end{definition}
+
+For a self-adjoint $0\le\mathcal K\le I$ and $g\in L^2(\mu)$ with spectral
+measure $\nu_g$, $\lVert\mathcal K^tg\rVert_2^2=\int\lambda^{2t}d\nu_g$; so
+the inequality of (a) for all $t$ says that $\nu_g$ is carried by $[0,1-
+\epsilon]$ for $g=f-\mu(f)$, the spectral gap of the cube chain on the cyclic
+subspace of each local function. Condition (a) involves no function of
+links spread over the torus.
+
+\begin{theorem}[the local form of the averaged condition]\label{thm:bplocal}
+Let $G$, $\varphi$ and $\Lambda_L$ be as in Section~\ref{ssec:averaged}.
+\begin{enumerate}[label=\textup{(\roman*)},leftmargin=*]
+\item $\mathrm{BP}(n,\varpi)$ implies $\mathrm{BP}_{\rm loc}(n,\varpi)$; for
+$G=\SU(N)$, $\mathrm{BP}(n,\varpi)$ implies $\mathrm{BP}_0(n,\varpi)$, which
+implies $\mathrm{BP}_{\rm loc}(n,\varpi)$.
+\item If $\mathrm{BP}_{\rm loc}(n,\varpi)$ holds on $\Lambda_L$, then
+$\varpi\le4$, and both bounds of Theorem~\ref{thm:avgdecay} hold for bounded
+$f,g\in\mathcal A$ with $f$ local.
+\item Corollary~\ref{cor:avggap} and Theorem~\ref{thm:avgtransfer} hold with
+$\mathrm{BP}_{\rm loc}(n,\varpi)$, respectively $\mathrm{BP}_{\rm loc}(n_k,
+\varpi)$, in place of $\mathrm{BP}$; so does the form of
+Proposition~\ref{prop:spatialflow}\textup{(iii)} stated after
+Theorem~\ref{thm:avgtransfer}.
+\item If $\mathrm{BP}_{\rm loc}(n,\varpi)$ holds, then every local real
+$f\in\mathcal A$ and every real $h\in\mathcal A$ satisfy
+\[
+\Cov_\mu(f,h)^2\le\Var_\mu(f)\,\frac{\mathcal E_n(h)}{\varpi}.
+\]
+If it fails, there are a local real $f\in\mathcal A$ and a real $h\in
+\mathcal A$ with $\mathcal E_n(h)<\varpi\Var_\mu(h)$ and $\Cov_\mu(f,h)=
+\Var_\mu(h)>0$; for $G=\SU(N)$, $h\in\mathcal A_0$.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+(i) Let $\mathcal B$ be $\mathcal A$, or $\mathcal A_0$ for $G=\SU(N)$, and
+$\mathcal B^0$ its functions of mean zero. Every $\mathcal P_x$ maps
+$\mathcal A$ into itself (Section~\ref{ssec:averaged}) and $\mathcal A_0$ into
+itself (Proposition~\ref{prop:bpcentre}(iii)), and $\mu(\mathcal P_xg)=
+\mu(g)$; so $\mathcal K$ maps $\mathcal B^0$ into itself, and there it is self-adjoint with
+$0\le\mathcal K\le I$. If the inequality of $\mathrm{BP}(n,\varpi)$ holds on
+the real functions of $\mathcal B$, then $\ip g{(I-\mathcal K)g}\ge
+\epsilon\lVert g\rVert_2^2$ on $\mathcal B^0$, the spectrum of $\mathcal K$
+on $\mathcal B^0$ lies in $[0,1-\epsilon]$, and $\lVert\mathcal K^tg
+\rVert_2\le(1-\epsilon)^t\lVert g\rVert_2$ for $g\in\mathcal B^0$. A local
+real $f\in\mathcal A$ lies in $\mathcal A_0$ by
+Proposition~\ref{prop:bpcentre}(iv), since $L/2\le L-1$, so $g=f-\mu(f)\in
+\mathcal B^0$ in both cases.
+
+(ii) Let $f=\ReTr U_p$ for a plaquette $p$, a local function with $\Var_\mu
+(f)>0$, and $g=f-\mu(f)$. By $\mathrm{BP}_{\rm loc}(n,\varpi)$ with $t=1$,
+$\ip g{\mathcal Kg}\le\lVert g\rVert_2\lVert\mathcal Kg\rVert_2\le(1-
+\epsilon)\lVert g\rVert_2^2$, so $\ip g{(I-\mathcal K)g}\ge\epsilon\lVert g
+\rVert_2^2$. As in the proof of Theorem~\ref{thm:avgdecay}, $\ip g{(I-
+\mathcal K)g}=L^{-4}\sum_x\mu((g-\mathcal P_xg)^2)\le4n^4L^{-4}\lVert g
+\rVert_2^2$. Hence $\varpi\le4$. The proof of Theorem~\ref{thm:avgdecay}
+uses $\mathrm{BP}(n,\varpi)$ in two places only: for the bound $\varpi\le4$,
+just obtained, and in its spectral part, for $\lVert\mathcal K^T(f-\mu(f))
+\rVert_2\le e^{-\epsilon T}\lVert f-\mu(f)\rVert_2$, which
+$\mathrm{BP}_{\rm loc}(n,\varpi)$ gives for local real $f$. The real and
+imaginary parts of a local function are local.
+
+(iii) In the proof of Corollary~\ref{cor:avggap},
+Theorem~\ref{thm:avgdecay} is applied on $\Lambda_L$, $L\in\mathcal L$
+large, to $\vartheta(\bar F)$ and $\tau_tF$, which depend on links with base
+points in a box whose side depends on $F$ and $t$ only, hence are local once
+$L$ is large; (ii) applies. Theorem~\ref{thm:avgtransfer} and the form of
+Proposition~\ref{prop:spatialflow}(iii) use the condition only through
+Corollary~\ref{cor:avggap}.
+
+(iv) Let $E$ be the spectral projection of $\mathcal K$ on $L^2(\mu)$ for
+the interval $(1-\epsilon,1]$, $f$ local, real and in $\mathcal A$, and $g=
+f-\mu(f)$. Under $\mathrm{BP}_{\rm loc}(n,\varpi)$, $\int\lambda^{2t}d\nu_g\le
+(1-\epsilon)^{2t}\nu_g([0,1])$ for all $t$, so $\nu_g((1-\epsilon+\eta,1])=0$
+for every $\eta>0$, and $Eg=0$. On the range of $I-E$, $I-\mathcal K\ge
+\epsilon$, so for real $h\in\mathcal A$,
+\[
+\begin{split}
+\Cov_\mu(f,h)^2&=\ip g{(I-E)h}^2\\
+&\le\lVert g\rVert_2^2\,\frac{\ip{(I-E)h}{(I-\mathcal K)(I-E)h}}\epsilon\\
+&\le\lVert g\rVert_2^2\,\frac{\ip h{(I-\mathcal K)h}}\epsilon\\
+&=\Var_\mu(f)\,\frac{\mathcal E_n(h)}{\varpi}.
+\end{split}
+\]
+If $\mathrm{BP}_{\rm loc}(n,\varpi)$ fails, some local real $f\in\mathcal A$
+has $\nu_g((1-\epsilon,1])>0$ for $g=f-\mu(f)$; put $h=Eg$. Spectral
+projections of $\mathcal K$ are strong limits of polynomials in $\mathcal K$,
+so $h$ is real and lies in $\mathcal A$, and in $\mathcal A_0$ for $G=
+\SU(N)$, since $g$ does. As $\mathcal K1=1$, $E1=1$ and $\mu(h)=\ip{E1}g=0$;
+then $\Var_\mu(h)=\lVert Eg\rVert_2^2=\ip g{Eg}=\Cov_\mu(f,h)>0$, and since
+$\nu_h$ is carried by $(1-\epsilon,1]$, $\ip h{(I-\mathcal K)h}=\int(1-
+\lambda)\,d\nu_h<\epsilon\lVert h\rVert_2^2$, that is, $\mathcal E_n(h)<
+\varpi\Var_\mu(h)$.
+\end{proof}
+
+By (iv), under $\mathrm{BP}_{\rm loc}$ the functions on which the cube
+chain is slow are nearly orthogonal to every local gauge-invariant function,
+with the defect of orthogonality bounded by their Dirichlet form, and a
+failure of $\mathrm{BP}_{\rm loc}$ produces a slow function correlated with a
+local one. Slow functions orthogonal to all local ones, and for
+$\SU(N)$ slow functions in the charged sectors, do not affect the continuum
+step. The Villain obstruction persists for the local form: the proof of
+Corollary~\ref{cor:avgcoulomb} uses the condition only through
+Theorem~\ref{thm:avgdecay} for the functions $\Psi_p$, and through the bound
+$\varpi\le4$, which holds with $\Psi_p$ in place of $\ReTr U_p$, a
+nonconstant function of the four links of $p$. So for the Villain theory at
+$\beta>\beta_0$ there are no $n$ and $\varpi>0$ such that
+$\lVert\mathcal K^t(\Psi_p-\mu(\Psi_p))\rVert_2\le(1-\varpi n^4/\lvert X
+\rvert)^t\lVert\Psi_p-\mu(\Psi_p)\rVert_2$ for all $t$, all plaquettes and
+the measures with free boundary of all boxes of side at least $2n$. The
+local form, like the full one, has to use the non-abelian structure of $G$.
+
+For $\SU(N)$ the obstruction of Section~\ref{ssec:bpstrong} lies in the charged
+sectors. Let $\mathcal C$ be the set of real $f\in\mathcal A$ with
+$\Pi_0f=0$, in the notation of the proof of
+Proposition~\ref{prop:bpcentre}(iii); it is orthogonal to $\mathcal A_0$ and
+preserved by every $\mathcal P_x$.
+
+\begin{corollary}[the fixed-size obstruction is charged]\label{cor:bpcharged}
+Let $G=\SU(N)$, $N\ge2$. Theorem~\ref{thm:bpfixed} holds, with the same
+constants in \textup{(i)} and \textup{(ii)} and with another constant $C_N$
+in \textup{(iii)}, when the inequality of $\mathrm{BP}(n,\varpi)$ is assumed
+only for $f\in\mathcal C$. Its hypotheses and conclusions concern only the
+restriction of the condition to $\mathcal C$; neither $\mathrm{BP}_0(n,
+\varpi)$ nor $\mathrm{BP}_{\rm loc}(n,\varpi)$ enters it.
+\end{corollary}
+
+\begin{proof}
+In the proof of Theorem~\ref{thm:bpfixed}(i) the condition is applied to
+$L^{-3}\sum_y\ReTr P_y$ and to the corresponding imaginary part. The trace of
+$P_y$ lies in $\mathcal A_{e_0}$ and its conjugate in $\mathcal A_{-e_0}$,
+and $\pm e_0\ne0$ in $(\Z/N\Z)^4$, so both functions lie in $\mathcal C$. In
+the proof of (ii) and (iii), $F_{ab}=\Tr(A^aB^b)$ lies in $\mathcal A_r$ with
+$r=(a,b,0,0)\ne0$ for $(a,b)\in I_N$, so the real and imaginary parts of
+$F_{ab}$ lie in $\mathcal C$. The only other use of the condition is the
+bound $\varpi\le2$ from Proposition~\ref{prop:bpscales}(ii), whose test
+function is neutral. In its place take $f_*=\ReTr P_0\in\mathcal C$, a
+nonconstant continuous function, so $\Var_\mu(f_*)>0$. $\mathcal P_xf_*=f_*$
+unless $V_x$ meets the loop $P_0$, which happens for at most $Ln^3$ points
+$x$, and $\mu((f_*-\mathcal P_xf_*)^2)\le\Var_\mu(f_*)$; so $\varpi\le L/n
+\le4$ on $\Lambda_{2n+4}$. In the case $\eta_N^2<4L^4\varepsilon\le1024n^4
+\varepsilon$ of that proof this gives $\varpi\le(4096/\eta_N^2)n^4
+\varepsilon$, which for $N=2$ is at most $19200\,n^4\varepsilon$, so the
+constant $38400$ of (ii) is unchanged. $\mathcal C$ is orthogonal to
+$\mathcal A_0$, which contains every local function of $\mathcal A$.
+\end{proof}
+
+Corollary~\ref{cor:bpcharged} constrains every argument that proves the
+condition through a contraction of the cube chain on gauge orbits. On $G^E$ let $d(U,U')=\min_g
+d_E(U,gU')$, the minimum over gauge transformations $g$, with $d_E$ as in the
+proof of Proposition~\ref{prop:avgsup}; since gauge transformations act by
+isometries of $d_E$, $d$ is a pseudometric, constant on pairs of gauge
+orbits. Write $W_1^d$ for the Kantorovich distance of $d$. By gauge covariance,
+$\mathcal K(gU',\cdot)$ is the image of $\mathcal K(U',\cdot)$ under $g$, so
+a contraction of $W_1^{d_E}$ by a factor $1-\kappa$, as in the proof of
+Proposition~\ref{prop:avgsup}(i), gives one of $W_1^d$ by the same factor.
+
+\begin{corollary}[couplings on gauge orbits]\label{cor:bpcoupling}
+Let $G=\SU(2)$, $\beta\ge1$, $n\ge2$ and $L=2n+4$. If there is $\kappa>0$
+with
+\[
+W_1^d\bigl(\mathcal K(U,\cdot),\mathcal K(U',\cdot)\bigr)\le(1-\kappa)\,
+d(U,U')
+\]
+for all configurations $U,U'$ of $\Lambda_L$, then
+\[
+\kappa\le\frac{38400\,n^8(\log\beta+6.11)}{L^4\beta}.
+\]
+\end{corollary}
+
+\begin{proof}
+Let $h$ be gauge invariant and Lipschitz for $d$ with constant $\mathrm{Lip}
+(h)$. For a coupling of $\mathcal K(U,\cdot)$ and $\mathcal K(U',\cdot)$
+with expected distance $W_1^d$, $\lvert\mathcal Kh(U)-\mathcal Kh(U')\rvert
+\le\mathrm{Lip}(h)W_1^d$, so $\mathcal Kh$ is Lipschitz with constant $(1-
+\kappa)\mathrm{Lip}(h)$, and it is gauge invariant. As in the proof of
+Proposition~\ref{prop:avgsup}(i), with $d\le D\lvert E\rvert$, the spectral
+measure of $\mathcal K$ at $h-\mu(h)$ is carried by $[0,1-\kappa]$. Such $h$
+are dense in $\mathcal A$: averaging over the compact gauge group is the
+orthogonal projection of $L^2(\mu)$ onto $\mathcal A$ and maps continuous
+functions to continuous ones, so the continuous functions of $\mathcal A$
+are dense in it; a continuous gauge-invariant $f$ is uniformly continuous
+for $d$, since $d(U,U')$ small gives $g$ with $d_E(U,gU')$ small and $f(gU')
+=f(U')$; and $f_k(U)=\inf_V(f(V)+k\,d(U,V))$ is gauge invariant, Lipschitz
+for $d$ with constant $k$, and converges to $f$ uniformly. So the spectral
+projection of $\mathcal K$ for $(1-\kappa,1]$ vanishes on the functions of
+$\mathcal A$ of mean zero, $\ip f{(I-\mathcal K)f}\ge\kappa\Var_\mu(f)$ on
+$\mathcal A$, and $\mathrm{BP}(n,\kappa L^4/n^4)$ holds on $\Lambda_{2n+4}$.
+Theorem~\ref{thm:bpfixed}(ii) gives the bound.
+\end{proof}
+
+The proof uses only that $d$-Lipschitz functions are dense in the charged
+part $\mathcal C$. If $d$ is replaced by its minimum over the centre twists
+as well, $d'(U,U')=\min d_E(U,gZU')$ over gauge transformations $g$ and
+products $Z$ of the maps $Z^\nu_t$, the $d'$-Lipschitz functions are neutral,
+and the same argument, with the average over the gauge group and the
+group generated by the $Z^\nu_t$, gives $\mathrm{BP}_0(n,\kappa L^4/n^4)$,
+which Theorem~\ref{thm:bpfixed} does not constrain. A coupling argument for
+the cube chain at weak coupling and small $n$ therefore has to contract a
+pseudometric that does not see the centre twists. Since $n^8/(2n+4)^4\ge
+n^4/256$, the bound of Corollary~\ref{cor:bpcoupling} is at least
+$150\,n^4(\log\beta+6.11)/\beta$, which exceeds one once $n^4\ge\beta/150$;
+along the tuning, where $n_k^4$ grows faster than every power of $\beta_k$,
+the corollary does not exclude such couplings.
+
+The remaining results hold for every $G$ and $\varphi$ of
+Section~\ref{ssec:averaged}, on tori and on boxes. Put $\omega_\varphi=\log(
+\max\varphi/\min\varphi)$, so that $\omega_\varphi\le2N^2\lvert\beta\rvert$
+for the Wilson weight, and for a finite set $S$ of links let $P_S$ be the set
+of plaquettes of $P$ that contain a link of $S$; $\lvert P_S\rvert\le6
+\lvert S\rvert$.
+
+\begin{proposition}[no local slow modes]\label{prop:bpnoloc}
+Let $S\subset E$ be finite and let $f\in L^2(\mu)$ be real and depend only on
+the links of $S$. Then
+\[
+\Var_\mu(f)\le e^{5\omega_\varphi\lvert P_S\rvert}\,\mathcal E_n(f).
+\]
+In particular, if $\mathcal E_n(f)\le\varpi\Var_\mu(f)$ with $0<\varpi<1$ and
+$\Var_\mu(f)>0$, then $\lvert P_S\rvert\ge\log(1/\varpi)/(5\omega_\varphi)$;
+for the Wilson weight, $\lvert S\rvert\ge\log(1/\varpi)/(60N^2\lvert\beta
+\rvert)$.
+\end{proposition}
+
+\begin{proof}
+For a finite $W\subset E$ write $H_W$ for the normalised Haar measure on
+$G^W$ and $\rho_W(\cdot\mid U)$ for the density of $\gamma^0_W(\cdot\mid U)$
+with respect to $H_W$. It is proportional to a product of $\lvert P_W\rvert$
+values of $\varphi$, so the ratio of two of its values is at most $e^{
+\omega_\varphi\lvert P_W\rvert}$, and as its integral is one,
+$e^{-\omega_\varphi\lvert P_W\rvert}\le\rho_W\le e^{\omega_\varphi\lvert
+P_W\rvert}$. Put $a=\omega_\varphi\lvert P_S\rvert$, and write $P_W$ also for
+the conditional expectation given the links outside $W$; then $P_{V_x}=
+\mathcal P_x$.
+
+\emph{Step 1.} Let $\nu_S$ be the law of $U_S$ under $\mu$. Its density with
+respect to $H_S$ is the mean of $\rho_S(\cdot\mid U)$ over $U$, so it lies in
+$[e^{-a},e^a]$, and $r_U=\rho_S(\cdot\mid U)/(d\nu_S/dH_S)\ge e^{-2a}$. Let
+$g=f-\mu(f)$, a function on $G^S$ with $\nu_S(g)=0$. Then $P_Sg(U)=\int g\,
+r_U\,d\nu_S=\int g\,(r_U-e^{-2a})\,d\nu_S$, and the Cauchy--Schwarz
+inequality for the positive measure $(r_U-e^{-2a})\,d\nu_S$ of mass
+$1-e^{-2a}$ gives
+\[
+(P_Sg)^2(U)\le(1-e^{-2a})\int g^2r_U\,d\nu_S=(1-e^{-2a})P_S(g^2)(U).
+\]
+Integrating, $\mu((P_Sg)^2)\le(1-e^{-2a})\mu(g^2)$, and since $P_S$ is an
+orthogonal projection, $\mu((f-P_Sf)^2)=\mu(g^2)-\mu((P_Sg)^2)\ge e^{-2a}
+\Var_\mu(f)$.
+
+\emph{Step 2.} $\mu((f-P_Sf)^2)$ is the mean over $U$ of the variance of $f$
+under $\gamma^0_S(\cdot\mid U)$, which is at most $\int(f-H_S(f))^2\rho_S\,
+dH_S\le e^a\Var_{H_S}(f)$. So $\Var_\mu(f)\le e^{3a}\Var_{H_S}(f)$.
+
+\emph{Step 3.} For $W\subset S$ let $v_W$ be the variance of $f$ in the
+links of $W$ under $H_W$, the links of $S\setminus W$ fixed, a function of
+these links. With the decomposition $f=\sum_{T\subset S}f_T$ of the proof of
+Proposition~\ref{prop:avgsup}(ii) for $H_S$, $H_S(v_W)=\sum_{T\cap W\ne
+\emptyset}\lVert f_T\rVert^2$, and since every link lies in exactly $n^4$ of
+the sets $V_x$,
+\[
+\sum_{x\in X}H_S(v_{S\cap V_x})=\sum_T\lVert f_T\rVert^2\,\#\{x:T\cap V_x
+\ne\emptyset\}\ge n^4\Var_{H_S}(f).
+\]
+
+\emph{Step 4.} Let $W=S\cap V_x\ne\emptyset$. Since $d\nu_S/dH_S\ge e^{-a}$
+and $v_W\ge0$, $H_S(v_W)\le e^a\nu_S(v_W)=e^a\mu(v_W)$. For every configuration $U$,
+$v_W\le\int(f-c)^2dH_W$ with $c$ the mean of $f$ under $\gamma^0_W(\cdot
+\mid U)$, and $dH_W/d\gamma^0_W\le e^{\omega_\varphi\lvert P_W\rvert}\le
+e^a$, so $v_W$ is at most $e^a$ times the variance of $f$ under
+$\gamma^0_W(\cdot\mid U)$. Hence $\mu(v_W)\le e^a\mu((f-P_Wf)^2)\le e^a\mu
+((f-\mathcal P_xf)^2)$, the last step because the links outside $V_x$ are
+among those outside $W$.
+
+Steps 3 and 4 give $\Var_{H_S}(f)\le n^{-4}e^{2a}\sum_x\mu((f-\mathcal P_xf)^2
+)=e^{2a}\mathcal E_n(f)$, and with Step 2, $\Var_\mu(f)\le e^{5a}\mathcal
+E_n(f)$. For the Wilson weight, $5\omega_\varphi\lvert P_S\rvert\le60N^2
+\lvert\beta\rvert\lvert S\rvert$.
+\end{proof}
+
+So a sequence of functions with $\mathcal E_n(f_j)/\Var_\mu(f_j)\to0$, on
+tori of growing side at fixed $n$ and $\beta$, depends on growing sets of
+links, and no subsequence converges to a function of finitely many links.
+This does not give $\mathrm{BP}_{\rm loc}$: Proposition~\ref{prop:bpnoloc}
+bounds the Rayleigh quotient of a local function, which is the mean of
+$1-\lambda$ under its spectral measure, while $\mathrm{BP}_{\rm loc}$ asks
+that this measure put no mass near $\lambda=1$; by
+Theorem~\ref{thm:bplocal}(iv) a failure of it produces a slow function
+correlated with a local one.
+
+The transfer of the condition between cube sizes is limited in the
+same way. Write $W_x$ for the cubes of side $m$ and $\mathcal E_m$ for the
+corresponding form; the proof of Proposition~\ref{prop:bpscales}(i) shows
+$\mathcal E_m\ge(n/m)^4\mathcal E_n$ on $L^2(\mu)$.
+
+\begin{proposition}\label{prop:bpsharp}
+Let $\varphi\equiv1$, $2\le n\le m$, $R\ge2$, and let $L$ be even with
+$L\ge\max(R+m,2m+4)$. There is a real $f\in\mathcal A$ with $\Var_\mu(f)=1$
+and
+\[
+\mathcal E_m(f)\le\Bigl(\frac nm\Bigr)^4\Bigl(\frac{R+m}{R-1}\Bigr)^4
+\mathcal E_n(f).
+\]
+So no inequality $\mathcal E_m\ge c\,\mathcal E_n$ on $\mathcal A$ with $c>
+(n/m)^4$ holds on all tori, although $\mathrm{BP}(n,1)$ and $\mathrm{BP}(m,1)$
+both hold for this measure.
+\end{proposition}
+
+\begin{proof}
+Since $G$ is compact and nontrivial, it has a nontrivial irreducible unitary
+representation, whose character has Haar mean zero; its real or imaginary
+part, normalised, is a real class function $h$ with $\int h\,dU=0$ and
+$\int h^2dU=1$. Let $Q$ be the set of plaquettes of the plane $\{0,1\}$ with
+base point $y\in[0,R)^4$ and $y_0$, $y_1$ even. The plaquette at $y$ has the
+links $(y,0)$, $(y+e_0,1)$, $(y+e_1,0)$, $(y,1)$. A link $(w,0)$ of such a
+plaquette determines $y$, which is $w$ or $w-e_1$ according to the parity
+of $w_1$, and a link $(w,1)$ determines it through the parity of $w_0$; so
+two plaquettes of $Q$ share no link. Put $f=\prod_{p\in Q}h(U_p)$, a gauge-invariant
+function. For one plaquette, integrating $h(U_p)$ over any one of its four
+links gives $\int h\,dU=0$, by the invariance of Haar measure under
+translation and inversion; so in the decomposition of the proof of
+Proposition~\ref{prop:avgsup}(ii), $h(U_p)$ has the single term $T=p$, and
+since the plaquettes of $Q$ involve disjoint links, $f=f_T$ with $T$ the
+union of their links, and $\lVert f\rVert_2=1=\Var_\mu(f)$. That proof gives
+$k^4\mathcal E_k(f)=N_k$, the number of $x$ with $V_x\cap T\ne\emptyset$ for
+cubes of side $k$, $k=n,m$.
+
+The base points of the links of $T$ lie in $[0,R]^4$, so $N_k\le(R+k)^4$,
+as $R+k\le L$. If $x\in[0,R-2]^4$, the cube of side $k\ge2$ at $x$ contains
+the four points $x+ae_0+be_1$, $a,b\in\{0,1\}$, of $[0,R)^4$, one of which
+has even coordinates $0$ and $1$ and is the base point of a plaquette of
+$Q$; so $N_k\ge(R-1)^4$. Hence $\mathcal E_m(f)/\mathcal E_n(f)=(n/m)^4
+N_m/N_n\le(n/m)^4((R+m)/(R-1))^4$. The last claim is
+Proposition~\ref{prop:avgsup}(ii) and $R\to\infty$.
+\end{proof}
+
+At $\beta=0$ the gaps at the two sizes are both at least one, while the
+Dirichlet forms differ by the factor $(n/m)^4$ on functions spread over
+large boxes. An upward transfer without that loss has to use more than the
+comparison of the forms, for instance an orthogonal decomposition such as
+that of Proposition~\ref{prop:avgsup}(ii), which is specific to product
+measures.
+
+\begin{remark}[the routes to the averaged condition at weak
+coupling]\label{rem:bproutes}
+The results above settle how far the following routes go.
+
+\emph{Constructions.} A test function bounds the best constant from above.
+A lower bound needs a Poincar\'e inequality, and
+Proposition~\ref{prop:bpnoloc} gives one for every function of a fixed
+finite set $S$ of links, uniformly in the torus, with constant
+$e^{-5\omega_\varphi\lvert P_S\rvert}$. A Lyapunov argument derives a
+Poincar\'e inequality from a local one on a set of configurations and a
+drift towards that set; for the cube chain on $\Lambda_L$ the set consists
+of configurations of all $4L^4$ links, a small-field set for instance, and
+the local inequality it needs is one for the restriction of $\mu$ to that
+set, for functions of all links, which Proposition~\ref{prop:bpnoloc} does
+not give. A coupling that contracts $d_E$ or the pseudometric $d$ on gauge
+orbits gives the condition on $\mathcal A$ on every torus to which it
+applies, and Corollaries~\ref{cor:bpresponse} and~\ref{cor:bpcoupling}
+bound its rate on $\Lambda_{2n+4}$ for $\SU(2)$; a coupling that contracts a
+pseudometric blind to the centre twists gives $\mathrm{BP}_0$, which
+suffices by Theorem~\ref{thm:bplocal} and is open. The comparison with the
+cube chain of larger cubes reduces to the inner gap of
+Proposition~\ref{prop:bpscales}(iii); that proof works sector by sector, so
+it gives $\mathrm{BP}_0(n,\cdot)$ from $\mathrm{BP}_0(m,\cdot)$ and the
+inner inequality for $f\in\mathcal A_0$. The comparison with the cube chain
+of the same size for another measure $\mu'$ through the density
+$d\mu/d\mu'$ costs the exponential of the oscillation of its logarithm, a
+sum of $6L^4$ plaquette terms; a bound uniform in the torus has to localise
+the comparison, which leads back to the inner gap. The comparison of
+Dirichlet forms between cube sizes loses exactly $(n/m)^4$
+(Proposition~\ref{prop:bpsharp}).
+
+\emph{Forced blow-up.} If $\mathrm{BP}_{\rm loc}(n_k,\varpi)$ fails for every
+$\varpi>0$ along the tuning, Theorem~\ref{thm:bplocal}(iv) gives local
+functions $f_k$ and slow functions $h_k$, in $\mathcal A_0$ for $\SU(N)$,
+with $\Cov_\mu(f_k,h_k)=\Var_\mu(h_k)$ and $\mathcal E_{n_k}(h_k)/\Var_\mu(
+h_k)\to0$, and Proposition~\ref{prop:bpnoloc} gives $60N^2\beta_k\lvert
+S\rvert\ge\log(\Var_\mu(h_k)/\mathcal E_{n_k}(h_k))$ for every set $S$ of
+links on which $h_k$ depends. A contradiction has to come from a property of these slow
+functions. The properties proved here for the tuned measures, tightness of
+the marginals, reflection positivity, the transfer matrix, gauge invariance
+and centre symmetry, are properties of the measures and of their torus
+limits, not of the cube chain, and the paper proves no implication from any
+of them to $\mathrm{BP}_{\rm loc}$. Such an implication is a converse of
+Theorem~\ref{thm:avgdecay}, from decay of correlations to relaxation of the
+cube chain. For local dynamics of spin systems the known converses assume a
+mixing condition uniform in the boundary condition~\cite{Mar99}, of the type
+of the supremum form $D^0$, which Corollary~\ref{cor:bpresponse} excludes for
+$n$ below a multiple of $(\beta/\log\beta)^{1/4}$. A limit object along the
+tuning would be a slow mode of a dynamics of continuum gauge fields, and no
+such dynamics is constructed here. Continuity in $\beta$ does not connect
+the regimes: Corollary~\ref{cor:bpranges} holds at fixed $\beta$ for $n\ge
+n_0(\beta)$, and on $\Lambda_{2n+4}$ the best constant of the charged part
+passes from at least one at $\beta=0$ to $O(n^4\log\beta/\beta)$
+(Theorem~\ref{thm:bpfixed}, Corollary~\ref{cor:bpcharged}); no monotonicity in
+$\beta$ is known.
+
+\emph{Residual sets.} Theorem~\ref{thm:bplocal} and
+Corollary~\ref{cor:bpcharged} identify the residual: the condition may fail
+on charged functions and on slow functions orthogonal to all local ones
+without affecting the continuum step, and what has to be excluded is a slow
+function correlated with a local neutral one. The Villain theory beyond
+$\beta_0$ has such slow functions, by the local form of
+Corollary~\ref{cor:avgcoulomb}. The failure of $\mathrm{BP}_{\rm loc}$ does
+not by itself give a trivial or Gaussian limit, since $\mathrm{BP}_{\rm loc}$
+is sufficient for a gap and is not shown to be necessary; a trivialisation
+argument needs the converse of Theorem~\ref{thm:avgdecay} again.
+
+\emph{Perturbative and static estimates.} By Theorem~\ref{thm:bplocal}(ii),
+$\mathrm{BP}_{\rm loc}(n,\varpi)$ on infinitely many tori gives exponential
+decay of every local gauge-invariant covariance in the torus limit. The
+quadratic approximation of the Wilson measure at weak coupling consists of
+$\dim G$ copies of the free lattice Maxwell field, whose field strengths have
+correlations that decay as a power of the distance. An argument whose
+estimates apply equally to that Gaussian approximation, or order by order in
+an expansion around it, therefore cannot give $\mathrm{BP}_{\rm loc}$; the
+Villain theory, to which the setting applies, is a nonperturbative instance
+of the same failure. The renormalisation group bounds
+of~\cite{Bal84a,Bal85a,Bal89b} concern effective actions in a box of fixed
+physical size and do not address the cube chain. The Bakry--\'Emery bound of
+Lemma~\ref{lem:bponelink} requires $6N\lvert\beta\rvert<\kappa_G$.
+Reflection positivity gives the transfer matrix and the chessboard estimate
+bounds probabilities of local events uniformly in the torus; both are
+statements about the measure, not about the cube chain.
+\end{remark}
+
+\begin{remark}[what is proved about the averaged condition at weak
+coupling]\label{rem:bpweakstatus}
+Proved: for $\SU(N)$ the cube moves preserve the centre sectors of the
+torus, local gauge-invariant functions are neutral, and the condition splits
+into sectors (Proposition~\ref{prop:bpcentre}); the conclusions of
+Theorems~\ref{thm:avgdecay} and~\ref{thm:avgtransfer} and of
+Corollary~\ref{cor:avggap} follow from the local form $\mathrm{BP}_{\rm loc}$,
+which is implied by the neutral form $\mathrm{BP}_0$; under
+$\mathrm{BP}_{\rm loc}$ slow functions are nearly orthogonal to local ones,
+and a failure of it produces a slow function correlated with a local one
+(Theorem~\ref{thm:bplocal}); the obstruction of Theorem~\ref{thm:bpfixed}
+holds for the charged part alone, and neither $\mathrm{BP}_0$ nor
+$\mathrm{BP}_{\rm loc}$ enters it (Corollary~\ref{cor:bpcharged}); for
+$\SU(2)$ a contraction of the cube chain on the gauge orbits of
+$\Lambda_{2n+4}$ has rate at most $38400\,n^8(\log\beta+6.11)/(L^4\beta)$
+(Corollary~\ref{cor:bpcoupling}); every function of a finite set $S$ of links
+satisfies $\Var_\mu(f)\le e^{5\omega_\varphi\lvert P_S\rvert}\mathcal E_n(f)$
+on every torus and box (Proposition~\ref{prop:bpnoloc}); and the upward
+comparison of the Dirichlet forms loses exactly $(n/m)^4$, already at
+$\beta=0$ (Proposition~\ref{prop:bpsharp}). Not proved: $\mathrm{BP}$,
+$\mathrm{BP}_0$ or $\mathrm{BP}_{\rm loc}$ along the continuum tuning for
+any non-abelian group; whether $\mathrm{BP}_0$ or $\mathrm{BP}_{\rm loc}$
+fails on $\Lambda_{2n+4}$ at weak coupling; a converse of
+Theorem~\ref{thm:avgdecay}, from decay of correlations to the relaxation of
+the cube chain; a coupling that contracts a pseudometric blind to the centre
+twists; and the mass gap.
 \end{remark}
 
 \section{The open inputs}\label{sec:inputs}
@@ -5194,7 +5789,9 @@ volume. Theorem~\ref{thm:avgtransfer} draws the conclusion of (D) from an
 averaged condition, a spectral gap of the dynamics that resamples cubes of
 fixed physical size, on gauge-invariant functions of the Wilson measure on
 tori without gauge fixing; that condition is proved at strong coupling
-(Corollary~\ref{cor:bpranges}) and is not proved along the tuning.
+(Corollary~\ref{cor:bpranges}) and is not proved along the tuning, nor is its
+local form $\mathrm{BP}_{\rm loc}$, which suffices
+(Section~\ref{ssec:bpweak}).
 
 \begin{remark}\label{rem:cubeheuristic}
 The following count relates (D) to a correlation length. Suppose that the
@@ -36088,9 +36685,12 @@ obstructions of the forest gauge and those uniform in the coarse field do not
 apply to it, it fails in the Coulomb phase of the Villain theory at every cube
 size (Corollary~\ref{cor:avgcoulomb}), it holds on every torus at strong
 coupling and fails at fixed cube size on small tori at weak coupling
-(Corollary~\ref{cor:bpranges}, Theorem~\ref{thm:bpfixed}), and it is not
-proved for any non-abelian group along the tuning
-(Remark~\ref{rem:avgstatus}). Section~\ref{ssec:groups13} carries the single-scale results of this section to every compact simple group, with explicit constants, except the parts listed in Remark~\ref{rem:groups13}. On the continuum side, Lemmas~\ref{lem:positivetime}
+(Corollary~\ref{cor:bpranges}, Theorem~\ref{thm:bpfixed}), the latter already
+on functions of nonzero centre charge, while the continuum step needs
+only its local form (Theorem~\ref{thm:bplocal},
+Corollary~\ref{cor:bpcharged}), and neither form is proved for any
+non-abelian group along the tuning (Remark~\ref{rem:avgstatus},
+Remark~\ref{rem:bpweakstatus}). Section~\ref{ssec:groups13} carries the single-scale results of this section to every compact simple group, with explicit constants, except the parts listed in Remark~\ref{rem:groups13}. On the continuum side, Lemmas~\ref{lem:positivetime}
 and~\ref{lem:nonvanishing} reduce the nontriviality of the limit to a
 lower bound on one ratio of lattice two-point functions at a fixed
 physical time, uniform along the tuning, which is the open input of
