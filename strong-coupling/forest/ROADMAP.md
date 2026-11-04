@@ -429,3 +429,13 @@ No new Yang--Mills mass gap or continuum construction is claimed.
   transport; boundary transversality or another mechanism must be proved.
 - **Open:** uniform gauge-island/environment estimates, the nonlinear
   crossover and a nontrivial reconstructed continuum theory.
+
+### Boundary-preserving transport criterion (2026-11-04)
+
+**Proved conditional criterion:** `BOUNDARY_TRANSPORT.md` derives a fibre
+response identity and a Wasserstein bound from a boundary-preserving lift
+with uniformly controlled speed and score oscillation. Its active-stratum
+rank test shows why the scalar hard-boundary counterexample cannot satisfy
+those hypotheses. **Open:** whether the actual gauge labels admit compatible
+uniform lifts and score bounds; the bulk private-link submersion alone does
+not establish them. No gauge-island or continuum result is claimed.
