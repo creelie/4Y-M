@@ -15097,6 +15097,33 @@ $Q=4Q_1(w)=0$, so $S_W(w)=0$.
 \end{proof}
 
 
+The gauge directions at a background $V_0$ near $I$ are close to those at
+$I$, and the flat form keeps its gap off them.
+
+\begin{lemma}[the window at a curved background]\label{lem:curvedwindow}
+Let $V_0\in G^K$ with $\lVert\operatorname{Ad}(V_{0,k}^{-1})-1\rVert\le
+\theta$ for every $k\in K$, and put $s_n=2\sin(\pi/2n)$. If $\theta<s_n$,
+then every $w\in\mathcal O_{V_0}^\perp$ satisfies
+\[
+|w-\Pi w|\le\frac\theta{s_n}\,|w|,\qquad
+|w|^2\le\Bigl(1-\frac\theta{s_n}\Bigr)^{-2}C_n\,Q_1(w).
+\]
+\end{lemma}
+
+\begin{proof}
+Write $d_{V_0}=d+R$ with $(R\eta)_{y,\mu}=(\operatorname{Ad}(V_{0,y,\mu}^{-1})
+-1)\eta_y$. Every site of $W^\circ$ is the base of the four links $(y,\mu)$,
+all in $K$, so $|R\eta|^2\le4\theta^2|\eta|^2$ and $\lVert R^*\rVert\le
+2\theta$. The form $|d\eta|^2$ is the Dirichlet form of the box $\Lambda$ of
+the proof of Lemma~\ref{lem:windowgap} relative to its boundary, the sum of
+four one-dimensional Dirichlet Laplacians, so $d^*d\ge4s_n^2$ and
+$\lVert d(d^*d)^{-1}\rVert=\lVert(d^*d)^{-1/2}\rVert\le(2s_n)^{-1}$. For
+$w\perp\mathcal O_{V_0}$ we have $d_{V_0}^*w=0$, that is $d^*w=-R^*w$, and
+$w-\Pi w=d(d^*d)^{-1}d^*w=-d(d^*d)^{-1}R^*w$. Hence $|w-\Pi w|\le
+\theta|w|/s_n$, so $|w|\le(1-\theta/s_n)^{-1}|\Pi w|$, and
+Lemma~\ref{lem:windowgap}(ii) gives the second bound.
+\end{proof}
+
 For a smooth function $f$ near $V_0\in G^K$ write $\Hess f(0)$ and $\nabla_k
 f(0)$ for the Hessian and the gradient in the coordinates $\omega\mapsto f(
 V_0e^\omega)$, $e^\omega=(e^{\omega_k})_k$.
@@ -15261,8 +15288,10 @@ d_{V_0}\eta$ and $D_p(X_\eta)=(1-\operatorname{Ad}U_p)\eta_{y(p)}$, with
 $y(p)$ the block of the base of $p$. Hence $S^U_W(d_{V_0}\eta)\le384
 \kappa^2|\eta|^2$ when $\delta(U_p,I)\le\kappa$, where $96$ plaquettes have
 their base in a block. The reference for an invariant action is $S^U_W\circ
-\Pi_{V_0}$. Its gap on $\mathcal O_{V_0}^\perp$ for $\kappa>0$ is not proved
-here.
+\Pi_{V_0}$. By Lemma~\ref{lem:curvedwindow} its gap on $\mathcal
+O_{V_0}^\perp$ follows from a comparison $S^U_W\ge c_1Q_1-c_2\kappa|\cdot|^2$
+there, with the gap $c_1(1-\theta/s_n)^2C_n^{-1}-c_2\kappa$; that comparison
+is not proved here.
 \item \emph{The action.} The induced action is not a plaquette action. Its
 Hessian is compared with $2\lambda S_W$, not with $2\lambda Q_1$, and
 Theorem~\ref{thm:chartdecay} does not apply to it as it stands at the next
