@@ -61,3 +61,8 @@ branches; `fold_selftest.py` checks the enclosures against floating-point
 evaluation; `goodside_constants.py` prints the contraction constant and
 the response constants of the good side at radius 1/32. The tracked `.out`
 files are their outputs.
+
+**Two islands and one kernel:** `island_width_threshold.py` recomputes
+the island threshold with the joining distance 2s+7 that the
+factorisation theorem requires, and the radius at which the chart
+hypothesis holds on the layer. The tracked `.out` file is its output.
