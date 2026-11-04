@@ -24156,7 +24156,9 @@ through the approximations $H_n$ of the proof of
 Theorem~\ref{thm:chartdecay}(ii), whose derivatives of order three grow
 with $n$, so that argument gives no bound on third cumulants uniform in
 $n$; Theorem~\ref{thm:thirdcumulant} below avoids them at the cost of
-half the rate. With both inputs the
+half the rate, and Theorem~\ref{thm:thirdtree} at the full rate under a
+bound in tree form on the derivatives of order three of $\mathcal U$.
+With both inputs the
 differences of $\log\tilde K$ would still have to be carried to those of
 $\log Z^c$ through the island weights, and uniformity in the coarse field
 stays excluded by Theorem~\ref{thm:fixedobstruction}(i).
@@ -24466,33 +24468,444 @@ bound give $\frac13e^{-3k/2}\le C_0C^ke^{-(\kappa(k-1)-\alpha)D}$ for every
 $D>0$, which forces $\kappa(k-1)\le\alpha$.
 \end{proof}
 
+Under $(\mathrm W_{\mathcal A,\alpha})$ alone the half rate of
+Theorem~\ref{thm:thirdcumulant} is optimal. It is lost in the
+off-diagonal blocks of $\operatorname{Hess}\phi_F$, and these decay in
+both indices at the full rate when, in addition, the derivatives of order
+three of the potential decay along trees. The walls of a product of balls
+do not interfere: a penalty for walls of one link at a time is a sum of
+functions of one link each, so its derivatives of order three lie in the
+diagonal blocks, which the energy bound of that proof already controls.
+Keep the notation $E$, $d$, $\mathbb V_e$, $\mathbb V$ of
+$(\mathrm W_{\mathcal A,\alpha})$, and for $\mathcal A>0$ and $a\ge0$
+consider:
+\begin{itemize}[leftmargin=*]
+\item[$(\mathrm W^+_{\mathcal A,a})$] there are $r_e>0$ such that $\mu$ has
+density proportional to $e^{-U}\mathbf 1_\Omega$, where $\Omega=\prod_e\{
+\lvert z_e\rvert\le r_e\}$ and $U$ is smooth on a neighbourhood of
+$\Omega$, and $\langle u,e^{a\varphi}\operatorname{Hess}U(z)\,
+e^{-a\varphi}u\rangle\ge\mathcal A^{-1}\lvert u\rvert^2$ for all $z\in
+\Omega$, $u\in\mathbb V$ and $\varphi$ with $\lvert\varphi(e)-\varphi(e')
+\rvert\le d(e,e')$.
+\end{itemize}
+For such $U$ let
+\[
+\Xi_a(U)=\sup_{z\in\Omega}\max_{e\in E}\Bigl(\sum_{e'\ne e}e^{2ad(e,e')}
+\bigl\lVert(\operatorname{Hess}U(z))_{e'e}\bigr\rVert^2\Bigr)^{1/2},
+\]
+with operator norms of the blocks. For $z\in\Omega$ and $e',e,e''\in E$ let
+$\lVert D^3U(z)_{e'ee''}\rVert$ be the largest Hilbert--Schmidt norm of the
+bilinear form $(b,c)\mapsto D^3U(z)[b,c,y]$ on $\mathbb V_{e'}\times
+\mathbb V_e$ over $y\in\mathbb V_{e''}$ with $\lvert y\rvert\le1$, and let
+$\Theta_a(U)$ be the supremum over $z\in\Omega$ of the norm on $\ell^2$ of
+the matrix with rows indexed by the pairs $(e',e)$ with $e'\ne e$, columns
+indexed by $e''\in E$, and entries $e^{a(d(e',e'')+d(e,e''))}\lVert
+D^3U(z)_{e'ee''}\rVert$. For smooth $F$ on $\mathbb V$ put
+\[
+f_2^{(a)}=\sup_{z\in\mathbb V}\Bigl(\sum_{e'\ne e}e^{2ad(e,e')}\bigl\lVert
+(\operatorname{Hess}F(z))_{e'e}\bigr\rVert^2\Bigr)^{1/2},
+\]
+with Hilbert--Schmidt norms. For $\emptyset\ne S\subset E$ let
+\[
+T_S(e',e)=\min_{p\in E}\bigl(d(e',p)+d(e,p)+d(p,S)\bigr),
+\]
+the least length of a star with centre in $E$ joining $e'$, $e$ and $S$.
+For fixed $e$ it is a $1$-Lipschitz function of $e'$, and conversely, as a
+minimum of such functions; and $T_S(e,e)=d(e,S)$, by the triangle
+inequality and $p=e$. Norms of blocks of matrix-valued functions are
+Hilbert--Schmidt norms unless said otherwise.
+
+\begin{lemma}[two-index decay]\label{lem:twoindex}
+Let $\mu$ satisfy $(\mathrm W^+_{\mathcal A,a})$, let $\epsilon>0$ and
+$\mathcal A_\epsilon=(1+\epsilon)\mathcal A$. There are $n_0$ and smooth
+$H_n:\mathbb V\to\R$, $n\ge n_0$, with bounded derivatives of every order
+at least two, such that the laws $\mu_n$ with density proportional to
+$e^{-H_n}$ converge to $\mu$ in total variation,
+\[
+\bigl\langle u,e^{a\varphi}\operatorname{Hess}H_n(z)\,e^{-a\varphi}u
+\bigr\rangle\ge\mathcal A_\epsilon^{-1}\lvert u\rvert^2
+\]
+for all $z,u\in\mathbb V$ and $1$-Lipschitz $\varphi$, and the following
+holds. Let $F$ be smooth and bounded with bounded derivatives of every
+order, $S_F$ and $f_1$ as in Theorem~\ref{thm:thirdcumulant}, $\phi_F$ the
+solution of $\mathcal L\phi_F=F-\E F$ for $\mu_n$ of the proof of that
+theorem, $D^F=\operatorname{Hess}\phi_F$, and $\E$ the mean under $\mu_n$.
+Then
+\begin{gather*}
+\Bigl(\E\sum_ee^{2ad(e,S_F)}\lVert D^F_{ee}\rVert^2\Bigr)^{1/2}\le\Bigl(
+\frac{\mathcal A_\epsilon}4\Bigr)^{1/2}f_1,\\
+\begin{split}
+&\Bigl(\E\sum_{e'\ne e}e^{2aT_{S_F}(e',e)}\lVert D^F_{e'e}\rVert^2
+\Bigr)^{1/2}\le\frac{\mathcal A_\epsilon}2c_\epsilon+\eta_nf_1,\\
+&c_\epsilon=f_2^{(a)}+\bigl(\mathcal A_\epsilon^{1/2}(\Xi_a(U)+
+\epsilon)+\mathcal A_\epsilon(\Theta_a(U)+\epsilon)\bigr)f_1,
+\end{split}
+\end{gather*}
+where $\eta_n$ does not depend on $F$ and $\eta_n\to0$ as $n\to\infty$.
+\end{lemma}
+
+\begin{proof}
+\emph{The approximation.} Put $\Omega_t=\prod_e\{\lvert z_e\rvert\le r_e+
+t\}$ and fix $e_0\in E$. The quadratic form in
+$(\mathrm W^+_{\mathcal A,a})$ does not change when a constant is added to
+$\varphi$, and the $1$-Lipschitz $\varphi$ with $\varphi(e_0)=0$ form a
+compact set; so its minimum $m(z)$ over these $\varphi$ and over
+$\lvert u\rvert=1$ is continuous in $z$ where $U$ is smooth, and so are
+the maximum and the matrix norm whose suprema over $\Omega$ define
+$\Xi_a(U)$ and $\Theta_a(U)$. As $\Omega$ is compact, there is $\delta>0$
+such that $U$ is smooth near $\Omega_\delta$, $m\ge\mathcal A_\epsilon^{-1}$
+on $\Omega_\delta$, and the two functions are at most $\Xi_a(U)+\epsilon$
+and $\Theta_a(U)+\epsilon$ on $\Omega_\delta$. Let $\tau$ act link by link
+as $\tau_e(\zeta)=\rho_e(\lvert\zeta\rvert)\zeta/\lvert\zeta\rvert$ with
+$\rho_e$ smooth, $\rho_e(t)=t$ for $t\le r_e+\delta/2$, $0\le\rho_e'\le1$,
+$\rho_e\le r_e+\delta$ and $\rho_e$ constant on $[r_e+\delta,\infty)$; let
+$v_e$ be smooth and convex on $[0,\infty)$, zero on $[0,r_e]$, with
+$v_e''>0$ on $(r_e,\infty)$ and $v_e''=1$ on $[r_e+\delta/4,\infty)$; and
+put $V(z)=\sum_ev_e(\lvert z_e\rvert)$ and $H_n=U\circ\tau+nV$. Then $\tau$
+maps $\mathbb V$ into $\Omega_\delta$ and is the identity on $\Omega_{
+\delta/2}$, and $H_n$ is smooth with bounded derivatives of every order at
+least two. Moreover
+\[
+\operatorname{Hess}H_n=D\tau^*\bigl(\operatorname{Hess}U\circ\tau\bigr)
+D\tau+B_0+n\operatorname{Hess}V,
+\]
+where $D\tau$, $B_0$ and $\operatorname{Hess}V$ are block diagonal, the
+block $e$ of $B_0$ is $\langle\nabla_eU(\tau(z)),D^2\tau_e(z_e)\rangle$,
+of norm at most a constant $C_1$, and at a link with $\lvert z_e\rvert<r_e+
+\delta/2$ one has $D\tau_e=1$, $B_{0,e}=0$ and $\operatorname{Hess}
+v_e(\lvert z_e\rvert)\ge0$. At a link with $\lvert z_e\rvert=t\ge r_e+
+\delta/2$ the eigenvalues of $\operatorname{Hess}v_e(\lvert z_e\rvert)$ are
+$v_e''(t)=1$ and $v_e'(t)/t\ge(t-r_e-\delta/4)/t\ge c_0=\min_e\delta/(4r_e+
+2\delta)$. The block diagonal matrices commute with $e^{a\varphi}$, so with
+$I$ the set of links with $\lvert z_e\rvert<r_e+\delta/2$, and since
+$\tau(z)\in\Omega_\delta$,
+\[
+\begin{split}
+\bigl\langle u,e^{a\varphi}\operatorname{Hess}H_ne^{-a\varphi}u\bigr
+\rangle&\ge\mathcal A_\epsilon^{-1}\lvert D\tau\,u\rvert^2+(nc_0-C_1)
+\sum_{e\notin I}\lvert u_e\rvert^2\\
+&\ge\mathcal A_\epsilon^{-1}\lvert u\rvert^2
+\end{split}
+\]
+for $n\ge n_0=(C_1+\mathcal A_\epsilon^{-1})/c_0$. Finally $H_n=U$ on
+$\Omega$, $nV\to\infty$ off $\Omega$, and $e^{-H_n}\le e^{-U\circ\tau-V}$,
+which is integrable as $U\circ\tau$ is bounded and $V$ grows
+quadratically; by dominated convergence and Scheff\'e's lemma $\mu_n\to
+\mu$ in total variation, the boundary of $\Omega$ being a null set.
+
+\emph{Regularity.} Fix $n\ge n_0$. For $K$ smooth and bounded with
+bounded derivatives of every order, let $P_t$ be the semigroup of
+$\mathcal L$, $P_tK(z)=\E K(X^z_t)$ with $dX_t=-\nabla H_n(X_t)\,dt+
+\sqrt2\,dB_t$, $X_0=z$. The first variation of the flow $z\mapsto X^z_t$
+has norm at most $e^{-t/\mathcal A_\epsilon}$, and the variation of order
+$j$ solves a linear equation with the matrix $-\operatorname{Hess}H_n\le
+-\mathcal A_\epsilon^{-1}$ and an inhomogeneity made of products of at
+least two variations of lower order, with the bounded derivatives of $H_n$
+as coefficients; by induction it is at most $C_{j,n}e^{-t/\mathcal
+A_\epsilon}$. So the derivatives of $P_tK$ of every order $j\ge1$ are at
+most $C'_{j,n}e^{-t/\mathcal A_\epsilon}$, and $\lvert\nabla P_tK\rvert\le
+k_1e^{-t/\mathcal A_\epsilon}$ with $k_1=\sup\lvert\nabla K\rvert$, which
+is the gradient bound of~\cite{BGL14}. Hence $\phi_K=\int_0^\infty(P_tK-
+\E K)\,dt$ has bounded derivatives of every order at least one,
+$\lvert v_K\rvert\le\mathcal A_\epsilon k_1$ pointwise, and every
+integration by parts below is justified. The energy bounds of the proof of
+Theorem~\ref{thm:thirdcumulant} use only the weighted lower bound on
+$\operatorname{Hess}H_n$, so they hold with $\mathcal A_\epsilon$; their
+second one with $\varphi=d(\cdot,S_F)$, restricted to $e'=e$, is the first
+claim.
+
+\emph{The equation.} Write $v=v_F$, $D=D^F$ and $\mathcal H=
+\operatorname{Hess}H_n$. Differentiating the component $e$ of $\mathcal M
+v=\nabla F$ in the coordinates of $e'$, with $[\partial_{e'},\mathcal L]=
+\sum_{e''}\mathcal H_{e'e''}\partial_{e''}$,
+\[
+\mathcal LD_{e'e}+\sum_{e''}\mathcal H_{e'e''}D_{e''e}+\sum_{e''}D_{e'
+e''}\mathcal H_{e''e}+R_{e'e}=(\operatorname{Hess}F)_{e'e},
+\]
+where $R_{e'e}$ is the bilinear form $(b,c)\mapsto\sum_{e''}D^3H_n[b,c,
+v_{e''}]$ on $\mathbb V_{e'}\times\mathbb V_e$. For $e'\ne e$ the term
+$nV$ contributes nothing to $R_{e'e}$, being a sum of functions of one
+link each, so $R_{e'e}$ is formed with $U\circ\tau$ alone. Let $D^\circ$
+be $D$ with its diagonal blocks replaced by zero, and $\mathcal O$ the
+off-diagonal part of $\mathcal H$. In the equation for $e'\ne e$ the
+diagonal blocks of $D$ enter only through $\mathcal H_{e'e}D_{ee}$ and
+$D_{e'e'}\mathcal H_{e'e}$, so
+\[
+\begin{split}
+\mathcal LD^\circ_{e'e}&+\bigl(\mathcal HD^\circ+D^\circ\mathcal H
+\bigr)_{e'e}=S_{e'e},\\
+S_{e'e}&=(\operatorname{Hess}F)_{e'e}-R_{e'e}-\mathcal O_{e'e}D_{ee}-
+D_{e'e'}\mathcal O_{e'e},
+\end{split}
+\]
+for $e'\ne e$, and put $S_{ee}=0$.
+
+\emph{Coercivity.} Let $\theta(e',e)=e^{aT_{S_F}(e',e)}$ and $Q_{e'e}=
+\theta(e',e)D^\circ_{e'e}$. Multiply the equation by $\theta(e',e)$, pair
+it with $Q_{e'e}$ and sum over $e'\ne e$. As $\theta$ does not depend on
+$z$, the term $\mathcal L$ gives $\E\sum\lVert\nabla Q_{e'e}\rVert^2\ge0$.
+For fixed $e$, $\sum_{e'}\langle Q_{e'e},\theta(e',e)(\mathcal HD^\circ)_{
+e'e}\rangle$ is a sum, over an orthonormal basis $(b_j)$ of $\mathbb V_e$,
+of the forms $\langle q_j,e^{a\psi_e}\mathcal He^{-a\psi_e}q_j\rangle$ with
+$q_j=(Q_{e'e}b_j)_{e'}\in\mathbb V$ and $\psi_e=T_{S_F}(\cdot,e)$, which is
+$1$-Lipschitz; so it is at least $\mathcal A_\epsilon^{-1}\sum_{e'}\lVert
+Q_{e'e}\rVert^2$. The same holds for $D^\circ\mathcal H$ with the roles of
+the two indices exchanged, as $\mathcal H$ is symmetric. Hence, with
+$\lVert\cdot\rVert$ also the norm of $L^2(\mu_n)$ of a matrix-valued
+function,
+\[
+\frac2{\mathcal A_\epsilon}\lVert Q\rVert^2\le\E\sum_{e'\ne e}\langle
+Q_{e'e},\theta(e',e)S_{e'e}\rangle\le\lVert Q\rVert\,\lVert\theta S\rVert,
+\]
+so that $\lVert Q\rVert\le\frac{\mathcal A_\epsilon}2\lVert\theta S\rVert$.
+
+\emph{The sources.} The blocks of $\operatorname{Hess}F$ vanish unless
+both indices lie in $S_F$, and then $T_{S_F}(e',e)\le d(e',e)$; so the
+first source contributes at most $f_2^{(a)}$ to $\lVert\theta S\rVert$.
+For the diagonal blocks, $T_{S_F}(e',e)\le d(e',e)+d(e,S_F)$ and $\le d(e',
+e)+d(e',S_F)$, taking $p=e$ and $p=e'$; and $\mathcal O_{e'e}=D\tau_{e'}^*
+(\operatorname{Hess}U)_{e'e}(\tau(z))D\tau_e$ with $\lVert D\tau\rVert\le
+1$ and $\tau(z)\in\Omega_\delta$. So
+\[
+\begin{split}
+&\E\sum_{e'\ne e}\theta(e',e)^2\lVert\mathcal O_{e'e}D_{ee}\rVert^2\\
+&\qquad\le(\Xi_a(U)+\epsilon)^2\,\E\sum_ee^{2ad(e,S_F)}\lVert D_{ee}
+\rVert^2,
+\end{split}
+\]
+which by the first claim is at most $(\Xi_a(U)+\epsilon)^2\frac{\mathcal
+A_\epsilon}4f_1^2$, and likewise for $D_{e'e'}\mathcal O_{e'e}$, the
+symmetry of $\mathcal H$ giving the same sums over the other index. These
+two sources contribute at most $\mathcal A_\epsilon^{1/2}(\Xi_a(U)+
+\epsilon)f_1$. For $R$, let $I$ be the set of links with $\lvert z_e
+\rvert<r_e+\delta/2$, $R^{\mathrm{in}}_{e'e}$ the part of the sum over
+$e''$ with $e',e,e''\in I$, and $R^{\mathrm{out}}=R-R^{\mathrm{in}}$. As
+$\tau$ acts link by link and is the identity near $z_f$ for $f\in I$, the
+derivatives in $R^{\mathrm{in}}$ are those of $U$ at $\tau(z)\in
+\Omega_\delta$, and $T_{S_F}(e',e)\le d(e',e'')+d(e,e'')+d(e'',S_F)$; as
+setting entries of a nonnegative matrix to zero does not increase its norm
+on $\ell^2$,
+\[
+\begin{split}
+\lVert\theta R^{\mathrm{in}}\rVert^2&\le(\Theta_a(U)+\epsilon)^2\,\E
+\sum_{e''}e^{2ad(e'',S_F)}\lvert v_{e''}\rvert^2\\
+&\le(\Theta_a(U)+\epsilon)^2\mathcal A_\epsilon^2f_1^2,
+\end{split}
+\]
+by the first energy bound. The part $R^{\mathrm{out}}$ vanishes on
+$\Omega^\circ=\prod_e\{\lvert z_e\rvert<r_e+\delta/2\}$, and off it
+$\lvert\theta R^{\mathrm{out}}\rvert\le C_2\lvert v\rvert\le C_2\mathcal
+A_\epsilon f_1$, with $C_2$ depending on $U$, $\delta$, $a$ and $E$ only;
+so $\lVert\theta R^{\mathrm{out}}\rVert\le C_2\mathcal A_\epsilon f_1\mu_n(
+\mathbb V\setminus\Omega^\circ)^{1/2}$. Since $\Omega\subset\Omega^\circ$
+and $\mu_n\to\mu$ in total variation, the second claim follows with
+$\eta_n=\frac12C_2\mathcal A_\epsilon^2\mu_n(\mathbb V\setminus\Omega^\circ
+)^{1/2}$.
+\end{proof}
+
+\begin{theorem}[third cumulants in tree form]\label{thm:thirdtree}
+Let $\mu$ satisfy $(\mathrm W^+_{\mathcal A,a})$, let $F,G,H$ be smooth and
+bounded with bounded derivatives of every order, with $S_F$, $d_{FG}$,
+$f_1$, $g_2$ and so on as in Theorem~\ref{thm:thirdcumulant} and $f_2^{(a)}$
+as above, and put $\Xi=\Xi_a(U)$, $\Theta=\Theta_a(U)$ and
+\[
+\begin{gathered}
+\ell=\min\{d_{FG}+d_{FH},\,d_{FG}+d_{GH},\,d_{FH}+d_{GH},\,L_3\},\\
+L_3=\min_{p\in E}\bigl(d(p,S_F)+d(p,S_G)+d(p,S_H)\bigr).
+\end{gathered}
+\]
+Then
+\[
+\begin{split}
+\lvert\varkappa_\mu(F,G,H)\rvert\le{}&\Bigl(\mathcal A^2f_1(g_1h_2+g_2h_1)
++\mathcal A^{3/2}f_1g_1h_1\\
+&+\mathcal A^2g_1h_1\bigl(f_2^{(a)}+(\mathcal A^{1/2}\Xi+\mathcal A
+\Theta)f_1\bigr)\Bigr)e^{-a\ell}.
+\end{split}
+\]
+The number $\ell$ is at most the length of every tree with vertices in $E$
+that meets $S_F$, $S_G$ and $S_H$; when the three sets are single links it
+is the length of the shortest such tree. It is at least three quarters of
+the sum of the two smallest of $d_{FG}$, $d_{FH}$, $d_{GH}$.
+\end{theorem}
+
+\begin{proof}
+Take $H_n$ as in Lemma~\ref{lem:twoindex} and write $\psi=d(\cdot,S_G)$,
+$\varphi=d(\cdot,S_F)$, $T=T_{S_F}$. As in the proof of
+Theorem~\ref{thm:thirdcumulant}, $\varkappa_{\mu_n}(F,G,H)=\Cov(G,X)+
+\Cov(H,Y)$ with $X=\langle v_F,\nabla H\rangle$, $Y=\langle v_F,\nabla G
+\rangle$, and $\Cov(G,X)=T_1+T_2$ with $T_1$ bounded there by
+$\mathcal A_\epsilon^2f_1g_1h_2e^{-a(d_{FH}+d_{GH})}$. Split $T_2=T_2^{
+\mathrm d}+T_2^\circ$ into the terms with $e'=e$ and with $e'\ne e$. Since
+$\lvert\partial_eH\rvert\le h_1$ for every $e$,
+\[
+\begin{split}
+\lvert T_2^{\mathrm d}\rvert&\le h_1\Bigl(\E\sum_{e\in S_H}\lvert
+v_{G,e}\rvert^2\Bigr)^{1/2}\Bigl(\E\sum_{e\in S_H}\lVert D^F_{ee}
+\rVert^2\Bigr)^{1/2}\\
+&\le\tfrac12\mathcal A_\epsilon^{3/2}f_1g_1h_1e^{-a(d_{FH}+d_{GH})},
+\end{split}
+\]
+by the first energy bound with $\psi\ge d_{GH}$ on $S_H$ and the first
+claim of Lemma~\ref{lem:twoindex} with $\varphi\ge d_{FH}$ on $S_H$. For
+$T_2^\circ$, take $e\in S_H$, any $e'$ and $p$ attaining $T(e',e)$; then
+$d(p,S_G)\le d(p,e')+\psi(e')$ and $d(p,S_H)\le d(p,e)$, so $L_3\le\psi(e')+T(e',e)$ and
+$e^{-2a\psi(e')}\le e^{-2aL_3}e^{2aT(e',e)}$. The Cauchy--Schwarz step of
+the proof of Theorem~\ref{thm:thirdcumulant} and the second claim of the
+lemma give
+\[
+\begin{split}
+\lvert T_2^\circ\rvert&\le h_1\Bigl(\E\sum_{e'}e^{2a\psi(e')}\lvert
+v_{G,e'}\rvert^2\Bigr)^{1/2}\\
+&\quad\times\Bigl(\E\sum_{e'}\sum_{e\in S_H,e\ne e'}
+e^{-2a\psi(e')}\lVert D^F_{e'e}\rVert^2\Bigr)^{1/2}\\
+&\le\mathcal A_\epsilon g_1h_1e^{-aL_3}\Bigl(\frac{\mathcal A_\epsilon}2
+c_\epsilon+\eta_nf_1\Bigr),
+\end{split}
+\]
+with $c_\epsilon$ as in the lemma. The same argument with $G$ and
+$H$ exchanged bounds $\Cov(H,Y)$, with $d_{FG}$ in place of $d_{FH}$ in
+the first two terms and the same $L_3$. Every exponent is $a$ times a
+quantity at least $\ell$, so $\lvert\varkappa_{\mu_n}(F,G,H)\rvert$ is at
+most the bound of the theorem with $\mathcal A_\epsilon$, $\Xi+\epsilon$,
+$\Theta+\epsilon$ in place of $\mathcal A$, $\Xi$, $\Theta$, plus
+$2\mathcal A_\epsilon\eta_nf_1g_1h_1$. As $n\to\infty$ the cumulants
+converge, as in that proof, and $\eta_n\to0$; then let $\epsilon\to0$.
+
+For the length, let a tree with vertices in $E$ contain $f\in S_F$, $g\in
+S_G$ and $h\in S_H$. The union of its paths between $f$, $g$ and $h$ is a
+path, of length at least the sum of two of $d(f,g)$, $d(f,h)$, $d(g,h)$ by
+the triangle inequality, or has one vertex $p$ of degree three, and then
+its length is at least $d(p,f)+d(p,g)+d(p,h)\ge L_3$. For single links the
+star with the best centre, or the path, attains $\ell$. Finally
+$d(p,S_F)+d(p,S_G)\ge d_{FG}$ and its two analogues give $L_3\ge\frac12(
+d_{FG}+d_{FH}+d_{GH})$, which is at least three quarters of the sum of the
+two smallest, the largest being at least their mean.
+\end{proof}
+
+\begin{corollary}[third differences of the kernel at the full rate]
+\label{cor:kthirdtree}
+In the setting of Corollary~\ref{cor:kthird}, with its $F_h$,
+$\hat\Lambda_2$, $\hat\Lambda_3$ and $\mathcal A=480/\beta_W$, let
+$\hat\Lambda_3'$ be the supremum of $f_2^{(\alpha_G)}$ for $F=F_h$ over all
+$x\in\prod_{u'}D_{u'}$ and all $h$ with $\lVert h\rVert\le1$, and
+$\hat\Theta$ the supremum of $\Theta_{\alpha_G}(\mathcal U(\cdot\,;x))$
+over $x$, with $\Omega=D_z$; both are finite. Put $\omega_{uv}=(w_{uv}-2s-
+8)_+$ and
+\[
+\begin{split}
+\ell^c_{uvw}=\min\Bigl\{&\omega_{uv}+\omega_{uw},\,\omega_{uv}+
+\omega_{vw},\,\omega_{uw}+\omega_{vw},\\
+&\min_y\sum_{j\in\{u,v,w\}}(d_j(y)-s-5)_+\Bigr\},
+\end{split}
+\]
+the minimum over the blocks $y$ in which $z$-links are based. Then
+\begin{gather*}
+\bigl\lvert\partial_{h_u}\partial_{h_v}\partial_{h_w}\log\tilde K(x)\bigr
+\rvert\le C_3^*\lVert h_u\rVert\lVert h_v\rVert\lVert h_w\rVert
+e^{-2\alpha_G\ell^c_{uvw}},\\
+\begin{split}
+C_3^*={}&2\mathcal A^2\hat\Lambda_2^2\hat\Lambda_3+\mathcal A^{3/2}\hat
+\Lambda_2^3+\mathcal A^2\hat\Lambda_2^2\hat\Lambda_3'\\
+&+\mathcal A^2\bigl(1.97\cdot10^4\beta_W^{1/2}+\mathcal A\hat\Theta
+\bigr)\hat\Lambda_2^3,
+\end{split}
+\end{gather*}
+and the mixed difference of order three of $\log\tilde K$ in $(x_u,x_v,
+x_w)$ is at most this bound with $\lVert h_j\rVert$ replaced by $2rn_j^{
+1/2}$. When $w_{uv},w_{uw},w_{vw}\ge2s+8$, $\ell^c_{uvw}\ge\frac34\ell_{
+uvw}-\frac32$, with $\ell_{uvw}$ as in Corollary~\ref{cor:kthird}.
+\end{corollary}
+
+\begin{proof}
+On $D_z$ the potential $\mathcal U(\cdot\,;x)$ differs by a constant from
+the potential $\tilde U$ of Step~3 of the proof of
+Theorem~\ref{thm:layerbound}, restricted to the free links, both being
+densities of $\mu_x$; so on $D_z$ its Hessian is a principal submatrix of
+$\operatorname{Hess}_\zeta\tilde U$, which by Steps~4 and~5 there is at
+least $\lambda/60$ and has $\lVert\cdot\rVert_{(0.197)}\le2068.4\lambda$.
+By Lemma~\ref{lem:weightednorms}(ii), as in Step~6, $\mu_x$ satisfies
+$(\mathrm W^+_{\mathcal A,a})$ with $\Omega=D_z$, $\mathcal A=120/
+\lambda$ and every $a\le\alpha_G$. With $\varphi=d(\cdot,e)$ the column
+$e$ of $e^{a\varphi}Me^{-a\varphi}$, for $M=\operatorname{Hess}_z
+\mathcal U$, has the blocks $e^{ad(e',e)}M_{e'e}$ and norm at most
+$\lVert M\rVert_{(a)}$; it has rank at most $\dim\g=3$, so the sum of the
+squared operator norms of its blocks is at most its squared
+Hilbert--Schmidt norm, at most $3\lVert M\rVert_{(a)}^2$. Hence
+$\Xi_{\alpha_G}(\mathcal U)\le\sqrt3\cdot2068.4\lambda<896\beta_W$, by
+Lemma~\ref{lem:weightednorms}(i), and $\mathcal A^{1/2}\Xi_{\alpha_G}(
+\mathcal U)<1.97\cdot10^4\beta_W^{1/2}$. The suprema $\hat\Lambda_3'$ and
+$\hat\Theta$ are finite because $\mathcal U$ is smooth on a neighbourhood
+of the compact set $D_z\times\prod_{u'}D_{u'}$ and $\tau_\delta$ has
+bounded derivatives. The identity for the third derivative is that of
+Corollary~\ref{cor:kthird}. Apply Theorem~\ref{thm:thirdtree} with
+$a=\alpha_G$ to $F_{h_u}$, $F_{h_v}$, $F_{h_w}$, with $f_1\le\hat
+\Lambda_2\lVert h_u\rVert$, $g_2\le\hat\Lambda_3\lVert h_v\rVert$,
+$f_2^{(\alpha_G)}\le\hat\Lambda_3'\lVert h_u\rVert$ and so on. The
+supports satisfy $d(S_u,S_v)\ge2\omega_{uv}$ by
+Lemma~\ref{lem:manykernel}(iii). A $z$-link $p$ based in a block $y$ is at
+coarse distance at least $d_j(y)-s-4$ from the blocks of the links of
+$S_j$, which have $d_j\le s+4$, so $d(p,S_j)\ge2(d_j(y)-s-5)_+$, as links
+based in blocks at coarse distance $D\ge1$ have midpoints at fine distance
+at least $2D-2$. Hence $\ell\ge2\ell^c_{uvw}$ and $e^{-\alpha_G\ell}\le
+e^{-2\alpha_G\ell^c_{uvw}}$. The difference follows as in
+Corollary~\ref{cor:kthird}. For the last claim, $d_j(y)+d_{j'}(y)\ge
+w_{jj'}+1$, so $\sum_j(d_j(y)-s-5)_+\ge\frac12\sum(w_{jj'}+1)-3s-15=\frac12
+(\omega_{uv}+\omega_{uw}+\omega_{vw})-\frac32$, and as in the proof of
+Theorem~\ref{thm:thirdtree} half the sum of the three $\omega$ is at least
+$\frac34\ell_{uvw}$.
+\end{proof}
+
+So at three islands the differences of order three of $\log\tilde K$ decay
+at the rate $2\alpha_G$ of the second differences, in the coarse length of
+the shortest joining tree. When the three widths are at least $2s+8$ the
+exponent is at least $\frac32$ times that of Corollary~\ref{cor:kthird}
+up to the additive constant $3\alpha_G$, and
+the bound is uniform in $x$ and in the approximations; the walls of $D_z$
+enter only through the lower bound on the weighted Hessian. The condition
+$\Theta_a(U)<\infty$ uniformly in the geometry is what
+$(\mathrm W_{\mathcal A,\alpha})$ lacks: for the potential of
+Proposition~\ref{prop:layerthird}, the entry of the row $(1,2)$ and the
+column $3$ of the matrix that defines $\Theta_a$ is $e^{2aD}J\cos z_1\cos
+z_2\cos z_3$, equal to $\frac16e^{(2a-\alpha)D}$ at $z=0$, so the quantity
+defined by the same formula is bounded in $D$ only for $a\le\alpha/2$,
+the rate at which Theorem~\ref{thm:thirdcumulant} is optimal. For the
+layer law it is finite by compactness, and its size is set by the finite
+range of $\mathcal U$: every term of $\mathcal U$ depends on the $z$-links
+of a bounded number of blocks at bounded mutual distance (Steps~1 to~3 of
+the proof of Theorem~\ref{thm:factorisation}), so the entries vanish unless
+$e'$, $e$, $e''$ lie within a fixed fine distance $R$ of each other, and
+the Schur test gives $\hat\Theta\le N_R^{3/2}e^{2\alpha_GR}\Lambda_3$, with
+$N_R$ the largest number of $z$-links within distance $R$ of one $z$-link
+and $\Lambda_3$ the supremum of $\lVert D^3_z\mathcal U_{e'ee''}\rVert$;
+$\Lambda_3$ is not computed here.
+
 \begin{remark}\label{rem:treeformstatus}
-Theorem~\ref{thm:thirdcumulant} and Corollary~\ref{cor:kthird} supply, for
-the differences of order three of $\log\tilde K$, both inputs named in
-Remark~\ref{rem:treeform}: the walls of $D_z$ enter only through the lower
-bound on the Hessian of the approximations $H_n$, and no derivative of
-$H_n$ of order three is used, so the bound is uniform in $n$. The rate is
-$\alpha_G$ in the coarse distance, half the rate $2\alpha_G$ of the second
-differences in Lemma~\ref{lem:manylayer}, and by the paragraph after
-Corollary~\ref{cor:kthird} the half is all that
-$(\mathrm W_{\mathcal A,\alpha})$ gives. The loss comes from the term $T_2$
-alone, through the block $D^F_{e'e}$ of the Hessian of $\phi_F$. A
-two-index bound $\E\sum_{e,e'}e^{2a(d(e,e')+d(e,S_F))}\lVert D^F_{e'e}
-\rVert^2\le c\,f_1^2$ would remove it: for $e\in S_H$, $d(e,S_F)\ge d_{FH}$
-and $\psi(e')+d(e,e')\ge d_{GH}$, so $e^{-2a\psi(e')}\le e^{-2a(d_{FH}+
-d_{GH})}e^{2a(d(e,e')+d(e,S_F))}$, and the Cauchy--Schwarz step of the
-proof gives $\lvert T_2\rvert\le c^{1/2}\mathcal Af_1g_1h_1e^{-a(d_{FH}+
-d_{GH})}$, so that the third cumulants decay at the rate $a$ in $\ell$.
-That two-index bound is not proved: the equation
-for $\operatorname{Hess}\phi_F$ obtained by differentiating $\mathcal Mv_F=
-\nabla F$ contains the derivatives of order three of $H_n$, which grow with
-$n$ at the walls, and Proposition~\ref{prop:layerthird} shows that
-$(\mathrm W_{\mathcal A,\alpha})$ does not imply it with $c$ depending on
-$\mathcal A$ and $a$ only; a proof has to use the
-finite range of $\mathcal U$ in $z$. For the orders $k\ge4$ the
-representation needs derivatives of $v_F$ of order two, which the energy
+Theorem~\ref{thm:thirdcumulant} and Corollary~\ref{cor:kthird} bound the
+differences of order three of $\log\tilde K$ at the rate $\alpha_G$ in
+the coarse distance from the lower bound on the Hessian of the
+approximations $H_n$ alone, and by the paragraph after
+Corollary~\ref{cor:kthird} this half rate is all that
+$(\mathrm W_{\mathcal A,\alpha})$ gives. Theorem~\ref{thm:thirdtree} and
+Corollary~\ref{cor:kthirdtree} supply both inputs named in
+Remark~\ref{rem:treeform} at the full rate $2\alpha_G$: the bound in tree
+form on the derivatives of order three of $\mathcal U$ is the finiteness
+of $\Theta_{\alpha_G}$, and the weighted representation is the two-index
+decay of $\operatorname{Hess}\phi_F$ of Lemma~\ref{lem:twoindex}, valid on
+$D_z$ with its walls and uniform in $n$. Differentiating $\mathcal Mv_F=
+\nabla F$ brings in the derivatives of order three of $H_n$; those of the
+penalty, which grow with $n$ at the walls, lie in the diagonal blocks,
+which the energy bound controls with the weight $e^{2ad(e,S_F)}$, and the
+off-diagonal blocks satisfy a coercive equation whose sources involve only
+the off-diagonal blocks of $\operatorname{Hess}\mathcal U$, the diagonal
+blocks of $\operatorname{Hess}\phi_F$ and the derivatives of order three
+of $\mathcal U$. The rate is measured by the length of the shortest tree
+through one further link, which for three single links is at most the
+sum of the two shorter distances and can be smaller. For the orders $k\ge4$ the
+representation needs derivatives of $v_F$ of order two, which these
 bounds do not control, and Proposition~\ref{prop:layerorders} shows that
-$(\mathrm W_{\mathcal A,\alpha})$ gives at most the rate $\alpha/(k-1)$.
+$(\mathrm W_{\mathcal A,\alpha})$ gives at most the rate $\alpha/(k-1)$;
+the tree form of order $k\ge4$ is not proved.
 Two further steps remain between these bounds and item~(ii) of
 Sec.~\ref{ssec:remains}. The differences of $\log Z^c$ over the labels of
 $k$ components are those of $\log\int\tilde K\prod_u\gamma_u$, in which
@@ -32533,11 +32946,16 @@ bound~\eqref{eq:layerbound} (Proposition~\ref{prop:layerthird});
 Remark~\ref{rem:treeform} names the two inputs it needs.
 Theorem~\ref{thm:thirdcumulant} and Corollary~\ref{cor:kthird} give the
 differences of order three of $\log\tilde K$ in tree form at the rate
-$\alpha_G$, half the rate of the second differences, with the walls of
-$D_z$ included; this is optimal for the Hessian bound behind
-\eqref{eq:layerbound}, which by Proposition~\ref{prop:layerorders} gives
-no tree form uniform in the order, and the passage to $\log Z^c$ through
-the gas of islands is not made (Remark~\ref{rem:treeformstatus}).
+$\alpha_G$ from the Hessian bound behind \eqref{eq:layerbound} alone,
+which is optimal for that bound; Theorem~\ref{thm:thirdtree} and
+Corollary~\ref{cor:kthirdtree} give them at the rate $2\alpha_G$ of the
+second differences, in the coarse length of the shortest joining tree,
+with the walls of $D_z$ included, using in addition the decay along trees
+of the derivatives of order three of $\mathcal U$ that its finite range
+supplies. The orders $k\ge4$, for which the Hessian bound gives no tree
+form uniform in the order (Proposition~\ref{prop:layerorders}), and the
+passage to $\log Z^c$ through the gas of islands are not proved
+(Remark~\ref{rem:treeformstatus}).
 Proposition~\ref{prop:hiddenbit} shows that no rarity bound replaces this
 comparison.
 \item \emph{The island threshold.} Theorem~\ref{thm:islandthreshold}
