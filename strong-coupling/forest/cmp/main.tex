@@ -23840,8 +23840,9 @@ background with plaquettes below the chart threshold of
 Proposition~\ref{prop:explicitconstants} whenever the exterior near the
 window agrees with $R(c)$; above $2.418\cdot10^{-12}$, part (ii) excludes
 every background; in between, Proposition~\ref{prop:uniformflux} gives
-backgrounds for some exteriors, and for the exterior $R(c)$ none is
-constructed. Where a background exists, the constrained law of the
+backgrounds for some exteriors, and Proposition~\ref{prop:spread} gives
+them for the exterior $R(c)$ of the coarse fields $c^\theta$ up to
+$2.39\cdot10^{-12}$. Where a background exists, the constrained law of the
 component decays across it at the rate
 of the chart.
 
@@ -24371,7 +24372,11 @@ through a single product chart of the whole component; it needs charts
 local in the component, around which the links far from the observables
 may leave the chart, that is a decomposition of the fibre into small-field
 and large-field regions with a convex chart on each small-field region.
-This is not carried out here. For fixed $\lvert W\rvert$, a bound on $p$
+Theorem~\ref{thm:localcharts} shows that charts fixed by the exterior of
+their window put the window on the chart with conditional probability at
+most $0.033^{\lvert W\rvert}$ for $\beta_W\le10^{24}$, so that in such a
+decomposition the large-field region carries most of the mass. For fixed
+$\lvert W\rvert$, a bound on $p$
 for a fixed coarse field is Corollary~\ref{cor:calmfibres}, whose
 condition grows linearly in $\lvert W\rvert$, against the logarithmic
 necessary condition of Corollary~\ref{cor:offchartmass}(ii).
@@ -24387,8 +24392,11 @@ The exact condition is that the fibre over $W$ of a field agreeing with
 $R(c)$ off $A_W$ contain a field $U$ with $\delta(U_p,I)\le\kappa$ for every
 plaquette with a vertex in a block of $W^+$, for some $\kappa<6.0\cdot
 10^{-13}$; under it Theorems~\ref{thm:badcross} and~\ref{thm:offchartmass}
-apply with every $s\le6.0\cdot10^{-13}-\kappa$, and whether it holds is not
-decided.
+apply with every $s\le6.0\cdot10^{-13}-\kappa$. It holds for the coarse
+fields $c^\theta$ of Proposition~\ref{prop:spread} up to $2.39\cdot
+10^{-12}$; for opposite fluxes at adjacent coarse plaquettes no field with
+values in a torus satisfies it above $1.8\cdot10^{-12}$; for a general
+coarse field it is not decided.
 \item \emph{Ends in the averages.} Corollary~\ref{cor:badcrossratio} needs
 ends that enter no average of a pair of $W$. The links of $I_W$, and the
 inside links of a block $y+e_\mu\notin W$ in the direction $\mu$ for
@@ -24399,9 +24407,467 @@ jumps. On the chart the dependence is smooth. The exact missing
 statement is the bound of Corollary~\ref{cor:badcrossratio} for ends $E_a$,
 $E_b$ that contain such links, that is a bound on the mixed derivative of
 $\log\nu^-_c(e^{-\lambda Q^-})$ in two links that move the constraints,
-decaying in their distance; it needs the transport of the chart along the
-ends with a locality bound on its derivative, which is not carried out
-here.
+decaying in their distance. Lemma~\ref{lem:endpairs} places an end in one
+pair factor of $\nu^-_c$, Proposition~\ref{prop:endfold} shows that this
+factor jumps under small moves of the end at every value of the coarse
+link, and Remark~\ref{rem:badendsopen} states the bound in the mean that is
+missing.
+\end{enumerate}
+\end{remark}
+
+The three points of Remark~\ref{rem:badmassopen} are taken in turn. The
+first concerns charts local in the component. Such a chart is attached to a
+window $W$, a set of blocks inside the component, and is fixed by the field
+outside the window; the next theorem bounds the conditional probability that
+the window lies on it, uniformly in the window, the exterior and the coarse
+field.
+
+\begin{theorem}[local charts]\label{thm:localcharts}
+Let $G=\SU(2)$, $\beta_W\ge2.3\cdot10^{17}$, let $c$ be a coarse field and
+$W$ a set of blocks, and write $E$ for the links off $A^-_W$. Suppose that
+for each $E$ a field $U(E)$ is given in the reduced fibre $F^-(E)$ over $W$
+through $E$, with averages $c_k$ for the pairs based in $W$, such that $F^-(E)$
+satisfies the hypotheses of Theorem~\ref{thm:badcross} at $U(E)$ with
+constants $\kappa(E)$, $s(E)$, as in Proposition~\ref{prop:badpassage}%
+\textup{(ii)}, and let $\mathcal A$ be the event that the links of $A^-_W$
+lie in the chart $\Phi_E(\Omega_{r(E)})$ of $F^-(E)$ at $U(E)$, $r(E)=s(E)/
+32$, assumed measurable. Then for $\E_c$-almost every $c$
+\[
+\mu^c(\mathcal A)\le\exp\Bigl(-\frac{28}3\lvert W\rvert e^{-10^{-24}
+\beta_W}\Bigr).
+\]
+\begin{enumerate}[label=\textup{(\roman*)},leftmargin=*]
+\item If $\beta_W\le10^{24}$, then $\mu^c(\mathcal A)\le e^{-3.433\lvert W
+\rvert}<0.033^{\lvert W\rvert}$; at $\beta_W=2.3\cdot10^{17}$, $\mu^c(
+\mathcal A)\le e^{-9.333\lvert W\rvert}$.
+\item If $\beta_W\le10^{24}$ and $\mathcal A_1,\dots,\mathcal A_J$ are such
+events, given by fields $U_1(E),\dots,U_J(E)$, then the union of the
+$\mathcal A_j$ has $\mu^c$-probability at most $J\,e^{-3.433\lvert W\rvert}$.
+\item If $\mu^c(\mathcal A\mid E)\ge\frac12$ on a set of values of $E$ of
+positive probability, then $\beta_W>2.6\cdot10^{24}$.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+By Proposition~\ref{prop:badpassage}\textup{(i)}, for $\E_c$-almost every
+$c$ the conditional law under $\mu^c$ of the links of $A^-_W$ given $E$ is
+the constrained law $\mu^-_W$ on $F^-(E)$. By
+Proposition~\ref{prop:badpassage}\textup{(ii)}, Theorem~\ref{thm:offchartmass}
+holds on $F^-(E)$ with $45\lvert W\rvert$ replaced by $\lvert L'^-\rvert\ge
+28\lvert W\rvert$, so that, with $q_0=\frac13e^{-2843.5\beta_Wr(E)^2}$,
+\[
+\begin{split}
+\mu^c(\mathcal A\mid E)&=\mu^-_W\bigl(\Phi_E(\Omega_{r(E)})\bigr)\\
+&\le(1-q_0)^{\lvert L'^-\rvert}\le e^{-28q_0\lvert W\rvert}.
+\end{split}
+\]
+As $\kappa(E)+s(E)\le6.0\cdot10^{-13}$, $r(E)\le1.875\cdot10^{-14}$ and
+$2843.5\,r(E)^2<10^{-24}$, so $q_0\ge\frac13e^{-10^{-24}\beta_W}$; taking
+the mean over $E$ gives the bound. (i) For $\beta_W\le10^{24}$, $q_0\ge
+\frac13e^{-1}>0.12262$ and $28\cdot0.12262>3.433$; as $e^3>20.08$ and
+$e^{0.433}>1.54$, $e^{3.433}>30.9>1/0.033$. At $\beta_W=2.3\cdot10^{17}$,
+$q_0\ge\frac13e^{-2.3\cdot10^{-7}}\ge\frac13(1-2.3\cdot10^{-7})$, and
+$28q_0>9.333$. (ii) is the union bound. (iii) On that set $e^{-28q_0}\ge
+e^{-28q_0\lvert W\rvert}\ge\frac12$, so $q_0\le\frac{\ln2}{28}$ and
+$e^{-10^{-24}\beta_W}\le\frac{3\ln2}{28}$. As $\ln2<0.69315$, $\frac{28}{3
+\ln2}>\frac{28}{2.07945}>13.465$, while $e^{2.6}<7.38906\cdot1.82212<
+13.4638$; so $10^{-24}\beta_W>2.6$.
+\end{proof}
+
+The bound holds for every window, so it holds block by block: whatever the
+exterior and the coarse field, a single block lies on a chart of this kind
+with conditional probability below $0.033$ for $\beta_W\le10^{24}$, and
+below $\frac12$ only if $\beta_W>2.6\cdot10^{24}$, and $J\le15$ charts for
+each exterior cover it with probability below $\frac12$. A decomposition of
+the fibre of a component into small-field regions, each carrying such a
+chart, and a large-field region, as in Remark~\ref{rem:badmassopen}(a), has
+the large-field region carrying all but at most $J\,0.033^{\lvert W'\rvert}$
+of the conditional mass of each window $W'$. The cost per block of a bound
+built on these charts is therefore not small at $\beta_W\le10^{24}$, and a
+bound uniform in the length must control the response on the large-field
+region, which is the regime of Proposition~\ref{prop:fold}. The theorem does
+not cover charts whose background depends on the links of the window
+itself, such as a background chosen nearest to the configuration from a
+continuous family.
+
+The second point is the existence of backgrounds for the exterior $R(c)$
+between $6.0\cdot10^{-13}$ and $2.418\cdot10^{-12}$. In the next
+proposition the curvature of one coarse plaquette is spread over the fine
+plaquettes of its four corner blocks, with every link in the torus $\{e^{
+\varphi T_0}\}$. On such a field a link is given by a real angle, a
+plaquette at $x$ in the plane $\{\mu,\nu\}$ has the real sum $\varphi_{x,
+\mu}+\varphi_{x+e_\mu,\nu}-\varphi_{x+e_\nu,\mu}-\varphi_{x,\nu}$, and a
+path the sum of its two angles.
+
+\begin{proposition}[spreading a coarse plaquette]\label{prop:spread}
+Let $G=\SU(2)$, let the periodic lattice have side $2L$, let $\mu<\nu$ be two
+directions, $0<\theta\le1.7\cdot10^{-12}$, and let $M\ge4$ and $L\ge M+6$ be
+integers. Let $a(0)=0$, $a(1)=a(2)=a(3)=\theta$, $a(k)=\theta(M+3-k)/M$ for
+$3\le k\le M+3$ and $a(k)=0$ for $M+3\le k\le L-1$, indices modulo $L$. Let
+$c^\theta$ be the coarse field with $c^\theta_{y,\nu}=e^{a(y_\mu)T_0}$ for
+$y_\nu=0$ and every other coarse link $I$, and $W_\theta=\{y:y_\mu,y_\nu
+\in\{0,1\}\}$.
+\begin{enumerate}[label=\textup{(\roman*)},leftmargin=*]
+\item The coarse plaquettes of $c^\theta$ other than $I$ lie in the plane
+$\{\mu,\nu\}$ at blocks with $y_\nu=0$: $c^\theta_P=e^{\theta T_0}$ for
+$y_\mu=0$, so that $\delta(c^\theta_P,I)=t:=2\sqrt2\sin\frac\theta2$, and
+$c^\theta_P=e^{-(\theta/M)T_0}$ for $3\le y_\mu\le M+2$, with $\delta(
+c^\theta_P,I)\le\sqrt2\theta/M$. The set $W_\theta$ consists of the corner
+blocks of the first.
+\item Let $U^\theta$ be the field with the angles of
+Table~\ref{tab:spread}\textup{(a)} on the links listed there, at every value
+of the coordinates other than $\mu$ and $\nu$, and equal to $R(c^\theta)$
+elsewhere. Then $U^\theta$ vanishes on the tree links, agrees with $R(
+c^\theta)$ off $A_{W_\theta}$, has $V^\sharp_k(U^\theta)=c^\theta_k$ for
+every pair $k$ based in $W_\theta$, and every plaquette has $\delta(
+U^\theta_p,I)\le\kappa_\theta:=2\sqrt2\sin\frac\theta8$. So $U^\theta$ lies
+in the fibre over $W_\theta$ of $R(c^\theta)$.
+\item Let $U^{\theta,-}$ be the field with the angles of
+Table~\ref{tab:spread}\textup{(b)}, and $R(c^\theta)$ elsewhere. Then
+$U^{\theta,-}$ vanishes on the tree links, agrees with $R(c^\theta)$ off
+$A^-_{W_\theta}$, has $V^\sharp_k(U^{\theta,-})=c^\theta_k$ for every pair
+$k$, and every plaquette has $\delta(U^{\theta,-}_p,I)\le\kappa'_\theta:=
+2\sqrt2\sin\frac\theta7$. So for every set $W\supset W_\theta$, $U^{\theta,
+-}$ lies in the reduced fibre over $W$ of $R(c^\theta)$, and in its fibre.
+\item Let $U$ be any field with values in the torus $\{e^{\varphi T_0}\}$,
+$y$ a block, $W'=\{y+ie_\mu+je_\nu:0\le i\le2,\ 0\le j\le1\}$, and suppose
+that $\delta(U_p,I)\le\kappa\le10^{-8}$ for every plaquette with a vertex in
+a block of $W'^+$. Write $U_p=e^{a_pT_0}$ with $a_p\in(-\pi,\pi]$, and let
+$S_x$ be the four plaquettes of the square of side two at $x$ in the plane
+$\{\mu,\nu\}$. Then the coarse plaquettes $P$ at $y$ and $P'$ at $y+e_\mu$
+in that plane of $c=V^\sharp(U)$ satisfy
+\[
+c_P=\exp\Bigl(\frac1{16}\sum_{x\in B(y)}\sum_{p\in S_x}a_p\,T_0\Bigr),
+\]
+$c_{P'}$ is given by the same formula with $B(y+e_\mu)$ in place of $B(y)$,
+and if $c_{P'}=c_P^{-1}$, then $\delta(c_P,I)\le3\kappa$.
+\end{enumerate}
+In particular, for every $t\in(0,2.39\cdot10^{-12}]$, with $\theta=2\arcsin
+(t/(2\sqrt2))$, the fibre over $W_\theta$ of $R(c^\theta)$ contains a field
+at which it satisfies the hypotheses of Theorem~\ref{thm:badcross} with
+$s=2.4\cdot10^{-15}$; and for every $t\in(0,2.09\cdot10^{-12}]$ and every
+$W\supset W_\theta$, the reduced fibre over $W$ of $R(c^\theta)$ contains a
+field at which it satisfies them, in the sense of
+Proposition~\ref{prop:badpassage}\textup{(ii)}, with the same $s$.
+\end{proposition}
+
+\begin{table}[t]
+\caption{\label{tab:spread}The fields of Proposition~\ref{prop:spread}, in
+units of $\theta$, at the sites with coordinates $x_\mu$ and $x_\nu$: the
+angles of the links in the direction $\mu$ for $0\le x_\nu\le3$, of the links
+in the direction $\nu$ at $x_\nu=1$, and the real sums of the plaquettes in
+the plane $\{\mu,\nu\}$ with corner $x$. Every other link has the angle of
+$R(c^\theta)$: $0$ in the direction $\mu$, and $a(y_\mu)/\theta$ for the
+links $(x,\nu)$ with $x_\nu=1$, $x\in B(y)$, and $0$ on every other
+link.}
+\centering\footnotesize
+\renewcommand{\arraystretch}{1.15}
+\begin{tabular}{@{}l@{\ \ }r@{\ \ }rrrrrr@{}}
+\toprule
+& & \multicolumn{6}{c}{$x_\mu$}\\
+& $x_\nu$ & $-1$ & $0$ & $1$ & $2$ & $3$ & $4$\\
+\midrule
+\multicolumn{8}{@{}l}{(a) $U^\theta$}\\
+links $\mu$ & $3$ & $0$ & $-\frac14$ & $0$ & $-\frac14$ & $\frac18$ & $0$\\
+& $2$ & $0$ & $0$ & $\frac14$ & $0$ & $0$ & $0$\\
+& $1$ & $0$ & $-\frac14$ & $0$ & $-\frac14$ & $\frac18$ & $0$\\
+& $0$ & $0$ & $0$ & $\frac14$ & $0$ & $0$ & $0$\\
+links $\nu$ & $1$ & $0$ & $-\frac14$ & $\frac14$ & $\frac34$ & $\frac54$ &
+$1$\\
+plaquettes & $3$ & $0$ & $-\frac14$ & $0$ & $-\frac14$ & $\frac18$ & \\
+& $2$ & $0$ & $\frac14$ & $\frac14$ & $\frac14$ & $-\frac18$ & \\
+& $1$ & $-\frac14$ & $\frac14$ & $\frac14$ & $\frac14$ & $-\frac18$ & \\
+& $0$ & $0$ & $\frac14$ & $\frac14$ & $\frac14$ & $-\frac18$ & \\
+& $-1$ & $0$ & $0$ & $-\frac14$ & $0$ & $0$ & \\
+\midrule
+\multicolumn{8}{@{}l}{(b) $U^{\theta,-}$}\\
+links $\mu$ & $3$ & $0$ & $0$ & $-\frac1{14}$ & $-\frac27$ & $0$ & $0$\\
+& $2$ & $0$ & $0$ & $\frac3{14}$ & $0$ & $\frac17$ & $0$\\
+& $1$ & $0$ & $0$ & $-\frac1{14}$ & $-\frac27$ & $\frac17$ & $0$\\
+& $0$ & $0$ & $0$ & $\frac3{14}$ & $0$ & $0$ & $0$\\
+links $\nu$ & $1$ & $0$ & $-\frac17$ & $\frac17$ & $\frac57$ & $\frac97$ &
+$1$\\
+plaquettes & $3$ & $0$ & $0$ & $-\frac1{14}$ & $-\frac27$ & $0$ & \\
+& $2$ & $0$ & $0$ & $\frac27$ & $\frac27$ & $\frac17$ & \\
+& $1$ & $-\frac17$ & $\frac27$ & $\frac27$ & $\frac27$ & $-\frac27$ & \\
+& $0$ & $0$ & $0$ & $\frac27$ & $\frac27$ & $-\frac17$ & \\
+& $-1$ & $0$ & $0$ & $-\frac3{14}$ & $0$ & $0$ & \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{proof}
+(i) A coarse plaquette at $y$ in a plane $\{\rho,\sigma\}$ is $c_{y,\rho}
+c_{y+e_\rho,\sigma}c_{y+e_\sigma,\rho}^{-1}c_{y,\sigma}^{-1}$. Only the
+links in the direction $\nu$ with $y_\nu=0$ differ from $I$, and two links
+in the direction $\nu$ based at blocks that differ in a coordinate other
+than $\mu$ and $\nu$ are equal; so only the plaquettes in the plane $\{\mu,
+\nu\}$ at $y_\nu=0$ can differ from $I$, and there $c^\theta_P=e^{(a(y_\mu
++1)-a(y_\mu))T_0}$. The increments of $a$ are $\theta$ at $y_\mu=0$,
+$-\theta/M$ for $3\le y_\mu\le M+2$, and $0$ otherwise, also at $y_\mu=
+L-1$, where $a(L-1)=a(0)=0$ as $L-1\ge M+3$. Finally $2\sqrt2\sin x\le2
+\sqrt2x$.
+
+(ii), (iii) We write $\varphi$ for the angles of the field in question and
+$\varphi^R$ for those of $R(c^\theta)$, all real. By
+Proposition~\ref{prop:badchart}\textup{(i)} and its proof, $\varphi^R$ is
+$0$ on every link in the direction $\mu$ and on every link in the
+direction $\nu$ except $(x,\nu)$ with $x_\nu=1$, where it is $a(y_\mu)$,
+$x\in B(y)$, and all sixteen paths of a pair $(y,\rho)$ have the angle
+$\vartheta_{y,\rho}$ of $c^\theta_{y,\rho}$, which is $a(y_\mu)$ or $0$.
+
+\emph{Links.} The field differs from $R(c^\theta)$ only on the links of the
+table with an entry different from that of $R(c^\theta)$, and the entries
+do not depend on the other two coordinates. These are links $(x,\nu)$ with
+$x_\nu=1$ and $0\le x_\mu\le3$, which have $o_\nu=1$ and are private links
+of pairs based in $W_\theta$, and links $(x,\mu)$ with $0\le x_\mu,x_\nu
+\le3$, which are private links of such pairs when $x_\mu$ is odd; when
+$x_\mu$ is even the entry is nonzero only for $x_\nu$ odd, and then $o_\nu
+=1$ with $\nu>\mu$, so the link is an active link inside a block of
+$W_\theta$, not a tree link. In (b) the links with $x_\mu$ even have $x_\mu
+=2$, in a block $y$ with $y-e_\mu\in W_\theta$, so they are not in
+$I_{W_\theta}$. Hence $U^\theta$ agrees with $R(c^\theta)$ off
+$A_{W_\theta}$ and $U^{\theta,-}$ off $A^-_{W_\theta}$, and both vanish on
+the tree links. For $W\supset W_\theta$, $A^-_{W_\theta}\subset A^-_W$: a
+link of $A_{W_\theta}$ in the direction $\rho$ that lies in $I_W$ is inside
+a block $y\in W_\theta$ with $y-e_\rho\notin W$, hence $y-e_\rho\notin
+W_\theta$, and so lies in $I_{W_\theta}$.
+
+\emph{Averages.} Let $D_x=\varphi(P_x)-\vartheta_{y,\rho}$ for the paths
+$P_x$ of a pair $(y,\rho)$. Every entry differs from that of $R(c^\theta)$
+by at most $\frac27\theta$, so $\lvert\varphi(P_x)-\varphi(P_{2y})\rvert\le
+\frac87\theta$ and $\delta(P_x,P_{2y})=2\sqrt2\sin\frac{\lvert\varphi(P_x)-
+\varphi(P_{2y})\rvert}2<4\theta<\frac12$. The cut-off of~\eqref{eq:cutoff}
+equals one, $\rho_G=1$, and as these differences are less than $\pi$ the
+principal logarithm of $P_{2y}^{-1}P_x$ is $(\varphi(P_x)-\varphi(P_{2y}))
+T_0$. So
+\[
+V^\sharp_{y,\rho}=\exp\Bigl(\Bigl(\vartheta_{y,\rho}+\frac1{16}\sum_{x\in
+B(y)}D_x\Bigr)T_0\Bigr),
+\]
+and $V^\sharp_{y,\rho}=c^\theta_{y,\rho}$ when $\sum_xD_x=0$. For $\rho
+\notin\{\mu,\nu\}$ every $D_x$ vanishes. For $\rho=\nu$, $D_x\ne0$ needs a
+link $(x',\nu)$ with $x'_\nu=1$ on the path, so only the pairs with $y_\nu
+=0$ are concerned, and by Lemma~\ref{lem:blocktree}\textup{(iii)} $\sum_xD_x
+=8(d(2y_\mu)+d(2y_\mu+1))$, $d(m)$ the deviation of the link $(x,\nu)$ with
+$x_\mu=m$, $x_\nu=1$. The deviations are $-\frac14,\frac14,-\frac14,\frac14$
+in (a) and $-\frac17,\frac17,-\frac27,\frac27$ in (b) for $m=0,1,2,3$, and
+$0$ otherwise, so the sums vanish. For $\rho=\mu$, let $X(m)$ be the sum of
+the deviations of the two links $(x,\mu)$ with $x_\mu=m$ and $x_\nu\in\{2
+y_\nu,2y_\nu+1\}$; by Lemma~\ref{lem:blocktree}\textup{(iii)}, $\sum_xD_x=
+4\bigl(X(2y_\mu)+2X(2y_\mu+1)+X(2y_\mu+2)\bigr)$. For $y_\nu\in\{0,1\}$ and
+$m=-1,\dots,4$, $X(m)$ is $0,-\frac14,\frac14,-\frac14,\frac18,0$ in (a)
+and $0,0,\frac17,-\frac27,\frac17,0$ in (b), and $X(m)=0$ for other $m$ or
+$y_\nu$. The combination vanishes for $y_\mu\in\{0,1\}$ in (a), and for
+every $y$ in (b).
+
+\emph{Plaquettes.} A plaquette in a plane other than $\{\mu,\nu\}$ has two
+parallel links that differ only in a coordinate other than $\mu$ and $\nu$
+and two links in a direction other than $\mu$ and $\nu$; the first two
+have equal angles and the other two the angle $0$, so its real sum is $0$.
+In the plane $\{\mu,\nu\}$ the real sum at $x$ is read off the table; the
+table lists every plaquette that contains a link at which the field differs
+from $R(c^\theta)$, and all other plaquettes are those of $R(c^\theta)$, whose real sums are $0$ or
+$a(y_\mu+1)-a(y_\mu)\in\{0,-\theta/M\}$ with $\lvert\theta/M\rvert\le\frac
+\theta4$, by Proposition~\ref{prop:badchart}\textup{(i)}. So every real sum
+has modulus at most $\frac\theta4$ in (a) and $\frac{2\theta}7$ in (b), and
+$\delta(U_p,I)=2\sqrt2\sin\frac{\lvert\cdot\rvert}2$ gives the bounds.
+
+(iv) For a pair $k$ based in $W'$ let $v=P_{2y}$ be its path link. By
+Lemma~\ref{lem:smallframes}\textup{(i)}, $\delta(v^{-1}P_x,I)\le24\kappa<
+\frac12$, so the cut-off is one and $c_k=v\exp(\frac1{16}\sum_x\psi_x
+T_0)$, where $v^{-1}P_x=e^{\psi_xT_0}$ with $\psi_x\in(-\pi,\pi]$ and
+$\lvert\psi_x\rvert\le27\kappa$, since $2\sqrt2\sin\frac{\lvert\psi\rvert}2
+\ge\frac{2\sqrt2}\pi\lvert\psi\rvert$. Choose real angles $\varphi_k$ of the
+path links. Then $c_k=e^{\gamma_kT_0}$ with $\gamma_k=\varphi_k+\frac1{16}
+\sum_x\psi_x$, and with the sides $k=1,\dots,4$ of $P$ and signs $\epsilon_k
+=1,1,-1,-1$, $c_P=e^{\Theta T_0}$ with
+\[
+\Theta=\sum_k\epsilon_k\gamma_k=\frac1{16}\sum_{x\in B(y)}\Theta_x,\qquad
+\Theta_x=\sum_k\epsilon_k\bigl(\varphi_k+\psi^{(k)}_{x_k}\bigr),
+\]
+where $x_k\in\{x,x+2e_\mu,x+2e_\nu,x\}$ is the site of the same offset as
+$x$ in the block of side $k$. The term $\varphi_k+\psi^{(k)}_{x_k}$ is an
+angle of the path $P^{(k)}_{x_k}$, and on the torus the product of the four
+paths around the square of side two at $x$ is the product of the four
+plaquettes of $S_x$, so $\Theta_x\equiv\sigma_x:=\sum_{p\in S_x}a_p$ modulo
+$2\pi$. Now $\lvert a_p\rvert\le1.12\kappa$, since $2\sqrt2\sin\frac{\lvert
+a\rvert}2\ge\frac{2\sqrt2}\pi\lvert a\rvert$, so $\lvert(\Theta_x-\sigma_x)-
+(\Theta_{2y}-\sigma_{2y})\rvert\le4\cdot27\kappa+8\cdot1.12\kappa<2\pi$, as
+$\psi^{(k)}_{2y}=0$. Hence $\Theta_x-\sigma_x$ is the same multiple of $2\pi
+$ for all $x$, and $\Theta$ differs from $\frac1{16}\sum_x\sigma_x$ by a
+multiple of $2\pi$, which gives the formula for $c_P$; the same holds for
+$P'$. Let $\Theta_P$, $\Theta_{P'}$ be the two exponents. A plaquette at the
+corner $z$, $z_\mu=2y_\mu+i$ and $z_\nu=2y_\nu+j$, lies in $S_x$ for
+$n(i)n(j)$ sites $x$ of $B(y)$ with the coordinates of $z$ other than $\mu$
+and $\nu$, and for $n(i-2)n(j)$ sites of $B(y+e_\mu)$, where $n(0)=n(2)=1$,
+$n(1)=2$ and $n=0$ otherwise. So
+\[
+\begin{split}
+\Theta_P-\Theta_{P'}&=\frac1{16}\sum_zw_za_{p_z},\\
+\sum_z\lvert w_z\rvert&=(1+2+0+2+1)(1+2+1)\cdot4=96,
+\end{split}
+\]
+the factor $4$ counting the offsets in the other two directions. If
+$c_{P'}=c_P^{-1}$, then $\Theta_P+\Theta_{P'}\in2\pi\Z$, and as $\lvert
+\Theta_P\rvert,\lvert\Theta_{P'}\rvert\le4\cdot1.12\kappa<\pi$ it vanishes.
+So $2\lvert\Theta_P\rvert\le6\alpha$ with $\alpha=\max\lvert a_p\rvert$, and
+as $\sin3x\le3\sin x$ for $0\le x\le\frac\pi6$,
+\[
+\delta(c_P,I)=2\sqrt2\sin\frac{\lvert\Theta_P\rvert}2\le2\sqrt2\sin\frac{
+3\alpha}2\le3\cdot2\sqrt2\sin\frac\alpha2\le3\kappa .
+\]
+
+For the last statement, $\sin x\ge x(1-x^2/6)$ gives $\theta<1.7\cdot10^{-
+12}$ for $t\le2.39\cdot10^{-12}$. In (ii), $\sin\frac\theta2=4\sin\frac
+\theta8\cos\frac\theta8\cos\frac\theta4$, so $\kappa_\theta=t/(4\cos\frac
+\theta8\cos\frac\theta4)\le t/(4(1-\theta^2))<5.976\cdot10^{-13}$. In (iii),
+$t\ge\sqrt2\theta(1-\theta^2/24)$, so $\kappa'_\theta\le\frac{2\sqrt2}7
+\theta\le\frac27t(1+\theta^2/12)<5.972\cdot10^{-13}$ for $t\le2.09\cdot
+10^{-12}$. Every plaquette is below $\kappa_\theta\le10^{-8}$, respectively
+$\kappa'_\theta$, so the plaquette condition holds on $W^+$ for every $W$;
+and $s=2.4\cdot10^{-15}$ satisfies $s\le1/(6000c_3)$, $\kappa+6s\le10^{-8}$
+and $\kappa+s\le6.0\cdot10^{-13}$.
+\end{proof}
+
+The fields of (ii) and (iii) spread the coarse curvature $\theta$ over the
+plaquettes of the corner blocks with the largest real sum $\frac\theta4$ and
+$\frac{2\theta}7$; by Lemma~\ref{lem:coarsewitnesssharp} no field does
+better than $\frac\theta4$ up to a term of order $\theta^2$, so (ii) is
+sharp up to that term. The gap between $2.39\cdot10^{-12}$ and $2.418\cdot10^{-12}$ is the
+rounding of the chart threshold $6.044\cdot10^{-13}$ of
+Proposition~\ref{prop:badchart}\textup{(ii)} to $6.0\cdot10^{-13}$ in
+Theorem~\ref{thm:badcross}: for every threshold $\kappa_*$ in place of
+$6.0\cdot10^{-13}$, (ii) gives a background whenever $\delta(c_P,I)<4
+\kappa_*(1-\theta^2)$ and Lemma~\ref{lem:coarsewitnesssharp} excludes one above
+$4\kappa_*+7700\kappa_*^2$. Part (iv) shows that the factor depends on the
+neighbouring coarse plaquettes: for a coarse field with opposite fluxes at
+two adjacent coarse plaquettes and $\delta(c_P,I)>1.8\cdot10^{-12}$, no
+field with values in a torus has every plaquette near the six blocks below
+$6.0\cdot10^{-13}$.
+
+The third point is the ends that enter the averages. They meet the fibre
+measure in one factor.
+
+\begin{lemma}[ends and pairs]\label{lem:endpairs}
+Let $W$ be a set of blocks and $e$ an active link off $A^-_W$ that enters an
+average $V^\sharp_{y,\rho}$ with $y\in W$. Then $e=(x,\rho)$ with $x_\rho$
+even, and either
+\begin{enumerate}[label=\textup{(\alph*)},leftmargin=*]
+\item $x\in B(y)$, $y-e_\rho\notin W$, $e\in I_W$, and $e$ is the first link
+of the path $P_x$, whose second link is the private link $(x+e_\rho,\rho)$
+of $(y,\rho)$; or
+\item $x\in B(y+e_\rho)$, $y+e_\rho\notin W$, and $e$ is the second link of
+$P_{x-e_\rho}$, whose first link is the private link $(x-e_\rho,\rho)$ of
+$(y,\rho)$.
+\end{enumerate}
+In either case $(y,\rho)$ is the only pair based in $W$ whose average
+contains $e$, $e$ lies on one of its sixteen paths, and among the factors of
+$\nu^-_c$ over the pairs based in $W$ only the factor of $(y,\rho)$ depends
+on $e$.
+\end{lemma}
+
+\begin{proof}
+A private link enters only the average of its own pair, and the private
+links of pairs based in $W$ lie in $A^-_W$; so $e$ is an inside link
+$(x,\rho)$, $x_\rho$ even, of a block $B(y')$. As in the proof of
+Proposition~\ref{prop:badpassage}\textup{(i)}, it enters only the averages
+of $(y',\rho)$, as the first link of $P_x$, and of $(y'-e_\rho,\rho)$, as the
+second link of $P_{x-e_\rho}$. If $y'\in W$, then $e\in A_W\setminus A^-_W=
+I_W$, so $y'-e_\rho\notin W$ and $y=y'$, which is (a). If $y'\notin W$, the
+pair is $(y'-e_\rho,\rho)$, which is (b). The other link of the path has
+offset $1$ in the direction $\rho$ and joins $B(y)$ to $B(y+e_\rho)$, so it
+is a private link of $(y,\rho)$. Given the inside links and the links off
+$A^-_W$, the averages of the pairs based in $W$ depend on disjoint sets of
+private links, and $\nu^-_c$ is the product of the Haar measure of the
+inside links in $A^-_W$ and of one factor for each pair, built from its
+average as before~\eqref{eq:fibrevolume}; only the factor of $(y,\rho)$
+contains $e$.
+\end{proof}
+
+\begin{proposition}[an end at the fold]\label{prop:endfold}
+Let $G=\SU(2)$, $\mu\le2$, let $W$ be a set of blocks, $y\in W$ with $y-e_\mu
+\notin W$, $k=(y,\mu)$, and $c_k\in\SU(2)$. There are values of the links of
+the pair $k$ and of the links inside $B(y)$ and $B(y+e_\mu)$, with an
+active inside link $u_b$ of $B(y)$ in the direction $\mu$, which lies in
+$I_W$ and is an end of case \textup{(a)} of Lemma~\ref{lem:endpairs}, moved
+along a one-parameter family $u_b(t)$, such that for every $\beta_W\ge0$,
+every value of the other links and every $\varepsilon>0$ there are $t<0<t'$
+with $d(u_b(t),u_b(t'))<\varepsilon$ and
+\[
+W_1^\delta\bigl(\pi^{(t)},\pi^{(t')}\bigr)\ge0.126 ,
+\]
+where $\pi^{(t)}$ is the law~\eqref{eq:pathlaw} of the path link of $k$
+given its seven non-path links, at the value $c_k$.
+\end{proposition}
+
+\begin{proof}
+Take the configuration of Proposition~\ref{prop:insidefold}, at the value
+$c_{\gamma^*}$, with its moved link $u_b(t)$, and let $h=c_kc_{\gamma^*}^{-1
+}$. Let $\Gamma_h$ multiply every private link of $k$ on the left by $h$ and
+conjugate every link of $B(y)$ in the direction $\mu$ by $h$; it fixes the
+tree links, which are $I$. A path of $k$ from a site with $o_\mu=0$ is $u\ell$,
+with $u$ in $B(y)$ and $\ell$ private, and $(huh^{-1})(h\ell)=hu\ell$; a path
+from a site with $o_\mu=1$ is $\ell w$, with $w$ in $B(y+e_\mu)$, and becomes
+$h\ell w$. So $\Gamma_h$ multiplies every path of $k$ on the left by $h$, the
+distances $\delta(P_x,P_{2y})$ and the logarithms in~\eqref{eq:cutoff} do
+not change, and $V^\sharp_k\circ\Gamma_h=hV^\sharp_k$. As a function of
+the path link $g$, the preimages of $c_k$ after $\Gamma_h$ are the points
+$hg$ with $g$ a preimage of $c_{\gamma^*}$ before, and since left
+translation is an isometry of the bi-invariant metric, $\lvert\det D_gV
+\rvert$ is the same at $hg$ as at $g$. The action $S(g;\cdot)$ of the path
+link is a sum of nonnegative multiples of $\delta(U_p,I)^2\le8$ over the
+plaquettes through it, so $0\le S\le S_{\max}$ with $S_{\max}$ independent
+of the configuration. Hence, by Proposition~\ref{prop:insidefold}, for
+$0<\lvert t\rvert<\tau$ the preimages are $hg_L(t)$, whose weight is at most
+$1/\lvert\det D_gV(g_L(t))\rvert$, which tends to $1/\lvert\det D_gV(
+g_L^*)\rvert<\infty$, and for $t<0$ also $hg_\pm(t)$, whose weights are at
+least $e^{-\beta_WS_{\max}}/\lvert f'(q_\pm(t);t)\rvert\to\infty$ as
+$t\uparrow0$, with the function $f$ of the proof of that proposition. As
+there, $\pi^{(t)}\to\delta_{hg^*}$ as $t\uparrow0$ and $\pi^{(t)}\to
+\delta_{hg_L^*}$ as $t\downarrow0$, and $\delta(hg^*,hg_L^*)=\delta(g^*,
+g_L^*)\ge0.1268$. Kantorovich duality with $\delta(\cdot,hg^*)$ gives the
+bound, and $d(hu_b(t)h^{-1},hu_b(t')h^{-1})=d(u_b(t),u_b(t'))$. The link
+$u_b$ lies in $B(y)$, has $o_\mu=0$, is active, and $y-e_\mu\notin W$, so it
+lies in $I_W$.
+\end{proof}
+
+By Lemma~\ref{lem:endpairs} the dependence of the weight of the interior on
+an end is that of one pair factor, and by Proposition~\ref{prop:endfold}
+that factor, conditioned on the non-path links, jumps under arbitrarily
+small moves of the end at every value of the coarse link and every
+$\beta_W$. In the same configuration the normalisation $Z$ of~\eqref{eq:pathlaw} is
+bounded for small $t>0$ and tends to infinity as $t\uparrow0$, so the
+derivative of $\log Z$ in the end, at fixed non-path links, is not
+bounded.
+
+\begin{remark}\label{rem:badendsopen}
+What remains of the three points.
+\begin{enumerate}[label=\textup{(\alph*)},leftmargin=*]
+\item \emph{Length.} By Theorem~\ref{thm:localcharts}, charts fixed by the
+exterior of their window carry less than half of the conditional mass of
+each block for $\beta_W\le2.6\cdot10^{24}$, and less than $0.033$ of it for
+$\beta_W\le10^{24}$. A bound uniform in the length needs the response on the
+large-field region of the fibre, or charts whose background moves with the
+window links, together with a bound on the mass of their union; neither is
+available.
+\item \emph{Coarse fields.} For the coarse fields $c^\theta$ the exterior
+$R(c)$ carries a background up to $2.39\cdot10^{-12}$, and the reduced fibre
+up to $2.09\cdot10^{-12}$ for every window containing the component
+(Proposition~\ref{prop:spread}). For a general coarse field between $6.0
+\cdot10^{-13}$ and $2.418\cdot10^{-12}$ with exterior $R(c)$, and for the
+reduced fibre between $2.09\cdot10^{-12}$ and $2.418\cdot10^{-12}$, the
+existence of a background is not decided; by
+Proposition~\ref{prop:spread}\textup{(iv)} a background with values in a
+torus does not exist above $1.8\cdot10^{-12}$ for opposite fluxes at
+adjacent coarse plaquettes.
+\item \emph{Ends.} A bound of the form of
+Corollary~\ref{cor:badcrossratio} for ends in the averages cannot hold at
+fixed non-path links, by Proposition~\ref{prop:endfold}. The missing input
+is a bound, uniform in $c_k$, on the derivative in an end of the logarithm
+of its pair factor after integration over the seven non-path links, where
+the coarea formula keeps the normalisation finite, together with its
+locality in the distance between two ends.
 \end{enumerate}
 \end{remark}
 
@@ -30931,11 +31397,21 @@ constrained law, with the links that bind the entering averages moved to
 the exterior, as the conditional law under $\mu^c$, and
 Corollary~\ref{cor:badcrossratio} bounds the cross-ratio of the weight of
 the interior for ends that enter the action only, at the rate $\alpha_G$
-up to a term $432\beta_W^2\bar p$. A bound uniform in the length needs
-charts local in the component, the coarse fields between $6.0\cdot
-10^{-13}$ and $2.418\cdot10^{-12}$ with exterior $R(c)$ are not decided,
-and the ends that enter the averages, on which the labels depend, are not
-treated (Remark~\ref{rem:badmassopen}).
+up to a term $432\beta_W^2\bar p$. Charts local in the component do not
+remove the dependence on the length: by Theorem~\ref{thm:localcharts} a
+window lies on a chart fixed by its exterior with conditional probability
+below $0.033^{\lvert W\rvert}$ for $\beta_W\le10^{24}$, whatever the
+exterior and the coarse field. For the coarse fields $c^\theta$ of
+Proposition~\ref{prop:spread} the exterior $R(c)$ carries a background up
+to $2.39\cdot10^{-12}$, and the reduced fibre up to $2.09\cdot10^{-12}$; for
+opposite fluxes at adjacent coarse plaquettes no background with values in a
+torus exists above $1.8\cdot10^{-12}$, and a general coarse field between
+$6.0\cdot10^{-13}$ and $2.418\cdot10^{-12}$ with exterior $R(c)$ is not
+decided. An end that enters an average enters one pair factor of the fibre
+measure (Lemma~\ref{lem:endpairs}), and that factor jumps under arbitrarily
+small moves of the end at every value of the coarse link
+(Proposition~\ref{prop:endfold}); the bound in the mean over the non-path
+links that the labels need is not proved (Remark~\ref{rem:badendsopen}).
 Lemma~\ref{lem:mobius} gives the mixed differences of every order in
 terms of the diameter; the rate $2\alpha_G$ needs them in terms of the
 length of the shortest joining tree (Remark~\ref{rem:fixedcopen}). That
@@ -31058,8 +31534,10 @@ Corollary~\ref{cor:labelstretched}, and by Theorem~\ref{thm:fixedobstruction} th
 differences of $\log Z^c$ in tree form and the response of the law across
 a bad component, which Theorem~\ref{thm:badcross} gives on the chart up
 to the mass of the law off the chart, which tends to one as the component
-grows, for coarse plaquettes below $6.0\cdot10^{-13}$ and for none above
-$2.418\cdot10^{-12}$ (Proposition~\ref{prop:badchart},
+grows, for coarse plaquettes below $6.0\cdot10^{-13}$, for the coarse
+fields of Proposition~\ref{prop:spread} up to $2.39\cdot10^{-12}$, and for
+none above $2.418\cdot10^{-12}$ (Proposition~\ref{prop:badchart},
+Proposition~\ref{prop:spread}, Theorem~\ref{thm:localcharts},
 Theorem~\ref{thm:offchartmass}, Remark~\ref{rem:badmassopen}); item (i) being settled for the
 chains of the bad blocks by Proposition~\ref{prop:linechain} and item (ii) given the labels
 of all islands by Theorem~\ref{thm:manyislands};
