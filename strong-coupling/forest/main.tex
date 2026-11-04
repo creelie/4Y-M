@@ -69,7 +69,7 @@
 \def\preprintsDOI{}
 \begin{document}
 
-\title{Yang--Mills Mass Gap Reduced to One Cube}
+\title{Yang--Mills Mass Gap at Strong Coupling and Its Reduction to One Cube}
 
 \author{Deep Bhattacharjee$^{*}$\,\orcidlink{0000-0003-0466-750X}}
 \email{itsdeep@live.com}
@@ -2433,7 +2433,7 @@ Z(b_2y_1^{-1}+N\beta y_3)$, so its two conditional laws have the form of
 Lemma~\ref{lem:onesite3}, with $c_0=y_3^{-1}b_2$ and $c_0=b_2y_1^{-1}$.
 Moving $y_3$ to $y'_3$ moves $y_3^{-1}b_2$ along a segment in $5N\beta K$ of
 length at most $\|b_2\|_{\rm op}\|y_3-y'_3\|\le5N\beta\|y_3-y'_3\|$. The
-coupling argument of Lemma~\ref{lem:blockK} now gives $d_1\le s\varepsilon+
+coupling argument of Lemma~\ref{lem:blockK} gives $d_1\le s\varepsilon+
 Cd_3$, $d_3\le Cd_1$ and $|\mu_b(f)-\mu_{b'}(f)|\le(1+N\beta\Lambda(r))(d_1+
 d_3)\le K_3\varepsilon$.
 \end{proof}
@@ -18425,7 +18425,7 @@ Identify $\SU(2)$ with the unit sphere of $\R^4$; the metric above is
 twice the Euclidean one, so $H^{20}$ is $2^{10}$ times the Euclidean
 Hausdorff measure on $\SU(2)^7\subset\R^{28}$. Every object of the
 construction is definable in the o-minimal structure $\R_{\mathrm
-{an}}$ of restricted analytic functions \cite{Dri86}: $\delta$, $\phi$ and
+{an}}$ of restricted analytic functions \cite{Dri86}\footnote{A structure on $\R$ is o-minimal when every definable subset of $\R$ is a finite union of points and intervals. In an o-minimal structure the number of connected components of the fibres of a definable family is bounded uniformly in the parameter \cite[Ch.~3]{Dri98}; this uniformity is what makes the constant $\mathfrak b$ below independent of the configuration.}: $\delta$, $\phi$ and
 the maximum are semialgebraic; $\log$ on $\{\ReTr v\ge\frac32\}$, which
 contains $\{\delta(v,I)\le1\}$, and $\exp$ on $\{\lVert X\rVert\le1\}$ are
 restricted analytic; $N$ may be set to $0$ where $m\ge1$ without changing
@@ -18491,6 +18491,22 @@ So $m=\max(f_{x_a},f_{x'_a})$ and $f_{x_a}\ge m-2s$. For $s=0$, $f_{x_a}=
 f_{x'_a}=\delta(\xi_a,I)$ on $U_0$, so $h_2$ vanishes on the open set
 $U_0$.
 \end{proof}
+
+Fig.~\ref{fig:thickties} shows why the near-ties fill an open set.
+
+\begin{figure*}[t]
+\centering
+\includegraphics[width=0.95\textwidth]{figures/fig_thickties.png}
+\caption{Thick near-ties (Proposition~\ref{prop:thickties}), schematic. (a)~The
+values $f_{x_a}$ and $f_{x'_a}$ of the two paths of index $a$ over two
+coordinates of $\xi$, for $u_a=w_a=u$ at distance $s$ from $I$: over the
+open set $U_0$ they differ by at most $2s$, so the set $T(t)$ of near-ties
+contains $U_0$ for every $t\ge2s$. (b)~The set $U_0$ in the coordinates
+$\delta(\xi_a,I)$ and $\max_{b\ne a}\delta(\xi_b,I)$, beside a band of width
+$t$ around a tie hypersurface, the shape that a bound
+$\mathrm{Haar}(T(t))\le Mt$ would require.}
+\label{fig:thickties}
+\end{figure*}
 
 So no bound $\operatorname{Haar}(T(t))\le Mt$ holds with $M$ uniform in
 the inside links, nor one by $t\lvert\log t\rvert$: the Haar measure of
@@ -18734,7 +18750,7 @@ the constants for other groups.
 
 Let $\Pi_\g$ be the orthogonal projection of the space of complex $2\times2$
 matrices, with the real inner product $\operatorname{Re}\Tr(X^*Y)$, onto
-$\g=\mathfrak{su}(2)$.
+$\g=\mathfrak{su}(2)$.\footnote{For $U\in\SU(2)$ this is the anti-Hermitian part $\frac12(U-U^{-1})$. Unlike the logarithm, it is defined and real-analytic on the whole group, which is why the projected average needs no restriction on the paths.}
 
 \begin{definition}\label{def:projavg}
 For a coarse link $(y,\mu)$ and the paths $P_x$ of
@@ -18968,6 +18984,22 @@ $\lVert\dot B\rVert\le\frac{14}{16}\cdot\frac8{\sqrt2}=\frac7{\sqrt2}$ and
 $\lVert\dot D\rVert\le\frac{105}{8\sqrt2}$, and the bound is $3\cdot8\cdot
 \frac{105}{8\sqrt2}=\frac{315}2\sqrt2$.
 \end{proof}
+
+Fig.~\ref{fig:projected} draws the projected average and the contraction behind its global inverse.
+
+\begin{figure*}[t]
+\centering
+\includegraphics[width=0.95\textwidth]{figures/fig_projected.png}
+\caption{The projected average of Definition~\ref{def:projavg}, schematic, with a
+two-sphere standing for $\SU(2)$. (a)~The paths $P_x$ of a coarse link
+around the base path $P_{2y}$, their projections to the tangent space at
+$P_{2y}$, the mean $A$ of the projections, and the value $\widehat V=
+P_{2y}e^{A}$. (b)~The map $g\mapsto c_k\,e^{-A(g)}$ contracts with constant
+$\frac78$, so its iterates converge to the unique solution $G$ of
+$\widehat V_k=c_k$, and $\widehat V_k$ changes distances by a factor between
+$\frac18$ and $\frac{15}8$ (Theorem~\ref{thm:projinverse}).}
+\label{fig:projected}
+\end{figure*}
 
 \begin{corollary}[the path-link law of the projected average]\label{cor:projpathlaw}
 For every $c_k$, $z$, $u$, $w$ and exterior $\sigma$, the law~\eqref{eq:pathlaw}
@@ -20783,7 +20815,7 @@ $\log\frac\pi2\in[0.4515827,0.4515828]$.
 
 Together with Lemma~\ref{lem:wilsonZ}, the lemma places the normalisation
 of the chessboard estimate between $\frac92\log\beta_W$ and
-$6\log\beta_W$ per fine site, up to additive constants. The constant curvature field bounds the witness radius. Put
+$6\log\beta_W$ per fine site, up to additive constants.\footnote{The chessboard estimate bounds the probability of a pattern of local events on a torus by the product of the probabilities of each event repeated by reflection over the whole torus \cite{FILS78}. The normalisation of each factor is a partition function of the whole torus, which is why the estimate pays for the fluctuations of every fine site.} The constant curvature field bounds the witness radius. Put
 \[
 \eta_c=2\sqrt2\sin\frac1{24\sqrt2}\in[0.0833212,0.0833213],
 \]
@@ -20951,6 +20983,23 @@ $1.9268/\tilde\eta^2>21745$; its fourth root exceeds $12.14$, and $12.14
 \tilde\eta^2>5.35\cdot10^{24}$; its fourth root exceeds $1.52\cdot10^6$, and
 $1.52\cdot10^6\cdot0.8409>2^{20}$.
 \end{proof}
+
+Fig.~\ref{fig:chessceiling} shows the dyadic scales that a chessboard bound reaches and the scale of the cube.
+
+\begin{figure*}[t]
+\centering
+\includegraphics[width=0.95\textwidth]{figures/fig_chessceiling.png}
+\caption{The ceiling of the chessboard estimate (Theorem~\ref{thm:chessceiling}),
+schematic. (a)~The dyadic scales as plates: a chessboard bound for the
+islands is below one only at the lower scales (green), and the cube of
+$D(n,\alpha)$ lies at least three scales higher for the labels of the island
+theorems and at least twenty for the calm labels
+(Corollary~\ref{cor:chessceiling}). (b)~The condition of part~(ii): the left
+side $16^{j+1}$ grows by a factor $16$ per scale, the right side
+$\beta_W\tilde\eta^2/(96(\log\beta_W+C_0))$ does not depend on $j$, and they
+cross below the scale of the cube.}
+\label{fig:chessceiling}
+\end{figure*}
 
 \begin{remark}[what the ceiling leaves]\label{rem:chessceiling}
 The loss sits in the normalisation, not in the energy. In (ii)(b) the action
