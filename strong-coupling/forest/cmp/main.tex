@@ -72,7 +72,9 @@ Corollary~\ref{cor:twolabels}), the floor $q^2/16$ on the covariance of
 rare labels (Proposition~\ref{prop:hiddenbit}), the explicit island
 threshold $\beta^*(\rho,s)$ past which the islands of bad blocks at one
 scale are rarer than their entropy (Theorem~\ref{thm:islandthreshold}),
-the coupling-cost
+its composition to every scale up to $a_{k_*}/512$ with the abelian field
+that stops the fine witnesses (Theorem~\ref{thm:islandscales},
+Proposition~\ref{prop:constantcurvature}), the coupling-cost
 minimality lemmas (Lemmas~\ref{lem:minimality} and~\ref{lem:minimiser}),
 the exact block response $\frac14(1+I_2(\beta_W)/I_1(\beta_W))$ and its
 crossing at $\beta_W=0.3666$ (Proposition~\ref{prop:blockresponse}), the
@@ -125,7 +127,9 @@ $\frac14\tanh(\varDelta/4)$, and that the exact response of a plaquette block
 at zero field, $\frac14(1+I_2(\beta_W)/I_1(\beta_W))$, bounds every
 Dobrushin estimate of this form by $\beta_W=0.3666$. We give the explicit
 coupling, $\beta_W=5.4\cdot10^{21}$ at the label radius $10^{-8}$, past
-which the islands of bad blocks at one scale are rarer than their entropy.
+which the islands of bad blocks at one scale are rarer than their entropy,
+and carry it to every scale up to $1/512$ of the scale that the defect
+propagation reaches.
 We prove that the rarity of bad labels alone cannot control their
 covariance and that a rough coarse background makes the constrained action
 nonconvex, which locates the one estimate that remains open.
@@ -11849,6 +11853,173 @@ the factor $\lvert\log q^*\rvert\approx2H\log\varDelta$ from the exponent
 $1/H$, which Proposition~\ref{prop:coverageopt} shows cannot be improved
 without joint information on the gauge field.
 
+\subsection{The island threshold at every scale}\label{ssec:islandscales}
+
+The threshold of Theorem~\ref{thm:islandthreshold} composes with the
+defect propagation of Theorem~\ref{thm:defectscales}: the labels of the
+$j$-th iterate of the cut-off average have fine witnesses as well, in a
+larger box, so that the chessboard estimate and the coverage count apply at
+every scale up to the one that Corollary~\ref{cor:defectscales} reaches,
+divided by $256$. Write $U^{(j)}$ for the $j$-th iterate in the tree gauge,
+an $\SU(2)$ field on the lattice of spacing $a_j=2^ja$, and call a block
+$y$ of that lattice \emph{bad at scale $j$} when it is bad for the field
+$U^{(j)}$ in the sense of Theorem~\ref{thm:islandthreshold}, with the same
+radii $r$, $\eta$ and $\rho=\min\{r/43,\eta/92\}\le10^{-8}$. Let
+$\mathfrak B_j$, $\eta_j$ be as in Theorem~\ref{thm:defectscales} with
+$\eta_0=1.01\rho_0$ for a threshold $\rho_0\le\rho$, so that every
+plaquette of $\mathfrak B_0$ has defect more than $\rho_0$.
+
+\begin{lemma}[fine witnesses at scale $j$]\label{lem:scalewitness}
+Let $j\ge1$ and suppose that $\eta_j\le\rho$. If the block $y$ is bad at
+scale $j$, then some fine plaquette $p\in\mathfrak B_0$, with defect more
+than $\rho_0$, has its corner $x$ in $2^{j+1}y+[-8\cdot2^j+2,\,9\cdot2^j-3]^4$.
+The cubes of this box number $M_j=(17\cdot2^j-4)^4$, and a fine cube lies in
+the box of at most $H_j$ blocks of scale $j$, with $H_j=8^4$ for $j=1,2$
+and $H_j=9^4$ for $j\ge3$.
+\end{lemma}
+
+\begin{proof}
+Since $\eta_{i+1}\ge4\eta_i$, the hypothesis gives $\eta_i\le\rho\le
+10^{-8}$ for $i<j$, so Theorem~\ref{thm:defectscales}(i) and (ii) apply up
+to scale $j$. The witness paragraph of the proof of
+Theorem~\ref{thm:islandthreshold} is a statement about one field in the
+tree gauge and applies to $U^{(j)}$: a bad block $y$ has a plaquette $P$
+of $U^{(j)}$ with corner $x'\in2y+[-5,5]^4$ and $\delta(U^{(j)}_P,I)>\rho$.
+If $P\notin\mathfrak B_j$, Theorem~\ref{thm:defectscales}(i) and
+Lemma~\ref{lem:logbound} give $\delta(U^{(j)}_P,I)\le\lVert\Theta^{(j)}_P
+\rVert\le\eta_j\le\rho$; so $P\in\mathfrak B_j$, and by part (ii) some point
+of $P$ is within $\ell^\infty$ distance $3(2^j-1)$, in fine units, of a
+plaquette $p\in\mathfrak B_0$ with corner $x$. In fine units the
+coordinates of $P$ lie in $[2^jx'_c,2^jx'_c+2^j]$ and those of $p$ in
+$[x_c,x_c+1]$, so $x_c\in[2^jx'_c-3\cdot2^j+2,\,2^jx'_c+4\cdot2^j-3]$, and
+the range of $x'_c$ gives the box. It has $17\cdot2^j-4$ integer points per
+coordinate. A cube with corner $x$ lies in the box of $y$ exactly when
+$2^{j+1}y_c$ lies in an interval of length $17\cdot2^j-5$ for each
+coordinate, which contains at most $\lfloor8.5-5\cdot2^{-j-1}\rfloor+1$
+multiples of $2^{j+1}$, that is $8$ for $j=1,2$ and $9$ for $j\ge3$.
+\end{proof}
+
+\begin{theorem}[the island threshold at scale $j$]\label{thm:islandscales}
+Let $G=\SU(2)$, $s\ge1$, $j\ge1$, $\rho=\min\{r/43,\eta/92\}\le10^{-8}$,
+and put $\rho_0=\rho/(1.01\cdot1.023\cdot4^j)$, $\eta_0=1.01\rho_0$,
+\begin{gather*}
+\log q^*_j=-H_j\bigl(\log2+2\log\varDelta\bigr)-\log(eM_jH_j),\\
+f_j(\beta)=6(\log\beta+C_0)-\frac{\beta\rho_0^2}{16},
+\end{gather*}
+with $\varDelta=(4s+3)^4-1$ and $M_j$, $H_j$ as in
+Lemma~\ref{lem:scalewitness}. Let $\beta^*_j$ be the largest solution of
+$f_j(\beta)=\log q^*_j$. Then for every $\beta_W\ge\beta^*_j$:
+\begin{enumerate}[label=\textup{(\roman*)},leftmargin=*]
+\item $\eta_i\le1.023\cdot4^i\eta_0\le\rho$ for $i\le j$, the iterates up to
+scale $j$ satisfy Theorem~\ref{thm:defectscales}(i) and (iii) with
+$E^\circ_j\le1.53\,E^\circ_0$, and every block at scale $j$ is bad with
+probability at most $A_j=eM_jH_jq_{\rho_0}(\beta_W)\le(2\varDelta^2)^{-H_j}$;
+\item for every block $y$ at scale $j$ and every $n\ge1$, with the islands
+of Theorem~\ref{thm:islandthreshold} formed from the bad blocks of
+scale $j$,
+\[
+\mu_L\{y\text{ in an island of at least }n\text{ blocks}\}\le2^{1-n}
+\varDelta^{-2}\le2^{-n},
+\]
+and the expected number of such islands on the torus is at most
+$(L/2^{j+1})^42^{-n}/n$; the weighted variant (iii) of
+Theorem~\ref{thm:islandthreshold} holds with $\log q^*_j-H_j\log\varGamma$.
+\end{enumerate}
+For $s=5$ and $\rho=10^{-8}$, $\beta^*_1=2.896\cdot10^{23}$,
+$\beta^*_2=4.634\cdot10^{24}$, $\beta^*_3=1.186\cdot10^{26}$, and
+$16^{-j}\beta^*_j\le2.90\cdot10^{22}$ for $1\le j\le12$. Hence, for
+$\beta^*_1\le\beta_W<\beta^*_{12}$, the conclusions hold at every scale
+$j\le j_{\max}$ with
+\[
+2^{j_{\max}}\ge\frac12\Bigl(\frac{\beta_W}{2.90\cdot10^{22}}\Bigr)^{1/4},
+\]
+while the scale $k_*$ of Corollary~\ref{cor:defectscales} satisfies
+$k_*-j_{\max}\in\{8,9\}$ at every one of $2001$ couplings spaced evenly in
+the logarithm between $10^{22}$ and $10^{42}$: the islands of the composed
+average are rare up to the scale $a_{k_*}/512$.
+\end{theorem}
+
+\begin{proof}
+(i) $4^j\eta_0=\rho/1.023\le10^{-8}$, so Theorem~\ref{thm:defectscales}(iv)
+gives the bounds on $\eta_i$ and $E^\circ_j$, and $\eta_j\le\rho$ is the
+hypothesis of Lemma~\ref{lem:scalewitness}. That lemma makes the sets of
+Lemma~\ref{lem:coverage} the boxes of $M_j$ cubes with overlap $H_j$, and
+Theorem~\ref{thm:defects} at the threshold $\rho_0$ gives the product bound
+$p=q_{\rho_0}(\beta_W)$; the threshold paragraph of the proof of
+Theorem~\ref{thm:islandthreshold}, with $\rho_0$, $M_j$, $H_j$, $q^*_j$ in
+place of $\rho$, $M$, $H$, $q^*$, shows that $\beta^*_j>96/\rho_0^2$ exists
+and that $q_{\rho_0}(\beta_W)\le q^*_j$ for $\beta_W\ge\beta^*_j$, hence
+$A_j\le(2\varDelta^2)^{-H_j}$ and $\varDelta^2A_j^{1/H_j}\le\frac12$.
+(ii) is the island paragraph of that proof on the torus of
+$(L/2^{j+1})^4$ blocks of scale $j$, where a block has at most $\varDelta$
+neighbours. The numbers are the roots of $f_j=\log q^*_j$ to thirty
+digits; $\beta^*_{j+1}/\beta^*_j\ge16$ for $1\le j\le12$ since
+$\rho_0$ falls by $4$ and $\lvert\log q^*_j\rvert$ increases, so the largest
+$j$ with $\beta_W\ge\beta^*_j$ satisfies $16^{j_{\max}+1}>\beta_W/(2.90
+\cdot10^{22})$, which is the displayed bound; $k_*$ is computed from its
+definition at the same couplings.
+\end{proof}
+
+The theorem settles the entropy count of the islands at every scale that
+the fine witnesses reach. The next proposition shows that they reach no
+further: a coarse plaquette can be large at scale $j$ while every fine
+plaquette is small, because the cut-off average multiplies a constant
+curvature by four at every step.
+
+\begin{proposition}[constant curvature grows by four]\label{prop:constantcurvature}
+Let $T=\frac1{\sqrt2}\operatorname{diag}(i,-i)$, let $L=2^m$, $n\ge1$ and
+$\theta=2\sqrt2\pi n/L^2$, and let $U$ be the field with $U_{x,1}=\exp(
+\theta x_0T)$ for $0\le x_0<L$, $U_{x,0}=\exp(-\theta Lx_1T)$ on the links
+with $x_0=L-1$, and every other link $I$. Then $\Theta_p=\theta T$ on every
+plaquette of the plane $\{0,1\}$ and $\Theta_p=0$ on the others, so that
+$\delta(U_p,I)=2\sqrt2\sin(\theta/2\sqrt2)\le\theta$ for every $p$, and if
+$4^{j+1}\theta\le\frac1{12}$ then for every $i\le j+1$
+\begin{gather*}
+\Theta^{(i)}_P=4^i\theta\,T\quad\text{on the plane }\{0,1\},\\
+\delta(U^{(i)}_P,I)=2\sqrt2\sin\bigl(4^i\theta/2\sqrt2\bigr)\ge4^i\theta
+\Bigl(1-\frac{16^i\theta^2}{48}\Bigr).
+\end{gather*}
+Consequently, with $\eta_0\ge\theta$ the set $\mathfrak B_0$ is empty,
+while every block is bad at scale $j$ for the coarse label as soon as
+$4^{j+1}\theta(1-16^{j+1}\theta^2/48)>\eta$; for $\eta=92\rho$ this is
+$4^j\theta>23\rho$ up to a factor $1+10^{-3}$, whereas
+Theorem~\ref{thm:islandscales} needs $4^j\eta_0\le\rho/1.023$.
+\end{proposition}
+
+\begin{proof}
+The field takes values in the torus $S=\exp(\R T)$, and the plaquette
+exponents are the abelian curl: on the plane $\{0,1\}$ every plaquette,
+including those of the column $x_0=L-1$, has exponent $\theta$, the seam
+links contributing $-\theta Lx_1+\theta L(x_1+1)-\theta(L-1)=\theta$ there
+and cancelling on the planes $\{0,2\}$, $\{0,3\}$; the plaquettes through
+$x_1=L-1$ are consistent since $\exp(\theta L^2T)=\exp(2\pi in\cdot
+\operatorname{diag}(1,-1))=I$. An $S$-valued gauge transformation puts $U$
+in the tree gauge without changing the plaquettes, and
+Theorem~\ref{thm:torusscales} applies with $\eta_G=\frac1{12}$: by
+Lemma~\ref{lem:torusstep}, $\Theta^{(i+1)}_P$ is the mean over the sixteen
+offsets of the sum of the four plaquettes of a square of side two, which
+for a constant $\Theta^{(i)}=4^i\theta T$ on the plane $\{0,1\}$ and $0$
+elsewhere is $4^{i+1}\theta T$ on that plane and $0$ elsewhere, and the
+hypothesis~\eqref{eq:torushyp} holds by induction while $4^i\theta\le
+\frac1{12}$. The eigenvalues of $T$ are $\pm i/\sqrt2$, so $\delta(\exp(tT),
+I)=2\sqrt2\lvert\sin(t/2\sqrt2)\rvert$, and $\sin u\ge u-u^3/6$. The
+coarse label of a block at scale $j$ is the plaquette of $U^{(j+1)}$.
+\end{proof}
+
+Between the two conditions lies a factor $23.5<4^{2.3}$, so the fine
+witnesses of Lemma~\ref{lem:scalewitness} stop within three scales of
+where any fine witness must stop. The remaining six scales up to $a_{k_*}$
+are the ratio between the curvature margin $10^{-4}$ of
+Theorem~\ref{thm:defectscales}(iv) and the chart radius $10^{-8}$ of
+Lemma~\ref{lem:smallframes}: a chart lemma at radius $10^{-4}$ would carry
+the count to $a_{k_*}$, and past $a_{k_*}$ the rarity of a large coarse
+plaquette can no longer come from the fine scale, by the proposition, but
+must come from the coarse energy of Lemma~\ref{lem:coarseenergy}, which is
+known for torus-valued fields only. Theorem~\ref{thm:islandscales} is an
+annealed statement about the pushforward of $\mu_L$: it says nothing about
+the law of $U^{(j)}$ given its labels, which is what the effective action
+of item (iv) below is for.
+
 \subsection{What remains}\label{ssec:remains}
 
 The results of this section leave the following statements, which together
@@ -11878,10 +12049,15 @@ one-step errors are summable in the sense of
 Proposition~\ref{prop:formstability} and whose locality norms obey
 Lemma~\ref{lem:schur}, down to the last $O(1)$ scales where the running
 coupling is of order one; this is the large-field expansion of
-Ba{\l}aban, and it is not carried out here.
+Ba{\l}aban, and it is not carried out here. Theorem~\ref{thm:islandscales}
+settles the entropy count of the islands at every scale up to
+$a_{k_*}/512$, and Proposition~\ref{prop:constantcurvature} shows that
+fine witnesses carry it no further; the law of the iterates given their
+labels, which the effective action is for, is untouched.
 \end{enumerate}
 Items (i) and (ii) are the single-scale part of (D) that remains open;
-item (iii) is settled at one scale by Theorem~\ref{thm:islandthreshold};
+item (iii) is settled by Theorem~\ref{thm:islandthreshold} at one scale
+and by Theorem~\ref{thm:islandscales} at every scale up to $a_{k_*}/512$;
 item (iv) is the multiscale part. On the continuum side, Lemmas~\ref{lem:positivetime}
 and~\ref{lem:nonvanishing} reduce the nontriviality of the limit to a
 lower bound on one ratio of lattice two-point functions at a fixed
@@ -11923,6 +12099,7 @@ $n$ bad labels & $A^{n/H}$, Lem.~\ref{lem:coverage}\\
 two islands & $\frac14\tanh(\varDelta/4)$, Cor.~\ref{cor:twolabels}\\
 rarity alone & floor $q^2/16$, Prop.~\ref{prop:hiddenbit}\\
 island of $n$ blocks & $2^{-n}$ past $\beta^*$, Thm.~\ref{thm:islandthreshold}\\
+islands at scale $j$ & $2^{-n}$ past $\beta^*_j$, Thm.~\ref{thm:islandscales}\\
 \bottomrule
 \end{tabular}
 \end{minipage}

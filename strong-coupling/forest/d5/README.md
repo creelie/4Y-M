@@ -37,3 +37,15 @@ directory; use separate scratch directories to keep generated data out of
 the source checkout. They contain no scheduler or cluster transport code.
 Numerical diagnostics alone close neither the bad-side transport problem
 nor the environment recursion or multiscale estimate.
+
+**Island thresholds (mpmath, standard library for the enumerations):**
+`island_threshold.py` computes the block-scale threshold of the island
+theorem (the largest root of the chessboard exponent against the entropy
+of the collar graph); `composed_threshold.py` the thresholds at every
+scale of the composed cut-off average with the box sizes of the fine
+witnesses, and the scale of the defect propagation at the same couplings;
+`witness_geometry.py` enumerates the witness boxes and their overlaps;
+`abelian_growth.py` iterates the cut-off average on an abelian field of
+constant curvature and reproduces the factor four per step;
+`grid_check.py` compares the two scales on a grid of couplings. The
+tracked `.out` files are their outputs.
