@@ -81,6 +81,46 @@ target. It does not control propagation factors from later scales: the
 bound applies directly only if those factors are uniformly bounded, or
 after an appropriate weighted estimate is proved.
 
+## Amplification changes the summability threshold
+
+**Proved (conditional weighted ledger).** Suppose additionally that the
+propagation factor at step j obeys L_j<=1+A/u_j, A>=0, and a defect at step
+k obeys epsilon_k<=E/u_k^p. Put gamma=A/delta. For k<n, the product over
+later steps satisfies
+
+    product_{j=k+1}^{n-1} L_j
+       <= exp(A/U) (max(U,u_{k+1})/U)^gamma
+       <= exp(A/U) (u_k/U)^gamma,                              (5)
+
+with the empty product equal to one. This follows from log(1+x)<=x and
+the same inverse-coupling sum bound, applied to the later trajectory.
+Consequently, if p-gamma>1,
+
+    sum_{k<n} epsilon_k product_{j>k} L_j
+      <= E exp(A/U) U^(-gamma)
+         [U^(-(p-gamma))
+          + U^(1-p+gamma)/(delta (p-gamma-1))].                (6)
+
+The right side is independent of u_0. This is a sufficient condition,
+not a necessary one: cancellations, a better norm, or a contractive
+direction may yield a sharper estimate.
+
+**Proved (sharpness in a scalar model).** For u_j=U+(n-j)b,
+L_j=1+A/u_j and epsilon_j=E/u_j^p, where A,E,b,U>0, there are constants
+c,C>0 independent of n and k such that
+
+    c (u_k/U)^(A/b) <= product_{j=k+1}^{n-1} L_j
+                     <= C (u_k/U)^(A/b).
+
+To see this, compare sum log(1+A/u_j) with A sum 1/u_j; their difference
+is bounded by (A²/2) sum 1/u_j², while the latter harmonic sum differs
+from b^(-1) log(u_k/U) by a bounded amount. Thus the propagated defect sum
+has the same large-n convergence threshold as sum_m m^(A/b-p): it is
+uniformly bounded iff p>1+A/b, grows logarithmically at equality, and
+grows as a positive power below it. These are positive scalar errors;
+they establish that the issue cannot be removed by a general triangle
+inequality alone, not that the actual gauge RG has this amplification.
+
 The recursion is a diagnostic model. Neither (1) nor the existence of an
 appropriate Yang--Mills coordinate is proved here; D8 remains open.
 
@@ -89,4 +129,9 @@ accumulation bounds for three initial values and remainders -C/u, 0, C/u.
 For u_0=100, 1000, 10000 with b=1, C=1/2 and U=10, the zero-remainder
 inverse-coupling sums are approximately 2.258, 4.557 and 6.859. This is a
 floating-point diagnostic of the scalar statement, not evidence for a
-Yang--Mills recursion.
+Yang--Mills recursion. In the separate exactly linear model with b=A=1
+and U=10, the propagated error sums at n=100, 1000, 10000 are about
+(1.322, 5.190, 17.602) for p=1.5, (0.214, 0.415, 0.624) for p=2,
+and (0.039, 0.050, 0.054) for p=2.5. The critical exponent is 2 in this
+model. These finite floating computations illustrate, but do not prove,
+the asymptotics above.
