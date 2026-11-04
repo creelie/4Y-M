@@ -1,0 +1,87 @@
+sigma(2 alpha_G) in [6.144e+15, 6.144e+15]
+PASS sigma(2 alpha_G) <= 6.145e15 (value in prop:islandmass)
+sigma(alpha_G) in [9.8304e+16, 9.8304e+16]
+PASS sigma(alpha_G) <= 9.831e16
+PASS 11^4 = 14641
+
+=== s = 1 ===
+b_* in [1.83837e+16, 1.83847e+16]
+nu_s = 658845
+log10(b_* nu_s) in [22.0832, 22.0832]
+PASS s=1: beta* rho^2/16 > 8 (b_* eps^(1/2), b_* eps decrease)
+PASS s=1: 2 sqrt(eps) <= 1
+lambda = -ln g_R at R = 2s+9 in [8105.11, 8105.11]
+PASS s=1: g_(2s+9) <= 1/2
+log10 Phi_(2s+9) in [-7012.12, -7012.12]
+PASS s=1: (6s+34)(1-1e-4) >= 6s+33 (d >= t+6)
+log10 c_s = log10(11^4 b nu e^{2a(8s+41)}) in [26.2594, 26.2595]
+log10 2 Phi_R (relative floor) in [-7011.82, -7011.82]
+chain rate lambda/(1e4 R) in [0.0736828, 0.0736828]
+d where 10^{c_s} e^{-2a(1-1e-4)d} = 1 in [120941, 120941]
+log10 C_1 = log10((9/2) b nu e^{4a(2s+9)}) in [22.7412, 22.7412]
+PASS s=1: lambda/(1e4 R) >= 2 alpha_G
+PASS s=1: 10 <= (9/4) b nu
+PASS s=1: (2s+10)(1-1e-4) > 2s+9 (t < d)
+log10 (17/4) eps^{1/2} Phi_R (fibre floor) in [-14062.7, -14062.7]
+-ln g_R at R_max in [7623.95, 7623.95]
+PASS s=1: g(R_max) <= 1/2
+PASS s=1: lambda_S/8002 > 1/2
+log10 chain/e^{-sqrt d/2} at d=1e8 in [-1965.29, -1965.29]
+log10 main/e^{-sqrt d/2} at d=1e8 in [-8663.45, -8663.45]
+log10 far coefficient in [-14062.7, -14062.7]
+log10 C_S in [-1965.29, -1965.29]
+
+=== s = 5 ===
+b_* in [2.16535e+16, 2.16545e+16]
+nu_s = 5864445
+log10(b_* nu_s) in [23.1038, 23.1038]
+PASS s=5: beta* rho^2/16 > 8 (b_* eps^(1/2), b_* eps decrease)
+PASS s=5: 2 sqrt(eps) <= 1
+lambda = -ln g_R at R = 2s+9 in [9571.06, 9571.06]
+PASS s=5: g_(2s+9) <= 1/2
+log10 Phi_(2s+9) in [-8286.25, -8286.25]
+PASS s=5: (6s+34)(1-1e-4) >= 6s+33 (d >= t+6)
+log10 c_s = log10(11^4 b nu e^{2a(8s+41)}) in [27.2869, 27.2869]
+log10 2 Phi_R (relative floor) in [-8285.95, -8285.95]
+chain rate lambda/(1e4 R) in [0.050374, 0.050374]
+d where 10^{c_s} e^{-2a(1-1e-4)d} = 1 in [125673, 125674]
+log10 C_1 = log10((9/2) b nu e^{4a(2s+9)}) in [23.7652, 23.7652]
+PASS s=5: lambda/(1e4 R) >= 2 alpha_G
+PASS s=5: 10 <= (9/4) b nu
+PASS s=5: (2s+10)(1-1e-4) > 2s+9 (t < d)
+log10 (17/4) eps^{1/2} Phi_R (fibre floor) in [-16612, -16612]
+-ln g_R at R_max in [9092.02, 9092.02]
+PASS s=5: g(R_max) <= 1/2
+PASS s=5: lambda_S/8002 > 1/2
+log10 chain/e^{-sqrt d/2} at d=1e8 in [-2762.06, -2762.06]
+log10 main/e^{-sqrt d/2} at d=1e8 in [-8662.43, -8662.43]
+log10 far coefficient in [-16612, -16612]
+log10 C_S in [-2762.06, -2762.06]
+
+=== regime S, d-independent conditions ===
+PASS d=1e8: d/2 - 1 >= 2000 sqrt d + 1 (t >= R)
+PASS d=1e8: d/2 >= sqrt d + 4001 (floor(t/R) >= sqrt d/8002)
+PASS d=1e8: alpha_G > 1/(4 sqrt d) (main ratio decreases)
+PASS d<=1e100: ceil(2000 sqrt d) <= 2000*10^50 + 1 = R_max (exact integers)
+
+=== stated numbers ===
+PASS s=1: log10(b_* nu) <= 22.084
+PASS s=5: log10(b_* nu) <= 23.104
+PASS s=1: -ln g per block >= 736
+PASS s=5: -ln g per block >= 503
+PASS s=1: c_1 <= 26.26
+PASS s=5: c_5 <= 27.29
+PASS s=1: 2 Phi_R <= 10^-7011.8
+PASS s=5: 2 Phi_R <= 10^-8285.9
+PASS s=1: lambda_1 >= 0.0736
+PASS s=5: lambda_5 >= 0.0503
+PASS s=1: d_0 <= 1.21e5
+PASS s=5: d_0 <= 1.26e5
+PASS s=1: a_1 >= log10 C_1 (22.75)
+PASS s=5: a_5 >= log10 C_1 (23.77)
+PASS s=1: fibre floor <= 10^-14062.6
+PASS s=5: fibre floor <= 10^-16611.8
+PASS s=1: C_S <= 10^-1965
+PASS s=5: C_S <= 10^-2761
+
+ALL PASS
