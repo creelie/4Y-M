@@ -4912,8 +4912,7 @@ is invariant under $\mathrm{Ad}_G$, hence commutes with $\g$, and so vanishes.
 The curves $t\mapsto e^{tA_e}$ span the tangent space at $I$.
 \end{proof}
 
-The one-loop tuning has $\beta_W=\frac{11}{3\pi^2}\log(1/a)+O(1)$ for
-$\SU(2)$, so $a_k\beta_k\to0$ along it, and Proposition~\ref{prop:lipobstruction}(ii)
+The one-loop tuning has $\beta_W=\frac{11}{3\pi^2}\log(1/a)+O(1)$ for $\SU(2)$, and the two-loop tuning adds a term of order $\log\log(1/a)$ (Remark~\ref{rem:twoloop}), so $a_k\beta_k\to0$ along either, and Proposition~\ref{prop:lipobstruction}(ii)
 applies. Part (i) shows where the loss lies: the bound of
 Lemma~\ref{lem:slabdirichlet}(iii) is first order in the time-like plaquettes,
 and it gives an energy at most $\kappa a$ only if the variance of $X$ is at
@@ -6786,6 +6785,665 @@ hypothesis of Theorem~\ref{thm:transfer} for the bound on $m_*$; parts
 (M$_Z$), the second of which contains $(\mathrm N_0)$ for product packets;
 the Ward identity $\Delta^X_k\to0$ for one $X\in\mathfrak{so}(3)_{\mathrm
 {sp}}$; and, given (RC), (U1) and (U2).
+
+\subsection{Tuning by the ratio}\label{ssec:ratiotuning}
+
+This subsection uses the ratio of Sec.~\ref{ssec:ratiocube} as the
+renormalisation condition: the couplings $\beta_k$ are chosen so that
+$\rho_k(u,\sigma)=r$ for a fixed $r\in(0,1)$. It determines how the ratio
+depends on the coupling, when the value $r$ is attained, what is known about
+the location of the couplings and their relation to the one-loop tuning of
+Proposition~\ref{prop:scalelosses}, and what the choice gives for (U). The
+tuning exists if and only if $(\mathrm N_u)$ holds along some sequence of
+couplings. Along it, $(\mathrm N_u)$ and the convergence of the ratio
+required in Proposition~\ref{prop:uniquelimit}(iii) hold by construction.
+Whether $\beta_k\to\infty$, and whether (D) holds along it, remain open, and
+the joint input of (D) and $(\mathrm N_u)$ is the same as before.
+
+\emph{Admissible states.} Throughout, $\beta_W\ge0$ denotes the Wilson
+coupling, $G=\SU(N)$, and the weight of a configuration is
+$\exp(\beta_W\sum_pN^{-1}\ReTr Q_p)$. Let $\mathcal A$ be the closure in the
+supremum norm of the continuous gauge-invariant local functions of the links
+of $\Z^4$. It is a commutative $C^*$-algebra with unit, and it contains the
+flowed fields $\Phi_x\circ\Phi_s$ and the packets $A_k$ by
+Proposition~\ref{prop:spatialflow}(ii). For a finite set $\Lambda$ of links,
+let $\gamma^{\beta_W}_\Lambda$ resample the links of $\Lambda$ from the law
+whose density with respect to Haar measure on $G^\Lambda$ is proportional to
+$\exp(\beta_W\sum_{p\cap\Lambda\ne\emptyset}N^{-1}\ReTr Q_p)$, given the other
+links. The weight is gauge invariant and Haar measure is invariant under
+translations of the group, so $\gamma^{\beta_W}_\Lambda$ commutes with gauge
+transformations; it preserves locality and continuity, and maps $\mathcal A$
+into itself. Let $P_\Lambda$ be the number of plaquettes that meet $\Lambda$.
+
+\begin{definition}\label{def:admissible}
+For $\beta_W\ge0$, $\mathcal S(\beta_W)$ is the set of states $\omega$ on
+$\mathcal A$ that are invariant under translations and the hypercubic group,
+reflection positive for reflections in hyperplanes through sites and in
+hyperplanes bisecting links, and satisfy $\omega(\gamma^{\beta_W}_\Lambda
+H)=\omega(H)$ for every finite set $\Lambda$ of links and every
+$H\in\mathcal A$.
+\end{definition}
+
+Every $\omega\in\mathcal S(\beta_W)$ is a state as in
+Appendix~\ref{app:transfer}. For the data $\Phi$, $\tau$, $f_0$ of
+Sec.~\ref{ssec:ratiocube} we write $C^\omega_k(t)$ and
+$\rho^\omega_k(u,\sigma)$ for the quantities $C_k(t)$ and $\rho_k(u,\sigma)$
+computed in $\omega$. If $\tilde A_k$ is the packet before centring, then
+$A_k=\tilde A_k-\omega(\tilde A_k)$, and invariance of $\omega$ under
+$\vartheta$ and $\tau$ gives
+\begin{equation}\label{eq:Comega}
+C^\omega_k(t)=\omega\bigl(\vartheta(\bar{\tilde A}_k)\,\tau_{t/a_k}\tilde
+A_k\bigr)-|\omega(\tilde A_k)|^2 .
+\end{equation}
+
+\begin{lemma}\label{lem:admissible}
+\textup{(i)} For every finite set $\Lambda$ of links, $H\in\mathcal A$ and
+$\beta_W,\beta'_W\ge0$,
+\[
+\|\gamma^{\beta_W}_\Lambda H-\gamma^{\beta'_W}_\Lambda H\|_\infty\le
+\bigl(e^{2P_\Lambda|\beta_W-\beta'_W|}-1\bigr)\|H\|_\infty .
+\]
+
+\textup{(ii)} $\mathcal S(\beta_W)$ is convex and weak-$*$ compact, and the
+set of pairs $(\beta_W,\omega)$ with $\omega\in\mathcal S(\beta_W)$ is closed.
+
+\textup{(iii)} $\mathcal S(\beta_W)$ is not empty: it contains every limit
+point, as $L\to\infty$ through even values, of the Wilson measures on the
+tori $(\Z/L\Z)^4$, and the states of Propositions~\ref{prop:state}
+and~\ref{prop:blockstate}, of Theorems~\ref{thm:su2}, \ref{thm:blocks}
+and~\ref{thm:groups}, and of Theorem~\ref{thm:onescale}, whenever their
+hypotheses hold at $\beta_W$.
+
+\textup{(iv)} $\mathcal S(0)$ consists of the restriction of the product of
+Haar measures, and there $C_k(t)=0$ for all $k$ and $t$.
+
+\textup{(v)} For a compact interval $I\subset[0,\infty)$ the set
+$\Gamma_I$ of pairs $(\beta_W,\omega)$ with $\beta_W\in I$ and
+$\omega\in\mathcal S(\beta_W)$ is compact and connected.
+\end{lemma}
+
+\begin{proof}
+(i) Write the density of $\gamma^{\beta_W}_\Lambda$ as $e^{\beta_WV}/Z$,
+where $V$ is the sum of $N^{-1}\ReTr Q_p$ over the plaquettes that meet
+$\Lambda$, so that $|V|\le P_\Lambda$.
+Changing $\beta_W$ by $\delta$ multiplies the numerator and the normalisation
+by factors in $[e^{-P_\Lambda|\delta|},e^{P_\Lambda|\delta|}]$, so the ratio
+$q$ of the two densities lies in $[e^{-2P_\Lambda|\delta|},
+e^{2P_\Lambda|\delta|}]$ and $|q-1|\le e^{2P_\Lambda|\delta|}-1$. Integrate
+$|H||q-1|$ against the second law.
+
+(ii) Invariance, the inequalities $\omega(\vartheta(\bar H)H)\ge0$ and, at
+fixed $\beta_W$, the identities $\omega(\gamma^{\beta_W}_\Lambda H)=
+\omega(H)$ are preserved by convex combinations and weak-$*$ limits, and the
+states of $\mathcal A$ form a weak-$*$ compact set. If $\beta_n\to\beta_W$,
+$\omega_n\in\mathcal S(\beta_n)$ and $\omega_n\to\omega$, then by (i)
+\[
+|\omega(\gamma^{\beta_W}_\Lambda H)-\omega(H)|=\lim_n|\omega_n
+(\gamma^{\beta_W}_\Lambda H-\gamma^{\beta_n}_\Lambda H)|=0 .
+\]
+
+(iii) For even $L$ the Wilson measure $\mu_L$ on $(\Z/L\Z)^4$ is invariant
+under the translations and the hypercubic group of the torus and reflection
+positive for both kinds of planes~\cite{OSei78,Sei82}. A gauge-invariant local
+function of $\Z^4$ is a gauge-invariant function on the torus once $L$
+exceeds the diameter of its support by two, and for such $H$ and $\Lambda$
+with $L$ large, $\mu_L(\gamma^{\beta_W}_\Lambda H)=\mu_L(H)$ because the
+plaquettes that meet $\Lambda$ are plaquettes of the torus. Since $\mathcal A$
+is separable, a diagonal sequence $L_n$ makes $\mu_{L_n}(H)$ converge for
+all local $H$; the limit is positive, normalised and bounded by
+$\|H\|_\infty$, extends to a state on $\mathcal A$, and inherits the three
+properties. The free-boundary states are limits of $W_{\Lambda'}$ along
+boxes, $W_{\Lambda'}(\gamma^{\beta_W}_\Lambda H)=W_{\Lambda'}(H)$ once
+every plaquette that meets $\Lambda$ lies in $P(\Lambda')$, and invariance
+and reflection positivity are part of each of the cited statements for
+$\beta_W\ge0$.
+
+(iv) At $\beta_W=0$ the law of $\gamma^0_\Lambda$ is Haar measure on
+$G^\Lambda$, so $\omega(H)=\omega(\gamma^0_\Lambda H)$ is the Haar integral
+of $H$ for every $H$ depending on the links of $\Lambda$. The packet $A_k$ is
+a uniform limit of functions of the spatial links at times $x_0\ge1$, and
+$\vartheta(\bar A_k)$ of those at times $x_0\le-1$
+(Proposition~\ref{prop:spatialflow}(i)); under the product measure the two
+are independent, so $C_k(t)=\omega(\vartheta(\bar A_k))\,\omega(\tau_{t/a_k}
+A_k)=0$.
+
+(v) $\Gamma_I$ is closed in the product of $I$ with the compact set of
+states, by (ii). Suppose $\Gamma_I=U\cup V$ with $U,V$ disjoint, nonempty and
+closed. Each fibre $\{\beta_W\}\times\mathcal S(\beta_W)$ is convex, hence
+connected, and lies in $U$ or in $V$. The projections of $U$ and $V$ to $I$
+are then disjoint, compact, nonempty by (iii), and cover $I$, which
+contradicts the connectedness of $I$.
+\end{proof}
+
+\begin{lemma}\label{lem:gibbsunique}
+Let $\beta=\beta_W/N^2\ge0$ be such that $\gamma^F$ has exactly one Gibbs
+measure $\mu_F$, and let $\omega_\beta(O)=\mu_F(O^F)$ for gauge-invariant
+local $O$. Then every state $\omega$ on $\mathcal A$ with
+$\omega(\gamma^{\beta_W}_\Lambda H)=\omega(H)$ for all finite $\Lambda$ and
+$H\in\mathcal A$ equals $\omega_\beta$. In particular $\mathcal S(\beta_W)$
+has no element other than $\omega_\beta$, and if $\beta_n\to\beta_W$ and
+$\omega_n\in\mathcal S(\beta_n)$, then $\omega_n\to\omega_\beta$ weak-$*$.
+This applies under the hypotheses of Propositions~\ref{prop:state}
+and~\ref{prop:blockstate} and of Theorem~\ref{thm:onescale}, where
+$\mathcal S(\beta_W)=\{\omega_\beta\}$ by Lemma~\ref{lem:admissible}(iii),
+in particular for $G=\SU(2)$ and $0\le\beta_W\le0.351$.
+\end{lemma}
+
+\begin{proof}
+Let $E$ be the set of links and $\mathcal G=G^{\Z^4}$ the compact gauge group
+with its Haar measure $dg$. For $H\in C(G^E)$ put $(\mathcal PH)(Q)=\int
+H(Q^g)\,dg$. If $H$ is local, $\mathcal PH$ is local and gauge invariant, and
+$\mathcal P$ is a contraction, so $\mathcal P$ maps $C(G^E)$ onto
+$\mathcal A$ and is the identity on $\mathcal A$. Since
+$\gamma^{\beta_W}_\Lambda$ commutes with gauge transformations,
+$\mathcal P\gamma^{\beta_W}_\Lambda=\gamma^{\beta_W}_\Lambda\mathcal P$.
+Hence $\tilde\omega=\omega\circ\mathcal P$ is a probability measure on $G^E$
+with $\tilde\omega\gamma^{\beta_W}_\Lambda=\tilde\omega$ for every finite
+$\Lambda$, as measures.
+
+By Lemma~\ref{lem:structure}(i), the line field $F$ is a disjoint union
+of straight bi-infinite lines. On a line in the direction $\mu$ put $g=1$ at its site
+with $x_\mu=0$, and extend by $g(y+e_\mu)=g(y)Q_{(y,\mu)}$ in both directions.
+This defines a continuous map $Q_F\mapsto g$, and the gauge transform
+$T(Q)=(Q^g_e)_{e\in A}$, $Q^g_e=g_xQ_eg_y^{-1}$ for $e=(x,y)$, is a continuous
+map $G^E\to G^A$; $Q^g$ equals $1$ on $F$. Let $V\subset A$ be finite and
+$h$ bounded and measurable on $G^A$. Given the links outside $V$, which fix
+$g$ and $T(Q)_{A\setminus V}$, the map $Q_V\mapsto T(Q)_V$ is a product of
+left and right translations and preserves Haar measure, and
+$\ReTr Q_p=\ReTr Q^g_p$ for every plaquette. With $\beta_WN^{-1}=N\beta$ this
+gives $\gamma^{\beta_W}_V(h\circ T)=(\gamma^F_Vh)\circ T$, where
+$\gamma^F_V$ is the kernel of the specification $\gamma^F$ on $V$. The law
+$\nu=\tilde\omega\circ T^{-1}$ therefore satisfies
+\[
+\nu(\gamma^F_Vh)=\tilde\omega(\gamma^{\beta_W}_V(h\circ T))=
+\tilde\omega(h\circ T)=\nu(h),
+\]
+so $\nu$ is a Gibbs measure of $\gamma^F$ and $\nu=\mu_F$. For
+gauge-invariant local $O$, $O(Q)=O(Q^g)=O^F(T(Q))$, because $O$ depends on
+finitely many links. Hence $\omega(O)=\tilde\omega(O^F\circ T)=\mu_F(O^F)=
+\omega_\beta(O)$, and two states that agree on a dense set are equal.
+
+For the last statement, every limit point of $(\omega_n)$ lies in
+$\mathcal S(\beta_W)$ by Lemma~\ref{lem:admissible}(ii). The three cited
+statements give (i) and (ii) of Proposition~\ref{prop:state}, and
+Theorems~\ref{thm:su2} and~\ref{thm:blocks} are proved through
+Propositions~\ref{prop:state} and~\ref{prop:blockstate}.
+\end{proof}
+
+For $\SU(2)$ and $\beta_W\le0.351$ the upper bound of
+Theorem~\ref{thm:strongratio} therefore holds for every admissible state.
+For the other groups in the range of Theorem~\ref{thm:groups} the bound holds
+for the state of that theorem; uniqueness of the Gibbs measure of $\gamma^F$
+is not established there, so it is not known for all of
+$\mathcal S(\beta_W)$.
+
+\begin{proposition}\label{prop:ratiovalues}
+Fix $\Phi$, $\tau$, $f_0$, dyadic $u\ge0$ and $\sigma>0$, and $k$ with
+$u/a_k,\sigma/a_k\in\Z$.
+
+\textup{(i)} For each $t$, $\omega\mapsto C^\omega_k(t)$ is weak-$*$
+continuous on the states of $\mathcal A$. For $\omega\in\mathcal
+S(\beta_W)$, $0\le C^\omega_k(t')\le C^\omega_k(t)$ for $t'\ge t$, and
+$C^\omega_k(t)>0$ for all $t$ if and only if $C^\omega_k(0)>0$.
+
+\textup{(ii)} Let $I$ be a compact interval with
+\begin{enumerate}[label=\textup{(P$_k$)},leftmargin=*]
+\item $C^\omega_k(0)>0$ for every $(\beta_W,\omega)\in\Gamma_I$.
+\end{enumerate}
+Then $(\beta_W,\omega)\mapsto\rho^\omega_k(u,\sigma)$ is continuous on
+$\Gamma_I$ with values in $(0,1]$; its set of values on $\Gamma_I$, and on
+each fibre $\mathcal S(\beta_W)$, is a compact interval.
+
+\textup{(iii)} If $\mathcal S(\beta_*)=\{\omega_*\}$ and
+$C^{\omega_*}_k(0)>0$, then for every $\varepsilon>0$ there is $\delta>0$
+such that $C^\omega_k(0)>0$ and $|\rho^\omega_k(u,\sigma)-
+\rho^{\omega_*}_k(u,\sigma)|<\varepsilon$ for all $\omega\in\mathcal
+S(\beta_W)$ with $|\beta_W-\beta_*|<\delta$.
+\end{proposition}
+
+\begin{proof}
+(i) In~\eqref{eq:Comega}, $\tilde A_k$ and
+$\vartheta(\bar{\tilde A}_k)\tau_{t/a_k}\tilde A_k$ are finite sums of
+elements of $\mathcal A$, which gives continuity. By
+Appendix~\ref{app:transfer}, $C^\omega_k(t)=\ip{\Psi_{A_k}}{\mathbb
+T^{t/a_k}\Psi_{A_k}}$ with $0\le\mathbb T\le1$, which is nonnegative and
+nonincreasing in $t$; the last statement is
+Proposition~\ref{prop:ratioexact}(i).
+
+(ii) By (i) the ratio is a quotient of continuous functions with a positive
+denominator, with values in $(0,1]$ by
+Proposition~\ref{prop:ratioexact}(ii). The image of the compact connected set
+$\Gamma_I$ (Lemma~\ref{lem:admissible}(v)) and of each convex fibre is
+compact and connected.
+
+(iii) Otherwise there are $\beta_n\to\beta_*$ and $\omega_n\in\mathcal
+S(\beta_n)$ violating one of the two properties. A subsequence converges,
+its limit lies in $\mathcal S(\beta_*)$ by Lemma~\ref{lem:admissible}(ii) and
+equals $\omega_*$, and by (i) $C^{\omega_n}_k(t)\to C^{\omega_*}_k(t)$ for
+$t=0,2u,2u+\sigma$, a contradiction.
+\end{proof}
+
+So the ratio depends continuously on the coupling wherever the admissible
+state is unique, and in general its values at one coupling form a compact
+interval. The hypothesis (P$_k$) is qualitative, a nonvanishing at each
+fixed $k$, and it is open in infinite volume: Theorem~\ref{thm:flowlimit}
+assumes it, and in a periodic box it is
+Proposition~\ref{prop:flowpositive}. It fails at $\beta_W=0$ by
+Lemma~\ref{lem:admissible}(iv). In the box the ratio is real-analytic.
+
+\begin{proposition}\label{prop:boxratio}
+In the box $\Z\times(\Z/L_k\Z)^3$ of Proposition~\textup{\ref{prop:flowpositive}},
+with its $f_0=g\otimes h$ and $\Phi$, let $\rho_k(\beta_W)$ be the ratio
+$\rho_k(u,\sigma)$ of the infinite-time Wilson state of the box at
+$\beta_W>0$.
+
+\textup{(i)} $\rho_k$ is real-analytic on $(0,\infty)$, takes values in
+$(0,1)$, and $\rho_k(\beta_W)\to0$ as $\beta_W\to0$.
+
+\textup{(ii)} For $r\in(0,1)$ the set $\{\beta_W>0:\rho_k(\beta_W)=r\}$ has
+no accumulation point in $(0,\infty)$, and it is nonempty if and only if
+$\rho_k(\beta_W)\ge r$ for some $\beta_W>0$.
+\end{proposition}
+
+\begin{proof}
+(i) In the notation of the proof of Proposition~\ref{prop:flowpositive},
+the transfer matrix is $T_{\beta_W}=MKM$ on the gauge-invariant part
+$\mathcal K$ of $L^2(G^E)$, $E$ the finite set of spatial links of a slice.
+The function $e^{\beta_WN^{-1}\operatorname{Re}\chi}$ is an entire function
+of $\beta_W$ with values in $C(G)$, and convolution with a continuous
+function has operator norm at most its supremum, so $K$ is entire in
+$\beta_W$ in operator norm; so is $M$, multiplication by the exponential of
+$\beta_W$ times a bounded function. At $\beta_W=0$, $K$ is the projection
+onto the constants and $M=1$, so $T_0$ is the projection onto the constant
+function $1$. For $\beta_W\ge0$ the largest eigenvalue $\lambda_0$ of the
+compact positive operator $T_{\beta_W}$ is simple and isolated, by the proof
+of Proposition~\ref{prop:flowpositive} for $\beta_W>0$ and because $T_0$
+is a projection of rank one for $\beta_W=0$. For $\beta_W$ near a
+point $\beta_*\ge0$ the Riesz projection $P_0=(2\pi i)^{-1}\oint(z-
+T_{\beta_W})^{-1}dz$, over a fixed circle around $\lambda_0(\beta_*)$ that
+separates it from the rest of the spectrum, is analytic in $\beta_W$, has
+rank one because $\|P_0-P_0(\beta_*)\|<1$, and projects onto the eigenspace
+of $\lambda_0(\beta_W)=\Tr(T_{\beta_W}P_0)$; by Weyl's inequality the other
+eigenvalues stay outside the circle, so this is the largest eigenvalue. For
+real $\beta_W$, $P_0$ is the orthogonal projection onto $\psi_0>0$, so
+$\ip1{P_01}=\ip1{\psi_0}^2>0$ and $\psi_0=P_01/\ip1{P_01}^{1/2}$ is
+real-analytic. The flowed fields do not depend on $\beta_W$. Hence, with
+$A=T_{\beta_W}/\lambda_0$, $F=\sum_xh(a_kx)\Phi_x\circ\Phi_{s_k}$ and
+$F^c=F-\ip{\psi_0}{F\psi_0}$,
+\[
+C_k(t)=a_k^8\ip{p(A)F^c\psi_0}{A^{t/a_k}p(A)F^c\psi_0}
+\]
+is real-analytic in $\beta_W\ge0$, and positive for $\beta_W>0$ by
+Proposition~\ref{prop:flowpositive}, so $\rho_k$ is real-analytic on
+$(0,\infty)$. The vector $\Psi_u=A^{u/a_k}p(A)F^c\psi_0$ is nonzero and
+orthogonal to $\psi_0$, so with $\lambda_1$ the largest eigenvalue of
+$T_{\beta_W}$ on $\psi_0^\perp$,
+\[
+\rho_k(\beta_W)=\frac{\ip{\Psi_u}{A^{\sigma/a_k}\Psi_u}}{\|\Psi_u\|^2}\le
+\Bigl(\frac{\lambda_1}{\lambda_0}\Bigr)^{\sigma/a_k}<1 .
+\]
+By the minimax principle with the vector $1$,
+\[
+\lambda_1\le\max_{w\perp1,\ \|w\|=1}\ip w{T_{\beta_W}w}\le
+\|T_{\beta_W}-T_0\|\to0 ,
+\]
+while $\lambda_0\ge\ip1{T_{\beta_W}1}\to1$ as $\beta_W\to0$.
+
+(ii) The function $\rho_k-r$ is real-analytic on the connected set
+$(0,\infty)$ and not identically zero, since it tends to $-r$ at $0$, so its
+zeros do not accumulate in $(0,\infty)$. If $\rho_k(\beta'_W)\ge r$, then
+$\rho_k<r$ near $0$ and the intermediate value theorem gives a zero in
+$(0,\beta'_W]$.
+\end{proof}
+
+At $\beta_W=0$ in the box, $\Psi_u\to0$: both $C_k(2u)$ and
+$C_k(2u+\sigma)$ vanish there, as in Lemma~\ref{lem:admissible}(iv). Whether
+$\rho_k(\beta_W)\ge r$ for some $\beta_W$, at fixed $k$ and $L_k$, is not
+known; Proposition~\ref{prop:largeb} below shows that concentration on flat
+configurations does not decide it.
+
+\begin{definition}\label{def:ratiotuning}
+Fix $\Phi$, $\tau$, $f_0$, dyadic $u\ge0$ and $\sigma>0$, and $r\in(0,1)$. A
+\emph{ratio tuning at level $r$} is a sequence $(\beta_k,\omega_k)$ with
+$\omega_k\in\mathcal S(\beta_k)$, $C^{\omega_k}_k(0)>0$ and
+$\rho^{\omega_k}_k(u,\sigma)=r$ for all $k\ge k_0$. In the box of
+Proposition~\textup{\ref{prop:boxratio}}, $\omega_k$ is the state of the box.
+\end{definition}
+
+\begin{theorem}\label{thm:ratiotuning}
+Let $G=\SU(2)$, $r\in(0,1)$ and $\beta_-\in(0,0.351]$, and assume
+\textup{(P$_k$)} on every compact interval in $[\beta_-,\infty)$, for all
+large $k$.
+
+\textup{(i)} A ratio tuning at level $r$ with $\beta_k\ge\beta_-$ exists if
+and only if, for every large $k$, some $\beta_W\ge\beta_-$ and
+$\omega\in\mathcal S(\beta_W)$ have $\rho^\omega_k(u,\sigma)\ge r$. If
+$\liminf_k\rho^{\omega_k}_k(u,\sigma)=c>0$ for some $\omega_k\in\mathcal
+S(\beta_k)$ with $\beta_k\ge\beta_-$, ratio tunings exist at every level
+$r\in(0,c)$; conversely, a ratio tuning at level $r$ satisfies
+$(\mathrm N_u)$. In the box the same holds without \textup{(P$_k$)} and
+without the condition $\beta_k\ge\beta_-$.
+
+\textup{(ii)} Every ratio tuning at level $r$ in infinite volume has
+$\beta_k>0.351$ for all large $k$, and along every ratio tuning, in infinite
+volume or in the box:
+\begin{enumerate}[label=\textup{(\alph*)},leftmargin=*]
+\item $\rho_k(u',\sigma)\ge r$ for $u'\ge u$; for dyadic $\sigma'$ with
+$\sigma'/a_k\in\Z$, $r^{\sigma'/\sigma}\le\rho_k(u,\sigma')\le r$ if
+$\sigma'\ge\sigma$, and $r\le\rho_k(u,\sigma')\le r^{\sigma'/\sigma}$ if
+$\sigma'\le\sigma$;
+\item every limit of Theorem~\textup{\ref{thm:flowlimit}} for $f_{0,u}$ is
+nontrivial and has $\rho(\sigma)=r$;
+\item the spectral measures of
+Proposition~\textup{\ref{prop:ratioexact}(iv)} satisfy, with
+$\Lambda=\sigma^{-1}\log(2/r)$ and every $\lambda\ge0$,
+\[
+\mu_{k,u}([0,\Lambda])\ge\tfrac r2,\qquad\mu_{k,u}([0,\lambda])\le
+re^{\sigma\lambda};
+\]
+\item the norm $e^{-m_k}$ of $\mathbb T_k$ on $\Omega_k^\perp$ satisfies
+$m_k\le a_k\sigma^{-1}\log(1/r)$.
+\end{enumerate}
+
+\textup{(iii)} Let $u=0$, let $\Phi$ be real and $W_3$-invariant as in
+Sec.~\textup{\ref{ssec:osaxioms}}, and suppose that $D(n_k,\alpha)$ holds
+at $\beta_k$ with $n_ka_k\le\ell$ and that \textup{(M)} holds. Then
+$\omega_k$ is the state of Theorem~\textup{\ref{thm:onescale}},
+$\alpha\ge r^{2\ell/\sigma}$ and $m_*\le\sigma^{-1}\log(1/r)$. If every
+subsequential limit of Theorem~\textup{\ref{thm:osaxioms}(i)} lies in a set
+$\mathfrak F$ as in Proposition~\textup{\ref{prop:uniquelimit}(iii)} with
+$\sigma_0=\sigma$, then \textup{(U)} holds and the moments
+$\omega_k(\prod_jZ_kA_k(f_j))$ converge for all $n$ and $f_j\in
+C_c(\R^4)$.
+\end{theorem}
+
+\begin{proof}
+(i) Let $k$ be so large that $e^{-m_0\sigma/a_k}<r$, with $m_0$ of
+Theorem~\ref{thm:strongratio}, and let $\rho^{\omega'}_k(u,\sigma)\ge r$
+with $\omega'\in\mathcal S(\beta'_W)$, $\beta'_W\ge\beta_-$. By
+Lemma~\ref{lem:gibbsunique}, $\mathcal S(\beta_-)$ consists of the state of
+Theorem~\ref{thm:blocks}, where $\rho_k(u,\sigma)\le e^{-m_0\sigma/a_k}<r$
+by Theorem~\ref{thm:strongratio}. By
+Proposition~\ref{prop:ratiovalues}(ii) on $I=[\beta_-,\beta'_W]$ the values
+of the ratio on $\Gamma_I$ form an interval that contains $r$. The other
+implication is clear. If the $\liminf$ is $c$ and $r<c$, then
+$\rho^{\omega_k}_k\ge r$ for large $k$. In the box,
+Proposition~\ref{prop:boxratio}(ii) replaces this argument.
+
+(ii) For large $k$ every admissible state at $\beta_W\le0.351$ has
+$\rho_k(u,\sigma)\le e^{-m_0\sigma/a_k}<r$, by Lemma~\ref{lem:gibbsunique}
+and Theorem~\ref{thm:strongratio}. Part (a) is
+Proposition~\ref{prop:ratioexact}(ii), the power bound applied once to the
+pair $(\sigma,\sigma')$ and once to $(\sigma',\sigma)$, and (b) is
+Proposition~\ref{prop:ratioexact}(iii). In (c) the first bound is
+Proposition~\ref{prop:ratioexact}(iv) with $c=r$, and the second follows from
+$r=\int e^{-\sigma E}d\mu_{k,u}\ge e^{-\sigma\lambda}\mu_{k,u}([0,\lambda])$.
+For (d), $\Psi_{k,u}$ is a unit vector in $\Omega_k^\perp$, so
+$r=\ip{\Psi_{k,u}}{\mathbb T_k^{\sigma/a_k}\Psi_{k,u}}\le
+e^{-m_k\sigma/a_k}$.
+
+(iii) Lemma~\ref{lem:gibbsunique} under the hypothesis of
+Theorem~\ref{thm:onescale} identifies $\omega_k$, and
+Proposition~\ref{prop:cubecompatible}(i) with $c=r$ gives the bounds on
+$\alpha$ and $m_*$. The sequence $\rho_k(0,\sigma)=r$ converges, so
+Proposition~\ref{prop:uniquelimit}(iii) gives (U), and
+Proposition~\ref{prop:uniquelimit}(i) the convergence of the moments.
+\end{proof}
+
+The same holds for $\SU(N)$ with $\beta_-$ in the range of
+Theorem~\ref{thm:groups} and $m_0=m_G(\beta_-/N^2)$, provided the state of
+that theorem is the only admissible state at $\beta_-$; in (ii) the bound
+$\beta_k>0.351$ is then replaced by the exclusion of the couplings at which
+the admissible state is that of Theorem~\ref{thm:groups}. Part (d) is the
+precise sense in which the tuning has to leave every region of couplings
+with a lattice gap bounded below: the lattice gap at $\beta_k$ is at most
+$a_k\sigma^{-1}\log(1/r)$.
+
+\emph{Circularity with (D).} The ratio is defined for every admissible state
+without (D), and (D) is a property of the specification at one coupling, so
+the definition of the ratio tuning does not use (D), and (D) can be posed
+along it, as in Theorem~\ref{thm:ratiotuning}(iii). The next statement shows
+that this does not reduce the joint input.
+
+\begin{proposition}\label{prop:ratiodregion}
+Fix $k$ and a compact interval $I=[\beta_-,B]$ such that, at every
+$\beta_W\in I$, $D(n,\alpha)$ holds with $na_k\le\ell$ ($n$ may depend on
+$\beta_W$) and $C_k(0)>0$ for the state of Theorem~\textup{\ref{thm:onescale}}.
+Then $\mathcal S(\beta_W)$ is that state for $\beta_W\in I$, the function
+$\beta_W\mapsto\rho_k(u,\sigma)$ is continuous on $I$ and bounded by
+$\alpha^{\sigma/(2\ell)}$, and for $r>\rho_k(u,\sigma)|_{\beta_-}$ the value
+$r$ is attained on $I$ if and only if $\max_I\rho_k(u,\sigma)\ge r$.
+Consequently, given such intervals $I_k$ for all large $k$, with
+$\rho_k(u,\sigma)<r$ at $\beta_-$ (for $\SU(2)$ this holds for large $k$ when
+$\beta_-\le0.351$), a ratio tuning at level $r$ with $\beta_k\in I_k$ exists
+if and only if $(\mathrm N_u)$ holds
+with $\rho_k(u,\sigma)\ge r$ along some sequence $\beta_k\in I_k$, and then
+$r\le\alpha^{\sigma/(2\ell)}$.
+\end{proposition}
+
+\begin{proof}
+Lemma~\ref{lem:gibbsunique} under Theorem~\ref{thm:onescale} gives
+uniqueness, Proposition~\ref{prop:ratiovalues}(iii) continuity,
+Proposition~\ref{prop:cubecompatible}(i) the bound, and the intermediate value
+theorem the rest.
+\end{proof}
+
+So the ratio tuning moves no difficulty: (D) at the couplings where the ratio
+equals $r$ is the same requirement as (D) and $(\mathrm N_u)$ at common
+couplings, with the compatibility $\alpha\ge r^{2\ell/\sigma}$ of
+Proposition~\ref{prop:cubecompatible}. What it adds is that the
+normalisation in Proposition~\ref{prop:uniquelimit}(iii) is built into the
+choice of the couplings, and that the couplings are defined by a quantity
+of the theory, not by perturbation theory.
+
+\emph{Location of the couplings.} For $B\ge\beta_-$ let $R_k(B)$ be the
+supremum of $\rho^\omega_k(u,\sigma)$ over $\omega\in\mathcal S(\beta_W)$
+and $\beta_W\in[\beta_-,B]$. The rescaling below uses
+$f_0^{(2)}=f_0(\cdot/2)$, which is supported in $\{t>0\}$, and the
+coefficient $b=\frac{11N^2}{12\pi^2}$ of Proposition~\ref{prop:scalelosses},
+with $h=b\log2$.
+
+\begin{proposition}\label{prop:ratiolocation}
+Assume the hypotheses of Theorem~\textup{\ref{thm:ratiotuning}}.
+
+\textup{(i)} If for every $B$, $R_k(B)<r$ for all large $k$, then every
+ratio tuning at level $r$ has $\beta_k\to\infty$. If $R_k(B)\ge r$ for
+infinitely many $k$ and a ratio tuning at level $r$ exists, then one exists
+with $\beta_k\le B$ for infinitely many $k$. If for every $B$ there is
+$m(B)>0$ such that the transfer matrix of every $\omega\in\mathcal
+S(\beta_W)$, $\beta_W\le B$, has norm at most $e^{-m(B)}$ on
+$\Omega^\perp$, then $R_k(B)\le e^{-m(B)\sigma/a_k}$ and every ratio tuning
+has $\beta_k\to\infty$.
+
+\textup{(ii)} For every state $\omega$ as in
+Appendix~\textup{\ref{app:transfer}} and every $k$,
+\begin{equation}\label{eq:rescale}
+\rho^\omega_{k+1}(u,\sigma;\tau,f_0)=\rho^\omega_k(2u,2\sigma;4\tau,
+f_0^{(2)}) .
+\end{equation}
+So $\beta_{k+1}$ of a ratio tuning for $(u,\sigma,\tau,f_0)$ solves at level
+$k$ the equation for $(2u,2\sigma,4\tau,f_0^{(2)})$, and with
+$\Delta_k=\beta_{k+1}-\beta_k$ and $D_k=\beta_k-b\log(1/a_k)$,
+\[
+D_K-D_{k_0}=\sum_{j=k_0}^{K-1}(\Delta_j-h) .
+\]
+
+\textup{(iii)} If $\beta_j>0$ and $\Delta_j\ge h+c/\beta_{j+1}$ for $j\ge
+k_0$, with $c>0$, then $D_K$ is nondecreasing for $K\ge k_0$ and
+$D_K\to\infty$. If $\sum_j|\Delta_j-h|<\infty$, then $D_K$ converges.
+
+\textup{(iv)} Suppose that $\rho^\omega_k(u,\sigma)\le\rho^{\omega'}_k
+(u,\sigma)$ whenever $\omega\in\mathcal S(\beta_W)$,
+$\omega'\in\mathcal S(\beta'_W)$, $\beta_W<\beta'_W$ and $k$ is large, and
+that for every $r'\in(0,1)$ there is a ratio tuning at level $r'$ with
+$\Delta_j\ge h+c(r')/\beta_{j+1}$, $c(r')>0$. Then $(\mathrm N_u)$ fails
+along every sequence of admissible states at couplings $\beta_k\le
+b\log(1/a_k)+M$.
+\end{proposition}
+
+\begin{proof}
+(i) In the first case, for every $B$ the couplings $\beta_k$ exceed $B$ for
+large $k$. In the second, the intermediate value theorem of
+Proposition~\ref{prop:ratiovalues}(ii) on $[\beta_-,B]$ gives solutions
+$\beta_k\le B$ at those $k$, which replace the given terms. In the third,
+$\rho^\omega_k(u,\sigma)=\ip{\Psi_{k,u}}{\mathbb
+T^{\sigma/a_k}\Psi_{k,u}}\le e^{-m(B)\sigma/a_k}$, and the first case
+applies.
+
+(ii) Since $a_k=2a_{k+1}$, $\tau/a_{k+1}^2=4\tau/a_k^2$ and
+$a_k^4f_0^{(2)}(a_kx)=2^4a_{k+1}^4f_0(a_{k+1}x)$, the packet of
+$(4\tau,f_0^{(2)})$ at level $k$ is $2^4$ times that of $(\tau,f_0)$ at
+level $k+1$, and a time $t$ at level $k+1$ is $t/a_{k+1}=2t/a_k$ lattice
+steps. Hence $C^\omega_k(2t;4\tau,f_0^{(2)})=2^8C^\omega_{k+1}(t;\tau,f_0)$,
+which gives~\eqref{eq:rescale}. The identity for $D_K$ follows from
+$b\log(1/a_{j+1})-b\log(1/a_j)=h$.
+
+(iii) The terms of the sum are positive. If $D_K\le M'$ for all $K$, then
+$0<\beta_{j+1}\le b\log(1/a_{j+1})+M'$, which grows linearly in $j$, and
+$\sum_jc/\beta_{j+1}=\infty$, a contradiction; a nondecreasing sequence that
+is not bounded above tends to $\infty$. The second statement is clear.
+
+(iv) If $(\mathrm N_u)$ holds along admissible states at couplings
+$\beta_k$, choose $r'$ with $\rho^{\omega_k}_k(u,\sigma)\ge2r'$ for large
+$k$, and let $(\beta'_k,\omega'_k)$ be a ratio
+tuning at level $r'$ as assumed. If $\beta_k<\beta'_k$, monotonicity would
+give $2r'\le r'$; hence $\beta_k\ge\beta'_k$ and
+$\beta_k-b\log(1/a_k)\ge D'_k\to\infty$ by (iii).
+\end{proof}
+
+By~\eqref{eq:rescale}, $\Delta_k$ is the change of coupling that compensates,
+at a fixed lattice level, a doubling of all physical scales of the
+renormalisation condition: a step-scaling function of the ratio. Neither the
+monotonicity in (iv) nor any bound on $\Delta_k$ is proved here.
+
+\begin{remark}\label{rem:twoloop}
+Perturbation theory to two loops~\cite{GW73,Pol73,Cas74,Jon74} gives, with
+$b_0=\frac{11N}{48\pi^2}$, $b_1=\frac{34N^2}{3(16\pi^2)^2}$ and
+$L=\log\frac1{a\Lambda}$,
+\[
+g(a)^{-2}=2b_0L+\frac{b_1}{b_0}\log L+O(1) ,
+\]
+so the coupling of fixed physics is $\beta_W=bL+\gamma\log L+O(1)$ with
+$b=4Nb_0$ and $\gamma=\frac{b_1}{2b_0^2}\,b=\frac{51}{121}\,b$, the ratio
+$\frac{51}{121}$ being the same for every $N$. Along $a_k=2^{-k}a_0$ its
+increments are $\Delta_j=h+\gamma h/\beta_{j+1}+O(\log\beta_j/\beta_j^2)$,
+which is the hypothesis of Proposition~\ref{prop:ratiolocation}(iii) for every
+$c<\gamma h$. For $\SU(2)$, $b=11/(3\pi^2)$ and $h=b\log2$, and $9.8696<\pi^2<9.8697$,
+$0.69314<\log2<0.69315$ give $b\in[0.37150,0.37152]$,
+$h\in[0.25750,0.25752]$, $\gamma\in[0.15658,0.15659]$ and
+$\gamma h\in[0.04032,0.04033]$. By the same expansion, along a tuning with
+$\beta_k=b\log(1/a_k)+M$ the invariant scale is $\Lambda\propto
+(\log(1/a_k))^{\gamma/b}$, so masses grow like
+$(\log(1/a_k))^{51/121}$ and the limit is trivial. This is the perturbative
+prediction, not a result: it says that the tuning to fixed physics differs
+from the one-loop tuning of Proposition~\ref{prop:scalelosses} by
+$\gamma\log\log(1/a_k)$, as the footnote in
+Sec.~\ref{sec:limits} records, and that a tuning with bounded $M$ is,
+by this prediction, a tuning to a trivial limit.
+\end{remark}
+
+The estimates of Proposition~\ref{prop:scalelosses} do not use the one-loop
+form of the tuning, only the size of its increments.
+
+\begin{corollary}\label{cor:scalelossesgeneral}
+Let $(\beta_k)$ be couplings with $\beta_{k+1}-\beta_k\in[h_-,h_+]$ for
+$k\ge k_0$, where $0<h_-\le h_+$, let $\sigma=a_i$ with $i\ge k_0$ and
+$\beta_i>0$, and for $k\ge i$ put $J_k=k-i$ and $\beta^{(j)}_k=\beta_{k-j}$,
+the coupling at the scale $2^ja_k$. Let $c_{k,j}\in[0,\frac12]$.
+
+\textup{(i)} If $c_{k,j}\ge c/\beta^{(j)}_k$ for $0\le j\le J_k$, with
+$c>0$, then
+\[
+\prod_{j=0}^{J_k}(1-c_{k,j})\le\Bigl(\frac{\beta_i}{\beta_i+h_+(J_k+1)}
+\Bigr)^{c/h_+}\to0 .
+\]
+
+\textup{(ii)} If $c_{k,j}\le c/(\beta^{(j)}_k)^2$ for $0\le j\le J_k$,
+then for every $k\ge i$
+\[
+\prod_{j=0}^{J_k}(1-c_{k,j})\ge\exp\Bigl(-2c\Bigl(\frac1{\beta_i^2}+
+\frac1{h_-\beta_i}\Bigr)\Bigr).
+\]
+\end{corollary}
+
+\begin{proof}
+With $l=J_k-j$, $\beta_i+h_-l\le\beta^{(j)}_k\le\beta_i+h_+l$. The proofs of
+Proposition~\ref{prop:scalelosses}(ii) and~(iii) apply with $\beta_i$ in
+place of $\beta^\pm_\sigma$ and $h_\pm$ in place of $h$.
+\end{proof}
+
+The two-loop tuning of Remark~\ref{rem:twoloop} has increments in
+$[h,h+\gamma h/\beta_{k_0}]$, so the conclusion drawn from
+Proposition~\ref{prop:scalelosses}, that a scale-by-scale comparison has to
+be exact to first order in the running coupling, holds for it as well, and
+for a ratio tuning whose increments are bounded above and below.
+
+\emph{Large couplings.} Concentration on flat configurations does not
+determine the ratio. Let $\delta_1$ be the evaluation at the configuration
+with every link equal to $1$, a character of $\mathcal A$.
+
+\begin{proposition}\label{prop:largeb}
+Let $\omega_n$ be states on $\mathcal A$, invariant under translations and
+the hypercubic group, with $\varepsilon_{\omega_n}\to0$. Then
+$\omega_n\to\delta_1$ weak-$*$, and $C^{\omega_n}_k(t)\to0$ for every $k$
+and $t$. For $\SU(2)$ this applies to limit points of the torus measures at
+couplings $\beta_n\to\infty$, which lie in $\mathcal S(\beta_n)$.
+\end{proposition}
+
+\begin{proof}
+Let $O$ be a continuous gauge-invariant function of the links of a box $B$,
+and $\eta>0$. There is $\delta>0$ such that $|O(U)-O(1)|<\eta$ whenever
+$s_p(U)<\delta$ for all $p\in P(B)$. Otherwise, by compactness,
+some $U$ with $U_p=1$ for all $p\in P(B)$ would have
+$|O(U)-O(1)|\ge\eta$; but a flat configuration of a box is a gauge transform
+of the trivial one (in the axial gauge, which sets the links of a maximal
+tree to $1$, the plaquettes determine the remaining links inductively over
+the coordinates), and $O$ is gauge invariant. Hence, pointwise,
+\[
+|O-O(1)|\le\eta+\frac{2\|O\|_\infty}\delta\sum_{p\in P(B)}s_p ,
+\]
+and $|\omega_n(O)-O(1)|\le\eta+2\|O\|_\infty|P(B)|\varepsilon_{\omega_n}/
+\delta$. This gives $\omega_n(O)\to O(1)$ for local $O$, and for all of
+$\mathcal A$ by density. In~\eqref{eq:Comega}, $\delta_1$ is multiplicative
+and fixed by $\vartheta$ and $\tau$, so $C^{\omega_n}_k(t)\to|\tilde
+A_k(1)|^2-|\tilde A_k(1)|^2=0$. For $\SU(2)$,
+Proposition~\ref{prop:energybeta} gives $\varepsilon\le(K_1+K_3/
+\beta_n)/\beta_n$ for the limit points, and Lemma~\ref{lem:admissible}(iii)
+places them in $\mathcal S(\beta_n)$.
+\end{proof}
+
+At fixed $k$ both $C_k(2u)$ and $C_k(2u+\sigma)$ therefore tend to zero as
+$\beta_W\to\infty$ along these states, and the ratio is a quotient of two
+vanishing quantities, on which concentration gives no information. In
+particular (P$_k$) holds at no uniform level: $\inf C_k(0)$ over these states
+is zero.
+
+\emph{What is proved.} In infinite volume: the admissible states form
+compact convex sets with closed graph; the ratio is continuous in the state,
+continuous in the coupling wherever the admissible state is unique (for
+$\SU(2)$ at $\beta_W\le0.351$, and wherever (D) holds), and its values over a
+compact interval of couplings form a compact interval under (P$_k$). In the
+box: (P$_k$) holds, the ratio is real-analytic in $\beta_W>0$ and tends to
+zero at $\beta_W=0$, and the couplings at which it equals $r$ form a discrete
+set, nonempty exactly when the ratio reaches $r$. A ratio tuning exists
+exactly when $(\mathrm N_u)$ holds along some sequence of couplings; it
+leaves the strong-coupling range, has lattice gap at most
+$a_k\sigma^{-1}\log(1/r)$, satisfies $(\mathrm N_u)$ with two-sided bounds,
+and, with (D), (M) and the family $\mathfrak F$, gives (U). Its increments
+are a step-scaling function, and if they exceed $h$ by $c/\beta_{k+1}$, as two
+loops predict, it is not a one-loop tuning of bounded $M$.
+
+\emph{What is moved, not proved.} The existence of a ratio tuning is
+equivalent to $(\mathrm N_u)$ along some sequence; (P$_k$) is open in
+infinite volume; $\beta_k\to\infty$ is equivalent to $\lim_kR_k(B)<r$ for
+every $B$ and follows from a lattice gap bounded below on compact sets of
+couplings, proved only for $\beta_W\le0.351$; (D), (M) and $\mathfrak F$
+along the ratio tuning remain hypotheses, and
+Proposition~\ref{prop:ratiodregion} shows that (D) along it is the joint
+input of Sec.~\ref{ssec:ratiocube} unchanged. Monotonicity of the ratio in
+$\beta_W$ is not proved and is used only in
+Proposition~\ref{prop:ratiolocation}(iv). The Ward-identity route is not
+pursued here.
 
 \subsection{Estimates uniform in the coupling}\label{ssec:uniform}
 
@@ -22063,8 +22721,7 @@ relative bounds at two physical separations, which a scale-by-scale argument
 along the one-loop tuning supplies only if its losses summed over the scales
 stay bounded, and not with a loss of first order in the running coupling at
 each scale (Proposition~\ref{prop:scalelosses}).
-This is the summability required in item~(iv), now for the ratio, and
-$(\mathrm N_u)$ is not proved here. Sec.~\ref{ssec:osaxioms} shows that, given (D) along the tuning, the
+This is the summability required in item~(iv), now for the ratio, and $(\mathrm N_u)$ is not proved here. Choosing the couplings by the ratio (Sec.~\ref{ssec:ratiotuning}) makes $(\mathrm N_u)$ and the normalisation of Proposition~\ref{prop:uniquelimit}(iii) hold by construction; such a choice exists if and only if $(\mathrm N_u)$ holds along some sequence of couplings (Theorem~\ref{thm:ratiotuning}), and it leaves (D), (M), the family $\mathfrak F$ and $\beta_k\to\infty$ open. Sec.~\ref{ssec:osaxioms} shows that, given (D) along the tuning, the
 Osterwalder--Schrader axioms for the spatially flowed fields, with the
 symmetry $\mathrm O(3)\times\mathrm O(1)$, follow from three statements, a
 moment bound (M), one spatial rotation (W) and one limit (U), each of
@@ -24029,6 +24686,11 @@ York, 2013, \href{https://doi.org/10.1007/978-1-4614-8024-2}
 \bibitem{CNS25}
 S.~Cao, R.~Nissim and S.~Sheffield, Expanded regimes of area law for lattice Yang--Mills theories, preprint, 2025, \href{https://arxiv.org/abs/2505.16585}{arXiv:2505.16585}.
 
+\bibitem{Cas74}
+W.~E.~Caswell, Asymptotic behavior of non-Abelian gauge theories to two-loop
+order, Phys. Rev. Lett. \textbf{33} (1974), 244--246,
+\href{https://doi.org/10.1103/PhysRevLett.33.244}{doi:10.1103/PhysRevLett.33.244}.
+
 \bibitem{Chat19}
 S.~Chatterjee, Yang--Mills for probabilists, in \emph{Probability and Analysis in Interacting Physical Systems}, Springer Proc. Math. Stat. 283, Springer, Cham, 2019, 1--16, \href{https://doi.org/10.1007/978-3-030-15338-0_1}{doi:10.1007/978-3-030-15338-0\_1}.
 
@@ -24177,6 +24839,11 @@ Society, Cambridge, MA and Providence, RI, 2006, 129--152,
 F.~Johansson, Arb: efficient arbitrary-precision midpoint-radius interval
 arithmetic, IEEE Trans. Comput. \textbf{66} (2017), 1281--1292,
 \href{https://doi.org/10.1109/TC.2017.2690633}{doi:10.1109/TC.2017.2690633}.
+
+\bibitem{Jon74}
+D.~R.~T.~Jones, Two-loop diagrams in Yang--Mills theory, Nucl. Phys. B
+\textbf{75} (1974), 531--538,
+\href{https://doi.org/10.1016/0550-3213(74)90093-5}{doi:10.1016/0550-3213(74)90093-5}.
 
 \bibitem{Kac90}
 V.~G.~Kac, \emph{Infinite-Dimensional Lie Algebras}, 3rd ed., Cambridge University Press, Cambridge, 1990, \href{https://doi.org/10.1017/CBO9780511626234}{doi:10.1017/CBO9780511626234}.
