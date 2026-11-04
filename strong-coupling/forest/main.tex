@@ -119,8 +119,10 @@ which the islands of bad blocks at one scale are rarer than their entropy,
 and carry it to every scale up to $1/512$ of the scale that the defect
 propagation reaches.
 We prove that the rarity of bad labels alone cannot control their
-covariance and that a rough coarse background makes the constrained action
-nonconvex, which locates the one estimate that remains open.
+covariance, that a rough coarse background makes the constrained action
+nonconvex, and that the law of a path link given bad neighbours jumps
+across a fold for every coupling, which locates the one estimate that
+remains open.
 \end{abstract}
 
 \maketitle
@@ -139,7 +141,11 @@ determined by its pair (Lemma~\ref{lem:branchbound},
 Proposition~\ref{prop:graphlaw}), the rough background with negative
 constrained curvature (Proposition~\ref{prop:roughbackground}), the
 nonconvex bad side and its three-preimage branch family
-(Propositions~\ref{prop:nonconvex} and~\ref{prop:branches}), the one-kernel
+(Propositions~\ref{prop:nonconvex} and~\ref{prop:branches}), the two sides
+of the path-link law: the response to the links that enter only the
+action, the good side to radius $1/32$, and the fold across which the law
+jumps for every coupling (Lemma~\ref{lem:wilsononly},
+Propositions~\ref{prop:goodside} and~\ref{prop:fold}), the one-kernel
 interaction of two bad islands with the covariance bound
 $\frac14\tanh(\varDelta/4)$ (Lemma~\ref{lem:kernel},
 Corollary~\ref{cor:twolabels}), the floor $q^2/16$ on the covariance of
@@ -650,7 +656,8 @@ Wilson measure. Sec.~\ref{sec:islands} proves what a labelling of the
 blocks into good and bad gives for the cube condition, where the natural
 labels fail, the explicit coupling past which the bad islands of one
 scale are rarer than their entropy (Theorem~\ref{thm:islandthreshold}),
-and what the single-scale and the multiscale parts of (D) still need. The appendices contain the
+the fold across which the path-link law of a bad pair jumps
+(Proposition~\ref{prop:fold}), and what the single-scale and the multiscale parts of (D) still need. The appendices contain the
 residue table of the line field, the comparison lemma and its version for
 blocks, the blocks of the local Hessian inequality, the details of the
 certified computation, the reconstruction of the transfer matrix with the
@@ -11313,6 +11320,297 @@ side, and a bad pair contributes a sum over branches to any estimate of
 the conditional law. On the good side none of this happens: the labels
 of Proposition~\ref{prop:graphlaw} are placed on the non-path links only.
 
+\subsection{The path-link law on its two sides}\label{ssec:pathlaw}
+
+The conditional law of the path link of a pair $k$, given its seven
+non-path private links $z=(\ell_a)_{a\ne0}$, the links $u,w$ inside its
+two blocks and the rest of the field $\sigma$, is
+\begin{equation}\label{eq:pathlaw}
+\pi(dg\mid z,u,w,\sigma)=\frac1Z\sum_{g:\,V(g;z,u,w)=c_k}\frac{e^{-\beta_W
+S(g;\cdot)}}{\lvert\det D_gV(g;z,u,w)\rvert}\,\delta_g ,
+\end{equation}
+where $V=V^\sharp_k$ as a function of the path link, the sum runs over all
+its preimages of $c_k$, and $\lvert\det D_gV\rvert$ is the Jacobian between
+tangent spaces of the bi-invariant metric. This is the Haar disintegration
+along the Lipschitz map $V$ on the compact three-manifold $\SU(2)$, by the
+coarea formula, times the Wilson weight; on the good side it is the
+one-point law of Proposition~\ref{prop:graphlaw}, and on the bad side it
+carries the branches of Proposition~\ref{prop:branches}. We determine its
+response to each kind of exterior link. Throughout, $W_1^\delta$ and
+$W_1^d$ are the Kantorovich distances for the chordal and the geodesic
+distance, and the facts $\lVert L_X\rVert\le\theta/\sin\theta$ for an
+eigenangle $\theta<\pi$ of $X/\sqrt2$, $\lVert E_Y\rVert\le1$ and $d(e^A,
+e^B)\le\lVert A-B\rVert$ of Sec.~\ref{ssec:smallfibres} are used as stated
+there.
+
+\begin{lemma}[links that enter only the Wilson weight]\label{lem:wilsononly}
+Let $e'$ be a link that is neither a private link of $k$ nor inside $B(y)$
+or $B(y+e_\mu)$, and let $\sigma,\sigma'$ differ only at $e'$. Then for
+every $(z,u,w)$ and $c_k$ for which~\eqref{eq:pathlaw} is a finite
+nonzero measure,
+\[
+W_1^\delta\bigl(\pi(\cdot\mid z,u,w,\sigma),\pi(\cdot\mid z,u,w,\sigma')
+\bigr)\le2\beta_W\,d(\sigma_{e'},\sigma'_{e'}),
+\]
+and the two laws coincide unless $e'$ lies in a plaquette with a private
+link of $k$. For the law of all eight private links given $u,w,\sigma$ and
+restricted to any fixed measurable set $B$ of the non-path links, with the
+cost $\sum_a\delta(\ell_a,\ell'_a)$, the same holds with $16\beta_W$. Both
+bounds include every branch and the disintegration density.
+\end{lemma}
+
+\begin{proof}
+Only $S$ depends on $\sigma_{e'}$: $V$ is a function of $g,z,u,w$, and so
+is the measure $\nu=\sum_g\delta_g/\lvert\det D_gV\rvert$, respectively
+$\mathbf1_BJ_8^{-1}\mathrm{vol}_M$ with $M=\{V=c_k\}$ and $J_8$ the
+Jacobian of Lemma~\ref{lem:privatesubmersion}. An exterior link lies in at
+most one plaquette with a private link: the private links are the eight
+$\mu$-links at the sites $x'_a$, whose $\mu$-coordinates agree, so the two
+plaquettes in a plane $\{\mu,\nu\}$ through a $\nu$-link, which sit at
+different $\mu$-coordinates, cannot both contain one; and a $\mu$-link
+$(x,\mu)$ with $x$ not a site $x'_a$ has $x+\varepsilon e_\nu=x'_a$ for at
+most one pair $(\nu,\varepsilon)$, since two such relations would put a
+coordinate of $x$ outside $\{0,1\}$ in one direction and inside it in
+another. If there is no such plaquette $p_0$ the laws are equal. Otherwise
+move $\sigma_{e'}$ along a minimal geodesic $\sigma_{e'}e^{t\xi}$,
+$\lVert\xi\rVert=1$, $0\le t\le T=d(\sigma_{e'},\sigma'_{e'})$, with laws
+$\pi_t$. For bounded $f$, $\frac d{dt}\pi_t(f)=-\beta_W\Cov_{\pi_t}(f,\dot
+s_{p_0})$, by differentiation under the integral against the fixed finite
+measure $\nu$. By bi-invariance and $\delta\le d$, $t\mapsto\delta(U_{p_0}
+(t),I)$ is $1$-Lipschitz, so $|\dot s_{p_0}|=\frac12\delta(U_{p_0},I)\,
+|\frac d{dt}\delta(U_{p_0},I)|\le\sqrt2$ and $\dot s_{p_0}$ has oscillation
+at most $2\sqrt2$. A function that is $1$-Lipschitz for $\delta$ has
+oscillation at most the chordal diameter $2\sqrt2$ of $\SU(2)$, and at most
+$8\cdot2\sqrt2$ for the sum cost on eight links. Since $|\Cov(f,h)|\le\frac14
+\operatorname{osc}f\operatorname{osc}h$, $|\frac d{dt}\pi_t(f)|\le2\beta_W$,
+respectively $16\beta_W$; integrate over $[0,T]$ and use the Kantorovich
+duality.
+\end{proof}
+
+This is Lemma~\ref{lem:fixedset} for the fibre law: the branches and the
+density are harmless for every link that enters only through the action.
+The links it leaves out are the seven non-path links, which are in the
+conditioning, and the inside links $u_a,w_a$, which enter $V$. On the good
+side both are harmless, and the radius of Lemma~\ref{lem:branchbound} and
+Proposition~\ref{prop:graphlaw} can be taken as $1/32$ rather than
+$10^{-4}$.
+
+\begin{proposition}[the good side to radius $1/32$]\label{prop:goodside}
+Let $r\le\frac1{32}$, and suppose $d(\ell_a,c_k)\le r$ for $a\ne0$ and
+$d(u_a,I),d(w_a,I)\le r$. Put $\theta_0=\frac1{2\sqrt2}$ and $\kappa_0=
+\frac78\,\theta_0/\sin\theta_0<0.8935$. Then every solution $g$ of $V(g;z,u,
+w)=c_k$ has cut-off equal to one and $d(g,c_k)\le14r$, and there is exactly
+one: writing $g=c_ke^X$, $X$ is the unique fixed point of $F(X)=-\frac1{16}
+\sum_x\log(e^{-X}c_k^{-1}P_x)$ in $\{\lVert X\rVert\le14r\}$, and $F$ is a
+contraction of that ball with constant $\kappa_0$. At the solution the
+singular values of $D_gV$ lie in $[1-\kappa_0,1+\kappa_0]$, so the density
+$1/\lvert\det D_gV\rvert$ lies in $[(1+\kappa_0)^{-3},(1-\kappa_0)^{-3}]\subset
+[0.147,828]$. The law~\eqref{eq:pathlaw} is the point mass at $g=g(z,u,w)$,
+and for two configurations satisfying the hypothesis
+\begin{multline*}
+d(g,g')\le1.1986\sum_{a\ne0}d(\ell_a,\ell'_a)\\
++0.5993\sum_{a\ne0}\bigl(d(u_a,u'_a)+d(w_a,w'_a)\bigr),
+\end{multline*}
+with no dependence on $\beta_W$, on $c_k$ or on any other link.
+\end{proposition}
+
+\begin{proof}
+The first part is the proof of Lemma~\ref{lem:branchbound}, which holds for
+every $r$ up to the contraction: every solution has $D=d(g,c_k)\le14r$ and
+$d(v_x,I)\le16r\le\frac12$, so $m\le\frac12$ and $\chi=1$, and $V=c_k$ reads
+$X=F(X)$, with $F$ mapping the ball into itself. For the contraction
+constant, on the ball each $A_x=c_k^{-1}P_x$ has $d(A_x,I)\le2r$, so $Y_x=
+\log(e^{-X}A_x)$ has $\lVert Y_x\rVert\le16r$, an eigenangle at most
+$16r/\sqrt2\le\theta_0$. Since $e^{-(X+tZ)}A_x=(I-tE_{-X}Z+O(t^2))e^{Y_x}$
+and $\log(e^{tW}e^Y)=Y+tL_YW+O(t^2)$, $\lVert DF\rVert\le\frac{14}{16}\cdot
+\lVert E_{-X}\rVert\max_x\lVert L_{Y_x}\rVert\le\kappa_0$, as $\theta/\sin
+\theta$ increases on $[0,\pi)$; the fixed point is unique by the
+contraction principle. For the Jacobian, vary $g\mapsto ge^{tZ}$: then
+$v_x\mapsto e^{-tZ}v_x$, $\log v_x\mapsto\log v_x-tL_{Y_x}Z+O(t^2)$, and
+with $N=\frac1{16}\sum_x\log v_x$ and $\bar L=\frac1{14}\sum_xL_{Y_x}$,
+\[
+V^{-1}\frac{dV}{dt}\Big|_{t=0}=\operatorname{Ad}(e^{-N})\bigl(I-\tfrac78
+E_N\bar L\bigr)Z ,
+\]
+by $\frac d{dt}e^{N+tW}e^{-N}=E_NW$. As $\operatorname{Ad}(e^{-N})$ is an
+isometry and $\lVert\frac78E_N\bar L\rVert\le\kappa_0$, the singular values
+lie in $[1-\kappa_0,1+\kappa_0]$. Finally, the law has one atom, so $W_1^d=
+d(g,g')$. Move one link at a time along a minimal geodesic; the geodesic
+ball of radius $r$ is convex, so the hypothesis holds along the way, and
+$d(g,g')\le\lVert X-X'\rVert$. For $\ell_a\mapsto\ell_ae^{t\zeta}$,
+$\lVert\zeta\rVert=1$, the two paths through $\ell_a$ move, $A_{x_a}\mapsto
+A_{x_a}e^{t\zeta}$ and $A_{x'_a}\mapsto A_{x'_a}e^{t\operatorname{Ad}(w_a^{-1}
+)\zeta}$, and $\log(e^Ye^{t\zeta'})=Y+tL_{-Y}\zeta'+O(t^2)$, so
+$\lVert\partial_tF\rVert\le\frac2{16}\theta_0/\sin\theta_0$ and, by the
+implicit function theorem, $\lVert dX/dt\rVert\le\frac2{16}\frac{\theta_0}
+{\sin\theta_0}\frac1{1-\kappa_0}<1.1986$. For $u_a\mapsto u_ae^{t\zeta}$
+one path moves, $A_{x_a}\mapsto A_{x_a}e^{t\operatorname{Ad}(\ell_a^{-1})
+\zeta}$, which gives half of it, and likewise for $w_a$.
+\end{proof}
+
+The only change from Lemma~\ref{lem:branchbound} is that the series bound
+$\lVert D\log(I+M)\rVert\le(1-16r)^{-1}$ is replaced by the exact norm
+$\theta/\sin\theta$ of $L_Y$. So on the good side the response of the
+path-link law to every exterior link is bounded, with a constant
+independent of $\beta_W$, and the bad side begins at $r=\frac1{32}$. On
+the bad side the response to the non-path links is not bounded at all.
+The configuration of Proposition~\ref{prop:branches} has a fold: a value
+$c$ at which two branches are born, with infinite density, and the law
+jumps across it.
+
+\begin{proposition}[the fold of the path-link law]\label{prop:fold}
+In the configuration of Proposition~\ref{prop:branches}, with every link
+other than the eight private links equal to $I$, let $c_\lambda=
+\operatorname{diag}(e^{i\lambda},e^{-i\lambda})$ and let $\pi_\lambda$ be the
+law~\eqref{eq:pathlaw} with $c_k=c_\lambda$. Let $f_0$ be the angle of the
+cut-off average on the torus, the function $f$ of Proposition~\ref
+{prop:branches}, let $q^*\in(0.0741,0.0742)$ be its minimiser on $[-0.005,
+0.2227]$, $\gamma^*=f_0(q^*)\in[0.16978261,0.16978263]$, $g^*=e^{iq^*}$,
+and $\Lambda=[\gamma^*-10^{-3},\gamma^*+10^{-3}]$. Then:
+\begin{enumerate}[label=\textup{(\roman*)},leftmargin=*]
+\item For $\lambda\in\Lambda$ every preimage of $c_\lambda$ lies on the
+torus. For $\lambda<\gamma^*$ there is one, $g_L(\lambda)=e^{iq_L(\lambda)}$
+with $q_L\in[-0.0172,-0.0156]$; for $\lambda>\gamma^*$ there are three,
+$g_L(\lambda)$ and $g_\pm(\lambda)=e^{iq_\pm}$ with $q_-<q^*<q_+$ and
+$|q_\pm-q^*|\le\sqrt{(\lambda-\gamma^*)/2.3}$; for $\lambda=\gamma^*$ there
+are two, $g_L$ and $g^*$. Off $\gamma^*$ the value $c_\lambda$ is regular.
+\item The weight $e^{-\beta_WS}/\lvert\det D_gV\rvert$ of $g_L(\lambda)$ is
+at most $2.78$, and the weights of $g_\pm(\lambda)$ tend to infinity as
+$\lambda\downarrow\gamma^*$, for every $\beta_W\ge0$.
+\item $\pi_\lambda\to\delta_{g^*}$ as $\lambda\downarrow\gamma^*$ and
+$\pi_\lambda\to\delta_{g_L^*}$ as $\lambda\uparrow\gamma^*$, $g_L^*=g_L
+(\gamma^*)$, weakly, with $\delta(g^*,g_L^*)\ge0.1268$. Hence for every
+$\beta_W\ge0$ and $\varepsilon>0$ there are $\lambda<\gamma^*<\lambda'$ with
+$\lambda'-\lambda<\varepsilon$ and $W_1^\delta(\pi_\lambda,\pi_{\lambda'})\ge
+0.126$.
+\item Fix $c=c_{\gamma^*}$ and move the seven non-path links together,
+$\ell_a\mapsto\ell_ae^{it}$, with laws $\pi^{(t)}$. Then $\pi^{(t)}\to
+\delta_{g^*}$ as $t\uparrow0$ and $\pi^{(t)}\to\delta_{g_L^*}$ as $t\downarrow
+0$. So for every $\beta_W\ge0$ and $\varepsilon>0$ there are two
+configurations of the non-path links at total distance $7\sqrt2\,(t'-t)<
+10\varepsilon$ whose path-link laws are at $W_1^\delta$ distance at least
+$0.126$: the Kantorovich response of the path-link law to its non-path
+links is infinite, for every $\beta_W$.
+\end{enumerate}
+The two inequalities marked ($\ast$) in the proof are verified in interval
+arithmetic in the archive; everything else is proved by hand.
+\end{proposition}
+
+\begin{proof}
+Write $g=g_0+g_1i+g_2j+g_3k$ as a unit quaternion, so that the torus $T$ is
+$\{e^{iq}\}$, and $\theta_a$ for the angles of the non-path links, $-\frac12$
+once and $\frac{49}{100}$ six times. Then $V(g)=g\exp(\chi(m)\frac18\sum_{a
+\ne0}\log(g^{-1}\ell_a))$ with $m=\max_a\delta(g^{-1}\ell_a,I)$, since each
+$\ell_a$ lies on two paths and $u=w=I$, and the Wilson weight of the path
+link is $e^{-\beta_WS(g)}$ with $S(g)=\frac34[\delta(g,I)^2+\delta(g,e^{0.49i})^2]
+\in[0,12]$, the three plaquettes through the path link and its partner and
+the three through the path link and $I$.
+
+\emph{Step 1, the torus.} For $q\in[q_{lo},q_{hi}]=[\frac{49}{100}-\alpha,
+-\frac12+\alpha]=[-0.2327,0.2228]$, where $\alpha=\arccos\frac34$, the
+maximiser of $\delta(g^{-1}\ell_a,I)$ at $g=e^{iq}$ is the far link when
+$q\ge-0.005$ and the six near links when $q\le-0.005$, $m=2\sqrt2\sin(d(q)/2)
+\in(\frac12,1)$ with $d(q)=\max\{q+\frac12,\frac{49}{100}-q\}$, and
+\[
+f_0(q)=q+\frac{\chi(q)}8\Bigl(\frac{244}{100}-7q\Bigr),\qquad\chi(q)=2-4
+\sqrt2\sin\frac{d(q)}2 ;
+\]
+outside $[q_{lo},q_{hi}]$ some $\delta(g^{-1}\ell_a,I)\ge1$, $\chi=0$ and
+$f_0(q)=q$. On $[q_{lo},-0.005]$, $\chi'=2\sqrt2\cos\frac{0.49-q}2>0$ and
+$\frac{244}{100}-7q>0$, so, as $\chi(-0.005)=2-4\sqrt2\sin0.2475<0.6146$,
+\[
+f_0'\ge1-\tfrac78\chi\ge1-\tfrac78\cdot0.6146>0.46 :
+\]
+$f_0$ increases from $q_{lo}$ to $f_0(-0.005)=0.18501\ldots$. On
+$[-0.005,q_{hi}]$,
+\[
+\chi'=-2\sqrt2\cos\tfrac{q+1/2}2<0,\qquad\chi''=\sqrt2\sin\tfrac{q+1/2}2>0,
+\]
+so $f_0''=\frac18\chi''(\frac{244}{100}-7q)-\frac74\chi'>0$: $f_0$ is strictly
+convex, with $f_0'(-0.005^+)=-0.3858\ldots<0$ and $f_0'(q_{hi})=0.7087\ldots
+>0$, a unique minimiser $q^*$, and $f_0'(0.0741)<0<f_0'(0.0742)$ places it,
+while convexity gives $f_0(0.0741)+10^{-4}f_0'(0.0741)\le\gamma^*\le\min\{
+f_0(0.0741),f_0(0.0742)\}$, the stated interval. For $\lambda\in\Lambda
+\subset(0.168,0.171)$ a torus preimage $e^{iq}$ with $q\notin[q_{lo},q_{hi}]$
+would need $q\equiv\lambda$ modulo $2\pi$, impossible. So the torus
+preimages are: one root $q_L$ in $[q_{lo},-0.005]$, which lies in $[-0.0172,
+-0.0156]$ because $f_0$ is increasing there and $f_0(-0.0172)<\gamma^*-10^{-3}$,
+$f_0(-0.0156)>\gamma^*+10^{-3}$; and in $[-0.005,q_{hi}]$ none if $\lambda<
+\gamma^*$, the point $q^*$ if $\lambda=\gamma^*$, and two if $\lambda>
+\gamma^*$, as $f_0(-0.005)$ and $f_0(q_{hi})=q_{hi}$ exceed $\lambda$. These
+two lie in $[0.05,0.1]$, where $f_0''>4.6$, since $f_0(0.05),f_0(0.1)>
+\gamma^*+10^{-3}$, whence $\lambda-\gamma^*\ge\frac{4.6}2(q_\pm-q^*)^2$.
+
+\emph{Step 2, off the torus.} Conjugation by $h\in T$ fixes every $\ell_a$
+and $c_\lambda$, so $V(hgh^{-1})=hV(g)h^{-1}$ and the preimages of $c_\lambda$
+are invariant under it; every $g\notin T$ is conjugate to $g(q,s)=\cos s\,
+e^{iq}+\sin s\,k$ with $s\in(0,\frac\pi2]$. Since $(g^{-1}\ell_a)_0=\cos s
+\cos(\theta_a-q)$, if $\cos s\le\frac34$ or $q\notin(q_{lo},q_{hi})$ some
+$\delta(g^{-1}\ell_a,I)\ge1$, so $\chi=0$ and $V(g)=g\notin T$. On the
+remaining strip $[q_{lo},q_{hi}]\times(0,\alpha)$, $V_k(q,0)=0$ and
+$V_k(q,s)=\int_0^s\partial_sV_k$; the certificate verifies ($\ast$) that
+$\partial_sV_k>0$ for $s\in[0,0.02]$ and $V_k>0$ for $s\in[0.02,\alpha]$,
+on adaptive subdivisions of the strip, so that $V(g)\notin T$ for $s>0$.
+Hence $V^{-1}(T)=T$, which with Step 1 gives (i) except for regularity.
+
+\emph{Step 3, the Jacobian at a torus point.} $D_gV$ at $g=e^{iq}$
+commutes with the differential of conjugation by $e^{i\varphi}$, which
+fixes the axial line $g\cdot i\R$ and rotates the transverse plane by
+$2\varphi$; a linear map commuting with all these rotations preserves the
+line and the plane and is a complex scalar $\lambda_\perp e^{i\omega}$ on the
+plane. The axial eigenvalue is $f_0'(q)$, and $\lambda_\perp=\lVert\partial_s
+V(g(q,s))|_{s=0}\rVert=|\partial_sV_k(q,0)|$, since $\partial_sg=k$ is a unit
+transverse vector and, by the reflection $g(q,s)\mapsto g(q,-s)$ given by
+conjugation with $i$, $\partial_sV_j(q,0)=0$. So $\lvert\det D_gV\rvert=
+|f_0'(q)|\lambda_\perp(q)^2$. The certificate verifies ($\ast$) that
+$\partial_sV_k\ge0.5149$ on $q\in[-0.0172,-0.0156]$ and $\le0.7326$ on
+$q\in[0.05,0.1]$, $s\in[0,0.02]$. At $q_L$ the near links are the strict
+maximiser and at $q_\pm$ the far link is, with $m\in(\frac12,1)$, so $V$ is
+real-analytic near these points; $f_0'(q_L)\in[1.36,1.37]$ by the formula,
+$f_0'(q_\pm)\ne0$ by strict convexity and $\lambda_\perp>0$, so $c_\lambda$
+is regular for $\lambda\ne\gamma^*$, and~\eqref{eq:pathlaw} is the
+continuous disintegration there. The weight of $g_L$ is at most $1/(1.36
+\cdot0.5149^2)<2.78$, and those of $g_\pm$ are at least $e^{-12\beta_W}/(
+|f_0'(q_\pm)|\,0.7326^2)$, with $f_0'(q_\pm)\to f_0'(q^*)=0$. This is (ii).
+
+\emph{Step 4, the limits.} Let $f(g)=\delta(g,g^*)$, $1$-Lipschitz for
+$\delta$ and at most $2\sqrt2$. For $\lambda\downarrow\gamma^*$,
+$\pi_\lambda(f)\le2.78\cdot2\sqrt2/(w_-+w_+)+\sqrt2\max_\pm|q_\pm-q^*|\to0$,
+and as $\pi_\lambda$ lives on three points converging to $\{g^*,g_L^*\}$,
+$\pi_\lambda\to\delta_{g^*}$. For $\lambda\uparrow\gamma^*$, $\pi_\lambda=
+\delta_{g_L(\lambda)}\to\delta_{g_L^*}$. For $\lambda\in\Lambda$, $q^*-q_L
+(\lambda)\in[0.0897,0.0914]$, so $\pi_\lambda(f)=2\sqrt2\sin\frac{q^*-q_L}2
+\ge0.1268$, and the Kantorovich duality $W_1^\delta(\pi_\lambda,\pi_{\lambda'})
+\ge|\pi_\lambda(f)-\pi_{\lambda'}(f)|$ gives (iii).
+
+\emph{Step 5, the exterior form.} Multiplying every path on the right by
+$e^{it}$ gives $V(ge^{it};z_t)=V(g;z_0)e^{it}$, the covariance of $V^\sharp$
+with $h_1=I$, $h_2=e^{-it}$. So $g$ solves $V(g;z_t)=c_{\gamma^*}$ iff
+$g'=ge^{-it}$ solves $V(g';z_0)=c_{\gamma^*-t}$, with the same Jacobian,
+and the action at $g=g'e^{it}$ under $z_t$ differs from $S(g')$ by at most
+$6|t|$. Hence $\pi^{(t)}$ is the image of $\pi_{\gamma^*-t}$ under the
+translation by $e^{it}$, which moves every point by $\sqrt2|t|$, with
+weights multiplied by factors in $[e^{-6\beta_W|t|},e^{6\beta_W|t|}]$, and
+the limits of Step~4 persist as $t\to0$; each non-path link moves by
+$\sqrt2|t'-t|$. This is (iv).
+\end{proof}
+
+The mechanism is the one Proposition~\ref{prop:branches} exhibits: at the
+fold the density $1/\lvert\det D_gV\rvert$ is infinite, two branches carry
+all the mass on one side and do not exist on the other, and the Wilson
+weight cannot repair it, since a vanishing Jacobian wins against any fixed
+$e^{-\beta_WS}$. The configuration is bad for every $r\le\frac1{32}$. So item
+(i) of Sec.~\ref{ssec:remains} in its original form, a Lipschitz bound for the
+law~\eqref{eq:pathlaw} in the non-path links, is false; what can be asked is
+the response of the law of all eight private links of a bad pair, in which
+the non-path links are integrated over the bad set and
+Lemma~\ref{lem:privatesubmersion} removes both the branches and the
+density. Lemma~\ref{lem:wilsononly} settles that response for every link
+that enters only the action; what remains is its response to the inside
+links $u_a,w_a$, which move the fibre $\{V=c_k\}$ while the bad set does
+not, and the question is the mass that the law gives to the set where the
+fibre is tangent to the boundary of the bad set.
+
 \subsection{Counting bad labels}\label{ssec:counting}
 
 A label is bad when some fine plaquette in a fixed neighbourhood is bad:
@@ -12065,9 +12363,15 @@ with Theorem~\ref{thm:chartdecay} and Sec.~\ref{ssec:coarse} are what the
 cube condition (D) needs for $\SU(2)$ past the Dobrushin ceiling.
 \begin{enumerate}[label=\textup{(\roman*)},leftmargin=*]
 \item \emph{The bad side.} For a pair whose non-path links are bad, a bound
-on the Kantorovich response of the conditional law of its path links that
-includes all branches of Proposition~\ref{prop:branches} and the
-disintegration density, uniform in the exterior.
+on the Kantorovich response of the law of its eight private links, given
+the inside links of its two blocks, uniform in the exterior.
+Proposition~\ref{prop:fold} shows that the response of the path-link law
+alone to its non-path links is infinite, so the non-path links must be
+integrated over the bad set; Lemma~\ref{lem:wilsononly} bounds the response
+of that law to every link that enters only the action, and
+Proposition~\ref{prop:goodside} settles the good side to radius $1/32$.
+What is not bounded is the response to the inside links, which move the
+fibre $\{V^\sharp_k=c_k\}$ while the bad set does not.
 \item \emph{The island comparison.} The hypothesis of
 Lemma~\ref{lem:kernel}: that the weight of two bad islands factors through
 one kernel on the good layer between them, with a cross-ratio controlled by
@@ -12130,6 +12434,7 @@ label & witness and result\\
 non-path link off $R(c)$ & fine defect, Theorem~\ref{thm:cutoff}\\
 coarse plaquette $>\eta$ & fine defect, Lemma~\ref{lem:coarsewitness}\\
 path link & none: determined, Lemma~\ref{lem:branchbound}\\
+bad non-path links & fold, Proposition~\ref{prop:fold}\\
 all links & nonconvex, Proposition~\ref{prop:nonconvex}\\
 \midrule
 good window & graph law, Proposition~\ref{prop:graphlaw}\\
