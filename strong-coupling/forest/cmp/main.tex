@@ -4685,6 +4685,286 @@ lattice gap is bounded below, in particular in the strong-coupling range,
 where the hypothesis of Theorem~\ref{thm:transfer} holds.
 \end{remark}
 
+\subsection{Slab energies of local fields}\label{ssec:slabenergy}
+
+This subsection tests the first condition of Corollary~\ref{cor:trial}
+against the most direct estimate for it: a pointwise bound on the change of a
+gauge-invariant function of one slice in one time step by the time-like
+plaquettes, combined with an upper bound on the plaquette energy. Both bounds
+are proved with explicit constants. The combination cannot give the
+condition along any tuning with $a_k\beta_k\to0$, whatever the trial
+function, and the one-loop tuning is of this kind.
+
+Let $G\subset\mathrm U(N)$ be a closed subgroup, let $|M|^2=\Tr(M^*M)$ be the
+Frobenius norm, so that $|gMh|=|M|$ for $g,h\in G$, and put $s_p=1-N^{-1}
+\ReTr U_p$, so that $|U_p-I|^2=2Ns_p$. Write $U_{(y,\mu)}$ for the link from
+$y$ to $y+\hat\mu$, with $\mu=0$ the time direction. Let $\omega$ be a state
+as in Appendix~\ref{app:transfer}, with transfer matrix $\mathbb T$, and let
+$\varepsilon_\omega=\sup_p\omega(s_p)$, which is $\omega(s_p)$ for every
+plaquette $p$ when $\omega$ is invariant under translations and the
+hypercubic group. A \emph{slice function} is a function
+$X$ of the spatial links of the slice $x_0=0$ that depends only on the links
+of a finite set $E$, is invariant under the gauge transformations of that
+slice, and satisfies
+\[
+|X(U)-X(V)|\le\sum_{e\in E}L_e|U_e-V_e|
+\]
+with constants $L_e\ge0$; put $\Lambda(X)=\sum_{e\in E}L_e$. For a spatial link
+$e=((0,x),i)$ let $p_e$ be the time-like plaquette with lower edge $e$, with
+holonomy
+\[
+U_{p_e}=U_{((0,x),i)}U_{((0,x+\hat\imath),0)}U_{((1,x),i)}^{-1}
+U_{((0,x),0)}^{-1}.
+\]
+
+\begin{lemma}\label{lem:slabdirichlet}
+Let $X$ be a bounded slice function.
+
+\textup{(i)} $\ip{\Psi_X}{(1-\mathbb T)\Psi_X}=\frac12\omega(|\tau_1X-X|^2)$,
+and both sides are unchanged when a constant is added to $X$.
+
+\textup{(ii)} Pointwise, $|\tau_1X-X|\le\sum_{e\in E}L_e|U_{p_e}-I|$.
+
+\textup{(iii)} $\ip{\Psi_X}{(1-\mathbb T)\Psi_X}\le N\Lambda(X)^2
+\varepsilon_\omega$.
+\end{lemma}
+
+\begin{proof}
+(i) The reflection $\vartheta$ in the plane $x_0=0$ fixes the spatial links
+of that slice, so $\vartheta(\bar X)=\bar X$ and $\|\Psi_X\|^2=\omega(|X|^2)$.
+As in the proof of Proposition~\ref{prop:sliceratio}, $\Psi_{\tau_1X}=
+\mathbb T\Psi_X$, so $\ip{\Psi_X}{\mathbb T\Psi_X}=\omega(\bar X\tau_1X)$, a
+real number because $\mathbb T$ is self-adjoint. Translation invariance gives
+$\omega(|\tau_1X|^2)=\omega(|X|^2)$, hence
+\[
+\omega(|\tau_1X-X|^2)=2\omega(|X|^2)-2\omega(\bar X\tau_1X)=
+2\ip{\Psi_X}{(1-\mathbb T)\Psi_X} .
+\]
+The right side of the identity depends on $X$ only through $\tau_1X-X$.
+
+(ii) For a site $x$ of the slice put $g(x)=U_{((0,x),0)}$, and for
+$e=((0,x),i)$ put $V_e=g(x)U_{((1,x),i)}g(x+\hat\imath)^{-1}$. The function
+$\tau_1X$ is $X$ evaluated on the links $U_{((1,x),i)}$ in place of
+$U_{((0,x),i)}$, and gauge invariance under $g$ gives $\tau_1X(U)=X(V)$.
+Hence $|\tau_1X-X|\le\sum_eL_e|V_e-U_e|$. Now $|V_e-U_e|=|U_e^{-1}V_e-I|$,
+and $U_e^{-1}V_e=U_e^{-1}U_{p_e}^{-1}U_e$, so $|V_e-U_e|=|U_{p_e}^{-1}-I|=
+|U_{p_e}-I|$.
+
+(iii) By (i), (ii) and the Cauchy--Schwarz inequality,
+\[
+\ip{\Psi_X}{(1-\mathbb T)\Psi_X}\le\frac12\Lambda(X)\sum_eL_e\,\omega
+(|U_{p_e}-I|^2)\le N\Lambda(X)^2\varepsilon_\omega . \qedhere
+\]
+\end{proof}
+
+The plaquette energy of Lemma~\ref{lem:wilsonZ} carries a factor
+$\log\beta_W$. It comes from the lower bound on the partition function alone;
+an upper bound in temporal gauge removes it.
+
+\begin{proposition}\label{prop:energybeta}
+Let $G=\SU(2)$ and let $\mu_L$ be the Wilson measure on $\Lambda_L=(\Z/L\Z)^4$
+of Lemma~\textup{\ref{lem:wilsonZ}}, with $L\ge2$ and $\beta_W\ge1$. Then
+$\varepsilon_L=\E_{\mu_L}s_p$ satisfies
+\[
+\varepsilon_L\le\frac1{\beta_W}\Bigl(K_1+\frac{K_2}{L^4}+\frac{15}{16}\Bigl(
+\frac1L+\frac1{3L^4}\Bigr)\log\beta_W+\frac{K_3}{\beta_W}\Bigr)
+\]
+with $K_1=3.7148$, $K_2=0.4699$ and $K_3=0.149$. In particular every limit as
+$L\to\infty$ of the measures $\mu_L$ along a subsequence, on the local
+functions, has $\varepsilon\le(K_1+K_3/\beta_W)/\beta_W$.
+\end{proposition}
+
+\begin{proof}
+Write $\beta=\beta_W$, $Z(\beta)=\int e^{-\beta S}dU$ with $S=\sum_ps_p$, and
+$\theta\in[0,\pi]$ for the angle of an element $\cos\theta\,I+\sin\theta\,J$
+of $\SU(2)$; it has Haar density $\frac2\pi\sin^2\theta$, it is a
+bi-invariant distance from $I$, and $\frac12\Tr U=\cos\theta$. The measure
+$\mu_L$ is invariant under the translations and the hypercubic group of the
+torus, so $\E_{\mu_L}S=6L^4\varepsilon_L$.
+
+\emph{Convexity.} The function $\log Z$ is convex with derivative
+$-\E_{\mu_L}S$ at $\beta$, so for $0<\lambda<1$
+\[
+6L^4(1-\lambda)\beta\,\varepsilon_L\le\log Z(\lambda\beta)-\log Z(\beta) .
+\]
+
+\emph{Upper bound.} The integrand is gauge invariant, so the time links
+$U_{((t,x),0)}$ with $0\le t\le L-2$, which form a forest, may be set to $I$
+without changing $Z$; this is the substitution $U\mapsto U^g$ with $g$ built
+along each tree from its root, which preserves the Haar measure. Drop the
+spatial plaquettes and the time-like plaquettes between the times $L-1$ and
+$0$, whose weights are at most $1$. For each spatial link $(x,i)$ the
+remaining weights are $\prod_{t=0}^{L-2}f(V_tV_{t+1}^{-1})$ with
+$V_t=U_{((t,x),i)}$ and $f(U)=e^{-\beta(1-\frac12\Tr U)}$; integrating
+$V_0,\dots,V_{L-2}$ in turn, each integral is $z(\beta)=\int f\,dU$ by the
+invariance of the Haar measure. Hence $Z(\beta)\le z(\beta)^{3L^3(L-1)}$.
+With $y=\sin(\theta/2)$,
+\begin{align*}
+z(\beta)&=\frac2\pi\int_0^\pi e^{-\beta(1-\cos\theta)}\sin^2\theta\,d\theta\\
+&=\frac{16}\pi\int_0^1e^{-2\beta y^2}y^2\sqrt{1-y^2}\,dy\le
+\sqrt{\frac2\pi}\,\beta^{-3/2},
+\end{align*}
+by $\sqrt{1-y^2}\le1$ and $\int_0^\infty e^{-2\beta y^2}y^2dy=\frac{\sqrt\pi}4
+(2\beta)^{-3/2}$.
+
+\emph{Lower bound.} Fix a spanning tree of $\Lambda_L$ and set its $L^4-1$
+links to $I$, again without changing $Z$; $3L^4+1$ links remain. Let $0<\delta
+\le\pi/2$ and let $\nu$ be the Haar measure restricted to $\{\theta\le\delta\}$
+and normalised. Since $\sin t/t$ decreases on $(0,\pi)$,
+\[
+\frac2\pi\int_0^\delta\sin^2t\,dt\ge\frac{2\delta^3}{3\pi}\Bigl(\frac{\sin
+\delta}\delta\Bigr)^2 .
+\]
+By Jensen's inequality for the product of the measures $\nu$ on the remaining
+links, $\log Z(\beta)\ge(3L^4+1)\log\frac{2\delta^3}{3\pi}(\frac{\sin\delta}
+\delta)^2-\beta\sum_p\E_\nu s_p$. The set $\{\theta\le\delta\}$ is invariant
+under conjugation and inversion, so $\E_\nu U=mI$ and $\E_\nu U^{-1}=mI$ with
+$m=\E_\nu\cos\theta\in[0,1]$. A plaquette has at most four links off the
+tree, independent under $\nu$, so $\E_\nu\frac12\Tr U_p=m^j$ with $j\le4$ and
+$\E_\nu s_p=1-m^j\le4(1-m)\le2\E_\nu\theta^2$. With $w(t)=\sin^2t/t^2$
+nonincreasing and $t^2$ increasing, Chebyshev's inequality for the measure
+proportional to $t^2dt$ on $[0,\delta]$ gives $\E_\nu\theta^2=\int_0^\delta
+t^2w\,t^2dt/\int_0^\delta w\,t^2dt\le\frac35\delta^2$. Hence $\E_\nu s_p\le
+\frac65\delta^2$.
+
+\emph{The constants.} Take $\lambda=\frac15$ and $\delta^2=c/\beta$ with
+$c=\frac58$, so that $\delta^2\le\frac58<\pi^2/4$. Dividing by
+$6L^4(1-\lambda)\beta$ and collecting the terms in $\log\beta$ gives the
+bound, with
+\begin{gather*}
+K_1=\tfrac54\Bigl(\tfrac14\log\tfrac2\pi-\tfrac34\log\lambda-\tfrac12\log
+\tfrac2{3\pi}-\tfrac34\log c+\tfrac65c\Bigr),\\
+K_2=\tfrac5{24}\Bigl(-\log\tfrac2{3\pi}-\tfrac32\log c\Bigr),
+\end{gather*}
+after dropping the term $-\frac5{8L}(\frac12\log\frac2\pi-\frac32\log
+\lambda)$, which is negative. The factor $(\sin\delta/\delta)^2$ contributes
+at most $\frac54(1+\frac1{48})\frac{y}{1-y}$ with $y=\delta^2/6\le c/(6\beta)$,
+by $\sin\delta/\delta\ge1-y$ and $-\log(1-y)\le y/(1-y)$, which is at
+most $K_3/\beta$ inside the bracket. Interval arithmetic gives $K_1\in
+[3.714728,3.714729]$, $K_2\in[0.469833,0.469834]$ and $\frac54\cdot\frac{49}
+{48}\cdot\frac{c/6}{1-c/6}\in[0.148376,0.148377]$. At fixed $\lambda$ the
+value $c=\frac58$ minimises $K_1$. The last claim holds because $s_p$ is a local
+function.
+\end{proof}
+
+For comparison, Lemma~\ref{lem:wilsonZ} gives the bound $(\log\beta_W+
+4.9082)/\beta_W$ for $\varepsilon_L$, which is larger at every $\beta_W\ge1$
+in the limit $L\to\infty$.
+With Lemma~\ref{lem:slabdirichlet}, a slice function at a limit state of
+Proposition~\ref{prop:energybeta} has
+\[
+\ip{\Psi_X}{(1-\mathbb T)\Psi_X}\le\frac{2\Lambda(X)^2}{\beta_W}\Bigl(K_1+
+\frac{K_3}{\beta_W}\Bigr),
+\]
+a bound of order one in lattice units at bounded $\Lambda(X)$. Whether it can
+serve as the first condition of Corollary~\ref{cor:trial} depends on the
+variance of $X$ alone, and the next proposition shows that it cannot along
+the tunings of interest.
+
+\begin{proposition}\label{prop:lipobstruction}
+Let $X$ be a real bounded slice function with $\Var_\omega X>0$, and let
+$\chi=\Psi_{X-\omega(X)}/\|\Psi_{X-\omega(X)}\|$.
+
+\textup{(i)} $\Var_\omega X\le N\Lambda(X)^2$. Hence the bound of
+Lemma~\textup{\ref{lem:slabdirichlet}(iii)} for $\ip\chi{(1-\mathbb
+T)\chi}$, which is $N\Lambda(X)^2\varepsilon_\omega/\Var_\omega X$, is at least
+$\varepsilon_\omega$.
+
+\textup{(ii)} Let $G=\SU(2)$ and let $\omega_k$ be states as in
+Appendix~\textup{\ref{app:transfer}} that are Wilson Gibbs states at $\beta_k$
+in the sense of Section~\textup{\ref{ssec:uniform}}. If that bound
+gives the first condition of Corollary~\textup{\ref{cor:trial}} with a
+constant $\kappa$, then $(4\beta_k+1)a_k\ge1/\kappa$. Along a tuning with
+$a_k\beta_k\to0$, no choice of slice functions $X_k$ gives that condition
+through Lemma~\textup{\ref{lem:slabdirichlet}(iii)}.
+
+\textup{(iii)} Let the Lie algebra $\g$ of $G$ have trivial centre. If $X$,
+as a function on $G^E$, is differentiable at the configuration with every
+link equal to $I$, its differential there vanishes.
+\end{proposition}
+
+\begin{proof}
+(i) For any two configurations $U$ and $V$,
+\[
+|X(U)-X(V)|\le\Lambda(X)\max_e|U_e-V_e|\le2\sqrt N\Lambda(X),
+\]
+since $|U_e|=|V_e|=\sqrt N$. A real random
+variable with values in an interval of length $\ell$ has variance at most
+$\ell^2/4$. By Lemma~\ref{lem:slabdirichlet}(i), $\ip\chi{(1-\mathbb T)\chi}=
+\ip{\Psi_X}{(1-\mathbb T)\Psi_X}/\Var_\omega X$, since $\|\Psi_{X-\omega(X)}
+\|^2=\omega(|X-\omega(X)|^2)$.
+
+(ii) By (i) the bound is at least $\varepsilon_{\omega_k}$, which is at least
+$1/(4\beta_k+1)$ by Proposition~\ref{prop:plaqvar}. If it is at most $\kappa
+a_k$, then $1\le\kappa a_k(4\beta_k+1)$.
+
+(iii) A constant gauge transformation $h$ on the slice gives $X(hUh^{-1})=
+X(U)$. For $A=(A_e)\in\g^E$ let $\phi(A)$ be the derivative of
+$t\mapsto X((e^{tA_e})_e)$ at $t=0$; $\phi$ is linear, and
+$\phi(\mathrm{Ad}_hA)=\phi(A)$ for $h\in G$. Averaging over the Haar measure,
+$\phi(A)=\phi(\bar A)$ with $\bar A_e=\int\mathrm{Ad}_hA_e\,dh$. Each $\bar A_e$
+is invariant under $\mathrm{Ad}_G$, hence commutes with $\g$, and so vanishes.
+The curves $t\mapsto e^{tA_e}$ span the tangent space at $I$.
+\end{proof}
+
+The one-loop tuning has $\beta_W=\frac{11}{3\pi^2}\log(1/a)+O(1)$ for
+$\SU(2)$, so $a_k\beta_k\to0$ along it, and Proposition~\ref{prop:lipobstruction}(ii)
+applies. Part (i) shows where the loss lies: the bound of
+Lemma~\ref{lem:slabdirichlet}(iii) is first order in the time-like plaquettes,
+and it gives an energy at most $\kappa a$ only if the variance of $X$ is at
+least the fraction $\varepsilon_\omega/(\kappa a)$ of its largest possible
+value $N\Lambda(X)^2$. Part (iii) shows that a gauge-invariant function has no
+first-order term at the configuration with all links $I$. If $X$ is
+continuously differentiable, its local Lipschitz constants at configurations
+within distance $r$ of that configuration, or of a gauge transform of it, tend
+to $0$ with $r$, while the bound of Lemma~\ref{lem:slabdirichlet}(ii) uses the
+global constants $L_e$.
+
+The bound does give the trial-state condition in the opposite regime, at the
+cost of a lower bound on a variance and on one correlation, which are the
+infrared content of $(\mathrm N_u)$.
+
+\begin{corollary}\label{cor:lipreduction}
+Let $G=\SU(2)$, let $\omega_k$ be states as in
+Appendix~\textup{\ref{app:transfer}} that are limits as in
+Proposition~\textup{\ref{prop:energybeta}} at $\beta_k\ge1$, and let $X_k$ be real
+slice functions with $X_k^c=X_k-\omega_k(X_k)$. Suppose that there are
+$\nu,v>0$ such that for all large $k$
+\begin{gather*}
+\Var_{\omega_k}X_k\ge2\nu\Lambda(X_k)^2,\\
+\omega_k\bigl(X_k^c\,\tau_{u/a_k}A_k\bigr)^2\ge v^2\,\Var_{\omega_k}X_k\,
+C_k(2u) .
+\end{gather*}
+If moreover $a_k\beta_k\ge\kappa_0>0$ for all large $k$, then $(\mathrm N_u)$
+holds, and $\rho_k(u,\sigma)\ge(v-\sqrt{\kappa\sigma/2})_+^2$ for
+$\sigma\ge2a_k$, with $\kappa=(K_1+K_3)/(\nu\kappa_0)$.
+\end{corollary}
+
+\begin{proof}
+The vector $\chi_k=\Psi_{X_k^c}/\|\Psi_{X_k^c}\|$ is a unit vector with
+$\|\Psi_{X_k^c}\|^2=\Var_{\omega_k}X_k$. By Lemma~\ref{lem:slabdirichlet} and
+Proposition~\ref{prop:energybeta}, since $\beta_k\ge1$ and $a_k\beta_k\ge\kappa_0$,
+\[
+\ip{\chi_k}{(1-\mathbb T_k)\chi_k}\le\frac{2\Lambda(X_k)^2(K_1+K_3)}
+{\beta_k\Var_{\omega_k}X_k}\le\frac{K_1+K_3}{\nu\beta_k}\le\kappa a_k .
+\]
+Since $X_k$ is a real function of the slice $x_0=0$, $\vartheta(X_k^c)=X_k^c$
+and $\ip{\chi_k}{\Psi_{k,u}}=\omega_k(X_k^c\tau_{u/a_k}A_k)/(\Var_{\omega_k}
+X_k\,C_k(2u))^{1/2}$, whose modulus is at least $v$. Corollary~\ref{cor:trial}
+gives the rest.
+\end{proof}
+
+The hypotheses of Corollary~\ref{cor:lipreduction} are not proved here. The
+first asks that $X_k$ take values spread over a fixed fraction of the range
+allowed by its Lipschitz constants, at couplings where the plaquettes are of
+size $\beta_k^{-1/2}$; the second is a lower bound on one correlation at
+physical distance. Together with Proposition~\ref{prop:lipobstruction}, the
+corollary locates the estimate: the upper bound on the slab energy that
+reflection positivity and the plaquette energy provide is of order
+$\beta_k^{-1}$ in lattice units, it meets the scale $a_k$ only where
+$a_k\beta_k$ is bounded below, and even there it transfers the whole of
+$(\mathrm N_u)$ to lower bounds on a variance and on an overlap.
+
 \subsection{Estimates uniform in the coupling}\label{ssec:uniform}
 
 Some local quantities of the Wilson measure can be controlled uniformly in
@@ -17087,7 +17367,11 @@ physical time, uniform along the tuning, which is the open input of
 Theorem~\ref{thm:flowlimit}; Section~\ref{ssec:ratiocube} states it exactly as the
 condition $(\mathrm N_u)$, shows that neither the strong-coupling range nor
 the cube estimate in the form of Theorem~\ref{thm:transfer} supplies it,
-and reduces it to the trial states of Corollary~\ref{cor:trial}.
+and reduces it to the trial states of Corollary~\ref{cor:trial}. Section~\ref{ssec:slabenergy} bounds the slab energy of every Lipschitz slice
+function by the plaquette energy, which is at most $(3.7148+0.149/\beta_W)
+/\beta_W$ for $\SU(2)$, and shows that this route gives the trial condition
+only where $a_k\beta_k$ stays bounded below, not along the one-loop tuning
+(Proposition~\ref{prop:lipobstruction}).
 
 \begin{figure}[t]
 \centering
