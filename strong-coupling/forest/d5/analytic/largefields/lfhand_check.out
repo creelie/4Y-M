@@ -1,0 +1,199 @@
+PASS series enclosure width < 1e-10: log2
+PASS series enclosure width < 1e-10: log3/2
+PASS series enclosure width < 1e-10: log5/4
+PASS series enclosure width < 1e-10: log50/49
+PASS series enclosure width < 1e-10: log11/10
+PASS series enclosure width < 1e-10: log37/36
+PASS 0.69314718 < L_2 < 0.69314719
+PASS 1.09861228 < L_3 < 1.09861229
+PASS 1.60943791 < L_5 < 1.60943792
+PASS 1.94591014 < L_7 < 1.94591015
+PASS 2.39789527 < L_11 < 2.39789528
+PASS 3.61091791 < L_37 < 3.61091792
+PASS 2.4e4 = 2^6 3 5^3
+PASS 1.96 = 7^2/5^2
+PASS 23040 = 2^9 3^2 5
+PASS 32000 = 2^8 5^3 > 2*15979
+PASS 7290 = 2 3^6 5
+PASS 8.9 > log 7290
+PASS 81/(7290-6400) < 0.092 < 1/10
+PASS K0 coefficients 700.5 L2 + 143 L3 + 67.5 L5 + 69 L7 (+67.5)
+PASS K0 < 953.06
+PASS K2 coefficients 997 L2 + 8 L3 + 304.5 L5 + 121 L7 (+109.5)
+PASS K2 < 1534.89
+PASS lfkp row kappa=2/25: beta/4*kappa^2 = 1810
+PASS   log kappa^-2 identity
+PASS   log t <= log 1800 + 1/180 (log(1+x)<=x)
+PASS   t - 67.5 log t - 962.06 - 67.5 log kappa^-2 > 0.6  (0.6425)
+PASS   t > 67.5 and lambda >= 100
+PASS lfkp row kappa=1/100: beta/4*kappa^2 = 2101
+PASS   log kappa^-2 identity
+PASS   log t <= log 2100 + 1/2100 (log(1+x)<=x)
+PASS   t - 67.5 log t - 962.06 - 67.5 log kappa^-2 > 0.6  (0.8556)
+PASS   t > 67.5 and lambda >= 100
+PASS lfkp row kappa=1/10000: beta/4*kappa^2 = 2741
+PASS   log kappa^-2 identity
+PASS   log t <= log 2744 + 0 (log(1+x)<=x)
+PASS   t - 67.5 log t - 962.06 - 67.5 log kappa^-2 > 0.6  (1.1349)
+PASS   t > 67.5 and lambda >= 100
+PASS lfkp row kappa=1/100000000: beta/4*kappa^2 = 4010
+PASS   log kappa^-2 identity
+PASS   log t <= log 4000 + 1/400 (log(1+x)<=x)
+PASS   t - 67.5 log t - 962.06 - 67.5 log kappa^-2 > 0.6  (1.1310)
+PASS   t > 67.5 and lambda >= 100
+PASS factorizations 1800 2100 2744 4000
+PASS beta** row kappa=2/25: beta/4*kappa^2 = 5860
+PASS   (t-base)/base == 7/1458
+PASS   0.52t - 109.5 log t - 1543.89 - 109.5 log kappa^-2 > 0.14  (0.1626)
+PASS   t > 211
+PASS beta** row kappa=1/100: beta/4*kappa^2 = 6766
+PASS   (t-base)/base == 8/3375
+PASS   0.52t - 109.5 log t - 1543.89 - 109.5 log kappa^-2 > 0.14  (0.1441)
+PASS   t > 211
+PASS beta** row kappa=1/10000: beta/4*kappa^2 = 8760
+PASS   (t-base)/base == 1/875
+PASS   0.52t - 109.5 log t - 1543.89 - 109.5 log kappa^-2 > 0.14  (0.2097)
+PASS   t > 211
+PASS beta** row kappa=1/100000000: beta/4*kappa^2 = 12718
+PASS   (t-base)/base == 59/6300
+PASS   0.52t - 109.5 log t - 1543.89 - 109.5 log kappa^-2 > 0.14  (0.4764)
+PASS   t > 211
+PASS factorizations 5832 6750 8750 12600
+PASS 4.27025 < 4c^2 < 4.27026
+PASS E increasing for b > 3e10: 67.5*4c^2*1e8 < 3e10
+PASS log 17 < 4 L2 + 1/16 (log(17/16) < 1/16)
+PASS m_j < 17^4 2^(4j-4), j=1
+PASS m_j < 17^4 2^(4j-4), j=2
+PASS m_j < 17^4 2^(4j-4), j=3
+PASS m_j < 17^4 2^(4j-4), j=4
+PASS m_j < 17^4 2^(4j-4), j=5
+PASS m_j < 17^4 2^(4j-4), j=6
+PASS m_j < 17^4 2^(4j-4), j=7
+PASS m_j < 17^4 2^(4j-4), j=8
+PASS m_j < 17^4 2^(4j-4), j=9
+PASS m_j < 17^4 2^(4j-4), j=10
+PASS m_j < 17^4 2^(4j-4), j=11
+PASS m_j < 17^4 2^(4j-4), j=12
+PASS m_j < 17^4 2^(4j-4), j=13
+PASS m_j < 17^4 2^(4j-4), j=14
+PASS m_j < 17^4 2^(4j-4), j=15
+PASS m_j < 17^4 2^(4j-4), j=16
+PASS m_j < 17^4 2^(4j-4), j=17
+PASS m_j < 17^4 2^(4j-4), j=18
+PASS m_j < 17^4 2^(4j-4), j=19
+PASS m_j < 17^4 2^(4j-4), j=20
+PASS m_j < 17^4 2^(4j-4), j=21
+PASS m_j < 17^4 2^(4j-4), j=22
+PASS m_j < 17^4 2^(4j-4), j=23
+PASS m_j < 17^4 2^(4j-4), j=24
+PASS m_j < 17^4 2^(4j-4), j=25
+PASS m_j < 17^4 2^(4j-4), j=26
+PASS m_j < 17^4 2^(4j-4), j=27
+PASS m_j < 17^4 2^(4j-4), j=28
+PASS m_j < 17^4 2^(4j-4), j=29
+PASS m_j < 17^4 2^(4j-4), j=30
+PASS R_1 < 379313/10
+PASS R_2 < 381213/10
+PASS R_3 < 604967/10
+PASS R_30 < 328123/5
+PASS R_j increasing on 1..30 (so R_j <= R_30)
+PASS 1.728e13 = 2^6 3^3 10^10 / 10 ... identity
+PASS 2.7e13 = 3^3 10^12
+PASS 3e13 = 3 10^13
+PASS b=1.70812e+13 <= 1.728e+13, b > 3e10
+PASS   E(b) > 37938 (37943.053) > R_1
+PASS b=1.71602e+13 <= 1.728e+13, b > 3e10
+PASS   E(b) > 38127 (38127.834) > R_2
+PASS b=2.67334e+13 <= 2.7e+13, b > 3e10
+PASS   E(b) > 60505 (60516.116) > R_3
+PASS b=2.9e+13 <= 3e+13, b > 3e10
+PASS   E(b) > 65816 (65816.881) > R_30
+PASS 9*4096 = 36864 and 36864*4.27025e8 > 1.57e13
+PASS 2.90e13*16 < 1e22, 2.90e13*16^24 > 1e42, 16^23*2.90e13 <= 1e42 so j<=23
+PASS 12800 = 2^9 5^2
+PASS 57 < log beta + C1 < 104 on [1e22,1e42]  (57.141, 103.193)
+PASS 1.0201*96 = 97.9296 > 97.92
+PASS 16*2.90e13*1e-8 = 4.64e6
+PASS 4.64e6/(97.92*57) < 16^3
+PASS 2.90e13*1e-8/(16*97.9296) > 2.90e5/1567
+PASS 2.90e5/(1567*104) > 1
+PASS rho^2 = 4.7089e-32
+PASS |log q*| bound s=1 < 3248169/100 (32481.6860)
+PASS   N_s < (4s+17)^4, eMH=e*11^4*6^4
+PASS |log q*| bound s=5 < 958852/25 (38354.0744)
+PASS   N_s < (4s+17)^4, eMH=e*11^4*6^4
+PASS beta1 rho^2/16 > 33024.10
+PASS 1.1221 < 9/8, 1.3217 < 4/3
+PASS 6(log beta1 + C0) < 541.33 (541.3296)
+PASS g(beta1) > 1
+PASS beta5 rho^2/16 > 38898.45
+PASS 6(log beta5 + C0) < 542.35 (542.3490)
+PASS g(beta5) > 2
+PASS beta1 > 96/rho^2
+PASS 99.0001 + 4.65e6/1.1e37 <= 99.0002
+PASS c1 bound s=1 theta=0: 5.45807e+21 < 5458100000000000000000
+PASS c1 bound s=1 theta=1/2: 5.44302e+21 < 5443100000000000000000
+PASS c1 bound s=5 theta=0: 8.21705e+22 < 82171000000000000000000
+PASS c1 bound s=5 theta=1/2: 8.17784e+22 < 81779000000000000000000
+PASS e^x <= 1+x+x^2 on [0,1] (x <= 0.0095 here)
+PASS 5.4581 < 3^7/400
+PASS 7L3-4L2-2L5 < 0.74 log10
+PASS sigma(1/4000) bound 9.83532e+16 < 98354000000000000
+PASS   kappa/2 - kappa^2/8 = y
+PASS sigma(1/8000) bound 1.57326e+18 < 1573300000000000000
+PASS   kappa/2 - kappa^2/8 = y
+PASS kappa R/2 = 2500 (both)
+PASS 1085.736 log10 < 2500
+PASS c1 sigma s=1 th=0 < 5.37e38
+PASS 5.37 < 5.4, log5.4 = 3L3-L5 < 0.736 log10
+PASS c1 sigma s=1 th=1/2 < 1e40
+PASS c1 sigma s=5 th=0 < 1e40
+PASS c1 sigma s=5 th=1/2 < 1.3e41
+PASS tau: 38.736-1085.736 = -1047, 40-1085.736 < -1045, 41.736-1085.736 = -1044
+PASS N1 = 194480, N_s(s=5) = 1874160, N_5 = 14640
+PASS log(2N_1^2) > 25.049316 (25.0493163)
+PASS log(2N_s^2), s=5, > 29.580489 (29.5804894)
+PASS log(1-y) >= -y/(1-y): log N >= 4 log b - 1/N
+PASS log(eH) > 8.167037
+PASS ell_M1 theta=0: 1e7 + 12000*1e1700*log10 < 1e1705
+PASS ell_M1 theta=1/2: 2e7 + 24000*1e1700*log10 < 1e1705
+PASS 2N1^2 = 75644940800 > 275000^2
+PASS 2N1^2 > 10^11/1.5 > 10^10.8 (1.5^5 < 10)
+PASS 648*10.8 > 6998
+PASS (2*10^1705+1)^4 < 81*10^6820 < 10^6822
+PASS 6822 - 6998 = -176
+PASS nu < 0.2130 < 16/75
+PASS log(16/75) = 4L2-L3-2L5 < -0.67 log10
+PASS ell_m0 theta=0: 1e7 + 60000 log10 < 10138156
+PASS P (theta=0) < 4.125e19 = 33/8 1e19
+PASS log first term s=1 theta=0 < -64763.49 (-64763.4964)
+PASS 28126 log10 < 64762.51
+PASS sum of first two terms < 1e-28126: e^-0.98 + 2*10^-6998*0.213^1e5 * 10^28126 < 1
+PASS   64763.49 - 64762.51 = 0.98 > log 2
+PASS   0.213^100000 < 10^-60000 (0.213 < 10^-0.67)
+PASS ell_m0 theta=1/2: 2e7 + 120000 log10 < 20276311
+PASS P (theta=1/2) < 1.65e20 = 3*5*11*1e18
+PASS log first term s=1 theta=1/2 < -64757.95 < -28124 log10 (-64757.9512)
+PASS 2N_s^2 (s=5) > 2650000^2
+PASS nu (s=5) < 0.0222 < 1/45
+PASS log(1/45) = -2L3-L5 < -1.65 log10
+PASS log first term s=5 theta=0 < -76508.29 < -33227 log10 (-76508.2968)
+PASS log first term s=5 theta=1/2 < -76502.75 < -33224 log10 (-76502.7517)
+PASS A^{1/2} also < 10^-6998 at s=5 (2N_s^2 larger)
+PASS growth factor: at t=1, (1+1e-7)^8 < 1+1e-6
+PASS   log-derivative: 8*4e-4 + 12 < 64962 (log t <= t-1, log(1+y) <= y)
+PASS   relative growth of ell: 1/R <= 1e-7 and (2/kappa)/R = 4e-4
+PASS   margins exceed 1e-6: 0.98, 64757.95-28124log10, 33227log10..., 33224log10...
+PASS 275036^2 < 2N1^2 < 275037^2
+PASS A^{-1/(2H)}/4 - N_5 in (54000, 54675)
+PASS 54000 = 2^4 3^3 5^3, 54675 = 3^7 5^2
+PASS log(2N1^2) < 25.049327
+PASS log RHS in (16242.85, 16242.88)  (16242.8535, 16242.8731)
+PASS 4(L2 + 1763.2 log10) + 1e-1000 < 16242.45 (16242.4449)
+PASS   log(2x+1) <= log(2x) + 1/(2x), 1/(2*10^1763.2) < 10^-1000/4
+PASS 4(L2 + 1763.3 log10) > 16243.36 (16243.3657)
+PASS   16243.36 > 16242.88 and 16242.45 < 16242.85
+PASS 4(L2 + 3524.5 log10) > 32464.6 (32464.6172)
+PASS 32464.6 > 1296*25.049327
+PASS N_l >= (2l)^4 for l >= 1
+198 checks passed, 0 failed
