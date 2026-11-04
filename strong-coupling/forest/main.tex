@@ -18536,6 +18536,627 @@ two-point function of Proposition~\ref{prop:limitEnotempered}(ii) has those
 that Corollary~\ref{cor:limitEtwo}(b) gives and is not tempered.
 \end{remark}
 
+\subsection{The conditional chain for every compact simple group}
+\label{ssec:chainG}
+
+The lattice gap of Theorem~\ref{thm:groups} holds for every compact simple
+group in the range $N|\beta|<2\kappa_G/29$. The continuum chain from
+Sec.~\ref{ssec:averaged} to Corollary~\ref{cor:limitEOS} is posed in the
+setting of Sec.~\ref{ssec:averaged}, for any compact nontrivial
+$G\subset\U(N)$ and any positive continuous class weight, but several of its
+statements are proved for $\SU(2)$ or $\SU(N)$ only. This subsection lists
+where a property of these groups enters, states the chain for every compact
+simple group with each hypothesis named, and treats the statements that use
+$\SU(2)$ or $\SU(N)$: the centre sectors, the strong-coupling range of the
+averaged condition, the response of one link that the sharp quarter bounds
+for $\SU(2)$, the obstruction at fixed cube size, and the holonomy flow.
+
+Throughout, $G$, $N$, $\ip XY=-\Tr(XY)$, $\kappa_G$, $d=\dim G$,
+$K=\kappa_G/(d-1)$ and $C_0(G)$ are as in Sec.~\ref{ssec:groups13}, the
+inclusion $G\subset\U(N)$ is irreducible, as for every row of
+Table~\ref{tab:groups}, and the Wilson measure of $\Lambda_L$ has the weight
+$\varphi=e^{N\beta\ReTr(\cdot)}$, that is, $\beta_W=N^2\beta$. The centre
+$Z(G)$ is finite, since $\g$ is simple, and $\widehat{Z(G)}$ is its group of
+characters. Lemma~\ref{lem:wilsonZG} gives, for $N\beta\ge K$ and every
+plaquette,
+\begin{equation}\label{eq:chainGeps}
+\varepsilon_G(\beta)=2\mu(N-\ReTr U_p)\le\frac{2}{N\beta}\Bigl(\frac d3\log
+(N^2\beta)+C_0(G)\Bigr),
+\end{equation}
+since $N-\ReTr U_p=Ns_p$ and the plaquettes are equivalent under the
+symmetries of $\Lambda_L$. This replaces Lemma~\ref{lem:bpflat}: for
+$\SU(2)$ it reads $\mu(2-\Tr U_p)\le(\log\beta+5.71)/(2\beta)$.
+
+\emph{Where the group enters.} Table~\ref{tab:chainG} lists the statements
+of Secs.~\ref{ssec:averaged}--\ref{ssec:bpup} and~\ref{ssec:limitE}, the
+property of $G$ that each proof uses, and its status for a general $G$. The
+forest gauge, the plaquette blocks and the chart bounds do not enter the
+chain: the averaged condition is posed without gauge fixing.
+
+\begin{table*}[t]
+\caption{The statements of the conditional chain, the property of the gauge
+group used in their proofs, and their status for every compact simple group
+$G$.}
+\label{tab:chainG}
+\raggedcells
+\begin{ruledtabular}
+\begin{tabular}{p{0.31\textwidth}p{0.33\textwidth}p{0.26\textwidth}}
+Statement&Property of $G$ used&Every compact simple $G$\\
+\colrule
+Lemma~\ref{lem:avgspeed}, Theorem~\ref{thm:avgdecay}&locality of the
+cube moves; $\ReTr U_p$ is not constant&as stated\\
+Corollary~\ref{cor:avggap}, Theorem~\ref{thm:avgtransfer},
+Proposition~\ref{prop:spatialflow}\textup{(iii)}&reflection positivity for
+$\beta\ge0$~\cite{OSei78}; Appendix~\ref{app:transfer}&as stated\\
+Propositions~\ref{prop:avgsup}, \ref{prop:bpscales},
+\ref{prop:bpnoloc}, \ref{prop:bpsharp}, Theorem~\ref{thm:bpstrong},
+Lemma~\ref{lem:bpstokes}&a bi-invariant metric; Haar measure&as stated\\
+Corollary~\ref{cor:bpranges}\textup{(i)}, \textup{(ii)}&the sharp quarter on
+$S^3$; the $\SU(3)$ bounds&part \textup{(iii)}, with $\kappa_G$;
+Proposition~\ref{prop:modulusG}\\
+Lemma~\ref{lem:bpflat}&$\SU(N)$; Haar density of $\SU(2)$&\eqref{eq:chainGeps}\\
+Proposition~\ref{prop:bpcentre}, Definition~\ref{def:bploc}\textup{(b)},
+Theorem~\ref{thm:bplocal}\textup{(i)}, \textup{(iv)}&the centre $\{\omega^jI\}$
+of $\SU(N)$&Proposition~\ref{prop:bpcentreG}\\
+Theorem~\ref{thm:bplocal}, other clauses; Lemma~\ref{lem:bpintegrated}&none
+beyond Sec.~\ref{ssec:averaged}&as stated\\
+Lemma~\ref{lem:bpcommute}, Theorem~\ref{thm:bpfixed},
+Corollaries~\ref{cor:bpresponse}, \ref{cor:bpcharged},
+\ref{cor:bpcoupling}&centre of $\SU(N)$; commuting pairs in $\SU(N)$&under
+\textup{(CP)}, Proposition~\ref{prop:bpfixedG}; \textup{(CP)} fails for
+$\mathrm{Sp}(n)$, $n$ even\\
+Lemma~\ref{lem:bpflow}, Theorem~\ref{thm:bpneutral}&polar coordinates of
+$\SU(2)$&Proposition~\ref{prop:bpflowG}\\
+Theorem~\ref{thm:bpdescent}, Corollary~\ref{cor:bpdescent}&\textup{(B1)},
+\textup{(B2)}&as stated\\
+Lemma~\ref{lem:bpupcond}, Theorems~\ref{thm:bpup}, \ref{thm:bpuptower},
+Corollaries~\ref{cor:bpuptuning}, \ref{cor:bpupseparate},
+Proposition~\ref{prop:bpuphaar}&gauge invariance; translation invariance of
+Haar measure&as stated\\
+Sec.~\ref{ssec:limitE} except Corollary~\ref{cor:limitEstrong}&reflection
+positivity and the transfer gap of Corollary~\ref{cor:avggap}&as stated\\
+Corollary~\ref{cor:limitEstrong}&Corollary~\ref{cor:bpranges}\textup{(i)}&Corollary~\ref{cor:limitEstrongG}\\
+\end{tabular}
+\end{ruledtabular}
+\end{table*}
+
+\emph{Centre sectors.} For a direction $\nu$, $t\in\Z/L\Z$ and $z\in Z(G)$
+let $Z^\nu_{t,z}$ multiply every link $(y,\nu)$ with $y_\nu=t$ by $z$ and
+fix the other links; for $\SU(N)$, $Z^\nu_t=Z^\nu_{t,\omega I}$. For
+$r=(r_0,\dots,r_3)\in\widehat{Z(G)}^4$ let $\mathcal A_r$ be the set of
+$f\in\mathcal A_\C$ with $f\circ Z^\nu_{t,z}=r_\nu(z)f$ for all $\nu$, $t$
+and $z$, and let $\mathrm{BP}_0(n,\varpi)$ be the inequality of
+$\mathrm{BP}(n,\varpi)$ for the real $f\in\mathcal A_0$, $0$ the trivial
+character. For $\SU(N)$ these are the objects of Sec.~\ref{ssec:bpweak}.
+
+\begin{proposition}[centre sectors for every group]\label{prop:bpcentreG}
+Statements \textup{(i)}--\textup{(v)} of Proposition~\textup{\ref{prop:bpcentre}}
+hold for $G$, with $Z^\nu_{t,z}$ in place of $Z^\nu_t$, $r\in\widehat{Z(G)}^4$,
+and the condition $f\circ Z^\nu_{t,z}=r_\nu(z)f$ in place of $f\circ Z^\nu
+=\omega^{r_\nu}f$. Theorem~\textup{\ref{thm:bplocal}} holds with the clauses
+for $\SU(N)$ read for $G$: $\mathrm{BP}(n,\varpi)$ implies
+$\mathrm{BP}_0(n,\varpi)$, which implies $\mathrm{BP}_{\rm loc}(n,\varpi)$,
+and in \textup{(iv)}, $h\in\mathcal A_0$. If $Z(G)=\{I\}$, then $\mathcal
+A_0=\mathcal A_\C$ and $\mathrm{BP}_0(n,\varpi)$ is $\mathrm{BP}(n,\varpi)$.
+\end{proposition}
+
+\begin{proof}
+The proof of Proposition~\ref{prop:bpcentre}(i) uses of $z$ only that it
+commutes with every element of $G$: then every plaquette variable and the
+density of $\gamma^0_{V_x}(\cdot\mid U)$ are unchanged, Haar measure is
+invariant under multiplication by $z$, $Z^\nu_{t,z}$ commutes with the gauge
+group, and $Z^\nu_{t,z}$ is invertible, with inverse $Z^\nu_{t,z^{-1}}$. In
+(ii) the gauge transformation equal to $z^{-1}$ at the sites with $y_\nu=t+1$
+and to $I$ elsewhere shows that $f\circ Z^\nu_{t,z}$ does not depend on $t$
+for $f\in\mathcal A_\C$; write $Z^\nu_z$ for the induced map. The maps
+$f\mapsto f\circ Z^\nu_z$ are unitary on $\mathcal A_\C$, commute with each
+other, and $Z^\nu_zZ^\nu_{z'}=Z^\nu_{zz'}$, so they form a unitary
+representation of the finite abelian group $Z(G)^4$. For (iii) put
+\[
+\Pi_rf=\frac1{|Z(G)|^4}\sum_{w\in Z(G)^4}\overline{r(w)}\,f\circ Z^0_{w_0}
+\cdots Z^3_{w_3},
+\]
+with $r(w)=\prod_\nu r_\nu(w_\nu)$; the orthogonality of the characters of
+$Z(G)^4$ makes the $\Pi_r$ orthogonal projections onto the $\mathcal A_r$
+with $\sum_r\Pi_r=I$ and $\Pi_r\Pi_{r'}=0$ for $r\ne r'$, and by (i) they
+commute with every $\mathcal P_x$. The proofs of (iv) and (v) and of the
+clauses of Theorem~\ref{thm:bplocal} use only (i)--(iii) and the fact that
+spectral projections of $\mathcal K$ commute with the $\Pi_r$. If
+$Z(G)=\{I\}$, the only character is trivial.
+\end{proof}
+
+For the groups of Table~\ref{tab:groups} the centre is cyclic of order $N$
+for $\SU(N)$, of order two for $\SO(2m)$, $\mathrm{Sp}(n)$ and $E_7$, of
+order three for $E_6$, and trivial for $\SO(2m+1)$, $G_2$, $F_4$ and $E_8$;
+for the last four groups every gauge-invariant function is neutral.
+
+\emph{The chain for every group.} Let $a_k\to0$ be the lattice spacings of
+Definition~\ref{def:limit}, $\varpi>0$, $\ell>0$ and $n_k\ge2$ integers with
+$n_ka_k\le\ell$, $\beta_k\ge0$, and $\mathcal L_k$ infinite sets of even
+integers $L\ge2n_k+4$.
+\begin{enumerate}[label=\textup{(BP$_{\rm loc}^G$)},leftmargin=*]
+\item For every $k$ and every $L\in\mathcal L_k$, $\mathrm{BP}_{\rm loc}(n_k,
+\varpi)$ holds for the Wilson measure of $G$ on $\Lambda_L$ at $\beta_k$.
+\end{enumerate}
+
+\begin{theorem}[the conditional chain for every compact simple group]
+\label{thm:chainG}
+\textup{(a)} Each of the following implies \textup{(BP$_{\rm loc}^G$)}:
+\textup{(a1)} $\mathrm{BP}(n_k,\varpi)$ on the same tori;
+\textup{(a2)} $\mathrm{BP}_0(n_k,\varpi)$ on the same tori;
+\textup{(a3)} $a_k=2^{-k}a_0$, $n_k=2^kn_0$, the sets $\mathcal L_k$ of
+Corollary~\textup{\ref{cor:bpuptuning}}, and its hypotheses \textup{(H1)} and
+\textup{(H2)} for block-spin maps of $G$, with $\varpi=\min(\varpi_0,1/C_A)
+/\Gamma$.
+
+\textup{(b)} Assume \textup{(BP$_{\rm loc}^G$)}. Every torus limit $\omega_k$
+along $\mathcal L_k$ is invariant under the translations and $B_4$,
+reflection positive, and its transfer matrix has gap at least
+$16\varpi/(625e^2n_k)$ on $\Omega_k^\perp$. Every continuum limit of
+$(\omega_k,O_k)$, and of $(\omega_k,O_k\circ\Phi_{s_k})$ for the spatial
+flow of Proposition~\textup{\ref{prop:spatialflow}}, satisfies
+$\sigma(H)\subset\{0\}\cup[m_*,\infty)$ with $m_*=16\varpi/(625e^2\ell)$,
+and $0$ is a simple eigenvalue.
+
+\textup{(c)} Assume \textup{(BP$_{\rm loc}^G$)}. For every field $\Phi$ as in
+Sec.~\textup{\ref{ssec:limitE}} and constants $Z_k$, every lemma,
+proposition, theorem and corollary of Sec.~\textup{\ref{ssec:limitE}} other
+than
+Corollary~\textup{\ref{cor:limitEstrong}} holds for $G$ under the
+hypotheses stated in it; in particular Theorem~\textup{\ref{thm:limitEsep}}
+under \textup{(M$_{\mathrm s}$)}, Proposition~\textup{\ref{prop:limitEnorm}},
+and Theorem~\textup{\ref{thm:limitEtempered}}.
+
+\textup{(d)} Assume \textup{(BP$_{\rm loc}^G$)}, \textup{(G$_{\mathrm s}$)},
+\textup{(W$_{\mathrm s}$)} and \textup{(U$_{\mathrm s}$)}. Then the
+conclusions of Corollary~\textup{\ref{cor:limitEOS}} hold for $G$: the
+limits extend to $\mathcal S_0(\R^{4n})$, satisfy the linear growth
+condition of~\cite{OS75} and the axioms of~\cite{OS73} of Euclidean
+invariance, reflection positivity, symmetry and clustering, the
+reconstructed Hamiltonian has $\sigma(H_0)\subset\{0\}\cup[m_*,\infty)$
+and $\ker H_0=\C\Omega_0$, and for $C_k(0)>0$ and $Z_k=C_k(\sigma_0)^{-1/2}$
+the limit is nontrivial.
+\end{theorem}
+
+\begin{proof}
+The proofs cited below use of $G$ only the following:
+(G1) $G\subset\U(N)$ is a compact group with Haar measure, and the weight
+$e^{N\beta\ReTr(\cdot)}$ is a positive continuous class function;
+(G2) for $\beta\ge0$ and even $L$ the Wilson measure is reflection positive
+for reflections in planes through sites and bisecting
+links~\cite{OSei78,Sei82}, which the proof of Corollary~\ref{cor:avggap}
+uses in the setting of Sec.~\ref{ssec:averaged};
+(G3) $\ReTr$ is not constant on $G$, since $\ReTr g=N$ only for $g=I$;
+(G4) gauge invariance of the measures, the conditions (B1) and (B2), and the
+invariance of Haar measure under translations. The straight-path map of
+Sec.~\ref{ssec:bpblock} is a block-spin map of range one for every $G$.
+
+(a) Part (a1) is Theorem~\ref{thm:bplocal}(i), whose first clause holds in
+the setting of Sec.~\ref{ssec:averaged}, and (a2) is
+Proposition~\ref{prop:bpcentreG}. For (a3), the proofs of
+Lemma~\ref{lem:bpupcond}, Theorems~\ref{thm:bpup} and~\ref{thm:bpuptower}
+and Corollary~\ref{cor:bpuptuning} use (G4) only, and give
+$\mathrm{BP}(n_k,\varpi)$; (a1) applies.
+
+(b) This is Theorem~\ref{thm:bplocal}(ii), (iii). Its proof uses
+Lemma~\ref{lem:avgspeed}, which uses the locality of the cube moves only,
+the bound $\varpi\le4$, which uses (G3), and the proofs of
+Corollary~\ref{cor:avggap}, Theorem~\ref{thm:avgtransfer} and
+Proposition~\ref{prop:spatialflow}(iii), which use (G1), (G2) and
+Appendix~\ref{app:transfer}; the spatial flow is defined for a bi-invariant
+metric on any compact $G$.
+
+(c) By Remark~\ref{rem:limitEscope}, Sec.~\ref{ssec:limitE} uses the
+averaged condition only through Lemma~\ref{lem:limitElattice}(iii), that is,
+through the reflection positivity and the transfer gap of
+Corollary~\ref{cor:avggap}, which (b) supplies. The remaining arguments
+concern $\omega_k$, the field $\Phi$, its covariance under $B_4$ and the
+translations, and Gaussian comparison fields, and contain no property of
+$G$; the one statement that does, Corollary~\ref{cor:limitEstrong}, is
+excluded.
+
+(d) The proof of Corollary~\ref{cor:limitEOS} uses
+Corollary~\ref{cor:limitEexact}, Theorems~\ref{thm:limitEsep}
+and~\ref{thm:limitEtempered} and Proposition~\ref{prop:limitEnorm}(ii),
+which hold for $G$ by (c).
+\end{proof}
+
+None of the hypotheses of Theorem~\ref{thm:chainG}(b)--(d) is proved for any
+group along the continuum tuning: neither (BP$_{\rm loc}^G$) with
+$n_ka_k\le\ell$, nor (H1) and (H2), nor (M$_{\mathrm s}$), (G$_{\mathrm s}$),
+(W$_{\mathrm s}$), (U$_{\mathrm s}$). The theorem places the open inputs of
+the continuum step in the same statements for every compact simple group.
+At strong coupling the averaged condition holds for every group, and the
+limits are trivial.
+
+\begin{corollary}\label{cor:limitEstrongG}
+Let $0\le N\beta_k\le\kappa_G/48$ for every $k$. Then
+$\mathrm{BP}(2,\frac{21}{32})$ holds for the Wilson measure of $G$ on every
+$\Lambda_L$ with $L\ge8$ even, so \textup{(BP$_{\rm loc}^G$)} holds with
+$\varpi=\frac{21}{32}$, $n_k=2$ and $\ell=2a_0$; every torus limit has
+transfer-matrix gap at least $m_{\mathrm{lat}}=21/(2500e^2)>1.13\cdot10^{-3}$
+in lattice units, and for every $\Phi$ and every choice of $Z_k$ satisfying
+\textup{(M$_{\mathrm s}$)} every limit of
+Theorem~\textup{\ref{thm:limitEsep}} is trivial.
+\end{corollary}
+
+\begin{proof}
+At $n=2$ Corollary~\ref{cor:bpranges}(iii) requires $N|\beta|<4\kappa_G/129$,
+which holds since $129<192$, and gives
+\[
+\alpha_2=\frac{33N|\beta|}{4(\kappa_G-24N|\beta|)},
+\]
+increasing in $N|\beta|$ and equal to $\frac{33}{96}=\frac{11}{32}$ at
+$N|\beta|=\kappa_G/48$. So $\mathrm{BP}(2,\frac{21}{32})$ holds on
+$\Lambda_L$, $L\ge2n+4=8$, and $n_ka_k=2a_k\le2a_0$. By
+Corollary~\ref{cor:avggap} with $q_2=\frac{625}{16}$ the gap is at least
+$\varpi/(2e^2q_2)=8\varpi/(625e^2)=21/(2500e^2)$, and $e<2.7183$ gives
+$2500e^2<18473$, so the gap exceeds $21/18473>1.13\cdot10^{-3}$.
+Proposition~\ref{prop:limitEnorm}(iii) holds for $G$ by
+Theorem~\ref{thm:chainG}(c), and applies.
+\end{proof}
+
+For $\SU(2)$ the range of Corollary~\ref{cor:limitEstrongG} is $\beta_W\le
+\frac1{24}$, a third of the range $\beta_W\le\frac18$ of
+Corollary~\ref{cor:limitEstrong}; the difference comes from the sharp
+quarter.
+
+\emph{The response of one link.} For $S\in M_N(\C)$ let $\nu_S$ be the
+probability measure on $G$ with density proportional to $e^{\ReTr(SU)}$
+with respect to Haar measure; given the other links, the law of a link
+under the Wilson measure is $\nu_S$ with $S=N\beta$ times the sum of the six
+staples. For $A\in M_N(\C)$ put
+\[
+\Lambda_S(A)=\sup_f\Cov_{\nu_S}\bigl(f,\ReTr(AU)\bigr),
+\]
+the supremum over the real $f$ on $G$ with $|f(U)-f(V)|\le\lVert U-V
+\rVert_{\rm HS}$. This is the derivative of $\nu_{S+tA}(f)$ at $t=0$,
+maximised over these $f$, so by the Kantorovich--Rubinstein duality
+$W_1(\nu_S,\nu_{S'})\le\sup_{0\le t\le1}\Lambda_{S+t(S'-S)}(S'-S)$ for the
+Hilbert--Schmidt distance. Moving one partner link by $\delta$ in this
+distance moves one staple by $\delta$, so $C^0_{ee'}\le N|\beta|
+\Lambda_G(6N|\beta|)$ for the Hilbert--Schmidt metric, where
+\[
+\Lambda_G(r)=\sup\bigl\{\Lambda_S(A):\lVert S\rVert_{\rm op}\le r,\
+\lVert A\rVert_{\rm HS}=1\bigr\}.
+\]
+The sharp quarter (Theorem~\ref{q-thm:quarter}) computes $\Lambda_G$ for
+$\SU(2)$; for a general group the following holds.
+
+\begin{proposition}\label{prop:modulusG}
+\textup{(i)} For $\lVert A\rVert_{\rm HS}=1$, $\Lambda_0(A)\le1/\sqrt d$,
+and $\Lambda_0(e^{i\theta}A)\ge1/(2N)$ for some $\theta\in\R$; so
+$1/(2N)\le\Lambda_G(0)\le1/\sqrt d$.
+
+\textup{(ii)} For $0\le r<\kappa_G$, $\Lambda_G(r)\le1/(\kappa_G-r)$.
+
+\textup{(iii)} For $G=\SU(2)$, $\Lambda_S(A)\le\frac12\lVert A\rVert_{\rm
+HS}$ for all $S$ and $A$, with equality for some $A\ne0$ at $S=0$; so
+$\Lambda_G(r)=\frac12$ for every $r\ge0$.
+\end{proposition}
+
+\begin{proof}
+(i) Let $g(U)=\ReTr(AU)$ and $X_1,\dots,X_d$ an orthonormal basis of $\g$.
+Since the inclusion is irreducible, $\sum_aX_a^2=-cI$ by Schur's lemma, and
+taking traces, $cN=d$. With the left-invariant fields $\tilde X_af(U)=
+\frac d{ds}f(Ue^{sX_a})|_{s=0}$, the Laplacian is $\Delta=\sum_a\tilde X_a^2$
+and $\Delta g=\ReTr(AU\sum_aX_a^2)=-\frac dNg$. The $a$-th component of
+$\nabla g$ is $\ReTr(AUX_a)$, the real Hilbert--Schmidt product of
+$(AU)^*$ with $X_a$, so $|\nabla g|\le\lVert A\rVert_{\rm HS}=1$ and $g$ is
+$1$-Lipschitz for the Hilbert--Schmidt distance. By Schur orthogonality,
+$\int|\Tr(AU)|^2dU=\lVert A\rVert_{\rm HS}^2/N$ and $\int\Tr(AU)dU=0$, and
+\[
+\int g^2\,dU=\frac12\int|\Tr(AU)|^2dU+\frac12\operatorname{Re}\int\Tr(AU)^2
+dU
+\]
+lies between $0$ and $1/N$. A function that is $1$-Lipschitz for the
+Hilbert--Schmidt distance is $1$-Lipschitz for the geodesic distance, which
+is larger, so $|\nabla f|\le1$ almost everywhere, and
+\[
+\Cov(f,g)=-\frac Nd\int f\Delta g=\frac Nd\int\ip{\nabla f}{\nabla g}\le
+\frac Nd\Bigl(\int|\nabla g|^2\Bigr)^{1/2},
+\]
+with $\int|\nabla g|^2=-\int g\Delta g=\frac dN\int g^2\le\frac dN\cdot
+\frac1N$; so $\Cov(f,g)\le1/\sqrt d$. Choose $\theta$ with $e^{2i\theta}
+\int\Tr(AU)^2dU\ge0$; for $A'=e^{i\theta}A$ and $g'=\ReTr(A'U)$, $\int
+g'^2\ge1/(2N)$, and $f=g'$ is admissible, so $\Lambda_0(A')\ge1/(2N)$.
+
+(ii) Let $\lVert S\rVert_{\rm op}\le r$ and $V(U)=-\ReTr(SU)$. Along a
+geodesic $e^{tX}U$ the second derivative of $V$ is $-\ReTr(SX^2U)$, whose
+absolute value is at most
+\[
+\lVert S\rVert_{\rm op}\lVert X^2\rVert_1=\lVert S\rVert_{\rm op}|X|^2,
+\]
+so $\Ric_G+\Hess V\ge\kappa_G-r>0$. As in the proof of
+Lemma~\ref{lem:bponelink}, $|\Cov_{\nu_S}(f,g)|$ is at most $\lVert\nabla f
+\rVert_\infty\lVert\nabla g\rVert_\infty/(\kappa_G-r)$, and both gradients
+are at most one for $\lVert A\rVert_{\rm HS}=1$.
+
+(iii) Write $U=x_0I+x_1\mathbf i+x_2\mathbf j+x_3\mathbf k$ with $x\in S^3
+\subset\R^4$, and $U'$ likewise with $x'$, so that $\lVert U-U'\rVert_{\rm
+HS}=\sqrt2|x-x'|$ and $\ReTr(AU)=\ip wx$, where $w_a$ is the real Hilbert--Schmidt product of $A^*$
+with the $a$-th basis matrix, of norm $\sqrt2$; hence $|w|\le\sqrt2\lVert A
+\rVert_{\rm HS}$, with equality when $A^*$ is a real multiple of an element
+of $\SU(2)$. Then $\nu_S=\nu_b$ in the notation of
+Theorem~\ref{q-thm:quarter}, with $b\in\R^4$ defined by $\ReTr(SU)=\ip bx$,
+and $f$ is $\sqrt2$-Lipschitz for the chordal distance of the unit sphere.
+So, for $w\ne0$,
+\[
+\begin{split}
+\Cov_{\nu_S}(f,\ip wx)&=\sqrt2|w|\Cov_{\nu_b}\bigl(f/\sqrt2,\ip{w/|w|}x
+\bigr)\\
+&\le\sqrt2|w|\,L(b,w/|w|)\le\tfrac12\lVert A\rVert_{\rm HS},
+\end{split}
+\]
+with equality at $b=0$ for $A^*\in\R\,\SU(2)$ and $f=\sqrt2\ip{w/|w|}x$.
+\end{proof}
+
+Lemma~\ref{lem:bponelink} is the bound of Proposition~\ref{prop:modulusG}(ii)
+with $r=6N|\beta|$, in the geodesic metric, and Corollary~\ref{cor:bpranges}(i)
+rests on part (iii): $C^0_{ee'}\le N|\beta|\cdot\frac12=|\beta|$, uniformly
+in $\beta$. Through Theorem~\ref{thm:bpstrong}, a bound $\Lambda_G(6N|\beta|)
+\le\lambda$ gives $\mathrm{BP}(n,1-\alpha_n)$ with $\alpha_n<1$ for large $n$
+whenever $18N|\beta|\lambda<1$. With $\lambda=1/(\kappa_G-6N|\beta|)$ this is
+the range $N|\beta|<\kappa_G/24$ that Corollary~\ref{cor:bpranges}(iii)
+reaches as $n\to\infty$; for $\SU(2)$, $\lambda=\frac12$ gives $|\beta|<
+\frac1{18}$, that is $\beta_W<\frac29$, the range of
+Corollary~\ref{cor:bpranges}(i). The analogue of the sharp quarter for $G$
+is a bound $\lambda$ of the order of $\Lambda_G(0)\le1/\sqrt d$, uniform in
+$r\le6N|\beta|$, which would give a range of order $\sqrt d$ in place of
+$\kappa_G$. At $r=0$ the ratio of the bound of part (ii) to that of part (i)
+is $\sqrt d/\kappa_G$, which is $2\sqrt{N^2-1}/N<2$ for $\SU(N)$ and
+$4\sqrt{248}>62$ for $E_8$. The value of $\Lambda_G(r)$ for $r>0$ and $G\ne
+\SU(2)$ is not determined here. The proof of Theorem~\ref{q-thm:quarter} uses
+that $\SU(2)$ is the unit sphere of $\R^4$, on which $\nu_S$ is a von
+Mises--Fisher law, and the harmonic extension of a Lipschitz function to the
+ball; it is not extended here to other groups.
+
+\emph{The obstruction at fixed cube size.} Theorem~\ref{thm:bpfixed} uses
+the centre of $\SU(N)$ twice: the charged traces of Polyakov loops have
+mean zero, and on commuting pairs some charged trace is bounded below.
+For a general group the first part carries over whenever $Z(G)\ne\{I\}$,
+and the second becomes a condition on $G$. Let $A=P_0$ and $B$ be the
+Polyakov loops of directions $0$ and $1$ based at the site $0$, as in
+Sec.~\ref{ssec:bpstrong}.
+\begin{enumerate}[label=\textup{(CP)},leftmargin=*]
+\item There are continuous $F_1,\dots,F_m:G\times G\to\C$ and $\ell>0$ such
+that for every $k$: $F_k(gA'g^{-1},gB'g^{-1})=F_k(A',B')$; there are
+$z,z'\in Z(G)$ and $\lambda_k\ne1$ with $F_k(zA',z'B')=\lambda_kF_k(A',B')$;
+$|F_k|\le1$ and $|F_k(HA',H'B')-F_k(A',B')|\le\ell(\lVert H-I\rVert_{\rm op}
++\lVert H'-I\rVert_{\rm op})$; for all $g,A',B',H,H'\in G$. Moreover
+$\sum_k|F_k(A',B')|^2>0$ for every commuting pair $(A',B')$.
+\end{enumerate}
+Under (CP), by compactness there are $c_F>0$ and $\eta_F>0$ with
+$\sum_k|F_k(A',B')|^2\ge c_F$ whenever $\lVert A'B'A'^{-1}B'^{-1}-I
+\rVert_{\rm HS}\le\eta_F$, as in the proof of Lemma~\ref{lem:bpcommute}.
+
+\begin{proposition}\label{prop:bpfixedG}
+Let $\beta\ge0$ and $n\ge2$.
+
+\textup{(i)} If $Z(G)\ne\{I\}$, there is an irreducible unitary
+representation $\sigma$ of $G$, of dimension $N_\sigma$, whose central
+character is not trivial, and $\mathrm{BP}(n,\varpi)$ on $\Lambda_L$ implies
+\[
+\frac1{L^3}\sum_{y:\,y_0=0}\mu\bigl(\chi_\sigma(P_0)\overline{\chi_\sigma
+(P_y)}\bigr)\le\frac{2N_\sigma^2n^2}{\varpi L^2},\quad\chi_\sigma=\Tr
+\sigma.
+\]
+
+\textup{(ii)} Under \textup{(CP)}, for $N\beta\ge K$, $\mathrm{BP}(n,\varpi)$
+on $\Lambda_{2n+4}$ implies
+\[
+\varpi\le2048\,n^4\varepsilon_G(\beta)\max\Bigl(\frac{m\ell^2}{c_F},
+\frac1{\eta_F^2}\Bigr),
+\]
+with $\varepsilon_G(\beta)$ bounded by~\eqref{eq:chainGeps}; so along any
+sequence with $n_k^4\log(N^2\beta_k)/\beta_k\to0$ no $\varpi>0$ satisfies
+$\mathrm{BP}(n_k,\varpi)$ uniformly in the torus.
+
+\textup{(iii)} $\SU(N)$ satisfies \textup{(CP)} with $F_{ab}=\Tr(A^aB^b)/N$,
+$(a,b)\in I_N$, $m=N^2-1$ and $\ell=N-1$. $\mathrm{Sp}(n')\subset\U(2n')$
+with $n'$ even does not satisfy \textup{(CP)}: there is a commuting pair at
+which every function with the first two properties of \textup{(CP)}
+vanishes. If $Z(G)=\{I\}$, no function satisfies the second property.
+\end{proposition}
+
+\begin{proof}
+(i) Let $I\ne z\in Z(G)$. The inclusion $G\subset\U(N)$ is faithful and
+irreducible, so $z$ acts as a scalar $\zeta\ne1$ and $\sigma$ may be the
+inclusion; in general any irreducible $\sigma$ with $\sigma(z)\ne I$ serves.
+The twist $Z^0_{0,z}$ preserves $\mu$ (Proposition~\ref{prop:bpcentreG}) and
+maps $\chi_\sigma(P_y)$ to $\zeta_\sigma\chi_\sigma(P_y)$, $\zeta_\sigma\ne
+1$, so $\mu(\chi_\sigma(P_y))=0$. The proof of Theorem~\ref{thm:bpfixed}(i)
+applies to $g_y=\operatorname{Re}\chi_\sigma(P_y)$ and to the imaginary
+parts, with $|\chi_\sigma|\le N_\sigma$ in place of $|\Tr|\le N$.
+
+(ii) Let $L=2n+4\le4n$, $\varepsilon=\varepsilon_G(\beta)=\mu(\lVert U_p-I
+\rVert_{\rm HS}^2)$, and $f$ the real or the imaginary part of some
+$F_k(A,B)$. The twist that multiplies the links $(y,0)$ with $y_0=0$ by $z$
+and the links $(y,1)$ with $y_1=0$ by $z'$ preserves $\mu$ and maps
+$F_k(A,B)$ to $\lambda_kF_k(A,B)$, so $\mu(F_k(A,B))=0$.
+
+If $V_x$ meets neither $A$ nor $B$, $\mathcal P_xf=f$. Otherwise the proof
+of Theorem~\ref{thm:bpfixed}(ii) gives loops $A'$, $B'$ that avoid $V_x$,
+a holonomy $\Gamma$, and $A=H_0\Gamma A'\Gamma^{-1}$, $B=H_1\Gamma
+B'\Gamma^{-1}$ with $H_0,H_1\in G$ and $\lVert H_0-I\rVert_{\rm op}+
+\lVert H_1-I\rVert_{\rm op}\le S_0+S_1$, the sum of $\lVert U_p-I
+\rVert_{\rm op}$ over at most $2Ln$ plaquettes. By the invariance under
+simultaneous conjugation, $F_k(\Gamma A'\Gamma^{-1},\Gamma B'\Gamma^{-1})=
+F_k(A',B')$, a function of the links outside $V_x$, so $\lVert f-\mathcal
+P_xf\rVert_2\le\ell\lVert S_0+S_1\rVert_2\le2\ell Ln\sqrt\varepsilon$. At most
+$2Ln^3$ points $x$ have $V_x$ meeting $A\cup B$, so $\mathcal E_n(f)\le
+8\ell^2L^3n\varepsilon$.
+
+By Lemma~\ref{lem:bpstokes} the commutator of $A$ and $B$ is within
+$\sum_p\lVert U_p-I\rVert_{\rm HS}$ of $I$, a sum over $L^2$ plaquettes,
+so it exceeds $\eta_F$ with probability at most $L^2\sqrt\varepsilon/
+\eta_F$, and $\sum_k\mu(|F_k(A,B)|^2)\ge c_F(1-L^2\sqrt\varepsilon/\eta_F)$.
+As $\mu(F_k(A,B))=0$, one of the $2m$ functions $f$ has $\Var_\mu(f)\ge
+c_F(1-L^2\sqrt\varepsilon/\eta_F)/(2m)$. If $L^2\sqrt\varepsilon\le\eta_F/
+2$, $\mathrm{BP}(n,\varpi)$ gives $\varpi\le32m\ell^2L^3n\varepsilon/c_F
+\le2048m\ell^2n^4\varepsilon/c_F$. Otherwise $\eta_F^2<4L^4\varepsilon\le
+1024n^4\varepsilon$, and $\varpi\le2$ by Proposition~\ref{prop:bpscales}(ii)
+gives $\varpi\le2048n^4\varepsilon/\eta_F^2$.
+
+(iii) For $\SU(N)$, $F_{ab}$ is invariant under simultaneous conjugation;
+for $(c,d)$ with $ac+bd\not\equiv0$ modulo $N$, $z=\omega^cI$ and $z'=
+\omega^dI$ give $\lambda=\omega^{ac+bd}\ne1$; $|F_{ab}|\le1$; telescoping,
+$\lVert(HA')^a-A'^a\rVert_{\rm op}\le a\lVert H-I\rVert_{\rm op}$, so
+$\ell=N-1$; and Lemma~\ref{lem:bpcommute} gives the last property.
+
+For $\mathrm{Sp}(n')=\{g\in\U(2n'):g^T\Omega g=\Omega\}$, $\Omega=
+\bigl(\begin{smallmatrix}0&I\\-I&0\end{smallmatrix}\bigr)$, $n'$ even, put
+$A'=\operatorname{diag}(iI,-iI)$ and $B'=\operatorname{diag}(D,D)$ with
+$D=\operatorname{diag}(I_{n'/2},-I_{n'/2})$. Both lie in $\mathrm{Sp}(n')$
+and commute, and $Z(\mathrm{Sp}(n'))=\{\pm I\}$. The element $\Omega$ lies
+in $\mathrm{Sp}(n')$ and exchanges the two diagonal blocks, so $\Omega A'
+\Omega^{-1}=-A'$ and $\Omega B'\Omega^{-1}=B'$. With $Q$ the permutation
+matrix that exchanges the two halves of $\{1,\dots,n'\}$, $q=
+\operatorname{diag}(Q,Q)\in\mathrm{Sp}(n')$, $qA'q^{-1}=A'$ and $qB'q^{-1}
+=-B'$. So $(A',B')$ is simultaneously conjugate to $(zA',z'B')$ for all
+$z,z'\in\{\pm I\}$, and a function invariant under simultaneous
+conjugation with $F(zA',z'B')=\lambda F(A',B')$, $\lambda\ne1$, has
+$F(A',B')=\lambda F(A',B')=0$. If $Z(G)=\{I\}$, $F(zA',z'B')=F(A',B')$.
+\end{proof}
+
+For $\mathrm{Sp}(1)=\SU(2)$ the pair of Proposition~\ref{prop:bpfixedG}(iii)
+does not exist, and (CP) holds. For $\mathrm{Sp}(n')$ with $n'$ even the
+proof of Theorem~\ref{thm:bpfixed}(ii), (iii) fails at the variance bound
+when the law of $(A,B)$ is near the orbit of $(A',B')$, and for
+$\SO(2m+1)$, $G_2$, $F_4$ and $E_8$ there is no charged function at all.
+Whether $\mathrm{BP}(n,\varpi)$ fails on $\Lambda_{2n+4}$ at weak coupling for
+these groups, and whether (CP) holds for $\mathrm{Sp}(n')$ with $n'\ge3$
+odd, $\SO(2m)$, $E_6$ and $E_7$, is not determined here. Part (i)
+holds for every $G$ with nontrivial centre and has no content for the four
+groups with trivial centre.
+
+\emph{The holonomy flow.} Let $\chi$ be a smooth real class function on $G$
+with $\chi(zW)=\chi(W)$ for $z\in Z(G)$, and define $J(W)\in\g$ by $\ip{J(W)}X
+=\frac d{ds}\chi(e^{sX}W)|_{s=0}$. Put $\ell_0=\sup|\chi(W)-\chi(W')|/\lVert
+W-W'\rVert_{\rm op}$, $\ell_1=\sup\lVert J(W)-J(W')\rVert_{\rm HS}/\lVert
+W-W'\rVert_{\rm HS}$ and $D_\chi=\sup|\Delta\chi|$, all finite since $G$ is a
+compact submanifold of $M_N(\C)$. On $G^E$ let $\mathcal V$ have the
+component $L^{-1}J(P_b)U_{(b,0)}$ at the link $(b,0)$, with $P_b$ the
+Polyakov loop of direction $0$ based at $b$, and vanish at the links of
+the other directions; put $S=-N\beta\sum_p\ReTr U_p$, $H=\sum_p(N-\ReTr
+U_p)$ and $\Theta=\mathcal VS-\operatorname{div}\mathcal V$. For $\SU(2)$
+and $\chi(W)=-\frac12(\Tr W)^2$, $J(W)=\Tr W\cdot\frac12(W-W^*)$ is the field
+of Sec.~\ref{ssec:bpneutral}, with $\ell_1\le4$ and $\Delta\chi=2(\Tr W)^2-2$.
+
+\begin{proposition}[the holonomy flow for every group]\label{prop:bpflowG}
+\textup{(i)} $J(gWg^{-1})=gJ(W)g^{-1}$, $J(W)$ commutes with $W$,
+$J(zW)=J(W)$ for $z\in Z(G)$, and $J(z)=0$.
+
+\textup{(ii)} $\mathcal VP_y=J(P_y)P_y$ and $\mathcal V\chi(P_y)=|J(P_y)|^2$
+for every site $y$.
+
+\textup{(iii)} $\operatorname{div}\mathcal V=\sum_{y:\,y_0=0}\Delta\chi(P_y)$.
+
+\textup{(iv)} $|\mathcal VS|\le2N\beta\ell_1H$, and $\lVert\Theta\rVert_2\le
+4\ell_1(M+2)+L^3D_\chi$ with $M=\log\mu(e^{N\beta H/2})$; for $N\beta\ge2K$,
+$M\le6L^4(\frac d3\log\frac{N^2\beta}2+C_0(G))$.
+
+\textup{(v)} $\mu(\mathcal Vh)=\mu(h\Theta)$ and $\mu(\mathcal Vh)^2\le
+\Var_\mu(h)\lVert\Theta\rVert_2^2$ for every real $h$ of class $C^1$.
+
+\textup{(vi)} If $N\beta\ge2K$, $n\ge2$, $L\ge2n+4$ is even and
+$\mathrm{BP}_0(n,\varpi)$ holds on $\Lambda_L$, then
+\[
+\mu\bigl(|J(P_0)|^2\bigr)^2\le\frac{\ell_0^2L^3n\,\varepsilon_G(\beta)}
+{\varpi}\,\lVert\Theta\rVert_2^2 .
+\]
+\end{proposition}
+
+\begin{proof}
+(i) Since $\chi$ is a class function and the metric is invariant under
+$\operatorname{Ad}$, $\ip{J(gWg^{-1})}{X}=\ip{J(W)}{g^{-1}Xg}$, which is the
+first identity. Conjugating by $e^{sX}$, $\chi(We^{sX})=\chi(e^{sX}W)$, and
+$\chi(We^{sX})=\chi(e^{s\operatorname{Ad}_WX}W)$; so $\ip{J(W)}X=\ip{J(W)}
+{\operatorname{Ad}_WX}$ for all $X$, and $J(W)$ is fixed by
+$\operatorname{Ad}_{W^{-1}}$. The third identity follows from $\chi(e^{sX}zW)
+=\chi(e^{sX}W)$. For $z$ central, $J(z)=gJ(z)g^{-1}$ for all $g$, so $J(z)$
+lies in the centre of $\g$, which is zero.
+
+(ii) The computation in the proof of Lemma~\ref{lem:bpflow}(i) uses only the
+first identity of (i). Then $\mathcal V\chi(P_y)=\frac d{ds}\chi(e^{sJ(P_y)}
+P_y)|_{s=0}=\ip{J(P_y)}{J(P_y)}$.
+
+(iii) As in the proof of Lemma~\ref{lem:bpflow}(ii), the right translation
+$U_e\mapsto W=U_eR$ carries the component at $e$ to $L^{-1}J(W)W$, which is
+$L^{-1}$ times the gradient of $\chi$ for the bi-invariant metric; its
+divergence for Haar measure is $L^{-1}\Delta\chi(W)$, and $W$ is a conjugate
+of the loop through the initial site of $e$, so $\Delta\chi(W)=\Delta\chi
+(P_y)$. Each of the $L^3$ loops has $L$ links.
+
+(iv) The computation of Lemma~\ref{lem:bpflow}(iii) uses only the first
+identity of (i) and gives $\mathcal V\ReTr U_p=L^{-1}\operatorname{Re}\Tr
+(U_p\Delta_p)$ with $\Delta_p=J(P_b)-J(VP_{b+e_\nu}V^{-1})\in\g$ and
+$\lVert\Delta_p\rVert_{\rm HS}\le\ell_1Q_\sigma$. Since $\operatorname{Re}
+\Tr\Delta_p=0$, $|\operatorname{Re}\Tr(U_p\Delta_p)|\le\lVert U_p-I
+\rVert_{\rm HS}\ell_1Q_\sigma$, and the Cauchy--Schwarz inequality over each
+strip and $\lVert U-I\rVert_{\rm HS}^2=2(N-\ReTr U)$ give $|\mathcal VS|\le
+2N\beta\ell_1H$. Put $X=N\beta H/2$, so $\mu(e^X)=e^M$; the inequality $X^2\le
+M^2+(2M+2)e^{X-M}$ of that proof gives $\mu(X^2)\le(M+2)^2$, so $\lVert
+\mathcal VS\rVert_2\le4\ell_1\lVert X\rVert_2\le4\ell_1(M+2)$, and $|
+\operatorname{div}\mathcal V|\le L^3D_\chi$ by (iii). With $\phi(t)=\log\int
+e^{-NtH}dU$, convexity gives $M=\phi(\beta/2)-\phi(\beta)\le\frac{N\beta}2
+\mu_{\beta/2}(H)$, where $\mu_{\beta/2}$ is the Wilson measure at $\beta/2$,
+and Lemma~\ref{lem:wilsonZG} at $\beta_W=N^2\beta/2\ge KN$ bounds
+$\mu_{\beta/2}(H)$ by $6L^4N(\frac d3\log\frac{N^2\beta}2+C_0(G))/(N^2
+\beta/2)$.
+
+(v) This is the proof of Lemma~\ref{lem:bpflow}(iv).
+
+(vi) Let $h=\chi(P_0)$, real and gauge invariant. The twist $Z^0_{0,z}$ maps
+$P_0$ to $zP_0$, and $Z^\nu_{t,z}$, $\nu\ne0$, fixes it, so $h\in\mathcal
+A_0$. As in the proof of Theorem~\ref{thm:bpneutral}(i), for each of the
+$Ln^3$ points $x$ with $V_x$ meeting $P_0$ there is a loop $A'$ avoiding
+$V_x$ with $P_0=H_0\Gamma A'\Gamma^{-1}$ and $\lVert H_0-I\rVert_{\rm op}\le
+S_0$, a sum over at most $Ln$ plaquettes; then $|h-\chi(A')|=|\chi(H_0W)-
+\chi(W)|\le\ell_0S_0$ with $W=\Gamma A'\Gamma^{-1}$, and $\mu((h-\mathcal
+P_xh)^2)\le\ell_0^2L^2n^2\varepsilon_G(\beta)$. So $\mathcal E_n(h)\le
+\ell_0^2L^3n\varepsilon_G(\beta)$, $\mathrm{BP}_0(n,\varpi)$ bounds $\Var_\mu
+(h)$ by this over $\varpi$, and (v) with $\mathcal Vh=|J(P_0)|^2$ from (ii)
+gives the claim.
+\end{proof}
+
+On $\Lambda_{2n+4}$, part (iv) gives $\lVert\Theta\rVert_2\le c_1n^4(\log
+(N^2\beta)+c_2)$ with $c_1,c_2$ depending on $G$ and $\chi$ only, so
+$\mathrm{BP}_0(n,\varpi)$ with a fixed $\varpi$ at $\beta\gg n^{12}\log^3\beta$
+forces $\mu(|J(P_0)|^2)$ to zero: the law of the Polyakov loop concentrates
+near the critical set of $\chi$, which contains $Z(G)$ by (i). For $\SU(2)$
+and $\chi=-\frac12(\Tr W)^2$, $|J(W)|^2=\frac12(\Tr W)^2(4-(\Tr W)^2)$ and
+$\ell_0\le4$, and (vi) reproduces Theorem~\ref{thm:bpneutral}(i) with
+\eqref{eq:chainGeps} in place of Lemma~\ref{lem:bpflat}. For $\SU(2)$ every
+admissible field vanishes on $\{\pm I\}\cup\{\Tr W=0\}$ (the discussion after
+Theorem~\ref{thm:bpneutral}); for other groups the common critical set of
+the admissible $\chi$ is not determined here. As for $\SU(2)$, a lower
+bound on $\mu(|J(P_0)|^2)$ at weak coupling on $\Lambda_{2n+4}$ is not proved
+for any $\chi$, so the failure of $\mathrm{BP}_0$ there is not proved for
+any group.
+
+\begin{remark}[what is proved for every group and what remains]
+\label{rem:chainG}
+Proved for every compact simple $G$: the conditional chain of
+Theorem~\ref{thm:chainG}, with the hypothesis (BP$_{\rm loc}^G$) and, for
+the Schwinger functions, (M$_{\mathrm s}$), (G$_{\mathrm s}$),
+(W$_{\mathrm s}$) and (U$_{\mathrm s}$); the centre sectors for $Z(G)$
+(Proposition~\ref{prop:bpcentreG}); the averaged condition
+$\mathrm{BP}(2,\frac{21}{32})$ for $N\beta\le\kappa_G/48$ and the
+triviality of the limits there (Corollary~\ref{cor:limitEstrongG});
+two-sided bounds on the response of one link at $S=0$ and the
+Bakry--\'Emery bound for $\lVert S\rVert_{\rm op}<\kappa_G$
+(Proposition~\ref{prop:modulusG}); the obstruction at fixed cube size under
+(CP), which holds for $\SU(N)$ and fails for $\mathrm{Sp}(n')$ with $n'$
+even (Proposition~\ref{prop:bpfixedG}); the holonomy flow for every
+centre-invariant class function (Proposition~\ref{prop:bpflowG}). Not
+proved: the hypotheses of Theorem~\ref{thm:chainG} along the tuning for any
+group; an analogue of the sharp quarter, a bound on $\Lambda_G(r)$ of the
+order of $\Lambda_G(0)$, for any $G\ne\SU(2)$; (CP) for the groups other
+than $\SU(N)$ and $\mathrm{Sp}(n')$, $n'$ even; any obstruction at fixed
+cube size for the groups with trivial centre; and the mass gap.
+\end{remark}
+
 \section{Block averages}\label{sec:blocks}
 
 Proposition~\ref{prop:gaussforest} locates the failure of (D) in the
@@ -42737,7 +43358,7 @@ and~\ref{thm:bprefine}, Corollaries~\ref{cor:bpuptuning},
 \ref{cor:bpupseparate} and~\ref{cor:bprefinetower},
 Propositions~\ref{prop:bpuphaar}, \ref{prop:bpfinesplit}
 and~\ref{prop:bpnotrefine}, Remarks~\ref{rem:bpup}
-and~\ref{rem:bprefine}). Sec.~\ref{ssec:groups13} carries the single-scale results of this section to every compact simple group, with explicit constants, except the parts listed in Remark~\ref{rem:groups13}. On the continuum side, Lemmas~\ref{lem:positivetime}
+and~\ref{rem:bprefine}). Sec.~\ref{ssec:groups13} carries the single-scale results of this section to every compact simple group, with explicit constants, except the parts listed in Remark~\ref{rem:groups13}. Sec.~\ref{ssec:chainG} states the conditional continuum chain for every compact simple group, with the averaged condition in its local form, the centre sectors of $Z(G)$ and the Schwinger functions at separated points (Theorem~\ref{thm:chainG}, Proposition~\ref{prop:bpcentreG}), proves the averaged condition and the triviality of the limits for $N\beta\le\kappa_G/48$ (Corollary~\ref{cor:limitEstrongG}), and extends the obstruction at fixed cube size under a condition (CP) that holds for $\SU(N)$ and fails for $\mathrm{Sp}(n)$ with $n$ even (Proposition~\ref{prop:bpfixedG}); its hypotheses are not proved for any group, and an analogue of the sharp quarter for $G\ne\SU(2)$ is not proved (Proposition~\ref{prop:modulusG}). On the continuum side, Lemmas~\ref{lem:positivetime}
 and~\ref{lem:nonvanishing} reduce the nontriviality of the limit to a
 lower bound on one ratio of lattice two-point functions at a fixed
 physical time, uniform along the tuning, which is the open input of
