@@ -7550,6 +7550,615 @@ invariance, reflection positivity, the transfer-matrix gap, the
 normalisation (RC) and the parts of (M) proved or assumed here.
 \end{remark}
 
+\emph{The spatial spectral measure of the slice field.} The comparison
+(M$_{\mathrm{sp}}$) is a statement about the distribution in spatial
+momentum of the time-integrated correlations of the slice field. In this
+paragraph the states are invariant under translations and $\vartheta$ and
+reflection positive, with the transfer matrices of
+Appendix~\ref{app:transfer}, $\Phi$ is real, $\delta>0$ is dyadic and $k$ is
+so large that $n_\delta=\delta/a_k$ is an even integer. Write
+$\mathring\varphi_k(x)=\varphi_k(x)-\omega_k(\varphi_k(x))$,
+\[
+\begin{split}
+K_k(z)&=a_k\sum_{j=0}^{n_\delta-1}\omega_k\bigl(\mathring\varphi_k(0,0)\,
+\mathring\varphi_k(j,z)\bigr),\\
+K^V_k(z)&=a_k^2\sum_{n,n'=0}^{n_\delta-1}\omega_k\bigl(\mathring\varphi_k(n,0)\,
+\mathring\varphi_k(n',z)\bigr)
+\end{split}
+\]
+for $z\in\Z^3$. For a finitely supported $c:\Z^3\to\C$ put $\hat c(p)=
+\sum_xc_xe^{ip\cdot x}$ on $\mathbf T^3=(\R/2\pi\Z)^3$,
+$U^c_k=\sum_xc_x\mathring\varphi_k(0,x)$, and
+\[
+I^c_k=a_k\sum_{j=0}^{n_\delta-1}\omega_k\bigl(\bar U^c_k\,\tau_jU^c_k\bigr),
+\qquad V^c_k=\omega_k\Bigl(\Bigl|a_k\sum_{n=0}^{n_\delta-1}\tau_nU^c_k
+\Bigr|^2\Bigr).
+\]
+For $c_x=a_k^3h'(a_kx)$, $U^c_k=U^{h'}_k$ and $I^c_k=I^{h'}_k(\delta)$. By
+translation invariance $I^c_k=\sum_{x,y}\bar c_xc_yK_k(y-x)$ and $V^c_k=
+\sum_{x,y}\bar c_xc_yK^V_k(y-x)$. For a closed box $\mathcal B_r(p_0)=
+\{p:|p_i-p_{0,i}|\le r,\ i=1,2,3\}$ in $\mathbf T^3$, $r>0$, and a finite
+positive measure $\varpi$ on $\mathbf T^3$, put $\bar\varpi(r)=\sup_{p_0}
+\varpi(\mathcal B_r(p_0))$. A box of half-side $r'$ is covered by
+$\lceil r'/r\rceil^3$ boxes of half-side $r$, so $\bar\varpi(r')\le\lceil
+r'/r\rceil^3\bar\varpi(r)$.
+
+\begin{lemma}\label{lem:spatialmeasure}
+\textup{(i)} There are unique finite positive measures $\varpi_k$ and
+$\varpi^V_k$ on $\mathbf T^3$ with $K_k(z)=\int e^{ip\cdot z}d\varpi_k(p)$
+and $K^V_k(z)=\int e^{ip\cdot z}d\varpi^V_k(p)$ for $z\in\Z^3$. For every
+finitely supported $c$
+\[
+I^c_k=\int|\hat c|^2d\varpi_k,\qquad V^c_k=\int|\hat c|^2d\varpi^V_k,
+\qquad\tfrac\delta2I^c_k\le V^c_k\le2\delta I^c_k ,
+\]
+and $\varpi_k(\mathbf T^3)=K_k(0)\le\delta\|\Phi\|_\infty^2$.
+
+\textup{(ii)} Let $\varpi$ be a finite positive measure on $\mathbf T^3$,
+$L\ge4a_k$, and $c_x=a_k^3h'(a_kx)$ with $h'$ supported in a cube of side
+$L$ and $|h'|\le1$. Then
+\[
+\int|\hat c|^2d\varpi\le7\cdot10^6L^6\,\bar\varpi(\pi a_k/L) .
+\]
+
+\textup{(iii)} Let $\chi\in C_c(\R^3)$ take values in $[0,1]$, be
+supported in a cube $Q'$ of side $\ell\ge4a_k$ and equal $1$ on the cube of
+side $\ell/2$ with the same centre, and for $p_0\in\mathbf T^3$ let
+$h'(\mathbf y)=\chi(\mathbf y)e^{-ip_0\cdot\mathbf y/a_k}$. Then for every
+finite positive measure $\varpi$
+\[
+\varpi\bigl(\mathcal B_{a_k/(3\ell)}(p_0)\bigr)\le16384\,\ell^{-6}\!\int
+|\hat c|^2d\varpi,\qquad c_x=a_k^3h'(a_kx).
+\]
+
+\textup{(iv)} Let $h\in C_c(\R^3)$ be real with $\int h\ne0$, supported in
+a cube of side $L_h$, and $\rho_h=L_h^{-1}(|\int h|/(72\int|h|))^{1/2}$.
+For all large $k$, with $c_x=a_k^3h(a_kx)$, $|\hat c|\ge\frac34|\int h|$ on
+$\mathcal B_{a_k\rho_h}(0)$, so $\int|\hat c|^2d\varpi\ge\frac12(\int h)^2
+\varpi(\mathcal B_{a_k\rho_h}(0))$ for every finite positive measure
+$\varpi$.
+
+\textup{(v)} Let $\varkappa(p)=\sum_{i=1}^34\sin^2(p_i/2)$, $m\ge1$, $h\in
+C^{2m}_c(\R^3)$ real, supported in a cube of side $L_h$, $\|h\|_{2m}$ the
+largest supremum of a derivative of order $2m$ of $h$, and $\Theta_m=3^m
+\|h\|_{2m}(L_h+2m+1)^3$. For $a_k\le1$ and $c_x=a_k^3h(a_kx)$,
+$\varkappa^m|\hat c|\le\Theta_ma_k^{2m}$ on $\mathbf T^3$.
+\end{lemma}
+
+\begin{proof}
+(i) With $u_c=\Psi_{U^c_k}$, the identity of the proof of
+Proposition~\ref{prop:msplit}(iv) gives $\omega_k(\bar U^c_k\tau_jU^c_k)=
+\ip{u_c}{\mathbb T_k^ju_c}\ge0$ for $j\ge0$, so $I^c_k\ge0$ and $K_k$ is
+positive definite; $V^c_k\ge0$ shows the same for $K^V_k$. For a positive
+definite bounded $K$ on $\Z^3$ and an integer $M\ge1$, the function
+\[
+f_M(p)=M^{-3}\!\!\sum_{x,y\in\{0,\dots,M-1\}^3}\!\!K(y-x)e^{-ip\cdot(y-x)}
+\]
+is nonnegative, and $\int e^{ip\cdot z}f_M(p)\frac{dp}{(2\pi)^3}=K(z)
+\prod_i(1-|z_i|/M)_+$. The measures $f_M\,dp/(2\pi)^3$ have mass $K(0)$, so
+by Lemma~\ref{lem:helly} a subsequence converges weakly to a measure with
+Fourier coefficients $K(z)$; trigonometric polynomials are dense in
+$C(\mathbf T^3)$, which gives uniqueness. Then $\sum_{x,y}\bar c_xc_y
+\int e^{ip\cdot(y-x)}d\varpi=\int|\hat c|^2d\varpi$. The numbers $\ip{u_c}{\mathbb
+T_k^ju_c}$ are real, so translation invariance and complex conjugation
+give
+$\omega_k(\overline{\tau_nU^c_k}\,\tau_{n'}U^c_k)=\ip{u_c}{\mathbb
+T_k^{|n-n'|}u_c}$ for all $n,n'$, and $V^c_k$ is $B$ of
+Lemma~\ref{lem:timekernel} with $v_n=a_ku_c$ for $0\le n<n_\delta$. Part (i)
+of that lemma gives $V^c_k\le2n_\delta a_kI^c_k=2\delta I^c_k$; part (ii)
+with $\eta=a_k$, $M=n_\delta$ and part (iii) give $V^c_k\ge\delta\,a_k
+\sum_{j<n_\delta/2}\ip{u_c}{\mathbb T_k^ju_c}\ge\frac\delta2I^c_k$. Finally
+$|\omega_k(\mathring\varphi_k(0,0)\mathring\varphi_k(j,0))|\le\|\Phi\|_\infty^2$, since
+$\varphi_k$ takes values in $[-\|\Phi\|_\infty,\|\Phi\|_\infty]$.
+
+(ii) Translating $c$ by a lattice vector multiplies $\hat c$ by a phase.
+With $n=\lceil L/(2a_k)\rceil$ the support of $c$ may therefore be taken in
+$\{|x_i|\le n\}$; it has at most $(L/a_k+1)^3$ points. Let $F_n(t)=
+\sum_{|j|\le n}(1-\frac{|j|}{n+1})e^{ijt}=\frac1{n+1}\bigl(\sin\frac{(n+1)t}
+2/\sin\frac t2\bigr)^2$ be the Fej\'er kernel and $W_n=2F_{2n+1}-F_n$. Its
+coefficients equal $1$ for $|j|\le n$, $\int|W_n|\frac{dt}{2\pi}\le3$, and
+from $F_n\le n+1$ and $\sin\frac t2\ge\frac t\pi$ on $[0,\pi]$,
+$F_n(t)\le2(n+1)/(1+((n+1)t/\pi)^2)$ for $|t|\le\pi$, so
+\[
+|W_n(t)|\le\frac{10(n+1)}{1+((n+1)t/\pi)^2}\qquad(|t|\le\pi) .
+\]
+With $W(q)=\prod_iW_n(q_i)$, $\hat c(p)=\int\hat c(q)W(p-q)dq'$, where
+$dq'=dq/(2\pi)^3$, and the Cauchy--Schwarz inequality gives $|\hat c(p)|^2
+\le27\int|\hat c(q)|^2|W(p-q)|dq'$. Divide $\mathbf T^3$ into the
+$(2n+2)^3$ half-open boxes of side $\pi/(n+1)$ centred at the points
+$q+\pi j/(n+1)$, $j\in\{-n,\dots,n+1\}^3$; each lies in a closed box of
+half-side $\pi/(2(n+1))\le\pi a_k/L$, and on the box with index $j$ the
+$i$-th factor of $|W(p-q)|$ is at most $10(n+1)$ if $j_i=0$ and at most
+$10(n+1)/(1+(|j_i|-\frac12)^2)$ otherwise. Since $(1+(x-\frac12)^2)^{-1}$
+decreases on $[\frac12,\infty)$, $\sum_{j\ge2}(1+(j-\frac12)^2)^{-1}\le
+\frac\pi2-\arctan\frac12\le1.1125$, using $\arctan\frac12\ge\frac12-
+\frac1{24}$. The bounds of the $i$-th factor therefore add up to at most
+$10(n+1)(1+2(0.8+1.1125))\le50(n+1)$, the term $j=1$ being $0.8$, and
+\[
+\int|W(p-q)|d\varpi(p)\le\bigl(50(n+1)\bigr)^3\bar\varpi(\pi a_k/L).
+\]
+Integrating against $|\hat c(q)|^2dq'$ and using $\int|\hat c|^2dq'=
+\sum_x|c_x|^2\le a_k^3(L+a_k)^3$ and $n+1\le(L+4a_k)/(2a_k)$,
+\[
+\int|\hat c|^2d\varpi\le\frac{27\cdot50^3}8(L+a_k)^3(L+4a_k)^3\,
+\bar\varpi(\pi a_k/L),
+\]
+and $\frac{27\cdot50^3}8(L+a_k)^3(L+4a_k)^3\le421875(\frac54)^3\,8\,L^6
+<7\cdot10^6L^6$ for $a_k\le L/4$.
+
+(iii) Here $\hat c(p)=\sum_xa_k^3\chi(a_kx)e^{i(p-p_0)\cdot x}$. Let
+$\mathbf y_0$ be the centre of $Q'$ and $x_0\in\Z^3$ a nearest lattice
+point to $\mathbf y_0/a_k$. For $a_kx\in Q'$, $|x_i-x_{0,i}|\le\ell/(2a_k)+
+\frac12\le\frac58\ell/a_k$, so for $p\in\mathcal B_{a_k/(3\ell)}(p_0)$ the
+phase $(p-p_0)\cdot(x-x_0)$ is at most $\frac58$ in absolute value and
+$|\hat c(p)|\ge\cos(1)\sum_xa_k^3\chi(a_kx)\ge\frac12a_k^3\#\{x:a_kx\in
+Q''\}$, $Q''$ the middle cube. It has at least $\lfloor\ell/(2a_k)\rfloor\ge
+\ell/(4a_k)$ lattice points in each direction, so $|\hat c(p)|\ge
+\ell^3/128$ on the box, and $\varpi(\mathcal B_{a_k/(3\ell)}(p_0))
+(\ell^3/128)^2\le\int|\hat c|^2d\varpi$.
+
+(iv) Let $\mathbf x_*$ be the centre of the cube divided by $a_k$. For
+$p\in\mathcal B_{a_k\rho_h}(0)$ and $a_kx$ in the cube, $\theta_x=p\cdot
+(x-\mathbf x_*)$ satisfies $|\theta_x|\le3a_k\rho_hL_h/(2a_k)$, so
+$\theta_x^2/2\le\frac98\rho_h^2L_h^2=|\int h|/(64\int|h|)$, and
+\[
+\begin{split}
+|\hat c(p)|&\ge\Bigl|\sum_xa_k^3h(a_kx)\cos\theta_x\Bigr|\\
+&\ge\Bigl|\sum_xa_k^3h(a_kx)\Bigr|-\frac{|\int h|}{64\int|h|}\sum_x
+a_k^3|h(a_kx)| .
+\end{split}
+\]
+For large $k$ the Riemann sums are within $\frac18|\int h|$ of $\int h$
+and below $2\int|h|$, which gives $|\hat c|\ge(\frac78-\frac1{32})|\int h|$.
+
+(v) With $(\Delta c)_x=\sum_i(c_{x+e_i}+c_{x-e_i}-2c_x)$,
+$\widehat{\Delta c}=-\varkappa\hat c$, so $\varkappa^m|\hat c|\le\sum_x|(\Delta^mc)
+_x|$. The operator $\Delta^m$ is a sum of $3^m$ products of $m$ second
+differences $D_i\phi(x)=\phi(x+e_i)+\phi(x-e_i)-2\phi(x)=\int_{-1}^1(1-|t|)
+\partial_t^2\phi(x+te_i)\,dt$, so $|(\Delta^mc)_x|\le3^ma_k^{3+2m}
+\|h\|_{2m}$, and $(\Delta^mc)_x=0$ unless $x$ is within distance $m$ of
+$a_k^{-1}\operatorname{supp}h$ in each coordinate, which leaves at most
+$(L_h/a_k+2m+1)^3$ points.
+\end{proof}
+
+\begin{proposition}\label{prop:boxform}
+Let $f_0=g\otimes h$ be a product packet as in
+Proposition~\textup{\ref{prop:sliceratio}}, so that $I_k=\int|\hat c_h|^2
+d\varpi_k$ with $(c_h)_x=a_k^3h(a_kx)$.
+
+\textup{(i)} \textup{(M$_{\mathrm{sp}}$)} holds at $\delta$ if and only if
+there are $\rho>0$ and $C<\infty$ with
+\[
+\bar\varpi_k(a_k\rho)\le C\,I_k(\delta)\quad\text{for all large }k ;
+\]
+if it holds for $\rho'$ with $C$, it holds for every $\rho>0$ with
+$\lceil\rho/\rho'\rceil^3C$. If
+\textup{(M$_{\mathrm{sp}}$)} holds with the constant $C$ for the unit cube,
+the bound holds with $\rho=\frac13$ and $16384\,C$; conversely the bound
+gives \textup{(M$_{\mathrm{sp}}$)} with the constant $7\cdot10^6L^6\lceil
+\pi/(L\rho)\rceil^3C$ for cubes of side $L$.
+
+\textup{(ii)} If the bound of \textup{(i)} holds with $\rho$ and $C$, then
+$K_k(0)\le C\lceil\pi/(a_k\rho)\rceil^3I_k(\delta)$ for all large $k$.
+
+\textup{(iii)} If $\int h\ne0$, \textup{(M$_{\mathrm{sp}}$)} holds as soon
+as $\bar\varpi_k(a_k\rho_h)\le C\,\varpi_k(\mathcal B_{a_k\rho_h}(0))$ for
+all large $k$, with $\rho_h$ as in Lemma~\textup{\ref{lem:spatialmeasure}(iv)}.
+\end{proposition}
+
+\begin{proof}
+(i) Since $\bar\varpi(r')\le\lceil r'/r\rceil^3\bar\varpi(r)$ and
+$\bar\varpi$ is nondecreasing, the bound for $\rho'$ gives it for every
+$\rho>0$. If (M$_{\mathrm{sp}}$) holds for the unit cube, apply
+Lemma~\ref{lem:spatialmeasure}(iii) with $\ell=1$ to a fixed $\chi$ and
+every $p_0$: $\varpi_k(\mathcal B_{a_k/3}(p_0))\le16384\,I^{h'}_k(\delta)
+\le16384\,C\,I_k(\delta)$; if only real $h'$ are admitted, the real and
+imaginary parts of the probe give the same with $4\cdot16384\,C$, since
+$|\hat c|^2\le2(|\widehat{\operatorname{Re}c}|^2+|\widehat{\operatorname{Im}
+c}|^2)$. Conversely, for $h'$ supported in a cube of side
+$L$ with $|h'|\le1$, Lemma~\ref{lem:spatialmeasure}(ii) gives
+$I^{h'}_k(\delta)\le7\cdot10^6L^6\bar\varpi_k(\pi a_k/L)\le7\cdot10^6L^6
+\lceil\pi/(L\rho)\rceil^3\bar\varpi_k(a_k\rho)$ once $a_k\le L/4$.
+
+(ii) $K_k(0)=\varpi_k(\mathbf T^3)$, and $\mathbf T^3$ is covered by
+$\lceil\pi/(a_k\rho)\rceil^3$ boxes of half-side $a_k\rho$.
+
+(iii) Lemma~\ref{lem:spatialmeasure}(iv) gives $\varpi_k(\mathcal
+B_{a_k\rho_h}(0))\le2I_k(\delta)/(\int h)^2$, and (i) applies with
+$\rho=\rho_h$.
+\end{proof}
+
+So (M$_{\mathrm{sp}}$) says that no box of lattice momenta of side of order
+$a_k$ carries more of the time-integrated spectral weight than a constant
+times $I_k(\delta)$; by (ii) it contains the bound $K_k(0)\le C'a_k^{-3}
+I_k(\delta)$ on the time-integrated autocorrelation at one site. Part (iii)
+reduces it, for $\int h\ne0$, to a comparison of the weight of every box
+with that of the box at zero momentum. Reflection positivity in the spatial
+directions gives that comparison when it holds exactly. For $r\ge0$,
+$i\in\{1,2,3\}$, let $\iota^{\mathrm s}_i$ and $\iota^{\mathrm b}_i$
+be the reflections $x_i\mapsto-x_i$ and $x_i\mapsto-1-x_i$ of $\Z^4$, and
+consider
+\begin{enumerate}[label=\textup{(SR$_r$)},leftmargin=*]
+\item Let $i\in\{1,2,3\}$ and $\iota\in\{\iota^{\mathrm s}_i,
+\iota^{\mathrm b}_i\}$. For every $c:\Z^4\to\C$ of finite support in
+the half-space $\{x_i\ge r\}$,
+\[
+\sum_{x,y}\bar c_xc_y\,\omega_k\bigl(\mathring\varphi_k(\iota x)\,
+\mathring\varphi_k(y)\bigr)\ge0 .
+\]
+\end{enumerate}
+For a field $\varphi_k(x)=\Phi_x$ without flow, with $\Phi$ a function of
+the links within distance $r$ of $0$ in the slice, and a state reflection
+positive for the spatial reflections, \textup{(SR$_r$)} holds, since $\Phi$
+is $W_3$-invariant; for the flowed fields no $r$ is known.
+
+\begin{theorem}\label{thm:spatialrp}
+Assume \textup{(SR$_0$)} for the slice fields at the spacing $a_k$.
+
+\textup{(i)} $\varpi^V_k(\mathcal B_r(p_0))\le\varpi^V_k(\mathcal B_r(0))$
+for every $p_0\in\mathbf T^3$ and $r>0$.
+
+\textup{(ii)} Let $h\in C_c(\R^3)$ be real with $\int h\ne0$, and $\rho_h$
+as in Lemma~\textup{\ref{lem:spatialmeasure}(iv)}. If \textup{(SR$_0$)}
+holds for all large $k$, then for every cube of side $L$, all large $k$ and
+all $h'$ supported in it with $|h'|\le1$,
+\[
+I^{h'}_k(\delta)\le\frac{6\cdot10^7L^6}{(\int h)^2}\Bigl\lceil\frac\pi
+{L\rho_h}\Bigr\rceil^3I^h_k(\delta) ,
+\]
+so \textup{(M$_{\mathrm{sp}}$)} holds for the spatial factor $h$.
+\end{theorem}
+
+\begin{proof}
+(i) Fix $i$, write $x=(x_i,x_\perp)$, and let $b$ be a finitely supported
+function of $x_\perp$. Put $k_b(n)=\sum_{x_\perp,y_\perp}\bar b_{x_\perp}
+b_{y_\perp}K^V_k(ne_i+y_\perp-x_\perp)$ for $n\in\Z$. For $\alpha$ finitely
+supported in $\Z_{\ge0}$ let $c_{(t,x)}=a_k\mathbf 1_{0\le t<n_\delta}
+\alpha_{x_i}b_{x_\perp}$, supported in $\{x_i\ge0\}$. By translation
+invariance the sum of (SR$_0$) for $\iota^{\mathrm s}_i$ is
+$\sum_{j,l\ge0}\bar\alpha_j\alpha_lk_b(j+l)$, and for $\iota^{\mathrm b}_i$
+it is $\sum_{j,l\ge0}\bar\alpha_j\alpha_lk_b(j+l+1)$; both are
+nonnegative. On finitely supported sequences put $\ip\alpha\beta_b=\sum_{j,l}
+\bar\alpha_j\beta_lk_b(j+l)$ and $(S\alpha)_j=\alpha_{j-1}$, with
+$\alpha_{-1}=0$. Then $\ip\cdot\cdot_b$ is positive semidefinite, $S$ is
+symmetric with $\ip\alpha{S\alpha}_b\ge0$, and $\|S^m\alpha\|_b^2\le
+(\sum_j|\alpha_j|)^2\sup_n|k_b(n)|$ is bounded in $m$. Since $S$ is symmetric, the Cauchy--Schwarz
+inequality gives $\|S^j\alpha\|_b^2=\ip\alpha{S^{2j}\alpha}_b\le\|\alpha\|_b
+\|S^{2j}\alpha\|_b$ for $j\ge1$, and with $j=1,2,4,\dots$, by induction
+\[
+\|S\alpha\|_b\le\|\alpha\|_b^{1-2^{-q}}\|S^{2^q}\alpha\|_b^{2^{-q}}
+\qquad(q\ge1),
+\]
+so $\|S\alpha\|_b\le\|\alpha\|_b$. Hence $S$ passes to the completion of
+the quotient by the null vectors as a self-adjoint operator with $0\le S\le1$,
+and $k_b(n)=\ip{e_0}{S^ne_0}_b$ for $n\ge0$. By
+Lemma~\ref{lem:spectralmeasure} there is a finite positive measure $\mu_b$
+on $[0,1]$ with $k_b(n)=\int\lambda^nd\mu_b$, real, and $k_b(-n)=
+\overline{k_b(n)}$ because $K^V_k$ is positive definite. So $k_b(n)=\int
+\lambda^{|n|}d\mu_b(\lambda)$ for all $n\in\Z$.
+
+The measure $\varpi_b$ on the circle with Fourier coefficients $k_b(n)$ is
+the image of $|\hat b(p_\perp)|^2d\varpi^V_k(p)$ under $p\mapsto p_i$.
+Since $\int e^{int}P_\lambda(t)\frac{dt}{2\pi}=\lambda^{|n|}$ for the Poisson
+kernel $P_\lambda(t)=(1-\lambda^2)/(1-2\lambda\cos t+\lambda^2)$, $0\le
+\lambda<1$, uniqueness of Fourier coefficients gives $\varpi_b=\int
+P_\lambda\frac{dt}{2\pi}\,d\mu_b(\lambda)$, with $P_1\frac{dt}{2\pi}$ read
+as the point mass at $0$. Each $P_\lambda$ is even and nonincreasing in
+$|t|$ on $[-\pi,\pi]$, so its superlevel sets are arcs centred at $0$, and
+for an arc $J$ of length $|J|<2\pi$ and the arc $J_0$ of the same length
+centred at $0$,
+\[
+\begin{split}
+\int_JP_\lambda\,dt&=\int_0^\infty|J\cap\{P_\lambda>s\}|\,ds\\
+&\le\int_0^\infty|J_0\cap\{P_\lambda>s\}|\,ds=\int_{J_0}P_\lambda\,dt ;
+\end{split}
+\]
+the point mass also gives $J_0$ at least the weight of $J$. So
+$\varpi_b(J)\le\varpi_b(J_0)$, that is $\int(\mathbf 1_{J_0}-\mathbf 1_J)
+(p_i)\,|\hat b(p_\perp)|^2d\varpi^V_k\ge0$. Every continuous $g\ge0$ on
+the transverse torus is a uniform limit of functions $|\hat b|^2$, since
+$\sqrt g$ is a uniform limit of trigonometric polynomials, so the signed
+measure $A\mapsto\varpi^V_k(\{p_i\in J_0,\ p_\perp\in A\})-\varpi^V_k(\{p_i
+\in J,\ p_\perp\in A\})$ is nonnegative. Applying this with $A$ a product of
+two closed arcs, successively for $i=1,2,3$, moves each coordinate of the
+centre of $\mathcal B_r(p_0)$ to $0$ without decreasing the weight; for
+$r\ge\pi$ there is nothing to prove.
+
+(ii) Let $k$ be so large that $a_k\le L/4$ and
+Lemma~\ref{lem:spatialmeasure}(iv) applies. Then
+Lemma~\ref{lem:spatialmeasure}(i), (ii), (iv) and part (i) give
+\[
+\begin{split}
+I^{h'}_k(\delta)&\le\tfrac2\delta V^{h'}_k\le\tfrac2\delta\,7\cdot10^6L^6
+\Bigl\lceil\frac\pi{L\rho_h}\Bigr\rceil^3\varpi^V_k\bigl(\mathcal
+B_{a_k\rho_h}(0)\bigr)\\
+&\le\tfrac2\delta\,7\cdot10^6L^6\Bigl\lceil\frac\pi{L\rho_h}\Bigr\rceil^3
+\frac{2V^h_k}{(\int h)^2}\\
+&\le\frac{56\cdot10^6L^6}{(\int h)^2}\Bigl\lceil
+\frac\pi{L\rho_h}\Bigr\rceil^3I^h_k(\delta),
+\end{split}
+\]
+using $V^h_k\le2\delta I^h_k(\delta)$.
+\end{proof}
+
+\begin{proposition}\label{prop:rpexamples}
+Let $m>0$ and $q_k=e^{-ma_k}$, let $\varkappa$ and $\Theta_2$ be as in
+Lemma~\textup{\ref{lem:spatialmeasure}(v)}, and let $\Delta$ be the
+spatial lattice Laplacian, $(\Delta\phi)(x)=\sum_{i=1}^3(\phi(x+e_i)+
+\phi(x-e_i)-2\phi(x))$.
+
+\textup{(a)} Let $\psi_k$ be the field of
+Proposition~\textup{\ref{prop:osobstruction}(a)} and $\varphi_k=\Delta^2
+\psi_k$. Its law is invariant under translations and $\Gamma$ and reflection
+positive for the time reflections through sites and bisecting links, its
+transfer matrix has gap $ma_k$, $\rho_k(u,\sigma)=e^{-m\sigma}$,
+\textup{(Z$_{\mathrm{sl}}$)} and \textup{(M$_Z$)} hold for every product
+packet, and \textup{(SR$_2$)} holds. For every real $h\in C^4_c(\R^3)$ and
+every cube $Q_3$, \textup{(M$_{\mathrm{sp}}$)} fails.
+
+\textup{(b)} The field $\phi_k=\psi_k+a_k^{-5/2}\xi_k$ of
+Proposition~\textup{\ref{prop:msplit}(vi)} satisfies \textup{(SR$_0$)} and,
+for every nonzero real $h\in C_c(\R^3)$, \textup{(M$_{\mathrm{sp}}$)}; and
+\textup{(Z$_{\mathrm{sl}}$)} fails.
+\end{proposition}
+
+\begin{proof}
+(a) The covariance of $\varphi_k$ is $q_k^{|x_0-y_0|}$ times the spatial
+kernel with Fourier transform $\varkappa(p)^4\prod_iP_{q_k}(p_i)\ge0$,
+$P_q(t)=(1-q^2)/(1-2q\cos t+q^2)$, as in the proof of
+Proposition~\ref{prop:osobstruction}(a). That proof, with $\gamma$ the
+centred Gaussian law with this spatial covariance, gives reflection
+positivity for the time reflections and a transfer matrix with spectrum
+$\{q_k^N:N\ge0\}$ and $1$ simple; invariance under translations and
+$\Gamma$ holds because $\Delta^2$ commutes with translations and $W_3$. The
+slice field is linear, so $D^{h'}_k(r)=q_k^{r/a_k}D^{h'}_k(0)$, which gives
+the ratio and
+$I_k(\delta)=T_kD_k(0)\le\delta e^{m\delta}D_k(\delta)$ with $T_k=a_k
+\sum_{j<n_\delta}q_k^j$; (M$_Z$) follows from
+Proposition~\ref{prop:mzslice}(iii). The field $\varphi_k(y)$ is a linear
+combination of $\psi_k$ at points $y+z$ with $|z|_1\le2$ in the slice of
+$y$, with coefficients invariant under $z_i\mapsto-z_i$, so for $c$
+supported in $\{x_i\ge2\}$ the sum of (SR$_2$) is
+$\omega_k(\overline{F\circ\iota}\,F)$ for a linear function $F$ of
+$\psi_k$ in $\{x_i\ge0\}$, nonnegative by the reflection positivity of
+$\psi_k$ in the spatial directions.
+
+In the notation of Lemma~\ref{lem:spatialmeasure},
+$d\varpi_k=T_k\varkappa^4\prod_iP_{q_k}(p_i)\frac{dp}{(2\pi)^3}$. For
+$c_x=a_k^3h(a_kx)$, Lemma~\ref{lem:spatialmeasure}(v) gives $\varkappa^2|\hat
+c|\le\Theta_2a_k^4$ for $a_k\le1$. Since
+$\int P_q\frac{dt}{2\pi}=1$,
+\[
+I_k(\delta)\le T_k\Theta_2^2a_k^8 .
+\]
+Let $Q_3$ have side $\ell$, $\chi$ as in
+Lemma~\ref{lem:spatialmeasure}(iii) for $Q'=Q_3$, and $h'_k(\mathbf y)=
+\chi(\mathbf y)\cos(\pi(y_1+y_2+y_3)/a_k)$, real, supported in $Q_3$, with
+$|h'_k|\le1$; this is the $h'$ of the lemma with $p_0=(\pi,\pi,\pi)$. On
+$\mathcal B_{a_k/(3\ell)}(p_0)$, of half-side at most $\frac1{12}$, each
+$\sin^2(p_i/2)\ge\cos^2\frac1{24}$, so $\varkappa\ge11$, and $P_{q_k}(p_i)\ge
+(1-q_k)/(1+q_k)\ge ma_k/4$ for $ma_k\le1$. The lower bound of the proof of
+Lemma~\ref{lem:spatialmeasure}(iii), $|\hat c'|\ge\ell^3/128$ on that box,
+gives
+\[
+\begin{split}
+I^{h'_k}_k(\delta)&\ge T_k\,11^4\Bigl(\frac{\ell^3}{128}\Bigr)^2\Bigl(
+\frac{ma_k}4\Bigr)^3\Bigl(\frac{2a_k}{3\ell}\Bigr)^3\frac1{(2\pi)^3}\\
+&\ge10^{-5}\,T_k\,\ell^3m^3a_k^6 .
+\end{split}
+\]
+So $I^{h'_k}_k(\delta)/I_k(\delta)\ge10^{-5}\ell^3m^3\Theta_2^{-2}a_k^{-2}
+\to\infty$.
+
+(b) The covariance is $\prod_\mu q_k^{|x_\mu-y_\mu|}+a_k^{-5}\mathbf
+1_{x=y}$. For $c$ supported in $\{x_i\ge0\}$ the second term contributes
+$a_k^{-5}\sum|c_x|^2$ over $x_i=0$ for $\iota^{\mathrm s}_i$ and $0$
+for $\iota^{\mathrm b}_i$, and the first is reflection positive by
+Proposition~\ref{prop:osobstruction}(a); this is (SR$_0$). The noise is
+independent in time, so $I^{h'}_k(\delta)=I^{h'}_{\psi,k}(\delta)+a_k^2
+\sum_x|h'(a_kx)|^2$, where the first term, for the field $\psi_k$, is at
+most $T_k(\sum_xa_k^3|h'(a_kx)|)^2\le\delta(L+1)^6$ for $h'$ supported in a
+cube of side $L$ with $|h'|\le1$ and $a_k\le1$, and the second is at most
+$a_k^{-1}(L+1)^3$. For $h\ne0$, $I_k(\delta)\ge a_k^2\sum_xh(a_kx)^2\ge
+(2a_k)^{-1}\int h^2$ for large $k$, so $I^{h'}_k(\delta)\le2(\delta+1)
+(L+1)^6I_k(\delta)/\int h^2$, which is (M$_{\mathrm{sp}}$). By
+Proposition~\ref{prop:msplit}(vi), $\Upsilon_k\to\infty$, so (M$_Z$) and,
+by Proposition~\ref{prop:mzslice}(iii), (Z$_{\mathrm{sl}}$) fail.
+\end{proof}
+
+So exact spatial reflection positivity gives (M$_{\mathrm{sp}}$) for every
+spatial factor with $\int h\ne0$, while positivity beyond a fixed lattice
+distance, as for local functions of a reflection positive field, does not;
+and neither gives (Z$_{\mathrm{sl}}$). The flow enters through the size of
+the lattice-scale part of $\varpi_k$. For a function $\Phi$ as in Section~\ref{ssec:osaxioms} put
+$\Delta\Phi=\sum_{i=1}^3(\Phi_{e_i}+\Phi_{-e_i})-6\Phi$. It is again a
+bounded real gauge-invariant $W_3$-invariant function of finitely many
+spatial links of the slice, since $W_3$ permutes the six translates, and
+since the flow commutes with translations, the field of $\Delta\Phi$ is
+$\Delta\varphi_k$.
+
+\begin{proposition}\label{prop:laplaceladder}
+Let $\Phi$ be as above, and $m$, $h$, $\Theta_m$ as in
+Lemma~\textup{\ref{lem:spatialmeasure}(v)}. Let
+$\varpi^{(m)}_k$ be the measure of Lemma~\textup{\ref{lem:spatialmeasure}}
+for $\Delta^m\Phi$.
+
+\textup{(i)} $\varpi^{(m)}_k=\varkappa^{2m}\varpi_k$, and for $a_k\le1$ the
+integral $I_k(\delta)$ formed with $\Delta^m\Phi$ is at most $\Theta_m^2
+a_k^{4m}K_k(0)\le\Theta_m^2\,\delta\,\|\Phi\|_\infty^2a_k^{4m}$.
+
+\textup{(ii)} If \textup{(M$_{\mathrm{sp}}$)} holds for $\Delta^m\Phi$ and
+the spatial factor $h$, with the constant $C$ for a cube of side $\ell$,
+then for all large $k$
+\[
+\varpi_k\bigl(\{p:|p|_\infty\ge2\}\bigr)\le1.4\cdot10^8\,\frac{C\Theta_m^2
+\delta\|\Phi\|_\infty^2}{\ell^3}\,a_k^{4m-3} .
+\]
+This holds at every flow time $\tau$, with constants that do not depend on
+$\tau$.
+\end{proposition}
+
+\begin{proof}
+(i) Summation by parts gives $U^c_k$ for $\Delta^m\Phi$ equal to
+$U^{\Delta^mc}_k$ for $\Phi$, and $\widehat{\Delta c}=-\varkappa\hat c$; so
+$\int|\hat c|^2d\varpi^{(m)}_k=\int\varkappa^{2m}|\hat c|^2d\varpi_k$ for all
+finitely supported $c$, which determines the measure. For $c_x=a_k^3
+h(a_kx)$, Lemma~\ref{lem:spatialmeasure}(v) gives
+$\int\varkappa^{2m}|\hat c|^2d\varpi_k\le
+\Theta_m^2a_k^{4m}\varpi_k(\mathbf T^3)$, with $\varpi_k(\mathbf T^3)=
+K_k(0)\le\delta\|\Phi\|_\infty^2$ by Lemma~\ref{lem:spatialmeasure}(i).
+
+(ii) Let $a_k\le\min(1,\ell/4)$ and $r=a_k/(3\ell)\le\frac1{12}$. Divide
+$\mathbf T^3$ into $\lceil3\pi\ell/a_k\rceil^3\le(4\pi\ell/a_k)^3$
+half-open boxes of side at most $2r$. A box meeting $\{|p|_\infty\ge2\}$
+lies in $\mathcal B_r(p_0)$ for its centre $p_0$, which has a coordinate
+$|p_{0,i}|\ge2-r\ge\frac\pi2$; on $\mathcal B_r(p_0)$ that coordinate lies
+at distance at least $\frac\pi2-\frac1{12}$ from $0$ on the circle, and
+$4\sin^2(\frac\pi4-\epsilon)=2(\cos\epsilon-\sin\epsilon)^2\ge2(1-\epsilon-
+\frac{\epsilon^2}2)^2\ge1$ for $\epsilon=\frac1{24}$, so $\varkappa\ge1$
+there. By
+Lemma~\ref{lem:spatialmeasure}(iii) with $Q'$ the cube of side $\ell$,
+(M$_{\mathrm{sp}}$) for $\Delta^m\Phi$ and (i),
+\[
+\varpi_k(\mathcal B_r(p_0))\le\varpi^{(m)}_k(\mathcal B_r(p_0))\le
+16384\,\ell^{-6}C\,\Theta_m^2\,\delta\,\|\Phi\|_\infty^2a_k^{4m} ,
+\]
+and summing over the boxes gives the bound, since $4\cdot16384\cdot
+64\pi^3\le1.4\cdot10^8$; the factor $4$ covers the case in which only real
+$h'$ are admitted, as in the proof of Proposition~\ref{prop:boxform}(i). The constants involve $\Phi$ only through $\|\Phi\|_\infty$,
+which the flow does not change.
+\end{proof}
+
+So a proof of (M$_{\mathrm{sp}}$) for all the fields $\Delta^m\Phi$, which
+are admissible observables, must show that the time-integrated spectral
+weight of $\varphi_k$ at lattice momenta tends to zero faster than every
+power of $a_k$. Such suppression is what the linear heat flow does to a Gaussian field at
+flow time $\tau/a_k^2$; for the gauge field the flow leaves the central
+configurations unchanged, and with them their lattice-scale patterns
+(Proposition~\ref{prop:centralpattern} and
+Proposition~\ref{prop:centralsecond}(iv) below).
+
+\begin{proposition}\label{prop:centralsecond}
+Let $G=\SU(N)$, $\zeta=e^{2\pi i/N}$ and $c_N=N(1-\cos(2\pi/N))$. Let
+$U^\circ$ be a configuration of the spatial links of a slice with values in
+the centre $\{\zeta^j\}$, $X$ a finitely supported assignment of elements
+of $\mathfrak{su}(N)$ to the spatial links, and $U^\epsilon_e=U^\circ_e
+e^{\epsilon X_e}$. For a plaquette $p$ with links $e_1,e_2$ traversed
+forwards and $e_3,e_4$ backwards put $Y_p=X_{e_1}+X_{e_2}-X_{e_3}-X_{e_4}$,
+$|Y|^2=-\Tr Y^2$, and let $z_p\in\{\zeta^j\}$ be the plaquette of
+$U^\circ$.
+
+\textup{(i)} The finite sum $S(\epsilon)=\sum_p\bigl(\ReTr U^\circ_p-\ReTr
+U^\epsilon_p\bigr)$ over the spatial plaquettes of the slice satisfies
+$S'(0)=0$ and $S''(0)=\sum_p\operatorname{Re}(z_p)\,|Y_p|^2$.
+
+\textup{(ii)} At $U^\circ=1$, $S''(0)=0$ if and only if there is a finitely
+supported $\Lambda:\Z^3\to\mathfrak{su}(N)$ with $X_{(x,y)}=\Lambda(x)-
+\Lambda(y)$ for every link, that is, $X$ is an infinitesimal gauge
+transformation.
+
+\textup{(iii)} Let $U^\zeta$ have $U^\zeta_{e_*}=\zeta$ on one spatial link
+$e_*$ and all other links $1$, and let $S_0''$ be the form of \textup{(ii)}.
+For $N\ge5$, $S''(0)\ge\cos(2\pi/N)S_0''(0)\ge0$, with equality to $0$ only
+at infinitesimal gauge transformations; for $N=4$, $S''(0)\ge0$; for
+$N=2,3$ and $X$ supported on $e_*$, $S''(0)=4\cos(2\pi/N)|X_{e_*}|^2<0$.
+
+\textup{(iv)} For $\Phi$ the sum of $N-\ReTr U_p$ over the twelve spatial
+plaquettes with a corner at $0$ and every $s\in\R$, $\Phi_x\circ\Phi_s
+(U^\zeta)=c_Nn_x$, where $n_x=4$ at the two endpoints of $e_*$, $n_x=1$ at
+the eight other corners of the four plaquettes containing $e_*$, and
+$n_x=0$ elsewhere.
+\end{proposition}
+
+\begin{proof}
+(i) Central elements commute with everything, so $U^\epsilon_p=z_p
+e^{\epsilon X_{e_1}}e^{\epsilon X_{e_2}}e^{-\epsilon X_{e_3}}e^{-\epsilon
+X_{e_4}}=z_pe^{Z_p(\epsilon)}$ with $Z_p(\epsilon)\in\mathfrak{su}(N)$ and,
+by the Baker--Campbell--Hausdorff formula, $Z_p(\epsilon)=\epsilon Y_p+
+O(\epsilon^2)$. Since $\Tr Z_p=0$, $\Tr e^{Z_p}=N+\frac12\Tr Z_p^2+
+O(\epsilon^3)=N-\frac{\epsilon^2}2|Y_p|^2+O(\epsilon^3)$, and only the
+finitely many plaquettes meeting the support of $X$ contribute.
+
+(ii) The vectors $\Lambda(x)-\Lambda(y)$ give $Y_p=0$ by telescoping.
+Conversely, $S''(0)=\sum_p|Y_p|^2=0$ means that $X$ is a closed
+$\mathfrak{su}(N)$-valued cochain on the cubical complex of $\Z^3$. Choose
+a box $B$ containing the endpoints of the support of $X$ and a point
+$x_\infty\notin B$, and let $\Lambda(x)$ be minus the sum of $\pm X_e$ along
+a lattice path from $x_\infty$ to $x$, the sign recording the orientation.
+Two paths with the same ends differ by a sum of boundaries of plaquettes, so
+$\Lambda$ is well defined, and $X_{(x,y)}=\Lambda(x)-\Lambda(y)$. The
+complement of $B$ in $\Z^3$ is connected and $X$ vanishes on its links, so
+$\Lambda=0$ there.
+
+(iii) The plaquettes of $U^\zeta$ are $1$ except the four containing
+$e_*$, which are $\zeta^{\pm1}$, so $S''(0)=S_0''(0)-(1-\cos\frac{2\pi}N)
+\sum_{p\ni e_*}|Y_p|^2$, and $\sum_{p\ni e_*}|Y_p|^2\le S_0''(0)$. For
+$N\ge5$, $\cos\frac{2\pi}N>0$, which with (ii) gives the first claim, and
+$\cos\frac\pi2=0$ gives the case $N=4$. For $X$ supported on $e_*$,
+$Y_p=\pm X_{e_*}$ for the four plaquettes containing $e_*$ and $Y_p=0$
+otherwise, and $\cos\pi=-1$, $\cos\frac{2\pi}3=-\frac12$.
+
+(iv) By (i) the first variation of the action of the slice vanishes in
+every direction, so the right side of the flow equation vanishes at
+$U^\zeta$ and $\Phi_s(U^\zeta)=U^\zeta$ by uniqueness. Each of the four
+plaquettes containing $e_*$ contributes $N-\ReTr\zeta^{\pm1}=c_N$ to
+$\Phi_x$ for each of its four corners $x$; the two endpoints of $e_*$ are
+corners of all four, and each of the other eight corners of exactly one.
+\end{proof}
+
+\begin{remark}\label{rem:spatialstatus}
+For the flowed fields of the Wilson measure along a tuning, the two
+statements stand as follows.
+
+(M$_{\mathrm{sp}}$) is equivalent to the box bound of
+Proposition~\ref{prop:boxform}(i) and, for $\int h\ne0$, follows from the
+comparison of Proposition~\ref{prop:boxform}(iii). Exact spatial reflection
+positivity (SR$_0$) gives that comparison
+(Theorem~\ref{thm:spatialrp}). The Wilson action is reflection positive in
+every coordinate hyperplane~\cite{OSei78}, so for states whose restrictions
+to gauge-invariant functions are reflection positive for the spatial
+reflections, a field $\Phi_x$ without flow, depending on the links within
+distance $r$ of $x$, satisfies (SR$_r$); the flowed field
+$\Phi_x\circ\Phi_{s_k}$ depends on all links of its slice, and
+Proposition~\ref{prop:spatialflow}(i) bounds the influence of links at
+distance $R$ only for $R$ beyond a multiple of $s_k=\tau/a_k^2$, so no
+(SR$_r$) is known for it. Positivity beyond a fixed distance does not
+suffice (Proposition~\ref{prop:rpexamples}(a)). Compactness of $G$ gives
+$\bar\varpi_k\le\delta\|\Phi\|_\infty^2$, an upper bound of order one, and
+no lower bound on $I_k(\delta)$; by
+Proposition~\ref{prop:laplaceladder} a proof valid for the admissible
+fields $\Delta^m\Phi$ must suppress the lattice-scale spectral weight of
+$\varphi_k$ faster than every power of $a_k$. For $G=\SU(2)$ the estimates of
+Section~\ref{ssec:largefields} give each plaquette a conditional probability
+at least $v_*e^{-3\beta_W}$ of being bad (Proposition~\ref{prop:manydefects}),
+a power of $a_k$ along couplings of order $\log(1/a_k)$, and the
+single-link defects of Proposition~\ref{prop:centralsecond} are fixed by the
+flow at every flow time, with nonnegative second variation for $N\ge4$ and a
+direction of negative second variation for $N=2,3$. Whether the flow over
+the time $\tau/a_k^2$ moves the configurations near such defects to
+configurations with lattice-scale weight below every power of $a_k$ is not
+known; this is the missing estimate.
+
+(Z$_{\mathrm{sl}}$) is equivalent to (M$_Z$) and implies $(\mathrm N_u)$
+(Proposition~\ref{prop:mzslice}); for $G=\SU(2)$ it fails along every
+sequence with $\beta_{W,k}\le0.348$ (Proposition~\ref{prop:msplit}(v)) and
+along the constant tunings (Proposition~\ref{prop:cubecompatible}(ii)). Compactness bounds $D_k(0)$ above and gives no
+lower bound on $D_k(\delta)$, which is what (Z$_{\mathrm{sl}}$) requires;
+exact spatial reflection positivity together with (M$_{\mathrm{sp}}$) does
+not give it (Proposition~\ref{prop:rpexamples}(b)), and there the term
+that breaks it is constant in space, so that no spatial smoothing removes
+it. The
+missing estimate is that of Remark~\ref{rem:opensplit}: a bound on the
+high-energy spectral weight of the slice field by its weight at bounded
+physical energy.
+
+At a fixed $k$ both inequalities hold with a constant depending on $k$
+whenever $C_k(0)>0$, since then $D_k(\delta)>0$ and $I_k(\delta)>0$ by
+Proposition~\ref{prop:sliceratio}(i); their content is the uniformity in
+$k$, and neither is proved along any sequence of couplings with
+$a_k\to0$.
+\end{remark}
+
 \emph{Status of (M), (W) and (U).} None of the three statements is proved.
 Proposition~\ref{prop:msplit}(i)--(iii) uses translation and
 $\vartheta$-invariance and reflection positivity of the states and the
@@ -7567,7 +8176,12 @@ hypothesis of Theorem~\ref{thm:transfer} for the bound on $m_*$; parts
 (ii) and (iii) assume (M). Lemma~\ref{lem:timekernel} and
 Propositions~\ref{prop:mzslice} and~\ref{prop:mlocslice}(i)--(iii) use
 translation and $\vartheta$-invariance, reflection positivity and the
-positivity of the transfer matrix, and no hypothesis on the tuning. What
+positivity of the transfer matrix, and no hypothesis on the tuning; so do
+Lemma~\ref{lem:spatialmeasure} and Propositions~\ref{prop:boxform}
+and~\ref{prop:laplaceladder}, while Theorem~\ref{thm:spatialrp} assumes
+the exact spatial reflection positivity (SR$_0$) of the slice field, which
+is not known for the flowed fields. Proposition~\ref{prop:centralsecond} is
+deterministic. What
 remains open is (M$_{\mathrm{loc}}$), whose time direction for $n=2$ is
 Proposition~\ref{prop:mlocslice}(i) and whose remainder is the spatial
 comparison (M$_{\mathrm{sp}}$) and the bounds of
