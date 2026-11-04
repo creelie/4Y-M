@@ -26729,6 +26729,549 @@ locality in the distance between two ends.
 \end{enumerate}
 \end{remark}
 
+The three points of Remark~\ref{rem:badendsopen} are taken up below
+without a chart. The pair factors of the fibre measure are within
+$3.1\cdot10^{-4}$ of Haar measure in total mass, whatever the links that
+bind them; this bounds the weight of the interior as a function of an end
+that enters an average, after the non-path links are integrated, and gives a
+decay of the constrained law along a tube of blocks at every $\beta_W$. The
+coarse fields with opposite fluxes at adjacent coarse plaquettes are
+decided up to a rounding gap.
+
+\begin{lemma}[the pair factors are almost Haar]\label{lem:almosthaar}
+Let $G=\SU(2)$ and $q=h(\{v:\delta(v,I)\le1\})$.
+\begin{enumerate}[label=\textup{(\roman*)},leftmargin=*]
+\item $q=(\alpha-\frac{3\sqrt7}{16})/\pi<0.07447$ and $q^7<1.3\cdot10^{-8}$.
+For every pair $k$, every $c_k$ and every value of the links other than its
+eight private links, the density~\eqref{eq:densityformula} satisfies
+\[
+1-1.3\cdot10^{-8}\le1-q^7\le\rho(c_k)\le1+23640\,q^7<1+3.1\cdot10^{-4}.
+\]
+\item For every $c$, $(1-1.3\cdot10^{-8})^{4\lvert W\rvert}\le\nu_c(F_c)\le
+(1+3.1\cdot10^{-4})^{4\lvert W\rvert}$, and the same bounds hold for the mass
+of $\nu^-_c$.
+\item Let $E$ be a set of links off $A^-_W$, $K_E$ the set of pairs based
+in $W$ whose average contains a link of $E$, and $n_E$ the number of
+plaquettes that contain a link of $A^-_W$ and either a link of $E$ or a
+private link of a pair of $K_E$. Fix the other links off $A^-_W$, and let
+$Z(e)=\nu^-_c(e^{-\lambda Q^-})$ with the value $e$ on $E$. For any two
+values $e,e'$,
+\[
+\Bigl\lvert\log\frac{Z(e)}{Z(e')}\Bigr\rvert\le2\beta_Wn_E+3.2\cdot10^{-4}
+\lvert K_E\rvert .
+\]
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+(i) By Lemma~\ref{lem:haarsu2}\textup{(iii)}, $\delta(v,I)\le1$ exactly when
+the eigenangle of $v$ is at most $\alpha$, and $\cos\alpha=1-2\sin^2\frac
+\alpha2=\frac34$, $\sin\alpha=\frac{\sqrt7}4$; Lemma~\ref{lem:haarsu2}%
+\textup{(ii)} gives the formula for $q$. Since $\cos x\le1-\frac{x^2}2+\frac
+{x^4}{24}$, $\cos0.73\le1-0.26645+0.011833<\frac34$, so $\alpha<0.73$; and
+$\sqrt7>2.6457$ gives $\frac{3\sqrt7}{16}>0.49606$. Hence $q<0.23394/\pi<
+0.07447$, and $0.07447^2<0.005546$, $0.005546^3<1.706\cdot10^{-7}$,
+$1.706\cdot10^{-7}\cdot0.07447<1.3\cdot10^{-8}$.
+
+Use the regions and coordinates of the proof of
+Lemma~\ref{lem:averagedensity}. On $R_0$ the average is the path link, so
+the first term of~\eqref{eq:densityformula} is the Haar measure of the set
+of $(\ell_a)_{a\ne0}$ with $(c_k,\ell)\in R_0$. Its complement lies in the
+set where $\delta(v_{x_a},I)\le1$ for $a=1,\dots,7$, and with $g=c_k$ fixed
+the maps $\ell_a\mapsto v_{x_a}=c_k^{-1}u_a\ell_a$ carry Haar measure to Haar
+measure independently, so the complement has measure at most $q^7$ and the
+first term lies in $[1-q^7,1]$. In the term of $R_1$ the coordinates
+$h_1,\dots,h_7$ are independent and Haar distributed, the integrand vanishes
+unless $\max_a\delta(h_a,I)<1$, which has measure at most $q^7$, and the
+inner sum is at most $(1-\frac78\Lambda)^{-3}$; the same holds for $R_2$
+with $h'_a=v_{x'_a}$. As $1-\frac78\Lambda>0.0439$ and $0.0439^3>8.46\cdot
+10^{-5}$, $(1-\frac78\Lambda)^{-3}<11820$, and $23640\cdot1.3\cdot10^{-8}<
+3.1\cdot10^{-4}$.
+
+(ii) The measure $\nu_c$ is the product of Haar measure on the links inside
+the blocks and of one factor for each pair, of total mass $\rho(c_k)$ at
+every value of the inside links, and likewise $\nu^-_c$.
+
+(iii) By Lemma~\ref{lem:endpairs} and the construction
+before~\eqref{eq:fibrevolume}, $\nu^-_c$ is the product of Haar measure on
+the inside links of $A^-_W$, of the factors $\nu_k$ of the pairs $k\notin
+K_E$, which do not depend on $e$, and of the factors $\nu^{(e)}_k$, $k\in
+K_E$, each a measure on the private links of $k$ of total mass $\rho(c_k)$.
+Write $\lambda Q^-=\beta_W(S_E+S_{\rm r})$, with $S_E$ the sum of
+$1-\frac12\ReTr U_p$ over the $n_E$ plaquettes and $S_{\rm r}$ over the
+other plaquettes that contain a link of $A^-_W$; $S_{\rm r}$ depends neither
+on $e$ nor on the private links of the pairs of $K_E$, and $0\le S_E\le
+2n_E$. Integrating the private links of the pairs of $K_E$ first,
+\[
+e^{-2\beta_Wn_E}\int\prod_{k\in K_E}\rho(c_k)\,d\Xi\le Z(e)\le\int\prod_{k
+\in K_E}\rho(c_k)\,d\Xi,
+\]
+with $d\Xi=e^{-\beta_WS_{\rm r}}$ times the product of Haar measure on the
+inside links and the factors $\nu_k$, $k\notin K_E$, which does not depend
+on $e$. By (i) the product of the $\rho(c_k)$ lies in $[(1-1.3\cdot10^{-8}
+)^{\lvert K_E\rvert},(1+3.1\cdot10^{-4})^{\lvert K_E\rvert}]$ at every value
+of the inside links and of $e$, and $\log(1+3.1\cdot10^{-4})-\log(1-1.3\cdot
+10^{-8})<3.2\cdot10^{-4}$.
+\end{proof}
+
+For an end of Proposition~\ref{prop:endfold}, $\lvert K_E\rvert=1$: the
+law of the path link given the non-path links jumps under arbitrarily small
+moves of the end, while after the non-path links are integrated the pair
+factor changes its mass by less than $3.2\cdot10^{-4}$ under every move,
+since the cut-off acts only where seven paths lie within distance one of
+the path link, a set of Haar measure at most $q^7$ in the coordinates of
+each region. The bound in (iii) depends on $\beta_W$ only through the Wilson
+weight of the plaquettes through the end and through the private links of
+its pair. The same splitting along a tube of blocks gives decay at every
+$\beta_W$.
+
+Fix a direction $\rho$ and a set $W$ of blocks for which some value $j_0$
+of the coordinate $\rho$ satisfies $y_\rho\ne j_0$ for every $y\in W$.
+Number the other values of $y_\rho$ by $1,\dots,L-1$ in their cyclic order
+starting after $j_0$, and let $\Sigma_i=\{y\in W:y_\rho=i\}$ be the slabs of
+$W$, $K_i$ the pairs $(y,\rho)$ with $y\in\Sigma_i$, and
+\[
+D_i=\lvert\Sigma_i\rvert\bigl(72\beta_W+3.2\cdot10^{-4}\bigr).
+\]
+Every link of $A^-_W$ has its base in a block of $W$; we say that it lies in
+the slab of that block.
+
+\begin{theorem}[decay along a tube]\label{thm:tube}
+Let $G=\SU(2)$, $\beta_W\ge0$, let $W$, $\rho$ and the slabs be as above,
+and let $1\le a$, $a+2\le b\le L-1$. Let $\tilde F$ be a bounded measurable
+function of the links of $A^-_W$ in the slabs $1,\dots,a$ and $\tilde G$ one of
+the links of $A^-_W$ in the slabs $b,\dots,L-1$. Then
+\[
+\bigl\lvert\Cov_{\mu^-_W}(\tilde F,\tilde G)\bigr\rvert\le2\lVert\tilde F\rVert_\infty\lVert
+\tilde G\rVert_\infty\prod_{i=a+1}^{b-1}\bigl(1-e^{-D_i}\bigr),
+\]
+for every coarse field and every exterior, and with no condition on the
+plaquettes. The same bound holds for $\mu_W$, with $A_W$ in place of
+$A^-_W$.
+\end{theorem}
+
+\begin{proof}
+Let $C_i$ be the set of private links of the pairs of $K_i$, which are the
+links $(x,\rho)$ with $o_\rho=1$ and $x$ in a block of $\Sigma_i$, and $S_i$
+the other links of $A^-_W$ in the slab $i$.
+
+\emph{Plaquettes.} Let $p$ be a plaquette in a plane $\{\rho,\tau\}$ with
+corner $z$; its links in the direction $\rho$ are based at $z$ and
+$z+e_\tau$, and those in the direction $\tau$ at $z$ and $z+e_\rho$. The
+blocks of $z$ and $z+e_\tau$ have the same coordinate $\rho$, say $i$. If
+$z_\rho$ is odd, the two links in the direction $\rho$ have $o_\rho=1$, so
+those of them in $A^-_W$ lie in $C_i$, the link at $z$ lies in the slab $i$
+and the link at $z+e_\rho$ in the slab $i+1$; neither is in a set $C_j$, as
+their direction is $\tau\ne\rho$. If $z_\rho$ is even, $z+e_\rho$ lies in
+the block of $z$, all four links lie in the slab $i$, and none lies in a
+set $C_j$. A plaquette in a plane without $\rho$ has its four bases in
+blocks with the same coordinate $\rho$ and no link in a set $C_j$. So a
+plaquette either contains links of exactly one set $C_i$, and then its
+other links of $A^-_W$ lie in $S_i\cup S_{i+1}$, or has its links of $A^-_W$
+in one set $S_i$.
+
+\emph{Pairs.} The average of a pair $(y,\sigma)$, $y\in\Sigma_i$, depends
+on its private links, on the inside links of $B(y)$ in the direction
+$\sigma$, and on those of $B(y+e_\sigma)$ in the direction $\sigma$. For
+$\sigma\ne\rho$ all of them lie in $S_i$ or off $A^-_W$. For $\sigma=\rho$
+the private links lie in $C_i$, the links of $B(y)$ in $S_i$ or in $I_W$,
+and the links of $B(y+e_\rho)$ in $S_{i+1}$ or off $A_W$.
+
+\emph{Integrating the crossing links.} For each pair $k$ based in $W$ let
+$\nu_k$ be its factor of $\nu^-_c$, a measure on its private links of mass
+$\rho(c_k)$ that depends on the other links of its paths. Let $P_i$ be the
+set of plaquettes that contain a link of $C_i$, so $\lvert P_i\rvert\le36
+\lvert K_i\rvert$ by Lemma~\ref{lem:relnorm}, and
+\[
+\Psi_i=\int\prod_{k\in K_i}\nu_k(d\ell^k)\,\exp\Bigl(-\beta_W\sum_{p\in
+P_i}\bigl(1-\tfrac12\ReTr U_p\bigr)\Bigr).
+\]
+By the two structural facts, $\Psi_i$ is a function of the links of $S_i$
+and $S_{i+1}$, and $\nu^-_c(e^{-\lambda Q^-}\,\cdot\,)$, with the links of
+all sets $C_i$ integrated, has the form
+\[
+\prod_i\Phi_i(S_i)\,m_i(dS_i)\prod_i\Psi_i(S_i,S_{i+1}),
+\]
+where $m_i$ is the product of Haar measure on the inside links of $S_i$
+and of the factors $\nu_k$ of the pairs $(y,\sigma)$, $y\in\Sigma_i$,
+$\sigma\ne\rho$, and $\Phi_i$ is the Wilson weight of the plaquettes whose
+links of $A^-_W$ lie in $S_i$ only; $\Psi_{L-1}$ depends on $S_{L-1}$ only,
+since the blocks $y+e_\rho$, $y\in\Sigma_{L-1}$, have $y_\rho=j_0$. Every
+term of the sum lies in $[0,2]$, so Lemma~\ref{lem:almosthaar}\textup{(i)}
+gives, at every value of $S_i$ and $S_{i+1}$,
+\[
+(1-1.3\cdot10^{-8})^{\lvert K_i\rvert}e^{-72\beta_W\lvert K_i\rvert}\le
+\Psi_i\le(1+3.1\cdot10^{-4})^{\lvert K_i\rvert},
+\]
+and as $\lvert K_i\rvert=\lvert\Sigma_i\rvert$, the ratio of the two bounds
+is at most $e^{D_i}$.
+
+\emph{The chain.} Put $Z_0=(C_1,S_1,\dots,C_a,S_a,S_{a+1})$, $Z_j=S_{a+1+j}$
+for $1\le j\le b-a-2$, and let $Z_{b-a-1}$ consist of the links of the
+slabs $b,\dots,L-1$, with $C_{b-1},\dots,C_{a+1}$ integrated as above and
+$C_1,\dots,C_a$ kept in $Z_0$. The links of $C_a$ depend on $S_{a+1}$
+through $\nu_k$ and $P_a$, which lie in $Z_0$. So $\mu^-_W$, restricted to
+$(Z_0,\dots,Z_{b-a-1})$, has the form
+\[
+\frac1{\mathcal Z}\,\Gamma_0(dZ_0)\prod_{j=0}^{b-a-2}\Psi_{a+1+j}\bigl(
+S_{a+1+j},S_{a+2+j}\bigr)\prod_{j\ge1}\Gamma_j(dZ_j)
+\]
+with finite measures $\Gamma_j$, where $S_b$ is part of $Z_{b-a-1}$ and
+$C_b,\dots,C_{L-1}$ are kept in $Z_{b-a-1}$. This
+is a Markov chain: given $Z_j$, the law of $Z_{j+1}$ is
+\[
+K_j(Z_j,dz)=\frac{\Psi_{a+1+j}(s,z)\,H_{j+1}(z)\,\Gamma_{j+1}(dz)}{\int
+\Psi_{a+1+j}(s,\cdot)\,H_{j+1}\,d\Gamma_{j+1}},
+\]
+with $s$ the part $S_{a+1+j}$ of $Z_j$ and $H_{j+1}$ the integral of the
+factors beyond $Z_{j+1}$. With $m\le\Psi_{a+1+j}\le M$ and $M/m\le
+e^{D_{a+1+j}}$, $K_j(Z_j,\cdot)\ge e^{-D_{a+1+j}}\pi_{j+1}$ for the
+probability $\pi_{j+1}$ proportional to $H_{j+1}\Gamma_{j+1}$, so
+$\lVert K_j(z,\cdot)-K_j(z',\cdot)\rVert_{\rm TV}\le1-e^{-D_{a+1+j}}$ for
+all $z,z'$. Let $g(Z_0)$ be the conditional expectation of $\tilde G$ given $Z_0$,
+obtained by applying $K_0,\dots,K_{b-a-2}$ to $\tilde G$. Each kernel multiplies the
+oscillation by at most its coefficient, so $\operatorname{osc}g\le2\lVert\tilde G
+\rVert_\infty\prod_{i=a+1}^{b-1}(1-e^{-D_i})$, and
+\[
+\lvert\Cov(\tilde F,\tilde G)\rvert=\bigl\lvert\E\bigl[\tilde F\,(g-\E g)\bigr]\bigr\rvert\le
+\lVert\tilde F\rVert_\infty\operatorname{osc}g,
+\]
+since $\tilde F$ is a function of $Z_0$. For $\mu_W$ the links of $I_W$ are free as
+well; each is an inside link of a block of some $\Sigma_i$ and is added to
+$S_i$, and the two structural facts and the rest of the proof are
+unchanged.
+\end{proof}
+
+\begin{corollary}[ends at the two sides of a tube]\label{cor:tubeends}
+Let $G=\SU(2)$, $\beta_W\ge0$, and let $W$, $\rho$, the slabs, $a$ and $b$
+be as in Theorem~\ref{thm:tube}. Let $E_a$, $E_b$ be disjoint sets of links
+off $A^-_W$, which may enter averages of pairs based in $W$, such that
+every link of $A^-_W$ that shares a plaquette with a link of $E_a$, or is a
+private link of a pair based in $W$ whose average contains a link of
+$E_a$, lies in the slabs $1,\dots,a$, and likewise for $E_b$ with the slabs
+$b,\dots,L-1$. Fix the other links off $A^-_W$, let $a_0,a_1$ be values on
+$E_a$, $b_0,b_1$ values on $E_b$, and $Z_{ij}=\nu^-_c(e^{-\lambda Q^-})$
+with $a_i$ on $E_a$ and $b_j$ on $E_b$. Then
+\[
+\Bigl\lvert\log\frac{Z_{11}Z_{00}}{Z_{10}Z_{01}}\Bigr\rvert\le\bigl(e^{2D_a}
+-1\bigr)\prod_{i=a+1}^{b-1}\bigl(1-e^{-D_i}\bigr).
+\]
+\end{corollary}
+
+\begin{proof}
+Use the decomposition of the proof of Theorem~\ref{thm:tube}. A factor
+$\Phi_i$, $m_i$ or $\Psi_i$ depends on the value on $E_a$ only through a
+plaquette that contains a link of $E_a$ and a link of $A^-_W$, or through a
+pair whose average contains a link of $E_a$. By the hypothesis the links of
+$A^-_W$ involved lie in the slabs $1,\dots,a$, so the factor has $i\le a$,
+a plaquette of $P_i$ containing a link of $C_i$. Likewise the value on
+$E_b$ enters only factors with $i\ge b$; in particular $\Psi_{a+1},\dots,\Psi_{b-1}$, the
+measure $m_{a+1}$ and the weight $\Phi_{a+1}$ depend on neither. Integrating
+everything in $Z_0$ except $S_{a+1}$ gives
+\[
+Z_{ij}=\int\mathcal A_{a_i}(s)\,\Phi_{a+1}(s)\,m_{a+1}(ds)\,R_{b_j}(s),
+\]
+where $\mathcal A_{a_i}(s)$ is the integral of the factors of the slabs
+$1,\dots,a$ with $S_{a+1}=s$ and $R_{b_j}(s)$ that of the factors beyond
+$S_{a+1}$. The variable $s$ enters $\mathcal A_{a_i}$ only through
+$\Psi_a(S_a,s)$, whose bounds in the proof of Theorem~\ref{thm:tube} hold
+at every value of the ends, so $\mathcal A_{a_i}(s)/\mathcal A_{a_i}(s')\le
+e^{D_a}$ for all $s,s'$. Let $\Phi=\mathcal A_{a_1}/\mathcal A_{a_0}$, so
+that $\sup\Phi\le e^{2D_a}\inf\Phi$, and let $\pi_j$ be the law of
+$S_{a+1}$ under the measure with $a_0$ and $b_j$. Then $Z_{1j}/Z_{0j}=\pi_j(
+\Phi)$. Under that measure the chain $Z_{b-a-1},\dots,Z_0$ run backwards has
+kernels that do not depend on $b_j$, given by the same formula with the
+factors before $Z_j$ in place of $H$, and with the same minorisation; so
+$\lVert\pi_1-\pi_0\rVert_{\rm TV}\le\theta:=\prod_{i=a+1}^{b-1}(1-e^{-D_i}
+)$, the passage from $Z_0$ to $S_{a+1}$ not increasing the distance. Hence
+$\lvert\pi_1(\Phi)-\pi_0(\Phi)\rvert\le\theta(\sup\Phi-\inf\Phi)$, both
+values are at least $\inf\Phi$, and $\lvert\log x-\log x'\rvert\le\lvert
+x-x'\rvert/\min(x,x')$ gives the bound.
+\end{proof}
+
+\begin{remark}\label{rem:tuberate}
+Theorem~\ref{thm:tube} and Corollary~\ref{cor:tubeends} need no chart and no
+bound on the plaquettes, and they allow ends that enter averages; the price
+is the rate. At $\beta_W=0$, $1-e^{-D_i}\le3.2\cdot10^{-4}\lvert\Sigma_i
+\rvert$, and the constrained law of a tube of thin slabs is close to a
+product; for $\beta_W\lvert\Sigma_i\rvert\le\frac1{72}$ and $\lvert\Sigma_i
+\rvert\le100$ each factor is at most $1-e^{-1.04}<0.65$. For $\beta_W\ge2.3
+\cdot10^{17}$, the range of Theorem~\ref{thm:badcross}, every nonempty slab
+has $D_i\ge72\beta_W>1.6\cdot10^{19}$, and as $\prod_i(1-x_i)\ge1-\sum_ix_i$
+the product is at least $\frac12$ for every tube of fewer than $\frac12
+e^{1.6\cdot10^{19}}$ slabs; the bound then has no content on any lattice
+that the rest of the paper uses. The rate is the minorisation constant of
+the kernel across one interface, which uses only the oscillation of $\log
+\Psi_i$; the coarea factors contribute $3.2\cdot10^{-4}$ per pair to it, and
+the Wilson weight $72\beta_W$ per pair. A rate that does not degrade with
+$\beta_W$ needs information on where in the fibre the law concentrates,
+which is what the chart of Theorem~\ref{thm:badcross} supplies, at the cost
+of the mass $p$ off the chart. The projected average does not improve the
+rate: by Theorem~\ref{thm:projresponse}\textup{(i)} its pair factor has
+mass in $[(\frac8{15})^3e^{-72\beta_W},512]$ times that of Haar measure, so
+the oscillation per pair is $72\beta_W+3\log\frac{15}8+\log512>72\beta_W+8$,
+and the Lipschitz constant $24\beta_W+180.5$ of
+Theorem~\ref{thm:projresponse}\textup{(ii)} exceeds one at every $\beta_W$,
+so it gives no contraction across an interface either.
+\end{remark}
+
+The last part of the section concerns the coarse fields with opposite
+fluxes at adjacent coarse plaquettes, for an arbitrary field. Let $P$ and
+$P'$ be the coarse plaquettes at $y$ and $y+e_\mu$ in a plane $\{\mu,\nu\}$
+and $W'=\{y+ie_\mu+je_\nu:0\le i\le2,\ 0\le j\le1\}$.
+
+\begin{proposition}[a coarse dipole]\label{prop:dipole}
+Let $G=\SU(2)$.
+\begin{enumerate}[label=\textup{(\roman*)},leftmargin=*]
+\item Let $U$ be a field with $\delta(U_p,I)\le\kappa\le10^{-8}$ for every
+plaquette with a vertex in a block of $W'^+$, and $c=V^\sharp(U)$. Then
+\[
+\bigl\lVert\log c_P-\operatorname{Ad}(c_{y,\mu})\log c_{P'}\bigr\rVert\le
+6\kappa+1.7\cdot10^4\kappa^2 .
+\]
+\item If moreover $c_{y,\mu}c_{P'}c_{y,\mu}^{-1}=c_P^{-1}$, then $\delta(
+c_P,I)\le3\kappa+8500\kappa^2$. Hence, if a coarse field has this property
+and $\delta(c_P,I)>1.8001\cdot10^{-12}$, no field of the fibre over any $W\supset W'$, for any exterior,
+satisfies the hypotheses of Theorem~\ref{thm:badcross}, and for $\delta(
+c_P,I)>1.8133\cdot10^{-12}$ none satisfies those of
+Theorem~\ref{thm:fibrechart}\textup{(iv)}.
+\item Let $L\ge6$, $\mu<\nu$, $0<\theta\le1.7\cdot10^{-12}$, let $c^{\theta,
+d}$ be the coarse field with $c^{\theta,d}_{y,\nu}=e^{\theta T_0}$ for
+$y_\mu=1$, $y_\nu=0$ and every other coarse link $I$, and $W^d=\{y:0\le
+y_\mu\le2,\ 0\le y_\nu\le1\}$. Its coarse plaquettes other than $I$ are
+$e^{\theta T_0}$ at $y_\mu=0$ and $e^{-\theta T_0}$ at $y_\mu=1$, in the
+plane $\{\mu,\nu\}$ with $y_\nu=0$, so that the hypothesis of \textup{(ii)}
+holds at $y=0$ with $t:=\delta(c_P,I)=2\sqrt2\sin\frac\theta2$. The field
+$U^{\theta,d}$ with the angles of Table~\ref{tab:dipole} on the links listed
+there, at every value of the other two coordinates, and equal to
+$R(c^{\theta,d})$ elsewhere, lies in the fibre over $W^d$ of $R(c^{\theta,
+d})$, and every plaquette has $\delta(U^{\theta,d}_p,I)\le\kappa_d:=2\sqrt2
+\sin\frac\theta6$.
+\end{enumerate}
+In particular, for $t\le1.79\cdot10^{-12}$ the fibre over $W^d$ of
+$R(c^{\theta,d})$ contains a field at which it satisfies the hypotheses of
+Theorem~\ref{thm:badcross} with $s=2.4\cdot10^{-15}$, and for $t>1.8001
+\cdot10^{-12}$ no fibre over a set containing $W^d$ does, whatever the
+exterior.
+\end{proposition}
+
+\begin{table}[t]
+\caption{\label{tab:dipole}The field $U^{\theta,d}$ of
+Proposition~\ref{prop:dipole}\textup{(iii)}, in units of $\theta$, at the
+sites with coordinates $x_\mu$ and $x_\nu$: the angles of the links in the
+direction $\mu$ for $0\le x_\nu\le3$, of the links in the direction $\nu$ at
+$x_\nu=1$, and the real sums of the plaquettes in the plane $\{\mu,\nu\}$
+with corner $x$. Every other link has the angle of $R(c^{\theta,d})$: $1$ for
+the links $(x,\nu)$ with $x_\nu=1$ and $x_\mu\in\{2,3\}$, and $0$ on every
+other link.}
+\centering\footnotesize
+\renewcommand{\arraystretch}{1.15}
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{@{}l@{\ \ }r@{\ \ }rrrrrrr@{}}
+\toprule
+& & \multicolumn{7}{c}{$x_\mu$}\\
+& $x_\nu$ & $-1$ & $0$ & $1$ & $2$ & $3$ & $4$ & $5$\\
+\midrule
+links $\mu$ & $3$ & $0$ & $-\frac13$ & $-\frac1{12}$ & $0$ & $\frac1{12}$ &
+$\frac13$ & $-\frac1{12}$\\
+& $2$ & $0$ & $0$ & $\frac14$ & $0$ & $-\frac14$ & $0$ & $-\frac1{12}$\\
+& $1$ & $0$ & $-\frac13$ & $-\frac1{12}$ & $0$ & $\frac1{12}$ & $\frac13$ &
+$-\frac1{12}$\\
+& $0$ & $0$ & $0$ & $\frac14$ & $0$ & $-\frac14$ & $0$ & $-\frac1{12}$\\
+links $\nu$ & $1$ & $0$ & $-\frac13$ & $\frac13$ & $1$ & $1$ & $\frac13$ &
+$-\frac13$\\
+plaquettes & $3$ & $0$ & $-\frac13$ & $-\frac1{12}$ & $0$ & $\frac1{12}$ &
+$\frac13$ & $-\frac1{12}$\\
+& $2$ & $0$ & $\frac13$ & $\frac13$ & $0$ & $-\frac13$ & $-\frac13$ & $0$\\
+& $1$ & $-\frac13$ & $\frac13$ & $\frac13$ & $0$ & $-\frac13$ & $-\frac13$ &
+$\frac13$\\
+& $0$ & $0$ & $\frac13$ & $\frac13$ & $0$ & $-\frac13$ & $-\frac13$ & $0$\\
+& $-1$ & $0$ & $0$ & $-\frac14$ & $0$ & $\frac14$ & $0$ & $\frac1{12}$\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{proof}
+(i) We use the facts (a)--(c) and the notation of the proof of
+Lemma~\ref{lem:coarsewitnesssharp}, and one more fact.
+
+(d) Let $X,A\in\g$ have norms at most $1$, and suppose that $\epsilon=
+\delta(e^X,e^A)+\lVert X\rVert\lVert A\rVert\le1$. Then $\lVert X-A\rVert
+\le\epsilon(1+\epsilon^2)$. Indeed $\delta(e^{-A}e^X,e^{X-A})\le\lVert A\rVert
+\lVert X\rVert$ by (a), so $\delta(e^{X-A},I)\le\epsilon$, and $\lVert X-A
+\rVert<\sqrt2\pi$, so (c) and (b) give the claim.
+
+The hypothesis of Lemma~\ref{lem:coarsewitness} holds for $P$ and for $P'$,
+whose corner blocks and their neighbours lie in $W'^+$. Let $\ell_1,\dots,
+\ell_4$ be the path links of the sides of $P$, $\ell_5$ and $\ell_6$ those of
+$(y+e_\mu,\mu)$ and $(y+2e_\mu,\nu)$, and define on the blocks $y+ie_\mu+je_
+\nu$ of $W'$, indexed by $(i,j)$,
+\[
+t_{00}=I,\ t_{10}=\ell_1,\ t_{01}=\ell_4,\ t_{11}=\ell_1\ell_2,\ t_{20}=
+\ell_1\ell_5,\ t_{21}=\ell_1\ell_5\ell_6 .
+\]
+
+\emph{Step 1.} In the proof of Lemma~\ref{lem:coarsewitnesssharp},
+$\delta(c_P,e^{\mathsf L(\bar Z)+Y})\le3842\kappa^2$ and $\delta(H_x,e^{
+\mathsf L(Z^x)+Y})\le3842\kappa^2$, the exponents have norm at most $4.001
+\kappa$, and so have $\log c_P$ and $\log H_x$, by (b) and $\delta(c_P,I)\le
+4\kappa+7700\kappa^2$, $\delta(H_x,I)\le4\kappa$. By (d), with $3842+4.001^2
+<3858.01$, each of $\log c_P$ and $\log H_x$ is within $3858.1\kappa^2$ of
+its exponent; as $\mathsf L(\bar Z)+Y$ is the mean of the $\mathsf L(Z^x)+Y$,
+\[
+\Bigl\lVert\log c_P-\frac1{16}\sum_{x\in B(y)}\log H_x\Bigr\rVert\le7717
+\kappa^2 .
+\]
+
+\emph{Step 2.} Let $p_1,p_2,p_3,p_4$ be the plaquettes of $S_x$ at $x$,
+$x+e_\mu$, $x+e_\nu$, $x+e_\mu+e_\nu$. Writing out the links,
+\[
+H_x=\bigl(g_2U_{p_2}g_2^{-1}\bigr)\bigl(g_4U_{p_4}g_4^{-1}\bigr)U_{p_1}
+\bigl(g_3U_{p_3}g_3^{-1}\bigr),
+\]
+with $g_1=I$, $g_2=U_{x,\mu}$, $g_3=U_{x,\nu}$, $g_4=U_{x,\mu}U_{x+e_\mu,
+\nu}$: in the product the four inner links of the square cancel in pairs.
+With $A_r=\operatorname{Ad}(g_r)\log U_{p_r}$, $\lVert A_r\rVert\le1.0001
+\kappa$ by (b), (a) gives $\delta(H_x,e^{A_1+\dots+A_4})\le6.002\kappa^2$,
+and (d) gives $\lVert\log H_x-\sum_rA_r\rVert\le22.01\kappa^2$.
+
+\emph{Step 3.} Let $z(p)$ be the block of the corner of a plaquette $p$.
+By Lemma~\ref{lem:smallframes}\textup{(i)} applied to $W'$, an inside link
+is within $3\kappa$ of $I$ and a link that leaves a block $y'\in W'$ in the
+direction $\sigma$ within $21\kappa$ of the path link of $(y',\sigma)$; the
+links $U_{x,\mu}$, $U_{x,\nu}$, $U_{x+e_\mu,\nu}$ are of one of these kinds,
+according to the offsets of $x$, and comparing with the definition of the
+$t_{ij}$ gives $\delta(g_r,t_{z(p_r)})\le42\kappa$ for $x\in B(y)$. As
+$\lVert\operatorname{Ad}(g)X-\operatorname{Ad}(g')X\rVert\le2\delta(g,g')
+\lVert X\rVert$, replacing each $g_r$ by $t_{z(p_r)}$ costs at most $4\cdot2
+\cdot42\cdot1.0001\kappa^2<336.04\kappa^2$. With Steps 1 and 2,
+\begin{gather*}
+\Lambda_P=\frac1{16}\sum_{x\in B(y)}\sum_{p\in S_x}\operatorname{Ad}(t_{z(
+p)})\log U_p,\\
+\lVert\log c_P-\Lambda_P\rVert\le8076\kappa^2 .
+\end{gather*}
+For $P'$ the same steps, with the base point $y+e_\mu$ and the transports
+$t'_{ij}=\ell_1^{-1}t_{ij}$, give $\lVert\log c_{P'}-\Lambda_{P'}\rVert\le
+8076\kappa^2$ with $\Lambda_{P'}$ formed with $B(y+e_\mu)$ and the $t'$, so
+that $\operatorname{Ad}(\ell_1)\Lambda_{P'}$ is formed with the same
+transports $t_{z(p)}$ as $\Lambda_P$.
+
+\emph{Step 4.} As in the proof of Proposition~\ref{prop:spread}%
+\textup{(iv)}, a plaquette at the corner $z$ enters $\Lambda_P$ with the
+multiplicity $n(i)n(j)$ and $\operatorname{Ad}(\ell_1)\Lambda_{P'}$ with
+$n(i-2)n(j)$, where $z_\mu=2y_\mu+i$, $z_\nu=2y_\nu+j$, so
+\begin{gather*}
+\Lambda_P-\operatorname{Ad}(\ell_1)\Lambda_{P'}=\frac1{16}\sum_zw_z
+\operatorname{Ad}(t_{z(p_z)})\log U_{p_z},\\
+\sum_z\lvert w_z\rvert=96,
+\end{gather*}
+and its norm is at most $6\kappa(1+\kappa^2)$, as $\lVert\log U_p\rVert\le
+\kappa(1+\kappa^2)$ by (b). Finally $c_{y,\mu}=\ell_1e^{\bar Z_1}$ with
+$\lVert\bar Z_1\rVert\le24.001\kappa$, so $\delta(c_{y,\mu},\ell_1)\le
+24.001\kappa$ by (c), and $\lVert(\operatorname{Ad}(c_{y,\mu})-
+\operatorname{Ad}(\ell_1))\log c_{P'}\rVert\le48.002\kappa\cdot4.001\kappa<
+192.1\kappa^2$. Altogether the left side of (i) is at most $6\kappa+6
+\kappa^3+(2\cdot8076+192.1)\kappa^2\le6\kappa+1.7\cdot10^4\kappa^2$.
+
+(ii) The principal logarithm commutes with conjugation, so $\operatorname
+{Ad}(c_{y,\mu})\log c_{P'}=\log c_P^{-1}=-\log c_P$, both norms being below
+$\sqrt2\pi$. Then (i) gives $2\lVert\log c_P\rVert\le6\kappa+1.7\cdot10^4
+\kappa^2$, and $\delta(c_P,I)\le\lVert\log c_P\rVert$ by (c). The pairs
+that enter (i) are based in $W'$, so (i) applies to every field of a fibre
+over $W\supset W'$. If such a field satisfied the hypotheses of
+Theorem~\ref{thm:badcross}, its plaquettes on $W^+\supset W'^+$ would be at
+most $\kappa<6.0\cdot10^{-13}$, and $\delta(c_P,I)\le1.8\cdot10^{-12}+8500
+\cdot3.6\cdot10^{-25}<1.8001\cdot10^{-12}$. The hypothesis of
+Theorem~\ref{thm:fibrechart}\textup{(iv)} needs plaquettes at most $\kappa<
+6.044\cdot10^{-13}$, by the proof of
+Proposition~\ref{prop:badchart}\textup{(ii)}, and then $\delta(c_P,I)<
+1.8132\cdot10^{-12}+3.2\cdot10^{-21}<1.8133\cdot10^{-12}$.
+
+(iii) The coarse plaquettes are computed as in
+Proposition~\ref{prop:spread}\textup{(i)}, with $a(1)=\theta$ and $a=0$
+elsewhere; $c_{0,\mu}=I$ and $c_{P'}=c_P^{-1}$. We write $\varphi$ for the
+angles of $U^{\theta,d}$ and $\varphi^R$ for those of $R(c^{\theta,d})$,
+which by Proposition~\ref{prop:badchart}\textup{(i)} are $\theta$ on the
+links $(x,\nu)$ with $x_\nu=1$ and $x$ in a block with $y_\mu=1$, $y_\nu=0$,
+and $0$ elsewhere.
+
+\emph{Links.} The links where $\varphi\ne\varphi^R$ are the links $(x,\nu)$
+with $x_\nu=1$, $x_\mu\in\{0,1,4,5\}$, which have $o_\nu=1$ and are private
+links of pairs based in $W^d$; the links $(x,\mu)$ with $x_\mu\in\{1,3,5\}$,
+$0\le x_\nu\le3$, private links of such pairs; and the links $(x,\mu)$ with
+$x_\mu\in\{0,4\}$ and $x_\nu\in\{1,3\}$, which have $o_\mu=0$ and $o_\nu=1$
+with $\nu>\mu$ and are active links inside blocks of $W^d$. So
+$U^{\theta,d}$ agrees with $R(c^{\theta,d})$ off $A_{W^d}$ and vanishes on
+the tree links.
+
+\emph{Averages.} Every entry differs from that of $R(c^{\theta,d})$ by at
+most $\frac\theta3$, so for every pair $(y,\sigma)$ the angles of its paths
+differ by at most $\frac{4\theta}3$, $\delta(P_x,P_{2y})<4\theta<\frac12$,
+and as in the proof of Proposition~\ref{prop:spread}, $V^\sharp_{y,\sigma}=
+c^{\theta,d}_{y,\sigma}$ when $\sum_xD_x=0$, $D_x$ the deviation of the
+angle of $P_x$ from that of the coarse link. For $\sigma\notin\{\mu,\nu\}$
+every $D_x$ vanishes. For $\sigma=\nu$ only the pairs with $y_\nu=0$ meet a
+changed link, and $\sum_xD_x=8(d(2y_\mu)+d(2y_\mu+1))$, where the
+deviations $d(m)$ of the links $(x,\nu)$, $x_\nu=1$, $x_\mu=m$, are $-\frac
+13,\frac13,0,0,\frac13,-\frac13$ for $m=0,\dots,5$ and $0$ otherwise. For
+$\sigma=\mu$ and $y_\nu\in\{0,1\}$, $\sum_xD_x=4(X(2y_\mu)+2X(2y_\mu+1)+
+X(2y_\mu+2))$, where $X(m)$, the sum of the deviations of the two links
+$(x,\mu)$ with $x_\mu=m$ and $x_\nu\in\{2y_\nu,2y_\nu+1\}$, is $-\frac13,
+\frac16,0,-\frac16,\frac13,-\frac16$ for $m=0,\dots,5$ and $0$ otherwise;
+for other $y_\nu$ the pair meets no changed link. The sums vanish for $y_\mu\in\{0,1,2\}$, that is for every pair based in
+$W^d$.
+
+\emph{Plaquettes.} As in the proof of Proposition~\ref{prop:spread}, a
+plaquette in a plane other than $\{\mu,\nu\}$ has real sum $0$. In the
+plane $\{\mu,\nu\}$ the table lists every plaquette that contains a changed
+link, and every plaquette with real sum $\pm\theta$ in $R(c^{\theta,d})$,
+those at the corners $x_\mu\in\{1,3\}$, $x_\nu=1$; all others are $I$. The
+largest real sum is $\frac\theta3$, which gives $\kappa_d$.
+
+For the last statement, $\sin x\ge x(1-x^2/6)$ gives $\theta<1.7\cdot10^{-
+12}$ for $t\le1.79\cdot10^{-12}$, and $\sin3x=\sin x\,(3-4\sin^2x)$ gives
+$\kappa_d=t/(3-4\sin^2\frac\theta6)\le\frac t3(1+\theta^2)<5.967\cdot
+10^{-13}$, so $s=2.4\cdot10^{-15}$ satisfies $s\le1/(6000c_3)$, $\kappa_d+6s
+\le10^{-8}$ and $\kappa_d+s\le6.0\cdot10^{-13}$, as in the proof of
+Proposition~\ref{prop:spread}. The other half is (ii).
+\end{proof}
+
+So the threshold of the coarse plaquette at which a background exists is
+not a function of the size of the coarse plaquette alone. Between $1.8001
+\cdot10^{-12}$ and $2.39\cdot10^{-12}$ the coarse fields $c^\theta$ of
+Proposition~\ref{prop:spread} have a background with exterior $R(c)$, while
+the coarse fields with opposite fluxes at adjacent coarse plaquettes have
+none for any exterior; part (ii) removes the restriction to fields with
+values in a torus in Proposition~\ref{prop:spread}\textup{(iv)}. The factor
+$3$ of the dipole, against $4$ for a single coarse plaquette, comes from the
+weights $\sum_z\lvert w_z\rvert=96$ of the difference.
+
+\begin{remark}\label{rem:endsmeanopen}
+What these results leave open.
+\begin{enumerate}[label=\textup{(\alph*)},leftmargin=*]
+\item \emph{Ends.} Lemma~\ref{lem:almosthaar}\textup{(iii)} and
+Corollary~\ref{cor:tubeends} bound the weight of the interior as a function
+of ends that enter averages, after integration over the non-path links,
+uniformly in the coarse links and in the moves of the ends. They are
+bounds on oscillations. The derivative in an end, uniform in $c_k$, and its
+decay in the distance between two ends at a rate independent of $\beta_W$,
+are not proved: in the region $R_0$ the derivative of the pair factor
+involves the motion of the boundary $\{m=1\}$ in the end, and in $R_1$,
+$R_2$ the motion of the boundaries of the sets $S_h$, and neither is
+estimated.
+\item \emph{Rate.} For $\beta_W\ge2.3\cdot10^{17}$ the decay across a bad
+component beyond the chart of Theorem~\ref{thm:badcross} is not proved;
+Remark~\ref{rem:tuberate} locates the loss in the oscillation of the Wilson
+weight across one interface.
+\item \emph{Coarse fields.} With exterior $R(c)$, a background exists up to
+$1.79\cdot10^{-12}$ for the dipole $c^{\theta,d}$ and up to $2.39\cdot
+10^{-12}$ for $c^\theta$, and none exists above $1.8001\cdot10^{-12}$ for
+any coarse field with opposite fluxes at adjacent coarse plaquettes. For a
+general coarse field between $6.0\cdot10^{-13}$ and $2.418\cdot10^{-12}$
+the existence is not decided.
+\end{enumerate}
+\end{remark}
+
 \subsection{The one-step error in gauge-invariant form}\label{ssec:relstep}
 
 Proposition~\ref{prop:massgrowth} requires the one-step error to be a
@@ -33511,14 +34054,25 @@ below $0.033^{\lvert W\rvert}$ for $\beta_W\le10^{24}$, whatever the
 exterior and the coarse field. For the coarse fields $c^\theta$ of
 Proposition~\ref{prop:spread} the exterior $R(c)$ carries a background up
 to $2.39\cdot10^{-12}$, and the reduced fibre up to $2.09\cdot10^{-12}$; for
-opposite fluxes at adjacent coarse plaquettes no background with values in a
-torus exists above $1.8\cdot10^{-12}$, and a general coarse field between
-$6.0\cdot10^{-13}$ and $2.418\cdot10^{-12}$ with exterior $R(c)$ is not
-decided. An end that enters an average enters one pair factor of the fibre
-measure (Lemma~\ref{lem:endpairs}), and that factor jumps under arbitrarily
-small moves of the end at every value of the coarse link
-(Proposition~\ref{prop:endfold}); the bound in the mean over the non-path
-links that the labels need is not proved (Remark~\ref{rem:badendsopen}).
+opposite fluxes at adjacent coarse plaquettes no background exists above
+$1.8001\cdot10^{-12}$, for any field and any exterior, while the dipole
+$c^{\theta,d}$ has one with exterior $R(c)$ up to $1.79\cdot10^{-12}$
+(Proposition~\ref{prop:dipole}), so the threshold is not a function of the
+size of the coarse plaquette; a general coarse field between $6.0\cdot
+10^{-13}$ and $2.418\cdot10^{-12}$ with exterior $R(c)$ is not decided. An
+end that enters an average enters one pair factor of the fibre measure
+(Lemma~\ref{lem:endpairs}), and that factor jumps under arbitrarily small
+moves of the end at every value of the coarse link
+(Proposition~\ref{prop:endfold}); after the non-path links are integrated,
+its mass changes by less than $3.2\cdot10^{-4}$ under every move
+(Lemma~\ref{lem:almosthaar}), and along a tube of blocks the cross-ratio of
+two such ends decays by the factor $1-e^{-D_i}$ per slab, $D_i=\lvert
+\Sigma_i\rvert(72\beta_W+3.2\cdot10^{-4})$, at every $\beta_W$ and without a
+chart (Theorem~\ref{thm:tube}, Corollary~\ref{cor:tubeends}). That factor
+has no content for $\beta_W\ge2.3\cdot10^{17}$, and the derivative bound in
+the ends that the labels need is not proved
+(Remarks~\ref{rem:badendsopen}, \ref{rem:tuberate}
+and~\ref{rem:endsmeanopen}).
 Lemma~\ref{lem:mobius} gives the mixed differences of every order in
 terms of the diameter; the rate $2\alpha_G$ needs them in terms of the
 length of the shortest joining tree (Remark~\ref{rem:fixedcopen}). That
