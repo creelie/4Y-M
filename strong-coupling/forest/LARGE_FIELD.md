@@ -119,8 +119,10 @@ this product (input (a) below), then:
 **Sketch (not an established reduction):** a Hessian bound is one input for (I1); matching the actual
 conditioning domain, constrained bad-side coefficients, and the mixture estimates remain to be proved.
 
-**Rarity of the bad set (sketch).** A bad link forces, within its block closure, a plaquette with δ > r₁/4
-(input (b)). The torus chessboard of `rare/RARE.md` then gives P(S ⊂ B) ≤ q(r₁/4)^{|S|/c}, at a **fixed** threshold.
+**Rarity of the bad set (sketch, superseded for absolute links).** The proposed implication that a bad absolute link
+forces a nearby large plaquette is false as stated; see `FLAT_HOLONOMY_OBSTRUCTION.md`. If a replacement relative
+witness were established, the torus chessboard of `rare/RARE.md` might then give a bound of the form
+P(S ⊂ B) ≤ q(r₁/4)^{|S|/c}, at a **fixed** threshold, with the counting and constants checked separately.
 Because the mixture is averaged over v and over ω, this is used only annealed and only on the torus. The one-point
 rarity under every exterior, (R1), is **not** needed at this scale.
 
@@ -128,8 +130,9 @@ rarity under every exterior, (R1), is **not** needed at this scale.
 - **(a) Hessian under L^∞ smallness.** Answered in part by §3a: for ω = ∅ this is the paper's Theorem `chartdecay`.
   What remains is the relative version for ω ≠ ∅.
 - **(b) Bad link ⇒ large plaquette.** In fibre gauge a link far from 1 should force curvature nearby, since the gauge
-  is fixed by the block averages. This is a gauge-fixing estimate (a Poincaré-type inequality for the fibre
-  coordinates in a block); it is plausible and unchecked.
+  is fixed by the block averages. **Correction (proved):** as an absolute statement for all tree-gauge links this is
+  false, even for a flat field, by `FLAT_HOLONOMY_OBSTRUCTION.md`. A background-relative or more restricted formulation
+  and its compatibility with the actual fibre labels remain open.
 - **(c) The Cov_ω term.** The environment covariance of `ANNEALED.md` §5 is still closed by the bootstrap Lemma 3, with
   ε ≍ q·|N|²/r₁² now, which is smaller than before.
 - **(d) D8.** See §4.
