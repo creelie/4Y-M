@@ -59,7 +59,7 @@ Road, Golpark, Kolkata 700029, West Bengal, India}
 \urladdr{\href{https://orcid.org/0000-0003-0466-750X}{orcid.org/0000-0003-0466-750X}}
 \thanks{$^{*}$Corresponding author: Deep Bhattacharjee, itsdeep@live.com.}
 \thanks{\scriptsize An earlier version of this paper is available at
-\url{https://hexagonmath.org/2610.00341v6}. Compared with it, this paper adds Section~\ref{sec:islands}, on the labels of the blocks, the islands of bad blocks, the bad side of a projected block average, the obstructions to the remaining routes and the effective action across one scale, Subsections~\ref{ssec:averaged}--\ref{ssec:bpweak}, on an averaged form of the cube condition, its local form and the couplings where it holds and fails, and Subsection~\ref{ssec:osaxioms}, on the Osterwalder--Schrader axioms for the flowed fields, and it proves by hand every constant that the earlier version took from computer certificates.}
+\url{https://hexagonmath.org/2610.00341v6}. Compared with it, this paper adds Section~\ref{sec:islands}, on the labels of the blocks, the islands of bad blocks, the bad side of a projected block average, the obstructions to the remaining routes and the effective action across one scale, Subsections~\ref{ssec:averaged}--\ref{ssec:bpneutral}, on an averaged form of the cube condition, its local form, the couplings where it holds and fails and its neutral part on small tori, and Subsection~\ref{ssec:osaxioms}, on the Osterwalder--Schrader axioms for the flowed fields, and it proves by hand every constant that the earlier version took from computer certificates.}
 
 \author[U. Bhattacharya]{Ushashi Bhattacharya}
 \address{Formerly, National Taiwan University, Taipei 106319, Taiwan}
@@ -5210,7 +5210,9 @@ tori at weak coupling. Section~\ref{ssec:bpweak} shows that the obstruction on
 $\Lambda_{2n+4}$ lies in the centre-charged part of $\mathcal A$, that the
 continuum step needs only the local form $\mathrm{BP}_{\rm loc}$, and that
 the comparison of cube sizes loses exactly $(n/m)^4$
-(Remark~\ref{rem:bpweakstatus}).
+(Remark~\ref{rem:bpweakstatus}); Section~\ref{ssec:bpneutral} reduces the
+failure of the neutral part on $\Lambda_{2n+4}$ to a lower bound on the law
+of the Polyakov loop (Theorem~\ref{thm:bpneutral}).
 \end{remark}
 
 \subsection{The averaged condition at weak coupling: centre sectors and
@@ -5830,10 +5832,317 @@ comparison of the Dirichlet forms loses exactly $(n/m)^4$, already at
 $\beta=0$ (Proposition~\ref{prop:bpsharp}). Not proved: $\mathrm{BP}$,
 $\mathrm{BP}_0$ or $\mathrm{BP}_{\rm loc}$ along the continuum tuning for
 any non-abelian group; whether $\mathrm{BP}_0$ or $\mathrm{BP}_{\rm loc}$
-fails on $\Lambda_{2n+4}$ at weak coupling; a converse of
+fails on $\Lambda_{2n+4}$ at weak coupling, of which
+Theorem~\ref{thm:bpneutral} reduces the first, for $\SU(2)$, to a lower
+bound on the law of the Polyakov loop; a converse of
 Theorem~\ref{thm:avgdecay}, from decay of correlations to the relaxation of
 the cube chain; a coupling that contracts a pseudometric blind to the centre
 twists; and the mass gap.
+\end{remark}
+
+\subsection{The neutral sector on small tori}\label{ssec:bpneutral}
+
+Theorem~\ref{thm:bpfixed} proves that the averaged condition fails on the
+torus $\Lambda_{2n+4}$ at weak coupling, and Corollary~\ref{cor:bpcharged}
+places that failure in the charged part of $\mathcal A$. This subsection
+treats the neutral part for $\SU(2)$. The neutral functions of a Polyakov
+loop change under the cube moves only through the curvature, as the charged
+ones do, so the right side of $\mathrm{BP}_0$ is small for them; what is
+missing is a lower bound on their variance. A flow that turns every
+Polyakov loop of one direction inside its own one-parameter subgroup changes
+the Wilson action only through the curvature, and integration by parts along
+it bounds the concentration of the law of the Polyakov loop. The outcome is
+that $\mathrm{BP}_0$ at weak coupling on $\Lambda_{2n+4}$ forces the
+Polyakov loop towards the centre and towards the traceless elements of
+$\SU(2)$, and that the failure of $\mathrm{BP}_0$ there reduces to one
+lower bound on the law of the Polyakov loop.
+
+Throughout, $G=\SU(2)$ with the Wilson weight $\varphi=e^{2\beta\Tr(\cdot)}$,
+$\Lambda=\Lambda_L$ with $L$ even, and $H=\sum_p(2-\Tr U_p)$, so that $\mu$
+has density proportional to $e^{-2\beta H}$. Every $W\in\SU(2)$ can be
+written $W=\cos\theta\,I+\sin\theta\,u$ with $\theta\in[0,\pi]$ and $u$
+traceless anti-Hermitian with $u^2=-I$, and $\Tr W=2\cos\theta$; in these
+polar coordinates of the three-sphere the Haar measure is $\frac2\pi\sin^2
+\theta\,d\theta$ times the uniform measure of $u$. For $W\in\SU(2)$ put
+\[
+J(W)=\Tr(W)\,\tfrac12(W-W^*)=2\cos\theta\sin\theta\,u ,
+\]
+a traceless anti-Hermitian matrix that commutes with $W$ and satisfies
+$J(gWg^{-1})=gJ(W)g^{-1}$ for $g\in\SU(2)$ and $J(-W)=J(W)$. As in
+Section~\ref{ssec:bpstrong}, $P_b$ is the Polyakov loop of direction $0$
+through the site $b$, the ordered product of the $L$ links $(b+te_0,0)$,
+$0\le t<L$, and we put $T_b=\Tr P_b$ and $T=T_0$. By the symmetries of the
+torus every $T_b$, and the trace of every Polyakov loop of another direction,
+has the law of $T$ under $\mu$.
+
+On the configuration space $G^E$ let $\mathcal V$ be the vector field whose
+component at a link $(b,0)$ is $L^{-1}J(P_b)U_{(b,0)}$ and whose components
+at the links of the directions $1,2,3$ vanish; it is the velocity at $s=0$
+of $U_{(b,0)}\mapsto e^{sJ(P_b)/L}U_{(b,0)}$. Its entries are polynomials in
+the entries of the links, so $\mathcal V$ is smooth, and for a function $h$
+of class $C^1$ we write $\mathcal Vh$ for the derivative of $h$ along
+$\mathcal V$. Put
+\[
+\Theta=\mathcal VS-\operatorname{div}\mathcal V,\qquad S=-2\beta\sum_p\Tr
+U_p,
+\]
+where $\operatorname{div}$ is the divergence for the product of the Haar
+measures.
+
+\begin{lemma}[the holonomy flow]\label{lem:bpflow}
+Let $L\ge8$ and $\beta\ge2$.
+\begin{enumerate}[label=\textup{(\roman*)},leftmargin=*]
+\item For every site $y$, $\mathcal VP_y=J(P_y)P_y$; in particular
+$\mathcal VT=-\frac12T(4-T^2)$.
+\item $\operatorname{div}\mathcal V=\sum_{y:\,y_0=0}(2T_y^2-2)$, so
+$\lvert\operatorname{div}\mathcal V\rvert\le6L^3$.
+\item $\lvert\mathcal VS\rvert\le16\beta\sum_q(2-\Tr U_q)$, the sum over the
+plaquettes $q$ of the planes $\{0,\nu\}$, and $\lVert\Theta\rVert_2\le192
+L^4(\log\beta+5.44)$.
+\item For every real $h$ of class $C^1$, $\mu(\mathcal Vh)=\mu(h\Theta)$ and
+$\mu(\mathcal Vh)^2\le\Var_\mu(h)\lVert\Theta\rVert_2^2$.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+(i) For $0\le t<L$ write $U_t$ for the link $(y+te_0,0)$ and put $G_t=U_0
+\cdots U_{t-1}$, so that the loop based at $y+te_0$ is $P^{(t)}=U_t\cdots
+U_{L-1}U_0\cdots U_{t-1}=G_t^{-1}P_yG_t$. Then
+$J(P^{(t)})=G_t^{-1}J(P_y)G_t$, and differentiating the product,
+\[
+\mathcal VP_y=\sum_{t=0}^{L-1}G_t\,\frac{J(P^{(t)})}L\,U_t\cdots U_{L-1}
+=\sum_{t=0}^{L-1}\frac{J(P_y)}L\,P_y=J(P_y)P_y .
+\]
+With $P_y=\cos\theta+\sin\theta\,u$,
+\begin{align*}
+\Tr(J(P_y)P_y)&=2\cos\theta\sin\theta\Tr(u\cos\theta+u^2\sin\theta)\\
+&=-4\cos\theta\sin^2\theta=-\tfrac12T_y(4-T_y^2).
+\end{align*}
+
+(ii) The divergence of a vector field on $G^E$ is the sum over the links $e$
+of the divergence in $U_e$ of its component at $e$, the other links fixed.
+At $e=(y+te_0,0)$ the component is $L^{-1}J(U_eR)U_e$ with $R=U_{t+1}\cdots
+U_{L-1}U_0\cdots U_{t-1}$ independent of $U_e$. The right translation
+$U_e\mapsto W=U_eR$ preserves Haar measure and carries this field to
+$W\mapsto L^{-1}J(W)W$. Since $J(W)$ commutes with $W$, $e^{sJ(W)}W=\cos(
+\theta+s\sin2\theta)+\sin(\theta+s\sin2\theta)\,u$, so in polar coordinates
+the field $J(W)W$ is $\sin2\theta\,\partial_\theta$, with divergence
+\[
+\frac1{\sin^2\theta}\,\partial_\theta\bigl(\sin^2\theta\sin2\theta\bigr)
+=8\cos^2\theta-2=2(\Tr W)^2-2
+\]
+for $0<\theta<\pi$, and by continuity on all of $\SU(2)$. As $\Tr W=T_y$,
+the $L$ links of the loop through $y$ contribute $2T_y^2-2$, and there are
+$L^3$ such loops.
+
+(iii) Only the plaquettes of the planes $\{0,\nu\}$ contain links of
+direction $0$. The plaquette $p$ at $b$ in the plane $\{0,\nu\}$ is $U_p=
+U_{(b,0)}U_{(b+e_0,\nu)}U_{(b+e_\nu,0)}^{-1}U_{(b,\nu)}^{-1}$, and with
+$J_b=J(P_b)$ and $V=U_{(b,\nu)}$,
+\[
+\mathcal V\Tr U_p=\frac1L\Tr\bigl(U_p\Delta_p\bigr),
+\]
+where
+\[
+\Delta_p=J_b-VJ_{b+e_\nu}V^{-1}=J(P_b)-J(VP_{b+e_\nu}V^{-1}).
+\]
+The strip $\sigma$ of the $L$ plaquettes at $b+te_0$ in the plane
+$\{0,\nu\}$ has boundary holonomy $P_bVP_{b+e_\nu}^{-1}V^{-1}$, so by
+Lemma~\ref{lem:bpstokes}, $\lVert P_b-VP_{b+e_\nu}V^{-1}\rVert_{\rm HS}\le
+Q_\sigma=\sum_{q\in\sigma}\lVert U_q-I\rVert_{\rm HS}$. For $P,P'\in
+\SU(2)$, $\lvert\Tr P-\Tr P'\rvert\le\sqrt2\lVert P-P'\rVert_{\rm HS}$,
+$\lVert\frac12(P-P^*)\rVert_{\rm HS}\le\sqrt2$ and $\lVert\frac12(P-P^*)-
+\frac12(P'-P'^*)\rVert_{\rm HS}\le\lVert P-P'\rVert_{\rm HS}$, so $J$ is
+$4$-Lipschitz for the Hilbert--Schmidt norm and $\lVert\Delta_p\rVert_{\rm
+HS}\le4Q_\sigma$. As $\Delta_p$ is anti-Hermitian, $\Tr\Delta_p$ is
+imaginary, and $\Tr(U_p\Delta_p)$ is real because $\mathcal V\Tr U_p$ is;
+hence $\lvert\Tr(U_p\Delta_p)\rvert=\lvert\operatorname{Re}\Tr((U_p-I)
+\Delta_p)\rvert\le4\lVert U_p-I\rVert_{\rm HS}Q_\sigma$. Every plaquette $p$
+of the planes $\{0,\nu\}$ lies in exactly one strip $\sigma$, so
+\[
+\lvert\mathcal VS\rvert\le\frac{8\beta}L\sum_\sigma Q_\sigma^2\le8\beta
+\sum_\sigma\sum_{q\in\sigma}\lVert U_q-I\rVert_{\rm HS}^2,
+\]
+by the Cauchy--Schwarz inequality over the $L$ plaquettes of $\sigma$; with
+$\lVert U-I\rVert_{\rm HS}^2=2(2-\Tr U)$ this is the first claim, and
+$\lvert\mathcal VS\rvert\le16\beta H$.
+
+Put $\phi(t)=\log\int e^{-2tH}dU$, convex and decreasing, and $M=\log\mu(
+e^{\beta H})=\phi(\beta/2)-\phi(\beta)\ge0$. Convexity gives $M\le-\frac
+\beta2\phi'(\beta/2)=\beta\mu_{\beta/2}(H)$, where $\mu_{\beta/2}$ is the
+Wilson measure at $\beta/2\ge1$, and Lemma~\ref{lem:bpflat} at $\beta/2$
+bounds each of the $6L^4$ terms of $\mu_{\beta/2}(H)$ by $2(\log\beta+6.11-
+\log2)/\beta$; so $M\le12L^4(\log\beta+5.42)$. For $y\ge0$ and $a\ge0$,
+$2ay+y^2\le(2a+2)(e^y-1)$, since $y\le e^y-1$ and $y^2\le2(e^y-1-y)$; so for
+every $X\ge0$, $X^2\le a^2+(2a+2)e^{X-a}$, and with $X=\beta H$ and $a=M$,
+$\beta^2\mu(H^2)\le M^2+2M+2\le(M+2)^2$. Hence $\lVert\mathcal VS\rVert_2\le
+16(M+2)\le192L^4(\log\beta+5.43)$ for $L\ge8$, and with (ii), $\lVert\Theta
+\rVert_2\le192L^4(\log\beta+5.43)+6L^3\le192L^4(\log\beta+5.44)$.
+
+(iv) On the compact manifold $G^E$,
+\[
+\int\mathcal Vg\,dU=-\int g\operatorname{div}\mathcal V\,dU
+\]
+for every $g$ of class $C^1$. Applied to
+$g=he^{-S}$ this gives $\mu(\mathcal Vh)=\mu(h(\mathcal VS-
+\operatorname{div}\mathcal V))=\mu(h\Theta)$. With $h=1$, $\mu(\Theta)=0$,
+so $\mu(\mathcal Vh)=\mu((h-\mu(h))\Theta)$, and the Cauchy--Schwarz
+inequality gives the bound.
+\end{proof}
+
+Part (iv) with $h=\psi(T)$ and part (i) give, for every real $\psi$ of class
+$C^1$ on $[-2,2]$,
+\begin{equation}\label{eq:bpanticonc}
+\mu\bigl(T(4-T^2)\psi'(T)\bigr)^2\le4\Var_\mu\bigl(\psi(T)\bigr)\lVert
+\Theta\rVert_2^2 .
+\end{equation}
+The twist $Z^0$ preserves $\mu$ and reverses the sign of $T$, so the left
+side vanishes for odd $\psi$. With $\psi(t)=t^2/4$ it says that
+$\Var_\mu(T^2/4)\ge\mu(T^2(4-T^2))^2/(16\lVert\Theta\rVert_2^2)$: a law of
+the Polyakov loop with $\mu(T^2(4-T^2))$ bounded away from zero gives $T^2$ a
+variance at least of order $1/(L^8\log^2\beta)$.
+
+\begin{theorem}[the neutral sector on small tori]\label{thm:bpneutral}
+Let $G=\SU(2)$, $\beta\ge2$, $n\ge2$, $L\ge2n+4$ even, and $T=\Tr P_0$.
+\begin{enumerate}[label=\textup{(\roman*)},leftmargin=*]
+\item If $\mathrm{BP}_0(n,\varpi)$ holds on $\Lambda_L$, then
+\[
+\mu\bigl(T^2(4-T^2)\bigr)^2\le\frac{9\cdot2^{19}\,L^{11}n\,(\log\beta+
+6.11)^3}{\varpi\beta}.
+\]
+\item On $\Lambda_{2n+4}$, $\mathrm{BP}_0(n,\varpi)$ implies
+\[
+\mu\bigl(T^2(4-T^2)\bigr)\le\frac{4.45\cdot10^6\,n^6(\log\beta+6.11)^{3/2}}
+{\sqrt{\varpi\beta}} .
+\]
+\item If $\mu(T^2(4-T^2))\ge c>0$ on $\Lambda_{2n+4}$, then
+$\mathrm{BP}_0(n,\varpi)$ on $\Lambda_{2n+4}$ implies
+\[
+\varpi\le\frac{9\cdot2^{41}\,n^{12}(\log\beta+6.11)^3}{c^2\beta}.
+\]
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+(i) Let $h=T^2/4$. It is real and gauge invariant; $Z^0$ maps $P_0$ to
+$-P_0$ and $Z^\nu$, $\nu\ne0$, fixes it, so $h\in\mathcal A_0$. If $V_x$
+meets no link of $P_0$, $\mathcal P_xh=h$, and $V_x$ meets a link of $P_0$
+for $Ln^3$ points $x$. For each of these choose $s$ as in the proof of
+Theorem~\ref{thm:bpfixed}(ii), so that $\lvert s\rvert\le n$ and the loop
+$A'=P_{se_2}$ avoids $V_x$; that proof gives $P_0=H_0\Gamma A'\Gamma^{-1}$
+with $\lVert H_0-I\rVert_{\rm op}\le S_0$, the sum of $\lVert U_p-I
+\rVert_{\rm op}$ over at most $Ln$ plaquettes. Then $\lvert T-\Tr A'\rvert=
+\lvert\Tr((H_0-I)\Gamma A'\Gamma^{-1})\rvert\le2S_0$, and as $\lvert
+\frac d{dt}\frac{t^2}4\rvert\le1$ on $[-2,2]$, $h'=(\Tr A')^2/4$ satisfies
+$\lvert h-h'\rvert\le2S_0$. Since $h'$ depends only on the links outside
+$V_x$ and $\mathcal P_x$ is the orthogonal projection onto such functions,
+\[
+\mu\bigl((h-\mathcal P_xh)^2\bigr)\le\mu\bigl((h-h')^2\bigr)\le4\mu(S_0^2)
+\le4L^2n^2\varepsilon,
+\]
+with $\varepsilon=\mu(\lVert U_p-I\rVert_{\rm HS}^2)\le2(\log\beta+6.11)/
+\beta$ by Lemma~\ref{lem:bpflat}. So $\mathcal E_n(h)\le n^{-4}Ln^3\cdot4L^2
+n^2\varepsilon=4L^3n\varepsilon$, and $\mathrm{BP}_0(n,\varpi)$ gives
+$\Var_\mu(h)\le8L^3n(\log\beta+6.11)/(\varpi\beta)$. By~\eqref{eq:bpanticonc}
+with $\psi(t)=t^2/4$, $\mu(T^2(4-T^2))^2\le16\Var_\mu(h)\lVert\Theta
+\rVert_2^2$, and Lemma~\ref{lem:bpflow}(iii) gives $\lVert\Theta\rVert_2^2\le
+36864\,L^8(\log\beta+6.11)^2$. Since $16\cdot8\cdot36864=9\cdot2^{19}$, (i)
+follows.
+
+(ii), (iii) For $L=2n+4\le4n$, $L^{11}n\le2^{22}n^{12}$, and $3\cdot2^{41/2}
+\le4.45\cdot10^6$.
+\end{proof}
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\textwidth]{figures/fig_bpneutral.png}
+\caption{The neutral sector on small tori. (a)~A great circle of $\SU(2)$
+through $I$, $u$, $-I$, $-u$, with the velocity $\sin2\theta\,\partial_\theta$
+by which the flow of Lemma~\ref{lem:bpflow} moves a Polyakov loop
+$P=\cos\theta\,I+\sin\theta\,u$. The flow fixes the centre $\pm I$ (red) and
+the traceless elements $\pm u$ (gold). (b)~The Haar law of $T=\Tr P_0$, with
+density $\sqrt{4-T^2}/(2\pi)$, and the weight $T^2(4-T^2)$ of
+Theorem~\ref{thm:bpneutral}; the weight has Haar mean $2$ and vanishes
+exactly at $T\in\{-2,0,2\}$, the set on which no flow of this kind gives a
+bound.}\label{fig:bpneutral}
+\end{figure}
+
+Under the Haar measure,
+\[
+\mu\bigl(T^2(4-T^2)\bigr)=16\cdot\frac2\pi\int_0^\pi\sin^4\theta\cos^2
+\theta\,d\theta=2 .
+\]
+The quantity vanishes exactly when $P_0$ lies
+almost surely in $\{\pm I\}\cup\{W:\Tr W=0\}$, and
+Theorem~\ref{thm:bpneutral}(ii) says that $\mathrm{BP}_0$ with a fixed
+$\varpi$ on $\Lambda_{2n+4}$ at $\beta\gg n^{12}\log^3\beta$ forces the law
+of the Polyakov loop towards that set. A coupling of the cube chain that
+contracts a pseudometric blind to the centre twists at rate $\kappa$ gives
+$\mathrm{BP}_0(n,\kappa L^4/n^4)$, so on $\Lambda_{2n+4}$ it forces
+$\mu(T^2(4-T^2))\le4.45\cdot10^6n^8(\log\beta+6.11)^{3/2}/(L^2\sqrt{
+\kappa\beta})$.
+
+The exceptional set is that of the method. Consider fields whose component
+at each link of direction $0$ is $L^{-1}K(P)U$, with $U$ the link and $P$
+the Polyakov loop based at its initial site. The cancellation in
+Lemma~\ref{lem:bpflow}(iii) uses that $K$ is equivariant under conjugation,
+and the part of the field that is odd under the centre contributes nothing,
+since for such a field $\mathcal Vh$ is odd under $Z^0$ and has mean zero
+for every neutral $h$. An equivariant field $W\mapsto K(W)W$ on $\SU(2)$ has $K(W)$
+fixed by conjugation with the stabiliser of $W$, so $K(\pm I)=0$ and, for
+$W=\cos\theta+\sin\theta\,u$ with $0<\theta<\pi$, $K(W)=k(W)u$ with $k$
+real. If $\Tr W=0$, then $-W=vWv^{-1}$ for every $v\in\SU(2)$ that
+anticommutes with $u$, so evenness and equivariance give $k(W)u=K(-W)=v
+K(W)v^{-1}=-k(W)u$ and $K(W)=0$. So every even equivariant $K$ vanishes on
+$\{\pm I\}\cup\{\Tr W=0\}$, and $\mu(\mathcal Vh)$ tends to zero for every
+neutral $h$ of class $C^1$ when the law of the Polyakov loop concentrates
+there; integration by parts along such fields then gives no lower bound on
+the variance of a neutral function. The law of the Polyakov loop on $\Lambda_{2n+4}$ at weak coupling is
+not determined here.
+
+\begin{remark}[what is proved about the neutral sector and what
+remains]\label{rem:bpneutralstatus}
+Proved: for $\SU(2)$ on every torus with $L\ge8$ and $\beta\ge2$, the law of
+the Polyakov loop satisfies the anti-concentration
+bound~\eqref{eq:bpanticonc} with $\lVert\Theta\rVert_2\le192L^4(\log\beta+
+5.44)$ (Lemma~\ref{lem:bpflow}); $\mathrm{BP}_0(n,\varpi)$ on
+$\Lambda_{2n+4}$ forces $\mu(T^2(4-T^2))\le4.45\cdot10^6n^6(\log\beta+6.11
+)^{3/2}(\varpi\beta)^{-1/2}$, so $\mathrm{BP}_0$ fails there once $\beta\gg
+n^{12}\log^3\beta$ whenever $\mu(T^2(4-T^2))$ is bounded below
+(Theorem~\ref{thm:bpneutral}); and no vector field of the kind used can
+treat a Polyakov loop concentrated on the centre and the traceless
+elements. Not proved: a lower bound on $\mu(T^2(4-T^2))$ on $\Lambda_{2n+4}$
+at weak coupling, and so whether $\mathrm{BP}_0$ fails there; whether
+$\mathrm{BP}_{\rm loc}$ fails there; $\mathrm{BP}_0$ or $\mathrm{BP}_{\rm
+loc}$ along the continuum tuning for any non-abelian group; and the mass gap.
+
+The routes to $\mathrm{BP}_{\rm loc}(n_k,\varpi)$ along the tuning stand as
+follows. A coupling blind to the centre twists is constrained on
+$\Lambda_{2n+4}$ as above and not on the large tori that
+Theorem~\ref{thm:avgtransfer} uses. The comparison with larger cubes gives
+$\mathrm{BP}_0(n,\cdot)$ from $\mathrm{BP}_0(m,\cdot)$ and the inner
+inequality of Proposition~\ref{prop:bpscales}(iii) for $f\in\mathcal A_0$,
+which must hold for almost every configuration outside the cube of side $m$,
+that is, a gap of the chain of cubes of side $n$ for the measure of that
+cube under every boundary configuration; nothing is proved about it at weak
+coupling, and $\mathrm{BP}_0(m,\cdot)$ is the same problem at a larger cube
+size. Theorem~\ref{thm:bpneutral} is an implication from a property of the
+measure alone, the spread of the Polyakov loop, to the failure of a gap of
+the cube chain; a converse of Theorem~\ref{thm:avgdecay} needs an implication
+in the opposite direction, from properties of the measure such as
+reflection positivity and the transfer matrix to a gap of the cube chain,
+and none is proved. A comparison with a chain on block variables in the
+range of Corollary~\ref{cor:bpranges} needs two estimates on tori of every
+size: single-link bounds as in Theorem~\ref{thm:bpstrong} for the effective
+measure of the block variables, and a Poincar\'e inequality for the fine
+links given the block variables, uniform in them, which is an inner
+inequality of the kind of Proposition~\ref{prop:bpscales}(iii); neither is
+proved here, and the bounds of~\cite{Bal84a,Bal85a,Bal89b} concern effective
+actions in a box of fixed physical size. What remains for the continuum
+step is $\mathrm{BP}_{\rm loc}(n_k,\varpi)$ itself on infinitely many tori
+for each $k$, with one $\varpi>0$; by Theorem~\ref{thm:bplocal}(iv) it
+bounds the correlation of every slow function with every local one, and its
+failure produces a slow neutral function correlated with a local one.
 \end{remark}
 
 \section{The open inputs}\label{sec:inputs}
@@ -36782,9 +37091,11 @@ coupling and fails at fixed cube size on small tori at weak coupling
 (Corollary~\ref{cor:bpranges}, Theorem~\ref{thm:bpfixed}), the latter already
 on functions of nonzero centre charge, while the continuum step needs
 only its local form (Theorem~\ref{thm:bplocal},
-Corollary~\ref{cor:bpcharged}), and neither form is proved for any
+Corollary~\ref{cor:bpcharged}), the failure of the neutral part on small
+tori reduces for $\SU(2)$ to a lower bound on the law of the Polyakov loop
+(Theorem~\ref{thm:bpneutral}), and neither form is proved for any
 non-abelian group along the tuning (Remark~\ref{rem:avgstatus},
-Remark~\ref{rem:bpweakstatus}). Section~\ref{ssec:groups13} carries the single-scale results of this section to every compact simple group, with explicit constants, except the parts listed in Remark~\ref{rem:groups13}. On the continuum side, Lemmas~\ref{lem:positivetime}
+Remarks~\ref{rem:bpweakstatus} and~\ref{rem:bpneutralstatus}). Section~\ref{ssec:groups13} carries the single-scale results of this section to every compact simple group, with explicit constants, except the parts listed in Remark~\ref{rem:groups13}. On the continuum side, Lemmas~\ref{lem:positivetime}
 and~\ref{lem:nonvanishing} reduce the nontriviality of the limit to a
 lower bound on one ratio of lattice two-point functions at a fixed
 physical time, uniform along the tuning, which is the open input of
@@ -36928,7 +37239,7 @@ repository \url{https://github.com/creelie/4Y-M}, release v4.33.0
 with a Lean~4 certificate of the line field, Lean~4 files for the
 comparison arithmetic, the coupling lemmas of
 Section~\ref{ssec:couplingcost} and the finite arithmetic of Theorem~\ref{thm:layerbound},
-Corollary~\ref{cor:twoislands}, Proposition~\ref{prop:massgrowth}, Proposition~\ref{prop:smallframessharp} and Theorem~\ref{thm:islandswide}, the counting and trace identities and the constants of Subsections~\ref{ssec:averaged}--\ref{ssec:bpweak} and of Theorem~\ref{thm:endlinear}, independent exact or
+Corollary~\ref{cor:twoislands}, Proposition~\ref{prop:massgrowth}, Proposition~\ref{prop:smallframessharp} and Theorem~\ref{thm:islandswide}, the counting and trace identities and the constants of Subsections~\ref{ssec:averaged}--\ref{ssec:bpneutral} and of Theorem~\ref{thm:endlinear}, independent exact or
 numerical checks of the other finite statements, our checks of the
 certificate of~\cite{Rom26}, and the certificate of
 Remark~\ref{rem:blockgapsharp} with its exact check. The code was

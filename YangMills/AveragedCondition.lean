@@ -406,4 +406,27 @@ theorem endslinear_exp_bounds :
       mul_le_mul h1 hq (by norm_num) (by positivity)
     norm_num at this ⊢; nlinarith
 
+
+/-- Constants of Lemma `lem:bpflow` and Theorem `thm:bpneutral`. -/
+theorem bpneutral_constants :
+    (16 * 12 : ℕ) = 192 ∧ (192 : ℕ) ^ 2 = 36864 ∧ 16 * 8 * 36864 = 9 * 2 ^ 19 ∧
+    (4 : ℕ) ^ 11 = 2 ^ 22 ∧ (9 * 2 ^ 41 : ℝ) ≤ (4.45e6 : ℝ) ^ 2 ∧
+    (32 : ℝ) ≤ 1.92 * 8 ^ 4 ∧ (6 : ℝ) ≤ 1.92 * 8 := by
+  refine ⟨by norm_num, by norm_num, by norm_num, by norm_num, by norm_num, by norm_num, by norm_num⟩
+
+/-- The elementary inequality of Lemma `lem:bpflow`(iii):
+`2ay + y² ≤ (2a+2)(eʸ - 1)` for `a, y ≥ 0`. -/
+theorem bpflow_exp_inequality (a y : ℝ) (ha : 0 ≤ a) (hy : 0 ≤ y) :
+    2 * a * y + y ^ 2 ≤ (2 * a + 2) * (Real.exp y - 1) := by
+  have h1 : y + 1 ≤ Real.exp y := Real.add_one_le_exp y
+  have h2 : 1 + y + y ^ 2 / 2 ≤ Real.exp y := Real.quadratic_le_exp_of_nonneg hy
+  nlinarith [mul_le_mul_of_nonneg_left h1 ha]
+
+/-- The torus bound of Theorem `thm:bpneutral`(ii): `L^11 n ≤ 2^22 n^12`
+for `L ≤ 4n`. -/
+theorem bpneutral_torus (n L : ℕ) (hL : L ≤ 4 * n) : L ^ 11 * n ≤ 2 ^ 22 * n ^ 12 := by
+  have : L ^ 11 ≤ (4 * n) ^ 11 := Nat.pow_le_pow_left hL 11
+  calc L ^ 11 * n ≤ (4 * n) ^ 11 * n := Nat.mul_le_mul_right n this
+    _ = 2 ^ 22 * n ^ 12 := by ring
+
 end YangMills.Averaged

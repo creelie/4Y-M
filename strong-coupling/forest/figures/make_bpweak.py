@@ -21,6 +21,12 @@ fig_endslinear: log10 of the two derivative constants of Theorem
 thm:endlinear over beta_W and the tie length b_tie: L_* with the factor
 e^{72 beta_W} (using A_tie < 1.5756 b_tie) and L_lin, linear in beta_W.
 
+fig_bpneutral: (a) the great circle of SU(2) through I, u, -I, -u with the
+holonomy flow sin(2 theta) d/d theta of Lemma lem:bpflow, which fixes the
+centre and the traceless elements; (b) the Haar law of T = Tr P_0, density
+sqrt(4 - T^2)/(2 pi), and the weight T^2 (4 - T^2) of Theorem thm:bpneutral,
+which vanishes at T in {-2, 0, 2}.
+
 Run from this directory: python3 make_bpweak.py."""
 import numpy as np
 import matplotlib
@@ -158,7 +164,44 @@ def fig_endslinear():
     save(fig, 'fig_endslinear.png')
 
 
+def fig_bpneutral():
+    fig = plt.figure(figsize=(9.6, 4.0))
+    ax = fig.add_axes([0.02, 0.06, 0.42, 0.88])
+    th = np.linspace(0, 2 * np.pi, 400)
+    ax.plot(np.cos(th), np.sin(th), color=GREY, lw=1.2)
+    for t in np.linspace(0, 2 * np.pi, 24, endpoint=False) + np.pi / 24:
+        v = np.sin(2 * t) * 0.32
+        x, y = np.cos(t), np.sin(t)
+        ax.annotate('', xy=(x - v * np.sin(t), y + v * np.cos(t)), xytext=(x, y),
+                    arrowprops=dict(arrowstyle='->', color=BLUE, lw=1.1))
+    for (x, y, lab, c) in ((1, 0, r'$I$', RED), (-1, 0, r'$-I$', RED), (0, 1, r'$u$', GOLD), (0, -1, r'$-u$', GOLD)):
+        ax.plot(x, y, 'o', color=c, ms=7, zorder=5)
+        ax.text(1.22 * x - (0.06 if x < 0 else 0), 1.18 * y - 0.04, lab, color=c, fontsize=11, ha='center')
+    ax.text(0, 0.05, r'$\cos\theta\,I+\sin\theta\,u$', ha='center', fontsize=10)
+    ax.text(0, -0.2, r'velocity $\sin 2\theta\,\partial_\theta$', ha='center', fontsize=9, color=BLUE)
+    ax.set_xlim(-1.5, 1.5); ax.set_ylim(-1.4, 1.4); ax.set_aspect('equal'); ax.axis('off')
+    fig.text(0.03, 0.92, '(a)', fontsize=11)
+
+    bx = fig.add_axes([0.56, 0.16, 0.41, 0.72])
+    T = np.linspace(-2, 2, 600)
+    dens = np.sqrt(np.clip(4 - T ** 2, 0, None)) / (2 * np.pi)
+    w = T ** 2 * (4 - T ** 2)
+    bx.fill_between(T, 0, dens, color=GREY, alpha=0.35, lw=0, label=r'Haar law of $T$')
+    bx.plot(T, w / 16, color=GREEN, lw=1.6, label=r'$T^2(4-T^2)/16$')
+    for t0 in (-2, 0, 2):
+        bx.plot(t0, 0, 'o', color=RED, ms=6, clip_on=False, zorder=5)
+    bx.text(0.0, 0.045, 'exceptional set', color=RED, fontsize=8, ha='center')
+    bx.set_xlim(-2.1, 2.1); bx.set_ylim(0, 0.42)
+    bx.set_xlabel(r'$T=\mathrm{Tr}\,P_0$'); bx.set_yticks([])
+    bx.legend(loc='upper right', fontsize=8, frameon=False)
+    for sp in ('top', 'right', 'left'):
+        bx.spines[sp].set_visible(False)
+    fig.text(0.53, 0.92, '(b)', fontsize=11)
+    save(fig, 'fig_bpneutral.png')
+
+
 if __name__ == '__main__':
     fig_bpranges()
     fig_bpsectors()
     fig_endslinear()
+    fig_bpneutral()
