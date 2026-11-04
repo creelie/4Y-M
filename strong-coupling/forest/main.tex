@@ -23921,10 +23921,355 @@ $D_z$ with its walls. The proof of~\eqref{eq:layerbound} reaches the walls
 through the approximations $H_n$ of the proof of
 Theorem~\ref{thm:chartdecay}(ii), whose derivatives of order three grow
 with $n$, so that argument gives no bound on third cumulants uniform in
-$n$. With both inputs the
+$n$; Theorem~\ref{thm:thirdcumulant} below avoids them at the cost of
+half the rate. With both inputs the
 differences of $\log\tilde K$ would still have to be carried to those of
 $\log Z^c$ through the island weights, and uniformity in the coarse field
 stays excluded by Theorem~\ref{thm:fixedobstruction}(i).
+\end{remark}
+
+The proof of~\eqref{eq:layerbound} uses one property of the layer law, a
+weighted lower bound on the Hessian of a smooth approximation, and this
+property bounds the third cumulants in tree form at half the rate of the
+covariances, with the walls of $D_z$ included; it gives no tree form
+uniform in the order. Let $E$ be a finite set with a metric $d$, and for
+$e\in E$ let $\mathbb V_e$ be a Euclidean space; put $\mathbb V=\prod_e
+\mathbb V_e$, write $z=(z_e)$, $u=(u_e)$ for its points, $\partial_e$ for
+the gradient in $z_e$, and $\lvert\cdot\rvert$ for the Euclidean norm. For
+$\varphi:E\to\R$ and $a\ge0$, $e^{a\varphi}$ is the linear map of
+$\mathbb V$ that multiplies $u_e$ by $e^{a\varphi(e)}$. A probability law
+$\mu$ on $\mathbb V$ satisfies $(\mathrm W_{\mathcal A,\alpha})$, with
+$\mathcal A,\alpha>0$, if:
+\begin{itemize}[leftmargin=*]
+\item[$(\mathrm W_{\mathcal A,\alpha})$] there are smooth $H_n:\mathbb V\to
+\R$ with bounded derivatives of every order at least two such that the laws
+$\mu_n$ with density proportional to $e^{-H_n}$ converge to $\mu$ in total
+variation, and for all $n$, $z,u\in\mathbb V$, $0\le a\le\alpha$ and
+$\varphi$ with $\lvert\varphi(e)-\varphi(e')\rvert\le d(e,e')$,
+\[
+\bigl\langle u,e^{a\varphi}\operatorname{Hess}H_n(z)\,e^{-a\varphi}u
+\bigr\rangle\ge\mathcal A^{-1}\lvert u\rvert^2 .
+\]
+\end{itemize}
+In the proof of Theorem~\ref{thm:chartdecay}(ii), carried to the layer law
+in Step~6 of the proof of Theorem~\ref{thm:layerbound}, $H_n$ is the
+potential of the layer law composed with the retraction $\tau$ of that
+step plus $n$ times its convex penalty,
+$\operatorname{Hess}H_n\ge\lambda/60$ and $\lVert\operatorname{Re}
+(\operatorname{Hess}H_n)^w-\operatorname{Hess}H_n\rVert\le\lambda/120$ for
+$w=e^{\alpha\varphi}$, $\alpha\le\alpha_G$; for real $u$ the quadratic form
+of $w\operatorname{Hess}H_nw^{-1}$ is that of its real part. So every law
+$\mu_x$ of Lemma~\ref{lem:manylayer}, with $E$ the free $z$-links, $d$ the
+fine distance between their midpoints and the coordinates $z$, satisfies
+$(\mathrm W_{\mathcal A,\alpha_G})$ with $\mathcal A=120/\lambda=480/
+\beta_W$, and~\eqref{eq:layerbound} is the consequence drawn from it there.
+The law $\mu_x$ of Proposition~\ref{prop:layerthird} satisfies
+$(\mathrm W_{2,\alpha})$ with $H_n=U(\cdot;x)$, by part~(i) of its proof.
+For bounded functions $F_1,\dots,F_k$ write $\varkappa_\mu(F_1,\dots,F_k)$
+for their joint cumulant under $\mu$; for $k=3$ it is $\E_\mu[(F_1-\E_\mu
+F_1)(F_2-\E_\mu F_2)(F_3-\E_\mu F_3)]$.
+
+\begin{theorem}[third cumulants under the layer bound]
+\label{thm:thirdcumulant}
+Let $\mu$ satisfy $(\mathrm W_{\mathcal A,\alpha})$ and $0\le a\le\alpha$.
+Let $F,G,H$ be smooth bounded functions on $\mathbb V$ with bounded
+derivatives of orders one and two, let $S_F$ be the set of $e$ with
+$\partial_eF\not\equiv0$, and $S_G$, $S_H$ likewise, all nonempty; put
+$d_{FG}=d(S_F,S_G)$, $d_{FH}$, $d_{GH}$ likewise, $f_1=\sup\lvert\nabla F
+\rvert$, $g_1$, $h_1$ likewise, and $g_2=\sup\lVert\operatorname{Hess}G
+\rVert$, $h_2=\sup\lVert\operatorname{Hess}H\rVert$, the suprema over
+$\mathbb V$. Then
+\[
+\begin{split}
+\lvert\varkappa_\mu(F,G,H)\rvert&\le\mathcal A^2f_1g_1h_2e^{-a(d_{FH}+
+d_{GH})}\\
+&\quad+\mathcal A^2f_1g_2h_1e^{-a(d_{FG}+d_{GH})}\\
+&\quad+\mathcal A^{3/2}f_1g_1h_1e^{-a(d_{FG}+d_{FH})/2}.
+\end{split}
+\]
+In particular, with $\ell$ the sum of the two smallest of $d_{FG}$,
+$d_{FH}$, $d_{GH}$, which is at least the length of the shortest tree
+joining $S_F$, $S_G$ and $S_H$,
+\[
+\lvert\varkappa_\mu(F,G,H)\rvert\le\bigl(\mathcal A^2f_1(g_1h_2+g_2h_1)
++\mathcal A^{3/2}f_1g_1h_1\bigr)e^{-a\ell/2}.
+\]
+\end{theorem}
+
+\begin{proof}
+\emph{The representation.} Fix $n$, write $\E$, $\Cov$ and $\lVert\cdot
+\rVert$ for the mean, the covariance and the norm of $L^2(\mu_n)$, let
+$\mathcal L=-\Delta+\nabla H_n\cdot\nabla$ and $\mathcal M=\mathcal L
+\otimes1+\operatorname{Hess}H_n$, acting on $\mathbb V$-valued functions.
+With $\varphi=0$, $(\mathrm W_{\mathcal A,\alpha})$ gives $\operatorname
+{Hess}H_n\ge\mathcal A^{-1}$. For $K$ smooth and bounded with bounded
+derivatives, the Helffer--Sj\"ostrand theory~\cite{HS94,NS97,Hel98} gives
+a smooth $\phi_K$ with $\mathcal L\phi_K=K-\E K$ whose gradient $v_K=
+\nabla\phi_K$ lies in the domain of $\mathcal M$ and satisfies $\mathcal M
+v_K=\nabla K$, the derivative of $\mathcal L\phi_K$ being $\mathcal M
+\nabla\phi_K$; integration by parts gives $\Cov(K,K')=\E[(\mathcal L
+\phi_K)K']=\E\langle v_K,\nabla K'\rangle$ for every $K'\in H^1(\mu_n)$.
+Write $D^K_{e'e}=\partial_{e'}v_{K,e}$, the block $(e',e)$ of
+$\operatorname{Hess}\phi_K$, so that $D^K_{ee'}$ is the transpose of
+$D^K_{e'e}$ and the two have the same Hilbert--Schmidt norm
+$\lVert\cdot\rVert$.
+
+\emph{Two energy bounds.} Let $\varphi$ be $1$-Lipschitz, $0\le a\le
+\alpha$, $w=e^{a\varphi}$ and $u=wv_K$. As $w$ is constant in $z$, it
+commutes with $\mathcal L\otimes1$, and $\E\langle u,(\mathcal L\otimes1)u
+\rangle=\E\sum_{e,e'}\lVert\partial_{e'}u_e\rVert^2$. So
+\begin{multline*}
+\E\sum_{e,e'}\lVert\partial_{e'}u_e\rVert^2+\mathcal A^{-1}\lVert u\rVert^2
+\le\E\langle u,w\mathcal Mw^{-1}u\rangle\\
+=\E\langle u,w\nabla K\rangle\le\lVert u\rVert\lVert w\nabla K\rVert .
+\end{multline*}
+Hence $\lVert u\rVert\le\mathcal A\lVert w\nabla K\rVert$, and the first
+sum is at most $\max_{t\ge0}(t\lVert w\nabla K\rVert-t^2/\mathcal A)=
+\frac{\mathcal A}4\lVert w\nabla K\rVert^2$. In blocks,
+\begin{gather*}
+\E\sum_ee^{2a\varphi(e)}\lvert v_{K,e}\rvert^2\le\mathcal A^2\lVert
+e^{a\varphi}\nabla K\rVert^2,\\
+\E\sum_{e,e'}e^{2a\varphi(e)}\lVert D^K_{e'e}\rVert^2\le\frac{\mathcal
+A}4\lVert e^{a\varphi}\nabla K\rVert^2,
+\end{gather*}
+and the second holds with $e^{2a\varphi(e')}$ in place of $e^{2a\varphi(e)}$,
+by the symmetry of $\lVert D^K_{e'e}\rVert$. As $2e^{a(s+t)}\le e^{2as}+
+e^{2at}$,
+\[
+\E\sum_{e,e'}e^{a(\varphi(e)+\varphi(e'))}\lVert D^K_{e'e}\rVert^2\le
+\frac{\mathcal A}4\lVert e^{a\varphi}\nabla K\rVert^2 .
+\]
+For $\varphi=d(\cdot,S_K)$, which vanishes on $S_K$, $\lVert e^{a\varphi}
+\nabla K\rVert\le k_1=\sup\lvert\nabla K\rvert$.
+
+\emph{The cumulant.} The third cumulant is $\Cov(F,GH)-\E G\Cov(F,H)-\E H
+\Cov(F,G)$, and the representation with $K=F$ turns it into
+\begin{gather*}
+\varkappa_{\mu_n}(F,G,H)=\Cov(G,X)+\Cov(H,Y),\\
+X=\langle v_F,\nabla H\rangle,\qquad Y=\langle v_F,\nabla G\rangle .
+\end{gather*}
+By the energy bounds $v_F$ and its derivatives are in $L^2(\mu_n)$, so $X$
+and $Y$ are in $H^1(\mu_n)$, and $\Cov(G,X)=\E\langle v_G,\nabla X\rangle=
+T_1+T_2$ with
+\begin{gather*}
+T_1=\E\sum_{e,e'}\langle v_{G,e'},(\operatorname{Hess}H)_{e'e}v_{F,e}
+\rangle,\\
+T_2=\E\sum_{e'}\sum_{e\in S_H}\langle v_{G,e'},D^F_{e'e}\partial_eH
+\rangle .
+\end{gather*}
+The blocks of $\operatorname{Hess}H$ vanish unless $e,e'\in S_H$, so with
+$P$ the restriction to the coordinates of $S_H$, $\lvert T_1\rvert\le h_2
+\lVert Pv_G\rVert\lVert Pv_F\rVert$. The first energy bound with $\varphi=
+d(\cdot,S_F)$, which is at least $d_{FH}$ on $S_H$, gives $\lVert Pv_F
+\rVert\le\mathcal Af_1e^{-ad_{FH}}$, and likewise $\lVert Pv_G\rVert\le
+\mathcal Ag_1e^{-ad_{GH}}$; so $\lvert T_1\rvert\le\mathcal A^2f_1g_1h_2
+e^{-a(d_{FH}+d_{GH})}$. In $T_2$, $\lvert\sum_{e\in S_H}D^F_{e'e}\partial_e
+H\rvert\le h_1(\sum_{e\in S_H}\lVert D^F_{e'e}\rVert^2)^{1/2}$, and with
+$\varphi=d(\cdot,S_F)$, $\psi=d(\cdot,S_G)$ the Cauchy--Schwarz inequality
+gives
+\begin{multline*}
+\lvert T_2\rvert\le h_1\Bigl(\E\sum_{e'}e^{2a\psi(e')}\lvert v_{G,e'}
+\rvert^2\Bigr)^{1/2}\\
+\times\Bigl(\E\sum_{e'}\sum_{e\in S_H}e^{-2a\psi(e')}\lVert D^F_{e'e}
+\rVert^2\Bigr)^{1/2}.
+\end{multline*}
+The first factor is at most $\mathcal Ag_1$. For $e\in S_H$, $\varphi(e)\ge
+d_{FH}$, and $2\psi(e')+\varphi(e')\ge d(e',S_G)+d(e',S_F)\ge d_{FG}$, so
+$e^{-2a\psi(e')}\le e^{-a(d_{FG}+d_{FH})}e^{a(\varphi(e)+\varphi(e'))}$, and
+the last energy bound makes the second factor at most $(\mathcal A/4)^{1/2}
+f_1e^{-a(d_{FG}+d_{FH})/2}$. So $\lvert T_2\rvert\le\frac12\mathcal
+A^{3/2}f_1g_1h_1e^{-a(d_{FG}+d_{FH})/2}$. The same argument with $G$ and
+$H$ exchanged bounds $\Cov(H,Y)$ by $\mathcal A^2f_1h_1g_2e^{-a(d_{FG}+
+d_{GH})}+\frac12\mathcal A^{3/2}f_1g_1h_1e^{-a(d_{FH}+d_{FG})/2}$. The sum
+is the bound of the theorem for $\mu_n$, with constants not depending on
+$n$.
+
+\emph{The limit.} As $F,G,H$ are bounded and $\mu_n\to\mu$ in total
+variation, the means of $F,G,H,FG,FH,GH,FGH$ under $\mu_n$ converge to
+those under $\mu$, and so does the cumulant. Each of the three exponents
+is $a$ or $a/2$ times the sum of two of $d_{FG}$, $d_{FH}$, $d_{GH}$,
+hence at least $a\ell/2$, and the two shorter edges form a tree joining
+the three sets.
+\end{proof}
+
+\begin{corollary}[third differences of the kernel]\label{cor:kthird}
+In the setting of Lemma~\ref{lem:manylayer}, let $u,v,w$ be three distinct
+islands, $h_u,h_v,h_w$ vectors in the coordinates of $x_u,x_v,x_w$, and
+$\ell_{uvw}$ the sum of the two smallest of $(w_{uv}-2s-8)_+$,
+$(w_{uw}-2s-8)_+$, $(w_{vw}-2s-8)_+$. For a vector $h$ in the coordinates of
+one island let $F_h=(\partial_h\mathcal U)\circ\tau_\delta$, where
+$\delta>0$ is such that $\mathcal U$ is smooth on the product of the
+$(r+\delta)$-balls of the $z$-links times $\prod_{u'}D_{u'}$, which exists
+by Lemma~\ref{lem:manykernel}(ii) and the compactness of $D_z\times\prod
+_{u'}D_{u'}$, and $\tau_\delta$ acts link by link as a smooth radial map
+$\zeta_e\mapsto\rho(\lVert\zeta_e\rVert)\zeta_e/\lVert\zeta_e\rVert$ with
+$\rho(t)=t$ for $t\le r$, $0\le\rho'\le1$ and $\rho\le r+\delta/2$. Let
+$\hat\Lambda_2$, $\hat\Lambda_3$ be the suprema of $\lvert\nabla_zF_h
+\rvert$ and $\lVert\operatorname{Hess}_zF_h\rVert$ over all $z$, all $x\in
+\prod_{u'}D_{u'}$ and all $h$ with $\lVert h\rVert\le1$; they are finite,
+the derivatives of $\mathcal U$ being continuous on a compact set and those
+of $\tau_\delta$ bounded. Then
+\[
+\partial_{h_u}\partial_{h_v}\partial_{h_w}\log\tilde K(x)=-\varkappa_{\mu_x}
+(\partial_{h_u}\mathcal U,\partial_{h_v}\mathcal U,\partial_{h_w}\mathcal
+U),
+\]
+and, with $\mathcal A=480/\beta_W$,
+\begin{multline*}
+\bigl\lvert\partial_{h_u}\partial_{h_v}\partial_{h_w}\log\tilde K(x)\bigr
+\rvert\\
+\le\bigl(2\mathcal A^2\hat\Lambda_2^2\hat\Lambda_3+\mathcal A^{3/2}
+\hat\Lambda_2^3\bigr)\lVert h_u\rVert\lVert h_v\rVert\lVert h_w\rVert
+e^{-\alpha_G\ell_{uvw}}.
+\end{multline*}
+Consequently the mixed difference of order three of $\log\tilde K$ in
+$(x_u,x_v,x_w)$, between two points of each of $D_u,D_v,D_w$ with the other
+arguments fixed, is at most this bound with $\lVert h_j\rVert$ replaced by
+$2rn_j^{1/2}$, $n_j$ the number of $x$-links of island $j$.
+\end{corollary}
+
+\begin{proof}
+The domain $D_z$ does not depend on $x$ and the integrand is smooth, so
+$\partial_h\log\tilde K=-\E_{\mu_x}\partial_h\mathcal U$ and $\partial_h\E
+_{\mu_x}\varPhi=\E_{\mu_x}\partial_h\varPhi-\Cov_{\mu_x}(\varPhi,
+\partial_h\mathcal U)$. No term of $\mathcal U$ depends on the coordinates
+of two islands (Lemma~\ref{lem:manykernel}(ii)), so $\partial_{h_u}
+\partial_{h_v}\mathcal U$, $\partial_{h_u}\partial_{h_w}\mathcal U$ and
+$\partial_{h_v}\partial_{h_w}\mathcal U$ vanish; hence $\partial_{h_u}
+\partial_{h_v}\log\tilde K=\Cov_{\mu_x}(A,B)$ with $A=\partial_{h_u}
+\mathcal U$, $B=\partial_{h_v}\mathcal U$, and with $C=\partial_{h_w}
+\mathcal U$,
+\begin{multline*}
+\partial_{h_w}\Cov_{\mu_x}(A,B)=-\Cov(AB,C)+\E A\Cov(B,C)\\
++\E B\Cov(A,C)=-\varkappa_{\mu_x}(A,B,C).
+\end{multline*}
+The map $\tau_\delta$ is the identity on $D_z$, so the cumulant
+$\varkappa_{\mu_x}(A,B,C)$ equals $\varkappa_{\mu_x}(F_{h_u},F_{h_v},
+F_{h_w})$; as $\tau_\delta$ acts link by link,
+$\nabla_zF_{h_u}$ is supported on the support $S_u$ of $\nabla_z\partial
+_{x_u}\mathcal U$, and the supports are at fine distance at least
+$d'_{uv}=2(w_{uv}-2s-8)_+$ by Lemma~\ref{lem:manykernel}(iii). Apply
+Theorem~\ref{thm:thirdcumulant} to $\mu_x$, which satisfies
+$(\mathrm W_{\mathcal A,\alpha_G})$, with $a=\alpha_G$, $f_1\le\hat
+\Lambda_2\lVert h_u\rVert$, $g_2\le\hat\Lambda_3\lVert h_v\rVert$ and so
+on; the exponents are at least $\alpha_G$ times half the sum of two of the
+$d'$, that is at least $\alpha_G\ell_{uvw}$. For the difference, $D_u$,
+$D_v$, $D_w$ are convex, two of their points differ by at most $2r$ in each
+link, and the difference is the integral of the third derivative over the
+unit cube.
+\end{proof}
+
+The rate in Theorem~\ref{thm:thirdcumulant} is half the rate $a$ of the
+covariance bound, and under $(\mathrm W_{\mathcal A,\alpha})$ alone this
+is optimal: the law of Proposition~\ref{prop:layerthird} satisfies
+$(\mathrm W_{2,\alpha})$, its three sites have $\ell=2D$, and its third
+cumulant is at least $\frac1{30}e^{-\alpha D}=\frac1{30}e^{-\alpha\ell/2}$.
+For the orders above three $(\mathrm W_{\mathcal A,\alpha})$ gives no tree
+form with a rate independent of the order.
+
+\begin{proposition}[the layer bound and cumulants of every order]
+\label{prop:layerorders}
+Let $k\ge3$, $\alpha>0$, $D>0$, and give $k$ sites $1,\dots,k$ the
+distances $d(i,j)=D$ for $i\ne j$. For $x\in\R^k$ let $\mu_x$ be the law
+on $\R^k$ with density proportional to $e^{-U(z;x)}$,
+\[
+U(z;x)=\tfrac12\lvert z\rvert^2+J\prod_{j=1}^k\sin z_j-x\cdot z,\qquad
+J=\tfrac12e^{-k}e^{-\alpha D}.
+\]
+Then $\mu_x$ satisfies $(\mathrm W_{2,\alpha})$ for every $x$, every tree
+whose vertices are the $k$ sites has length $(k-1)D$, and
+\[
+\bigl\lvert\varkappa_{\mu_0}(z_1,\dots,z_k)\bigr\rvert=\bigl\lvert
+\partial_{x_1}\cdots\partial_{x_k}\log K(0)\bigr\rvert\ge\tfrac13e^{-3k/2}
+e^{-\alpha D},
+\]
+with $K(x)=\int e^{-U(z;x)}dz$. So a bound $C_0C^ke^{-\kappa\ell}$ on the
+cumulants of order $k$ of the laws satisfying $(\mathrm W_{2,\alpha})$,
+with $\ell$ the length of the shortest joining tree, holds for all $D$ only
+if $\kappa\le\alpha/(k-1)$, and no $\kappa>0$ serves every order.
+\end{proposition}
+
+\begin{proof}
+\emph{The condition.} $\operatorname{Hess}_zU=I+JM$, where $M_{ii}=-\prod
+_j\sin z_j$ and $M_{ij}=\cos z_i\cos z_j\prod_{l\ne i,j}\sin z_l$ for $i\ne
+j$, all of modulus at most one. For $\varphi$ with $\lvert\varphi(i)-
+\varphi(j)\rvert\le D$ and $0\le a\le\alpha$ the entries of $e^{a\varphi}
+Me^{-a\varphi}$ have modulus at most $e^{\alpha D}$, so its norm is at most
+$ke^{\alpha D}$ and $\lVert Je^{a\varphi}Me^{-a\varphi}\rVert\le\frac k2
+e^{-k}\le\frac12$. Hence the quadratic form of $e^{a\varphi}
+\operatorname{Hess}_zUe^{-a\varphi}$ is at least $\frac12\lvert u\rvert^2$;
+$U$ is smooth with bounded derivatives of order at least two, and
+$H_n=U(\cdot;x)$ gives $(\mathrm W_{2,\alpha})$. A tree on $k$ vertices has
+$k-1$ edges, each of length $D$.
+
+\emph{The cumulant.} As in Proposition~\ref{prop:layerthird}(ii) the
+derivatives of $\log K$ at $0$ are the joint cumulants of $z$ under
+$\mu_0$. For $i\ne j$ the map that changes the signs of $z_i$ and $z_j$
+preserves $U(\cdot;0)$. If $A$ is a nonempty proper subset of $\{1,\dots,
+k\}$, choose $i\in A$ and $j\notin A$; this map changes the sign of $\prod
+_{l\in A}z_l$, so $\E_{\mu_0}\prod_{l\in A}z_l=0$. In the expansion of the
+joint cumulant over the partitions of $\{1,\dots,k\}$ every partition with
+two or more blocks has a proper block, so $\varkappa_{\mu_0}(z_1,\dots,z_k)
+=\E_{\mu_0}z_1\cdots z_k$. With $\gamma_1$, $a_n$, $b_n$ as in the proof of
+Proposition~\ref{prop:layerthird},
+\[
+\E_{\mu_0}z_1\cdots z_k=\frac{\sum_n(-J)^na_n^k/n!}{\sum_n(-J)^nb_n^k/n!},
+\]
+the expansion being legitimate since the product of the sines is bounded.
+There $a_n=0$ for even $n$, $b_n=0$ for odd $n$, $b_0=1$, $0\le b_n\le1$,
+$\lvert a_n\rvert\le1$ for $n\ge1$ and $a_1=e^{-1/2}$. So the denominator
+lies in $[1,\cosh J]$ and the numerator has modulus at least $Je^{-k/2}-
+(\sinh J-J)\ge Je^{-k/2}-\frac{J^3}6\cosh J$, the last step as in that
+proof. Here $J\le\frac12e^{-3}<0.025$, so $\cosh J<1.001$, and $\frac{J^2}6
+\cosh J\le\frac{1.001}{24}e^{-2k}\le0.0418e^{-4}e^{-k/2}<0.001e^{-k/2}$,
+as $e^{-2k}\le e^{-4}e^{-k/2}$ for $k\ge3$ and $e^4>2.7^4>53$. Hence
+\[
+\lvert\E_{\mu_0}z_1\cdots z_k\rvert\ge\frac{0.999}{1.001}Je^{-k/2}>0.99\,
+Je^{-k/2}>\tfrac13e^{-3k/2}e^{-\alpha D}.
+\]
+For the last assertion, the tree bound with $\ell=(k-1)D$ and this lower
+bound give $\frac13e^{-3k/2}\le C_0C^ke^{-(\kappa(k-1)-\alpha)D}$ for every
+$D>0$, which forces $\kappa(k-1)\le\alpha$.
+\end{proof}
+
+\begin{remark}\label{rem:treeformstatus}
+Theorem~\ref{thm:thirdcumulant} and Corollary~\ref{cor:kthird} supply, for
+the differences of order three of $\log\tilde K$, both inputs named in
+Remark~\ref{rem:treeform}: the walls of $D_z$ enter only through the lower
+bound on the Hessian of the approximations $H_n$, and no derivative of
+$H_n$ of order three is used, so the bound is uniform in $n$. The rate is
+$\alpha_G$ in the coarse distance, half the rate $2\alpha_G$ of the second
+differences in Lemma~\ref{lem:manylayer}, and by the paragraph after
+Corollary~\ref{cor:kthird} the half is all that
+$(\mathrm W_{\mathcal A,\alpha})$ gives. The loss comes from the term $T_2$
+alone, through the block $D^F_{e'e}$ of the Hessian of $\phi_F$. A
+two-index bound $\E\sum_{e,e'}e^{2a(d(e,e')+d(e,S_F))}\lVert D^F_{e'e}
+\rVert^2\le c\,f_1^2$ would remove it: for $e\in S_H$, $d(e,S_F)\ge d_{FH}$
+and $\psi(e')+d(e,e')\ge d_{GH}$, so $e^{-2a\psi(e')}\le e^{-2a(d_{FH}+
+d_{GH})}e^{2a(d(e,e')+d(e,S_F))}$, and the Cauchy--Schwarz step of the
+proof gives $\lvert T_2\rvert\le c^{1/2}\mathcal Af_1g_1h_1e^{-a(d_{FH}+
+d_{GH})}$, so that the third cumulants decay at the rate $a$ in $\ell$.
+That two-index bound is not proved: the equation
+for $\operatorname{Hess}\phi_F$ obtained by differentiating $\mathcal Mv_F=
+\nabla F$ contains the derivatives of order three of $H_n$, which grow with
+$n$ at the walls, and Proposition~\ref{prop:layerthird} shows that
+$(\mathrm W_{\mathcal A,\alpha})$ does not imply it with $c$ depending on
+$\mathcal A$ and $a$ only; a proof has to use the
+finite range of $\mathcal U$ in $z$. For the orders $k\ge4$ the
+representation needs derivatives of $v_F$ of order two, which the energy
+bounds do not control, and Proposition~\ref{prop:layerorders} shows that
+$(\mathrm W_{\mathcal A,\alpha})$ gives at most the rate $\alpha/(k-1)$.
+Two further steps remain between these bounds and item~(ii) of
+Sec.~\ref{ssec:remains}. The differences of $\log Z^c$ over the labels of
+$k$ components are those of $\log\int\tilde K\prod_u\gamma_u$, in which
+the island coordinates of all the other components are integrated against
+$\tilde K$; carrying the bounds on $\log\tilde K$ to $\log Z^c$ needs decay
+of correlations in that gas of islands, which
+Corollary~\ref{cor:islandchains} gives only under its weighted Dobrushin
+condition. And uniformity in the coarse field stays excluded by
+Theorem~\ref{thm:fixedobstruction}(i). The tree form of the differences of
+$\log Z^c$, and with it the rate $2\alpha_G$ without a floor, is therefore
+not proved for any coarse field.
 \end{remark}
 
 For a fixed coarse field $c$ the blocks that are bad for every labelling
@@ -31716,6 +32061,13 @@ form is not proved, and it follows neither from the second differences in
 every environment (Proposition~\ref{prop:pairsonly}) nor from the layer
 bound~\eqref{eq:layerbound} (Proposition~\ref{prop:layerthird});
 Remark~\ref{rem:treeform} names the two inputs it needs.
+Theorem~\ref{thm:thirdcumulant} and Corollary~\ref{cor:kthird} give the
+differences of order three of $\log\tilde K$ in tree form at the rate
+$\alpha_G$, half the rate of the second differences, with the walls of
+$D_z$ included; this is optimal for the Hessian bound behind
+\eqref{eq:layerbound}, which by Proposition~\ref{prop:layerorders} gives
+no tree form uniform in the order, and the passage to $\log Z^c$ through
+the gas of islands is not made (Remark~\ref{rem:treeformstatus}).
 Proposition~\ref{prop:hiddenbit} shows that no rarity bound replaces this
 comparison.
 \item \emph{The island threshold.} Theorem~\ref{thm:islandthreshold}
