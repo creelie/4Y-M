@@ -2419,7 +2419,7 @@ which tends to infinity as $\varepsilon\to0$.
 
 The action density $\Tr F_{\mu\nu}F_{\mu\nu}$ has dimension $\Delta=4$ in four
 dimensions. A two-sided short-distance law of the form $|x-y|^{-8}$ times
-the fourth power of the running coupling, which is what asymptotic freedom\footnote{For $\SU(N)$ the renormalisation group gives, with $b_0=11N/(48\pi^2)$ and the invariant scale $\Lambda$,
+the fourth power of the running coupling, which is what asymptotic freedom\footnote{For $\SU(N)$ the renormalisation group gives~\cite{GW73,Pol73}, with $b_0=11N/(48\pi^2)$ and the invariant scale $\Lambda$,
 \[
 g(a)^{-2}=2b_0\log\tfrac1{a\Lambda}+O\bigl(\log\log\tfrac1{a\Lambda}\bigr),
 \]
@@ -5722,6 +5722,351 @@ tree bounds and the conclusions of Theorem~\ref{thm:onescale}, and the
 same example at two interleaved masses shows that (U) does not follow from
 (M), the tree bounds and those conclusions. None of the three is proved. Euclidean invariance and the Wightman spectral
 condition are beyond these fields at a positive flow time.
+
+\emph{Three further routes.} The trial condition of
+Corollary~\ref{cor:trial} can be approached in three other ways: through
+upper bounds on correlations, through trial states smeared in time, and
+through a comparison with the Gaussian theory at weak coupling. The first
+never implies $(\mathrm N_u)$. The second removes the lattice
+scale from the first condition and leaves a lower bound on a ratio of
+correlations at physical times. The third gives $(\mathrm N_u)$ from a
+relative comparison at two physical separations; when that comparison is
+built scale by scale along the one-loop tuning, it must be exact to first
+order in the running coupling at every scale.
+
+\begin{proposition}\label{prop:upperbounds}
+Let $G=\SU(2)$, let $\beta_{W,k}\in[0,0.351]$ be any couplings, let
+$\omega_k$ be the states of Theorems~\ref{thm:su2} and~\ref{thm:blocks}, and
+let $m_0$ be as in Theorem~\ref{thm:strongratio}.
+
+\textup{(i)} Let $F,H$ be bounded functions at positive times that are
+uniform limits of gauge-invariant local functions, with
+$\omega_k(F)=\omega_k(H)=0$. Then for every integer $n\ge0$
+\[
+\bigl|\omega_k\bigl(\vartheta(\bar F)\tau_nH\bigr)\bigr|\le
+e^{-m_0n}\|\Psi_F\|\,\|\Psi_H\|\le e^{-m_0n}\|F\|_\infty\|H\|_\infty .
+\]
+
+\textup{(ii)} Let \textup{(H)} be a set of inequalities indexed by $i\in I$,
+each of the form
+\[
+\bigl|\omega_k\bigl(\vartheta(\bar F_{i,k})\tau_{n_{i,k}}H_{i,k}\bigr)\bigr|
+\le B_{i,k}\|\Psi_{F_{i,k}}\|\,\|\Psi_{H_{i,k}}\|\qquad(k\ge k_i),
+\]
+with $F_{i,k},H_{i,k}$ as in \textup{(i)}, integers $n_{i,k}\ge t_i/a_k$ for
+some $t_i>0$, and $B_{i,k}>0$ with $a_k\log B_{i,k}\to0$ as $k\to\infty$.
+Then each inequality of \textup{(H)} holds for the states $\omega_k$ for all
+large $k$, while $(\mathrm N_u)$ fails for every packet with $C_k(0)>0$ and every $u$,
+and
+every limit of Theorem~\textup{\ref{thm:flowlimit}} along these states is
+trivial. The same holds with $\|F_{i,k}\|_\infty\|H_{i,k}\|_\infty$ in place
+of $\|\Psi_{F_{i,k}}\|\|\Psi_{H_{i,k}}\|$.
+\end{proposition}
+
+\begin{proof}
+(i) Since $\ip\Omega{\Psi_F}=\omega_k(F)=0$ and likewise for $H$, both
+vectors lie in $\Omega_k^\perp$, on which $\mathbb T_k$ has norm at most
+$e^{-m_0}$, as in the proof of Theorem~\ref{thm:strongratio}. Hence
+$|\ip{\Psi_F}{\mathbb T_k^n\Psi_H}|\le e^{-m_0n}\|\Psi_F\|\|\Psi_H\|$, and
+$\|\Psi_F\|\le\|F\|_\infty$ by the footnote of Appendix~\ref{app:transfer}.
+
+(ii) Since $a_k\log B_{i,k}\to0$, for large $k$ we have
+$a_k\log B_{i,k}\ge-m_0t_i$, that is $B_{i,k}\ge e^{-m_0t_i/a_k}\ge
+e^{-m_0n_{i,k}}$, and (i) gives the inequality. The statements on
+$(\mathrm N_u)$ and on the limits are Theorem~\ref{thm:strongratio}.
+\end{proof}
+
+The class (H) contains uniform bounds $B_{i,k}=B_i$, decay at a physical
+rate $B_{i,k}=B_ie^{-Mt_i}$ with any $M$, and bounds of order $a_k^p$, for
+connected correlations of any centred observables at physical separations,
+flowed or not. The same holds for every compact simple $G$ at couplings in
+$[0,\beta_1]$ with $N\beta_1<\frac2{29}\kappa_G$, with $m_0=m_G(\beta_1)$ of
+Theorem~\ref{thm:groups}. So a proof of $(\mathrm N_u)$ must contain a lower
+bound. In Corollary~\ref{cor:trial} it is $\ip{\chi_k}{\mathbb T_k\chi_k}\ge
+1-\kappa a_k$, a lower bound on a normalised correlation at one lattice step
+that is accurate to order $a_k$, together with a lower bound on one overlap.
+The spectral arguments of Lemmas~\ref{lem:trial} and~\ref{lem:nonvanishing}
+turn such a lower bound into a bound on the ratio, but they cannot produce one
+from upper bounds: the states above satisfy every inequality of (H), and
+the spectral measures of their centred vectors are carried by energies at
+least $m_0/a_k$.
+
+\emph{Trial states smeared in time.} A slice function enters
+Lemma~\ref{lem:slabdirichlet} through its change in one lattice step, which
+Proposition~\ref{prop:lipobstruction} shows to be too large. Smearing the
+same function in time over a physical interval replaces that change by a
+telescoping sum, in which a lattice step costs $a_k$ times the total
+variation of the time profile. Let $\omega$ be a state as in
+Appendix~\ref{app:transfer}, with transfer matrix $\mathbb T$ and vacuum
+$\Omega$. Let $X$ be a real bounded function of the spatial links of the slice
+$x_0=0$, invariant under the gauge transformations of that slice and a
+uniform limit of local such functions; by
+Proposition~\ref{prop:spatialflow}(ii) this includes $X=N^{-1}\ReTr
+W_\gamma\circ\Phi_s$ for the holonomy $W_\gamma$ of a closed path $\gamma$
+in the slice and every flow time $s$. Put $X^c=X-\omega(X)$ and
+\[
+D_X(n)=\omega\bigl(X^c\,\tau_nX^c\bigr)\qquad(n\in\Z_{\ge0}).
+\]
+Let $w=(w_n)_{n\in\Z}$ be nonnegative, with $w_n=0$ unless $n_0\le n\le n_1$,
+where $1\le n_0\le n_1$, and with $\|w\|_1=\sum_nw_n>0$; put
+$V(w)=\sum_{n\in\Z}|w_n-w_{n-1}|$ and
+\[
+B=\sum_nw_n\,\tau_nX^c .
+\]
+
+\begin{proposition}\label{prop:smearedtrial}
+\textup{(i)} $D_X$ is nonnegative, nonincreasing and log-convex on
+$\Z_{\ge0}$, and $\Psi_B\perp\Omega$. If $D_X(2n_1)>0$, then
+$\|\Psi_B\|^2\ge\|w\|_1^2D_X(2n_1)>0$, and the unit vector
+$\chi=\Psi_B/\|\Psi_B\|$ satisfies
+\[
+\ip\chi{(1-\mathbb T)\chi}\le\frac{V(w)}{\|w\|_1}\,
+\frac{D_X(2n_0)}{D_X(2n_1)} .
+\]
+
+\textup{(ii)} If $D_X(2n_1)>0$ and $\ip\chi{(1-\mathbb T)\chi}\le\eta\le
+\frac12$, then
+$D_X(2n_0+m)\ge e^{-2\eta m}D_X(2n_1)$ for every integer $m\ge0$.
+
+\textup{(iii)} For a function $H$ at positive times as in
+Appendix~\textup{\ref{app:transfer}}, $\ip{\Psi_B}{\Psi_H}=
+\omega(\vartheta(B)H)$.
+\end{proposition}
+
+\begin{proof}
+Let $x=\Psi_{X^c}$. As in the proof of Lemma~\ref{lem:slabdirichlet}(i),
+$\vartheta(X^c)=X^c$ and $\Psi_{\tau_nX^c}=\mathbb T^nx$, so
+$D_X(n)=\ip x{\mathbb T^nx}=\int\lambda^nd\nu$ for the spectral measure $\nu$
+of $\mathbb T$ at $x$, a finite positive measure on $[0,1]$. Hence $D_X\ge0$,
+$D_X$ is nonincreasing, and it is log-convex by H\"older's inequality. Since
+$\ip\Omega x=\omega(X^c)=0$ and $\mathbb T\Omega=\Omega$, $x\perp\Omega$ and
+so $\Psi_B=W(\mathbb T)x\perp\Omega$, with $W(\lambda)=\sum_nw_n\lambda^n$.
+
+(i) On $[0,1]$, $\|w\|_1\lambda^{n_1}\le W(\lambda)\le\|w\|_1\lambda^{n_0}$,
+so $\|\Psi_B\|^2=\int W^2d\nu\ge\|w\|_1^2D_X(2n_1)$. Moreover
+\[
+W(\lambda)(1-\lambda)=\sum_{n=n_0}^{n_1+1}(w_n-w_{n-1})\lambda^n,
+\]
+which is nonnegative and at most $V(w)\lambda^{n_0}$ on $[0,1]$. Therefore
+\[
+\begin{split}
+\ip{\Psi_B}{(1-\mathbb T)\Psi_B}&=\int W(\lambda)\cdot W(\lambda)
+(1-\lambda)\,d\nu\\
+&\le\|w\|_1V(w)D_X(2n_0),
+\end{split}
+\]
+and dividing by $\|\Psi_B\|^2$ gives the bound.
+
+(ii) Let $\nu_\chi=W^2\nu/\int W^2d\nu$ be the spectral measure at $\chi$.
+By Jensen's inequality for $\lambda^m$, $\int\lambda^md\nu_\chi\ge
+(1-\eta)^m\ge e^{-2\eta m}$, since $\log(1-y)\ge-2y$ on $[0,\frac12]$. By the
+bounds on $W$,
+\[
+\int\lambda^md\nu_\chi=\frac{\int W^2\lambda^md\nu}{\int W^2d\nu}\le
+\frac{D_X(2n_0+m)}{D_X(2n_1)} .
+\]
+
+(iii) This is the identity of Appendix~\ref{app:transfer}, with
+$\vartheta(\bar B)=\vartheta(B)$ because $B$ is real.
+\end{proof}
+
+Along a tuning, take $X_k$ as above for $\omega_k$, a time profile $g\ge0$ of
+bounded variation supported in $[t_0,t_1]$ with $0<t_0<t_1$ dyadic and
+$\int g>0$, and $w_n=a_kg(a_kn)$, so that $B_k=\sum_na_kg(a_kn)\,\tau_nX_k^c$ is the packet of $X_k$ with
+time profile $g$; let $\chi_k$ be its unit vector, $\Var(g)$ the total
+variation of $g$ on $\R$, and write $D_{X_k}(r)$ for $D_{X_k}(r/a_k)$ when
+$r\in a_k\Z_{\ge0}$ is a physical time.
+
+\begin{corollary}\label{cor:smearedtrial}
+\textup{(i)} If $D_{X_k}(2t_1)\ge c\,D_{X_k}(2t_0)$ with $c>0$ for all large
+$k$, then $\ip{\chi_k}{(1-\mathbb T_k)\chi_k}\le\kappa a_k$ for all large
+$k$, with $\kappa=2\Var(g)/(c\int g)$. The hypothesis holds with
+$c=c_1^{\max(1,(2t_1-2t_0)/(r'-r))}$ if $D_{X_k}(r')\ge c_1D_{X_k}(r)$ for
+dyadic $0<r<r'$ with $r\le2t_0$, a $c_1\in(0,1]$ and all large $k$.
+
+\textup{(ii)} Conversely, if $\ip{\chi_k}{(1-\mathbb T_k)\chi_k}\le\kappa
+a_k$ for all large $k$, then $D_{X_k}(2t_0+s)\ge e^{-2\kappa s}D_{X_k}(2t_1)$
+for all large $k$ and every $s\in a_k\Z_{\ge0}$; for $s>2(t_1-t_0)$ this is a
+lower bound on the ratio of two correlations of $X_k$ at the physical times
+$2t_1<2t_0+s$.
+
+\textup{(iii)} If the hypothesis of \textup{(i)} holds and
+\[
+\bigl|\omega_k\bigl(\vartheta(B_k)\,\tau_{u/a_k}A_k\bigr)\bigr|\ge
+v\,\|\Psi_{B_k}\|\,C_k(2u)^{1/2}
+\]
+with $v>0$ for all large $k$, then $(\mathrm N_u)$ holds and
+$\rho_k(u,\sigma)\ge(v-\sqrt{\kappa\sigma/2})_+^2$ for $\sigma\ge2a_k$.
+\end{corollary}
+
+\begin{proof}
+For large $k$, $t_0/a_k$ and $t_1/a_k$ are integers, and
+Proposition~\ref{prop:smearedtrial} applies with $n_0=t_0/a_k$ and
+$n_1=t_1/a_k$; $n_0\ge1$. The points $a_kn$ partition $\R$, so
+$V(w)=a_k\sum_n|g(a_kn)-g(a_k(n-1))|\le a_k\Var(g)$, while
+$\|w\|_1=a_k\sum_ng(a_kn)$ is a Riemann sum of $g$, which is Riemann
+integrable, and so is at least $\frac12\int g$ for large $k$. Then (i)
+follows from Proposition~\ref{prop:smearedtrial}(i); the condition
+$D_{X_k}(2t_1)>0$ holds because $D_{X_k}(2t_0)>0$ is implicit in the
+hypothesis. Its second sentence is the log-convexity argument of
+Proposition~\ref{prop:sliceratio}(ii) with $\alpha=2t_0$, $\beta=2t_1$,
+which uses only that $D_{X_k}$ is nonincreasing and log-convex. For (ii),
+$\kappa a_k\le\frac12$ for large $k$, and Proposition~\ref{prop:smearedtrial}(ii)
+with $m=s/a_k$ gives the claim. For (iii), Proposition~\ref{prop:smearedtrial}(iii)
+gives $|\ip{\chi_k}{\Psi_{k,u}}|\ge v$, and Corollary~\ref{cor:trial} gives
+the rest.
+\end{proof}
+
+For trial states smeared in time, the first condition of
+Corollary~\ref{cor:trial} therefore holds along a tuning if and only if,
+up to the choice of the physical times, a ratio of two correlations of the
+smeared field at physical times is bounded below. No lattice-scale quantity
+enters: no Lipschitz constant, no plaquette energy, and no first step.
+Proposition~\ref{prop:lipobstruction} concerns single slices and does not
+apply to $B_k$. When $\Phi$ is real, $X_k$ is the slice field $U_k$ of a product packet
+$f_0=g\otimes h$ and $u=0$, $B_k=A_k$, the overlap is $1$, and part (i)
+gives the hypothesis of Proposition~\ref{prop:flowshift}(ii) from the slice
+ratio of Proposition~\ref{prop:sliceratio}(iii), without the comparison of
+$u_k$ with the packet that was left open after
+Proposition~\ref{prop:flowshift}. For a flowed loop $X_k=N^{-1}\ReTr
+W_{\gamma_k}\circ\Phi_{\tau/a_k^2}$, with $\gamma_k$ the lattice
+approximation of a closed curve of physical size in the slice, the input
+that the route needs is the pair of lower bounds of
+Corollary~\ref{cor:smearedtrial}(i) and~(iii): a ratio of two flowed-loop
+correlations at physical times, and the overlap of the smeared loop with
+the flowed packet at physical distance. Both are lower bounds at physical
+separations, of the same kind as $(\mathrm N_u)$, and by
+Proposition~\ref{prop:upperbounds} no upper bound supplies them. The overlap
+vanishes for every $k$ if $\Psi_{B_k}$ and $\Psi_{A_k}$ lie in different
+eigenspaces of a unitary that commutes with $\mathbb T_k$; for instance, if
+$G=\SU(N)$ with $N\ge3$ and $\omega_k$ is invariant under charge
+conjugation $U\mapsto\bar U$, then $X_k=N^{-1}\operatorname{Im}\Tr
+W_{\gamma_k}\circ\Phi_{\tau/a_k^2}$ is odd and the flowed energy packet is
+even, so $X_k$ has to be chosen in the symmetry sector of the packet.
+
+\emph{Comparison with the Gaussian theory.} Let $C^{\mathrm G}_k(t)>0$ be the
+correlations of the corresponding packet in a comparison theory, such as the
+Gaussian theory at tree level, with ratio
+$\rho^{\mathrm G}_k=C^{\mathrm G}_k(2u+\sigma)/C^{\mathrm G}_k(2u)$. If there
+are $Z_k>0$ and $\delta_k\in[0,1)$ such that for $t=2u$ and $t=2u+\sigma$
+\[
+(1-\delta_k)Z_kC^{\mathrm G}_k(t)\le C_k(t)\le(1+\delta_k)Z_kC^{\mathrm
+G}_k(t),
+\]
+then dividing the lower bound at $2u+\sigma$ by the upper bound at $2u$ gives
+\[
+\rho_k(u,\sigma)\ge\frac{1-\delta_k}{1+\delta_k}\,\rho^{\mathrm G}_k .
+\]
+The normalisation $Z_k$ cancels, and only the two physical separations $2u$
+and $2u+\sigma$ enter. For the free fields of Remarks~\ref{rem:freeslice}
+and~\ref{rem:compositeslice}, the slice ratios have positive limits, so
+$\liminf_k\rho^{\mathrm G}_k>0$ by the argument of
+Proposition~\ref{prop:sliceratio}(iii), which uses only reflection positivity
+and the transfer matrix,
+and $(\mathrm N_u)$ follows from $\limsup_k\delta_k<1$. This relative
+comparison at two physical separations, uniform in $k$, is what a
+perturbative lower bound has to provide. It is not a statement of fixed order
+in the bare coupling: along the one-loop tuning $b\log(\sigma/a_k)/\beta_k\to
+1$, so the terms $(\log(\sigma/a_k)/\beta_k)^n$ of bare perturbation theory
+are of order one at every $n$. The comparison has to be organised by
+scales, as in Proposition~\ref{prop:formstability}, where repeating a
+comparison over scales multiplies the factors $1\pm\varepsilon$. The next
+proposition determines which losses per scale the one-loop tuning allows.
+
+\begin{proposition}\label{prop:scalelosses}
+Let $b>0$, $h=b\log2$, $a_k=2^{-k}a_0$, and let the couplings satisfy
+$|\beta_k-b\log(1/a_k)|\le M$ for all $k$. Let $\sigma>0$ be dyadic with
+$\beta^-_\sigma=b\log(1/\sigma)-M>0$, put $\beta^+_\sigma=b\log(1/\sigma)+M$,
+and for $k$ with $\sigma/a_k=2^{J_k}$, $J_k\in\Z_{\ge0}$, put
+\[
+\beta^{(j)}_k=\beta_k-hj\qquad(0\le j\le J_k),
+\]
+the one-loop coupling at the scale $2^ja_k$. Let $c_{k,j}\in[0,\frac12]$.
+
+\textup{(i)} $\beta^-_\sigma+h(J_k-j)\le\beta^{(j)}_k\le\beta^+_\sigma+
+h(J_k-j)$.
+
+\textup{(ii)} If $c_{k,j}\ge c/\beta^{(j)}_k$ for all $j$, with $c>0$, then
+\[
+\prod_{j=0}^{J_k}(1-c_{k,j})\le\Bigl(\frac{\beta^+_\sigma}{\beta^+_\sigma+
+b\log(2\sigma/a_k)}\Bigr)^{c/h},
+\]
+which tends to $0$ as $k\to\infty$.
+
+\textup{(iii)} If $c_{k,j}\le c/(\beta^{(j)}_k)^2$ for all $j$, then for
+every $k$
+\[
+\prod_{j=0}^{J_k}(1-c_{k,j})\ge\exp\Bigl(-2c\Bigl(\frac1{(\beta^-_\sigma)^2}
++\frac1{h\beta^-_\sigma}\Bigr)\Bigr).
+\]
+More generally, $\prod_j(1-c_{k,j})\ge e^{-2\sum_jc_{k,j}}$, and the
+products are bounded below uniformly in $k$ if and only if the sums
+$\sum_jc_{k,j}$ are bounded.
+
+For $\SU(2)$ and the one-loop tuning, $b=11/(3\pi^2)$ and
+$h\in[0.25751,0.25752]$.
+\end{proposition}
+
+\begin{proof}
+(i) Since $\log(1/a_k)=\log(1/\sigma)+J_k\log2$, the hypothesis gives
+$\beta^-_\sigma+hJ_k\le\beta_k\le\beta^+_\sigma+hJ_k$; subtract $hj$.
+
+(ii) By $1-y\le e^{-y}$ and (i), with $i=J_k-j$,
+\[
+\begin{split}
+\sum_{j=0}^{J_k}c_{k,j}&\ge c\sum_{i=0}^{J_k}\frac1{\beta^+_\sigma+hi}\ge
+c\int_0^{J_k+1}\frac{dt}{\beta^+_\sigma+ht}\\
+&=\frac ch\log\frac{\beta^+_\sigma+h(J_k+1)}{\beta^+_\sigma},
+\end{split}
+\]
+since the integrand decreases, and $h(J_k+1)=b\log(2\sigma/a_k)\to\infty$.
+
+(iii) Since $\log(1-y)\ge-2y$ on $[0,\frac12]$,
+$\prod_j(1-c_{k,j})\ge e^{-2\sum_jc_{k,j}}$, and $\prod_j(1-c_{k,j})\le
+e^{-\sum_jc_{k,j}}$ gives the converse of the last statement. By (i),
+\[
+\sum_{j=0}^{J_k}\frac1{(\beta^{(j)}_k)^2}\le\sum_{i\ge0}\frac1{(\beta^-_\sigma
++hi)^2}\le\frac1{(\beta^-_\sigma)^2}+\int_0^\infty\frac{dt}{(\beta^-_\sigma+
+ht)^2},
+\]
+and the integral is $1/(h\beta^-_\sigma)$. Interval arithmetic gives
+$h\in[0.2575118,0.2575119]$.
+\end{proof}
+
+With $g_j^2=4/\beta^{(j)}_k$, part (ii) says that a scale-by-scale
+comparison that loses a factor $1-c\,g_j^2$ at every scale between $a_k$ and
+$\sigma$, however small $c>0$, gives a lower bound on $\rho_k(u,\sigma)$ that
+tends to zero, at the rate $(\log(1/a_k))^{-4c/h}$, with $4/h<15.534$;\footnote{Since $\beta_k=b\log(1/a_k)+O(1)$, this rate is a constant times $(g_0^2)^{4c/h}$ with $g_0^2=4/\beta_k$ the bare coupling: a power of the coupling at the lattice scale, which is not small at any fixed order of perturbation theory in $g_0^2$ but tends to zero along the tuning.} such a
+bound carries no information in the limit. Part (iii) says that losses of
+second order in the running coupling give $\rho_k(u,\sigma)\ge
+\rho^{\mathrm G}_ke^{-2c(1/(\beta^-_\sigma)^2+1/(h\beta^-_\sigma))}$ uniformly
+in $k$, a bound that approaches $\rho^{\mathrm G}_k$ as $\sigma$ decreases.
+So a perturbative lower bound on the ratio along the one-loop tuning has to
+account exactly for the first-order effect of every scale on the ratio,
+leaving errors whose sum over the scales is bounded. A first-order effect
+common to $C_k(2u)$ and $C_k(2u+\sigma)$ cancels in the ratio, and the proof
+has to exhibit that cancellation; bounding each correlation separately to
+first order is not enough. This is the summability of the one-step errors in
+Proposition~\ref{prop:formstability}, now for the ratio, and the effective
+actions it requires are item~(iv) of Sec.~\ref{ssec:remains}, the
+renormalisation group analysis of Ba{\l}aban~\cite{Bal84a,Bal85a,Bal89b},
+which is not carried out here. None of the three routes gives
+$(\mathrm N_u)$ along the one-loop tuning without an input of this kind:
+a lower bound on correlations at physical separations, for the packet, for
+a smeared field that overlaps it, or for the Gaussian comparison.
+
+\begin{figure*}[t]
+\centering
+\includegraphics[width=0.95\textwidth]{figures/fig_scalelosses.png}
+\caption{Products of the factors $1-c_j$ over the $J+1$ scales between
+$a_k$ and $\sigma$ along the one-loop $\SU(2)$ tuning, with $\beta_W=20$ at
+the scale $\sigma$, as in Proposition~\ref{prop:scalelosses}. (a) Losses of
+first order in the running coupling, $c_j=c\,g_j^2$, drive the product to
+zero for every $c>0$; losses of second order, $c_j=c\,g_j^4$, keep it
+bounded below. (b) The section $c=0.1$, with the bound of part (ii)
+dashed.}
+\label{fig:scalelosses}
+\end{figure*}
 
 \subsection{Estimates uniform in the coupling}\label{ssec:uniform}
 
@@ -16355,11 +16700,12 @@ $\sigma=10^{-1000}$. No coupling beyond the threshold $\beta^*$ of the joining d
 and no factor $\varGamma>1$ is needed: the
 weighted volume $\sigma(2\alpha_G)=6.1\cdot10^{15}$ of the decay length is
 beaten by $G_0\le10^{-14099.3}$. The bound is void for windows of more
-than $10^{28167}$ blocks, and it is a statement about the labels
+than $10^{28166}$ blocks, and it is a statement about the labels
 under $\mu_L$, not about the law of the labels near $I_u$ given that $I_u$
 is an island; the covariance of two labels with the others averaged is
 bounded in the mean over the coarse field in Sec.~\ref{ssec:labelcov}, and for
-a fixed coarse field it is not bounded.
+a fixed coarse field outside a set of small probability by
+Proposition~\ref{prop:fixedgood}, but not uniformly in the coarse field.
 
 \begin{figure*}[t]
 \centering
@@ -17030,7 +17376,9 @@ at the rate $2\alpha_G$ without a floor needs control of $\log Z^c$ as a
 function of the labels of three or more components: the mixed differences
 of order $k\ge3$ of $\log Z^c$ over the labels of $k$ components, bounded
 by $C^ke^{-2\alpha_G\ell}$ with $\ell$ the length of the shortest tree
-joining them. The inputs give the differences of order two only: those of
+joining them. The inputs give the differences of order two, and through
+Lemma~\ref{lem:mobius} those of every order in terms of the diameter only;
+those of
 order three of $\log\tilde K$ are third cumulants of the layer law, which
 \eqref{eq:layerbound} does not bound, and $\tilde K$ and $D_z$ depend on
 the set $Y$ of components. Third, the covariance of $\E_{\mu^c}F$ and
@@ -17041,6 +17389,332 @@ given the hidden bit, which plays the role of $c$, so the covariance under
 the fibre law vanishes and the covariance $q^2/16$ is that of the
 conditional means; the theorems above use the cross-ratio of
 Lemma~\ref{lem:groupcross}, not rarity alone.
+\end{remark}
+
+Remark~\ref{rem:labelcovopen} leaves open a covariance bound for the labels
+for a fixed coarse field, uniform in the exterior, decaying at the rate
+$2\alpha_G$ with no floor. The rest of this subsection determines what the
+inputs used above give for one law of the labels. The proof of
+Theorem~\ref{thm:labelcov} uses two properties of the laws $P^c$. For a law
+$P$ on the labellings of $\Lambda$ and $0<\epsilon'<1$ consider:
+\begin{itemize}[leftmargin=*]
+\item[$(\mathrm R_{\epsilon'})$] $P(T\subset B)\le\epsilon'^{\lvert T
+\rvert}$ for every nonempty set $T$ of blocks pairwise at distance at
+least $6$;
+\item[$(\mathrm X)$] for every set $Y$ of blocks, every union $X$ of
+components of $Y$, $X'=Y\setminus X$, and all labellings $\omega,\omega'$
+of positive probability with $B(\omega),B(\omega')\subset Y$, the
+labellings $\omega^\natural=(\omega'_X,\omega_{X'})$ and $\omega'^\natural
+=(\omega_X,\omega'_{X'})$ have positive probability and
+\[
+e^{-\varDelta}\le\frac{P(\omega^\natural)P(\omega'^\natural)}{P(\omega)
+P(\omega')}\le e^{\varDelta},
+\]
+with $\varDelta=\min\{\varDelta(X,X'),\varDelta(X',X)\}$.
+\end{itemize}
+For every coarse field $c$ the law $P^c$ has $(\mathrm X)$, by
+Lemma~\ref{lem:groupcross}(c), and the law of the labels under $\mu_L$
+has $(\mathrm R_\epsilon)$.
+
+\begin{lemma}[one law]\label{lem:onelaw}
+Let $P$ be a law on the labellings of $\Lambda$ with $(\mathrm X)$ and
+$(\mathrm R_{\epsilon^{1/2}})$, and let $N_A,N_B,\phi,\psi$ be as in
+Theorem~\ref{thm:labelcov}. Then $\lvert\Cov_P(\phi,\psi)\rvert$ obeys both
+bounds of Theorem~\ref{thm:labelcov}, with the same constants. In
+particular this holds for every law with $(\mathrm X)$ and $(\mathrm
+R_\epsilon)$.
+\end{lemma}
+
+\begin{proof}
+Run the proof of Theorem~\ref{thm:labelcov} with $P^c$ replaced by $P$,
+$Q^c$ by $Q=P\otimes P$, and the means $\E_c$ omitted. The exchange and the
+orbit decomposition use $(\mathrm X)$ only. The mean over $c$ enters
+through the probabilities, under $Q$, of events $\{T_1\subset B(\omega),
+\,T_2\subset B(\omega')\}$ with $T=T_1\cup T_2$ pairwise at distance at
+least $6$, which the proof bounds by $\epsilon^{\lvert T\rvert/2}$, and
+through $\mu_L(z_A,z_B\in B)\le\epsilon^2$ in the first bound. Under $Q$
+the first probability is $P(T_1\subset B)P(T_2\subset B)\le
+\epsilon^{\lvert T\rvert/2}$ by $(\mathrm R_{\epsilon^{1/2}})$, with
+$P(\emptyset\subset B)=1$; it covers the means of $J_{z_Az_B}$, at most
+$2\epsilon$, of $J_{z_Az_B}\mathbf 1[y\in\mathsf D]$, at most $4
+\epsilon^{3/2}$, and of $J_{z_Az_B}\mathbf 1\{T\subset\mathsf D\}$ along a
+chain, at most $2\epsilon(2\epsilon^{1/2})^{\lvert T\rvert}$. In the first
+bound the mean of $J_{z_Az_B}$ is at most $P(z_A,z_B\in B)+P(z_A\in B)P(z_B
+\in B)\le2\epsilon$. Every other step is pointwise in the labellings.
+Finally $\epsilon^{\lvert T\rvert}\le\epsilon^{\lvert T\rvert/2}$.
+\end{proof}
+
+\begin{proposition}[fixed coarse fields]\label{prop:fixedgood}
+Let $\mathcal G_\Lambda$ be the set of coarse fields $c$ for which $P^c$
+has $(\mathrm R_{\epsilon^{1/2}})$. Then
+\[
+\mu_L\{V^\sharp\notin\mathcal G_\Lambda\}\le(1+\epsilon^{1/2})^{\lvert
+\Lambda\rvert}-1,
+\]
+which is at most $2\lvert\Lambda\rvert\epsilon^{1/2}$ when $\lvert\Lambda
+\rvert\epsilon^{1/2}\le1$, and for every $c\in\mathcal G_\Lambda$ the
+covariance $\lvert\Cov_{P^c}(\phi,\psi)\rvert$ obeys both bounds of
+Theorem~\ref{thm:labelcov}. No coarse field with a coarse plaquette
+$\delta(c_P,I)>\eta$ lies in $\mathcal G_\Lambda$.
+\end{proposition}
+
+\begin{proof}
+For a set $T$ of blocks, $\E_cP^c(T\subset B)=\mu_L(T\subset B)\le
+\epsilon^{\lvert T\rvert}$ when $T$ is pairwise at distance at least $6$,
+so by Markov's inequality the law of $V^\sharp$ gives the set $\{c:
+P^c(T\subset B)>\epsilon^{\lvert T\rvert/2}\}$ mass at most
+$\epsilon^{\lvert T\rvert/2}$. The union over the nonempty sets $T\subset
+\Lambda$ has mass at most $\sum_{T\ne\emptyset}\epsilon^{\lvert T
+\rvert/2}=(1+\epsilon^{1/2})^{\lvert\Lambda\rvert}-1\le e^{\lvert\Lambda
+\rvert\epsilon^{1/2}}-1$, and $e^x-1\le2x$ on $[0,1]$. For $c\in\mathcal
+G_\Lambda$, $P^c$ has $(\mathrm X)$ by Lemma~\ref{lem:groupcross}(c), and
+Lemma~\ref{lem:onelaw} applies. A coarse plaquette with $\delta(c_P,I)>
+\eta$ makes its corner bad with $P^c$-probability one, and $1>
+\epsilon^{1/2}$.
+\end{proof}
+
+The floor of Theorem~\ref{thm:labelcov} comes from the joining distance
+$R$; with $R$ of order $\sqrt d$ it becomes a stretched exponential, as for
+the fibre in Corollary~\ref{cor:fibrecovnumbers}(iii).
+
+\begin{corollary}[the labels, stretched]\label{cor:labelstretched}
+At $\rho=2.17\cdot10^{-16}$, with $s\in\{1,5\}$, $\beta_W\ge\beta^*$ and
+$10^8\le d\le10^{100}$, both $\E_c\lvert\Cov_{P^c}(\phi,\psi)\rvert$ and,
+for every $c\in\mathcal G_\Lambda$, $\lvert\Cov_{P^c}(\phi,\psi)\rvert$
+are at most
+\[
+\operatorname{osc}\phi\operatorname{osc}\psi\,\lvert N_A\rvert\lvert
+N_B\rvert\,10^{-u_s}V^{3/2}e^{-\sqrt d/20},
+\]
+with $u_1=21114.2$, $u_5=24938.6$ and $V\le\lvert N_B\rvert(d+1)^4$.
+\end{corollary}
+
+\begin{proof}
+Take $R=\lceil200\sqrt d\rceil$ and $t=\lfloor d/2\rfloor$ in
+Theorem~\ref{thm:labelcov}, or in Lemma~\ref{lem:onelaw}. For $d\ge10^8$,
+$t\ge d/2-1\ge2R$, $d\ge t+6$, $2R+1\le401\sqrt d$ and $t/R\ge\sqrt d/401$,
+so $\lfloor t/R\rfloor-2\ge\sqrt d/401-3>0$; $R\le200\cdot10^{50}+1$, where
+$-\log g_R\ge7633.1$ for $s=1$ and $9101.2$ for $s=5$. The three terms of
+the bracket, multiplied by the factor $\epsilon$ in front, are bounded as
+follows. The far term $2V^{3/2}\varPhi_R$ carries $e^{-\alpha_GR}\le
+e^{-\sqrt d/20}$, since $200\alpha_G=\frac1{20}$, with coefficient
+$2b_*\nu_s\sigma(\alpha_G)\epsilon^{1/2}e^{\alpha_G(4s+17)}$. The main term
+has $d-5-t-2s-9\ge d/2-2s-14$, and its ratio to $e^{-\sqrt d/20}$,
+$11^4b_*\nu_se^{2\alpha_G(2s+14)}e^{-\alpha_Gd+\sqrt d/20}$, decreases on
+$[10^8,\infty)$. The chain term is at most $4\cdot401^4d^2Ve^{3\lambda}
+e^{-\lambda\sqrt d/401}$ with $\lambda=-\log g_R$, and its ratio to
+$e^{-\sqrt d/20}$ decreases on $[10^8,\infty)$ since $\lambda/401>\frac1
+{20}+4\cdot10^{-4}$. By the monotonicity in the proof of
+Corollary~\ref{cor:fibrecovnumbers}, $\epsilon b_*$, $\epsilon^{3/2}b_*$
+and $g_R$ are at most their values at $\beta^*$. At $\beta^*$ and
+$d=10^8$, the coefficient of the far term times $\epsilon$ is at most
+$10^{-21114.22}$ for $s=1$ and $10^{-24938.64}$ for $s=5$, and the main
+and chain ratios are below $10^{-24000}$ and $10^{-86000}$; with $V^{1/2},
+V\le V^{3/2}$ and $2t+1\le d+1$ this gives the bound. The numbers are
+enclosed in interval arithmetic in the archive.
+\end{proof}
+
+The next theorem shows that no argument which uses only $(\mathrm X)$ and a
+rarity bound does better: for a fixed coarse field nothing crosses a bad
+component, and with rarity the decay is at best a stretched exponential.
+
+\begin{theorem}[what rarity and the group cross-ratios give]
+\label{thm:fixedobstruction}
+Let $s\ge1$, $\alpha_G$ and $b_*\nu_s\ge1$ be as above, and let $d\ge2$ be
+an integer, on a torus of side larger than $2d$; let $a$ and $b=a+de_1$ be
+two blocks.
+\begin{enumerate}[label=\textup{(\roman*)},leftmargin=*]
+\item For every $J\ge0$ there is a law $P$ with $(\mathrm X)$, under which
+the blocks $a+ie_1$, $0<i<d$, are bad with probability one, such that
+\[
+\Cov_P\bigl(\mathbf 1[a\in B],\mathbf 1[b\in B]\bigr)=\tfrac14\tanh
+\tfrac J4 ;
+\]
+in it every second difference of $\log P$ between the labels of two sets
+of blocks at distance at least $2s+9$, all other labels fixed, vanishes.
+\item Let $0<\epsilon'\le e^{-3}$, $\varkappa=\log(e/\epsilon')$ and
+$h_*=\lceil\varkappa/(2\alpha_G)\rceil$, and suppose $h_*\ge2s+9$. If
+$d=m^2h_*$ with an integer $m\ge1$, there is a law $P$ with $(\mathrm X)$
+and $(\mathrm R_{\epsilon'})$ such that
+\begin{multline*}
+\Cov_P\bigl(\mathbf 1[a\in B],\mathbf 1[b\in B]\bigr)\ge\tfrac12
+e^{-(2m+1)\varkappa-2\alpha_Gm}\\
+=\tfrac12e^{-\varkappa}\exp\bigl(-(2\varkappa+2\alpha_G)\sqrt{d/h_*}
+\bigr).
+\end{multline*}
+In it the mixed difference of order $m+1$ of $\log P$ over the labels of
+the blocks $a+jmh_*e_1$, $0\le j\le m$, equals $e^{-2\alpha_Gd/m}$.
+\end{enumerate}
+Consequently no bound
+\[
+\lvert\Cov_P(\phi,\psi)\rvert\le C\operatorname{osc}\phi
+\operatorname{osc}\psi\,\lvert N_A\rvert\,\lvert N_B\rvert\,e^{-\kappa d}
+\]
+with $C<\infty$ and $\kappa>0$ holds for all laws with $(\mathrm X)$ and
+$(\mathrm R_{\epsilon'})$; with $\kappa=2\alpha_G$ and $C\epsilon'$ in place
+of $C$ it fails at $d=9h_*$ for every $C<e^{3\varkappa-6\alpha_G}/(2e)$.
+\end{theorem}
+
+\begin{proof}
+(i) Let $K=\{a+ie_1:0<i<d\}$, a set connected at distance one. Let $P$
+give the labellings with $B=K\cup B_0$, $B_0\subset\{a,b\}$, the weights
+$Z_{11}=Z_{00}=e^{J/2}$ and $Z_{10}=Z_{01}=1$, the indices being the
+labels of $a$ and $b$, and every other labelling the weight zero; by
+Corollary~\ref{cor:twolabels} the covariance is $\frac14\tanh(J/4)$. Let
+$Y$, $X$, $\omega$, $\omega'$ be as in $(\mathrm X)$. Then $K\subset Y$,
+and $a$ and $b$, when they lie in $Y$, lie in the component of $Y$ that
+contains $K$, since they are at distance one from $K$. If $X$ contains
+that component, $\omega^\natural$ and $\omega'^\natural$ agree with
+$\omega'$ and $\omega$ at $a$ and $b$; otherwise they agree with $\omega$
+and $\omega'$ there. Every other block has the same label in all four
+labellings, so the ratio in $(\mathrm X)$ is one. Two sets at distance at
+least $2s+9$ off which every block is good contain $K$ in one of them,
+and $a$ and $b$, when bad, in the same one; so the label of only one of
+them varies, and the second difference vanishes.
+
+(ii) Put $h=mh_*$, $y_j=a+jhe_1$ for $0\le j\le m$, $S=\{y_0,\dots,y_m\}$,
+$k=m+1$, $p=\epsilon'/e$ and $J=e^{-2\alpha_Gh}\le1$. Let $P$ give the
+labelling with bad set $A\subset S$ the probability
+\[
+P(A)=\frac1N\,p^{\lvert A\rvert}(1-p)^{k-\lvert A\rvert}e^{J\mathbf 1[A
+=S]},
+\]
+with $N=1+(e^J-1)p^k$, and every other labelling the probability zero.
+
+\emph{Rarity.} For $T\subset S$ nonempty, $P(T\subset B)=(p^{\lvert T
+\rvert}+(e^J-1)p^k)/N\le e^Jp^{\lvert T\rvert}\le e^{1-\lvert T\rvert}
+\epsilon'^{\lvert T\rvert}\le\epsilon'^{\lvert T\rvert}$; for $T\not
+\subset S$ it vanishes.
+
+\emph{The cross-ratios.} With $\sigma_j=\mathbf 1[y_j\in B]$, $\log P=
+\mathrm{const}+\lvert B\rvert\log\frac p{1-p}+J\prod_j\sigma_j$. In
+$(\mathrm X)$ the bad sets of the four labellings lie in $S$, and
+$\lvert B(\omega^\natural)\rvert+\lvert B(\omega'^\natural)\rvert=\lvert
+B(\omega)\rvert+\lvert B(\omega')\rvert$. If $S\not\subset Y$, some $y_j$
+is good in all four and the products vanish. If $S\subset X$ or $S\subset
+X'$, the two products on each side are the same. Otherwise, with $x,x'$
+the products over $S\cap X$ in $\omega,\omega'$ and $z,z'$ those over
+$S\cap X'$, the logarithm of the ratio is $J(x'z+xz'-xz-x'z')=-J(x-x')
+(z-z')$, of modulus at most $J$; and two consecutive blocks $y_j,y_{j+1}$
+lie on different sides, at distance $h$, so that both $\varDelta(X,X')$
+and $\varDelta(X',X)$ are at least $b_*\nu_se^{-2\alpha_G(h-2s-9)}\ge J$.
+
+\emph{The covariance.} $P(a\in B)=(p+(e^J-1)p^k)/N$ and $P(a,b\in B)=(p^2
++(e^J-1)p^k)/N$, so
+\[
+\Cov_P\bigl(\mathbf 1[a\in B],\mathbf 1[b\in B]\bigr)=\frac{(e^J-1)p^k
+(1-p)^2}{N^2}\ge\tfrac12Jp^k,
+\]
+since $e^J-1\ge J$, $p\le e^{-4}$ and $N\le1+2p^2$. As $2\alpha_Gh_*\le
+\varkappa+2\alpha_G$, $J\ge e^{-m\varkappa-2\alpha_Gm}$, and $p^k=
+e^{-(m+1)\varkappa}$; with $m=\sqrt{d/h_*}$ this is the bound. The mixed
+difference of order $k$ over $\sigma_0,\dots,\sigma_m$ of the linear part
+vanishes, as $k\ge2$, and that of $J\prod_j\sigma_j$ is $J=e^{-2\alpha_G
+d/m}$.
+
+\emph{The consequence.} For fixed $C$ and $\kappa>0$ the lower bound of
+(ii) exceeds $Ce^{-\kappa d}$ for $d=m^2h_*$ and $m$ large. With $\kappa=
+2\alpha_G$, $2\alpha_Gd\ge m^2\varkappa$ and $\epsilon'=e^{1-\varkappa}$,
+so the ratio of the covariance to $C\epsilon'e^{-2\alpha_Gd}$ is at least
+$e^{(m^2-2m)\varkappa-2\alpha_Gm-1}/(2C)$, which at $m=3$ exceeds one for
+$C<e^{3\varkappa-6\alpha_G}/(2e)$.
+\end{proof}
+
+At $\epsilon'=10^{-14102.4}$, the bound on $\epsilon$ for $s=1$,
+$\varkappa\in[32472.97,32472.98]$, $h_*=64945953$, and the law of (ii)
+has covariance at least $\frac12e^{-\varkappa}e^{-8.06\sqrt d}$ at
+$d=m^2h_*$; for $s=5$, $\epsilon'=10^{-16652.7}$, $h_*=76690518$ and the
+exponent is $8.76\sqrt d$. By Lemma~\ref{lem:onelaw} every law with
+$(\mathrm X)$ and $(\mathrm R_\epsilon)$ obeys the bound of
+Corollary~\ref{cor:labelstretched}. Within this class the decay is
+therefore a stretched exponential, with the coefficient of $\sqrt d$
+between $\frac1{20}$ and $8.06$ for $s=1$; at $d=9h_*\le5.85\cdot10^8$ a
+bound $C\epsilon e^{-2\alpha_Gd}$ already needs $C\ge10^{42307}$. The laws
+of (ii) are made of one interaction among $m+1$ rare blocks at spacing
+$d/m$, which the group cross-ratios charge only through the spacing; a
+cluster expansion and a coupling that use only $(\mathrm X)$ and rarity
+are both subject to (ii).
+
+The pair comparison of Theorem~\ref{thm:manyislands} is an input of
+another kind: it bounds the second difference of two islands with the
+labels of all the others fixed, in every such environment, and it controls
+the differences of every order.
+
+\begin{lemma}[differences of higher order]\label{lem:mobius}
+Let the data and hypotheses be those of Theorem~\ref{thm:manyislands},
+with the index set $\mathcal I=\mathcal K\cup\mathcal Q$, $\lvert\mathcal
+K\rvert=k\ge2$, two patterns $\omega_u^0,\omega_u^1$ on $I_u$ for $u\in
+\mathcal K$ and one pattern on $I_q$ for $q\in\mathcal Q$. For
+$\varsigma\in\{0,1\}^{\mathcal K}$ let $Z(\varsigma)$ be the weight of the
+event that the labels of $\Lambda$ are $\omega_u^{\varsigma_u}$ on $I_u$,
+$u\in\mathcal K$, the given patterns on the $I_q$ and good elsewhere, and
+suppose $Z(\varsigma)>0$ for all $\varsigma$. Then
+\[
+\Bigl|\sum_{\varsigma}(-1)^{k-\lvert\varsigma\rvert}\log Z(\varsigma)
+\Bigr|\le2^{k-2}\min_{u\ne v\in\mathcal K}\varDelta_*(u,v),
+\]
+with $\lvert\varsigma\rvert=\sum_u\varsigma_u$ and $\varDelta_*(u,v)$ the
+quantity $\varDelta_*$ of Theorem~\ref{thm:manyislands} for $a=u$, $b=v$
+and the sets $I_w$, $w\in\mathcal I\setminus\{u,v\}$, in the role of
+$\mathcal Q$.
+\end{lemma}
+
+\begin{proof}
+The numbers $\varDelta_{uv}$, $S_u$, $C$ and $D$ of
+Theorem~\ref{thm:manyislands} depend on the sets $I_w$, on $\Lambda_2$
+and on $\beta_W$, and not on the patterns, since $\tilde K$ and $\mathcal
+U$ are the same in all sectors by Lemma~\ref{lem:manykernel}(i). Fix
+$u\ne v$ and, for $\varsigma'\in\{0,1\}^{\mathcal K\setminus\{u,v\}}$,
+let $D(\varsigma')$ be the second difference $\log Z_{11}+\log Z_{00}-
+\log Z_{10}-\log Z_{01}$ in $(\varsigma_u,\varsigma_v)$ with the other
+indices equal to $\varsigma'$. These four weights are those of
+Theorem~\ref{thm:manyislands} with the sets $I_w$, $w\ne u,v$, carrying
+the patterns $\omega_w^{\varsigma'_w}$, so $\lvert D(\varsigma')\rvert\le
+\varDelta_*(u,v)$. The sum in the statement is $\sum_{\varsigma'}(-1)^{k-2-
+\lvert\varsigma'\rvert}D(\varsigma')$, which has $2^{k-2}$ terms.
+\end{proof}
+
+Under the weighted Dobrushin condition of
+Corollary~\ref{cor:islandchains} the right side is at most
+$2^{k-2}(\varDelta_{uv}+e^{-2\vartheta\alpha_G\ell(u,v)}T_uT_v/(4(1-
+\theta)))$ for the pair $u,v$ of largest $\ell(u,v)$, so the differences of
+order $k$ decay with the diameter of the $k$ sets in the pseudometric
+$\ell$. In the laws of Theorem~\ref{thm:fixedobstruction}(ii) the pair
+$y_0,y_m$, with the blocks of $S$ between them bad, has second difference
+$e^{-2\alpha_Gd/m}$ at distance $d$, so a pair bound that decays with the
+distance as in Corollary~\ref{cor:islandchains} excludes them.
+
+\begin{remark}\label{rem:fixedcopen}
+For a fixed coarse field the results above give the following.
+Proposition~\ref{prop:fixedgood} gives the bounds of
+Theorem~\ref{thm:labelcov} for every coarse field outside a set of
+probability at most $2\lvert\Lambda\rvert\epsilon^{1/2}$, and
+Corollary~\ref{cor:labelstretched} decay as $e^{-\sqrt d/20}$ for
+$10^8\le d\le10^{100}$, with no floor in that range. Decay at the rate
+$2\alpha_G$ is not proved, for three reasons. First, by
+Theorem~\ref{thm:fixedobstruction}(ii) it does not follow from rarity and
+the group cross-ratios of Lemma~\ref{lem:groupcross}, which are all that
+the proofs of Theorems~\ref{thm:labelcov} and~\ref{thm:fibrecov} use.
+Second, Lemma~\ref{lem:mobius} bounds the differences of order $k$ by the
+diameter of the $k$ sets, while a cluster expansion in the labels, through
+the criterion of Koteck\'y and Preiss~\cite{KP86}, needs the length of
+the shortest tree joining them, as in Remark~\ref{rem:labelcovopen}; with
+the diameter the sum over $k$ islands in a ball of radius $D$ carries the
+entropy $D^{4(k-1)}$, which the rarity pays only while $\epsilon D^4$ is
+small, and the pair bound decays only where the weighted Dobrushin
+condition holds. Third, uniformity in the coarse field and in the exterior
+is excluded for these inputs by Theorem~\ref{thm:fixedobstruction}(i): for
+a coarse field whose coarse plaquettes with $\delta(c_P,I)>\eta$ have
+corners joining a neighbourhood of $N_A$ to one of $N_B$, the labels of
+$N_A$ and $N_B$ adjoin one component that is bad for every labelling, and
+neither Lemma~\ref{lem:groupcross} nor Theorem~\ref{thm:manyislands}
+bounds anything across it. A bound uniform in the coarse field therefore
+needs the response of the law across the interior of a bad component,
+which no result here gives, and a bound at the rate $2\alpha_G$ for the
+coarse fields of $\mathcal G_\Lambda$ needs the tree form of the
+differences of order three and more. The statement of item (ii) of
+Sec.~\ref{ssec:remains} is accordingly posed in the mean over the coarse
+field or for the coarse fields of $\mathcal G_\Lambda$.
 \end{remark}
 
 \subsection{The one-step error in gauge-invariant form}\label{ssec:relstep}
@@ -19369,10 +20043,19 @@ on the whole torus: Theorem~\ref{thm:labelcov} improves the trivial bound
 $2\epsilon\lvert N_A\rvert\lvert N_B\rvert$ by a factor decaying at the
 rate $2\alpha_G$ down to $10^{-7011}$, and Theorem~\ref{thm:fibrecov}
 gives decay at the same rate down to $10^{-14062}$, or as $e^{-\sqrt d/2}$.
-What is not done is a bound for every coarse field, uniform in the
-exterior, and decay without a floor, which needs the mixed differences of
-order three and more of $\log Z^c$ in the labels
-(Remark~\ref{rem:labelcovopen}).
+For a fixed coarse field, Proposition~\ref{prop:fixedgood} gives the same
+bounds for every $c$ outside a set of probability at most
+$2\lvert\Lambda\rvert\epsilon^{1/2}$, and
+Corollary~\ref{cor:labelstretched} gives decay as $e^{-\sqrt d/20}$ in
+the mean and for these $c$. What is not done is a bound for every coarse
+field, uniform in the exterior, and decay at the rate $2\alpha_G$
+without a floor. By Theorem~\ref{thm:fixedobstruction} neither follows
+from rarity and the group cross-ratios: for laws with only these
+properties the decay is at best stretched exponential, and across a
+component that is bad for every labelling they bound nothing.
+Lemma~\ref{lem:mobius} gives the mixed differences of every order in
+terms of the diameter; the rate $2\alpha_G$ needs them in terms of the
+length of the shortest joining tree (Remark~\ref{rem:fixedcopen}).
 Proposition~\ref{prop:hiddenbit} shows that no rarity bound replaces this
 comparison.
 \item \emph{The island threshold.} Theorem~\ref{thm:islandthreshold}
@@ -19423,8 +20106,14 @@ iterate.
 \end{enumerate}
 The covariance of item (ii) for a fixed coarse field and uniform in the
 exterior, with decay at the rate $2\alpha_G$ without a floor, is the
-single-scale part of (D) that remains open, its mean over the coarse field
-being bounded by Theorems~\ref{thm:labelcov} and~\ref{thm:fibrecov}, item (i) being settled for the
+single-scale part of (D) that remains open; its mean over the coarse
+field, and its value for the coarse fields of
+Proposition~\ref{prop:fixedgood}, are bounded by
+Theorems~\ref{thm:labelcov}, \ref{thm:fibrecov} and
+Corollary~\ref{cor:labelstretched}, and by
+Theorem~\ref{thm:fixedobstruction} the rest needs the mixed differences
+of $\log Z^c$ in tree form and the response of the law across a bad
+component; item (i) being settled for the
 chains of the bad blocks by Proposition~\ref{prop:linechain} and item (ii) given the labels
 of all islands by Theorem~\ref{thm:manyislands};
 item (iii) is settled by Theorem~\ref{thm:islandthreshold} at one scale
@@ -19440,7 +20129,22 @@ and reduces it to the trial states of Corollary~\ref{cor:trial}. Sec.~\ref{ssec:
 function by the plaquette energy, which is at most $(3.7148+0.149/\beta_W)
 /\beta_W$ for $\SU(2)$, and shows that this route gives the trial condition
 only where $a_k\beta_k$ stays bounded below, not along the one-loop tuning
-(Proposition~\ref{prop:lipobstruction}). Sec.~\ref{ssec:osaxioms} shows that, given (D) along the tuning, the
+(Proposition~\ref{prop:lipobstruction}). The same subsection shows that no
+set of upper bounds on correlations at physical separations, with constants
+not exponentially small in $1/a_k$, implies $(\mathrm N_u)$
+(Proposition~\ref{prop:upperbounds}); that trial states smeared in time over
+a physical interval, flowed Wilson loops among them, meet the first trial
+condition exactly when, up to the choice of the times, a ratio of their
+correlations at physical times is bounded below
+(Corollary~\ref{cor:smearedtrial}), which removes the lattice
+scale from the condition but leaves a lower bound at physical separations;
+and that a comparison with the Gaussian theory gives $(\mathrm N_u)$ from
+relative bounds at two physical separations, which a scale-by-scale argument
+along the one-loop tuning supplies only if its losses summed over the scales
+stay bounded, and not with a loss of first order in the running coupling at
+each scale (Proposition~\ref{prop:scalelosses}).
+This is the summability required in item~(iv), now for the ratio, and
+$(\mathrm N_u)$ is not proved here. Sec.~\ref{ssec:osaxioms} shows that, given (D) along the tuning, the
 Osterwalder--Schrader axioms for the spatially flowed fields, with the
 symmetry $\mathrm O(3)\times\mathrm O(1)$, follow from three statements, a
 moment bound (M), one spatial rotation (W) and one limit (U), each of
@@ -21496,6 +22200,11 @@ of View}, 2nd ed., Springer, New York, 1987,
 \bibitem{GKS89}
 L.~Gross, C.~King and A.~Sengupta, Two dimensional Yang--Mills theory via stochastic differential equations, Ann. Physics \textbf{194} (1989), 65--112, \href{https://doi.org/10.1016/0003-4916(89)90032-8}{doi:10.1016/0003-4916(89)90032-8}.
 
+\bibitem{GW73}
+D.~J.~Gross and F.~Wilczek, Ultraviolet behavior of non-Abelian gauge
+theories, Phys. Rev. Lett. \textbf{30} (1973), 1343--1346,
+\href{https://doi.org/10.1103/PhysRevLett.30.1343}{doi:10.1103/PhysRevLett.30.1343}.
+
 \bibitem{Gut80}
 A.~H.~Guth, Existence proof of a nonconfining phase in four-dimensional $\U(1)$ lattice gauge theory, Phys. Rev. D \textbf{21} (1980), 2291--2307, \href{https://doi.org/10.1103/PhysRevD.21.2291}{doi:10.1103/PhysRevD.21.2291}.
 
@@ -21633,6 +22342,11 @@ K.~Osterwalder and E.~Seiler, Gauge field theories on a lattice, Ann. Physics
 P.~Petersen, \emph{Riemannian Geometry}, 3rd ed., Graduate Texts in
 Mathematics \textbf{171}, Springer, Cham, 2016,
 \href{https://doi.org/10.1007/978-3-319-26654-1}{doi:10.1007/978-3-319-26654-1}.
+
+\bibitem{Pol73}
+H.~D.~Politzer, Reliable perturbative results for strong interactions?,
+Phys. Rev. Lett. \textbf{30} (1973), 1346--1349,
+\href{https://doi.org/10.1103/PhysRevLett.30.1346}{doi:10.1103/PhysRevLett.30.1346}.
 
 \bibitem{Pop35}
 T.~Popoviciu, Sur les \'equations alg\'ebriques ayant toutes leurs racines r\'eelles, Mathematica (Cluj) \textbf{9} (1935), 129--145.
