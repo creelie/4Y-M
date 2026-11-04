@@ -17097,8 +17097,9 @@ $4\log M<40.28$.
 \paragraph*{The large-field representation.}
 Write $s_y=1-r_y$. For $X\subset T$ let $X_1,\dots,X_n$ be its components
 for $\ell^\infty$ adjacency of blocks, so that distinct components are at
-$\ell^\infty$ distance at least two, and let $\partial^-X_i$ be the blocks
-$z\notin X$ with $z+e_\mu\in X_i$ for some $\mu$. By the definition of
+$\ell^\infty$ distance at least two. For a set $Y$ of blocks let
+$\partial^-Y$ be the set of blocks $z\notin Y$ with $z+e_\mu\in Y$ for
+some $\mu$; a block of $\partial^-X_i$ lies off $X$. By the definition of
 $\nu_c$,
 \[
 \nu_c(d\varXi)=\prod_yh(dI_y)\prod_{y,\mu}\nu^{y,\mu}_{c}(dP_{y,\mu}\mid
@@ -17107,18 +17108,84 @@ I_y,I_{y+e_\mu}),
 where $\nu^{y,\mu}_c$ is the measure of~\eqref{eq:densityformula} on the
 private links of the pair, of mass at most $M$.
 
+Let $\partial^=X$ be the set of blocks $w\notin
+X\cup\partial^-X$ with $w+e_\mu+e_\nu\in X$ for some $\mu\ne\nu$, and put
+$\hat X=X\cup\partial^-X\cup\partial^=X$. Let $\mathcal P_X$ be the set of
+pairs from $X$ together with the pairs $(z,\mu)$ with $z\notin X$ and
+$z+e_\mu\in X$, and let $\mathcal V_X$ be the links inside the blocks of
+$X$ together with the private links of the pairs of $\mathcal P_X$: these
+are the variables that the kernel of $X$ in Theorem~\ref{thm:lfmarkov}
+integrates.
+
+\begin{lemma}\label{lem:sfkernel}
+\begin{enumerate}[label=\textup{(\roman*)},leftmargin=*]
+\item The factors $f_y$ and $r_y$ are functions of $I_y$, of the
+$P_{y,\mu}$, and of $I_{y+e_\nu}$ and $P_{y+e_\nu,\mu}$ for $\mu\ne\nu$.
+The average $V^\sharp_{y,\mu}$ is a function of $P_{y,\mu}$, $I_y$ and
+$I_{y+e_\mu}$.
+\item The factor $f_w$ involves a link of $\mathcal V_X$ if and only if
+$w\in\hat X$.
+\item Let the components $X_i$ of $X$ be at $\ell^\infty$ distance at least
+two. Then $\hat X$ is the disjoint union of the $\hat X_i$, each block of
+$\hat X_i$ lies within $\ell^\infty$ distance one of $X_i$, and for $j\ne i$
+no factor $f_w$ or $r_w$ with $w\in\hat X_i$ involves a link of
+$\mathcal V_{X_j}$.
+\item Every plaquette that contains a link of $\mathcal V_X$ is owned by a
+block of $\hat X$ and has a vertex in a block of $X$. There are at most
+$216|X|$ such plaquettes, every plaquette of $\Pi(X)$ is one of them, and
+$|\mathcal P_X|\le8|X|$.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+(i) Let $p$ be the plaquette at $x\in B(y)$ in the plane $\{\mu,\nu\}$. By
+Lemma~\ref{lem:lfowned}(ii) its links are based in $B(y)$, $B(y+e_\mu)$ or
+$B(y+e_\nu)$. The one based in $B(y+e_\nu)$ is $(x+e_\nu,\mu)$, whose offset
+in the direction $\mu$ is that of $x$: it is a link inside $B(y+e_\nu)$
+or a tree link if $o_\mu=0$, and a private link of $(y+e_\nu,\mu)$ if
+$o_\mu=1$. The links based in $B(y)$ are inside $B(y)$ or private to pairs
+from $y$. The average is the mean over the paths $(x,\mu),(x+e_\mu,\mu)$,
+$x\in B(y)$, of Lemma~\ref{lem:blocktree}(iii). (ii) By (i), $f_w$ involves
+a variable of $\varXi_y$ with $y\in X$ if and only if $w=y$ or $w+e_\nu=y$,
+that is $w\in X\cup\partial^-X$. It involves a private link of a pair
+$(z,\mu)$ with $z\notin X$, $z+e_\mu\in X$ if and only if $w=z$ or
+$w=z-e_\nu$ with $\nu\ne\mu$; the first gives $w\in\partial^-X$ and the
+second $w+e_\mu+e_\nu\in X$. (iii) Every block of $\hat X_i$ has the form $x$, $x-e_\mu$ or $x-e_\mu
+-e_\nu$ with $x\in X_i$, so it lies within distance one of $X_i$, and a
+block of $\hat X_i\cap\hat X_j$ would give blocks of $X_i$ and $X_j$ at
+distance at most one. For the same reason a block of $\partial^-X_i$ or
+$\partial^=X_i$ lies in no $X_j$ and in no $\partial^-X_j$, so $\hat X=
+\bigcup_i\hat X_i$. By (ii) for $X_j$, a factor that involves a link of
+$\mathcal V_{X_j}$ belongs to a block of $\hat X_j$, which is not in
+$\hat X_i$. (iv)
+A link of $\mathcal V_X$ is based in a block of $X$, or is a private link
+$(x,\mu)$ of a pair $(z,\mu)$ with $z+e_\mu\in X$, which ends at $x+e_\mu\in
+B(z+e_\mu)$. The owner of a plaquette that contains it involves it, so it
+lies in $\hat X$ by (ii). Since $\mathcal V_X\subset\bigcup_{x\in X}\mathcal
+V_{\{x\}}$, the count is at most $|X|$ times that for one block, which an
+enumeration gives as $216$. There are $4|X|$ pairs from $X$, and
+$(z,\mu)\mapsto(z+e_\mu,\mu)$ is injective on the others. The plaquettes of
+$\Pi(X)$ contain an active link with base in a block of $X$, by
+Lemma~\ref{lem:lfowned}(ii).
+\end{proof}
+
+An exhaustive enumeration confirms (i), and confirms (ii)--(iv) for $300$
+random $\ell^\infty$-connected sets of up to seven blocks and for $300$
+random pairs of such sets at distance at least two.
+
 \begin{theorem}\label{thm:lfmarkov}
 Let $G=\SU(2)$ and $\kappa>0$.
 \begin{enumerate}[label=\textup{(\roman*)},leftmargin=*]
 \item For every $c$, $Z(c)=\sum_{X\subset T}Z_X(c)$ with
 \[
-Z_X(c)=\int\nu^{\rm out}_{c,X}(d\varXi)\prod_{y\notin X\cup\partial^-X}
-f_ys_y\prod_iK_{X_i}(c;\varXi).
+Z_X(c)=\int\nu^{\rm out}_{c,X}(d\varXi)\prod_{y\notin\hat X}
+f_ys_y\prod_iK_{X_i}(c;\varXi),
 \]
+with $\hat X=\bigcup_i\hat X_i$ as in Lemma~\ref{lem:sfkernel}.
 Here $\nu^{\rm out}_{c,X}$ is the product of the factors of $\nu_c$ for
 the links inside the blocks off $X$ and for the pairs with both blocks off
 $X$. The kernel $K_{X_i}$ is the integral of $\prod_{y\in X_i}f_yr_y
-\prod_{z\in\partial^-X_i}f_zs_z$ against the factors of $\nu_c$ for the
+\prod_{z\in\hat X_i\setminus X_i}f_zs_z$ against the factors of $\nu_c$ for the
 links inside $X_i$, the pairs from $X_i$ and the pairs $(z,\mu)$ with $z\in
 \partial^-X_i$ and $z+e_\mu\in X_i$. It depends on the integration variable
 of $\nu^{\rm out}_{c,X}$ only through the blocks at $\ell^\infty$ distance
@@ -17146,10 +17213,12 @@ and $Z(c)\ge N_\lambda^{|T|}e^{-8\lambda Q_1(c)}$ for $\lambda\ge100$.
 then apply Fubini to the nonnegative integrands. By
 Lemma~\ref{lem:lfowned}(iii), $f_y$ and $r_y$ involve $\varXi_y$ and
 $\varXi_{y+e_\mu}$, and $\nu^{y,\mu}_c$ involves $P_{y,\mu}$, $I_y$ and
-$I_{y+e_\mu}$. A factor or measure involving a variable of $X_i$ therefore
-belongs to a block of $X_i\cup\partial^-X_i$ or to a pair from it. Such a
-factor cannot involve a variable of $X_j$ for $j\ne i$, since $z+e_\mu\in
-X_i$ and $z+e_\nu\in X_j$ would put $X_i$ and $X_j$ at distance one.
+$I_{y+e_\mu}$. By Lemma~\ref{lem:sfkernel}(ii) and~(iii), the factors
+that involve a variable integrated by the kernel of $X_i$ are those of the
+blocks of $\hat X_i$, and none of them involves a variable integrated by
+the kernel of $X_j$, $j\ne i$. The measure of a pair into $X_i$ involves
+its private links and the inside links of its two blocks, and a pair is
+into or from at most one component.
 (ii) The measures in $K_{X_i}$ have mass at most $M$ for each of the
 $4|X_i|$ pairs from $X_i$ and the at most $4|X_i|$ pairs into it, and $h$
 is a probability. The integrand is at most $e^{-\lambda Q_{\Pi(X_i)}}$
@@ -17226,6 +17295,451 @@ small-field cluster expansion of item~(iv) of Sec.~\ref{ssec:remains}, and
 it must have the relative and local form required by
 Propositions~\ref{prop:formstability} and~\ref{prop:massgrowth} and
 Lemma~\ref{lem:schur}.
+
+\paragraph*{The small-field part.}
+The rest of this subsection treats the factor $\prod f_ys_y$. It proves
+three things. First, a kernel is at most $e^{-a_2|X|}$ times the
+calm weight of its region whenever the boundary values admit a completion
+that is calm at a smaller threshold $\kappa'$. Second, the large-field sum
+is exactly the calm weight times a mean, under the calm law, of products of
+these ratios, and the polymer sums of Theorem~\ref{thm:lfkp} bound it once
+the ratios are small. Third, the calm weight is not a product of local
+factors to within $e^{\pm o(\lambda)}$: to leading order in $\lambda$ its
+logarithm is $-\lambda$ times the Gaussian block-spin form, which couples
+coarse links at every distance. What remains open is stated at the end.
+
+\emph{The calm weight.} Fix $X\ne\emptyset$ and the outer variables of
+$K_X$. Let $\lambda_X$ be the measure of $K_X$, the product of $h$ on the
+links inside the blocks of $X$ and of the measures $\nu^k_c$ of the pairs
+$k\in\mathcal P_X$, of mass at most $M^{8|X|}$. The \emph{calm weight} is
+\[
+S_X=\int\prod_{y\in\hat X}f_ys_y\,d\lambda_X ,
+\]
+the integral of $K_X$ with $s_y$ in place of $r_y$ on $X$. A plaquette of
+$\Pi(\hat X)$ is \emph{moved} if it contains a link of $\mathcal V_X$ and
+\emph{fixed} otherwise; $Q^{\rm mov}_X$ and $Q^{\rm fix}_X$ are the sums of
+$\delta(U_p,I)^2$ over the moved and the fixed plaquettes, and $Q^{\rm fix}
+_X$ is a function of the outer variables. A \emph{completion} is a value of
+$\mathcal V_X$ at which the averages of the pairs of $\mathcal P_X$ equal
+$c$. Put
+\begin{multline*}
+c_2(\lambda,\eta)=24\log1.957+73\log14\\
++109.5\bigl(1+\log(15979(1+\eta^{-1})\lambda)\bigr).
+\end{multline*}
+
+\begin{theorem}\label{thm:sfcalm}
+Let $G=\SU(2)$, $0<\kappa'<\kappa$, $\eta>0$, and $\lambda\ge100$ with
+$\lambda(\kappa-\kappa')^2\ge1$. Suppose that the fixed plaquettes of
+$\Pi(\hat X)$ are at most $\kappa$, which holds whenever $K_X>0$, and that
+there is a completion $U^0$ with
+\begin{enumerate}[label=\textup{(\alph*)},leftmargin=*]
+\item $\delta(v_x,I)\le\frac14$ at every site of every pair of $\mathcal
+P_X$;
+\item $\delta(U^0_p,I)\le\kappa'$ for every moved plaquette.
+\end{enumerate}
+Then
+\[
+S_X\ge e^{-c_2(\lambda,\eta)|X|}e^{-\lambda Q^{\rm fix}_X}e^{-(1+\eta)
+\lambda Q^{\rm mov}_X(U^0)},
+\]
+and
+\begin{multline*}
+\frac{K_X}{S_X}\le\exp\Bigl(-\bigl(\lambda\kappa^2-8\log M-c_2(\lambda,\eta)
+\bigr)|X|\\
++(1+\eta)\lambda Q^{\rm mov}_X(U^0)\Bigr)\le e^{-a_2|X|},
+\end{multline*}
+where $a_2(\lambda,\kappa)=\lambda\kappa^2\bigl(1-216(1+\eta)\kappa'^2/
+\kappa^2\bigr)-8\log M-c_2(\lambda,\eta)$.
+\end{theorem}
+
+\begin{proof}
+Let $\rho^2=1/(15978.08(1+\eta^{-1})\lambda)$. Then $\rho\le7.92\cdot
+10^{-4}$, and $90\rho\le0.712\lambda^{-1/2}<\kappa-\kappa'$. Let $L'$ be the
+links of $\mathcal V_X$ other than the path links of the pairs of
+$\mathcal P_X$, $17|X|+7|\mathcal P_X|\le73|X|$ in number, and $D$ the set
+of $z\in G^{L'}$ with $d(z_e,U^0_e)\le\rho$ for every $e\in L'$. For $z\in
+D$ and a pair $k$, each site $v_x$ of $k$ is $\ell^{-1}$ times a product
+of at most two links of $L'$ and outer links, $\ell$ the path link. As in
+the proof of Proposition~\ref{prop:calmfibre}, with $R=44\rho$ the sites lie
+within $46\rho<0.043$ of their values at $U^0$, so $\delta(v_x,I)<\frac12$
+by (a), the cut-off equals one, and the contraction argument of that proof
+solves each path link in the ball of radius $R$ about its value at $U^0$.
+This gives an injective map $\Gamma$ from $D$ into the completions, near
+whose image the averages are smooth with $\lvert\det\partial_{d_k}V^\sharp
+_k\rvert\le1.957^3$. The coarea form of $\nu^k_c$ stated
+after~\eqref{eq:fibrevolume}, applied to each pair of $\mathcal P_X$ with
+the inside links of its blocks given, shows that $\lambda_X$ restricted to
+$\Gamma(D)$ is the image of $h^{\otimes L'}$ on $D$ divided by
+$\prod_k\lvert\det\partial_{d_k}V^\sharp_k\rvert$. Hence
+\[
+\lambda_X\bigl(\Gamma(D)\bigr)\ge1.957^{-3|\mathcal P_X|}\Bigl(\frac{\rho^3}
+{14}\Bigr)^{|L'|}\ge1.957^{-24|X|}\Bigl(\frac{\rho^3}{14}\Bigr)^{73|X|}.
+\]
+A plaquette has at most two path links, so on $\Gamma(D)$ each moved
+plaquette moves by at most $90\rho$, as in that proof, and stays at most
+$\kappa'+90\rho<\kappa$; the fixed ones are at most $\kappa$. Every block of
+$\hat X$ is therefore calm on $\Gamma(D)$, and by
+Lemma~\ref{lem:sfkernel}(iv),
+\[
+Q^{\rm mov}_X\le(1+\eta)Q^{\rm mov}_X(U^0)+(1+\eta^{-1})\,8100\rho^2\cdot
+216|X| .
+\]
+So $S_X\ge e^{-g|X|}e^{-\lambda Q^{\rm fix}_X}e^{-(1+\eta)\lambda Q^{\rm
+mov}_X(U^0)}$ with $g=24\log1.957+73\log14+219\log\rho^{-1}+(1+\eta^{-1})
+1749600\lambda\rho^2$. With the chosen $\rho$ the last term is $109.5$
+and $g\le c_2(\lambda,\eta)$, as $2\cdot216\cdot8100/219<15978.09$.
+
+The integrand of $K_X$ is at most $e^{-\lambda Q^{\rm fix}_X}e^{-\lambda
+Q^{\rm mov}_X}$ and vanishes unless every block of $X$ is rough. Then each
+block of $X$ owns a plaquette above $\kappa$, these are distinct, and they
+are moved by Lemma~\ref{lem:sfkernel}(iv), so $Q^{\rm mov}_X>\kappa^2|X|$.
+With $\lambda_X$ of mass at most $M^{8|X|}$, $K_X\le M^{8|X|}e^{-\lambda
+Q^{\rm fix}_X}e^{-\lambda\kappa^2|X|}$. Dividing gives the first bound, and
+(b) with Lemma~\ref{lem:sfkernel}(iv) gives $Q^{\rm mov}_X(U^0)\le216
+\kappa'^2|X|$.
+\end{proof}
+
+So the calm weight with given boundary values is at least $e^{-c_2}$ per
+block, times the Gaussian factor of the completion, whenever the
+boundary values admit a completion calm at $\kappa'$; the constant $c_2$
+takes the place of $c_1$ because $K_X$ integrates up to $73$ rather than
+$45$ links per block. With $\kappa'=\kappa/30$ and $\eta=1$,
+$a_2=0.52\lambda\kappa^2-8\log M-c_2(\lambda,1)$, and $a_2\ge9$, the rate
+that Theorem~\ref{thm:lfkp} needs, holds for $\lambda\ge\lambda^{**}(\kappa)$,
+with $\beta^{**}=4\lambda^{**}$ enclosed in interval arithmetic as in
+Theorem~\ref{thm:lfkp}(ii):
+\begin{center}
+\begin{tabular}{lll}
+\hline
+$\kappa$ & $\beta^{**}\le$ & $\lambda^{**}\kappa^2\le$\\
+\hline
+$0.08$ & $3.66191\cdot10^{6}$ & $5859.06$\\
+$10^{-2}$ & $2.70604\cdot10^{8}$ & $6765.10$\\
+$10^{-4}$ & $3.50359\cdot10^{12}$ & $8758.98$\\
+$10^{-8}$ & $5.08658\cdot10^{20}$ & $12716.45$\\
+\hline
+\end{tabular}
+\end{center}
+At these couplings $\rho\le(\kappa-\kappa')/90$ and $\rho\le7.92\cdot10^{-4}$.
+The same construction bounds the calm weight of the whole torus.
+
+\begin{corollary}\label{cor:sfcoarse}
+Let $G=\SU(2)$, $0<\kappa'<\kappa<\kappa_c$, $\eta>0$ and $\lambda\ge100$
+with $\lambda(\kappa-\kappa')^2\ge1$, and let $Z_\emptyset(c)=\nu_c(\prod_y
+f_ys_y)$ be the calm weight of $c$. If $\delta(c_P,I)\le\kappa'$ for every
+coarse plaquette, then
+\[
+Z_\emptyset(c)\ge e^{-c_1(\lambda,\eta)|T|}e^{-4(1+\eta)\lambda Q_1(c)},
+\]
+in particular $Z_\emptyset(c)\ge N_\lambda^{|T|}e^{-8\lambda Q_1(c)}$. If
+$\delta(c_P,I)>16.003\kappa$ for some $P$, then $Z_\emptyset(c)=0$.
+\end{corollary}
+
+\begin{proof}
+The plaquettes of the regular field $R(c)$ are the $c_P$ and $I$. In the
+proof of Theorem~\ref{thm:lfaction}(ii) with $U=R(c)$, $\rho\le(11520
+\lambda)^{-1/2}$, so the plaquettes move by at most $90\rho<\kappa-\kappa'$
+on $\Gamma(D)$, every block is calm there, and the bound of that proof holds
+for $Z_\emptyset$. If $\delta(c_P,I)>16.003\kappa$, every field of $F_c$
+has a plaquette above $\kappa$ by Lemma~\ref{lem:lfcoarseenergy}, so
+$\prod_ys_y=0$ on $F_c$.
+\end{proof}
+
+So the class of coarse fields for which the calm weight can serve as a
+reference lies between the fields with all coarse plaquettes at most
+$\kappa'$ and those with all at most $16.003\kappa$. For $Z_\emptyset(c)>0$
+let $\mu^\circ_c=Z_\emptyset(c)^{-1}\prod_yf_ys_y\,\nu_c$ be the calm law,
+and for each $X$ and each value of its outer variables with $S_X>0$ let
+$\rho_X=K_X/S_X$.
+
+\begin{proposition}\label{prop:sfrelative}
+Let $G=\SU(2)$, $\kappa>0$ and $Z_\emptyset(c)>0$.
+\begin{enumerate}[label=\textup{(\roman*)},leftmargin=*]
+\item $Z(c)=Z_\emptyset(c)\,\varXi(c)+Z_\perp(c)$, where
+\[
+\varXi(c)=\sum_{X\subset T}\E_{\mu^\circ_c}\Bigl[\prod_i\rho_{X_i}\Bigr],
+\]
+the $X_i$ being the components of $X$, $\rho_{X_i}$ is defined
+$\mu^\circ_c$-almost surely, and $Z_\perp(c)\ge0$ is the sum over $X$ of
+the integrals of Theorem~\ref{thm:lfmarkov}(i), in the form of
+Lemma~\ref{lem:sfkernel}(iii), restricted to the outer variables at which
+some $S_{X_i}$ vanishes.
+\item Suppose that for every nonempty $\ell^\infty$-connected $X$,
+$\rho_X\le e^{-9|X|}$ holds $\mu^\circ_c$-almost surely. Then $\varXi(c)=
+\E_{\mu^\circ_c}[e^{\varLambda}]$, where $\varLambda$ is the sum of the
+connected clusters of the activities $\rho_X$ given by
+Theorem~\ref{thm:lfkp}(i). Each cluster depends on the field only within
+distance one of its support, the clusters incompatible with a given block
+add up to at most $1/10$, $0\le\varLambda\le|T|/10$, and
+\[
+A_1(c)=-\log Z_\emptyset(c)-\log\E_{\mu^\circ_c}\bigl[e^{\varLambda}\bigr]
+-\log\Bigl(1+\frac{Z_\perp(c)}{Z_\emptyset(c)\varXi(c)}\Bigr),
+\]
+with $0\le\log\E_{\mu^\circ_c}[e^{\varLambda}]\le|T|/10$.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+(i) Fix $X$. The integrand $\prod_yf_ys_y$ of $Z_\emptyset$ factorises as
+the integrand of $Z_X$ does in Lemma~\ref{lem:sfkernel}(iii), with
+$s_y$ in place of $r_y$ on $X$, so by Fubini the law of the outer variables
+of $X$ under $\mu^\circ_c$ is $Z_\emptyset^{-1}\varPhi_X\prod_iS_{X_i}\,
+\nu^{\rm out}_{c,X}$, with $\varPhi_X$ the outer product. This law gives no
+mass to $\{S_{X_i}=0\}$, and
+\[
+Z_X=\int\nu^{\rm out}_{c,X}\varPhi_X\prod_iK_{X_i}\bigl(\mathbf 1\{\text
+{all }S_{X_i}>0\}+\mathbf 1\{\text{some }S_{X_i}=0\}\bigr).
+\]
+The first part is $Z_\emptyset\,\E_{\mu^\circ_c}[\prod_i\rho_{X_i}]$; sum
+over $X$. (ii) For a field $U$ let $\rho_X(U)$ be $\rho_X$ at the outer
+variables of $X$ in $U$. On a set of full $\mu^\circ_c$-measure all these
+finitely many values are at most $e^{-9|X|}$, and there
+$\sum_X\prod_i\rho_{X_i}(U)=e^{\varLambda(U)}$ by Theorem~\ref{thm:lfkp}(i),
+with the stated bounds; $\varLambda\ge0$ because the sum contains the
+empty family and $\rho\ge0$. The mean of $\prod_i\rho_{X_i}$ is the same
+whether taken on the outer variables of $X$ or on the field, which gives
+$\varXi=\E[e^\varLambda]$, and $A_1=-\log Z$.
+\end{proof}
+
+Theorem~\ref{thm:sfcalm} gives the hypothesis of (ii) at every field $U$
+that is regular near $X$ and whose moved plaquettes are at most $\kappa'=
+\kappa/30$, with $U$ itself as the completion. It does not give it at the
+calm fields with a plaquette near $X$ between $\kappa'$ and $\kappa$, and
+it says nothing about $Z_\perp$.
+
+\begin{remark}\label{rem:sfshell}
+The comparison of $K_X$ with $S_X$ needs a margin between the threshold of
+the boundary values and that of the kernel, because a completion must stay
+calm when it is moved by $90\rho$ and because its energy $Q^{\rm mov}_X$
+must be small against $\kappa^2|X|$. For a calm field with plaquettes
+near $X$ in the shell $(\kappa',\kappa]$, the moved energy of every
+completion can be of order $216\kappa^2|X|$, and then the bound of
+Theorem~\ref{thm:sfcalm} on $K_X/S_X$ exceeds one. Putting the blocks of
+the shell into the large-field region removes them from the calm law, but
+their kernels then carry only $e^{-\lambda\kappa'^2}$, and the comparison
+moves to a smaller threshold $\kappa''<\kappa'$ with a new shell
+$(\kappa'',\kappa']$. A bound on the calm law of the shell, uniform in $c$
+and in the exterior, would end this regress; it is not proved.
+\end{remark}
+
+\begin{remark}\label{rem:sfscale}
+The decoupling of $\log\E_{\mu^\circ_c}[e^\varLambda]$ in $c$ and the
+bound on the shell both ask for decorrelation of the calm law. Its
+structure is as follows. By Lemma~\ref{lem:sfkernel}(i), $\nu_c$ is
+$\prod_yh(dI_y)$ times the pair kernels $\nu^{y,\mu}_c(dP_{y,\mu}\mid I_y,
+I_{y+e_\mu})$, each supported on $\{V^\sharp_{y,\mu}=c_{y,\mu}\}$ with mass
+the density of Lemma~\ref{lem:averagedensity} at $c_{y,\mu}$, a function of
+$I_y$ and $I_{y+e_\mu}$. So $\mu^\circ_c$ is a Gibbs measure for the
+variables $\varXi_y$ of the blocks, with the factors $f_ys_y$, which by
+Lemma~\ref{lem:sfkernel}(i) couple $\varXi_y$ to $\varXi_{y+e_\nu}$, and the
+pair kernels, which couple $I_y$ to $I_{y+e_\mu}$; all couplings have range
+one. Large $\lambda$ does not make this a high-temperature system. In the
+linearised law, the Gaussian measure proportional to $e^{-\lambda
+Q(\varphi)}$ on an affine fibre $\{V(\varphi)=\gamma\}$ of real fields, the
+conditional law of the variables of one block given the others is
+Gaussian with a mean that is an affine function of the others independent
+of $\lambda$, and a covariance equal to $\lambda^{-1}$ times a matrix
+independent of $\lambda$. Hence the interdependence coefficients of
+Dobrushin's condition for the Wasserstein distance, which for Gaussian laws
+with equal covariances are the norms of the derivatives of these means,
+do not depend on $\lambda$. Theorem~\ref{thm:chartdecay}(iii) has the same
+scaling: for functions $\lambda g_1$ and $\lambda g_2$ with $g_1$, $g_2$ as
+there, it gives $c_9\lambda|X_1||X_2|e^{-\alpha_Gd(X_1,X_2)}$, which is
+below one only for $d(X_1,X_2)\ge\alpha_G^{-1}\log(c_9\lambda|X_1||X_2|)$;
+the logarithm of a calm weight is of this form to leading order, by
+Theorem~\ref{thm:sfgauss} below. The input that (ii) of
+Proposition~\ref{prop:sfrelative} needs for locality in $c$ is the decay of
+the truncated correlations of all orders of the cluster terms of
+$\varLambda$ under $\mu^\circ_c$, for every $c$ in the class of
+Corollary~\ref{cor:sfcoarse}, the analogue for the calm law of the
+differences of order three and more in Remark~\ref{rem:labelcovopen}.
+Theorem~\ref{thm:chartdecay}, \eqref{eq:layerbound} and
+Theorem~\ref{thm:layerbound} give covariances of order two only.
+\end{remark}
+
+\emph{The Gaussian part of the calm weight.} Let $W$ be a finite set of
+blocks and fix every link off $A_W$ to $I$. With the notation of
+Sec.~\ref{ssec:largefields}, let $F_c$ be the fibre of $c=(c_k)_{k\in
+W\times\{0,\dots,3\}}$, $\nu_c$ its measure, $Q_W$ the sum over the $n_P$
+plaquettes that contain a link of $A_W$, and
+\[
+Z^\circ_W(c)=\int\prod_p\mathbf 1\{\delta(U_p,I)\le\kappa\}\,e^{-\lambda
+Q_W}\,d\nu_c ,
+\]
+the product over the same $n_P$ plaquettes, the calm weight of $W$. For
+real $\gamma\in\R^{W\times\{0,\dots,3\}}$ let
+\[
+q_W(\gamma)=\min\Bigl\{\sum_p(d\varphi)_p^2:\varphi\in\R^{A_W},\ V_k
+(\varphi)=\gamma_k\ \text{for all }k\Bigr\},
+\]
+with $\varphi=0$ off $A_W$ and $V_k$ the linear average of
+Definition~\ref{def:blockgauge}. The constraints are onto, since the path
+link of $k$ enters $V_k$ alone, with coefficient $\frac18$, and
+Theorem~\ref{thm:blockgap} makes $\sum_p(d\varphi)_p^2$ positive definite on
+$\{V(\varphi)=0\}$, so $q_W(\gamma)=\gamma^{\rm T}M_W\gamma$ for a positive
+semidefinite matrix $M_W$. For $\g$-valued $w$, $\sum_aq_W(w^a)$ over the
+components in an orthonormal basis of $\g$ is the form $S_W$ of
+Sec.~\ref{ssec:relstep}, the minimum of the fine Hessian at given averages,
+when $W$ is a box.
+
+\begin{theorem}\label{thm:sfgauss}
+Let $G=\SU(2)$, $\kappa>0$, $W=\{0,e_0,2e_0,3e_0\}$, $A=(0,1)$ and
+$B=(3e_0,1)$, $\tau\in\g$ with $\lVert\tau\rVert=1$, and for $\varepsilon>0$
+and $s,t\in\{0,1\}$ let $c^{st}_\varepsilon$ equal $e^{\varepsilon s\tau}$
+on $A$, $e^{\varepsilon t\tau}$ on $B$ and $I$ on the other coarse links of
+$W$. Write $\Delta F=\sum_{s,t}(-1)^{s+t}F(c^{st}_\varepsilon)$.
+\begin{enumerate}[label=\textup{(\roman*)},leftmargin=*]
+\item $(M_W)_{AB}=-0.035264626\ldots$, a rational number computed exactly.
+\item There is $\varepsilon_0>0$ such that for $0<\varepsilon\le
+\varepsilon_0$
+\[
+\liminf_{\lambda\to\infty}\frac1\lambda\bigl\lvert\Delta\log Z^\circ_W
+\bigr\rvert\ge\varepsilon^2\lvert(M_W)_{AB}\rvert .
+\]
+\item For such $\varepsilon$ there is $\lambda_0$ such that for $\lambda\ge
+\lambda_0$ and every family of real functions $\phi_j$ on $G^{W\times
+\{0,\dots,3\}}$, each of which does not depend on $c_A$ or does not depend
+on $c_B$,
+\[
+\max_{s,t}\Bigl\lvert\log Z^\circ_W(c^{st}_\varepsilon)-\sum_j\phi_j
+(c^{st}_\varepsilon)\Bigr\rvert\ge\frac{\lambda\varepsilon^2\lvert(M_W)_{AB}
+\rvert}{5}.
+\]
+In particular, if $\lambda>\max\{\lambda_0,2/(\varepsilon^2|(M_W)_{AB}|)\}$,
+then at these four coarse fields $Z^\circ_W$ is not of the form
+\[
+\prod_{y\in W}\phi_y(c)\sum\prod_iw(X_i),
+\]
+with $\phi_y>0$ a function of the $c_{y',\mu}$
+with $\ell^\infty(y',y)\le1$ and activities $|w(X)|\le e^{-9|X|}$ on the
+connected subsets of $W$, compatible as in Theorem~\ref{thm:lfkp}.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+(i) The minimiser of $q_W(\gamma)$ solves the linear system of its
+Lagrange conditions, which has $196$ unknowns, $16$ multipliers and the
+$605$ plaquettes, and $(M_W)_{AB}=\varphi_A^{\rm T}G\varphi_B$ with
+$\varphi_k$ the minimiser for $\gamma=e_k$ and $G$ the matrix of
+$\sum_p(d\varphi)_p^2$. It is solved in rational arithmetic.
+
+(ii) All constants $C$ below depend on $W$ only. \emph{Two-sided bounds.}
+Since $\nu_c(F_c)\le M^{4|W|}$, $Z^\circ_W(c)\le M^{16}e^{-\lambda
+q(c)}$ with $q(c)=\inf_{F_c}Q_W$. If $U\in F_c$ is regular with all $n_P$
+plaquettes at most $\kappa-90\rho$, $\rho\le9.32\cdot10^{-4}$, the
+construction of the proof of Proposition~\ref{prop:everyfibre} gives
+\[
+Z^\circ_W(c)\ge1.957^{-48}\Bigl(\frac{\rho^3}{14}\Bigr)^{180}e^{-\lambda
+((1+\eta)Q_W(U)+(1+\eta^{-1})8100\rho^2n_P)} .
+\]
+Take $\eta=\lambda^{-1/2}$ and $\rho=\lambda^{-1}$. Then
+\[
+q(c)\le\liminf_{\lambda\to\infty}\frac{-\log Z^\circ_W(c)}\lambda\le
+\limsup_{\lambda\to\infty}\frac{-\log Z^\circ_W(c)}\lambda\le Q_W(U).
+\]
+\emph{Expansion of $q$.} Write fields near $I$ as $U=e^X$, $X\in\g^{A_W}$,
+$|X|=\max_e\lVert X_e\rVert$, and let $\gamma^{st}=(s\,\delta_{kA}+t\,
+\delta_{kB})_k\tau$, so that $c^{st}_\varepsilon=e^{\varepsilon\gamma^{st}}$
+and the form $q^{\rm lin}(\gamma)=\sum_aq_W(\gamma^a)$ has $q^{\rm lin}
+(\gamma^{st})=s(M_W)_{AA}+2st(M_W)_{AB}+t(M_W)_{BB}$. Near $I$ every cut-off
+equals one and $V^\sharp$ and $Q_W$ are real analytic. By the formula for
+the derivative in Lemma~\ref{lem:smallframes}(iv) at $U=I$, and by the
+Baker--Campbell--Hausdorff formula with $\delta(e^Y,I)^2=\lVert Y\rVert^2+
+O(\lVert Y\rVert^4)$,
+\[
+\log V^\sharp_k(e^X)=V_k(X)+O(|X|^2),
+\]
+\[
+Q_W(e^X)=\sum_p\lVert(dX)_p\rVert^2+O(|X|^3).
+\]
+The path link $d_k$ enters $V^\sharp_k$ alone, with derivative $\frac18$
+at $I$, so the implicit function theorem solves $V^\sharp(e^X)=c$ for the
+path links near $I$. \emph{Upper bound.} Let $X^*$ be the minimiser of
+$q^{\rm lin}(\varepsilon\gamma^{st})$, $|X^*|\le C\varepsilon$, and change
+its path links by $O(\varepsilon^2)$ so that $U_\varepsilon=e^X\in F_c$,
+$c=c^{st}_\varepsilon$. Then $Q_W(U_\varepsilon)\le\varepsilon^2q^{\rm lin}
+(\gamma^{st})+C\varepsilon^3$, $U_\varepsilon$ is regular, and its
+plaquettes are at most $C\varepsilon$. \emph{Lower bound.} Let $U\in F_c$
+with $Q_W(U)\le q(c)+\varepsilon^3\le C\varepsilon^2$. Every plaquette with
+a vertex in a block of $W^+$ is one of the $n_P$, at most $C\varepsilon$, or
+consists of links off $A_W$ and equals $I$. For $\varepsilon$ small
+Lemma~\ref{lem:smallframes}(i) puts the active links inside the blocks
+within $C\varepsilon$ of $I$ and the links leaving $B(y)$ in the direction
+$\mu$ within $C\varepsilon$ of the path link $v$, and by (iv) of that
+lemma $c_k=ve^{N}$ with $\lVert N\rVert\le C\varepsilon$, so $v$ is within
+$C\varepsilon$ of $I$. By Lemma~\ref{lem:logbound}, $U=e^X$ with $|X|\le
+C\varepsilon$. Then $V(X)=\varepsilon\gamma^{st}+R$ with $|R|\le C
+\varepsilon^2$, and since $q^{\rm lin}(a+b)\ge q^{\rm lin}(a)+2\langle a,
+(M_W\otimes1)b\rangle$,
+\[
+Q_W(U)\ge q^{\rm lin}(\varepsilon\gamma^{st}+R)-C\varepsilon^3\ge
+\varepsilon^2q^{\rm lin}(\gamma^{st})-C\varepsilon^3 .
+\]
+So $|q(c^{st}_\varepsilon)-\varepsilon^2q^{\rm lin}(\gamma^{st})|\le C
+\varepsilon^3$, and for $\varepsilon\le\varepsilon_1$, where $\varepsilon_1$ depends on
+$\kappa$ and $W$, the field $U_\varepsilon$ is admissible in the two-sided
+bound.
+Hence every limit point of $-\lambda^{-1}\Delta\log Z^\circ_W$ lies within
+$4C\varepsilon^3$ of $\Delta(\varepsilon^2q^{\rm lin})=2\varepsilon^2(M_W)
+_{AB}$, and $\varepsilon_0=\min\{\varepsilon_1,|(M_W)_{AB}|/(4C)\}$ gives
+(ii).
+
+(iii) $\Delta\phi_j=0$ for every $j$, since a function that does not depend
+on $c_A$ takes the same value at $c^{1t}$ and $c^{0t}$, and likewise for
+$c_B$. So $\lvert\Delta\log Z^\circ_W\rvert=\lvert\Delta E\rvert\le4\max
+\lvert E\rvert$ for the difference $E$, and by (ii) $\lvert\Delta\log
+Z^\circ_W\rvert\ge\frac45\lambda\varepsilon^2|(M_W)_{AB}|$ for $\lambda\ge
+\lambda_0$. A factor $\phi_y$ that depends on $c_A$ and on $c_B$ would have
+$\ell^\infty(y,0)\le1$ and $\ell^\infty(y,3e_0)\le1$, which is impossible.
+The proof of Theorem~\ref{thm:lfkp}(i) applies to the connected subsets of
+$W$ and bounds the logarithm of the polymer sum by $|W|/10$ in modulus;
+$Z^\circ_W>0$ by the lower bound. A representation of this form would
+therefore give $\lambda\varepsilon^2|(M_W)_{AB}|/5\le2/5$, that is,
+$\lambda\le2/(\varepsilon^2|(M_W)_{AB}|)$.
+\end{proof}
+
+The coupling decays with the length of the row but does not vanish. For
+the rows $W_n=\{0,\dots,(n-1)e_0\}$ and the end links $A=(0,1)$, $B=((n-1)
+e_0,1)$, the same exact computation gives $(M_{W_n})_{AA}=20.0796\ldots$
+for $n\ge4$ and
+\begin{center}
+\begin{tabular}{lllllll}
+\hline
+$n$ & $2$ & $3$ & $4$ & $5$ & $6$ & $7$\\
+\hline
+$10^{n-2}(M_{W_n})_{AB}$ & $-3.32$ & $3.35$ & $-3.53$ & $3.88$
+& $-4.47$ & $5.40$\\
+\hline
+\end{tabular}
+\end{center}
+a factor between $8$ and $10$ per block. By the argument of
+Theorem~\ref{thm:sfgauss}, a product of factors of finite range $r$
+reproduces the calm weight of $W_n$, $n-1>2r$, only up to an error of
+order $\lambda\varepsilon^2|(M_{W_n})_{AB}|$. To leading order in
+$\lambda$ the calm weight is $e^{-\lambda q}$ with $q$ the Gaussian
+block-spin form, whose kernel decays at a rate independent of $\lambda$
+with amplitude proportional to $\lambda$. A local expansion of the
+small-field part therefore has to keep this form and expand around it, as
+the Gaussian small-field expansion of Ba{\l}aban does; a product of
+factors of range one times a polymer sum with activities $e^{-9|X|}$,
+which is the form (H1) below asks for, fails for the calm weight of $W$
+at every $\lambda>\max\{\lambda_0,2/(\varepsilon^2|(M_W)_{AB}|)\}$, by
+Theorem~\ref{thm:sfgauss}(iii).
+
+So the small-field part of one step stands as follows. The kernels are
+local, with the second layer $\partial^=X$ (Lemma~\ref{lem:sfkernel}). The calm weight of a region with boundary
+values is at least $e^{-c_2}$ per block times the Gaussian factor of a
+completion calm at $\kappa'$, and the relative activity is then at most
+$e^{-a_2|X|}$ (Theorem~\ref{thm:sfcalm}). The large-field sum is exactly
+$Z_\emptyset\varXi+Z_\perp$, and under the uniform bound on the relative
+activities the large fields change $A_1$ by at most $|T|/10$
+(Proposition~\ref{prop:sfrelative}). Not proved are that bound at calm
+fields with plaquettes in the shell $(\kappa',\kappa]$
+(Remark~\ref{rem:sfshell}), a bound on $Z_\perp$, and the locality of
+$-\log Z_\emptyset(c)$ and of $\log\E_{\mu^\circ_c}[e^\varLambda]$ in $c$.
+For the first of these the form of the answer is fixed by
+Theorem~\ref{thm:sfgauss}: it is a Gaussian form with a nonlocal kernel of
+amplitude $\lambda$, and no product of local factors.
 
 \paragraph*{The next step.}
 To repeat the step at the coarse scale with constants $(\lambda_1,
@@ -17392,10 +17906,17 @@ not proved, and a relative bound on values gives no Hessian bound at curved
 backgrounds (Remark~\ref{rem:valueshessians}). Sec.~\ref{ssec:lfstep} carries out the large-field
 part of one step for $\SU(2)$: each rough block costs $e^{-\lambda\kappa^2}$,
 the weight of a coarse field is an exact sum over large-field regions, and
-Theorem~\ref{thm:lfkp} sums the regions once the small-field part is local
-with calm weight at least $N_\lambda$ per block, which is not proved; the
-coarse action is comparable to $\lambda$ times the coarse curvature only up
-to the factor $C_*$, so the step does not iterate.
+the large-field sum is the calm weight times the mean of a polymer sum
+under the calm law (Proposition~\ref{prop:sfrelative}), whose activities are
+at most $e^{-9}$ per block wherever the boundary values admit a completion
+calm at $\kappa/30$ (Theorem~\ref{thm:sfcalm}). Not proved are that bound
+at calm fields with plaquettes in the shell $(\kappa/30,\kappa]$, a bound
+on the term $Z_\perp$, and the locality of the calm weight in $c$; by
+Theorem~\ref{thm:sfgauss} the calm weight is not a product of local factors
+times a polymer sum, so a local form has to expand around the Gaussian
+block-spin form. The coarse action is comparable to $\lambda$ times the
+coarse curvature only up to the factor $C_*$, so the step does not
+iterate.
 \end{enumerate}
 The covariance of item (ii) for a fixed coarse field and uniform in the
 exterior, with decay at the rate $2\alpha_G$ without a floor, is the
