@@ -8,7 +8,8 @@ measure (Theorem thm:bpdescent, green arrows) and climbs one scale under the
 split inequality S (Theorem thm:bpup, gold arrows). (b) the measures on the
 fine lattice: Haar refinements satisfy S (Theorem thm:bprefine), the Wilson
 measures at beta != 0 are not Haar refinements (Proposition
-prop:bpnotrefine), so for them S is an input.
+prop:bpnotrefine); for them S holds at strong coupling
+(Theorem thm:bpsplitstrong) and is an input at weak coupling.
 
 fig_limitlogic: the conditions on the lattice fields and what they give in
 the limit, in three layers: inputs on reflected norms of packets (bottom),
@@ -81,9 +82,10 @@ def fig_bptower():
     bx.text(3.1, 4.8, 'at every scale', ha='center', fontsize=8, color=GREEN)
     wil = FancyBboxPatch((5.6, 1.4), 3.6, 3.0, boxstyle='round,pad=0.1', fc='#fbeaea', ec=RED, lw=1.4)
     bx.add_patch(wil)
-    bx.text(7.4, 3.5, r'Wilson, $\beta\neq0$', ha='center', fontsize=9, color=RED)
-    bx.text(7.4, 2.5, 'not a refinement;', ha='center', fontsize=8, color=RED)
-    bx.text(7.4, 1.9, 'S open', ha='center', fontsize=8, color=RED)
+    bx.text(7.4, 3.7, r'Wilson, $\beta\neq0$', ha='center', fontsize=9, color=RED)
+    bx.text(7.4, 3.0, 'not a refinement;', ha='center', fontsize=8, color=RED)
+    bx.text(7.4, 2.4, 'S at strong coupling,', ha='center', fontsize=8, color=RED)
+    bx.text(7.4, 1.8, 'open at weak', ha='center', fontsize=8, color=RED)
     bx.plot([1.6], [2.2], 'o', color=BLUE, ms=6)
     bx.text(2.0, 2.05, r'Haar, $\beta=0$', fontsize=8.5, color=BLUE)
     bx.annotate('', xy=(2.0, 4.25), xytext=(1.7, 2.5), arrowprops=dict(arrowstyle='->', color=BLUE, lw=1.0))
