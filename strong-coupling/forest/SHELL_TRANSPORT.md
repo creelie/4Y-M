@@ -78,5 +78,5 @@ finite-intersection rarity alone (`ENVIRONMENT_OBSTRUCTION.md`: hidden-bit count
 1. Compute the constant in ω and write the bulk bound with explicit constants.
 2. Write the stratified Gauss–Green lemma (or cite a version for semialgebraic/subanalytic stratifications).
 3. The only live route to decay: replace the supremum over exteriors in the cube coefficient by a torus
-   polymer expansion of large-field regions (averaged (R1)); test numerically on small SU(2) blocks whether the reweighted displacement on
-   {m ≥ ρ_G/2} stays O(1) uniformly in exterior data (CPU job, multi-seed, within the 96-CPU budget).
+   polymer expansion of large-field regions (averaged (R1)). This is research-scale (a one-scale Dimock-style large-field expansion for the
+   block variables), not a refinement; numerics at the required β_W ≳ 10⁶⁴ are not informative.
