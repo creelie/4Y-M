@@ -60,7 +60,7 @@ Road, Golpark, Kolkata 700029, West Bengal, India}
 \urladdr{\href{https://orcid.org/0000-0003-0466-750X}{orcid.org/0000-0003-0466-750X}}
 \thanks{$^{*}$Corresponding author: Deep Bhattacharjee, itsdeep@live.com.}
 \thanks{\scriptsize An earlier version of this paper is available at
-\url{https://hexagonmath.org/2610.00341v6}. Compared with it, this paper adds Section~\ref{sec:islands}, on the labels of the blocks, the islands of bad blocks, the bad side of a projected block average, the obstructions to the remaining routes and the effective action across one scale, Subsections~\ref{ssec:averaged}--\ref{ssec:bpcoarse}, on an averaged form of the cube condition, its local form, the couplings where it holds and fails, its neutral part on small tori, its passage to block variables, the upward step, the measures for which it holds, the split inequality at strong coupling and the condition at the coarsest scale, and Subsections~\ref{ssec:osaxioms}, \ref{ssec:limitE} and~\ref{ssec:chainG}, on the Osterwalder--Schrader axioms for the flowed fields, the limit at separated points of the fields without flow, with the inputs it needs and the examples that separate them, and the conditional chain for every compact simple group, and it proves by hand every constant that the earlier version took from computer certificates.}
+\url{https://hexagonmath.org/2610.00341v6}. Compared with it, this paper adds Section~\ref{sec:islands}, on the labels of the blocks, the islands of bad blocks, the bad side of a projected block average, the obstructions to the remaining routes and the effective action across one scale, Subsections~\ref{ssec:averaged}--\ref{ssec:bpbalaban}, on an averaged form of the cube condition, its local form, the couplings where it holds and fails, its neutral part on small tori, its passage to block variables, the upward step, the measures for which it holds, the split inequality at strong coupling, the condition at the coarsest scale and the coefficients across scales, and Subsections~\ref{ssec:osaxioms}, \ref{ssec:limitE} and~\ref{ssec:chainG}, on the Osterwalder--Schrader axioms for the flowed fields, the limit at separated points of the fields without flow, with the inputs it needs and the examples that separate them, and the conditional chain for every compact simple group, and it proves by hand every constant that the earlier version took from computer certificates.}
 
 \author[U. Bhattacharya]{Ushashi Bhattacharya}
 \address{Formerly, National Taiwan University, Taipei 106319, Taiwan}
@@ -501,12 +501,24 @@ a continuous positive density, with constants that grow with the volume
 follows from a bound on the sums of the single-link coefficients of the law
 of the block variables (Theorem~\ref{thm:bpcoarse}), and the closeness of
 each single-link conditional law to the Haar measure does not suffice
-(Proposition~\ref{prop:bphidden}). Along the tuning neither input is
+(Proposition~\ref{prop:bphidden}). One step of the straight-path map
+contracts a weighted Dobrushin sum of these coefficients, so that a bound
+at one level of the tower suffices (Theorem~\ref{thm:bpbalstep},
+Corollary~\ref{cor:bpbaltower}); but gauge covariance bounds the sum below
+by two minus four times the normalised spread of the single-link
+conditional laws, which excludes the Wilson measure at weak coupling and
+every law of the block variables with concentrated plaquette variables
+(Theorem~\ref{thm:bpbalnec}, Corollaries~\ref{cor:bpbalwilson}
+and~\ref{cor:bpbalsmall}), while at the coarsest scale the conditional laws
+are spread out along the tuning and this obstruction is absent
+(Proposition~\ref{prop:bpbalrandom}). Along the tuning neither input is
 proved; the single-link bounds for the laws of the block variables are the
 effective-action problem of
 Ba{\l}aban.\footnote{Refs.~\cite{Bal84a,Bal85a,Bal89b} control the effective
 actions of the small-field region in a box of fixed physical size; the
-inputs here need them on tori of every size and for all fields.}
+inputs here need them on tori of every size and for all fields, and in the
+small-field region itself the Dobrushin sums exceed one
+(Corollary~\ref{cor:bpbalsmall}).}
 Figure~\ref{fig:bptower} shows the route.
 
 \emph{Block averages.} Section~\ref{sec:blocks} poses the cube condition for
@@ -8796,6 +8808,632 @@ Lemma~\ref{lem:bpcoarsehess} gives no conclusion once $K$ is large, since a
 fine link of a path enters six loops of $4b^K$ links; the criterion is a
 statement for the coarsest scale. Neither $\mathrm{BP}$ along the tuning nor
 the mass gap is proved here.
+\end{remark}
+
+\subsection{The single-link coefficients across scales}\label{ssec:bpbalaban}
+
+By Corollary~\ref{cor:bpcoarseH1}, (H1) follows from bounds on the
+single-link coefficients of the laws $\mu^{(0)}_{k,L}$, uniform in $k$ and
+in the torus. These laws are the image of a Wilson measure under $k$ steps
+of the straight-path map, and bounds on them are a form of the
+effective-action problem of Ba{\l}aban's renormalisation
+group~\cite{Bal84a,Bal85a,Bal89b}. This subsection proves three things
+about them. First, one step of the straight-path map with blocks of side
+$b$ contracts a weighted Dobrushin sum by the factor $e^{-\lambda b/2}$, up
+to a loss in the rate, on every torus and with no locality; along a tower
+this transfers a Dobrushin bound from any level to the coarsest one, so
+that (H1) follows from such a bound at one level per $k$. Second, gauge
+covariance forces a lower bound on the coefficients: every row sum of a
+gauge-invariant law is at least $2$ minus four times the normalised spread
+of its single-link conditional laws, so the Dobrushin sum exceeds one for
+the $\SU(2)$ Wilson measure at $\beta_W\ge\frac83$ and for every block law
+whose plaquette variables are close to $I$; the step can therefore only
+start at a level where the holonomies of the blocks are spread out, and it
+does not start at the finest level along the tuning. Third, the coarse
+conditional laws are spread out along the tuning for $\SU(2)$, so this
+obstruction does not apply at the coarsest scale, and the Hessian of the
+induced action is the curvature of the fine action minus the covariance of
+the forces in the fibre law. None of this bounds the coefficients of
+$\mu^{(0)}_{k,L}$ along the tuning.
+
+\emph{Notation.} Let $S$ be a finite set and $\varrho$ a probability
+measure on $G^S$ with a continuous positive density $\rho$ with respect to
+$\lambda_S$. The kernels $\gamma^\varrho_V$ and the coefficients
+$C^\varrho_{V,j}$ and $C^\varrho_{ej}$ are defined as in
+Section~\ref{ssec:bpcoarse}, with $S$ in place of $E$, and the proof of
+Lemma~\ref{lem:bpcoarseblock} holds verbatim. For a pseudometric $d$ on $S$
+and $\lambda\ge0$ put
+\[
+c_\lambda(\varrho;d)=\max_{k\in S}\sum_{a\in S\setminus\{k\}}C^\varrho_{ak}\,
+e^{\lambda d(a,k)} ,
+\]
+so that $c_0(\varrho;d)=c_\varrho$.\footnote{These are the sums of Dobrushin's uniqueness
+condition~\cite{Dob68,Dob70} with exponential weights in the distance;
+Lemma~\ref{lem:bpbalmarginal} below is the expansion in walks that lies
+behind that condition, applied to a marginal.} For a measure on the links of a torus
+$\Lambda_M$, $d(e,j)=\lvert\Delta\rvert_\infty$ is the distance of the base
+points, coordinate by coordinate on the circle $\Z/M\Z$, and we write
+$c_\lambda(\varrho)$. Since $x\le e^{\lambda x}/(e\lambda)$ for $x\ge0$ and
+$\lvert\Delta\rvert_1\le4\lvert\Delta\rvert_\infty$, the quantities of
+Theorem~\ref{thm:bpcoarse}(ii) satisfy
+\begin{equation}\label{eq:bpbalmoments}
+m_\varrho\le\frac{4\,c_\lambda(\varrho)}{e\lambda},\qquad t_\varrho(R)\le
+e^{-\lambda R}\,c_\lambda(\varrho)
+\end{equation}
+for $\lambda>0$ and $R\ge1$.
+
+\begin{lemma}[marginals]\label{lem:bpbalmarginal}
+Let $\hat\varrho$ be a probability measure on $G^S$ with a continuous
+positive density, $d$ a pseudometric on $S$ with $c_\lambda=c_\lambda(\hat
+\varrho;d)<1$, $A\subset S$ with at least two points, $\varrho_A$ the
+marginal of $\hat\varrho$ on $G^A$, and $d_A=\min\{d(a,a'):a\ne a'\in A\}$.
+For $e\in A$ put $S_e=(S\setminus A)\cup\{e\}$.
+\begin{enumerate}[label=\textup{(\roman*)},leftmargin=*]
+\item For $e\ne j$ in $A$, with $C=C^{\hat\varrho}$,
+\[
+C^{\varrho_A}_{ej}\le\sum_{m\ge0}\ \sum_{k_1,\dots,k_m\in S_e}C_{ek_1}
+C_{k_1k_2}\cdots C_{k_mj},
+\]
+the sum over the sequences with consecutive terms distinct.
+\item For $0\le\kappa\le\lambda$ and every $j\in A$,
+\[
+\sum_{e\in A\setminus\{j\}}C^{\varrho_A}_{ej}\,e^{\kappa d(e,j)}\le
+e^{-(\lambda-\kappa)d_A}\,\frac{c_\lambda}{1-c_\lambda}.
+\]
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+(i) The density $\rho_A$ of $\varrho_A$ is the integral of the density
+$\hat\rho$ of $\hat\varrho$ over the coordinates in $S\setminus A$; it is
+continuous and positive, and for every $u$ the law $\gamma^{\varrho_A}_{
+\{e\}}(\cdot\mid u)$, with density proportional to $\rho_A(\sigma,u_{A
+\setminus\{e\}})$, is the image of $\gamma^{\hat\varrho}_{S_e}(\cdot\mid u)$
+under the coordinate at $e$. Let $u,u'$ differ only at $j\in A\setminus
+\{e\}$, put $\delta_j=\delta(u_j,u'_j)$, and let $\varrho^*$ be as in the
+proof of Lemma~\ref{lem:bpcoarseblock} with $V=S_e$. The Kantorovich
+distance of the two laws of $\sigma_e$ is at most $\varrho^*(e)$, and that
+proof gives, for every $k\in S_e$,
+\[
+\varrho^*(k)\le\sum_{i\in S_e\setminus\{k\}}C_{ki}\,\varrho^*(i)+C_{kj}\,
+\delta_j .
+\]
+Let $K$ be the matrix $(C_{ki})_{k,i\in S_e}$ with zero diagonal and $w=
+(C_{kj})_{k\in S_e}$. Then $\varrho^*\le K\varrho^*+\delta_jw$ entrywise,
+and, $K$ having nonnegative entries, $\varrho^*\le\delta_j\sum_{m<M}K^mw+
+K^M\varrho^*$ for every $M$. The column sums of $K$ are at most $c_\lambda$,
+so $\lVert K^Mx\rVert_1\le c_\lambda^M\lVert x\rVert_1$ for $x\ge0$, and
+$K^M\varrho^*\to0$. Hence
+$\varrho^*(e)\le\delta_j\sum_{m\ge0}(K^mw)(e)$, which is the sum in (i) times
+$\delta_j$; divide by $\delta_j$ and take the supremum.
+
+(ii) Write $k_0=e$ and $k_{m+1}=j$, and $\ell=\sum_{i=0}^md(k_i,k_{i+1})$.
+By the triangle inequality $\ell\ge d(e,j)\ge d_A$, so $e^{\kappa d(e,j)}
+\le e^{\kappa\ell}\le e^{-(\lambda-\kappa)d_A}e^{\lambda\ell}$. Insert (i)
+and enlarge the range of $k_0,\dots,k_m$ to all sequences in $S$ with
+consecutive terms distinct and $k_m\ne j$. Summing first over $k_0$, then
+over $k_1$, and so on, each sum is a weighted column sum, at most
+$c_\lambda$; the sequences of length $m+1$ contribute at most
+$c_\lambda^{m+1}$, and $\sum_{m\ge0}c_\lambda^{m+1}=c_\lambda/(1-c_\lambda)$.
+\end{proof}
+
+The law of the block variables is the marginal of a measure on fewer fine
+links, obtained by the axial gauge of Section~\ref{ssec:bpsplitstrong}. For a
+marking $l$ of the straight-path map $c$ from $\Lambda_{bL}$ to
+$\Lambda_L$ let $\hat E_l=l(E)\cup E'_0$, and let $\iota_l:G^{\hat E_l}\to
+G^{E'}$ extend a configuration by $I$ on the unmarked links of the paths,
+so that $\Theta^l(V,m)=\iota_l(V,m)$ when $V_e$ is placed at $l(e)$.
+
+\begin{lemma}[the axial gauge]\label{lem:bpbalaxial}
+Let $\mu'$ be a gauge-invariant probability measure on $G^{E'}$ with a
+continuous positive density $r$, and $l$ a marking. Then $r$ is gauge
+invariant, the law $\hat\mu_l$ of the configuration $(c,M^l)$ placed on
+$\hat E_l$ has the continuous positive density $r\circ\iota_l$ with respect
+to $\lambda_{\hat E_l}$, its marginal on $l(E)$ is $c_*\mu'$, and
+$C^{\hat\mu_l}_{ab}\le C^{\mu'}_{ab}$ for all $a\ne b$ in $\hat E_l$.
+\end{lemma}
+
+\begin{proof}
+For every gauge transformation $g$, $r\circ g=r$ almost everywhere by the
+invariance of $\mu'$ and of $\lambda_{E'}$; both sides are continuous and
+$\lambda_{E'}$ has full support, so the equality holds everywhere. By
+Lemma~\ref{lem:bprefine}(i) and the first paragraph of the proof of
+Lemma~\ref{lem:bpwilsonfibre}, which does not use $\varphi$,
+$\lambda_{E'}$ is the image of $\lambda_E\otimes\lambda\otimes\lambda_{
+E'_0}$ under $\Psi(V,h,m)=h^{-1}\Theta^l(V,m)$, where $h$ runs over the
+values of a gauge transformation at the inner points of the paths and is
+$I$ elsewhere. The links of $\Psi$ along $\pi(e)$ are $h(s_{i-1})^{-1}
+h(s_i)$ off the mark and $h(s_{i-1})^{-1}V_eh(s_i)$ at it, with
+$h(s_0)=h(s_b)=I$; so $c(\Psi)=V$, the partial products give
+$g^l_\Psi=h$, and $M^l(\Psi)=m$. Hence under $\lambda_{E'}$ the triple
+$(c,g^l,M^l)$ has the law $\lambda_E\otimes\lambda\otimes\lambda_{E'_0}$,
+and since $r(U)=r(g^l_UU)=r(\Theta^l(c(U),M^l(U)))$, the pair $(c,M^l)$ has
+under $\mu'$ the density $r(\Theta^l(V,m))$. Its first component is $c$.
+For $a\in\hat E_l$ and $u\in G^{\hat E_l}$ the configuration $\iota_l(
+\sigma,u_{\hat E_l\setminus\{a\}})$ is $\iota_l(u)$ with the link $a$
+replaced by $\sigma$, so $\gamma^{\hat\mu_l}_{\{a\}}(\cdot\mid u)=
+\gamma^{\mu'}_{\{a\}}(\cdot\mid\iota_l(u))$; two configurations $u,u'$ that
+differ only at $b$ give $\iota_l(u),\iota_l(u')$ that differ only at $b$,
+by the same distance, and the supremum defining $C^{\hat\mu_l}_{ab}$ runs
+over a subset of the pairs for $C^{\mu'}_{ab}$.
+\end{proof}
+
+\begin{theorem}[one step of the straight-path map]\label{thm:bpbalstep}
+Let $c$ be the straight-path map with blocks of side $b\ge2$ from
+$\Lambda_{bL}$ to $\Lambda_L$, $L\ge2$, let $\mu'$ be a gauge-invariant
+probability measure on $G^{E'}$ with a continuous positive density, $\mu^c=
+c_*\mu'$, and $k_b=\lfloor b/2\rfloor$. If $c_\lambda(\mu')<1$, then for
+$0\le\kappa\le\lambda$
+\[
+c_{b\kappa}(\mu^c)\le e^{-(\lambda-2\kappa)k_b}\,\frac{c_\lambda(\mu')}{1-
+c_\lambda(\mu')} .
+\]
+\end{theorem}
+
+\begin{proof}
+Mark each path $\pi(y,\nu)$ by its link with base point $by+k_be_\nu$, and
+let $d'$ be the distance $\lvert\Delta\rvert_\infty$ of $\Lambda_{bL}$,
+restricted to $\hat E_l$. By Lemma~\ref{lem:bpbalaxial},
+$c_\lambda(\hat\mu_l;d')\le c_\lambda(\mu')<1$, and the coefficients of
+$\mu^c$ are those of the marginal of $\hat\mu_l$ on $A=l(E)$. Let $e=(y,
+\nu)$ and $j=(y',\nu')$ be distinct coarse links and $\Delta=y-y'$, with
+coordinates in $(-L/2,L/2]$. The $i$-th coordinate of the difference of the
+base points of $l(e)$ and $l(j)$ is $b\Delta_i+t_i$ with $\lvert t_i\rvert
+\le k_b$, and the distance of $b\Delta_i$ to $0$ on $\Z/bL\Z$ is $b\lvert
+\Delta_i\rvert$; so $d'(l(e),l(j))\ge b\lvert\Delta\rvert_\infty-k_b$. If
+$y=y'$, then $\nu\ne\nu'$ and the difference is $k_b(e_\nu-e_{\nu'})$, at
+distance $k_b$ since $k_b\le bL/2$; if $y\ne y'$, some coordinate is at
+distance at least $b-k_b\ge k_b$. Hence $d_A\ge k_b$, and
+Lemma~\ref{lem:bpbalmarginal}(ii) gives
+\[
+\sum_{e\ne j}C^{\mu^c}_{ej}e^{b\kappa\lvert\Delta\rvert_\infty}\le e^{\kappa
+k_b}\sum_{e\ne j}C^{\mu^c}_{ej}e^{\kappa d'(l(e),l(j))}
+\]
+and the right side is at most $e^{\kappa k_b}e^{-(\lambda-\kappa)k_b}
+c_\lambda/(1-c_\lambda)$. The function $x\mapsto x/(1-x)$ is increasing.
+\end{proof}
+
+The rate $b\kappa$ on the coarse lattice is the rate $\kappa$ on the fine
+one in physical units, and for $\kappa<\lambda/2$ the coarse sum is smaller
+than the fine one by $e^{-(\lambda-2\kappa)k_b}$. Along a tower the factors
+compound.
+
+\begin{corollary}[a tower]\label{cor:bpbaltower}
+In Corollary~\textup{\ref{cor:bpuptuning}} let the $c_j$ be straight-path
+maps.
+\begin{enumerate}[label=\textup{(\roman*)},leftmargin=*]
+\item For $0\le i<j\le k$, $0\le\kappa\le\lambda$ and $c_\lambda(\mu^{(j)}_{
+k,L})<1$,
+\[
+c_{2^{j-i}\kappa}\bigl(\mu^{(i)}_{k,L}\bigr)\le e^{-(\lambda-2\kappa)2^{j-i-1}
+}\,\frac{c_\lambda(\mu^{(j)}_{k,L})}{1-c_\lambda(\mu^{(j)}_{k,L})} .
+\]
+\item Let $\lambda>0$, $c<1$ and $k\ge1$, and suppose that for every
+$L\in\mathcal L_k$ some $j\in\{1,\dots,k\}$ satisfies
+\[
+c_\lambda\bigl(\mu^{(j)}_{k,L}\bigr)\le c,\qquad2^j\lambda\ge4\log\frac{17
+c}{1-c} .
+\]
+Then $\mathrm{BP}(n_0,\frac12)$ holds for $\mu^{(0)}_{k,L}$ for every
+$L\in\mathcal L_k$ and every $n_0\ge2$ with $L_0\ge2n_0+4$. If this holds
+for every $k\ge1$ with the same $\lambda$ and $c$, then (H1) holds with
+$\varpi_0=\frac12$.
+\item If $G$ is as in Lemma~\textup{\ref{lem:bpcoarsehess}}, $\delta$ is
+the geodesic distance of $\ip XY=-\Tr(XY)$, $(36e+6)N\lvert\beta_k\rvert\le
+\kappa_G$ and $k\ge4$, the hypothesis of \textup{(ii)} holds for this $k$
+with $j=k$, $\lambda=1$ and $c=\frac12$.
+\end{enumerate}
+\end{corollary}
+
+\begin{proof}
+(i) By Lemma~\ref{lem:bpcoarselaw}(ii) and induction, $c_{i+1}\circ\dots
+\circ c_j$ is the straight-path map with blocks of side $2^{j-i}$ from
+$\Lambda_{L_j}$ to $\Lambda_{L_i}$, and $\mu^{(i)}_{k,L}$ is its image of
+$\mu^{(j)}_{k,L}$, which is gauge invariant and has a continuous positive
+density by Lemma~\ref{lem:bpcoarselaw}. Apply Theorem~\ref{thm:bpbalstep}
+with $b=2^{j-i}$, $k_b=2^{j-i-1}$.
+
+(ii) By (i) with $i=0$ and $\kappa=\lambda/4$, $\lambda_0=2^{j-2}\lambda$
+satisfies
+\[
+c_{\lambda_0}\bigl(\mu^{(0)}_{k,L}\bigr)\le e^{-2^{j-2}\lambda}\frac c{1-c}
+\le\frac1{17}.
+\]
+So the column sums and the tails of the coefficients of $\mu^{(0)}_{k,L}$
+are at most $\frac1{17}=(1-\frac1{17})/16$, and
+the proof of Corollary~\ref{cor:bpcoarseH1}, which treats one $k$ at a
+time, applies with $c=\frac1{17}$ and $R=1$, for every $n_0\ge\max(2,1)$.
+
+(iii) The Wilson measure $\mu_{k,L}=\mu^{(k)}_{k,L}$ has $C_{ej}=0$ unless
+$e,j$ are partners, which have $\lvert\Delta\rvert_\infty\le1$, and every
+link has eighteen partners. By Lemma~\ref{lem:bponelink}, $c_1(\mu_{k,L})\le
+18eN\lvert\beta_k\rvert/(\kappa_G-6N\lvert\beta_k\rvert)\le\frac12$, and $2^k
+\ge16>4\log17$.
+\end{proof}
+
+Part (ii) moves the problem by a bounded number of scales and does not
+remove it: the hypothesis is a Dobrushin bound at the spacing $a_j\le a_0
+\lambda/(4\log(17c/(1-c)))$, uniform in $k$, for the law of the block
+variables of $k-j$ steps. Part (iii) is the descent of Section~\ref{ssec:bpblock}
+seen through the step; along the tuning $\beta_k\to\infty$ and the level
+$j=k$ is not available, by Corollary~\ref{cor:bpbalwilson} below. The
+intermediate levels are restricted by gauge covariance.
+
+\begin{lemma}[gauge covariance]\label{lem:bpbalcov}
+Let $\varrho$ be a gauge-invariant probability measure on the links of
+$\Lambda_L$, $L\ge3$, with a continuous positive density, $e=(x,\nu)$ a
+link, $S_-(e)$ and $S_+(e)$ the sets of the seven other links with an end
+point at $x$ and at $x+e_\nu$, and $\gamma=\gamma^\varrho_{\{e\}}(\cdot\mid
+U)$. For $h\in G$ let $h\gamma$ and $\gamma h$ be the images of $\gamma$
+under $\sigma\mapsto h\sigma$ and $\sigma\mapsto\sigma h$, and
+\[
+s(\gamma)=\min_{\tau\in G}\int\delta(\sigma,\tau)\,\gamma(d\sigma)
+\]
+the spread of $\gamma$. Then
+\[
+\begin{split}
+\delta(h,I)-2s(\gamma)\le W_1(\gamma,h\gamma)&\le\delta(h,I)\sum_{k\in S_-(e
+)}C^\varrho_{ek},\\
+\delta(h,I)-2s(\gamma)\le W_1(\gamma,\gamma h)&\le\delta(h,I)\sum_{k\in S_+(
+e)}C^\varrho_{ek}.
+\end{split}
+\]
+\end{lemma}
+
+\begin{proof}
+Let $g$ be the gauge transformation equal to $h$ at $x$ and to $I$
+elsewhere. Then $(gU)_e=hU_e$, the other links at $x$ are multiplied by $h$
+on the left or by $h^{-1}$ on the right, and all others are unchanged. Since
+the density $\rho$ is gauge invariant (proof of
+Lemma~\ref{lem:bpbalaxial}) and Haar measure is left invariant,
+$\gamma^\varrho_{\{e\}}(\cdot\mid gU)=h\gamma$. The configurations $U$ and
+$gU$ differ outside $e$ only on $S_-(e)$, each link by $\delta(h,I)$ by the
+bi-invariance of $\delta$; changing them one at a time gives the upper
+bound. For $\gamma h$ take $g$ equal to $h^{-1}$ at $x+e_\nu$. For the lower
+bound let $\tau$ attain $s(\gamma)$; the function $\delta(\cdot,\tau)$ is
+$1$-Lipschitz, and by the triangle inequality and bi-invariance
+\[
+\int\delta(h\sigma,\tau)\,\gamma(d\sigma)\ge\delta(h\tau,\tau)-s(\gamma)=
+\delta(h,I)-s(\gamma),
+\]
+so $W_1(\gamma,h\gamma)\ge\delta(h,I)-2s(\gamma)$; likewise with
+$\delta(\tau h,\tau)=\delta(h,I)$.
+\end{proof}
+
+\begin{theorem}[a lower bound from gauge covariance]\label{thm:bpbalnec}
+Let $\varrho$ be a gauge-invariant probability measure on the links of
+$\Lambda_L$, $L\ge3$, with a continuous positive density, and for a link $e$
+let $s_e=\inf_Us(\gamma^\varrho_{\{e\}}(\cdot\mid U))$ and $\bar s$ the mean
+of $s_e$ over the $4L^4$ links.
+\begin{enumerate}[label=\textup{(\roman*)},leftmargin=*]
+\item $\sum_{k\in S_-(e)\cup S_+(e)}C^\varrho_{ek}\ge2-4s_e/D$ for every link
+$e$.
+\item $c_\varrho\ge2-4\bar s/D$; if $\varrho$ is invariant under the
+translations, with $s_\nu$ the common value of $s_e$ for the links of
+direction $\nu$, then $c_\varrho\ge2-(s_0+s_1+s_2+s_3)/D$.
+\item $\varrho(\delta(U_p,I)\mid U_{E\setminus\{e\}})\ge s_e$ almost surely
+for every plaquette $p$ and every link $e$ of $p$, and the mean of
+$\varrho(\delta(U_p,I))$ over the $6L^4$ plaquettes is at least $\bar s\ge
+D(2-c_\varrho)/4$.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+(i) The sets $S_\pm(e)$ are disjoint since $L\ge3$. Take $h$ with
+$\delta(h,I)=D$ in Lemma~\ref{lem:bpbalcov}: each of the two sums is at least
+$1-2s(\gamma)/D$ for every $U$, hence at least $1-2s_e/D$.
+
+(ii) The sum of all coefficients is the sum of the row sums and the sum of
+the column sums. So $c_\varrho$, the largest column sum, is at least the mean
+row sum, which by (i) is at least the mean of $2-4s_e/D$.
+
+(iii) The plaquette variable is $U_p=AU_eB$ or $AU_e^{-1}B$ with $A,B$
+products of the other links of $p$, and by bi-invariance $\delta(U_p,I)=
+\delta(U_e,T)$ with $T=A^{-1}B^{-1}$ or $T=BA$, a function of $U_{E\setminus
+\{e\}}$. Its conditional expectation is $\int\delta(\sigma,T)\,\gamma^\varrho_{
+\{e\}}(d\sigma\mid U)\ge s_e$. So $\varrho(\delta(U_p,I))$ is at least the
+mean of $s_e$ over the four links of $p$; every link lies in six
+plaquettes, and averaging over $p$ gives $\bar s$. The last inequality is
+(ii).
+\end{proof}
+
+For the product of the Haar measures $c_\varrho=0$, and the bound is
+consistent with it: $s_e=\int\delta(\sigma,I)\,d\sigma\ge D/2$, since
+$\delta(\sigma,I)+\delta(\sigma,a)\ge D$ for $a$ with $\delta(a,I)=D$ and
+the two terms have the same integral. The bound is informative when the
+single-link conditional laws are concentrated, which is the regime of the
+Wilson measure at weak coupling and of every block law in the small-field
+region.
+
+\begin{corollary}[the Wilson measure]\label{cor:bpbalwilson}
+Let $G=\SU(2)$, $\delta$ the geodesic distance of $\ip XY=-\Tr(XY)$, so that
+$\delta(Q,I)=\sqrt2\,\theta(Q)$ with $\theta(Q)\in[0,\pi]$ the angle of $Q$
+and $D=\sqrt2\pi$, and let $\mu$ be the Wilson measure of $\Lambda_L$ with
+$B=6\beta_W\ge1$. Then
+\[
+c_\mu\ge2-2\sqrt{\frac3B}-\frac{3\pi^3}4e^{1/2}B^{3/2}e^{-B},
+\]
+and $c_\mu>1.13$ for $\beta_W\ge\frac83$.
+\end{corollary}
+
+\begin{proof}
+Given $U$, the law of $U_e$ has density proportional to $\exp(\frac{\beta_W}
+2\ReTr(U_eS))$, $S$ the sum of the six staples; at $U=I$, $S=6I$, and
+$\theta=\theta(U_e)$ has the density proportional to $\sin^2\theta\,
+e^{B\cos\theta}$ on $[0,\pi]$. So $s_e\le\sqrt2\,\E\theta$ for every $e$,
+and Theorem~\ref{thm:bpbalnec}(ii) gives $c_\mu\ge2-\frac4\pi\E\theta$. The
+derivative of $\sin^3\theta\,e^{B\cos\theta}$ is $(3\cos\theta-B\sin^2
+\theta)\sin^2\theta\,e^{B\cos\theta}$ and vanishes at both ends, so
+$3\E\cos\theta=B\E\sin^2\theta$ and $\E\sin^2\theta\le3/B$. On $[0,\pi/2]$,
+$\theta\le\frac\pi2\sin\theta$, so
+\[
+\E\theta\le\frac\pi2\sqrt{\E\sin^2\theta}+\pi P,\qquad P=\Pr(\theta>\pi/2).
+\]
+The numerator of $P$ is at most $\int_{\pi/2}^\pi\sin^2\theta\,d\theta=
+\pi/4$. With $t=B^{-1/2}\le1$, on $[0,t]$ one has $\cos\theta\ge1-t^2/2$
+and $\sin\theta\ge2\theta/\pi$, so the denominator is at least $\frac4{3
+\pi^2}B^{-3/2}e^{B-1/2}$, and $P\le\frac{3\pi^3}{16}e^{1/2}B^{3/2}e^{-B}$. This
+gives the bound. For $B\ge16$ both subtracted terms decrease; at $B=16$
+the first is $\sqrt3/2<0.8661$ and the second is less than $2455\,e^{-16}<
+3\cdot10^{-4}$.
+\end{proof}
+
+So the Dobrushin route of Corollary~\ref{cor:bpcoarseH1} is closed at the
+finest level along the tuning, for every rate $\lambda\ge0$, since
+$c_\lambda\ge c_0$, by gauge covariance alone; this is independent of the bound of
+Lemma~\ref{lem:bponelink}, which is an upper bound. The same argument
+applies to every block law whose plaquette variables are concentrated.
+Figure~\ref{fig:bpbalaban} shows the step and the two lower bounds.
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\textwidth]{figures/fig_bpbalaban.png}
+\caption{The single-link coefficients across scales. (a) One step of the
+straight-path map with blocks of side $b=4$, in a plane: each coarse link is
+the product of the fine links of its path, marked at the middle link $l(e)$
+(red); the law of the block variables is the marginal of the axial-gauge law
+on the marks, and the influence of $l(j)$ on $l(e)$ is a sum over walks of
+fine links weighted by products of coefficients (blue), which leave a factor
+$e^{-(\lambda-2\kappa)\lfloor b/2\rfloor}$ (Lemma~\ref{lem:bpbalmarginal},
+Theorem~\ref{thm:bpbalstep}). (b) The lower bound on the Dobrushin sum of the
+$\SU(2)$ Wilson measure forced by gauge covariance, against $\beta_W$; it
+exceeds the threshold $1$ for $\beta_W\ge\frac83$
+(Corollary~\ref{cor:bpbalwilson}). (c) The lower bound
+$2-4(1-\varepsilon_{2^k})/\pi$ for the law of the block variables of side
+$2^k$, along $\beta_{W,k}=2+\frac{11}{3\pi^2}k\log2$, an illustration of the
+growth along the tuning; below $1$ gauge covariance no longer excludes the
+Dobrushin condition (Proposition~\ref{prop:bpbalrandom}).}
+\label{fig:bpbalaban}
+\end{figure}
+
+\begin{corollary}[small fields]\label{cor:bpbalsmall}
+Let $\varrho$ be as in Theorem~\textup{\ref{thm:bpbalnec}}, $\varepsilon\ge
+0$ and $\eta\ge0$.
+\begin{enumerate}[label=\textup{(\roman*)},leftmargin=*]
+\item If $\varrho(\delta(U_p,I)>\varepsilon)\le\eta$ for every plaquette
+$p$, then $c_\varrho\ge2-4\varepsilon/D-4\eta$.
+\item Under the hypotheses of Corollary~\textup{\ref{cor:bpcoarseH1}} with
+$c<1$, the holonomies $W$ of the squares of side $2^k$ with corners in
+$2^k\Z^4$ satisfy, for all $k$ and $L\in\mathcal L_k$, the inequality
+$\langle\mu_{k,L}(\delta(W,I))\rangle\ge D(2-c)/4>D/4$, the mean taken
+over these squares.
+\end{enumerate}
+\end{corollary}
+
+\begin{proof}
+(i) The mean of $\varrho(\delta(U_p,I))$ is at most $\varepsilon+D\eta$; use
+Theorem~\ref{thm:bpbalnec}(iii). (ii) The plaquette variables of the coarse
+configuration are the holonomies $W$, and $c_\varrho\le c$ for $\varrho=
+\mu^{(0)}_{k,L}$; use Theorem~\ref{thm:bpbalnec}(iii).
+\end{proof}
+
+A Dobrushin bound for the law of the block variables therefore requires
+that the holonomies of the blocks are, in the mean, at more than half the
+distance from $I$ at which Haar measure puts them; for $\SU(2)$ the Haar
+mean of $\delta(\sigma,I)$ is $\sqrt2\int_0^\pi\theta\frac2\pi\sin^2\theta
+\,d\theta=D/2$. The small-field region of Ba{\l}aban's
+analysis~\cite{Bal84a,Bal85a}, in which every plaquette variable of every
+block lattice is close to $I$, lies outside the domain of the criterion. At
+the coarsest scale the obstruction does not apply along the tuning, for
+$\SU(2)$: the conditional laws of the coarse links are spread out.
+
+\begin{proposition}[randomisation along the paths]\label{prop:bpbalrandom}
+Let $\mu'$ be the probability measure on the links of $\Lambda_{bL}$, $b\ge2$,
+$L\ge3$, with density proportional to $\prod_p\varphi(U_p)$ for a positive
+continuous class function $\varphi$, $c$ the straight-path map,
+$\mu^c=c_*\mu'$ and $\gamma^c_e=\gamma^{\mu^c}_{\{e\}}$.
+\begin{enumerate}[label=\textup{(\roman*)},leftmargin=*]
+\item With $a_\varphi=(\min\varphi/\max\varphi)^6$, for every coarse link
+$e$ and every $V$, the total variation distance of $\gamma^c_e(\cdot\mid
+V)$ to $\lambda$ is at most $(1-a_\varphi)^b$, and $s(\gamma^c_e(\cdot\mid
+V))\ge D(\frac12-(1-a_\varphi)^b)$.
+\item Let $G=\SU(2)$, $\varphi(Q)=\exp(\frac{\beta_W}2\ReTr Q)$, so that
+$\mu'$ is the Wilson measure, $\delta$ and $D$ as in
+Corollary~\textup{\ref{cor:bpbalwilson}}, and $\varepsilon_b=(1+1/(4\lvert
+\beta_W\rvert))^{-b}$. Then for every coarse link $e$ and every $V$
+\[
+\Bigl\lVert\int\sigma\,\gamma^c_e(d\sigma\mid V)\Bigr\rVert_{\rm op}\le
+\varepsilon_b,\qquad s\bigl(\gamma^c_e(\cdot\mid V)\bigr)\ge\frac{D(1-
+\varepsilon_b)}\pi,
+\]
+and the mean of $\mu^c(\delta(V_P,I))$ over the coarse plaquettes $P$ is
+at least $D(1-\varepsilon_b)/\pi$.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+Fix a coarse link $e$. The coarse links other than $e$ are functions of the
+fine links outside $\pi(e)$. Given the fine links outside $\pi(e)$, the $b$
+links of $\pi(e)$ are independent under $\mu'$: they are collinear, so no
+plaquette contains two of them, and their conditional density is a product
+of factors, the factor of a link being the product of $\varphi$ over its
+six plaquettes, normalised.
+
+(i) Each factor is at least $a_\varphi$ times its
+integral,\footnote{This is Doeblin's minorisation: a law bounded below by
+$a\lambda$ is a mixture with weight $a$ of $\lambda$ and another law.} so the law of
+each path link is $a_\varphi\lambda+(1-a_\varphi)q_i$ for probability
+measures $q_i$. Drawing the links independently in this form, with
+probability $1-(1-a_\varphi)^b$ at least one factor is drawn from $\lambda$,
+and then the product is a Haar variable by the invariance of $\lambda$; so
+the law of $c_e$ given the fine links outside $\pi(e)$ is within total
+variation $(1-a_\varphi)^b$ of $\lambda$. The law of $c_e$ given the other
+coarse links is a mixture of these laws, and the total variation distance
+is convex; so the bound holds for $\mu^c$-almost every $V$. The set of
+laws within total variation $t$ of $\lambda$ is weakly closed, the kernel
+$\gamma^c_e(\cdot\mid V)$ is weakly continuous in $V$
+(Lemma~\ref{lem:bpcoarselaw}(i)), and a set of full $\mu^c$-measure is
+dense; so the bound holds for every $V$. Since $0\le\delta(\cdot,\tau)\le D$,
+$\int\delta(\cdot,\tau)\,d\gamma\ge\int\delta(\cdot,\tau)\,d\lambda-D(1-
+a_\varphi)^b$, and the Haar integral is at least $D/2$, as after
+Theorem~\ref{thm:bpbalnec}.
+
+(ii) Write $\frac12\ReTr$ as the real part of a unit quaternion. A path
+link $u$ has, given the fine links outside $\pi(e)$, the density
+proportional to $\exp(\frac{\beta_W}2\ReTr(uS))$, where $S$, a sum of six
+elements of $\SU(2)$, equals $sW$ with $0\le s\le6$ and $W\in\SU(2)$. The
+law of $uW$ is a class function times Haar measure, so its mean is the
+scalar $A=\E_B\cos\theta$, $B=s\beta_W$, and the mean of $u$ is
+$AW^{-1}$. For $B\ge0$ the identity of the proof of
+Corollary~\ref{cor:bpbalwilson} and $\E\cos^2\theta\ge A^2$ give $3A+BA^2
+\le B$, while $x=2B/(2B+3)$ has $(3x+Bx^2-B)(2B+3)^2=9B\ge0$; as $3x+Bx^2$
+increases on $[0,\infty)$, $A\le2B/(2B+3)$, and $B<0$ follows by $\theta\mapsto\pi-\theta$. Hence $\lvert A
+\rvert\le2\lvert B\rvert/(2\lvert B\rvert+3)\le(1+1/(4\lvert\beta_W\rvert)
+)^{-1}$. The mean of the product of the $b$ independent path links is the
+product of their means, of operator norm at most $\varepsilon_b$; mixing
+and continuity as in (i) give the first bound for every $V$. For the
+second, $\theta\ge1-\cos\theta$ on $[0,\pi]$ and $\lvert\Tr X\rvert\le2
+\lVert X\rVert_{\rm op}$ give, for every $\tau$ and $M=\int\sigma\,d\gamma$,
+\[
+\int\delta(\sigma,\tau)\,d\gamma\ge\sqrt2\Bigl(1-\frac12\ReTr(\tau^{-1}M)
+\Bigr)\ge\sqrt2\,(1-\varepsilon_b),
+\]
+which is $D(1-\varepsilon_b)/\pi$. The last claim is
+Theorem~\ref{thm:bpbalnec}(iii).
+\end{proof}
+
+Along the tuning $b=2^k$, $\varepsilon_{2^k}\le\exp(-2^k/(4\lvert\beta_{W,k}
+\rvert+1))$, which tends to zero when $2^{-k}\beta_{W,k}\to0$, in particular
+under the growth $\beta_{W,k}\sim\frac{11}{3\pi^2}\,k\log2$ that the
+renormalisation group gives for the tuning~\cite{GW73,Pol73}.\footnote{With
+$\beta_W=2N/g^2$ and the one-loop running $g^{-2}=\frac{11N}{24\pi^2}\log
+a^{-1}+O(\log\log a^{-1})$, $\beta_W\sim\frac{11N^2}{12\pi^2}\log a^{-1}$,
+which is $\frac{11}{3\pi^2}\log a^{-1}$ for $\SU(2)$; with $a=2^{-k}a_0$
+this is the growth quoted.} Once $\varepsilon_{2^k}<1-\pi/4$ the mean
+coarse plaquette distance exceeds $D/4$, the condition of
+Corollary~\ref{cor:bpbalsmall}(ii) holds, and Theorem~\ref{thm:bpbalnec}
+excludes only $c_\varrho<2-4(1-\varepsilon_{2^k})/\pi$, a bound that tends to
+$2-4/\pi<0.73$. So gauge covariance does not obstruct a Dobrushin bound at
+the coarsest scale. Part (i) gives nothing along the tuning, since
+$a_\varphi=e^{-12\lvert\beta_W\rvert}$ for $\SU(2)$ and $2^ke^{-12\beta_{W,k}}
+\to0$ under that growth. Neither part bounds the coefficients: the spread of the
+coarse conditional laws says nothing about their Lipschitz dependence on
+the exterior. That dependence is governed by the Hessian of the induced
+action.
+
+\begin{proposition}[the Hessian of the induced action]\label{prop:bpbalhess}
+Let $\mu'$ have the density $e^{-\mathcal S}/Z$ with respect to
+$\lambda_{E'}$, $\mathcal S$ gauge invariant and of class $C^2$, let $l$ be
+a marking, and for a fine link $a$ and $X\in\g$ let $D^a_X\mathcal S(U)=
+\frac d{dt}\mathcal S(U^{a,tX})|_{t=0}$. Then $\mu^c=c_*\mu'$ has the
+density $e^{-H^c}$ with
+\[
+H^c(V)=-\log\int e^{-\mathcal S(\Theta^l(V,m))}\,\lambda_{E'_0}(dm)+\mathrm
+{const}.
+\]
+Let $\varsigma_V$ be the probability measure on $G^{E'_0}$ with density
+proportional to $e^{-\mathcal S(\Theta^l(V,m))}$, let $a=l(e)$ and $a'=
+l(e')$, and take the derivatives of $\mathcal S$ at $\Theta^l(V,m)$. Then
+\[
+\begin{split}
+\frac{d^2}{dt^2}H^c(V^{e,tX})\Big|_0&=\varsigma_V(D^a_XD^a_X\mathcal S)-
+\Var_{\varsigma_V}(D^a_X\mathcal S),\\
+\frac{\partial^2H^c((V^{e,sX})^{e',tY})}{\partial s\,\partial t}\Big|_0&=
+\varsigma_V(D^{a'}_YD^a_X\mathcal S)\\
+&\quad-\Cov_{\varsigma_V}(D^a_X\mathcal S,D^{a'}_Y\mathcal S)
+\end{split}
+\]
+for $e\ne e'$. Let $-h_e$ be the infimum over $V$ and unit $X$ of the
+first right side and $J_{ee'}$ the supremum over $V$ and unit $X,Y$ of the
+absolute value of the second; if $h_e<\kappa_G$,
+Lemma~\textup{\ref{lem:bpcoarsehess}} applies to $\mu^c$ with these
+numbers. For the Wilson
+action the term $\varsigma_V(D^{a'}_YD^a_X\mathcal S)$ vanishes unless $a$
+and $a'$ are partners.
+\end{proposition}
+
+\begin{proof}
+By the proof of Lemma~\ref{lem:bpbalaxial}, $\nu_V$ is the image of
+$\lambda\otimes\lambda_{E'_0}$ under $(h,m)\mapsto h^{-1}\Theta^l(V,m)$, and
+$\mathcal S$ is gauge invariant, so $\nu_V(e^{-\mathcal S})=\int e^{-\mathcal
+S(\Theta^l(V,m))}\,dm$; this is the density of Lemma~\ref{lem:bpcoarselaw}(i).
+Replacing $V_e$ by $V_ee^{tX}$ replaces the link $a$ of $\Theta^l(V,m)$ by
+the same product, so $\frac d{dt}$ of $\mathcal S(\Theta^l(V^{e,tX},m))$ is
+$D^a_X\mathcal S$ at the moved configuration. Differentiating $-\log Z(t)$
+under the integral, which is allowed for $C^2$ functions on a compact
+group, gives $\frac{Z''}{Z}-(\frac{Z'}Z)^2$ with the signs shown; the mixed
+derivative is the same computation in two variables. Distinct coarse links
+have distinct marks, since the paths are disjoint. For the Wilson action
+the mixed derivative of $\mathcal S$ at $a\ne a'$ comes from the plaquettes
+that contain both.
+\end{proof}
+
+The two terms of $d^2H^c$ are of the same order. Under a single-link
+conditional law $\gamma\propto e^{-\mathcal S}\,d\sigma$ of the link $a$,
+integration by parts with the left-invariant vector field of $X$, which
+preserves Haar measure, gives $\gamma((D^a_X\mathcal S)^2)=\gamma(D^a_XD^a_X
+\mathcal S)$, so there the mean curvature equals the second moment of the
+force and is at least its variance. In the
+fibre law $\varsigma_V$ the link $a$ is held fixed and the variance is that
+of the force on it produced by the fluctuations of the links of $E'_0$;
+the hypothesis $h_e<\kappa_G$ of Lemma~\ref{lem:bpcoarsehess} asks that this
+variance stay below the mean curvature plus $\kappa_G$, uniformly in the
+exterior, and the summability of $J_{ee'}$ asks that the forces on distant
+marks decorrelate in $\varsigma_V$. For the Wilson action at large $\beta$
+both terms are of order $N\lvert\beta\rvert$ on the flat configuration, so
+the bound requires a cancellation between them to precision $\kappa_G$; this
+is the effective-action problem in the form posed by
+Corollary~\ref{cor:bpcoarseH1}.
+
+\begin{remark}[what is proved about the coefficients across scales]
+\label{rem:bpbalaban}
+Proved: the marginal of a measure with a weighted Dobrushin sum $c_\lambda<
+1$ on a set of points at mutual distance at least $d_A$ has weighted sums
+at most $e^{-(\lambda-\kappa)d_A}c_\lambda/(1-c_\lambda)$
+(Lemma~\ref{lem:bpbalmarginal}); the law of the block variables of a
+gauge-invariant measure is such a marginal, through the axial gauge, with
+coefficients bounded by the fine ones (Lemma~\ref{lem:bpbalaxial}); one
+step of the straight-path map of side $b$ contracts the weighted sum by
+$e^{-(\lambda-2\kappa)\lfloor b/2\rfloor}$ on every torus
+(Theorem~\ref{thm:bpbalstep}); along a tower of straight-path maps a bound
+$c_\lambda\le c<1$ at one level $j$ with $2^j\lambda\ge4\log(17c/(1-c))$,
+for every $k$, gives (H1) with $\varpi_0=\frac12$ for every $n_0\ge2$, and the Wilson
+measure in the strong-coupling range supplies it with $j=k\ge4$
+(Corollary~\ref{cor:bpbaltower}); gauge covariance bounds every row sum
+below by $2-4s_e/D$ and the Dobrushin sum below by $2-4\bar s/D$, and the
+mean plaquette distance by $D(2-c_\varrho)/4$ (Lemma~\ref{lem:bpbalcov},
+Theorem~\ref{thm:bpbalnec}); the $\SU(2)$ Wilson measure has $c_\mu>1.13$ for
+$\beta_W\ge\frac83$, and every law with concentrated plaquette variables
+fails the Dobrushin condition (Corollaries~\ref{cor:bpbalwilson}
+and~\ref{cor:bpbalsmall}); for $\SU(2)$ the coarse conditional laws are
+spread out along the tuning, so that gauge covariance does not obstruct the
+condition at the coarsest scale (Proposition~\ref{prop:bpbalrandom}); the
+Hessian of the induced action is the mean curvature of the fine action
+minus the covariance of the forces in the fibre law
+(Proposition~\ref{prop:bpbalhess}). Every numerical value is
+derived by hand in the proofs.
+
+Not proved: a weighted Dobrushin bound $c_\lambda<1$, uniform in $k$ and the
+torus, for the law of the block variables at any level of the tower with
+$\beta_k$ outside the strong-coupling range, and hence (H1) along the
+tuning; bounds on the fibre variances and covariances of
+Proposition~\ref{prop:bpbalhess} at weak coupling; any Lipschitz bound for
+the dependence of the coarse conditional laws on the exterior along the
+tuning; total variation randomisation of the coarse links along the tuning
+for groups other than $\SU(2)$, beyond the Doeblin bound of
+Proposition~\ref{prop:bpbalrandom}(i); the abelian and Villain cases, which
+are not treated. Neither $\mathrm{BP}$ along the tuning nor the mass gap is
+proved here.
 \end{remark}
 
 \section{The open inputs}\label{sec:inputs}
@@ -44864,7 +45502,25 @@ of the coefficients (Theorem~\ref{thm:bpcoarse},
 Corollaries~\ref{cor:bpcoarsehess} and~\ref{cor:bpcoarseH1},
 Propositions~\ref{prop:bpcoarsezero}, \ref{prop:bpcoarsenec},
 \ref{prop:bpcoarseflat} and~\ref{prop:bphidden}, Remarks~\ref{rem:bpcoarse}
-and~\ref{rem:bprefine}). Section~\ref{ssec:groups13} carries the single-scale results of this section to every compact simple group, with explicit constants, except the parts listed in Remark~\ref{rem:groups13}. Section~\ref{ssec:chainG} states the conditional continuum chain for every compact simple group, with the averaged condition in its local form, the centre sectors of $Z(G)$ and the Schwinger functions at separated points (Theorem~\ref{thm:chainG}, Proposition~\ref{prop:bpcentreG}), proves the averaged condition and the triviality of the limits for $N\beta\le\kappa_G/48$ (Corollary~\ref{cor:limitEstrongG}), and extends the obstruction at fixed cube size under a condition (CP) that holds for $\SU(N)$ and fails for $\mathrm{Sp}(n)$ with $n$ even (Proposition~\ref{prop:bpfixedG}); its hypotheses are not proved for any group, and an analogue of the sharp quarter for $G\ne\SU(2)$ is not proved (Proposition~\ref{prop:modulusG}). On the continuum side, Lemmas~\ref{lem:positivetime}
+and~\ref{rem:bprefine}); one step of the straight-path map with blocks of
+side $b$ contracts a weighted Dobrushin sum of the single-link coefficients
+by $e^{-(\lambda-2\kappa)\lfloor b/2\rfloor}$ on every torus, so that along a
+tower such a bound at one level for every $k$ gives the condition at the
+coarsest scale, while gauge covariance bounds the Dobrushin sum of every
+gauge-invariant law below by two minus four times the normalised spread of
+its single-link conditional laws, which excludes the $\SU(2)$ Wilson
+measure at $\beta_W\ge\frac83$ and every law of the block variables whose
+plaquette variables are concentrated, forces the mean distance of the
+coarse holonomies from $I$ to exceed a quarter of the diameter, and does
+not obstruct the condition at the coarsest scale along the tuning for
+$\SU(2)$, where the coarse conditional laws are spread out; the Hessian of
+the induced action is the mean curvature of the fine action minus the
+covariance of the forces in the fibre law, and no bound on the coefficients
+along the tuning is proved (Theorems~\ref{thm:bpbalstep}
+and~\ref{thm:bpbalnec}, Corollaries~\ref{cor:bpbaltower},
+\ref{cor:bpbalwilson} and~\ref{cor:bpbalsmall},
+Propositions~\ref{prop:bpbalrandom} and~\ref{prop:bpbalhess},
+Remark~\ref{rem:bpbalaban}). Section~\ref{ssec:groups13} carries the single-scale results of this section to every compact simple group, with explicit constants, except the parts listed in Remark~\ref{rem:groups13}. Section~\ref{ssec:chainG} states the conditional continuum chain for every compact simple group, with the averaged condition in its local form, the centre sectors of $Z(G)$ and the Schwinger functions at separated points (Theorem~\ref{thm:chainG}, Proposition~\ref{prop:bpcentreG}), proves the averaged condition and the triviality of the limits for $N\beta\le\kappa_G/48$ (Corollary~\ref{cor:limitEstrongG}), and extends the obstruction at fixed cube size under a condition (CP) that holds for $\SU(N)$ and fails for $\mathrm{Sp}(n)$ with $n$ even (Proposition~\ref{prop:bpfixedG}); its hypotheses are not proved for any group, and an analogue of the sharp quarter for $G\ne\SU(2)$ is not proved (Proposition~\ref{prop:modulusG}). On the continuum side, Lemmas~\ref{lem:positivetime}
 and~\ref{lem:nonvanishing} reduce the nontriviality of the limit to a
 lower bound on one ratio of lattice two-point functions at a fixed
 physical time, uniform along the tuning, which is the open input of
