@@ -7918,10 +7918,13 @@ $(0,\beta'_W]$.
 \end{proof}
 
 At $\beta_W=0$ in the box, $\Psi_u\to0$: both $C_k(2u)$ and
-$C_k(2u+\sigma)$ vanish there, as in Lemma~\ref{lem:admissible}(iv). Whether
+$C_k(2u+\sigma)$ vanish there, as in Lemma~\ref{lem:admissible}(iv). For the
+packet of Proposition~\ref{prop:flowpositive}, whether
 $\rho_k(\beta_W)\ge r$ for some $\beta_W$, at fixed $k$ and $L_k$, is not
 known; Proposition~\ref{prop:largeb} below shows that concentration on flat
-configurations does not decide it.
+configurations does not decide it. For packets odd under the centre of
+$\SU(2)$ in a box of fixed size it holds for every $r\in(0,1)$
+(Corollary~\ref{cor:centreodd}).
 
 \begin{definition}\label{def:ratiotuning}
 Fix $\Phi$, $\tau$, $f_0$, dyadic $u\ge0$ and $\sigma>0$, and $r\in(0,1)$. A
@@ -8239,6 +8242,593 @@ vanishing quantities, on which concentration gives no information. In
 particular (P$_k$) holds at no uniform level: $\inf C_k(0)$ over these states
 is zero.
 
+\emph{Centre-odd packets in a fixed box.} In the box, the question left open
+after Proposition~\ref{prop:boxratio} has an answer for packets that change
+sign under the centre of $\SU(2)$. For these packets the ratio tends to $1$
+as $\beta_W\to\infty$ at every fixed $k$. Ratio tunings exist at every
+level, and $(\mathrm N_u)$ holds along every sequence with
+$a_k^2\beta_k/\log(1/a_k)\to\infty$. The limits are degenerate, and the
+mechanism has no counterpart in infinite volume.
+
+Let $G=\SU(2)$, fix $L\ge3$, and take the box $\Z\times(\Z/L\Z)^3$ of
+Proposition~\ref{prop:flowpositive} with $L_k=L$ for all $k$. Let $E$ be the
+set of $3L^3$ spatial links of a slice and $dU$ the Haar probability measure
+on $G^E$. For $V\in G$ put $s(V)=1-\frac12\Tr V$, so that
+$|V-I|^2=4s(V)$. Write $s_p=s(U_p)$ and
+\[
+e_s(U)=\sum_ps_p(U),\qquad e_t(U,U')=\sum_{e\in E}s(U_eU_e'^{-1}),
+\]
+where the first sum runs over the $3L^3$ plaquettes of the slice. With
+$b=\beta_W$, the transfer matrix $\mathbb T_b=MKM$ of the proof of
+Proposition~\ref{prop:flowpositive} is the integral operator with the
+continuous positive kernel
+\[
+t_b(U,U')=\exp\Bigl(b\bigl(6L^3-\tfrac12e_s(U)-e_t(U,U')-\tfrac12e_s(U')
+\bigr)\Bigr).
+\]
+Here $M$ contributes half of the weight $b(1-s_p)$ of every plaquette of the
+two slices, and $K$ contributes the weight $b(1-s(U_eU_e'^{-1}))$ of the
+time-like plaquette above $e$ in the temporal gauge. The kernel, the largest
+eigenvalue $\lambda_0=\lambda_0(b)$, the eigenvector $\psi_0>0$ and
+$A=\mathbb T_b/\lambda_0$ do not depend on $k$. Put $\omega(F)=\ip{\psi_0}
+{F\psi_0}$ for functions $F$ of the slice and
+\[
+\begin{split}
+\varepsilon_s(b)&=\omega(s_p),\\
+\varepsilon_t(b)&=\frac1{\lambda_0}\iint s(U_eU_e'^{-1})\,\psi_0(U)
+t_b(U,U')\psi_0(U')\,dU\,dU' .
+\end{split}
+\]
+These are the energies of a spatial and of a time-like plaquette in the
+state of the box. The function $\psi_0(U)t_b(U,U')\psi_0(U')/\lambda_0$ is a
+probability density on $G^E\times G^E$.
+
+The following maps act on $G^E$: the translations of the slice, the
+permutations of the three axes, and, for $\mu=1,2,3$, the map $\zeta_\mu$
+that multiplies by $-I$ the links $(x,\mu)$ with $x_\mu=L-1$. Each of them
+preserves the Haar measure, commutes with the gauge transformations, and
+leaves $t_b$ invariant. For $\zeta_\mu$ this holds because a plaquette
+contains either none or two of the links it changes, $-I$ is central, and
+$U_eU_e'^{-1}$ is unchanged. Hence $\psi_0$ composed with any of these maps
+is again a positive normalised eigenvector for $\lambda_0$, and so it equals
+$\psi_0$. The translations and permutations act transitively on the
+plaquettes and on the links, and $s(V^{-1})=s(gVg^{-1})=s(V)$, so
+$\varepsilon_s$ and $\varepsilon_t$ do not depend on $p$ and $e$.
+
+\begin{lemma}\label{lem:boxenergy}
+For $b\ge1$,
+\[
+\varepsilon_s(b)+\varepsilon_t(b)\le\varepsilon(b):=\frac{3(\log b+5)}{2b}.
+\]
+The function $\varepsilon$ decreases on $[1,\infty)$, and for $0<\epsilon'
+\le3$ the inequality $\varepsilon(b)\le\epsilon'$ holds for every
+$b\ge B(\epsilon')$, where $B(\epsilon')=(3/\epsilon')(\log(3/\epsilon')+4)$.
+\end{lemma}
+
+\begin{proof}
+\emph{The eigenvalue.} The operator $\mathbb T_b$ on $L^2(G^E)$ is positive
+and compact, and its kernel is continuous and positive. By Jentzsch's
+theorem its largest eigenvalue is simple, with a positive eigenfunction. The
+gauge transformations commute with $\mathbb T_b$ and preserve positivity, so
+that eigenfunction is gauge invariant. Hence it is $\psi_0$, and $\lambda_0$
+is also the largest eigenvalue on $L^2(G^E)$. In particular $\int t_b(U,U')
+\psi_0(U')\,dU'=\lambda_0\psi_0(U)$ for every $U$, and $\lambda_0=\sup_f
+\ip f{\mathbb T_bf}/\|f\|^2$ over $f\in L^2(G^E)$.
+
+\emph{Convexity.} Since $\ip1{\psi_0}>0$, we have $\lambda_0^n\ip1{\psi_0}^2
+\le\ip1{\mathbb T_b^n1}\le\lambda_0^n$. Hence $\log\lambda_0=\lim_n
+n^{-1}\log\ip1{\mathbb T_b^n1}$. Here $\ip1{\mathbb T_b^n1}$ is the integral
+over $(G^E)^{n+1}$ of $\prod_{i<n}t_b(U_i,U_{i+1})$, which is the exponential
+of $b$ times a function of the configuration. By H\"older's inequality its
+logarithm is convex in $b\in\R$. So $\log\lambda_0$ is convex on
+$[0,\infty)$.
+
+\emph{Derivative.} The kernel is smooth in $b$, uniformly on the compact set
+$G^E\times G^E$, so $\mathbb T_b$ is differentiable in the Hilbert--Schmidt
+norm. Its derivative has the kernel $(6L^3-\frac12e_s(U)-e_t(U,U')-\frac12
+e_s(U'))t_b(U,U')$. By the proof of Proposition~\ref{prop:boxratio}, the
+eigenvector $\psi_0$ is real-analytic in $b$. Differentiating
+$\lambda_0=\ip{\psi_0}{\mathbb T_b\psi_0}$ and using $\|\psi_0\|=1$ gives
+$\lambda_0'=\ip{\psi_0}{\mathbb T_b'\psi_0}$. The eigenvector equation then
+gives
+\[
+\begin{split}
+(\log\lambda_0)'&=6L^3-\omega(e_s)-\frac1{\lambda_0}\iint e_t\,\psi_0t_b\psi_0
+\\&=6L^3-3L^3(\varepsilon_s+\varepsilon_t) .
+\end{split}
+\]
+
+\emph{Concavity.} The function $F(b)=6L^3b-\log\lambda_0(b)$ is concave, and
+$F(0)=0$, since $t_0=1$ makes $\mathbb T_0$ the projection onto the
+constants. It also satisfies $F'=3L^3(\varepsilon_s+\varepsilon_t)$.
+Concavity gives $F(0)\le F(b)-bF'(b)$, that is,
+\[
+\varepsilon_s+\varepsilon_t\le\frac{F(b)}{3L^3b} .
+\]
+
+\emph{Upper bound on $F$.} Let $\theta(V)\in[0,\pi]$ be the angle of
+$V\in\SU(2)$. It is a bi-invariant distance from $I$, so $\theta(VW)\le
+\theta(V)+\theta(W)$, and $s(V)=1-\cos\theta(V)\le\frac12\theta(V)^2$. Let
+$0<r\le\pi/2$ and $B_r=\{U:\theta(U_e)\le r\ \forall e\in E\}$. On
+$B_r\times B_r$ every spatial plaquette has $\theta(U_p)\le4r$ and every
+$U_eU_e'^{-1}$ has angle at most $2r$, so $\frac12e_s(U)+e_t(U,U')+\frac12
+e_s(U')\le3L^3\cdot8r^2+3L^3\cdot2r^2=30L^3r^2$. The Haar measure of
+$\{\theta\le r\}$ is $\frac2\pi\int_0^r\sin^2\theta\,d\theta\ge
+8r^3/(3\pi^3)$, by $\sin\theta\ge2\theta/\pi$. Testing with the indicator
+$f$ of $B_r$, whose squared norm is $|B_r|$, gives
+\[
+\lambda_0\ge\frac{\ip f{\mathbb T_bf}}{|B_r|}\ge|B_r|\,e^{b(6L^3-30L^3r^2)},
+\qquad |B_r|\ge\Bigl(\frac{8r^3}{3\pi^3}\Bigr)^{3L^3}.
+\]
+With $r^2=3/(20b)\le\frac3{20}$ this gives
+\[
+\begin{split}
+F(b)&\le30L^3br^2+3L^3\log\frac{3\pi^3}{8r^3}\\
+&=\frac92L^3\Bigl(\log b+1+\log\frac{20}3+\frac23\log\frac{3\pi^3}8\Bigr).
+\end{split}
+\]
+The constant in parentheses beside $\log b$ is less than $5$. Indeed
+$e^2>2.718^2>7.38$, so $\log\frac{20}3<\log7<2$. Also $\pi<3.15$ gives
+$\pi^3<31.3<32$ and $\frac{3\pi^3}8<12$, while $e^5>2.718^5>148>144=12^2$
+gives $\frac23\log12<\frac53$. So the constant is less than
+$1+2+\frac53<5$, and $\varepsilon_s+\varepsilon_t\le\frac3{2b}(\log
+b+5)$.
+
+\emph{The coupling.} The derivative of $(\log b+5)/b$ is $(-4-\log b)/b^2<0$.
+Let $x=3/\epsilon'\ge1$ and $b\ge x(\log x+4)\ge1$. Since $\log y\le y-1$,
+\[
+\begin{split}
+\log b+5&\le\log x+\log(\log x+4)+5\\
+&\le2\log x+8=\frac2x\,x(\log x+4) .
+\end{split}
+\]
+So $(\log b+5)/b\le2/x$ at $b=x(\log x+4)$, hence for all larger $b$, and
+then $\varepsilon(b)\le3/x=\epsilon'$.
+\end{proof}
+
+For a site $x$ of the slice and $\mu\in\{1,2,3\}$, let $W_\mu(x)=
+U_{(x,\mu)}U_{(x+\hat\mu,\mu)}\cdots U_{(x+(L-1)\hat\mu,\mu)}$ be the holonomy
+of the straight loop of $L$ links through $x$ in direction $\mu$. Put
+\begin{equation}\label{eq:centreoddPhi}
+\Phi=\Tr W_1(0)+\Tr\bigl(W_1(0)W_2(0)\bigr) ,
+\end{equation}
+a real, continuous, gauge-invariant function of $2L$ spatial links of the
+slice. The second term is the trace of the holonomy of the closed path that
+goes once around direction $1$ and then once around direction $2$. The loop
+$W_1(x)$ contains exactly one link changed by $\zeta_1$ and none changed by
+$\zeta_2$, and $W_2(x)$ contains one link changed by $\zeta_2$. So
+$\Phi_x\circ\zeta_1=-\Phi_x$ for every translate $\Phi_x$, while
+$\zeta_2$ changes the sign of the second term only. The packets of $\Phi$ are
+therefore odd under the centre transformation $\zeta_1$. In infinite volume
+no nonzero element of $\mathcal A$ is odd under the corresponding map (Remark~\ref{rem:centreodd}).
+
+\begin{lemma}\label{lem:loops}
+\textup{(a)} For $V,W\in\SU(2)$ put $x=\Tr V$, $y=\Tr W$, $z=\Tr VW$ and
+$q=2-\Tr(VWV^{-1}W^{-1})\in[0,4]$. Then
+\[
+x^2+y^2+z^2-xyz=4-q,\qquad x^2+y^2+z^2\ge3-\tfrac34q .
+\]
+
+\textup{(b)} For unitary $g_1,\dots,g_n$, $|g_1\cdots g_n-I|\le\sum_i|g_i-I|$.
+For $U_i,V_i\in\SU(2)$, $|\Tr(U_1\cdots U_m)-\Tr(V_1\cdots V_m)|\le\sqrt2
+\sum_i|U_i-V_i|$.
+
+\textup{(c)} Let $\gamma$ be a closed path of links of the slice, $\gamma'$
+its translate by $\pm\hat\mu$, and $h_\gamma$, $h_{\gamma'}$ their
+holonomies. Each link of $\gamma$ not parallel to $\mu$ spans, with its
+translate, a plaquette. Let $R(\gamma,\mu)$ be the list of these
+plaquettes, one entry for each such link. Then
+\[
+|\Tr h_\gamma-\Tr h_{\gamma'}|\le\sqrt2\sum_{p\in R(\gamma,\mu)}|U_p-I| .
+\]
+
+\textup{(d)} Let $P_{12}$ be the set of $L^2$ plaquettes of the plane
+$x_3=0$ in the directions $1,2$. Then
+\[
+|W_2(0)W_1(0)W_2(0)^{-1}W_1(0)^{-1}-I|\le\sum_{p\in P_{12}}|U_p-I| .
+\]
+\end{lemma}
+
+\begin{proof}
+(a) By the Cayley--Hamilton theorem, $V^{-1}=x-V$, $W^{-1}=y-W$, $W^2=yW-I$,
+$V^2=xV-I$ and $(VW)^2=zVW-I$. So $\Tr(VW^2)=yz-x$, $\Tr(VWV)=\Tr(V^2W)=xz-y$
+and $\Tr((VW)^2)=z^2-2$. Hence
+\[
+\begin{split}
+\Tr(VWV^{-1}W^{-1})&=\Tr\bigl(VW(x-V)(y-W)\bigr)\\
+&=xyz-x(yz-x)-y(xz-y)+z^2-2,
+\end{split}
+\]
+which is the identity. Put $S=x^2+y^2+z^2$. If $S\ge3$, the inequality holds
+because $q\ge0$. If $S<3$, then $|xyz|\le(S/3)^{3/2}\le S/3$ by the
+inequality of the arithmetic and geometric means for $x^2,y^2,z^2$. So
+$4-q\le S+S/3$, and $S\ge3-\frac34q$.
+
+(b) Write $g_1\cdots g_n-I=\sum_ig_1\cdots g_{i-1}(g_i-I)$, and use
+$|gM|=|M|$ for unitary $g$. Similarly, $U_1\cdots U_m-V_1\cdots V_m=\sum_i
+U_1\cdots U_{i-1}(U_i-V_i)V_{i+1}\cdots V_m$. Finally, $|\Tr M|\le\sqrt2|M|$
+for $2\times2$ matrices, by the Cauchy--Schwarz inequality.
+
+(c) Let $\gamma$ visit $x_0,x_1,\dots,x_m=x_0$, and let $U_{x_i\to x_{i+1}}$
+be the link variable of its $i$-th step, inverted when the step runs against
+the orientation of the link. Let $x_i'=x_i\pm\hat\mu$, let $c_i$ be the link
+variable of the step from $x_i$ to $x_i'$, and let $V_i=U_{x_0\to x_1}\cdots
+U_{x_{i-1}\to x_i}$, with $V_m=h_\gamma$. Put
+\[
+D_i=V_i\,c_i\,\bigl(U_{x_0'\to x_1'}\cdots U_{x_{i-1}'\to x_i'}\bigr)^{-1}
+c_0^{-1},
+\]
+so that $D_0=I$. A direct computation gives
+$D_{i+1}=V_iP_iV_i^{-1}D_i$, with
+$P_i=U_{x_i\to x_{i+1}}c_{i+1}U_{x_i'\to x_{i+1}'}^{-1}c_i^{-1}$. If the
+$i$-th step is not parallel to $\mu$, then $P_i$ is the holonomy of the
+plaquette spanned by that step and its translate. If it is parallel to $\mu$,
+then $P_i=I$: for a step $+\hat\mu$ the two step variables are $c_i$ and
+$c_{i+1}$, and for a step $-\hat\mu$ they are $c_{i+1}^{-1}$ and $c_i^{-1}$,
+in the case of the translate by $+\hat\mu$, and symmetrically for
+$-\hat\mu$. Since $c_m=c_0$, $D_m=h_\gamma c_0h_{\gamma'}^{-1}
+c_0^{-1}$, where $h_{\gamma'}$ is based at $x_0'$. So $\Tr h_{\gamma'}=
+\Tr(D_m^{-1}h_\gamma)$, and
+\[
+\begin{split}
+|\Tr h_\gamma-\Tr h_{\gamma'}|&=|\Tr((D_m^{-1}-I)h_\gamma)|\le\sqrt2\,
+|D_m-I|\\&\le\sqrt2\sum_{p\in R(\gamma,\mu)}|U_p-I| ,
+\end{split}
+\]
+by (b) and $|gU_pg^{-1}-I|=|U_p-I|$.
+
+(d) Let $y_j=(j,0,0)$, let $\gamma_j$ be the loop in direction $2$ through
+$y_j$, with holonomy $W_2(y_j)$, and let $c_j=U_{(y_j,1)}$. The proof of (c),
+for $\gamma_j$ and $\mu=1$, gives $W_2(y_j)c_j=D^{(j)}c_jW_2(y_{j+1})$. Here
+$D^{(j)}$ is a product of conjugates of the holonomies of the $L$
+plaquettes between the columns $j$ and $j+1$. Let $H_j=c_0\cdots c_{j-1}$,
+so that $H_L=W_1(0)$. By induction on $j$, $W_2(0)H_j=E_jH_jW_2(y_j)$ with
+$E_0=I$ and $E_{j+1}=E_jH_jD^{(j)}H_j^{-1}$. For $j=L$, periodicity gives
+$W_2(y_L)=W_2(0)$, so $E_L=W_2(0)W_1(0)W_2(0)^{-1}W_1(0)^{-1}$. This is a
+product of conjugates of the holonomies of the $L^2$ plaquettes of
+$P_{12}$, and (b) gives the bound.
+\end{proof}
+
+The spatial flow $\Phi_s$ of the box is the gradient flow, on $G^E$ with
+the product of the bi-invariant metric of Proposition~\ref{prop:spatialflow}, of
+$\sum_p(2-\Tr U_p)=2e_s$. Let $c_G$ be a constant with $|V-W|\le c_G\,
+\delta(V,W)$ for the geodesic distance $\delta$ of that metric. For the
+metric $\ReTr(X^*Y)$, $c_G=1$, because $\delta(V,W)$ is the length of a curve
+in $M_2(\C)$ with the Frobenius norm. For a packet $f_0=g\otimes h$ with
+$g$ supported in $[t_0,t_1]$, let $n_1=\lfloor t_1/a_k\rfloor$ and
+$p(z)=\sum_{n\ge1}g(a_kn)z^n$, as in the proof of
+Proposition~\ref{prop:flowpositive}.
+
+\begin{theorem}\label{thm:centreodd}
+In this box, let $\Phi$ be given by~\eqref{eq:centreoddPhi} and let $\tau>0$.
+Let $f_0=g\otimes h$ with $g\ge0$ supported in $[t_0,t_1]\subset(0,\infty)$,
+and with $h\ge0$ and $h(0)>0$. Let $k$ be such that $g(a_kn)>0$ for some
+integer $n\ge1$.
+
+\textup{(i)} $C_k(0)>0$ for every $\beta_W>0$.
+
+\textup{(ii)} Let $\kappa>0$, $\eta\in(0,1)$ and dyadic $u\ge0$ with
+$u/a_k\in\Z$, and put
+\[
+\begin{split}
+\epsilon_k(\kappa,\eta)&=\min\Bigl(\frac1{1600L^4},\frac{\kappa a_k}{36L^2},
+\frac{\eta^2a_k^2}{72c_G^2L^4\tau}\Bigr),\\
+v&=\frac{1-(t_1+u)\kappa-\eta}{1+\eta} .
+\end{split}
+\]
+If $\beta_W\ge1$ and $\varepsilon(\beta_W)\le\epsilon_k(\kappa,\eta)$, which
+holds for every $\beta_W\ge B(\epsilon_k(\kappa,\eta))$, then for every
+$\sigma\ge2a_k$ with $\sigma/a_k\in\Z$
+\[
+\rho_k(u,\sigma)\ge\Bigl(v-\sqrt{\kappa\sigma/2}\Bigr)_+^2 .
+\]
+
+\textup{(iii)} Let $e^{-m(\beta_W)}$ be the norm of $A$ on $\psi_0^\perp$. If
+$\beta_W\ge1$ and $\varepsilon(\beta_W)\le1/(1600L^4)$, then
+$1-e^{-m(\beta_W)}\le36L^2\varepsilon(\beta_W)$. In particular $m(\beta_W)\to0$
+as $\beta_W\to\infty$.
+\end{theorem}
+
+\begin{proof}
+Write $a=a_k$, $s=\tau/a^2$, $S_h=\sum_xh(ax)$ and $w_x=h(ax)/S_h$, the sum
+running over the sites of the slice. The weights $w_x\ge0$ are well defined,
+since $h\ge0$ and $S_h\ge h(0)>0$. Put $G_0=\sum_xw_x\Phi_x$, $\varphi=G_0
+\psi_0$ and $\psi=(G_0\circ\Phi_s)\psi_0$. The flow commutes with $\zeta_1$,
+because the slice action is invariant under it and its gradient is
+equivariant. Hence $F=S_hG_0\circ\Phi_s$ is odd under $\zeta_1$, and
+$\omega(F)=0$. By the proof of Proposition~\ref{prop:flowpositive},
+$\Psi_{A_k}=a^4S_hp(A)\psi$. With $R=A^{u/a}p(A)$, therefore,
+$\Psi_{k,u}=R\psi/\|R\psi\|$.
+
+(i) The configuration $1$ with every link equal to $I$ minimises the slice
+action, so $\Phi_s(1)=1$ and $F(1)=S_hG_0(1)=4S_h>0$. Since $F$ is continuous and
+$\psi_0>0$, $F\psi_0\ne0$. The operator $p(A)$ is injective by the proof of
+Proposition~\ref{prop:flowpositive}. So $C_k(0)=a^8S_h^2\|p(A)\psi\|^2>0$.
+
+\emph{Lipschitz constants.} By Lemma~\ref{lem:loops}(b), $\Tr W_1(x)$ has
+the constant $\sqrt2$ on each of its $L$ links, and $\Tr(W_1(x)W_2(x))$ has
+$\sqrt2$ on each of its $2L$ links. So $\Phi_x$ has constants $L_e\le2\sqrt2$,
+with $\sum_eL_e=3\sqrt2L$. The same bounds hold for the convex combination
+$G_0$. Hence $\Lambda(G_0)\le3\sqrt2L$ and $\sum_eL_e^2\le2\sqrt2\cdot3\sqrt2
+L=12L$.
+
+\emph{Norm.} Put $y_1=\Tr W_1(0)$ and $y_2=\Tr W_2(0)$, and let
+$y_{12}=\Tr(W_1(0)W_2(0))$. Under $\zeta_2$ the product $y_1y_{12}$ is odd,
+so $\omega(y_1y_{12})=0$. The exchange of the axes $1$ and $2$ maps $W_1(0)$
+to $W_2(0)$, so $\omega(y_1^2)=\omega(y_2^2)$.
+By Lemma~\ref{lem:loops}(a),
+\[
+\begin{split}
+\|\Phi\psi_0\|^2&=\tfrac12\omega(y_1^2+y_2^2)+\omega(y_{12}^2)\\
+&\ge\tfrac12\omega(y_1^2+y_2^2+y_{12}^2)\ge\tfrac32-\tfrac38\omega(q) .
+\end{split}
+\]
+By Lemma~\ref{lem:loops}(d), with $q=\frac12|C-I|^2$ for the commutator $C$
+there, which has the same trace as its inverse, we get $q\le\frac12L^2
+\sum_{p\in P_{12}}|U_p-I|^2=2L^2\sum_{p\in P_{12}}s_p$. So $\omega(q)\le
+2L^4\varepsilon_s$. Next, move the site $0$ to a site $x$ by at most $\lfloor L/2\rfloor$
+steps $\pm\hat\mu$ in each direction. Steps in direction $1$ do not change
+$\Tr W_1$, and the other steps cost $L$ plaquettes each in
+Lemma~\ref{lem:loops}(c), at most $L^2$ in all. For the path of
+$W_1W_2$ the steps cost $L$, $L$ and $2L$ plaquettes in the directions $1$,
+$2$ and $3$, at most $2L^2$ in all. Since $\|\,|U_p-I|\,\psi_0\|=
+(4\varepsilon_s)^{1/2}$,
+\[
+\|(\Phi_x-\Phi)\psi_0\|\le\sqrt2\cdot3L^2\cdot2\varepsilon_s^{1/2}=
+6\sqrt2L^2\varepsilon_s^{1/2},
+\]
+and the same bound holds for $\|\varphi-\Phi\psi_0\|$. If $L^4\varepsilon_s
+\le1/1600$, then $(\frac32-\frac3{6400})^{1/2}\ge1.22$, because
+$1.22^2=1.4884$. Also $6\sqrt2/40<0.22$, so $\|\varphi\|\ge1$ and
+$\|\Phi\psi_0\|\ge1$.
+
+\emph{Energy.} For a real slice function $X$, the eigenvector equation and
+the symmetry of $t_b$ give
+\[
+\begin{split}
+&\ip{X\psi_0}{(1-A)X\psi_0}=\frac1{2\lambda_0}\iint\bigl(X(U)-X(U')\bigr)^2\\
+&\qquad\qquad\times\psi_0(U)t_b(U,U')\psi_0(U')\,dU\,dU' .
+\end{split}
+\]
+With $(\sum_eL_e|U_e-U_e'|)^2\le\Lambda\sum_eL_e|U_e-U_e'|^2$ and
+$|U_e-U_e'|^2=4s(U_eU_e'^{-1})$, this is at most $2\Lambda(X)^2
+\varepsilon_t\le36L^2\varepsilon_t$ for $X=G_0$ and for $X=\Phi$.
+
+(iii) The vector $\Phi\psi_0$ is orthogonal to $\psi_0$, because $\Phi$ is
+odd under $\zeta_1$, and $A$ preserves $\psi_0^\perp$. So the spectral
+measure of $A$ at $\Phi\psi_0$ lives on $[0,e^{-m}]$. Hence $1-e^{-m}\le
+\ip{\Phi\psi_0}{(1-A)\Phi\psi_0}/\|\Phi\psi_0\|^2\le36L^2\varepsilon_t$, by
+the two previous steps and Lemma~\ref{lem:boxenergy}.
+
+(ii) By Lemma~\ref{lem:boxenergy}, $\varepsilon_s$ and $\varepsilon_t$ are at
+most $\epsilon_k(\kappa,\eta)$. Let $\nu$ be the spectral measure of $A$ at
+$\varphi$, and $\kappa_\varphi a=\int(1-\lambda)\,d\nu/\|\varphi\|^2\le
+36L^2\varepsilon_t\le\kappa a$; also $\kappa_\varphi a\le1$.
+
+\emph{Flow.} The energy identity $\frac d{ds'}2e_s=-|\nabla2e_s|^2$ and the
+Cauchy--Schwarz inequality bound the length of the path $s'\mapsto
+\Phi_{s'}(U)$, $0\le s'\le s$, by $(2s\,e_s(U))^{1/2}$. By Minkowski's
+inequality, the lengths $\ell_e$ of its components have $\sum_e\ell_e^2\le
+2s\,e_s(U)$. Hence
+\[
+|G_0(\Phi_sU)-G_0(U)|\le c_G\sum_eL_e\ell_e\le c_G(12L)^{1/2}(2s\,e_s(U))
+^{1/2},
+\]
+and $\|\psi-\varphi\|^2\le24c_G^2Ls\,\omega(e_s)=72c_G^2L^4s\varepsilon_s
+\le\eta^2\le\eta^2\|\varphi\|^2$.
+
+\emph{Overlap.} If $v\le0$ there is nothing to prove, so assume $v>0$. Then
+$\theta=(t_1+u)\kappa<1-\eta$. Since $p$ has nonnegative coefficients
+supported in $[1,n_1]$, we have $p(1)\lambda^{n_1}\le p(\lambda)\le p(1)$ on
+$[0,1]$, and $\|R\|\le p(1)$. Jensen's inequality for $\lambda^{2j}$ with
+$j=u/a+n_1$, and Bernoulli's inequality, give
+\[
+\begin{split}
+\|R\varphi\|^2&\ge p(1)^2\int\lambda^{2j}d\nu\ge p(1)^2\|\varphi\|^2
+(1-\kappa_\varphi a)^{2j},\\
+\|R\varphi\|&\ge p(1)\|\varphi\|(1-\theta),
+\end{split}
+\]
+since $ja\le u+t_1$. So $\varrho=\|R(\psi-\varphi)\|/\|R\varphi\|\le
+\eta/(1-\theta)<1$. Let $\chi=R\varphi/\|R\varphi\|$. Then
+\[
+\begin{split}
+|\ip\chi{\Psi_{k,u}}|&\ge\frac{\|R\varphi\|^2-\|R\varphi\|\,\|R(\psi-\varphi)
+\|}{\|R\varphi\|(\|R\varphi\|+\|R(\psi-\varphi)\|)}\\
+&=\frac{1-\varrho}{1+\varrho}\ge\frac{1-\theta-\eta}{1-\theta+\eta}\ge v .
+\end{split}
+\]
+The function $\lambda^{2u/a}p(\lambda)^2$ is nondecreasing on $[0,1]$ and
+$1-\lambda$ is nonincreasing. As in the proof of
+Theorem~\ref{thm:softhard}, this gives $\int\lambda^{2u/a}p^2(1-\lambda)\,
+d\nu\le\|R\varphi\|^2\kappa_\varphi a$, so $\ip\chi{(1-A)\chi}\le\kappa a$.
+Lemma~\ref{lem:trial}(a) with $\mathbb T=A$ gives the bound. The last
+statement of (ii) is Lemma~\ref{lem:boxenergy}, since
+$\epsilon_k(\kappa,\eta)\le3$.
+\end{proof}
+
+\begin{corollary}\label{cor:centreodd}
+Under the hypotheses of Theorem~\textup{\ref{thm:centreodd}}, let $u\ge0$ and
+$\sigma>0$ be dyadic, and let $\rho_k(\beta_W)=\rho_k(u,\sigma)$ at the
+coupling $\beta_W$.
+
+\textup{(i)} At every fixed large $k$, $\rho_k$ is real-analytic on
+$(0,\infty)$, with $\rho_k(\beta_W)\to0$ as $\beta_W\to0$ and
+$\rho_k(\beta_W)\to1$ as $\beta_W\to\infty$. For every $r\in(0,1)$ the set
+$\{\beta_W>0:\rho_k(\beta_W)=r\}$ is nonempty and has no accumulation point
+in $(0,\infty)$. So ratio tunings at every level $r\in(0,1)$ exist in this
+box.
+
+\textup{(ii)} For every $B>0$ there is $q_B<1$ such that, for every packet in
+this box with $C_k(0)>0$, $\rho_k(\beta_W)\le q_B^{\sigma/a_k}$ for
+$0<\beta_W\le B$ and all $k$. So every ratio tuning in this box has
+$\beta_k\to\infty$.
+
+\textup{(iii)} For $r\in(0,1)$ let $\beta_k(r)$ be the smallest solution of
+$\rho_k(\beta_W)=r$. Then $\beta_k(r)\to\infty$, and $\beta_k(r)\le
+C\,a_k^{-2}\log(1/a_k)$ for large $k$, with $C$ depending on $r$, $L$,
+$\tau$, $t_1$, $u$, $\sigma$ and $c_G$.
+
+\textup{(iv)} Let $\beta_k$ be couplings with $a_k^2\beta_k/\log(1/a_k)\to
+\infty$. Then $\rho_k(u,\sigma)\to1$ for all dyadic $u\ge0$ and $\sigma>0$,
+so $(\mathrm N_u)$ holds for every $u$. Every limit of
+Theorem~\textup{\ref{thm:flowlimit}} in the box along these couplings is
+two-dimensional. In it, $\psi(f_0(\cdot-(t,0)))=\psi_*$ is the same unit
+vector for every dyadic $t>0$, $\psi_*\perp\Omega$, and $H=0$. The
+inequality of \textup{(Z$_{\mathrm{sl}}$)} in
+Proposition~\textup{\ref{prop:mzslice}} holds in the box at every dyadic
+$\delta>0$: $I_k(\delta)\le2\delta D_k(\delta)$ for large $k$.
+\end{corollary}
+
+\begin{proof}
+(i) The proof of Proposition~\ref{prop:boxratio} uses the packet only
+through $C_k(0)>0$ at every $\beta_W>0$. That positivity is
+Theorem~\ref{thm:centreodd}(i), so analyticity, the limit at $0$ and the
+discreteness follow as there. Given $\varepsilon'>0$, choose $\eta\in(0,1)$
+and $\kappa>0$ so small that $(v-\sqrt{\kappa\sigma/2})^2\ge1-\varepsilon'$.
+Theorem~\ref{thm:centreodd}(ii) then gives $\rho_k\ge1-\varepsilon'$ for
+$\beta_W\ge B(\epsilon_k(\kappa,\eta))$. Existence follows from the
+intermediate value theorem, as in Proposition~\ref{prop:boxratio}(ii).
+
+(ii) By the proof of Proposition~\ref{prop:boxratio}, the Riesz projection
+$P_0$ onto $\psi_0$ is continuous in $\beta_W\in[0,B]$ in operator norm. Hence
+so is $\mathbb T_{\beta_W}(1-P_0)$, whose norm is the largest eigenvalue
+$\lambda_1$ of $\mathbb T_{\beta_W}$ on $\psi_0^\perp$. By simplicity,
+$\lambda_1<\lambda_0$ for $\beta_W>0$, and at $\beta_W=0$ we have
+$\lambda_1=0<1=\lambda_0$. So $q_B=\max_{[0,B]}\lambda_1/\lambda_0<1$, and
+$\rho_k\le(\lambda_1/\lambda_0)^{\sigma/a_k}$ as in that proof. The
+transfer matrix does not depend on $k$, so $q_B$ does not either. If a ratio
+tuning at level $r$ had $\beta_k\le B$ for infinitely many $k$, then
+$r\le q_B^{\sigma/a_k}\to0$ along them.
+
+(iii) By (i), $\rho_k<r$ on some $(0,\delta_k]$, and $\rho_k$ takes the
+value $r$. So the solutions form a nonempty closed subset of
+$[\delta_k,\infty)$, and the smallest one exists. Fix $\eta\in(0,1)$ and
+$\kappa>0$ with $(v-\sqrt{\kappa\sigma/2})_+^2>r$. For large $k$,
+$\epsilon_k=\epsilon_k(\kappa,\eta)=\eta^2a_k^2/(72c_G^2L^4\tau)$, and at
+$\beta'_k=B(\epsilon_k)$ Theorem~\ref{thm:centreodd}(ii) gives
+$\rho_k>r$. By the intermediate value theorem, $\beta_k(r)\le\beta'_k=
+(3/\epsilon_k)(\log(3/\epsilon_k)+4)$, which is at most $Ca_k^{-2}
+\log(1/a_k)$. By (ii), $\beta_k(r)\to\infty$.
+
+(iv) Write $\beta_k=M_ka_k^{-2}\ell_k$ with $\ell_k=\log(1/a_k)$, so that
+$M_k\to\infty$. Then
+\[
+\frac{\log\beta_k+5}{a_k^2\beta_k}=\frac{\log M_k+2\ell_k+\log\ell_k+5}
+{M_k\ell_k}\to0 .
+\]
+So $\varepsilon(\beta_k)/a_k^2\to0$, hence also $\varepsilon(\beta_k)/a_k\to0$
+and $\varepsilon(\beta_k)\to0$. For fixed $\kappa$ and $\eta$,
+$\varepsilon(\beta_k)\le\epsilon_k(\kappa,\eta)$ for large $k$, and
+Theorem~\ref{thm:centreodd}(ii) gives $\liminf_k\rho_k(u,\sigma)\ge(v-
+\sqrt{\kappa\sigma/2})_+^2$. Letting $\kappa,\eta\to0$ and using
+$\rho_k\le1$ gives $\rho_k(u,\sigma)\to1$. In the limit of
+Theorem~\ref{thm:flowlimit}(iii) in the box, put $y=(t,0)$ and $y'=(t',0)$.
+The vectors $\psi(f_0(\cdot-y))$ have inner products $\lim_k\rho_k(0,t+t')=1$
+and are orthogonal to $\Omega$, since the packets are centred. So they
+coincide with one unit vector $\psi_*$. Moreover $\psi(f_*)=\Omega$, since
+$\|\psi(f_*)\|=\ip\Omega{\psi(f_*)}=1$, and $\ip{\psi_*}{e^{-\tau'H}\psi_*}=1$
+for dyadic $\tau'$. So $H\psi_*=0$, the range of $\psi$ is spanned by $\Omega$
+and $\psi_*$, and $H=0$. For the slice bound, $D_k(r)=a_k^6S_h^2\ip\psi
+{A^{r/a_k}\psi}$, in the notation of the proof of
+Theorem~\ref{thm:centreodd}, and $\ip\psi{A^n\psi}=\|A^{n/2}\psi\|^2$. As in
+the overlap step, for $na_k=\delta$ and $k$ so large that $n\ge2$,
+\[
+\begin{split}
+\|A^{n/2}\psi\|&\ge\|\varphi\|(1-\kappa_\varphi a_k)^{n/2}-\|\psi-\varphi\|\\
+&\ge\|\varphi\|(1-\tfrac12\kappa\delta-\eta),
+\end{split}
+\]
+while $\|\psi\|\le(1+\eta)\|\varphi\|$. Hence $D_k(\delta)\ge
+\bigl((1-\frac12\kappa\delta-\eta)/(1+\eta)\bigr)^2D_k(0)$. For small $\kappa,\eta$ the factor exceeds $\frac12$, and
+$I_k(\delta)\le\delta D_k(0)\le2\delta D_k(\delta)$.
+\end{proof}
+
+\begin{proposition}\label{prop:axialvariance}
+Let $G\subset\mathrm U(N)$ be closed, let $\omega$ be a state as in
+Appendix~\textup{\ref{app:transfer}}, and let $X$ be a real bounded slice
+function whose links join sites of the cube $B_R=\{0,\dots,R\}^3$ of the
+slice. Then
+\[
+\Var_\omega X\le8NR^2\Lambda(X)^2\varepsilon_\omega .
+\]
+Let $\chi$ be the unit vector along $\Psi_{X-\omega(X)}$. The bound of
+Lemma~\textup{\ref{lem:slabdirichlet}(iii)} for $\ip\chi{(1-\mathbb T)\chi}$,
+which is $N\Lambda(X)^2\varepsilon_\omega/\Var_\omega X$, is then at least
+$1/(8R^2)$. If it
+is at most $\kappa a_k$, then $R\ge(8\kappa a_k)^{-1/2}$.
+\end{proposition}
+
+\begin{proof}
+Set to $I$, by a gauge transformation of the slice that is the identity off
+$B_R$, the links of the comb tree of $B_R$. This tree consists of the links
+in direction $3$, the links in direction $2$ with $x_3=0$, and the links in
+direction $1$ with $x_2=x_3=0$. This changes neither $X$ nor the plaquette
+holonomies, up to conjugation. In this gauge, a link in direction $2$ at
+height $x_3$ is the product of the $x_3$ plaquettes of the
+$(2,3)$-plane below it, inverted where needed. A link in direction $1$ at
+$(x_2,x_3)$ is a product of at most $x_3+x_2\le2R$ plaquettes, first in the
+$(1,3)$-plane down to $x_3=0$ and then in the $(1,2)$-plane. Let $P(e)$ be
+the plaquettes used for the link $e$, so $|P(e)|\le2R$. With $X(1)$ the
+value at the configuration with all links equal to $I$,
+Lemma~\ref{lem:loops}(b) gives
+\[
+|X-X(1)|\le\sum_eL_e\sum_{p\in P(e)}|U_p-I| .
+\]
+By the Cauchy--Schwarz inequality twice and $|U_p-I|^2=2Ns_p$,
+\[
+\begin{split}
+\Var_\omega X&\le\omega\bigl((X-X(1))^2\bigr)\\
+&\le\Lambda(X)\sum_eL_e|P(e)|\sum_{p\in P(e)}2N\omega(s_p)\\
+&\le8NR^2\Lambda(X)^2\varepsilon_\omega .
+\end{split}
+\]
+\end{proof}
+
+\begin{remark}\label{rem:centreodd}
+Theorem~\ref{thm:centreodd} and Corollary~\ref{cor:centreodd} prove
+$(\mathrm N_u)$ without hypotheses, but only for a degenerate limit. The
+couplings grow like $a_k^{-2}\log(1/a_k)$, not like $\log(1/a_k)$. The box
+has physical size $La_k\to0$. The limit vector $\psi_*$ has energy zero and
+is orthogonal to $\Omega$, so $0$ is not a simple eigenvalue of $H$, and the
+gap of the box closes as $\beta_W\to\infty$
+(Theorem~\ref{thm:centreodd}(iii)). The mechanism is the centre degeneracy
+of a periodic box. The packet is odd under $\zeta_1$. Its unflowed slice
+field has norm at least $1$ once $\varepsilon(\beta_W)\le1/(1600L^4)$, by
+the trace identity of Lemma~\ref{lem:loops}(a), its time-step energy is at most
+$36L^2\varepsilon(\beta_W)$, and the flow moves it by at most
+$(72c_G^2L^4s\varepsilon(\beta_W))^{1/2}$ in norm.
+
+None of this carries over to infinite volume. There, the map that multiplies
+by $-I$ the links $(x,\mu)$ with $x_\mu=c$ is the gauge transformation equal
+to $-I$ at the sites with $x_\mu>c$ and to $I$ elsewhere. So every element of
+$\mathcal A$ is invariant under it, and no centre-odd packet exists.
+Proposition~\ref{prop:axialvariance} shows the loss for slice functions of a
+cube. The bound of Lemma~\ref{lem:slabdirichlet}(iii) reaches $\kappa a_k$
+only for cubes of side at least $(8\kappa a_k)^{-1/2}$ lattice spacings, at
+every coupling. Together with Proposition~\ref{prop:lipobstruction}(ii),
+the slab-energy route needs both $a_k\beta_k$ bounded below and supports of
+diverging lattice size. In the box the winding loops $W_\mu$ are not
+functions of a cube, and the comb gauge cannot remove their holonomy.
+
+Three points are not proved. First, the infinite-volume condition, which is
+$(\mathrm N_u)$ along some sequence of couplings, equivalently the existence
+of a ratio tuning (Theorem~\ref{thm:ratiotuning}). Second, the question of
+Proposition~\ref{prop:boxratio} for the centre-even packet of
+Proposition~\ref{prop:flowpositive}. Third, the case $\SU(N)$ with $N\ge3$.
+For the last, the proof uses $N=2$ in Lemma~\ref{lem:loops}(a). For
+$N\ge3$, the commuting pair $W_1=W_2=\mathrm{diag}(1,e^{2\pi i/N},\dots,
+e^{2\pi i(N-1)/N})$, with $W_3=I$, comes from a flat configuration of the
+slice, with the links $(x,1)$ with $x_1=L-1$ and $(x,2)$ with $x_2=L-1$
+equal to that matrix and all others equal to $I$. It has
+$\Tr W_1=\Tr W_2=\Tr W_1W_2=0$, so the inequality of (a) has no
+analogue for these three words. With $L_k=\ell/a_k$ and the loops of length
+$L_k$, the proof gives the bounds of Theorem~\ref{thm:centreodd}(ii) with
+$L$ replaced by $L_k$, at couplings with $\varepsilon(\beta_k)\le
+\eta^2a_k^6/(72c_G^2\ell^4\tau)$ and $a_k$ small. These packets are not of
+the form of Theorem~\ref{thm:flowlimit}, because $\Phi$ then depends on $k$.
+\end{remark}
+
 \emph{What is proved.} In infinite volume: the admissible states form
 compact convex sets with closed graph; the ratio is continuous in the state,
 continuous in the coupling wherever the admissible state is unique (for
@@ -8246,7 +8836,12 @@ $\SU(2)$ at $\beta_W\le0.348$, and wherever (D) holds), and its values over a
 compact interval of couplings form a compact interval under (P$_k$). In the
 box: (P$_k$) holds, the ratio is real-analytic in $\beta_W>0$ and tends to
 zero at $\beta_W=0$, and the couplings at which it equals $r$ form a discrete
-set, nonempty exactly when the ratio reaches $r$. A ratio tuning exists
+set, nonempty exactly when the ratio reaches $r$. In a box of fixed size,
+for packets odd under the centre of $\SU(2)$: $(\mathrm N_u)$ holds along
+every sequence with $a_k^2\beta_k/\log(1/a_k)\to\infty$, ratio tunings exist
+at every level, at couplings at most of order $a_k^{-2}\log(1/a_k)$ and
+tending to infinity, and the limits are two-dimensional with $H=0$
+(Theorem~\ref{thm:centreodd}, Corollary~\ref{cor:centreodd}). A ratio tuning exists
 exactly when $(\mathrm N_u)$ holds along some sequence of couplings; it
 leaves the strong-coupling range, has lattice gap at most
 $a_k\sigma^{-1}\log(1/r)$, satisfies $(\mathrm N_u)$ with two-sided bounds,
@@ -8254,8 +8849,9 @@ and, with (D), (M) and the family $\mathfrak F$, gives (U). Its increments
 are a step-scaling function, and if they exceed $h$ by $c/\beta_{k+1}$, as two
 loops predict, it is not a one-loop tuning of bounded $M$.
 
-\emph{What is moved, not proved.} The existence of a ratio tuning is
-equivalent to $(\mathrm N_u)$ along some sequence; (P$_k$) is open in
+\emph{What is moved, not proved.} In infinite volume the existence of a
+ratio tuning is equivalent to $(\mathrm N_u)$ along some sequence, and no
+packet is odd under the centre (Remark~\ref{rem:centreodd}); (P$_k$) is open in
 infinite volume; $\beta_k\to\infty$ is equivalent to $\lim_kR_k(B)<r$ for
 every $B$ and follows from a lattice gap bounded below on compact sets of
 couplings, proved only for $\beta_W\le0.348$; (D), (M) and $\mathfrak F$
@@ -27268,7 +27864,7 @@ relative bounds at two physical separations, which a scale-by-scale argument
 along the one-loop tuning supplies only if its losses summed over the scales
 stay bounded, and not with a loss of first order in the running coupling at
 each scale (Proposition~\ref{prop:scalelosses}).
-This is the summability required in item~(iv), now for the ratio, and $(\mathrm N_u)$ is not proved here. Choosing the couplings by the ratio (Sec.~\ref{ssec:ratiotuning}) makes $(\mathrm N_u)$ and the normalisation of Proposition~\ref{prop:uniquelimit}(iii) hold by construction; such a choice exists if and only if $(\mathrm N_u)$ holds along some sequence of couplings (Theorem~\ref{thm:ratiotuning}), and it leaves (D), (M), the family $\mathfrak F$ and $\beta_k\to\infty$ open. Sec.~\ref{ssec:osaxioms} shows that, given (D) along the tuning, the
+This is the summability required in item~(iv), now for the ratio, and $(\mathrm N_u)$ is not proved here in infinite volume; in a box of fixed size it holds for packets odd under the centre of $\SU(2)$, with degenerate limits (Corollary~\ref{cor:centreodd}). Choosing the couplings by the ratio (Sec.~\ref{ssec:ratiotuning}) makes $(\mathrm N_u)$ and the normalisation of Proposition~\ref{prop:uniquelimit}(iii) hold by construction; such a choice exists if and only if $(\mathrm N_u)$ holds along some sequence of couplings (Theorem~\ref{thm:ratiotuning}), and it leaves (D), (M), the family $\mathfrak F$ and $\beta_k\to\infty$ open. Sec.~\ref{ssec:osaxioms} shows that, given (D) along the tuning, the
 Osterwalder--Schrader axioms for the spatially flowed fields, with the
 symmetry $\mathrm O(3)\times\mathrm O(1)$, follow from three statements, a
 moment bound (M), one spatial rotation (W) and one limit (U), each of
