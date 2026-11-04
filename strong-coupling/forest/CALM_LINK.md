@@ -36,8 +36,11 @@ that equals 1 for m_y ≤ ρ_G/8 and 0 for m_y ≥ ρ_G. The remainder Ξ_j(F) i
 shell {ρ_G/8 ≤ m_y ≤ ρ_G}: the kinks of χ, and the flux of the moving constraint across the kink surfaces
 {m_y = r_k}.
 
-**Step 1 (structure of Ξ_j).** On a fibre at fixed v, Ξ_j(F) = Cov_{π_v}(F, g_v), where g_v is the shell term. It is
-supported on the shell and is a sum of surface measures on {m_y = r_k}, with speed |Y|₂ ≤ 2.20. Split
+**Step 1 (proposed structure of Ξ_j; not established).** The assertion in the earlier sketch that Ξ_j is
+only a covariance against surface measures is not justified by its definition. The source's §4 defines Ξ_j by
+differentiating the full large-path contribution, which can also contain bulk density, Jacobian and observable-motion
+terms; see `SHELL_REMAINDER_AUDIT.md`. The following calculation is valid only if a signed measure representation
+with the asserted mass bound is separately proved. Under that additional assumption, split
 g_v = g_v⁺ − g_v⁻ into positive parts with masses M_v^±, and let M_v = M_v⁺ + M_v⁻. Since Cov(F, g^±) =
 M_v^±(E_{π_v^±}F − E_{π_v}F),
 

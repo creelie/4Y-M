@@ -17,6 +17,12 @@ to control one-sided approximations to the averaged shell mass. Identifying
 those approximations with the actual signed constraint flux and bounding
 the large-field displacement remain open.
 
+**Audit correction.** `SHELL_REMAINDER_AUDIT.md` checks the source
+definition of Xi: the remainder differentiates the full large-path
+contribution. The earlier proposal that it consists only of kink-surface
+measures was not established. The new shell-mass bound does not by itself
+control bulk score or observable-transport terms.
+
 **Latest finite interfaces (2026-11-03; proved conditional deductions).**
 `ISLAND_KERNEL.md` shows that a uniform connected collar-kernel bound
 survives arbitrary separate positive island weights, including hard
