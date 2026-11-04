@@ -67,7 +67,7 @@ the bounded term ∫ φ(c_t) g ∂_tθ_t dU.
 
 θ is a proof device in [CD], not part of the model, so every [CD] statement about θ goes through unchanged.
 
-## 4. Conjecture B for bounded local F (sketch: one step, the tie sets, remains)
+## 4. Conjecture B for bounded local F (proved; C_G finite but not computed)
 
 Average Ξ_j(F) over the fibre value c with any weight φ ≥ 0. Write f(c) = E_{π_0(c)}F, which is bounded and Borel.
 Then
@@ -83,18 +83,37 @@ using |DQ| ≤ C per link (compactness). The jump part is supported on ∪Σ_{ik
 tie set of the maximiser inside the shell. Its total variation is ≤ 2·69.7 × the e^{−λQ}-weighted H^{n−1} mass of
 these surfaces:
 - {m = r}, r = 1/2 or 1: bounded by (4)–(5) of `AVERAGED_SHELL_MASS.md` by C(K + 1) μ(m ≥ r), with K = O(β_W).
-- T: **sketch.** Each component {δ_a = δ_b} is a level set of δ_a − δ_b. Condition on every link except the private
-  link of path a. The hazard lemma of `SU2_RADIAL_HAZARD.md` applies to δ_a around the (measurable) level δ_b,
-  giving the same C(K + 1) μ(m ≥ 1/2) bound per pair. There are ≤ 16² pairs. The remaining check is that the
-  conditional law of that link meets the hypotheses of the hazard lemma with the same K.
+- T: **proved.** Fix a pair a ≠ b of non-identified paths in the shell. Each path is a product of one inner link
+  (u or w) and one private link, and **path a has an inner link e_a that path b does not contain**. If that link is the moved link j (held
+  fixed, not integrated), swap a and b: distinct non-identified paths have distinct inner links, so at most one of
+  them is j. Then
+  h = δ_a − δ_b depends on e_a only through δ_a = d_HS(e_a, g), where the centre g is a function of the other
+  links.
+  - *Conditional law.* Q = Σ_p δ(U_p, I)² = Σ_p (4 − 2 Re tr U_p) (main.tex l. 6522) is affine in the entries of
+    each single link. So with all other links frozen, the density of e_a under Haar·e^{−λQ} is ∝ exp(κ a·u) on S³,
+    with κ ≤ 2λ·Σ|staples| ≤ 24√2 λ (six plaquettes; κ = 0 if e_a is in no plaquette of Q). This is exactly the
+    hypothesis of (1) in `SU2_RADIAL_HAZARD.md`, uniformly in the frozen links. (Concentration κ here, not the
+    plaquette threshold K of `CALM_LINK.md`.)
+  - *Surface measure by slicing.* |∇h| ≤ 8 (speed bound (3) of `AVERAGED_SHELL_MASS.md`, twice), and
+    |∂_{e_a} h| = dδ/dR ≥ 1 on R ≤ π/2 (and the shell has δ ≤ 1, i.e. R < 0.73). The coarea/slicing inequality
+    then gives H^{n−1}⌊{h = 0} ≤ 8 · (H² of the sphere {d(e_a, g) = δ_b} in the e_a variable) ⊗ (the other links).
+  - *Integrate.* The e^{−λQ}-weighted H² mass of that sphere is the conditional radial density f_g at δ_b. By (1)
+    it is ≤ e sec²(1)(κ+1)·P(R_a ≥ δ_b | frozen) ≤ e sec²(1)(κ+1)·P(m ≥ 1/2 | frozen) on the shell, pointwise in
+    the frozen links. Integrating over them gives
+    weighted H^{n−1}(T_{ab}) ≤ 8 e sec²(1)(κ+1) μ(m ≥ 1/2).
+  The same slicing argument, with h = δ_a − r and e_a the inner link of the maximising path, proves the hazard
+  hypothesis that (4) of `AVERAGED_SHELL_MASS.md` assumes for the levels {m = r}. So that bound is now
+  unconditional too, with κ ≤ 24√2 λ in place of its K.
+  There are fewer than 16² pairs, and |[Y·n]| ≤ 2·69.7. Every bound is pointwise in the level, so no
+  a.e.-level/continuity issue arises.
 
 Dividing by ∫ φ Z_0 dc and using |f| ≤ 1:
 
   |⟨Ξ_j(F)⟩_φ| ≤ C_G (1 + L_F + λ + K) ⟨π(m ≥ ρ/8)⟩_φ.
 
-With K = O(β_W) = O(λ), this is **Conjecture B of [CD] for bounded Lipschitz F, in φ-averaged form**. It is
-volume-independent, and the averaged form is what Lemma `mixture` consumes. It is proved except for the tie-set
-step of §4 (sketch) and the uncomputed constant C_G.
+With κ, K = O(λ), this is **Conjecture B of [CD] for bounded Lipschitz F, in φ-averaged form**. It is
+volume-independent, and the averaged form is what Lemma `mixture` consumes. It is **proved**, with C_G a finite constant
+(compactness, finitely many analytic branches) that has not been evaluated.
 
 ## 5. What this does not do (open)
 

@@ -124,7 +124,7 @@ D_c(n, α), with a supremum over boundary conditions, uniformly along β_W ∼ b
 | D4 | mass off the chart on fibres with no calm completion | **open**; bounded only in mean over exteriors (Theorem `offchart`) | Remark `chartdecayopen`(a) |
 | D5 | fibre decay ⇒ cube coefficient, with the supremum over boundary conditions | **open**. Calm case done in `D5.md` (C_G ≤ 3·10¹³, links in no average); the global form is volume-limited, and the local form needs (L), sketched in `ISLANDS.md`. Merged with the OpenGluon calm-data note and reduced to one-point calm rarity under an arbitrary exterior, (R1), in `CALM_LINK.md` | Remark `chartdecayopen`(b), `D5.md`, `ISLANDS.md` |
 | D6 | large fields: rare | **proved** on the torus, with explicit constants | Theorem `defects`, `rare/RARE.md` |
-| D7 | large fields: harmless | **open**. Conjecture B for bounded local F: sketch via global transport + stratified Gauss–Green (`SHELL_TRANSPORT.md`, `GAUSS_GREEN.md`; tie-set step open). The decay form needed by the cube coefficient is Conjecture L, still open | `rare/RARE.md` §4 |
+| D7 | large fields: harmless | **open**. Conjecture B for bounded local F: **proved** in φ-averaged form, Lipschitz F (`GAUSS_GREEN.md`; C_G not evaluated). The decay form needed by the cube coefficient is Conjecture L, still open | `rare/RARE.md` §4 |
 | D8 | the cube condition for the averages ⇒ the law one scale up; the coarsest averages; the crossover | **open** | `OPEN.md` §4 |
 
 D4, D5, D7 and D8 are the open content. D5 and D7 are the two halves of Lockwood's sentence: "proved only at strong
