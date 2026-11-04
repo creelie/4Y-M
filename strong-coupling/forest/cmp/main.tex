@@ -14878,8 +14878,9 @@ weighted volume $\sigma(2\alpha_G)=6.1\cdot10^{15}$ of the decay length is
 beaten by $G_0\le10^{-397.6}$. The bound is void for windows of more
 than $10^{28167}$ blocks, and it is a statement about the labels
 under $\mu_L$, not about the law of the labels near $I_u$ given that $I_u$
-is an island; the covariance of the conditional probabilities of two labels
-with the others averaged, the second open point above, is not touched.
+is an island; the covariance of two labels with the others averaged is
+bounded in the mean over the coarse field in Section~\ref{ssec:labelcov}, and for
+a fixed coarse field it is not bounded.
 
 \begin{figure}[t]
 \centering
@@ -14895,6 +14896,673 @@ between them, with $\Lambda_2$ from Lemma~\ref{lem:lambdatwo} at
 $\beta_W=1.13\cdot10^{37}$; it falls below one at $w=99072$.}
 \label{fig:manyislands}
 \end{figure}
+
+\subsection{The covariance of the labels}\label{ssec:labelcov}
+
+Theorem~\ref{thm:manyislands} compares two islands given the labels of all
+the others, and Theorem~\ref{thm:islandwindow} controls the island sums in
+a window by a union bound. This subsection bounds the covariances with the
+labels averaged, on the whole torus and with no condition on the size of a
+window, in the mean over the coarse field. Three constructions do it. The
+islands are grouped: the islands near an observable form one group, the
+rest a second, and the mixed derivative of the kernel of
+Lemma~\ref{lem:manykernel} between the two groups is bounded by one
+application of~\eqref{eq:layerbound}, with no Dobrushin condition on the
+islands. Two independent copies of the labels are compared by an explicit
+involution, which exchanges the labels of the group of one observable
+between the copies; the weights of a configuration and of its image differ
+by the cross-ratio of the two groups. And a group that reaches far from its
+observable contains a chain of bad blocks in one copy or the other, whose
+probability is paid by the separated rarity of
+Theorem~\ref{thm:islandwindow}. For two functions of the labels near sets
+$N_A$ and $N_B$ the covariance is at most $2\epsilon\lvert N_A\rvert\lvert
+N_B\rvert$ times their oscillations, with $\epsilon$ the rarity of a bad
+block defined below, since each sees a bad block; the
+theorem multiplies this by a factor that decays at the rate $2\alpha_G$ of
+Theorem~\ref{thm:layerbound} down to a floor of order $10^{-7011}$. For two
+local observables of the field the covariance under $\mu^c$, in the mean
+over $c$, decays at the same rate down to a floor of order $10^{-14062}$,
+and as $e^{-\sqrt d/2}$ when the joining distance of the groups grows with
+the distance.
+
+\emph{Setting.} Throughout, the hypotheses of
+Theorem~\ref{thm:islandwindow} hold: $G=\SU(2)$, $s\ge1$, $2758\rho\le
+6.0\cdot10^{-13}$, $r=43\rho$, $\eta=92\rho$, $\beta_W\ge\beta^*$, on the
+torus in the tree gauge, with $\Lambda$ the set of all blocks and no
+exterior; hypotheses (a)--(c) of Theorem~\ref{thm:layerbound} then hold,
+(c) being void. For a coarse field $c$ let $\mu^c$ be $\mu_L$ conditioned on
+$V^\sharp=c$, through the coarea formula as in
+Proposition~\ref{prop:graphlaw}, let $P^c$ be the law of the labels under
+$\mu^c$, and let $\E_c$ be the mean over the law of $V^\sharp$ under
+$\mu_L$, so that $\E_c\mu^c=\mu_L$. A labelling $\omega$ assigns a label to
+every block, $B(\omega)$ is its set of bad blocks, $\omega_X$ its
+restriction to a set $X$ of blocks, and $Z^c(\omega)$ the weight of the
+event that the labels are $\omega$, defined as $Z_{ij}$ in
+Section~\ref{ssec:factorisation}, so that $P^c(\omega)=Z^c(\omega)/\sum
+_{\omega'}Z^c(\omega')$. With $f$, $M$, $q^*$ of
+Theorems~\ref{thm:islandthreshold} and~\ref{thm:islandwindow} put
+\[
+\epsilon=Me^{f(\beta_W)}\le Mq^*,\qquad g_R=\sqrt2\,(2R+1)^4\epsilon^{1/4},
+\]
+so that, by Steps~1 and~6 of the proof of Theorem~\ref{thm:islandwindow},
+$\mu_L(T\subset B)\le\epsilon^{\lvert T\rvert}$ for every set $T$ of blocks
+pairwise at distance at least $6$. With $\bar\Lambda_2$ of
+Theorem~\ref{thm:islandwindow} put
+\[
+b_*=\frac{1920}{\beta_W}\bar\Lambda_2^2r^2,\qquad\nu_s=45(2s+9)^4 .
+\]
+For a set $Y$ of blocks, its \emph{components} are the classes of the
+joining distance $2s+8$ and its \emph{$R$-clusters} those of the joining
+distance $R\ge2s+8$; an $R$-cluster is a union of components. For disjoint
+sets $X,X'$ of blocks put
+\[
+\varDelta(X,X')=b_*\nu_s\lvert X\rvert^{1/2}\Bigl(\sum_{y\in X'}
+e^{-4\alpha_G(\dist(y,X)-2s-9)_+}\Bigr)^{1/2},
+\]
+and for integers $R,t$ and $d>0$
+\begin{gather*}
+M_{d,t}=b_*\nu_se^{-2\alpha_G(d-t-2s-9)_+},\\
+\varPhi_R=b_*\nu_s\sigma(\alpha_G)\epsilon^{1/2}e^{-\alpha_G(R-4s-17)},
+\end{gather*}
+with $\sigma(\kappa)=\sum_{y\in\Z^4}e^{-\kappa\lVert y\rVert_\infty}$ of
+Proposition~\ref{prop:islandmass}; by the proof of its part (ii),
+$\sum_ye^{-\kappa\dist(W,y)}\le\lvert W\rvert\sigma(\kappa)$ for every set
+$W$ of blocks.
+
+\begin{lemma}[two groups of islands]\label{lem:groupcross}
+Let $Y$ be a set of blocks, $X$ a union of components of $Y$ and
+$X'=Y\setminus X$. Let $D_X$ be the product of the sets $D_u$ of
+Section~\ref{ssec:manyislands} over the components $I_u\subset X$, and $D_{X'}$
+likewise. There are a smooth function $\tilde K:D_X\times D_{X'}\to(0,
+\infty)$ and, for every labelling $\pi$ of $X$ and $\pi'$ of $X'$, finite
+positive measures $a_\pi$ on $D_X$ and $b_{\pi'}$ on $D_{X'}$, such that
+for all labellings $\omega$ with $B(\omega)\subset Y$:
+\begin{enumerate}[label=\textup{(\roman*)},leftmargin=*]
+\item $Z^c(\omega)=\iint\tilde K(x,x')\,a_{\omega_X}(dx)\,b_{\omega_{X'}}
+(dx')$;
+\item for all $x_0,x_1\in D_X$ and $x'_0,x'_1\in D_{X'}$,
+\[
+\Bigl|\log\frac{\tilde K(x_1,x'_1)\tilde K(x_0,x'_0)}{\tilde K(x_1,x'_0)
+\tilde K(x_0,x'_1)}\Bigr|\le\varDelta:=\min\{\varDelta(X,X'),\varDelta(X',
+X)\};
+\]
+\item for $Z^c(\omega)>0$ and bounded measurable $F$ of the active links
+based in $X$ and $H$ of those based in $X'$, there are measurable $f$ on
+$D_X$, depending on $F$ and $\omega_X$ only, and $h$ on $D_{X'}$, depending
+on $H$ and $\omega_{X'}$ only, with $\lvert f\rvert\le\lVert F\rVert$,
+$\lvert h\rvert\le\lVert H\rVert$, $\E_{\mu^c}[FH\mid\omega]=\int fh\,
+d\varPi_\omega$ and $\E_{\mu^c}[F\mid\omega]=\int f\,d\varPi_\omega$, where
+$\varPi_\omega$ is the probability law proportional to $\tilde K\,a_{\omega
+_X}\otimes b_{\omega_{X'}}$.
+\end{enumerate}
+Consequently, for $\omega,\tilde\omega,\omega'$ of positive weight with
+bad blocks in $Y$:
+\begin{enumerate}[label=\textup{(\alph*)},leftmargin=*]
+\item if $\tilde\omega$ agrees with $\omega$ on $X$, the conditional
+expectations of $F$ given $\tilde\omega$ and given $\omega$ differ by at
+most $2\lVert F\rVert\tanh(\varDelta/4)$;
+\item $\lvert\Cov_{\mu^c}(F,H\mid\omega)\rvert\le\lVert F\rVert\lVert H
+\rVert\tanh(\varDelta/4)$;
+\item the labellings $\omega^\natural=(\omega'_X,\omega_{X'})$ and
+$\omega'^\natural=(\omega_X,\omega'_{X'})$ have positive weight and
+\[
+e^{-\varDelta}\le\frac{Z^c(\omega^\natural)Z^c(\omega'^\natural)}
+{Z^c(\omega)Z^c(\omega')}\le e^{\varDelta}.
+\]
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+\emph{The kernel.} Distinct components of $Y$ are at distance at least
+$2s+9$, so Lemma~\ref{lem:manykernel} applies to the components $I_u$ of
+$Y$, every block outside $Y$ being good in every labelling considered. Its
+proof runs with any labelling of each $I_u$: the labels change only the
+$u$-factors, so the product of the $K$-factors, and with it $\tilde K(x)=
+\int_{D_z}e^{-\mathcal U(z;x)}dz$, does not depend on the labels of $Y$,
+while the measure $\gamma_u$ obtained by integrating the $u$-factors over
+$L_u$ and $p_u$ depends on the labels of $I_u$, on $c$ and on $\beta_W$
+only. Put $a_\pi=\bigotimes_{I_u\subset X}\gamma_u$ and $b_{\pi'}=\bigotimes
+_{I_u\subset X'}\gamma_u$ with the labels $\pi$, $\pi'$; this is (i). In the
+same construction, given $x$ and $\omega$, the families $L_u\cup p_u$ are
+independent over $u$, each with law proportional to the product of its
+$u$-factors, and independent of $z$. The active links based in $X$ are at
+$d_u=0$ for some $I_u\subset X$, hence in $L_u$; so $f(x)=\E[F\mid x,
+\omega]$ is the integral of $F$ against the product of these laws over
+$I_u\subset X$, a function of $x$ and $\omega_X$, and likewise $h$; this is
+(iii).
+
+\emph{The mixed derivative.} Let $h_X$, $h_{X'}$ be vectors in the
+coordinates of $x\in D_X$ and $x'\in D_{X'}$ with $\lVert h_e\rVert\le2r$
+for each link. No term of $\mathcal U$ depends on coordinates of two
+components, by Lemma~\ref{lem:manykernel}(ii), so Lemma~\ref{lem:connected}
+gives
+\[
+\partial_{h_X}\partial_{h_{X'}}\log\tilde K=\Cov_{\mu_{x,x'}}\bigl(
+\partial_{h_X}\mathcal U,\partial_{h_{X'}}\mathcal U\bigr).
+\]
+Let $v=\nabla_z\partial_{h_X}\mathcal U$ and $v'=\nabla_z\partial_{h_{X'}}
+\mathcal U$, supported on sets $S$ and $S'$ of $z$-links based at distance
+at most $s+4$ from $X$, respectively $X'$. The supports of distinct
+components lie in blocks at coarse distance at least $1$, so the
+coordinates entering $v_e$ belong to one component, and Step~1 of the proof
+of Lemma~\ref{lem:lambdatwo}, which applies to each component, bounds
+$\sum_f\lVert\partial_e\partial_f\mathcal U\rVert$ over them by
+$\beta_Wc_W+c_\psi\le\bar\Lambda_2$. Hence $\lVert v_e\rVert\le2r\bar
+\Lambda_2$, and $\lVert v'_e\rVert\le2r\bar\Lambda_2$. Apply
+\eqref{eq:layerbound}, with $\mathcal A=480/\beta_W$ and $\alpha=\alpha_G$
+by Lemma~\ref{lem:manylayer}, to $\varphi(e)=-\dist(e,S)$, the fine distance
+between link midpoints. A block carries $45$ non-path active links, so
+$\lvert S\rvert\le\nu_s\lvert X\rvert$. A link $e\in S'$ is based in a
+block $y$ with $\dist(y,y')\le s+4$ for some $y'\in X'$, and a link of $S$
+in a block $y''$ with $\dist(y'',X)\le s+4$; then $\dist(y,y'')\ge\dist(y',
+X)-2s-8$, and links based in blocks at coarse distance $D\ge1$ have
+midpoints at fine distance at least $2D-2$, so $\dist(e,S)\ge2(\dist(y',X)
+-2s-9)_+$. Summing over $y'$, the $(2s+9)^4$ blocks $y$ and their $45$
+links,
+\[
+\begin{split}
+\bigl\lvert\partial_{h_X}\partial_{h_{X'}}\log\tilde K\bigr\rvert&\le
+\frac{480}{\beta_W}(2r\bar\Lambda_2)^2\bigl(\nu_s\lvert X\rvert\bigr)
+^{1/2}\\
+&\quad\times\Bigl(\nu_s\sum_{y'\in X'}e^{-4\alpha_G(\dist(y',X)-2s-9)_+}
+\Bigr)^{1/2},
+\end{split}
+\]
+which is $\varDelta(X,X')$; with $\varphi=-\dist(\cdot,S')$ the same
+argument gives $\varDelta(X',X)$. The sets $D_X$, $D_{X'}$ are convex,
+two of their points differ by at most $2r$ in each link, and the logarithm
+of the cross-ratio is the integral of the mixed derivative over the unit
+square; this is (ii).
+
+\emph{The consequences.} Let $\mu'=k\mu/\mu(k)$ with $\sup k\le e^\kappa
+\inf k$; the tilt paragraph of the proof of Lemma~\ref{lem:islandcov} gives
+$\lVert\mu'-\mu\rVert_{\mathrm{TV}}\le\tanh(\kappa/4)$. (a) Under
+$\varPi_\omega$ the law of $x$ has density proportional to $k_\omega(x)=
+\int\tilde K(x,x')b_{\omega_{X'}}(dx')$ with respect to $a_{\omega_X}$, and
+$a_{\tilde\omega_X}=a_{\omega_X}$, $f$ is the same for both. Integrating
+(ii) against $b_{\tilde\omega_{X'}}\otimes b_{\omega_{X'}}$ shows that
+$k_{\tilde\omega}/k_\omega$ has logarithmic oscillation at most
+$\varDelta$, so the two laws differ by at most $\tanh(\varDelta/4)$ in total
+variation, and $\operatorname{osc}f\le2\lVert F\rVert$. (b) Given $x$, the
+law of $x'$ under $\varPi_\omega$ is proportional to $\tilde K(x,\cdot)
+b_{\omega_{X'}}$, and by (ii) these laws differ by at most $\tanh(\varDelta
+/4)$ for two values of $x$; so $m(x)=\E_{\varPi_\omega}[h\mid x]$ has
+$\operatorname{osc}m\le2\lVert H\rVert\tanh(\varDelta/4)$. By (iii),
+$\Cov_{\mu^c}(F,H\mid\omega)=\Cov_{\varPi_\omega}(f,h)=\Cov_{\varPi_\omega}
+(f,m)$, and a variance is at most a quarter of the squared oscillation
+(Popoviciu~\cite{Pop35}), so $\lvert\Cov(f,m)\rvert\le\frac14
+\operatorname{osc}f\operatorname{osc}m$. (c) The measures of $\omega$ and
+$\omega'$ are nonzero since their weights are positive, and $\tilde K>0$;
+Lemma~\ref{lem:kernel} with $a_{\omega_X},a_{\omega'_X}$ and
+$b_{\omega_{X'}},b_{\omega'_{X'}}$ gives the bound.
+\end{proof}
+
+The second construction is a union bound over chains in two copies. Let
+$Q^c=P^c\otimes P^c$ be the law of two independent labellings $\omega,
+\omega'$ given $c$, and $\mathsf D=B(\omega)\cup B(\omega')$.
+
+\begin{lemma}[chains in two copies]\label{lem:labelchains}
+Let $N$ and $N'$ be sets of blocks, $R\ge6$ and $t\ge R$ integers with
+$\dist(N,N')>t$ and $g_R\le\frac12$, and $\mathcal C$ the union of the
+$R$-clusters of $\mathsf D\cup N\cup N'$ that meet $N$. Then
+\[
+\E_c\,Q^c\{\mathcal C\not\subset N^{+t}\}\le2\lvert N^{+R}\rvert
+g_R^{\lfloor t/R\rfloor},
+\]
+and the same holds with $B(\omega)$ in place of $\mathsf D$.
+\end{lemma}
+
+\begin{proof}
+\emph{A chain.} Let $\mathcal C\not\subset N^{+t}$. There is a path $y_0,
+\dots,y_n$ in $\mathsf D\cup N\cup N'$ with steps at most $R$, $y_0\in N$ and
+$\dist(y_n,N)>t$; let $i$ be its first index with $\dist(y_i,N)>t$. The
+blocks $y_0,\dots,y_{i-1}$ are at distance at most $t$ from $N$, hence not
+in $N'$, and if $j<i$ is the last index with $y_j\in N$, then $j<i-1$, since
+$\dist(y_i,N)>t\ge R$. So $y_{j+1},\dots,y_{i-1}$ is a sequence of blocks of
+$\mathsf D$ with steps at most $R$, beginning in $N^{+R}$ and ending at
+distance more than $t-R$ from $N$. Choose such a sequence $z_1,\dots,z_m$ in
+$\mathsf D$ with $m$ least. Then $\dist(z_k,z_l)>R$ for $\lvert k-l\rvert
+\ge2$, since otherwise a shorter sequence exists, and $(m-1)R>t-2R$, so
+$m\ge\lfloor t/R\rfloor$.
+
+\emph{Two copies.} Let $T$ be the set of the $\lceil m/2\rceil$ blocks
+$z_k$ with $k$ odd, pairwise at distance more than $R\ge6$. The event $T
+\subset\mathsf D$ is the union over $T_1\subset T$ of $\{T_1\subset B(\omega),
+\,T\setminus T_1\subset B(\omega')\}$, and for each $T_1$, since $P^c\le1$
+and by the Cauchy--Schwarz inequality,
+with $T_2=T\setminus T_1$,
+\begin{multline*}
+\E_c\bigl[P^c(T_1\subset B)\,P^c(T_2\subset B)\bigr]\\
+\le\bigl(\mu_L(T_1\subset B)\,\mu_L(T_2\subset B)\bigr)^{1/2}\le
+\epsilon^{\lvert T\rvert/2}.
+\end{multline*}
+So $\E_cQ^c\{T\subset\mathsf D\}\le(2\epsilon^{1/2})^{\lceil m/2\rceil}
+\le(\sqrt2\,\epsilon^{1/4})^m$, as $2\epsilon^{1/2}\le1$. There are at most
+$\lvert N^{+R}\rvert(2R+1)^{4(m-1)}$ sequences of $m$ blocks with steps at
+most $R$ beginning in $N^{+R}$, so
+\begin{multline*}
+\E_cQ^c\{\mathcal C\not\subset N^{+t}\}\le\lvert N^{+R}\rvert\sum_{m\ge
+\lfloor t/R\rfloor}g_R^m\\
+\le2\lvert N^{+R}\rvert g_R^{\lfloor t/R\rfloor}.
+\end{multline*}
+With $B(\omega)$ in place of $\mathsf D$ the event is smaller.
+\end{proof}
+
+The third ingredient is the mean of $\varDelta$ for a group confined near
+its observable. Let $N$, $N'$, $R\ge2s+9$, $t\ge R$ be as in
+Lemma~\ref{lem:labelchains}, let $Y=\mathsf B\cup N\cup N'$ with $\mathsf B$
+equal to $\mathsf D$ or to $B(\omega)$, let $\mathcal C$ be the union of
+the $R$-clusters of $Y$ meeting $N$, and let $k$ be $2$ or $1$
+accordingly. On the event $\mathcal C\subset N^{+t}$, every $y\in Y
+\setminus\mathcal C$ lies in an $R$-cluster distinct from those of
+$\mathcal C$, so $\dist(y,\mathcal C)>R\ge2s+9$, and $\dist(y,\mathcal C)
+\ge\dist(y,N^{+t})$; a block of $N'$ has $\dist(y,\mathcal C)\ge\dist(N,N')
+-t$. For a block $y\in\mathsf B\setminus\mathcal C$ the exponent
+splits as
+\begin{multline*}
+4\alpha_G(\dist(y,\mathcal C)-2s-9)\\
+\ge2\alpha_G(R-2s-8)+2\alpha_G(\dist(y,N^{+t})-2s-9),
+\end{multline*}
+and with $\sqrt{\sum_yu_y}\le\sum_y\sqrt{u_y}$,
+\begin{multline*}
+\Bigl(\sum_{y\in Y\setminus\mathcal C}e^{-4\alpha_G(\dist(y,\mathcal C)
+-2s-9)_+}\Bigr)^{1/2}\\
+\le\lvert N'\rvert^{1/2}e^{-2\alpha_G(\dist(N,N')-t-2s-9)_+}\\
++e^{-\alpha_G(R-2s-8)}\sum_{y\in\mathsf B}e^{-\alpha_G(\dist(y,N^{+t})-2s
+-9)} .
+\end{multline*}
+The mean of the last sum over $\E_cQ^c$, or $\E_cP^c$, is at most $k
+\epsilon e^{\alpha_G(2s+9)}\lvert N^{+t}\rvert\sigma(\alpha_G)$, since
+$\E_cQ^c\{y\in\mathsf D\}\le2\mu_L(y\in B)\le2\epsilon$ and $\E_cP^c\{y\in
+B\}\le\epsilon$. With $\lvert\mathcal C\rvert\le\lvert N^{+t}\rvert$,
+\begin{equation}\label{eq:groupmean}
+\begin{split}
+&\E\bigl[\mathbf 1_{\mathcal C\subset N^{+t}}\varDelta(\mathcal C,Y
+\setminus\mathcal C)\bigr]\\
+&\quad\le\lvert N^{+t}\rvert^{1/2}\lvert N'\rvert^{1/2}M_{d',t}+k
+\epsilon^{1/2}\lvert N^{+t}\rvert^{3/2}\varPhi_R,
+\end{split}
+\end{equation}
+with $\E$ the mean over $\E_cQ^c$ or $\E_cP^c$ and $d'=\dist(N,N')$.
+
+\begin{theorem}[the label covariance]\label{thm:labelcov}
+Let $N_A$, $N_B$ be sets of blocks at distance $d\ge6$, $\phi$ a function of
+the labels of $N_A$ and $\psi$ one of the labels of $N_B$. Then
+\[
+\E_c\bigl\lvert\Cov_{P^c}(\phi,\psi)\bigr\rvert\le2\epsilon\lvert N_A
+\rvert\lvert N_B\rvert\operatorname{osc}\phi\operatorname{osc}\psi .
+\]
+If moreover $R\ge2s+9$ and $t\ge2R$ are integers with $d\ge t+6$ and
+$g_R\le\frac12$, then, with $V=\lvert N_B^{+t}\rvert$,
+\begin{multline*}
+\E_c\bigl\lvert\Cov_{P^c}(\phi,\psi)\bigr\rvert\le\operatorname{osc}\phi
+\operatorname{osc}\psi\,\lvert N_A\rvert\lvert N_B\rvert\,\epsilon\\
+\times\bigl(11^4V^{1/2}M_{d-5,t}+2V^{3/2}\varPhi_R+4(2R+1)^4Vg_R^{\lfloor
+t/R\rfloor-2}\bigr).
+\end{multline*}
+\end{theorem}
+
+\begin{proof}
+Fix $c$. Let $\omega_0$ be the labelling with every block good, and put
+$\hat\phi(\omega)=\phi(\omega)-\phi(\omega_0)$ and $\hat\psi(\omega)=
+\psi(\omega)-\psi(\omega_0)$. Then $\lvert\hat\phi\rvert\le
+\operatorname{osc}\phi$, $\hat\phi(\omega)=0$ unless $B(\omega)\cap N_A\ne
+\emptyset$, and likewise for $\hat\psi$ and $N_B$. Under $Q^c$,
+$\Cov_{P^c}(\phi,\psi)=\Cov_{P^c}(\hat\phi,\hat\psi)=\E_{Q^c}G$ with
+$G(\omega,\omega')=\hat\phi(\omega)(\hat\psi(\omega)-\hat\psi(\omega'))$,
+and
+\[
+\lvert G\rvert\le\operatorname{osc}\phi\operatorname{osc}\psi\sum_{z_A\in
+N_A,\,z_B\in N_B}J_{z_Az_B},
+\]
+where $J_{z_Az_B}=\mathbf 1[z_A,z_B\in B(\omega)]+\mathbf 1[z_A\in
+B(\omega),\,z_B\in B(\omega')]$. As $\dist(z_A,z_B)\ge6$, the mean of
+$J_{z_Az_B}$ over $\E_cQ^c$ is at most $\mu_L(z_A,z_B\in B)+\E_c[P^c(z_A
+\in B)P^c(z_B\in B)]\le\epsilon^2+\epsilon\le2\epsilon$, by the
+Cauchy--Schwarz inequality and $P^c\le1$ in the second term; this is the
+first bound. For the second let $Y=\mathsf D\cup N_B$, $\mathcal C$ the
+union of its $R$-clusters meeting $N_B$, $\mathcal G=\{\mathcal C\subset
+N_B^{+t}\}$ and $\varDelta_B=\varDelta(\mathcal C,Y\setminus\mathcal C)$.
+
+\emph{The exchange.} Define $\chi(\omega,\omega')=(\tilde\omega,\tilde
+\omega')$ by $\tilde\omega=\omega'$ and $\tilde\omega'=\omega$ on
+$\mathcal C$, and $\tilde\omega=\omega$, $\tilde\omega'=\omega'$ elsewhere.
+On every block the pair of labels is kept or exchanged, so $\mathsf D$, $Y$,
+$\mathcal C$ and $\mathcal G$ are the same for $(\omega,\omega')$ and its
+image, and $\chi$ is an involution. By Lemma~\ref{lem:groupcross}(c) with
+$X=\mathcal C$, a union of components of $Y$, a pair of positive weight is
+mapped to one of positive weight, with
+\[
+e^{-\varDelta_B}\le\frac{Q^c(\chi(\omega,\omega'))}{Q^c(\omega,
+\omega')}\le e^{\varDelta_B}.
+\]
+On $\mathcal G$, $\mathcal C\cap N_A=\emptyset$, since $d>t$; so $\tilde
+\omega=\omega$ on $N_A$ and $\tilde\omega=\omega'$, $\tilde\omega'=\omega$
+on $N_B\subset\mathcal C$, and $G\circ\chi=-G$. Split $\E_{Q^c}[G
+\mathbf 1_{\mathcal G}]$ into the orbits of $\chi$. A fixed point has $G=0$.
+An orbit $\{x,\chi x\}$ of two points contributes $(Q^c(x)-Q^c
+(\chi x))G(x)$, and $\lvert1-\varrho\rvert\le(1+\varrho)\tanh(\varDelta
+_B/2)$ for $\varrho\in[e^{-\varDelta_B},e^{\varDelta_B}]$. As $\varDelta_B$
+and $\lvert G\rvert$ are constant on the orbit, with $\tanh u\le u$,
+\[
+\lvert\E_{Q^c}G\rvert\le\operatorname{osc}\phi\operatorname{osc}\psi
+\sum_{z_A,z_B}\E_{Q^c}\bigl[J_{z_Az_B}\bigl(\tfrac12\mathbf 1_{\mathcal G}
+\varDelta_B+\mathbf 1_{\mathcal G^c}\bigr)\bigr].
+\]
+Fix $z_A\in N_A$ and $z_B\in N_B$; the two means are bounded in turn, after
+the mean $\E_c$.
+
+\emph{The far islands.} On $\mathcal G$, $\lvert\mathcal C\rvert\le V$ and
+$Y\setminus\mathcal C\subset\mathsf D$, each of its blocks at distance more
+than $R$ from $\mathcal C$, hence from $z_B$. By $\sqrt{\sum_yu_y}\le
+\sum_y\sqrt{u_y}$,
+\[
+\mathbf 1_{\mathcal G}\varDelta_B\le b_*\nu_sV^{1/2}\sum_{y\in\mathsf D
+\setminus\mathcal C}e^{-2\alpha_G(\dist(y,\mathcal C)-2s-9)_+}.
+\]
+The $11^4$ blocks $y$ at distance at most $5$ from $z_A$ have $\dist(y,
+\mathcal C)\ge\dist(z_A,N_B^{+t})-5\ge d-t-5$, so their terms add up to at
+most $11^4V^{1/2}M_{d-5,t}$, whose product with $J_{z_Az_B}$ has mean at
+most $2\epsilon\cdot11^4V^{1/2}M_{d-5,t}$. For every other block $y$ with
+$\dist(y,z_B)>R$ the blocks $z_A$, $z_B$, $y$ are pairwise at distance at
+least $6$, and $J_{z_Az_B}\mathbf 1[y\in\mathsf D]$ is at most a sum of
+four indicators of events $\{T_1\subset B(\omega),\,T_2\subset
+B(\omega')\}$ with $T_1\cup T_2=\{z_A,z_B,y\}$; as in the proof of
+Lemma~\ref{lem:labelchains} each has mean at most $\epsilon^{3/2}$. As in
+the derivation of~\eqref{eq:groupmean}, $e^{-2\alpha_G(\dist(y,\mathcal C)
+-2s-9)}\le e^{-\alpha_G(R-2s-8)}e^{-\alpha_G(\dist(y,N_B^{+t})-2s-9)}$, and
+summing over $y$ with $\sigma(\alpha_G)$,
+\[
+\tfrac12\E_c\E_{Q^c}\bigl[J_{z_Az_B}\mathbf 1_{\mathcal G}\varDelta_B
+\bigr]\le\epsilon\bigl(11^4V^{1/2}M_{d-5,t}+2V^{3/2}\varPhi_R\bigr).
+\]
+
+\emph{The chain.} On $\mathcal G^c$, the proof of
+Lemma~\ref{lem:labelchains} with $N=N_B$ and $N'=\emptyset$ gives $m\ge
+\lfloor t/R\rfloor$ and blocks $z_1,\dots,z_m$ of $\mathsf D$ with steps at
+most $R$, $z_1\in N_B^{+R}$, $\dist(z_k,z_l)>R$ for $\lvert k-l\rvert\ge2$,
+$\dist(z_m,N_B)>t-R$ and $m$ least. By minimality $\dist(z_k,N_B)\le t-R$
+for $k<m$, so every $z_k$ is within $t$ of $N_B$ and at distance at least
+$d-t\ge6$ from $z_A$. The blocks $z_k$ with $k$ odd are pairwise at distance
+more than $R\ge11$, so at most one of them is within $5$ of $z_B$; removing
+it, or else the last odd one, leaves a set $T$ of $\lceil m/2\rceil-1$
+blocks with $\{z_A,z_B\}\cup T$ pairwise at distance at least $6$. Each of
+the two terms of $J_{z_Az_B}$ times $\mathbf 1\{T\subset\mathsf D\}$ is a
+sum over $T_1\subset T$ of indicators of events $\{z_A\in B(\omega),\,T_1
+\subset B(\omega)\}$ with $z_B$ in one of the two copies and $T\setminus T_1
+\subset B(\omega')$, so, as in Lemma~\ref{lem:labelchains},
+\begin{multline*}
+\E_c\E_{Q^c}\bigl[J_{z_Az_B}\mathbf 1\{T\subset\mathsf D\}\bigr]\\
+\le2\epsilon(2\epsilon^{1/2})^{\lceil m/2\rceil-1}\le2\epsilon(\sqrt2\,
+\epsilon^{1/4})^{m-2}.
+\end{multline*}
+With at most $V(2R+1)^{4(m-1)}$ sequences of length $m$,
+\begin{multline*}
+\E_c\E_{Q^c}\bigl[J_{z_Az_B}\mathbf 1_{\mathcal G^c}\bigr]\le2\epsilon
+(2R+1)^4V\sum_{m\ge\lfloor t/R\rfloor}g_R^{m-2}\\
+\le4\epsilon(2R+1)^4Vg_R^{\lfloor t/R\rfloor-2}.
+\end{multline*}
+Adding the two parts and summing over $z_A$ and $z_B$ gives the bound.
+\end{proof}
+
+The second bound is the first multiplied by half the factor in
+parentheses, which with $V$ of order one is below $1$ for $d$ above about
+$1.2\cdot10^5$ (Corollary~\ref{cor:fibrecovnumbers}); its floor
+$2V^{3/2}\varPhi_R$ is of order $10^{-7011}$.
+
+Comparing two copies along the clusters on which they may differ is the
+idea of the disagreement percolation of van den Berg and
+Maes~\cite{vdBM94}; here the two copies are independent, they are compared
+by an exchange whose weight is the cross-ratio of
+Lemma~\ref{lem:groupcross}, and the clusters are those of the union of the
+two bad sets. For local observables of the field the
+conditional covariance given the labels is added, and the labels enter
+through conditional expectations, which change by
+Lemma~\ref{lem:groupcross}(a) when the labels far from the observable
+change.
+
+\begin{theorem}[the fibre covariance]\label{thm:fibrecov}
+Let $N_A$, $N_B$ be sets of blocks at distance $d$, $F$ and $H$ bounded
+measurable functions of the active links based in $N_A$ and in $N_B$, and
+$R\ge2s+9$, $t\ge R$ integers with $t<d$ and $g_R\le\frac12$. Put $V=\max\{
+\lvert N_A^{+t}\rvert,\lvert N_B^{+t}\rvert\}$. Then
+\begin{multline*}
+\E_c\bigl\lvert\Cov_{\mu^c}(F,H)\bigr\rvert\\
+\le\lVert F\rVert\lVert H\rVert V\bigl(10g_R^{\lfloor t/R\rfloor}+
+\tfrac94M_{d,t}+\tfrac{17}4\epsilon^{1/2}V^{1/2}\varPhi_R\bigr),
+\end{multline*}
+and $\Cov_{\mu_L}(F,H)$ differs from the covariance under $\mu_L$ of
+$\E_{\mu^c}F$ and $\E_{\mu^c}H$, functions of $c$, by at most the same
+bound.
+\end{theorem}
+
+\begin{proof}
+Fix $c$ and write $\varphi(\omega)=\E_{\mu^c}[F\mid\omega]$, $\psi(\omega)=
+\E_{\mu^c}[H\mid\omega]$. Then
+\[
+\Cov_{\mu^c}(F,H)=\E_{P^c}\Cov_{\mu^c}(F,H\mid\omega)+\Cov_{P^c}(\varphi,
+\psi).
+\]
+\emph{Given the labels.} Let $Y_1=B(\omega)\cup N_A\cup N_B$, $\mathcal C_1$
+the union of its $R$-clusters meeting $N_A$, and $\mathcal G_1=\{\mathcal
+C_1\subset N_A^{+t}\}$. On $\mathcal G_1$, $N_B\cap\mathcal C_1=\emptyset$
+since $d>t$, and Lemma~\ref{lem:groupcross}(b) with $Y=Y_1$, $X=\mathcal C_1$
+gives $\lvert\Cov_{\mu^c}(F,H\mid\omega)\rvert\le\frac14\lVert F\rVert\lVert
+H\rVert\varDelta(\mathcal C_1,Y_1\setminus\mathcal C_1)$; off
+$\mathcal G_1$ the covariance is at most $\lVert F\rVert\lVert H\rVert$. By
+Lemma~\ref{lem:labelchains} and~\eqref{eq:groupmean} with $k=1$, $N=N_A$,
+$N'=N_B$, and $\lvert N_A^{+R}\rvert,\lvert N_B\rvert\le V$,
+\begin{multline*}
+\E_c\E_{P^c}\lvert\Cov_{\mu^c}(F,H\mid\omega)\rvert\\
+\le\lVert F\rVert\lVert H\rVert V\bigl(2g_R^{\lfloor t/R\rfloor}+\tfrac14
+M_{d,t}+\tfrac14\epsilon^{1/2}V^{1/2}\varPhi_R\bigr).
+\end{multline*}
+\emph{The labels.} Let $Y=\mathsf D\cup N_A\cup N_B$, $\mathcal C_A$ and
+$\mathcal C_B$ the unions of its $R$-clusters meeting $N_A$ and $N_B$,
+$\mathcal G=\{\mathcal C_A\subset N_A^{+t},\,\mathcal C_B\subset N_B^{+t}\}$,
+$\varDelta_A=\varDelta(\mathcal C_A,Y\setminus\mathcal C_A)$ and
+$\varDelta_B=\varDelta(\mathcal C_B,Y\setminus\mathcal C_B)$. On $\mathcal
+G$, $\mathcal C_A\cap\mathcal C_B=\emptyset$, since an $R$-cluster in
+both would lie in $N_A^{+t}$ and contain a block of $N_B$. Let $G=
+\varphi(\omega)(\psi(\omega)-\psi(\omega'))$, so that $\Cov_{P^c}(\varphi,
+\psi)=\E_{Q^c}G$ and $\lvert G\rvert\le2\lVert F\rVert\lVert H\rVert$, and
+let $\chi$ exchange the labels on $\mathcal C_B$ as in the proof of
+Theorem~\ref{thm:labelcov}; it preserves $Y$, $\mathcal C_A$, $\mathcal C_B$,
+$\mathcal G$, $\varDelta_A$, $\varDelta_B$, and changes the weight by a
+factor in $[e^{-\varDelta_B},e^{\varDelta_B}]$. On $\mathcal G$,
+Lemma~\ref{lem:groupcross}(a) applied with $X=\mathcal C_A$ to $\omega$,
+$\tilde\omega$, which agree on $\mathcal C_A$, and with $X=\mathcal C_B$ to
+$\tilde\omega,\omega'$ and to $\tilde\omega',\omega$, which agree on
+$\mathcal C_B$, gives
+\begin{gather*}
+\lvert\varphi(\tilde\omega)-\varphi(\omega)\rvert\le2\lVert F\rVert
+\tanh(\varDelta_A/4),\\
+\lvert\psi(\tilde\omega)-\psi(\omega')\rvert\le2\lVert H\rVert\tanh
+(\varDelta_B/4),
+\end{gather*}
+and the same for $\psi(\tilde\omega')-\psi(\omega)$. Writing
+\[
+\begin{split}
+G\circ\chi+G&=\bigl(\varphi(\tilde\omega)-\varphi(\omega)\bigr)\bigl(
+\psi(\tilde\omega)-\psi(\tilde\omega')\bigr)\\
+&\quad+\varphi(\omega)\bigl(\psi(\tilde\omega)-\psi(\omega')-\psi
+(\tilde\omega')+\psi(\omega)\bigr)
+\end{split}
+\]
+gives $\lvert G\circ\chi+G\rvert\le4\lVert F\rVert\lVert H\rVert(\tanh
+\frac{\varDelta_A}4+\tanh\frac{\varDelta_B}4)$. With $w_x=Q^c(x)+Q^c(\chi x)$ and $w'_x=Q^c(x)-
+Q^c(\chi x)$, an orbit $\{x,\chi x\}$ of two points in $\mathcal G$
+contributes
+\[
+\tfrac12w_x\bigl(G+G\circ\chi\bigr)(x)+\tfrac12w'_x\bigl(G-G\circ\chi
+\bigr)(x),
+\]
+with $\lvert G-G\circ\chi\rvert\le4\lVert F\rVert\lVert H\rVert$ and
+$\lvert w'_x\rvert\le w_x\tanh(\varDelta_B/2)$, and a fixed point
+contributes $\frac12Q^c(x)(G+G\circ\chi)(x)$. With $\tanh u\le u$,
+\begin{multline*}
+\lvert\Cov_{P^c}(\varphi,\psi)\rvert\le\lVert F\rVert\lVert H\rVert\bigl(
+2Q^c(\mathcal G^c)\\
++\E_{Q^c}\bigl[\mathbf 1_{\mathcal G}\bigl(\tfrac12\varDelta_A+\tfrac32
+\varDelta_B\bigr)\bigr]\bigr).
+\end{multline*}
+By Lemma~\ref{lem:labelchains} for $N_A$ and for $N_B$, and
+\eqref{eq:groupmean} with $k=2$ for $(N,N')=(N_A,N_B)$ and $(N_B,N_A)$,
+\begin{multline*}
+\E_c\lvert\Cov_{P^c}(\varphi,\psi)\rvert\\
+\le\lVert F\rVert\lVert H\rVert V\bigl(8g_R^{\lfloor t/R\rfloor}+2M_{d,t}
++4\epsilon^{1/2}V^{1/2}\varPhi_R\bigr).
+\end{multline*}
+Adding the two parts gives the bound. Finally $\Cov_{\mu_L}(F,H)=\E_c
+\Cov_{\mu^c}(F,H)+\Cov(\E_{\mu^c}F,\E_{\mu^c}H)$, the last covariance
+under the law of $c$.
+\end{proof}
+
+The bound has three terms. The first is the chance that the group of an
+observable reaches distance $t$; the second is the cross-ratio between the
+two groups through the good layer, at the rate $2\alpha_G$ of
+Theorem~\ref{thm:layerbound}; the third is the cross-ratio between a group
+and the islands at distance more than $R$ from it, in the mean, which is
+of order $\epsilon$ and does not decay with $d$. The numbers follow.
+
+\begin{corollary}[the covariances in numbers]\label{cor:fibrecovnumbers}
+At $\rho=2.17\cdot10^{-16}$, with $s\in\{1,5\}$, $\beta_W\ge\beta^*$, and
+$V$ the volume of Theorem~\ref{thm:labelcov} or~\ref{thm:fibrecov} for the
+stated $t$:
+\begin{enumerate}[label=\textup{(\roman*)},leftmargin=*]
+\item for $d\ge6s+34$, with $R=2s+9$ and $t=R(\lceil d/(10^4R)\rceil+2)$,
+\begin{multline*}
+\E_c\lvert\Cov_{P^c}(\phi,\psi)\rvert\le\operatorname{osc}\phi
+\operatorname{osc}\psi\,\lvert N_A\rvert\lvert N_B\rvert\,\epsilon\\
+\times\Bigl(\frac{\beta_W}{\beta^*}10^{c_s}V^{1/2}e^{-2\alpha_G(1-10^{-4})
+d}\\
++4(4s+19)^4Ve^{-\lambda_sd}+10^{-f_s}V^{3/2}\Bigr),
+\end{multline*}
+with $c_1=26.26$, $\lambda_1=0.0736$, $f_1=7011.8$, $c_5=27.29$, $\lambda_5=
+0.0503$, $f_5=8285.9$, and $V\le\lvert N_B\rvert(d/5000+12s+55)^4$;
+\item for $d\ge2s+10$, with $R=2s+9$ and $t=R\lceil d/(10^4R)\rceil$,
+\begin{multline*}
+\E_c\lvert\Cov_{\mu^c}(F,H)\rvert\le\lVert F\rVert\lVert H\rVert\Bigl(
+\frac{\beta_W}{\beta^*}10^{a_s}Ve^{-2\alpha_G(1-10^{-4})d}\\
++10^{-a'_s}V^{3/2}\Bigr),
+\end{multline*}
+with $a_1=22.75$, $a'_1=14062.6$, $a_5=23.77$, $a'_5=16611.8$, and $V\le
+\max\{\lvert N_A\rvert,\lvert N_B\rvert\}(d/5000+4s+19)^4$;
+\item for $10^8\le d\le10^{100}$, with $R=\lceil2000\sqrt d\rceil$ and
+$t=\lfloor d/2\rfloor$,
+\[
+\E_c\lvert\Cov_{\mu^c}(F,H)\rvert\le10^{-1965}\frac{\beta_W}{\beta^*}
+\lVert F\rVert\lVert H\rVert V^{3/2}e^{-\sqrt d/2},
+\]
+with $V\le\max\{\lvert N_A\rvert,\lvert N_B\rvert\}(d+1)^4$.
+\end{enumerate}
+\end{corollary}
+
+\begin{proof}
+\emph{Dependence on $\beta_W$.} By Theorem~\ref{thm:defects} and Step~6 of
+the proof of Theorem~\ref{thm:islandwindow}, $f$ decreases on $[\beta^*,
+\infty)$ and $f(\beta^*)=\log q^*$, so $\epsilon\le Mq^*$ and $g_R$ is at
+most its value at $\beta^*$. The logarithmic derivative of $b_*=1920r^2
+(99.0001\beta_W+4.65\cdot10^6)^2/\beta_W$ is at most $1/\beta_W$, so $b_*
+\le(\beta_W/\beta^*)b_*(\beta^*)$. As $f'(\beta)=6/\beta-\rho^2/16$, the
+logarithmic derivatives of $b_*\epsilon^{1/2}$ and $b_*\epsilon$ are at
+most $4/\beta_W-\rho^2/32$ and $7/\beta_W-\rho^2/16$, both negative since
+$\beta^*\rho^2/16>8$; so $\varPhi_R$ and $\epsilon^{1/2}\varPhi_R$ are at
+most their values at $\beta^*$. At $\beta^*$ of
+Theorem~\ref{thm:islandwindow}, $b_*\nu_s\le10^{22.084}$ for $s=1$ and
+$10^{23.104}$ for $s=5$, $\sigma(\alpha_G)\le9.831\cdot10^{16}$, and
+$-\log g_{2s+9}\ge8105.1$ for $s=1$ and $9571.0$ for $s=5$.
+
+(i) Theorem~\ref{thm:labelcov}: $t\ge3R$, $t\le d/10^4+3R$ and $(6s+34)
+(1-10^{-4})\ge6s+33$, so $d\ge t+6$; $d-5-t-2s-9\ge(1-10^{-4})d-8s-41$, so
+$11^4M_{d-5,t}\le(\beta_W/\beta^*)10^{c_s}e^{-2\alpha_G(1-10^{-4})d}$ with
+$10^{c_s}\ge11^4b_*(\beta^*)\nu_se^{2\alpha_G(8s+41)}$; $\lfloor t/R\rfloor
+-2=\lceil d/(10^4R)\rceil$ and $-\log g_R/(10^4R)\ge\lambda_s$; $2\varPhi_R
+\le10^{-f_s}$; and $2t+1\le d/5000+12s+55$. (ii)
+Theorem~\ref{thm:fibrecov}: $R\le t\le d/10^4+R<d$ for $d\ge2s+10$, and
+$d-t-2s-9\ge(1-10^{-4})d-2(2s+9)$. The chain term is at most $10e^{-
+\lambda d/(10^4R)}$ with $\lambda=-\log g_R$, and $\lambda/(10^4R)\ge2
+\alpha_G$ and $10\le\frac94b_*\nu_s$, so the first two terms are at most
+$(\beta_W/\beta^*)\frac92b_*(\beta^*)\nu_se^{4\alpha_G(2s+9)}e^{-2\alpha_G
+(1-10^{-4})d}V$; the third is $\frac{17}4b_*\nu_s\sigma(\alpha_G)\epsilon
+e^{\alpha_G(2s+8)}V^{3/2}\le10^{-a'_s}V^{3/2}$. (iii) For $d\ge10^8$, $t\ge
+d/2-1\ge2000\sqrt d+1\ge R$, and $t/R\ge\sqrt d/4001\ge1$, so $\lfloor t/R
+\rfloor\ge\sqrt d/8002$; $R\le2000\cdot10^{50}+1$, where $-\log g_R\ge
+7623.9$ for $s=1$ and $9092.0$ for $s=5$. The third term carries
+$e^{-\alpha_GR}\le e^{-\sqrt d/2}$, and $d-t-2s-9\ge d/2-2s-9$; the ratios
+of the chain and main terms to $e^{-\sqrt d/2}$ decrease in $d$ on $[10^8,
+\infty)$, and at $d=10^8$ they are at most $10^{-1965.2}$ and $10^{-8663}$,
+the coefficient of the third term at most $10^{-14062}$, and $V\le V^{3/2}$.
+The numbers are enclosed in interval arithmetic in the archive.
+\end{proof}
+
+The groups make the Dobrushin condition on the islands unnecessary in these
+bounds: two groups have one cross-ratio. Where that condition holds, as in
+Theorem~\ref{thm:islandwindow}(iii), part (ii) of
+Lemma~\ref{lem:islandcov} has a constructive proof, by the heat-bath sweep
+of F\"ollmer~\cite{Fol82} under Dobrushin's matrix~\cite{Dob68,Dob70},
+which needs neither the minimising coupling nor compactness.
+
+\begin{lemma}[the sweep]\label{lem:sweep}
+In the setting of Lemma~\ref{lem:islandcov}, with $f,g$ bounded measurable,
+suppose that $D=\sum_{n\ge0}C^n$ converges. Let $T_qu(\xi)=\int u(\xi^\eta)
+P_q(d\eta\mid\xi)$, let $q_1,q_2,\dots$ run through $\mathcal Q$
+cyclically, $u_0=f$ and $u_k=T_{q_k}u_{k-1}$. Then
+\begin{gather*}
+\Cov_P(f,g)=\sum_{k\ge1}\E_P\bigl[\Cov_{q_k}(u_{k-1},g)\bigr],\\
+\sum_{k:\,q_k=q}\delta_q(u_{k-1})\le\sum_{q'}\delta_{q'}(f)D_{q'q},
+\end{gather*}
+with $\Cov_q$ the covariance under $P_q(\cdot\mid\xi)$ in the coordinate
+$q$; hence $\lvert\Cov_P(f,g)\rvert\le\frac14\sum_{q,q'}\delta_{q'}(f)
+D_{q'q}\delta_q(g)$.
+\end{lemma}
+
+\begin{proof}
+The law $P$ is invariant under $T_q$, and $T_qu$ does not depend on
+the coordinate $\xi_q$; so $\E_P[(T_qu)g]=\E_P[(T_qu)(T_qg)]$ and $\E_P[ug]=\E_P[(T_qu)(T_qg)]+\E_P
+\Cov_q(u,g)$, which gives $\Cov_P(u,g)-\Cov_P(T_qu,g)=\E_P\Cov_q(u,g)$.
+For $q'\ne q$, changing $\xi_{q'}$ changes $T_qu$ by at most $\delta_{q'}
+(u)+C_{qq'}\delta_q(u)$: the integrand by $\delta_{q'}(u)$, and the law
+$P_q(\cdot\mid\xi)$ by $C_{qq'}$ in total variation, against a function of
+oscillation $\delta_q(u)$. So the vector $v_k=(\delta_q(u_k))_q$ obeys
+$v_k\le v_{k-1}-\tau_ke_{q_k}+\tau_kC_{q_k\cdot}$ with $\tau_k=(v_{k-1})
+_{q_k}$, and since $D\ge0$ and $D-CD=I$, $v_kD\le v_{k-1}D-\tau_ke_{q_k}$.
+Summing, the accumulated $\tau$ at each $q$ is at most $(v_0D)_q$, the
+second claim. In particular $\sum_k\tau_k<\infty$; each $(v_n)_q$ is at
+most the sum of the $\tau_k$ since the last visit to $q$, as $C\le1$, so
+$v_n\to0$, $\operatorname{osc}u_n\le\sum_q(v_n)_q\to0$ and $\Cov_P(u_n,g)
+\to0$. This gives the identity, and $\lvert\Cov_q(u,g)\rvert\le\frac14
+\delta_q(u)\delta_q(g)$ by Popoviciu~\cite{Pop35} gives the bound.
+\end{proof}
+
+\begin{remark}\label{rem:labelcovopen}
+Four things are not proved here. First, the bounds are means over the
+coarse field. For a fixed $c$ the labels need not be rare: a coarse
+plaquette with $\delta(c_P,I)>\eta$ makes its blocks bad with
+$P^c$-probability one. The proofs use rarity only through $\E_cP^c(T\subset
+B)=\mu_L(T\subset B)$ and its two-copy form in
+Lemma~\ref{lem:labelchains}; a bound for every $c$, or uniform in an
+exterior as (D) asks, is not given. Second, the floor. The chains are paid
+for at the joining distance $R$, while the islands beyond $R$ enter
+$\varDelta$ through $e^{-\alpha_GR}$, so with $R$ fixed the bound stops at
+a floor, of order $\epsilon^{3/2}$ in Theorem~\ref{thm:labelcov} and
+$\epsilon$ in Theorem~\ref{thm:fibrecov}, and with $R\propto\sqrt d$ it decays as $e^{-\sqrt d/2}$. Decay
+at the rate $2\alpha_G$ without a floor needs control of $\log Z^c$ as a
+function of the labels of three or more components: the mixed differences
+of order $k\ge3$ of $\log Z^c$ over the labels of $k$ components, bounded
+by $C^ke^{-2\alpha_G\ell}$ with $\ell$ the length of the shortest tree
+joining them. The inputs give the differences of order two only: those of
+order three of $\log\tilde K$ are third cumulants of the layer law, which
+\eqref{eq:layerbound} does not bound, and $\tilde K$ and $D_z$ depend on
+the set $Y$ of components. Third, the covariance of $\E_{\mu^c}F$ and
+$\E_{\mu^c}H$ as functions of $c$ is the multiscale part, item (iv) of
+Section~\ref{ssec:remains}. Fourth, the bounds are consistent with
+Proposition~\ref{prop:hiddenbit}: in its mixture the labels are independent
+given the hidden bit, which plays the role of $c$, so the covariance under
+the fibre law vanishes and the covariance $q^2/16$ is that of the
+conditional means; the theorems above use the cross-ratio of
+Lemma~\ref{lem:groupcross}, not rarity alone.
+\end{remark}
 
 \subsection{The one-step error in gauge-invariant form}\label{ssec:relstep}
 
@@ -15898,7 +16566,9 @@ $X$. The kernel $K_{X_i}$ is the integral of $\prod_{y\in X_i}f_yr_y
 links inside $X_i$, the pairs from $X_i$ and the pairs $(z,\mu)$ with $z\in
 \partial^-X_i$ and $z+e_\mu\in X_i$. It depends on the integration variable
 of $\nu^{\rm out}_{c,X}$ only through the blocks at $\ell^\infty$ distance
-one from $X_i$, and no two kernels share a factor or a variable.
+one from $X_i$. No two kernels share a factor or an integration
+variable; two kernels may share boundary arguments, the inside links of
+a block between them, which the common outer integral integrates.
 \item For $\kappa<\kappa_c$, uniformly in the outer variables,
 \[
 0\le K_{X_i}\le M^{8|X_i|}\exp\Bigl(-\lambda\max\Bigl\{\kappa^2|X_i|,
@@ -16119,10 +16789,17 @@ Lemma~\ref{lem:lambdatwo} evaluates the prefactor, $\Lambda_2\le99.0001
 layer of width at least $99072$. Theorem~\ref{thm:manyislands} performs the induction over all the
 islands of a window given their labels. Theorem~\ref{thm:islandwindow} gives the smallness of its island sums
 and its Dobrushin condition in every window of at most $10^{28000}$
-blocks, outside probability $10^{-166}$. What is not done is the same
-statement in larger windows, which a union bound cannot give, and the
-covariance of the conditional probabilities of two labels when the others
-are averaged.
+blocks, outside probability $10^{-166}$. Section~\ref{ssec:labelcov} bounds the
+covariance of the labels with the others averaged, and the covariance of
+two local observables under $\mu^c$, in the mean over the coarse field and
+on the whole torus: Theorem~\ref{thm:labelcov} improves the trivial bound
+$2\epsilon\lvert N_A\rvert\lvert N_B\rvert$ by a factor decaying at the
+rate $2\alpha_G$ down to $10^{-7011}$, and Theorem~\ref{thm:fibrecov}
+gives decay at the same rate down to $10^{-14062}$, or as $e^{-\sqrt d/2}$.
+What is not done is a bound for every coarse field, uniform in the
+exterior, and decay without a floor, which needs the mixed differences of
+order three and more of $\log Z^c$ in the labels
+(Remark~\ref{rem:labelcovopen}).
 Proposition~\ref{prop:hiddenbit} shows that no rarity bound replaces this
 comparison.
 \item \emph{The island threshold.} Theorem~\ref{thm:islandthreshold}
@@ -16161,9 +16838,10 @@ with calm weight at least $N_\lambda$ per block, which is not proved; the
 coarse action is comparable to $\lambda$ times the coarse curvature only up
 to the factor $C_*$, so the step does not iterate.
 \end{enumerate}
-The averaged covariance of item (ii), with the island sums in windows
-of more than $10^{28000}$ blocks, is the single-scale part of (D) that
-remains open, item (i) being settled for the
+The covariance of item (ii) for a fixed coarse field and uniform in the
+exterior, with decay at the rate $2\alpha_G$ without a floor, is the
+single-scale part of (D) that remains open, its mean over the coarse field
+being bounded by Theorems~\ref{thm:labelcov} and~\ref{thm:fibrecov}, item (i) being settled for the
 site of a pair by Theorem~\ref{thm:site} and item (ii) given the labels
 of all islands by Theorem~\ref{thm:manyislands};
 item (iii) is settled by Theorem~\ref{thm:islandthreshold} at one scale
