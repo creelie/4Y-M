@@ -11678,11 +11678,12 @@ $h$ at $h=0$ gives $\frac18\partial_h^2x+\frac14\partial_h^2L=0$, that is
 \[
 \partial_h^2x(a,0)=-2\,\partial_h^2L(a,-\tfrac a7,0)=-\frac{2a}3+O(a^2)<0 .
 \]
-Fix $r$ small and $\eta$ small, and take $a$ with $r<a<r(1+\frac{\eta^2}
-{4})$. The points $z^\pm$ with $h=\pm\eta$ and their midpoint $z^0$ with
-$h=0$ have all seven non-path links within $\sqrt{a^2/49+\eta^2}<r$ of
-$I$; the path link of $z^\pm$ is at distance $x(a,\pm\eta)=a-\frac a3
-\eta^2+O(a^2\eta^2+\eta^4)<r$ from $I$, while that of $z^0$ is at distance
+Put $\eta=\frac r2$ and take $a$ with $r<a<r(1+\frac{\eta^2}{4})$. The
+points $z^\pm$ with $h=\pm\eta$ and their midpoint $z^0$ with $h=0$ have
+all seven non-path links within $\sqrt{a^2/49+\eta^2}<r$ of $I$; the path
+link of $z^\pm$ is at distance $x(a,\pm\eta)=a-\frac a3\eta^2+O(r^4)\le
+r-\frac{r^3}{48}+O(r^4)<r$ from $I$ for small $r$, while that of $z^0$ is
+at distance
 $x(a,0)=a>r$. So the endpoints lie in the domain and the midpoint does
 not.
 \end{proof}
@@ -11717,7 +11718,7 @@ after inserting $\chi(0)=2-4\sqrt2\sin\frac14$. With $\sin\frac14<\frac14$,
 $\cos\frac14>\frac{31}{32}$ and $1<\sqrt2<\frac32$ on the positive and the
 negative term separately, $f'(0)<-\frac{91}{3200}<0$. Put $\gamma=f(0)$,
 which lies in $(0,1)$. For $|q|=1$ the maximal chordal distance exceeds
-one, so $\chi=\pm1$ gives $f(\pm1)=\pm1$. Since $f$ decreases through
+one, so $\chi(\pm1)=0$ and $f(\pm1)=\pm1$. Since $f$ decreases through
 $\gamma$ at $0$ and $f(-1)<\gamma<f(1)$, the intermediate value theorem
 gives one preimage of $\gamma$ in $(-1,0)$, one in $(0,1)$, and $q=0$. On
 $[0,\frac15]$ the maximiser stays $\theta_1$ and $\frac9{10}<m<1$ at
@@ -11762,12 +11763,12 @@ every $(z,u,w)$ and $c_k$ for which~\eqref{eq:pathlaw} is a finite
 nonzero measure,
 \[
 W_1^\delta\bigl(\pi(\cdot\mid z,u,w,\sigma),\pi(\cdot\mid z,u,w,\sigma')
-\bigr)\le2\beta_W\,d(\sigma_{e'},\sigma'_{e'}),
+\bigr)\le\beta_W\,d(\sigma_{e'},\sigma'_{e'}),
 \]
 and the two laws coincide unless $e'$ lies in a plaquette with a private
 link of $k$. For the law of all eight private links given $u,w,\sigma$ and
 restricted to any fixed measurable set $B$ of the non-path links, with the
-cost $\sum_a\delta(\ell_a,\ell'_a)$, the same holds with $16\beta_W$. Both
+cost $\sum_a\delta(\ell_a,\ell'_a)$, the same holds with $8\beta_W$. Both
 bounds include every branch and the disintegration density.
 \end{lemma}
 
@@ -11788,15 +11789,18 @@ move $\sigma_{e'}$ along a minimal geodesic $\sigma_{e'}e^{t\xi}$,
 $\lVert\xi\rVert=1$, $0\le t\le T=d(\sigma_{e'},\sigma'_{e'})$, with laws
 $\pi_t$. For bounded $f$, $\frac d{dt}\pi_t(f)=-\beta_W\Cov_{\pi_t}(f,\dot
 s_{p_0})$, by differentiation under the integral against the fixed finite
-measure $\nu$. By bi-invariance and $\delta\le d$, $t\mapsto\delta(U_{p_0}
-(t),I)$ is $1$-Lipschitz, so $|\dot s_{p_0}|=\frac12\delta(U_{p_0},I)\,
-|\frac d{dt}\delta(U_{p_0},I)|\le\sqrt2$ and $\dot s_{p_0}$ has oscillation
-at most $2\sqrt2$. A function that is $1$-Lipschitz for $\delta$ has
-oscillation at most the chordal diameter $2\sqrt2$ of $\SU(2)$, and at most
-$8\cdot2\sqrt2$ for the sum cost on eight links. Since $|\Cov(f,h)|\le\frac14
-\operatorname{osc}f\operatorname{osc}h$, $|\frac d{dt}\pi_t(f)|\le2\beta_W$,
-respectively $16\beta_W$; integrate over $[0,T]$ and use the Kantorovich
-duality.
+measure $\nu$. Here $\frac d{dt}U_{p_0}(t)=U_{p_0}(t)\xi'$ with
+$\lVert\xi'\rVert=1$, $\xi'$ a conjugate of $\pm\xi$, so $\dot s_{p_0}=
+-\frac12\ReTr(U_{p_0}\xi')$; in a basis in which $U_{p_0}=\operatorname{diag}
+(e^{i\varphi},e^{-i\varphi})$ only the diagonal entries $\pm i\alpha$ of
+$\xi'$ contribute, $2\alpha^2\le1$, and $\dot s_{p_0}=\alpha\sin\varphi$.
+Hence $|\dot s_{p_0}|\le\frac1{\sqrt2}$, and a link of a plaquette moving
+at geodesic speed $v$ gives $|\dot s_p|\le v/\sqrt2$. A function that is
+$1$-Lipschitz for $\delta$ has oscillation at most the chordal diameter
+$2\sqrt2$ of $\SU(2)$, and at most $8\cdot2\sqrt2$ for the sum cost on
+eight links. Since $|\Cov(f,h)|\le\frac14\operatorname{osc}f
+\operatorname{osc}h$, $|\frac d{dt}\pi_t(f)|\le\beta_W$, respectively
+$8\beta_W$; integrate over $[0,T]$ and use the Kantorovich duality.
 \end{proof}
 
 This is Lemma~\ref{lem:fixedset} for the fibre law: the branches and the
@@ -11919,7 +11923,7 @@ link is $e^{-\beta_WS(g)}$ with $S(g)=\frac34[\delta(g,I)^2+\delta(g,e^{0.49i})^
 the three through the path link and $I$.
 
 \emph{Step 1, the torus.} For $q\in[q_{lo},q_{hi}]=[\frac{49}{100}-\alpha,
--\frac12+\alpha]=[-0.2327,0.2228]$, where $\alpha=\arccos\frac34$, the
+-\frac12+\alpha]\approx[-0.2327,0.2227]$, where $\alpha=\arccos\frac34$, the
 maximiser of $\delta(g^{-1}\ell_a,I)$ at $g=e^{iq}$ is the far link when
 $q\ge-0.005$ and the six near links when $q\le-0.005$, $m=2\sqrt2\sin(d(q)/2)
 \in(\frac12,1)$ with $d(q)=\max\{q+\frac12,\frac{49}{100}-q\}$, and
@@ -12085,8 +12089,8 @@ side, whose variation the next lemma bounds.
 \begin{lemma}[the good-side density is log-Lipschitz]\label{lem:goodsidedensity}
 Under the hypothesis of Proposition~\ref{prop:goodside}, let one link of
 the pair move along a unit-speed geodesic. Then
-$\bigl|\frac d{dt}\log\lvert\det D_gV\rvert\bigr|\le67.41$ when the link
-is a non-path link and $\le33.71$ when it is an inside link.
+$\bigl|\frac d{dt}\log\lvert\det D_gV\rvert\bigr|\le64.94$ when the link
+is a non-path link and $\le32.47$ when it is an inside link.
 \end{lemma}
 
 \begin{proof}
@@ -12098,30 +12102,30 @@ $\lVert T^{-1}\rVert\le(1-\kappa_0)^{-1}$ and $\dot T=-\frac78(\dot E_N\bar L
 +E_N\dot{\bar L})$, $\lVert\bar L\rVert\le\Lambda_0:=\theta_0/\sin\theta_0
 =1.02115$, $\lVert E_N\rVert\le1$.
 
-For an entire function $\varphi$ and a normal operator $A$ with spectral
-projections $P_i$ and eigenvalues $\lambda_i$, the derivative is
+For a power series $\varphi$ whose radius of convergence exceeds the
+spectral radius of a normal operator $A$ with spectral projections $P_i$
+and eigenvalues $\lambda_i$, the derivative is
 $d\varphi(A)[B]=\sum_{i,j}\varphi[\lambda_i,\lambda_j]P_iBP_j$, with the
 divided differences $\varphi[\lambda_i,\lambda_j]$ of
 Daleckii--Krein~\cite{DK65}; the blocks $P_iBP_j$ are orthogonal for the
 Hilbert--Schmidt product, so $\lVert d\varphi(A)[B]\rVert\le\max_{i,j}
-\lvert\varphi[\lambda_i,\lambda_j]\rvert\lVert B\rVert_{HS}$. With
+\lvert\varphi[\lambda_i,\lambda_j]\rvert\lVert B\rVert_{HS}$, and by the
+Hermite--Genocchi formula $\varphi[\lambda_i,\lambda_j]=\int_0^1\varphi'(
+(1-u)\lambda_i+u\lambda_j)\,du$ this maximum is at most the maximum of
+$\lvert\varphi'\rvert$ on the convex hull of the spectrum. With
 $E_Y=e(\operatorname{ad}Y)$, $L_Y=f(\operatorname{ad}Y)$, $e(x)=(e^x-1)/x$,
 $f(x)=x/(e^x-1)$, and $\lVert\operatorname{ad}W\rVert_{HS}=2\lVert W\rVert$,
 this gives $\lVert\dot L_{Y}\rVert\le2M_L\lVert\dot Y\rVert$ and
 $\lVert\dot E_N\rVert\le2M_E\lVert\dot N\rVert$, where $M_L$ and $M_E$ bound
-the divided differences of $f$ and $e$ on the spectra $\{0,\pm ia'\}$,
-$a'\le\sqrt2\cdot16r\le\frac{\sqrt2}2$, and $\{0,\pm ib'\}$,
-$b'\le\sqrt2\cdot14r\le0.6188$. With $f(iy)=\frac y2\cot\frac y2-\frac{iy}2$
-one has $f[0,0]=f[ia',-ia']=-\frac12$,
-$f[0,ia']=-\frac12-i\frac{u(a')-1}{a'}$ with $u(y)=\frac y2\cot\frac y2$
-and $\lvert u(y)-1\rvert\le\frac{y^2}{12}(1-\frac{y^2}{24})^{-1}$, and
-$f'(ia')=-\frac12-i\frac{\sin a'-a'}{4\sin^2(a'/2)}$, so
+$\lvert f'\rvert$ and $\lvert e'\rvert$ on the segments $i[-a',a']$,
+$a'\le\sqrt2\cdot16r\le\frac{\sqrt2}2$, and $i[-b',b']$,
+$b'\le\sqrt2\cdot14r\le0.6188$, which contain the spectra $\{0,\pm ia'\}$
+of $\operatorname{ad}Y_x$ and $\{0,\pm ib'\}$ of $\operatorname{ad}N$. Since
+$e'(z)=\int_0^1te^{tz}\,dt$, $\lvert e'(iy)\rvert\le\frac12$, so $M_E=\frac12$.
+Since $f'(iy)=-\frac12-i\frac{\sin y-y}{4\sin^2(y/2)}$, and $y-\sin y\le
+\frac{y^3}6$, $\sin\frac y2\ge\frac y2(1-\frac{y^2}{24})$,
 $M_L\le\bigl(\frac14+\frac{a^2}{36}(1-\frac{a^2}{24})^{-4}\bigr)^{1/2}\le
-0.5149$ at $a=\frac{\sqrt2}2$. With $e(iy)=\frac{\sin y}y+i\frac{1-\cos y}y$
-one has $e[0,0]=\frac12$, $e[ib',-ib']=\frac{1-\cos b'}{b'^2}\le\frac12$,
-$\lvert e[0,ib']\rvert^2\le\frac14+\frac{b'^2}{36}$ and $\lvert e'(ib')
-\rvert^2\le\frac14+\frac{b'^2}9$, so $M_E\le(\frac14+\frac{b^2}9)^{1/2}\le
-0.5409$ at $b=0.6188$.
+0.5149$ at $a=\frac{\sqrt2}2$.
 
 Along the motion the fixed point $X$ moves with $\lVert\dot X\rVert\le\dot x$,
 $\dot x=1.1986$ for a non-path link and $0.5993$ for an inside link, by the
@@ -12136,7 +12140,7 @@ non-path link and $n=1$ for an inside link, $\lVert\dot N\rVert\le
 \Bigl|\frac d{dt}\log\lvert\det T\rvert\Bigr|\le\frac{21}8\,
 \frac{2M_E\Lambda_0\lVert\dot N\rVert+\lVert\dot{\bar L}\rVert}{1-\kappa_0},
 \]
-which is at most $67.41$ and $33.71$ in the two cases, with
+which is at most $64.94$ and $32.47$ in the two cases, with
 $(1-\kappa_0)^{-1}\le9.390$.
 \end{proof}
 
@@ -12148,10 +12152,10 @@ be the law of the site of that lemma. Then
 W_1\bigl(\pi(\cdot\mid\sigma),\pi(\cdot\mid\sigma')\bigr)\le C_{e'}\,
 d(\sigma_{e'},\sigma'_{e'}),
 \]
-for the cost $\sum_{e\in\mathcal S_k}\delta$, with $C_{e'}=48\,n_p(e')
+for the cost $\sum_{e\in\mathcal S_k}\delta$, with $C_{e'}=24\,n_p(e')
 \beta_W$ if $e'$ enters only the Wilson weight, $n_p(e')\le6$ the number of
-its plaquettes that contain a site link, $C_{e'}=394\beta_W+2289$ if $e'$
-is a non-path link of $k'$ or $k''$, and $C_{e'}=173\beta_W+1145$ if $e'$
+its plaquettes that contain a site link, $C_{e'}=197\beta_W+2206$ if $e'$
+is a non-path link of $k'$ or $k''$, and $C_{e'}=87\beta_W+1103$ if $e'$
 is an inside link of $k'$ in $B(y-e_\mu)$ or of $k''$ in $B(y+2e_\mu)$. The
 constants do not depend on $c_k$, $c_{k'}$, $c_{k''}$, $E$ or the rest of
 $\sigma$, and every branch of $V^\sharp_k=c_k$ inside the site is
@@ -12160,7 +12164,9 @@ integrated, not compared.
 
 \begin{proof}
 Move $\sigma_{e'}$ along a unit-speed geodesic, $0\le t\le T=d(\sigma_{e'},
-\sigma'_{e'})$. By Lemma~\ref{lem:sitelaw}, $\pi_t=(\Phi_t)_*\mu_t$ with
+\sigma'_{e'})$; geodesic balls of radius $r\le\frac1{32}$ are convex, so
+the hypotheses of Lemma~\ref{lem:sitelaw} hold along the way. By that
+lemma, $\pi_t=(\Phi_t)_*\mu_t$ with
 $\Phi_t(\ell,u,w)=(\ell,u,w,\Gamma'_t,\Gamma''_t)$ and $\mu_t$ the law on
 $M_k\cap E$ with density $h_t=e^{-\beta_WS_t}J'^{-1}_tJ''^{-1}_t$ against
 the fixed measure $\mathbf 1_EJ_{22}^{-1}\mathrm{vol}_{M_k}$; plaquettes
@@ -12178,20 +12184,19 @@ weight. For the first, $\frac d{dt}\mu_t(\varphi)=\Cov_{\mu_t}(\varphi,
 \operatorname{osc}\varphi\operatorname{osc}\psi$, so the first term is at
 most $24\sqrt2\,T\sup\lvert\partial_t\log h_t\rvert$, and
 $\lvert\partial_t\log h_t\rvert\le\beta_W\lvert\partial_tS_t\rvert+
-\lvert\partial_t\log J'_t\rvert$. A link moving at geodesic speed $v$
-changes $\delta(U_p,I)$ at rate at most $v$, by bi-invariance and $\delta
-\le d$, so $\lvert\dot s_p\rvert\le\sqrt2\,v$ for $s_p=\frac14\delta(U_p,
-I)^2$. If $e'$ enters only the Wilson weight, $\operatorname{osc}
-\partial_tS_t\le2\sqrt2\,n_p(e')$ and $J'$ does not move, which gives
-$48n_p\beta_W$. If $e'=\ell'_a$, it shares at most one plaquette with a
-site link, and the atom $\Gamma'$ moves at speed at most $1.1986$ through
-its six plaquettes, so $\lvert\partial_tS_t\rvert\le\sqrt2(1+6\cdot1.1986)
-\le11.585$, and Lemma~\ref{lem:goodsidedensity} bounds the density term by
-$67.41$; hence $C_{e'}\le24\sqrt2(11.585\beta_W+67.41)+1.1986<394\beta_W+
-2289$. If $e'=u'_a$, it shares no plaquette with a site link, the atom
-moves at speed at most $0.5993$, $\lvert\partial_tS_t\rvert\le6\sqrt2\cdot
-0.5993\le5.086$, and $C_{e'}\le24\sqrt2(5.086\beta_W+33.71)+0.5993<
-173\beta_W+1145$. Kantorovich duality gives the bound on $W_1$.
+\lvert\partial_t\log J'_t\rvert$. Links of a plaquette moving at total
+geodesic speed $v$ give $\lvert\dot s_p\rvert\le v/\sqrt2$, by the proof of
+Lemma~\ref{lem:wilsononly}. If $e'$ enters only the Wilson weight,
+$\operatorname{osc}\partial_tS_t\le\sqrt2\,n_p(e')$ and $J'$ does not move,
+which gives $24n_p\beta_W$. If $e'=\ell'_a$, it shares at most one
+plaquette with a site link, and the atom $\Gamma'$ moves at speed at most
+$1.1986$ through its six plaquettes, so $\lvert\partial_tS_t\rvert\le(1+6
+\cdot1.1986)/\sqrt2\le5.793$, and Lemma~\ref{lem:goodsidedensity} bounds the
+density term by $64.94$; hence $C_{e'}\le24\sqrt2(5.793\beta_W+64.94)+
+1.1986<197\beta_W+2206$. If $e'=u'_a$, it shares no plaquette with a site
+link, the atom moves at speed at most $0.5993$, $\lvert\partial_tS_t\rvert
+\le6\cdot0.5993/\sqrt2\le2.543$, and $C_{e'}\le24\sqrt2(2.543\beta_W+32.47)
++0.5993<87\beta_W+1103$. Kantorovich duality gives the bound on $W_1$.
 \end{proof}
 
 If the inside $\mu$-links of $B(y)$ are themselves off, so that $k'$ is not
@@ -12205,7 +12210,7 @@ the number of its links. The chain lies in the island together with its
 $\mu$-neighbours. The site therefore costs one block of collar on each
 side of an island: with the bad blocks joined at $\ell^\infty$ distance at
 most $2s+3$, the islands enlarged by one block are separated by layers of
-good blocks of width at least $2s+3$, no constraint of a pair based in a
+good blocks of width at least $2s+1$, no constraint of a pair based in a
 window of such a layer contains a site link, and the witnesses $M=11^4$,
 $H=6^4$ of Lemma~\ref{lem:coverage} are unchanged. Every statement of
 Theorem~\ref{thm:islandthreshold} then holds with $(4s+7)^4-1$ neighbours
@@ -12214,8 +12219,8 @@ $\beta^*(10^{-8},1)=4.177\cdot10^{21}$ for $s=1$, $\lvert\log q^*\rvert=
 35087.3$ and $\beta^*(10^{-8},5)=5.667\cdot10^{21}$ for $s=5$, and
 $\beta^*(10^{-9},1)=4.181\cdot10^{23}$. With the layer between two enlarged
 islands of width at least $2s+8$, as Corollary~\ref{cor:twoislands} needs,
-the joining distance is $2s+10$ and $\beta^*=1.19\cdot10^{37}$ for $s=1$
-and $1.36\cdot10^{37}$ for $s=5$ at $\rho=2.17\cdot10^{-16}$.
+the joining distance is $2s+10$ and $\beta^*=1.183\cdot10^{37}$ for $s=1$
+and $1.358\cdot10^{37}$ for $s=5$ at $\rho=2.17\cdot10^{-16}$.
 
 \subsection{Counting bad labels}\label{ssec:counting}
 
@@ -12312,9 +12317,10 @@ normaliser as in Lemma~\ref{lem:kernel}. Then
 \[
 \begin{gathered}
 \bigl|\Pr(B=1\mid A=1)-\Pr(B=1\mid A=0)\bigr|\le\tanh\frac\varDelta4,\\
-|\Cov(A,B)|\le\frac14\tanh\frac\varDelta4 .
+|\Cov(A,B)|\le\frac14\tanh\frac\varDelta4 ,
 \end{gathered}
 \]
+and both bounds are attained.
 \end{corollary}
 
 \begin{proof}
@@ -12325,7 +12331,10 @@ $\sigma(u)=(1+e^{-u})^{-1}$ the difference $\sigma(u+s)-\sigma(u)$ is
 largest at $u=-s/2$ by the symmetry $\sigma(-u)=1-\sigma(u)$, where it
 equals $\sigma(s/2)-\sigma(-s/2)=\tanh(s/4)$, and it increases in $s$. The
 covariance is $\Pr(A=1)\Pr(A=0)$ times the difference of the conditional
-probabilities, and $\Pr(A=1)\Pr(A=0)\le\frac14$.
+probabilities, and $\Pr(A=1)\Pr(A=0)\le\frac14$. The weights
+$Z_{11}=Z_{00}=e^{\varDelta/2}$, $Z_{10}=Z_{01}=1$ have $\Pr(A=1)=\frac12$
+and conditional probabilities $\sigma(\pm\varDelta/2)$, so both bounds are
+equalities.
 \end{proof}
 
 When the kernel is the partition function of a calm layer, its cross-ratio
@@ -12342,15 +12351,15 @@ dz$. Then for directions $u$ in $\eta$ and $v$ in $\zeta$,
 \Cov\bigl(\partial_u\mathcal U,\partial_v\mathcal U\bigr),
 \]
 expectation and covariance under $e^{-\mathcal U}dz/Z$ on $D$. If
-$\mathcal U$ is a sum of local terms and the supports of $\eta$ and $\zeta$
-are farther apart than the range, the first term vanishes; and if the law
-on $D$ satisfies
+$\mathcal U$ is a sum of local terms and the supports of $\eta$ and
+$\zeta$ are farther apart than its range, the first term vanishes. If in
+addition, at every point of two segments $\eta_0\to\eta_1$ and
+$\zeta_0\to\zeta_1$, the law on $D$ satisfies
 \[
 |\Cov(F,H)|\le\mathcal A\,\lVert\nabla F\rVert\,\lVert\nabla H\rVert\,
 e^{-\alpha\dist(\operatorname{supp}\nabla F,\operatorname{supp}\nabla H)}
 \]
-for all smooth $F$ and $H$, then for two segments $\eta_0\to\eta_1$ and
-$\zeta_0\to\zeta_1$ along which the domain $D$ and the bounds persist,
+for all smooth $F$ and $H$, then
 \[
 \begin{split}
 &\bigl|\log Z(\eta_1,\zeta_1)-\log Z(\eta_1,\zeta_0)-\log Z(\eta_0,\zeta_1)
@@ -12360,16 +12369,19 @@ $\zeta_0\to\zeta_1$ along which the domain $D$ and the bounds persist,
 \end{split}
 \]
 where $L_\eta,L_\zeta$ bound the gradients in $z$ of $\partial_u\mathcal U$
-and $\partial_v\mathcal U$ per unit of $u,v$, and $d'$ is the distance
-between the supports of those gradients.
+and $\partial_v\mathcal U$ per unit of $u,v$ along the segments, and $d'$
+is a lower bound there for the distance between the supports of those
+gradients.
 \end{lemma}
 
 \begin{proof}
 Differentiating under the integral sign on the fixed domain $D$ gives
 $\partial_v\log Z=-\E[\partial_v\mathcal U]$ and then the identity, the
 covariance arising from the derivative of the normalised density. The
-integrated bound is the identity, the covariance hypothesis, and the
-fundamental theorem of calculus along the two segments.
+left side of the integrated bound is the integral of $\partial_u\partial_v
+\log Z$ over the product of the two segments, in which the first term of
+the identity vanishes and the second is bounded by the covariance
+hypothesis.
 \end{proof}
 
 On a good window the law of Proposition~\ref{prop:graphlaw}, with the
@@ -12437,7 +12449,8 @@ Lemma~\ref{lem:comparison} iterates.
 \begin{lemma}[minimality gives the recurrence]\label{lem:minimality}
 Let $I$ be a finite index set, let $\Pi$ be a set of couplings of two
 probability measures on a product of metric spaces indexed by $I$, let
-$d_i(\pi)=\E_\pi\dist(x_i,x'_i)$, and let $w_i>0$. Suppose $\pi\in\Pi$
+$d_i(\pi)=\E_\pi\dist(x_i,x'_i)$, let $w_i>0$, and let $S\subset I$.
+Suppose $\pi\in\Pi$
 minimises $\sum_iw_id_i$ over $\Pi$, and that for each $i\notin S$ there
 is $\pi^{(i)}\in\Pi$ with $d_j(\pi^{(i)})=d_j(\pi)$ for $j\ne i$ and
 $d_i(\pi^{(i)})\le\sum_jC_{ij}d_j(\pi)$. Then $d_i(\pi)\le\sum_jC_{ij}
@@ -12554,10 +12567,11 @@ Conjugation by $e^{\alpha\phi}$ respects products and inverses, so the
 weighted norm is submultiplicative on compatible blocks, and $\lVert B^*
 \rVert_\alpha=\lVert B\rVert_\alpha$ because $-\phi$ is admissible; the
 bound on $S$ follows from its formula. For the entry bound take $\phi(x)=
-\dist(x,j)$. For the difference write $BD^{-1}B^*-B_0D_0^{-1}B_0^*=(B-B_0)
-D^{-1}B^*+B_0D^{-1}(B-B_0)^*+B_0(D^{-1}-D_0^{-1})B_0^*$ with $D^{-1}-
-D_0^{-1}=-D^{-1}(D-D_0)D_0^{-1}$; the four terms are bounded by
-$\varepsilon$, $\varepsilon bg$, $\varepsilon bg$ and $\varepsilon b^2g^2$.
+\dist(x,j)$. For the difference,
+$S-S_0=(A-A_0)-(B-B_0)D^{-1}B^*-B_0D^{-1}(B-B_0)^*-B_0(D^{-1}-D_0^{-1})
+B_0^*$ with $D^{-1}-D_0^{-1}=-D^{-1}(D-D_0)D_0^{-1}$, and the four terms
+are bounded by $\varepsilon$, $\varepsilon bg$, $\varepsilon bg$ and
+$\varepsilon b^2g^2$.
 \end{proof}
 
 \begin{proposition}[what form comparison preserves]\label{prop:formstability}
@@ -12647,17 +12661,26 @@ suppose $0<C_a(s/2)<\infty$ and $C_a(s)/C_a(s/2)\ge c>0$ uniformly in $a$.
 Let $d\nu_a=e^{-sE}d\sigma_a/C_a(s)$. Then
 \[
 \begin{gathered}
-\int E\,d\nu_a\le M_s=\frac2{esc},\qquad\nu_a([R,\infty))\le\frac{M_s}R,\\
+\int E\,d\nu_a\le M_s=\frac2s\log\frac1c\le\frac2{esc},\qquad
+\nu_a([R,\infty))\le\frac{M_s}R,\\
 \frac{C_a(s+t)}{C_a(s)}\ge e^{-M_st}\quad(t\ge0).
 \end{gathered}
 \]
 \end{lemma}
 
 \begin{proof}
-Since $ue^{-u}\le1/e$, $Ee^{-sE}\le\frac2{es}e^{-sE/2}$; integrating and
-dividing by $C_a(s)$ gives the moment bound. Markov's inequality gives the
-tail, and Jensen's inequality for the probability $\nu_a$ gives $C_a(s+t)/
-C_a(s)=\int e^{-tE}d\nu_a\ge\exp(-t\int E\,d\nu_a)$.
+The Laplace transform $C_a$ is finite on $[s/2,\infty)$, smooth on
+$(s/2,\infty)$ with $C_a'=-\int Ee^{-tE}d\sigma_a$, and $\log C_a$ is convex
+there by the Cauchy--Schwarz inequality $C_a(\frac{t+t'}2)^2\le C_a(t)
+C_a(t')$. A convex function has derivative at $s$ at least the slope of
+its chord over $[s/2,s]$, so
+\[
+\int E\,d\nu_a=-(\log C_a)'(s)\le\frac2s\log\frac{C_a(s/2)}{C_a(s)}\le
+\frac2s\log\frac1c ,
+\]
+and $\log u\le u/e$ gives $M_s\le2/(esc)$. Markov's inequality gives the
+tail, and convexity gives $\log C_a(s+t)-\log C_a(s)\ge t(\log C_a)'(s)\ge
+-M_st$.
 \end{proof}
 
 When $\sigma_a$ is the spectral measure of a centred observable $O_a$ for a
@@ -12725,9 +12748,9 @@ Proposition~\ref{prop:graphlaw} when every block at $\ell^\infty$ distance
 at most $s$ from $W$ is good. Join two blocks when they are at $\ell^\infty$
 distance at most $2s+1$, and call a maximal connected set of bad blocks an
 \emph{island}; two islands are then separated by a layer of good blocks of
-width at least $2s+1$, so that every block of the layer is at distance more
-than $s$ from both, and the good layer of Lemma~\ref{lem:kernel} is
-available between them. Each block has $\varDelta=(4s+3)^4-1$ neighbours
+width at least $2s+1$, whose middle blocks are at distance more than $s$
+from both, and the good layer of Lemma~\ref{lem:kernel} is
+available in the middle of it. Each block has $\varDelta=(4s+3)^4-1$ neighbours
 in this graph, and the witness sets of Lemma~\ref{lem:coverage} are the
 boxes of side $11$, $M=11^4$, $H=6^4$.
 
@@ -12746,13 +12769,14 @@ $\beta_W\ge\beta^*$:
 \item for every block $y$ and every $n\ge1$,
 \[
 \mu_L\{y\text{ lies in an island of at least }n\text{ blocks}\}\le
-2^{1-n}\varDelta^{-2}\le2^{-n},
+2^{-n}\varDelta^{-2},
 \]
 and the expected number of islands of at least $n$ blocks on a torus of
-$L^4$ blocks is at most $L^4\,2^{-n}/n$;
+$L^4$ blocks is at most $L^4\,2^{-n}\varDelta^{-2}/n$;
 \item if an estimate charges every bad block a factor $\varGamma\ge1$ and is
 summed over the islands through a given block, the sum
-$\sum_{n\ge1}\varDelta^{2(n-1)}(\varGamma A^{1/H})^n$ is at most $1$ as
+$\sum_{n\ge1}\varDelta^{2(n-1)}(\varGamma A^{1/H})^n$ is at most
+$\varDelta^{-2}$ as
 soon as $\beta_W\ge\beta^*(\rho,s,\varGamma)$, the largest solution of
 $f(\beta)=\log q^*-H\log\varGamma$.
 \end{enumerate}
@@ -12774,7 +12798,9 @@ with $W=\{y,y+e_\mu\}$ gives $\delta(U_e,I)\le3\kappa$ when $e$ lies
 inside a block, where $R_e(c)=I$, and $\delta(U_e,\ell_k)\le21\kappa$ when
 $e$ leaves $B(y)$, where $R_e(c)=c_k$ and $\ell_k$ is the path link; the
 proof of Lemma~\ref{lem:coarsewitness} gives $\delta(c_k,\ell_k)\le7\pi
-\kappa$, so $\delta(U_e,R_e(c))\le(21+7\pi)\kappa<43\kappa$. Since the
+\kappa$, so $\delta(U_e,R_e(c))\le(21+7\pi)\kappa<42.992\kappa$; since
+$d(g,h)\le(1+10^{-12})\delta(g,h)$ when $\delta(g,h)\le10^{-6}$, the
+geodesic distance of the label obeys $d(U_e,R_e(c))<43\kappa$. Since the
 label is bad, either $\kappa>10^{-8}\ge\rho$ or $43\kappa>r$, and in both
 cases some plaquette of that set has defect more than $\rho$. If $y$ is
 bad because of a coarse plaquette with corner $y$, Lemma~\ref{lem:coarsewitness}
@@ -12799,23 +12825,25 @@ $q_\rho(\beta_W)\le e^{f(\beta_W)}\le q^*$, hence $A\le eMHq^*=(2\varDelta^2)
 \emph{Islands.} A connected set of $n$ blocks containing $y$ in the graph
 of the collar is recovered from a walk of length $2(n-1)$ around a spanning
 tree, each step to one of $\varDelta$ neighbours, so there are at most
-$\varDelta^{2(n-1)}$ of them, and the island of $y$ has at least $n$
-blocks only if some connected set of exactly $n$ blocks containing $y$
-consists of bad blocks. The probability that a given set of $n$ blocks is
-bad is at most $A^{n/H}$, so
+$\varDelta^{2(n-1)}$ of them. The island of $y$ has at least $n$ blocks
+only if some connected set of exactly $n$ blocks containing $y$ consists
+of bad blocks, and a given set of $n$ blocks is bad with probability at
+most $A^{n/H}$, so
 \[
-\mu_L\{y\text{ in an island of $n$ blocks}\}\le\varDelta^{2(n-1)}A^{n/H}
-\le\varDelta^{-2}\,2^{-n},
+\begin{split}
+\mu_L\{\text{the island of $y$ has at least $n$ blocks}\}
+&\le\varDelta^{2(n-1)}A^{n/H}\\
+&\le\varDelta^{-2}\,2^{-n}.
+\end{split}
 \]
-and summing over the sizes $m\ge n$ of the island gives $2^{1-n}\varDelta^{-2}$.
 An island of at least $n$ blocks contains at least $n$ blocks that lie in
 islands of at least $n$ blocks, so the number of such islands is at most
 $1/n$ times the number of such blocks, whose expectation is at most
-$L^4\,2^{1-n}\varDelta^{-2}\le L^42^{-n}$; on a torus the number of
-neighbours of a block is at most $\varDelta$, which is all the count
-uses. For (iii), replace $A$ by $\varGamma^HA$ in the
-threshold: then $\varGamma\varDelta^2A^{1/H}\le\frac12$ and the sum is at
-most $\varDelta^{-2}\sum_n2^{-n}\le1$. The numerical values are the roots
+$L^4\,2^{-n}\varDelta^{-2}$; on a torus the number of neighbours of a
+block is at most $\varDelta$, which is all the count uses. For (iii),
+replace $A$ by $\varGamma^HA$ in the threshold: then $\varGamma\varDelta^2
+A^{1/H}\le\frac12$ and the sum is at most $\varDelta^{-2}\sum_n2^{-n}=
+\varDelta^{-2}$. The numerical values are the roots
 of $f=\log q^*$ computed to thirty digits, and the two-term expression
 follows from $f(\beta)=\log q^*$ with $6(\log\beta+C_0)\le0.02\,\lvert\log
 q^*\rvert$ at these values.
@@ -12902,11 +12930,11 @@ probability at most $A_j=eM_jH_jq_{\rho_0}(\beta_W)\le(2\varDelta^2)^{-H_j}$;
 of Theorem~\ref{thm:islandthreshold} formed from the bad blocks of
 scale $j$,
 \[
-\mu_L\{y\text{ in an island of at least }n\text{ blocks}\}\le2^{1-n}
-\varDelta^{-2}\le2^{-n},
+\mu_L\{y\text{ in an island of at least }n\text{ blocks}\}\le2^{-n}
+\varDelta^{-2},
 \]
 and the expected number of such islands on the torus is at most
-$(L/2^{j+1})^42^{-n}/n$; the weighted variant (iii) of
+$(L/2^{j+1})^42^{-n}\varDelta^{-2}/n$; the weighted variant (iii) of
 Theorem~\ref{thm:islandthreshold} holds with $\log q^*_j-H_j\log\varGamma$.
 \end{enumerate}
 For $s=5$ and $\rho=10^{-8}$, $\beta^*_1=2.896\cdot10^{23}$,
@@ -13020,7 +13048,8 @@ $\delta(g,I)=2\sqrt2\sin(\angle g/2)\le\sqrt2\angle g$ and $\lVert\log g
 \kappa_c=2\sqrt2\sin\tfrac{\psi_c}2=0.0837613\ldots,
 \]
 so that $p(\kappa)<\psi_c$ exactly when $\kappa<\kappa_c$, and $\sqrt2\,p(\kappa)
-\le1.0002\,\kappa$ for $\kappa\le\kappa_c$.
+\le1.00015\,\kappa$ for $\kappa\le\kappa_c$, since $\sqrt2\,p(\kappa)/\kappa=
+\frac{p/2}{\sin(p/2)}$ increases with $\kappa$.
 
 \begin{lemma}[the ladder]\label{lem:ladder}
 Let $U$ be in the tree gauge, $v=P_{2y}$ the straight path of the pair
@@ -13065,7 +13094,7 @@ place of $260\,\kappa$.
 \kappa$ for every plaquette at which the formula of (iv) is false.
 \item For $\kappa<\kappa_c$, Lemma~\ref{lem:coarsewitness} holds with
 $\delta(c_P,I)\le16.003\,\kappa$, and every non-path active link $e$ of a
-pair at $y$ has $\delta(U_e,R_e(c))\le12.002\,\kappa$.
+pair at $y$ has $\delta(U_e,R_e(c))\le d(U_e,R_e(c))\le12.002\,\kappa$.
 \end{enumerate}
 \end{proposition}
 
@@ -13087,8 +13116,8 @@ bounded with $\lVert\operatorname{Ad}(g)-1\rVert=2\sin\angle g$ for $\angle g
 \le\frac\pi2$ in place of $2\delta(g,I)$, and with $\sup_{\lvert z\rvert\le a}
 \lvert z/(1-e^{-z})-1\rvert\le\hat\varphi(a)=\frac a2+0.09a^2$ for $a\le1$ and
 $\sup_{\lvert z\rvert\le a}\lvert(1-e^{-z})/z-1\rvert\le\hat\psi(a)=\frac a2e^a$.
-The frame changes by $e^{-M}$ and by $w_x^{-1}$ cost $2\sin(3p)$ and
-$2\sin(6p)$ times $\lVert\alpha\rVert\le N_{y,\mu}$; the factor
+The frame changes by $e^{-M}$ and by $w_x^{-1}$ cost at most $6p$ and
+$12p$ times $\lVert\alpha\rVert\le N_{y,\mu}$; the factor
 $(1-e^{-\operatorname{ad}_M})/\operatorname{ad}_M$ and the derivatives of the
 logarithms cost $\hat\psi(6p)(1+\hat\varphi(12p))+\hat\varphi(12p)$ times
 $m_\beta+\lVert\alpha\rVert\le(1+\frac{\sqrt3}4)N_{y,\mu}$; and the terms
@@ -13117,7 +13146,8 @@ cut-off $0.964570\ldots$.
 
 (iv) By (ii), $c_k=\ell_ke^{M_k}$ with $\angle e^{M_k}\le3p$. A link leaving
 $B(y)$ has $\angle(c_k^{-1}U_e)\le9p+3p$, and a link inside a block has
-$\angle U_e\le3p$; so $\delta(U_e,R_e(c))\le12\sqrt2\,p\le12.002\,\kappa$. The
+$\angle U_e\le3p$; so $\delta(U_e,R_e(c))\le d(U_e,R_e(c))\le12\sqrt2\,p
+\le12.002\,\kappa$. The
 holonomy of the square of side two at $2y$ is a product of four conjugated
 plaquettes, of angle at most $4p$, and replacing its four sides $\ell_k$
 by $c_k$ adds at most $4\cdot3p$; so $\angle c_P\le16p$ and $\delta(c_P,I)
@@ -13153,7 +13183,7 @@ composed average are rare up to the scale $a_{k_*}/8$.
 uses the cap $10^{-8}$ only through Lemma~\ref{lem:smallframes}(i) and the
 proof of Lemma~\ref{lem:coarsewitness}. Let $\kappa$ be the largest defect
 of the witness region. If $\kappa<\kappa_c$, Proposition~\ref{prop:smallframessharp}(iv)
-gives $\delta(U_e,R_e(c))\le12.002\kappa<43\kappa$ and $\delta(c_P,I)\le
+gives $d(U_e,R_e(c))\le12.002\kappa<43\kappa$ and $\delta(c_P,I)\le
 16.003\kappa<92\kappa$, so a bad label forces $43\kappa>r\ge43\rho$ or $92\kappa>
 \eta\ge92\rho$; otherwise $\kappa\ge\kappa_c>\rho$. In both cases some
 plaquette has defect more than $\rho$, and the threshold and island
@@ -13778,7 +13808,7 @@ label of the other island is flipped. In the normalisation $r=43\rho$,
 $\eta=92\rho$ of Theorem~\ref{thm:islandthreshold}, hypothesis (a) of
 Theorem~\ref{thm:layerbound} holds for $\rho\le2.17\cdot10^{-16}$, where
 the island threshold with the joining distance $2s+8$ is
-$\beta^*=1.13\cdot10^{37}$ for $s=1$ and $1.33\cdot10^{37}$ for $s=5$,
+$\beta^*=1.122\cdot10^{37}$ for $s=1$ and $1.322\cdot10^{37}$ for $s=5$,
 and hypothesis (b) holds at every $\beta_W\ge\beta^*$.
 \end{corollary}
 
@@ -14102,7 +14132,7 @@ With Lemma~\ref{lem:lambdatwo}, $\Lambda_2^2\le\beta_W^2(c_W+c_\psi/
 \sqrt{n_xn_y}\,e^{-2\alpha_G(w-2s-8)},
 \]
 which grows linearly in $\beta_W$; at
-$\beta_W=\beta^*=1.13\cdot10^{37}$, $s=1$ and $r=43\rho$,
+$\beta_W=1.13\cdot10^{37}$, just above $\beta^*$, $s=1$ and $r=43\rho$,
 $\rho=2.17\cdot10^{-16}$, where $\beta_Wr^2=9.84\cdot10^8$, and for
 islands of one block, $n_x=n_y=45(544+1776)+17\cdot4160=175120$, it reads
 $\varDelta\le3.25\cdot10^{21}e^{-2\alpha_G(w-10)}$. This is not small at
@@ -14747,9 +14777,7 @@ $\sigma\in[10^{-1000},4)$; for $\vartheta=\frac12$ and $R=4\cdot10^8$,
 $\epsilon\le10^{-28165}\lvert W\rvert$ on the same range. At $s=5$:
 $\beta^*=1.32163\cdot10^{37}$, $Mq^*\le10^{-16652.7}$, $G_0\le
 10^{-399.5}$, and with $\vartheta=0$, $R=2\cdot10^8$,
-$\epsilon\le10^{-33267}\lvert W\rvert$ for $\sigma\in[10^{-1000},4)$. The
-larger values $1.13\cdot10^{37}$ and $1.33\cdot10^{37}$ used in
-Corollary~\ref{cor:twoislands} are therefore admissible.
+$\epsilon\le10^{-33267}\lvert W\rvert$ for $\sigma\in[10^{-1000},4)$.
 \end{theorem}
 
 \begin{proof}
@@ -14908,8 +14936,8 @@ Corollary~\ref{cor:twoislands}; the dashed arcs are the bounds
 $\varDelta_{uq}$ through which the other islands enter
 $\varDelta_*$ in Theorem~\ref{thm:manyislands}. (b) The bound
 $\varDelta$ for two islands against the width $w$ of the good layer
-between them, with $\Lambda_2$ from Lemma~\ref{lem:lambdatwo} at the
-threshold coupling; it falls below one at $w=99072$.}
+between them, with $\Lambda_2$ from Lemma~\ref{lem:lambdatwo} at
+$\beta_W=1.13\cdot10^{37}$; it falls below one at $w=99072$.}
 \label{fig:manyislands}
 \end{figure*}
 
@@ -14930,7 +14958,7 @@ Proposition~\ref{prop:goodside} settles the good side to radius $1/32$.
 The inside links move the fibre $\{V^\sharp_k=c_k\}$ while the bad set
 does not; Theorem~\ref{thm:site} puts them among the variables and bounds
 the response of the law of the $24$ links of the site of the pair to every
-other link by at most $394\beta_W+2289$, uniformly in the exterior, at the
+other link by at most $197\beta_W+2206$, uniformly in the exterior, at the
 cost of one block of collar on each side of an island. Whether the law of
 the eight private links alone is Lipschitz in the inside links is not
 decided.
