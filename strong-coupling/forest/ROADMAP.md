@@ -492,3 +492,6 @@ displacement remain open.
 shell hazard with a deterministic path-speed bound and disintegration,
 without a lower bound on individual fibre normalizers. The actual signed
 fibre flux must still be identified and the rare-event displacement bounded.
+A compact regular-level criterion now identifies the one-sided shell limit
+with a coarea surface mass on almost every fibre; regularity for the actual
+maximum and the connection to its transport flux remain unproved.
