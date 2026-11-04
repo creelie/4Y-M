@@ -633,6 +633,8 @@ Wilson measure. Sec.~\ref{sec:islands} proves what a labelling of the
 blocks into good and bad gives for the cube condition, where the natural
 labels fail, the explicit coupling past which the bad islands of one
 scale are rarer than their entropy (Theorem~\ref{thm:islandthreshold}),
+the ceiling below the scale of the cube that every chessboard bound for
+these islands meets at every coupling (Theorem~\ref{thm:chessceiling}),
 the fold across which the path-link law of a bad pair jumps (Proposition~\ref{prop:fold}) and the bounded response of its site (Theorem~\ref{thm:site}), the factorisation of two bad islands through one kernel (Theorem~\ref{thm:factorisation}) and the exponential decay of their comparison in the width of the good layer between them (Theorem~\ref{thm:layerbound}, Corollary~\ref{cor:twoislands}), and what the single-scale and the multiscale parts of (D) still need. The appendices contain the
 residue table of the line field, the comparison lemma and its version for
 blocks, the blocks of the local Hessian inequality, the details of the
@@ -8137,6 +8139,412 @@ $\Phi_x$ for each of its four corners $x$; the two endpoints of $e_*$ are
 corners of all four, and each of the other eight corners of exactly one.
 \end{proof}
 
+\emph{Spatial reflection positivity of a field and of its Laplacian.}
+Theorem~\ref{thm:spatialrp} turns (SR$_0$) for one field into
+(M$_{\mathrm{sp}}$) for that field. The admissible fields are closed under
+$\Phi\mapsto\Delta\Phi$, and by Proposition~\ref{prop:laplaceladder} a proof
+of (M$_{\mathrm{sp}}$) for all of them has to suppress the lattice-scale
+spectral weight. This paragraph shows that (SR$_0$) cannot hold for $\Phi$
+and $\Delta\Phi$ together in a state that clusters in space, that the linear
+heat flow destroys (SR$_0$) at every positive flow time, and that (SR$_0$) for
+one field forces spectral weight at the lattice scale.
+
+Write $\mathbf T=\R/2\pi\Z$, identified with $(-\pi,\pi]$. A finite positive
+measure $\nu$ on $\mathbf T$ is \emph{of Poisson type} if there is a finite
+positive measure $\mu$ on $[0,1]$ with
+\[
+\hat\nu(n)=\int e^{int}d\nu(t)=\int\lambda^{|n|}d\mu(\lambda)\qquad
+(n\in\Z),
+\]
+with $0^0=1$. The moments determine $\mu$, as in the proof of
+Lemma~\ref{lem:spectralmeasure}. Since $\int e^{int}P_\lambda(t)\frac{dt}
+{2\pi}=\lambda^{|n|}$ for $P_\lambda(t)=(1-\lambda^2)/(1+\lambda^2-2\lambda
+\cos t)$, $0\le\lambda<1$, uniqueness of Fourier coefficients gives
+\begin{equation}\label{eq:poissonform}
+\nu=\mu(\{1\})\,\delta_0+f\,\frac{dt}{2\pi},\qquad f=\int_{[0,1)}
+P_\lambda\,d\mu(\lambda) .
+\end{equation}
+For $i\in\{1,2,3\}$ write $p=(p_i,p_\perp)$ for $p\in\mathbf T^3$, with
+$p_\perp$ in the torus $\mathbf T^2$ of the other two coordinates, and put
+$\varkappa_\perp(p_\perp)=\sum_{j\ne i}4\sin^2(p_j/2)$, so that
+$\varkappa(p)=4\sin^2(p_i/2)+\varkappa_\perp(p_\perp)$. For a finite positive
+measure $\varpi$ on $\mathbf T^3$ and a continuous $g\ge0$ on $\mathbf T^2$
+let $\varpi^i_g$ be the image of $g(p_\perp)\,d\varpi(p)$ under $p\mapsto
+p_i$. Call $\varpi$ \emph{of Poisson type in direction $i$} if every
+$\varpi^i_g$ is of Poisson type.
+
+\begin{lemma}\label{lem:poissontype}
+\textup{(i)} Let $\nu_r$ be measures of Poisson type on $\mathbf T$ with
+$\sup_r\nu_r(\mathbf T)<\infty$, and let $\nu$ be a finite positive measure
+with $\hat\nu_r(n)\to\hat\nu(n)$ for every $n$. Then $\nu$ is of Poisson
+type.
+
+\textup{(ii)} If \textup{(SR$_0$)} holds for the slice field at the spacing
+$a_k$, then $\varpi^V_k$ is of Poisson type in every direction
+$i\in\{1,2,3\}$. The same holds for every real field on $\Z^4$ with
+translation invariant, bounded covariance that satisfies the inequalities of
+\textup{(SR$_0$)}, with $K^V_k$ formed from its covariance.
+
+\textup{(iii)} If $\nu$ is of Poisson type, then for every integer $n\ge1$
+\[
+\begin{split}
+\hat\nu(0)-\hat\nu(n)&\le n\bigl(\hat\nu(0)-\hat\nu(1)\bigr),\\
+\nu\bigl(\{t:2\le|t|\le\pi\}\bigr)&\ge\frac{\pi-2}{2\pi}\bigl(\hat\nu(0)
+-\hat\nu(1)\bigr) .
+\end{split}
+\]
+\end{lemma}
+
+\begin{proof}
+(i) Let $\mu_r$ be the measures of $\nu_r$. Their masses $\mu_r([0,1])=
+\hat\nu_r(0)$ converge to $\hat\nu(0)$. If $\hat\nu(0)=0$, then $\nu=0$ and
+$\mu=0$ will do. Otherwise Lemma~\ref{lem:helly}, applied to the
+probability measures $\mu_r/\hat\nu_r(0)$ for large $r$, gives a subsequence
+along which $\mu_r$ converges weakly to a finite positive measure $\mu$ of
+mass $\hat\nu(0)$. Since $\lambda\mapsto\lambda^{|n|}$ is continuous on
+$[0,1]$, $\hat\nu(n)=\lim\int\lambda^{|n|}d\mu_r=\int\lambda^{|n|}d\mu$.
+
+(ii) For a finitely supported $b$ on the transverse lattice, the proof of
+Theorem~\ref{thm:spatialrp}(i) shows that $k_b(n)=\int e^{inp_i}|\hat
+b(p_\perp)|^2d\varpi^V_k(p)$ equals $\int\lambda^{|n|}d\mu_b$ for all
+$n\in\Z$, so $\varpi^{V,i}_{k,|\hat b|^2}$ is of Poisson type. That proof uses
+only translation invariance, the boundedness and positive definiteness of
+$K^V_k$, and (SR$_0$). For a continuous $g\ge0$ on $\mathbf T^2$, $\sqrt g$
+is a uniform limit of trigonometric polynomials $\hat b_r$, so $|\hat
+b_r|^2\to g$ uniformly, the Fourier coefficients converge, the masses are
+bounded, and (i) applies.
+
+(iii) By the representation, $\hat\nu(0)-\hat\nu(n)=\int(1-\lambda^n)d\mu$
+and $1-\lambda^n\le n(1-\lambda)$ on $[0,1]$. Further $P_\lambda(t)\ge
+(1-\lambda^2)/(1+\lambda)^2=(1-\lambda)/(1+\lambda)\ge(1-\lambda)/2$ for
+$0\le\lambda<1$, and the set $\{2\le|t|\le\pi\}$ has measure $2(\pi-2)$, so
+by~\eqref{eq:poissonform} its $\nu$-measure is at least
+$\frac{\pi-2}{2\pi}\int(1-\lambda)\,d\mu=\frac{\pi-2}{2\pi}(\hat\nu(0)-
+\hat\nu(1))$; the atom at $\lambda=1$ contributes $0$ to both sides.
+\end{proof}
+
+The measures of $\Delta\Phi$ are those of $\Phi$ times $\varkappa^2$: the
+summation by parts of the proof of Proposition~\ref{prop:laplaceladder}(i)
+gives $V^c_k$ for $\Delta\Phi$ equal to $V^{\Delta c}_k$ for $\Phi$, so the
+measure $\varpi^V_k$ of $\Delta\Phi$ is $\varkappa^2\varpi^V_k$, and that of
+$K_k$ is $\varkappa^2\varpi_k$.
+
+\begin{theorem}\label{thm:srladder}
+Let $\Phi$ be as in Proposition~\textup{\ref{prop:laplaceladder}}, and
+assume \textup{(SR$_0$)} at the spacing $a_k$ for the slice fields of both
+$\Phi$ and $\Delta\Phi$.
+
+\textup{(i)} $\varpi^V_k=K^V_k(0)\,\delta_0$ and $\varpi_k=K_k(0)\,\delta_0$.
+So $K^V_k$ and $K_k$ are constant on $\Z^3$, and the time average
+$Y_k(\mathbf x)=a_k\sum_{n=0}^{n_\delta-1}\mathring\varphi_k(n,\mathbf x)$
+satisfies $Y_k(\mathbf x)=Y_k(0)$ almost surely for every $\mathbf x$.
+
+\textup{(ii)} The slice field of $\Delta\Phi$ equals its mean almost
+surely at every point: $\Delta\mathring\varphi_k(x)=0$ for every
+$x\in\Z^4$.
+
+\textup{(iii)} If $\omega_k(\mathring\varphi_k(0,0)\,\mathring\varphi_k(j,
+\mathbf z))\to0$ as $|\mathbf z|\to\infty$ for every integer $j\ge0$, then
+$\mathring\varphi_k(x)=0$ almost surely for every $x$, and $C_k(0)=0$ for
+every packet $f_0$.
+\end{theorem}
+
+\begin{proof}
+(i) Fix $i$. By Lemma~\ref{lem:poissontype}(ii), applied to $\Phi$ with
+$g=1,\varkappa_\perp,\varkappa_\perp^2$ and to $\Delta\Phi$ with $g=1$, the
+images $\nu_0,\nu_1,\nu_2$ of $\varpi^V_k$, $\varkappa_\perp\varpi^V_k$,
+$\varkappa_\perp^2\varpi^V_k$ and the image $\nu'$ of $\varkappa^2
+\varpi^V_k$ under $p\mapsto p_i$ are of Poisson type, with measures
+$\mu_0,\mu_1,\mu_2,\mu'$ on $[0,1]$. Put $k_l=\hat\nu_l$ and $F=\hat\nu'$.
+With $4\sin^2(t/2)=2-e^{it}-e^{-it}$,
+\[
+\varkappa^2=(2-e^{it}-e^{-it})^2+2(2-e^{it}-e^{-it})\varkappa_\perp+
+\varkappa_\perp^2 ,\qquad t=p_i,
+\]
+so $\nu'$ is $\nu_0$, $\nu_1$, $\nu_2$ multiplied by these trigonometric
+polynomials in $t$ and added, and
+\[
+\begin{split}
+F(n)&=6k_0(n)-4k_0(n-1)-4k_0(n+1)\\
+&\quad+k_0(n-2)+k_0(n+2)+4k_1(n)\\
+&\quad-2k_1(n-1)-2k_1(n+1)+k_2(n) .
+\end{split}
+\]
+Insert $k_l(m)=\int\lambda^{|m|}d\mu_l$. For $n\ge2$ all the exponents
+$|n-j|$, $|j|\le2$, equal $n-j$, and the integrands combine to
+\[
+\lambda^{n-2}(1-\lambda)^4,\qquad-2\lambda^{n-1}(1-\lambda)^2,\qquad
+\lambda^n
+\]
+against $\mu_0$, $\mu_1$, $\mu_2$; these are polynomial identities, valid
+at $\lambda=0$ with $0^0=1$. For $n=1$ the integrand against $\mu_0$ is
+$6\lambda-4-4\lambda^2+\lambda+\lambda^3$, which for $\lambda>0$ equals
+$\lambda^{-1}(1-\lambda)^4-\lambda^{-1}+\lambda$, and the integrand against
+$\mu_1$ is $4\lambda-2-2\lambda^2=-2(1-\lambda)^2$.
+
+For $n\ge3$ the three integrands vanish at $\lambda=0$, and $F(n)=\int
+\lambda^nd\mu'$. So the finite signed measure
+\[
+\lambda^3\mu'-\lambda(1-\lambda)^4\mu_0+2\lambda^2(1-\lambda)^2\mu_1-
+\lambda^3\mu_2
+\]
+on $[0,1]$ annihilates every polynomial, hence every continuous function,
+and it is zero. Dividing by $\lambda$ and by $\lambda^2$ on $(0,1]$,
+\begin{equation}\label{eq:srladdermeas}
+\begin{split}
+\lambda^2\mu'&=(1-\lambda)^4\mu_0-2\lambda(1-\lambda)^2\mu_1+\lambda^2
+\mu_2,\\
+\lambda\mu'&=\lambda^{-1}(1-\lambda)^4\mu_0-2(1-\lambda)^2\mu_1+\lambda
+\mu_2
+\end{split}
+\end{equation}
+as measures on $(0,1]$. For $n=2$, $F(2)=\int\lambda^2d\mu'=\int_{(0,1]}
+\lambda^2d\mu'$ and $F(2)=\int_{[0,1]}((1-\lambda)^4d\mu_0-2\lambda
+(1-\lambda)^2d\mu_1+\lambda^2d\mu_2)$; integrating the first line
+of~\eqref{eq:srladdermeas} over $(0,1]$ and subtracting leaves
+$\mu_0(\{0\})=0$. Integrating the second line over $[\epsilon,1]$,
+\[
+\int_{[\epsilon,1]}\frac{(1-\lambda)^4}\lambda\,d\mu_0\le\nu'(\mathbf T)+
+2\nu_1(\mathbf T)
+\]
+for every $\epsilon>0$, so $\int_{(0,1]}\lambda^{-1}(1-\lambda)^4d\mu_0
+<\infty$, and since $(1-\lambda)^4\ge\frac1{16}$ on $(0,\frac12]$,
+$\int_{(0,1]}\lambda^{-1}d\mu_0<\infty$. Now, with $\mu_0(\{0\})=0$,
+\[
+\begin{split}
+F(1)&=\int_{(0,1]}\Bigl(\frac{(1-\lambda)^4}\lambda-\frac1\lambda+\lambda
+\Bigr)d\mu_0\\
+&\quad-2\int_{[0,1]}(1-\lambda)^2d\mu_1+\int\lambda\,d\mu_2,\\
+F(1)&=\int\lambda\,d\mu'=\int_{(0,1]}\frac{(1-\lambda)^4}\lambda\,d\mu_0\\
+&\quad-2\int_{(0,1]}(1-\lambda)^2d\mu_1+\int\lambda\,d\mu_2 ,
+\end{split}
+\]
+the second by the second line of~\eqref{eq:srladdermeas}. Subtracting,
+\[
+\int_{(0,1]}\Bigl(\frac1\lambda-\lambda\Bigr)d\mu_0+2\mu_1(\{0\})=0 .
+\]
+Both terms are nonnegative and $1/\lambda-\lambda>0$ on $(0,1)$, so $\mu_0$
+is carried by $\{1\}$, $k_0$ is constant, and $\nu_0$ is a point mass at
+$0$. Thus $\varpi^V_k(\{p:p_i\ne0\})=0$ for $i=1,2,3$, and $\varpi^V_k=
+\varpi^V_k(\mathbf T^3)\delta_0=K^V_k(0)\delta_0$. By
+Lemma~\ref{lem:spatialmeasure}(i), $\frac\delta2\int|\hat c|^2d\varpi_k\le
+\int|\hat c|^2d\varpi^V_k\le2\delta\int|\hat c|^2d\varpi_k$ for every
+finitely supported $c$. As in the proof of Theorem~\ref{thm:spatialrp}(i)
+the functions $|\hat c|^2$ approximate every continuous $g\ge0$ on
+$\mathbf T^3$ uniformly, so $\frac2\delta\varpi^V_k-\varpi_k$ and
+$2\delta\varpi_k-\varpi^V_k$ are positive functionals on $C(\mathbf T^3)$,
+hence positive measures:
+\begin{equation}\label{eq:varpicompare}
+\tfrac\delta2\varpi_k\le\varpi^V_k\le2\delta\varpi_k .
+\end{equation}
+So $\varpi_k(\{p\ne0\})=0$. Finally $Y_k$
+is real with $\omega_k(Y_k(0)Y_k(\mathbf z))=K^V_k(\mathbf z)$, so
+$\omega_k((Y_k(\mathbf x)-Y_k(0))^2)=2K^V_k(0)-2K^V_k(\mathbf x)=0$.
+
+(ii) The measure of $K_k$ for $\Delta\Phi$ is $\varkappa^2\varpi_k=
+K_k(0)\varkappa(0)^2\delta_0=0$. So, with $U^c_k$ formed from $\Delta\Phi$,
+$0=I^c_k=a_k\sum_{j<n_\delta}\ip{u_c}{\mathbb T_k^ju_c}$ for every $c$,
+and each term is nonnegative because $\mathbb T_k\ge0$; the term $j=0$ is
+$a_k\,\omega_k(|U^c_k|^2)$. With $c=\delta_{\mathbf x}$ this gives
+$\Delta\mathring\varphi_k(0,\mathbf x)=0$ almost surely, and time
+translation invariance gives every time.
+
+(iii) $K^V_k(\mathbf z)$ is a finite sum of the correlations
+\[
+a_k^2\,\omega_k\bigl(\mathring\varphi_k(n,0)\,\mathring\varphi_k(n',
+\mathbf z)\bigr),\qquad0\le n,n'<n_\delta ,
+\]
+and by translation invariance each of them equals
+\[
+a_k^2\,\omega_k\bigl(\mathring\varphi_k(0,0)\,\mathring\varphi_k(j,
+\pm\mathbf z)\bigr),\qquad j=|n'-n| .
+\]
+Under the hypothesis $K^V_k(\mathbf z)\to0$, and since it
+is constant by (i), $K^V_k=0$, so $\varpi^V_k=0$ and $\varpi_k=0$. As in
+(ii), now for $\Phi$, $\omega_k(|\mathring\varphi_k(0,\mathbf x)|^2)=0$ for
+every $\mathbf x$, hence $\mathring\varphi_k(x)=0$ almost surely for every
+$x\in\Z^4$. Every $A_k$ is then $0$ almost surely, and $C_k(0)=
+\omega_k(\vartheta(\bar A_k)A_k)=0$.
+\end{proof}
+
+\begin{corollary}\label{cor:srladder}
+Suppose that $D(n_k,\alpha)$ holds at $\beta_k$, as in
+Theorem~\textup{\ref{thm:transfer}}, and that $C_k(0)>0$ for the packet
+$f_0$ of $\Phi$. Then at every spacing $a_k$, \textup{(SR$_0$)} fails for
+the slice field of $\Phi$ or for that of $\Delta\Phi$. So along such a
+sequence no class of admissible fields closed under $\Phi\mapsto\Delta\Phi$
+satisfies \textup{(SR$_0$)}, and Theorem~\textup{\ref{thm:spatialrp}}
+applies at the spacing $a_k$ to at most one of $\Phi$ and $\Delta\Phi$.
+\end{corollary}
+
+\begin{proof}
+By Theorem~\ref{thm:onescale}, part (v) of Proposition~\ref{prop:state}
+holds at $\beta_k$: covariances of gauge-invariant local functions, one of
+them Lipschitz in each link, decay exponentially in the distance. A
+continuous gauge-invariant function of finitely many links is a uniform
+limit of Lipschitz ones, which may be averaged over the gauge
+transformations at the sites they involve, since these act by isometries.
+By Proposition~\ref{prop:spatialflow}(ii), $\varphi_k(x)$ is a uniform limit
+of continuous gauge-invariant local functions at the time of $x$, and
+$|\Cov(F,F')-\Cov(G,G')|\le2\|F-G\|_\infty\|F'\|_\infty+2\|F'-G'\|_\infty
+\|G\|_\infty$. So $\omega_k(\mathring\varphi_k(0,0)\mathring\varphi_k(j,
+\mathbf z))\to0$ as $|\mathbf z|\to\infty$. If (SR$_0$) held for both
+fields, Theorem~\ref{thm:srladder}(iii) would give $C_k(0)=0$.
+\end{proof}
+
+The linear heat flow, the model of the smoothing that the flow is meant to
+provide, removes (SR$_0$) at every positive flow time. For $s>0$ let
+$p_s(\mathbf z)$ be the probability that the continuous-time random walk on
+$\Z^3$ with generator $\Delta$ is at $\mathbf z$ at time $s$, starting from
+$0$, so that $\sum_{\mathbf z}p_s(\mathbf z)=1$ and $\sum_{\mathbf z}p_s(\mathbf z)e^{ip\cdot\mathbf z}=
+e^{-s\varkappa(p)}$, and let $e^{s\Delta}$ act on the slices of a field on
+$\Z^4$ by $(e^{s\Delta}\psi)(t,\mathbf x)=\sum_{\mathbf y}p_s(\mathbf x-
+\mathbf y)\psi(t,\mathbf y)$, a series that converges in $L^2$ for fields
+with bounded second moments.
+
+\begin{proposition}\label{prop:heatrp}
+\textup{(i)} Let $\varpi$ be a finite positive measure on $\mathbf T^3$, $s>0$
+and $i\in\{1,2,3\}$. If $\varpi$ and $e^{-2s\varkappa}\varpi$ are both of
+Poisson type in direction $i$, then $\varpi(\{p:p_i\ne0\})=0$.
+
+\textup{(ii)} Let $\psi_k$ be the field of
+Proposition~\textup{\ref{prop:osobstruction}(a)} and $s>0$. Then
+\textup{(SR$_0$)} holds for $\psi_k$ and fails for $e^{s\Delta}\psi_k$, at
+every $k$.
+\end{proposition}
+
+\begin{proof}
+(i) Let $g\ge0$ be continuous on $\mathbf T^2$ and $g'=ge^{-2s\varkappa_
+\perp}$. Since $e^{-2s\varkappa}=e^{-4s(1-\cos p_i)}e^{-2s\varkappa_\perp}$,
+the measure $\nu=\varpi^i_{g'}$ and the image $e^{-4s(1-\cos t)}\nu$ of
+$g\,e^{-2s\varkappa}\varpi$ are of Poisson type, with measures $\mu$ and
+$\mu^s$. Write $\nu$ as in~\eqref{eq:poissonform} and put
+\[
+F(c)=\int_{[0,1)}\frac{1-\lambda^2}{1+\lambda^2-2\lambda c}\,d\mu(\lambda)
+\]
+for $c$ in $\Omega=\C\setminus[1,\infty)$, and $F^s$ likewise with $\mu^s$,
+so that $f(t)=F(\cos t)$ for $t\ne0$. The denominator vanishes only at
+$c=(1+\lambda^2)/(2\lambda)\ge1$. On a compact $K\subset\Omega$ with
+$|c|\le R$ and distance $d>0$ to $[1,\infty)$, it is at least $\frac12$ for
+$\lambda\le1/(4R)$ and at least $2\lambda d\ge d/(2R)$ for larger
+$\lambda$, so the integrand is bounded on $K$ uniformly in $\lambda$, and
+$F$ is analytic on $\Omega$. For $\operatorname{Im}c>0$,
+\[
+\operatorname{Im}F(c)=\int_{[0,1)}\frac{2\lambda(1-\lambda^2)
+\operatorname{Im}c}{|1+\lambda^2-2\lambda c|^2}\,d\mu(\lambda)\ge0 ,
+\]
+and the same holds for $F^s$. The absolutely continuous parts of
+$e^{-4s(1-\cos t)}\nu$ in its two representations agree, so
+$F^s(\cos t)=e^{-4s(1-\cos t)}F(\cos t)$ for almost every $t$, hence for
+all $c\in(-1,1)$ by continuity, and on $\Omega$, which is connected, by
+analyticity: $F^s(c)=e^{-4s(1-c)}F(c)$.
+
+If $\mu((0,1))>0$, then $\operatorname{Im}F>0$ on the upper half plane,
+and $\theta(y)=\arg F(iy)\in(0,\pi)$ is continuous in $y>0$. Since
+$e^{-4s(1-iy)}=e^{-4s}e^{4isy}$,
+\[
+\operatorname{Im}F^s(iy)=e^{-4s}|F(iy)|\sin\bigl(4sy+\theta(y)\bigr)\ge0
+\]
+and $F^s(iy)\ne0$, so the continuous function
+$4sy+\theta(y)$ takes its values in the union of the disjoint closed
+intervals $[2\pi j,2\pi j+\pi]$, $j\in\Z$; on the connected set $(0,\infty)$
+it stays in one of them, which is impossible since it exceeds $4sy$. So
+$\mu((0,1))=0$ and $F$ is the constant $B=\mu(\{0\})\ge0$. Then
+$\operatorname{Im}F^s(iy)=Be^{-4s}\sin(4sy)$, which is $-Be^{-4s}$ at
+$y=3\pi/(8s)$, so $B=0$. Hence $\nu=\mu(\{1\})\delta_0$. For $g=1$ this
+says $\int_{\{p_i\ne0\}}e^{-2s\varkappa_\perp}d\varpi=0$, and
+$e^{-2s\varkappa_\perp}>0$.
+
+(ii) The covariance of $\psi_k$ is $q_k^{|x_0-y_0|}\prod_{i=1}^3q_k^{|x_i-
+y_i|}$, so its measure $\varpi^V_k$ is $T_k\prod_iP_{q_k}(p_i)\frac{dp}
+{(2\pi)^3}$ with $T_k=a_k^2\sum_{n,n'<n_\delta}q_k^{|n-n'|}>0$, and that
+of $e^{s\Delta}\psi_k$, whose spatial covariance kernel has Fourier
+transform $e^{-2s\varkappa}\prod_iP_{q_k}(p_i)$, is $e^{-2s\varkappa}
+\varpi^V_k$. Both covariances are bounded and translation invariant. The
+law of $\psi_k$ is reflection positive for the spatial reflections through
+sites and bisecting links (Proposition~\ref{prop:osobstruction}(a)); for
+$c$ supported in $\{x_i\ge0\}$ the sum of (SR$_0$) is
+$\E[\overline{\psi_k(\iota c)}\,\psi_k(c)]\ge0$ with $\psi_k(c)=\sum c_x
+\psi_k(x)$ and $\psi_k(\iota c)=\sum c_x\psi_k(\iota x)$, which is (SR$_0$).
+If (SR$_0$) held for $e^{s\Delta}\psi_k$, Lemma~\ref{lem:poissontype}(ii)
+for both fields and (i) would give $\varpi^V_k(\{p_i\ne0\})=0$, but
+$\varpi^V_k$ has a positive density.
+\end{proof}
+
+The continuum analogue is the spatially flowed free field of
+Proposition~\ref{prop:osobstruction}(c). It is reflection positive in
+time, and the proof of Proposition~\ref{prop:fourflow}(i), with $x_1$ in
+the role of time, shows that it is not reflection positive for the
+reflection of $x_1$: it uses only $H_0(0)>0$ and $H_0''(0)<0$, and here
+$H_0''(0)=-(2\pi)^{-1}\int p_1^2e^{-2t_fp_1^2}(p_1^2+\mu^2)^{-1}dp_1$. For
+one field, (SR$_0$) forces spectral weight at the lattice scale: by part
+(i) below with $n=L/a_k$, $\varpi_k(\{|p|_\infty\ge2\})$ is at least
+$a_k/(12\delta L)$ times $K^V_k(0)-K^V_k(ne_i)$, the decorrelation of the
+time-averaged field over the physical distance $L$.
+
+\begin{proposition}\label{prop:srrough}
+Assume \textup{(SR$_0$)} at the spacing $a_k$ for the slice field of
+$\Phi$, and let $i\in\{1,2,3\}$ and $n\ge1$.
+
+\textup{(i)}
+\[
+\begin{split}
+K^V_k(0)-K^V_k(ne_i)&\le n\bigl(K^V_k(0)-K^V_k(e_i)\bigr)\\
+&\le\frac{2\pi n}{\pi-2}\,\varpi^V_k\bigl(\{|p_i|\ge2\}\bigr)\\
+&\le12\,\delta\,n\,\varpi_k\bigl(\{|p|_\infty\ge2\}\bigr) .
+\end{split}
+\]
+
+\textup{(ii)} For $h'$ supported in a cube of side $L'$ with $|h'|\le1$,
+$a_k\le1$ and $h'_n(\mathbf y)=h'(\mathbf y-na_ke_i)$,
+\[
+I^{h'-h'_n}_k(\delta)\le\frac4\delta(L'+1)^6\bigl(K^V_k(0)-K^V_k(ne_i)
+\bigr) .
+\]
+
+\textup{(iii)} If in addition \textup{(M$_{\mathrm{sp}}$)} holds for the
+slice field of $\Delta^m\Phi$, $m\ge1$, and the spatial factor $h$, with
+the constant $C$ for a cube of side $\ell$, then for all large $k$
+\[
+K^V_k(0)-K^V_k(ne_i)\le1.7\cdot10^9\,\frac{C\Theta_m^2\delta^2\|\Phi\|_
+\infty^2}{\ell^3}\,n\,a_k^{4m-3} .
+\]
+\end{proposition}
+
+\begin{proof}
+(i) By Lemma~\ref{lem:poissontype}(ii) with $g=1$, $\nu=\varpi^{V,i}_{k,1}$
+is of Poisson type, and $\hat\nu(n)=K^V_k(ne_i)$. Lemma~\ref{lem:poissontype}
+(iii) gives the first two inequalities. The third follows from~\eqref{eq:varpicompare}, which uses only
+Lemma~\ref{lem:spatialmeasure}(i), and from $4\pi/(\pi-2)<12$, since
+$\pi-2>1.14$ and $4\pi<12.57<13.68$.
+
+(ii) With $c_{\mathbf x}=a_k^3h'(a_k\mathbf x)$ the coefficients of
+$h'-h'_n$ are $c-c(\cdot-ne_i)$, with Fourier transform $\hat c\,(1-
+e^{inp_i})$. So, by~\eqref{eq:varpicompare} and
+$|1-e^{inp_i}|^2=2(1-\cos np_i)$,
+\[
+\begin{split}
+I^{h'-h'_n}_k(\delta)&\le\|\hat c\|_\infty^2\,\frac2\delta\int2(1-\cos
+np_i)\,d\varpi^V_k\\
+&=\frac4\delta\|\hat c\|_\infty^2\bigl(K^V_k(0)-K^V_k(ne_i)\bigr),
+\end{split}
+\]
+because $K^V_k$ is real and even. Finally $\|\hat c\|_\infty\le\sum_{\mathbf
+x}a_k^3|h'(a_k\mathbf x)|\le a_k^3(L'/a_k+1)^3\le(L'+1)^3$.
+
+(iii) Proposition~\ref{prop:laplaceladder}(ii) bounds
+$\varpi_k(\{|p|_\infty\ge2\})$, and $12\cdot1.4\cdot10^8\le1.7\cdot10^9$.
+\end{proof}
+
+So (SR$_0$) for $\Phi$ together with (M$_{\mathrm{sp}}$) for
+$\Delta^2\Phi$ gives, by (ii) and (iii) with $n=L/a_k$, $I^{h'-h'_n}_k(
+\delta)\le C'La_k^4$ for spatial translates by a physical distance $L$.
+Hence $I^{h'-h'_n}_k(\delta)/I_k(\delta)\to0$ for every bounded $L$
+unless $\liminf_ka_k^{-4}I_k(\delta)<\infty$: the time-averaged slice field
+becomes invariant, relative to $I_k(\delta)$, under spatial translations by
+bounded physical distances. No lower bound on $I_k(\delta)$ along a tuning
+is proved here.
+
 \begin{remark}\label{rem:spatialstatus}
 For the flowed fields of the Wilson measure along a tuning, the two
 statements stand as follows.
@@ -8154,7 +8562,15 @@ $\Phi_x\circ\Phi_{s_k}$ depends on all links of its slice, and
 Proposition~\ref{prop:spatialflow}(i) bounds the influence of links at
 distance $R$ only for $R$ beyond a multiple of $s_k=\tau/a_k^2$, so no
 (SR$_r$) is known for it. Positivity beyond a fixed distance does not
-suffice (Proposition~\ref{prop:rpexamples}(a)). Compactness of $G$ gives
+suffice (Proposition~\ref{prop:rpexamples}(a)). Nor can (SR$_0$) hold for a
+field and its Laplacian together: in a state that clusters in space, in
+particular under the hypothesis of Theorem~\ref{thm:transfer}, it forces
+$C_k(0)=0$ (Theorem~\ref{thm:srladder}, Corollary~\ref{cor:srladder}),
+and the linear heat flow destroys it at every positive flow time
+(Proposition~\ref{prop:heatrp}). So Theorem~\ref{thm:spatialrp} cannot
+give (M$_{\mathrm{sp}}$) for a class of fields closed under $\Phi\mapsto
+\Delta\Phi$, and for one field (SR$_0$) forces spectral weight at the
+lattice scale (Proposition~\ref{prop:srrough}). Compactness of $G$ gives
 $\bar\varpi_k\le\delta\|\Phi\|_\infty^2$, an upper bound of order one, and
 no lower bound on $I_k(\delta)$; by
 Proposition~\ref{prop:laplaceladder} a proof valid for the admissible
@@ -8211,7 +8627,9 @@ positivity of the transfer matrix, and no hypothesis on the tuning; so do
 Lemma~\ref{lem:spatialmeasure} and Propositions~\ref{prop:boxform}
 and~\ref{prop:laplaceladder}, while Theorem~\ref{thm:spatialrp} assumes
 the exact spatial reflection positivity (SR$_0$) of the slice field, which
-is not known for the flowed fields. Proposition~\ref{prop:centralsecond} is
+is not known for the flowed fields and, under the hypothesis of
+Theorem~\ref{thm:transfer}, fails for $\Phi$ or for $\Delta\Phi$
+(Corollary~\ref{cor:srladder}). Proposition~\ref{prop:centralsecond} is
 deterministic. What
 remains open is (M$_{\mathrm{loc}}$), whose time direction for $n=2$ is
 Proposition~\ref{prop:mlocslice}(i) and whose remainder is the spatial
@@ -9023,9 +9441,8 @@ $q=2-\Tr(VWV^{-1}W^{-1})\in[0,4]$. Then
 \[
 x^2+y^2+z^2-xyz=4-q,\qquad x^2+y^2+z^2\ge3-\tfrac34q .
 \]
-The identity is the trace identity of Fricke for $\mathrm{SL}(2)$.\footnote{Fricke's identity
-expresses the trace of a commutator through $\Tr V$, $\Tr W$ and $\Tr VW$;
-the proof below derives it from the Cayley--Hamilton theorem.}
+The identity is the trace identity of Fricke for $\mathrm{SL}(2)$, which
+expresses the trace of a commutator through $\Tr V$, $\Tr W$ and $\Tr VW$.
 
 \textup{(b)} For unitary $g_1,\dots,g_n$, $|g_1\cdots g_n-I|\le\sum_i|g_i-I|$.
 For $U_i,V_i\in\SU(2)$, $|\Tr(U_1\cdots U_m)-\Tr(V_1\cdots V_m)|\le\sqrt2
@@ -18955,7 +19372,8 @@ Lemma~\ref{lem:smallframes}; Theorem~\ref{thm:islandswide} below removes
 that ratio and carries the count to $a_{k_*}/8$, and past $a_{k_*}$ the rarity of a large coarse
 plaquette can no longer come from the fine scale, by the proposition, but
 must come from the coarse energy of Lemma~\ref{lem:coarseenergy}, which is
-known for torus-valued fields only. Theorem~\ref{thm:islandscales} is an
+known for torus-valued fields only; through the chessboard estimate it
+cannot reach the scale of the cube either (Theorem~\ref{thm:chessceiling}). Theorem~\ref{thm:islandscales} is an
 annealed statement about the pushforward of $\mu_L$: it says nothing about
 the law of $U^{(j)}$ given its labels, which is what the effective action
 of item (iv) below is for.
@@ -19216,6 +19634,386 @@ there is below $\frac1{16}$, and with $\frac1{16}$ that term alone exceeds
 $\frac1{195}$ once $\kappa'>9.12\cdot10^{-6}$. A chart at radius $10^{-4}$
 needs a different estimate of the second fundamental form; no field is
 known at which the chart fails.
+
+\subsection{The ceiling of the chessboard estimate}\label{ssec:chessceiling}
+
+The threshold of Theorem~\ref{thm:islandthreshold} is of order $10^{13}$ at
+the witness radius $10^{-4}$ of Theorem~\ref{thm:islandswide}, and of order
+$10^{37}$ under the calmness of Corollary~\ref{cor:twoislands}. This subsection measures what can be gained
+in them and what cannot. The count of connected sets of blocks can be
+sharpened, which lowers the threshold at one scale by a factor $1.7$ at
+$s=1$ and $1.8$ at $s=5$, and the union bound over connected sets cannot
+lower it by more than a further factor $1.39$ at $s=1$ and $1.22$ at $s=5$.
+The scale is a different matter. Every rarity bound that rests on the
+chessboard estimate in the form of Theorem~\ref{thm:defects} or
+Proposition~\ref{prop:coarsechess}, with fine or coarse witnesses, is below
+one only at scales whose blocks are smaller than the cube of the condition
+(D) by a fixed factor: at every coupling with the normalisation of
+Lemma~\ref{lem:wilsonZ}, and at every coupling $\beta_W\ge10^3$ with the
+exact normalisation. The witness radius at scale $j$ is at most $4^{-j-1}$ times the
+label radius, by the constant curvature of
+Proposition~\ref{prop:constantcurvature}, and the normalisation charges
+$\frac92\log\beta_W$ per fine site at least.
+
+\begin{lemma}[connected sets of blocks]\label{lem:animals}
+Let $\Gamma$ be a graph in which every vertex has at most $\varDelta$
+neighbours, and let $v$ be a vertex. The number of connected sets of $n$
+vertices that contain $v$ is at most $\binom{\varDelta n}{n-1}\le e^n
+\varDelta^{n-1}$. In the graph of Theorem~\ref{thm:islandthreshold}, on the
+torus of side $L/2$ in blocks, in which two blocks are joined at
+$\ell^\infty$ distance at most $R=2s+1$, the number is at least
+$\lambda_0^{n-1}$ with $\lambda_0=R(2R+1)^3=(2s+1)(4s+3)^3$ whenever
+$(n-1)R<L/2$.
+\end{lemma}
+
+\begin{proof}
+Order the neighbours of every vertex. For a connected set $S\ni v$ of $n$
+vertices, list $S$ by a breadth-first search inside $S$ from $v$: the list
+starts with $v$, and its vertices are processed in their order; processing
+$w$ appends, in the order of the neighbours of $w$, those neighbours that lie
+in $S$ and are not yet listed, and records a word of $\varDelta$ letters in
+$\{0,1\}$ whose $i$-th letter is $1$ exactly when the $i$-th neighbour of $w$
+is appended. Since $S$ is connected, every vertex of $S$ is listed, each
+vertex other than $v$ is appended once, and the $n$ words form a word of
+length $\varDelta n$ with exactly $n-1$ letters $1$. Replaying the search
+recovers $S$ from this word, so the number of sets is at most
+$\binom{\varDelta n}{n-1}$. For $n\ge2$, $k!\ge(k/e)^k$ and $(1+1/k)^k\le e$
+with $k=n-1$ give
+\[
+\binom{\varDelta n}{n-1}\le\frac{(\varDelta n)^{n-1}}{(n-1)!}\le
+\Bigl(\frac{e\varDelta n}{n-1}\Bigr)^{n-1}\le e\,(e\varDelta)^{n-1},
+\]
+and for $n=1$ the count is $1$. For the lower bound let $y_0=v$ and
+$y_k=y_{k-1}+d_k$ with $d_k\in\{1,\dots,R\}\times\{-R,\dots,R\}^3$, for
+$1\le k<n$. Consecutive blocks are at distance at most $R$, so the set
+$\{y_0,\dots,y_{n-1}\}$ is connected. The first coordinate of $y_k-y_0$ lies
+in $[k,kR]$, and $(n-1)R<L/2$, so the $n$ blocks are distinct and the
+residues of these first coordinates order them; the set therefore determines
+the sequence $(d_k)$, which takes $(R(2R+1)^3)^{n-1}$ values.
+\end{proof}
+
+\begin{proposition}[the island threshold with the tree count]\label{prop:treethreshold}
+In the setting of Theorem~\ref{thm:islandthreshold} put
+\[
+\log q^*_T=-H\bigl(1+\log2+\log\varDelta\bigr)-\log(eMH),
+\]
+and let $\beta^*_T=\beta^*_T(\rho,s)$ be the largest solution of
+$f(\beta)=\log q^*_T$; it exists and exceeds $96/\rho^2$. For every
+$\beta_W\ge\beta^*_T$:
+\begin{enumerate}[label=\textup{(\roman*)},leftmargin=*]
+\item every block is bad with probability at most $A=eMH\,q_\rho(\beta_W)
+\le(2e\varDelta)^{-H}$;
+\item for every block $y$ and every $n\ge1$,
+\[
+\mu_L\{y\text{ lies in an island of at least }n\text{ blocks}\}\le
+2^{-n}\varDelta^{-1},
+\]
+and the expected number of islands of at least $n$ blocks on a torus of
+$N_b$ blocks is at most $N_b\,2^{-n}\varDelta^{-1}/n$;
+\item if an estimate charges every bad block a factor $\varGamma\ge1$, the
+sum $\sum_{n\ge1}e^n\varDelta^{n-1}(\varGamma A^{1/H})^n$ is at most
+$\varDelta^{-1}$ as soon as $\beta_W$ is at least the largest solution of
+$f(\beta)=\log q^*_T-H\log\varGamma$.
+\end{enumerate}
+Conversely, for $(n-1)(2s+1)<L/2$ the union bound $\sum_S A^{n/H}$ over the
+connected sets $S$ of $n$ blocks that contain $y$ is at least
+$\lambda_0^{-1}(\lambda_0A^{1/H})^n$, with $\lambda_0$ as in
+Lemma~\ref{lem:animals}, so it decreases geometrically in $n$ only if
+$\lambda_0A^{1/H}<1$, which requires
+\[
+\beta_W>\frac{16}{\rho^2}\bigl(H\log\lambda_0+\log(eMH)\bigr).
+\]
+At the radius of Theorem~\ref{thm:islandswide},
+\begin{gather*}
+\beta^*_T(10^{-4},1)\in[2.001,2.003]\cdot10^{13},\\
+\beta^*_T(10^{-4},5)\in[2.988,2.990]\cdot10^{13},
+\end{gather*}
+against $\beta^*(10^{-4},1)\in[3.408,3.410]\cdot10^{13}$ and
+$\beta^*(10^{-4},5)\in[5.382,5.384]\cdot10^{13}$ there, and the
+geometric decrease requires $\beta_W>1.441\cdot10^{13}$ for $s=1$ and
+$\beta_W>2.450\cdot10^{13}$ for $s=5$.
+\end{proposition}
+
+\begin{proof}
+The witness and threshold paragraphs of the proof of
+Theorem~\ref{thm:islandthreshold} apply with $q^*_T$ in place of $q^*$, since
+$\log q^*_T<0<f(96/\rho^2)$; they give $A\le eMHq^*_T=(2e\varDelta)^{-H}$ and
+$\mu_L(\text{all blocks of }S\text{ bad})\le A^{\lvert S\rvert/H}$. By
+Lemma~\ref{lem:animals} the island of $y$ has at least $n$ blocks with
+probability at most
+\[
+e^n\varDelta^{n-1}A^{n/H}=\varDelta^{-1}\bigl(e\varDelta A^{1/H}\bigr)^n
+\le\varDelta^{-1}2^{-n},
+\]
+and the count of islands is that of Theorem~\ref{thm:islandthreshold}. In
+(iii), $\varGamma^HA\le(2e\varDelta)^{-H}$, so the sum is at most
+$\varDelta^{-1}\sum_n2^{-n}$. For the converse, Lemma~\ref{lem:animals}
+gives at least $\lambda_0^{n-1}$ sets, each charged $A^{n/H}$. If
+$\lambda_0A^{1/H}<1$ then $A<1$, so $q_\rho(\beta_W)<1$, $\log A=\log(eMH)+
+f(\beta_W)$, and $\log A<-H\log\lambda_0$ reads
+\[
+\frac{\beta_W\rho^2}{16}>H\log\lambda_0+\log(eMH)+6(\log\beta_W+C_0),
+\]
+with $\log\beta_W+C_0>0$.
+
+For the numbers, $\lvert\log q^*_T\rvert=H(1+\log2+\log\varDelta)+1+4\log11+
+4\log6$, with $\varDelta=2400$ for $s=1$ and $\varDelta=23^4-1$ for $s=5$,
+$\log(23^4-1)=4\log23-\epsilon$ with $0<\epsilon<4\cdot10^{-6}$, and
+$\lambda_0=3\cdot7^3=1029$ for $s=1$ and $\lambda_0=11\cdot23^3=133837$ for
+$s=5$. The logarithms of the proof of Theorem~\ref{thm:islandthreshold},
+with $\log23=3\log2+\log3-\log\frac{24}{23}$ and $\log7=3\log2-2
+\operatorname{artanh}\frac1{15}$, give $\lvert\log q^*_T\rvert$ within
+$10^{-3}$ of $12299.136$ and $18466.475$, and $H\log\lambda_0+\log(eMH)$
+within $10^{-3}$ of $9007.259$ and $15316.232$, for $s=1$ and $s=5$; the
+last two give the two lower bounds. The function $g_T(\beta)=\beta\rho^2/16-
+6(\log\beta+C_0)-\lvert\log q^*_T\rvert$ increases for $\beta>96/\rho^2$ and
+$\beta^*_T$ is its largest zero; at the two ends of each stated interval
+$g_T$ is negative and positive, with margins above $5$, so that $\log\beta$
+to two decimals decides the signs.
+\end{proof}
+
+The same replacement applies at every scale: in
+Theorem~\ref{thm:islandscales} the exponent $H_j(\log2+2\log\varDelta)$ of
+$q^*_j$ becomes $H_j(1+\log2+\log\varDelta)$, with the conclusions of
+part~(ii) of the proposition. The gain is a constant factor in the coupling
+and therefore a quarter of its logarithm in the scale. The next results show
+that no constant factor of this kind reaches the scale of the cube.
+
+\begin{lemma}[the normalisation from below]\label{lem:Zabove}
+For $\beta_W>0$ and $L\ge2$,
+\[
+Z_L\le\Bigl(\bigl(\tfrac\pi2\bigr)^{5/2}\beta_W^{-3/2}\Bigr)^{3L^3(L-1)},
+\]
+so that
+\[
+\log\frac1{Z_L}\ge\frac92\Bigl(1-\frac1L\Bigr)L^4\bigl(\log\beta_W-c_I
+\bigr),\qquad c_I=\tfrac53\log\tfrac\pi2 .
+\]
+In particular $c_I\in[0.75263,0.75264]$.
+\end{lemma}
+
+\begin{proof}
+Let $F$ be the set of links $(x,0)$ with $x_0\ne L-1$; each line of
+direction $0$ meets $F$ in a path, so $F$ is a forest. Put $g_x=U_{(0,\vec
+x),0}\cdots U_{(x_0-1,\vec x),0}$ for $x=(x_0,\vec x)$ and $U'_{x,\mu}=
+g_x^{-1}U_{x,\mu}g_{x+e_\mu}$. Then $U'=I$ on $F$, and given the links of
+$F$ the links $U'_e$, $e\notin F$, are independent and Haar distributed,
+since each is a fixed left and right translate of its own $U_e$. The weight
+$e^{-\beta_WS}$ is gauge invariant, so $Z_L=\int e^{-\beta_WS(U')}\,dU$ is
+the integral over the links off $F$ with the links of $F$ equal to $I$.
+For $\mu\in\{1,2,3\}$ and $x_0\le L-2$ the plaquette at $x$ in the plane
+$\{0,\mu\}$ has holonomy $U'_{x+e_0,\mu}U'^{-1}_{x,\mu}$, its two links of
+direction $0$ lying in $F$. Drop every other plaquette from $S$, which
+only increases the integrand. For fixed $\vec x$ and $\mu$ the links
+$U'_{(t,\vec x),\mu}$, $0\le t\le L-1$, enter only the $L-1$ factors
+$\exp(-\beta_Ws(U'_{(t+1,\vec x),\mu}U'^{-1}_{(t,\vec x),\mu}))$;
+integrating over $t=0,1,\dots,L-2$ in turn, each integral equals
+\[
+I(\beta_W)=\frac2\pi\int_0^\pi e^{-\beta_W(1-\cos t)}\sin^2t\,dt,
+\]
+by the invariance of Haar measure. So $Z_L\le I(\beta_W)^{3L^3(L-1)}$. On
+$[0,\pi]$, $1-\cos t=2\sin^2\frac t2\ge\frac{2t^2}{\pi^2}$ and $\sin t\le t$,
+so
+\[
+\begin{split}
+I(\beta_W)&\le\frac2\pi\int_0^\infty t^2e^{-2\beta_Wt^2/\pi^2}dt\\
+&=\frac2\pi\cdot\frac{\sqrt\pi}4\Bigl(\frac{\pi^2}{2\beta_W}\Bigr)^{3/2}
+=\Bigl(\frac\pi2\Bigr)^{5/2}\beta_W^{-3/2}.
+\end{split}
+\]
+Finally $\log\frac\pi2=\log\frac32+\log\frac\pi3$, and the alternating
+series of $\log(1+x)$ at $x=\frac\pi3-1\in[0.0471975,0.0471976]$ gives
+$\log\frac\pi2\in[0.4515827,0.4515828]$.
+\end{proof}
+
+Together with Lemma~\ref{lem:wilsonZ}, the lemma places the normalisation
+of the chessboard estimate between $\frac92\log\beta_W$ and
+$6\log\beta_W$ per fine site, up to additive constants. The constant curvature field bounds the witness radius. Put
+\[
+\eta_c=2\sqrt2\sin\frac1{24\sqrt2}\in[0.0833212,0.0833213],
+\]
+and for $0<\eta<\eta_c$ let $\tilde\eta=2\sqrt2\arcsin(\eta/2\sqrt2)$, so that
+$\eta<\tilde\eta<\frac1{12}$ and, by $\arcsin y\le y+y^3/(6(1-y^2))$,
+$\tilde\eta\le1.00015\,\eta$. Call a block $y$ \emph{$\eta$-bad at scale
+$j$} when some plaquette of $U^{(j+1)}$ with corner $y$ has $\delta(U^{(j+1)}
+_P,I)>\eta$: this is the coarse-curvature part of the label of
+Sec.~\ref{ssec:islandscales} at scale $j$, and a block bad for that label is
+bad.
+
+\begin{theorem}[the ceiling of the chessboard estimate]\label{thm:chessceiling}
+Let $G=\SU(2)$, $\beta_W\ge1$, $0<\eta<\eta_c$, $j\ge0$ and $\theta_j=
+4^{-j-1}\tilde\eta$.
+\begin{enumerate}[label=\textup{(\roman*)},leftmargin=*]
+\item \emph{Witnesses.} Let $0\le i\le j+1$ and $\rho_i>0$, and suppose that
+on every torus $\Lambda_L$ with $L=2^m\ge L_0$, every field at which some
+block is $\eta$-bad at scale $j$ has a plaquette $P$ of $U^{(i)}$ with
+$\delta(U^{(i)}_P,I)>\rho_i$. Then $2\sqrt2\arcsin(\rho_i/2\sqrt2)\le4^i
+\theta_j$; in particular $\rho_i\le4^i\theta_j$, and a fine witness has
+$\rho_0\le\theta_j$.
+\item \emph{Product bounds.} (a) If the hypothesis of (i) holds with $i=0$,
+the weight $q_{\rho_0}(\beta_W)$ of Theorem~\ref{thm:defects} is below one only
+if
+\[
+16^{j+1}<\frac{\beta_W\tilde\eta^2}{96(\log\beta_W+C_0)} .
+\]
+(b) Let $b=2^k$, let $E$ be an event determined by the links of the closed
+cube $[0,b]^4$ on which the plaquettes of that cube carry action at least
+$A$, let $E_z$ be its reflections as in Proposition~\ref{prop:coarsechess},
+and suppose that on every torus $\Lambda_L$ with $L=2^m\ge L_0$ every field
+at which a given block is $\eta$-bad at scale $j$ lies in some $E_z$. Then
+the bound of Proposition~\ref{prop:coarsechess} is below one, for a nonempty
+set $Z$, only if
+\[
+16^{j+1}<\Bigl(1+\frac1b\Bigr)^2\frac{\beta_W\tilde\eta^2}{96(\log\beta_W+
+C_0)} .
+\]
+(c) If in (a) and (b) the bound of Lemma~\ref{lem:wilsonZ} is replaced by
+$\log(1/Z_L)$ itself, the same holds with $96(\log\beta_W+C_0)$ replaced by
+$72(1-1/L)(\log\beta_W-c_I)$.
+\item \emph{The cube.} Suppose that $D(n,\alpha)$ holds at $\beta_W$, with
+the chordal or the Hilbert--Schmidt distance, and that a bound of (a) or (b)
+is below one at scale $j$, or a bound of (c) with $\beta_W\ge10^3$ and
+$L\ge16$. Then
+\[
+\Bigl(\frac n{2^{j+1}}\Bigr)^4>\frac{1.9268\,(1-\alpha)}{\tilde\eta^2},
+\]
+and for (a) and (b) the constant $1.9268$ can be replaced by $4.2069$. Since
+$\tilde\eta<\frac1{12}$, $n>4.08\,(1-\alpha)^{1/4}\,2^{j+1}$ in every case.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+(i) Since $\tilde\eta<\frac1{12}$, there are $L=2^m\ge L_0$ and integers
+$n'$ for which $\theta=2\sqrt2\pi n'/L^2$ satisfies $\theta_j<\theta$ and
+$4^{j+1}\theta\le\frac1{12}$, with $\theta$ as close to $\theta_j$ as
+desired. Let $U$ be the field of Proposition~\ref{prop:constantcurvature}
+with this $\theta$. By that proposition and its proof, for $i\le j+1$,
+$\Theta^{(i)}_P=4^i\theta T$ on the plane $\{0,1\}$ and $\Theta^{(i)}_P=0$ on
+the other planes, so every plaquette of $U^{(i)}$ has $\delta(U^{(i)}_P,I)\le
+2\sqrt2\sin(4^i\theta/2\sqrt2)$, while the plaquettes of $U^{(j+1)}$ in the
+plane $\{0,1\}$ have
+\[
+\delta(U^{(j+1)}_P,I)=2\sqrt2\sin\frac{4^{j+1}\theta}{2\sqrt2}>2\sqrt2\sin
+\frac{\tilde\eta}{2\sqrt2}=\eta,
+\]
+the sine increasing on $[0,\frac1{24\sqrt2}]$. So every block is $\eta$-bad
+at scale $j$, the hypothesis gives $\rho_i<2\sqrt2\sin(4^i\theta/2\sqrt2)$,
+and letting $\theta$ decrease to $\theta_j$ gives $\rho_i\le2\sqrt2\sin(4^i
+\theta_j/2\sqrt2)$, which is the first claim; $\sin x\le x$ gives the
+second.
+
+(ii) (a) By its definition $q_{\rho_0}(\beta_W)<1$ exactly when $\beta_W
+\rho_0^2/16>6(\log\beta_W+C_0)$. By (i), $\rho_0^2\le\theta_j^2=16^{-j-1}
+\tilde\eta^2$, which gives the claim.
+
+(b) Take $U$ as in the proof of (i). By hypothesis $U\in E_z$ for some
+$z$. The reflections that carry $[0,b]^4$ to $z+[0,b]^4$ preserve $\Tr U_p$,
+so the reflected field lies in $E$ and the plaquettes of $[0,b]^4$ carry
+the same action there as those of $z+[0,b]^4$ carry at $U$. The closed cube
+contains $b^2(b+1)^2$ plaquettes of the plane $\{0,1\}$, each with
+$s_p=\frac14\delta(U_p,I)^2=2\sin^2(\theta/2\sqrt2)\le\theta^2/4$, and the
+other plaquettes have $s_p=0$. Hence $A\le b^2(b+1)^2\theta^2/4$ for $\theta$
+arbitrarily close to $\theta_j$, so $A\le b^2(b+1)^2\theta_j^2/4$. The bound of
+Proposition~\ref{prop:coarsechess} is $\exp(\lvert Z\rvert(6b^4(\log\beta_W+
+C_0)-\beta_WA/4))$, below one only if $\beta_WA/4>6b^4(\log\beta_W+C_0)$,
+that is, only if $\beta_W(1+1/b)^2\theta_j^2/16>6(\log\beta_W+C_0)$.
+
+(c) Before Lemma~\ref{lem:wilsonZ} is used, the proofs of
+Theorem~\ref{thm:defects} and Proposition~\ref{prop:coarsechess} bound the
+probabilities by $(e^{-\beta_W\rho_0^2L^4/16}/Z_L)^{\lvert A\rvert/L^4}$ and
+$(e^{-\beta_W(L/b)^4A/4}/Z_L)^{\lvert Z\rvert(b/L)^4}$. By
+Lemma~\ref{lem:Zabove} these are at least
+\[
+\begin{gathered}
+\exp\Bigl(\lvert A\rvert\Bigl(\tfrac92(1-\tfrac1L)(\log\beta_W-c_I)-
+\tfrac{\beta_W\rho_0^2}{16}\Bigr)\Bigr),\\
+\exp\Bigl(\lvert Z\rvert\Bigl(\tfrac92(1-\tfrac1L)b^4(\log\beta_W-c_I)-
+\tfrac{\beta_WA}4\Bigr)\Bigr),
+\end{gathered}
+\]
+and the arguments of (a) and (b) apply with $\frac92(1-\frac1L)(\log\beta_W-
+c_I)$ in place of $6(\log\beta_W+C_0)$.
+
+(iii) Propositions~\ref{prop:cubesize} and~\ref{prop:cubesizeN}, the latter
+with $N=2$, give $n^4\ge2(1-\alpha)\beta_W/(5\ell(\beta_W))$ with
+$\ell(\beta_W)$ equal to $1+\log24+\frac32\log(9\beta_W)$ or to $1+\frac32
+\log(81\pi^2\beta_W)+2\log\frac{12}{11}$. Both are at most $\frac32x+11.2$,
+$x=\log\beta_W$, since $1+\log24+\frac32\log9<7.474$ and $1+\frac32\log(81
+\pi^2)+2\log\frac{12}{11}<11.19989$. Write $c=1$ in (a) and $c=(1+1/b)^2\le4$
+in (b). In (a) and (b),
+\[
+\Bigl(\frac n{2^{j+1}}\Bigr)^4>\frac{192(1-\alpha)}{5c\,\tilde\eta^2}\cdot
+\frac{x+C_0}{\frac32x+11.2},
+\]
+and the last factor increases with $x$, because $11.2>\frac32C_0$, so it is
+at least $C_0/11.2>0.43822$; with $c\le4$ this gives $4.2069$. In (c),
+\[
+\Bigl(\frac n{2^{j+1}}\Bigr)^4>\frac{144(1-\frac1L)(1-\alpha)}{5c\,
+\tilde\eta^2}\cdot\frac{x-c_I}{\frac32x+11.2},
+\]
+the last factor increases with $x$, and at $x=\log10^3=3\log10\in[6.907755,
+6.907756]$ it is at least $0.28546$; with $1-\frac1L\ge\frac{15}{16}$ and
+$c\le4$ this gives $\frac{144\cdot15\cdot0.28546}{5\cdot16\cdot4}>1.9268$.
+Finally $144\cdot1.9268>277.4$ and $277.4^{1/4}>4.08$.
+\end{proof}
+
+The hypotheses of (ii) are those of every rarity bound for the islands in
+this paper: Theorems~\ref{thm:islandthreshold}, \ref{thm:islandscales}
+and~\ref{thm:islandswide} use fine witnesses and Theorem~\ref{thm:defects},
+and a coarse energy as in Lemma~\ref{lem:coarseenergy} would be used through
+Proposition~\ref{prop:coarsechess}. A recursion that bounds the bad blocks
+of scale $j$ through events of earlier scales, and those through
+Theorem~\ref{thm:defects} or Proposition~\ref{prop:coarsechess}, ends in
+events at some scale $i\le j+1$ that together cover the $\eta$-bad blocks,
+and (i) and (ii)(b) apply to them, however they are nested. The ceiling does not depend on the collar, on the count of connected
+sets, on the exponent $1/H$, or on the constants of the witness lemmas:
+part (ii) holds even when the bound need only be below one, which is far
+less than the threshold of Theorem~\ref{thm:islandthreshold} or of
+Proposition~\ref{prop:treethreshold} asks.
+
+\begin{corollary}[the labels of the island theorems]\label{cor:chessceiling}
+Let $D(n,\alpha)$ hold at $\beta_W$, with $\alpha\le\frac12$, and let a bound
+of Theorem~\ref{thm:chessceiling}(ii) be below one at scale $j$, under the
+conditions of part (iii).
+\begin{enumerate}[label=\textup{(\roman*)},leftmargin=*]
+\item For the labels of Theorems~\ref{thm:islandscales}
+and~\ref{thm:islandswide}, with $\eta=92\rho$ and $\rho\le1.023\cdot10^{-4}$,
+$n>12.14\,(1-\alpha)^{1/4}2^{j+1}>2^{j+4}$.
+\item For coarse labels with $\eta\le6.0\cdot10^{-13}$, the size below which
+Theorem~\ref{thm:badcross} needs the plaquettes of the background, which
+contains the calm labels of Corollary~\ref{cor:twoislands}, $n>1.52\cdot10^6(1-\alpha)^{1/4}2^{j+1}>
+2^{j+21}$.
+\end{enumerate}
+So the scale of the cube lies at least three, respectively twenty, dyadic
+scales above every scale that such a bound reaches.
+\end{corollary}
+
+\begin{proof}
+Theorem~\ref{thm:chessceiling}(iii) applies, and $(1-\alpha)^{1/4}\ge
+2^{-1/4}>0.8409$. (i) Here $\eta\le0.0094116$, so $\tilde\eta\le0.0094131$ and
+$1.9268/\tilde\eta^2>21745$; its fourth root exceeds $12.14$, and $12.14
+\cdot0.8409>8$. (ii) Here $\tilde\eta\le6.0009\cdot10^{-13}$, so $1.9268/
+\tilde\eta^2>5.35\cdot10^{24}$; its fourth root exceeds $1.52\cdot10^6$, and
+$1.52\cdot10^6\cdot0.8409>2^{20}$.
+\end{proof}
+
+\begin{remark}[what the ceiling leaves]\label{rem:chessceiling}
+The loss sits in the normalisation, not in the energy. In (ii)(b) the action
+that a coarse defect forces is at most $(1+1/b)^2b^4\theta_j^2/4$, which for
+$b$ of the order $2^j$ does not decrease with $j$, in accordance with
+Lemma~\ref{lem:coarseenergy} for linear fields; the normalisation charges
+$\frac92b^4(\log\beta_W-c_I)$ at least, which grows like $16^j$. A bound
+that reaches the cube must compare the weight of the defects with $Z_L$
+without charging the fluctuation volume of the cube, as in the Gaussian
+theory. Theorem~\ref{thm:haartilt} is a bound of that kind; it gives the
+rarity at every scale for $\U(1)$ (Corollary~\ref{cor:abeliancoarse}), and
+for $\SU(2)$ its constant grows like $4^k$ on the gauge orbit of the vacuum
+(Proposition~\ref{prop:tiltgrowth}). The theorem says nothing about such
+bounds, nor about labels with $\eta\ge\eta_c$. At couplings of order one
+nothing of the kind of (ii)(a) exists at any scale: for $1\le\beta_W\le10^3$
+and every $\rho\le1$, $q_\rho(\beta_W)=1$, since the convex function
+$\beta/16-6(\log\beta+C_0)$ is negative at $\beta=1$ and at $\beta=10^3$.
+\end{remark}
 
 \subsection{Two islands factorise through one kernel}\label{ssec:factorisation}
 
@@ -24533,7 +25331,11 @@ The part $n_1^2/3$ is the conversion cost. It is the absolute error carried
 to the last scale, $4^{K-1}\approx n_1^2$, so it is finite for a fixed
 window but not uniform in the volume. Removing it needs a gauge-invariant
 localisation of the one-step bound, which is part of
-Ba{\l}aban's analysis~\cite{Bal89b}. For a remainder that is a series of filled
+Ba{\l}aban's analysis~\cite{Bal89b}. For a remainder that is a sum of
+gauge-invariant terms on boxes, Theorem~\ref{thm:localflat} gives that
+localisation, with the gap of each box in place of $C_n$, and by
+Proposition~\ref{prop:chartlocal} the factor $C_n$ of the Haar term comes
+from stating the hypothesis on the chart density. For a remainder that is a series of filled
 Wilson loops, Corollary~\ref{cor:loopstep} removes it from $\varepsilon_k$
 and leaves it on the Haar term $\delta_G/\lambda_k$. The part $K$ is marginal. The Haar term $\delta_G/\lambda_k$ is of order
 $g_k^2$, and $\sum_kg_k^2$ diverges logarithmically along the one-loop
@@ -28851,6 +29653,505 @@ cost is a separate input, and the estimates proved for it at the first
 step give nothing at $\lambda_k\le809300$.
 \end{remark}
 
+\subsection{Gauge-invariant local remainders}\label{ssec:localrem}
+
+The factor $C_n$ of Proposition~\ref{prop:relstep} and the loss $\kappa
+n^2$ of Proposition~\ref{prop:curvedloops} come from the gap of the whole
+window off its gauge directions. The inverse of the gauge-fixed form of
+the window does not decay uniformly in $n$: by
+Lemma~\ref{lem:windowgap}(iv) its norm is at least $C_n^-$, so by the
+Schur test and Lemma~\ref{lem:weightedcount} no bound $Ce^{-\alpha d(a,b)}$
+on its blocks holds with $C$ and $\alpha$ independent of $n$, and on the
+torus Proposition~\ref{prop:h2volume} gives the same. What decays
+uniformly is the covariance of the fibre
+(Proposition~\ref{prop:fibreinherit}(ii)), and it makes the terms of an
+induced action local. This subsection shows that locality removes $C_n$
+when each local term is gauge invariant on a box of its own: the gap of
+that box replaces the gap of the window. It also shows that the hypothesis
+(H), stated for the chart density, is incompatible with a local invariant
+density on large windows, that at curved backgrounds the loss is of order
+$\lVert\kappa\rVert_2$ for every local remainder and not of order
+$\kappa$ uniformly in $n$, and that condition (C) of
+Theorem~\ref{thm:allscales} follows from such a representation of the
+one-step error. Gauge-invariant localised effective actions of this kind
+are what the cluster expansions of Ba{\l}aban~\cite{Bal87,Bal88} produce
+for his averaging operations; for the cut-off averages they are a
+hypothesis here.
+
+\emph{Setting.} Let $G\subset\U(N)$ be compact and connected, with a Lie
+algebra $\g$ of trivial centre, such as $\SU(N)$, with $\ip XY=-\Tr(XY)$
+on $\g$ and operator norms for matrices in $\U(N)$, as in the curved part
+of Sec.~\ref{ssec:relstep}. A \emph{box} $X$ of side $r\ge1$ is the set of
+sites $\prod_\nu[b_\nu,b_\nu+r]$ of the coarse lattice, which is $\Z^4$ or
+a torus of side at least $r+2$. Let $L_X$ be its links, those with both
+ends in $X$, $P_X$ its plaquettes, those with all four corners in $X$, and
+$\ell_X=\lvert L_X\rvert=4r(r+1)^3$. A \emph{local term} on $X$ is a $C^2$
+function $f$ of the links of $X$ with $f(gV)=f(V)$ for every $g\in G^X$,
+where $(gV)_{y,\mu}=g_yV_{y,\mu}g_{y+e_\mu}^{-1}$. A \emph{local
+remainder} is a sum $R=\sum_{X\in\mathcal X}f_X$ over a family of boxes,
+repetitions allowed, with $f_X$ a local term on $X$, whose series
+converges with its first two derivatives near the background. For $V\in
+G^{L_X}$, $\Hess f(V)$ is the Hessian at $0$ of $\omega\mapsto f(Ve^\omega)$
+on $\g^{L_X}$, and $h_X=\lVert\Hess f_X(I)\rVert$ is its norm at the
+trivial field, which depends on $f_X$ alone. For a background $V_0$ and
+$w\in\g^K$, extended by zero off $K$, put $Q_X^{V_0}(w)=\sum_{p\in
+P_X}\lVert Z_p(w)\rVert^2$, so that $\sum_XQ_X^{V_0}$ counts each
+plaquette of $Q^{V_0}$ once for every box that contains it. Put
+\[
+\rho_r=\frac1{4\sin^2(\pi/(2r+2))}\le\frac{(r+1)^2}4 .
+\]
+
+\begin{lemma}[a box with every site gauged]\label{lem:boxgap}
+Let $X$ be a box of side $r$ and $(d_X\eta)_{y,\mu}=\eta_y-\eta_{y+e_\mu}$
+for $\eta\in\g^X$. If $u\in\g^{L_X}$ is orthogonal to $d_X(\g^X)$, then
+\[
+\lvert u\rvert^2\le\rho_r\sum_{p\in P_X}\lVert(du)_p\rVert^2 ,
+\]
+where $(du)_p=u_{k_1}+u_{k_2}-u_{k_3}-u_{k_4}$ for $p$ with links
+$k_1,\dots,k_4$ in the order of Sec.~\ref{ssec:relstep}.
+\end{lemma}
+
+\begin{proof}
+Componentwise in an orthonormal basis of $\g$ it suffices to treat real
+fields. The cochain complex of $X$ in degrees $0,1,2$, with the sites,
+links and plaquettes of $X$ as cells and the coboundaries $d_X$ and $d$,
+is the fourfold tensor product of the complex of the path $[0,r]$, in
+which $C^0=\R^{r+1}$, $C^1=\R^r$ and $d$ is the difference operator; the
+orientations of the cells change only signs, which do not change norms.
+With the product inner products the Laplacian $\Delta=dd^*+d^*d$ of the
+product is the sum of the Laplacians of the factors, as in the proof of
+Lemma~\ref{lem:windowgap}(ii). On $C^0$, $d^*d$ is the Laplacian of the
+path with $r+1$ vertices, with eigenvalues $4\sin^2(\pi j/(2r+2))$ for
+$0\le j\le r$. Since $d$ maps $C^0$ onto $C^1$, $dd^*$ is invertible on
+$C^1$, with the nonzero eigenvalues of $d^*d$, the least being $\rho_r^{-1}$.
+A $1$-cochain of the product is a sum of tensors with exactly one factor of
+degree one, so $\Delta_1\ge\rho_r^{-1}$. If $u\perp d_X(C^0)$, then
+$d_X^*u=0$ and $\sum_p(du)_p^2=\ip u{\Delta_1u}\ge\rho_r^{-1}\lvert u
+\rvert^2$. Finally $\sin x\ge2x/\pi$ on $[0,\pi/2]$.
+\end{proof}
+
+\begin{lemma}[a local term at a flat background]\label{lem:flatterm}
+Let $f$ be a local term on a box $X$ of side $r$, and let $V_0\in G^{L_X}$
+have $V_{0,p}=I$ for every $p\in P_X$. Then:
+\begin{enumerate}[label=\textup{(\roman*)},leftmargin=*]
+\item the gradient of $\omega\mapsto f(V_0e^\omega)$ vanishes at $0$;
+\item $\Hess f(V_0)[w,d^X_{V_0}\eta]=0$ for every $w\in\g^{L_X}$ and
+$\eta\in\g^X$, where $(d^X_{V_0}\eta)_{y,\mu}=\operatorname{Ad}(V_{0,y,
+\mu}^{-1})\eta_y-\eta_{y+e_\mu}$;
+\item $\lVert\Hess f(V_0)\rVert=\lVert\Hess f(I)\rVert$, and for every
+$w\in\g^{L_X}$
+\[
+\bigl\lvert\Hess f(V_0)[w,w]\bigr\rvert\le\lVert\Hess f(I)\rVert\,\rho_r\,
+Q_X^{V_0}(w).
+\]
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+As in the proof of Lemma~\ref{lem:smallcurv}, the links $(x,\mu)$ of $X$
+with $x_\nu=b_\nu$ for every $\nu<\mu$ form a spanning tree, and some
+$g\in G^X$ has $gV_0=I$ on it. For another link $(x,\mu)$ let $\nu<\mu$ be
+the least direction with $x_\nu>b_\nu$; the plaquette in the plane
+$\{\nu,\mu\}$ at $x-e_\nu$ lies in $P_X$ and its two links of direction
+$\nu$ lie in the tree, so its holonomy $I$ gives $(gV_0)_{x,\mu}=(gV_0)_{
+x-e_\nu,\mu}$, and induction gives $gV_0=I$ on $L_X$. With $(Tw)_{y,\mu}=
+\operatorname{Ad}(g_{y+e_\mu})w_{y,\mu}$, an isometry, $(gV_0)e^{Tw}=g(V_0
+e^w)$, so $f(gV_0e^{T\omega})=f(V_0e^\omega)$, $Q^{gV_0}_X(Tw)=Q^{V_0}_X
+(w)$ and $Td^X_{V_0}\eta=d^X_{gV_0}(\operatorname{Ad}(g)\eta)$, as in that
+proof. So it suffices to take $V_0=I$, where $d^X_I=d_X$.
+
+(i) A constant $h\in G$ acts by $e^\omega\mapsto e^{\operatorname{Ad}(h)
+\omega}$, so the gradient $(\nabla_kf(0))_k$ is fixed by every
+$\operatorname{Ad}(h)$, hence commutes with $\g$ and lies in the centre of
+$\g$, which is $0$. (ii) The proof of Lemma~\ref{lem:invariantslice}(i),
+with $\Gamma_W$ replaced by $G^X$ and $K$ by $L_X$, gives $\Hess f(0)[w,
+d_X\eta]=-Df(0)[D\zeta(0)w]$, which vanishes by (i). (iii) The first
+statement is the transport above. By (ii) the symmetric form $\Hess f(0)$
+vanishes on $d_X(\g^X)$ in each argument, so $\Hess f(0)[w,w]=\Hess f(0)
+[u,u]$ for the orthogonal projection $u$ of $w$ off $d_X(\g^X)$, which is
+at most $\lVert\Hess f(0)\rVert\lvert u\rvert^2$. Lemma~\ref{lem:boxgap}
+and $du=dw$, since the curvature of $d_X\eta$ vanishes, bound
+$\lvert u\rvert^2$ by $\rho_r\sum_{p\in P_X}\lVert(dw)_p\rVert^2$, and at
+$V_0=I$, $Z_p(w)=(dw)_p$ by~\eqref{eq:pathexp}.
+\end{proof}
+
+\begin{theorem}[local remainders at flat backgrounds]\label{thm:localflat}
+Let $R=\sum_{X\in\mathcal X}f_X$ be a local remainder, let $V_0$ be flat on
+every plaquette of every box of $\mathcal X$, the links off $K$ included,
+and put
+\[
+\mathcal L_0=\sup_p\sum_{X:\,p\in P_X}h_X\rho_{r_X}.
+\]
+\begin{enumerate}[label=\textup{(\roman*)},leftmargin=*]
+\item $\lvert\Hess R(V_0)[w,w]\rvert\le\mathcal L_0\,Q^{V_0}(w)$ for every
+$w\in\g^K$, on the window and, with all links variable, on $\Z^4$ or on a
+torus.
+\item On the window, $R$ is $\Gamma_W$-invariant and $\lvert\mathcal HR(w,w)
+\rvert\le\mathcal L_0\,Q^{V_0}(\Pi_{V_0}w)$. At $V_0=I$ this is at most
+$\mathcal L_0Q_1(w)\le(\mathcal L_0/c_*)\,S_W(w)$, for every $n$.
+\item If each box carries at most one term and $h_X\le\eta e^{-\alpha r_X}$
+with $\eta,\alpha>0$, then $\mathcal L_0\le180\,e^\alpha\eta\,(1-e^{-\alpha}
+)^{-7}$.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+(i) The Hessian of the series is the series of the Hessians. By
+Lemma~\ref{lem:flatterm}(iii), applied to the restriction of $w$ to $L_X$,
+\begin{align*}
+\lvert\Hess R(V_0)[w,w]\rvert&\le\sum_Xh_X\rho_{r_X}\sum_{p\in P_X}\lVert
+Z_p(w)\rVert^2\\
+&=\sum_p\lVert Z_p(w)\rVert^2\sum_{X:\,p\in P_X}h_X\rho_{r_X},
+\end{align*}
+which is at most $\mathcal L_0Q^{V_0}(w)$.
+
+(ii) An element of $\Gamma_W$ fixes the links off $K$ and acts on the links
+of $X$ through its restriction to the sites of $X$, an element of $G^X$; so
+every $f_X$, and $R$, is $\Gamma_W$-invariant.
+Lemma~\ref{lem:invariantslice}(ii) gives $\mathcal HR(w,w)=\Hess R(V_0)
+[\Pi_{V_0}w,\Pi_{V_0}w]$, and (i) applies. At $V_0=I$, $Q^I=Q_1$ vanishes
+on $\mathcal O$ and is positive semidefinite, so $Q_1(\Pi w)=Q_1(w)$, and
+$Q_1\le S_W/c_*$ by Lemma~\ref{lem:windowgap}(iii).
+
+(iii) A plaquette in the plane $\{\mu,\nu\}$ at $x$ lies in the box of side
+$r$ with corner $b$ only if $b_\mu\in[x_\mu-r+1,x_\mu]$, $b_\nu\in[x_\nu-r
++1,x_\nu]$ and $b_\lambda\in[x_\lambda-r,x_\lambda]$ for the two other
+directions, so in at most $r^2(r+1)^2$ boxes of side $r$. Hence
+$\mathcal L_0\le\frac\eta4\sum_{r\ge1}(r+1)^6e^{-\alpha r}$. Since $m^6\le
+720\binom{m+6}6$ and $\sum_{m\ge0}\binom{m+6}6x^m=(1-x)^{-7}$,
+$\sum_{r\ge1}(r+1)^6e^{-\alpha r}\le e^\alpha\sum_{m\ge0}m^6e^{-\alpha m}\le
+720\,e^\alpha(1-e^{-\alpha})^{-7}$.
+\end{proof}
+
+The bound holds for every local term; for the filled loops of
+Proposition~\ref{prop:flatloops} the factor $\rho_r$ is not needed, since
+their Hessian at a flat background is already a form in the curvatures.
+At the trivial background it gives the one-step bound of
+Proposition~\ref{prop:relstep} without $C_n$, once the hypothesis is put on
+the gauge-invariant density.
+
+\begin{corollary}[one step with a local invariant remainder]
+\label{cor:localstep}
+Let $U=I$, so that $V_0=I$, and let $A^{\rm gi}=A_0+R$ near $I$, where $A_0$
+is $\Gamma_W$-invariant with $\mathcal HA_0=2\lambda S_W$ and $R$ is a
+local remainder with $\mathcal L_0\le\lambda\varepsilon$. Then the error
+$E=\mathcal HA^{\rm gi}-2\lambda S_W$ vanishes on $\g^K\times\mathcal O$ and
+\[
+\lvert E(w,w)\rvert\le\lambda\varepsilon\,Q_1(w)\le\frac\varepsilon{2c_*}
+\cdot2\lambda S_W(w)\qquad(w\in\g^K),
+\]
+so that $(1-\frac\varepsilon{2c_*})2\lambda S_W\le\mathcal HA^{\rm gi}\le
+(1+\frac\varepsilon{2c_*})2\lambda S_W$ for every $n$, with $\frac1{2c_*}<
+3.433$.
+\end{corollary}
+
+\begin{proof}
+By Lemma~\ref{lem:invariantslice}(ii) the covariant Hessian is linear in
+the function, so $E=\mathcal HR$. It vanishes on $\g^K\times\mathcal O$ by
+Lemma~\ref{lem:invariantslice}(ii), and Theorem~\ref{thm:localflat}(ii)
+bounds it. The constant follows from $2c_*>0.29131$, as in
+Corollary~\ref{cor:loopstep}.
+\end{proof}
+
+The factor $C_n$ of Proposition~\ref{prop:relstep} and of
+Corollary~\ref{cor:loopstep} therefore comes from the form of the
+hypothesis. Hypothesis (H) bounds the Hessian of the chart density $A$,
+which differs from the invariant density $A^{\rm gi}$, the density with
+respect to Haar measure, by the Haar term. The two cannot both be local on
+a large window unless the error in (H) is of order $g^2$.
+
+\begin{proposition}[the chart hypothesis against locality]
+\label{prop:chartlocal}
+Let $G=\SU(2)$ and $U=I$. Suppose that $A^{\rm gi}=A_0+R$ as in
+Corollary~\ref{cor:localstep}, with constant $\mathcal L_0$, and that the
+chart density $A$ satisfies the upper half of (H): $\Hess A(0)[\sigma,
+\sigma]\le2\lambda S_W(\sigma)+\lambda\varepsilon\lvert\sigma\rvert^2$ for
+$\sigma\in\mathcal O^\perp$. Then
+\[
+\lambda\varepsilon\ge\frac13-\frac{\mathcal L_0}{C_n^-}\ge\frac13-\frac{3
+\pi^2\mathcal L_0}{(n+1)^2}.
+\]
+In particular $\lambda\varepsilon\ge\frac16$ on every window with
+$(n+1)^2\ge18\pi^2\mathcal L_0$.
+\end{proposition}
+
+\begin{proof}
+On the slice $A^{\rm gi}(\Upsilon(s,\eta))=A(s)+\sum_k\log j(s_k)$, so, as
+in the proof of Proposition~\ref{prop:relstep}(ii),
+\[
+\mathcal HA^{\rm gi}(w,w)=\Hess A(0)[\Pi w,\Pi w]+\frac1{12}\sum_k\Tr
+\bigl(\operatorname{ad}_{(\Pi w)_k}^2\bigr),
+\]
+and the last sum is $-\frac13\lvert\Pi w\rvert^2$ for $\SU(2)$.
+Let $w\ne0$ be the field of Lemma~\ref{lem:windowgap}(iv), with $w\in
+\mathcal O^\perp$, so $\Pi w=w$, and $\lvert w\rvert^2=C_n^-Q_1(w)$. The
+hypothesis gives $\mathcal HA^{\rm gi}(w,w)-2\lambda S_W(w)\le(\lambda
+\varepsilon-\frac13)\lvert w\rvert^2$, and Corollary~\ref{cor:localstep}
+gives that this difference is at least $-\mathcal L_0Q_1(w)=-\mathcal L_0
+\lvert w\rvert^2/C_n^-$. Divide by $\lvert w\rvert^2$ and use $C_n^-\ge
+(n+1)^2/(3\pi^2)$.
+\end{proof}
+
+An error of order $g^2=1/\lambda$ in each step is not summable over the
+scales (Remark~\ref{rem:relscales}). The measure defines the invariant
+density, and the localised actions of Ba{\l}aban are invariant; so the
+hypothesis belongs on $A^{\rm gi}$, and in that form the Haar term does not
+appear.
+
+\emph{Curved backgrounds.} At a background that is not flat on a box, a
+local term has a gradient there, and Lemma~\ref{lem:flatterm} fails. The
+term is compared with its value at the trivial field after a gauge
+transformation of the box, which costs a Euclidean term proportional to the
+curvature in the box, and the Euclidean term is paid with the $\ell^4$
+bound of Lemma~\ref{lem:windowlfour}. The following lemma gives the
+constants from bounds on complex neighbourhoods, the form in which
+cluster expansions bound their terms.
+
+\begin{lemma}[derivatives from analytic bounds]\label{lem:cauchy}
+Let $f$ be a function of the links of a finite set $L$, $a\ge0$ and
+$\rho>0$; $\g\otimes\C$ carries the Hermitian extension of the norm, and
+$e^\xi e^\omega$ is the product link by link.
+\begin{enumerate}[label=\textup{(\roman*)},leftmargin=*]
+\item If $\omega\mapsto f(e^\omega)$ extends holomorphically to
+$\{\omega\in(\g\otimes\C)^L:\lVert\omega_k\rVert<\rho\ \forall k\}$ with
+modulus at most $a$, then $\lVert\Hess f(I)\rVert\le2a/\rho^2$.
+\item If the function $(\xi,\omega)\mapsto f(e^\xi e^\omega)$ extends
+holomorphically to the set where $\lVert\xi_k\rVert<\rho$ and $\lVert
+\omega_k\rVert<\rho$ for every $k$, with modulus at most $a$, then for
+every $v\in\g^L$ and $V=e^\xi$ with $\xi\in\g^L$ and $\delta=\max_k\lVert
+\xi_k\rVert\le\rho/2$,
+\[
+\bigl\lvert\Hess f(V)[v,v]-\Hess f(I)[v,v]\bigr\rvert\le\frac{4a\delta}
+{\rho^3}\lvert v\rvert^2 .
+\]
+\item If $G=\SU(N)$ and $\lVert I-V\rVert\le\min(1,3/N)$, then $V=e^\xi$
+with $\xi\in\g$ and $\lVert\xi\rVert\le\frac\pi3\sqrt N\,\lVert I-V
+\rVert$.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+(i) For $v\in\g^L$, $v\ne0$, let $m=\max_k\lVert v_k\rVert$. The function
+$z\mapsto f(e^{zv})$ is holomorphic for $\lvert z\rvert<\rho/m$ and bounded
+by $a$, and its second derivative at $0$ is $\Hess f(I)[v,v]$, since
+$\omega=zv$ is a line. Cauchy's inequality gives $\lvert\Hess f(I)[v,v]
+\rvert\le2am^2/\rho^2\le2a\lvert v\rvert^2/\rho^2$.
+(ii) Let $G(s,z)=f(e^{s\xi}e^{zv})$, holomorphic for $\lvert s\rvert<\rho/
+\delta$ and $\lvert z\rvert<\rho/m$, with $\lvert G\rvert\le a$. Then
+$\Hess f(V)[v,v]=\partial_z^2G(1,0)$ and $\Hess f(I)[v,v]=\partial_z^2G
+(0,0)$. For $0\le s\le1$ the bidisc about $(s,0)$ with radii $\rho/(2
+\delta)\le\rho/\delta-1$ and $\rho/m$ lies in the domain, so Cauchy's
+inequality gives $\lvert\partial_s\partial_z^2G(s,0)\rvert\le2a\cdot2\delta
+m^2/\rho^3$; integrate over $s\in[0,1]$.
+(iii) Let $e^{i\theta_j}$, $\lvert\theta_j\rvert\le\pi$, be the
+eigenvalues of $V$. Then $2\lvert\sin(\theta_j/2)\rvert\le\lVert I-V\rVert
+\le1$, so $\lvert\theta_j\rvert\le\pi/3$, and $\sin x\ge3x/\pi$ on $[0,
+\pi/6]$ gives $\lvert\theta_j\rvert\le\frac\pi3\lVert I-V\rVert$. The
+skew-Hermitian $\xi$ with the eigenvalues $i\theta_j$ on the eigenspaces of
+$V$ has $e^\xi=V$, and $\sum_j\theta_j\in2\pi\Z$ with $\lvert\sum_j\theta_j
+\rvert\le\frac{N\pi}3\lVert I-V\rVert\le\pi$, so $\Tr\xi=0$ and $\xi\in
+\g$. Finally $\lVert\xi\rVert^2=\sum_j\theta_j^2$.
+\end{proof}
+
+\begin{theorem}[local remainders at curved backgrounds]\label{thm:localcurved}
+Let $R=\sum_{X\in\mathcal X}f_X$ be a local remainder near $V_0\in G^K$,
+the links off $K$ given, every box of $\mathcal X$ containing a link of
+$K$. Let $\kappa_p=\lVert I-V_{0,p}\rVert$, $\kappa_X=\max_{p\in P_X}
+\kappa_p$ and $\delta_X=3r_X\kappa_X$, and suppose:
+\begin{enumerate}[label=\textup{(\alph*)},leftmargin=*]
+\item $\lVert\kappa\rVert_2\le\frac19$, with $\lVert\kappa\rVert_2$ as in
+Lemma~\ref{lem:windowlfour};
+\item for every $X$ there is $t_X\ge0$ with
+\[
+\bigl\lvert\Hess f_X(V)[v,v]-\Hess f_X(I)[v,v]\bigr\rvert\le t_X\max_{k\in
+L_X}\lVert I-V_k\rVert\,\lvert v\rvert^2
+\]
+whenever $\max_{k\in L_X}\lVert I-V_k\rVert\le\delta_X$.
+\end{enumerate}
+Put $\rho_X=\rho_{r_X}$, $b_X=3r_X\bigl(h_X\rho_X(\sqrt{432}+432\delta_X)
++t_X\bigr)$,
+\[
+\begin{gathered}
+\mathcal L_\kappa=\sup_p\sum_{X:\,p\in P_X}h_X\rho_X\bigl(1+\sqrt{432}\,
+\delta_X\bigr),\\
+B_1=\sup_{k\in K}\sum_{X:\,k\in L_X}b_X,\qquad B_2=\sup_p\sum_{X:\,p\in
+P_X}b_X\ell_X,
+\end{gathered}
+\]
+and $\kappa_*=(\sum_p\kappa_p^2)^{1/2}$, the sum over the plaquettes of the
+boxes of $\mathcal X$. Then for every $w\in\g^K$
+\[
+\lvert\mathcal HR(w,w)\rvert\le\bigl(\mathcal L_\kappa+c_4(B_1B_2)^{1/2}
+\kappa_*\bigr)\,Q^{V_0}(\Pi_{V_0}w).
+\]
+None of the constants depends on $n$. If $V_0$ is flat on the boxes, the
+factor is $\mathcal L_0$ of Theorem~\ref{thm:localflat}. Under the
+hypotheses of Lemma~\ref{lem:cauchy}\textup{(ii)}, \textup{(iii)} for $f_X$,
+with constants $a_X,\rho$, hypothesis~\textup{(b)} holds with $t_X=\frac{4
+\pi\sqrt N}3a_X\rho^{-3}$ when $\delta_X\le\min(1,\frac3N,\frac{3\rho}{2\pi
+\sqrt N})$.
+\end{theorem}
+
+\begin{proof}
+Write $u=\Pi_{V_0}w$ and $\lvert u_X\rvert^2=\sum_{k\in L_X}\lVert u_k
+\rVert^2$, with $u=0$ off $K$. As in Theorem~\ref{thm:localflat}(ii), $R$
+is $\Gamma_W$-invariant and $\mathcal HR(w,w)=\sum_X\Hess f_X(V_0)[u,u]$.
+
+Fix $X$. The tree argument in the proof of Lemma~\ref{lem:smallcurv},
+carried out in $X$, where $\sum_{\nu<\mu}(x_\nu-b_\nu)\le3r_X$ for every
+link $(x,\mu)$ of $X$ and every plaquette used lies in $P_X$, gives
+$g\in G^X$ with $\lVert I-(gV_0)_k\rVert\le\delta_X$ for every $k\in L_X$.
+With $V'=gV_0$ and $v=Tu$ as in the proof of Lemma~\ref{lem:flatterm},
+$\Hess f_X(V_0)[u,u]=\Hess f_X(V')[v,v]$, $\lvert v\rvert=\lvert u_X
+\rvert$ and $Q_X^{V'}(v)=Q_X^{V_0}(u)$. By (b),
+\[
+\lvert\Hess f_X(V')[v,v]-\Hess f_X(I)[v,v]\rvert\le t_X\delta_X\lvert u_X
+\rvert^2,
+\]
+and Lemma~\ref{lem:flatterm}(iii) at $I$ gives
+\[
+\lvert\Hess f_X(I)[v,v]\rvert\le h_X\rho_X\sum_{p\in P_X}\lVert(dv)_p
+\rVert^2 .
+\]
+As in the proof of
+Lemma~\ref{lem:smallcurv}, $\lVert Z_p(v)-(dv)_p\rVert\le2\delta_X(3b_1+
+2b_2+2b_3+b_4)$ at $V'$, with $b_i$ the norms of $v$ on the links of $p$,
+and a link lies in at most six plaquettes, so
+\[
+\Bigl(\sum_{p\in P_X}\lVert(dv)_p\rVert^2\Bigr)^{1/2}\le Q_X^{V_0}(u)^{1/2}
++\sqrt{432}\,\delta_X\lvert u_X\rvert .
+\]
+With $(s+t)^2\le(1+\theta)s^2+(1+\theta^{-1})t^2$ at $\theta=\sqrt{432}
+\,\delta_X$, and directly if $\delta_X=0$,
+\begin{align*}
+\lvert\Hess f_X(V_0)[u,u]\rvert&\le h_X\rho_X\bigl(1+\sqrt{432}\,\delta_X
+\bigr)Q_X^{V_0}(u)\\
+&\quad+b_X\kappa_X\lvert u_X\rvert^2 ,
+\end{align*}
+since $\delta_X(h_X\rho_X(\sqrt{432}+432\delta_X)+t_X)=b_X\kappa_X$.
+
+Summing over $X$ and exchanging the sums, the first terms give at most
+$\mathcal L_\kappa Q^{V_0}(u)$, and the second terms give $\sum_{k\in K}
+\beta_k\lVert u_k\rVert^2$ with $\beta_k=\sum_{X:\,k\in L_X}b_X\kappa_X$.
+By Cauchy--Schwarz, $\beta_k^2\le B_1\sum_{X:\,k\in L_X}b_X\kappa_X^2$ and
+$\kappa_X^2\le\sum_{p\in P_X}\kappa_p^2$, so
+\[
+\sum_k\beta_k^2\le B_1\sum_Xb_X\ell_X\sum_{p\in P_X}\kappa_p^2\le B_1B_2
+\kappa_*^2,
+\]
+and $\sum_k\beta_k\lVert u_k\rVert^2\le(\sum_k\beta_k^2)^{1/2}\lvert u
+\rvert_4^2$. Since $u\in\mathcal O_{V_0}^\perp$, Lemma~\ref{lem:windowlfour}
+and (a) give $\lvert u\rvert_4^2\le c_4Q^{V_0}(u)$. The last statement
+follows from Lemma~\ref{lem:cauchy}(ii), (iii): for $\max_k\lVert I-V_k
+\rVert=\delta\le\delta_X$, $V=e^\xi$ with $\max_k\lVert\xi_k\rVert\le\frac
+\pi3\sqrt N\delta\le\rho/2$.
+\end{proof}
+
+Theorem~\ref{thm:localcurved} extends Proposition~\ref{prop:actionloops}
+from loop sums, whose existence for the induced action is open
+(Remark~\ref{rem:loopsopen}), to every local remainder, with the same order
+$\lVert\kappa\rVert_2$ of the loss. For the plaquette sum that order is
+attained (Corollary~\ref{cor:actionsharp}). Measured by the supremum of the
+curvature the loss is not of order $\kappa$ uniformly in $n$, even for the
+plaquette sum, a local remainder whose terms do not depend on $n$.
+
+\begin{proposition}[no loss of order $\kappa$ uniformly in $n$]
+\label{prop:supform}
+Let $G=\SU(2)$, $0<\kappa\le0.02$, $n\ge(31/\kappa)^{1/2}$, and let $P$ be
+the sum of $s(V_p)$ over the plaquettes with their corners in $\Lambda'$.
+There are a background $V_0$ with $\lVert I-V_{0,p}\rVert\le\kappa$ for
+every such plaquette and $u\in\mathcal O_{V_0}^\perp$ with $\mathcal HP
+(u,u)<0\le\frac12Q^{V_0}(u)$. Hence a bound
+\[
+(1-\phi)\,\tfrac12Q^{V_0}\circ\Pi_{V_0}\le\mathcal HP\le(1+\phi)\,\tfrac12
+Q^{V_0}\circ\Pi_{V_0},
+\]
+valid at every background with plaquettes within $\kappa$ of $I$ on windows
+of side $n$, requires $\phi>1$; for every $C\le1/\kappa$ none holds with
+$\phi=C\kappa$ for all $n$.
+\end{proposition}
+
+\begin{proof}
+Take $\sin^2\alpha=\kappa/2\le10^{-2}$ and $\varsigma=-1$ in
+Proposition~\ref{prop:curvedsharp}: the plaquettes in the plane $\{0,1\}$
+have $\lVert I-V_{0,p}\rVert=2\sin^2\alpha=\kappa$, the others are flat,
+$n\ge(31/0.02)^{1/2}>39$ and $\kappa(n+1)^2>31$, so part (ii) gives $u\in
+\mathcal O_{V_0}^\perp$ with $\mathcal HP(u,u)<0$, and $\Pi_{V_0}u=u$. A
+lower bound with $\phi\le1$ would give $\mathcal HP(u,u)\ge0$.
+\end{proof}
+
+Within $\kappa(n+1)^2\le2$, Proposition~\ref{prop:curvedsharp}(i) gives the
+lower bound $\phi\ge0.037\,\kappa(n+1)^2$. Since $\lVert\kappa\rVert_2\le
+\sqrt6(n+1)(n+2)\kappa_\infty$, the order $\kappa n^2$ in the supremum and
+the order $\lVert\kappa\rVert_2$ in the action are the same estimate; the
+action is the measure of the background that does not depend on $n$, and
+on the calm windows of Corollary~\ref{cor:actioncalm} it is at most
+$39.5K$.
+
+\emph{Condition (C).} At the trivial background on the torus of the next
+scale, Theorem~\ref{thm:localflat}(i) gives both halves of condition (C)
+of Theorem~\ref{thm:allscales} from a local representation of the one-step
+error.
+
+\begin{corollary}[condition (C) from local terms]\label{cor:localC}
+In the setting of Sec.~\ref{ssec:allscales}, let $k<K$ and assume $P_k$ of
+Theorem~\ref{thm:allscales}. Suppose that $D_k$ is the restriction to
+$\mathcal X_{k+1}$ of $\Hess R(I)$ for a local remainder $R$ on the torus
+of scale $k+1$, all of whose boxes have side at most $n_{k+1}-2$, with
+\[
+\mathcal L_0\le\frac{1.027}{\lambda_{k+1}},\qquad\Delta=\sup_a\sum_{X:\,a
+\in L_X}h_X\ell_Xe^{\alpha_{k+1}r_X}<\infty .
+\]
+Then condition (C) holds at the step $k$ with $\delta_k=\Delta/
+\lambda_{k+1}$.
+\end{corollary}
+
+\begin{proof}
+By Theorem~\ref{thm:localflat}(i) at $V_0=I$, $\lvert D_k(x,x)\rvert\le
+\mathcal L_0Q_{k+1}(x)$ for $x\in\mathcal X_{k+1}$. By
+Proposition~\ref{prop:effective}(iii), whose bound $S_k\ge Q_k$ holds on
+every lattice, $Q_{k+1}\le R_{k+1}/(2\lambda_{k+1})$. By $P_k$(a),
+$H_k\ge(1-\sigma_k)R_k$, and $\mathcal M_k$ is monotone and positively
+homogeneous, so $(1-\sigma_k)R_{k+1}=(1-\sigma_k)\frac{\lambda_{k+1}}
+{\lambda_k}\mathcal M_kR_k\le\frac{\lambda_{k+1}}{\lambda_k}\mathcal M_kH_k$
+on $\mathcal X_{k+1}$. With $\sigma_k\le\sigma_K\le0.4865$, as in the proof
+of Theorem~\ref{thm:allscales},
+\begin{align*}
+\lvert D_k(x,x)\rvert&\le\frac{\mathcal L_0}{2\lambda_{k+1}(1-\sigma_k)}
+\frac{\lambda_{k+1}}{\lambda_k}\mathcal M_kH_k(x)\\
+&\le\frac1{\lambda_{k+1}^2}\frac{\lambda_{k+1}}{\lambda_k}\mathcal M_kH_k(x),
+\end{align*}
+because $2(1-0.4865)=1.027$; this is the first half of (C). The blocks of
+$D_k$ are $(D_k)_{ab}=\sum_{X:\,a,b\in L_X}(\Hess f_X(I))_{ab}$, each of
+norm at most $h_X$; two links of a box of side $r$ have midpoints at
+$\ell^\infty$ distance at most $r$, and a box has $\ell_X$ links, so
+$\sum_b\lVert(D_k)_{ab}\rVert e^{\alpha_{k+1}d_{k+1}(a,b)}\le\Delta$, and
+restriction to $\mathcal X_{k+1}$ does not increase it.
+\end{proof}
+
+\begin{remark}[what the local form leaves open]\label{rem:localrem}
+Four points are not settled by the results above.
+\begin{enumerate}[label=\textup{(\alph*)},leftmargin=*]
+\item The induced action of the cut-off averages is not shown to be of the
+form $A_0+R$ with $R$ a local remainder. By Theorem~\ref{thm:sfgauss} its
+leading term is nonlocal when $(M_W)_{AB}\ne0$, and the theorems above
+concern only the remainder; the bound $\mathcal L_0\le1.027/\lambda_{k+1}$
+of Corollary~\ref{cor:localC} asks for terms of order $g^4$ relative to the
+action, after the order $g^2$ is absorbed into $\lambda_{k+1}$.
+\item The large-field estimates of Sec.~\ref{ssec:lfstep} bound the values
+of polymer activities on real fields. Lemma~\ref{lem:cauchy} needs bounds
+on complex neighbourhoods, and by Remark~\ref{rem:valueshessians}(b) real
+bounds on values give no bound on Hessians.
+\item Each term of side $r$ costs $\rho_r\le(r+1)^2/4$, the gap of its own
+box, so the theorems need $\sum_rr^2(r+1)^4\sup_{r_X=r}h_X<\infty$, which
+exponential decay of the terms in their size provides
+(Theorem~\ref{thm:localflat}(iii)).
+\item The locality constants $\Lambda_k$ of Theorem~\ref{thm:allscales}
+grow with $k$ whatever $\delta_k$ is; Corollary~\ref{cor:localC} does not
+change that.
+\end{enumerate}
+\end{remark}
+
 \subsection{What remains}\label{ssec:remains}
 
 The results of this section leave the following statements, which together
@@ -28962,11 +30263,29 @@ comparison.
 gives the explicit coupling $\beta^*(\rho,s)$ past which the islands of
 bad blocks at one scale are rare enough to beat their entropy, at the
 exponent $1/H$ of Proposition~\ref{prop:coverageopt} and the collar of
-Proposition~\ref{prop:graphlaw}. What is not given is the same statement
-at the scale of the cube: $\beta^*$ is of order $10^{13}$ at the witness
-radius $10^{-4}$ of Theorem~\ref{thm:islandswide}, and of order $10^{37}$ under the calmness of Corollary~\ref{cor:twoislands}, far beyond the
-range in which the chessboard estimate reaches that scale, so that (iv) is
-needed before the threshold bears on the gap.
+Proposition~\ref{prop:graphlaw}. It is of order $10^{13}$ at the witness
+radius $10^{-4}$ of Theorem~\ref{thm:islandswide}, and of order $10^{37}$
+under the calmness of Corollary~\ref{cor:twoislands}; the tree count of
+Proposition~\ref{prop:treethreshold} lowers it by a factor $1.7$ to $1.8$,
+and the union bound over connected sets by at most a further factor $1.39$.
+The same statement at the scale of the cube is not given, and
+Theorem~\ref{thm:chessceiling} shows that no bound of this kind gives it: at
+scale $j$ every witness of a coarse label of radius $\eta<\eta_c$ has
+radius at most $1.00015\cdot4^{-j-1}\eta$, by the constant curvature of
+Proposition~\ref{prop:constantcurvature}; the normalisation of the
+chessboard estimate charges at least $\frac92(\log\beta_W-c_I)$ per fine
+site (Lemma~\ref{lem:Zabove}); and so every bound obtained from
+Theorem~\ref{thm:defects} or Proposition~\ref{prop:coarsechess} is below one
+only at scales whose blocks are smaller than the cube of $D(n,\alpha)$ by a
+factor at least $4.08(1-\alpha)^{1/4}$, at every coupling, with the
+normalisation of Lemma~\ref{lem:wilsonZ} or, for $\beta_W\ge10^3$, the exact
+one. For $\alpha\le\frac12$ and the labels of Theorem~\ref{thm:islandswide}
+the cube lies at least three dyadic scales higher, and for the calm labels
+at least twenty
+(Corollary~\ref{cor:chessceiling}). What is missing is a bound on the weight
+of the coarse defects relative to $Z_L$ that does not charge the
+fluctuation volume of the cube (Remark~\ref{rem:chessceiling}), and (iv)
+is needed before any threshold bears on the gap.
 \item \emph{The scales.} An effective action at every scale whose
 one-step errors are summable in the sense of
 Proposition~\ref{prop:formstability} and whose locality norms obey
@@ -29034,6 +30353,14 @@ proves the step from one scale to the next under a single condition on the
 error of that step, relative and local; under it the relative comparison
 and the fibre gap pass to every scale uniformly in $\lambda_0$, and the
 locality of the fibre with constants that are not bounded in the scale.
+Sec.~\ref{ssec:localrem} proves the relative one-step bound without the
+factor $C_n$ when the remainder of the action is a sum of gauge-invariant
+local terms, exactly at flat backgrounds (Theorem~\ref{thm:localflat}) and
+with a loss of order $\lVert\kappa\rVert_2$ at curved ones
+(Theorem~\ref{thm:localcurved}); a loss of order $\kappa$ uniformly in $n$
+is false (Proposition~\ref{prop:supform}). Condition (C) follows from such
+a representation of the one-step error (Corollary~\ref{cor:localC}); that
+the induced action has one is not proved (Remark~\ref{rem:localrem}).
 \end{enumerate}
 The covariance of item (ii) for a fixed coarse field and uniform in the
 exterior, with decay at the rate $2\alpha_G$ without a floor, is the
@@ -29081,7 +30408,7 @@ This is the summability required in item~(iv), now for the ratio, and $(\mathrm 
 Osterwalder--Schrader axioms for the spatially flowed fields, with the
 symmetry $\mathrm O(3)\times\mathrm O(1)$, follow from three statements, a
 moment bound (M), one spatial rotation (W) and one limit (U), each of
-them necessary and none of them proved. Full $\mathrm O(4)$ invariance is not among these conclusions: at positive flow time the spatial flow breaks it even for the free field (Proposition~\ref{prop:osobstruction}(c)), so it has to be posed for $\mathrm O(4)$-covariant observables, such as fields of the four-dimensional flow, and the four-dimensional flow loses reflection positivity already for the free field (Proposition~\ref{prop:fourflow}). Of the three statements, (M) is a local moment bound together with the bound $\sup_k\Upsilon_k<\infty$, which contains $(\mathrm N_0)$ for product packets and fails in the strong-coupling range (Proposition~\ref{prop:msplit}), and the flow alone cannot give it (Proposition~\ref{prop:stationary}); (W) is the Ward identity for one spatial generator (Proposition~\ref{prop:wardform}); and under the renormalisation condition (RC), (U) is the vanishing of the moment differences between consecutive scales together with a totally disconnected set of limits, and a first-order bound in the running coupling for those differences does not give it (Proposition~\ref{prop:tuned}).
+them necessary and none of them proved. Full $\mathrm O(4)$ invariance is not among these conclusions: at positive flow time the spatial flow breaks it even for the free field (Proposition~\ref{prop:osobstruction}(c)), so it has to be posed for $\mathrm O(4)$-covariant observables, such as fields of the four-dimensional flow, and the four-dimensional flow loses reflection positivity already for the free field (Proposition~\ref{prop:fourflow}). Of the three statements, (M) is a local moment bound together with the bound $\sup_k\Upsilon_k<\infty$, which contains $(\mathrm N_0)$ for product packets and fails in the strong-coupling range (Proposition~\ref{prop:msplit}), and the flow alone cannot give it (Proposition~\ref{prop:stationary}); its spatial comparison (M$_{\mathrm{sp}}$) follows from spatial reflection positivity (SR$_0$) of the slice field (Theorem~\ref{thm:spatialrp}), which cannot hold for a field and its Laplacian together in a state that clusters in space (Corollary~\ref{cor:srladder}) and is destroyed by the linear heat flow (Proposition~\ref{prop:heatrp}); (W) is the Ward identity for one spatial generator (Proposition~\ref{prop:wardform}); and under the renormalisation condition (RC), (U) is the vanishing of the moment differences between consecutive scales together with a totally disconnected set of limits, and a first-order bound in the running coupling for those differences does not give it (Proposition~\ref{prop:tuned}).
 
 \begin{figure*}[t]
 \centering
