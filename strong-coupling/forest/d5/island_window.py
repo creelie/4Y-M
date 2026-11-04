@@ -74,9 +74,9 @@ for s in (1, 5):
     logx = 2 * iv.log(N) + (1 + iv.log(M * H) + logqstar) / H
     print("x = N^2 A*^{1/H}: log x in", lo(logx), up(logx), " (log 1/2 =", mp.nstr(-mp.log(2), 12), ")")
     check("s=%d: x <= 1/2 at beta*" % s, (logx + iv.log(2)).b <= 1e-40)
-    # G_0
-    log10G0 = log10(iv.mpf(H)) - H * log10(iv.mpf(2)) - log10(iv.mpf(N) ** 2 - 1) \
-        - 2 * log10(1 - iv.mpf(2) ** (-H))
+    # G_0 = H (M q* + A* u/(1-u)), u = N^{2H} A* = x^H <= 2^{-H}
+    u = iv.mpf(2) ** (-H)
+    log10G0 = log10(iv.mpf(H)) + log10(iv.mpf(10) ** log10Mq + iv.mpf(10) ** log10A * u / (1 - u))
     print("log10 G_0 <=", up(log10G0))
     log10G0_s[s] = log10G0
     for theta, label in ((iv.mpf(0), "0"), (iv.mpf(1) / 2, "1/2")):
@@ -95,8 +95,8 @@ for s in (1, 5):
         print("log10 c_2(beta*) <=", up(log10(c2)))
         check("s=%d theta=%s: log10 c_2 <= %s" % (s, label, {1: "22.13", 5: "23.14"}[s]),
               log10(c2).b <= {1: 22.13, 5: 23.14}[s])
-        check("s=%d theta=%s: log10 G_0 sigma(kappa) <= %s" % (s, label, {1: "-380.6", 5: "-382.5"}[s]),
-              (log10G0 + log10(sk)).b <= {1: -380.6, 5: -382.5}[s])
+        check("s=%d theta=%s: log10 G_0 sigma(kappa) <= %s" % (s, label, {1: "-14082.3", 5: "-16632.6"}[s]),
+              (log10G0 + log10(sk)).b <= {1: -14082.3, 5: -16632.6}[s])
         for R in (2 * s + 13, int(mp.ceil(2 * mp.mpf(10) ** 8 / (1 - mp.mpf(theta.a))))):
             near = log10(iv.mpf(11) ** 4) + 4 * log10(iv.mpf(2 * R + 1)) + 2 * log10Mq
             if R == 2 * s + 13:
@@ -117,10 +117,10 @@ for s in (1, 5):
     if s == 1:
         check("s=1: log10(M q*) <= -14102.4", log10Mq.b <= -14102.4)
         check("s=1: log10 A* <= -14098.8", log10A.b <= -14098.8)
-        check("s=1: log10 G_0 <= -397.6", log10G0.b <= -397.6)
+        check("s=1: log10 G_0 <= -14099.3", log10G0.b <= -14099.3)
     if s == 5:
         check("s=5: log10(M q*) <= -16652.79", log10Mq.b <= -16652.79)
-        check("s=5: log10 G_0 <= -399.56", log10G0.b <= -399.56)
+        check("s=5: log10 G_0 <= -16649.6", log10G0.b <= -16649.6)
     stated.append((s, blo, bhi))
 
 print("\n================ statements of the theorem ================")
@@ -132,12 +132,12 @@ def tot(k):
     n, f = claims[k]
     return log10(iv.mpf(10) ** n + iv.mpf(10) ** f)
 check("s=1, theta=0, R=15: near <= 1e-28194 |W|", claims[(1, "0", 15, -100)][0].b <= -28194)
-check("s=1, theta=0, R=15: far <= 1e-14462 |W| / sigma", (claims[(1, "0", 15, -100)][1] - 100).b <= -14462)
+check("s=1, theta=0, R=15: far <= 1e-28163.8 |W| / sigma", (claims[(1, "0", 15, -100)][1] - 100).b <= -28163.8)
 check("s=1, theta=0, R=2e8, sigma>=1e-1000: eps <= 1e-28166 |W|", tot((1, "0", 200000000, -1000)).b <= -28166)
 check("s=1, theta=1/2, R=4e8, sigma>=1e-1000: eps <= 1e-28165 |W|", tot((1, "1/2", 400000000, -1000)).b <= -28165)
 check("s=5, theta=0, R=2e8, sigma>=1e-1000: eps <= 1e-33267 |W|", tot((5, "0", 200000000, -1000)).b <= -33267)
-check("s=1: G_0 sigma(2 alpha_G) <= 1e-381.8", (log10G0_s[1] + log10(sigma(2 * alphaG))).b <= -381.8)
-check("s=5: G_0 sigma(2 alpha_G) <= 1e-383.7", (log10G0_s[5] + log10(sigma(2 * alphaG))).b <= -383.7)
+check("s=1: G_0 sigma(2 alpha_G) <= 1e-14083.5", (log10G0_s[1] + log10(sigma(2 * alphaG))).b <= -14083.5)
+check("s=5: G_0 sigma(2 alpha_G) <= 1e-16633.8", (log10G0_s[5] + log10(sigma(2 * alphaG))).b <= -16633.8)
 check("|W| <= 1e28000 gives eps <= 1e-166 (s=1, theta=0)", (tot((1, "0", 200000000, -1000)) + 28000).b <= -166)
 # the paper's value 1.13e37 of cor:twoislands corresponds to rho = 2.16e-16
 rho2 = iv.mpf(216) / iv.mpf(10) ** 18

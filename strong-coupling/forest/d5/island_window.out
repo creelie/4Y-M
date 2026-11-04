@@ -1,0 +1,109 @@
+rho in 2.17e-16 2.17e-16   r = 43 rho, eta = 92 rho
+eta + 62 r = 2758 rho <= 6.0e-13 : 5.98486e-13
+PASS hypothesis (a): 2758 rho <= 6.0e-13
+PASS Lemma lambdatwo: eta + 30 r = 1382 rho <= 6.0e-13
+
+================ s = 1 ================
+N_s = 194480   |log q*| in [ 32481.672671476 , 32481.672671476 ]
+PASS s=1: g(beta_lo) > 0 > g(beta_hi), beta_lo > 96/rho^2
+beta* in [ 1.1220620202447e+37 , 1.1220620202447e+37 ]
+PASS s=1: beta* > 112/rho^2 (monotonicity of Lambda^2 e^f / beta)
+log10(M q*) <= -14102.445633469    log10 A* <= -14098.898733986
+x = N^2 A*^{1/H}: log x in -0.69314718055995 -0.69314718055995  (log 1/2 = -0.69314718056 )
+PASS s=1: x <= 1/2 at beta*
+log10 G_0 <= -14099.333028467
+--- vartheta = 0  kappa = 0.0005
+sigma(kappa) in [ 6.144000064e+15 , 6.144000064e+15 ]  sigma(kappa/2) <= 9.8304000256e+16
+prop:islandmass(ii) at Gamma=1 per |J|: 324886.23820828 324886.23820828
+new mean bound G_0 sigma(kappa): log10 <= -14083.544577256
+log10 c_2(beta*) <= 22.121873696523
+PASS s=1 theta=0: log10 c_2 <= 22.13
+PASS s=1 theta=0: log10 G_0 sigma(kappa) <= -14082.3
+R = 15: log10 near/|W| <= -28194.760249422 ; log10 far/|W| <= -28163.868337028 - log10(sigma)
+    sigma = 1e-100: log10 eps/|W| <= -28063.868337028
+    sigma = 1e-1000: log10 eps/|W| <= -27163.868337028
+R = 200000000: log10 near/|W| <= -28166.317456228 ; log10 far/|W| <= -49877.388312212 - log10(sigma)
+    sigma = 1e-100: log10 eps/|W| <= -28166.317456228
+PASS s=1 theta=0 R=200000000 sigma=1e-100: far <= near
+    sigma = 1e-1000: log10 eps/|W| <= -28166.317456228
+PASS s=1 theta=0 R=200000000 sigma=1e-1000: far <= near
+--- vartheta = 1/2  kappa = 0.00025
+sigma(kappa) in [ 9.8304000256e+16 , 9.8304000256e+16 ]  sigma(kappa/2) <= 1.572864001024e+18
+prop:islandmass(ii) at Gamma=1 per |J|: 5198179.7707217 5198179.7707217
+new mean bound G_0 sigma(kappa): log10 <= -14082.340457277
+log10 c_2(beta*) <= 22.120136518595
+PASS s=1 theta=1/2: log10 c_2 <= 22.13
+PASS s=1 theta=1/2: log10 G_0 sigma(kappa) <= -14082.3
+R = 15: log10 near/|W| <= -28194.760249422 ; log10 far/|W| <= -28162.665954227 - log10(sigma)
+    sigma = 1e-100: log10 eps/|W| <= -28062.665954227
+    sigma = 1e-1000: log10 eps/|W| <= -27162.665954227
+R = 400000000: log10 near/|W| <= -28165.113336247 ; log10 far/|W| <= -49876.185929408 - log10(sigma)
+    sigma = 1e-100: log10 eps/|W| <= -28165.113336247
+PASS s=1 theta=1/2 R=400000000 sigma=1e-100: far <= near
+    sigma = 1e-1000: log10 eps/|W| <= -28165.113336247
+PASS s=1 theta=1/2 R=400000000 sigma=1e-1000: far <= near
+PASS s=1: log10(M q*) <= -14102.4
+PASS s=1: log10 A* <= -14098.8
+PASS s=1: log10 G_0 <= -14099.3
+
+================ s = 5 ================
+N_s = 1874160   |log q*| in [ 38354.07290025 , 38354.07290025 ]
+PASS s=5: g(beta_lo) > 0 > g(beta_hi), beta_lo > 96/rho^2
+beta* in [ 1.3216290498578e+37 , 1.3216290498578e+37 ]
+PASS s=5: beta* > 112/rho^2 (monotonicity of Lambda^2 e^f / beta)
+log10(M q*) <= -16652.796648353    log10 A* <= -16649.24974887
+x = N^2 A*^{1/H}: log x in -0.69314718055995 -0.69314718055995  (log 1/2 = -0.69314718056 )
+PASS s=5: x <= 1/2 at beta*
+log10 G_0 <= -16649.684043351
+--- vartheta = 0  kappa = 0.0005
+sigma(kappa) in [ 6.144000064e+15 , 6.144000064e+15 ]  sigma(kappa/2) <= 9.8304000256e+16
+prop:islandmass(ii) at Gamma=1 per |J|: 3498.3872225533 3498.3872225533
+new mean bound G_0 sigma(kappa): log10 <= -16633.89559214
+log10 c_2(beta*) <= 23.139705702098
+PASS s=5 theta=0: log10 c_2 <= 23.14
+PASS s=5 theta=0: log10 G_0 sigma(kappa) <= -16632.6
+R = 23: log10 near/|W| <= -33294.739334534 ; log10 far/|W| <= -33263.552534791 - log10(sigma)
+    sigma = 1e-100: log10 eps/|W| <= -33163.552534791
+    sigma = 1e-1000: log10 eps/|W| <= -32263.552534791
+R = 200000000: log10 near/|W| <= -33267.019485996 ; log10 far/|W| <= -54977.072509974 - log10(sigma)
+    sigma = 1e-100: log10 eps/|W| <= -33267.019485996
+PASS s=5 theta=0 R=200000000 sigma=1e-100: far <= near
+    sigma = 1e-1000: log10 eps/|W| <= -33267.019485996
+PASS s=5 theta=0 R=200000000 sigma=1e-1000: far <= near
+--- vartheta = 1/2  kappa = 0.00025
+sigma(kappa) in [ 9.8304000256e+16 , 9.8304000256e+16 ]  sigma(kappa/2) <= 1.572864001024e+18
+prop:islandmass(ii) at Gamma=1 per |J|: 55974.195123555 55974.195123555
+new mean bound G_0 sigma(kappa): log10 <= -16632.691472161
+log10 c_2(beta*) <= 23.137099935207
+PASS s=5 theta=1/2: log10 c_2 <= 23.14
+PASS s=5 theta=1/2: log10 G_0 sigma(kappa) <= -16632.6
+R = 23: log10 near/|W| <= -33294.739334534 ; log10 far/|W| <= -33262.351020578 - log10(sigma)
+    sigma = 1e-100: log10 eps/|W| <= -33162.351020578
+    sigma = 1e-1000: log10 eps/|W| <= -32262.351020578
+R = 400000000: log10 near/|W| <= -33265.815366015 ; log10 far/|W| <= -54975.870995759 - log10(sigma)
+    sigma = 1e-100: log10 eps/|W| <= -33265.815366015
+PASS s=5 theta=1/2 R=400000000 sigma=1e-100: far <= near
+    sigma = 1e-1000: log10 eps/|W| <= -33265.815366015
+PASS s=5 theta=1/2 R=400000000 sigma=1e-1000: far <= near
+PASS s=5: log10(M q*) <= -16652.79
+PASS s=5: log10 G_0 <= -16649.6
+
+================ statements of the theorem ================
+s=1: beta* in [1.1220620202447e+37, 1.1220620202447e+37]
+s=5: beta* in [1.3216290498578e+37, 1.3216290498578e+37]
+PASS s=1: beta* in [1.1220e37, 1.1221e37]
+PASS s=5: beta* in [1.3216e37, 1.3217e37]
+PASS s=1, theta=0, R=15: near <= 1e-28194 |W|
+PASS s=1, theta=0, R=15: far <= 1e-28163.8 |W| / sigma
+PASS s=1, theta=0, R=2e8, sigma>=1e-1000: eps <= 1e-28166 |W|
+PASS s=1, theta=1/2, R=4e8, sigma>=1e-1000: eps <= 1e-28165 |W|
+PASS s=5, theta=0, R=2e8, sigma>=1e-1000: eps <= 1e-33267 |W|
+PASS s=1: G_0 sigma(2 alpha_G) <= 1e-14083.5
+PASS s=5: G_0 sigma(2 alpha_G) <= 1e-16633.8
+PASS |W| <= 1e28000 gives eps <= 1e-166 (s=1, theta=0)
+rho=2.16e-16, s=1: g(1.124e+37) = 236.95276661755, g(1.136e+37) = -92.495232882432
+rho=2.16e-16, s=5: g(1.323e+37) = 307.49076324862, g(1.337e+37) = -80.277236251374
+
+sigma(5e-4) (paper: 6.144e15): 6.144000064e+15 6.144000064e+15
+
+all checks passed: True (39 checks)
