@@ -1,4 +1,4 @@
-# Yang–Mills Mass Gap Reduced to One Cube
+# Yang–Mills Mass Gap Follows from One Cube
 
 Deep Bhattacharjee, Ushashi Bhattacharya, James Montgomery Lockwood and
 Tristan Romanov.
