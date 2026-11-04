@@ -487,3 +487,8 @@ it to the fourteen nontrivial two-link paths before the coarse averages are
 conditioned, when the exterior leaves the seven private links free. The
 sharper Gaussian-scale estimate, the weighted fibre flux, and large-field
 displacement remain open.
+
+**Proved conditional averaging:** `AVERAGED_SHELL_MASS.md` combines the
+shell hazard with a deterministic path-speed bound and disintegration,
+without a lower bound on individual fibre normalizers. The actual signed
+fibre flux must still be identified and the rare-event displacement bounded.
