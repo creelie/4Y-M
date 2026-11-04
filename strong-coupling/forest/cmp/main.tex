@@ -276,11 +276,11 @@ kind, for special holonomy and for Riemannian submersions, are studied
 in~\cite{BTBS26,GBN26}.} For small $|\beta|$ the existence of a gap is classical
 for every compact group, with no explicit range~\cite[Thm.~3.6]{OSei78}; what is new is an explicit range for
 every group, past the range $N|\beta|<\kappa_G/16$ that the Hessian bound $16$
-gives without gauge fixing, and an explicit gap.\footnote{With the computer-assisted bound $h_F\le14.420001$ of
-Theorem~\ref{thm:certificate} in place of $\frac{29}2$, every range of
-Table~\ref{tab:groups} grows by the factor $29/28.840002=1.0055$.
-Appendix~\ref{app:certificate} derives that bound from a certificate of
-T.~Romanov; no result of the paper uses it.} As $\beta\to0$ the gap grows like $\log\frac{\kappa_G}{6N|\beta|}$.
+gives without gauge fixing, and an explicit gap.\footnote{The computation
+of Remark~\ref{rem:certificate}, from a certificate of T.~Romanov, gives
+$h_F\le14.420001$; with it in place of $\frac{29}2$, every range of
+Table~\ref{tab:groups} would grow by the factor $29/28.840002=1.0055$. No
+result of the paper uses it.} As $\beta\to0$ the gap grows like $\log\frac{\kappa_G}{6N|\beta|}$.
 
 \begin{table}[tb]
 \caption{Least Ricci curvature $\kappa_G=h^\vee/(2\ell_\rho)$ of the compact
@@ -534,10 +534,11 @@ Corollary~\ref{cor:defectscales}, which is the scale $a_{k_*}$ up to a
 constant factor; for larger boxes with general boundary fields this
 conditional estimate is open (Remark~\ref{rem:boxnonabelian}).
 On the fibres of the cut-off average, at a background whose plaquettes are
-at most $\kappa\le10^{-8}$, the gap $\frac1{52}$ of the averages\footnote{By the certificate of
-Proposition~\ref{prop:blockgapsharp} this gap is at least
-$\frac{537}{5000}=0.1074$, within $0.09$ per cent of the best constant on $\Z^4$, a
-floating-point value. No result of the paper uses the certificate.}
+at most $\kappa\le10^{-8}$, the gap $\frac1{52}$ of the averages\footnote{By the
+computation of Remark~\ref{rem:blockgapsharp}, from a certificate of
+T.~Romanov, this gap is at least $\frac{537}{5000}=0.1074$, within $0.09$ per
+cent of the best constant on $\Z^4$, a floating-point value. No result of
+the paper uses it.}
 persists up
 to a factor $1+O(\kappa)$, and the Hessian of the action along the fibre is
 at least $\lambda(\frac1{26}-c\kappa)$, however far the links are from $I$
@@ -1639,17 +1640,18 @@ nothing above $13.97401$, the value at an abelian field; certificates made of
 plaquette forms and vertex forms on the period-two cell cannot go below
 $14.384$. One of us (T.~Romanov)~\cite{Rom26} constructed such a certificate, with sixteen
 positive definite vertex forms of size eight and nonnegative plaquette
-weights, rational with denominator $10^6$. It gives $h_F\le14.420001$
-(Theorem~\ref{thm:certificate}; Appendix~\ref{app:certificate} gives the
-derivation and the checks). Like $\frac{29}2$ this is a statement about
-$\U(N)$, so it can replace $\frac{29}2$ in Theorems~\ref{thm:curv}
-and~\ref{thm:groups}, and the curvature method then reaches
-$|\beta|<1/28.840002$, that is $\beta_W<0.1387$ for $\SU(2)$ and
-$\beta_W<0.3121$ for $\SU(3)$. The bound is computer-assisted and concerns
-the lattice at fixed spacing, not the continuum limit. The theorems of this
-paper are stated with $\frac{29}2$, which is proved by hand.
-With this gauge the curvature method stops between $|\beta|=1/28.840002$
-and $\frac1{26.25}$.
+weights, rational with denominator $10^6$. Its positivity is checked by
+computer, and with it the argument of Appendix~\ref{app:certificate} gives
+$h_F\le14.420001$ (Remark~\ref{rem:certificate}). Like $\frac{29}2$ this
+would be a statement about $\U(N)$, so it could replace $\frac{29}2$ in
+Theorems~\ref{thm:curv} and~\ref{thm:groups}, and the curvature method
+would then reach $|\beta|<1/28.840002$, that is $\beta_W<0.1387$ for
+$\SU(2)$ and $\beta_W<0.3121$ for $\SU(3)$. This is a computation, used
+by no result of the paper, and concerns the lattice at fixed spacing, not
+the continuum limit. The theorems of this paper are stated with
+$\frac{29}2$, which is proved by hand. With this gauge the curvature
+method reaches $|\beta|<\frac1{29}$ and stops before $\frac1{26.25}$; the
+computation moves the first value to $1/28.840002$.
 \end{remark}
 
 \section{SU(3) up to 3/4}\label{sec:su3}
@@ -2331,8 +2333,9 @@ floating-point bound of Remark~\ref{rem:blockgap}, which no result uses,
 stops near $0.357$. Larger blocks are the next step.
 
 \emph{Curvature.} Remark~\ref{rem:hf} locates the end of the curvature
-method in this gauge between $|\beta|=1/28.840002$, by the computer-assisted
-certificate of Appendix~\ref{app:certificate}, and $\frac1{26.25}$.
+method in this gauge between $|\beta|=\frac1{29}$ and $\frac1{26.25}$; the
+computation of Remark~\ref{rem:certificate}, which no result uses, moves
+the first value to $1/28.840002$.
 
 \emph{$\SU(3)$.} The route of Section~\ref{sec:su3} bounds the
 $H^{-1}(\nu_b)$ norm of $\varphi_h-\nu_b\varphi_h$, which is at least
@@ -8771,25 +8774,19 @@ and
 \end{proof}
 
 The constant $52$ is not sharp. A certificate of one of us (T.~Romanov)
-lowers it to within one part in a thousand of the bulk value.
+lowers it to within one part in a thousand of the bulk value; it rests on
+a computation, and no result of the paper uses it.
 
-\begin{proposition}\label{prop:blockgapsharp}
-For every set of blocks $W$ and every $\varphi\in\Phi_W$,
-\[
-\sum_e\varphi_e^2\le\frac{5000}{537}\,Q(\varphi)=9.31098\ldots\,Q(\varphi).
-\]
-The same holds on every periodic lattice of even side.
-\end{proposition}
-
-\begin{proof}
+\begin{remark}[a computation, used by no theorem]\label{rem:blockgapsharp}
 Let $c=\frac{537}{5000}$, and let $S(y)=B(y)\cup B(y+e_0)\cup\dots\cup
-B(y+e_3)$, whose active links number $5\cdot49=245$. The certificate consists
-of $196$ rational numbers $l_{\mu,b}$, $\mu=0,\dots,3$, indexed by the
-$49$ active links $b$ of a block, and a rational symmetric matrix $G$ of
-size $245$ on the active links of $S(0)$. With
+B(y+e_3)$, whose active links number $5\cdot49=245$. The certificate of
+T.~Romanov consists of $196$ rational numbers $l_{\mu,b}$, $\mu=0,\dots,3$,
+indexed by the $49$ active links $b$ of a block, and a rational symmetric
+matrix $G$ of size $245$ on the active links of $S(0)$. With
 $L_{y,\mu}(\varphi)=\sum_bl_{\mu,b}\varphi_{(y,b)}$, where $(y,b)$ is the
-link $b$ of $B(y)$, and $G_y$ the translate of $G$ to $S(y)$, these satisfy
-the identity of quadratic forms in finitely supported $\varphi$
+link $b$ of $B(y)$, and $G_y$ the translate of $G$ to $S(y)$, these are
+stated to satisfy the identity of quadratic forms in finitely supported
+$\varphi$
 \begin{equation}\label{eq:blockgapcert}
 Q(\varphi)-c\sum_e\varphi_e^2-\sum_{y,\mu}V_{y,\mu}(\varphi)L_{y,\mu}
 (\varphi)=\sum_yG_y(\varphi|_{S(y)}),
@@ -8797,30 +8794,34 @@ Q(\varphi)-c\sum_e\varphi_e^2-\sum_{y,\mu}V_{y,\mu}(\varphi)L_{y,\mu}
 and $G$ is positive definite. Both sides of~\eqref{eq:blockgapcert} are
 invariant under translations by $2\Z^4$, so the identity amounts to finitely
 many equalities of coefficients, one for each pair of active links of
-$B(0)$ and of a block near it. Now take $\varphi\in\Phi_W$. If $y\in W$
-then $V_{y,\mu}(\varphi)=0$; if $y\notin W$ then $\varphi$ vanishes on the
-links with base in $B(y)$, so $L_{y,\mu}(\varphi)=0$. Every term of the
-middle sum vanishes, and $Q(\varphi)-c\sum_e\varphi_e^2\ge0$. On a periodic
-lattice of even side, both sides of~\eqref{eq:blockgapcert} are the
-periodisations of the same forms, so the identity and the argument
-hold there.
-\end{proof}
+$B(0)$ and of a block near it. Granted these, take $\varphi\in\Phi_W$. If
+$y\in W$ then $V_{y,\mu}(\varphi)=0$; if $y\notin W$ then $\varphi$ vanishes
+on the links with base in $B(y)$, so $L_{y,\mu}(\varphi)=0$. Every term of
+the middle sum vanishes, and
+\[
+\sum_e\varphi_e^2\le\frac{5000}{537}\,Q(\varphi)=9.31098\ldots\,Q(\varphi)
+\]
+for every set of blocks $W$ and every $\varphi\in\Phi_W$. On a periodic
+lattice of even side both sides of~\eqref{eq:blockgapcert} are the
+periodisations of the same forms, so the same holds there.
 
 The certificate was found by semidefinite programming and rounded to
 rationals: the $l_{\mu,b}$ have denominators dividing $2^{24}$ and the
 entries of $G$ the denominator $2^{30}\cdot5^5$. The coefficient identity
-of~\eqref{eq:blockgapcert} and the positivity of all $245$ leading principal
-minors of the integer matrix $2^{30}5^5G$ are checked in exact arithmetic. The check
-is done by the program of T.~Romanov and independently by our program in
-the archive, which rebuilds the four forms from
-Definition~\ref{def:blockgauge} alone. With $W$ the set of all blocks the
-best constant is the inverse of the Bloch value $0.1074878$ quoted below,
-that is $9.3034$, so $\frac{5000}{537}$ is within $0.09$ per cent of it;
-the semidefinite optimum for this window and this class of multipliers is
-$c^*=0.107488$. These floating-point values are not used. The theorems below are stated with $52$, which
-is proved by hand. If the certificate is accepted, those that use only
-Theorem~\ref{thm:blockgap} hold with $52$ replaced by $\frac{5000}{537}$; no
-result of the paper relies on this.
+of~\eqref{eq:blockgapcert} and the positivity of all $245$ leading
+principal minors of the integer matrix $2^{30}5^5G$ are checked by
+computer in exact arithmetic, not by hand: by the program of T.~Romanov
+and independently by our program in the archive, which rebuilds the four
+forms from Definition~\ref{def:blockgauge} alone. With $W$ the set of all
+blocks the best constant is the inverse of the Bloch value $0.1074878$
+quoted below, that is $9.3034$, so $\frac{5000}{537}$ is within $0.09$ per
+cent of it; the semidefinite optimum for this window and this class of
+multipliers is $c^*=0.107488$. These floating-point values are not used.
+The results of the paper are stated with $52$, which is proved by hand
+(Theorem~\ref{thm:blockgap}); with the computation, those that use only
+Theorem~\ref{thm:blockgap} would hold with $52$ replaced by
+$\frac{5000}{537}$. No result of the paper uses this remark.
+\end{remark}
 
 With $W$ all blocks the bound extends to $\ell^2$, so the block-constrained
 quadratic form on $\Z^4$ has a spectral gap at least $\frac1{52}$; it removes
@@ -14657,7 +14658,69 @@ independent of $\beta_W$, and the bad side begins at $r=\frac1{32}$. On
 the bad side the response to the non-path links is not bounded at all.
 The configuration of Proposition~\ref{prop:branches} has a fold: a value
 $c$ at which two branches are born, with infinite density, and the law
-jumps across it.
+jumps across it. When the paths of a pair lie on one torus, the component
+of the cut-off average transverse to that torus has a closed form.
+
+\begin{lemma}[the transverse part of the cut-off average]\label{lem:foldtransverse}
+Write $\SU(2)$ as the unit quaternions, with $T=\{e^{iq}\}$, and its Lie
+algebra as the pure quaternions, with the Euclidean norm $|\cdot|$. Let
+$\theta_1,\dots,\theta_n$ be real and $\varpi_1,\dots,\varpi_n>0$, and for
+$g\in\SU(2)$ put $h_x=g^{-1}e^{i\theta_x}$, $\chi(g)=\phi(\max_x\delta(h_x,
+I))$ and
+\[
+V(g)=g\exp Y(g),\qquad Y(g)=\chi(g)\sum_x\varpi_x\log h_x ,
+\]
+and $Y(g)=0$ if $\chi(g)=0$. For real numbers $q$ and $s$ put $g(q,s)=\cos
+s\,e^{iq}+\sin s\,k$, and define $\psi_x\in[0,\pi]$ by $\cos\psi_x=\cos s
+\cos(\theta_x-q)$. Then the $j$-component of $V(g(q,s))$ is $0$ and its $k$-component is
+$\sin s\,\Xi(q,s)$, where $\Xi=1$ if $\chi=0$ and otherwise
+\[
+\Xi=\cos|Y|-\frac{\sin|Y|}{|Y|}\,\chi\sum_x\varpi_x\,\psi_x\cot\psi_x ,
+\]
+with $\sin|Y|/|Y|=1$ at $Y=0$. If $\chi>0$, then $\psi_x<\frac\pi4$ for
+every $x$. The function $\Xi$ is continuous in $q$, $s$ and the
+$\theta_x$, and $\Xi\le1$.
+\end{lemma}
+
+\begin{proof}
+Write a quaternion as $\alpha+\beta j$ with $\alpha,\beta\in\C=\R+\R i$. As
+$jz=\bar zj$,
+\[
+(\alpha_1+\beta_1j)(\alpha_2+\beta_2j)=\alpha_1\alpha_2-\beta_1\bar\beta_2+
+(\alpha_1\beta_2+\beta_1\bar\alpha_2)j ,
+\]
+the inverse of a unit quaternion $\alpha+\beta j$ is $\bar\alpha-\beta j$,
+and $\beta j$ has $j$-component $\Re\beta$ and $k$-component $\Im\beta$.
+Now $g=g(q,s)=\cos s\,e^{iq}+(i\sin s)j$, and with $\varphi_x=\theta_x-q$,
+\[
+h_x=\cos s\,e^{i\varphi_x}-(i\sin s\,e^{-i\theta_x})j ,
+\]
+whose real part is $\cos\psi_x$ and whose pure part $P_x$ has norm $\sin
+\psi_x$. If $\chi=0$, then $V=g$, whose $j$-part is $(i\sin s)j$. Let $\chi
+>0$. Then $\delta(h_x,I)=2(1-\cos\psi_x)^{1/2}<1$, so $\cos\psi_x>\frac34>
+\cos\frac\pi4$, and $\log h_x=w_xP_x$ with $w_x=\psi_x/\sin\psi_x$ ($w_x=1$
+if $\psi_x=0$). Hence $Y=iy+\eta j$ with
+\[
+y=\chi\cos s\sum_x\varpi_xw_x\sin\varphi_x,\qquad\eta=-i\chi\sin s\sum_x
+\varpi_xw_xe^{-i\theta_x},
+\]
+and $\exp Y=(C+i\sigma y)+\sigma\eta j$ with $C=\cos|Y|$ and $\sigma=\sin|Y|
+/|Y|$. The $j$-part of $V=g\exp Y$ is $\beta j$ with
+\[
+\begin{split}
+\beta&=\cos s\,e^{iq}\sigma\eta+i\sin s\,(C-i\sigma y)\\
+&=i\sin s\Bigl(C-\sigma\chi\cos s\sum_x\varpi_xw_xe^{-i\varphi_x}-i\sigma
+y\Bigr).
+\end{split}
+\]
+By the formula for $y$ the imaginary part of the bracket vanishes, and
+$w_x\cos s\cos\varphi_x=w_x\cos\psi_x=\psi_x\cot\psi_x$, so the bracket is
+$\Xi$ and $\beta=i\sin s\,\Xi$. Since $0<\psi\cot\psi\le1$ on $[0,\frac\pi
+4)$ and $\sigma\ge0$, $\Xi\le C\le1$. The cut-off $\chi$ is continuous, and
+so is $\Xi$ where $\chi>0$; as $\chi\to0$, $|Y|\le\frac\pi4\chi\sum_x
+\varpi_x\to0$ and the subtracted term is at most $\chi\sum_x\varpi_x$, so
+$\Xi\to1$.
+\end{proof}
 
 \begin{proposition}[the fold of the path-link law]\label{prop:fold}
 In the configuration of Proposition~\ref{prop:branches}, with every link
@@ -14693,8 +14756,6 @@ configurations of the non-path links at total distance $7\sqrt2\,(t'-t)<
 $0.126$: the Kantorovich response of the path-link law to its non-path
 links is infinite, for every $\beta_W$.
 \end{enumerate}
-The two inequalities marked ($\ast$) in the proof are verified in interval
-arithmetic in the archive; everything else is proved by hand.
 \end{proposition}
 
 \begin{proof}
@@ -14741,18 +14802,32 @@ $f_0(-0.0156)>\gamma^*+10^{-3}$; and in $[-0.005,q_{hi}]$ none if $\lambda<
 \gamma^*$, as $f_0(-0.005)$ and $f_0(q_{hi})=q_{hi}$ exceed $\lambda$. These
 two lie in $[0.05,0.1]$, where $f_0''>4.6$, since $f_0(0.05),f_0(0.1)>
 \gamma^*+10^{-3}$, whence $\lambda-\gamma^*\ge\frac{4.6}2(q_\pm-q^*)^2$.
+The values of $f_0$, $f_0'$ and $f_0''$ used in this step, and $\alpha\in
+(0.7227,0.7228)$, are evaluations with $\sin$ and $\cos$ replaced by their
+Taylor polynomials of degree ten, whose remainders are below $10^{-9}$ for
+arguments in $[0,0.73]$, and with $1.41421356<\sqrt2<1.41421357$; on
+$[0.05,0.1]$ the factors
+$\chi''$, $-\chi'$ and $\frac{244}{100}-7q$ of $f_0''$ are monotone and
+positive, and their values at the ends give $f_0''>4.8$.
 
 \emph{Step 2, off the torus.} Conjugation by $h\in T$ fixes every $\ell_a$
 and $c_\lambda$, so $V(hgh^{-1})=hV(g)h^{-1}$ and the preimages of $c_\lambda$
 are invariant under it; every $g\notin T$ is conjugate to $g(q,s)=\cos s\,
-e^{iq}+\sin s\,k$ with $s\in(0,\frac\pi2]$. Since $(g^{-1}\ell_a)_0=\cos s
-\cos(\theta_a-q)$, if $\cos s\le\frac34$ or $q\notin(q_{lo},q_{hi})$ some
-$\delta(g^{-1}\ell_a,I)\ge1$, so $\chi=0$ and $V(g)=g\notin T$. On the
-remaining strip $[q_{lo},q_{hi}]\times(0,\alpha)$, $V_k(q,0)=0$ and
-$V_k(q,s)=\int_0^s\partial_sV_k$; the certificate verifies ($\ast$) that
-$\partial_sV_k>0$ for $s\in[0,0.02]$ and $V_k>0$ for $s\in[0.02,\alpha]$,
-on adaptive subdivisions of the strip, so that $V(g)\notin T$ for $s>0$.
-Hence $V^{-1}(T)=T$, which with Step 1 gives (i) except for regularity.
+e^{iq}+\sin s\,k$ with $s\in(0,\frac\pi2]$. The map $V$ is that of
+Lemma~\ref{lem:foldtransverse} with the seven angles $\theta_a$ and
+$\varpi_a=\frac18$, so $V_j=0$ and $V_k(g(q,s))=\sin s\,\Xi(q,s)$. Where
+$\chi>0$, $\cos s\cos(\theta_a-q)>\frac34$ for every $a$, so $\cos(\theta_a
+-q)>0$ and $\psi_a$ is at least the distance of $\theta_a-q$ to $2\pi\Z$.
+These distances for the far link and for a near link add up to at least
+$\frac{99}{100}$, so $\max_a\psi_a\ge\frac{99}{200}$, $m\ge2\sqrt2\sin
+\frac{99}{400}$ and, by $\sin x\ge x-\frac{x^3}6$ and $4\sqrt2>5.6568$,
+$\chi\le2-2m<0.6143$. Then $|Y|\le\frac\chi8\sum_a\psi_a<0.6143\cdot
+\frac{7\pi}{32}<0.4223$ and $\cos|Y|\ge1-\frac12|Y|^2>0.9108$, while
+$\sin|Y|/|Y|\le1$ and $0<\psi_a\cot\psi_a\le1$ bound the subtracted term
+of $\Xi$ by $\frac78\chi<0.5376$. Hence $\Xi>\frac13$ at every point, also
+where $\chi=0$ and $\Xi=1$, and $V_k(g(q,s))>0$ for $s\in(0,\frac\pi2]$:
+$V(g)\notin T$ for $g\notin T$. So $V^{-1}(T)=T$, which with Step 1 gives
+(i) except for regularity.
 
 \emph{Step 3, the Jacobian at a torus point.} $D_gV$ at $g=e^{iq}$
 commutes with the differential of conjugation by $e^{i\varphi}$, which
@@ -14761,18 +14836,37 @@ $2\varphi$; a linear map commuting with all these rotations preserves the
 line and the plane and is a complex scalar $\lambda_\perp e^{i\omega}$ on the
 plane. The axial eigenvalue is $f_0'(q)$, and $\lambda_\perp=\lVert\partial_s
 V(g(q,s))|_{s=0}\rVert=|\partial_sV_k(q,0)|$, since $\partial_sg=k$ is a unit
-transverse vector and, by the reflection $g(q,s)\mapsto g(q,-s)$ given by
-conjugation with $i$, $\partial_sV_j(q,0)=0$. So $\lvert\det D_gV\rvert=
-|f_0'(q)|\lambda_\perp(q)^2$. The certificate verifies ($\ast$) that
-$\partial_sV_k\ge0.5149$ on $q\in[-0.0172,-0.0156]$ and $\le0.7326$ on
-$q\in[0.05,0.1]$, $s\in[0,0.02]$. At $q_L$ the near links are the strict
+transverse vector and $V_j=0$. So $\lvert\det D_gV\rvert=|f_0'(q)|
+\lambda_\perp(q)^2$, and by Step~2, as $\Xi$ is continuous,
+$\lambda_\perp(q)=\Xi(q,0)\in(\frac13,1]$. At $s=0$ and $q\in[q_{lo},
+q_{hi}]$, $\psi_a=|\theta_a-q|$ and $|Y|=\Delta(q):=\frac\chi8(\frac{244}
+{100}-7q)=f_0(q)-q$, so
+\[
+\lambda_\perp(q)=\cos\Delta-\frac{\sin\Delta}\Delta\,\frac\chi8\sum_a
+(\theta_a-q)\cot(\theta_a-q).
+\]
+For $q\in[-0.0172,-0.0156]$ the near links are the maximiser, with $d=
+\frac{49}{100}-q\in[0.5056,0.5072]$ and $\chi=2-4\sqrt2\sin\frac d2$, so
+$0.07067<\frac\chi8<0.07315$ by $x-\frac{x^3}6\le\sin x\le x$ and
+$5.6568<4\sqrt2<5.65686$. The partial fractions $x\cot x=1-2\sum_{n\ge1}
+x^2/(n^2\pi^2-x^2)$, with $\frac1{1-u}\ge1+u$, $\sum_nn^{-2}=\frac{\pi^2}6$
+and $\sum_nn^{-4}=\frac{\pi^4}{90}$, give $x\cot x\le1-\frac{x^2}3-
+\frac{x^4}{45}$ for $0<|x|<\pi$. The far link has $|\theta_a-q|\ge0.4828$
+and the near ones $|\theta_a-q|\ge0.5056$, so $\sum_a(\theta_a-q)^2>1.7668$,
+$\sum_a(\theta_a-q)^4>0.4464$, and the subtracted term is at most
+$\frac{\sin\Delta}\Delta$ times $0.07315\,(7-0.5889-0.0099)<0.4683$. Further
+$\Delta\in[0.1801,0.1873]$, $\cos\Delta\ge1-\frac12\Delta^2>0.9824$ and
+$\frac{\sin\Delta}\Delta\le1-\frac16\Delta^2+\frac1{120}\Delta^4<0.99461$,
+so $\lambda_\perp>0.9824-0.99461\cdot0.4683>0.5166$ on this interval.
+At $q_L$ the near links are the strict
 maximiser and at $q_\pm$ the far link is, with $m\in(\frac12,1)$, so $V$ is
 real-analytic near these points; $f_0'(q_L)\in[1.36,1.37]$ by the formula,
 $f_0'(q_\pm)\ne0$ by strict convexity and $\lambda_\perp>0$, so $c_\lambda$
 is regular for $\lambda\ne\gamma^*$, and~\eqref{eq:pathlaw} is the
 continuous disintegration there. The weight of $g_L$ is at most $1/(1.36
-\cdot0.5149^2)<2.78$, and those of $g_\pm$ are at least $e^{-12\beta_W}/(
-|f_0'(q_\pm)|\,0.7326^2)$, with $f_0'(q_\pm)\to f_0'(q^*)=0$. This is (ii).
+\cdot0.5166^2)<2.78$, and those of $g_\pm$ are at least $e^{-12\beta_W}/
+|f_0'(q_\pm)|$, as $\lambda_\perp\le1$, with $f_0'(q_\pm)\to f_0'(q^*)=0$.
+This is (ii).
 
 \emph{Step 4, the limits.} Let $f(g)=\delta(g,g^*)$, $1$-Lipschitz for
 $\delta$ and at most $2\sqrt2$. For $\lambda\downarrow\gamma^*$,
@@ -15055,13 +15149,15 @@ $q^*$ is the only zero of $f_0-\gamma^*$ on $[0.05,0.1]$, $q_\pm(t)\to q^*$
 and $f'(q_\pm(t);t)\to f_0'(q^*)=0$. Off the torus, every $g\in U^*$ is
 $T$-conjugate to $g(q,s)=\cos s\,e^{iq}+\sin s\,k$ with $s\ge0$ small and $q$
 near $q^*$, and conjugation by $T$ preserves $d(\cdot,g^*)$. The
-certificate of Proposition~\ref{prop:fold} gives $\partial_sV_k(q^*,0;0)>0$,
-so by continuity $\partial_sV_k>0$ near $(q^*,0,0)$ and $V_k(q,s;t)>0$ for
-small $s>0$: shrinking $U^*$ and $\tau$, there is no preimage off $T$ in
-$U^*$. As in Step~3 of that proof, $\lvert\det D_gV\rvert=|f'|\lambda_\perp
-^2$ at torus points, with $\lambda_\perp=|\partial_sV_k|\le0.7326+o(1)$
-near $q^*$; so the weights of $g_\pm(t)$ are at least $e^{-12\beta_W}/(
-|f'(q_\pm(t);t)|(0.7326+o(1))^2)\to\infty$.
+paths lie in $T$, so $V$ is the map of Lemma~\ref{lem:foldtransverse} with
+the fourteen angles above and $\varpi_x=\frac1{16}$: $V_j=0$ and $V_k(q,s;t)=
+\sin s\,\Xi_t(q,s)$, with $\Xi_t$ continuous in $(q,s,t)$, and
+$\Xi_0(q^*,0)>\frac13$ by Step~2 of the proof of Proposition~\ref{prop:fold}.
+So $\Xi_t>0$ near $(q^*,0,0)$ and $V_k(q,s;t)>0$ for small $s>0$:
+shrinking $U^*$ and $\tau$, there is no preimage off $T$ in $U^*$. As in
+Step~3 of that proof, $\lvert\det D_gV\rvert=|f'|\lambda_\perp^2$ at torus
+points, with $\lambda_\perp=\Xi_t(q,0)\le1$; so the weights of $g_\pm(t)$
+are at least $e^{-12\beta_W}/|f'(q_\pm(t);t)|\to\infty$.
 
 \emph{Near $g_L^*$.} For $q\in[-0.0182,-0.0146]$ and $|t|\le10^{-3}$, the
 six near paths are farther from $g$ than the far link by at least
@@ -15088,8 +15184,8 @@ exactly one solution in $\bar U_L$, at which $D_g\Psi_\pm$ is invertible.
 Conjugation by $T$ fixes $g_L^*$ and maps $\bar U_L$ onto itself, so the
 solution is fixed by it and lies in $T$. This is the one preimage $g_L(t)$
 in $U_L$, for either sign of $t$; it is regular, it tends to $g_L^*$, and
-its weight tends to that of $g_L^*$, which is at most $1/(1.36\cdot
-0.5149^2)<2.78$ by Proposition~\ref{prop:fold}(ii).
+its weight tends to that of $g_L^*$, which is at most $2.78$ by
+Proposition~\ref{prop:fold}(ii).
 
 \emph{The limits.} For $t>0$, $\pi^{(t)}=\delta_{g_L(t)}\to\delta_{g_L^*}$.
 For $t<0$, with $f=\delta(\cdot,g^*)$ and $w_\pm$ the weights of
@@ -21808,7 +21904,7 @@ the coarse links, the minimum over real fields on the active links of
 $\Lambda_L$; for $\g$-valued $w$ put $q^{\rm lin}(w)=\sum_aq_T(w^a)$, with
 the components in the orthonormal basis $\tau_a=i\sigma_a/\sqrt2$ of
 $\mathfrak{su}(2)$. As for $q_W$, $q_T$ is a positive semidefinite quadratic
-form, by Proposition~\ref{prop:blockgapsharp} on the periodic lattice.
+form, by Theorem~\ref{thm:blockgap} on the periodic lattice.
 
 \begin{lemma}\label{lem:sfgaugeinv}
 Let $G=\SU(2)$, $\kappa>0$ and $g\in G^T$. Then $Z(c^g)=Z(c)$ and
@@ -21963,28 +22059,28 @@ On the periodic lattice of side $L\ge32$ let
 \frac78,
 \]
 so that $\bar S<227.40$ and $\bar b<643.18$, and for $\alpha>0$ let
-$c_\alpha=\frac{537}{5000}-(\cosh3\alpha-1)\bar S$.
+$c_\alpha=\frac1{52}-(\cosh3\alpha-1)\bar S$.
 \begin{enumerate}[label=\textup{(\roman*)},leftmargin=*]
 \item $H_{ij}=0$ for $d(i,j)\ge4$, the sum $\sum_j|H_{ij}|$ is at most $\bar
-S$ for every $i$, and $v^{\rm T}Hv\ge\frac{537}{5000}|v|^2$ for every $v$.
-\item If $0<\alpha\le\frac1{100}$, then $c_\alpha>0$ and $|(H^{-1})_{ij}|\le
+S$ for every $i$, and $v^{\rm T}Hv\ge\frac1{52}|v|^2$ for every $v$.
+\item If $0<\alpha\le\frac1{250}$, then $c_\alpha>0$ and $|(H^{-1})_{ij}|\le
 c_\alpha^{-1}e^{-\alpha d(i,j)}$ for all coordinates $i$ and $j$.
 \item For real $\gamma$ the Gaussian probability measure proportional to
 $e^{-\lambda Q(\varphi)}$ on the affine space $\{V(\varphi)=\gamma\}$ of fields
 in the tree gauge has as mean the minimiser $\varphi^*(\gamma)=L_0\gamma-
 PH^{-1}B^{\rm T}\gamma$ of $q_T(\gamma)$ and as covariance $C=(2\lambda)^{-1}
-PH^{-1}P^{\rm T}$, and for $0<\alpha\le\frac1{100}$
+PH^{-1}P^{\rm T}$, and for $0<\alpha\le\frac1{250}$
 \[
 |C_{ee'}|\le\frac{e^{2\alpha}p_1^2}{2\lambda c_\alpha}e^{-\alpha d(e,e')}.
 \]
 \item $q_T(\gamma)=\gamma^{\rm T}M\gamma$ with $M=A-BH^{-1}B^{\rm T}$; the
 rows of $A$ and $B$ have $\ell^1$ norms at most $192$ and $\bar b$,
 $A_{kk'}=0$ for $d(k,k')\ge2$ and $B_{ki}=0$ for $d(k,i)\ge3$; and for
-$d(k,k')\ge2$ and $0<\alpha\le\frac1{100}$, $|M_{kk'}|\le e^{4\alpha}\bar b^2
+$d(k,k')\ge2$ and $0<\alpha\le\frac1{250}$, $|M_{kk'}|\le e^{4\alpha}\bar b^2
 c_\alpha^{-1}e^{-\alpha d(k,k')}$.
 \end{enumerate}
-At $\alpha=\frac1{200}$, $c_\alpha>0.0818$, and the three constants are
-below $12.23$, $138.6/(2\lambda)$ and $5.16\cdot10^6$.
+At $\alpha=\frac1{500}$, $c_\alpha>0.0151$, and the three constants are
+below $66.3$, $746.2/(2\lambda)$ and $2.762\cdot10^7$.
 \end{theorem}
 
 \begin{proof}
@@ -22008,15 +22104,18 @@ $\sum_j|(dPe_j)_p|\le\sum_{l\in p}\sum_j|P_{lj}|\le4p_1$. As $H_{ij}=
 If $H_{ij}\ne0$, a plaquette contains a link of $Pe_i$ and a link of $Pe_j$;
 the bases of two links of a plaquette lie in blocks at distance at most one,
 and the links of $Pe_i$ have base within distance one of the block of $i$,
-so $d(i,j)\le3$. Finally $v^{\rm T}Hv=Q(Pv)\ge\frac{537}{5000}\lvert Pv
-\rvert^2$ by Proposition~\ref{prop:blockgapsharp} on the periodic lattice,
+so $d(i,j)\le3$. Finally $v^{\rm T}Hv=Q(Pv)\ge\frac1{52}\lvert Pv\rvert^2$
+by Theorem~\ref{thm:blockgap}, whose proof uses only the plaquettes inside
+a block and those joining two neighbouring blocks and holds verbatim on
+the periodic lattice,
 and $\lvert Pv\rvert^2=\sum_{\rm inside}\varphi_e^2+\sum_k(\sum_w\xi_{k,w}^2+
 8m_k^2)\ge|v|^2$, since the characters $a\mapsto(-1)^{a\cdot w}$, $w\ne0$,
 are orthogonal and orthogonal to the constants.
 
-(ii) Since $\cosh u-1=\sum_{m\ge1}u^{2m}/(2m)!\le\frac{u^2}2\cosh u$, at
-$\alpha=\frac1{100}$ one has $(\cosh3\alpha-1)\bar S\le\frac{0.03^2}2\cdot
-1.0005\cdot227.40<0.1024<\frac{537}{5000}$, and $c_\alpha$ decreases in
+(ii) Since $\cosh u-1=\sum_{m\ge1}u^{2m}/(2m)!\le\frac{u^2}2\cosh u$, so
+that $\cosh u\le(1-\frac{u^2}2)^{-1}$ for $u^2<2$, at $\alpha=\frac1{250}$
+one has $(\cosh3\alpha-1)\bar S\le\frac{0.012^2}2\cdot1.0001\cdot227.40<
+0.01638<\frac1{52}$, and $c_\alpha$ decreases in
 $\alpha$. Fix $j$, put $f_i=d(i,j)$ and $H_\alpha=e^{\alpha f}He^{-\alpha f}$.
 For real $v$, by the symmetry of $H$,
 \begin{align*}
@@ -22048,10 +22147,11 @@ bounds $48\cdot4=192$ and $48\cdot4p_1=\bar b$ and the ranges one and two.
 Then $|(BH^{-1}B^{\rm T})_{kk'}|\le\sum_{i,l}|B_{ki}||(H^{-1})_{il}||B_{k'l}|$
 with $d(i,l)\ge d(k,k')-4$, and (ii) gives the bound.
 
-At $\alpha=\frac1{200}$, $(\cosh3\alpha-1)\bar S\le\frac{0.015^2}2\cdot
-1.0002\cdot227.40<0.02559$, so $c_\alpha>0.1074-0.02559>0.0818$; with $p_1^2=
-\frac{49}8+\frac{49}{8\sqrt2}+\frac{49}{64}<11.222$, $e^{0.01}<1.01006$,
-$e^{0.02}<1.0203$ and $\bar b^2<413{,}681$ the constants follow.
+At $\alpha=\frac1{500}$, $(\cosh3\alpha-1)\bar S\le\frac{0.006^2}2\cdot
+1.0001\cdot227.40<0.004094$, so $c_\alpha>\frac1{52}-0.004094>0.0151$; with
+$p_1^2=\frac{49}8+\frac{49}{8\sqrt2}+\frac{49}{64}<11.222$, $e^{0.004}<
+1.00402$, $e^{0.008}<1.00807$ (from $e^u\le(1-u)^{-1}$) and $\bar b^2<
+413{,}681$ the constants follow.
 \end{proof}
 
 \begin{remark}
@@ -22060,7 +22160,9 @@ gives the entries of $H$, $A$ and $B$: all three have range one, the
 largest sum of $|H_{ij}|$ over $d(i,j)=1$ is $S_1=20.45495\ldots$, and the
 rows of $A$ and $B$ have $\ell^1$ norms at most $96$ and $77.456$. With these
 values the argument of (ii), with $\cosh\alpha$ in place of $\cosh3\alpha$
-and $S_1$ in place of $\bar S$, gives decay for $\alpha<0.10243$, and at
+and $S_1$ in place of $\bar S$ and with the constant $\frac{537}{5000}$ of
+Remark~\ref{rem:blockgapsharp} in place of $\frac1{52}$, gives decay for
+$\alpha<0.10243$, and at
 $\alpha=0.08$ constants $23.87$, $314.3/(2\lambda)$ and $1.680\cdot10^5$.
 Both rates are far from the decay of $(M_{W_n})_{AB}$ by a factor $8$ to
 $10$ per block, which corresponds to $\alpha\approx2.1$; the loss comes from
@@ -22172,7 +22274,7 @@ then $F_1\le1$, $F_2\ge-1$ and $F_3=R-F_1+F_2\le1$, so $(F_1,F_2)$ lies in
 the square $[R-2,1]\times[-1,2-R]$ of side $3-R$. The map $u\mapsto(F_1,F_2)$
 is affine with linear part of rank two, and $Q(\varphi(o,u))=u^{\rm T}Hu+
 \ell_o(u)+{\rm const}$ with $H$ positive definite, since a change of $u$ is a
-field in $\{V=0\}$ to which Proposition~\ref{prop:blockgapsharp} applies.
+field in $\{V=0\}$ to which Theorem~\ref{thm:blockgap} applies.
 The image of the finite measure $e^{-\lambda Q}du$ under $u\mapsto(F_1,F_2)$
 is Gaussian, with mass at most $(\pi/\lambda)^{73/2}\det H^{-1/2}$ and a
 nondegenerate covariance that does not depend on $o$, so its density is at
@@ -23577,11 +23679,9 @@ The proofs are analytic except for the following results, which rest on
 computations. For $\SU(3)$, Propositions~\ref{prop:cover}
 and~\ref{prop:cover2}, Lemma~\ref{lem:su3const} and
 Theorems~\ref{thm:su3} and~\ref{thm:su3blocks} rest on evaluations in
-interval arithmetic with rigorous error bounds. Proposition~\ref{prop:blockgapsharp}
-and Theorem~\ref{thm:certificate} rest on certificates checked in exact
-arithmetic; no other result uses them. The inequalities ($\ast$) of
-Proposition~\ref{prop:fold}, on which Proposition~\ref{prop:insidefold}
-rests, are verified in interval arithmetic. The numerical values stated in
+interval arithmetic with rigorous error bounds. Remarks~\ref{rem:blockgapsharp} and~\ref{rem:certificate} report
+computations with certificates checked in exact arithmetic; no result uses
+them. The numerical values stated in
 Theorems~\ref{thm:islandscales}, \ref{thm:islandswide}(ii), (iii),
 \ref{thm:islandwindow}, \ref{thm:groups13} (for $\SU(3)$), \ref{thm:lfkp},
 \ref{thm:sfgauss}(i), \ref{thm:clustercomparison} and~\ref{thm:clustersizes},
@@ -23599,7 +23699,7 @@ Section~\ref{ssec:couplingcost} and the finite arithmetic of Theorem~\ref{thm:la
 Corollary~\ref{cor:twoislands}, Proposition~\ref{prop:massgrowth}, Proposition~\ref{prop:smallframessharp} and Theorem~\ref{thm:islandswide}, independent exact or
 numerical checks of the other finite statements, our checks of the
 certificate of~\cite{Rom26}, and the certificate of
-Proposition~\ref{prop:blockgapsharp} with its exact check. The code was
+Remark~\ref{rem:blockgapsharp} with its exact check. The code was
 written by Deep Bhattacharjee, James Montgomery Lockwood and Tristan
 Romanov.
 
@@ -25057,15 +25157,18 @@ second recurrence of~\eqref{q-eq:besselrec},
 
 \section{The certificate bound}\label{app:certificate}
 
-This appendix derives the bound $h_F\le14.420001$ of Remark~\ref{rem:hf}
-from the data of~\cite{Rom26}. The argument is the proof of the bound in
+This appendix reduces a bound on $h_F$ to finitely many positivity
+statements, by hand, and reports the computation of~\cite{Rom26} that
+verifies them for $h_F\le14.420001$ (Remark~\ref{rem:hf}); no result of
+the paper uses that value. The argument is the proof of the bound in
 Theorem~\ref{thm:curv} with two changes. The divergence identity of
 Lemma~\ref{lem:identity}, taken there with the factor $\frac9{10}$, is
 replaced by a positive semidefinite form at each site, and the weights
 $\frac{21}{10}$ and $\frac54$ of Lemma~\ref{lem:local} are replaced by
-weights chosen plaquette by plaquette. Everything is proved by hand except
+weights chosen plaquette by plaquette. The reduction is proved by hand;
 the positivity of ninety-six matrices of trigonometric polynomials and the
-arithmetic of finitely many rational numbers.\footnote{The constant
+arithmetic of finitely many rational numbers are checked by
+computer.\footnote{The constant
 $14.420001$ is not the best possible for this kind of certificate: by the
 search reported in Remark~\ref{rem:hf} it cannot go below $14.384$, while
 the true value of $h_F$ is at least $13.123$.}
@@ -25262,42 +25365,42 @@ exactly, and the largest is $14420001/10^6$.
 \caption{The certificate of Appendix~\ref{app:certificate}. (a)~The least
 eigenvalue of $M_p(\varphi)$ over the torus of phases for the plaquette
 class with the smallest minimum, about $0.0057$ on a grid of $96^2$ phases
-(red dot); Theorem~\ref{thm:certificate} shows it stays positive.
+(red dot); the exact computation of Remark~\ref{rem:certificate} finds it
+positive at every phase.
 (b)~The forty-eight totals in the definition of $h$, in increasing order,
 against $\frac{29}2$, the value $14.420001$ of the largest, the floor
 $14.384$ for certificates on the period-two cell, and the lower bound
 $9+\sqrt{17}$ for $h_F$. (c)~The constant $C$ in $\sum\phi^2\le CQ$ for the
-block gauge: $52$ from Theorem~\ref{thm:blockgap}, $5000/537$ from
-Proposition~\ref{prop:blockgapsharp}, and the bulk Bloch value
+block gauge: $52$ from Theorem~\ref{thm:blockgap}, $5000/537$ from the
+computation of Remark~\ref{rem:blockgapsharp}, and the bulk Bloch value
 $1/0.10749=9.3034$, the best constant when $W$ is the set of all
 blocks. The eigenvalues in (a) and the Bloch value are in floating point.}
 \label{fig:certificate}
 \end{figure}
 
-\begin{theorem}[Computer-assisted]\label{thm:certificate}
-For every $N$, every field $Q$ and every $v=(X_eQ_e)$ with $X_e=0$ for
-$e\in F$, on $\Z^4$ and on every box,
-\[
-|\Hess S_0(v,v)|\le14.420001\,|v|^2 .
-\]
-\end{theorem}
-
-\begin{proof}
-We show that every $M_p(\varphi)$ is positive semidefinite, which proves
-the theorem by Lemmas~\ref{lem:certificate} and~\ref{lem:certu2}. Write
-$z=(1,\cos\varphi_1,\sin\varphi_1,\cos\varphi_2,\sin\varphi_2)$. For each
-of the $192$ blocks of size six there is a positive definite integer
-symmetric matrix $P$ of size thirty such that
+\begin{remark}[a computation, used by no theorem]\label{rem:certificate}
+The certificate of~\cite{Rom26} comes with, for each of the $192$ blocks of
+size six, an integer symmetric matrix $P$ of size thirty, stated to be
+positive definite and to satisfy, with $z=(1,\cos\varphi_1,\sin\varphi_1,
+\cos\varphi_2,\sin\varphi_2)$,
 \[
 2^{24}\cdot4\cdot10^6\,M(\varphi)_{jk}=\sum_{a,b=0}^4z_az_b\,P_{6a+j,\,6b+k}
 \]
 for all $j,k$, as polynomials modulo $\cos^2\varphi_a+\sin^2\varphi_a=1$.
-For $x\in\R^6$ put $w=z\otimes x$. Then $2^{24}\cdot4\cdot10^6\,x^{\mathsf T}
-M(\varphi)x=w^{\mathsf T}Pw$, which is positive for $x\ne0$, since $z_0=1$
-gives $w\ne0$. So every block is positive definite at every $\varphi$.
-\end{proof}
+Granted these finite statements, for $x\in\R^6$ and $w=z\otimes x$ one has
+$2^{24}\cdot4\cdot10^6\,x^{\mathsf T}M(\varphi)x=w^{\mathsf T}Pw$, which is
+positive for $x\ne0$, since $z_0=1$ gives $w\ne0$; so every block is
+positive definite at every $\varphi$, and Lemmas~\ref{lem:certificate}
+and~\ref{lem:certu2} give, for every $N$, every field $Q$ and every $v=(X_e
+Q_e)$ with $X_e=0$ for $e\in F$, on $\Z^4$ and on every box,
+\[
+|\Hess S_0(v,v)|\le14.420001\,|v|^2 .
+\]
+The finite statements are checked by computer, not by hand, so this bound
+is a computation; no result of the paper uses it.
+\end{remark}
 
-The proof of Theorem~\ref{thm:certificate} rests on computations of three
+The bound of Remark~\ref{rem:certificate} rests on computations of three
 kinds. The positivity of the $G_y$, the signs of the weights and the
 forty-eight totals are finite statements about rational numbers. The
 identities between $M(\varphi)$ and the matrices $P$, and the positive
@@ -25318,9 +25421,9 @@ outward-rounded interval elimination, finding least eigenvalue above
 $559/716800$ for every plaquette.
 
 With $14.420001$ in place of $\frac{29}2$ the proofs of
-Theorems~\ref{thm:curv} and~\ref{thm:groups} go through unchanged, which
-gives the ranges stated in Remark~\ref{rem:hf}. Those theorems are stated
-with $\frac{29}2$ because its proof uses no computer.
+Theorems~\ref{thm:curv} and~\ref{thm:groups} would go through unchanged
+and give the ranges stated in Remark~\ref{rem:hf}. Those theorems are
+stated with $\frac{29}2$, whose proof uses no computer.
 
 \def\bibsection{\par\vskip10pt\noindent\hfil\rule{0.5\columnwidth}{0.4pt}\hfil\par\vskip8pt}
 
