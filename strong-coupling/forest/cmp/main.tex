@@ -18428,6 +18428,719 @@ admissible because $y$ is at distance two from it; the numbers are those
 of Theorem~\ref{thm:islandthreshold} at $s=2$.
 \end{proof}
 
+\subsection{The projected average}\label{ssec:projected}
+
+The folds of Propositions~\ref{prop:fold} and~\ref{prop:insidefold} and the
+obstruction of Theorem~\ref{thm:eightlinkuniform} are zeros of $\det
+D_gV^\sharp_k$, the derivative of the cut-off average in its path link. They
+come from the two nonlinear parts of~\eqref{eq:cutoff}: the logarithm, whose
+differential $L_Y$ grows like $\theta/\sin\theta$ as an eigenangle $\theta$
+approaches $\pi$, and the cut-off, whose slope is $2$. If the
+logarithm of each relative path is replaced by its orthogonal projection onto
+the Lie algebra, no cut-off is needed. The resulting coarse map has the same
+derivatives of order at most two as the cut-off average at every field whose
+sixteen paths agree, and its derivative in the path link is invertible at
+every field. This subsection proves the properties of this map that bear on
+the bad side; Remark~\ref{rem:projscope} lists what is not proved for it.
+As in the rest of this section $G=\SU(2)$; Remark~\ref{rem:projgroups} gives
+the constants for other groups.
+
+Let $\Pi_\g$ be the orthogonal projection of the space of complex $2\times2$
+matrices, with the real inner product $\operatorname{Re}\Tr(X^*Y)$, onto
+$\g=\mathfrak{su}(2)$.
+
+\begin{definition}\label{def:projavg}
+For a coarse link $(y,\mu)$ and the paths $P_x$ of
+Section~\ref{ssec:pathblocks}, the \emph{projected average} is
+\begin{gather*}
+\widehat V_{y,\mu}(U)=P_{2y}\exp A_{y,\mu}(U),\\
+A_{y,\mu}(U)=\frac1{16}\sum_{x\in B(y)}\Pi_\g\bigl(P_{2y}^{-1}P_x\bigr).
+\end{gather*}
+\end{definition}
+
+For a pair $k=(y,\mu)$ in the tree gauge write $g=\ell_k$, $z=(\ell_a)_{a\ne0}$,
+and $P_{x_a}=u_a\ell_a$, $P_{x'_a}=\ell_aw_a$ for the paths of nonzero offset,
+as in Lemma~\ref{lem:relchart}. The two paths of offset zero equal $g$ and
+contribute nothing, so
+\[
+A_k=\frac1{16}\sum_{a\ne0}\Bigl(\Pi_\g(g^{-1}u_a\ell_a)+\Pi_\g(g^{-1}\ell_a
+w_a)\Bigr),
+\]
+a function $A(g;z,u,w)$ of the path link, the non-path links and the inside
+links. Let $J(g;z,u,w)=\lvert\det D_g\widehat V_k\rvert$, the Jacobian
+between tangent spaces of the bi-invariant metric, as in~\eqref{eq:pathlaw}.
+
+\begin{lemma}\label{lem:projection}
+\begin{enumerate}[label=\textup{(\roman*)},leftmargin=*]
+\item For $U\in\SU(2)$, $\Pi_\g(U)=\frac12(U-U^{-1})$. The projection
+commutes with conjugation by $\SU(2)$, $\Pi_\g(I)=0$, and $\lVert\Pi_\g(U)-
+\Pi_\g(U')\rVert\le\delta(U,U')\le d(U,U')$ for $U,U'\in\SU(2)$; in
+particular $\lVert\Pi_\g(U)\rVert\le\delta(U,I)$.
+\item For $X\in\g$, $\lVert\Pi_\g(e^X)-X\rVert\le\frac1{12}\lVert X
+\rVert^3$.
+\item For $X\in\g$, the operator $\operatorname{ad}X$ on $\g$ has norm
+$\sqrt2\,\lVert X\rVert$, and the operator norm of the matrix $X$ is
+$\lVert X\rVert/\sqrt2$.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+(i) For $U\in\SU(2)$, $U+U^*=(\Tr U)I$ with $\Tr U$ real, so $U=\frac12
+(\Tr U)I+Y$ with $Y=\frac12(U-U^*)\in\g$. Since $\operatorname{Re}\Tr X=0$
+for $X\in\g$, $I$ is orthogonal to $\g$, and $\Pi_\g(U)=Y$. Conjugation by
+$h\in\SU(2)$ is orthogonal for the inner product and maps $\g$ onto itself,
+so it commutes with $\Pi_\g$. As an orthogonal projection, $\Pi_\g$ is a
+linear map of norm one, and $\delta$ is the Hilbert--Schmidt distance; a
+chord is not longer than an arc, so $\delta\le d$. (ii) In a basis with
+$X=\operatorname{diag}(i\theta,-i\theta)$, $\lVert X\rVert=\sqrt2\,
+\lvert\theta\rvert$ and $\Pi_\g(e^X)=\operatorname{diag}(i\sin\theta,
+-i\sin\theta)$ by (i), so $\lVert\Pi_\g(e^X)-X\rVert=\sqrt2\,\lvert\theta-
+\sin\theta\rvert\le\sqrt2\,\lvert\theta\rvert^3/6=\lVert X\rVert^3/12$.
+(iii) In the same basis $\operatorname{ad}X$ is skew with eigenvalues $0$
+and $\pm2i\theta$, and $X$ has the eigenvalues $\pm i\theta$.
+\end{proof}
+
+\begin{proposition}[the projected average]\label{prop:projavg}
+The projected average is real-analytic on all fields, covariant under the
+gauge transformations at the block roots, and normalised.
+\begin{enumerate}[label=\textup{(\roman*)},leftmargin=*]
+\item At a field with $\delta(P_x,P_{2y})\le\frac12$ for every $x\in B(y)$,
+with $X_x=\log(P_{2y}^{-1}P_x)$,
+\[
+d\bigl(\widehat V_{y,\mu},V^\sharp_{y,\mu}\bigr)\le\frac1{192}\sum_{x\in
+B(y)}\lVert X_x\rVert^3 .
+\]
+At every field at which the sixteen paths $P_x$ agree, the derivatives of
+order at most two of $\widehat V_{y,\mu}$ and $V^\sharp_{y,\mu}$ coincide;
+in particular $\widehat V_{y,\mu}(e^{t\varphi})=I+t\,V_{y,\mu}(\varphi)+
+O(t^2)$, as in Theorem~\ref{thm:cutoff}(i).
+\item The four inequalities of Theorem~\ref{thm:cutoff}(ii) hold for
+$\widehat V$ with $c=1$, that is with the constants $896$, $56$, $1344$ and
+$2696$, for every field in the tree gauge.
+\item If $U$ equals $I$ except on one link from $B(y)$ to $B(y+e_\mu)$,
+where it equals $h$, then $\widehat V_{y,\mu}(U)=h\exp(-\frac78\Pi_\g(h))$
+when the link is on the straight path and $\exp(\frac18\Pi_\g(h))$ at the
+seven other positions, for every $h$. The slice windings of
+Proposition~\ref{prop:nomean} are $1$ at the straight path and $0$ at the
+other positions.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+Products of matrices, $\Pi_\g$ and $\exp$ are analytic, and $\widehat V\in
+G$ since $A\in\g$. A gauge transformation equal to $h_1$ on $B(y)$ and to
+$h_2$ on $B(y+e_\mu)$ maps $P_x$ to $h_1P_xh_2^{-1}$, as in the proof of
+Theorem~\ref{thm:cutoff}, so $P_{2y}^{-1}P_x\mapsto h_2P_{2y}^{-1}P_xh_2^{-1}$,
+$A\mapsto h_2Ah_2^{-1}$ by Lemma~\ref{lem:projection}(i), and $\widehat V
+\mapsto h_1\widehat Vh_2^{-1}$. At $U=I$ every term of $A$ is $\Pi_\g(I)=0$.
+
+(i) Under the hypothesis the cut-off is one, and $V^\sharp=P_{2y}e^N$ with
+$N=\frac1{16}\sum_xX_x$, by Theorem~\ref{thm:cutoff}(i), while $A=\frac1
+{16}\sum_x\Pi_\g(e^{X_x})$. By $d(e^A,e^N)\le\lVert A-N\rVert$ and
+Lemma~\ref{lem:projection}(ii) the distance is at most $\frac1{16}\sum_x
+\frac1{12}\lVert X_x\rVert^3$. Near a field at which the paths agree the
+$X_x$ are analytic functions of the links that vanish there, so the two
+analytic maps differ by $O(r^3)$ at distance $r$ from it, and their Taylor
+expansions in a chart agree to order two. The last statement is
+Theorem~\ref{thm:cutoff}(i).
+
+(ii) In the proof of Theorem~\ref{thm:cutoff}(ii), $\delta(V^\sharp,P)$ is
+bounded by $\frac c4(\sum_x\delta(P_x,P)^2)^{1/2}$, and $V^\sharp=vM$ with
+$\delta(M,I)$ at most the same quantity. For $\widehat V=Pe^A$,
+Lemma~\ref{lem:logbound}, Lemma~\ref{lem:projection}(i) and the
+Cauchy--Schwarz inequality give
+\begin{multline*}
+\delta(\widehat V,P)=\delta(e^A,I)\le\lVert A\rVert\le\frac1{16}\sum_x
+\delta(P_x,P)\\
+\le\frac14\Bigl(\sum_x\delta(P_x,P)^2\Bigr)^{1/2},
+\end{multline*}
+which is that bound with $c=1$, and the rest of the proof is unchanged:
+$896/16=56$, $448+896=1344$ and $8+48\cdot56=2696$.
+
+(iii) At the straight path $P_{2y}=h$, the fourteen other paths are $I$,
+and $\Pi_\g(h^{-1})=-\Pi_\g(h)$; at another position $P_{2y}=I$ and two
+paths equal $h$. For $h=\operatorname{diag}(e^{iq},e^{-iq})$ the two values
+are $\operatorname{diag}(e^{i\psi},e^{-i\psi})$ with $\psi=q-\frac78\sin q$
+and $\psi=\frac18\sin q$, loops of degree $1$ and $0$ in $q$.
+\end{proof}
+
+So $\widehat V$ is a continuous covariant extension of the block averages to
+all fields, with the slice windings that Proposition~\ref{prop:nomean}
+demands; it departs from the transverse symmetry at third order at every
+field, where $V^\sharp$ departs from it only past the cut-off.
+
+\begin{theorem}[the global inverse]\label{thm:projinverse}
+Let $k$ be a pair, $c_k\in\SU(2)$, and let the non-path links $z$ and the
+inside links $u,w$ be arbitrary.
+\begin{enumerate}[label=\textup{(\roman*)},leftmargin=*]
+\item For all $g,g'$, $\lVert A(g)-A(g')\rVert\le\frac78\,\delta(g,g')$, and
+$g\mapsto c_k\exp(-A(g))$ is a contraction of $\SU(2)$ with constant
+$\frac78$ for $d$. The equation $\widehat V_k=c_k$ has exactly one solution
+$G=G(c_k;z,u,w)$, the fixed point of this contraction, and $G$ is
+real-analytic in $(c_k,z,u,w)$.
+\item For all $g,g'$,
+\[
+\tfrac18\,d(g,g')\le d\bigl(\widehat V_k(g),\widehat V_k(g')\bigr)\le
+\tfrac{15}8\,d(g,g'),
+\]
+the singular values of $D_g\widehat V_k$ lie in $[\frac18,\frac{15}8]$ at
+every $g$, and $\frac1{512}\le J\le\frac{3375}{512}$. The two bounds on $J$
+are attained when all fourteen relative paths $g^{-1}P_x$ of nonzero offset
+equal $I$, respectively $-I$.
+\item For two configurations,
+\begin{multline*}
+d(G,G')\le8\,d(c_k,c'_k)+\sum_{a\ne0}d(\ell_a,\ell'_a)\\
++\frac12\sum_{a\ne0}\bigl(d(u_a,u'_a)+d(w_a,w'_a)\bigr).
+\end{multline*}
+\item Let one link $u_b$ or $w_b$, $b\ne0$, move along a unit-speed geodesic,
+with $c_k$, $z$ and the other links fixed, and let $J(t)$ be the value of
+$J$ at $(G(t);z,u(t),w(t))$. Then $\lvert\frac d{dt}\log J(t)\rvert\le
+\frac{45}4\sqrt2<15.91$. If instead a non-path link $\ell_b$ moves, with
+$c_k$, $u$, $w$ and the other non-path links fixed, the bound is $\frac{45}2
+\sqrt2<31.82$; if $c_k$ moves, with $z$, $u$, $w$ fixed, it is $\frac{315}2
+\sqrt2<222.8$.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+\emph{The derivative.} Let $v_x=g^{-1}P_x$ for the fourteen paths of nonzero
+offset. Along $ge^{t\zeta}$, $\zeta\in\g$, each $v_x$ becomes $e^{-t\zeta}v_x$,
+so $A(ge^{t\zeta})=A(g)+tB\zeta+O(t^2)$ with
+\[
+B\zeta=-\frac1{16}\sum_x\Pi_\g(\zeta v_x),\qquad\lVert B\rVert\le\frac78 ,
+\]
+since $\lVert\zeta v_x\rVert=\lVert\zeta\rVert$. With $e^{-A}\frac d{dt}
+e^{A+tY}|_{t=0}=\int_0^1\operatorname{Ad}(e^{-sA})Y\,ds$ and $R_A=\int_0^1
+\operatorname{Ad}(e^{sA})\,ds$, of norm at most one,
+\[
+\widehat V_k^{-1}\frac d{dt}\widehat V_k(ge^{t\zeta})\Big|_{t=0}=
+\operatorname{Ad}(e^{-A})\,D\zeta,\qquad D=I+R_AB .
+\]
+As $\operatorname{Ad}(e^{-A})$ is a rotation of $\g$, $J=\lvert\det D\rvert$;
+the maps $I+sR_AB$, $0\le s\le1$, are invertible because $\lVert R_AB\rVert\le
+\frac78$, so $\det D>0$, and $\lVert D^{-1}\rVert\le(1-\frac78)^{-1}=8$.
+
+(i) By Lemma~\ref{lem:projection}(i) and the invariance of $\delta$ under
+multiplication and inversion, $\lVert\Pi_\g(g^{-1}P)-\Pi_\g(g'^{-1}P)
+\rVert\le\delta(g^{-1}P,g'^{-1}P)=\delta(g,g')$ for each of the fourteen
+paths, which gives the first bound. With $d(e^X,e^Y)\le\lVert X-Y\rVert$
+and $\delta\le d$, $d(c_ke^{-A(g)},c_ke^{-A(g')})\le\frac78d(g,g')$, and
+$\SU(2)$ is complete, so the contraction has one fixed point; $\widehat
+V_k(g)=c_k$ is the equation $g=c_ke^{-A(g)}$. Since $D$ is invertible at
+every point, the analytic implicit function theorem gives an analytic
+solution near every solution, which by uniqueness is $G$.
+
+(ii) By bi-invariance, $d(ge^{A(g)},g'e^{A(g)})$ equals $d(g,g')$, and
+$d(g'e^{A(g)},g'e^{A(g')})\le\lVert A(g)-A(g')\rVert\le\frac78d(g,g')$; the
+triangle inequality gives both bounds, and along $ge^{t\zeta}$ they give
+$\frac18\lVert\zeta\rVert\le\lVert D\zeta\rVert\le\frac{15}8\lVert\zeta
+\rVert$. If every $v_x$ is $I$, respectively $-I$, then $A=0$, $R_A=I$ and
+$B=\mp\frac78I$, so $J=8^{-3}$, respectively $(\frac{15}8)^3$; these values
+are taken, for instance, at $u=w=I$ and $\ell_a=\pm g$.
+
+(iii) Let $T(g)=c_ke^{-A(g)}$ and $T'$ be the map for the second
+configuration. Then $d(G,G')\le d(T(G),T(G'))+d(T(G'),T'(G'))$, the first
+term is at most $\frac78d(G,G')$, and the second is at most $d(c_k,c'_k)+
+\lVert A(G')-A'(G')\rVert$. A path of nonzero offset changes by at most
+$d(u_a,u'_a)+d(\ell_a,\ell'_a)$, respectively $d(\ell_a,\ell'_a)+d(w_a,
+w'_a)$, so $\lVert A(G')-A'(G')\rVert$ is at most $\frac1{16}$ times the
+sum of these quantities, and multiplying by $8$ gives the bound.
+
+(iv) Let $u_b(t)=u_be^{t\zeta'}$ with $\lVert\zeta'\rVert=1$. By (i) and
+(iii), $G(t)$ is analytic and its left velocity $\eta=G^{-1}\dot G$ has
+$\lVert\eta\rVert\le\frac12$. Then $\dot A=B\eta+\frac1{16}\Pi_\g(G^{-1}u_b
+\zeta'\ell_b)$, so $\lVert\dot A\rVert\le\frac7{16}+\frac1{16}=\frac12$. Next,
+$\frac d{dt}\operatorname{Ad}(e^{sA})=\operatorname{ad}(W_s)\operatorname{Ad}
+(e^{sA})$ with $W_s=(\frac d{dt}e^{sA})e^{-sA}=s\int_0^1\operatorname{Ad}
+(e^{rsA})\dot A\,dr$, so $\lVert W_s\rVert\le s\lVert\dot A\rVert$ and, by
+Lemma~\ref{lem:projection}(iii), $\lVert\dot R_A\rVert\le\int_0^1\sqrt2\,s
+\lVert\dot A\rVert\,ds\le\frac1{2\sqrt2}$. Further $\dot B\zeta=-\frac1{16}
+\sum_x\Pi_\g(\zeta\dot v_x)$ with $\dot v_x=-\eta v_x$, except for the
+path from $x_b$, which has the additional term $G^{-1}u_b\zeta'\ell_b$; and
+$\lVert\zeta M\rVert\le\lVert\zeta\rVert\,\lVert M\rVert_{\rm op}$, $\lVert
+\eta v_x\rVert_{\rm op}=\lVert\eta\rVert/\sqrt2$ and $\lVert G^{-1}u_b
+\zeta'\ell_b\rVert_{\rm op}=1/\sqrt2$ by Lemma~\ref{lem:projection}(iii).
+Hence $\lVert\dot B\rVert\le\frac1{16}(\frac{14}{2\sqrt2}+\frac1{\sqrt2})=
+\frac1{2\sqrt2}$, and $\dot D=\dot R_AB+R_A\dot B$ has
+\[
+\lVert\dot D\rVert\le\frac78\cdot\frac1{2\sqrt2}+\frac1{2\sqrt2}=\frac{15}
+{16\sqrt2} .
+\]
+Since $\det D>0$, $\frac d{dt}\log J=\Tr(D^{-1}\dot D)$, at most $3\lVert
+D^{-1}\rVert\lVert\dot D\rVert\le3\cdot8\cdot\frac{15}{16\sqrt2}=\frac{45}4
+\sqrt2$ in modulus on the three-dimensional $\g$. The link $w_b$ is the same
+with the path from $x'_b$. If $\ell_b$ moves, $\lVert\eta\rVert\le1$ by
+(iii) and two paths have an additional term of operator norm $1/\sqrt2$, so
+$\lVert\dot A\rVert\le\frac78+\frac2{16}=1$, $\lVert\dot R_A\rVert\le
+\frac1{\sqrt2}$, $\lVert\dot B\rVert\le\frac1{16}(\frac{14}{\sqrt2}+
+\frac2{\sqrt2})=\frac1{\sqrt2}$, $\lVert\dot D\rVert\le\frac{15}{8\sqrt2}$,
+and the bound is $3\cdot8\cdot\frac{15}{8\sqrt2}=\frac{45}2\sqrt2$. If
+$c_k$ moves, $\lVert\eta\rVert\le8$ by (iii) and no path has an additional
+term, so $\lVert\dot A\rVert\le7$, $\lVert\dot R_A\rVert\le\frac7{\sqrt2}$,
+$\lVert\dot B\rVert\le\frac{14}{16}\cdot\frac8{\sqrt2}=\frac7{\sqrt2}$ and
+$\lVert\dot D\rVert\le\frac{105}{8\sqrt2}$, and the bound is $3\cdot8\cdot
+\frac{105}{8\sqrt2}=\frac{315}2\sqrt2$.
+\end{proof}
+
+\begin{corollary}[the path-link law of the projected average]\label{cor:projpathlaw}
+For every $c_k$, $z$, $u$, $w$ and exterior $\sigma$, the law~\eqref{eq:pathlaw}
+with $\widehat V_k$ in place of $V^\sharp_k$ is the point mass at
+$G(c_k;z,u,w)$, and for two configurations with the same $c_k$
+\begin{multline*}
+W_1^d(\pi,\pi')\le\sum_{a\ne0}d(\ell_a,\ell'_a)\\
++\frac12\sum_{a\ne0}\bigl(d(u_a,u'_a)+d(w_a,w'_a)\bigr),
+\end{multline*}
+with no dependence on $\beta_W$, on $c_k$ or on any other link, and no
+restriction on the size of any link.
+\end{corollary}
+
+\begin{proof}
+By Theorem~\ref{thm:projinverse}(i) the sum in~\eqref{eq:pathlaw} has one
+term, whose weight cancels against $Z$; the bound is
+Theorem~\ref{thm:projinverse}(iii).
+\end{proof}
+
+So for the projected average the original form of item (i) of
+Section~\ref{ssec:remains}, a Lipschitz bound for the path-link law in the
+non-path links, holds at every field, with the constants $1$ and $\frac12$
+in place of the constants $1.1986$ and $0.5993$ that
+Proposition~\ref{prop:goodside} gives for $V^\sharp$ on the good side
+only; Propositions~\ref{prop:branches}, \ref{prop:fold}
+and~\ref{prop:insidefold} have no counterpart. The rest of
+Proposition~\ref{prop:goodside} holds with no radius as well: if the
+non-path links and the inside links are within $r$ of the reconstruction,
+the computation of Lemma~\ref{lem:branchbound}, with $\lVert A_k\rVert\le
+\frac78\max_x\delta(g^{-1}P_x,I)$ in place of the logarithmic bound, gives
+$d(G,c_k)\le14r$ and $d(g^{-1}P_x,I)\le16r$ for every $r$, and the density
+$1/J$ lies in $[(\frac{15}8)^{-3},512]$. For the law of the eight
+private links let $S_{\mathrm{dep}}$ be as in Lemma~\ref{lem:relnorm}, let
+$dz$ be Haar measure on $\SU(2)^7$, $\lvert B\rvert$ the Haar measure of a set
+$B$, and write
+$G(z)=G(c_k;z,u,w)$.
+
+\begin{theorem}[the bad side of the projected average]\label{thm:projresponse}
+Let $k$ be a pair and $c_k\in\SU(2)$, fix every link other than the eight
+private links of $k$ at arbitrary values, and let $B\subset\SU(2)^7$ be a
+measurable set of values of the non-path links with $\lvert B\rvert>0$. Put
+\begin{gather*}
+\rho_B(z)=\mathbf1_B(z)\,e^{-\beta_WS_{\mathrm{dep}}(G(z),z)}\,
+J\bigl(G(z);z,u,w\bigr)^{-1},\\
+Q_B(f)=\frac1{Z_B}\int f\bigl(G(z),z\bigr)\,\rho_B(z)\,dz,\qquad
+Z_B=\int\rho_B\,dz .
+\end{gather*}
+\begin{enumerate}[label=\textup{(\roman*)},leftmargin=*]
+\item For every $c_k$, $Q_B$ is the law of the eight private links given the
+other links, $\widehat V_k=c_k$ and $z\in B$, in the version of the
+disintegration that is continuous in $c_k$, and
+\[
+(\tfrac8{15})^3e^{-72\beta_W}\lvert B\rvert\le Z_B\le512\,\lvert B\rvert .
+\]
+\item If one inside link $u_b$ or $w_b$, $b\ne0$, moves from $e$ to $e'$,
+with $c_k$, $B$ and every other link fixed, then for the cost
+$\sum_{a=0}^7\delta(\ell_a,\ell'_a)$
+\[
+W_1(Q_B,Q'_B)\le(24\beta_W+180.5)\,d(e,e').
+\]
+\item If one link $e'$ that is neither a private link of $k$ nor one of the
+links $u_a$, $w_a$ changes, then $W_1(Q_B,Q'_B)\le8\beta_W\,d(\sigma_{e'},
+\sigma'_{e'})$.
+\item If $c_k$ moves, with $B$ and every link other than the private links
+of $k$ fixed, then
+\[
+W_1(Q_B,Q'_B)\le(384\beta_W+2528)\,d(c_k,c'_k).
+\]
+\end{enumerate}
+The constants depend neither on $B$ nor on $\lvert B\rvert$, nor on $c_k$ or the
+values of the other links; no inside link needs to be near $I$.
+\end{theorem}
+
+\begin{proof}
+(i) Let $\Phi(g,z)=(\widehat V_k(g;z,u,w),z)$. By
+Theorem~\ref{thm:projinverse}(i), $\Phi$ is a bijection of $\SU(2)^8$, analytic with the analytic
+inverse $(c,z)\mapsto(G(c;z,u,w),z)$, and its Jacobian is $J$, the
+derivative being triangular with the identity in $z$. Haar measure is a
+constant multiple of the volume of the bi-invariant metric, so the change of
+variables gives, for bounded measurable $F$,
+\[
+\int F(g,z)\,dg\,dz=\int\!dc\int F\bigl(G(c;z,u,w),z\bigr)\,J^{-1}\,dz ,
+\]
+with $J$ at $(G(c;z,u,w);z,u,w)$. Taking $F$ equal to $f$ times the
+Wilson weight and $\mathbf1_B(z)$, and cancelling the plaquettes without a
+private link as in Lemma~\ref{lem:relnorm}, the normalised inner integral is
+$Q_B$ at $c=c_k$; it is weakly continuous in $c$ by the continuity of $G$.
+Lemma~\ref{lem:relnorm} gives $0\le S_{\mathrm{dep}}\le72$, and
+Theorem~\ref{thm:projinverse}(ii) gives $J\in[8^{-3},(\frac{15}8)^3]$.
+
+(ii) Move $e$ along a unit-speed geodesic $e(t)$, $0\le t\le T=d(e,e')$,
+write $G_t(z)$, $\rho_t$, $Q_t$, and let $\nu_t$ be the law
+$\rho_t\,dz/Z_t$ on $B$. The link $e$ shares no plaquette with a private link,
+since the two $\mu$-links of a plaquette have one $\mu$-coordinate; so at
+fixed $z$, $S_{\mathrm{dep}}$ changes only through the path link $G_t(z)$,
+which moves at speed at most $\frac12$ by
+Theorem~\ref{thm:projinverse}(iii) and lies in six plaquettes, each
+changing at rate at most $\frac12/\sqrt2$, by the proof of
+Lemma~\ref{lem:wilsononly}. With Theorem~\ref{thm:projinverse}(iv),
+\[
+\lvert\partial_t\log\rho_t(z)\rvert\le\omega:=\frac3{\sqrt2}\beta_W+
+\frac{45}4\sqrt2
+\]
+for every $z\in B$ and $t$. Let $f$ be $1$-Lipschitz for the cost, and put
+$\Phi_t(z)=(G_t(z),z)$. Then
+\[
+Q_T(f)-Q_0(f)=(\nu_T-\nu_0)(f\circ\Phi_T)+\nu_0(f\circ\Phi_T-f\circ
+\Phi_0).
+\]
+In the second term only the path link differs, by at most $\frac T2$ in $d$
+and so in $\delta$. In the first, $\frac d{dt}\nu_t(\varphi)=\Cov_{\nu_t}
+(\varphi,\partial_t\log\rho_t)$ for the fixed bounded function $\varphi=
+f\circ\Phi_T$, by differentiation under the integral over the fixed set $B$,
+and $\lvert\Cov(\varphi,\psi)\rvert\le\frac14\operatorname{osc}\varphi\,
+\operatorname{osc}\psi$; the oscillation of $\varphi$ is at most the diameter
+$8\cdot2\sqrt2$ of the eight links for the cost, so the first term is at
+most $\frac14\cdot16\sqrt2\cdot2\omega\,T=8\sqrt2\,\omega\,T$. The
+normaliser $Z_t$ cancels from the covariance. Hence $Q_T(f)-Q_0(f)\le
+(\frac12+8\sqrt2\,\omega)T=(24\beta_W+180.5)T$, and the Kantorovich duality
+gives the bound.
+
+(iii) The measure $\rho_B\,dz$ without its Wilson factor, and the map $\Phi$,
+do not depend on $e'$; the link $e'$ lies in at most one plaquette with a
+private link, by the proof of Lemma~\ref{lem:wilsononly} and, for an inside
+link of another direction, by the remark after
+Theorem~\ref{thm:relresponse}. The proof of Lemma~\ref{lem:wilsononly}
+gives the bound.
+
+(iv) As in (ii), with the path link moving at speed at most $8$ by
+Theorem~\ref{thm:projinverse}(iii), so that $S_{\mathrm{dep}}$ changes at
+rate at most $6\cdot8/\sqrt2$, and with the bound $\frac{315}2\sqrt2$ of
+Theorem~\ref{thm:projinverse}(iv): $\lvert\partial_t\log\rho_t\rvert\le24
+\sqrt2\,\beta_W+\frac{315}2\sqrt2$, and $8+8\sqrt2(24\sqrt2\,\beta_W+
+\frac{315}2\sqrt2)=384\beta_W+2528$.
+\end{proof}
+
+The theorem applies to the two sets $\SU(2)^7$ and $B^{\mathrm{bad}}_r$ of
+Proposition~\ref{prop:eightlabels}, defined with $c_k=\widehat V_k$, and to
+the sets $B_\varepsilon$ of Theorem~\ref{thm:eightlinkuniform}, at every
+$\varepsilon$; it needs neither the relative chart nor condition (J) of
+Theorem~\ref{thm:relresponse}, and its constants have no factor
+$e^{72\beta_W}$. The reason is the following. The obstruction of
+Theorem~\ref{thm:eightlinkuniform} lives at a point where the projection of
+the fibre $\{V^\sharp_k=c_k\}$ to the non-path links folds, that is, where
+$\det D_gV^\sharp_k=0$; as $\varepsilon\to0$ the law over $B_\varepsilon$
+becomes the path-link law at the fold, which jumps. By
+Theorem~\ref{thm:projinverse}(i) and (ii) the fibre of $\widehat V_k$ is, for every
+value of the inside links, the graph of $z\mapsto G(z)$ over the non-path
+links themselves. A set of non-path links held fixed while an inside link
+moves is therefore a fixed set of parameters of the fibre; only the density
+$\rho_B$ and the position of the path link move, the first with a logarithmic
+derivative bounded at every point, the second at speed $\frac12$. In the
+relative chart of Lemma~\ref{lem:relchart} the fibre of $V^\sharp_k$ is a
+graph over $\xi_a=g^{-1}\ell_a$ instead, a fixed set $B$ of non-path links is
+the moving set $\{\xi:G(\xi)\xi\in B\}$, and the terms with $\iota$ and $K$
+in Theorem~\ref{thm:relresponse} come from this motion and from the jumps of
+the Jacobian $D$. The bound of Theorem~\ref{thm:projresponse} grows linearly
+in $\beta_W$; it is a bound on the response of one pair at a fixed coarse
+field, not a contraction, and it does not give the cube condition (D).
+
+On the whole torus the coarse fibre of the projected average has a global
+product parametrisation. On the periodic lattice of side $2L$, $L\ge2$, in
+the tree gauge, with $\mathcal B$ blocks, the $49$ active links of a block
+are the four path links $\ell_k$ of the pairs based at it and $45$ other
+links, the $28$ non-path private links and the $17$ active links inside it;
+let $z$ be the family of these $45\mathcal B$ links.
+
+\begin{proposition}[projected fibres]\label{prop:projfibre}
+\begin{enumerate}[label=\textup{(\roman*)},leftmargin=*]
+\item The map $\Psi(U)=(\widehat V(U),z)$ of the active links $U$,
+\[
+\Psi\colon\SU(2)^{49\mathcal B}\to
+\SU(2)^{4\mathcal B}\times\SU(2)^{45\mathcal B}
+\]
+is an analytic diffeomorphism. Its inverse $(c,z)\mapsto\Gamma(c,z)$ puts $G_k=G(c_k;z,u,w)$ of
+Theorem~\ref{thm:projinverse} on each path link, and its Jacobian is
+$\prod_kJ_k$, with $J_k$ the Jacobian of the pair $k$.
+\item For every $c$, the law of the active links given $\widehat V=c$, in the
+version continuous in $c$, is the image under $\Gamma(c,\cdot)$ of
+\[
+\frac1{Z(c)}\,e^{-\beta_WS(\Gamma(c,z))}\prod_kJ_k^{-1}\,dz ,
+\]
+whose density is positive at every $z$. The factor of a plaquette depends on
+$c$ and on links of $z$ based in blocks at $\ell^\infty$ distance at most two
+from the block of its base point, and $J_k$ on $c_k$ and on links of $z$
+based in the two blocks of $k$.
+\item Let $H_c(z)=\beta_WS(\Gamma(c,z))+\sum_k\log J_k$. Along a unit-speed
+geodesic in one link of $z$, $\lvert\frac d{dt}H_c\rvert\le6\sqrt2\,\beta_W+
+\frac{45}2\sqrt2$.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+(i) The paths of a pair $(y',\nu)$ consist of $\nu$-links with base in
+$B(y')$ or $B(y'+e_\nu)$, and the path link of $k=(y,\mu)$ is a $\mu$-link
+with $o_\mu=1$ based in $B(y)$, a private link of $k$; so it enters only
+$\widehat V_k$. A non-path private link of $k$ enters only $\widehat V_k$,
+and an active inside $\mu$-link of $B(y)$ enters $\widehat V_{y,\mu}$ and
+$\widehat V_{y-e_\mu,\mu}$; since $L\ge2$ these are two different pairs.
+For fixed $z$ the map from the path links to $\widehat V$ is therefore the
+product over $k$ of the maps $g\mapsto\widehat V_k(g;z,u,w)$, each a
+bijection with analytic inverse by Theorem~\ref{thm:projinverse}(i). The map
+$(\ell,z)\mapsto(\widehat V,z)$ is a bijection with inverse $\Gamma$; its
+derivative is triangular, with the identity in $z$ and the block diagonal
+part $(D_{\ell_k}\widehat V_k)_k$ in the path links, which gives the
+Jacobian.
+
+(ii) The tree gauge has unit Jacobian, so the active links carry product
+Haar measure times the Wilson weight. The change of variables of (i), as in
+the proof of Theorem~\ref{thm:projresponse}(i), gives the law, and the
+density is positive by Theorem~\ref{thm:projinverse}(ii). A plaquette has
+its links based in blocks at distance at most one from the block of its base
+point; a path link among them is $G_k$, which depends on $c_k$ and on links
+based in the two blocks of $k$, at distance at most one further. The
+Jacobian $J_k$ depends on the same variables as $G_k$.
+
+(iii) If the link of $z$ is a non-path link of $k$, only $G_k$ moves, at
+speed at most $1$ by Theorem~\ref{thm:projinverse}(iii); the two moving
+links lie in six plaquettes each, which changes $S$ at rate at most
+$12/\sqrt2=6\sqrt2$, and only $J_k$ changes, at the rate $\frac{45}2\sqrt2$
+of Theorem~\ref{thm:projinverse}(iv). If it is an active inside link of
+$B(y)$ of direction $\mu$, the path links of $(y,\mu)$ and $(y-e_\mu,\mu)$
+move at speed at most $\frac12$ each, so $S$ changes at rate at most
+$(6+3+3)/\sqrt2$, and the two Jacobians at rate at most $\frac{45}4\sqrt2$
+each.
+\end{proof}
+
+The coarse curvature of the projected average has a fine witness at every
+size of the fine plaquettes, with a smaller constant than
+Lemma~\ref{lem:coarsewitness}. For a transverse offset $a\in\{0,1\}^4$,
+$a_\mu=0$, let $\lvert a\rvert$ be the number of its nonzero coordinates
+and $\lvert a\rvert_{>\mu}$ the number of those with index above $\mu$.
+
+\begin{proposition}[a fine witness for the projected average]\label{prop:projwitness}
+Let $P$ be the coarse plaquette at $y$ in the plane $\{\mu,\nu\}$, $\mu<\nu$,
+let $\kappa\ge0$, and suppose that $\delta(U_p,I)\le\kappa$ for every fine
+plaquette $p$ whose vertices lie in $B(y)\cup B(y+e_\mu)\cup B(y+e_\nu)\cup
+B(y+e_\mu+e_\nu)$. Then $c=\widehat V(U)$ satisfies $\delta(c_{y',\mu'},
+\ell_{y',\mu'})\le\frac{9-\mu'}2\kappa$ for the four sides $(y',\mu')$ of
+$P$, and
+\[
+\delta(c_P,I)\le(22-\mu-\nu)\,\kappa\le21\,\kappa .
+\]
+\end{proposition}
+
+\begin{proof}
+Take the side $k=(y,\mu)$; the others are the same. Write $x_a=2y+a$ and
+$x'_a=x_a+e_\mu$, so that $P_{x_a}=u_a\ell_a$ and $P_{x'_a}=\ell_aw_a$ with
+$u_a=U_{x_a,\mu}$ and $w_a=U_{x_a+2e_\mu,\mu}$, and $P_{x_0}=g=\ell_k$.
+
+\emph{The paths from $x_a$.} Let $\nu_1<\dots<\nu_m$ be the directions with
+$a_\nu=1$, $m=\lvert a\rvert$, and $a^{(j)}=e_{\nu_1}+\dots+e_{\nu_j}$.
+The $\nu_j$-links at $x_{a^{(j-1)}}$ and at $x_{a^{(j-1)}}+2e_\mu$ have
+offset $a^{(j-1)}$, whose coordinates of index $\nu_j$ and above vanish; they
+are tree links. So $P_{x_{a^{(j-1)}}}P_{x_{a^{(j)}}}^{-1}$ is
+the holonomy of the boundary of the rectangle formed by the plaquettes at
+$x_{a^{(j-1)}}$ and $x_{a^{(j-1)}}+e_\mu$ in the plane $\{\mu,\nu_j\}$, the
+product of their holonomies with one of them conjugated, and
+$\delta(P_{x_{a^{(j-1)}}},P_{x_{a^{(j)}}})\le2\kappa$. Hence $\delta(P_{x_a},
+g)\le2\lvert a\rvert\kappa$.
+
+\emph{The inside links.} If $\lvert a\rvert_{>\mu}=0$, $u_a$ is a tree link.
+Otherwise let $\nu>\mu$ be the largest direction with $a_\nu=1$. In the
+plaquette at $x_a-e_\nu$ in the plane $\{\mu,\nu\}$ the two $\nu$-links have
+offsets $a-e_\nu$ and $a-e_\nu+e_\mu$, whose coordinates of index $\nu$ and
+above vanish, so they are tree links and $\delta(u_a,U_{x_a-e_\nu,\mu})\le
+\kappa$. By induction $\delta(u_a,I)\le\lvert a\rvert_{>\mu}\kappa$, and in
+$B(y+e_\mu)$ likewise $\delta(w_a,I)\le\lvert a\rvert_{>\mu}\kappa$. Since
+$P_{x'_a}=u_a^{-1}P_{x_a}w_a$, $\delta(P_{x'_a},g)\le2(\lvert a\rvert+\lvert
+a\rvert_{>\mu})\kappa$.
+
+\emph{The coarse link.} By Lemma~\ref{lem:projection}(i), $\lVert\Pi_\g(g^{-1}
+P_x)\rVert\le\delta(P_x,g)$. Over the eight transverse offsets $\sum_a\lvert
+a\rvert=12$ and $\sum_a\lvert a\rvert_{>\mu}=4(3-\mu)$, so
+\[
+\lVert A_k\rVert\le\frac\kappa{16}\sum_a\bigl(4\lvert a\rvert+2\lvert
+a\rvert_{>\mu}\bigr)=\frac{9-\mu}2\,\kappa ,
+\]
+and $\delta(c_k,g)=\delta(e^{A_k},I)\le\lVert A_k\rVert$ by
+Lemma~\ref{lem:logbound}. All plaquettes used lie in $B(y)\cup B(y+e_\mu)$.
+
+\emph{The coarse plaquette.} As in the proof of
+Lemma~\ref{lem:coarsewitness}, the four path links around $P$ form the
+holonomy $\ell_P$ of the square of side two at $2y$, and $\delta(\ell_P,I)\le
+4\kappa$. Replacing the two path links of direction $\mu$ and the two of
+direction $\nu$ by the coarse links one at a time adds at most $(9-\mu)
+\kappa+(9-\nu)\kappa$, and $\mu+\nu\ge1$.
+\end{proof}
+
+At the background of Proposition~\ref{prop:roughbackground} the conclusion
+on the Hessian holds for $\widehat V$ as well: at $U=R(c)$ all sixteen paths
+of every pair agree, so by Proposition~\ref{prop:projavg}(i) the tangent
+space of the fibre of $\widehat V$, a submanifold by
+Theorem~\ref{thm:projinverse}(ii), is that of the fibre of $V^\sharp$ and
+contains $\xi$; as every first derivative of $S$ vanishes at $U$, the second
+derivative of $\beta_WS$ along any curve in the fibre with velocity $\xi$ is
+$-\beta_W$. So the projected average also needs a coarse-curvature label,
+for which Proposition~\ref{prop:projwitness} gives the witness.
+
+\begin{remark}\label{rem:projgroups}
+For a compact connected group $G\subset\U(N)$ with Lie algebra $\g$, let
+$\Pi_\g$ be the orthogonal projection of the complex $N\times N$ matrices
+onto $\g$, which for $\SU(N)$, $N\ge3$, is not the skew-Hermitian part. The
+proofs above use Lemma~\ref{lem:projection}(iii) only for the constants; with
+$\lVert\operatorname{ad}X\rVert\le2\lVert X\rVert$ and $\lVert X\rVert_{\rm
+op}\le\lVert X\rVert$ instead they give, with $s_p=1-\frac1N\ReTr U_p$:
+the contraction constant $\frac78$, the responses $8$, $1$ and $\frac12$,
+$J\in[8^{-\dim\g},(\frac{15}8)^{\dim\g}]$, the bounds $\frac{15}2\dim\g$ and
+$15\dim\g$ in Theorem~\ref{thm:projinverse}(iv), the constant
+$\frac12+24\beta_W+60\dim\g\sqrt N$ in Theorem~\ref{thm:projresponse}(ii),
+and $\frac{12}{\sqrt N}\beta_W+15\dim\g$ in
+Proposition~\ref{prop:projfibre}(iii). Lemma~\ref{lem:projection}(ii)
+becomes $\lVert\Pi_\g(e^X)-X\rVert\le\frac16\lVert X\rVert_{\rm op}^2\lVert
+X\rVert$, since the Hermitian part of $e^X$ is orthogonal to $\g$, and
+Proposition~\ref{prop:projwitness} holds unchanged.
+\end{remark}
+
+\begin{proposition}[the chart for the projected average]\label{prop:projtransfer}
+Let $G\subset\U(r)$ be compact and connected, $\Pi_\g$ as in
+Remark~\ref{rem:projgroups}, and replace $V^\sharp$ by $\widehat V$ in the
+fibre $F$ and in the constrained law.
+\begin{enumerate}[label=\textup{(\roman*)},leftmargin=*]
+\item Under the hypothesis of Lemma~\ref{lem:smallframes},
+\[
+\Bigl\lVert\widehat V_{y,\mu}(U)^{-1}\frac d{dt}\widehat V_{y,\mu}(Ue^{t
+\xi})\Big|_{t=0}-V_{y,\mu}(\tilde\xi)\Bigr\rVert\le166\,\kappa\,N_{y,\mu}
+(\xi).
+\]
+\item Proposition~\ref{prop:explicitconstants} holds with the same $c_3$
+and $c_6$ for $\SU(2)$, and with $c_3=\max\{1.5\cdot10^4r^2,\dim G\}$ and
+$c_6=6.81\cdot10^5\dim G\,c_3^2$ for general $G$.
+\item Theorems~\ref{thm:smallfibre}, \ref{thm:fibrechart},
+\ref{thm:chartdecay} and~\ref{thm:offchart} and
+Proposition~\ref{prop:explicitdecay} hold with these constants; in
+particular $\alpha_G=2.5\cdot10^{-4}$ and $c_9=1.2\cdot10^4$.
+\item For $\SU(2)$, Lemma~\ref{lem:privatesubmersion} holds with $\sigma_0=
+\frac18$ at every field, Lemma~\ref{lem:averagedensity} with $M=512$, and
+Proposition~\ref{prop:calmfibre} with the same $\varepsilon_W$.
+\item $\widehat V(R(c))=c$, and Lemma~\ref{lem:coarsewitnesssharp} holds
+for $\widehat V$ with the same bound $4\kappa+7700\kappa^2$.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+Hermitian matrices are orthogonal to $\g$, so $\Pi_\g(w)=\Pi_\g(w-I)$ has
+norm at most $\delta(w,I)$ for unitary $w$, and for $Y\in\g$, $\Pi_\g(wY)-
+Y=\Pi_\g((w-I)Y)$ has norm at most $\lVert w-I\rVert_{\rm op}\lVert Y
+\rVert\le\delta(w,I)\lVert Y\rVert$.
+
+(i) Use the notation of the proof of Lemma~\ref{lem:smallframes}(iv),
+with $A=A_{y,\mu}$ in place of $M$. From $\delta(w_x,I)\le24\kappa$ and the
+two paths of offset zero, $\lVert A\rVert\le\frac{14}{16}24\kappa=21\kappa$,
+and $\widehat V^{-1}\dot{\widehat V}=\operatorname{Ad}(e^{-A})\alpha+R
+\dot A$ with $R=\int_0^1\operatorname{Ad}(e^{-sA})\,ds$, $\lVert R-1\rVert
+\le\lVert A\rVert$. Here $\dot A=\frac1{16}\sum_x\Pi_\g(w_xY_x)$ with $Y_x=
+\beta_x-\operatorname{Ad}(w_x^{-1})\alpha$, so $\lVert\dot A\rVert\le m_
+\beta+\lVert\alpha\rVert$, and $\Pi_\g(w_xY_x)-(\beta_x-\alpha)=(\Pi_\g(w_x
+Y_x)-Y_x)+(\alpha-\operatorname{Ad}(w_x^{-1})\alpha)$. The four differences
+of that proof are at most $42\kappa\lVert\alpha\rVert$, $21\kappa(m_\beta+
+\lVert\alpha\rVert)$, $24\kappa m_\beta+72\kappa\lVert\alpha\rVert$ and
+$42\kappa m_\xi$, and their sum is at most $(135+45\cdot0.434+42/4)\kappa
+N_{y,\mu}<166\kappa N_{y,\mu}$.
+
+(ii) Follow the proof of Proposition~\ref{prop:explicitconstants}. On
+unitary matrices $\Pi_\g(w)=L(w)$ with $L(w)=P_\C(\frac12(w-w^{-1}))$,
+$P_\C$ the orthogonal projection onto $\g\otimes\C$ for the Hermitian
+inner product, which agrees with $\Pi_\g$ on skew-Hermitian matrices; $L$
+is holomorphic on $\mathrm{GL}(r,\C)$. Since $e^{X+Z}=e^X(I+F)$ gives
+$(I+F)^{-1}=I+F'$, $w_x^{-1}$ has the same factorisation as $w_x$, and
+$\lVert L(w_x)-L(w'_x)\rVert_{\rm op}\le\lVert L(w_x)-L(w'_x)\rVert\le
+\sqrt r\,\psi$. The two paths of offset zero have $w_x=I$, so the exponent
+moves by at most $d_L=\frac78\sqrt r\,\psi$, which replaces $d$, and no
+domain condition on the sites is needed. At real points $\lVert A'-A_0
+\rVert\le\frac78\cdot3x_0$, so $\gamma_0=x_0+\frac{21}8x_0<0.0037$. For
+$\SU(2)$, $r=2$: at $R=0.07$, $\varphi<0.0726$, $\psi<0.2337$, $d_L<
+0.2892$, $\eta<0.4322$, $S<0.767$, $6S/R^3<13417$ and $2S/R^2<314$; at
+$R=10^{-3}$, $S/R<4.8$; on $\lvert z\rvert\le0.1$, $\gamma_0+\eta<0.71$.
+All are below $1.5\cdot10^4$. For general $G$ take the radii $R/\sqrt r$:
+by convexity $\varphi(R/\sqrt r)\le\varphi(R)$ and $\sqrt r\,\psi(R/\sqrt
+r)\le\psi(R)$, so $S(R/\sqrt r)$ is at most the value above, and the
+Cauchy estimate loses $r^{m/2}\le r^{3/2}$. The derivatives of $\log j$ do
+not involve the average.
+
+(iii) These proofs use the average in three places only: the derivative
+bound of Lemma~\ref{lem:smallframes}(iv), whose constant $260\kappa$ is
+improved by (i); the constants $c_3$ and $c_6$; and, in the proof of
+Theorem~\ref{thm:offchart}(i), the form $V^\sharp=ve^M$ with $\lVert M
+\rVert\le8\pi\kappa$. For $\widehat V$ the bound $\lVert A\rVert\le21
+\kappa$ gives $\delta(v,v')\le42\kappa$ and $\delta(U_e,U'_e)\le84\kappa<
+92.3\kappa$.
+
+(iv) The derivative in the eight private links satisfies $JJ^*\ge D_g
+\widehat V(D_g\widehat V)^*\ge\frac1{64}$ by
+Theorem~\ref{thm:projinverse}(ii). For fixed non-path links, $g\mapsto
+\widehat V$ is a diffeomorphism with Jacobian at least $8^{-3}$, so the
+image of Haar measure has density at most $512$, and so has its average
+over the non-path links. In the proof of Proposition~\ref{prop:calmfibre},
+$\frac78\Lambda$ becomes $\frac78$, $1.957$ becomes $\frac{15}8$, and
+$(512^4(\frac{15}8)^{12})^{1/45}<2.06<2.93$.
+
+(v) At $R(c)$ every relative path is $I$. In the proof of
+Lemma~\ref{lem:coarsewitnesssharp}, Lemma~\ref{lem:projection}(ii) gives
+$\delta(\widehat c_k,c_k)\le\frac{14}{16}\cdot\frac1{12}a^3$ for each side,
+and replacing the four $c_k$ by $\widehat c_k$ adds at most $\frac7{24}a^3<
+4100\kappa^3<10\kappa^2$ for $\kappa\le10^{-8}$, which the bound $4\kappa+
+7685\kappa^2$ of that proof absorbs.
+\end{proof}
+
+\begin{remark}[what is proved for which map]\label{rem:projscope}
+The projected average is a different coarse map: it defines different
+coarse fields $c=\widehat V(U)$ and different conditional laws $\mu^c$.
+Proved for it are Proposition~\ref{prop:projavg},
+Theorems~\ref{thm:projinverse} and~\ref{thm:projresponse},
+Corollary~\ref{cor:projpathlaw}, Propositions~\ref{prop:projfibre},
+\ref{prop:projwitness} and~\ref{prop:projtransfer},
+Lemma~\ref{lem:wilsononly}, whose proof applies unchanged, and the Hessian
+statement after Proposition~\ref{prop:projwitness}. Through
+Proposition~\ref{prop:projtransfer} this includes the chart of
+Theorems~\ref{thm:smallfibre} and~\ref{thm:fibrechart}, the chart decay of
+Theorem~\ref{thm:chartdecay} and Proposition~\ref{prop:explicitdecay}, and
+Theorem~\ref{thm:offchart}. The results of Section~\ref{ssec:largefields}
+that concern only the Wilson measure and its plaquettes,
+Theorem~\ref{thm:defects}, Corollary~\ref{cor:localcalm} and
+Proposition~\ref{prop:calmrare} among them, do not involve the coarse map.
+Not proved here for $\widehat V$: the composition across scales of
+Section~\ref{ssec:scales}; the energy bounds of Section~\ref{ssec:coarse}, which
+on torus-valued fields use that $V^\sharp$ is the abelian average of the
+angles, while $\widehat V$ averages their sines; the labels, sites and
+chains of Sections~\ref{ssec:branches} and~\ref{ssec:pathlaw},
+Proposition~\ref{prop:nonconvex} among them; the islands, their threshold
+and the label covariance of Sections~\ref{ssec:counting}
+to~\ref{ssec:labelcov}, including Theorems~\ref{thm:badcross}
+and~\ref{thm:offchartmass} and Proposition~\ref{prop:badchart}; and the
+one-step and multiscale results of Sections~\ref{ssec:relstep}
+to~\ref{ssec:allscales}. Proposition~\ref{prop:projavg}(i) bounds the
+distance between the two maps; it does not transfer these results.
+\end{remark}
+
+\begin{remark}[the route to (D) with $\widehat V$]\label{rem:projroute}
+With $\widehat V$ in place of $V^\sharp$, the chart decay holds at
+$\alpha_G=2.5\cdot10^{-4}$ (Proposition~\ref{prop:projtransfer}), the good
+side holds at every field (Corollary~\ref{cor:projpathlaw}), and the bad
+side of item~(i) of Section~\ref{ssec:remains} holds for every restricting
+set, uniformly in the exterior and in the inside links, with no condition
+(Theorem~\ref{thm:projresponse}). The statements that the cube
+condition~(D) still needs are items (ii)--(iv) of Section~\ref{ssec:remains}
+with $\widehat V$ for $V^\sharp$:
+\begin{enumerate}[label=\textup{(\alph*)},leftmargin=*]
+\item the island comparison: a covariance bound for every coarse field,
+uniform in the exterior, decaying at the rate $2\alpha_G$ without a
+floor, and the mixed differences in tree form;
+\item the island threshold at the scale of the cube;
+\item the effective action at every scale with summable one-step errors.
+\end{enumerate}
+The results that the paper proves towards (a) and (b) for $V^\sharp$, and
+the energy bounds of Section~\ref{ssec:coarse}, are not re-derived for
+$\widehat V$ (Remark~\ref{rem:projscope}). Neither (D) nor the mass gap is
+proved.
+\end{remark}
+
 \subsection{Counting bad labels}\label{ssec:counting}
 
 A label is bad when some fine plaquette in a fixed neighbourhood is bad:
@@ -30143,7 +30856,25 @@ links among their variables, partition the bad side, and respond to every
 other link with the constants of Theorem~\ref{thm:site} in which $24$ is
 replaced by their size $n\le23n_b+1$ (Proposition~\ref{prop:linechain});
 they cost no collar for $s\ge2$, and for $s=1$ the collar $s=2$
-(Corollary~\ref{cor:linechain}).
+(Corollary~\ref{cor:linechain}). For the projected average $\widehat V$ of
+Section~\ref{ssec:projected}, a different coarse map whose derivatives of
+order at most two agree with those of $V^\sharp$ at every field whose
+sixteen paths agree (Proposition~\ref{prop:projavg}), item (i) holds: the
+path-link equation has exactly one solution at every field, with Jacobian
+in $[\frac1{512},\frac{3375}{512}]$ (Theorem~\ref{thm:projinverse}); the
+path-link law responds to the non-path and inside links with the constants
+$1$ and $\frac12$, independent of $\beta_W$ and of the size of the links
+(Corollary~\ref{cor:projpathlaw}); and the law of the eight private links
+restricted to any fixed set of positive Haar measure of the non-path links
+responds to an inside link with the constant $24\beta_W+180.5$, with no
+hypothesis on the inside links, no lower bound on the measure of the set,
+and no condition (J) (Theorem~\ref{thm:projresponse}). The chart decay of
+Theorem~\ref{thm:chartdecay} holds for $\widehat V$ with the same
+constants (Proposition~\ref{prop:projtransfer}); the route to (D) with
+$\widehat V$ is Remark~\ref{rem:projroute}, and the labels, the islands
+and the results off the chart are proved for $V^\sharp$ only
+(Remark~\ref{rem:projscope}). For $V^\sharp$ item (i) stays as stated
+above.
 \item \emph{The island comparison.} For two islands in a good region,
 Theorem~\ref{thm:factorisation} factorises their weight through one
 kernel on the good layer between them, Theorem~\ref{thm:layerbound}
