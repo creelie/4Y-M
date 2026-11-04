@@ -14941,6 +14941,375 @@ $\beta_W=1.13\cdot10^{37}$; it falls below one at $w=99072$.}
 \label{fig:manyislands}
 \end{figure*}
 
+\subsection{The one-step error in gauge-invariant form}\label{ssec:relstep}
+
+Proposition~\ref{prop:massgrowth} requires the one-step error to be a
+relative bound by a gauge-invariant form. This subsection constructs such a
+bound at the trivial background on a box of blocks, from an absolute bound
+on the gauge complement taken as a hypothesis. The error of the covariant
+Hessian of a gauge-invariant induced action vanishes on the coarse gauge
+directions and is at most a multiple $\varepsilon'$ of the coarse Wilson
+form. On a box of side $n$, $\varepsilon'$ is of order $n^2$ times the
+absolute error, and this order cannot be improved.
+
+\emph{Setting.} On the coarse lattice of side $L$ let $W=\{y:a_\nu\le y_\nu
+\le a_\nu+n-1\}$ be a box of $n^4$ blocks, $n+2\le L$, $K=\{(y,\mu):y\in
+W\}$ and $W^\circ=\{y\in W:y-e_\mu\in W\text{ for every }\mu\}$. As in
+Theorem~\ref{thm:chartdecay}, the links off $A_W$ are fixed and the averages
+of the pairs that enter $W$ from outside are integrated. For $w\in\g^K$ put
+$|w|^2=\sum_k\lVert w_k\rVert^2$, let $Q_1(w)$ be the coarse plaquette form
+of $w$ extended by zero off $K$, and put
+\[
+S_W(w)=\inf\bigl\{Q(X):X\in\g^{A_W},\ V_k(X)=w_k\ (k\in K)\bigr\}.
+\]
+At $U=I$, $2\lambda Q_1$ is the Hessian at $I$ of the coarse Wilson action
+$\lambda Q_1$ with the links off $K$ fixed. $2\lambda S_W$ is the Hessian of
+the Gaussian block-spin step, the minimum of the Hessian $2\lambda Q$ of
+the fine action at given averages. The \emph{coarse gauge group} $\Gamma_W=
+G^{W^\circ}$ acts on $G^K$ by $(h\cdot V)_{y,\mu}=h_yV_{y,\mu}h_{y+e_\mu
+}^{-1}$, with $h_y=I$ for $y\notin W^\circ$. This is the action on the
+cut-off averages of the fine gauge transformations that are constant on
+blocks and equal to $I$ off the blocks of $W^\circ$. These transformations
+preserve the tree gauge by Lemma~\ref{lem:blocktree}(ii), and they fix the
+links off $A_W$: a link with base in a block $y'\notin W$ ends in $y'$ or
+$y'+e_\mu$, and neither lies in $W^\circ$. They also preserve the Wilson
+action and Haar measure, and the cut-off average is covariant
+(Theorem~\ref{thm:cutoff}). For $V_0\in G^K$ and $\eta\in\g^{W^\circ}$,
+extended by zero, put
+\[
+(d_{V_0}\eta)_{y,\mu}=\operatorname{Ad}(V_{0,y,\mu}^{-1})\eta_y-
+\eta_{y+e_\mu},
+\]
+let $\mathcal O_{V_0}=d_{V_0}(\g^{W^\circ})$ be the gauge directions at
+$V_0$ and $\Pi_{V_0}$ the orthogonal projection of $\g^K$ onto $\mathcal
+O_{V_0}^\perp$. At $V_0=I$ write $d$, $\mathcal O$ and $\Pi$.
+
+\begin{lemma}[the window off the gauge directions]\label{lem:windowgap}
+Let $W$ be the box above.
+\begin{enumerate}[label=\textup{(\roman*)},leftmargin=*]
+\item The map $d$ is injective on $\g^{W^\circ}$, and $\mathcal O=\ker
+Q_1=\ker S_W$.
+\item For every $w\in\g^K$, $|\Pi w|^2\le C_n\,Q_1(w)$ with
+\[
+C_n=1+\frac1{4\sin^2(\pi/2n)}\le1+\frac{n^2}4 .
+\]
+\item $c_*Q_1\le S_W\le4Q_1$ on $\g^K$, with $c_*=(1+\sqrt{21/8})^{-2}>
+0.1456$.
+\item There is $w\in\mathcal O^\perp\setminus\{0\}$ with $|w|^2=C_n^-Q_1
+(w)$, where $C_n^-=(12\sin^2(\pi/(2n+2)))^{-1}\ge(n+1)^2/(3\pi^2)$.
+\item If $W$ is the whole coarse torus, the fields that are constant in each
+direction lie in $\mathcal O^\perp\cap\ker Q_1\cap\ker S_W$, so no
+bound of the form \textup{(ii)} holds.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+Let $\Lambda=\prod_\nu[a_\nu,a_\nu+n]$, with boundary $\partial\Lambda$.
+The interior sites of $\Lambda$ form $W^\circ$. Call $(y,\mu)\in K$
+\emph{inner} if $y_\nu>a_\nu$ for every $\nu\ne\mu$, and a \emph{face link}
+otherwise. The inner links are the links of $\Lambda$ not contained in
+$\partial\Lambda$; call a plaquette of $\Lambda$ not contained in $\partial
+\Lambda$ inner. The links of $\partial\Lambda$ that are not face links have
+base outside $W$, so they are fixed, and $w$ vanishes on them.
+
+(ii) The cochain complex of $\Lambda$ relative to $\partial\Lambda$, with
+values in $\g$, has the interior sites, inner links and inner plaquettes as
+cells of degrees $0,1,2$. On these, $d_0=d$, and $d_1$ is the curvature on
+the inner plaquettes of a field on the inner links extended by zero. This
+complex is the fourfold tensor product of the complex of $[0,n]$ relative
+to its endpoints. In that complex $C^0=\R^{n-1}$, $C^1=\R^n$ and $d$ is the
+difference operator. With the product inner products, the Laplacian $\Delta
+=dd^*+d^*d$ of the product is the sum of the Laplacians of the factors. On
+$C^0$, $d^*d$ is the Dirichlet Laplacian, with eigenvalues $4\sin^2(\pi j/
+2n)$ for $1\le j\le n-1$. On $C^1$, $dd^*$ has the same nonzero eigenvalues
+and one zero eigenvalue. A $1$-cochain of $\Lambda$ is a sum of products
+with exactly one factor of degree one, so $\Delta_1\ge\gamma_n=12\sin^2(\pi
+/2n)$. On $\ker d_0^*=\mathcal O^\perp$ this gives $\lvert d_1u\rvert^2\ge
+\gamma_n|u|^2$.
+
+Write $w=u+f$, with $u$ on the inner links and $f$ on the face links. Since
+$\mathcal O$ lies on the inner links, $\Pi w=\Pi u+f$ and $|\Pi w|^2=|\Pi
+u|^2+|f|^2$. Let $f_k\ne0$ at a face link $k=(y,\mu)$, and let $\nu\ne\mu$
+be the least direction with $y_\nu=a_\nu$. The plaquette at $y-e_\nu$ in
+the plane $\{\mu,\nu\}$ has $k$ as its only link in $K$, since its other
+three links have base outside $W$. So its curvature is $\pm f_k$, and
+distinct face links give distinct such plaquettes, none of them inner.
+Consider next an inner plaquette $P$ in the plane $\{\mu,\nu\}$ at $z$.
+It has $z_\rho>a_\rho$ for $\rho\notin\{\mu,\nu\}$, so its face links are
+among $(z,\mu)$, if $z_\nu=a_\nu$, and $(z,\nu)$, if $z_\mu=a_\mu$. Thus
+$P$ contains at most two face links, and a face link lies in at most one
+inner plaquette. Hence $(d_1u)_P^2\le3\bigl((dw)_P^2+\sum_{k\in P}f_k^2
+\bigr)$, where the sum runs over the face links of $P$. Since $d_1\Pi u=
+d_1u$,
+\[
+\begin{split}
+|\Pi w|^2&\le\gamma_n^{-1}\lvert d_1u\rvert^2+|f|^2\\
+&\le\frac3{\gamma_n}\Bigl(\sum_{P\text{ inner}}(dw)_P^2+|f|^2\Bigr)+|f|^2
+\le C_nQ_1(w),
+\end{split}
+\]
+because the inner plaquettes and the plaquettes of the face links are
+distinct terms of $Q_1(w)$. Finally $\sin x\ge2x/\pi$ on $[0,\pi/2]$ gives
+$C_n\le1+n^2/4$.
+
+(iii) Let $X\in\g^{A_W}$ with $V(X)=w$ on $K$. Extended by zero, $X$
+vanishes on the tree links, and its averages are $w$ on $K$, zero on the
+coarse links with both blocks outside $W$, and $v'_{y-e_\mu,\mu}=
+S^\mu_y/16$ on a pair entering $y\in W$ from $y-e_\mu\notin W$, by
+Lemma~\ref{lem:blocktree}(iii). By Proposition~\ref{prop:effective}(i),
+$Q_1(w+v')\le Q(X)$. The sum $S^\mu_y$ has at most seven active links, and
+every link inside a block enters one such sum. So $\sum|v'|^2\le\frac7{256}
+I\le\frac7{32}Q(X)$, by the bound $I\le8Q_{\rm in}$ in the proof of
+Theorem~\ref{thm:blockgap}, which uses only the tree links. A coarse
+plaquette contains at most two entering pairs, since $(z,\mu)$ and $(z+e_\mu
+,\nu)$ cannot both enter, nor can $(z,\nu)$ and $(z+e_\nu,\mu)$. A coarse link
+lies in six plaquettes, so $Q_1(v')\le12\sum|v'|^2\le\frac{21}8Q(X)$. By the
+triangle inequality for $Q_1^{1/2}$, $Q_1(w)^{1/2}\le(1+\sqrt{21/8})Q(X)^{
+1/2}$, and the infimum over $X$ gives $S_W\ge c_*Q_1$. For the upper
+bound, the field $\varphi^*(w)$ of Proposition~\ref{prop:effective}(ii),
+with $w$ extended by zero, lies in $\g^{A_W}$, has averages $w$ on $K$ and
+$Q(\varphi^*(w))=4Q_1(w)$.
+
+(i) If $d\eta=0$, follow the links of direction $0$ from $y\in W^\circ$ to
+the first site outside $W^\circ$, where $\eta$ vanishes; so $\eta_y=0$.
+Extended by zero, $d\eta$ is exact on the whole lattice, so $Q_1(d\eta)=
+0$, and $\ker Q_1\subset\mathcal O$ by (ii). The fine field $\varphi=d(\eta
+\circ b)$, with $b(x)$ the block of $x$, vanishes on the tree links and has
+$Q(\varphi)=0$. It has $V(\varphi)=d\eta$ by Lemma~\ref{lem:blocktree}(ii).
+It lies in $\g^{A_W}$, since a link on which it is nonzero meets a block of
+$W^\circ$ and so has base in $W$. Hence $S_W(d\eta)=0$, and $\ker S_W
+\subset\ker Q_1$ by (iii).
+
+(iv) Let $f$ be the product of sines on $\{a_\nu,\dots,a_\nu+n-1\}^3$,
+$\nu=1,2,3$, whose eigenvalue for the Dirichlet Laplacian of the cube is
+$12\sin^2(\pi/(2n+2))$. Let $w_{y,0}=f(y_1,y_2,y_3)Z$ for a unit $Z\in\g$,
+and $w=0$ in the other directions. The sum over $y_0$ telescopes, so $\ip w
+{d\eta}=0$ for every $\eta$. The curvature of a plaquette in the plane
+$\{0,\nu\}$ is a difference of $f$ along $e_\nu$, the plaquettes in the other
+planes vanish, and for each of the $n$ values of $y_0$ the sum is the
+Dirichlet form of $f$. Hence $Q_1(w)/|w|^2=12\sin^2(\pi/(2n+2))\le3\pi^2/
+(n+1)^2$.
+
+(v) Then $W^\circ=W$ and every coarse link is in $K$. A constant field has
+$dw=0$, and $\ip w{d\eta}=\sum_y\sum_\mu\ip{w_\mu}{\eta_y-\eta_{y+e_\mu}}=
+0$. The field $\varphi^*(w)$ of Proposition~\ref{prop:effective}(ii) has
+$Q=4Q_1(w)=0$, so $S_W(w)=0$.
+\end{proof}
+
+
+For a smooth function $f$ near $V_0\in G^K$ write $\Hess f(0)$ and $\nabla_k
+f(0)$ for the Hessian and the gradient in the coordinates $\omega\mapsto f(
+V_0e^\omega)$, $e^\omega=(e^{\omega_k})_k$.
+
+\begin{lemma}[invariant functions and the slice]\label{lem:invariantslice}
+Let $f$ be smooth and $\Gamma_W$-invariant near $V_0\in G^K$.
+\begin{enumerate}[label=\textup{(\roman*)},leftmargin=*]
+\item For $w\in\g^K$ and $\eta\in\g^{W^\circ}$, with $a_k=\operatorname{Ad}
+(V_{0,k}^{-1})\eta_y$ and $b_k=\eta_{y+e_\mu}$ at $k=(y,\mu)$,
+\[
+\Hess f(0)[w,d_{V_0}\eta]=\frac12\sum_k\ip{\nabla_kf(0)}{[w_k,a_k+b_k]}.
+\]
+\item $d_{V_0}$ is injective, and $\Upsilon(s,\eta)=e^\eta\cdot(V_0e^s)$, on
+$\mathcal O_{V_0}^\perp\times\g^{W^\circ}$, is a diffeomorphism from a
+neighbourhood of $0$ onto a neighbourhood of $V_0$, with $f(\Upsilon(s,
+\eta))=f(V_0e^s)$. The \emph{covariant Hessian}
+\[
+\mathcal Hf(w,w')=\Hess(f\circ\Upsilon)(0)\bigl[D\Upsilon(0)^{-1}w,
+D\Upsilon(0)^{-1}w'\bigr]
+\]
+equals $\Hess f(0)[\Pi_{V_0}w,\Pi_{V_0}w']$. It vanishes if $w$ or $w'$
+lies in $\mathcal O_{V_0}$, and it equals $\Hess f(0)$ if $\nabla f(0)=0$.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+(i) For the action of $e^{t\eta}$,
+\[
+(e^{t\eta}\cdot V_0e^\omega)_k=V_{0,k}e^{\omega_k}e^{t\operatorname{Ad}(
+e^{-\omega_k})a_k}e^{-tb_k},
+\]
+and $\frac d{dt}\log(e^\omega e^{t\xi})|_{t=0}=\Phi(\operatorname{ad}_
+\omega)\xi$ with $\Phi(z)=z/(1-e^{-z})$. So the orbit through $V_0e^\omega$
+has the tangent
+\[
+\zeta(\omega)_k=\Phi(\operatorname{ad}_{\omega_k})\bigl(\operatorname{Ad}
+(e^{-\omega_k})a_k-b_k\bigr),
+\]
+with $\zeta(0)=d_{V_0}\eta$ and $D\zeta(0)w=-\frac12([w_k,a_k+b_k])_k$. Invariance gives $Df(\omega)
+[\zeta(\omega)]=0$ near $0$. Differentiating along $w$ at $0$ gives $\Hess
+f(0)[w,\zeta(0)]=-Df(0)[D\zeta(0)w]$.
+
+(ii) Injectivity follows as in Lemma~\ref{lem:windowgap}(i), with $\eta_y=
+\operatorname{Ad}(V_{0,k})\eta_{y+e_\mu}$ along the links $k$ of direction
+$0$. $D\Upsilon(0)(\sigma,\eta)=\sigma+d_{V_0}\eta$ is an isomorphism, and
+the inverse function theorem applies. Invariance gives $f\circ\Upsilon(s,
+\eta)=f(V_0e^s)$, whose Hessian at $0$ is $\Hess f(0)$ on the $s$-variables
+and zero in $\eta$. Since $D\Upsilon(0)^{-1}w=(\Pi_{V_0}w,\eta)$ with
+$d_{V_0}\eta=w-\Pi_{V_0}w$, the formula follows. If $\nabla f(0)=0$, (i)
+shows that $\Hess f(0)$ vanishes on $\g^K\times\mathcal O_{V_0}$, so
+$\Hess f(0)[w,w']=\Hess f(0)[\Pi_{V_0}w,\Pi_{V_0}w']$.
+\end{proof}
+
+At a point that is not critical, $\Hess f(0)$ does not vanish on the gauge
+directions. The Hessian in exponential coordinates of an invariant
+function, and with it any absolute bound on it, is therefore not
+gauge-invariant; $\mathcal Hf$ is the gauge-invariant object. Let $j(\omega)=
+\det\bigl((1-e^{-\operatorname{ad}_\omega})/\operatorname{ad}_\omega\bigr)$
+be the density of Haar measure in exponential coordinates. Since $\operatorname
+{ad}_\omega$ is skew, $\log j(\omega)=\frac1{24}\Tr(\operatorname{ad}_\omega
+^2)+O(\lVert\omega\rVert^4)$. Put
+\[
+\delta_G=\frac1{12}\sup_{\lVert x\rVert=1}\lvert\Tr(\operatorname{ad}_x^2)
+\rvert\le\frac{\dim G}3,
+\]
+which is $\frac13$ for $\SU(2)$, where $\lVert\operatorname{ad}_x\rVert_{HS}
+=2\lVert x\rVert$.
+
+\begin{proposition}[relative one-step bound]\label{prop:relstep}
+Let $U=I$, so that $V_0=I$. Let $A$ be smooth near $0\in\g^K$ and suppose
+that, for some $\varepsilon\ge0$,
+\[
+\bigl\lvert\Hess A(0)[\sigma,\sigma]-2\lambda S_W(\sigma)\bigr\rvert\le
+\lambda\varepsilon|\sigma|^2\quad\text{for }\sigma\in\mathcal O^\perp.
+\tag{H}
+\]
+Let $A^{\rm gi}$ be the $\Gamma_W$-invariant function with $A^{\rm gi}
+(\Upsilon(s,\eta))=A(s)+\sum_k\log j(s_k)$, and let $E=\mathcal HA^{\rm gi}-
+2\lambda S_W$ as bilinear forms. Then:
+\begin{enumerate}[label=\textup{(\roman*)},leftmargin=*]
+\item $E(w,g)=0$ for every $w\in\g^K$ and $g\in\mathcal O$;
+\item for every $w\in\g^K$,
+\[
+\begin{split}
+\lvert E(w,w)\rvert&\le(\lambda\varepsilon+\delta_G)|\Pi w|^2\le
+(\lambda\varepsilon+\delta_G)C_nQ_1(w)\\
+&\le\varepsilon'\cdot2\lambda S_W(w),\qquad\varepsilon'=\Bigl(\varepsilon+
+\frac{\delta_G}\lambda\Bigr)\frac{C_n}{2c_*},
+\end{split}
+\]
+so that $(1-\varepsilon')\,2\lambda S_W\le\mathcal HA^{\rm gi}\le(1+
+\varepsilon')\,2\lambda S_W$;
+\item the factor $C_n$ is necessary up to a constant. The
+$\Gamma_W$-invariant $F$ with $F(\Upsilon(s,\eta))=\lambda S_W(s)+\frac12
+\lambda\varepsilon|s|^2$ has $\Hess F(0)=2\lambda S_W+\lambda\varepsilon
+|\cdot|^2$ on $\mathcal O^\perp$ and $\mathcal HF-2\lambda S_W=\lambda
+\varepsilon|\Pi\cdot|^2$. At the field $w$ of
+Lemma~\ref{lem:windowgap}\textup{(iv)} this is at least $\frac18
+\varepsilon C_n^-\cdot2\lambda S_W(w)$.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+(i) $\mathcal HA^{\rm gi}(w,g)=0$ by Lemma~\ref{lem:invariantslice}(ii).
+$S_W$ is positive semidefinite with $g\in\ker S_W$ by
+Lemma~\ref{lem:windowgap}(i), so $S_W(w,g)=0$ by Cauchy--Schwarz.
+(ii) By Lemma~\ref{lem:invariantslice}(ii), $\mathcal HA^{\rm gi}(w,w)$ is the
+Hessian at $0$ of $s\mapsto A(s)+\sum_k\log j(s_k)$ at $\Pi w$, that is,
+$\Hess A(0)[\Pi w,\Pi w]+\frac1{12}\sum_k\Tr(\operatorname{ad}_{(\Pi w)_k}
+^2)$. Also $S_W(w)=S_W(\Pi w)$, by (i). Hypothesis (H) at $\sigma=\Pi w$
+gives the first inequality. Lemma~\ref{lem:windowgap}(ii) gives the second,
+and Lemma~\ref{lem:windowgap}(iii), $Q_1\le S_W/c_*$, gives the third.
+(iii) The Hessian of $s\mapsto\lambda S_W(s)+\frac12\lambda\varepsilon|s|^
+2$ is $2\lambda S_W+\lambda\varepsilon|\cdot|^2$. That $w$ lies in
+$\mathcal O^\perp$ and has $|w|^2=C_n^-Q_1(w)\ge\frac14C_n^-S_W(w)$, by
+Lemma~\ref{lem:windowgap}(iii).
+\end{proof}
+
+\emph{The induced action.} Let $e^{-A(\omega)}$ be the density in $\omega$
+of the cut-off averages of a window under the Wilson measure restricted by a
+cut-off. The small-field restriction is an example: it is a soft box in the
+coordinates of the chart of Theorem~\ref{thm:chartdecay}, which is not
+$\Gamma_W$-invariant. Then $e^{-A^{\rm gi}}$ is the density with respect to
+Haar measure on $G^K$ of the averages under the measure whose cut-off on
+the fibre over $\Upsilon(s,\eta)$ is the transport by the block-constant
+gauge transformation $e^\eta$ of the cut-off on the fibre over $e^s$. The
+transport maps fibre to fibre (Theorem~\ref{thm:cutoff}) and preserves the
+Wilson weight and Haar measure, so the fibre integrals agree. On the slice
+$\mathcal O^\perp$ the two cut-offs coincide. A cut-off defined through
+gauge-invariant quantities gives $A^{\rm gi}=A+\sum_k\log j$ everywhere.
+
+\begin{remark}[inputs and what is missing]\label{rem:relstepinputs}
+Proposition~\ref{prop:relstep} rests on one input and leaves the following
+open.
+\begin{enumerate}[label=\textup{(\alph*)},leftmargin=*]
+\item \emph{Input.} The bound (H) on the Hessian of the induced action at
+one point is an absolute bound, of the kind by which
+Theorems~\ref{thm:smallfibre} and~\ref{thm:fibrechart} control the
+non-Gaussian terms, and only its restriction to $\mathcal O^\perp$ is used.
+It is not proved in this paper. For $\SU(2)$, $\lambda=10^{100}$ and
+$\varepsilon=1.63\cdot10^{-9}$, interval arithmetic gives $\varepsilon'\le
+8.40\cdot10^{-9}$ at $n=2$, $1.52\cdot10^{-8}$ at $n=4$, $1.52\cdot
+10^{-7}$ at $n=16$ and $5.95\cdot10^{-4}$ at $n=1024$, and $\varepsilon'
+\le0.1$ for every $n\le8455$.
+\item \emph{The cut-off.} The construction replaces a non-invariant cut-off
+off the slice by its gauge transport. Ba{\l}aban defines the small-field
+regions by gauge-invariant conditions on
+plaquettes~\cite{Bal85a,Bal89b,Dim13}. For such a cut-off the transport is
+not needed.
+\item \emph{Points that are not critical.} $\mathcal H$ is taken at one
+point. An iteration needs the bound as a function on a neighbourhood. There
+the gradient terms of Lemma~\ref{lem:invariantslice}(i) and the third
+derivatives enter, and Proposition~\ref{prop:relstep} says nothing about
+them. Ba{\l}aban expands around the minimiser of the action with given
+averages, the background field, at which the first-order terms
+vanish~\cite{Bal84a,Dim13}.
+\item \emph{Curved backgrounds.} Lemma~\ref{lem:invariantslice} holds at
+every $V_0$. The Gaussian reference $S^U_W(w)=\inf\{Q_U(X):BX=w\}$ need not
+vanish on $\mathcal O_{V_0}$, where $B$ is the derivative of the cut-off
+averages at $U$. The fine gauge variation $X_\eta$ of $e^\eta$ has $BX_\eta=
+d_{V_0}\eta$ and $D_p(X_\eta)=(1-\operatorname{Ad}U_p)\eta_{y(p)}$, with
+$y(p)$ the block of the base of $p$. Hence $S^U_W(d_{V_0}\eta)\le384
+\kappa^2|\eta|^2$ when $\delta(U_p,I)\le\kappa$, where $96$ plaquettes have
+their base in a block. The reference for an invariant action is $S^U_W\circ
+\Pi_{V_0}$. Its gap on $\mathcal O_{V_0}^\perp$ for $\kappa>0$ is not proved
+here.
+\item \emph{The action.} The induced action is not a plaquette action. Its
+Hessian is compared with $2\lambda S_W$, not with $2\lambda Q_1$, and
+Theorem~\ref{thm:chartdecay} does not apply to it as it stands at the next
+scale. The large fields, which Ba{\l}aban treats separately~\cite{Bal89b},
+are removed by the cut-off and not estimated.
+\end{enumerate}
+\end{remark}
+
+\begin{remark}[relative errors over scales]\label{rem:relscales}
+The proof of Proposition~\ref{prop:formstability} uses only the order of
+forms, so it holds for positive semidefinite forms. A bound $(1\pm
+\varepsilon')\,2\lambda S_W$ on the covariant Hessian therefore passes to
+the block infimum of the next step with factor one.
+Proposition~\ref{prop:massgrowth} does not apply to it. That proposition
+concerns an error bounded by the Euclidean form, which does not vanish on
+$\mathcal O$. The block infimum turns that error into a term at least
+$4\lambda\varepsilon(1+2724\kappa)^{-1}|w|^2$, also where $S_W$ vanishes.
+
+The two statements agree. A window of side $n$ in blocks of one scale has
+side $n/2$ in the blocks of the next, and $C_n/C_{n/2}\to4$. Converting an
+absolute error at one scale costs the factor $C_n$. Carrying it one step as
+an absolute error multiplies it by at least four, after which converting
+costs $C_{n/2}$. Both routes have the same order, and the factor four of
+Proposition~\ref{prop:massgrowth} is the loss of the gap of the window.
+
+With windows of side $n_k=n_12^{1-k}$ at the scales $k=1,\dots,K$,
+$\sum_kC_{n_k}\le K+n_1^2/3$, so
+\[
+\sum_k\varepsilon'_k\le\sup_k\Bigl(\varepsilon_k+\frac{\delta_G}{\lambda_k}
+\Bigr)\frac{K+n_1^2/3}{2c_*}.
+\]
+The part $n_1^2/3$ is the conversion cost. It is the absolute error carried
+to the last scale, $4^{K-1}\approx n_1^2$, so it is finite for a fixed
+window but not uniform in the volume. Removing it needs a gauge-invariant
+localisation of the one-step bound, which is part of
+Ba{\l}aban's analysis~\cite{Bal89b}. The part $K$ is marginal. The Haar term $\delta_G/\lambda_k$ is of order
+$g_k^2$, and $\sum_kg_k^2$ diverges logarithmically along the one-loop
+coupling by Remark~\ref{rem:constrainedopen}(c). The order $g^2$ of the
+one-step error must therefore be absorbed into the running coupling and the
+normalisation of the field. Only a remainder of order $g^4$ can be carried
+as $\varepsilon'_k$. For $n_1=2^{12}$, $K=13$, $\varepsilon_k=1.63\cdot
+10^{-9}$ and $\lambda_k=10^{100}$, the values of $C_{n_k}$ give $\sum_k
+\varepsilon'_k\le0.0127$, against $4^{12}\varepsilon_1\le0.028$ for the absolute
+error of the first scale carried to the last. No effective action is constructed here beyond the first
+scale, and item~(iv) of Sec.~\ref{ssec:remains} remains open.
+\end{remark}
+
 \subsection{What remains}\label{ssec:remains}
 
 The results of this section leave the following statements, which together
@@ -15001,7 +15370,13 @@ labels, which the effective action is for, is untouched.
 Proposition~\ref{prop:massgrowth} shows that the one-step errors must be
 relative bounds by a gauge-invariant form: an error bounded by a multiple
 of the Euclidean form grows by a factor at least $4/(1+2724\kappa)$ at each
-step.
+step. Proposition~\ref{prop:relstep} gives such a relative bound
+for one step at the trivial background on a box of side $n$, from an
+absolute bound on the Hessian of the induced action off the gauge
+directions; its factor $C_n$, of order $n^2$, is necessary
+(Remark~\ref{rem:relscales}) and is removed only by a gauge-invariant
+localisation, and the bound at curved backgrounds and away from critical
+points is not proved.
 \end{enumerate}
 The averaged covariance of item (ii), with the island sums in windows
 of more than $10^{28000}$ blocks, is the single-scale part of (D) that
