@@ -21,7 +21,7 @@ C1 = C0 + log(12800)/6
 def witness_counts(j):
     """M_j = number of fine unit cubes that can hold the fine witness of a bad
     scale-j block, H_j = max number of scale-j blocks whose witness set contains
-    a given fine cube.  Derivation (NOTE.md, Lemma 2)."""
+    a given fine cube.  Derivation: Lemma scalewitness."""
     if j == 0:
         return 11**4, 6**4
     side = 17*2**j - 4            # corners x - 2^{j+1} y in [-8 2^j + 2, 9 2^j - 3]

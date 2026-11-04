@@ -1,4 +1,4 @@
-"""Constants of Lemma 2 of NOTE.md (extended good side r <= 1/32)."""
+"""Constants of Proposition goodside (the good side to r <= 1/32)."""
 from mpmath import mp, mpf, sin, pi, sqrt
 mp.dps = 30
 r = mpf(1)/32
