@@ -4622,9 +4622,12 @@ from the condition $\mathrm{BP}(n_k,\varpi)$ with $n_ka_k\le\ell$, a
 spectral gap of the cube dynamics on gauge-invariant functions in
 $L^2$ of the Wilson measure, uniform in the torus; the condition follows
 from its supremum form $D^0_L(n,\alpha)$ with $\varpi=1-\alpha$, holds at
-$\beta=0$ with $\varpi=1$ (Proposition~\ref{prop:avgsup}), and fails in the
-Coulomb phase of the Villain theory at every cube size
-(Corollary~\ref{cor:avgcoulomb}). The obstructions of the forest gauge,
+$\beta=0$ with $\varpi=1$ (Proposition~\ref{prop:avgsup}), holds on every
+torus at strong coupling for every cube size past an explicit $n_0(\beta)$,
+with $\varpi\to1$ as $n\to\infty$ (Corollary~\ref{cor:bpranges}), fails on
+the torus of side $2n+4$ once $\beta\gg n^4\log\beta$
+(Theorem~\ref{thm:bpfixed}), and fails in the Coulomb phase of the Villain
+theory at every cube size (Corollary~\ref{cor:avgcoulomb}). The obstructions of the forest gauge,
 Propositions~\ref{prop:gaussforest}, \ref{prop:gaussevery}
 and~\ref{prop:tetra}, Theorem~\ref{thm:cubeneeds} and
 Corollary~\ref{cor:cubefails}, bound $K_c$ from below through Lipschitz
@@ -4637,11 +4640,558 @@ Theorem~\ref{thm:fixedobstruction} and Proposition~\ref{prop:hiddenbit},
 which concern bounds uniform in the coarse field and arguments from rarity,
 since the condition contains no supremum and no labels. Not proved: the
 condition $\mathrm{BP}(n_k,\varpi)$ along the continuum tuning for any
-non-abelian group, at any $\beta>0$ uniformly in the torus; the relation
-between $\mathrm{BP}$ and $D(n,\alpha)$; and (E). Corollary~\ref{cor:avgcoulomb}
+non-abelian group, or outside the strong-coupling ranges of
+Corollary~\ref{cor:bpranges}; the relation between $\mathrm{BP}$ and
+$D(n,\alpha)$; and (E). Remark~\ref{rem:bpstatus} lists what
+Sec.~\ref{ssec:bpstrong} proves about the dependence on $n$ and $\beta$. Corollary~\ref{cor:avgcoulomb}
 shows that a proof of $\mathrm{BP}$ has to use the non-abelian structure of
 $G$, as for (D). Neither the averaged condition nor the mass gap is proved
 here.
+\end{remark}
+
+\subsection{The averaged condition at strong coupling and at fixed cube
+size}\label{ssec:bpstrong}
+
+This subsection proves $\mathrm{BP}(n,\varpi)$ on every torus, for every
+cube size, in explicit ranges of the coupling, with $\varpi$ tending to
+its value at $\beta=0$ as $n\to\infty$, and proves that at weak coupling
+the condition fails on the torus of side $2n+4$ when $n$ is small compared
+with $(\beta/\log\beta)^{1/4}$. The first statement comes from the supremum
+form $D^0_L(n,\alpha)$ of Proposition~\ref{prop:avgsup}, which the
+single-link coefficients of the ungauged measure control through a
+Dobrushin--Shlosman estimate for one cube~\cite{DS85}. The second uses the
+center of $\SU(N)$ and the holonomies of the torus, which the cube moves
+can change only through the curvature of the configuration. Throughout,
+$\Lambda=\Lambda_L$ with $L$ even, $\delta$ is a bi-invariant metric on $G$,
+and $C^0_{V,j}$, $K^0_\nu$ are as in Proposition~\ref{prop:avgsup}. Two
+distinct links are \emph{partners} if they lie in a common plaquette; for
+$L\ge3$ every link has exactly eighteen partners, three in each of its six
+plaquettes, and two links share at most one plaquette. Write $C^0_{ee'}=
+C^0_{\{e\},e'}$ for the single-link coefficients; $C^0_{ee'}=0$ unless $e$
+and $e'$ are partners.
+
+\begin{lemma}\label{lem:bpblock}
+Suppose that $C^0_{ee'}\le c$ for all partners $e,e'$, with $18c<1$. Then
+for every finite $V\subset E$ and every link $j\notin V$,
+\[
+C^0_{V,j}\le\frac1{1-18c}\sum_{e\in V}C^0_{ej}.
+\]
+\end{lemma}
+
+\begin{proof}
+Let $U,U'$ differ only at $j$, and let $\gamma=\gamma^0_V(\cdot\mid U)$,
+$\gamma'=\gamma^0_V(\cdot\mid U')$. Under $\gamma$ the conditional law of
+$\sigma_e$, $e\in V$, given the other links of $V$ is $\gamma^0_e(\cdot\mid
+\sigma,U_{E\setminus V})$, and likewise for $\gamma'$. The couplings of
+$\gamma$ and $\gamma'$ form a weakly compact set on which $\Psi(\pi)=\sum_{e
+\in V}\E_\pi\delta(\sigma_e,\sigma'_e)$ is continuous; let $\pi^*$ be a
+minimiser and $\varrho(e)=\E_{\pi^*}\delta(\sigma_e,\sigma'_e)$. For $e\in V$
+replace $(\sigma_e,\sigma'_e)$ by a sample of an optimal coupling of the two
+single-link laws, chosen measurably~\cite[Cor.~5.22]{Vil09}; both marginals
+are invariant, so the result is a coupling of $\gamma$ and $\gamma'$.
+Changing the partners of $e$ one at a time bounds the new expected distance
+at $e$ by $\sum_{k\in V}C^0_{ek}\varrho(k)+C^0_{ej}\delta(U_j,U'_j)$, and
+minimality gives
+\[
+\varrho(e)\le\sum_{k\in V}C^0_{ek}\varrho(k)+C^0_{ej}\delta(U_j,U'_j).
+\]
+Sum over $e\in V$. Since $k$ has eighteen partners, $\sum_{e\in V}C^0_{ek}\le
+18c$, so $(1-18c)\sum_e\varrho(e)\le\delta(U_j,U'_j)\sum_{e\in V}C^0_{ej}$,
+and $W_1^{d_V}(\gamma,\gamma')\le\sum_e\varrho(e)$.
+\end{proof}
+
+\begin{lemma}\label{lem:bpcount}
+Let $n\ge2$, $L\ge2n+4$ and let $j$ be a link of direction $\nu$.
+\begin{enumerate}[label=\textup{(\roman*)},leftmargin=*]
+\item $\sum_{x:\,j\notin V_x}\#\{e\in V_x:e\text{ a partner of }j\}=18n^3-
+3n^2$.
+\item The number $B_n$ of $x$ with $j\notin V_x$ such that $V_x$ contains
+a partner of $j$ is $7n^3+3n^2$.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+Let $b$ be the base point of $j$. For each $\mu\ne\nu$ the plaquette at $b$
+in the plane $\{\mu,\nu\}$ gives the partners $(b+e_\nu,\mu)$, $(b+e_\mu,
+\nu)$, $(b,\mu)$, and the plaquette at $b-e_\mu$ gives $(b-e_\mu,\nu)$,
+$(b-e_\mu,\mu)$, $(b-e_\mu+e_\nu,\mu)$, so the base points of the partners
+are $b+\Delta$ with $\Delta\in\{e_\nu,e_\mu,0,-e_\mu,-e_\mu,e_\nu-e_\mu\}$.
+A link with base point $b+\Delta$ lies in $V_x$ exactly when $z=b-x$
+satisfies $z+\Delta\in Q=[0,n)^4$, and $j\in V_x$ exactly when $z\in Q$;
+since $L\ge2n+4$ these conditions are read in $\Z^4$.
+
+(i) Exchanging the sums, the left side is $\sum_\Delta\#\{z:z+\Delta\in Q,\
+z\notin Q\}=\sum_\Delta(n^4-\lvert Q\cap(Q-\Delta)\rvert)$. This is $0$ for
+$\Delta=0$, $n^4-n^3(n-1)=n^3$ for $\Delta=\pm e_\mu,e_\nu$, and $n^4-n^2
+(n-1)^2=2n^3-n^2$ for $\Delta=e_\nu-e_\mu$. Each $\mu$ contributes $6n^3-n^2$.
+
+(ii) The set of $z\notin Q$ with $z+\Delta\in Q$ for some $\Delta$ consists
+of the layer $\{z_\nu=-1\}$ of $Q-e_\nu$, the layers $\{z_\mu=-1\}$ and
+$\{z_\mu=n\}$ of $Q\mp e_\mu$, each with the other coordinates in $[0,n)$,
+and the new points $\{z_\nu=-1,\ z_\mu=n\}$ of $Q+e_\mu-e_\nu$, with the two
+remaining coordinates in $[0,n)$. These sets are disjoint, with
+$n^3+3(2n^3+n^2)$ points.
+\end{proof}
+
+\begin{theorem}[the averaged condition from single links]\label{thm:bpstrong}
+Let $n\ge2$ and $L\ge2n+4$.
+\begin{enumerate}[label=\textup{(\roman*)},leftmargin=*]
+\item If $C^0_{ee'}\le c$ for all partners, with $18c<1$, then
+$K^0_\nu\le\alpha_n n^4$ for $\nu=0,\dots,3$, with
+\[
+\alpha_n=\frac{c\,(18n-3)}{(1-18c)\,n^2},
+\]
+and if $\alpha_n<1$, $\mathrm{BP}(n,1-\alpha_n)$ holds for every real
+$f\in L^2(\mu)$.
+\item For every $\beta$,
+\[
+K^0_\nu\le(7n^3+3n^2)\,\Xi_n,\qquad\Xi_n=\max_jC^0_{V_0,j}.
+\]
+The number $\Xi_n$ and the condition $D^0_L(n,\alpha)$ do not
+depend on $L\ge2n+4$, and $\mathrm{BP}(n,1-(7n^{-1}+3n^{-2})\Xi_n)$ holds
+whenever $(7n^3+3n^2)\Xi_n<n^4$.
+\end{enumerate}
+The number $\alpha_n$ decreases in $n$ and tends to $0$.
+\end{theorem}
+
+\begin{proof}
+Fix a link $j$ of direction $\nu$. By translation invariance, $K^0_\nu=
+\sum_{x:\,j\notin V_x}C^0_{V_x,j}$ (proof of Proposition~\ref{prop:avgsup}).
+
+(i) By Lemma~\ref{lem:bpblock} and Lemma~\ref{lem:bpcount}(i),
+\[
+K^0_\nu\le\frac c{1-18c}\sum_{x:\,j\notin V_x}\#\{e\in V_x\text{ partner of
+}j\}=\frac{c\,(18n^3-3n^2)}{1-18c}.
+\]
+This is $D^0_L(n,\alpha_n)$, and Proposition~\ref{prop:avgsup}(i) gives the
+condition $\mathrm{BP}(n,1-\alpha_n)$. Finally $(18n-3)/n^2=18/n-3/n^2$
+decreases for $n\ge1$.
+
+(ii) $C^0_{V_x,j}$ vanishes unless $V_x$ contains a partner of $j$, which by
+Lemma~\ref{lem:bpcount}(ii) happens for $B_n=7n^3+3n^2$ points $x$ with
+$j\notin V_x$. The law $\gamma^0_{V_0}(\cdot\mid U)$ depends on $U$ only
+through the links of $\partial V_0$, whose base points lie in
+$[-1,n]^4$; for $L\ge2n+4$ the links of $V_0\cup\partial V_0$ and the
+plaquettes that meet $V_0$ are those of $\Z^4$, and the links of $\partial
+V_0$ take all values in $G^{\partial V_0}$. So every $C^0_{V_0,j}$, hence
+$\Xi_n$ and $K^0_\nu$, is the same for all $L\ge2n+4$. The last claim is
+Proposition~\ref{prop:avgsup}(i) with $\alpha=B_n\Xi_n/n^4$.
+\end{proof}
+
+Lemma~\ref{lem:bpblock} is Lemma~\ref{lem:cubesingle} for the ungauged
+measure, where every link has eighteen partners instead of twelve. Part (ii)
+of the theorem is the exact form of the count of
+Remark~\ref{rem:cubeheuristic} for that measure: if one link moves the law
+of a cube of side $n\ge3$ by a total amount at most $\Xi$ in Kantorovich
+distance, $D^0_L(n,\alpha)$ holds once $n\ge8\Xi/\alpha$, since $7n^3+3n^2\le
+8n^3$. The single-link coefficients are bounded as in
+Secs.~\ref{sec:su2}--\ref{sec:su3}, and for a general group by curvature.
+
+\begin{lemma}\label{lem:bponelink}
+Let $G\subset\U(N)$ be closed and connected with semisimple Lie algebra,
+$\delta$ the geodesic distance of $\ip XY=-\Tr(XY)$, and $6N\lvert\beta
+\rvert<\kappa_G$. Then $C^0_{ee'}\le N\lvert\beta\rvert/(\kappa_G-6N
+\lvert\beta\rvert)$ for all partners.
+\end{lemma}
+
+\begin{proof}
+Given the other links, the law of $U_e$ is $\nu\propto e^{-V}dU$ with
+$V(U)=-N\beta\sum_{p\ni e}\ReTr U_p$. Along $e^{tX}U$ the second
+derivative of $\ReTr U_p$ is $\ReTr(Y^2W)$ with $\lvert Y\rvert=\lvert X
+\rvert$, by~\eqref{eq:fp}, and $\lvert\Tr(Y^2W)\rvert\le\lvert Y\rvert^2$,
+so $\Ric_G+\Hess V\ge K_1=\kappa_G-6N\lvert\beta\rvert>0$. The proof of
+Lemma~\ref{lem:weighted} with one factor and $w\equiv1$ gives
+$\Gamma(P_th)\le e^{-2K_1t}P_t\Gamma(h)$ for the Langevin semigroup of
+$\nu$, and as in the proof of Lemma~\ref{lem:decayrate},
+\[
+\lvert\Cov_\nu(g,h)\rvert\le\int_0^\infty\lvert\nu(\Gamma(P_th,g))\rvert
+\,dt\le\frac{\lVert\nabla g\rVert_\infty\lVert\nabla h\rVert_\infty}{K_1}.
+\]
+Move the partner $e'$ along a unit-speed geodesic $e^{sX}U_{e'}$, $0\le s
+\le\delta(U_{e'},U'_{e'})$, and let $\nu_s\propto e^{-V_s}$. Then $\frac
+d{ds}\nu_s(g)=-\Cov_{\nu_s}(g,\partial_sV_s)$; $\partial_sV_s$ comes from
+the one plaquette $p$ that contains $e$ and $e'$, and its gradient in $U_e$
+is $-N\beta$ times the mixed block $H^p_{ee'}(\cdot,X)$, of norm at most
+one by Lemma~\ref{lem:mixed}. For smooth $g$ that are $1$-Lipschitz for
+$\delta$ this gives $\lvert\nu_0(g)-\nu_\delta(g)\rvert\le N\lvert\beta
+\rvert\delta/K_1$. Convolution with a probability measure on $G$ preserves
+the Lipschitz constant of a function for a bi-invariant metric, so smooth
+$1$-Lipschitz functions approximate every $1$-Lipschitz one uniformly, and
+the Kantorovich--Rubinstein duality gives the bound.
+\end{proof}
+
+\begin{corollary}[explicit ranges]\label{cor:bpranges}
+For every even $L\ge2n+4$, $\mathrm{BP}(n,1-\alpha_n)$ holds for every real
+$f\in L^2(\mu)$ in the following cases.
+\begin{enumerate}[label=\textup{(\roman*)},leftmargin=*]
+\item $G=\SU(2)$, $\lvert\beta_W\rvert<\frac29$, with
+\[
+\alpha_n=\frac{\lvert\beta_W\rvert(18n-3)}{(4-18\lvert\beta_W\rvert)n^2},
+\]
+whenever $\lvert\beta_W\rvert<4n^2/(18n^2+18n-3)$; for $n=2$ this is
+$\lvert\beta_W\rvert<\frac{16}{105}$. At $\lvert\beta_W\rvert\le\frac18$,
+$\alpha_n\le\alpha_2\le0.59$ for every $n\ge2$; at $\lvert\beta_W\rvert\le
+\frac15$, $\alpha_n\le0.982$ for every $n\ge9$.
+\item $G=\SU(3)$ and $\beta_W\ge0$ with
+\[
+\zeta(\beta_W)=\frac{3r\sqrt{\epsilon(r)}}{\gamma(r)}<1,\qquad r=2\beta_W,
+\]
+where $\epsilon$ and $\gamma$ are as in Theorem~\ref{thm:su3}, with
+\[
+\alpha_n=\frac{\zeta(\beta_W)\,(18n-3)}{18\,(1-\zeta(\beta_W))\,n^2}.
+\]
+The function $\zeta$ is increasing, $\zeta(0.35)\le0.8584$, and for
+$\beta_W\le0.35$ and $n\ge6$, $\alpha_n\le0.3368\,(18n-3)/n^2\le0.9824$.
+\item $G\subset\U(N)$ closed and connected with semisimple Lie algebra,
+$24N\lvert\beta\rvert<\kappa_G$, with
+\[
+\alpha_n=\frac{N\lvert\beta\rvert(18n-3)}{(\kappa_G-24N\lvert\beta\rvert)
+n^2},
+\]
+whenever $N\lvert\beta\rvert<\kappa_Gn^2/(24n^2+18n-3)$.
+\end{enumerate}
+In each case, for fixed $\beta$ in the range, $\mathrm{BP}(n,\varpi)$ holds
+with one $\varpi>0$ for all $n$ from some $n_0(\beta)$ on, uniformly in the
+torus, and the best constant tends to $1$ as $n\to\infty$.
+\end{corollary}
+
+\begin{proof}
+(i) As in the proof of Theorem~\ref{thm:su2}, without the gauge: the law of
+$U_e$ is the von Mises--Fisher law $\nu_b$ with $b=4\beta\sum_{p\ni e}\bar
+s_p$, a partner moved by $\delta$ in the chordal metric moves $b$ by
+$4\lvert\beta\rvert\delta$, and Theorem~\ref{q-thm:quarter} gives $C^0_{ee'}
+\le\lvert\beta\rvert=\lvert\beta_W\rvert/4$. Theorem~\ref{thm:bpstrong}(i)
+applies with $c/(1-18c)=\lvert\beta_W\rvert/(4-18\lvert\beta_W\rvert)$.
+At $\lvert\beta_W\rvert=\frac18$, $\alpha_2=\frac{33}{56}$; at $\lvert
+\beta_W\rvert=\frac15$, $\alpha_n=(18n-3)/(2n^2)$ and $\alpha_9=\frac{159}
+{162}$; $\alpha_n$ increases with $\lvert\beta_W\rvert$.
+
+(ii) The six staples of a link are products of matrices of $\SU(3)$, so
+$b\in rK$, and as in~\eqref{eq:alpha} and Lemma~\ref{lem:su3modulus},
+$C^0_{ee'}\le N\beta\Lambda(r)\le c$ with $18c=3r\sqrt{\epsilon(r)}/\gamma
+(r)$ in the Hilbert--Schmidt metric; $\zeta$ increases because $\epsilon$
+is nondecreasing and $\gamma$ decreasing. By Lemma~\ref{lem:su3haar}(iii)
+and the tail bound in the proof of Theorem~\ref{thm:su3}, at $r=0.7$ the
+terms $m_nr^n/n!$, rounded up, are $1$, $0$, $0.1225$, $0.0142917$,
+$0.0075032$, $0.0013131$, $0.000332$, $0.000059$ and $0.0000109$, with sum
+at most $1.1460099$, and the tail is less than $4\cdot10^{-6}$; so
+$Z_*(0.7)\le1.146014$, $e^{-0.14}\ge0.869342$, $\frac{5e^{-0.14}}{9Z_*(0.7)}
+\ge0.421432$ and $\epsilon(0.7)\le0.578568<0.76064^2$. With $\gamma(0.7)=
+\frac{1191}{640}$, $\zeta(0.35)\le2.1\cdot0.76064\cdot\frac{640}{1191}\le
+0.8584$, and $\zeta/(18(1-\zeta))\le0.3368$; at $n=6$, $(18n-3)/n^2=
+\frac{35}{12}$.
+
+(iii) Lemma~\ref{lem:bponelink} gives $c=N\lvert\beta\rvert/(\kappa_G-6N
+\lvert\beta\rvert)$, so $18c<1$ is $24N\lvert\beta\rvert<\kappa_G$ and
+$c/(1-18c)=N\lvert\beta\rvert/(\kappa_G-24N\lvert\beta\rvert)$.
+
+In each case $\alpha_n\to0$; Proposition~\ref{prop:bpscales}(ii) below bounds
+the best constant by $1+2/n$.
+\end{proof}
+
+For $\SU(3)$, the condition $\zeta<1$ of (ii) holds up to $\beta_W\approx
+0.391$ by a numerical evaluation that no statement uses, against
+$\frac3{16}$ from (iii); for $\SU(2)$, (i) reaches
+$\frac29$ against $\frac1{12}$. These ranges lie inside those of
+Secs.~\ref{sec:su2}--\ref{sec:su3blocks}, where the forest gauge gives a
+gap directly; what Corollary~\ref{cor:bpranges} adds is the averaged
+condition itself, on every torus, for every $n$ past $n_0(\beta)$ and on
+all of $L^2(\mu)$. The gap it gives through Corollary~\ref{cor:avggap} is of
+order $1/n$ and is not used. The dependence on $n$ is constrained in general
+as follows. Write $\varpi^*_n$ for the best constant in $\mathrm{BP}(n,
+\cdot)$ on $\Lambda_L$, and $P_V$ for the conditional expectation given the
+links outside $V$.
+
+\begin{proposition}\label{prop:bpscales}
+Let $L\ge2m+4$ and $2\le n\le m$.
+\begin{enumerate}[label=\textup{(\roman*)},leftmargin=*]
+\item If $\mathrm{BP}(n,\varpi)$ holds, then so does $\mathrm{BP}(m,(n/m)^4
+\varpi)$; that is, $n^4\varpi^*_n\le m^4\varpi^*_m$.
+\item $\varpi^*_n\le1+2/n$.
+\item Let $W_x$ be the cubes of side $m$. Suppose that $\mathrm{BP}(m,
+\varpi)$ holds and that for every $x$, every real $f\in\mathcal A$ and
+$\mu$-almost every $U$,
+\[
+\varpi_{\rm in}P_{W_x}\bigl((f-P_{W_x}f)^2\bigr)\le\frac1{n^4}\sum_{y:\,V_y
+\subset W_x}P_{W_x}\bigl((f-P_{V_y}f)^2\bigr).
+\]
+Then $\mathrm{BP}(n,\varpi\varpi_{\rm in}(m/(m-n+1))^4)$ holds.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+(i) If $V\subset W$, the $\sigma$-algebra of the links outside $W$ is
+contained in that of the links outside $V$, so $P_W=P_WP_V$ and
+$\lVert f-P_Wf\rVert^2=\lVert f-P_Vf\rVert^2+\lVert P_Vf-P_Wf\rVert^2$. The
+cube $V_y$ of side $n$ lies in $W_x$ exactly when $y-x\in[0,m-n]^4$, so
+for each $x$, $\mu((f-P_{W_x}f)^2)$ is at least the mean of $\mu((f-P_{V_y}
+f)^2)$ over these $(m-n+1)^4$ points $y$, and each $y$ occurs for
+$(m-n+1)^4$ points $x$. Summing, $\sum_x\mu((f-P_{W_x}f)^2)\ge\sum_y\mu((f-
+P_{V_y}f)^2)$.
+
+(ii) Let $f=\ReTr U_p$ for a plaquette $p$ at $y$ in the plane $\{\mu,\nu
+\}$; $\Var_\mu(f)>0$. As in the proof of Theorem~\ref{thm:avgdecay},
+$\mu((f-\mathcal P_xf)^2)\le\Var_\mu(f)$, with equality to zero unless $V_x$
+contains a link of $p$, that is, unless $x\in b-[0,n)^4$ for a base point
+$b\in\{y,y+e_\mu,y+e_\nu\}$. By inclusion and exclusion these $x$ number
+$3n^4-2n^3(n-1)-n^2(n-1)^2+n^2(n-1)^2=n^4+2n^3$.
+
+(iii) Integrating the hypothesis, $\varpi_{\rm in}\mu((f-P_{W_x}f)^2)\le n^{-4}
+\sum_{y:\,V_y\subset W_x}\mu((f-P_{V_y}f)^2)$. Sum over $x$, use
+$\mathrm{BP}(m,\varpi)$ and count each $y$ $(m-n+1)^4$ times:
+$\varpi\varpi_{\rm in}\Var_\mu(f)\le(m-n+1)^4m^{-4}n^{-4}\sum_y\mu((f-
+P_{V_y}f)^2)$.
+\end{proof}
+
+Part (iii) is the two-scale argument for block dynamics~\cite{Mar99}; it
+transfers the condition from larger cubes to smaller ones, given a gap of
+the small-cube dynamics inside each large cube uniform in its exterior.
+Part (i) transfers it upwards only with the loss $(n/m)^4$, which, through
+Theorem~\ref{thm:avgdecay}, gives the rate $\varpi n^4/(e^2q_mm^5)$ and
+nothing in physical units. So $\mathrm{BP}$ at one cube size implies no
+useful bound at larger sizes by itself.
+
+The remaining results concern $G=\SU(N)$, $N\ge2$, with center element
+$z=e^{2\pi i/N}I$, and use the holonomies of the torus. For a site $y$ let
+$P_y$ be the ordered product of the $L$ links $(y+te_0,0)$, $0\le t<L$, the
+Polyakov loop of direction $0$ through $y$, and $A=P_0$, $B$ the analogous
+product of the links $(te_1,1)$; $A$ and $B$ are based at the site $0$, so
+the traces $F_{ab}=\Tr(A^aB^b)$ are gauge invariant. For $c,d\in\Z$ the
+map $Z_{c,d}$ that multiplies the links $(y,0)$ with $y_0=0$ by $z^c$ and the
+links $(y,1)$ with $y_1=0$ by $z^d$ preserves $\mu$: a plaquette that contains
+one of these links contains a second one of the same direction with the
+same base coordinate, entering with the opposite orientation, and $z$ is
+central. It maps $P_y$ to $z^cP_y$, $A$ to $z^cA$, $B$ to $z^dB$ and
+$F_{ab}$ to $z^{ac+bd}F_{ab}$.
+
+\begin{lemma}\label{lem:bpstokes}
+Let $R=[0,a]\times[0,b]$ be a rectangle of $\Z^2$ and $\phi$ a map of its
+sites into $\Lambda_L$ that sends unit steps in the two directions to links
+in two directions $\mu\ne\nu$ and is injective on plaquettes. The holonomy of
+the boundary of $R$, traversed counterclockwise from $(0,0)$, is an ordered
+product $\prod_kg_kU_{p_k}^{\pm1}g_k^{-1}$ over the $ab$ plaquettes of
+$\phi(R)$, with $g_k\in G$. For every unitarily invariant norm it is within
+$\sum_{p\in\phi(R)}\lVert U_p-I\rVert$ of $I$.
+\end{lemma}
+
+\begin{proof}
+Holonomy is multiplicative under concatenation of paths and does not change
+when a step followed by its reverse is removed. Let $\ell_j$ be the
+boundary of $[0,a]\times[0,j]$ from $(0,0)$. After cancellation,
+$\ell_{j-1}^{-1}\ell_j$ is the left edge from $(0,0)$ to $(0,j-1)$, the
+boundary of the row $[0,a]\times[j-1,j]$ from $(0,j-1)$, and the left edge
+back; so $\mathrm{Hol}(\ell_b)$ is an ordered product of conjugates of the
+row holonomies. The same argument along a row writes the holonomy of its
+boundary as an ordered product of conjugates of the holonomies of the
+boundaries of its plaquettes, each a conjugate of $U_p$ or $U_p^*$. For
+unitary $X,Y$, $\lVert XY-I\rVert\le\lVert X-I\rVert+\lVert Y-I\rVert$ and
+$\lVert gXg^{-1}-I\rVert=\lVert X-I\rVert$.
+\end{proof}
+
+\begin{lemma}\label{lem:bpcommute}
+For $A,B\in\SU(N)$ put
+\[
+M(A,B)=\sum_{(a,b)\in I_N}\lvert\Tr(A^aB^b)\rvert^2,
+\]
+where $I_N=\{0,\dots,N-1\}^2\setminus\{(0,0)\}$. There are constants $c_N>0$
+and $\eta_N>0$ such that $M(A,B)\ge c_N$ whenever $\lVert ABA^{-1}B^{-1}-I
+\rVert_{\rm HS}\le\eta_N$. For $N=2$ one may take $\eta_2=1$ and
+$c_2=0.64$.
+\end{lemma}
+
+\begin{proof}
+Let $A,B$ commute and suppose $M(A,B)=0$. Diagonalise them together, with
+eigenvalues $\alpha_k,\beta_k$. The power sums of the $\alpha_k$ of orders
+$1,\dots,N-1$ vanish, so by Newton's identities the characteristic
+polynomial of $A$ is $x^N+(-1)^N\det A$, and $\alpha_k=\lambda\omega^k$ after
+reordering, with $\omega=e^{2\pi i/N}$; likewise $\beta_k=\lambda'\omega^{
+\tau(k)}$ for a permutation $\tau$ of $\Z/N\Z$. Then $\Tr(A^aB^b)=\lambda^a
+\lambda'^b\sum_k\omega^{ak+b\tau(k)}$ is a multiple of the Fourier
+coefficient at $(a,b)$ of the indicator of the graph of $\tau$ in $(\Z/N\Z)^2$.
+All coefficients except the one at $0$ vanish, so the indicator is
+constant, which is impossible for a set of $N$ points among $N^2$. Hence
+$M>0$ on the compact set of commuting pairs. If no $\eta_N,c_N$ existed,
+there would be pairs with $\lVert ABA^{-1}B^{-1}-I\rVert\to0$ and $M\to0$,
+and a limit point would be a commuting pair with $M=0$.
+
+For $N=2$ put $x=\Tr A$, $y=\Tr B$, $w=\Tr AB$, real numbers in $[-2,2]$. By
+the Cayley--Hamilton theorem, $A^{-1}=x-A$, $B^{-1}=y-B$, $\Tr(AB^2)=yw-x$,
+$\Tr(A^2B)=xw-y$ and $\Tr(ABAB)=w^2-2$, so
+\[
+\Tr(ABA^{-1}B^{-1})=x^2+y^2+w^2-xyw-2 .
+\]
+Since $\lvert\Tr(C-I)\rvert\le\sqrt2\lVert C-I\rVert_{\rm HS}$, the
+commutator bound gives $x^2+y^2+w^2-xyw\ge4-\sqrt2$, and with $m=\max(\lvert
+x\rvert,\lvert y\rvert,\lvert w\rvert)$, $3m^2+m^3\ge4-\sqrt2>2.432=3(0.8)^2+
+0.8^3$. So $m>0.8$ and $M=x^2+y^2+w^2>0.64$.
+\end{proof}
+
+\begin{lemma}\label{lem:bpflat}
+Let $G=\SU(N)$ and $\beta\ge1$. There is $A_N$ such that $\mu(N-\ReTr U_p)\le
+A_N(1+\log\beta)/\beta$ for every plaquette and every $L$; for $N=2$,
+$\mu(2-\Tr U_p)\le(\log\beta+6.11)/\beta$.
+\end{lemma}
+
+\begin{proof}
+Put
+\[
+H=\sum_p(N-\ReTr U_p)\ge0,\qquad\phi(t)=\log\int e^{-NtH}dU .
+\]
+Then $\mu$ has density proportional to $e^{-N\beta H}$, $\phi'(\beta)=-N\mu
+(H)$, $\phi$ is convex and $\phi\le0$. Convexity gives $\phi(\beta/2)\ge\phi(\beta)-\frac
+\beta2\phi'(\beta)$, hence $\mu(H)\le\frac2{N\beta}\log(1/e^{\phi(\beta)})$.
+Let $\delta$ be the geodesic distance of $-\Tr(XY)$. If every link lies
+within $r$ of $I$, then $\delta(U_p,I)\le4r$ by bi-invariance, and $N-
+\ReTr U\le\frac12\delta(U,I)^2$, so $H\le8r^2\lvert P\rvert$. With $v(r)$ the
+Haar measure of the ball of radius $r$ about $I$, $\lvert E\rvert=4L^4$ and
+$\lvert P\rvert=6L^4$,
+\[
+\mu(N-\ReTr U_p)=\frac{\mu(H)}{6L^4}\le\frac2{N\beta}\Bigl(\tfrac23\log
+\tfrac1{v(r)}+8N\beta r^2\Bigr),
+\]
+the plaquettes being equivalent under the symmetries of $\Lambda_L$. Haar
+measure has a smooth positive density in exponential coordinates, so $v(r)
+\ge v_Nr^{N^2-1}$ for $r\le1$; $r^2=1/(N\beta)$ gives the first claim. For
+$\SU(2)$, $U=\cos\theta+u\sin\theta$ in quaternions has $\delta(U,I)=\sqrt2
+\theta$ and the law of $\theta$ has density $\frac2\pi\sin^2\theta$, so
+$v(\sqrt2s)\ge\frac2\pi\cdot\frac4{\pi^2}\cdot\frac{s^3}3=\frac{8s^3}{3\pi^3}$
+for $s\le\frac\pi2$. With $r=\sqrt2s$ and $s^2=1/(32\beta)$ the bracket
+times $\frac1\beta$ is at most $\frac1{6\beta}(6\log(32\beta)+6+4\log
+\frac{3\pi^3}8)\le(\log\beta+6.11)/\beta$.
+\end{proof}
+
+\begin{theorem}[the averaged condition at fixed cube size]\label{thm:bpfixed}
+Let $G=\SU(N)$, $N\ge2$, $\beta\ge0$ and $n\ge2$.
+\begin{enumerate}[label=\textup{(\roman*)},leftmargin=*]
+\item If $\mathrm{BP}(n,\varpi)$ holds on $\Lambda_L$, then
+\[
+\frac1{L^3}\sum_{y:\,y_0=0}\mu\bigl(\Tr P_0\,\overline{\Tr P_y}\bigr)\le
+\frac{2N^2n^2}{\varpi L^2}.
+\]
+\item Let $N=2$ and $\beta\ge1$. If $\mathrm{BP}(n,\varpi)$ holds on
+$\Lambda_{2n+4}$, then
+\[
+\varpi\le\frac{38400\,n^4(\log\beta+6.11)}\beta .
+\]
+\item There is $C_N$ such that for $\beta\ge1$, $\mathrm{BP}(n,\varpi)$ on
+$\Lambda_{2n+4}$ implies $\varpi\le C_Nn^4(1+\log\beta)/\beta$.
+\end{enumerate}
+In particular, along any sequence $(\beta_k,n_k)$ with $n_k^4(1+\log
+\beta_k)/\beta_k\to0$, no $\varpi>0$ satisfies $\mathrm{BP}(n_k,\varpi)$
+uniformly in the torus.
+\end{theorem}
+
+\begin{proof}
+(i) Let $g_y=\ReTr P_y$ and $f=L^{-3}\sum_{y:\,y_0=0}g_y$. By the symmetry
+$Z_{1,0}$, $\mu(f)=0$. The loop $P_y$ meets $V_x$ only if
+$(y_1,y_2,y_3)$ lies in the projection of $x+[0,n)^4$, which holds for
+$n^3$ loops, and $\lVert g_y-\mathcal P_xg_y\rVert_2\le\lVert g_y\rVert_2\le
+N$. So $\lVert f-\mathcal P_xf\rVert_2\le Nn^3/L^3$ for each of the $L^4$
+points $x$, the right side of $\mathrm{BP}(n,\varpi)$ is at most $N^2n^2/L^2$,
+and $\mu(f^2)\le N^2n^2/(\varpi L^2)$. The same holds for the imaginary
+parts, and $\mu(\lvert L^{-3}\sum_y\Tr P_y\rvert^2)$ is the left side, by
+translation invariance.
+
+(ii), (iii) Let $L=2n+4\le4n$, $\varepsilon=\mu(\lVert U_p-I\rVert_{\rm HS}^2)=
+2\mu(N-\ReTr U_p)$, the same for every plaquette, and let $f$ be the real or
+the imaginary part of some $F_{ab}$, $(a,b)\in I_N$. Pick $(c,d)$ with $ac+bd
+\not\equiv0$ modulo $N$; the symmetry $Z_{c,d}$ gives $\mu(F_{ab})=0$.
+
+\emph{The right side of $\mathrm{BP}$.} If $V_x$ meets neither $A$ nor $B$,
+$\mathcal P_xf=f$. Otherwise the coordinate $x_2$ satisfies $0\in x_2+[0,n)$
+modulo $L$, and one of $s=x_2-1$, $s=x_2+n$, read in $(-L/2,L/2]$, has $\lvert
+s\rvert\le n$ and $s\notin x_2+[0,n)$. The loops $A'$, $B'$ of directions
+$0$, $1$ through $y'=se_2$ avoid $V_x$, so $F'_{ab}=\Tr(A'^aB'^b)$ depends
+only on the links outside $V_x$, and $\lVert f-\mathcal P_xf\rVert_2\le
+\lVert F_{ab}-F'_{ab}\rVert_2$. Let $\Gamma$ be the holonomy of the straight
+path from $0$ to $y'$. Lemma~\ref{lem:bpstokes}, for the rectangle $[0,L]
+\times[0,s]$ mapped onto the plane $\{0,2\}$ through $0$, whose boundary is
+$A$, the path to $y'$, $A'$ reversed and the path back, gives $A=H_0\Gamma
+A'\Gamma^{-1}$ with $\lVert H_0-I\rVert_{\rm op}\le S_0$, the sum of
+$\lVert U_p-I\rVert_{\rm op}$ over the $L\lvert s\rvert$ plaquettes of the
+strip; likewise $B=H_1\Gamma B'\Gamma^{-1}$ with the strip in the plane $\{1,
+2\}$. Telescoping, $\lvert F_{ab}-F'_{ab}\rvert\le N(a\lVert H_0-I\rVert_{
+\rm op}+b\lVert H_1-I\rVert_{\rm op})\le N(N-1)(S_0+S_1)$, and by the
+Cauchy--Schwarz inequality over the at most $2Ln$ plaquettes of the two
+strips, $\mu((S_0+S_1)^2)\le(2Ln)^2\varepsilon$. At most $2Ln^3$ points $x$
+have $V_x$ meeting $A\cup B$, so
+\[
+\frac1{n^4}\sum_x\mu\bigl((f-\mathcal P_xf)^2\bigr)\le8N^2(N-1)^2L^3n\,
+\varepsilon .
+\]
+
+\emph{The variance.} Lemma~\ref{lem:bpstokes} for the square $[0,L]^2$
+mapped onto the plane $\{0,1\}$ through $0$, whose boundary reads $A$, $B$,
+$A^{-1}$, $B^{-1}$, gives $\lVert ABA^{-1}B^{-1}-I\rVert_{\rm HS}\le\sum_p
+\lVert U_p-I\rVert_{\rm HS}$ over $L^2$ plaquettes, so this commutator
+exceeds $\eta_N$ with probability at most $L^2\sqrt\varepsilon/\eta_N$. By
+Lemma~\ref{lem:bpcommute}, $\sum_{(a,b)\in I_N}\mu(\lvert F_{ab}\rvert^2)\ge
+c_N(1-L^2\sqrt\varepsilon/\eta_N)$. As $\mu(F_{ab})=0$, some $f$ of the
+form above has $\Var_\mu(f)\ge c_N(1-L^2\sqrt\varepsilon/\eta_N)/(2(N^2-1))$.
+For $N=2$ the traces are real, and some $F_{ab}$ has variance at least
+$0.64(1-L^2\sqrt\varepsilon)/3$.
+
+\emph{Conclusion.} If $L^2\sqrt\varepsilon\le\eta_N/2$, $\mathrm{BP}(n,\varpi)$
+gives $\varpi\le2048(N^2-1)N^2(N-1)^2n^4\varepsilon/c_N$, and for $N=2$,
+$\varpi\le300\,L^3n\varepsilon\le19200\,n^4\varepsilon$. In the other case
+$\eta_N^2<4L^4\varepsilon\le1024n^4\varepsilon$, and since $\varpi\le2$ by Proposition~\ref{prop:bpscales}(ii), $\varpi\le(2048/
+\eta_N^2)n^4\varepsilon$, which for $N=2$ is again at most $19200\,n^4
+\varepsilon$. Lemma~\ref{lem:bpflat} bounds $\varepsilon$ by $2(\log\beta+
+6.11)/\beta$ for $N=2$ and by $2A_N(1+\log\beta)/\beta$ in general.
+\end{proof}
+
+\begin{corollary}[the response of a cube at weak coupling]\label{cor:bpresponse}
+Let $G=\SU(2)$, $\beta\ge1$ and $n\ge2$, and put $X_n(\beta)=38400\,n^4(\log
+\beta+6.11)/\beta$. Then
+\[
+\Xi_n\ge\frac{n^4}{7n^3+3n^2}\bigl(1-X_n(\beta)\bigr),
+\]
+and $D^0_L(n,\alpha)$ for one $L\ge2n+4$, hence for all, implies $1-\alpha
+\le X_n(\beta)$.
+\end{corollary}
+
+\begin{proof}
+By Theorem~\ref{thm:bpstrong}(ii), $D^0_L(n,\alpha)$ does not depend on $L$
+and holds with $\alpha=(7n^3+3n^2)\Xi_n/n^4$. If $\alpha<1$,
+Proposition~\ref{prop:avgsup}(i) gives $\mathrm{BP}(n,1-\alpha)$ on
+$\Lambda_{2n+4}$, and Theorem~\ref{thm:bpfixed}(ii) gives $1-\alpha\le
+X_n(\beta)$; if $\alpha\ge1$ the bound on $\Xi_n$ holds trivially.
+\end{proof}
+
+So for $2\le n\le(\beta/(76800(\log\beta+6.11)))^{1/4}$ one link outside
+the cube moves its law by at least $n/17$ in total, in the supremum over
+exteriors: the response grows linearly with the cube, the behaviour that
+Remark~\ref{rem:cubeheuristic} assigns to cubes smaller than the
+correlation length.
+
+\begin{remark}[what is proved about the averaged condition]\label{rem:bpstatus}
+Proved: $\mathrm{BP}(n,1-\alpha_n)$ on every torus and on all of $L^2(\mu)$
+for $\SU(2)$ with $\lvert\beta_W\rvert<\frac29$, for $\SU(3)$ with $\zeta(
+\beta_W)<1$ (in particular $\beta_W\le0.35$, $n\ge6$, $\varpi\ge0.0176$),
+and for every compact connected group with semisimple Lie algebra with
+$24N\lvert\beta\rvert<\kappa_G$, for all $n$ with $\alpha_n<1$, where
+$\alpha_n=O(1/n)$ is explicit (Corollary~\ref{cor:bpranges}); the
+supremum form $D^0$ is independent of the torus and follows from a bound
+$\Xi_n<n/(7+3/n)$ on the total response of a cube to one link
+(Theorem~\ref{thm:bpstrong}); the best constant satisfies $n^4\varpi^*_n
+\le m^4\varpi^*_m$ and $\varpi^*_n\le1+2/n$, and it passes from large
+cubes to small ones given a uniform inner gap
+(Proposition~\ref{prop:bpscales}). For $\SU(N)$ the condition forces the
+spatially averaged Polyakov correlator to be $O(n^2/L^2)$, and on the
+torus $\Lambda_{2n+4}$ it fails once $\beta\gg n^4\log\beta$; for $\SU(2)$,
+$\varpi\le38400\,n^4(\log\beta+6.11)/\beta$, and the cube response
+$\Xi_n$ is at least of order $n$ in that regime
+(Theorem~\ref{thm:bpfixed}, Corollary~\ref{cor:bpresponse}). Hence
+$\mathrm{BP}(n_k,\varpi)$ uniform in the torus requires $n_k^4\ge\varpi
+\beta_k/(C_N(1+\log\beta_k))$ for $\beta_k\ge1$; the continuum tuning, with
+$n_k$ of order $\ell/a_k$ and $\beta_k$ of order $\log(1/a_k)$, meets this
+requirement, and the obstruction
+comes from tori of side $2n+4$, which Theorem~\ref{thm:avgtransfer} does
+not need, since it uses an infinite set of $L$. Not proved:
+$\mathrm{BP}(n_k,\varpi)$ along the continuum tuning for any non-abelian
+group, or at any coupling outside the ranges above; a transfer from small
+cubes to large ones without the loss $(n/m)^4$; an obstruction on large
+tori at weak coupling.
 \end{remark}
 
 \section{The open inputs}\label{sec:inputs}
@@ -4673,7 +5223,8 @@ analysis~\cite{Bal84a,Bal85a,Bal89b} gives the ultraviolet part in finite
 volume. Theorem~\ref{thm:avgtransfer} draws the conclusion of (D) from an
 averaged condition, a spectral gap of the dynamics that resamples cubes of
 fixed physical size, on gauge-invariant functions of the Wilson measure on
-tori without gauge fixing; that condition is not proved either.
+tori without gauge fixing; that condition is proved at strong coupling
+(Corollary~\ref{cor:bpranges}) and is not proved along the tuning.
 
 \begin{remark}\label{rem:cubeheuristic}
 The following count relates (D) to a correlation length. Suppose that the
@@ -35084,8 +35635,11 @@ Wilson measure on tori, with no gauge and no supremum over exteriors; it
 follows from its supremum form (Proposition~\ref{prop:avgsup}), the
 obstructions of the forest gauge and those uniform in the coarse field do not
 apply to it, it fails in the Coulomb phase of the Villain theory at every cube
-size (Corollary~\ref{cor:avgcoulomb}), and it is not proved for any
-non-abelian group along the tuning (Remark~\ref{rem:avgstatus}). Sec.~\ref{ssec:groups13} carries the single-scale results of this section to every compact simple group, with explicit constants, except the parts listed in Remark~\ref{rem:groups13}. On the continuum side, Lemmas~\ref{lem:positivetime}
+size (Corollary~\ref{cor:avgcoulomb}), it holds on every torus at strong
+coupling and fails at fixed cube size on small tori at weak coupling
+(Corollary~\ref{cor:bpranges}, Theorem~\ref{thm:bpfixed}), and it is not
+proved for any non-abelian group along the tuning
+(Remark~\ref{rem:avgstatus}). Sec.~\ref{ssec:groups13} carries the single-scale results of this section to every compact simple group, with explicit constants, except the parts listed in Remark~\ref{rem:groups13}. On the continuum side, Lemmas~\ref{lem:positivetime}
 and~\ref{lem:nonvanishing} reduce the nontriviality of the limit to a
 lower bound on one ratio of lattice two-point functions at a fixed
 physical time, uniform along the tuning, which is the open input of
@@ -37387,6 +37941,12 @@ J.~Magnen, V.~Rivasseau and R.~S\'en\'eor, Construction of YM$_4$ with an infrar
 
 \bibitem{MJ00}
 K.~V.~Mardia and P.~E.~Jupp, \emph{Directional Statistics}, Wiley, Chichester, 2000, \href{https://doi.org/10.1002/9780470316979}{doi:10.1002/9780470316979}.
+
+\bibitem{Mar99}
+F.~Martinelli, Lectures on Glauber dynamics for discrete spin models, in
+\emph{Lectures on Probability Theory and Statistics (Saint-Flour, 1997)},
+Lecture Notes in Math. 1717, Springer, Berlin, 1999, 93--191,
+\href{https://doi.org/10.1007/978-3-540-48115-7_2}{doi:10.1007/978-3-540-48115-7\_2}.
 
 \bibitem{McS34}
 E.~J.~McShane, Extension of range of functions, Bull. Amer. Math. Soc. \textbf{40} (1934), 837--842, \href{https://doi.org/10.1090/S0002-9904-1934-05978-0}{doi:10.1090/S0002-9904-1934-05978-0}.
