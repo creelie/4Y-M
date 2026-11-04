@@ -17719,6 +17719,222 @@ Sec.~\ref{ssec:remains} is accordingly posed in the mean over the coarse
 field or for the coarse fields of $\mathcal G_\Lambda$.
 \end{remark}
 
+For a fixed coarse field $c$ the blocks that are bad for every labelling
+are the corners of the coarse plaquettes with $\delta(c_P,I)>\eta$. On them
+no label restricts the active links, and $\mu^c$ there is the constrained
+law of Sec.~\ref{ssec:smallfibres}, with the links outside as exterior. The
+rest of this subsection determines what the chart estimates of that section
+give for this law, in the $\SU(2)$ model and not in the class
+$(\mathrm X)+(\mathrm R)$: a component on which the coarse field stays below
+the scale of the chart is crossed at the rate $\alpha_G$, uniformly in its
+length, up to the mass of the constrained law off the chart; above a fixed
+threshold of the coarse curvature no point of the fibre carries a chart. The
+mass off the chart is a ratio of two weights of the fibre, and the next
+lemma records why its denominator has to be controlled.
+
+\begin{lemma}[conditioned weights]\label{lem:condweights}
+Let $\gamma$ be a finite measure, $D$, $G$, $T$ measurable sets with
+$T\cap G=\emptyset$, $V$ a real function on $D$ that is bounded above on
+$G\cap D$ and below on $T\cap D$, and $\nu=e^{-V}\mathbf 1_D\,\gamma$.
+\begin{enumerate}[label=\textup{(\roman*)},leftmargin=*]
+\item If $\gamma(G^c)\le\delta<\gamma(D)$, then $\nu(G)>0$ and
+\[
+\frac{\nu(T)}{\nu(G)}\le e^{\sup_{G\cap D}V-\inf_{T\cap D}V}\,
+\frac{\delta}{\gamma(D)-\delta}.
+\]
+\item If $\gamma$ has no atoms, $\gamma(G)>0$ and $T=G^c$ with
+$\gamma(T)>0$, then for every $M$ there is $D\supset T$ with
+$\nu(T)/\nu(G)\ge M$ at $V=0$.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+(i) The two weights obey
+\begin{gather*}
+\nu(T)\le e^{-\inf_{T\cap D}V}\gamma(T\cap D)\le e^{-\inf_{T\cap D}V}
+\gamma(G^c),\\
+\nu(G)\ge e^{-\sup_{G\cap D}V}\gamma(G\cap D)\ge e^{-\sup_{G\cap D}V}
+\bigl(\gamma(D)-\gamma(G^c)\bigr),
+\end{gather*}
+and the last factor is positive. (ii) An
+atomless measure takes every value between $0$ and $\gamma(G)$ on subsets
+of $G$; take $D=T\cup G_\varepsilon$ with $G_\varepsilon\subset G$ and
+$\gamma(G_\varepsilon)=\varepsilon=\gamma(T)/M$. Then $\nu(T)/\nu(G)=
+\gamma(T)/\varepsilon=M$.
+\end{proof}
+
+A tail bound, the factor $e^{\sup V-\inf V}\delta$, therefore controls a
+conditioned probability only together with a lower bound on the mass
+$\gamma(D)$ of the conditioning set. For the fibres of the path map this
+mass is computed: the reference measure is product Haar measure on
+$G^{45\mathcal B}$ and Theorem~\ref{thm:pathZ} bounds $Z_\lambda(v)$ from
+both sides. For the fibres of the cut-off average the reference measure
+carries the coarea weights $\lvert\det D_gV\rvert^{-1}$, and these are not
+bounded: in Proposition~\ref{prop:fold} the weights of the branches
+$g_\pm(\lambda)$ tend to infinity as $\lambda\downarrow\gamma^*$ while the
+Wilson action of every branch lies in $[0,12]$, and the law of the path
+link tends to $\delta_{g^*}$ for every $\beta_W$. So no bound on the
+conditioned probability of a branch in terms of the action alone holds
+uniformly in the coarse field.
+
+\begin{proposition}[coarse curvature and the chart]\label{prop:badchart}
+Let $G=\SU(2)$ and let $c$ be a coarse field.
+\begin{enumerate}[label=\textup{(\roman*)},leftmargin=*]
+\item $V^\sharp(R(c))=c$. A plaquette $p$ of $R(c)$ in the plane
+$\{\mu,\nu\}$ has $R(c)_p=I$ unless both coordinates $\mu$ and $\nu$ of
+its corner are odd; then its corner lies in a block $y$ and $R(c)_p=c_P$,
+with $P$ the coarse plaquette at $y$ in that plane.
+\item Let $W$ be a set of blocks that contains the four corner blocks of
+a coarse plaquette $P$ with $\delta(c_P,I)>5.57\cdot10^{-11}$. Then every
+field $U$ with $V^\sharp_k(U)=c_k$ for the four sides $k$ of $P$ has a
+plaquette with a vertex in a block of $W^+$ and $\delta(U_p,I)>6.05\cdot
+10^{-13}$. Consequently no background $U$ of the fibre over $W$ satisfies
+the hypothesis $4\cdot10^5c_3(\kappa+s)\le\frac1{195}$ of
+Theorem~\ref{thm:fibrechart}\textup{(iv)} with the constant $c_3=1.5\cdot
+10^4\sqrt2$ of Proposition~\ref{prop:explicitconstants}, for any $s\ge0$,
+and Theorems~\ref{thm:fibrechart}\textup{(iv)} and~\ref{thm:chartdecay}
+apply at no point of that fibre.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+(i) Every path of the pair $k$ is the product of a link inside a block,
+equal to $I$, and a private link of $k$, equal to $c_k$, so every path and
+the path link equal $c_k$; in the formula $c_k=\ell_k\exp(\chi N)$ of the
+proof of Lemma~\ref{lem:branchbound} every logarithm in $N$ vanishes, so
+$V^\sharp_k(R(c))=c_k$. Let $p$ have corner $x$ and links $(x,\mu)$,
+$(x+e_\mu,\nu)$, $(x+e_\nu,\mu)$, $(x,\nu)$. A link $(z,\mu)$ of $R(c)$ is
+$I$ when $z_\mu$ is even, since it lies inside a block, and is $c_{y',\mu}$
+when $z_\mu$ is odd, $y'$ the block of $z$. If $x_\mu$ is even, both
+$\mu$-links of $p$ are $I$, and the two $\nu$-links start at $x$ and
+$x+e_\mu$, which lie in one block and have the same coordinate $\nu$, so
+they are equal and $R(c)_p=I$; likewise if $x_\nu$ is even. If both are
+odd and $x\in B(y)$, the four links are $c_{y,\mu}$, $c_{y+e_\mu,\nu}$,
+$c_{y+e_\nu,\mu}$, $c_{y,\nu}$, since $x+e_\mu\in B(y+e_\mu)$ and $x+e_\nu
+\in B(y+e_\nu)$, and their product is $c_P$.
+
+(ii) Put $\kappa=6.05\cdot10^{-13}\le10^{-8}$. If every plaquette with a
+vertex in one of the blocks at distance at most one from the four corner
+blocks had $\delta(U_p,I)\le\kappa$, Lemma~\ref{lem:coarsewitness} would
+give $\delta(c_P,I)\le(4+28\pi)\kappa<5.57\cdot10^{-11}$. Those blocks lie
+in $W^+$. A background with plaquettes up to $\kappa'\ge\kappa$ on $W^+$
+has $4\cdot10^5c_3\kappa'\ge4\cdot10^5c_3\kappa>\frac1{195}$, since
+$195\cdot4\cdot10^5\cdot1.5\cdot10^4\sqrt2>1.6546\cdot10^{12}$ gives
+$1/(195\cdot4\cdot10^5c_3)<6.044\cdot10^{-13}$; and $4+28\pi<91.97$
+gives $(4+28\pi)\kappa<5.565\cdot10^{-11}$.
+\end{proof}
+
+At $\rho=2.17\cdot10^{-16}$, $\eta=92\rho<2.0\cdot10^{-14}$. So the coarse
+plaquettes that make a block bad for every labelling range over three
+scales: up to $6.0\cdot10^{-13}$, thirty times $\eta$, part (i) gives a
+background with plaquettes below the chart threshold of
+Proposition~\ref{prop:explicitconstants} whenever the exterior near the
+window agrees with $R(c)$; above $5.57\cdot10^{-11}$, part (ii) excludes
+every background; in between neither statement is made. Where a background
+exists, the constrained law of the component decays across it at the rate
+of the chart.
+
+\begin{theorem}[a bad component on the chart]\label{thm:badcross}
+Let $G=\SU(2)$, $\beta_W\ge2.3\cdot10^{17}$, let $W$ be a set of blocks
+and $U$ a field with $\delta(U_p,I)\le\kappa$ for every plaquette with a
+vertex in a block of $W^+$, and let $s>0$ with $s\le1/(6000c_3)$,
+$\kappa+6s\le10^{-8}$ and $\kappa+s\le6.0\cdot10^{-13}$. Let $\mu_W$ be the
+constrained law on the fibre $F$ of $U$ over $W$, $r=s/32$, $\Phi$ and
+$\Omega_r$ as in Theorem~\ref{thm:chartdecay}, and
+\[
+p=\mu_W\bigl(F\setminus\Phi(\Omega_r)\bigr).
+\]
+For sets $X_1,X_2\subset A_W$ and bounded smooth functions $\tilde F$,
+$\tilde G$ of the links of $X_1$ and of $X_2$ whose left-invariant
+gradients have norm at most $1$ in each link,
+\begin{multline*}
+\bigl\lvert\Cov_{\mu_W}(\tilde F,\tilde G)\bigr\rvert\le\frac{4.8\cdot
+10^4}{\beta_W}\bigl(\lvert X_1\rvert\lvert X_2\rvert\bigr)^{1/2}e^{-\alpha_G
+d(X_1,X_2)}\\
++6p\,\lVert\tilde F\rVert_\infty\lVert\tilde G\rVert_\infty,
+\end{multline*}
+with $\alpha_G=2.5\cdot10^{-4}$ and $d$ the distance of
+Theorem~\ref{thm:chartdecay}. The bound does not depend on $W$, on the
+exterior or on the coarse field beyond $\kappa$ and $p$, and the labels of
+the blocks of $W$ enter neither its hypotheses nor the bound.
+\end{theorem}
+
+\begin{proof}
+The hypotheses are those of Theorem~\ref{thm:fibrechart}\textup{(iv)}: by
+Proposition~\ref{prop:explicitconstants}, $\kappa+s\le6.0\cdot10^{-13}$
+gives $4\cdot10^5c_3(\kappa+s)\le\frac1{195}$, and $\lambda=\beta_W/4\ge
+5.6\cdot10^{16}\ge60c_6$. Let $A=\Phi(\Omega_r)$ and $\mu_A=\mu_W(\cdot\mid
+A)$. By Theorem~\ref{thm:chartdecay}\textup{(iii)} and
+Proposition~\ref{prop:explicitdecay}, $\lvert\Cov_{\mu_A}(\tilde F,\tilde
+G)\rvert$ is at most the first term, as $c_9/\lambda=4.8\cdot10^4/\beta_W$.
+If $p=0$ this is the claim, and if $p=1$ the claim follows from
+$\lvert\Cov\rvert\le\lVert\tilde F\rVert_\infty\lVert\tilde G\rVert
+_\infty$. Otherwise, with $\mu_{A^c}=\mu_W(\cdot\mid F\setminus A)$ and
+$\mu_W=(1-p)\mu_A+p\mu_{A^c}$,
+\[
+\begin{split}
+\Cov_{\mu_W}(\tilde F,\tilde G)={}&(1-p)\Cov_{\mu_A}(\tilde F,\tilde G)+
+p\Cov_{\mu_{A^c}}(\tilde F,\tilde G)\\
+&+p(1-p)\bigl(\mu_A\tilde F-\mu_{A^c}\tilde F\bigr)\bigl(\mu_A\tilde G-
+\mu_{A^c}\tilde G\bigr),
+\end{split}
+\]
+so the difference from $\Cov_{\mu_A}$ is at most $p\lVert\tilde F\rVert
+_\infty\lVert\tilde G\rVert_\infty$ twice, from the first two terms, plus
+$4p\lVert\tilde F\rVert_\infty\lVert\tilde G\rVert_\infty$. Nothing in
+Theorems~\ref{thm:fibrechart} and~\ref{thm:chartdecay} refers to the labels
+of the blocks of $W$.
+\end{proof}
+
+\begin{remark}\label{rem:badcompopen}
+Theorem~\ref{thm:badcross} bounds the response inside a bad component by
+the chart, with no cost growing with its length, and leaves three things.
+First, the mass $p$. By Lemma~\ref{lem:condweights} it is bounded by the
+excess action off the chart times the reference mass off the chart,
+divided by the reference mass of the chart in the fibre; the first factor
+is a Peierls bound, the reference masses carry the coarea weights, and
+Proposition~\ref{prop:fold} shows that these weights are not controlled by
+the action. In the mean over the coarse field $\E_c$ the mass off the chart
+is a probability under $\mu_L$; for a fixed coarse field it is the open
+step of Remark~\ref{rem:smallfibreopen}(c) and Remark~\ref{rem:fibrechartopen}(a).
+Second, the coarse fields above $5.57\cdot10^{-11}$, where by
+Proposition~\ref{prop:badchart}(ii) the chart applies at no point; there
+the fibre law near the component is that of a large field, which
+Proposition~\ref{prop:fold} shows to jump, and no estimate of this paper
+bounds its response. A bound uniform in the coarse field needs that
+regime. Third, the passage from $\mu_W$ to $\mu^c$ and to the labels. Under
+$\mu^c$, given the links outside $A_W$, the averages of the pairs that
+enter $W$ from outside are fixed as well, and they bind links of $A_W$;
+and the labels adjoining a component are functions of links outside its
+interior, so that their covariance across it is the cross-ratio of the
+weight of the interior as a function of its two ends. For a good layer
+Theorem~\ref{thm:factorisation} solves the path links of the entering
+pairs by Lemma~\ref{lem:branchbound}, writes the weight through a kernel
+on a domain that the ends do not move, and Lemma~\ref{lem:connected}
+turns the cross-ratio into a covariance of the layer law. Both steps use
+non-path links within $r$ of the reconstruction; for a bad component
+neither is carried out here.
+
+The other two routes do not reach the interior of a component. A
+single-link Dobrushin or disagreement-percolation bound needs row sums
+below one, while the coefficient of Lemma~\ref{lem:fixedset} is
+$\frac{\pi^2}8\beta_W$ for each link that shares a plaquette with the given
+one, and on
+the fibre the Kantorovich response of the path-link law to its non-path
+links is infinite by Proposition~\ref{prop:fold}\textup{(iv)}; blocks
+large enough to contract must carry the constraints of the cut-off
+average, which is the chart of Theorem~\ref{thm:badcross}. The tree form of
+the mixed differences of $\log Z^c$ asked for in
+Remark~\ref{rem:labelcovopen} concerns the labels of distinct components,
+which are separated by good layers; a component bad for every labelling
+lies inside one component together with the blocks it adjoins, so neither
+that bound nor a cluster expansion built on it reaches the response across
+it. In the law of Theorem~\ref{thm:fixedobstruction}(i) the second
+difference over the labels of $a$ and $b$, all other labels fixed, is $J$,
+and a bound on it decaying with $\dist(a,b)$ is exactly the response
+across the component.
+\end{remark}
+
 \subsection{The one-step error in gauge-invariant form}\label{ssec:relstep}
 
 Proposition~\ref{prop:massgrowth} requires the one-step error to be a
@@ -21000,12 +21216,23 @@ For a fixed coarse field, Proposition~\ref{prop:fixedgood} gives the same
 bounds for every $c$ outside a set of probability at most
 $2\lvert\Lambda\rvert\epsilon^{1/2}$, and
 Corollary~\ref{cor:labelstretched} gives decay as $e^{-\sqrt d/20}$ in
-the mean and for these $c$. What is not done is a bound for every coarse
-field, uniform in the exterior, and decay at the rate $2\alpha_G$
-without a floor. By Theorem~\ref{thm:fixedobstruction} neither follows
-from rarity and the group cross-ratios: for laws with only these
-properties the decay is at best stretched exponential, and across a
-component that is bad for every labelling they bound nothing.
+the mean and for these $c$. What is not done is a bound for every coarse field, uniform in the
+exterior, and decay at the rate $2\alpha_G$ without a floor. By
+Theorem~\ref{thm:fixedobstruction} neither follows from rarity and the
+group cross-ratios: for laws with only these properties the decay is at
+best stretched exponential, and across a component that is bad for every
+labelling they bound nothing. In the $\SU(2)$ model,
+Theorem~\ref{thm:badcross} bounds the constrained law inside such a
+component by the chart, at the rate $\alpha_G$ and with no cost in its
+length, up to the mass $p$ of that law off the chart, whenever the fibre
+has a background with plaquettes below $6.0\cdot10^{-13}$; by
+Proposition~\ref{prop:badchart} this holds for coarse plaquettes up to
+that size when the exterior agrees with $R(c)$, and no background exists
+once a coarse plaquette exceeds $5.57\cdot10^{-11}$. The mass $p$ for a
+fixed coarse field, the larger coarse fields, and the passage from that
+law to $\mu^c$ and to the labels are not done; by
+Lemma~\ref{lem:condweights} and Proposition~\ref{prop:fold} the first is
+not controlled by the action alone (Remark~\ref{rem:badcompopen}).
 Lemma~\ref{lem:mobius} gives the mixed differences of every order in
 terms of the diameter; the rate $2\alpha_G$ needs them in terms of the
 length of the shortest joining tree (Remark~\ref{rem:fixedcopen}).
@@ -21082,10 +21309,12 @@ single-scale part of (D) that remains open; its mean over the coarse
 field, and its value for the coarse fields of
 Proposition~\ref{prop:fixedgood}, are bounded by
 Theorems~\ref{thm:labelcov}, \ref{thm:fibrecov} and
-Corollary~\ref{cor:labelstretched}, and by
-Theorem~\ref{thm:fixedobstruction} the rest needs the mixed differences
-of $\log Z^c$ in tree form and the response of the law across a bad
-component; item (i) being settled for the
+Corollary~\ref{cor:labelstretched}, and by Theorem~\ref{thm:fixedobstruction} the rest needs the mixed
+differences of $\log Z^c$ in tree form and the response of the law across
+a bad component, which Theorem~\ref{thm:badcross} gives on the chart up
+to the mass of the law off the chart, for coarse plaquettes below
+$6.0\cdot10^{-13}$ and for none above $5.57\cdot10^{-11}$
+(Proposition~\ref{prop:badchart}, Remark~\ref{rem:badcompopen}); item (i) being settled for the
 chains of the bad blocks by Proposition~\ref{prop:linechain} and item (ii) given the labels
 of all islands by Theorem~\ref{thm:manyislands};
 item (iii) is settled by Theorem~\ref{thm:islandthreshold} at one scale
@@ -21120,7 +21349,7 @@ $(\mathrm N_u)$ is not proved here. Sec.~\ref{ssec:osaxioms} shows that, given (
 Osterwalder--Schrader axioms for the spatially flowed fields, with the
 symmetry $\mathrm O(3)\times\mathrm O(1)$, follow from three statements, a
 moment bound (M), one spatial rotation (W) and one limit (U), each of
-them necessary and none of them proved.
+them necessary and none of them proved. Full $\mathrm O(4)$ invariance is not among these conclusions: at positive flow time the spatial flow breaks it even for the free field (Proposition~\ref{prop:osobstruction}(c)), so it has to be posed for $\mathrm O(4)$-covariant observables, such as fields of the four-dimensional flow, and it is not proved.
 
 \begin{figure*}[t]
 \centering
