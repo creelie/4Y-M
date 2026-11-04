@@ -70,3 +70,10 @@ the joining distance 2s+8. `layer_constants.py` computes the constants of
 the Hessian of the layer law in the label coordinates (lower bound
 0.0185 lambda, weighted norm 2068.4 lambda, admissible rate 2.79e-4) and
 the corrected threshold. The tracked `.out` files are their outputs.
+
+**The witness radius for SU(2):** `witness_radius.py` encloses the
+critical radius kappa_c = 0.0837613, the constant 28.04 of the sharp form
+of the small-frames lemma, the constants 16.003 and 12.002 of the coarse
+witness, and the counterexample at L = 32, n = 10. `island_radius.py`
+recomputes the island thresholds at the radii 1e-8 and 1e-4 and the gap
+k_* - j_max over 2001 couplings. Both use interval arithmetic.

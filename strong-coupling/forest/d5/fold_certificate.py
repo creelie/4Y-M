@@ -1,6 +1,6 @@
-"""Rigorous (interval-arithmetic) verification for the fold obstruction, NOTE.md
-Theorem 3.  Everything printed as 'CHECK ... OK' is a verified inequality.
-Run: python3 verify.py   (about 1-3 minutes)
+"""Rigorous (interval-arithmetic) verification for the fold obstruction,
+Proposition fold.  Everything printed as 'CHECK ... OK' is a verified inequality.
+Run: python3 fold_certificate.py   (about 1-3 minutes)
 """
 import time
 from fold_intervals import *
