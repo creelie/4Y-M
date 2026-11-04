@@ -102,11 +102,13 @@ We prove that four-dimensional lattice Yang--Mills theory with any compact
 simple gauge group has a unique infinite-volume state and an explicit
 transfer-matrix gap in a forest gauge, up to $\beta_W=0.348$ for $\SU(2)$
 and $\beta_W=0.52$ for $\SU(3)$, and that a Dobrushin--Shlosman estimate in
-one cube of fixed physical size gives a mass gap in every continuum limit.
+one cube of fixed physical size, or a spectral gap of the dynamics that
+resamples such cubes on local gauge-invariant functions, gives a mass gap
+in every continuum limit.
 Towards that estimate we factorise the weight of bad islands through the
 good layers between them and bound the bad side of a projected block
-average with no hypothesis. The covariance of the labels and the effective
-action across scales remain open.
+average with no hypothesis. The cube estimate itself, the covariance of
+the labels and the effective action across scales remain open.
 \end{abstract}
 
 \maketitle
@@ -122,7 +124,7 @@ reflection positivity.
 \scriptsize An earlier version of this paper is available at
 \url{https://hexagonmath.org/2610.00341v6}.\ifx\preprintsDOI\empty\else{} The paper is also
 available on Preprints.org,
-\href{https://doi.org/\preprintsDOI}{doi:\preprintsDOI}.\fi{} Compared with it, this paper adds Sec.~\ref{sec:islands}, on the labels of the blocks, the islands of bad blocks, the bad side of a projected block average, the obstructions to the remaining routes and the effective action across one scale, and Sec.~\ref{ssec:osaxioms}, on the Osterwalder--Schrader axioms for the flowed fields, and it proves by hand every constant that the earlier version took from computer certificates.}
+\href{https://doi.org/\preprintsDOI}{doi:\preprintsDOI}.\fi{} Compared with it, this paper adds Sec.~\ref{sec:islands}, on the labels of the blocks, the islands of bad blocks, the bad side of a projected block average, the obstructions to the remaining routes and the effective action across one scale, Secs.~\ref{ssec:averaged}--\ref{ssec:bpweak}, on an averaged form of the cube condition, its local form and the couplings where it holds and fails, and Sec.~\ref{ssec:osaxioms}, on the Osterwalder--Schrader axioms for the flowed fields, and it proves by hand every constant that the earlier version took from computer certificates.}
 \endgroup
 \addtocounter{footnote}{-1}
 
@@ -464,7 +466,10 @@ and so does exponential decay with constants of the renormalised
 correlations of a spanning set of observables
 (Theorem~\ref{thm:clustering}); this holds also for observables smoothed by
 the spatial gradient flow
-(Proposition~\ref{prop:spatialflow}).
+(Proposition~\ref{prop:spatialflow}). A spectral gap of the dynamics that
+resamples one such cube at a time, uniform along the tuning and required
+only on local gauge-invariant functions, gives the same conclusion
+(Theorems~\ref{thm:avgtransfer} and~\ref{thm:bplocal}).
 \item The flowed observables, renormalised by one condition at a single
 physical separation, have reflection positive continuum limits along
 subsequences, and such a limit is nontrivial exactly when one ratio of
@@ -490,7 +495,13 @@ at strong coupling, fails at every fixed cube size at weak coupling, forces
 the gauge-fixed variables to be disordered on the scale of the cube, and
 cannot be reached from estimates on single lines of links; for $\SU(N)$ it
 needs cubes of side at least of order $(\beta_W/\log\beta_W)^{1/4}$
-(Propositions~\ref{prop:cubesize} and~\ref{prop:cubesizeN}). For a Gaussian
+(Propositions~\ref{prop:cubesize} and~\ref{prop:cubesizeN}). The
+spectral gap of the cube dynamics holds on every torus at strong coupling
+(Corollary~\ref{cor:bpranges}) and fails on the torus of side $2n+4$ when
+$n$ is small compared with $(\beta/\log\beta)^{1/4}$
+(Theorem~\ref{thm:bpfixed}), but only through functions of nonzero centre
+charge, which its local form does not involve
+(Corollary~\ref{cor:bpcharged}). For a Gaussian
 field it holds at a fixed physical scale when the field has a mass and fails
 exactly, at every size, when it is massless (Proposition~\ref{prop:gauss});
 it also fails for the quadratic approximation of the forest gauge itself
@@ -610,8 +621,10 @@ remaining scales is open.
 \caption{The logical structure of the paper. Green: theorems at fixed
 lattice spacing (P1 the gap for every compact simple group,
 Theorem~\ref{thm:groups}, P2 the plaquette blocks for $\SU(2)$
-and $\SU(3)$, P3 the cube condition at strong coupling). Blue: the proved
-implications (I1)--(I3) of the continuum step. Red: their inputs, none of
+and $\SU(3)$, P3 the cube condition and the averaged condition BP at strong
+coupling, Corollary~\ref{cor:bpranges}). Blue: the proved
+implications (I1)--(I3) of the continuum step, where (I1) takes either
+(D) or the local form of BP (Theorem~\ref{thm:bplocal}). Red: their inputs, none of
 which is proved along the continuum tuning. Each arrow joins an open input
 to the implication that consumes it; no implication feeds its own input.}
 \label{fig:logic}
@@ -7461,7 +7474,7 @@ Theorem~\ref{thm:higher}(iii), the same number for every subsequence.
 \end{proof}
 
 Part (ii) shows that (U) is a property of the tuning that the other
-hypotheses do not contain. Part (iii) is the form it is expected to take:
+hypotheses do not contain. Part (iii) states it in the form that Yang--Mills theory requires:
 if every limit is determined up to the choice of one physical scale, a
 single renormalisation condition fixes that scale. For Yang--Mills theory
 this is the statement that the continuum theory has no free dimensionless
@@ -29304,7 +29317,7 @@ factor $e^{72\beta_W}$ by a factor of order $\beta_W$.\footnote{At
 $\beta_W=1$ and $\mathfrak b_{\mathrm{tie}}=1$, $L_{\mathrm{lin}}=
 478107.69$, while the part $180.4\,e^{72}$ of $L_*$ alone exceeds
 $3\cdot10^{33}$. At $\beta_W=0.08$ the two parts free of the ties are
-$42682.6$ and more than $57000$.} Fig.~\ref{fig:endslinear} compares the
+$42681.6$ and more than $5\cdot10^4$.} Fig.~\ref{fig:endslinear} compares the
 two constants.
 
 \begin{figure}[t]
@@ -36959,7 +36972,7 @@ repository \url{https://github.com/creelie/4Y-M}, release v4.33.0
 with a Lean~4 certificate of the line field, Lean~4 files for the
 comparison arithmetic, the coupling lemmas of
 Sec.~\ref{ssec:couplingcost} and the finite arithmetic of Theorem~\ref{thm:layerbound},
-Corollary~\ref{cor:twoislands}, Proposition~\ref{prop:massgrowth}, Proposition~\ref{prop:smallframessharp} and Theorem~\ref{thm:islandswide}, independent exact or
+Corollary~\ref{cor:twoislands}, Proposition~\ref{prop:massgrowth}, Proposition~\ref{prop:smallframessharp} and Theorem~\ref{thm:islandswide}, the counting and trace identities and the constants of Secs.~\ref{ssec:averaged}--\ref{ssec:bpweak} and of Theorem~\ref{thm:endlinear}, independent exact or
 numerical checks of the other finite statements, our checks of the
 certificate of~\cite{Rom26}, and the certificate of
 Remark~\ref{rem:blockgapsharp} with its exact check. The code was
