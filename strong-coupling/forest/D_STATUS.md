@@ -1,5 +1,13 @@
 # The two walls, (D) and (E): where they stand (November 2026)
 
+**Latest shell advance (proved / application open).** `SU2_RADIAL_HAZARD.md`
+proves a uniform O(1+κ) radial hazard bound for a von Mises--Fisher law on
+SU(2), replacing the Gaussian-level heuristic by a rigorous bound of the
+order needed in the fixed-radius flux ledger. The actual maximum-shell
+flux and the conditional large-field displacement are not established;
+this does not close (I1) or D. The relative curvature witness and its
+annealed rarity already appear in `RELATIVE_CHART.md` and `COARSE_LABELS.md`.
+
 **Latest finite interfaces (2026-11-03; proved conditional deductions).**
 `ISLAND_KERNEL.md` shows that a uniform connected collar-kernel bound
 survives arbitrary separate positive island weights, including hard

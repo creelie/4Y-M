@@ -466,11 +466,21 @@ not establish them. No gauge-island or continuum result is claimed.
 exhibits a flat SU(2) configuration in block tree gauge with links far from
 identity. Thus the unrestricted absolute version of bad-link-implies-large-
 plaquette is false, not merely unchecked. A same-endpoints path comparison
-is proved there; a relative label and its rarity are open. This correction
-does not settle the constrained bad-region estimate.
+is proved there. A relative witness and its annealed rarity were already proved in
+`RELATIVE_CHART.md` and `COARSE_LABELS.md`; it was incorrect to list that
+witness itself as open. Matching its labels to the conditional law and
+controlling bad-side response and the environment remain open.
 
 **Proved conditional counting:** `WITNESS_COUNTING.md` turns any local
 finite-multiplicity curvature witness plus joint plaquette rarity into a
 joint bad-label rarity bound, with explicit entropy and overlap factors.
-The corrected relative witness and the necessary gauge probabilities are
-still open, and the result is annealed rather than uniform in the exterior.
+The sharper existing gauge result is in `COARSE_LABELS.md`; both are
+annealed rather than uniform in the exterior.
+
+### SU(2) shell hazard (2026-11-04)
+
+**Proved:** `SU2_RADIAL_HAZARD.md` gives a uniform O(1+kappa) radial
+hazard bound on SU(2), sufficient in order for the fixed-threshold shell
+ledger in `CALM_LINK.md` if its conditioning and flux assumptions are
+verified. The sharper Gaussian-scale estimate, the actual maximum-shell
+flux, and large-field displacement remain open.

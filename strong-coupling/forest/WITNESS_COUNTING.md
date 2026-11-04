@@ -21,8 +21,11 @@ M q^(1/D)<1. It is annealed: it says nothing about conditioning on an
 arbitrary exterior or the remaining labels.
 
 **Open gauge application.** `FLAT_HOLONOMY_OBSTRUCTION.md` shows that the
-absolute-link witness assumed by the earlier sketch need not exist. A
-relative gauge-fibre witness, its locality and multiplicity, and the
-joint plaquette estimate for the actual threshold all remain to be proved.
-Even then, `RARE_LABEL_INFLUENCE.md` prevents treating the resulting
+absolute-link witness assumed by the earlier sketch need not exist.
+`RELATIVE_CHART.md` already proves a local witness relative to R(c), and
+`COARSE_LABELS.md` proves corresponding annealed finite-intersection
+bounds with explicit coverage constants, conditional on its cited
+chessboard input. The present generic deduction is an alternative, often
+weaker counting route, not a newly established gauge witness. Even with
+that witness, `RARE_LABEL_INFLUENCE.md` prevents treating the resulting
 annealed rarity as uniform conditional environment contraction.
