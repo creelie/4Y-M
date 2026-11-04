@@ -50,7 +50,7 @@
 
 \begin{document}
 
-\title{Yang--Mills Mass Gap Follows from One Cube}
+\title{One Cube Estimate Implies the Yang--Mills Mass Gap}
 
 \author[D. Bhattacharjee]{Deep Bhattacharjee$^{*}$}
 \address{Formerly, Electro-Gravitational Space Propulsion Laboratory
@@ -60,7 +60,7 @@ Road, Golpark, Kolkata 700029, West Bengal, India}
 \urladdr{\href{https://orcid.org/0000-0003-0466-750X}{orcid.org/0000-0003-0466-750X}}
 \thanks{$^{*}$Corresponding author: Deep Bhattacharjee, itsdeep@live.com.}
 \thanks{\scriptsize An earlier version of this paper is available at
-\url{https://hexagonmath.org/2610.00341v6}. Compared with it, this paper adds Section~\ref{sec:islands}, on the labels of the blocks, the islands of bad blocks, the bad side of a projected block average, the obstructions to the remaining routes and the effective action across one scale, Subsections~\ref{ssec:averaged}--\ref{ssec:bpfibre}, on an averaged form of the cube condition, its local form, the couplings where it holds and fails, its neutral part on small tori, its passage to block variables, the upward step, the measures for which it holds, the split inequality at strong coupling, the condition at the coarsest scale, the coefficients across scales and the forces in the fibre law, and Subsections~\ref{ssec:osaxioms}, \ref{ssec:limitE} and~\ref{ssec:chainG}, on the Osterwalder--Schrader axioms for the flowed fields, the limit at separated points of the fields without flow, with the inputs it needs and the examples that separate them, and the conditional chain for every compact simple group, and it proves by hand every constant that the earlier version took from computer certificates.}
+\url{https://hexagonmath.org/2610.00341v6}. Compared with it, this paper adds Section~\ref{sec:islands}, on the labels of the blocks, the islands of bad blocks, the bad side of a projected block average, the obstructions to the remaining routes and the effective action across one scale, Subsections~\ref{ssec:averaged}--\ref{ssec:bprowsum}, on an averaged form of the cube condition, its local form, the couplings where it holds and fails, its neutral part on small tori, its passage to block variables, the upward step, the measures for which it holds, the split inequality at strong coupling, the condition at the coarsest scale, the coefficients across scales, the forces in the fibre law, the smoothing along the paths and the order of the row sums of the Gaussian model, and Subsections~\ref{ssec:osaxioms}, \ref{ssec:limitE} and~\ref{ssec:chainG}, on the Osterwalder--Schrader axioms for the flowed fields, the limit at separated points of the fields without flow, with the inputs it needs and the examples that separate them, and the conditional chain for every compact simple group, together with the concluding Section~\ref{sec:conclusion}, and it proves by hand every constant that the earlier version took from computer certificates.}
 
 \author[U. Bhattacharya]{Ushashi Bhattacharya}
 \address{Formerly, National Taiwan University, Taipei 106319, Taiwan}
@@ -78,17 +78,19 @@ Road, Golpark, Kolkata 700029, West Bengal, India}
 \date{4 November 2026}
 
 \subjclass[2020]{Primary 81T25, 82B20; Secondary 81T13, 60K35, 82B26,
-22E30. PACS 11.15.Ha, 11.15.Tk, 05.50.+q, 02.50.Cw}
-\keywords{Lattice gauge theory, mass gap, Dobrushin uniqueness, block
-averages, reflection positivity}
+22E30, 43A77. PACS 11.15.Ha, 11.15.Tk, 05.50.+q, 05.10.Cc}
+\keywords{Lattice gauge theory, mass gap, Dobrushin uniqueness, block-spin
+renormalisation, reflection positivity}
 
 \begin{abstract}
 We prove that four-dimensional lattice Yang--Mills theory with any compact
 simple gauge group has a unique infinite-volume state and a mass gap at
 strong coupling, and that one averaged estimate in a single cube of fixed
-physical size carries a mass gap to every continuum limit. The estimate
-holds at strong coupling; whether it holds as the coupling is tuned to the
-continuum is open.
+physical size gives a mass gap to every continuum limit. For $\SU(2)$ the
+block variables approach the Haar measure in every representation as the
+coupling is tuned to the continuum, and this proves the estimate at the
+coarsest scale on every torus of side up to $4^k$ after $k$ blocking steps.
+The estimate along the whole tuning remains open.
 \end{abstract}
 
 \maketitle
@@ -516,10 +518,22 @@ scale are at most $D^2/4$ times the covariances of the forces on distinct
 marks in the fibre law, uniformly in the coarse data, so that the condition
 there follows from a decorrelation of these forces; in a Gaussian model
 they are given by an effective quadratic form of the straight-path map,
-and along the tuning the decorrelation reduces there to a bound of order
-$1/b$ on its row sums, which is not proved
+whose row sums are of order $(\log b)/b$, which gives the decorrelation in
+that model along the tuning
 (Proposition~\ref{prop:bpfibreduce}, Corollaries~\ref{cor:bpfibH1}
-and~\ref{cor:bpfibgauss}). Along the tuning neither input is
+and~\ref{cor:bprowFC}, Theorem~\ref{thm:bprowgauss}). For $\SU(2)$ the single-link conditional laws
+of the block variables have densities within $48(1+6\beta_W)^2(4\beta_W/
+(4\beta_W+1))^{b-2}$ of the Haar density, with their first two derivatives,
+because convolution with a one-link density contracts every nontrivial
+representation; along every tuning with $\beta_k=O(k)$ the single-link
+curvature of the induced action therefore tends to zero, and the mixed
+derivatives are covariances of the scores of the interior path products
+under one posterior law, each tending to zero, which gives the condition at
+the coarsest scale on every torus of side at most $4^k$
+(Theorems~\ref{thm:bppathdensity} and~\ref{thm:bppathmixed},
+Corollary~\ref{cor:bppathfourk}); on tori of every size it needs these
+covariances to be summable uniformly in the torus
+(Proposition~\ref{prop:bppathsuff}). Along the tuning neither input is
 proved; the single-link bounds for the laws of the block variables are the
 effective-action problem of
 Ba{\l}aban.\footnote{Refs.~\cite{Bal84a,Bal85a,Bal89b} control the effective
@@ -658,7 +672,9 @@ labels fail, the explicit coupling past which the bad islands of one
 scale are rarer than their entropy (Theorem~\ref{thm:islandthreshold}),
 the ceiling below the scale of the cube that every chessboard bound for
 these islands meets at every coupling (Theorem~\ref{thm:chessceiling}),
-the fold across which the path-link law of a bad pair jumps (Proposition~\ref{prop:fold}) and the bounded response of its site (Theorem~\ref{thm:site}), the Jacobian condition of its relative chart near the identity (Theorem~\ref{thm:jholds}), the bounded response of the bad side of a projected block average with no hypothesis (Theorem~\ref{thm:projresponse}), the factorisation of two bad islands through one kernel (Theorem~\ref{thm:factorisation}) and the exponential decay of their comparison in the width of the good layer between them (Theorem~\ref{thm:layerbound}, Corollary~\ref{cor:twoislands}), and what the single-scale and the multiscale parts of (D) still need. The appendices contain the
+the fold across which the path-link law of a bad pair jumps (Proposition~\ref{prop:fold}) and the bounded response of its site (Theorem~\ref{thm:site}), the Jacobian condition of its relative chart near the identity (Theorem~\ref{thm:jholds}), the bounded response of the bad side of a projected block average with no hypothesis (Theorem~\ref{thm:projresponse}), the factorisation of two bad islands through one kernel (Theorem~\ref{thm:factorisation}) and the exponential decay of their comparison in the width of the good layer between them (Theorem~\ref{thm:layerbound}, Corollary~\ref{cor:twoislands}), and what the single-scale and the multiscale parts of (D) still need.
+Section~\ref{sec:conclusion} sets out what is proved and what is open. The
+appendices contain the
 residue table of the line field, the comparison lemma and its version for
 blocks, the blocks of the local Hessian inequality, the details of the
 certified computation, the reconstruction of the transfer matrix with the
@@ -9401,7 +9417,9 @@ marks decorrelate in $\varsigma_V$. For the Wilson action at large $\beta$
 both terms are of order $N\lvert\beta\rvert$ on the flat configuration, so
 the bound requires a cancellation between them to precision $\kappa_G$; this
 is the effective-action problem in the form posed by
-Corollary~\ref{cor:bpcoarseH1}.
+Corollary~\ref{cor:bpcoarseH1}. For $\SU(2)$ and the straight-path map the
+cancellation holds along every tuning with $\beta_k=O(k)$
+(Corollary~\ref{cor:bppathcancel}), and the decorrelation is what remains.
 
 \begin{remark}[what is proved about the coefficients across scales]
 \label{rem:bpbalaban}
@@ -9465,10 +9483,10 @@ times the effective quadratic form of the straight-path map; this form is
 a conserved current on the coarse lattice, its diagonal lies between
 $1/b^2$ and $6/b$, its row sums are at least twice the diagonal and are
 bounded uniformly in the torus by an infinite-volume quantity $\gamma_b$,
-and a bound $\gamma_b=O(1/b)$, the condition (G) below, gives the Gaussian
-form of (FC) along every tuning with $2^{-k}\beta_k\to0$. Fourth, the
-strong-coupling range, the group $\U(1)$ and rough coarse data of $\SU(2)$
-are placed with respect to (FC). Neither (FC) along the tuning nor (G) is
+and a bound on $\gamma_b$ gives the Gaussian form of (FC);
+Section~\ref{ssec:bprowsum} shows that $\gamma_b$ is of order $(\log b)/b$.
+Fourth, the strong-coupling range, the group $\U(1)$ and rough coarse data
+of $\SU(2)$ are placed with respect to (FC). (FC) along the tuning is not
 proved here.
 
 Throughout, $G\subset\U(N)$ is closed and connected, $\delta$ is the
@@ -9982,11 +10000,14 @@ Proposition~\ref{prop:bpfibgauss}(ii)--(iv) pass to the limit.
 So in the Gaussian model the row sums of the effective form are finite
 uniformly in the torus for each $b$, and their size is the single
 infinite-volume number $\gamma_b$; the proof gives no control of $M_b$ and
-$\kappa_b$ in $b$. The remaining condition is
+$\kappa_b$ in $b$. The bound of the order of the cost $6/b$ of a thin flux
+tube is
 \[
 \textup{(G)}\qquad\gamma_*=\sup_{b\ge3}b\,\gamma_b<\infty .
 \]
-Proposition~\ref{prop:bpfibbloch} gives only $b\gamma_b\ge2/b$.
+Proposition~\ref{prop:bpfibbloch} gives only $b\gamma_b\ge2/b$, and
+Theorem~\ref{thm:bprowgauss} shows that (G) fails: $\gamma_b$ lies between
+absolute multiples of $(\log b)/b$ and $(1+\log b)/b$.
 
 \begin{corollary}[the Gaussian form of (FC)]\label{cor:bpfibgauss}
 In the Gaussian model let $J^{\rm G}_{ee'}=\beta\lvert\Gamma_{ee'}\rvert$, the
@@ -9996,24 +10017,22 @@ every $L\ge3$ and every coarse link $j$,
 \frac{D^2}2\,\frac\beta{b^2}\le\frac{D^2}2\,\beta\,\Gamma_{jj}\le\frac{D^2}4
 \sum_{e\ne j}J^{\rm G}_{ej}\le\frac{D^2}4\,\beta\,\gamma_b .
 \]
-If \textup{(G)} holds, the inequalities of \textup{(FC)} for $J^{\rm G}$ hold
-with $c=\frac1{17}$ and $R=1$ on every torus as soon as $D^2\beta\gamma_*\le
-\frac4{17}b$; in particular, along every sequence of block sides $b=2^k$
-and couplings $\beta_k$ with $2^{-k}\beta_k\to0$, for all large $k$,
-uniformly in $L_0$.
+The inequalities of \textup{(FC)} for $J^{\rm G}$ hold with $c=\frac1{17}$
+and $R=1$ on every torus as soon as $17D^2\beta\gamma_b\le4$.
 \end{corollary}
 
 \begin{proof}
 The bounds are Propositions~\ref{prop:bpfibgauss}(iii),(iv)
-and~\ref{prop:bpfibbloch}. Under (G) the column sums are at most $\frac{D^2}
-4\beta\gamma_*/b\le\frac1{17}$, and the tails are at most the column sums,
-while $(1-\frac1{17})/16=\frac1{17}$.
+and~\ref{prop:bpfibbloch}. If $17D^2\beta\gamma_b\le4$, the column sums are at
+most $\frac{D^2}4\beta\gamma_b\le\frac1{17}$, and the tails are at most the
+column sums, while $(1-\frac1{17})/16=\frac1{17}$.
 \end{proof}
 
 The logarithmic growth of $\beta_k$ along the tuning,
 after Proposition~\ref{prop:bpbalrandom}, satisfies $2^{-k}\beta_k\to0$. So
-in the Gaussian model (FC) along the tuning reduces to (G), a statement on
-one explicit quadratic form for each $b$, uniform in the torus by
+in the Gaussian model (FC) along the tuning reduces to a bound on $\gamma_b$,
+a statement on one explicit quadratic form for each $b$, which
+Corollary~\ref{cor:bprowFC} proves along the tuning, uniform in the torus by
 Proposition~\ref{prop:bpfibbloch} and in the coarse data because the
 covariances do not depend on $v$. The model is the quadratic part of the action, and for a non-abelian
 group it can describe the fibre law only where the fluctuations of the
@@ -10035,8 +10054,9 @@ paths, is constant along each path with the value $(\Gamma v)_e$ and is
 conserved at every block corner (Proposition~\ref{prop:bpfibgauss}(ii)).
 (b) The proved bounds $1/b^2\le\Gamma_{ee}\le6/b$ and $\gamma_b\ge2/b^2$
 (Propositions~\ref{prop:bpfibgauss} and~\ref{prop:bpfibbloch}), and the
-decay $\gamma_b=O(1/b)$ asked for by (G), drawn with an arbitrary constant;
-(G) is not proved. (c) The lower bound $4\beta_k\delta^2/(\pi^2b^2)$ on the
+decay $\gamma_b=O(1/b)$ of (G), drawn with an arbitrary constant; (G) is
+false, and $\gamma_b$ is of order $(\log b)/b$
+(Theorem~\ref{thm:bprowgauss}). (c) The lower bound $4\beta_k\delta^2/(\pi^2b^2)$ on the
 action that rough coarse data of $\SU(2)$ force on the square of a coarse
 plaquette, for $\delta=\sqrt2\pi$, $b=2^k$ and $\beta_k=2+\frac{11}{3\pi^2}
 k\log2$, an illustration of the growth along the tuning
@@ -10174,8 +10194,7 @@ lattice with $1/b^2\le\Gamma_{ee}\le6/b$ and row sums at least
 $2\Gamma_{ee}$ (Proposition~\ref{prop:bpfibgauss}), and for each $b$ it
 decays exponentially, with row sums bounded on every torus by one
 infinite-volume number $\gamma_b$ (Proposition~\ref{prop:bpfibbloch}); the
-condition (G), $\gamma_b=O(1/b)$, gives the Gaussian form of (FC) along every
-tuning with $2^{-k}\beta_k\to0$, uniformly in the torus
+Gaussian form of (FC) holds on every torus when $17D^2\beta\gamma_b\le4$
 (Corollary~\ref{cor:bpfibgauss}); a proof of (FC) through the Gaussian model
 would apply to $\U(1)$, which is consistent with its massless phase
 because (H1) carries no information on the gap
@@ -10186,13 +10205,1046 @@ plaquette for $\SU(2)$, which vanishes along the tuning
 (Proposition~\ref{prop:bpfibrough}).
 
 Not proved: (FC) for any $k$ with $\beta_k$ outside the strong-coupling
-range, and hence (H1) along the tuning; the cancellation of
-Corollary~\ref{cor:bpfibH1}(iii) for $\SU(2)$ along the tuning; condition
-(G), or any bound $\gamma_b=o(1/\log b)$, and any control of the decay rate
-$\kappa_b$ in $b$; any comparison of the fibre covariances of $\SU(2)$ with
-the Gaussian model at the separation of the marks; any bound on the
-covariances uniform in rough coarse data for $\SU(2)$; (H1) for $\U(1)$.
+range, and hence (H1) along the tuning; any control of the decay rate
+$\kappa_b$ in $b$;
+any comparison of the fibre covariances of $\SU(2)$ with the Gaussian model
+at the separation of the marks; any bound on the covariances uniform in
+rough coarse data for $\SU(2)$; (H1) for $\U(1)$. The cancellation of
+Corollary~\ref{cor:bpfibH1}(iii) holds for $\SU(2)$ along every tuning with
+$\beta_k=O(k)$ (Corollary~\ref{cor:bppathcancel}). Neither $\mathrm{BP}$
+along the tuning nor the mass gap is proved here.
+\end{remark}
+
+\subsection{Smoothing along the paths}\label{ssec:bppaths}
+
+A block variable of the straight-path map is the product of the $b$ fine
+links of its path, and given the links off the path these $b$ links are
+independent. A product of many independent random elements of a compact
+group spreads out towards the Haar measure, and this subsection makes that
+quantitative for $\SU(2)$ and follows it through to the condition at the
+coarsest scale. Convolution with a one-link Wilson density contracts every
+nontrivial representation by the factor $q_W=4\beta_W/(4\beta_W+1)$, so a
+product of $m$ independent one-link variables has a density within
+$48(1+6\beta_W)^2q_W^{m-2}$ of $1$, together with its first two derivatives
+(Theorem~\ref{thm:bppathproduct}); this extends to every representation the
+bound on the first moment in Proposition~\ref{prop:bpbalrandom}(ii). The
+single-link conditional laws of the block variables obey the same bounds,
+and along every tuning with $\beta_k=O(k)$ the single-link curvature of the
+induced action tends to zero uniformly in the torus and the coarse data,
+which is the cancellation asked for in Corollary~\ref{cor:bpfibH1}(iii)
+(Theorem~\ref{thm:bppathdensity}, Corollary~\ref{cor:bppathcancel}). The
+interior links of all the paths lie in no common plaquette, so the law of
+the block variables is a mixture of product laws, and its mixed derivatives
+are covariances of the scores of the interior products under one posterior
+law, each at most $K_b^2$ with $K_b\to0$ (Theorem~\ref{thm:bppathmixed}).
+A column sum of single-link coefficients at most $\frac13$ gives
+$\mathrm{BP}(n,\frac12)$ for every cube side, with no condition on the tails
+(Corollary~\ref{cor:bppathcolumn}), and together these give
+$\mathrm{BP}(n,\frac12)$ after $k\ge14$ blocking steps with $\beta_k\le k+2$
+on every coarse torus of side at most $4^k$
+(Corollary~\ref{cor:bppathfourk}). Two standard routes to a bound on every
+torus fail along the tuning, Dobrushin's condition for the posterior law
+and the Koteck\'y--Preiss condition for the unresummed cube surface
+(Proposition~\ref{prop:bppathobst}), and a bound on the sum of the
+posterior covariances, uniform in the torus, gives (H1)
+(Proposition~\ref{prop:bppathsuff}).
+
+Throughout, $G=\SU(2)$, with $\delta$, $D=\sqrt2\pi$ and $\kappa_G=1$ as in
+Corollary~\ref{cor:bpbalwilson}, $\lambda$ is the Haar probability measure
+and $\theta(g)\in[0,\pi]$ is the angle of $g$, so that $\frac12\ReTr g=
+\cos\theta(g)$ and $\theta$ has the density $\frac2\pi\sin^2\theta$ under
+$\lambda$. For a function $F$ on $G$ and a unit vector $X\in\g$ write
+$D_XF(g)=\frac d{dt}F(ge^{tX})|_{t=0}$. For $B\ge0$ let
+\begin{gather*}
+f_B(g)=\frac{e^{B\cos\theta(g)}}{Z(B)},\\
+Z(B)=\frac2\pi\int_0^\pi e^{B\cos\theta}\sin^2\theta\,d\theta=I_0(B)-I_2(B)=
+\frac{2I_1(B)}B ,
+\end{gather*}
+with $Z(0)=1$, where $I_\nu$ is the modified Bessel function; the last two
+identities are the integral representation~\cite[(10.32.3)]{DLMF} and the
+recurrence~\cite[(10.29.1)]{DLMF}. For $\beta_W\ge0$ and $m\ge2$ put
+$B_W=6\beta_W$,
+\[
+q_W=\frac{4\beta_W}{4\beta_W+1},\qquad\eta_m=48(1+B_W)^2q_W^{m-2},
+\]
+and, when $\eta_m<1$,
+\[
+h_m=\frac{(B_W^2+B_W)\eta_m}{1-\eta_m}+\frac{B_W^2\eta_m^2}{(1-\eta_m)^2}.
+\]
+At $B=6\beta_W$ one has $2B/(2B+3)=q_W$.
+
+\begin{lemma}[every mode at once]\label{lem:bppathmodes}
+Let $B>0$. For every $d\ge1$, convolution $h\mapsto h*f_B$ acts on the
+isotypic component of $L^2(G)$ of the irreducible representation of
+dimension $d$ as multiplication by
+\[
+a_d(B)=\frac{I_d(B)}{I_1(B)},
+\]
+and for $d\ge2$
+\[
+0<a_d(B)\le a_2(B)<\frac{2B}{2B+3}.
+\]
+Consequently $\lVert h*f_B\rVert_2\le\frac{2B}{2B+3}\lVert h\rVert_2$ for
+every $h\in L^2(G)$ with $\int h\,d\lambda=0$.
+\end{lemma}
+
+\begin{proof}
+By the Peter--Weyl theorem $L^2(G)$ is the orthogonal sum of the spans of
+the matrix coefficients of the irreducible representations, one for each
+dimension $d\ge1$~\cite[Ch.~III]{BtD85}. Since $f_B$ is a class function,
+Schur's lemma shows that convolution with it acts on the span for dimension
+$d$ as the scalar $\frac1d\int\chi_df_B\,d\lambda$, where $\chi_d(g)=\sin(d
+\theta)/\sin\theta$ is the character. From $2\sin(d\theta)\sin\theta=\cos((d-
+1)\theta)-\cos((d+1)\theta)$ and~\cite[(10.32.3), (10.29.1)]{DLMF},
+\[
+\frac1d\int\chi_df_B\,d\lambda=\frac{I_{d-1}(B)-I_{d+1}(B)}{d\,Z(B)}=
+\frac{2dI_d(B)/B}{2dI_1(B)/B}=\frac{I_d(B)}{I_1(B)} .
+\]
+For fixed $B>0$, $I_\nu(B)$ is positive and decreasing in $\nu>0$
+\cite[\S10.37]{DLMF}, so $0<a_d(B)\le a_2(B)$ for $d\ge2$. Since $\chi_2=2
+\cos\theta$, $A=a_2(B)$ is the mean of $\cos\theta$ under $f_B\lambda$.
+Integrating the derivative of $\sin^3\theta\,e^{B\cos\theta}$ over $[0,\pi]$
+gives $3\,\E\cos\theta=B\,\E\sin^2\theta$ for this law, and $\E\sin^2\theta=
+1-\E\cos^2\theta\le1-A^2$, so $BA^2+3A-B\le0$. The polynomial $Bx^2+3x-B$
+increases on $x\ge0$ and equals $9B/(2B+3)^2>0$ at $x=2B/(2B+3)$, hence
+$A<2B/(2B+3)$. A function of mean zero has no component for $d=1$, which
+gives the last statement.
+\end{proof}
+
+\begin{lemma}[one link]\label{lem:bppathsmooth}
+For every $B\ge0$, $\lVert f_B\rVert_\infty\le48(1+B)^{3/2}$, hence
+$\lVert f_B\rVert_2^2\le48(1+B)^{3/2}$, and for every unit $X\in\g$
+\[
+\lvert D_Xf_B\rvert\le Bf_B,\qquad\lvert D_XD_Xf_B\rvert\le(B^2+B)f_B .
+\]
+\end{lemma}
+
+\begin{proof}
+Let $t=(1+B)^{-1/2}\le1$. On $[0,t]$ one has $\sin\theta\ge2\theta/\pi$ and
+$\cos\theta\ge1-\theta^2/2$, so
+\begin{align*}
+Z(B)&\ge\frac2\pi\int_0^te^{B-B\theta^2/2}\,\frac{4\theta^2}{\pi^2}\,d\theta
+\ge\frac8{3\pi^3}\,e^{B-Bt^2/2}t^3\\
+&\ge\frac8{3\pi^3}\,e^{-1/2}\,\frac{e^B}{(1+B)^{3/2}},
+\end{align*}
+and $\lVert f_B\rVert_\infty=e^B/Z(B)\le\frac{3\pi^3}8e^{1/2}(1+B)^{3/2}<48(1+
+B)^{3/2}$, since $\pi<4$ and $e^{1/2}<2$. As $f_B$ is a probability density,
+$\lVert f_B\rVert_2^2\le\lVert f_B\rVert_\infty$. Let $u(g)=\frac12\ReTr g$.
+A unit $X\in\g$ satisfies $X^2=-\frac12I$, so $D_Xu(g)=\frac12\ReTr(gX)$ and
+$D_XD_Xu(g)=-\frac14\ReTr g$; since $\lvert\ReTr(gX)\rvert\le\lVert g\rVert_{
+\rm HS}\lVert X\rVert_{\rm HS}=\sqrt2$, we get $\lvert D_Xu\rvert\le1$ and
+$\lvert D_XD_Xu\rvert\le\frac12$. The bounds follow from $D_Xf_B=B\,(D_Xu)
+f_B$ and $D_XD_Xf_B=(B\,D_XD_Xu+B^2(D_Xu)^2)f_B$.
+\end{proof}
+
+\begin{theorem}[products of one-link variables]\label{thm:bppathproduct}
+Let $m\ge2$, $B\ge0$ and $A,C\in G$, and let $Y_1,\dots,Y_m$ be independent
+$G$-valued random variables such that $Y_i$ has the density $g\mapsto f_{B_i}
+(gW_i)$ with respect to $\lambda$, for some $W_i\in G$ and $0\le B_i\le B$.
+Let $p$ be the density of $AY_1\cdots Y_mC$ with respect to $\lambda$ and
+$\eta=48(1+B)^2(\frac{2B}{2B+3})^{m-2}$. Then for every $g\in G$ and every
+unit $X\in\g$
+\begin{gather*}
+\lvert p(g)-1\rvert\le\eta,\qquad\lvert D_Xp(g)\rvert\le B\eta,\\
+\lvert D_XD_Xp(g)\rvert\le(B^2+B)\eta .
+\end{gather*}
+\end{theorem}
+
+\begin{proof}
+If some $B_i=0$, then $Y_i$ is Haar distributed, so is the product, and
+$p=1$. Let all $B_i>0$, and put $Z_i=Y_iW_i$, with the class density $f_i=
+f_{B_i}$. Since $W^{-1}Z_{i+1}=(W^{-1}Z_{i+1}W)W^{-1}$ and conjugation
+preserves the law of $Z_{i+1}$, moving the $W_i^{-1}$ to the right one at a
+time gives $AY_1\cdots Y_mC=AZ'_1\cdots Z'_mC'$ with $C'=W_1^{-1}\cdots
+W_m^{-1}C$ and independent $Z'_i$ with the densities $f_i$. Hence $p(g)=
+F(A^{-1}gC'^{-1})$ with $F=f_1*\dots*f_m$. A two-sided translation is an
+isometry and replaces $D_X$ by $D_{X'}$ with $X'=\operatorname{Ad}(C')X$, again a
+unit vector, so it suffices to bound $F$.
+
+A class function commutes under convolution with every integrable
+function, and $D_X(k*f)=k*D_Xf$. Since $1*f=1$ for a probability density
+$f$,
+\begin{gather*}
+F-1=\bigl((f_1-1)*f_3*\dots*f_m\bigr)*f_2,\\
+D_XF=\bigl((D_Xf_1)*f_3*\dots*f_m\bigr)*f_2,
+\end{gather*}
+and likewise for $D_XD_XF$. The functions $f_1-1$, $D_Xf_1$ and
+$D_XD_Xf_1$ have mean zero, convolution with a probability density keeps
+the mean zero, and by Lemma~\ref{lem:bppathmodes} each of the $m-2$
+convolutions with $f_3,\dots,f_m$ multiplies the $L^2$ norm by at most
+$2B/(2B+3)$, since $2B_i/(2B_i+3)\le2B/(2B+3)$. With $\lVert k*f\rVert_\infty
+\le\lVert k\rVert_2\lVert f\rVert_2$, $\lVert f_1-1\rVert_2\le\lVert f_1
+\rVert_2$ and Lemma~\ref{lem:bppathsmooth},
+\begin{align*}
+\lVert F-1\rVert_\infty&\le\Bigl(\frac{2B}{2B+3}\Bigr)^{m-2}\lVert f_1
+\rVert_2\lVert f_2\rVert_2\\
+&\le48(1+B)^{3/2}\Bigl(\frac{2B}{2B+3}\Bigr)^{m-2}\le\eta ,
+\end{align*}
+and the same argument gives the other two bounds, since $\lVert D_Xf_1
+\rVert_2\le B\lVert f_1\rVert_2$ and $\lVert D_XD_Xf_1\rVert_2\le(B^2+B)
+\lVert f_1\rVert_2$ by Lemma~\ref{lem:bppathsmooth}.
+\end{proof}
+
+\begin{theorem}[the law of one block variable]\label{thm:bppathdensity}
+Let $b\ge2$, $L\ge3$ and $\beta_W\ge0$, let $\mu'$ be the $\SU(2)$ Wilson
+measure of $\Lambda_{bL}$, with density proportional to $\exp(\frac{\beta_W}2
+\sum_p\ReTr U_p)$, let $c$ be the straight-path map to $\Lambda_L$ and
+$\mu^c=c_*\mu'$, with the induced action $H^c$ of
+Lemma~\textup{\ref{lem:bpcoarselaw}(i)}. For every coarse link $e$ and every
+$V$ the conditional law $\gamma^{\mu^c}_{\{e\}}(\cdot\mid V)$ has a density
+$r_e(\cdot\mid V)$ with respect to $\lambda$, and for every unit $X\in\g$
+\begin{gather*}
+\lvert r_e-1\rvert\le\eta_b,\qquad\lvert D_Xr_e\rvert\le B_W\eta_b,\\
+\lvert D_XD_Xr_e\rvert\le(B_W^2+B_W)\eta_b .
+\end{gather*}
+If $\eta_b<1$, then
+\[
+\Bigl\lvert\frac{d^2}{dt^2}H^c(V^{e,tX})\Big|_0\Bigr\rvert\le h_b
+\]
+for every $e$, $V$ and unit $X$. Along every sequence $b_k=2^k$, $\beta_k\le
+C(1+k)$, the numbers $\eta_{b_k}$ and $h_{b_k}$ tend to zero faster than
+every power of $2^{-k}$, uniformly in $L$ and $V$.
+\end{theorem}
+
+\begin{proof}
+Condition on the configuration $W$ of the fine links off the path $\pi(e)$.
+Two links of a plaquette are either parallel and displaced by a unit vector
+transverse to them, or orthogonal; two links of $\pi(e)$ are collinear, so
+no plaquette contains two of them. Given $W$ the $b$ links of $\pi(e)$ are
+therefore independent, and each has the density proportional to $\exp(\frac{
+\beta_W}2\ReTr(U\,S))$, where $S$ is the sum of its six staples, a function
+of $W$. A sum of elements of $\SU(2)$ is a real multiple of an element of
+$\SU(2)$, so $S=sW_S$ with $0\le s\le6$ and $W_S\in G$, and the density is
+$f_{s\beta_W}(UW_S)$. By Theorem~\ref{thm:bppathproduct} with $m=b$ and
+$B=B_W$, the density $p_e(\cdot\mid W)$ of $c_e$ given $W$ obeys the three
+bounds with $\eta_b$. The other coarse links are functions $\phi(W)$ of $W$,
+so for bounded measurable $F$
+\[
+\mu^c(F)=\int\mu'(dW)\int F(g,\phi(W))\,p_e(g\mid W)\,\lambda(dg),
+\]
+and the conditional density of $V_e$ given $V_{E\setminus\{e\}}$ is the
+mean of $p_e(g\mid W)$ under the conditional law of $W$ given $\phi(W)=
+V_{E\setminus\{e\}}$, a mixture whose weights do not depend on $g$. The
+three bounds pass to the mixture for $\mu^c$-almost every $V$. By
+Lemma~\ref{lem:bpcoarselaw}(i) the density of $\mu^c$ is smooth and positive,
+so $r_e$ and its derivatives in $g$ are continuous in $V$ and the bounds
+hold for every $V$. With the other coarse links fixed, $H^c(V^{e,tX})=-\log
+r_e(V_ee^{tX}\mid V)$ up to a constant, and
+\[
+\frac{d^2}{dt^2}\bigl(-\log r_e\bigr)=-\frac{D_XD_Xr_e}{r_e}+\frac{(D_Xr_e)^2}
+{r_e^2}
+\]
+is at most $h_b$ in absolute value. Finally $\log(1+x)\ge x/(1+x)$ gives
+$q_W^{b-2}\le\exp(-(b-2)/(4\beta_W+1))$, and for $b=2^k$, $\beta_W\le C(1+k)$
+the exponent $-(2^k-2)/(4C(1+k)+1)$ beats every multiple of $k$.
+\end{proof}
+
+\begin{corollary}[the cancellation in the fibre law]\label{cor:bppathcancel}
+In the setting of Theorem~\textup{\ref{thm:bppathdensity}} let $b\ge3$,
+$\eta_b<1$, and let $\varsigma_V$ and $a=l_b(e)$ be as in
+Proposition~\textup{\ref{prop:bpfibreduce}}. Then for every coarse link $e$,
+every $V$ and every unit $X$
+\[
+\bigl\lvert\varsigma_V(D^a_XD^a_X\mathcal S)-\Var_{\varsigma_V}(D^a_X
+\mathcal S)\bigr\rvert\le h_b ,
+\]
+so along every tuning with $\beta_k=O(k)$ the variance of the force on each
+mark equals its mean curvature up to an error that tends to zero, uniformly
+in the torus and the coarse data, and the bound of
+Corollary~\textup{\ref{cor:bpfibH1}(iii)} holds for all large $k$ whatever
+$c>0$.
+\end{corollary}
+
+\begin{proof}
+By Proposition~\ref{prop:bpbalhess} the left side is the second derivative
+of $H^c$ along $V^{e,tX}$; apply Theorem~\ref{thm:bppathdensity}.
+\end{proof}
+
+So the single-link part of the effective-action problem is settled for
+$\SU(2)$ along the tuning: both terms are of order $\beta_k$, and their
+difference is smaller than any power of the block size. What remains is
+the sum of the mixed derivatives over distant coarse links. To reach them,
+the interiors of all the paths are integrated at once. Let $b\ge4$, let
+$\mathcal I$ be the set of fine links $(by+ie_\nu,\nu)$ with $(y,\nu)$ a
+coarse link and $1\le i\le b-2$, the interiors of the paths, and let
+$\mathcal R$ be the set of all other fine links, which contains the first
+and the last link of every path.
+
+\begin{lemma}[the interiors]\label{lem:bppathint}
+No plaquette of $\Lambda_{bL}$ contains two links of $\mathcal I$.
+Consequently, given $U_{\mathcal R}=W$, the links of $\mathcal I$ are
+independent under $\mu'$, and the coarse links are independent with
+densities $p_e(\cdot\mid W)$ that obey the three bounds of
+Theorem~\textup{\ref{thm:bppathproduct}} with $\eta_{b-2}$ and $B=B_W$. The
+density of $\mu^c$ with respect to $\lambda_E$ is
+\begin{equation}\label{eq:bppathmix}
+\mathcal D(V)=\int\prod_{e\in E}p_e(V_e\mid W)\,\zeta(dW),
+\end{equation}
+where $\zeta$ is the law of $U_{\mathcal R}$ under $\mu'$.
+\end{lemma}
+
+\begin{proof}
+Two parallel links of a plaquette have base points that differ by a unit
+vector transverse to them. For two links of $\mathcal I$ of direction $\nu$
+the transverse coordinates of the base points are multiples of $b$, and so
+is their difference modulo $bL$, while $\pm1$ is not, since $b\ge2$. A
+plaquette in the plane of $\mu\ne\nu$ with base point $z$ has the links
+$(z,\mu)$, $(z+e_\mu,\nu)$, $(z+e_\nu,\mu)$ and $(z,\nu)$, so a $\mu$-link
+with base point $x$ and a $\nu$-link with base point $y$ in it satisfy
+$x-y\in\{0,-e_\mu,e_\nu,e_\nu-e_\mu\}$, and $x_\mu-y_\mu\in\{0,-1\}$. For
+links of $\mathcal I$, $x_\mu\equiv i\pmod b$ with $1\le i\le b-2$ and
+$y_\mu\equiv0\pmod b$, so $x_\mu-y_\mu$ is congruent neither to $0$ nor to
+$-1$ modulo $b$. Hence every Wilson factor contains at most one link of
+$\mathcal I$, and given $W$ the density of $U_{\mathcal I}$ is a product. A
+link of $\mathcal I$ has the density $f_{s\beta_W}(UW_S)$ as in the proof of
+Theorem~\ref{thm:bppathdensity}, with staples in $W$, and the coarse link
+$e$ is $R\,Y_1\cdots Y_{b-2}R'$ with its first and last links $R,R'$ in $W$
+and its interior links $Y_i$; Theorem~\ref{thm:bppathproduct} with $m=b-2$
+gives the bounds. Distinct coarse links have disjoint interiors, which
+gives the independence and~\eqref{eq:bppathmix}.
+\end{proof}
+
+\begin{theorem}[mixed derivatives as posterior covariances]
+\label{thm:bppathmixed}
+Let $b\ge4$ and $\eta_{b-2}<1$, put $K_b=B_W\eta_{b-2}/(1-\eta_{b-2})$, and
+for $V\in G^E$ let
+\begin{gather*}
+\pi_V(dW)=\mathcal D(V)^{-1}\prod_{e\in E}p_e(V_e\mid W)\,\zeta(dW),\\
+a^X_e(W,V_e)=D_X\log p_e(V_e\mid W).
+\end{gather*}
+Then for coarse links $e\ne j$ and unit $X,Y\in\g$
+\[
+\frac{\partial^2}{\partial s\,\partial t}H^c\bigl((V^{e,sX})^{j,tY}\bigr)\Big|_0
+=-\Cov_{\pi_V}\bigl(a^X_e,a^Y_j\bigr),
+\]
+so $J_{ej}(H^c)\le K_b^2$, and $\lvert\frac{d^2}{dt^2}H^c(V^{e,tX})|_0\rvert
+\le h_{b-2}$ for every $e$, $V$ and unit $X$.
+\end{theorem}
+
+\begin{proof}
+By Lemma~\ref{lem:bppathint}, $p_e\ge1-\eta_{b-2}$ and $\lvert a^X_e\rvert
+\le K_b$. The densities $p_e$ are smooth in $V_e$, with derivatives bounded
+uniformly in $W$, so~\eqref{eq:bppathmix} may be differentiated under the
+integral. With $H^c=-\log\mathcal D$ up to a constant, $\frac d{ds}H^c(V^{
+e,sX})|_0=-\E_{\pi_V}a^X_e$. The score $a^X_e$ does not depend on $V_j$,
+and differentiating $\pi_V$ in $V_j$ along $Y$ multiplies it by $a^Y_j-\E_{
+\pi_V}a^Y_j$; this gives the covariance, which is at most $K_b^2$ in
+absolute value by the Cauchy--Schwarz inequality. Given the other coarse
+links, the law of $V_e$ has the density proportional to $\int p_e(V_e\mid W)
+\prod_{e'\ne e}p_{e'}(V_{e'}\mid W)\,\zeta(dW)$, a mixture of the $p_e(\cdot
+\mid W)$ with weights independent of $V_e$, and the last statement follows as
+in the proof of Theorem~\ref{thm:bppathdensity}.
+\end{proof}
+
+The bound on each mixed derivative carries no factor that decays with the
+distance between $e$ and $j$; the posterior $\pi_V$ couples all the paths
+through the fine links of $\mathcal R$. A bound on the sum of the
+coefficients still gives the cube bound for every cube side, and with no
+condition on the tails.
+
+\begin{corollary}[a column sum below one third]\label{cor:bppathcolumn}
+Let $\varrho$ be a gauge-invariant probability measure on $G^E$, $E$ the
+links of $\Lambda_L$, with $c_\varrho=\max_j\sum_{e\ne j}C^\varrho_{ej}\le
+\frac13$. Then $\mathrm{BP}_\varrho(n,\frac12)$ holds for every $n\ge2$ with
+$L\ge2n+4$ even. In particular, in Corollaries~\textup{\ref{cor:bpcoarseH1}}
+and~\textup{\ref{cor:bpfibH1}} the condition on the tails and the lower
+bound on $n_0$ can be dropped when $c\le\frac13$.
+\end{corollary}
+
+\begin{proof}
+A link with base point $b'$ lies in $V_x$ exactly when $b'-x\in[0,n)^4$
+modulo $L$, so it lies in exactly $n^4$ cubes. By
+Lemma~\ref{lem:bpcoarseblock},
+\[
+\sum_{x:\,j\notin V_x}C^\varrho_{V_x,j}\le\frac1{1-c_\varrho}\sum_{e\ne j}
+C^\varrho_{ej}\,\#\{x:e\in V_x\}\le\frac{c_\varrho}{1-c_\varrho}\,n^4\le
+\frac{n^4}2 ,
+\]
+and Theorem~\ref{thm:bpcoarse}(i) applies with $\alpha=\frac12$.
+\end{proof}
+
+\begin{corollary}[tori of side up to $4^k$]\label{cor:bppathfourk}
+Let $k\ge14$, $b=2^k$, $0\le\beta_W\le k+2$, $n\ge2$ and $L$ even with
+$2n+4\le L\le4^k$. Then the law $\mu^c$ of the block variables of the
+$\SU(2)$ Wilson measure of $\Lambda_{bL}$ under the straight-path map
+satisfies $\mathrm{BP}(n,\frac12)$.
+\end{corollary}
+
+\begin{proof}
+Put $N_k=4k+9$ and $t_k=48(6k+13)^2\,2^{-(8k-25)}$. Since $q_W\le1-1/N_k$ and
+$(1-1/N_k)^{N_k}<e^{-1}<\frac12$,
+\[
+\eta_{b-2}=48(1+6\beta_W)^2q_W^{b-4}\le48(6k+13)^2\,2^{-\lfloor(2^k-4)/N_k
+\rfloor}\le t_k ,
+\]
+where the last step uses $\lfloor(2^k-4)/N_k\rfloor\ge8k-25$, which follows
+from $2^k\ge R(k)=32k^2-28k-221$: this holds at $k=12$, where $R(12)=4051$,
+and $2R(k)-R(k+1)=32(k-12)^2+676(k-12)+3279>0$ carries it from $k$ to
+$k+1$. Let $B_k=6(k+2)$. Then $t_{12}<2^{-52}$, $t_{k+1}/t_k<\frac1{64}$
+and $B_{k+1}/B_k<2$, so $\eta_{b-2}\le\frac12$,
+\[
+h_{b-2}\le2(B_k^2+B_k)t_k+4B_k^2t_k^2\le\frac12 ,\qquad K_b\le2B_kt_k .
+\]
+By Theorem~\ref{thm:bppathmixed} and Lemma~\ref{lem:bpcoarsehess} with
+$\kappa_G=1$, $C^{\mu^c}_{ej}\le K_b^2/(1-h_{b-2})\le2K_b^2$, and the
+$4L^4-1$ links $e\ne j$ give
+\[
+3c_{\mu^c}\le\frac{3(4L^4-1)K_b^2}{1-h_{b-2}}\le96L^4B_k^2t_k^2\le A_k=
+96\cdot2^{8k}B_k^2t_k^2 .
+\]
+Here $A_{14}=21512615283\cdot2^{-39}<\frac1{25}$ and $A_{k+1}/A_k<
+\frac14$, so $c_{\mu^c}\le\frac13$, $\mu^c$ is gauge invariant, and
+Corollary~\ref{cor:bppathcolumn} applies.
+\end{proof}
+
+The range is not (H1): that condition asks for a bound on an infinite set
+of tori at each $k$, and the entrywise bound $K_b^2$ summed over $4L^4$
+links fails once $L$ is large at fixed $k$. Figure~\ref{fig:bppaths} shows
+the interiors, the multipliers of Lemma~\ref{lem:bppathmodes} and the
+numbers $\eta_{b-2}$, $K_b^2$ and $h_{b-2}$ along the tuning. The next
+proposition shows that two standard routes to a bound on every torus fail
+in the range that matters.
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\textwidth]{figures/fig_bppaths.png}
+\caption{Smoothing along the paths. (a) The paths of the straight-path map
+with blocks of side $b=6$, in a plane: the interior links (red) of all the
+paths lie in no common plaquette and are independent given the end links
+(black) and the links off the paths (grey) (Lemma~\ref{lem:bppathint}).
+(b) The multipliers $a_d(B)=I_d(B)/I_1(B)$ of convolution with the
+one-link density on the representations of dimension $d=2,\dots,6$, all
+below $2B/(2B+3)$ (Lemma~\ref{lem:bppathmodes}). (c) The numbers
+$\eta_{b-2}$, $h_{b-2}$ and $K_b^2$ for $b=2^k$ along the illustrative
+tuning $\beta_k=2+\frac{11}{3\pi^2}k\log2$, on a symmetric logarithmic
+scale; $h_{b-2}$ and $K_b^2$ are drawn where $\eta_{b-2}<\frac12$. All three
+tend to zero faster than every power of $2^{-k}$
+(Theorems~\ref{thm:bppathdensity} and~\ref{thm:bppathmixed}).}
+\label{fig:bppaths}
+\end{figure}
+
+\begin{proposition}[two routes that fail]\label{prop:bppathobst}
+\begin{enumerate}[label=\textup{(\roman*)},leftmargin=*]
+\item Let $b\ge256$ and $\beta_W\ge\frac83$. For every $V$ the largest
+column sum of the single-link coefficients of the posterior $\pi_V$ of
+Theorem~\textup{\ref{thm:bppathmixed}} on the links of $\mathcal R$ exceeds
+one.
+\item Expand the plaquette weight $e^{\frac{\beta_W}2\ReTr U}/\int e^{\frac{
+\beta_W}2\ReTr U}d\lambda$ in characters, and keep the fundamental
+representation on the six faces of an elementary cube as one polymer with
+its unresummed activity $z_\square$. Then $z_\square=4a_2(\beta_W)^6$, and
+for $\beta_W\ge6$ the Koteck\'y--Preiss condition~\cite{KP86} fails for this
+polymer.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+(i) Take a link of $\mathcal R$ whose base point has all four coordinates in
+$\{3,\dots,b-4\}$ modulo $b$. A link of a path has at least three
+coordinates of its base point divisible by $b$, so neither this link nor
+the links of its six plaquettes nor the links at its end points lie on a
+path. The gauge transformations at its two end points therefore fix every
+coarse link and every factor $p_e(V_e\mid W)$, and they preserve $\zeta$,
+the image of the gauge-invariant measure $\mu'$ under a map that commutes
+with them; so they preserve $\pi_V$. Its plaquettes contain no link of
+$\mathcal I$, so its conditional law under $\pi_V$ is the one-link Wilson
+law, which at $W=I$ is $f_{6\beta_W}\lambda$. The proofs of
+Lemma~\ref{lem:bpbalcov}, Theorem~\ref{thm:bpbalnec}(i) and
+Corollary~\ref{cor:bpbalwilson} then give it a row sum of single-link
+coefficients under $\pi_V$ larger than $1.13$. Such links number
+$4(b-6)^4L^4$ out of at most $4b^4L^4$ links of $\mathcal R$, and the
+coefficients are nonnegative, so the mean row sum, which equals the mean
+column sum, exceeds $1.13\,((b-6)/b)^4\ge1.13\,(125/128)^4>1$.
+
+(ii) The coefficient of $\chi_d$ in the normalised plaquette weight is $d\,
+a_d(\beta_W)$, by Lemma~\ref{lem:bppathmodes} with $B=\beta_W$. On the
+surface of a cube each of the twelve edges lies in two faces with opposite
+orientations, Haar integration over it gives a factor $\frac12$, and
+contracting the indices gives a factor $2$ at each of the eight vertices,
+so $z_\square=(2a_2)^6\,2^{8-12}=4a_2^6$. Let $r=I_3(6)/I_2(6)$. By the
+integral representation~\cite[(10.32.2)]{DLMF}, $r$ is the mean of $t$ under
+the density proportional to $e^{6t}(1-t^2)^{3/2}$ on $[-1,1]$, and
+integrating the derivative of $e^{6t}(1-t^2)^{5/2}$ gives $5r=6\,\E(1-t^2)
+<6(1-r^2)$, so $(3r-2)(2r+3)<0$ and $r<\frac23$. The recurrence $I_1(6)-
+I_3(6)=\frac23I_2(6)$ then gives $a_2(6)>\frac34$, and $a_2$ increases in
+$\beta_W$, its derivative being the variance of $\cos\theta$. So $z_\square>
+4(\frac34)^6=\frac{729}{1024}>\frac1e$ for $\beta_W\ge6$. The condition
+of~\cite{KP86} asks for $A_\gamma\ge0$ with $\sum_{\gamma'\not\sim\gamma}
+\lvert z_{\gamma'}\rvert e^{A_{\gamma'}}\le A_\gamma$, and a polymer is
+incompatible with itself, so it requires $\lvert z_\square\rvert\le A e^{-A}
+\le\frac1e$.
+\end{proof}
+
+Part (i) concerns the posterior on single fine links and leaves block
+methods open; part (ii) concerns the unresummed expansion and leaves
+resummed and multiscale expansions open. What the cube bound on every torus
+needs is a statement about the scores of the interior products under the
+posterior, and the following condition is enough.
+
+\begin{proposition}[a sufficient covariance bound]\label{prop:bppathsuff}
+In Corollary~\textup{\ref{cor:bpuptuning}} let the $c_j$ be straight-path
+maps, so that $\mu^{(0)}_{k,L}$ is the law of the block variables of the
+straight-path map with blocks of side $b=2^k$, $k\ge2$, and let $\pi_V$,
+$a^X_e$, $K_b$ and $h_{b-2}$ be as in Theorem~\textup{\ref{thm:bppathmixed}}
+for $\mu_{k,L}$, with $\eta_{b-2}<1$ and $h_{b-2}<1$. Suppose that
+\[
+\sum_{e\ne j}\sup_{V,X,Y}\bigl\lvert\Cov_{\pi_V}\bigl(a^X_e,a^Y_j\bigr)\bigr
+\rvert\le\frac{1-h_{b-2}}3
+\]
+for all $L\in\mathcal L_k$ and all coarse links $j$. Then
+$\mathrm{BP}(n_0,\frac12)$ holds for $\mu^{(0)}_{k,L}$ for every $n_0\ge2$
+and every $L\in\mathcal L_k$ with $L_0\ge2n_0+4$. This holds in particular
+if $\beta_k=O(k)$ and there are $A<\infty$ and $p>4$ with $\lvert\Cov_{\pi_V}
+(a^X_e,a^Y_j)\rvert\le AK_b^2(1+\lvert\Delta\rvert_\infty)^{-p}$ for all
+$L$, $V$, unit $X,Y$ and $e\ne j$, once $k$ is so large that
+$AK_b^2S_p\le(1-h_{b-2})/3$ with $S_p=3+320(1+1/(p-4))$.
+\end{proposition}
+
+\begin{proof}
+By Theorem~\ref{thm:bppathmixed} and Lemma~\ref{lem:bpcoarsehess} the column
+sums of the coefficients are at most $\frac13$, and
+Corollary~\ref{cor:bppathcolumn} applies. For the second statement, three
+links share the base point of $j$, and at distance $r\ge1$ in $\lvert\cdot
+\rvert_\infty$ there are $4((2r+1)^4-(2r-1)^4)=4(64r^3+16r)\le320r^3$ links,
+so the sum is at most $AK_b^2(3+320\sum_{r\ge1}r^{3-p})\le AK_b^2S_p$; and
+$K_b$, $h_{b-2}\to0$ by Theorem~\ref{thm:bppathdensity}.
+\end{proof}
+
+The hypothesis is a decay of correlations under the posterior for the
+scores of distinct interior products, uniform in the torus and the coarse
+data. Proposition~\ref{prop:bphidden}(ii) shows that it is a genuine
+collective input: its measure $\varrho_L$ is also a mixture of product laws
+with small scores and small single-link curvature, and there the sum of
+the mixed derivatives grows with the volume.
+
+\begin{remark}[what is proved by smoothing along the paths]
+\label{rem:bppaths}
+Proved: convolution with a one-link $\SU(2)$ Wilson density contracts every
+nontrivial representation by at most $2B/(2B+3)$
+(Lemma~\ref{lem:bppathmodes}); a product of $m$ independent one-link
+variables has a density within $48(1+B)^2(2B/(2B+3))^{m-2}$ of $1$ with
+its first two derivatives (Theorem~\ref{thm:bppathproduct}); the
+single-link conditional densities of the law of the block variables of the
+straight-path map obey these bounds, the single-link curvature of the
+induced action and the difference between force variance and mean
+curvature in the fibre law tend to zero along every tuning with $\beta_k=
+O(k)$, uniformly in the torus and the coarse data
+(Theorem~\ref{thm:bppathdensity}, Corollary~\ref{cor:bppathcancel}); the
+law of the block variables is a mixture of product laws over the links off
+the path interiors, and its mixed derivatives are posterior covariances of
+the scores of the interior products, each at most $K_b^2$
+(Lemma~\ref{lem:bppathint}, Theorem~\ref{thm:bppathmixed}); a column sum at
+most $\frac13$ gives $\mathrm{BP}(n,\frac12)$ for every $n$ with no
+condition on the tails (Corollary~\ref{cor:bppathcolumn}); for $k\ge14$
+and $\beta_k\le k+2$ the law of the block variables satisfies
+$\mathrm{BP}(n,\frac12)$ on every coarse torus of side at most $4^k$
+(Corollary~\ref{cor:bppathfourk}); Dobrushin's condition for the posterior
+on single fine links fails for $b\ge256$, $\beta_W\ge\frac83$, and the
+Koteck\'y--Preiss condition for the unresummed cube surface fails for
+$\beta_W\ge6$ (Proposition~\ref{prop:bppathobst}); a bound on the sums of
+the posterior covariances uniform in the torus gives (H1) with $\varpi_0=
+\frac12$ for every $n_0$ (Proposition~\ref{prop:bppathsuff}).
+
+Not proved: that bound for any $k$ outside the strong-coupling range, and
+hence (H1) along the tuning; the split inequality (H2) along the tuning.
 Neither $\mathrm{BP}$ along the tuning nor the mass gap is proved here.
+\end{remark}
+
+\subsection{The row sums of the Gaussian model}\label{ssec:bprowsum}
+
+This subsection determines the order of the row sums $\gamma_b$ of the
+effective quadratic form of the Gaussian model of
+Section~\ref{ssec:bpfibre}. The Bloch symbol of $\Gamma$ is written in closed
+form through the sums of the lattice Green function along the paths, and
+its derivatives are controlled at the scale $b^{-1/2}$ of the coarse
+momenta, where the two bounds $1/b$ and $\lvert\kappa\rvert^2$ on the symbol
+meet.
+The result is that $\gamma_b$ is of order $(\log b)/b$: condition (G)
+fails by a logarithm, and the Gaussian form of (FC) holds along every
+tuning with $\beta_k(\log b_k)/b_k\to0$, in particular along the
+logarithmic tuning. The same numbers are the covariances of the scores in
+every representation of the coarse density as a mixture of products over
+the coarse links (Remark~\ref{rem:bprowposterior}).
+
+Throughout, $b\ge3$, $\lvert\kappa\rvert$ is the Euclidean norm of
+$\kappa\in\R^4$, and for $p,\kappa\in\R^4$, $q\in\R$,
+\[
+\begin{split}
+\epsilon(p)&=\sum_\rho4\sin^2\frac{p_\rho}2,\qquad\sigma_\rho(\kappa)=
+e^{i\kappa_\rho}-1,\\
+F_b(q)&=\Bigl\lvert\sum_{t=0}^{b-1}e^{iqt}\Bigr\rvert^2=\sum_{\lvert r
+\rvert<b}(b-\lvert r\rvert)e^{iqr}.
+\end{split}
+\]
+Let $Z_b$ be the set of $n\in\Z^4$ with $-\lfloor(b-1)/2\rfloor\le n_\rho
+\le\lfloor b/2\rfloor$ for every $\rho$, a set of representatives of
+$(\Z/b\Z)^4$ with $\lvert n_\rho\rvert\le b/2$. For $\kappa\notin2\pi\Z^4$
+and a direction $\mu$ put
+\[
+\mathcal G_\mu(\kappa)=\frac1{b^4}\sum_{n\in Z_b}\frac{F_b(p_\mu)}{\epsilon(p)},
+\qquad p=\frac{\kappa+2\pi n}b .
+\]
+No $p$ lies in $2\pi\Z^4$, since $\kappa+2\pi n\in2\pi b\Z^4$ would put
+$\kappa$ in $2\pi\Z^4$; so $\mathcal G_\mu$ is a finite sum of nonnegative
+real-analytic functions on $\R^4\setminus2\pi\Z^4$, and it is
+$2\pi\Z^4$-periodic, because each summand depends only on $p$ modulo
+$2\pi\Z^4$, that is on $n$ modulo $b$. Lemma~\ref{lem:bprowline}(i) and the
+periodicity give $\mathcal G_\mu>0$. Put
+\[
+r_\mu=\frac1{\mathcal G_\mu},\qquad\mathcal T=\sum_\rho r_\rho\lvert
+\sigma_\rho\rvert^2,\qquad\omega(\kappa)=\min\Bigl(\frac1b,\lvert\kappa
+\rvert^2\Bigr).
+\]
+In the proofs, $C$ denotes constants that depend only on the order of the
+derivatives involved and may change from line to line, and two elementary
+facts are used: for $\lvert x\rvert\le\pi$,
+\begin{equation}\label{eq:bprowsin}
+\frac4{\pi^2}x^2\le4\sin^2\frac x2\le x^2 ;
+\end{equation}
+and for $\kappa\in[-\pi,\pi]^4$, $n\in Z_b$ and $p=(\kappa+2\pi n)/b$, the
+distance $\delta_\rho$ of $p_\rho$ to $2\pi\Z$ satisfies
+\begin{equation}\label{eq:bprowdist}
+\delta_\rho\ge\frac{\pi\lvert n_\rho\rvert}b ,
+\end{equation}
+since $\lvert\kappa_\rho+2\pi n_\rho\rvert\ge\pi\lvert n_\rho\rvert$ and
+$\lvert p_\rho\rvert\le\pi+\pi/b$, and when $\lvert p_\rho\rvert>\pi$,
+$\delta_\rho=2\pi-\lvert p_\rho\rvert\ge\pi/2\ge\pi\lvert n_\rho\rvert/b$.
+
+\begin{lemma}[the line sums]\label{lem:bprowline}
+For $\kappa\in[-\pi,\pi]^4\setminus\{0\}$ and every direction $\mu$:
+\begin{enumerate}[label=\textup{(\roman*)},leftmargin=*]
+\item the two bounds $\mathcal G_\mu(\kappa)\ge4/(\pi^2\lvert\kappa\rvert^2)$
+and $\mathcal G_\mu(\kappa)\ge4b/(7\pi^4)$ hold, and hence $\mathcal G_\mu(
+\kappa)\ge4/(7\pi^4\omega(\kappa))$;
+\item $\mathcal G_\mu(\kappa)\le\pi^2/(4\lvert\kappa\rvert^2)+15b\le18/\omega(
+\kappa)$;
+\item for every multi-index $\alpha$, $\lvert\partial^\alpha\mathcal G_\mu(
+\kappa)\rvert\le C\omega(\kappa)^{-1}\lvert\kappa\rvert^{-\lvert\alpha
+\rvert}$.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+(i) For $n=0$, $F_b(\kappa_\mu/b)=\sin^2(\kappa_\mu/2)/\sin^2(\kappa_\mu/2b)
+\ge4b^2/\pi^2$ by \eqref{eq:bprowsin}, and $F_b(0)=b^2$; and $\epsilon(\kappa
+/b)\le\lvert\kappa\rvert^2/b^2$. This gives the first bound. For the second
+keep the terms with $n_\mu=0$, for which $F_b(p_\mu)\ge4b^2/\pi^2$ as before
+and, by \eqref{eq:bprowsin}, $\epsilon(p)\le\lvert p\rvert^2\le\pi^2b^{-2}
+(1+\sum_{\rho\ne\mu}(1+2\lvert n_\rho\rvert)^2)$. For $1\le t\le\lfloor
+(b-1)/2\rfloor$ the vectors $n$ with $n_\mu=0$ and $\max_{\rho\ne\mu}\lvert
+n_\rho\rvert=t$ lie in $Z_b$, there are $(2t+1)^3-(2t-1)^3\ge24t^2$ of them,
+and each has $1+\sum_{\rho\ne\mu}(1+2\lvert n_\rho\rvert)^2\le1+27t^2\le28t^2$.
+So these terms of $\sum1/\epsilon(p)$ add up to at least $\frac{b^2}{\pi^2}
+\frac67\lfloor\frac{b-1}2\rfloor\ge\frac{b^3}{7\pi^2}$, as $\lfloor(b-1)/2
+\rfloor\ge b/6$ for $b\ge3$, and $\mathcal G_\mu\ge b^{-4}\frac{4b^2}{\pi^2}
+\frac{b^3}{7\pi^2}$.
+
+(ii) For $n=0$, $F_b\le b^2$ and $\epsilon(\kappa/b)\ge4\lvert\kappa\rvert^2/(
+\pi^2b^2)$ by \eqref{eq:bprowsin}, which gives $\pi^2/(4\lvert\kappa
+\rvert^2)$. For $n\ne0$, \eqref{eq:bprowsin} and \eqref{eq:bprowdist} give
+$\epsilon(p)\ge\frac4{\pi^2}\sum_\rho\delta_\rho^2\ge4\lvert n\rvert^2/b^2$,
+and $F_b(p_\mu)\le b^2$, while for $n_\mu\ne0$, $F_b(p_\mu)=\sin^2(\kappa_\mu
+/2)/\sin^2(p_\mu/2)\le\pi^2/\delta_\mu^2\le b^2/n_\mu^2$. With $m(n)=\min(1,
+n_\mu^{-2})$ the term of $n$ is at most $m(n)/(4\lvert n\rvert^2)$. The
+vectors of $Z_b$ with $n_\mu=0$ and $\max_\rho\lvert n_\rho\rvert=t\ge1$ are
+at most $24t^2+2\le26t^2$, so these vectors contribute at most $26\cdot
+\frac b2=13b$ to $\sum_{n\ne0}\lvert n\rvert^{-2}$, and
+\[
+\begin{aligned}
+\sum_{n\in Z_b\setminus\{0\}}\frac{m(n)}{\lvert n\rvert^2}&\le13b+\sum_{n_\mu
+\ne0}\frac1{n_\mu^2}\Bigl(\frac1{n_\mu^2}+13b\Bigr)\\
+&\le13b\Bigl(1+\frac{\pi^2}3\Bigr)+\frac{\pi^4}{45}\le60b .
+\end{aligned}
+\]
+So the terms with $n\ne0$ add up to at most $15b$, and $\pi^2/4+15\le18$.
+
+(iii) Since $\partial_\kappa=b^{-1}\partial_p$, the Leibniz rule writes
+$\partial^\alpha$ of the term of $n$ as a sum of at most $2^{\lvert\alpha
+\rvert}$ products $b^{-j}F_b^{(j)}(p_\mu)\cdot b^{-\lvert\alpha'\rvert}(
+\partial^{\alpha'}\epsilon^{-1})(p)$ with $j+\lvert\alpha'\rvert=\lvert
+\alpha\rvert$. Let $\delta(q)$ be the distance of $q\in\R$ to $2\pi\Z$ and
+$\delta(p)$ that of $p\in\R^4$ to $2\pi\Z^4$. First, $\lvert F_b^{(j)}(q)\rvert
+\le Cb^j\min(b^2,\delta(q)^{-2})$: the Fej\'er sum gives $\lvert F_b^{(j)}
+\rvert\le\sum_{\lvert r\rvert<b}(b-\lvert r\rvert)\lvert r\rvert^j\le b^{j+2}$;
+for $0<\lvert q\rvert\le\pi$, $F_b(q)=(1-\cos bq)h(q)$ with $h(q)=1/(1-\cos
+q)$, and $h-2/q^2$ is analytic on $\lvert q\rvert<2\pi$, so $\lvert h^{(i)}(q)
+\rvert\le C\lvert q\rvert^{-2-i}$ and $\lvert F_b^{(j)}(q)\rvert\le C\sum_{i
+\le j}b^i\lvert q\rvert^{-2-j+i}\le Cb^j\lvert q\rvert^{-2}$ for $\lvert q
+\rvert\ge1/b$; the general case follows by periodicity. Second, $\lvert
+\partial^{\alpha'}\epsilon^{-1}(p)\rvert\le C\delta(p)^{-2-\lvert\alpha'
+\rvert}$: by periodicity let $p\in[-\pi,\pi]^4$, so that $\lvert p\rvert=
+\delta(p)$; then $\epsilon(p)\ge4\lvert p\rvert^2/\pi^2$, $\lvert\partial_\rho
+\epsilon\rvert=2\lvert\sin p_\rho\rvert\le2\lvert p\rvert$ and the derivatives
+of order $i\ge2$ are at most $2\le C\lvert p\rvert^{2-i}$, and
+$\partial^{\alpha'}(1/\epsilon)$ is a sum of terms $\epsilon^{-1-m}\prod_{i=1
+}^m\partial^{\alpha_i}\epsilon$ with $\sum_i\alpha_i=\alpha'$. For $n=0$,
+$\delta(p)=\lvert\kappa\rvert/b$, and a product is at most $Cb^2\cdot b^{
+-\lvert\alpha'\rvert}(b/\lvert\kappa\rvert)^{2+\lvert\alpha'\rvert}\le
+Cb^4\lvert\kappa\rvert^{-2-\lvert\alpha\rvert}$, as $\lvert\kappa\rvert\le2
+\pi$. For $n\ne0$, \eqref{eq:bprowdist} gives $\delta(p)\ge\pi\lvert n\rvert/
+b$ and $\delta(p_\mu)\ge\pi\lvert n_\mu\rvert/b$, so a product is at most
+$Cb^2m(n)\cdot b^2\lvert n\rvert^{-2}$, and by (ii) these add up, over
+$n\ne0$, to at most $Cb^5$. With the factor $b^{-4}$ of $\mathcal G_\mu$, $\lvert\partial^\alpha\mathcal G_\mu\rvert\le C(\lvert\kappa
+\rvert^{-2}+b)\lvert\kappa\rvert^{-\lvert\alpha\rvert}\le2C\omega^{-1}\lvert
+\kappa\rvert^{-\lvert\alpha\rvert}$.
+\end{proof}
+
+\begin{lemma}[the symbol]\label{lem:bprowsymbol}
+For $\kappa\in\R^4\setminus2\pi\Z^4$ the matrix $\hat\Gamma(\kappa)$ of the
+proof of Proposition~\textup{\ref{prop:bpfibbloch}} is
+\[
+\hat\Gamma(\kappa)_{\mu\nu}=r_\mu\delta_{\mu\nu}-\frac{r_\mu r_\nu\,\sigma_\mu
+\bar\sigma_\nu}{\mathcal T},
+\]
+with $r_\rho$, $\sigma_\rho$ and $\mathcal T$ taken at $\kappa$, and $\hat
+\Gamma(0)=0$.
+\end{lemma}
+
+\begin{proof}
+Both sides are continuous on $\R^4\setminus2\pi\Z^4$: the left side by
+Proposition~\ref{prop:bpfibbloch}, the right side because $\mathcal G_\rho>0$
+and $\mathcal T\ge\min_\rho r_\rho\,\epsilon(\kappa)>0$. The points of
+$(2\pi/L)\Z^4$, $L\ge3$, are dense, so it suffices to fix $L\ge3$ and
+$\kappa\in(2\pi/L)\Z^4\setminus2\pi\Z^4$ and to show that the right side is
+the matrix $\hat g(\kappa)$ of that proof.
+
+For $A\in\C^{E'}$ let $\mathsf SA\in\C^E$ be its sums along the paths. By the
+proof of Proposition~\ref{prop:bpfibgauss}(iii), $\ip v{\Gamma v}=\min\{
+\lvert dA\rvert^2:\mathsf SA=v\}$ for real $v$, and, splitting real and
+imaginary parts, also for complex $v$ with the Hermitian forms. For $f\in
+\C^4$ let $v_{(y,\nu)}=e^{i\kappa\cdot y}f_\nu$; then $\ip v{\Gamma v}=L^4f^*
+\hat g(\kappa)f$ by the action of $\Gamma$ on $\mathcal H_\kappa$ in that
+proof. The maps $d$ and $\mathsf S$ commute with the translations by $b\Z^4$
+and preserve the orthogonal decomposition into the spaces $\mathcal
+H_{\kappa'}$; the constraint concerns only the component of $A$ in $\mathcal
+H_\kappa$, so the minimum is the minimum over $A$ in $\mathcal H_\kappa$ of
+the links.
+
+Write a form as $(A_\rho)_\rho$, $A_\rho(x)=A_{(x,\rho)}$, and $\partial_\rho
+\phi(x)=\phi(x+e_\rho)-\phi(x)$, with adjoint $\partial_\rho^*$. Then $(dA)_p
+=\partial_\mu A_\nu(x)-\partial_\nu A_\mu(x)$ for the plaquette $p$ at $x$ in
+the plane $\mu<\nu$, and $d^{\rm T}A=\sum_\rho\partial_\rho^*A_\rho$. The
+differences commute, so $\ip{\partial_\mu^*A_\mu}{\partial_\nu^*A_\nu}=\ip{
+\partial_\nu A_\mu}{\partial_\mu A_\nu}$ and $\lVert\partial^*_\rho A_\rho
+\rVert=\lVert\partial_\rho A_\rho\rVert$, and the cross terms cancel in
+\begin{equation}\label{eq:bprowweitz}
+\lvert dA\rvert^2+\lvert d^{\rm T}A\rvert^2=\sum_{\mu,\nu}\lVert\partial_\mu
+A_\nu\rVert^2=\sum_\nu\ip{A_\nu}{\Delta A_\nu},
+\end{equation}
+where $\Delta=\sum_\mu\partial_\mu^*\partial_\mu$.
+The space $\mathcal H_\kappa$ of the sites of $\Lambda_{bL}$ has dimension
+$b^4$ and is spanned by the plane waves $e_n(x)=e^{ip\cdot x}$, $p=(\kappa+
+2\pi n)/b$, $n\in Z_b$: they satisfy $e_n(x+bz)=e^{i\kappa\cdot z}e_n(x)$, are
+periodic on $\Lambda_{bL}$ because $L\kappa\in2\pi\Z^4$, and are orthogonal,
+their $p$ being distinct modulo $2\pi\Z^4$; and $\Delta e_n=\epsilon(p)e_n$
+with $\epsilon(p)>0$. The same holds for each component $A_\rho$ of a form
+in $\mathcal H_\kappa$, the link $(x,\rho)$ being identified with $x$.
+
+If $A\in\mathcal H_\kappa$ and $\mathsf SA=v$, let $\phi\in\mathcal
+H_\kappa$ solve $\Delta\phi=-d^{\rm T}A$, so that $A'=A+d\phi$ has $d^{\rm T}A'
+=0$ and $dA'=dA$; as $\phi(by)=e^{i\kappa\cdot y}\phi(0)$ and $\pi(y,\nu)$
+runs from $by$ to $b(y+e_\nu)$, $\mathsf SA'_{(y,\nu)}=e^{i\kappa\cdot y}(f_\nu
++\phi(0)\sigma_\nu(\kappa))$. Conversely, if $A'\in\mathcal H_\kappa$ has
+$\mathsf SA'_{(y,\nu)}=e^{i\kappa\cdot y}(f_\nu+t\sigma_\nu)$, $t\in\C$, then
+$A'-d\phi'$, with $\phi'$ equal to $te^{i\kappa\cdot y}$ at $by$ and to $0$
+at the other sites, lies in $\mathcal H_\kappa$, has the path sums $v$ and
+the differential $dA'$. With \eqref{eq:bprowweitz} it follows that $L^4f^*
+\hat g(\kappa)f$ is the minimum of $\sum_\nu\ip{A_\nu}{\Delta A_\nu}$ over
+the $A\in\mathcal H_\kappa$ with $\mathsf SA_{(y,\nu)}=e^{i\kappa\cdot y}u_\nu$,
+$u\in f+\C\sigma(\kappa)$: the forms $A'$ above attain the value $\lvert
+dA\rvert^2$, and every admissible $A$ has $\sum_\nu\ip{A_\nu}{\Delta A_\nu}
+\ge\lvert dA\rvert^2=\lvert d(A-d\phi')\rvert^2$.
+
+For fixed $u$ this minimum splits over $\nu$. For $A_\nu=\sum_na_ne_n$ the
+constraint is the single condition $\sum_na_nc_n=u_\nu$, $c_n=\sum_{t=0}^{b-1}
+e^{ip_\nu t}$, the sum along $\pi(0,\nu)$, the others following by
+quasi-periodicity, and $\ip{A_\nu}{\Delta A_\nu}=(bL)^4\sum_n\lvert a_n\rvert^2
+\epsilon(p)$. Since $\lvert c_n\rvert^2=F_b(p_\nu)$, the Cauchy--Schwarz
+inequality gives the minimum
+\[
+\frac{(bL)^4\lvert u_\nu\rvert^2}{\sum_n\lvert c_n\rvert^2/\epsilon(p)}=L^4
+r_\nu\lvert u_\nu\rvert^2 .
+\]
+With $R=\mathrm{diag}(r_\nu)$,
+the minimum over $t\in\C$ of $(f+t\sigma)^*R(f+t\sigma)$ is $f^*Rf-\lvert
+\sigma^*Rf\rvert^2/\sigma^*R\sigma$, and $\sigma^*R\sigma=\mathcal T$. The matrix
+$\hat g(\kappa)$ is Hermitian, because $\Gamma$ is real and symmetric, and so
+is the matrix of the statement; their quadratic forms agree, so they are
+equal. Finally, a form $v$ that is constant on the coarse links of each
+direction has $\Gamma v=0$, since $A$ equal to $v_{(0,\nu)}/b$ on every fine
+link of direction $\nu$ has these path sums and $dA=0$; so $\hat\Gamma(0)=0$.
+\end{proof}
+
+\begin{lemma}[the derivatives of the symbol]\label{lem:bprowderiv}
+For $\kappa\in[-\pi,\pi]^4\setminus\{0\}$, all $\mu,\nu$ and every
+multi-index $\alpha$ with $\lvert\alpha\rvert\le3$,
+\[
+\bigl\lvert\partial^\alpha\hat\Gamma(\kappa)_{\mu\nu}\bigr\rvert\le C\,
+\omega(\kappa)\,\lvert\kappa\rvert^{-\lvert\alpha\rvert}
+\]
+with an absolute constant $C$.
+\end{lemma}
+
+\begin{proof}
+Lemma~\ref{lem:bprowline}(i),(ii) gives
+\[
+\frac\omega{18}\le r_\mu\le\frac{7\pi^4\omega}4 .
+\]
+The derivative $\partial^\alpha(1/\mathcal G_\mu)$ is a sum of terms
+\[
+\mathcal G_\mu^{-1-m}\prod_{i=1}^m\partial^{\alpha_i}\mathcal G_\mu ,
+\]
+so Lemma~\ref{lem:bprowline}(iii) gives $\lvert\partial^\alpha r_\mu\rvert\le
+C\omega\lvert\kappa\rvert^{-\lvert\alpha\rvert}$. Since
+$\lvert\sigma_\rho\rvert\le\lvert\kappa_\rho\rvert$, $\lvert\sigma_\rho
+\rvert^2=2-2\cos\kappa_\rho$ and $\lvert\kappa\rvert\le2\pi$,
+\[
+\lvert\partial^\alpha\sigma_\rho\rvert\le C\lvert\kappa\rvert^{1-\lvert\alpha
+\rvert},\qquad\lvert\partial^\alpha\lvert\sigma_\rho\rvert^2\rvert\le C\lvert
+\kappa\rvert^{2-\lvert\alpha\rvert}.
+\]
+Hence
+\begin{gather*}
+\lvert\partial^\alpha(r_\mu r_\nu\sigma_\mu\bar\sigma_\nu)\rvert\le C\omega^2
+\lvert\kappa\rvert^{2-\lvert\alpha\rvert},\\
+\lvert\partial^\alpha\mathcal T\rvert\le C\omega\lvert\kappa\rvert^{2-\lvert
+\alpha\rvert},
+\end{gather*}
+while $\mathcal T\ge\frac\omega{18}\epsilon(
+\kappa)\ge\frac{2\omega}{9\pi^2}\lvert\kappa\rvert^2$ by \eqref{eq:bprowsin};
+so $\lvert\partial^\alpha\mathcal T^{-1}\rvert\le C(\omega\lvert\kappa\rvert^2
+)^{-1}\lvert\kappa\rvert^{-\lvert\alpha\rvert}$, and the Leibniz rule applied
+to Lemma~\ref{lem:bprowsymbol} gives the claim.
+\end{proof}
+
+\begin{theorem}[the order of the row sums]\label{thm:bprowgauss}
+There is an absolute constant $C$ such that for every $b\ge3$ and all
+directions $\mu\ne\nu$
+\[
+\frac{\log(1+60b)}{15\pi b}\le\sum_{w\in\Z^4}\bigl\lvert\Gamma^\infty_b(w)_{
+\mu\nu}\bigr\rvert\le\gamma_b\le\frac{C(1+\log b)}b .
+\]
+In particular $b\gamma_b\to\infty$, so that \textup{(G)} fails, and
+$\gamma_b\log b\to0$.
+\end{theorem}
+
+\begin{proof}
+The middle inequality holds because $(w,\nu)\ne(0,\mu)$.
+
+\emph{Upper bound.} Fix $\mu,\nu$, not necessarily distinct, and let $f(w)=
+\Gamma^\infty_b(w)_{\mu\nu}$, the Fourier coefficients of $\hat\Gamma_{\mu\nu}$:
+$\hat\Gamma(\kappa)=\sum_w\Gamma^\infty_b(w)e^{i\kappa\cdot w}$. By
+Lemmas~\ref{lem:bprowsymbol} and~\ref{lem:bprowderiv}, $\hat\Gamma_{\mu\nu}$ is
+smooth on $\R^4\setminus2\pi\Z^4$ with $\lvert\partial^\alpha\hat\Gamma_{\mu
+\nu}\rvert\le C\lvert\kappa\rvert^{2-\lvert\alpha\rvert}$ near $0$ for
+$\lvert\alpha\rvert\le3$. For a direction $\rho$ and $j\le3$ the function
+$\partial_\rho^j\hat\Gamma_{\mu\nu}$ is square integrable on $[-\pi,\pi]^4$, and
+its Fourier coefficients are $(iw_\rho)^jf(w)$: integrate by parts on the
+cube minus a ball of radius $t$ about $0$; the faces cancel by periodicity,
+and the terms on the sphere are $O(t^{3+2-(j-1)})\to0$. By the Parseval
+identity and $\lvert w\rvert^4\le4\sum_\rho w_\rho^4$, $\lvert w\rvert^6\le16
+\sum_\rho w_\rho^6$, the sums $A_0=\sum_w\lvert f\rvert^2$, $A_4=\sum_w\lvert
+w\rvert^4\lvert f\rvert^2$ and $A_6=\sum_w\lvert w\rvert^6\lvert f\rvert^2$
+satisfy $A_0\le C\sup\omega^2\le C/b^2$ and
+\[
+A_4\le C\!\int\!\frac{\omega^2}{\lvert\kappa\rvert^4}\,d\kappa\le\frac{C(1+
+\log b)}{b^2},\qquad A_6\le C\!\int\!\frac{\omega^2}{\lvert\kappa\rvert^6}\,
+d\kappa\le\frac Cb ,
+\]
+the integrals over $[-\pi,\pi]^4$, split at $\lvert\kappa\rvert=b^{-1/2}$ with
+$\omega\le\lvert\kappa\rvert^2$ inside and $\omega\le1/b$ outside: the first
+is at most $\frac{\pi^2}{2b^2}+\frac{2\pi^2}{b^2}\log(2\pi b^{1/2})$ and the
+second at most $\frac{\pi^2}b+\frac{\pi^2}b$. Let $J$ be the least integer
+with $2^J\ge b^{1/2}$. The shell $S_j$ of the $w$ with $2^j\le\lvert w\rvert<
+2^{j+1}$ has at most $2^{4j+8}$ points, so by the Cauchy--Schwarz inequality
+$\sum_{S_j}\lvert f\rvert\le2^{2j+4}(\sum_{S_j}\lvert f\rvert^2)^{1/2}\le16(
+\sum_{S_j}\lvert w\rvert^4\lvert f\rvert^2)^{1/2}$, and once more
+\[
+\sum_{1\le\lvert w\rvert<2^J}\lvert f(w)\rvert\le16\sqrt{JA_4}\le\frac{C(1+\log
+b)}b .
+\]
+Further $\sum_{\lvert w\rvert\ge2^J}\lvert w\rvert^{-6}\le\sum_{j\ge J}2^{8-2j}
+\le2^{10}b^{-1}$, so $\sum_{\lvert w\rvert\ge2^J}\lvert f\rvert\le(2^{10}A_6/b
+)^{1/2}\le C/b$, and $\lvert f(0)\rvert\le A_0^{1/2}$. Summing over $\nu$
+gives the bound on $\gamma_b$.
+
+\emph{Lower bound.} Let $\mu\ne\nu$, $f(w)=\Gamma^\infty_b(w)_{\mu\nu}$, and
+let $k(w_\mu,w_\nu)$ be the sum of $f$ over the other two coordinates; as
+$f$ is summable, $k$ is summable on $\Z^2$ with
+$\sum_{w_\mu,w_\nu}k\,e^{i(\kappa_\mu w_\mu+\kappa_\nu w_\nu)}=\hat\Gamma_{\mu\nu}(
+\kappa_\mu e_\mu+\kappa_\nu e_\nu)$. On the plane $\kappa=\kappa_\mu e_\mu+
+\kappa_\nu e_\nu$, Lemma~\ref{lem:bprowsymbol} gives, with $r_\mu,r_\nu$ at
+$\kappa$,
+\[
+\hat\Gamma_{\mu\nu}(\kappa)=-\frac{4r_\mu r_\nu e^{i(\kappa_\mu-\kappa_\nu)/2}
+\sin\frac{\kappa_\mu}2\sin\frac{\kappa_\nu}2}{\mathcal T},
+\]
+where $\mathcal T=4r_\mu\sin^2\frac{\kappa_\mu}2+4r_\nu\sin^2\frac{\kappa_\nu}
+2$.
+Let $\chi(t)=1$ for $t\ge1$ and $-1$ for $t\le0$, $\chi'(t)=\chi(t+1)$, and
+$h_N(w)=\chi(w_\mu)\chi'(w_\nu)$ for $-N\le w_\mu\le N+1$, $-N-1\le w_\nu\le N$
+and $h_N(w)=0$ otherwise. For half-integers $u$,
+$\sum_{\lvert u\rvert\le N+1/2}\operatorname{sgn}(u)e^{-i\theta u}=-2i\sum_{l=0}^N
+\sin((l+\frac12)\theta)=-i(1-\cos((N+1)\theta))/\sin\frac\theta2$, and with
+$u=w_\mu-\frac12$ and $u=w_\nu+\frac12$,
+\[
+\begin{aligned}
+\sum_wf(w)h_N(w)={}&\frac1{4\pi^2}\int_{[-\pi,\pi]^2}\frac{4r_\mu r_\nu}{
+\mathcal T}\bigl(1-\cos(N+1)\kappa_\mu\bigr)\\
+&\times\bigl(1-\cos(N+1)\kappa_\nu\bigr)\,d\kappa_\mu d\kappa_\nu .
+\end{aligned}
+\]
+The function $4r_\mu r_\nu/\mathcal T$ is positive. By \eqref{eq:bprowsin},
+\[
+\mathcal T\ge\frac4{\pi^2}\min(r_\mu,r_\nu)\lvert\kappa\rvert^2 ,
+\]
+so
+\[
+\frac{4r_\mu r_\nu}{\mathcal T}\le\frac{\pi^2\max(r_\mu,r_\nu)}{\lvert\kappa
+\rvert^2}\le\frac{C\omega}{\lvert\kappa\rvert^2}\le C ,
+\]
+so it is integrable. As $N\to\infty$ the left side tends to $\sum_wf(w)h(w)$,
+$h=\lim h_N$, by dominated convergence, and the right side to the integral
+of $4r_\mu r_\nu/\mathcal T$, by the Riemann--Lebesgue lemma applied to the
+four products of cosines. Now $\lvert h\rvert\le1$, $\mathcal T\le\max(
+r_\mu,r_\nu)\lvert\kappa\rvert^2$ by \eqref{eq:bprowsin}, and
+Lemma~\ref{lem:bprowline}(ii) gives
+\[
+\min(r_\mu,r_\nu)\ge\bigl(\pi^2/(4\lvert\kappa\rvert^2)+15b\bigr)^{-1};
+\]
+hence
+\[
+\sum_w\lvert f(w)\rvert\ge\frac1{4\pi^2}\int_{\lvert\kappa\rvert\le\pi}\frac{4
+\,d\kappa_\mu d\kappa_\nu}{\pi^2/4+15b\lvert\kappa\rvert^2}=\frac{\log(1+60b)}{
+15\pi b}.
+\]
+Finally $b\gamma_b\ge\log(1+60b)/(15\pi)\to\infty$ and $\gamma_b\log b\le C(1+
+\log b)\log b/b\to0$.
+\end{proof}
+
+In the lower bound the logarithm is the integral of $\lvert\kappa
+\rvert^{-2}$ over the coarse momenta with $b^{-1/2}\le\lvert\kappa\rvert\le
+\pi$ in the plane of two directions, where the entries of the symbol between
+these directions are of size $1/b$ and depend on the direction of $\kappa$
+through the projection onto the coarse gradient; the sign function $h$ of
+the proof pairs with the kernel as the integral of a positive function,
+with no cancellation.
+
+\begin{corollary}[the Gaussian form of (FC) along the tuning]
+\label{cor:bprowFC}
+In the Gaussian model with blocks of side $b$ and coupling $\beta$, let
+$J^{\rm G}_{ee'}=\beta\lvert\Gamma_{ee'}\rvert$ as in
+Corollary~\textup{\ref{cor:bpfibgauss}}, and let $C$ be the constant of
+Theorem~\textup{\ref{thm:bprowgauss}}.
+\begin{enumerate}[label=\textup{(\roman*)},leftmargin=*]
+\item For every $L\ge3$ and every coarse link $j$, $\frac{D^2}4\sum_{e\ne j}
+J^{\rm G}_{ej}\le\frac{D^2}4\beta C(1+\log b)/b$, and the inequalities of
+\textup{(FC)} for $J^{\rm G}$ hold with $c=\frac1{17}$ and $R=1$ on every
+torus as soon as $17D^2\beta C(1+\log b)\le4b$.
+\item For every coarse link $j$,
+\[
+\sup_{L\ge3}\frac{D^2}4\sum_{e\ne j}J^{\rm G}_{ej}\ge\frac{D^2\beta\log(1+
+60b)}{60\pi b};
+\]
+so the first inequality of \textup{(FC)} for $J^{\rm G}$ with some $c<1$ on
+all tori implies $\beta\log(1+60b)<60\pi b/D^2$.
+\item Along every sequence $b=2^k$, $\beta_k$ with $k\beta_k2^{-k}\to0$, in
+particular along $\beta_k=2+\frac{11}{3\pi^2}k\log2$, the inequalities of
+\textup{(FC)} for $J^{\rm G}$ hold with $c=\frac1{17}$ and $R=1$ for all
+large $k$, uniformly in $L_0$, and the column sums tend to zero.
+\end{enumerate}
+\end{corollary}
+
+\begin{proof}
+(i) Proposition~\ref{prop:bpfibbloch} and Theorem~\ref{thm:bprowgauss} bound
+the column sums, as in Corollary~\ref{cor:bpfibgauss}; the tails are at
+most the column sums, and $(1-\frac1{17})/16=\frac1{17}$. (ii) Let $j=(y,
+\mu)$ and $\nu\ne\mu$. For $\lvert w\rvert_\infty<L/2$, $\Gamma_{j,(y+w,\nu)}=\sum_z
+\Gamma^\infty_b(w+Lz)_{\mu\nu}$ differs from $\Gamma^\infty_b(w)_{\mu\nu}$ by
+at most $\sum_{\lvert w'\rvert_\infty\ge L/2}\lvert\Gamma^\infty_b(w')\rvert$,
+which tends to zero as $L\to\infty$, and distinct $w$ give distinct links.
+So $\liminf_L\sum_{e\ne j}\lvert\Gamma_{je}\rvert\ge\sum_{w\in W}\lvert
+\Gamma^\infty_b(w)_{\mu\nu}\rvert$ for every finite $W\subset\Z^4$, and
+Theorem~\ref{thm:bprowgauss} applies. (iii) follows from (i), with $\log b=
+k\log2$.
+\end{proof}
+
+So the Gaussian model, for which Section~\ref{ssec:bpfibre} reduced (FC) to a
+bound on $\gamma_b$, meets (FC) along the tuning without (G): the logarithm
+lost against (G) is
+absorbed by the factor $2^{-k}$. By Corollary~\ref{cor:bprowFC}(i),(ii),
+(FC) fails in the model only if $\beta_k$ exceeds an absolute multiple of
+$2^k/k$, and it fails on large tori once $\beta_k\log(1+60\cdot2^k)\ge60\pi
+2^k/D^2$. The model is not a lattice gauge
+measure, and Corollary~\ref{cor:bprowFC} gives (H1) for none.
+
+\begin{remark}[the scores of the paths]\label{rem:bprowposterior}
+Let a coarse density be written as $\mathsf D(v)=\int\zeta(dW)\prod_ep_e(v_e
+\mid W)$, a mixture over variables $W$ of products of positive smooth
+densities of the single coarse links, as in Section~\ref{ssec:bppaths}, and
+let $\pi_v(dW)$ be proportional to $\zeta(dW)\prod_ep_e(v_e\mid W)$ and $a_e=
+\partial_{v_e}\log p_e(v_e\mid W)$. Differentiation under the integral gives
+$\partial_{v_e}\mathsf D=\mathsf D\,\pi_v(a_e)$ and, for $e\ne j$,
+$\partial_{v_j}\partial_{v_e}\mathsf D=\mathsf D\,\pi_v(a_ea_j)$, so
+\[
+-\partial_{v_j}\partial_{v_e}\log\mathsf D=-\Cov_{\pi_v}(a_e,a_j):
+\]
+the score covariances are minus the mixed derivatives of the induced action,
+whatever the representation. In the Gaussian model the induced action is
+$\frac\beta2\ip v{\Gamma v}$ up to a constant, so in every such
+representation the score covariances are $-\beta\Gamma_{ej}$, and their row
+sums are those of Theorem~\ref{thm:bprowgauss} and
+Corollary~\ref{cor:bprowFC}, of order $\beta(\log b)/b$. For $W$ the links
+off the strict interiors of the paths, the interior links of a path lie in
+no common plaquette and each lies in six, so for fixed $W$ the density
+$e^{-S}$ is, as a function of the interior links, proportional to a product
+of Gaussian densities of variance $1/(6\beta)$; $p_e(\cdot\mid W)$ is the
+Gaussian density of variance $(b-2)/(6\beta)$ centred at a function of $W$,
+and the variance of the path sum grows with $b$ without randomising it. For
+$\SU(2)$ the interior links randomise the path product towards the Haar
+measure, which bounds each score covariance by a quantity that is
+super-exponentially small in $k$ along the tuning
+(Section~\ref{ssec:bppaths}), while in the Gaussian model every row has an
+entry $\beta\lvert\Gamma_{ej}\rvert\ge\beta/(7b^2)$ by
+Proposition~\ref{prop:bpfibgauss}(iii),(iv). So the Gaussian model is not
+the regime of the compact score covariances along the tuning. The
+input that remains for $\SU(2)$ is a decay of $\Cov_{\pi_V}(a_e,a_j)$ in the
+distance of $e$ and $j$, uniform in $V$ and in the torus; it is a property
+of the Wilson measure of the links off the interiors of the paths at
+$\beta_k$, and nothing proved here controls it.
+\end{remark}
+
+\begin{remark}[what is proved about the row sums]\label{rem:bprowsum}
+Proved: the Bloch symbol of the effective quadratic form of the Gaussian
+model is given in closed form by the sums of the lattice Green function
+along the paths (Lemma~\ref{lem:bprowsymbol}); these line sums lie between
+absolute multiples of $b+\lvert\kappa\rvert^{-2}$ and their derivatives are
+bounded at the same scale (Lemma~\ref{lem:bprowline}); the derivatives of
+order at most three of the symbol are bounded by $\min(1/b,\lvert\kappa
+\rvert^2)\lvert\kappa\rvert^{-\lvert\alpha\rvert}$
+(Lemma~\ref{lem:bprowderiv}); the row sums satisfy $\log(1+60b)/(15\pi b)\le
+\gamma_b\le C(1+\log b)/b$, already for the entries between two given
+directions, so that (G) fails by a logarithm and $\gamma_b=o(1/\log b)$
+(Theorem~\ref{thm:bprowgauss}); the Gaussian form of (FC) holds on every
+torus when $17D^2\beta C(1+\log b)\le4b$, along every tuning with $k\beta_k
+2^{-k}\to0$, in particular the logarithmic one, uniformly in $L_0$, and it
+fails on large tori when $\beta\log(1+60b)\ge60\pi b/D^2$
+(Corollary~\ref{cor:bprowFC}); in every representation of a coarse density
+as a mixture of products over the coarse links the score covariances are
+minus the mixed derivatives of the induced action, so in the Gaussian model
+they are $-\beta\Gamma_{ej}$, while every row of the model has an entry at
+least $\beta/(7b^2)$ (Remark~\ref{rem:bprowposterior}).
+
+Not proved: an explicit value of $C$; the pointwise decay of
+$\Gamma^\infty_b(w)$ in $\lvert w\rvert$, and any control of the decay rate
+$\kappa_b$ of Proposition~\ref{prop:bpfibbloch} in $b$; any comparison of
+the fibre covariances or of the score covariances of $\SU(2)$ with the
+Gaussian model; (FC) for $\SU(2)$ along the tuning, in the form of
+Corollary~\ref{cor:bpfibH1} or in the form of Section~\ref{ssec:bppaths}; any
+decay of the score covariances under $\pi_V$ in the distance of the coarse
+links, uniform in $V$ and in the torus; (H1) along the tuning; (H1) for
+$\U(1)$. Neither $\mathrm{BP}$ along the tuning nor the mass gap is proved
+here.
 \end{remark}
 
 \section{The open inputs}\label{sec:inputs}
@@ -46288,14 +47340,35 @@ decorrelation (FC) of these forces, which also forces their variances to
 equal the mean curvatures up to a bounded error, computes them in a
 Gaussian abelian model as $-\beta$ times a co-closed effective quadratic
 form with diagonal between $1/b^2$ and $6/b$, row sums at least twice the
-diagonal and bounded uniformly in the torus, and reduces (FC) in that model
-along the tuning to a bound (G) of order $1/b$ on its row sums, which is
-not proved; (FC) is not proved along the tuning
+diagonal and bounded uniformly in the torus by a number $\gamma_b$;
+Section~\ref{ssec:bprowsum} writes the symbol of this form in closed form and
+shows that $\gamma_b$ lies between absolute multiples of $(\log b)/b$ and
+$(1+\log b)/b$, so that the bound (G) of order $1/b$ fails while the
+Gaussian form of (FC) holds along the tuning, and that in every
+representation of the coarse density as a mixture of products over the
+coarse links the same numbers are the covariances of the scores; (FC) for
+$\SU(2)$ is not proved along the tuning
 (Lemmas~\ref{lem:bpfibosc} and~\ref{lem:bpfibgauge},
 Propositions~\ref{prop:bpfibreduce}, \ref{prop:bpfibgauss},
 \ref{prop:bpfibbloch} and~\ref{prop:bpfibrough},
-Corollaries~\ref{cor:bpfibH1} and~\ref{cor:bpfibgauss},
-Remark~\ref{rem:bpfibre}). Section~\ref{ssec:groups13} carries the single-scale results of this section to every compact simple group, with explicit constants, except the parts listed in Remark~\ref{rem:groups13}. Section~\ref{ssec:chainG} states the conditional continuum chain for every compact simple group, with the averaged condition in its local form, the centre sectors of $Z(G)$ and the Schwinger functions at separated points (Theorem~\ref{thm:chainG}, Proposition~\ref{prop:bpcentreG}), proves the averaged condition and the triviality of the limits for $N\beta\le\kappa_G/48$ (Corollary~\ref{cor:limitEstrongG}), and extends the obstruction at fixed cube size under a condition (CP) that holds for $\SU(N)$ and fails for $\mathrm{Sp}(n)$ with $n$ even (Proposition~\ref{prop:bpfixedG}); its hypotheses are not proved for any group, and an analogue of the sharp quarter for $G\ne\SU(2)$ is not proved (Proposition~\ref{prop:modulusG}). On the continuum side, Lemmas~\ref{lem:positivetime}
+Corollaries~\ref{cor:bpfibH1}, \ref{cor:bpfibgauss} and~\ref{cor:bprowFC},
+Theorem~\ref{thm:bprowgauss},
+Remarks~\ref{rem:bpfibre}, \ref{rem:bprowposterior} and~\ref{rem:bprowsum}); Section~\ref{ssec:bppaths} shows for $\SU(2)$ that
+convolution with a one-link density contracts every nontrivial
+representation, so that the conditional densities of the block variables
+and their first two derivatives are within $48(1+6\beta_W)^2q_W^{b-2}$ of
+those of the Haar measure, the single-link curvature of the induced action
+tends to zero along every tuning with $\beta_k=O(k)$, and the mixed
+derivatives are posterior covariances of the scores of the interior path
+products, each tending to zero; this gives the condition at the coarsest
+scale on every torus of side at most $4^k$, a column sum at most $\frac13$
+gives it with no condition on the tails, and a bound on the sums of the
+posterior covariances uniform in the torus, which is not proved, gives (H1)
+(Theorems~\ref{thm:bppathproduct}, \ref{thm:bppathdensity}
+and~\ref{thm:bppathmixed}, Corollaries~\ref{cor:bppathcolumn}
+and~\ref{cor:bppathfourk}, Propositions~\ref{prop:bppathobst}
+and~\ref{prop:bppathsuff}, Remark~\ref{rem:bppaths}).
+Section~\ref{ssec:groups13} carries the single-scale results of this section to every compact simple group, with explicit constants, except the parts listed in Remark~\ref{rem:groups13}. Section~\ref{ssec:chainG} states the conditional continuum chain for every compact simple group, with the averaged condition in its local form, the centre sectors of $Z(G)$ and the Schwinger functions at separated points (Theorem~\ref{thm:chainG}, Proposition~\ref{prop:bpcentreG}), proves the averaged condition and the triviality of the limits for $N\beta\le\kappa_G/48$ (Corollary~\ref{cor:limitEstrongG}), and extends the obstruction at fixed cube size under a condition (CP) that holds for $\SU(N)$ and fails for $\mathrm{Sp}(n)$ with $n$ even (Proposition~\ref{prop:bpfixedG}); its hypotheses are not proved for any group, and an analogue of the sharp quarter for $G\ne\SU(2)$ is not proved (Proposition~\ref{prop:modulusG}). On the continuum side, Lemmas~\ref{lem:positivetime}
 and~\ref{lem:nonvanishing} reduce the nontriviality of the limit to a
 lower bound on one ratio of lattice two-point functions at a fixed
 physical time, uniform along the tuning, which is the open input of
@@ -46383,6 +47456,42 @@ estimate or the obstruction that each produces.}
 \label{fig:islands}
 \end{figure}
 
+\section{Conclusion}\label{sec:conclusion}
+
+For every compact simple gauge group, four-dimensional lattice Yang--Mills
+theory has a unique infinite-volume state, exponential clustering and a
+transfer-matrix gap whenever $N\lvert\beta\rvert<\frac2{29}\kappa_G$
+(Theorem~\ref{thm:groups}), and plaquette blocks extend the range for
+$\SU(2)$ and $\SU(3)$ (Theorems~\ref{thm:blocks} and~\ref{thm:su3blocks}).
+One averaged estimate in a cube of fixed physical size, the bound
+$\mathrm{BP}(n_k,\varpi)$ with $n_ka_k\le\ell$, places the spectrum of every
+continuum limit in $\{0\}\cup[16\varpi/(625e^2\ell),\infty)$, so every
+nontrivial limit has a mass gap (Theorem~\ref{thm:avgtransfer}). Along the
+tuning this estimate follows from two statements about block variables:
+the condition (H1) at the coarsest scale and the split inequality (H2) at
+every finer scale (Corollary~\ref{cor:bpuptuning}).
+
+Both statements are proved in part. The split inequality holds on every
+torus at strong coupling, with constants within factors $1+O(\beta)$ of
+those of the product measure (Theorem~\ref{thm:bpsplitstrong}). For
+$\SU(2)$ the block variables of the straight-path map approach the Haar
+measure in every representation, their single-link curvature vanishes
+along every tuning with $\beta_k=O(k)$, and the condition at the coarsest
+scale holds on every torus of side up to $4^k$
+(Corollary~\ref{cor:bppathfourk}). On tori of every size it follows from a
+bound, uniform in the torus, on the sum of the posterior covariances of the
+scores of the interior path products (Proposition~\ref{prop:bppathsuff}).
+In the Gaussian abelian model the corresponding row sums are of order
+$(\log b)/b$, so that model meets the decorrelation along the tuning,
+although it is not a lattice gauge measure (Theorem~\ref{thm:bprowgauss}
+and Corollary~\ref{cor:bprowFC}).
+
+Three inputs remain: that covariance bound along the tuning, the split
+inequality at weak coupling, and a nontrivial continuum limit with the
+properties of Section~\ref{ssec:limitE}. Given them, the results above give
+the continuum theory a mass gap; without them the mass gap is not proved
+here.
+
 \section*{Acknowledgements}
 
 This paper rests on the work of many earlier scientists. Lattice gauge
@@ -46447,8 +47556,19 @@ written by Deep Bhattacharjee, James Montgomery Lockwood and Tristan
 Romanov.
 
 \subsection*{Author contributions}
-Deep Bhattacharjee conceived the project, proved the main results, wrote
-the programs of the certified computations and wrote the paper. Ushashi
+Deep Bhattacharjee conceived the project and, with the help of AI agents
+working under his direction, made its constructions and proved its main
+results: the forest gauge on the period-two line field and the
+free-boundary state with its transfer-matrix gap at strong coupling; the
+plaquette blocks of $\SU(2)$ and $\SU(3)$ with their constants proved by
+hand; the reduction of the mass gap to one averaged estimate in a cube of
+fixed physical size; the labels of Ba{\l}aban's blocks and the islands of
+bad blocks; the averaged condition, its descent to block variables, the
+upward step and the split inequality; the single-link coefficients across
+scales, the forces in the fibre law, the smoothing along the paths for
+$\SU(2)$ and the row sums of the Gaussian model; and the conditional chain
+for every compact simple group. He wrote the programs of the certified
+computations and the paper, and checked every statement. Ushashi
 Bhattacharya checked the proofs and the references and edited the text.
 James Montgomery Lockwood contributed the analysis of constrained
 cubes~\cite{Loc26} and its code, and the Lean~4 formalisations of the
@@ -48461,6 +49581,9 @@ Lecture Notes in Math. 1970, Springer, Berlin, 2009, 1--86,
 \bibitem{Bra80}
 N.~E.~Brali\'c, Exact computation of loop averages in two-dimensional Yang--Mills theory, Phys. Rev. D \textbf{22} (1980), 3090--3103, \href{https://doi.org/10.1103/PhysRevD.22.3090}{doi:10.1103/PhysRevD.22.3090}.
 
+\bibitem{BtD85}
+Br\"ocker, T., tom Dieck, T.: Representations of Compact Lie Groups. Grad. Texts in Math., vol.~98. Springer, Berlin (1985). \href{https://doi.org/10.1007/978-3-662-12918-0}{https://doi.org/10.1007/978-3-662-12918-0}
+
 \bibitem{BFS79}
 Brydges, D., Fr\"ohlich, J., Seiler, E.: On the construction of quantized gauge fields. I. General results. Ann. Phys. \textbf{121}, 227--284 (1979). \href{https://doi.org/10.1016/0003-4916(79)90098-8}{https://doi.org/10.1016/0003-4916(79)90098-8}
 
@@ -48739,6 +49862,9 @@ gradient perturbations of a massless free field, Comm. Math. Phys.
 
 \bibitem{NO78}
 N.~K.~Nielsen and P.~Olesen, An unstable Yang--Mills field mode, Nucl. Phys. B \textbf{144} (1978), 376--396, \href{https://doi.org/10.1016/0550-3213(78)90377-2}{doi:10.1016/0550-3213(78)90377-2}.
+
+\bibitem{DLMF}
+Olver, F.W.J., et al. (eds.): NIST Digital Library of Mathematical Functions. Release 1.2.8 of 2026-09-15. \url{https://dlmf.nist.gov/}
 
 \bibitem{OS73}
 Osterwalder, K., Schrader, R.: Axioms for Euclidean Green's functions.
