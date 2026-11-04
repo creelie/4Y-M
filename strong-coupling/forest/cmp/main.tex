@@ -483,6 +483,32 @@ energy packet on averages over blocks leaves a fixed fraction of its ordinary
 variance at every lattice spacing, so a reduction to block averages has to be
 measured in the reflected norm (Proposition~\ref{prop:blockfree}).
 
+\emph{Across scales.} The spectral gap of the cube dynamics passes from the
+fine lattice to the law of the block variables of every local
+gauge-covariant block-spin map (Theorem~\ref{thm:bpdescent}). In the
+opposite direction it climbs one scale under a split inequality that bounds
+the variance of the fine field given the block variables together with the
+coarse Dirichlet form (Theorem~\ref{thm:bpup}), so that along the tuning it
+follows from the condition at the coarsest scale and the split inequality
+at every scale with constants bounded in product
+(Corollary~\ref{cor:bpuptuning}). The split inequality holds with the
+constants of the product measure for every Haar refinement
+(Theorem~\ref{thm:bprefine}), for the Wilson measure at strong coupling on
+every torus with constants within factors $1+O(\beta)$ of those
+(Theorem~\ref{thm:bpsplitstrong}), and on each torus for every measure with
+a continuous positive density, with constants that grow with the volume
+(Proposition~\ref{prop:bptilt}). The condition at the coarsest scale
+follows from a bound on the sums of the single-link coefficients of the law
+of the block variables (Theorem~\ref{thm:bpcoarse}), and the closeness of
+each single-link conditional law to the Haar measure does not suffice
+(Proposition~\ref{prop:bphidden}). Along the tuning neither input is
+proved; the single-link bounds for the laws of the block variables are the
+effective-action problem of
+Ba{\l}aban.\footnote{Refs.~\cite{Bal84a,Bal85a,Bal89b} control the effective
+actions of the small-field region in a box of fixed physical size; the
+inputs here need them on tori of every size and for all fields.}
+Figure~\ref{fig:bptower} shows the route.
+
 \emph{Block averages.} Section~\ref{sec:blocks} poses the cube condition for
 block averages in a gauge whose fixed links are trees inside blocks of side
 two. Its quadratic approximation then holds at every coupling once the cube
@@ -6429,11 +6455,14 @@ F_{x'})\bigr)\\
 \]
 the proof of (i) drops the last term, and a reverse inequality has to bound
 it, that is, the information that the fine field outside the fine cube
-carries on $F$ beyond the coarse field outside the coarse cube. No such
-bound is proved here for an interacting measure; Section~\ref{ssec:bpup}
-poses the two bounds as one split inequality, proves it for the product of
-Haar measures and shows that the two bounds posed separately lose a fixed
-factor at each scale. The bounds of~\cite{Bal84a,Bal85a,Bal89b} concern effective actions
+carries on $F$ beyond the coarse field outside the coarse cube.
+Section~\ref{ssec:bpup} poses the two bounds as one split inequality, proves it
+for the product of Haar measures and shows that the two bounds posed
+separately lose a fixed factor at each scale; Section~\ref{ssec:bprefine}
+proves it for the Haar refinements, for which that information vanishes,
+and Section~\ref{ssec:bpsplitstrong} bounds the information by a factor of
+order $\beta^2$ for the Wilson measure at strong coupling
+(Theorem~\ref{thm:bpexterior}). The bounds of~\cite{Bal84a,Bal85a,Bal89b} concern effective actions
 in a box of fixed physical size, while Corollary~\ref{cor:bpdescent} poses
 the condition at the scale $a_j$ on tori of every size.
 \end{remark}
@@ -7391,6 +7420,86 @@ $w_{x'}=0$ and (D) is empty, and (F) holds with $C_F=1$ by the proof of
 Theorem~\ref{thm:bprefine}; then $\eta=0$ and the theorem is
 Theorem~\ref{thm:bprefine}.
 
+On a single torus a bounded density with respect to a Haar refinement
+already gives the split inequality, at every coupling, with constants that
+depend on the torus.
+
+\begin{proposition}[the split inequality on one torus]\label{prop:bptilt}
+Let $n,n'\ge2$ with $n'\ge bn$, $L\ge2n+4$ and $bL\ge2n'+4$ even, let
+$\varrho$ be a gauge-invariant probability measure on $G^E$, $\nu=R(\varrho)$,
+and $\mu'=h\nu$ with $h$ gauge invariant, $0<m\le h\le M$ and $\E_\nu[h\mid
+c]=1$. Put $q=(bn/n')^4$, $B=(L/n)^4$ and $v=(M-1)(1-m)$. Then $\mu^c=
+\varrho$, and $\mathrm S(n',n;C_A,C_B)$ holds for $(\mu',c)$ with
+\[
+C_A=\frac{2M}m,\qquad C_B=\frac{1+2qBv}{mq}.
+\]
+Every gauge-invariant probability measure $\mu'$ on $G^{E'}$ with a
+continuous positive density $D$ with respect to $\lambda_{E'}$ satisfies
+these hypotheses with $\varrho=\mu^c$, $h=D/\nu_c(D)$, $m=e^{-\Omega}$ and
+$M=e^\Omega$, where $\Omega=\log(\max D/\min D)$; for the density $D=Z^{-1}
+\prod_p\varphi(U_p)$ of Section~\ref{ssec:averaged}, $\Omega\le6(bL)^4\log(\max
+\varphi/\min\varphi)$.
+\end{proposition}
+
+\begin{proof}
+Since $c_*\nu=\varrho$ (Lemma~\ref{lem:bprefine}(i)) and $\E_\nu[h\mid c]=1$,
+$\mu^c=\varrho$. Let $f\in\mathcal A'$ be real, and let $F_\mu$, $F_\nu$ be the
+functions with $F_\mu\circ c=\E_{\mu'}[f\mid c]$ and $F_\nu\circ c=\E_\nu[f
+\mid c]$. For every $\sigma$-algebra $\mathcal G$,
+$\mu'(\Var_{\mu'}(f\mid\mathcal G))=\inf_g\mu'((f-g)^2)$ over the
+$\mathcal G$-measurable $g$, and $m\nu\le\mu'\le M\nu$, so
+\[
+\mu'\bigl(\Var_{\mu'}(f\mid c)\bigr)\le M\,\nu\bigl(\Var_\nu(f\mid c)\bigr),
+\qquad\mathcal E'_{n'}(f)\ge m\,\mathcal E^\nu_{n'}(f),
+\]
+with $\mathcal E^\nu_{n'}$ the fine form of $\nu$. As $\E_\nu[h\mid c]=1$,
+\[
+(F_\mu-F_\nu)\circ c=\E_\nu\bigl[(h-1)(f-F_\nu\circ c)\bigm|c\bigr],
+\]
+and $(h-m)(M-h)\ge0$ gives $\E_\nu[(h-1)^2\mid c]=\E_\nu[h^2\mid c]-1\le
+M+m-mM-1=v$; the conditional Cauchy--Schwarz inequality gives
+$\varrho((F_\mu-F_\nu)^2)\le v\,\nu(\Var_\nu(f\mid c))$. Each of the $L^4$
+terms of $n^4\mathcal E^c_n(F_\mu-F_\nu)$ is at most $\varrho((F_\mu-F_\nu)^2)$,
+so $\mathcal E^c_n(F_\mu-F_\nu)\le Bv\,\nu(\Var_\nu(f\mid c))$. If $v=0$, then
+$F_\mu=F_\nu$ $\varrho$-almost everywhere; if $v>0$, the inequality $(x+y)^2\le
+(1+\epsilon)x^2+(1+\epsilon^{-1})y^2$ in each term, with $\epsilon=2qBv$, gives
+\[
+\mathcal E^c_n(F_\mu)\le(1+\epsilon)\mathcal E^c_n(F_\nu)+(1+\epsilon^{-1})Bv
+\,\nu\bigl(\Var_\nu(f\mid c)\bigr).
+\]
+Since $mq(1+\epsilon^{-1})Bv/(1+2qBv)=m/2$, in both cases
+\[
+\begin{split}
+\frac{\mu'(\Var_{\mu'}(f\mid c))}{C_A}+\frac{\mathcal E^c_n(F_\mu)}{C_B}
+&\le m\Bigl(\nu\bigl(\Var_\nu(f\mid c)\bigr)+q\,\mathcal E^c_n(F_\nu)\Bigr)
+\\&\le m\,\mathcal E^\nu_{n'}(f)\le\mathcal E'_{n'}(f),
+\end{split}
+\]
+by Theorem~\ref{thm:bprefine} for $\nu$.
+
+For the second statement, Lemma~\ref{lem:bprefine}(i) with $\varrho=
+\lambda_E$ gives $\lambda_{E'}=\int\lambda_E(dV)\,\nu_V$ with $c=V$
+$\nu_V$-almost surely, so $\mu'=\int\lambda_E(dV)\,D\,\nu_V$, $\mu^c$ has the
+density $\nu_V(D)$ with respect to $\lambda_E$, and $\mu'=\int\mu^c(dV)\,
+(D/\nu_V(D))\,\nu_V=h\,R(\mu^c)$. Then $\E_{R(\mu^c)}[h\mid c]=1$, and $\min
+D\le\nu_V(D)\le\max D$ gives $e^{-\Omega}\le h\le e^\Omega$. The density
+$Z^{-1}\prod_p\varphi(U_p)$ is a product over the $6(bL)^4$ plaquettes of
+$\Lambda_{bL}$.
+\end{proof}
+
+The proposition applies to the laws $\mu^{(j)}$ of the block variables in a
+tower, which have continuous positive densities
+(Lemma~\ref{lem:bpcoarselaw}), as well as to the Wilson measure at every
+coupling, so the split inequality holds on each torus at every scale. Its
+constants grow like $e^{2\Omega}$ and $B=(L/n)^4$, and for the Wilson
+measure $\Omega$ is proportional to the volume; it gives no constants
+independent of the torus, which (H2) needs, since
+Corollary~\ref{cor:bpuptuning} uses infinitely many tori at each scale.
+Being upper bounds, these constants say nothing about the optimal ones.\footnote{The proof compares the conditional mean $F_\mu$ of $\mu'$ with the
+conditional mean $F_\nu$ of the refinement; their difference is bounded by
+the conditional variance, but its coarse form only by $B=(L/n)^4$ times its
+norm, which is where the dependence on the torus enters $C_B$.}
+
 For the Wilson measure the three bounds are proved from the single-link
 coefficients. A \emph{marking} $l$ assigns to each $e\in E$ a link $l(e)\in
 \pi(e)$. For a configuration $U$ let $g^l_U$ be the gauge transformation
@@ -7804,6 +7913,24 @@ $\eta<0.04713\cdot5.758<0.2714$, $q^2<0.0023$, $1-q^2-\eta>0.7263$ and
 $(1-\eta)(1-\alpha_8)>0.7286\cdot0.9942>0.724$, which give the bounds.
 \end{proof}
 
+\begin{figure}[t]
+\centering
+\includegraphics[width=\textwidth]{figures/fig_bpsplitstrong.png}
+\caption{The split inequality at strong coupling. (a)~A coarse link $e$
+enters the fine field through its path $\pi(e)$; in a gauge whose marked
+link $l(e)$ lies in the cube $V'_{x'}$, a change of $V_e$ moves the fibre law
+by at most $q$, and the cube, resampled given its exterior, feels that move
+through $\partial V'_{x'}$ by at most $q$ again, so the exterior information
+is at most $q^2$ (Theorem~\ref{thm:bpexterior}); two cubes at distance $s$
+see each other through correlations of the fibre law that decay like
+$\xi^{s-n'-1}/(1-\xi)$ (Lemma~\ref{lem:bpdecay}). (b)~The constants of
+Theorem~\ref{thm:bpsplitstrong} for $\SU(2)$ at $n'=8$ and in the limit
+$n'\to\infty$, where $\eta\to4q$; both tend to the value $1$ of the Haar
+refinements as $\beta_W\to0$, and at $\lvert\beta_W\rvert=\frac1{100}$ they
+are below $1.39$ (Corollary~\ref{cor:bpsplitranges}).}\label{fig:bpsplitstrong}
+\end{figure}
+
+Figure~\ref{fig:bpsplitstrong} shows the mechanism and the constants.
 At strong coupling $\mathrm{BP}$ for the Wilson measure is already given by
 Corollary~\ref{cor:bpranges}; Theorem~\ref{thm:bpsplitstrong} shows that the
 split mechanism of Theorem~\ref{thm:bprefine} survives a nonzero interaction
@@ -7901,7 +8028,11 @@ Proved: for every gauge-invariant measure, the split inequality follows from
 a fibre Poincar\'e inequality (F), a bound (X) on the information of the fine
 exterior of one cube on the block variables, and the almost orthogonality
 (D) of that information for different cubes, with explicit constants; the
-Haar refinements are the case $\rho=0$ (Theorem~\ref{thm:bpsplitcond}). For
+Haar refinements are the case $\rho=0$ (Theorem~\ref{thm:bpsplitcond}); on
+one torus, every measure with a continuous positive density, in particular
+the Wilson measure at every coupling and the laws of the block variables of
+a tower, satisfies the split inequality with constants of order $e^{2\Omega}$
+and $(L/n)^4$ (Proposition~\ref{prop:bptilt}). For
 the Wilson measure with single-link coefficients at most $\mathfrak c$,
 $18\mathfrak c<1$, on every torus: the fibre form satisfies $\Phi\ge(1-
 \alpha_{n'})\mu'(\Var(f\mid c))$ (Theorem~\ref{thm:bpfibrepoinc}); the
@@ -7921,11 +8052,12 @@ through Theorem~\ref{thm:bpup}, follow from bounds on the condition for the
 law of the block variables and put no constraint on $C_A$ or on $C_B\ge1$
 (Proposition~\ref{prop:bpsmalltori}).
 
-Not proved: the split inequality for the laws $\mu^{(j)}$ of the block
-variables below the finest scale of a tower, which are not Wilson measures
-and to which the proofs above do not apply; the split inequality for the
-Wilson measure outside the strong-coupling range, in particular along the
-tuning, where the range contains finitely many $k$, for $\U(1)$ at $\beta>0$
+Not proved: the split inequality with constants independent of the torus
+for the laws $\mu^{(j)}$ of the block variables below the finest scale of a
+tower, which are not Wilson measures and to which the proofs of
+Theorems~\ref{thm:bpfibrepoinc}--\ref{thm:bpsplitstrong} do not apply; the
+split inequality with constants independent of the torus for the Wilson
+measure outside the strong-coupling range, in particular along the tuning, where the range contains finitely many $k$, for $\U(1)$ at $\beta>0$
 and for $\SU(2)$ on calm fibres, where none of (F), (X), (D) is proved; the
 optimal constants at strong coupling; whether the split inequality holds or
 fails at weak coupling, on small tori or on large ones; (H1) along the
@@ -8502,6 +8634,121 @@ enter the upward step as proved: Theorem~\ref{thm:bpup}(i) applies the
 coarse condition to $F_f=\E[f\mid c]$, which for a general measure depends
 on all block variables even when $f$ is local.
 
+On one torus the condition holds for every law of block variables, with a
+constant that decays exponentially in the volume; and single-link
+conditional laws close to Haar do not give a constant independent of the
+torus. For $G=\SU(N)$ let $s_N^2$ be the variance of $N^{-1}\ReTr U$ under
+the Haar measure, $s_2^2=\frac14$ and $s_N^2=1/(2N^2)$ for $N\ge3$.
+
+\begin{proposition}[closeness to Haar link by link]\label{prop:bphidden}
+Let $n\ge2$ and $L\ge2n+4$ even.
+\begin{enumerate}[label=\textup{(\roman*)},leftmargin=*]
+\item Let $c$ be a straight-path map or a composite of such maps onto
+$\Lambda_L$, and $\mu'$ a gauge-invariant probability measure on the fine
+links with a continuous positive density $D$ with respect to the Haar
+measure, $\Omega=\log(\max D/\min D)$. Then $\mathrm{BP}_{c_*\mu'}(n,
+e^{-\Omega})$ holds.
+\item Let $G=\SU(N)$, $N\ge2$, and $0<\epsilon<1$. Let $p_1,\dots,p_M$,
+$M=(L/2)^4$, be the plaquettes of the planes $\{0,1\}$ of $\Lambda_L$ whose
+base points have four even coordinates, $X_i=N^{-1}\ReTr U_{p_i}$, and
+\[
+\varrho_L=\Bigl(\frac12\prod_{i=1}^M(1+\epsilon X_i)+\frac12\prod_{i=1}^M(1-
+\epsilon X_i)\Bigr)\lambda_E .
+\]
+Then $\varrho_L$ is a gauge-invariant probability measure with a continuous
+positive density, the conditional law of each link given the others has a
+density with respect to the Haar measure with values in $[1-\epsilon,
+1+\epsilon]$, and every $\varpi$ for which $\mathrm{BP}_{\varrho_L}(n,\varpi)$
+holds satisfies
+\[
+\varpi\le\frac{48\,(n+1)^4}{\epsilon^2s_N^4L^4}.
+\]
+Consequently, for $L^4>48(n+1)^4/(\epsilon^2s_N^4)$, some link $j$ has
+$\sum_{x:\,j\notin V_x}C^{\varrho_L}_{V_x,j}>(1-48(n+1)^4/(\epsilon^2s_N^4L^4))
+\,n^4$.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+(i) By Lemma~\ref{lem:bprefine}(i), applied to each map of the composite,
+$c_*\lambda_{E'}=\lambda_E$ and $\lambda_{E'}=\int\lambda_E(dV)\,\nu_V$ with
+$c=V$ $\nu_V$-almost surely, $\nu_V$ the conditional law; so $\varrho=c_*\mu'$
+has the density $r(V)=\nu_V(D)$ with respect to $\lambda_E$, and $\min D\le r
+\le\max D$. Under $\lambda_E$ every $f\in L^2$ is the orthogonal sum of
+components $f_A$, $A\subset E$, where $f_A$ depends only on $U_A$ and has
+integral zero in each link of $A$; then $\lambda_E((f-\mathcal P_xf)^2)$ is the
+sum of $\lVert f_A\rVert^2$ over the $A$ that meet $V_x$, and each nonempty
+$A$ meets at least $n^4$ of the cubes, so $\Var_{\lambda_E}(f)\le n^{-4}\sum_x
+\lambda_E((f-\mathcal P_xf)^2)$. The variance and the conditional variances
+are infima of mean squares over constants and over functions of the links
+outside $V_x$, so
+\begin{gather*}
+\Var_\varrho(f)\le\max D\,\Var_{\lambda_E}(f),\\
+\varrho\bigl((f-P^\varrho_xf)^2\bigr)\ge\min D\,\lambda_E\bigl((f-\mathcal P_xf)^2\bigr),
+\end{gather*}
+which give $e^{-\Omega}\Var_\varrho(f)\le\mathcal E^\varrho_n(f)$.
+
+(ii) The base points of the links of $p_i$ are $y_i$, $y_i+e_0$ and $y_i+
+e_1$, so different $p_i$ have disjoint links, and $\lvert X_i\rvert\le1$.
+Under $\lambda_E$ the $X_i$ are independent with mean zero and variance
+$s_N^2$, since $\int\ReTr U\,dU=0$, $\int\lvert\Tr U\rvert^2dU=1$, and $\int(\Tr
+U)^2dU$ is $1$ for $N=2$ and $0$ for $N\ge3$. So both products are densities
+of probability measures $\varrho^\pm$, positive and continuous, and gauge
+invariant because $X_i$ is a class function of a plaquette holonomy. Fix a
+link $e$ of $p_i$ and the other links. As a function of $U_e$, $X_i=N^{-1}
+\ReTr(AU_e^{\pm1}B)$ with $A,B$ fixed, which has Haar integral zero, and the
+density of $\varrho_L$ is $a(1+\epsilon X_i)+a'(1-\epsilon X_i)$ with $a,a'
+\ge0$ not depending on $U_e$; normalised, it is $1+\theta\epsilon X_i$ with
+$\theta=(a-a')/(a+a')\in[-1,1]$. For a link on no $p_i$ the conditional law
+is Haar.
+
+Let $F=M^{-1}\sum_iX_i$, a real gauge-invariant function. Under $\varrho^\pm$
+the $X_i$ are independent with mean $\pm\epsilon\int X_i^2\,d\lambda_E=\pm
+\epsilon s_N^2$, so, as $\varrho_L=\frac12(\varrho^++\varrho^-)$,
+$\Var_{\varrho_L}(F)\ge(\epsilon s_N^2)^2$. Let $r_x$ be the number of $p_i$
+with a link in $V_x$. Their base points lie in $x+[-1,n)^4$, so $r_x\le
+(n+1)^4$, and each $p_i$ meets at most $3n^4$ cubes, one family for each of
+its three base points, so $\sum_xr_x\le3n^4M$. Given the links outside
+$V_x$, $F$ varies only through those $r_x$ terms, in an interval of length
+at most $2r_x/M$, so its conditional variance is at most $r_x^2/M^2$ and
+\[
+\mathcal E^{\varrho_L}_n(F)\le\frac1{n^4M^2}\sum_xr_x^2\le\frac{3(n+1)^4}M
+=\frac{48(n+1)^4}{L^4}.
+\]
+Dividing by $\Var_{\varrho_L}(F)$ gives the bound on $\varpi$. If the sums
+in the last statement were at most $\alpha n^4$ for every $j$,
+Theorem~\ref{thm:bpcoarse}(i) would give $\mathrm{BP}_{\varrho_L}(n,1-
+\alpha)$, so $1-\alpha\le48(n+1)^4/(\epsilon^2s_N^4L^4)$.
+\end{proof}
+
+The sign that chooses between the two products is drawn once for the whole
+torus.\footnote{Each cube carries a fraction of order $(n/L)^4$ of the
+evidence for the sign, so resampling cubes changes the spatial average
+$F$ only slowly, while $F$ itself reads the sign off with an error of order
+$L^{-2}$.} The measures $\varrho_L$ are not laws of block variables of
+Wilson measures and nothing is claimed about the tuned laws from them; they
+show that the hypothesis of Theorem~\ref{thm:bpcoarse}, a bound on the sums
+of the single-link coefficients over all links, cannot be replaced by the
+closeness of each single-link conditional law to the Haar measure, and
+that (H1) needs a collective bound. Part (i) holds for the laws of the block
+variables on every torus at every coupling; for the Wilson measure $\Omega$
+is proportional to the volume, so its constant is not uniform in $L$.
+Figure~\ref{fig:bphidden} shows the measure of (ii).
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\textwidth]{figures/fig_bphidden.png}
+\caption{The measure $\varrho_L$ of Proposition~\ref{prop:bphidden}(ii).
+(a)~One sign $S$, drawn once for the torus, chooses between two product
+tilts of the selected plaquettes; each link, given the others, has a law
+within $\epsilon$ of the Haar measure. (b)~The law of the spatial average
+$F$ for $\SU(2)$, $\epsilon=\frac12$ and $L=8,16,32$, drawn with normal
+approximations of its two components and scaled to unit peak: the modes
+at $\pm\epsilon s_2^2$ stay apart as $L$ grows, while resampling one cube
+moves $F$ by at most $2r_x/M$, so the cube dynamics needs a time of order
+$L^4$ to change the sign.}\label{fig:bphidden}
+\end{figure}
+
 \begin{remark}[what is proved about the coarsest condition]
 \label{rem:bpcoarse}
 Proved: for every measure with a continuous positive density on the links
@@ -8525,7 +8772,11 @@ the smallest torus, a lower bound on the curvature of the coarse
 plaquettes, which also obstructs the criterion there
 (Proposition~\ref{prop:bpcoarsenec}); it is independent of (H2), and it
 fails for the coarse law of a measure whose local covariances have range
-$a_0$ (Proposition~\ref{prop:bpcoarseflat}).
+$a_0$ (Proposition~\ref{prop:bpcoarseflat}); on each torus every law of
+block variables of a measure with a continuous positive density satisfies
+$\mathrm{BP}(n,e^{-\Omega})$, and single-link conditional laws within
+$\epsilon$ of the Haar measure do not give a constant independent of the
+torus (Proposition~\ref{prop:bphidden}).
 
 Not proved: (H1) along the tuning; the bounds of
 Corollary~\ref{cor:bpcoarseH1} for the induced actions $H^{(0)}_{k,L}$ for
@@ -8537,8 +8788,9 @@ item~(iv) of Section~\ref{ssec:remains}; whether $\mathrm{BP}(n_k,\varpi)$ gives
 (H1) at the cube size $n_0$ itself; the decorrelation of the coarse
 Polyakov loops of Proposition~\ref{prop:bpcoarsenec}(iii) for the tuned
 measures. The measures of Proposition~\ref{prop:bpcoarseflat} are flat on
-the coarse scale and are not Wilson measures, and nothing is claimed about
-the tuned measures from them. For the measures of
+the coarse scale and are not Wilson measures, nor are those of
+Proposition~\ref{prop:bphidden}(ii), and nothing is claimed about the tuned
+measures from them. For the measures of
 Corollary~\ref{cor:bprefinetower}, where $\mathrm{BP}$ holds at every scale,
 Lemma~\ref{lem:bpcoarsehess} gives no conclusion once $K$ is large, since a
 fine link of a path enters six loops of $4b^K$ links; the criterion is a
@@ -44580,19 +44832,22 @@ for every measure, the Wilson measure at $\beta\ne0$ is not a Haar
 refinement, the split inequality follows for every measure from a fibre
 Poincar\'e inequality, a bound on the information of the fine exterior of a
 cube on the block variables and the almost orthogonality of that information
-for different cubes, and it holds for the Wilson measure in the
+for different cubes, it holds for the Wilson measure in the
 strong-coupling range on every torus, with constants within factors
-$1+O(\beta)$ of those of the refinements, while the obstructions at weak
+$1+O(\beta)$ of those of the refinements, and on each torus it holds for
+every measure with a continuous positive density, with constants that grow
+with the volume, while the obstructions at weak
 coupling on small tori bound the condition for the law of the block
-variables and put no constraint on it; neither the split inequality for the
-laws of the block variables below the finest scale or for the Wilson
-measure outside the strong-coupling range nor the condition at the coarsest
-scale along the tuning is proved (Theorems~\ref{thm:bpup},
+variables and put no constraint on it; neither the split inequality with
+constants independent of the torus for the laws of the block variables
+below the finest scale or for the Wilson measure outside the
+strong-coupling range nor the condition at the coarsest scale along the
+tuning is proved (Theorems~\ref{thm:bpup},
 \ref{thm:bpuptower}, \ref{thm:bprefine}, \ref{thm:bpsplitcond}
 and~\ref{thm:bpsplitstrong}, Corollaries~\ref{cor:bpuptuning},
 \ref{cor:bpupseparate}, \ref{cor:bprefinetower}
 and~\ref{cor:bpsplitranges}, Propositions~\ref{prop:bpuphaar},
-\ref{prop:bpfinesplit}, \ref{prop:bpnotrefine}
+\ref{prop:bpfinesplit}, \ref{prop:bpnotrefine}, \ref{prop:bptilt}
 and~\ref{prop:bpsmalltori}, Remarks~\ref{rem:bpup}, \ref{rem:bprefine}
 and~\ref{rem:bpsplitstrong}); the condition at the coarsest scale follows, for
 every measure with a continuous positive density and without locality,
@@ -44603,10 +44858,12 @@ strong-coupling range; given the split inequality the condition is
 equivalent to the conclusion of the bootstrap up to one unit of cube
 size, it is independent of the split inequality, and it fails for the
 coarse law of a measure whose local gauge-invariant covariances vanish
-beyond the coarsest spacing (Theorem~\ref{thm:bpcoarse},
+beyond the coarsest spacing, and the closeness of each single-link
+conditional law to the Haar measure does not replace the bound on the sums
+of the coefficients (Theorem~\ref{thm:bpcoarse},
 Corollaries~\ref{cor:bpcoarsehess} and~\ref{cor:bpcoarseH1},
-Propositions~\ref{prop:bpcoarsezero}, \ref{prop:bpcoarsenec}
-and~\ref{prop:bpcoarseflat}, Remarks~\ref{rem:bpcoarse}
+Propositions~\ref{prop:bpcoarsezero}, \ref{prop:bpcoarsenec},
+\ref{prop:bpcoarseflat} and~\ref{prop:bphidden}, Remarks~\ref{rem:bpcoarse}
 and~\ref{rem:bprefine}). Section~\ref{ssec:groups13} carries the single-scale results of this section to every compact simple group, with explicit constants, except the parts listed in Remark~\ref{rem:groups13}. Section~\ref{ssec:chainG} states the conditional continuum chain for every compact simple group, with the averaged condition in its local form, the centre sectors of $Z(G)$ and the Schwinger functions at separated points (Theorem~\ref{thm:chainG}, Proposition~\ref{prop:bpcentreG}), proves the averaged condition and the triviality of the limits for $N\beta\le\kappa_G/48$ (Corollary~\ref{cor:limitEstrongG}), and extends the obstruction at fixed cube size under a condition (CP) that holds for $\SU(N)$ and fails for $\mathrm{Sp}(n)$ with $n$ even (Proposition~\ref{prop:bpfixedG}); its hypotheses are not proved for any group, and an analogue of the sharp quarter for $G\ne\SU(2)$ is not proved (Proposition~\ref{prop:modulusG}). On the continuum side, Lemmas~\ref{lem:positivetime}
 and~\ref{lem:nonvanishing} reduce the nontriviality of the limit to a
 lower bound on one ratio of lattice two-point functions at a fixed
