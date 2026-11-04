@@ -7565,9 +7565,11 @@ $(dv)_P$, and there are four such plaquettes for each $P$.
 52\,Q_k(w)\le52\,S_k(w)$ by (iii).
 \end{proof}
 
-In the Bloch decomposition the eigenvalues of $S_1$ relative to $Q_1$ fill
-$[1,4]$: they tend to one as the momentum tends to zero and equal four at
-$(\pi,\pi,0,0)$, a floating-point computation reproduced in the archive. So
+In the Bloch decomposition the eigenvalues of $S_1$ relative to $Q_1$ lie
+in $[1,4]$ by (iii). The value four is attained at the momentum
+$(\pi,\pi,0,0)$, and on the torus of side $L$ the least eigenvalue is at
+most $t_L^{-2}$, which tends to one, by a long-wavelength field
+(Theorem~\ref{thm:stepsharp}(i)). So
 at this order the averages carry the coarse quadratic form with no loss at
 long wavelengths; the coupling does not run here, and its running is the
 order-$g^2$ effect of Remark~\ref{rem:constrainedopen}(c). Part (iv) is a
@@ -18191,6 +18193,520 @@ $\delta_G$ keeps the factor $C_n$.
 \end{enumerate}
 \end{remark}
 
+\emph{Curved backgrounds.} Proposition~\ref{prop:flatloops}(ii) uses
+flatness through $V_C(0)=I$, and Remark~\ref{rem:valueshessians}(b) shows
+that a bound on values cannot replace it. A bound on the coefficients can.
+At a background whose plaquettes lie within $\kappa$ of $I$, the Hessian of
+a loop remainder is bounded by a covariant plaquette form plus a Euclidean
+term of order $\kappa$ (Proposition~\ref{prop:curvedloops}). On the window
+the Euclidean term costs a factor of order $\kappa n^2$
+(Lemma~\ref{lem:smallcurv}), and this order is attained
+(Proposition~\ref{prop:curvedsharp}). Norms of matrices in $\U(N)$ are
+operator norms in this part.
+
+For a path $\gamma$ and $w\in\g^K$, extended by zero, let
+\[
+Z_\gamma(w)=\frac d{dt}\Big|_{t=0}V_\gamma(V_0)^{-1}V_\gamma(V_0e^{tw})
+\in\g
+\]
+be the derivative of its holonomy at $V_0$, trivialised on the left. If
+$\gamma$ makes the steps $k_1,\dots,k_\ell$ with orientations $\epsilon_i
+=\pm1$, then $(V_ke^{tw_k})^{-1}=V_k^{-1}e^{-t\operatorname{Ad}(V_k)w_k}$
+gives
+\begin{equation}\label{eq:pathexp}
+V_\gamma(V_0e^{tw})=V_\gamma(V_0)\,e^{tY_1}\cdots e^{tY_\ell},\qquad
+Z_\gamma(w)=\sum_iY_i,
+\end{equation}
+where $Y_i=\operatorname{Ad}(s_i^{-1})w_{k_i}$ if $\epsilon_i=1$, $Y_i=
+-\operatorname{Ad}(s_i^{-1}V_{0,k_i})w_{k_i}$ if $\epsilon_i=-1$, and
+$s_i$ is the holonomy at $V_0$ of the part of $\gamma$ after its $i$-th
+step. In particular $\lVert Y_i\rVert=\lVert w_{k_i}\rVert$. For a
+plaquette $p$ in the plane $\{\mu,\nu\}$, $\mu<\nu$, with base point $x$,
+$Z_p$ is taken along $(x,\mu)$, $(x+e_\mu,\nu)$, $(x+e_\nu,\mu)^{-1}$,
+$(x,\nu)^{-1}$, and
+\[
+Q^{V_0}(w)=\sum_p\lVert Z_p(w)\rVert^2
+\]
+is the \emph{covariant plaquette form} at $V_0$. If $V_{0,p}=I$, then
+$Z_p(w)=D_pw$; in particular $Q^I=Q_1$. A filling~\eqref{eq:filling} is in
+\emph{normal form} if every $V_{p_j}$ is read from the base point of $p_j$
+in this order. Reading $p$ from another corner, or in the other direction,
+conjugates $V_p$ by the holonomy of at most two of its links and may invert
+it, so every ordered filling is brought to normal form by lengthening each
+$h_j$ by at most two links. For a closed path $C$ with a filling in normal
+form let $\ell_C$ be its length, $n_{Ck}$ the number of its steps along the
+link $k$, $T_C=\sum_j\ell(h_j)$ the total length of the paths $h_j$, and
+$t_{Ck}$ the number of their steps along $k$.
+
+\begin{lemma}[a filled loop at a curved background]\label{lem:curvedloop}
+Let $C$ be a closed path with an ordered filling in normal form, and let
+$\lVert I-V_{0,p_j}\rVert\le\kappa$ for every $j$. In the coordinates
+$V_0e^\omega$, for every $w\in\g^K$:
+\begin{enumerate}[label=\textup{(\roman*)},leftmargin=*]
+\item with $Z_C=Z_C(w)$,
+\[
+\Hess s(V_C)(0)[w,w]=-\frac1N\ReTr\Bigl(V_C(V_0)\Bigl(Z_C^2+\sum_{i<i'}
+[Y_i,Y_{i'}]\Bigr)\Bigr);
+\]
+\item $\lVert Z_C\rVert\le\sum_j\lVert Z_{p_j}\rVert+2\kappa\sum_j\lVert
+Z_{h_j}\rVert$;
+\item the second derivative differs from $\frac1N\lVert Z_C\rVert^2$ by
+\[
+\begin{split}
+\Bigl\lvert\Hess s(V_C)(0)[w,w]&-\frac1N\lVert Z_C\rVert^2\Bigr\rvert\\
+&\le\frac{A_C\kappa}N\Bigl(\lVert Z_C\rVert^2+\ell_C\sum_kn_{Ck}\lVert w_k
+\rVert^2\Bigr);
+\end{split}
+\]
+\item with $a_C=(1+\kappa)(1+A_C\kappa)$,
+\[
+\begin{split}
+\bigl\lvert\Hess s(V_C)(0)[w,w]\bigr\rvert&\le\frac{a_CA_C}N\sum_pm_{Cp}
+\lVert Z_p\rVert^2\\
+&\quad+\frac\kappa N\sum_k\bigl(A_C\ell_Cn_{Ck}+4a_CT_Ct_{Ck}\bigr)
+\lVert w_k\rVert^2 .
+\end{split}
+\]
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+(i) By~\eqref{eq:pathexp}, $V_C(V_0e^{tw})=V_C(V_0)E(t)$ with $E(t)=
+e^{tY_1}\cdots e^{tY_\ell}$, so $E(0)=I$ and
+\[
+E''(0)=\sum_iY_i^2+2\sum_{i<i'}Y_iY_{i'}=Z_C^2+\sum_{i<i'}[Y_i,Y_{i'}].
+\]
+Differentiate $s(g)=1-\frac1N\ReTr g$ twice.
+
+(ii) The identity~\eqref{eq:filling} holds for every field, so it may be
+differentiated. Let $Z(g)$ denote the left-trivialised derivative of a
+holonomy~$g$. Then $Z(h^{-1})=-\operatorname{Ad}(h)Z(h)$ and
+\[
+Z(G_1\cdots G_A)=\sum_j\operatorname{Ad}\bigl((G_{j+1}\cdots G_A)^{-1}
+\bigr)Z(G_j).
+\]
+For $G=hVh^{-1}$ these give
+\[
+Z(G)=\operatorname{Ad}(h)Z(V)+\operatorname{Ad}(h)\bigl(\operatorname{Ad}
+(V^{-1})-1\bigr)Z(h).
+\]
+Take $G_j=h_jV_{p_j}^{\epsilon_j}h_j^{-1}$. Then $\lVert Z(V_{p_j}^{
+\epsilon_j})\rVert=\lVert Z_{p_j}\rVert$, and $\lVert\operatorname{Ad}(g)
+-1\rVert\le2\lVert I-g\rVert$ for unitary $g$, since $\operatorname{Ad}(g)
+x-x=(g-I)xg^{-1}+x(g^{-1}-I)$. As $\operatorname{Ad}$ is isometric, (ii)
+follows.
+
+(iii) Put $M=V_C(V_0)-I$. Each factor of~\eqref{eq:filling} has $\lVert I
+-G_j\rVert=\lVert I-V_{0,p_j}\rVert\le\kappa$, so the telescoping sum in
+the proof of Lemma~\ref{lem:loopfill}(i) gives $\lVert M\rVert\le A_C
+\kappa$. Since $-\Tr Z_C^2=\lVert Z_C\rVert^2$ and $\Tr[Y,Y']=0$, part (i)
+gives
+\[
+\begin{split}
+\Hess s(V_C)(0)[w,w]&-\frac1N\lVert Z_C\rVert^2\\
+&=-\frac1N\ReTr\Bigl(M\Bigl(Z_C^2+\sum_{i<i'}[Y_i,Y_{i'}]\Bigr)\Bigr).
+\end{split}
+\]
+With $\lvert\Tr(MX)\rvert\le\lVert M\rVert\,\lVert X\rVert_1$, $\lVert
+Z_C^2\rVert_1=\lVert Z_C\rVert^2$, $\lVert[Y,Y']\rVert_1\le2\lVert Y\rVert
+\lVert Y'\rVert$ and
+\[
+2\sum_{i<i'}\lVert Y_i\rVert\lVert Y_{i'}\rVert\le\Bigl(\sum_i\lVert
+w_{k_i}\rVert\Bigr)^2\le\ell_C\sum_kn_{Ck}\lVert w_k\rVert^2,
+\]
+(iii) follows.
+
+(iv) By (ii) and $(a+b)^2\le(1+\kappa)a^2+(1+\kappa^{-1})b^2$,
+\[
+\lVert Z_C\rVert^2\le(1+\kappa)A_C\sum_pm_{Cp}\lVert Z_p\rVert^2+4\kappa
+(1+\kappa)\Bigl(\sum_j\lVert Z_{h_j}\rVert\Bigr)^2,
+\]
+and $\bigl(\sum_j\lVert Z_{h_j}\rVert\bigr)^2\le\bigl(\sum_kt_{Ck}\lVert
+w_k\rVert\bigr)^2\le T_C\sum_kt_{Ck}\lVert w_k\rVert^2$; for $\kappa=0$ the
+first bound follows from (ii) directly. Insert this in (iii).
+\end{proof}
+
+The Euclidean term is converted with the gap of $Q^{V_0}$ off the gauge
+directions, which depends on the curvature alone.
+
+\begin{lemma}[the window at small curvature]\label{lem:smallcurv}
+Let $\Lambda'=\prod_\nu[a_\nu-1,a_\nu+n]$, and suppose that $\lVert I-
+V_{0,p}\rVert\le\kappa$ for every plaquette $p$ with its corners in
+$\Lambda'$, the links off $K$ included. Put $\delta=3(n+1)\kappa$ and
+$\varrho_0=C_n^{1/2}/(1-2\delta/s_n)$, and suppose $2\delta<s_n$ and
+$\gamma_\kappa=\sqrt{432}\,\delta\varrho_0<1$. Then
+\[
+|u|^2\le\varrho_n(\kappa)^2\,Q^{V_0}(u)\quad(u\in\mathcal O_{V_0}^\perp),
+\qquad\varrho_n(\kappa)=\frac{\varrho_0}{1-\gamma_\kappa}.
+\]
+If $\kappa(n+2)^2\le10^{-2}$, the hypotheses hold and $\varrho_n(\kappa)^2
+\le2.31\,C_n$.
+\end{lemma}
+
+\begin{proof}
+A gauge transformation $g\in G^{\Lambda'}$ acts on the links of $\Lambda'$
+by $(gV)_{y,\mu}=g_yV_{y,\mu}g_{y+e_\mu}^{-1}$. Let $(Tw)_{y,\mu}=
+\operatorname{Ad}(g_{y+e_\mu})w_{y,\mu}$, an isometry of $\g^K$. Then
+$(gV_0)e^{Tw}=g(V_0e^w)$, so $Z_p$ at $gV_0$ in the direction $Tw$ is
+$\operatorname{Ad}(g_x)Z_p(w)$, $x$ the base point of $p$, and $Q^{gV_0}(Tw)
+=Q^{V_0}(w)$. Also $d_{gV_0}(\operatorname{Ad}(g)\eta)=Td_{V_0}\eta$, so $T$
+maps $\mathcal O_{V_0}^\perp$ onto $\mathcal O_{gV_0}^\perp$, and the
+plaquette holonomies are conjugated. The statement for $gV_0$ therefore
+gives it for $V_0$.
+
+The links $(x,\mu)$ of $\Lambda'$ with $x_\nu=a_\nu-1$ for every $\nu<\mu$
+form a spanning tree of $\Lambda'$, so $g$ can be chosen with $gV_0=I$ on
+them; write $V_0$ for $gV_0$. Let $(x,\mu)$ be another link of $\Lambda'$,
+and $\nu<\mu$ the least direction with $x_\nu\ge a_\nu$. The plaquette $p$
+in the plane $\{\nu,\mu\}$ with base point $x-e_\nu$ has its corners in
+$\Lambda'$, and its two links of direction $\nu$ lie in the tree, since
+their coordinates below $\nu$ are those of $x$. So $V_{0,p}=V_{0,x,\mu}
+V_{0,x-e_\nu,\mu}^{-1}$ and $\lVert I-V_{0,x,\mu}\rVert\le\kappa+\lVert I-
+V_{0,x-e_\nu,\mu}\rVert$. Induction on $\sum_{\nu<\mu}(x_\nu-a_\nu+1)\le\mu
+(n+1)$ gives $\lVert I-V_{0,k}\rVert\le\delta$ for every link $k$ of
+$\Lambda'$.
+
+Then $\lVert\operatorname{Ad}(V_{0,k}^{-1})-1\rVert\le2\delta<s_n$, and
+Lemma~\ref{lem:curvedwindow} gives $|u|\le\varrho_0Q_1(u)^{1/2}$ on
+$\mathcal O_{V_0}^\perp$. By~\eqref{eq:pathexp}, $Z_p(u)-(du)_p=\sum_i\pm
+(\operatorname{Ad}(g_i)-1)u_{k_i}$, where $g_i$ is a holonomy of three, two,
+two and one links of $p$ for $i=1,\dots,4$. Hence $\lVert Z_p(u)-(du)_p
+\rVert\le2\delta(3b_1+2b_2+2b_3+b_4)$ with $b_i=\lVert u_{k_i}\rVert$, and
+its square is at most $72\delta^2\sum_ib_i^2$. A link lies in six
+plaquettes, so
+\[
+\begin{split}
+Q_1(u)^{1/2}&\le Q^{V_0}(u)^{1/2}+\sqrt{432}\,\delta|u|,\\
+|u|&\le\varrho_0Q^{V_0}(u)^{1/2}+\gamma_\kappa|u|.
+\end{split}
+\]
+For the numbers, $s_n\ge2/n$ and $C_n\le1+n^2/4\le(n+2)^2/4$ give $2\delta
+/s_n\le3n(n+1)\kappa\le0.03$ and $\gamma_\kappa\le\frac{3\sqrt{432}}{2(1-
+0.03)}\kappa(n+2)^2\le0.3215$, so $\varrho_n(\kappa)^2\le C_n/(0.97^2
+\cdot0.6785^2)\le2.31\,C_n$.
+\end{proof}
+
+\begin{proposition}[loop remainders at curved backgrounds]
+\label{prop:curvedloops}
+Let $R(V)=\sum_Cr_C\,s(V_C)$, with fillings in normal form, converge with
+its first two derivatives near $V_0$. Let $\lVert I-V_{0,p}\rVert\le
+\kappa$ for every plaquette of the fillings, and put $a_C=(1+\kappa)(1+
+A_C\kappa)$,
+\[
+\begin{split}
+\mathcal L_\kappa&=\sup_p\sum_C\lvert r_C\rvert\,a_CA_Cm_{Cp},\\
+\mathcal M_\kappa&=\sup_k\sum_C\lvert r_C\rvert\bigl(A_C\ell_Cn_{Ck}+4a_C
+T_Ct_{Ck}\bigr).
+\end{split}
+\]
+\begin{enumerate}[label=\textup{(\roman*)},leftmargin=*]
+\item For every $w\in\g^K$,
+\[
+\bigl\lvert\Hess R(0)[w,w]\bigr\rvert\le\frac{\mathcal L_\kappa}N
+Q^{V_0}(w)+\frac{\kappa\mathcal M_\kappa}N|w|^2.
+\]
+\item $R$ is $\Gamma_W$-invariant, and $\lvert\mathcal HR(w,w)\rvert\le
+\frac{\mathcal L_\kappa}NQ^{V_0}(\Pi_{V_0}w)+\frac{\kappa\mathcal
+M_\kappa}N\lvert\Pi_{V_0}w\rvert^2$.
+\item Under the hypotheses of Lemma~\ref{lem:smallcurv},
+\[
+\lvert\mathcal HR(w,w)\rvert\le\frac{\mathcal L_\kappa+\kappa\varrho_n
+(\kappa)^2\mathcal M_\kappa}N\,Q^{V_0}(\Pi_{V_0}w),
+\]
+and if $\kappa(n+2)^2\le10^{-2}$ the factor is at most $(\mathcal L_\kappa
++0.58\,\kappa(n+2)^2\mathcal M_\kappa)/N$.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+(i) Sum Lemma~\ref{lem:curvedloop}(iv) with the weights $\lvert r_C\rvert$
+and exchange the nonnegative sums. (ii) A gauge transformation in
+$\Gamma_W$ fixes the links off $K$ and conjugates $V_C$, so $R$ is
+invariant, and Lemma~\ref{lem:invariantslice}(ii) gives $\mathcal HR(w,w)=
+\Hess R(0)[\Pi_{V_0}w,\Pi_{V_0}w]$. (iii) Lemma~\ref{lem:smallcurv} at $u=
+\Pi_{V_0}w$, with $2.31\,C_n\le0.58(n+2)^2$.
+\end{proof}
+
+The background $V_0$ need not be a critical point of $R$ or of the induced
+action: the gradient terms of Lemma~\ref{lem:invariantslice}(i) are removed
+by the projection, and the bound holds uniformly on the set of fields with
+plaquettes within $\kappa$ of $I$, without third derivatives. At $\kappa=0$,
+$\mathcal L_0=\mathcal L$ and (i) is Proposition~\ref{prop:flatloops}(ii).
+For the plaquette sum $R=r\sum_ps(V_p)$, $\mathcal L_\kappa=(1+\kappa)^2
+\lvert r\rvert$ and $\mathcal M_\kappa=24\lvert r\rvert$, so (iii) gives
+the factor $(1+\kappa)^2+14\kappa(n+2)^2$ times $\lvert r\rvert/N$. At
+$V_0=I$, $Q^I\circ\Pi=Q_1\le S_W/c_*$. At a curved background the Gaussian
+reference is $2\lambda S^U_W\circ\Pi_{V_0}$
+(Remark~\ref{rem:relstepinputs}(d)), and its comparison with $Q^{V_0}\circ
+\Pi_{V_0}$ is not proved here. The order $\kappa n^2$ of the loss in (iii)
+cannot be improved.
+
+\begin{proposition}[the loss $\kappa n^2$ is attained]
+\label{prop:curvedsharp}
+Let $G=\SU(2)$, $a_\nu=1$, $X_j=i\sigma_j/\sqrt2$, $0<\alpha\le\pi/4$ and
+$\varsigma=\pm1$. On the links of $\Lambda'$ let $V_{0,x,0}=A=\cos\alpha+
+i\sigma_1\sin\alpha$, $V_{0,x,1}=B=\cos\alpha+\varsigma i\sigma_2\sin
+\alpha$ and $V_{0,x,2}=V_{0,x,3}=I$. The plaquettes in the plane $\{0,1\}$
+have holonomy $ABA^{-1}B^{-1}$, with $\lVert I-ABA^{-1}B^{-1}\rVert=2\sin^2
+\alpha=\kappa$, and the others have holonomy $I$. Let $\phi(j)=\sin(\pi j/
+(n+1))$ for $1\le j\le n$, $\phi(j)=0$ otherwise, and for $y\in W$
+\[
+u_{y,0}=\phi(y_1)\phi(y_2)\phi(y_3)X_1,\qquad u_{y,1}=\phi(y_0)\phi(y_2)
+\phi(y_3)X_2,
+\]
+with $u=0$ on the other links. Let $P=\sum_ps(V_p)$ over the plaquettes of
+$\Lambda'$. Then $u\in\mathcal O_{V_0}^\perp$, $\mathcal HP(u,u)=\Hess
+P(0)[u,u]$, and for $n\ge9$ and $\sin^2\alpha\le10^{-2}$:
+\begin{enumerate}[label=\textup{(\roman*)},leftmargin=*]
+\item if $\varsigma=1$ and $\kappa(n+1)^2\le2$, then $\mathcal HP(u,u)\ge
+\bigl(1+0.037\,\kappa(n+1)^2\bigr)\frac12Q^{V_0}(u)$;
+\item if $\varsigma=-1$ and $\kappa(n+1)^2\ge31$, then $\mathcal HP(u,u)<0$.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+Put $s=\sin\alpha$, $c=\cos\alpha$, $x=\pi/(2n+2)$ and $\Psi=((n+1)/2)^2$.
+Then $\sum_j\phi(j)^2=(n+1)/2$, $\sum_j\phi(j)\phi(j+1)=\cos(2x)(n+1)/2$
+and $\sum_j\phi(j)=\cot x$.
+
+$\operatorname{Ad}(A)$ is the rotation by $2\alpha$ about $X_1$ and
+$\operatorname{Ad}(B)$ the rotation by $2\varsigma\alpha$ about $X_2$; in
+particular $\operatorname{Ad}(A)X_1=X_1$ and $\operatorname{Ad}(B)X_2=X_2$.
+The adjoint of $d_{V_0}$ is $(d_{V_0}^*u)_y=\sum_\mu(\operatorname{Ad}(V_{0,
+y,\mu})u_{y,\mu}-u_{y-e_\mu,\mu})$, so for $y\in W^\circ$
+\[
+(d_{V_0}^*u)_y=(u_{y,0}-u_{y-e_0,0})+(u_{y,1}-u_{y-e_1,1})=0,
+\]
+because $u_{\cdot,0}$ does not depend on $y_0$ nor $u_{\cdot,1}$ on $y_1$ in
+$W$. So $\Pi_{V_0}u=u$, and $\mathcal HP(u,u)=\Hess P(0)[u,u]$ by
+Lemma~\ref{lem:invariantslice}(ii). The real part of the commutator
+$ABA^{-1}B^{-1}$ of unit quaternions with orthogonal axes is $1-2s^4$, so
+its eigenvalues $e^{\pm i\vartheta}$ have $1-\cos\vartheta=2s^4$ and
+$\lVert I-ABA^{-1}B^{-1}\rVert=(2-2\cos\vartheta)^{1/2}=2s^2$.
+
+In the plane $\{0,\nu\}$, $\nu\ge2$, with coefficients $f,f'$ of $u$ on
+$(z,0)$, $(z+e_\nu,0)$, the holonomy along $V_0e^{tu}$ is $Ae^{t(f-f')X_1}
+A^{-1}$. So $Z_p=(du)_p$, and the Hessian of $s(V_p)$ is $\frac12(f-f')^2=
+\frac12\lVert(du)_p\rVert^2$. The same holds in the planes $\{1,\nu\}$, and
+$u$ vanishes in the plane $\{2,3\}$. In the plane $\{0,1\}$ let $f$, $g'$,
+$f'$, $g$ be the coefficients of $u$ on $(z,0)$, $(z+e_0,1)$, $(z+e_1,0)$,
+$(z,1)$, and $F=f+f'$, $G=g+g'$. By~\eqref{eq:pathexp},
+\[
+\begin{gathered}
+Y_1=f\operatorname{Ad}(BAB^{-1})X_1,\quad Y_2=g'\operatorname{Ad}(BA)X_2,\\
+Y_3=-f'\operatorname{Ad}(B)X_1,\quad Y_4=-gX_2 .
+\end{gathered}
+\]
+In the basis $X_1,X_2,X_3$, with $c_2=\cos2\alpha$, $s_2=\sin2\alpha$, these
+are $f(c_2^2+c_2s_2^2,-\varsigma s_2^2,\varsigma s_2c_2(1-c_2))$, $g'(
+\varsigma s_2^2,c_2,-s_2c_2)$, $-f'(c_2,0,\varsigma s_2)$ and $-g(0,1,0)$.
+Their inner products give
+\[
+\lVert Z_p\rVert^2=(f-f')^2+(g-g')^2+4s^2(ff'+gg')+8\varsigma s^2c^2fg .
+\]
+Write $ABA^{-1}B^{-1}=(1-2s^4)I+\hat C$ with $\hat C\in\g$; its
+coordinates are $2\sqrt2s^2(sc,-\varsigma sc,-\varsigma c^2)$. Since $Z^2=
+-\frac12\lVert Z\rVert^2I$ on $\mathfrak{su}(2)$,
+Lemma~\ref{lem:curvedloop}(i) gives
+\[
+\Hess s(V_p)(0)[u,u]=\bigl(\tfrac12-s^4\bigr)\lVert Z_p\rVert^2+\tfrac12
+\Bigl\langle\hat C,\sum_{i<i'}[Y_i,Y_{i'}]\Bigr\rangle,
+\]
+and the six triple products $\ip{\hat C}{[Y_i,Y_{i'}]}=-\sqrt2\det(\hat C,
+Y_i,Y_{i'})$ add up to
+\[
+\begin{split}
+\Hess s(V_p)(0)[u,u]&=\tfrac12\lVert Z_p\rVert^2-s^4(F^2+G^2)\\
+&\quad+2\varsigma s^2c^2(FG-2fg).
+\end{split}
+\]
+Both are identities between polynomials in $c$, $s$, $f$, $f'$, $g$, $g'$
+modulo $c^2+s^2=1$.
+
+Over the plaquettes of the plane $\{0,1\}$, $\sum ff'=\sum gg'=\frac12n(n+1)
+\cos(2x)\Psi$, $\sum fg=\cot^2x\,\Psi$, $\sum FG=\sigma^2\Psi$ with $\sigma
+=\sum_{j=1}^n(\phi(j)+\phi(j+1))=2\cot x-\sin2x$, and $\sum(F^2+G^2)=4n(n+1)
+\cos^2x\,\Psi$. Also $|u|^2=n(n+1)\Psi$, and as in
+Lemma~\ref{lem:windowgap}(iv), $Q_1(u)=12\sin^2x\,|u|^2$. Hence
+\[
+\begin{split}
+Q^{V_0}(u)&=Q_1(u)+\Psi s^2\bigl(4n(n+1)\cos2x\\
+&\quad+8\varsigma c^2\cot^2x\bigr),\\
+\Hess P(0)[u,u]&=\tfrac12Q^{V_0}(u)-4s^4n(n+1)\cos^2x\,\Psi\\
+&\quad+2\varsigma s^2c^2(\sigma^2-2\cot^2x)\Psi .
+\end{split}
+\]
+From $\tan x\ge x$ and $\cos x\ge1-x^2/2$, $x^{-2}-1\le\cot^2x\le x^{-2}$;
+and $\sigma^2-2\cot^2x=2\cot^2x-8\cos^2x+\sin^22x\ge2x^{-2}-10$. Also
+$\frac12Q_1(u)=6\sin^2x\,n(n+1)\Psi\le\frac32\pi^2\Psi$. Put $t=s^2(n+1)^2
+=\frac12\kappa(n+1)^2$, so that $s^2x^{-2}=4t/\pi^2$, and use $n\ge9$ and
+$s^2\le10^{-2}$.
+
+(i) Here
+\[
+\begin{split}
+&\Hess P(0)[u,u]-\tfrac12Q^{V_0}(u)\\
+&\qquad\ge\Psi t\Bigl(c^2\Bigl(\frac{16}{\pi^2}-\frac{20}{(n+1)^2}\Bigr)
+-4s^2\Bigr)\ge1.3669\,\Psi t,\\
+&\tfrac12Q^{V_0}(u)\le\Psi\Bigl(\frac{3\pi^2}2+t\Bigl(2+\frac{16}{\pi^2}
+\Bigr)\Bigr)\le18.43\,\Psi
+\end{split}
+\]
+for $t\le1$. The ratio is at least $0.0741\,t\ge0.037\,\kappa(n+1)^2$.
+
+(ii) Here, dropping the term in $s^4$,
+\[
+\begin{split}
+\Hess P(0)[u,u]&\le\Psi\Bigl(\frac{3\pi^2}2+t\Bigl(2-\frac{32c^2}{\pi^2}
+\Bigr)+24s^2c^2\Bigr)\\
+&\le\Psi\Bigl(\frac{3\pi^2}2-0.9698\,t\Bigr),
+\end{split}
+\]
+which is negative for $2t\ge31$. The constants follow from $c^2\ge0.99$,
+$s^2\le t/100$ and $9.8696<\pi^2<9.8697$: in (i), $0.99(1.62112-0.2)-0.04\ge
+1.3669$ and $14.805+3.622\le18.43$; in (ii), $2-31.68/9.8697+0.24\le
+-0.9698$ and $14.805/0.9698<15.27$.
+\end{proof}
+
+For $R=rP$ with $r>0$, part (i) gives $\mathcal HR(u,u)\ge(1+0.037\,\kappa
+(n+1)^2)\frac{\mathcal L}NQ^{V_0}(\Pi_{V_0}u)$, against the factor $(1+
+\kappa)^2+14\kappa(n+2)^2$ of Proposition~\ref{prop:curvedloops}(iii):
+the loss is of order $\kappa n^2$ in both. Part (ii) says more. Once
+$\kappa(n+1)^2\ge31$, the covariant Hessian of the coarse plaquette action
+has a negative direction off the gauge directions, so it obeys no
+comparison with a positive semidefinite gauge-invariant form there (Figure~\ref{fig:curvedsharp}). This is
+the lattice form of the unstable mode of Nielsen and Olesen~\cite{NO78} in
+a constant chromomagnetic field. The comparison asked for in
+Remark~\ref{rem:relstepinputs}(d) must therefore lose a multiple of $\kappa
+\lvert\cdot\rvert^2$, and on a window of side $n$ it is a relative bound
+only while $\kappa n^2$ is small.
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\textwidth]{figures/fig_curvedsharp.png}
+\caption{The ratio of the covariant Hessian of the plaquette action to half
+the covariant plaquette form at the field $u$ and the background of
+Proposition~\ref{prop:curvedsharp}, from the closed forms in its proof.
+(a) The ratio over the window side $n$ and $\kappa(n+1)^2$, for the two
+orientations $\varsigma=\pm1$. (b) The section $n=63$: for $\varsigma=+1$
+the ratio exceeds one, above the bound of part (i), dashed; for
+$\varsigma=-1$ it changes sign near $\kappa(n+1)^2=23$, below the
+threshold $31$ of part (ii).}
+\label{fig:curvedsharp}
+\end{figure}
+
+The loop representation itself is the remaining question. For $\SU(2)$ the
+class of loop sums is closed under products and dense, while a loop sum
+has no a priori bound on its weights.
+
+\begin{proposition}[loop sums for $\SU(2)$]\label{prop:loopsums}
+Let $G=\SU(2)$.
+\begin{enumerate}[label=\textup{(\roman*)},leftmargin=*]
+\item Let $C,C'$ be closed paths based at $x,x'$, $\gamma$ a path from $x$
+to $x'$, and $C\vee C'$, $C\vee C'^{-1}$ the closed paths $C\gamma C'
+\gamma^{-1}$ and $C\gamma C'^{-1}\gamma^{-1}$. Then
+\[
+s(V_C)s(V_{C'})=s(V_C)+s(V_{C'})-\tfrac12s(V_{C\vee C'})-\tfrac12s(V_{C
+\vee C'^{-1}}),
+\]
+and ordered fillings of $C$ and $C'$ give ordered fillings of $C\vee C'^{
+\pm1}$ with $A_C+A_{C'}$ plaquettes and multiplicities $m_{Cp}+m_{C'p}$.
+\item On a box $\Lambda'$ with all its links variable, every continuous
+function invariant under the gauge group $G^{\Lambda'}$ is a uniform limit
+of functions $c+\sum_Cr_Cs(V_C)$, finite sums over closed paths in
+$\Lambda'$.
+\item Let $\varphi$ be a class function with $\varphi(\operatorname{diag}
+(e^{i\theta},e^{-i\theta}))=\sum_{m\ge0}c_m\cos m\theta$ and $\sum_mm^2
+\lvert c_m\rvert<\infty$, and $C$ a closed path with an ordered filling.
+Then
+\[
+\varphi(V_C)=\varphi(I)-\sum_{m\ge1}c_m\,s(V_{C^m}),
+\]
+where $C^m$ is $C$ traversed $m$ times with $m$ copies of its filling. Its
+contribution to $\mathcal L$ is $\sum_mm^2\lvert c_m\rvert\,\sup_pA_Cm_{Cp}$.
+The function $R_m$ of Remark~\ref{rem:valueshessians}(b) on one plaquette
+has $\mathcal L=(2m^2+1)\epsilon$, although $\lvert R_m\rvert\le\epsilon s$.
+\item If $R$ is a loop sum as in Proposition~\ref{prop:flatloops}, with
+paths and fillings in $\Lambda$, and $\lvert\mathcal HR(w,w)+\sigma\lvert
+\Pi w\rvert^2\rvert\le\tau Q_1(w)$ at $V_0=I$ for every $w$, with $\sigma,
+\tau\ge0$, then $\mathcal L\ge N(\sigma C_n^--\tau)$. The Haar term is
+$-\frac13\lvert\Pi w\rvert^2$ for $\SU(2)$, so a loop sum that contains it
+has $\mathcal L\ge2(\frac{(n+1)^2}{9\pi^2}-\tau)$.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+(i) For $g,h\in\SU(2)$, $h+h^{-1}=(\Tr h)I$, so $\Tr g\Tr h=\Tr gh+\Tr
+gh^{-1}$. Apply it to $g=V_C$ and $h=V_\gamma V_{C'}V_\gamma^{-1}$, whose
+traces are real, and substitute $\Tr=2(1-s)$. The product of the fillings
+of $V_C$ and of $V_\gamma V_{C'}^{\pm1}V_\gamma^{-1}$, the latter
+conjugated by $V_\gamma$ and for $V_{C'}^{-1}$ inverted and reversed, is a
+filling of $C\vee C'^{\pm1}$.
+
+(ii) Each orbit of $G^{\Lambda'}$ meets the fields equal to $I$ on the
+spanning tree $\tau$ of the proof of Lemma~\ref{lem:smallcurv}, in an orbit
+of the constant gauge transformations. Fix a site $o$. For a link $k\notin
+\tau$ let $C_k$ run from $o$ along $\tau$ to the start of $k$, along $k$,
+and back along $\tau$; at such fields $V_{C_k}=V_k$. Let $V,V'$ be two such
+fields with $s(V_C)=s(V'_C)$ for every closed path $C$. Every word in the
+$V_k$ is the holonomy of a closed path based at $o$, and the trace is real
+on $\SU(2)$, so the unitary representations $\rho,\rho'$ of the free group
+on $\{k\notin\tau\}$ with $\rho(k)=V_k$, $\rho'(k)=V'_k$ have the same
+character. They are direct sums of irreducible representations. If $E_1,
+\dots,E_r$ are the pairwise inequivalent irreducible summands of $\rho
+\oplus\rho'$, the theorems of Burnside and Jacobson give an element of the
+group algebra acting as the identity on $E_i$ and as zero on $E_j$, $j\ne
+i$; its trace under $\rho$ and under $\rho'$ is $\dim E_i$ times the
+multiplicity of $E_i$. So $\rho$ and $\rho'$ are equivalent. The unitary
+factor $U$ of the polar decomposition of an intertwiner intertwines, and
+$U(\det U)^{-1/2}\in\SU(2)$, as a constant gauge transformation, maps $V$ to
+$V'$. Thus the functions $s(V_C)$ separate the orbits. With the constants
+they span an algebra by (i), and the Stone--Weierstrass theorem on the
+compact space of orbits gives (ii). This is the lattice form of the
+reconstruction theorem of Giles~\cite{Gil81}.
+
+(iii) At $g=\operatorname{diag}(e^{i\theta},e^{-i\theta})$, $s(g^m)=1-\cos
+m\theta$, so $\varphi(g)=\sum_mc_m-\sum_{m\ge1}c_ms(g^m)$; both sides are
+class functions, and $V_{C^m}=V_C^m$. The repeated filling has $mA_C$
+factors and multiplicities $m\,m_{Cp}$. The derivatives of $s(g^m)$ of
+orders one and two are of order $m$ and $m^2$, so the series converges with
+two derivatives. For $R_m$, $(1-\cos\theta)\cos m\theta=\cos m\theta-\frac
+12\cos(m+1)\theta-\frac12\cos(m-1)\theta$, so $R_m(V_p)=-\epsilon s(V_p^m)+
+\frac\epsilon2s(V_p^{m+1})+\frac\epsilon2s(V_p^{m-1})$, and $\mathcal L=
+\epsilon(m^2+\frac12(m+1)^2+\frac12(m-1)^2)$.
+
+(iv) Lemma~\ref{lem:invariantslice}(ii) and part~(ii) of
+Proposition~\ref{prop:flatloops} give $\lvert\mathcal HR(w,w)\rvert\le
+\frac{\mathcal L}NQ_1(\Pi w)=\frac{\mathcal L}NQ_1(w)$. At the field $w$ of
+Lemma~\ref{lem:windowgap}(iv), $\Pi w=w$ and $|w|^2=C_n^-Q_1(w)$, so $\sigma
+C_n^-Q_1(w)\le(\frac{\mathcal L}N+\tau)Q_1(w)$. For $\SU(2)$, $\frac1{12}\Tr
+(\operatorname{ad}_x^2)=-\frac13\lVert x\rVert^2$, and $C_n^-\ge(n+1)^2/(3
+\pi^2)$.
+\end{proof}
+
+\begin{remark}[what the representation leaves open]\label{rem:loopsopen}
+Proposition~\ref{prop:loopsums}(ii) represents every invariant function by
+loop sums in the sense of uniform approximation only. That controls
+neither the values relative to $\sum_ps(V_p)$ nor the Hessians, and the
+weights $\mathcal L_\kappa$, $\mathcal M_\kappa$ of the approximants may
+diverge. They belong to a representation and not to the function: by
+conjugation invariance $s(V_{\gamma C\gamma^{-1}})=s(V_C)$ while $T$ and
+$t$ grow with $\gamma$, and $\mathcal M_\kappa$ can be taken as an infimum
+over representations. That the exact induced action of one step, at strong
+or at weak coupling, is a loop sum with finite $\mathcal L_\kappa$ and
+$\mathcal M_\kappa$ is not proved. It would follow from a convergent
+expansion of the induced action in polynomials in Wilson loops whose
+weights beat the growth in part (i), where a product of $k$ loop functions
+becomes $2^{k-1}$ loop functions whose fillings have the sum of the
+areas. The character expansion at strong coupling and the expansion of
+Ba{\l}aban~\cite{Bal89b} at weak coupling are of this kind, and neither
+is carried out here for the cut-off averages. For $\SU(N)$, $N\ge3$, the
+identity in (i) has no analogue linear in traces, and products of traces
+would have to be admitted. Part (iv) shows that $C_n$ stays on the Haar
+term in any loop representation, as in Corollary~\ref{cor:loopstep}.
+\end{remark}
+
+
 \emph{The induced action.} Let $e^{-A(\omega)}$ be the density in $\omega$
 of the cut-off averages of a window under the Wilson measure restricted by a
 cut-off. The small-field restriction is an example: it is a soft box in the
@@ -19947,6 +20463,443 @@ decided. The covariance of the conditional probabilities of the labels,
 the term of Proposition~\ref{prop:hiddenbit}, is not touched by the
 clusters.
 
+\subsection{The comparison across one step and the conditional iteration}\label{ssec:iterate}
+
+This subsection settles the constants of the comparison between the coarse
+action $A_1$ of Section~\ref{ssec:lfstep} and $\lambda$ times the coarse
+curvature $Q_1$, and states the iteration over scales as a conditional
+theorem. The factor $C_*$ of Theorem~\ref{thm:lfaction}(i) is replaced by
+$2956$ for every coarse field and by $1/\theta(\kappa_0)=1+O(\kappa_0)$
+for the coarse plaquettes below $\kappa_1$, which is about $0.19\,\kappa_0$ for small $\kappa_0$. No two-sided comparison of
+$A_1$ with $\lambda Q_1$ has a ratio of constants below $4t_L^2$, which
+tends to $4$: the factor four between the block-spin form and the coarse
+curvature is attained by a staggered coarse field and is intrinsic. The
+conditional theorem names one-step hypotheses $(\mathrm H_k)$, proves that
+they compose when their relative errors are summable, and locates the
+couplings at which the large-field estimates of Section~\ref{ssec:lfstep}
+stop. Throughout, $G=\SU(2)$, $L=2^m\ge32$, and the notation is that of
+Section~\ref{ssec:lfstep}.
+
+\emph{Norms.} For $g\in\SU(2)$ with angle $2x$, $\delta(g,I)=2\sqrt2\sin x$
+and $\lVert\log g\rVert=2\sqrt2\,x$ (Section~\ref{ssec:witnessradius}), so
+$\delta(g,I)\le\lVert\log g\rVert$, and the ratio $x/\sin x$ increases with
+$x$. If $\delta(g,I)\le\kappa_0\le10^{-3}$, then $x\le1.001\sin x$, $x^2\le
+1.002\,\kappa_0^2/8$ and $(x/\sin x)^2\le(1-x^2/6)^{-2}\le1+x^2/2.98$, so
+\begin{equation}\label{eq:iteratenorm}
+\lVert\log g\rVert^2\le\Bigl(1+\frac{\kappa_0^2}{20}\Bigr)\delta(g,I)^2,
+\qquad
+\lVert\log g\rVert\le\Bigl(1+\frac{\kappa_0^2}{40}\Bigr)\kappa_0 .
+\end{equation}
+For $0<\kappa_0\le9.99\cdot10^{-4}$ put
+\begin{gather*}
+\theta(\kappa_0)=\Bigl[\Bigl(1+\frac{\kappa_0^2}{20}\Bigr)\bigl(1+6031\,
+\kappa_0\bigr)^2\Bigr]^{-1},\\
+\kappa_1=\frac{\kappa_0}{\sqrt{28\,\theta(\kappa_0)}} .
+\end{gather*}
+Then $\theta(\kappa_0)\ge1-12063\,\kappa_0$, since $(1+u)^{-2}\ge1-2u$, and
+\begin{center}
+\begin{tabular}{lll}
+\hline
+$\kappa_0$ & $\theta(\kappa_0)$ & $\kappa_1/\kappa_0$\\
+\hline
+$10^{-4}$ & $0.38911\ldots$ & $0.30296\ldots$\\
+$10^{-6}$ & $0.98804\ldots$ & $0.19012\ldots$\\
+$10^{-8}$ & $0.99987\ldots$ & $0.18899\ldots$\\
+\hline
+\end{tabular}
+\end{center}
+
+\begin{theorem}[comparison constants of one step]\label{thm:stepconstants}
+For every coarse field $c$ on the torus:
+\begin{enumerate}[label=\textup{(\roman*)},leftmargin=*]
+\item $S_1(c)\ge Q_1(c)/2956$, and $A_1(c)\ge\lambda Q_1(c)/2956-4|T|
+\log M$;
+\item for $0<\kappa_0\le9.99\cdot10^{-4}$,
+\[
+S_1(c)\ge\theta(\kappa_0)\sum_P\min\bigl\{\delta(c_P,I)^2,\kappa_1^2
+\bigr\},
+\]
+and $A_1(c)$ is at least $\lambda$ times the right side minus $4|T|\log
+M$; in particular, if $\delta(c_P,I)\le\kappa_1$ for every coarse
+plaquette, $A_1(c)\ge\theta(\kappa_0)\lambda Q_1(c)-4|T|\log M$;
+\item for $\lambda\ge100$ and $\eta>0$, $A_1(c)\le4(1+\eta)\lambda Q_1(c)
++c_1(\lambda,\eta)|T|$.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+(i) Every $U\in F_c$ is in the tree gauge and has $V^\sharp(U)=c$, so
+Theorem~\ref{thm:cutoff}(ii) gives $Q_1(c)\le(8+2688\pi^2/9)Q(U)$, and
+$8+2688\pi^2/9<2956$. Take the infimum over $F_c$ and use the first
+inequality of Theorem~\ref{thm:lfaction}(i).
+
+(ii) Let $U\in F_c$ and let $\mathcal B$ be the set of fine plaquettes
+with $\delta(U_p,I)>\kappa_0$. For a coarse plaquette $P$ with sides $\ell
+\subset P$ let $D(P)$ be the union of the squares $\square_{2y+o}$ and of
+the sets $\mathcal U_\ell$ of the proof of Lemma~\ref{lem:smallstep}. That
+proof uses its hypothesis on $P$ only through the plaquettes of $D(P)$: the
+cut-off of a side $\ell$ depends on the paths of $\ell$, whose surfaces
+lie in $\mathcal U_\ell$, and $K_{P,o}$ is the holonomy of $\square_{2y+o}$.
+Let $\mathcal P_1$ be the coarse plaquettes with $D(P)\cap\mathcal B=
+\emptyset$ and $\mathcal P_2$ the others. Let $E_{\rm g}$ and $Q_{\rm g}$
+be the sums of $\lVert\Theta_p\rVert^2$ and of $\delta(U_p,I)^2$ over the
+fine plaquettes off $\mathcal B$. By~\eqref{eq:iteratenorm} these have
+$\lVert\Theta_p\rVert\le\eta:=(1+\kappa_0^2/40)\kappa_0<10^{-3}$, and
+$E_{\rm g}\le(1+\kappa_0^2/20)Q_{\rm g}$.
+
+For $P\in\mathcal P_1$ the first part of the proof of
+Lemma~\ref{lem:smallstep} applies with this $\eta$ and gives the two
+inequalities of~\eqref{eq:smallstep} and $r_P\le28.26\,\eta$. Its
+summation, restricted to $\mathcal P_1$, involves only plaquettes off
+$\mathcal B$, and its multiplicities (a plaquette in four squares
+$\square_x$, in at most four sets $\mathcal U_\ell$, a coarse link in six
+coarse plaquettes) do not grow under the restriction. The triangle
+inequality for the Euclidean norm over $\mathcal P_1$ therefore gives
+\[
+\Bigl(\sum_{P\in\mathcal P_1}\lVert\log c_P\rVert^2\Bigr)^{1/2}\le(1+6030
+\,\eta)\,E_{\rm g}^{1/2}.
+\]
+Since $6030\,\eta\le6031\,\kappa_0$ and $\delta(c_P,I)\le\lVert\log c_P
+\rVert$,
+\[
+\sum_{P\in\mathcal P_1}\delta(c_P,I)^2\le\theta(\kappa_0)^{-1}Q_{\rm g}.
+\]
+A fine plaquette lies in $\square_{2y+o}$ for at most four pairs $(P,o)$,
+since the pairs are in bijection with the squares $\square_x$, and in
+$\mathcal U_\ell$ for at most four coarse links, each a side of six coarse
+plaquettes. So it lies in $D(P)$ for at most $28$ coarse plaquettes, and
+$|\mathcal P_2|\le28|\mathcal B|$. Hence
+\begin{align*}
+Q(U)&=Q_{\rm g}+\sum_{p\in\mathcal B}\delta(U_p,I)^2\\
+&\ge\theta(\kappa_0)\sum_{P\in\mathcal P_1}\delta(c_P,I)^2+\frac{
+\kappa_0^2}{28}\,|\mathcal P_2| .
+\end{align*}
+Each term of $\theta\sum_P\min\{\delta(c_P,I)^2,\kappa_1^2\}$ is at most
+the corresponding term on the right, as $\theta\kappa_1^2=\kappa_0^2/28$.
+Take the infimum over $F_c$ and apply Theorem~\ref{thm:lfaction}(i).
+
+(iii) Theorem~\ref{thm:lfaction}(ii) with $U=R(c)$, which is regular, and
+$Q(R(c))=4Q_1(c)$.
+\end{proof}
+
+The constant $2956$ of (i) is less than $C_*/555$. Part (ii) is the
+small-field form: the coarse plaquettes below $\kappa_1\approx0.19\,
+\kappa_0$ are compared with the factor $\theta(\kappa_0)$, which tends to
+one with $\kappa_0$, and every larger coarse plaquette costs at least
+$\theta\kappa_1^2=\kappa_0^2/28$. The upper constant $4$ of (iii) and the
+lower constant $\theta(\kappa_0)$ of (ii) cannot be brought together, by
+the next theorem.
+
+For a real field $\gamma$ on the coarse links of the torus let
+\[
+q_1(\gamma)=\min\Bigl\{\sum_p(d\varphi)_p^2:\varphi\ \text{real on the
+links of}\ \Lambda_L,\ V(\varphi)=\gamma\Bigr\},
+\]
+the linear block-spin form, with $V$ the block average of
+Definition~\ref{def:blockgauge} and the curvature $(d\varphi)_p=\varphi_
+\mu(x)+\varphi_\nu(x+e_\mu)-\varphi_\mu(x+e_\nu)-\varphi_\nu(x)$. By
+Proposition~\ref{prop:effective}(i), whose proof applies on every lattice,
+$q_1\ge Q_1$. Let $s(y)=(-1)^{y_0+y_1}$ and define $\gamma_B$ by
+$\gamma_{B,(y,0)}=s(y)$, $\gamma_{B,(y,1)}=-s(y)$ and zero in the
+directions $2,3$; let $n=L/2$ and $\gamma_A$ equal $\cos(2\pi y_0/n)$ on
+the coarse links $(y,1)$ and zero on the others. Put $t_L=\frac34+\frac14
+\cos(4\pi/L)$ and $f(u)=4(1-\cos(u/\sqrt2))$, so that $\delta(e^{u\tau},I)^2=
+f(u)$ for $\lVert\tau\rVert=1$ and $u^2(1-u^2/24)\le f(u)\le u^2$.
+
+\begin{theorem}[the factor four is intrinsic]\label{thm:stepsharp}
+Let $\tau\in\g$ with $\lVert\tau\rVert=1$.
+\begin{enumerate}[label=\textup{(\roman*)},leftmargin=*]
+\item $q_1(\gamma_B)=64|T|=4\,Q_1(\gamma_B)$, attained at the field
+$\varphi^*(\gamma_B)$ of Proposition~\ref{prop:effective}(ii), and $q_1(
+\gamma_A)\le t_L^{-2}Q_1(\gamma_A)$.
+\item There is $C$, depending on $L$, such that $c^\varepsilon=e^{
+\varepsilon\tau\gamma_B}$ has $Q_1(c^\varepsilon)=|T|f(4\varepsilon)\le16
+\varepsilon^2|T|$ and $S_1(c^\varepsilon)\ge(64-C\varepsilon)\varepsilon^2
+|T|$ for $0<\varepsilon\le C^{-1}$.
+\item For $0<\varepsilon\le C^{-1}$ the field $c_\varepsilon=e^{\varepsilon
+\tau\gamma_A}$ has a regular $U_\varepsilon\in F_{c_\varepsilon}$ with
+$Q(U_\varepsilon)\le t_L^{-2}(1+C\varepsilon^2)\,Q_1(c_\varepsilon)$.
+\item If $a,b>0$ and $e(\lambda)$ with $e(\lambda)/\lambda\to0$ satisfy
+\[
+a\lambda Q_1(c)-e(\lambda)\le A_1(c)\le b\lambda Q_1(c)+e(\lambda)
+\]
+for every $c$ and every $\lambda\ge100$, then $b\ge4$ and $a\le t_L^{-2}$.
+So $b/a\ge4t_L^2$, which is above $3.849$ for $L\ge32$ and tends to $4$.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+(i) Write $\varphi^*=\varphi^*(\gamma_B)$, equal to $\gamma_{B,(y,\mu)}$
+on the links $(x,\mu)$, $x\in B(y)$, $o_\mu=1$, and to zero elsewhere. By
+Proposition~\ref{prop:effective}(ii), $V(\varphi^*)=\gamma_B$ and $\sum_p(
+d\varphi^*)_p^2=4Q_1(\gamma_B)$, and its curvature is $(d\gamma_B)_P$ on the
+four plaquettes at $x\in B(y)$ with $o_\mu=o_\nu=1$ and zero elsewhere.
+Here $(d\gamma_B)_P=4s(y)$ in the plane $\{0,1\}$, since $s$ changes sign
+under $e_0$ and $e_1$, and zero in the other planes, so $Q_1(\gamma_B)=
+16|T|$. We claim
+\begin{equation}\label{eq:kktidentity}
+d^{\mathsf T}d\varphi^*=4\varphi^*=V^{\mathsf T}(32\,\gamma_B).
+\end{equation}
+Only plaquettes in the plane $\{0,1\}$ are curved. For the link $(x,0)$
+the plaquettes at $x$ and at $x-e_1$ in that plane enter with signs $+$
+and $-$; the first is $4s(y)$ when $o_0=o_1=1$, and the second is
+$4s(y-e_1)=-4s(y)$ when $o_0=1$, $o_1=0$. So $(d^{\mathsf T}d\varphi^*)_{
+(x,0)}=4s(y)$ when $o_0=1$ and zero otherwise. The link $(x,1)$ is the
+same with the roles of the directions exchanged and the sign of the
+orientation reversed, which gives $-4s(y)$ when $o_1=1$. Links in the
+directions $2,3$ lie in no curved plaquette. For the second equality, a
+link $(x,\mu)$ with $o_\mu=1$ enters only $V_{y,\mu}$, with coefficient
+$\frac18$, and a link with $o_\mu=0$ enters $V_{y,\mu}$ and $V_{y-e_\mu,
+\mu}$ with $\frac1{16}$ each, and $\gamma_{B,(y-e_\mu,\mu)}=-\gamma_{B,(
+y,\mu)}$. Now for every real $\varphi$ with $V(\varphi)=\gamma$,
+\begin{equation}\label{eq:kktbound}
+\sum_p(d\varphi)_p^2\ge2\ip{d\varphi}{d\varphi^*}-\sum_p(d\varphi^*)_p^2=
+64\ip{\gamma}{\gamma_B}-64|T|,
+\end{equation}
+which for $\gamma=\gamma_B$, $\lvert\gamma_B\rvert^2=2|T|$, is $64|T|$, with
+equality at $\varphi^*$. For $\gamma_A$, $T$ of Lemma~\ref{lem:whitney}
+multiplies $\gamma_A$ by $t_L$, since $\gamma_A$ depends on $y_0$ alone and
+$\tau_0\cos(2\pi y_0/n)=(\frac34+\frac14\cos\frac{2\pi}n)\cos(2\pi y_0/n)$.
+Lemma~\ref{lem:whitney} with $k=1$ on the coarse torus of side $n$, whose
+proof uses only the local structure, gives $V(\Pi(\gamma_A/t_L))=\gamma_A$
+and $\sum_p(d\Pi(\gamma_A/t_L))_p^2\le Q_1(\gamma_A)/t_L^2$.
+
+(ii) The curvature of $c^\varepsilon$ is $e^{4\varepsilon s(y)\tau}$ in
+the plane $\{0,1\}$ and $I$ elsewhere, so $Q_1(c^\varepsilon)=|T|f(4
+\varepsilon)$. Let $U\in F_{c^\varepsilon}$; we may assume $Q(U)\le64
+\varepsilon^2|T|$. Then every plaquette has $\delta(U_p,I)\le8\varepsilon
+|T|^{1/2}$, and for $\varepsilon$ small Lemma~\ref{lem:smallframes}(i)
+and (iv) with $W=T$ put every link within $C\varepsilon$ of $I$, as in the
+proof of Theorem~\ref{thm:sfgauss}(ii), using $\delta(c^\varepsilon_k,I)
+\le\varepsilon$. By Lemma~\ref{lem:logbound}, $U=e^X$ with $|X|=\max_e\lVert
+X_e\rVert\le C\varepsilon$. By Lemma~\ref{lem:bch}, $\lVert\log U_p-(dX)_
+p\rVert\le C\varepsilon^2$, and $\delta(e^Y,I)^2\ge\lVert Y\rVert^2(1-
+\lVert Y\rVert^2/24)$, so $Q(U)\ge\sum_p\lVert(dX)_p\rVert^2-C\varepsilon^3
+|T|$. As in that proof, $\log V^\sharp_k(e^X)=V_k(X)+O(|X|^2)$, so the
+component $X^\tau=\ip X\tau$ has $V(X^\tau)=\varepsilon\gamma_B+r$ with
+$\lvert r_k\rvert\le C\varepsilon^2$. Apply~\eqref{eq:kktbound} to
+$X^\tau/\varepsilon$:
+\begin{align*}
+\sum_p\lVert(dX)_p\rVert^2&\ge\sum_p(dX^\tau)_p^2\ge64\varepsilon^2|T|-64
+\varepsilon\ip r{\gamma_B}\\
+&\ge(64-C\varepsilon)\varepsilon^2|T| .
+\end{align*}
+
+(iii) By Lemma~\ref{lem:straightpaths}(iii), whose proof is local, $\Pi(\gamma_A/
+t_L)$ plus a gradient that vanishes under $V$ is a field $\varphi_A$ in the
+tree gauge with $V(\varphi_A)=\gamma_A$ and $\sum_p(d\varphi_A)_p^2\le
+Q_1(\gamma_A)/t_L^2$. Let $U_\varepsilon=e^{\varepsilon\tau\varphi_A}$.
+All its links lie in the one-parameter group $e^{\R\tau}$, so the path
+product $P_x$ of a coarse link is $e^{\varepsilon\tau\sigma_x}$, $\sigma_x$
+the sum of $\varphi_A$ along the path of length two from $x$. For
+$\varepsilon$ small, $\delta(P_x,P_{2y})\le\varepsilon\lvert\sigma_x-
+\sigma_{2y}\rvert$ is below $\frac14$, so $U_\varepsilon$ is regular, and
+Theorem~\ref{thm:cutoff}(i) gives $V^\sharp_{y,\mu}(U_\varepsilon)=e^{
+\varepsilon\tau V_{y,\mu}(\varphi_A)}$, that is $V^\sharp(U_\varepsilon)=
+c_\varepsilon$. Then $Q(U_\varepsilon)=\sum_pf(\varepsilon(d\varphi_A)_p)
+\le\varepsilon^2Q_1(\gamma_A)/t_L^2$ and $Q_1(c_\varepsilon)=\sum_Pf(
+\varepsilon(d\gamma_A)_P)\ge\varepsilon^2Q_1(\gamma_A)(1-\varepsilon^2/6)$,
+as $\lvert(d\gamma_A)_P\rvert\le2$.
+
+(iv) By Theorem~\ref{thm:lfaction}(i), $\lambda S_1(c)-4|T|\log M\le
+A_1(c)\le b\lambda Q_1(c)+e(\lambda)$; divide by $\lambda$ and let $\lambda
+\to\infty$: $S_1(c)\le bQ_1(c)$. At $c^\varepsilon$, (ii) gives $b\ge4-
+C\varepsilon/16$ for every small $\varepsilon$. By
+Theorem~\ref{thm:lfaction}(ii) with any $\eta>0$ and the regular field
+$U_\varepsilon$, $a\lambda Q_1(c_\varepsilon)-e(\lambda)\le(1+\eta)\lambda
+Q(U_\varepsilon)+c_1(\lambda,\eta)|T|$, and $c_1(\lambda,\eta)$ grows like
+$\log\lambda$; so $aQ_1(c_\varepsilon)\le Q(U_\varepsilon)$, and (iii)
+gives $a\le t_L^{-2}(1+C\varepsilon^2)$. The value $4t_{32}^2=3.8491\ldots$
+and $t_L\to1$ give the last statement.
+\end{proof}
+
+\begin{remark}\label{rem:stepconstants}
+Part (i) makes exact the right end of the Bloch spectrum stated after
+Proposition~\ref{prop:effective}: $\gamma_B$ is the mode of momentum
+$(\pi,\pi,0,0)$ in the plane $\{0,1\}$, and~\eqref{eq:kktidentity} is the
+Lagrange condition of $q_1$ at it, with multiplier $64\gamma_B$. The field
+$\gamma_A$ is the long-wavelength end. So $C_*$ is a constant of the
+witness argument of Lemma~\ref{lem:lfcoarseenergy} and not of the step:
+the best lower constant lies between $\theta(\kappa_0)$ on the small coarse
+fields and $t_L^{-2}$, the best upper constant is $4$, and a comparison
+with $\lambda Q_1$ with constants $1+o(1)$ on both sides does not exist.
+Constants close to one on both sides hold for the fibre infimum itself:
+by Theorem~\ref{thm:lfaction}, $\lambda S_1(c)-4|T|\log M\le A_1(c)\le(1+
+\eta)\lambda Q(U)+c_1(\lambda,\eta)|T|$ for every regular $U\in F_c$. At
+the linear level $S_1$ is the block-spin form $q_1$, which is not a sum of
+local terms (Theorem~\ref{thm:sfgauss}). The reference forms $R_k$ below
+are built from the block-spin form for this reason.
+\end{remark}
+
+\emph{The conditional iteration.} Let $K\ge1$ and $\lambda_0>\lambda_1>
+\dots>\lambda_K>0$. For $0\le k\le K$ let $\mathcal X_k$ be a finite
+dimensional real inner product space, for $k<K$ let $B_k:\mathcal X_k\to
+\mathcal X_{k+1}$ be linear and onto, and let $H_k$ be a positive
+semidefinite quadratic form on $\mathcal X_k$. For a form $H$ on $\mathcal
+X_k$ put $\mathcal M_kH(w)=\inf\{H(x):B_kx=w\}$, and define the reference
+forms by
+\[
+R_0=H_0,\qquad R_{k+1}=\frac{\lambda_{k+1}}{\lambda_k}\,\mathcal M_kR_k .
+\]
+In the application $H_k$ is the gauge-invariant Hessian $\mathcal HA_k$ of
+the effective action of scale $k$ at a chain of backgrounds, in
+exponential coordinates, and $B_k$ the derivative of the cut-off average.
+At the trivial background, with $\mathcal X_k$ the $\g$-valued fields on
+the active links of spacing $2^k$, $B_k=V$ and $H_0=2\lambda_0\sum_p\lVert
+(dX)_p\rVert^2$, the Hessian of $\lambda_0Q$ at $I$, the identity $V^{(k+1)
+}=V\circ V^{(k)}$ gives $R_k=2\lambda_kS_k$, where $S_k(w)=\inf\{\sum_p
+\lVert(d\varphi)_p\rVert^2:V^{(k)}(\varphi)=w\}$ on the torus; by Lemma~\ref{lem:straightpaths}(iii), whose proof is local,
+$R_1$ is $2\lambda_1q_1$ on each component. The hypotheses at step $k<K$ are:
+\begin{enumerate}[label=\textup{(H\arabic*)},leftmargin=*]
+\item \emph{relative error:} for some $0\le\varepsilon_k<1$,
+\[
+(1-\varepsilon_k)\tfrac{\lambda_{k+1}}{\lambda_k}\mathcal M_kH_k\le
+H_{k+1}\le(1+\varepsilon_k)\tfrac{\lambda_{k+1}}{\lambda_k}\mathcal M_kH_k ;
+\]
+\item \emph{locality:} on a subspace $\mathcal Y_{k+1}\subset\mathcal X_{k+1}$
+on which $R_{k+1}$ and $H_{k+1}$ are positive definite, a slice of the
+coarse gauge orbits, with a metric on its coordinates and $\alpha_{k+1}\ge
+0$, for every $W=e^{\alpha_{k+1}\phi}$ with $\phi$ $1$-Lipschitz,
+\[
+\lVert WR_{k+1}^{-1}W^{-1}\rVert\le G_{k+1},\qquad\lVert W(H_{k+1}-
+R_{k+1})W^{-1}\rVert\le\frac{\ell_{k+1}}{G_{k+1}},
+\]
+with $\ell_{k+1}<1$;
+\item \emph{large-field cost:} the weight of a coarse field of scale $k+1$
+is $Z_{k,\emptyset}(c)\,\varXi_k(c)$, where $\varXi_k(c)$ is the mean,
+under a probability law, of the sum over families of pairwise compatible
+nonempty $\ell^\infty$-connected sets $X_i$ of blocks of scale $k+1$ of
+products $\prod_i\rho_{X_i}$, with $0\le\rho_X\le e^{-9|X|}$ almost
+surely and compatibility as in Theorem~\ref{thm:lfkp}.
+\end{enumerate}
+For $k=0$, (H3) is the hypothesis of Proposition~\ref{prop:sfrelative}(ii)
+together with $Z_\perp=0$.
+
+\begin{theorem}[conditional iteration]\label{thm:iterate}
+Suppose that (H1)--(H3) hold at every step $k<K$, and let $\sigma=\sum_{k<K}
+\varepsilon_k$, $|T_k|=|T|/16^{k-1}$ the number of blocks of scale $k$.
+\begin{enumerate}[label=\textup{(\alph*)},leftmargin=*]
+\item For $k\le K$, $\prod_{j<k}(1-\varepsilon_j)R_k\le H_k\le\prod_{j<k}
+(1+\varepsilon_j)R_k$; in particular $(1-\sigma)R_K\le H_K\le e^\sigma R_K$.
+\item Let $\lambda_k=\lambda_0-tk$, $t=2b_0\log2$, the one-loop running of
+Remark~\ref{rem:constrainedopen}(c), with $t=0.0643779\ldots$ and $1/t<
+15.534$ for $\SU(2)$. If $\varepsilon_k\le c_\varepsilon\lambda_{k+1}^{-2}$
+for every $k<K$, then
+\[
+\sigma\le c_\varepsilon\Bigl(\frac1{\lambda_K^2}+\frac1{t\lambda_K}\Bigr),
+\]
+uniformly in $\lambda_0$ and $K$; so $\sigma\le\frac12$ once $\lambda_K\ge
+32,311,3107$ for $c_\varepsilon=1,10,100$, that is $\beta_K\ge128,1244,
+12428$. If instead $\varepsilon_k\ge c\,\lambda_{k+1}^{-1}$ for every $k$,
+then $\sigma\ge(c/t)\log(\lambda_0/\lambda_K)$, which is unbounded as
+$\lambda_0\to\infty$ at fixed $\lambda_K$.
+\item For $1\le k\le K$, $\lVert WH_k^{-1}W^{-1}\rVert\le G_k/(1-\ell_k)$
+on $\mathcal Y_k$ for every $W$ as in (H2), and $\lvert(H_k^{-1})_{ij}
+\rvert\le G_k(1-\ell_k)^{-1}e^{-\alpha_k\dist(i,j)}$.
+\item For $k<K$, $\varXi_k=\E[e^{\varLambda_k}]$, where $\varLambda_k$ is
+the absolutely convergent sum of the connected clusters, those
+incompatible with a given block add up to at most $\frac1{10}$, and $0\le
+\log\varXi_k\le|T_{k+1}|/10$; the sum over the steps is at most $\frac8
+{75}|T|$.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+(a) If $H\le H'$ then $\mathcal M_kH\le\mathcal M_kH'$, and $\mathcal M_k(sH)
+=s\mathcal M_kH$ for $s\ge0$; this is the argument of
+Proposition~\ref{prop:formstability}, which takes infima over the same
+affine subspaces and does not use definiteness. Induction on $k$ with (H1)
+gives the products, and $\prod(1-\varepsilon_j)\ge1-\sigma$, $\prod(1+
+\varepsilon_j)\le e^\sigma$.
+(b) $\lambda_{k+1}=\lambda_K+t(K-k-1)$, so $\sum_{k<K}\lambda_{k+1}^{-2}\le
+\lambda_K^{-2}+\int_0^\infty(\lambda_K+tx)^{-2}dx$. For the lower bound,
+$t\lambda_{k+1}^{-1}\ge\int_{\lambda_{k+1}}^{\lambda_k}d\lambda/\lambda$.
+With $1/t<15.534$ the bound is at most $0.4865$, $0.4997$ and
+$0.49999$ at $\lambda_K=32$, $311$, $3107$ for $c_\varepsilon=1,10,100$,
+and it decreases in $\lambda_K$.
+(c) The last statement of Proposition~\ref{prop:formstability} with $H_0=
+R_k$ and $\varepsilon=\ell_k$; for the entries take $\phi=\dist(\cdot,j)$
+as in Lemma~\ref{lem:schur}.
+(d) Theorem~\ref{thm:lfkp}(i), whose proof uses only the activity bound
+and the count of connected sets of blocks, applied on the torus of scale
+$k+1$ to each realisation of the activities, as in the proof of
+Proposition~\ref{prop:sfrelative}(ii); and $\sum_{k\ge0}16^{-k}/10=
+\frac8{75}$.
+\end{proof}
+
+The theorem composes hypotheses; it does not supply them. The relative
+form (H1) is the one that survives composition with factor one, while an
+absolute error grows by at least $4/(1+2724\kappa)$ per step
+(Proposition~\ref{prop:massgrowth}), and order-$g^2$ errors are not
+summable along the running, by (b). The locality (H2) is posed at each
+scale: Lemma~\ref{lem:schur} carries a bound on $H_k-R_k$ to the Schur
+complement only with the factor $(1+b_kg_k)^2$, and a relative bound
+(H1) carries no locality (Proposition~\ref{prop:formstability}).
+
+\begin{proposition}[what is proved of $(\mathrm H_k)$]\label{prop:iteratestatus}
+\begin{enumerate}[label=\textup{(\roman*)},leftmargin=*]
+\item (H1) is not proved at any step. At $k=0$,
+Proposition~\ref{prop:relstep} gives it on a box from the absolute
+hypothesis (H) there, with $\varepsilon'$ containing $\delta_GC_n/(2c_*
+\lambda)$, of order $g^2n^2$, and Corollary~\ref{cor:loopstep} under a
+loop representation of the remainder that is not proved.
+\item (H2): at the trivial background the reference $R_k=2\lambda_kS_k$ is
+local as a form uniformly in $k$ on $\Z^4$ (Theorem~\ref{thm:effectivelocal}),
+and Theorem~\ref{thm:chartdecay} gives decay of covariances at one scale.
+The bound on $H_{k+1}-R_{k+1}$ is not proved for any $k$.
+\item (H3) at $k=0$ holds with activities $\rho_X\le e^{-9|X|}$ where the
+boundary values admit a completion calm at $\kappa/30$, for $\lambda\ge
+\lambda^{**}(\kappa)$ (Theorem~\ref{thm:sfcalm},
+Proposition~\ref{prop:sfrelative}); the shell $(\kappa/30,\kappa]$ and
+$Z_\perp$ are not bounded, and nothing is proved for $k\ge1$.
+\item The rates of Theorems~\ref{thm:lfmarkov}(iii) and~\ref{thm:sfcalm}
+are increasing in $\kappa$, and $\kappa<\kappa_c=0.0837613\ldots$ is
+required. For every $\kappa<\kappa_c$, $a(\lambda,\kappa)<9$ when $100\le
+\lambda\le245007$ and $a_2(\lambda,\kappa)<9$ when $100\le\lambda\le
+809322$, whatever $M\ge1$; with $M<2.3621\cdot10^4$, $a(\lambda,\kappa_c)
+\ge9$ for $\lambda\ge256948$ and $a_2(\lambda,\kappa_c)\ge9$ for $\lambda
+\ge832243$. So, with $\beta^*$ and $\beta^{**}$ at $\kappa_c$ defined by
+these rates,
+\begin{gather*}
+9.800\cdot10^5<\beta^*(\kappa_c)\le1.0278\cdot10^6,\\
+3.2372\cdot10^6<\beta^{**}(\kappa_c)\le3.3290\cdot10^6,
+\end{gather*}
+and along the one-loop running more than $1.257\cdot10^7$ steps lie between
+$\lambda=809322$ and $\lambda=1$.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+(i)--(iii) restate the cited results. (iv) Both rates contain $\kappa$
+only through $\lambda\kappa^2$ with a positive coefficient. The constants
+$c_1(\lambda,1)$, $c_2(\lambda,1)$ increase with $\lambda$, with $c_1(100,1)
+>1183$ and $c_2(100,1)>1958$, and $\log M\ge0$. At $\kappa_c$, $a$
+increases for $\lambda\ge10^4>67.5/\kappa_c^2$ and $a<9$ below $10^4$;
+$a_2$ increases for $\lambda\ge10^5>109.5/(0.52\kappa_c^2)$ and $a_2<9$
+below $10^5$. The four end points follow by evaluating the closed forms of the rates
+there, and the same evaluation at $\kappa=0.08$ gives the values $\beta^*(0.08)=1.13074\cdot10^6$
+and $\beta^{**}(0.08)\le3.66191\cdot10^6$ of Theorems~\ref{thm:lfkp}
+and~\ref{thm:sfcalm}. The count is $(809322-1)/t$.
+\end{proof}
+
+\begin{remark}\label{rem:iteratelinear}
+Theorem~\ref{thm:stepconstants}(ii) is not a substitute for (H1), because
+its loss is linear in the field size. Suppose it is used at a step whose
+coarse fields are calm at a threshold $\kappa'$ satisfying the rate
+condition $\lambda'\kappa'^2\ge9+c_1(\lambda',1)$ of
+Theorem~\ref{thm:lfmarkov}(iii) at the next coupling $\lambda'\ge100$, so
+that $\kappa'\ge34.4\,\lambda'^{-1/2}$, and suppose $\kappa_1\ge\kappa'$.
+Then $\log\theta(\kappa_0)\le-2\log(1+6031\kappa_0)\le-1716\,\kappa_0$,
+and either $\theta\le\frac12$ or $\kappa_0\ge\sqrt{14}\,\kappa'$, so
+$-\log\theta(\kappa_0)\ge\min\{\log2,2.2\cdot10^5\lambda'^{-1/2}\}$, which
+is $\log2$ for $\lambda'\le10^{11}$. The product of these factors along
+the running tends to zero as $\lambda_0\to\infty$. The loss comes from
+Lemma~\ref{lem:smallstep}, whose bound is linear in $\eta$; at the linear
+level there is no loss, since $q_1\ge Q_1$, and the long-wavelength fields
+of Theorem~\ref{thm:stepsharp}(iii) show that no lower constant above
+$t_L^{-2}$ holds.
+\end{remark}
+
 \subsection{What remains}\label{ssec:remains}
 
 The results of this section leave the following statements, which together
@@ -20039,11 +20992,19 @@ step. Proposition~\ref{prop:relstep} gives such a relative bound
 for one step at the trivial background on a box of side $n$, from an
 absolute bound on the Hessian of the induced action off the gauge
 directions; its factor $C_n$, of order $n^2$, is necessary for an
-absolute bound (Remark~\ref{rem:relscales}). For a remainder made of
-filled Wilson loops the bound is relative at every flat background
-(Proposition~\ref{prop:flatloops}), and $C_n$ falls on the Haar term alone
-(Corollary~\ref{cor:loopstep}); that the induced action has this form is
-not proved, and a relative bound on values gives no Hessian bound at curved
+absolute bound (Remark~\ref{rem:relscales}). For a remainder made of filled Wilson loops the bound is relative at every
+flat background (Proposition~\ref{prop:flatloops}), and $C_n$ falls on the
+Haar term alone (Corollary~\ref{cor:loopstep}). At a background whose
+plaquettes lie within $\kappa$ of $I$ the covariant Hessian of such a
+remainder is bounded by the covariant plaquette form with a loss of order
+$\kappa n^2$, at critical and non-critical points alike
+(Proposition~\ref{prop:curvedloops}); the loss is attained, and for
+$\kappa(n+1)^2\ge31$ the plaquette action itself has a negative direction
+off the gauge directions (Proposition~\ref{prop:curvedsharp}). That the
+induced action is a loop sum with summable coefficients is not proved: for
+$\SU(2)$ loop sums are dense among invariant functions
+(Proposition~\ref{prop:loopsums}), which controls neither values nor
+Hessians, and a relative bound on values gives no Hessian bound at curved
 backgrounds (Remark~\ref{rem:valueshessians}). Section~\ref{ssec:lfstep} carries out the large-field
 part of one step for $\SU(2)$: each rough block costs $e^{-\lambda\kappa^2}$,
 the weight of a coarse field is an exact sum over large-field regions, and
@@ -20056,8 +21017,19 @@ on the term $Z_\perp$, and the locality of the calm weight in $c$; by
 Theorem~\ref{thm:sfgauss} the calm weight is not a product of local factors
 times a polymer sum, so a local form has to expand around the Gaussian
 block-spin form. The coarse action is comparable to $\lambda$ times the
-coarse curvature only up to the factor $C_*$, so the step does not
-iterate.
+coarse curvature only up to a constant factor. Section~\ref{ssec:iterate} replaces the factor $C_*$ of the
+comparison by $2956$ for every coarse field and by $1+O(\kappa_0)$ on the
+coarse plaquettes below $\kappa_1\approx0.19\,\kappa_0$
+(Theorem~\ref{thm:stepconstants}), and shows that no such comparison has
+a ratio of constants below $4t_L^2>3.849$ (Theorem~\ref{thm:stepsharp}),
+so that a next step has to be compared with the block-spin form.
+Theorem~\ref{thm:iterate} composes the steps under three hypotheses at
+every scale, a relative error, a locality bound and a large-field cost;
+none is proved beyond the first step in the required form
+(Proposition~\ref{prop:iteratestatus}), and the large-field estimates
+of Section~\ref{ssec:lfstep} give no activity bound for
+$\beta_W<3.2372\cdot10^6$, more than $1.257\cdot10^7$ one-loop steps
+above coupling one.
 \end{enumerate}
 The covariance of item (ii) for a fixed coarse field and uniform in the
 exterior, with decay at the rate $2\alpha_G$ without a floor, is the
@@ -22162,6 +23134,9 @@ Notes in Phys., vol.~788. Springer, Berlin (2010).
 \bibitem{GBN26}
 Ghora, R., Bhattacharjee, D., Nandi, P., Samal, P., Patra, R., Singha Roy, S., Bhattacharya, S.: O'Neill tensor bounds for Riemannian submersions in fibred Calabi--Yau manifolds. Preprints (2026). \href{https://doi.org/10.20944/preprints202602.0125.v1}{https://doi.org/10.20944/preprints202602.0125.v1}
 
+\bibitem{Gil81}
+R.~Giles, Reconstruction of gauge potentials from Wilson loops, Phys. Rev. D \textbf{24} (1981), 2160--2168, \href{https://doi.org/10.1103/PhysRevD.24.2160}{doi:10.1103/PhysRevD.24.2160}.
+
 \bibitem{GJ87}
 Glimm, J., Jaffe, A.: Quantum Physics. A Functional Integral Point of
 View, 2nd edn. Springer, New York (1987).
@@ -22292,6 +23267,9 @@ A.~Naddaf and T.~Spencer, On homogenization and scaling limit of some
 gradient perturbations of a massless free field, Comm. Math. Phys.
 \textbf{183} (1997), 55--84,
 \href{https://doi.org/10.1007/BF02509796}{doi:10.1007/BF02509796}.
+
+\bibitem{NO78}
+N.~K.~Nielsen and P.~Olesen, An unstable Yang--Mills field mode, Nucl. Phys. B \textbf{144} (1978), 376--396, \href{https://doi.org/10.1016/0550-3213(78)90377-2}{doi:10.1016/0550-3213(78)90377-2}.
 
 \bibitem{OS73}
 Osterwalder, K., Schrader, R.: Axioms for Euclidean Green's functions.

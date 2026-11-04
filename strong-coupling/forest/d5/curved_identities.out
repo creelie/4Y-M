@@ -1,0 +1,39 @@
+Ad(A)X2: OK
+Ad(A)X2: OK
+Ad(A)X2: OK
+Ad(A)X2: OK
+Ad(A)X3: OK
+Ad(A)X3: OK
+Ad(A)X3: OK
+Ad(A)X3: OK
+Ad(B)X1: OK
+Ad(B)X1: OK
+Ad(B)X1: OK
+Ad(B)X1: OK
+Ad(B)X3: OK
+Ad(B)X3: OK
+Ad(B)X3: OK
+Ad(B)X3: OK
+Ad(A)X1: OK
+Ad(A)X1: OK
+Ad(A)X1: OK
+Ad(A)X1: OK
+Ad(B)X2: OK
+Ad(B)X2: OK
+Ad(B)X2: OK
+Ad(B)X2: OK
+coordinates of Y1..Y4 in X1,X2,X3:
+   [8*f*sa**2*sb**4 - 8*f*sa**2*sb**2 + f, -4*ca*cb*f*sa*sb, -8*cb*f*sa**2*sb**3 + 4*cb*f*sa**2*sb]
+   [4*ca*cb*gp*sa*sb, -2*gp*sa**2 + gp, 4*ca*gp*sa*sb**2 - 2*ca*gp*sa]
+   [2*fp*sb**2 - fp, 0, -2*cb*fp*sb]
+   [0, -g, 0]
+|Z|^2 formula: OK
+Re part of c = 1-2S: OK
+coordinates of Chat: [2*sqrt(2)*ca*sa*sb**2, -2*sqrt(2)*cb*sa**2*sb, -2*sqrt(2)*ca*cb*sa*sb]
+S: OK
+Hess s(V_p) formula: OK
+H=(1/2-S)|Z|^2+<Chat,sum[Y,Y']>/2: OK
+Hess = -(1/N) ReTr(V_C(V0)(Z^2+sum[Y,Y'])): OK
+flat (0,nu) plaquette: OK
+flat (1,nu) plaquette: OK
+all identities verified
