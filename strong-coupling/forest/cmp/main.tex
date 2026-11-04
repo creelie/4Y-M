@@ -73,9 +73,9 @@ Propositions~\ref{prop:goodside} and~\ref{prop:fold}), the bounded response of t
 rare labels (Proposition~\ref{prop:hiddenbit}), the explicit island
 threshold $\beta^*(\rho,s)$ past which the islands of bad blocks at one
 scale are rarer than their entropy (Theorem~\ref{thm:islandthreshold}),
-its composition to every scale up to $a_{k_*}/512$ with the abelian field
-that stops the fine witnesses (Theorem~\ref{thm:islandscales},
-Proposition~\ref{prop:constantcurvature}), the coupling-cost
+its composition to every scale up to $a_{k_*}/8$ at the witness radius $10^{-4}$, sharp for the cut-off at $\kappa_c=0.08376$, with the abelian field
+that stops the fine witnesses (Theorems~\ref{thm:islandscales} and~\ref{thm:islandswide},
+Propositions~\ref{prop:constantcurvature} and~\ref{prop:smallframessharp}), the coupling-cost
 minimality lemmas (Lemmas~\ref{lem:minimality} and~\ref{lem:minimiser}),
 the exact block response $\frac14(1+I_2(\beta_W)/I_1(\beta_W))$ and its
 crossing at $\beta_W=0.3666$ (Proposition~\ref{prop:blockresponse}), the
@@ -125,9 +125,9 @@ good window carries an exact product law in which each path link is
 determined by its pair, that the weight of two bad islands factorises exactly through one kernel on the good layer between them, on a domain that their labels do not move, with covariance at most $\frac14\tanh(\varDelta/4)$ and $\varDelta$ exponentially small in the width of that layer, and that the exact response of a plaquette block
 at zero field, $\frac14(1+I_2(\beta_W)/I_1(\beta_W))$, bounds every
 Dobrushin estimate of this form by $\beta_W=0.3666$. We give the explicit
-coupling, $\beta_W=5.4\cdot10^{21}$ at the label radius $10^{-8}$, past
+coupling, $\beta_W=5.4\cdot10^{13}$ at the label radius $10^{-4}$, past
 which the islands of bad blocks at one scale are rarer than their entropy,
-and carry it to every scale up to $1/512$ of the scale that the defect
+and carry it to every scale up to $1/8$ of the scale that the defect
 propagation reaches.
 We prove that the rarity of bad labels alone cannot control their
 covariance, that a rough coarse background makes the constrained action
@@ -12537,17 +12537,239 @@ coarse label of a block at scale $j$ is the plaquette of $U^{(j+1)}$.
 
 Between the two conditions lies a factor $23.5<4^{2.3}$, so the fine
 witnesses of Lemma~\ref{lem:scalewitness} stop within three scales of
-where any fine witness must stop. The remaining six scales up to $a_{k_*}$
-are the ratio between the curvature margin $10^{-4}$ of
-Theorem~\ref{thm:defectscales}(iv) and the chart radius $10^{-8}$ of
-Lemma~\ref{lem:smallframes}: a chart lemma at radius $10^{-4}$ would carry
-the count to $a_{k_*}$, and past $a_{k_*}$ the rarity of a large coarse
+where any fine witness must stop. At the radius $10^{-8}$ the remaining
+six scales up to $a_{k_*}$ are the ratio between the curvature margin
+$10^{-4}$ of Theorem~\ref{thm:defectscales}(iv) and the witness radius of
+Lemma~\ref{lem:smallframes}; Theorem~\ref{thm:islandswide} below removes
+that ratio and carries the count to $a_{k_*}/8$, and past $a_{k_*}$ the rarity of a large coarse
 plaquette can no longer come from the fine scale, by the proposition, but
 must come from the coarse energy of Lemma~\ref{lem:coarseenergy}, which is
 known for torus-valued fields only. Theorem~\ref{thm:islandscales} is an
 annealed statement about the pushforward of $\mu_L$: it says nothing about
 the law of $U^{(j)}$ given its labels, which is what the effective action
 of item (iv) below is for.
+
+\subsection{The witness radius for $\SU(2)$}\label{ssec:witnessradius}
+
+The thresholds above carry the factor $16/\rho^2$ of the witness radius
+$\rho\le10^{-8}$. For $\SU(2)$ the witness paragraph of
+Theorem~\ref{thm:islandthreshold} holds up to an explicit radius, which is
+sharp for Lemma~\ref{lem:smallframes}(iv). Write $\angle g\in[0,\pi]$ for the
+angle of $g\in\SU(2)$, the bi-invariant geodesic distance to $I$ on $S^3$,
+so that $\angle(gh)\le\angle g+\angle h$, $\angle(hgh^{-1})=\angle g$,
+$\delta(g,I)=2\sqrt2\sin(\angle g/2)\le\sqrt2\angle g$ and $\lVert\log g
+\rVert=\sqrt2\angle g$ for $\angle g<\pi$. Put $p(\kappa)=2\arcsin(\kappa/
+2\sqrt2)$, the largest angle of a plaquette with $\delta(U_p,I)\le\kappa$, and
+\[
+\psi_c=\tfrac13\arcsin\tfrac1{4\sqrt2},\qquad
+\kappa_c=2\sqrt2\sin\tfrac{\psi_c}2=0.0837613\ldots,
+\]
+so that $p(\kappa)<\psi_c$ exactly when $\kappa<\kappa_c$, and $\sqrt2\,p(\kappa)
+\le1.0002\,\kappa$ for $\kappa\le\kappa_c$.
+
+\begin{lemma}[the ladder]\label{lem:ladder}
+Let $U$ be in the tree gauge, $v=P_{2y}$ the straight path of the pair
+$(y,\mu)$, and $x\in B(y)$ with $n_x\le3$ transverse coordinates of the
+offset equal to one. Then $v^{-1}P_x$ is a product of $2n_x$ conjugates of
+plaquette variables or their inverses, all with their vertices in $B(y)\cup
+B(y+e_\mu)$. If these plaquettes have $\delta(U_p,I)\le\kappa$, then
+$\angle(v^{-1}P_x)\le2n_xp(\kappa)$, and every link $e$ leaving $B(y)$ in
+the direction $\mu$ has $\angle(v^{-1}U_e)\le9p(\kappa)$.
+\end{lemma}
+
+\begin{proof}
+The tree path from $2y$ to $x$ inside $B(y)$ raises the coordinates of the
+offset in increasing order of direction, so a step raising the coordinate
+$\alpha$ at $z$ uses the tree link $(z,\alpha)$, and $(z+2e_\mu,\alpha)$,
+with the same offset in $B(y+e_\mu)$, is a tree link as well. A step with
+$\alpha=\mu$ changes nothing, since then $(z,\mu)$ and $(z+2e_\mu,\mu)$ are
+tree links and $P_z=U_{z+e_\mu,\mu}=P_{z+e_\mu}$. For $\alpha\ne\mu$ let
+$p_1,p_2$ be the plaquettes at $z$ and $z+e_\mu$ in the plane $\{\mu,\alpha\}$,
+$g=U_{z+e_\mu,\alpha}$ and $z'=z+e_\alpha$. With the two tree links equal to
+$I$, $U_{p_1}=U_{z,\mu}gU_{z',\mu}^{-1}$ and $U_{p_2}=U_{z+e_\mu,\mu}
+U_{z'+e_\mu,\mu}^{-1}g^{-1}$, hence
+\[
+P_z=U_{p_1}\bigl(U_{z',\mu}g^{-1}U_{p_2}gU_{z',\mu}^{-1}\bigr)P_{z'},
+\]
+and each of the $n_x$ transverse steps multiplies by two conjugated
+plaquettes. The angle is subadditive and conjugation invariant. For a
+leaving link $e=(x,\mu)$, $P_{x-e_\mu}=U_aU_e$ with $U_a$ a link inside
+$B(y)$, whose angle is at most $3p$ by the chains of the proof of
+Lemma~\ref{lem:smallframes}(i); so $\angle(v^{-1}U_e)\le\angle U_a+
+\angle(v^{-1}P_{x-e_\mu})\le9p$.
+\end{proof}
+
+\begin{proposition}[Lemma~\ref{lem:smallframes} for $\SU(2)$ to the sharp radius]\label{prop:smallframessharp}
+Let $G=\SU(2)$.
+\begin{enumerate}[label=\textup{(\roman*)},leftmargin=*]
+\item Parts (i)--(iii) of Lemma~\ref{lem:smallframes} hold for every
+$\kappa\ge0$, and the constant $21$ of (i) can be replaced by $9$.
+\item Part (iv) holds for every $\kappa<\kappa_c$, with $28.04\,\kappa$ in
+place of $260\,\kappa$.
+\item For every $\kappa>\kappa_c$ there is a field with $\delta(U_p,I)\le
+\kappa$ for every plaquette at which the formula of (iv) is false.
+\item For $\kappa<\kappa_c$, Lemma~\ref{lem:coarsewitness} holds with
+$\delta(c_P,I)\le16.003\,\kappa$, and every non-path active link $e$ of a
+pair at $y$ has $\delta(U_e,R_e(c))\le12.002\,\kappa$.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+(i) The proofs of (i)--(iii) use only the triangle inequality for $\delta$,
+bi-invariance and $\lVert\operatorname{Ad}(g)X-X\rVert\le2\delta(g,I)
+\lVert X\rVert$, none of which needs $\kappa$ small; Lemma~\ref{lem:ladder}
+gives $9\kappa$ for the leaving links.
+
+(ii) By Lemma~\ref{lem:ladder}, $\delta(P_x,v)\le2\sqrt2\sin(3p)$, which is
+below $\frac12$ exactly when $p<\psi_c$. Then the cut-off equals one near
+$U$ and $V^\sharp=v\exp M$ with $M=\frac1{16}\sum_x\log w_x$, $w_x=v^{-1}P_x$.
+Since $\lVert\log w_x\rVert\le2\sqrt2\,n_xp$ and $\sum_xn_x=24$,
+$\lVert M\rVert\le3\sqrt2\,p$, so $\lVert\operatorname{ad}_{\log w_x}\rVert
+\le12p$ and $\lVert\operatorname{ad}_M\rVert\le6p$, the spectrum of
+$\operatorname{ad}_X$ being $\{0,\pm i\sqrt2\lVert X\rVert\}$. The four
+differences of the proof of Lemma~\ref{lem:smallframes}(iv) are then
+bounded with $\lVert\operatorname{Ad}(g)-1\rVert=2\sin\angle g$ for $\angle g
+\le\frac\pi2$ in place of $2\delta(g,I)$, and with $\sup_{\lvert z\rvert\le a}
+\lvert z/(1-e^{-z})-1\rvert\le\hat\varphi(a)=\frac a2+0.09a^2$ for $a\le1$ and
+$\sup_{\lvert z\rvert\le a}\lvert(1-e^{-z})/z-1\rvert\le\hat\psi(a)=\frac a2e^a$.
+The frame changes by $e^{-M}$ and by $w_x^{-1}$ cost $2\sin(3p)$ and
+$2\sin(6p)$ times $\lVert\alpha\rVert\le N_{y,\mu}$; the factor
+$(1-e^{-\operatorname{ad}_M})/\operatorname{ad}_M$ and the derivatives of the
+logarithms cost $\hat\psi(6p)(1+\hat\varphi(12p))+\hat\varphi(12p)$ times
+$m_\beta+\lVert\alpha\rVert\le(1+\frac{\sqrt3}4)N_{y,\mu}$; and the terms
+$\epsilon_x$, of norm at most $2\sin(9p)\lVert\xi_{x,\mu}\rVert$ for $x_\mu$
+even and $2\sin(3p)\lVert\xi_{x,\mu}\rVert$ for $x_\mu$ odd, add
+$\frac1{16}\sqrt{8(18p)^2+8(6p)^2}\,N_{y,\mu}$ by Cauchy--Schwarz. The sum is $p\,G(p)$ with $G$ increasing and $p/\kappa$
+increasing, so its supremum over $\kappa\le\kappa_c$, divided by $\kappa$, is
+attained at $\kappa_c$, where interval arithmetic encloses it in
+$[28.0374,28.0375]$.
+
+(iii) Let $L=2^m$, $\varphi=2\pi n/L^2$ and $T=\frac1{\sqrt2}\operatorname{diag}
+(i,-i)$, and multiply the three torus-valued fields of
+Proposition~\ref{prop:constantcurvature} that have plaquette angle $\varphi$
+in the planes $\{\mu,\alpha\}$, $\alpha\ne\mu$, with a common orientation.
+Every plaquette of these planes has $\delta(U_p,I)=2\sqrt2\sin(\varphi/2)$
+and every other plaquette is $I$. In the tree gauge the ladder identity
+reads $P_{z+e_\alpha}=U_{p_1}^{-1}U_{p_2}^{-1}P_z$, so for the offset
+$(1,1,1)$ the angle of $v^{-1}P_x$ is $6\varphi$ and $\delta(P_x,v)=2\sqrt2
+\sin3\varphi$. If $\kappa>\kappa_c$, choose $L$ and $n$ with $\psi_c<\varphi
+\le p(\kappa)$: every plaquette has $\delta(U_p,I)\le\kappa$, the cut-off
+$\phi(\delta(P_x,v))=2-2\delta(P_x,v)$ is below one, and the logarithms
+$\log w_x$ are nonnegative multiples of one element with mean of angle
+$3\varphi\ne0$, so $V^\sharp\ne v\exp M$ and (iv) fails. For $L=32$,
+$n=10$ one has $\kappa=0.0867614\ldots$, $\delta(P_x,v)=0.517715\ldots$ and
+cut-off $0.964570\ldots$.
+
+(iv) By (ii), $c_k=\ell_ke^{M_k}$ with $\angle e^{M_k}\le3p$. A link leaving
+$B(y)$ has $\angle(c_k^{-1}U_e)\le9p+3p$, and a link inside a block has
+$\angle U_e\le3p$; so $\delta(U_e,R_e(c))\le12\sqrt2\,p\le12.002\,\kappa$. The
+holonomy of the square of side two at $2y$ is a product of four conjugated
+plaquettes, of angle at most $4p$, and replacing its four sides $\ell_k$
+by $c_k$ adds at most $4\cdot3p$; so $\angle c_P\le16p$ and $\delta(c_P,I)
+\le2\sqrt2\sin8p\le16\sqrt2\,p\le16.003\,\kappa$.
+\end{proof}
+
+\begin{theorem}[the island count at radius $10^{-4}$]\label{thm:islandswide}
+Let $G=\SU(2)$.
+\begin{enumerate}[label=\textup{(\roman*)},leftmargin=*]
+\item Theorem~\ref{thm:islandthreshold} holds with the hypothesis $\rho\le
+10^{-8}$ replaced by $\rho<\kappa_c$, and Lemma~\ref{lem:scalewitness} and
+Theorem~\ref{thm:islandscales} hold with it replaced by $\rho\le1.023\cdot
+10^{-4}$.
+\item At $\rho=10^{-4}$,
+\[
+\beta^*(10^{-4},1)=3.40906\cdot10^{13},\quad
+\beta^*(10^{-4},5)=5.38304\cdot10^{13},
+\]
+and for $s=5$, $\beta^*_1=2.89281\cdot10^{15}$, $\beta^*_2=4.62936\cdot
+10^{16}$, $\beta^*_3=1.18541\cdot10^{18}$,
+$16^{-j}\beta^*_j\le2.90\cdot10^{14}$ for $1\le j\le20$, and for $\beta^*_1
+\le\beta_W<\beta^*_{20}$ the conclusions of Theorem~\ref{thm:islandscales}
+hold at every scale $j\le j_{\max}$ with $2^{j_{\max}}\ge\frac12(\beta_W/2.90
+\cdot10^{14})^{1/4}$.
+\item At every one of $2001$ couplings spaced evenly in the logarithm between
+$10^{22}$ and $10^{42}$, $k_*-j_{\max}\in\{2,3\}$: the islands of the
+composed average are rare up to the scale $a_{k_*}/8$.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+(i) The witness paragraph of the proof of Theorem~\ref{thm:islandthreshold}
+uses the cap $10^{-8}$ only through Lemma~\ref{lem:smallframes}(i) and the
+proof of Lemma~\ref{lem:coarsewitness}. Let $\kappa$ be the largest defect
+of the witness region. If $\kappa<\kappa_c$, Proposition~\ref{prop:smallframessharp}(iv)
+gives $\delta(U_e,R_e(c))\le12.002\kappa<43\kappa$ and $\delta(c_P,I)\le
+16.003\kappa<92\kappa$, so a bad label forces $43\kappa>r\ge43\rho$ or $92\kappa>
+\eta\ge92\rho$; otherwise $\kappa\ge\kappa_c>\rho$. In both cases some
+plaquette has defect more than $\rho$, and the threshold and island
+paragraphs do not involve the cap. In Lemma~\ref{lem:scalewitness} the cap
+enters only through the hypothesis $\eta_j\le\rho_G/1000$ of
+Theorem~\ref{thm:defectscales}(i), (ii), with $\rho_G=1$, and in
+Theorem~\ref{thm:islandscales}(i) through the hypothesis $4^j\eta_0\le10^{-4}$
+of Theorem~\ref{thm:defectscales}(iv), which reads $\rho\le1.023\cdot10^{-4}$;
+then $\eta_i\le\rho\le10^{-3}$ for $i\le j$.
+(ii), (iii) Each $\beta^*$ is enclosed by $g(\beta_{\rm lo})>0>g(\beta_{\rm
+hi})$ with $g=f_j-\log q^*_j$ decreasing past $96/\rho_0^2$, to relative width
+$10^{-12}$, and $k_*$ by enclosing $\log_4(10^{-4}/1.01\rho(\beta))$ away from
+the integers; the same computation reproduces the values of
+Theorem~\ref{thm:islandscales} at $\rho=10^{-8}$. The value of $k_*-j_{\max}$
+is $2$ at $1731$ of the couplings and $3$ at $270$.
+\end{proof}
+
+The two or three scales that remain are not a matter of radius. With
+$\beta^*_j\approx16\lvert\log q^*_j\rvert(1.033\cdot4^j)^2/\rho^2$ and
+$4^{k_*}\approx10^{-4}/(1.01\rho(\beta))$,
+\[
+4^{k_*-j_{\max}}\approx\frac{4.09\cdot10^{-4}}\rho\Bigl(\frac{\lvert\log
+q^*_j\rvert}{96(\log\beta+C_0)}\Bigr)^{1/2},
+\]
+which is about $20$ at $\rho=10^{-4}$,
+so the loss is the entropy exponent $\lvert\log q^*_j\rvert\approx2H_j\log
+\varDelta$ of Proposition~\ref{prop:coverageopt}. At this radius the labels
+have $r=43\rho\le4.4\cdot10^{-3}$, beyond the hypothesis $r\le10^{-4}$ of
+Lemma~\ref{lem:branchbound}, and Proposition~\ref{prop:goodside} supplies the
+good windows to radius $\frac1{32}$. The chart of Theorem~\ref{thm:fibrechart}
+is a different matter: its proof bounds the second fundamental form of the
+fibre by $\lVert\nabla Q\rVert_\infty\lVert\dot w\rVert_1$ with a constant
+$c_2$ for the second derivative of the reconstruction, and no such constant
+is below the flat value of the next proposition.
+
+\begin{proposition}[the flat second derivative]\label{prop:flatsecond}
+At the flat background $U\equiv I$,
+\[
+D^2c_k(0)[Y,Y]=\frac1{16}\sum_{x\in B(y)}[Y_{1x},Y_{2x}],
+\]
+where $Y_{1x}$, $Y_{2x}$ are the variables of the two links of $P_x$, and
+$\sup\{\lVert D^2c_k(0)[Y,Y]\rVert:N(Y)=1\}=\frac1{16}$.
+\end{proposition}
+
+\begin{proof}
+Expand to second order, by the Baker--Campbell--Hausdorff formula,
+\[
+c=\log\bigl(e^{X_v}e^M\bigr),\qquad M=\frac1{16}\sum_x\log\bigl(e^{-X_v}
+e^{X_{1x}}e^{X_{2x}}\bigr):
+\]
+the
+terms $[X_v,X_{1x}+X_{2x}]$ from the two logarithms cancel, and
+$\frac1{32}\sum_x[X_{1x},X_{2x}]$ remains, whose second derivative is the
+display. For $\mu=0$ put $d=7^{-1/2}$, $l=14^{-1/2}$ and, for each of the
+seven nonzero transverse offsets, $Y=\frac d2T_1$ on the link of
+$B(y)$, $lT_2$ on the leaving link and $-\frac d2T_1$ on the link of
+$B(y+e_0)$, with $T_a=i\sigma_a/\sqrt2$ and zero elsewhere. Then $N(Y)=1$ and,
+by $\lVert[T_1,T_2]\rVert=\sqrt2$, $\lVert D^2c_k(0)[Y,Y]\rVert=\frac{7\sqrt2
+\,dl}{16}=\frac1{16}$. Conversely $\lVert[X,Y]\rVert\le\sqrt2\lVert X\rVert
+\lVert Y\rVert$ and $\sqrt2\lVert D\rVert\lVert L\rVert\le\frac12\lVert D
+\rVert^2+\lVert L\rVert^2$, with $D$ the difference of the two inside
+variables and $L$ the leaving one, give $\frac1{16}$ as the maximum.
+\end{proof}
+
+In the proof of Theorem~\ref{thm:fibrechart}(ii) the constant $c_3$
+enters the term $9000c_3\kappa'$, $\kappa'=\kappa+6s$, only as a bound for the
+second derivative of $c$, so by the proposition no admissible constant
+there is below $\frac1{16}$, and with $\frac1{16}$ that term alone exceeds
+$\frac1{195}$ once $\kappa'>9.12\cdot10^{-6}$. A chart at radius $10^{-4}$
+needs a different estimate of the second fundamental form; no field is
+known at which the chart fails.
 
 \subsection{Two islands factorise through one kernel}\label{ssec:factorisation}
 
@@ -13221,8 +13443,8 @@ gives the explicit coupling $\beta^*(\rho,s)$ past which the islands of
 bad blocks at one scale are rare enough to beat their entropy, at the
 exponent $1/H$ of Proposition~\ref{prop:coverageopt} and the collar of
 Proposition~\ref{prop:graphlaw}. What is not given is the same statement
-at the scale of the cube: $\beta^*$ is of order $10^{21}$, and of order
-$10^{37}$ under the calmness of Corollary~\ref{cor:twoislands}, far beyond the
+at the scale of the cube: $\beta^*$ is of order $10^{13}$ at the witness
+radius $10^{-4}$ of Theorem~\ref{thm:islandswide}, and of order $10^{37}$ under the calmness of Corollary~\ref{cor:twoislands}, far beyond the
 range in which the chessboard estimate reaches that scale, so that (iv) is
 needed before the threshold bears on the gap.
 \item \emph{The scales.} An effective action at every scale whose
@@ -13231,8 +13453,8 @@ Proposition~\ref{prop:formstability} and whose locality norms obey
 Lemma~\ref{lem:schur}, down to the last $O(1)$ scales where the running
 coupling is of order one; this is the large-field expansion of
 Ba{\l}aban, and it is not carried out here. Theorem~\ref{thm:islandscales}
-settles the entropy count of the islands at every scale up to
-$a_{k_*}/512$, and Proposition~\ref{prop:constantcurvature} shows that
+and Theorem~\ref{thm:islandswide} settle the entropy count of the islands
+at every scale up to $a_{k_*}/8$, and Proposition~\ref{prop:constantcurvature} shows that
 fine witnesses carry it no further; the law of the iterates given their
 labels, which the effective action is for, is untouched.
 Proposition~\ref{prop:massgrowth} shows that the one-step errors must be
@@ -13245,7 +13467,7 @@ open, item (i) being settled for the site of a pair by
 Theorem~\ref{thm:site} and item (ii) for two islands by
 Corollary~\ref{cor:twoislands};
 item (iii) is settled by Theorem~\ref{thm:islandthreshold} at one scale
-and by Theorem~\ref{thm:islandscales} at every scale up to $a_{k_*}/512$;
+and by Theorem~\ref{thm:islandswide} at every scale up to $a_{k_*}/8$;
 item (iv) is the multiscale part. On the continuum side, Lemmas~\ref{lem:positivetime}
 and~\ref{lem:nonvanishing} reduce the nontriviality of the limit to a
 lower bound on one ratio of lattice two-point functions at a fixed
@@ -13342,7 +13564,7 @@ repository \url{https://github.com/creelie/4Y-M}, release v4.32.0
 with a Lean~4 certificate of the line field, Lean~4 files for the
 comparison arithmetic, the coupling lemmas of
 Section~\ref{ssec:couplingcost} and the finite arithmetic of Theorem~\ref{thm:layerbound},
-Corollary~\ref{cor:twoislands} and Proposition~\ref{prop:massgrowth}, independent exact or
+Corollary~\ref{cor:twoislands}, Proposition~\ref{prop:massgrowth}, Proposition~\ref{prop:smallframessharp} and Theorem~\ref{thm:islandswide}, independent exact or
 numerical checks of the other finite statements, our checks of the
 certificate of~\cite{Rom26}, and the certificate of
 Proposition~\ref{prop:blockgapsharp} with its exact check. The code was
