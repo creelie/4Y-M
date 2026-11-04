@@ -21624,6 +21624,639 @@ For the first of these the form of the answer is fixed by
 Theorem~\ref{thm:sfgauss}: it is a Gaussian form with a nonlocal kernel of
 amplitude $\lambda$, and no product of local factors.
 
+\paragraph*{Locality, the shell and the remainder.}
+The three questions left open above are taken up in turn. For the locality
+of the calm weight, the form $e^{-\lambda q^{\rm lin}(\log c)}$ times a
+polymer sum with local activities is impossible at $\lambda>0.548$, because
+the calm weight is invariant under coarse gauge transformations and the
+Gaussian block-spin form of $\log c$ is not; the linearised propagator with
+the block-spin constraint decays at an explicit rate, which is the input that
+an expansion around a gauge-invariant leading term would use. For the shell,
+in the linearisation of the model the relative activities are not bounded
+under the calm law, at any $\lambda$ and $\kappa$. For the remainder,
+$Z_\perp(I)>0$ for $\SU(2)$ at every $\lambda$ and every $\kappa\le
+10^{-8}$, and $Z_\perp$ is bounded in the mean over $c$ by the probability
+of a rough block.
+
+For a gauge field $g\in G^T$ on the coarse torus put $(c^g)_{y,\mu}=g_y
+c_{y,\mu}g_{y+e_\mu}^{-1}$. The \emph{Gaussian block-spin form of the torus}
+is $q_T(\gamma)=\min\{Q(\varphi):V(\varphi)=\gamma\}$ for real $\gamma$ on
+the coarse links, the minimum over real fields on the active links of
+$\Lambda_L$; for $\g$-valued $w$ put $q^{\rm lin}(w)=\sum_aq_T(w^a)$, with
+the components in the orthonormal basis $\tau_a=i\sigma_a/\sqrt2$ of
+$\mathfrak{su}(2)$. As for $q_W$, $q_T$ is a positive semidefinite quadratic
+form, by Proposition~\ref{prop:blockgapsharp} on the periodic lattice.
+
+\begin{lemma}\label{lem:sfgaugeinv}
+Let $G=\SU(2)$, $\kappa>0$ and $g\in G^T$. Then $Z(c^g)=Z(c)$ and
+$Z_\emptyset(c^g)=Z_\emptyset(c)$ for every $c$, and $q_T(\gamma+d\chi)=
+q_T(\gamma)$ for real $\gamma$ and $\chi$, where $(d\chi)_{y,\mu}=\chi_y-
+\chi_{y+e_\mu}$.
+\end{lemma}
+
+\begin{proof}
+Let $\Phi$ be the fine gauge transformation equal to $g_y$ at every site of
+$B(y)$. It fixes the tree links, so it preserves the tree gauge, and it
+preserves $Q$, every indicator $s_y$ and $r_y$, and product Haar measure.
+The cut-off average is covariant (Theorem~\ref{thm:cutoff}), so $\Phi$ maps
+$F_c$ onto $F_{c^g}$. In the proof of Lemma~\ref{lem:averagedensity} for the
+pair $(y,\mu)$, $\Phi$ replaces the path link $\ell_0$ by $g_y\ell_0
+g_{y+e_\mu}^{-1}$, the links inside $B(y)$ by their conjugates by $g_y$ and
+those of $B(y+e_\mu)$ by their conjugates by $g_{y+e_\mu}$, so every site
+$v_x$ is conjugated by $g_{y+e_\mu}$. The regions $R_0$, $R_1$, $R_2$, which
+are defined by the norms $\delta(v_x,I)$, are therefore preserved, the
+coordinates $h_a$ are conjugated, which preserves Haar measure, and the
+derivative of $V^\sharp$ is conjugated by $\operatorname{Ad}(g_y)$, so
+$\lvert\det DV^\sharp\rvert$ is unchanged. Hence the image of $\nu_c$ under
+$\Phi$ is $\nu_{c^g}$, and $Z=\nu_c(e^{-\lambda Q})$ and $Z_\emptyset=\nu_c(
+\prod_yf_ys_y)$ are invariant. For $q_T$, Lemma~\ref{lem:blocktree}(ii) with
+$h$ equal to $\chi_y$ on $B(y)$ maps $\{V=\gamma\}$ onto $\{V=\gamma+d\chi\}$
+and preserves $Q$.
+\end{proof}
+
+\begin{theorem}\label{thm:sfgaugeobst}
+Let $G=\SU(2)$, $\lambda>0$, $\kappa>0$, and let $F$ be $Z$ or $Z_\emptyset$.
+Let $y$ be a block, $z=y+e_0$, $0<\phi\le\pi/2$, and let $g_y=\exp(\sqrt2
+\phi\tau_1)$, $g_z=\exp(\sqrt2\phi\tau_2)$ and $g_w=I$ otherwise. Suppose that
+at $c=I$ and at $c=I^g$
+\[
+F(c)=e^{-\lambda q^{\rm lin}(\log c)-E|T|}\prod_y\phi_y(c)\sum\prod_iw(X_i;c),
+\]
+where $\log$ is the principal logarithm on each coarse link, $E$ is a
+constant, each $\phi_y>0$ is invariant under coarse gauge transformations,
+and the sum runs over the families of pairwise compatible connected sets as
+in Theorem~\ref{thm:lfkp}, with activities $|w(X;c)|\le e^{-9|X|}$ that
+depend on $c$ only through the $c_{w',\mu}$ with $\ell^\infty(w',X)\le1$.
+Then
+$\lambda\le8.1/|\eta(\phi)|^2\le4.05/\sin^4\phi$, where $\cos\psi=\cos^2\phi$,
+$0<\psi\le\pi/2$, and
+\[
+|\eta(\phi)|^2=4\Bigl(\frac{\psi\sin\phi\cos\phi}{\sin\psi}-\phi\Bigr)^2
++\frac{2\psi^2\sin^4\phi}{\sin^2\psi}.
+\] At $\phi=\pi/2$,
+$|\eta|^2=3\pi^2/2$ and $\lambda\le5.4/\pi^2<0.5472$. The field $I^g$ is
+flat, $\delta((I^g)_P,I)=0$ for every coarse plaquette, and its links have
+$\delta(c_k,I)\le2\sin\phi$.
+\end{theorem}
+
+\begin{proof}
+Write $g_y=a+b\cdot i\sigma$ as unit quaternions. The links of $c=I^g$ are
+$g_y$ on $(y,\mu)$, $\mu\ne0$, and $g_y^{-1}$ on $(y-e_\mu,\mu)$; $g_z$
+on $(z,\mu)$ and $g_z^{-1}$ on $(z-e_\mu,\mu)$, $\mu\ne0$; $g_z$ on
+$(z,0)$, $g_y^{-1}$ on $(y-e_0,0)$, and $g_yg_z^{-1}$ on $k=(y,0)$; $I$
+elsewhere. Their bases form the set $S$ of the nine blocks $y-e_0$, $y$, $z$,
+$y-e_\mu$ and $z-e_\mu$ ($\mu=1,2,3$). With $\chi$ equal to $\log g_y=\sqrt2\phi\tau_1$
+at $y$, $\log g_z=\sqrt2\phi\tau_2$ at $z$ and $0$ elsewhere,
+$\log(I^g)=d\chi+\eta\,\delta_k$ with $\eta=\log(g_yg_z^{-1})-\chi_y+\chi_z$.
+The quaternion of $g_yg_z^{-1}$ is $\cos^2\phi+(\sin\phi\cos\phi,-\sin\phi
+\cos\phi,\sin^2\phi)\cdot i\sigma$, whose principal logarithm is $\sqrt2\psi$
+times the unit vector of its vector part, in the coordinates of the
+$\tau_a$; this gives $|\eta|^2$, and at $\phi=\pi/2$, $g_y=i\sigma_1$,
+$g_z=i\sigma_2$, $g_yg_z^{-1}=i\sigma_3$ and $\eta=\frac\pi{\sqrt2}(-\tau_1+
+\tau_2+\tau_3)$. As $\psi\ge\sin\psi$, the second term of $|\eta|^2$ is at
+least $2\sin^4\phi$; and $5.4/\pi^2<0.5472$ since $\pi^2>9.8696$. By Lemma~\ref{lem:sfgaugeinv} and since $q^{\rm lin}$ is a
+sum of positive semidefinite forms, $q^{\rm lin}(\log I^g)=q^{\rm lin}(\eta
+\delta_k)$. By the proof of Proposition~\ref{prop:effective}(i), which
+applies on the torus, $q_T\ge Q_1$, and $\delta_k$ lies in six coarse
+plaquettes, so $q^{\rm lin}(\eta\delta_k)\ge6|\eta|^2$.
+
+By Lemma~\ref{lem:sfgaugeinv}, $F(I^g)=F(I)$, and the $\phi_y$ and $E$
+cancel, so $\lambda q^{\rm lin}(\eta\delta_k)=\log\Sigma(I^g)-\log
+\Sigma(I)$ with $\Sigma$ the polymer sum. By Theorem~\ref{thm:lfkp}(i),
+$\log\Sigma$ is the sum of the connected clusters, a cluster depends on $c$
+only through the links with base within distance one of its support, and the
+clusters incompatible with a given block add up to at most $\frac1{10}$ in
+modulus. A cluster whose support does not meet the set $N_1(S)$ of blocks
+within distance one of $S$ takes the same value at $I$ and $I^g$; a cluster
+that meets it is incompatible with a block of $N_1(S)$. Count $N_1(S)$ by the
+level $a$ of a block $w=y+ae_0+s$, $s$ spatial. The blocks of $S$ have $s=0$
+at level $-1$ and $s\in D=\{0,-e_1,-e_2,-e_3\}$ at levels $0$ and $1$, and
+the spatial points within distance one of $D$ are the $27$ points of
+$\{-1,0,1\}^3$ and the $3\cdot9$ points with one coordinate $-2$ and the
+others in $\{-1,0,1\}$. So level $-2$ contributes the $27$ points within
+distance one of $s=0$, each of the levels $-1$, $0$, $1$, $2$ contributes
+$54$, and $|N_1(S)|\le27+4\cdot54=243$. Hence $6\lambda|\eta|^2\le2\cdot243/10=48.6$. The
+plaquettes of $I^g$ are conjugates of those of $I$, and $\delta(g_yg_z^{-1},
+I)=2\sin\phi$ is the largest link.
+\end{proof}
+
+The following values are evaluations of the closed form for $|\eta(\phi)|^2$,
+rounded to the digits shown, those of the last column upwards. The
+conclusions below use only the row $\phi=\pi/2$, whose entries are exact,
+and the bound $4.05/\sin^4\phi$.
+\begin{center}
+\begin{tabular}{llll}
+\hline
+$\phi$ & $|\eta(\phi)|^2$ & $\max_k\delta(c_k,I)$ & $\lambda\le$\\
+\hline
+$\pi/2$ & $14.8044$ & $2$ & $0.5472$\\
+$0.5$ & $0.13191$ & $0.9589$ & $61.41$\\
+$0.1$ & $2.0044\cdot10^{-4}$ & $0.1997$ & $4.0411\cdot10^4$\\
+$0.05$ & $1.2507\cdot10^{-5}$ & $0.09996$ & $6.4765\cdot10^5$\\
+\hline
+\end{tabular}
+\end{center}
+So at every $\kappa$ the representation fails for $\lambda>0.5472$ at a flat
+coarse field, and, among coarse fields with links within $0.1$ of $I$, for
+$\lambda>6.5\cdot10^5$: at $\phi=0.05$ the links are within $2\sin\phi<0.1$
+of $I$, and $\sin\phi>\phi-\phi^3/6>0.04997$, so $\lambda\le4.05/
+0.04997^4<6.5\cdot10^5$. This is below $\lambda^{**}(0.08)<9.16\cdot10^5$.
+The defect is the failure of $\log$ to intertwine the coarse gauge action:
+$q^{\rm lin}(\log c)$ is invariant only under gauge transformations that
+commute with $c$. A representation of the required kind needs a leading term
+invariant under the coarse gauge group, such as $\lambda S_1(c)$ with $S_1(c)
+=\inf_{F_c}Q$; by Theorem~\ref{thm:sfgauss} it is not local, and its Hessian
+at $c=I$ is $2\lambda$ times the form $q^{\rm lin}$. Whether
+$Z_\emptyset(c)e^{\lambda S_1(c)}$, or the same with another invariant form
+of this Hessian, is a polymer sum with local activities is not decided here.
+
+\emph{The block-spin propagator.} The expansion of such a form around a
+minimiser uses the propagator of the fine field with the block-spin
+constraint. In the linearisation it decays at a rate that the following
+theorem makes explicit. For a pair $k=(y,\mu)$ label its eight private links
+by $a\in\{0,1\}^3$, the offsets in the three directions $\nu\ne\mu$, and for
+$w\in\{0,1\}^3\setminus\{0\}$ put $\xi_{k,w}=8^{-1/2}\sum_a(-1)^{a\cdot w}
+\varphi_{k,a}$. By Lemma~\ref{lem:blocktree}(iii), on $\{V=0\}$ the mean of
+the eight is $m_k=-\frac1{16}(S^\mu_y+S^\mu_{y+e_\mu})$, so
+\[
+\varphi_{k,a}=8^{-1/2}\sum_w(-1)^{a\cdot w}\xi_{k,w}+m_k ,
+\]
+and the coordinates $v=(\varphi_e)_{e\text{ inside}}\oplus(\xi_{k,w})$,
+with $17$ inside links and $28$ Walsh coordinates per block, define a linear
+bijection $P:v\mapsto\varphi$ onto $\{V=0\}$. Let $H$ be the matrix of
+$v\mapsto Q(Pv)$, and for a coordinate, a fine link or a coarse link let
+its block be the block of its base. Write $d(\cdot,\cdot)$ for the
+$\ell^\infty$ distance of the blocks on the coarse torus. Let $L_0$ map
+$\gamma$ to the field equal to $\gamma_k$ on the eight private links of $k$
+and to zero elsewhere, as in Proposition~\ref{prop:effective}(ii), and let
+$A$ and $B$ be the matrices of $Q(L_0\gamma)=\gamma^{\rm T}A\gamma$ and of the
+cross term, so that $Q(L_0\gamma+Pv)=\gamma^{\rm T}A\gamma+2\gamma^{\rm T}Bv
++v^{\rm T}Hv$.
+
+\begin{theorem}\label{thm:sfprop}
+On the periodic lattice of side $L\ge32$ let
+\[
+\bar S=168+42\sqrt2,\qquad\bar b=168+336\sqrt2,\qquad p_1=\frac7{2\sqrt2}+
+\frac78,
+\]
+so that $\bar S<227.40$ and $\bar b<643.18$, and for $\alpha>0$ let
+$c_\alpha=\frac{537}{5000}-(\cosh3\alpha-1)\bar S$.
+\begin{enumerate}[label=\textup{(\roman*)},leftmargin=*]
+\item $H_{ij}=0$ for $d(i,j)\ge4$, the sum $\sum_j|H_{ij}|$ is at most $\bar
+S$ for every $i$, and $v^{\rm T}Hv\ge\frac{537}{5000}|v|^2$ for every $v$.
+\item If $0<\alpha\le\frac1{100}$, then $c_\alpha>0$ and $|(H^{-1})_{ij}|\le
+c_\alpha^{-1}e^{-\alpha d(i,j)}$ for all coordinates $i$ and $j$.
+\item For real $\gamma$ the Gaussian probability measure proportional to
+$e^{-\lambda Q(\varphi)}$ on the affine space $\{V(\varphi)=\gamma\}$ of fields
+in the tree gauge has as mean the minimiser $\varphi^*(\gamma)=L_0\gamma-
+PH^{-1}B^{\rm T}\gamma$ of $q_T(\gamma)$ and as covariance $C=(2\lambda)^{-1}
+PH^{-1}P^{\rm T}$, and for $0<\alpha\le\frac1{100}$
+\[
+|C_{ee'}|\le\frac{e^{2\alpha}p_1^2}{2\lambda c_\alpha}e^{-\alpha d(e,e')}.
+\]
+\item $q_T(\gamma)=\gamma^{\rm T}M\gamma$ with $M=A-BH^{-1}B^{\rm T}$; the
+rows of $A$ and $B$ have $\ell^1$ norms at most $192$ and $\bar b$,
+$A_{kk'}=0$ for $d(k,k')\ge2$ and $B_{ki}=0$ for $d(k,i)\ge3$; and for
+$d(k,k')\ge2$ and $0<\alpha\le\frac1{100}$, $|M_{kk'}|\le e^{4\alpha}\bar b^2
+c_\alpha^{-1}e^{-\alpha d(k,k')}$.
+\end{enumerate}
+At $\alpha=\frac1{200}$, $c_\alpha>0.0818$, and the three constants are
+below $12.23$, $138.6/(2\lambda)$ and $5.16\cdot10^6$.
+\end{theorem}
+
+\begin{proof}
+(i) Write $e_i$ for the coordinate vectors of $v$. For an inside link
+$e=(x,\mu)$ of $B(b)$ the coordinate enters only $S^\mu_b$, so by the
+formula for $m_k$ the field $Pe_e$ is $1$ on $e$ and $-\frac1{16}$ on the
+eight private links of each of the pairs $(b,\mu)$ and $(b-e_\mu,\mu)$; its
+$\ell^1$ norm is $2$. For a Walsh coordinate $\xi_{k,w}$, $k=(b,\mu)$, the
+field is $\pm8^{-1/2}$ on the eight private links of $k$, of $\ell^1$ norm
+$2\sqrt2$. In both cases the links have base in $b$ or $b-e_\mu$. A row of
+$P$ at an inside link has the single entry $1$; at a private link of a pair
+$(b,\mu)$ it has $7$ Walsh entries $\pm8^{-1/2}$ and the $2(8-2^\mu)$ active
+links of $S^\mu_b$ and $S^\mu_{b+e_\mu}$ with $-\frac1{16}$, so its $\ell^1$
+norm is at most $p_1$, the value at $\mu=0$. A plaquette has four links and
+a link lies in six plaquettes, so $\sum_p|(dPe_i)_p|\le6\cdot2\sqrt2$ and
+$\sum_j|(dPe_j)_p|\le\sum_{l\in p}\sum_j|P_{lj}|\le4p_1$. As $H_{ij}=
+\sum_p(dPe_i)_p(dPe_j)_p$,
+\[
+\sum_j|H_{ij}|\le\sum_p|(dPe_i)_p|\sum_j|(dPe_j)_p|\le48\sqrt2\,p_1=\bar S .
+\]
+If $H_{ij}\ne0$, a plaquette contains a link of $Pe_i$ and a link of $Pe_j$;
+the bases of two links of a plaquette lie in blocks at distance at most one,
+and the links of $Pe_i$ have base within distance one of the block of $i$,
+so $d(i,j)\le3$. Finally $v^{\rm T}Hv=Q(Pv)\ge\frac{537}{5000}\lvert Pv
+\rvert^2$ by Proposition~\ref{prop:blockgapsharp} on the periodic lattice,
+and $\lvert Pv\rvert^2=\sum_{\rm inside}\varphi_e^2+\sum_k(\sum_w\xi_{k,w}^2+
+8m_k^2)\ge|v|^2$, since the characters $a\mapsto(-1)^{a\cdot w}$, $w\ne0$,
+are orthogonal and orthogonal to the constants.
+
+(ii) Since $\cosh u-1=\sum_{m\ge1}u^{2m}/(2m)!\le\frac{u^2}2\cosh u$, at
+$\alpha=\frac1{100}$ one has $(\cosh3\alpha-1)\bar S\le\frac{0.03^2}2\cdot
+1.0005\cdot227.40<0.1024<\frac{537}{5000}$, and $c_\alpha$ decreases in
+$\alpha$. Fix $j$, put $f_i=d(i,j)$ and $H_\alpha=e^{\alpha f}He^{-\alpha f}$.
+For real $v$, by the symmetry of $H$,
+\begin{align*}
+v^{\rm T}H_\alpha v&=\sum_{i,l}H_{il}\cosh\bigl(\alpha(f_i-f_l)\bigr)v_iv_l\\
+&=v^{\rm T}Hv+\sum_{1\le d(i,l)\le3}H_{il}\bigl(\cosh(\alpha(f_i-f_l))-1
+\bigr)v_iv_l ,
+\end{align*}
+since $f_i=f_l$ when $d(i,l)=0$ and $H_{il}=0$ when $d(i,l)\ge4$. As $|f_i-
+f_l|\le d(i,l)\le3$, the last sum is at most $(\cosh3\alpha-1)\bar S|v|^2$
+in modulus, by the Schur test for the symmetric matrix of its coefficients
+and (i). So $|H_\alpha v|\ge c_\alpha|v|$, $H_\alpha$ is invertible with
+$\lVert H_\alpha^{-1}\rVert\le c_\alpha^{-1}$, and its entry $(i,j)$ is
+$e^{\alpha d(i,j)}(H^{-1})_{ij}$.
+
+(iii) $V(L_0\gamma)=\gamma$ by Proposition~\ref{prop:effective}(ii), so the
+fields with $V=\gamma$ are the $L_0\gamma+Pv$, and the exponent is the
+quadratic form above in $v$; completing the square gives the mean and the
+covariance $(2\lambda H)^{-1}$ of $v$. By (i) a row of $P$ has $\ell^1$ norm
+at most $p_1$, and $P_{ei}\ne0$ only if the block of $i$ is the block of $e$
+or its neighbour in the direction of $e$, so the coordinates $i$, $l$ that
+enter $C_{ee'}$ have $d(i,l)\ge d(e,e')-2$. Then apply (ii).
+
+(iv) Minimising over $v$ gives $M$. The field $L_0\delta_k$ is $1$ on the
+eight private links of $k$, which have base in the block of $k$ and belong
+to no other pair, so $\sum_p|(dL_0\delta_k)_p|\le48$ and $\sum_{k'}|(dL_0
+\delta_{k'})_p|\le4$. As in (i), $A_{kk'}=\sum_p(dL_0\delta_k)_p(dL_0
+\delta_{k'})_p$ and $B_{ki}=\sum_p(dL_0\delta_k)_p(dPe_i)_p$ give the row
+bounds $48\cdot4=192$ and $48\cdot4p_1=\bar b$ and the ranges one and two.
+Then $|(BH^{-1}B^{\rm T})_{kk'}|\le\sum_{i,l}|B_{ki}||(H^{-1})_{il}||B_{k'l}|$
+with $d(i,l)\ge d(k,k')-4$, and (ii) gives the bound.
+
+At $\alpha=\frac1{200}$, $(\cosh3\alpha-1)\bar S\le\frac{0.015^2}2\cdot
+1.0002\cdot227.40<0.02559$, so $c_\alpha>0.1074-0.02559>0.0818$; with $p_1^2=
+\frac{49}8+\frac{49}{8\sqrt2}+\frac{49}{64}<11.222$, $e^{0.01}<1.01006$,
+$e^{0.02}<1.0203$ and $\bar b^2<413{,}681$ the constants follow.
+\end{proof}
+
+\begin{remark}
+A computation on the lattice of side $12$, which no statement here uses,
+gives the entries of $H$, $A$ and $B$: all three have range one, the
+largest sum of $|H_{ij}|$ over $d(i,j)=1$ is $S_1=20.45495\ldots$, and the
+rows of $A$ and $B$ have $\ell^1$ norms at most $96$ and $77.456$. With these
+values the argument of (ii), with $\cosh\alpha$ in place of $\cosh3\alpha$
+and $S_1$ in place of $\bar S$, gives decay for $\alpha<0.10243$, and at
+$\alpha=0.08$ constants $23.87$, $314.3/(2\lambda)$ and $1.680\cdot10^5$.
+Both rates are far from the decay of $(M_{W_n})_{AB}$ by a factor $8$ to
+$10$ per block, which corresponds to $\alpha\approx2.1$; the loss comes from
+bounding the off-diagonal part of $H$ by its row sums.
+\end{remark}
+
+\begin{remark}\label{rem:sfbalaban}
+Ba{\l}aban's renormalisation group for lattice gauge
+theories~\cite{Bal84a,Bal85a,Bal85b,Bal85c,Bal87,Bal88,Bal89b} expands the
+small-field part around the minimiser of the action at given block
+averages: he treats this variational problem and the background fields it
+defines in~\cite{Bal85c}, the propagators in such a background
+in~\cite{Bal85b}, and the generation of the effective actions in a small
+field approximation and their cluster expansions in~\cite{Bal87,Bal88}.
+They are cited for the method only. His averaging operations are not
+the cut-off average $V^\sharp$, and no proof here uses his results.
+By Theorems~\ref{thm:sfgauss} and~\ref{thm:sfgaugeobst} the small-field
+part of the present step calls for the same structure: a leading term of
+amplitude $\lambda$ that is nonlocal, which cannot be $\lambda q^{\rm
+lin}(\log c)$, and an expansion around it. Theorem~\ref{thm:sfprop} is the linear propagator bound of such
+an expansion at the trivial background; the background field of $V^\sharp$
+and the expansion around it are not carried out.
+\end{remark}
+
+\emph{The shell in the linearised model.} In the \emph{linear model} the
+links are real: $\varphi$ is a real field on the active links of the torus,
+$Q(\varphi)=\sum_p(d\varphi)_p^2$, a block $y$ is calm when $|(d\varphi)_p|
+\le\kappa$ for every $p\in\Pi(y)$, the coarse field is $\gamma=V(\varphi)$,
+and the fibre $\{V=\gamma\}$ carries Lebesgue measure in the coordinates
+given by the values on the links other than the path links. The
+statements of Lemma~\ref{lem:sfkernel} concern only which links a factor
+involves, and hold verbatim. For $X=\{y\}$ and $\gamma=0$, the free links
+of $\mathcal V_X$, the links of $\mathcal V_X$ other than the path links of
+the pairs of $\mathcal P_X$, are coordinates $u\in\R^{73}$ of the
+completions of given outer variables $o$, the remaining links. Let
+$S^{\rm lin}_X(o)$ and $K^{\rm lin}_X(o)$ be the integrals over $u$ of
+$\prod_{w\in\hat X}f_ws_w$ and of $f_yr_y\prod_{w\in\hat X\setminus X}f_ws_w$,
+with $f_w=\exp(-\lambda\sum_{p\in\Pi(w)}(d\varphi)_p^2)$. The calm law is
+proportional to $\prod_wf_ws_w$ on $\{V=0\}$. As in the proof of
+Proposition~\ref{prop:sfrelative}, the law of $o$ under it has density
+proportional to $\varPhi_X(o)S^{\rm lin}_X(o)$ with respect to Lebesgue
+measure in the free outer links, $\varPhi_X=\prod_{w\notin\hat X}f_ws_w$, and
+$\rho^{\rm lin}_X=K^{\rm lin}_X/S^{\rm lin}_X$ is defined almost surely.
+
+\begin{theorem}\label{thm:sfshelllin}
+In the linear model on a torus of coarse side at least $8$, with $\gamma=0$,
+$X=\{y\}$, every $\kappa>0$ and every $\lambda>0$, the ratio $\rho^{\rm lin}
+_X$ is not essentially bounded under the calm law: for every $R$ the calm law
+gives positive probability to $\{\rho^{\rm lin}_X>R\}$. In particular the
+hypothesis of Proposition~\ref{prop:sfrelative}(ii) fails in the linear
+model at every $\lambda$ and $\kappa$.
+\end{theorem}
+
+\begin{proof}
+The map $\varphi\mapsto\kappa\varphi$ replaces $\kappa$ by $1$ and $\lambda$
+by $\lambda\kappa^2$, so let $\kappa=1$. Let $x=2y+(1,1,1,0)$. The three
+faces of the unit cube at $x$ in the directions $0$, $1$, $2$ that contain
+$x$ are owned by $y$; write $F_1$, $F_2$, $F_3$ for $d\varphi$ on the faces
+in the planes $\{0,1\}$, $\{0,2\}$, $\{1,2\}$. Every link of the cube lies in
+two of its faces with opposite signs, so
+\[
+F_1-F_2+F_3=(d\varphi)_{x+e_2,01}-(d\varphi)_{x+e_1,02}+(d\varphi)_{x+e_0,
+12}=:R ,
+\]
+and the three faces on the right are owned by $y+e_2$, $y+e_1$, $y+e_0
+\notin\hat X$ and contain no link of $\mathcal V_X$, so $R=R(o)$ is a linear
+function of $o$.
+
+\emph{The field $\varphi_1$.} For $\varepsilon\in\{0,1\}^3\times\{0\}$ and
+$\varepsilon_\mu=0$ the edge $(x+\varepsilon,\mu)$ of the cube has offset one
+in the direction $\mu$, so it is a private link of the pair $(y+\varepsilon,
+\mu)$, and distinct edges lie in distinct pairs. Let $\varphi_1$ take the
+values
+\[
+-\tfrac12,\ \tfrac12,\ \tfrac12,\ -\tfrac12,\ -\tfrac12,\ \tfrac12
+\]
+on the edges $(x+e_1,0)$, $(x+e_2,0)$, $(x+e_0,1)$, $(x+e_2,1)$, $(x+e_0,2)$,
+$(x+e_1,2)$, minus one seventh of that value on the other seven private links
+of the pair of each of these edges, and zero elsewhere. Private links are
+active, the sum over the private links of every pair is zero and no inside
+link is used, so $V(\varphi_1)=0$ by Lemma~\ref{lem:blocktree}(iii). The six
+pairs are those of the blocks $y+e_0$, $y+e_1$, $y+e_2$, none of which lies
+in $\hat X$, so $\varphi_1$ vanishes on $\mathcal V_X$. A pair contains one
+edge of the cube, so $\varphi_1$ vanishes on the other six edges, and
+\begin{gather*}
+F_1=\varphi_1(x+e_0,1)-\varphi_1(x+e_1,0)=1,\\
+F_2=\varphi_1(x+e_0,2)-\varphi_1(x+e_2,0)=-1,\\
+F_3=\varphi_1(x+e_1,2)-\varphi_1(x+e_2,1)=1,
+\end{gather*}
+and the outer faces take the values $\varphi_1(x+e_2,0)-\varphi_1(x+e_2,1)
+=1$, $\varphi_1(x+e_1,0)-\varphi_1(x+e_1,2)=-1$ and $\varphi_1(x+e_0,1)-
+\varphi_1(x+e_0,2)=1$. Two edges of the cube lie in a common plaquette only
+if it is a face of the cube, so every other plaquette contains at most one
+link with $|\varphi_1|=\frac12$ and three with $|\varphi_1|\le\frac1{14}$,
+and $|d\varphi_1|\le\frac57=1-\delta_0$, $\delta_0=\frac27$.
+
+Let $w\in\R^{73}$ lower $(x,1)$ by one; to keep $V_{y,1}$, the path link
+$(2y+e_1,1)$, also a private link of $(y,1)$, rises by one. The link $(x,1)$
+lies in $F_1$ with the sign $-$ and in $F_3$ with the sign $+$, the path link
+lies in none of the six faces, and the two links share no plaquette, so $w$
+changes $(F_1,F_2,F_3)$ by $(1,0,-1)$ and every plaquette by at most $1$.
+Lowering $(x,2)$ in the same way changes $(F_1,F_2)$ by $(0,1)$, so the map
+from the free links of $\mathcal V_X$ to $(F_1,F_2)$ has rank two. Let $o_t$
+be the outer part of $(1-t)\varphi_1$, $0<t\le\delta_0/4$; its inner part
+$u_1$ is zero.
+
+\emph{Upper bound on $S^{\rm lin}_X$.} If all blocks of $\hat X$ are calm,
+then $F_1\le1$, $F_2\ge-1$ and $F_3=R-F_1+F_2\le1$, so $(F_1,F_2)$ lies in
+the square $[R-2,1]\times[-1,2-R]$ of side $3-R$. The map $u\mapsto(F_1,F_2)$
+is affine with linear part of rank two, and $Q(\varphi(o,u))=u^{\rm T}Hu+
+\ell_o(u)+{\rm const}$ with $H$ positive definite, since a change of $u$ is a
+field in $\{V=0\}$ to which Proposition~\ref{prop:blockgapsharp} applies.
+The image of the finite measure $e^{-\lambda Q}du$ under $u\mapsto(F_1,F_2)$
+is Gaussian, with mass at most $(\pi/\lambda)^{73/2}\det H^{-1/2}$ and a
+nondegenerate covariance that does not depend on $o$, so its density is at
+most a constant $C_\lambda$ and $S^{\rm lin}_X(o)\le C_\lambda(3-R(o))^2$.
+Let $B_t$ be the ball of outer variables about $o_t$ on which $|R(o)-R(o_t)|
+\le t$; there $3-R(o)\le4t$ and $S^{\rm lin}_X\le16C_\lambda t^2$.
+
+\emph{Lower bound on $K^{\rm lin}_X$.} At $(o_t,u_1+\frac{\delta_0}2w)$,
+$F_1=1-t+\frac{\delta_0}2\ge1+\frac{\delta_0}4$, so $y$ is rough, and every
+plaquette owned by a block of $\hat X\setminus X$ is at most
+$(1-t)(1-\delta_0)+\frac{\delta_0}2\le1-\frac{\delta_0}2$. All plaquettes are
+linear in $(o,u)$, so there is $r>0$, independent of $t$, such that these
+inequalities hold with $\frac{\delta_0}8$ and $\frac{\delta_0}4$ on the ball of
+radius $r$ about this point, and $Q$ is bounded there by a constant $Q_0$.
+Hence $K^{\rm lin}_X(o)\ge c_r e^{-\lambda Q_0}=:k_0>0$ for $o$ within $r$
+of $o_t$, with $c_r$ the volume of the ball of radius $r$ in $\R^{73}$.
+
+\emph{Positive probability.} At $(o_t,u_1)$ every plaquette other than the
+six faces has modulus at most $(1-t)(1-\delta_0)$ and the six have modulus
+$1-t$, so all blocks are calm with a margin. For $o$ near $o_t$ the outer
+blocks stay calm, $\varPhi_X(o)>0$, and the completions near $u_1$ stay calm,
+$S^{\rm lin}_X(o)>0$. So the calm law gives positive probability to every
+small ball about $o_t$, and on such a ball inside $B_t$ and within $r$ of
+$o_t$, $\rho^{\rm lin}_X\ge k_0/(16C_\lambda t^2)$. Let $t\to0$.
+\end{proof}
+
+\begin{remark}\label{rem:sfconditioning}
+The mechanism is the conditioning: $\rho_X$ compares two parts of the mass
+of the completions, and its denominator is the mass of the calm ones, which
+the Bianchi identity of a cube with three outer faces near their threshold
+squeezes into a corner of area $(3-R)^2/2$, while the rough completions keep
+a mass of order one. Weak coupling does not help, since the same holds at
+every $\lambda$; and the bound of Theorem~\ref{thm:sfcalm} does not apply,
+since at these boundary values every completion has a face at least
+$1-3t$, above $\kappa'$. In $\SU(2)$ the Bianchi identity holds up to
+commutators of order $\kappa^2$, so the same construction squeezes the calm
+completions only to a scale of order $\kappa^2$; whether
+$\rho_X\le e^{-9|X|}$ fails almost surely for $\SU(2)$ in the shell is not
+decided here. The hypothesis of Proposition~\ref{prop:sfrelative}(ii) can
+therefore hold at best in a form that excludes such boundary values, for
+example in the mean under the calm law, and Proposition~\ref{prop:sfrelative}
+(ii) is not proved in such a form.
+\end{remark}
+
+\emph{The remainder $Z_\perp$.} Let $\mu_c=Z(c)^{-1}e^{-\lambda Q}\nu_c$ be
+the constrained law on $F_c$, and let $\mathbb P$ be the law of $c$ under
+the Wilson measure $\mu_L$, with density $Z(c)/Z_L$ with respect to $h$.
+
+\begin{proposition}\label{prop:sfperp}
+Let $G=\SU(2)$, $\kappa>0$ and $Z_\emptyset(c)>0$.
+\begin{enumerate}[label=\textup{(\roman*)},leftmargin=*]
+\item The following hold:
+\[
+\frac{Z(c)}{Z_\emptyset(c)}=\varXi(c)+\frac{Z_\perp(c)}{Z_\emptyset(c)},
+\qquad\frac{Z_\emptyset(c)}{Z(c)}=\mu_c\{R=\emptyset\},
+\]
+and $0\le Z_\perp(c)\le Z(c)-Z_\emptyset(c)=Z(c)\,\mu_c\{R\ne\emptyset\}$.
+\item For $\beta_W\ge1$ and $\kappa\le1$, $\int Z_\perp/Z\,d\mathbb P\le
+\mu_L\{R\ne\emptyset\}\le16|T|q_\kappa(\beta_W)$.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+(i) The first identity is Proposition~\ref{prop:sfrelative}(i) divided by
+$Z_\emptyset$, and $Z_\emptyset=\nu_c(e^{-\lambda Q}\mathbf 1\{R=\emptyset
+\})$. By Theorem~\ref{thm:lfmarkov}(i), $Z=Z_\emptyset+\sum_{X\ne\emptyset}
+Z_X$, and $Z_\perp$ is a sum of parts of the nonnegative $Z_X$, $X\ne
+\emptyset$. (ii) $\int\mu_c\{R\ne\emptyset\}\,d\mathbb P=\mu_L\{R\ne
+\emptyset\}$ since $h=\int\nu_c\,dh(c)$, and Theorem~\ref{thm:lfsuppression}
+(iii) with $X=\{y\}$ bounds each $\mu_L\{y\in R\}$.
+\end{proof}
+
+The next theorem shows that $Z_\perp$ is not zero: there are boundary values
+that admit a rough completion and no calm one, with positive measure. For a
+unit quaternion $g=a+b\cdot i\sigma$ write $b(g)\in\R^3$ for its vector part;
+then $\delta(g,I)^2=4(1-a)$ and $|b(g)|\le\delta(g,I)/\sqrt2$.
+
+\begin{lemma}\label{lem:sfquat}
+Let $g_1,\dots,g_4\in\SU(2)$ with $\delta(g_i,I)\le\varDelta\le1$. Then
+\begin{multline*}
+\bigl\lvert b(g_1g_2g_3^{-1}g_4^{-1})-b(g_1)-b(g_2)+b(g_3)+b(g_4)\bigr\rvert\\
+\le3\varDelta^2+3.54\varDelta^3 .
+\end{multline*}
+\end{lemma}
+
+\begin{proof}
+$b(g^{-1})=-b(g)$, and $b(gh)=a_gb(h)+a_hb(g)-b(g)\times b(h)$. Let $P_j$ be
+the product of the first $j$ factors and $\varepsilon_j$ the error after $j$
+factors. Then $\delta(P_j,I)\le j\varDelta$, so $|b(P_j)|\le j\varDelta/
+\sqrt2$ and $1-a(P_j)\le j^2\varDelta^2/4$, and with $g$ the next factor,
+\begin{align*}
+\varepsilon_{j+1}&\le\varepsilon_j+(1-a_g)|b(P_j)|+(1-a(P_j))|b(g)|\\
+&\quad+|b(P_j)||b(g)|\\
+&\le\varepsilon_j+\frac{(j+j^2)\varDelta^3}{4\sqrt2}+\frac{j\varDelta^2}2 .
+\end{align*}
+Summing over $j=1,2,3$ with $\varepsilon_1=0$ gives $3\varDelta^2+
+\frac{20}{4\sqrt2}\varDelta^3$.
+\end{proof}
+
+\begin{theorem}\label{thm:sfperp}
+Let $G=\SU(2)$, $0<\kappa\le10^{-8}$ and $\lambda>0$. Then $Z_\perp(I)>0$:
+for $X=\{y\}$ the outer variables at which $S_X=0<K_X$ and $\varPhi_X>0$ have
+positive $\nu^{\rm out}_{I,X}$-measure. In the linear model the same holds
+for every $\kappa>0$ and $\lambda>0$.
+\end{theorem}
+
+\begin{proof}
+Let $x=2y+(1,1,1,1)$, and let the cubes $\mathcal A$ and $\mathcal B$ at $x$
+be those in the directions $0,1,2$ and $0,1,3$. Each has three faces at $x$,
+owned by $y$, and three opposite faces, owned by $y+e_2$, $y+e_1$, $y+e_0$
+and by $y+e_3$, $y+e_1$, $y+e_0$, none in $\hat X$, which contain no link of
+$\mathcal V_X$. The face $p_0$ at $x$ in the plane $\{0,1\}$ belongs to both.
+\emph{The field $\varphi_2$.} Let $\sigma=\frac{11}{20}$, $\tau=\frac14$,
+and let $C=x+\{0,1\}^4$. As for $\varphi_1$, the edge $(x+\varepsilon,\mu)$
+of $C$ is a private link of the pair $(y+\varepsilon,\mu)$, and distinct
+edges lie in distinct pairs. Let $\varphi_2$ take the value $\sigma$ on
+$(x+e_2,0)$, $(x+e_1,2)$, $(x+e_3,1)$, $(x+e_0,3)$; $-\sigma$ on $(x+e_2,1)$,
+$(x+e_0,2)$, $(x+e_3,0)$, $(x+e_1,3)$; $\mp\frac23\sigma$ on $(x+e_0+e_2,1)$,
+$(x+e_0+e_3,1)$; $\mp\frac13\sigma$ on $(x+e_0+e_1,2)$, $(x+e_0+e_1,3)$;
+$\tau$ on $(x+e_1+e_3,2)$, $(x+e_0+e_2,3)$; $-\tau$ on $(x+e_1+e_2,3)$,
+$(x+e_0+e_3,2)$; minus one seventh of that value on the other seven private
+links of the pair of each of these sixteen edges; and zero elsewhere. The
+exchange of the coordinates $2$ and $3$ about $x$ maps $\varphi_2$ to
+$-\varphi_2$. As for $\varphi_1$, $V(\varphi_2)=0$, $\varphi_2$ vanishes on
+$\mathcal V_X$, since its pairs are those of blocks $y+\varepsilon$ with
+$\varepsilon\ne0$ and $\varepsilon\ge0$, and on a $2$-face of $C$ it is given
+by the sixteen values, the other edges of $C$ carrying zero. Write $[a;
+\mu\nu]$ for the plaquette at $x+a$ in the plane $\{\mu,\nu\}$. The $2$-faces
+of $C$ not at $x$ are the eighteen $[e_a;\mu\nu]$ with $a\notin\{\mu,\nu\}$
+and $[e_a+e_b;\mu\nu]$ with $\{a,b,\mu,\nu\}=\{0,1,2,3\}$, owned by $y+e_a$
+and $y+e_a+e_b$. Adding the values on their edges gives
+\begin{center}
+\begin{tabular}{llllll}
+\hline
+$[e_2;01]$ & $\frac43\sigma$ & $[e_3;01]$ & $-\frac43\sigma$ &
+$[e_1;23]$ & $2\sigma-2\tau$\\
+$[e_1;02]$ & $-\frac43\sigma$ & $[e_1;03]$ & $\frac43\sigma$ &
+$[e_0;23]$ & $2\tau-2\sigma$\\
+$[e_0;12]$ & $\frac43\sigma$ & $[e_0;13]$ & $-\frac43\sigma$ &
+$[e_0+e_1;23]$ & $-\frac23\sigma$\\
+$[e_2;03]$ & $\sigma+\tau$ & $[e_3;02]$ & $-\sigma-\tau$ &
+$[e_0+e_3;12]$ & $\frac23\sigma+\tau$\\
+$[e_2;13]$ & $-\sigma-\tau$ & $[e_3;12]$ & $\sigma+\tau$ &
+$[e_0+e_2;13]$ & $-\frac23\sigma-\tau$\\
+\hline
+\end{tabular}
+\end{center}
+and the faces $[e_1+e_2;03]$, $[e_1+e_3;02]$, $[e_2+e_3;01]$ contain one of
+the sixteen edges or none. A plaquette that is not a $2$-face of $C$
+contains at most one edge of $C$, so at most one link with $|\varphi_2|>
+\frac\sigma7$, and has $|d\varphi_2|\le\frac{10}7\sigma=\frac{11}{14}$. Every
+entry of the table has modulus at most $\sigma+\tau$, so every plaquette not
+owned by $y$ has $|d\varphi_2|\le m=\sigma+\tau=\frac45$. The first three
+rows of the first two columns are the outer faces of $\mathcal A$ and
+$\mathcal B$, so, with the signs of the Bianchi identity as in the proof of
+Theorem~\ref{thm:sfshelllin}, $R_{\mathcal A}=4\sigma=\frac{11}5$ and
+$R_{\mathcal B}=-\frac{11}5$.
+
+\emph{Linear model.} As in the proof of Theorem~\ref{thm:sfshelllin}, with
+$\kappa=1$, a calm completion would give, from $\mathcal A$, $(d\varphi)_{
+p_0}\ge R_{\mathcal A}-2=\frac15$ and, from $\mathcal B$,
+$(d\varphi)_{p_0}\le2+R_{\mathcal B}=-\frac15$. These strict inequalities,
+and $|d\varphi|<1$ off $\Pi(y)$, hold on a neighbourhood of $\varphi_2$, on
+which therefore the blocks off $y$ are calm, $S^{\rm lin}_X=0$, and every
+completion near the inner part of $\varphi_2$ has $y$ rough, so
+$K^{\rm lin}_X>0$.
+
+\emph{$\SU(2)$.} Let $U=\exp(\kappa\varphi_2\tau_3)$ on every active link.
+It is abelian, its plaquettes are $\exp(\kappa(d\varphi_2)_p\tau_3)$ with
+$\delta\le\kappa|(d\varphi_2)_p|$, and its sites, products of three links
+with $|\varphi_2|\le\sigma$, lie within $3\sigma\kappa<2\kappa$ of $I$, so
+$U$ is regular, the cut-offs equal one, and $V^\sharp(U)=\exp(\kappa V(
+\varphi_2)\tau_3)=I$. The construction in the proof of
+Theorem~\ref{thm:lfaction}(ii), with $\rho=\kappa/10^4$ in place of the
+$\rho$ chosen there, gives a set
+$\varGamma\subset F_I$ with $\nu_I(\varGamma)>0$ on which every plaquette
+satisfies $\delta(U'_p,U_p)\le90\rho$, by bi-invariance and $\delta\le d$. On $\varGamma$ every plaquette not owned
+by $y$ is at most $(m+0.009)\kappa<\kappa$.
+
+Fix $U'\in\varGamma$ and suppose that its outer variables admit a calm
+completion $U''$. Then every plaquette of $U''$ is at most $\kappa$, and by
+Lemma~\ref{lem:smallframes}(i) and~(iv), with $c=I$, every inside link is
+within $3\kappa$ of $I$, every path link $v$ satisfies $v=\exp(-\frac1{16}
+\sum_x\log(v^{-1}P_x))$ with $\delta(v^{-1}P_x,I)\le24\kappa$, so
+$\delta(v,I)\le8\pi\kappa$ by Lemma~\ref{lem:logbound}, and every other
+link leaving a block is within $(21+8\pi)\kappa=:\varDelta$ of $I$. The
+linear parts of the six faces of a cube cancel as in the linear model, so by
+Lemma~\ref{lem:sfquat}, for the third coordinates $b_3$ of the vector parts,
+\[
+\bigl|b_3(U''_{p_0})-b_3(U''_{p_1})+b_3(U''_{p_2})-R^b_{\mathcal A}\bigr|
+\le6\varepsilon_4,
+\]
+where $\varepsilon_4=3\varDelta^2+3.54\varDelta^3$,
+with $p_1$, $p_2$ the other faces of $\mathcal A$ at $x$ and $R^b_{\mathcal
+A}$ the signed sum of $b_3$ over its outer faces, which are those of $U'$;
+likewise for $\mathcal B$. Since $|b_3|\le\kappa/\sqrt2$ on calm faces,
+\[
+R^b_{\mathcal A}-\sqrt2\kappa-6\varepsilon_4\le b_3(U''_{p_0})\le
+R^b_{\mathcal B}+\sqrt2\kappa+6\varepsilon_4 .
+\]
+At $U$ the outer faces have $b_3=\sin(\kappa F/\sqrt2)$ with $F=\pm\frac43
+\sigma=\pm\frac{11}{15}$ as in the table, so $R^b_{\mathcal A}=-R^b_{\mathcal
+B}=3\sin\frac{11\kappa}{15\sqrt2}$, and as $\sin\theta\ge\theta(1-\theta^2/6)$,
+\[
+R^b_{\mathcal A}-R^b_{\mathcal B}\ge\frac{22}5\frac\kappa{\sqrt2}\Bigl(1-
+\frac{\kappa^2}6\Bigr)>3.1111\,\kappa .
+\]
+On $\varGamma$ each $b_3$ moves by at most $90\rho/\sqrt2$, since $\lVert g-g'
+\rVert\ge\sqrt2|b(g)-b(g')|$, so $R^b_{\mathcal A}-R^b_{\mathcal B}$ moves by
+at most $540\rho/\sqrt2<0.0382\,\kappa$. As $\pi<3.1416$, $\varDelta<46.14\,
+\kappa$, so $\varDelta^2<2128.9\,\kappa^2$, $\varDelta^3<98228\,\kappa^3$ and,
+for $\kappa\le10^{-8}$, $\varepsilon_4<6386.7\,\kappa^2+0.0035\,\kappa^2<
+6387\,\kappa^2$ and $12\varepsilon_4<76644\,\kappa^2<0.00077\,\kappa$. With
+$2\sqrt2<2.8285$,
+\begin{align*}
+R^b_{\mathcal A}-R^b_{\mathcal B}-2\sqrt2\kappa-12\varepsilon_4&>(3.1111-
+0.0382)\kappa\\
+&\quad-(2.8285+0.00077)\kappa>0.24\,\kappa
+\end{align*}
+at the outer variables of $U'$, which contradicts the previous display. So $S_X=0$ at the outer
+variables of every $U'\in\varGamma$; since $U'$ is a completion of them
+whose blocks off $y$ are calm, $y$ is rough at $U'$. By the factorisation of
+Theorem~\ref{thm:lfmarkov}(i) and Fubini, the part of $Z_\perp(I)$ from
+$X=\{y\}$ is at least $\int_\varGamma e^{-\lambda Q}\,d\nu_I>0$.
+\end{proof}
+
+So $Z_\perp$ is a genuine part of the weight, made of boundary values that
+force a rough block, and it is not a function of the calm law. It is
+suppressed like a rough block, in the mean by
+Proposition~\ref{prop:sfperp}(ii) and pointwise in the outer variables by
+the bound of Theorem~\ref{thm:lfmarkov}(ii) on $K_X$; a bound on $Z_\perp(c)
+/Z_\emptyset(c)$ uniform in $c$ is not proved.
+
+The small-field part therefore stands as follows. The representation of the
+calm weight as $e^{-\lambda q^{\rm lin}(\log c)}$ times local factors and a
+polymer sum fails at every $\lambda>0.5472$ (Theorem~\ref{thm:sfgaugeobst}),
+and as a product of local factors at large $\lambda$
+(Theorem~\ref{thm:sfgauss}); the leading term must be gauge invariant and
+nonlocal, and its linear propagator decays at the explicit rate of
+Theorem~\ref{thm:sfprop}. In the linear model the relative activities are
+unbounded under the calm law at every $\lambda$ (Theorem~\ref{thm:sfshelllin}),
+so the almost sure hypothesis of Proposition~\ref{prop:sfrelative}(ii)
+fails there, and $Z_\perp(I)>0$ for $\SU(2)$ (Theorem~\ref{thm:sfperp}). Not
+proved are a local expansion around a gauge-invariant leading term, any
+bound on the relative activities in the shell for $\SU(2)$, and a bound on
+$Z_\perp/Z_\emptyset$ uniform in $c$.
+
 \paragraph*{The next step.}
 To repeat the step at the coarse scale with constants $(\lambda_1,
 \kappa_1)$, the proofs above need three properties of the weight
@@ -22619,8 +23252,7 @@ calm at $\kappa/30$ (Theorem~\ref{thm:sfcalm}). Not proved are that bound
 at calm fields with plaquettes in the shell $(\kappa/30,\kappa]$, a bound
 on the term $Z_\perp$, and the locality of the calm weight in $c$; by
 Theorem~\ref{thm:sfgauss} the calm weight is not a product of local factors
-times a polymer sum, so a local form has to expand around the Gaussian
-block-spin form. The coarse action is comparable to $\lambda$ times the
+times a polymer sum, so a local form has to expand around the Gaussian block-spin form. Nor can the leading term be $\lambda q^{\rm lin}(\log c)$ for $\lambda>0.5472$, by gauge invariance (Theorem~\ref{thm:sfgaugeobst}); the linear propagator of such an expansion decays at an explicit rate (Theorem~\ref{thm:sfprop}); in the linear model the relative activities in the shell are unbounded under the calm law at every $\lambda$ (Theorem~\ref{thm:sfshelllin}); and $Z_\perp(I)>0$ for $\SU(2)$ (Theorem~\ref{thm:sfperp}). The coarse action is comparable to $\lambda$ times the
 coarse curvature only up to a constant factor. Section~\ref{ssec:iterate} replaces the factor $C_*$ of the
 comparison by $2956$ for every coarse field and by $1+O(\kappa_0)$ on the
 coarse plaquettes below $\kappa_1\approx0.19\,\kappa_0$
@@ -24561,6 +25193,30 @@ gauge theories.~I. Commun. Math. Phys. \textbf{95}, 17--40 (1984).
 Ba{\l}aban, T.: Averaging operations for lattice gauge theories. Commun.
 Math. Phys. \textbf{98}, 17--51 (1985).
 \href{https://doi.org/10.1007/BF01211042}{https://doi.org/10.1007/BF01211042}
+
+\bibitem{Bal85b}
+T.~Ba{\l}aban, Propagators for lattice gauge theories in a background
+field, Comm. Math. Phys. \textbf{99} (1985), 389--434,
+\href{https://doi.org/10.1007/BF01240355}{doi:10.1007/BF01240355}.
+
+\bibitem{Bal85c}
+T.~Ba{\l}aban, The variational problem and background fields in
+renormalization group method for lattice gauge theories, Comm. Math. Phys.
+\textbf{102} (1985), 277--309,
+\href{https://doi.org/10.1007/BF01229381}{doi:10.1007/BF01229381}.
+
+\bibitem{Bal87}
+T.~Ba{\l}aban, Renormalization group approach to lattice gauge field
+theories.~I. Generation of effective actions in a small field approximation
+and a coupling constant renormalization in four dimensions, Comm. Math.
+Phys. \textbf{109} (1987), 249--301,
+\href{https://doi.org/10.1007/BF01215223}{doi:10.1007/BF01215223}.
+
+\bibitem{Bal88}
+T.~Ba{\l}aban, Renormalization group approach to lattice gauge field
+theories.~II. Cluster expansions, Comm. Math. Phys. \textbf{116} (1988),
+1--22,
+\href{https://doi.org/10.1007/BF01239022}{doi:10.1007/BF01239022}.
 
 \bibitem{Bal89b}
 Ba{\l}aban, T.: Large field renormalization. II. Localization,
