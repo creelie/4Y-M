@@ -6038,6 +6038,725 @@ dashed.}
 \label{fig:scalelosses}
 \end{figure}
 
+\emph{Reductions of (M), (W) and (U).} The rest of this subsection reduces
+each of the three statements to a lattice statement and determines what the
+bounds of this paper give for it. The constant $Z_k$ is fixed by the
+reflected norm $C_k(0)$, while the moments in (M) are not reflected. Let
+\[
+V_k=\omega_k\bigl(|A_k|^2\bigr),\qquad
+\Upsilon_k=Z_k^2V_k=\frac{V_k}{C_k(0)} ,
+\]
+the variance of the packet of $f_0$ and its ratio to the reflected norm,
+and consider:
+\begin{enumerate}[label=\textup{(M$_{\mathrm{loc}}$)},leftmargin=*]
+\item For every $n\ge1$ and every cube $Q$ there are
+$M^{\mathrm{loc}}_n(Q)<\infty$ and $k_0$ with
+\[
+\Bigl|\omega_k\Bigl(\prod_{j=1}^nA_k(f_j)\Bigr)\Bigr|\le
+M^{\mathrm{loc}}_n(Q)\,V_k^{n/2}\prod_{j=1}^n\|f_j\|_\infty
+\]
+for $k\ge k_0$ and $f_j\in C_c(\R^4)$ supported in $Q$.
+\end{enumerate}
+\begin{enumerate}[label=\textup{(M$_Z$)},leftmargin=*]
+\item $\sup_k\Upsilon_k<\infty$.
+\end{enumerate}
+Statement (M$_{\mathrm{loc}}$) is (M) with $Z_k$ replaced by the local
+normalisation $V_k^{-1/2}$; it does not change when $\Phi$ is multiplied
+by a constant, and it does not involve the reflection.
+
+\begin{proposition}\label{prop:msplit}
+Let the states $\omega_k$ be invariant under translations and under
+$\vartheta$ and reflection positive, and let $\Phi$ be real.
+
+\textup{(i)} $\Upsilon_k\ge1$, and for $f_j$ supported in a cube $Q$
+\[
+\Bigl|\omega_k\Bigl(\prod_{j=1}^nZ_kA_k(f_j)\Bigr)\Bigr|\le
+\bigl(2\|\Phi\|_\infty Z_k|Q|_k\bigr)^n\prod_{j=1}^n\|f_j\|_\infty .
+\]
+In particular \textup{(M)} holds if $\sup_kZ_k<\infty$.
+
+\textup{(ii)} \textup{(M)} holds if and only if \textup{(M$_{\mathrm{loc}}$)}
+and \textup{(M$_Z$)} hold. Precisely, \textup{(M)} gives
+\textup{(M$_{\mathrm{loc}}$)} with $M^{\mathrm{loc}}_n=M_n$ and
+$\Upsilon_k\le M_2(Q_0)\|f_0\|_\infty^2$ for a cube $Q_0$ containing the
+support of $f_0$, and \textup{(M$_{\mathrm{loc}}$)} and \textup{(M$_Z$)}
+give \textup{(M)} with $M_n=M^{\mathrm{loc}}_n\sup_k\Upsilon_k^{n/2}$.
+
+\textup{(iii)} Assume \textup{(T1)}. Then \textup{(T2)} holds if and only
+if \textup{(M$_Z$)} holds and $V_k\ge c'r_k^2a_k^4W_k$ for a $c'>0$ and
+all $k$. If \textup{(T1)}, \textup{(T3)} and this lower bound on $V_k$
+hold, then \textup{(M$_{\mathrm{loc}}$)} holds.
+
+\textup{(iv)} Let $f_0=g\otimes h$ be a product packet as in
+Proposition~\textup{\ref{prop:sliceratio}}, choose an interval $I$ of
+length $\ell_I>0$ and $c_g>0$ with $g\ge c_g$ on $I$, and put
+\[
+\begin{split}
+&\kappa_g=\tfrac12c_g^2\ell_I(1-e^{-1}),\quad
+\gamma_g=(t_1-t_0+\ell_I)\|g\|_\infty,\\
+&\Lambda_g=\max\Bigl(\frac4{\ell_I},\frac1{2t_0}\Bigr),\quad
+\varepsilon_g(\Lambda)=\frac{\gamma_g^2\Lambda e^{-2\Lambda t_0}}
+{\kappa_g}.
+\end{split}
+\]
+Assume that the states have the transfer matrices of
+Appendix~\textup{\ref{app:transfer}}. If $a_k\le\ell_I/4$, then for every
+$\Lambda\ge\Lambda_g$ and every $\sigma\in a_k\Z_{\ge0}$
+\[
+\rho_k(0,\sigma)\ge e^{-\Lambda\sigma}\bigl(1-\varepsilon_g(\Lambda)
+\Upsilon_k\bigr).
+\]
+Hence \textup{(M$_Z$)} implies $(\mathrm N_u)$ for every dyadic $u\ge0$.
+
+\textup{(v)} Let $G=\SU(2)$, $\beta_{W,k}\in[0,0.351]$ and $\omega_k$ the
+states of Theorem~\textup{\ref{thm:strongratio}}, and let $f_0$ be as in
+\textup{(iv)}. Then for $a_k\le\min(\ell_I/4,m_0/(2\Lambda_g))$
+\[
+\Upsilon_k\ge\bigl(1-e^{-m_0/2}\bigr)\frac{2a_k\kappa_g}{m_0\gamma_g^2}
+\,e^{m_0t_0/a_k} .
+\]
+
+\textup{(vi)} Let $m>0$, $q_k=e^{-ma_k}$, let $\psi_k$ be the field of
+Proposition~\textup{\ref{prop:osobstruction}(a)}, $\xi_k$ a family of
+independent standard normal variables on $\Z^4$ independent of $\psi_k$,
+$\phi_k=\psi_k+a_k^{-5/2}\xi_k$, $A_k(f)=\sum_xa_k^4f(a_kx)\phi_k(x)$, and
+$f_0\ge0$ nonzero. The law of $\phi_k$ is invariant under translations and
+$B_4$ and reflection positive for the reflections in coordinate
+hyperplanes through sites and bisecting links, its transfer matrix in each
+coordinate direction has gap $ma_k$, $\rho_k(u,\sigma)=e^{-m\sigma}$ for
+all $u,\sigma$, and $Z_k$ converges; but $\Upsilon_k\to\infty$, so
+\textup{(M)} fails for $n=2$.
+\end{proposition}
+
+\begin{proof}
+(i) Since $\vartheta$ is an automorphism with $\overline{\vartheta(F)}=
+\vartheta(\bar F)$ and $\omega_k$ is $\vartheta$-invariant,
+$\omega_k(|\vartheta(\bar A_k)|^2)=\omega_k(\vartheta(|A_k|^2))=V_k$, and
+the Cauchy--Schwarz inequality gives $C_k(0)\le V_k$. Further
+$|A_k(f)|\le2\|\Phi\|_\infty a_k^4\#\{x:a_kx\in Q\}\|f\|_\infty$.
+
+(ii) Since $\Phi$ is real, $A_k(\bar f_0)=\overline{A_k(f_0)}$, and (M)
+with $n=2$, $f_1=\bar f_0$ and $f_2=f_0$ is the bound on $\Upsilon_k$. By
+(i), $Z_k^{-n}=C_k(0)^{n/2}\le V_k^{n/2}$, which gives
+(M$_{\mathrm{loc}}$). Conversely, since $Z_k^nV_k^{n/2}=\Upsilon_k^{n/2}$,
+\[
+\Bigl|\omega_k\Bigl(\prod_jZ_kA_k(f_j)\Bigr)\Bigr|\le
+M^{\mathrm{loc}}_n\Upsilon_k^{n/2}\prod_j\|f_j\|_\infty .
+\]
+
+(iii) The packets are centred, so $V_k$ is the joint cumulant of
+$A_k(\bar f_0)$ and $A_k(f_0)$, and Lemma~\ref{lem:treesum} gives
+$V_k\le K_2r_k^2|Q_0|_ka_k^4W_k\|f_0\|_\infty^2$. If (T2) holds, then
+$V_k\ge C_k(0)\ge c\,r_k^2a_k^4W_k$ and $\Upsilon_k\le K_2|Q_0|_k
+\|f_0\|_\infty^2/c$, which is bounded since $|Q_0|_k\le(L+a_0)^4$ for a
+cube of side $L$. Conversely $C_k(0)=V_k/\Upsilon_k\ge(c'/\sup_j\Upsilon_j)
+r_k^2a_k^4W_k$. For (M$_{\mathrm{loc}}$), Lemma~\ref{lem:treesum} and the
+lower bound give for a cumulant of order $p\ge2$
+\[
+\begin{split}
+&\bigl|\omega^T_k\bigl(A_k(f_1);\dots;A_k(f_p)\bigr)\bigr|\\
+&\quad\le K_pp^{p-2}c'^{-p/2}B_*^{\,p/2-1}|Q|_k\,V_k^{p/2}
+\prod_{j=1}^p\|f_j\|_\infty ,
+\end{split}
+\]
+using (T3), and a moment is the sum over the partitions of
+$\{1,\dots,n\}$ without singletons of the products of the cumulants of the
+blocks, each partition contributing a factor $V_k^{n/2}$.
+
+(iv) We use the notation of the proof of
+Proposition~\ref{prop:sliceratio}: $A_k=\sum_nw_n\tau_nU_k$ with
+$w_n=a_kg(a_kn)$, $\nu$ the spectral measure of $\mathbb T_k$ at $u_k$,
+$W(\lambda)=\sum_nw_n\lambda^n$, and $C_k(\sigma)=\int W^2\lambda^{\sigma/a_k}
+d\nu$. The function $U_k$ depends only on the spatial links of the slice
+at time $0$ (Proposition~\ref{prop:spatialflow}(i)), which $\vartheta$
+fixes, so for $j\ge0$, by translation invariance,
+\[
+\omega_k\bigl(\bar U_k\,\tau_jU_k\bigr)=\omega_k\bigl(\vartheta(\bar U_k)
+\tau_jU_k\bigr)=\int\lambda^jd\nu ,
+\]
+and the same holds for $j<0$ with $|j|$ in place of $j$, the integral
+being real. Hence
+\[
+V_k=\int\mathcal Q\,d\nu,\qquad
+\mathcal Q(\lambda)=\sum_{n,n'}w_nw_{n'}\lambda^{|n-n'|} .
+\]
+Write $\lambda=e^{-a_kE}$ with $E\in[0,\infty]$. First,
+$W(\lambda)\le\|w\|_1\lambda^{n_0}\le\gamma_ge^{-Et_0}$, since
+$n_0\ge t_0/a_k$ and $\|w\|_1\le(t_1-t_0+a_k)\|g\|_\infty$. Second, let
+$J$ be the set of $n$ with $a_kn\in I$; it consists of
+$M\ge\ell_I/a_k-1\ge\frac34\ell_I/a_k$ consecutive integers, and $w_n\ge
+a_kc_g$ on $J$. Every $n\in J$ has on one side at least $p=\lceil
+M/2\rceil-1$ further elements of $J$, so, the terms of $\mathcal Q$ being
+nonnegative,
+\[
+\mathcal Q(\lambda)\ge a_k^2c_g^2M\sum_{j=0}^{p}\lambda^j
+\ge a_k^2c_g^2M\,\frac{1-\lambda^{M/2}}{1-\lambda} .
+\]
+For $E\ge4/\ell_I$, $\lambda^{M/2}\le e^{-3E\ell_I/8}\le e^{-1}$ and
+$1-\lambda\le a_kE$, so $\mathcal Q(\lambda)\ge\frac34\ell_Ic_g^2
+(1-e^{-1})/E\ge\kappa_g/E$. The function $Ee^{-2Et_0}$ decreases for
+$E\ge1/(2t_0)$, so for $\Lambda\ge\Lambda_g$, on the set
+$\{E>\Lambda\}$,
+\[
+W^2\le\frac{\gamma_g^2}{\kappa_g}Ee^{-2Et_0}\mathcal Q\le
+\varepsilon_g(\Lambda)\mathcal Q ,
+\]
+which also holds at $E=\infty$, where $W=0$. Therefore
+$\int_{\{E>\Lambda\}}W^2d\nu\le\varepsilon_g(\Lambda)V_k=
+\varepsilon_g(\Lambda)\Upsilon_kC_k(0)$, and
+\[
+C_k(\sigma)\ge e^{-\Lambda\sigma}\int_{\{E\le\Lambda\}}W^2d\nu
+\ge e^{-\Lambda\sigma}\bigl(1-\varepsilon_g(\Lambda)\Upsilon_k\bigr)C_k(0).
+\]
+If $\Upsilon_k\le\Upsilon$ for all $k$, choose $\Lambda\ge\Lambda_g$ with
+$\varepsilon_g(\Lambda)\Upsilon\le\frac12$; then $\rho_k(0,\sigma)\ge
+\frac12e^{-\Lambda\sigma}$, which is $(\mathrm N_0)$, and
+Proposition~\ref{prop:ratioexact}(iii) gives $(\mathrm N_u)$.
+
+(v) By Theorem~\ref{thm:strongratio} with $\sigma=a_k$,
+$\rho_k(0,a_k)\le e^{-m_0}$. Part (iv) with $\sigma=a_k$ and
+$\Lambda=m_0/(2a_k)\ge\Lambda_g$ gives $e^{-m_0}\ge e^{-m_0/2}(1-
+\varepsilon_g(\Lambda)\Upsilon_k)$, so $\Upsilon_k\ge(1-e^{-m_0/2})/
+\varepsilon_g(m_0/(2a_k))$, which is the claim.
+
+(vi) The covariance of $\phi_k$ is $\prod_\mu q_k^{|x_\mu-y_\mu|}+
+a_k^{-5}\delta_{xy}$, which is invariant under translations and $B_4$.
+Fix a coordinate direction as time. The process of the time slices of
+$(\psi_k,\xi_k)$ is the stationary reversible Markov chain of the proof
+of Proposition~\ref{prop:osobstruction}(a) for $\psi_k$, together with
+independent slices of $\xi_k$; its transition operator is $P\otimes\Pi$,
+with $P$ as there and $\Pi$ the projection onto the functions that do not
+depend on the slice of $\xi_k$. It is positive with spectrum
+$\{q_k^N:N\ge0\}\cup\{0\}$ and $1$ simple, and the argument given there
+gives reflection positivity and the gap. The packets in $C_k(\sigma)$,
+$\sigma\ge0$, are supported at times $x_0\le-1$ and $x_0\ge1$, where
+the variables $\xi_k$ are independent and centred, so $C_k(\sigma)$ is
+that of example (a): with the time factor $q_k^{y_0-x_0}$, the
+substitution $y\mapsto y+(\sigma/a_k)e_0$ gives $C_k(2u+\sigma)=
+e^{-m\sigma}C_k(2u)$, and $Z_k$ converges as in (a). The variances add,
+so $V_k\ge a_k^{-5}a_k^8\sum_xf_0(a_kx)^2$, which is $a_k^{-1}$ times a
+Riemann sum converging to $\|f_0\|_2^2>0$. Hence $\Upsilon_k\to\infty$,
+and (M) for $n=2$ fails by (ii).
+\end{proof}
+
+By (ii), the renormalisation enters (M) only through (M$_Z$), a comparison
+of the variance of the packet with its reflected norm. By the proof of
+(iv), for a product packet $V_k$ weighs the spectral measure of the slice
+field by $\mathcal Q\ge\kappa_g/E$ at energies $E\ge4/\ell_I$, while
+$C_k(0)$ weighs it by $W^2\le\gamma_g^2e^{-2Et_0}$: (M$_Z$) says that the
+part of the variance carried at high energy, which the reflection
+suppresses over the distance $2t_0$, is bounded by a multiple of the
+reflected norm, and it implies $(\mathrm N_0)$. In the strong-coupling
+range $\Upsilon_k$ grows exponentially in $1/a_k$ by (v). Example (vi) has
+the lattice symmetry, reflection positivity, the gap $ma_k$ and ratios
+$\rho_k(u,\sigma)=e^{-m\sigma}$ independent of $k$, and (M$_Z$) fails for
+it; so (M$_Z$) does not follow from $(\mathrm N_u)$ and these properties.
+By Remark~\ref{rem:markov}, (M$_{\mathrm{loc}}$) does not follow from
+bounds on two-point functions. Every inequality that holds, with
+constants independent of $k$, for the states of
+Theorem~\ref{thm:strongratio} along all sequences of couplings in
+$[0,0.351]$ holds along sequences on which (M$_Z$) fails by (v), and (M)
+fails with it; so no such inequality implies (M$_Z$) or (M). This applies
+to every consequence of reflection positivity at all $\beta_W\ge0$, such
+as the chessboard estimates~\cite{FILS78}, and to the bounds of class (H)
+of Proposition~\ref{prop:upperbounds}; a proof of (M) has to use that the
+couplings leave the strong-coupling range. A sufficient condition without smearing
+follows from H\"older's and Minkowski's inequalities and translation
+invariance: if
+\[
+\sup_kZ_k\bigl\|\varphi_k(0)-\omega_k(\varphi_k(0))\bigr\|_{L^n(\omega_k)}
+<\infty\qquad(n\ge1),
+\]
+then $\|Z_kA_k(f)\|_{L^n(\omega_k)}$ is at most $|Q|_k\|f\|_\infty$ times
+this supremum, and (M) holds. This pointwise bound on the renormalised
+flowed field is not proved.
+
+\emph{The flow does not bound the field.} Part (i) of
+Proposition~\ref{prop:msplit} is the bound that uses only
+$\|\Phi\|_\infty$. The spatial flow at a positive flow time does not
+improve it configuration by configuration.
+
+\begin{proposition}\label{prop:stationary}
+Let $G=\SU(N)$, $N\ge2$, $\zeta=e^{2\pi i/N}$, and let $U^*$ be the
+configuration with all temporal links equal to $1$ and spatial links
+\[
+U^*_{(x,x+e_1)}=1,\quad U^*_{(x,x+e_2)}=\zeta^{x_1},\quad
+U^*_{(x,x+e_3)}=\zeta^{x_1+x_2},
+\]
+multiples of the identity.
+
+\textup{(i)} Every spatial plaquette of $U^*$ is $\zeta^{\pm1}$, and
+$\Phi_s(gU^*)=gU^*$ and $\Phi_s(g1)=g1$ for every gauge transformation
+$g$ and every $s\in\R$.
+
+\textup{(ii)} Let $\Phi$ be the sum of $N-\ReTr U_p$ over the twelve
+spatial plaquettes with a corner at $0$. Then for all $x$ and $s$
+\[
+\Phi_x\circ\Phi_s(U^*)=12N\bigl(1-\cos(2\pi/N)\bigr),\qquad
+\Phi_x\circ\Phi_s(1)=0 .
+\]
+
+\textup{(iii)} Let $\omega(O)=\mu(O^F)$ for gauge-invariant $O$, with
+$\mu$ a Gibbs measure of $\gamma^F$ at $\beta\ge0$, as for the states of
+Theorem~\textup{\ref{thm:osaxioms}}, let $\Phi$ be as in \textup{(ii)} and
+$f\ge0$. Then the $\omega$-essential supremum and infimum of $A_k(f)$
+differ by at least $12N(1-\cos(2\pi/N))\,a_k^4\sum_xf(a_kx)$, at every
+flow time, and
+\[
+\|Z_kA_k(f)\|_{L^\infty(\omega)}\ge6N\Bigl(1-\cos\frac{2\pi}N\Bigr)Z_k\,
+a_k^4\sum_xf(a_kx) .
+\]
+\end{proposition}
+
+\begin{proof}
+(i) Let $1\le i<j\le3$. The plaquette at $x$ in the plane of $e_i$ and $e_j$ is
+\[
+U_{(x,x+e_i)}U_{(x+e_i,x+e_i+e_j)}U^{-1}_{(x+e_j,x+e_i+e_j)}U^{-1}_{(x,x+e_j)} .
+\]
+For $U^*$ and $(i,j)=(1,2),(1,3),(2,3)$ it is
+\[
+\zeta^{x_1+1}\zeta^{-x_1},\quad\zeta^{x_1+x_2+1}\zeta^{-x_1-x_2},\quad
+\zeta^{x_1}\zeta^{x_1+x_2+1}\zeta^{-x_1}\zeta^{-x_1-x_2},
+\]
+that is $\zeta$; with the opposite orientation it is $\zeta^{-1}$. Let $e$ be a
+spatial link and $X$ in the Lie algebra of $\SU(N)$. All links of $U^*$
+are central, so replacing $U^*_e$ by $U^*_ee^{\epsilon X}$ changes a
+plaquette $p\ni e$ into $c\,e^{\pm\epsilon X}$ with $c=\zeta^{\pm1}$, and
+\[
+\frac d{d\epsilon}\ReTr\bigl(c\,e^{\pm\epsilon X}\bigr)\Big|_{\epsilon=0}
+=\pm\mathrm{Re}\bigl(c\Tr X\bigr)=0 ,
+\]
+since $\Tr X=0$. So the gradient in the flow equation vanishes at $U^*$,
+and $\Phi_s(U^*)=U^*$ by the uniqueness in
+Proposition~\ref{prop:spatialflow}(i). The same computation with $c=1$
+applies to the configuration $1$, and the flow commutes with gauge
+transformations.
+
+(ii) $N-\ReTr(\zeta^{\pm1}1)=N(1-\cos(2\pi/N))$ for each of the twelve
+plaquettes, and $N-\ReTr1=0$; by (i) the flow does not move either
+configuration.
+
+(iii) As in the proof of Lemma~\ref{lem:gaugefix}, choosing a base point
+on each component of $F$ gives a gauge transformation $g$ with
+$(gU^*)_e=1$ on $F$; let $Q^*$ be the restriction of $gU^*$ to the active
+links, and $Q^1\equiv1$. The functions $F_x=(\Phi_x\circ\Phi_{s_k})^F$ are
+uniform limits of continuous functions of finitely many active links
+(Proposition~\ref{prop:spatialflow}(ii)), and gauge invariance gives
+$F_x(Q^*)=\Phi_x\circ\Phi_{s_k}(U^*)$. Given $\eta>0$ and the finite set
+$X_f$ of $x$ with $f(a_kx)\ne0$, there is a neighbourhood of $Q^*$, fixed
+by conditions on finitely many links $B$, on which $|F_x-F_x(Q^*)|<\eta$
+for $x\in X_f$, and similarly for $Q^1$. Given the other links, the
+conditional law under $\mu$ of the links of $B$ has density
+proportional to $\exp(N\beta\sum_p\ReTr Q^F_p)$ with respect to Haar
+measure, the sum running over the plaquettes meeting $B$, and this density
+is at least $e^{-2N^2\beta|P_B|}$, with $|P_B|$ the number of these
+plaquettes. So both neighbourhoods have positive probability. On them
+$A_k(f)$ is within $\eta a_k^4\sum_xf(a_kx)$ of its values at $Q^*$ and
+$Q^1$, which differ by $12N(1-\cos(2\pi/N))a_k^4\sum_xf(a_kx)$ by (ii).
+Since $\eta$ is arbitrary, this gives the first claim, and the
+$L^\infty$ norm is at least half the difference.
+\end{proof}
+
+So the bound of Proposition~\ref{prop:msplit}(i) is attained up to a
+constant factor at every flow time, and it gives (M) only when $Z_k$ is
+bounded. Away from the configurations of least action the flow has
+stationary points at which the flowed energy density keeps its lattice
+size; a proof of (M) by way of the flow has to bound the probability of
+the configurations near such points, which is a property of the measure
+and not of the flow.
+
+\emph{Rotations as Ward identities.} For $X\in\mathfrak{so}(4)$ and $f\in
+C^1_c(\R^4)$ let $L_Xf(x)=\nabla f(x)\cdot Xx$, the derivative of
+$f\circ e^{\epsilon X}$ at $\epsilon=0$, and $E_{\mu\nu}$ as in the proof
+of Proposition~\ref{prop:rotations}.
+
+\begin{lemma}\label{lem:ward}
+Let $S$ be a family as in Theorem~\textup{\ref{thm:osaxioms}(i)--(ii)},
+$X\in\mathfrak{so}(4)$ and $n\ge1$. Then $S_n(f_1\circ e^{-\epsilon X},
+\dots,f_n\circ e^{-\epsilon X})=S_n(f_1,\dots,f_n)$ for all $\epsilon\in\R$
+and $f_j\in C_c(\R^4)$ if and only if
+\[
+\sum_{j=1}^nS_n(f_1,\dots,L_Xf_j,\dots,f_n)=0
+\]
+for all $f_j\in C^\infty_c(\R^4)$.
+\end{lemma}
+
+\begin{proof}
+Let $R_\epsilon=e^{\epsilon X}$ and $F(\epsilon)=S_n(f_1\circ R_\epsilon,
+\dots,f_n\circ R_\epsilon)$ for $f_j\in C^\infty_c(\R^4)$. Since $R_\epsilon$
+commutes with $X$ and $\nabla(f\circ R)(x)=R^{\mathsf T}\nabla f(Rx)$,
+\[
+L_X(f\circ R_\epsilon)(x)=\nabla f(R_\epsilon x)\cdot R_\epsilon Xx
+=(L_Xf)(R_\epsilon x).
+\]
+By Taylor's formula $h^{-1}(f\circ R_{\epsilon+h}-f\circ R_\epsilon)$
+converges uniformly to $(L_Xf)\circ R_\epsilon$ as $h\to0$, with supports
+in a fixed cube for $|h|\le1$, so the bound of
+Theorem~\ref{thm:osaxioms}(i) shows that $F$ is differentiable with
+$F'(\epsilon)$ equal to the sum of the lemma at the functions $f_j\circ
+R_\epsilon$. If the sum vanishes, $F$ is constant, which is the invariance
+for smooth $f_j$, and the bound and the density of $C^\infty_c$ in $C_c$ in
+the supremum norm on a cube give it for all $f_j$. Conversely invariance
+gives $F'(0)=0$.
+\end{proof}
+
+For $X\in\mathfrak{so}(4)$ and $f_j\in C^\infty_c(\R^4)$ put
+\[
+\Delta^X_k(f_1,\dots,f_n)=\sum_{j=1}^n\omega_k\Bigl(Z_kA_k(L_Xf_j)
+\prod_{i\ne j}Z_kA_k(f_i)\Bigr),
+\]
+the derivative at $\epsilon=0$ of the lattice moment
+$\omega_k(\prod_jZ_kA_k(f_j\circ e^{\epsilon X}))$, a finite sum. It
+measures the breaking of the rotation by the lattice and by the flow.
+
+\begin{proposition}\label{prop:wardform}
+Assume the hypotheses of Theorem~\textup{\ref{thm:osaxioms}}.
+
+\textup{(i)} $\Delta^X_k(f_1,\dots,f_n)\to0$ for all $n$ and $f_j\in
+C^\infty_c(\R^4)$ if and only if every subsequential limit is invariant
+under the group $\{e^{\epsilon X}\}$.
+
+\textup{(ii)} Let $X\ne0$ lie in $\mathfrak{so}(3)_{\mathrm{sp}}$, for
+instance $X=E_{12}$. Then \textup{(W)} holds if and only if
+$\Delta^X_k(f_1,\dots,f_n)\to0$ for all $n$ and $f_j\in C^\infty_c(\R^4)$.
+
+\textup{(iii)} Let $X=E_{01}$. Then $\Delta^X_k(f_1,\dots,f_n)\to0$ for
+all $n$ and $f_j\in C^\infty_c(\R^4)$ if and only if every subsequential
+limit is invariant under $\mathrm O(4)$. For the family of
+Proposition~\textup{\ref{prop:osobstruction}(c)} the identity of
+Lemma~\textup{\ref{lem:ward}} with $X=E_{01}$ fails.
+
+\textup{(iv)} If \textup{(T1)--(T3)} hold and $a_k^4W_k\to0$, the
+conditions in \textup{(ii)} and \textup{(iii)} need only be imposed for
+$n=2$.
+\end{proposition}
+
+\begin{proof}
+(i) Let $S$ be the limit along a subsequence. By
+Theorem~\ref{thm:osaxioms}(i), applied to the functions $L_Xf_j\in
+C^\infty_c$, $\Delta^X_k$ converges along it to the sum of
+Lemma~\ref{lem:ward}; if $\Delta^X_k\to0$, the lemma gives the
+invariance. If $|\Delta^X_k(f_1,\dots,f_n)|\ge\eta>0$ along a subsequence,
+a refinement given by Theorem~\ref{thm:osaxioms}(i) has a limit for which
+the sum of Lemma~\ref{lem:ward} is at least $\eta$ in absolute value, and
+that limit is not invariant.
+
+(ii) $e^{\epsilon X}$ is the rotation about the line $\ker X$ through an
+angle proportional to $\epsilon$, of infinite order for all but countably
+many $\epsilon$. If (W) holds, every limit is invariant under $\mathrm
+O(3)\times\mathrm O(1)$, as stated after (W), and (i) gives $\Delta^X_k\to0$.
+Conversely, by (i) each $G_S$ contains a spatial rotation of infinite
+order, so $G_S\supseteq\mathrm O(3)\times\mathrm O(1)$ by
+Proposition~\ref{prop:rotations}(ii), and (W) follows.
+
+(iii) $e^{\epsilon E_{01}}$ rotates the $(0,1)$ plane, has infinite order
+for $\epsilon\notin\pi\mathbb Q$ and moves $e_0$ off $\pm e_0$ for
+$\epsilon\notin\pi\Z$; Proposition~\ref{prop:rotations}(iii) and (i) give
+the equivalence. The family of Proposition~\ref{prop:osobstruction}(c)
+has $G_S=\mathrm O(3)\times\mathrm O(1)$, which does not contain
+$e^{\epsilon E_{01}}$ for $\epsilon\notin\pi\Z$, so by
+Lemma~\ref{lem:ward} the identity fails for some $f_j$.
+
+(iv) By Theorem~\ref{thm:higher}(v) every limit is Gaussian, so it is
+invariant under a rotation if and only if $S_2$ is, and the proofs of (i)
+and of Lemma~\ref{lem:ward} apply to $n=2$ alone.
+\end{proof}
+
+So the lattice estimate that gives the spatial rotations is
+$\Delta^X_k\to0$ for one $X\in\mathfrak{so}(3)_{\mathrm{sp}}$, with no
+rate; a bound $|\Delta^X_k(f_1,\dots,f_n)|\le C(f_1,\dots,f_n)a_k^p$ with
+$p>0$ would suffice and is not proved. For $X=E_{12}$ the rotation by
+$\pi/2$ lies in $W_3$, so $\epsilon\mapsto\omega_k(\prod_jZ_kA_k(f_j\circ
+e^{\epsilon X}))$ has period $\pi/2$, and the integral of
+$\Delta^X_k(f_1\circ e^{\epsilon X},\dots,f_n\circ e^{\epsilon X})$ over a
+period vanishes at every $k$: the lattice symmetry cancels the breaking on
+average over the angle, and (ii) asks for the cancellation at each angle
+in the limit. For the time--space generators the same identity is the
+condition for $\mathrm O(4)$, and part (iii) shows that it fails for the
+spatially flowed free field at a positive flow time.
+
+\emph{The four-dimensional flow.} The flow in all four directions
+preserves $\mathrm O(4)$, and it loses reflection positivity already for
+the free field.
+
+\begin{proposition}\label{prop:fourflow}
+\textup{(i)} Let $t_f>0$ and $\mu>0$. The centred Gaussian field on $\R^4$
+with covariance
+\[
+\widehat C(p)=e^{-2t_f|p|^2}(|p|^2+\mu^2)^{-1},
+\]
+the massive free field flowed by the four-dimensional heat flow for the
+time $t_f$, is invariant under translations and $\mathrm O(4)$ and is not
+reflection positive: there is a real $f\in C^\infty_c(\R^4)$ supported in
+$\{t>0\}$ with $\iint f(\theta x)C(x-y)f(y)\,dx\,dy<0$.
+
+\textup{(ii)} Let $S^j$, $j\ge1$, be families as in
+Theorem~\textup{\ref{thm:osaxioms}(i)--(ii)}, each invariant under
+$\mathrm O(3)\times\mathrm O(1)$, bounded by $M_n(Q)\prod_j\|f_j\|_\infty$
+uniformly in $j$, and with $S^j_n(f_1,\dots,f_n)\to S^0_n(f_1,\dots,f_n)$
+for all $n$ and $f_i\in C_c(\R^4)$. Then $G_{S^0}=\mathrm O(4)$ if and
+only if $S^0$ is invariant under the exchange of $e_0$ and $e_1$.
+\end{proposition}
+
+\begin{proof}
+(i) Invariance is clear. Put
+\[
+H_{\mathbf p}(u)=\frac1{2\pi}\int e^{ip_0u}\widehat C(p_0,\mathbf p)
+\,dp_0 ,
+\]
+an even real function, smooth
+in $u$ and continuous in $(\mathbf p,u)$, with $|H_{\mathbf p}(u)|\le
+H_{\mathbf p}(0)\le H_0(0)$. For $f=g\otimes h$ with $g$ supported in
+$(0,\infty)$ and $g,h$ real, the spatial Fourier transform gives
+\[
+\begin{split}
+\iint f(\theta x)C(x-y)f(y)\,dx\,dy
+&=(2\pi)^{-3}\!\int|\hat h(\mathbf p)|^2G_{\mathbf p}\,d\mathbf p,\\
+G_{\mathbf p}&=\iint g(s)g(t)H_{\mathbf p}(s+t)\,ds\,dt .
+\end{split}
+\]
+Since $H_0(0)>0$ and $H_0''(0)=-(2\pi)^{-1}\int p_0^2\widehat C(p_0,0)
+\,dp_0<0$, $\log H_0$ is strictly concave on an interval $[0,2\delta]$.
+For $0<u_1<u_2<\delta$ this gives $H_0(u_1+u_2)^2>H_0(2u_1)H_0(2u_2)$, so
+the matrix $(H_0(u_i+u_j))_{i,j\le2}$ has negative determinant and there
+is a real $c$ with $\sum_{i,j}c_ic_jH_0(u_i+u_j)<0$. Let $j_\eta\ge0$ be a
+mollifier with integral $1$ supported in $[-\eta,\eta]$, $\eta<u_1$, and
+$g=c_1j_\eta(\cdot-u_1)+c_2j_\eta(\cdot-u_2)$; for small $\eta$,
+$G_0<0$ by continuity of $H_0$. Fix such $g$; then $\mathbf p\mapsto
+G_{\mathbf p}$ is continuous and bounded by $\|g\|_1^2H_0(0)$. For a real
+nonzero $h_1\in C^\infty_c(\R^3)$ and $h_L(\mathbf x)=L^{-3/2}h_1(\mathbf
+x/L)$, the right side for $h=h_L$ is $(2\pi)^{-3}\int|\hat h_1(\mathbf
+q)|^2G_{\mathbf q/L}\,d\mathbf q$, which tends to $\|h_1\|_2^2G_0<0$ as
+$L\to\infty$ by dominated convergence.
+
+(ii) The bound makes each condition $S^0_n(f_1\circ R^{-1},\dots)=
+S^0_n(f_1,\dots)$ a limit of the same conditions for $S^j$, so
+$G_{S^0}\supseteq\mathrm O(3)\times\mathrm O(1)$, which is infinite. The
+exchange $g$ has $ge_0=e_1$, and Proposition~\ref{prop:rotations}(iii)
+gives the claim; the converse is clear.
+\end{proof}
+
+At $t_f=0$ the function $H_{\mathbf p}(u)=e^{-\omega|u|}/(2\omega)$ is
+log-linear on $(0,\infty)$, and the field is reflection positive. The
+proof of (i) shows that reflection positivity needs the matrices
+$(H_{\mathbf p}(u_i+u_j))$ with $u_i>0$ to be positive semidefinite, which
+makes $H_{\mathbf p}$ log-convex on $(0,\infty)$; a smooth even function
+with $H''(0)<0$ is not log-convex near $0$. So at a positive
+flow time the spatial flow keeps reflection positivity and loses
+$\mathrm O(4)$ (Proposition~\ref{prop:osobstruction}(c)), and the
+four-dimensional flow keeps $\mathrm O(4)$ and loses reflection
+positivity. By part (ii), at vanishing flow time, for limits $S^0$ of
+families that satisfy (W) at positive flow times with uniform bounds,
+$\mathrm O(4)$ reduces to one discrete symmetry, the exchange of time with
+a spatial axis, which the unflowed lattice theory has; the interchange of
+the limits $k\to\infty$ and $t_f\to0$ that would carry it to $S^0$, and the
+renormalisation of the fields as $t_f\to0$, are not treated here.
+
+\emph{One limit under a renormalisation condition.} Proposition
+\ref{prop:uniquelimit}(iii) uses the convergence of one ratio. Choosing the
+couplings so that it holds is a renormalisation condition:
+\begin{enumerate}[label=\textup{(RC)},leftmargin=*]
+\item There are a dyadic $\sigma_0>0$ and $\rho_*\in(0,1)$ with
+$\rho_k(0,\sigma_0)\to\rho_*$.
+\end{enumerate}
+That a tuning with (RC) exists is not proved. Since (RC) contains
+$(\mathrm N_0)$, it is not weaker than the open input of
+Theorem~\ref{thm:flowlimit}.
+
+Under (M), let $\mathfrak X$ be the set of families $S=(S_n)$ of
+multilinear forms on $C_c(\R^4)$ with $|S_n(f_1,\dots,f_n)|\le M_n(Q)
+\prod_j\|f_j\|_\infty$ for $f_j$ supported in a cube $Q$. For $L\in\mathbb
+N$ let $\mathcal F_L$ be a countable $\mathbb Q(i)$-linear set of
+functions supported in $[-L,L]^4$, dense there in the supremum norm, let
+$P_1,P_2,\dots$ enumerate the tuples of elements of
+$\bigcup_L\mathcal F_L$, and put $d(S,S')=\sum_i2^{-i}\min(1,|S(P_i)-
+S'(P_i)|)$. By the bounds and density, $d(S^m,S)\to0$ if and only if
+$S^m_n(f_1,\dots,f_n)\to S_n(f_1,\dots,f_n)$ for all $n$ and $f_j\in
+C_c(\R^4)$, and by the diagonal argument of Theorem~\ref{thm:higher}(ii)
+$(\mathfrak X,d)$ is a compact metric space. For $k\ge k_0$ the lattice
+moments $x_k=(\omega_k(\prod_jZ_kA_k(f_j)))_n$ lie in $\mathfrak X$; let
+$\mathfrak L$ be their set of limit points, the set of subsequential
+limits, and put
+\[
+\begin{split}
+\delta_k(f_1,\dots,f_n)&=\omega_{k+1}\Bigl(\prod_jZ_{k+1}A_{k+1}(f_j)
+\Bigr)\\
+&\quad-\omega_k\Bigl(\prod_jZ_kA_k(f_j)\Bigr).
+\end{split}
+\]
+
+\begin{lemma}\label{lem:limitset}
+If $(x_k)$ is a sequence in a compact metric space with
+$d(x_k,x_{k+1})\to0$, its set of limit points is nonempty and connected.
+\end{lemma}
+
+\begin{proof}
+The set $L$ of limit points is nonempty and closed. If $L=A\cup B$ with
+$A,B$ disjoint, closed and nonempty, let $3\eta$ be their distance and
+$A_\eta,B_\eta$ their open $\eta$-neighbourhoods, at distance at least
+$\eta$. The sequence enters both infinitely often, and once
+$d(x_k,x_{k+1})<\eta$ it cannot pass from one to the other in one step, so
+infinitely many $x_k$ lie in the compact complement of $A_\eta\cup
+B_\eta$, which then contains a limit point. That contradicts $L\subseteq
+A\cup B$.
+\end{proof}
+
+\begin{proposition}\label{prop:tuned}
+\textup{(i)} \textup{(RC)} implies $(\mathrm N_u)$ for every dyadic
+$u\ge0$, and every limit of Theorem~\textup{\ref{thm:flowlimit}} along a
+subsequence is nontrivial and has $\rho(\sigma_0)=\rho_*$. Under the
+hypothesis of Theorem~\textup{\ref{thm:transfer}}, $m_*\le\sigma_0^{-1}
+\log(1/\rho_*)$. For $\SU(2)$, \textup{(RC)} implies $\beta_{W,k}>0.351$
+for all large $k$. Under \textup{(M)}, every $S\in\mathfrak L$ has
+$S_2(\bar f_0\circ\theta,f_0(\cdot-(\sigma_0,0)))=\rho_*$.
+
+\textup{(ii)} Assume the hypotheses of
+Theorem~\textup{\ref{thm:osaxioms}}. Then \textup{(U)} holds if and only if
+the following hold:
+\begin{enumerate}[label=\textup{(U\arabic*)},leftmargin=*]
+\item $\delta_k(f_1,\dots,f_n)\to0$ for all $n$ and $f_j\in C_c(\R^4)$;
+\item $\mathfrak L$ is totally disconnected.
+\end{enumerate}
+
+\textup{(iii)} Under the same hypotheses, if
+$\sum_k|\delta_k(f_1,\dots,f_n)|<\infty$ for all $n$ and all $f_j$ in a
+set whose linear span is dense in the continuous functions supported in
+each cube, then \textup{(U)} holds.
+
+\textup{(iv)} Let $m>0$, $q_k=e^{-ma_k}$, $\varepsilon_k=2+\sin(\log k)$,
+$K_\varepsilon(\mathbf z)=e^{-|\mathbf z|^2/\varepsilon}$ on $\R^3$, let
+$\phi_k$ be the centred Gaussian field on $\Z^4$ with covariance
+\[
+q_k^{|x_0-y_0|}K_{\varepsilon_k}\bigl(a_k(\mathbf x-\mathbf y)\bigr),
+\]
+$A_k(f)=\sum_xa_k^4f(a_kx)\phi_k(x)$, and $f_0\ge0$ nonzero. The law of
+$\phi_k$ is invariant under translations and $\Gamma$ and reflection
+positive for the time reflections through sites and bisecting links, and
+its transfer matrix has gap $ma_k$. Moreover $\rho_k(u,\sigma)=
+e^{-m\sigma}$ for all $u,\sigma$, so \textup{(RC)} holds for every
+$\sigma_0$; \textup{(T1)--(T3)} hold with $r_k=1$ for large $k$, and
+\textup{(M)}, \textup{(W)} and \textup{(U1)} hold, with
+$|\delta_k(f_1,\dots,f_n)|\le C/k$ for $f_j\in C^1_c(\R^4)$. But
+$\mathfrak L$ is homeomorphic to $[1,3]$, and \textup{(U)} fails.
+\end{proposition}
+
+\begin{proof}
+(i) The first claims are Proposition~\ref{prop:ratioexact}(iii) and
+Theorem~\ref{thm:flowlimit}(ii). Under the hypothesis of
+Theorem~\ref{thm:transfer} the gap is at least $m_*a_k$ on
+$\Omega_k^\perp$, and as in the proof of Theorem~\ref{thm:strongratio}
+$\rho_k(0,\sigma_0)\le e^{-m_*\sigma_0}$, so $\rho_*\le e^{-m_*\sigma_0}$.
+The statement for $\SU(2)$ is Theorem~\ref{thm:strongratio}. The last
+claim is the computation in the proof of
+Proposition~\ref{prop:uniquelimit}(iii).
+
+(ii) If (U) holds, $x_k$ converges in $\mathfrak X$ by
+Proposition~\ref{prop:uniquelimit}(i), so $d(x_k,x_{k+1})\to0$, which is
+(U1), and $\mathfrak L$ is a point. Conversely (U1) is $d(x_k,x_{k+1})\to
+0$, so $\mathfrak L$ is connected by Lemma~\ref{lem:limitset}; a
+nonempty, connected and totally disconnected set is a point, and (U)
+follows.
+
+(iii) The moments of tuples from the set converge, being Cauchy; by
+multilinearity so do those of tuples from its span, and by (M) and density
+all moments converge. Proposition~\ref{prop:uniquelimit}(i) gives (U).
+
+(iv) $K_\varepsilon$ is positive definite on $\R^3$, its Fourier
+transform being positive, hence on $a_k\Z^3$, and the field is the
+stationary Markov chain of the proof of
+Proposition~\ref{prop:osobstruction}(a) with $\gamma$ the Gaussian law of
+covariance $K_{\varepsilon_k}(a_k(\mathbf x-\mathbf y))$; this gives
+reflection positivity, the gap and, since $K_\varepsilon$ is radial, the
+invariance. As in Proposition~\ref{prop:msplit}(vi), the time factor of
+the covariance gives $C_k(2u+\sigma)=e^{-m\sigma}C_k(2u)$. The kernel
+$k_\varepsilon(z)=e^{-m|z_0|}K_\varepsilon(\mathbf z)$ is bounded by $1$
+and Lipschitz, uniformly in $\varepsilon\in[1,3]$, and the covariance of
+$A_k(f)$ and $A_k(f')$ is a Riemann sum of mesh $a_k$ for $\iint
+f(x)f'(y)k_{\varepsilon_k}(x-y)\,dx\,dy$, with error at most $C(f,f')a_k$
+for $f,f'\in C^1_c$ and tending to $0$ uniformly in $\varepsilon$ for
+$f,f'\in C_c$. In particular $C_k(0)$ differs by $o(1)$ from
+$c(\varepsilon_k)$, where $c(\varepsilon)=\iint f_0(\theta x)f_0(y)
+k_\varepsilon(x-y)\,dx\,dy$ is positive and continuous on $[1,3]$. With
+$w_k(z)=q_k^{|z_0|}e^{-a_k^2|\mathbf z|^2/3}$, which bounds the covariance
+since $\varepsilon_k\le3$, $a_k^4W_k\to(2/m)(3\pi)^{3/2}$, and (T1) holds
+with $K_2=1$, $K_n=0$ for $n\ge3$, (T2) for large $k$, and (T3);
+Theorem~\ref{thm:ostree}(i) gives (M). Let $S^\varepsilon$ be the
+Gaussian family with
+\[
+S^\varepsilon_2(f,f')=c(\varepsilon)^{-1}\iint f(x)f'(y)
+k_\varepsilon(x-y)\,dx\,dy .
+\]
+By Wick's rule, $|x_k(f_1,\dots,f_n)-S^{\varepsilon_k}(f_1,\dots,f_n)|$
+tends to $0$, and is at most $Ca_k$ for $f_j\in C^1_c$. The derivative of
+$k_\varepsilon$ in $\varepsilon$ is bounded on compact sets uniformly in
+$\varepsilon\in[1,3]$ and $c>0$ there, so $|S^\varepsilon(f_1,\dots,f_n)-
+S^{\varepsilon'}(f_1,\dots,f_n)|\le C|\varepsilon-\varepsilon'|$, and
+$|\varepsilon_{k+1}-\varepsilon_k|\le\log(1+1/k)\le1/k$; this gives the
+bound on $\delta_k$, and (U1) follows by approximation and (M). Since $\log
+k\to\infty$ with increments tending to $0$, the limit points of
+$(\varepsilon_k)$ form $[1,3]$, so $\mathfrak L=\{S^\varepsilon:1\le
+\varepsilon\le3\}$. Each $S^\varepsilon$ is invariant under $\mathrm O(3)
+\times\mathrm O(1)$, since $k_\varepsilon$ is, which gives (W). If
+$S^\varepsilon_2=S^{\varepsilon'}_2$, the continuous kernels
+$k_\varepsilon/c(\varepsilon)$ and $k_{\varepsilon'}/c(\varepsilon')$
+coincide; at $z=0$ this gives $c(\varepsilon)=c(\varepsilon')$, and then
+$K_\varepsilon=K_{\varepsilon'}$, so $\varepsilon=\varepsilon'$. So
+$\varepsilon\mapsto S^\varepsilon$ is a continuous injection of $[1,3]$
+onto $\mathfrak L$, a homeomorphism.
+\end{proof}
+
+So (RC) fixes the value of one functional on every limit and leaves (U1)
+and (U2) open: example (iv) satisfies (RC), (M), (W), the tree bounds and
+(U1), and its limits form an interval; the same field with
+$\varepsilon_k$ alternating between $1$ and $3$ satisfies (RC), (M),
+(W), the tree bounds and (U2), and has two limits. Part (iii) is the form
+that a scale-by-scale analysis would supply. Along the one-loop tuning of
+Proposition~\ref{prop:scalelosses}, $\beta_k=hk+O(1)$, so a bound
+$|\delta_k(f_1,\dots,f_n)|\le C/\beta_k$, of first order in the running
+coupling, is of the size $C/k$ of example (iv) and does not imply (U),
+while a bound $C\beta_k^{-p}$ with $p>1$ is summable and gives (U) by
+(iii). As for the ratio in Proposition~\ref{prop:scalelosses}, a bound on
+the change of the moments from one scale to the next gives (U) only if it
+is better than first order in the running coupling, or if the changes
+cancel between scales.
+
+\begin{remark}\label{rem:rotatedlattice}
+Let $f_0$ be invariant under the spatial rotations and
+$R\in\SO(3)_{\mathrm{sp}}$. The moments $x^R_k=(\omega_k(\prod_jZ_kA_k(f_j
+\circ R^{-1})))_n$ are those of the theory on the rotated lattice
+$R(a_k\Z^4)$, whose packet of $f_0$ is $A_k$; it has the same $C_k$, $Z_k$
+and $\rho_k$, and satisfies (RC) when the original theory does. The
+sequence $x_1,x^R_1,x_2,x^R_2,\dots$ converges if and only if (U) holds
+and the difference in (W) for $R$ tends to $0$: if it converges, both
+subsequences have the same limit, and conversely. For $R$ of infinite order
+this is (U) and (W) together, the statement that the limit does not depend
+on which of the lattices $R(a_k\Z^4)$ is used. Example (a) of
+Proposition~\ref{prop:osobstruction} satisfies (RC), since its time
+dependence factorises as in Proposition~\ref{prop:msplit}(vi), as well as
+(M), (U) and the tree bounds, and not (W); example (iv) of
+Proposition~\ref{prop:tuned} satisfies (RC), (M), (W) and the tree
+bounds, and not (U).
+\end{remark}
+
+\emph{Status of (M), (W) and (U).} None of the three statements is proved.
+Proposition~\ref{prop:msplit}(i)--(iii) uses translation and
+$\vartheta$-invariance and reflection positivity of the states and the
+reality of $\Phi$, part (iv) also the transfer matrix, and part (v)
+Theorem~\ref{thm:strongratio}; none of them uses the hypothesis of
+Theorem~\ref{thm:transfer} or $(\mathrm N_u)$. Proposition
+\ref{prop:stationary} is deterministic except for the positivity of the
+conditional densities in part (iii). Proposition~\ref{prop:wardform} uses
+(M) and the invariance of the states under translations and $\Gamma$,
+through Theorem~\ref{thm:osaxioms}(i), (ii), and part (iv) the tree bounds.
+Proposition~\ref{prop:fourflow} concerns the free field and limits of
+families. Proposition~\ref{prop:tuned}(i) assumes (RC), whose existence
+along a tuning is not proved and which contains $(\mathrm N_0)$, and the
+hypothesis of Theorem~\ref{thm:transfer} for the bound on $m_*$; parts
+(ii) and (iii) assume (M). What remains open is (M$_{\mathrm{loc}}$) and
+(M$_Z$), the second of which contains $(\mathrm N_0)$ for product packets;
+the Ward identity $\Delta^X_k\to0$ for one $X\in\mathfrak{so}(3)_{\mathrm
+{sp}}$; and, given (RC), (U1) and (U2).
+
 \subsection{Estimates uniform in the coupling}\label{ssec:uniform}
 
 Some local quantities of the Wilson measure can be controlled uniformly in
@@ -21304,7 +22023,7 @@ $(\mathrm N_u)$ is not proved here. Section~\ref{ssec:osaxioms} shows that, give
 Osterwalder--Schrader axioms for the spatially flowed fields, with the
 symmetry $\mathrm O(3)\times\mathrm O(1)$, follow from three statements, a
 moment bound (M), one spatial rotation (W) and one limit (U), each of
-them necessary and none of them proved. Full $\mathrm O(4)$ invariance is not among these conclusions: at positive flow time the spatial flow breaks it even for the free field (Proposition~\ref{prop:osobstruction}(c)), so it has to be posed for $\mathrm O(4)$-covariant observables, such as fields of the four-dimensional flow, and it is not proved.
+them necessary and none of them proved. Full $\mathrm O(4)$ invariance is not among these conclusions: at positive flow time the spatial flow breaks it even for the free field (Proposition~\ref{prop:osobstruction}(c)), so it has to be posed for $\mathrm O(4)$-covariant observables, such as fields of the four-dimensional flow, and the four-dimensional flow loses reflection positivity already for the free field (Proposition~\ref{prop:fourflow}). Of the three statements, (M) is a local moment bound together with the bound $\sup_k\Upsilon_k<\infty$, which contains $(\mathrm N_0)$ for product packets and fails in the strong-coupling range (Proposition~\ref{prop:msplit}), and the flow alone cannot give it (Proposition~\ref{prop:stationary}); (W) is the Ward identity for one spatial generator (Proposition~\ref{prop:wardform}); and under the renormalisation condition (RC), (U) is the vanishing of the moment differences between consecutive scales together with a totally disconnected set of limits, and a first-order bound in the running coupling for those differences does not give it (Proposition~\ref{prop:tuned}).
 
 \begin{figure}[t]
 \centering
