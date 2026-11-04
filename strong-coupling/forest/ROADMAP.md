@@ -405,3 +405,13 @@ preceding implementation pass: no new (I1), D8 or continuum theorem is
 claimed by this integration. The complete contribution is open as
 [draft PR #160](https://github.com/creelie/4Y-M/pull/160), with 129 changed
 files. `UPSTREAM_STATUS.md` records the reconciliation and earlier scope.
+
+### After upstream merge (2026-11-04)
+
+**Proved finite criterion / open application:** `ENVIRONMENT_COMPARISON.md`
+connects uniform conditional label odds to environment covariance through
+a Dobrushin resolvent. The necessary all-background influence bounds and
+locality of conditional physical observables are not proved for the gauge
+fibres. `RESEARCH_DIRECTIONS_2026_11_04.md` records literature and next
+steps for bad regions, multiscale crossover and continuum reconstruction.
+No new Yang--Mills mass gap or continuum construction is claimed.
