@@ -4200,6 +4200,420 @@ Theorem~\ref{thm:flowlimit}(iv) at every separation. The open input of
 Theorem~\ref{thm:flowlimit} is therefore implied by these two bounds for one
 smooth $f_0$; nothing here proves them for the Wilson action.
 
+\subsection{An averaged cube condition}\label{ssec:averaged}
+
+The condition $D(n,\alpha)$ enters the proof of Theorem~\ref{thm:transfer}
+through the comparison lemma, which contracts Lipschitz seminorms and
+therefore needs the Kantorovich response of a cube for every exterior. It
+is posed in the forest gauge, and Propositions~\ref{prop:gaussforest}
+and~\ref{prop:gaussevery} and Theorem~\ref{thm:cubeneeds} show what that
+gauge costs. This subsection replaces it by a condition in the mean over
+the Wilson measure itself, on gauge-invariant functions and without gauge
+fixing: a Poincar\'e inequality for the dynamics that resamples cubes of
+side $n$. A finite-speed bound for that dynamics, which uses only the
+locality of its moves, turns the inequality into decay at a rate of order
+$1/n$ in lattice units, and the continuum step goes through as in
+Theorem~\ref{thm:transfer}.
+
+\emph{Setting.} Let $G\subset\U(N)$ be compact and nontrivial, $\delta$ a
+bi-invariant metric of diameter $D$ on $G$, and $\varphi$ a positive
+continuous class function on $G$, such as $e^{N\beta\ReTr(\cdot)}$ or the
+Villain weight of Proposition~\ref{prop:coulomb}. The lattice $\Lambda$ is
+either the torus $\Lambda_L=(\Z/L\Z)^4$ with $L$ even and $L\ge2n+4$, or a
+box of $\Z^4$ with all sides at least $2n$; $E$ is its set of links, $P$ its
+set of plaquettes (on a box, those with four corners in it), and
+\[
+\mu(dU)=\frac1Z\prod_{p\in P}\varphi(U_p)\prod_{e\in E}dU_e .
+\]
+A link $(y,\nu)$ has base point $y$; on $\Lambda_L$ differences of base
+points are taken in $(-L/2,L/2]^4$ and $\lvert\cdot\rvert_\infty$ is the
+corresponding distance. For $x\in\Z^4$ (or $x\in\Lambda_L$) let $V_x$ be the
+set of links of $E$ with base point in $x+[0,n)^4$, and let $X$ be the set
+of $x$ with $V_x\ne\emptyset$. Every link lies in exactly $n^4$ of the sets
+$V_x$, $x\in X$, and $\lvert X\rvert\ge4n^4$. For $V\subset E$ let $\partial
+V$ be the set of links of $E\setminus V$ that share a plaquette of $P$ with
+a link of $V$; the conditional law $\gamma^0_V(\cdot\mid U)$ of $U_V$ under
+$\mu$ given the other links has density proportional to $\prod_{p\cap V\ne
+\emptyset}\varphi(U_p)$ and depends only on $U_{\partial V}$. Write
+$\mathcal P_x$ for the conditional expectation given the links outside
+$V_x$, $\mathcal P_xf(U)=\int f\,d\gamma^0_{V_x}(\cdot\mid U)$, an orthogonal
+projection on $L^2(\mu)$, and $\mathcal A$ for the closed subspace of
+functions invariant under the gauge group $G^\Lambda$. By gauge covariance,
+$\gamma^0_{V_x}(\cdot\mid gU)$ is the image of $\gamma^0_{V_x}(\cdot\mid U)$
+under the action of $g$ on the links of $V_x$, so $\mathcal P_x$ maps
+$\mathcal A$ into itself.
+
+\begin{definition}\label{def:avgcube}
+For $n\ge2$ and $\varpi>0$, the condition $\mathrm{BP}(n,\varpi)$ for $\mu$
+is
+\[
+\varpi\Var_\mu(f)\le\frac1{n^4}\sum_{x\in X}\mu\bigl((f-\mathcal P_xf)^2
+\bigr)
+\]
+for every real $f\in\mathcal A$.
+\end{definition}
+
+The right side is the Dirichlet form of the dynamics that resamples each
+cube at rate $n^{-4}$, so that every link is resampled at rate one, and
+$\mathrm{BP}(n,\varpi)$ says that this dynamics has spectral gap at least
+$\varpi$ on gauge-invariant functions. It contains no supremum over
+exteriors and no gauge. Put $q_n=(2+1/n)^4$, so that $16<q_n\le\frac{625}{16}$
+for $n\ge2$, and let $\mathcal K=\lvert X\rvert^{-1}\sum_{x\in X}\mathcal P_x$
+be the chain that resamples one cube chosen uniformly. For $Y\subset X$ let
+$\mathcal K_Y=\lvert X\rvert^{-1}\bigl(\sum_{x\in Y}\mathcal P_x+(\lvert X
+\rvert-\lvert Y\rvert)I\bigr)$, the same chain with the moves outside $Y$
+suppressed.
+
+Write $y\rightsquigarrow z$ if $\partial V_z\cap V_y\ne\emptyset$, that is,
+if a move at $z$ reads a link of $V_y$. A link of $\partial V_z$ shares a
+plaquette with a link based in $z+[0,n)^4$, so its base point lies in
+$z+[-1,n]^4$; hence $y\rightsquigarrow z$ implies $\lvert z-y\rvert_\infty
+\le n$, and for each $z$ at most $(2n+1)^4=q_nn^4$ points $y$ have
+$y\rightsquigarrow z$. For a finite set $S\subset E$ put $Y_1(S)=\{y\in X:V_y
+\cap S\ne\emptyset\}$ and $Y_{j+1}(S)=Y_j(S)\cup\{y\in X:y\rightsquigarrow
+z\text{ for some }z\in Y_j(S)\}$.
+
+\begin{lemma}[finite speed of the cube chain]\label{lem:avgspeed}
+Let $f$ be a bounded function of the links of a finite set $S\subset E$, let
+$m_0\ge0$ be an integer and $Y=Y_{m_0}(S)$, with $Y_0(S)=\emptyset$. Then
+$\mathcal K_Y^tf$ depends only on the links of $S\cup\bigcup_{y\in Y}\partial
+V_y$, and for every integer $t\ge0$ and every configuration $U$
+\[
+\bigl\lvert\mathcal K^tf(U)-\mathcal K_Y^tf(U)\bigr\rvert\le\frac{2\lvert S
+\rvert}{q_n}\,\lVert f\rVert_\infty\sum_{m>m_0}\frac{(q_n\tau)^m}{m!},
+\]
+where $\tau=tn^4/\lvert X\rvert$.
+\end{lemma}
+
+\begin{proof}
+If $h$ depends only on the links of $W$, then $\mathcal P_xh=h$ when $V_x\cap
+W=\emptyset$, and $\mathcal P_xh$ depends only on the links of $(W\setminus
+V_x)\cup\partial V_x$ otherwise; induction on $t$ gives the first claim.
+
+Run two chains from $U$. At each step choose $x_s\in X$ uniformly, the
+choices independent. If $x_s\notin Y$, the first chain resamples $V_{x_s}$
+from $\gamma^0_{V_{x_s}}$ and the second does nothing. If $x_s\in Y$ and the
+two configurations agree on $\partial V_{x_s}$, both laws of $V_{x_s}$ are
+the same, and both chains receive one common sample; otherwise they
+resample independently. The two marginal processes are the chains
+$\mathcal K$ and $\mathcal K_Y$, so $\mathcal K^tf(U)-\mathcal K_Y^tf(U)$ is
+the expectation of the difference of $f$ at time $t$, which vanishes unless
+the set $\mathcal D_t$ of links where the two configurations differ meets $S$.
+
+We claim that every link of $\mathcal D_t$ lies in $V_{x_{s_m}}$ for times
+$s_1<\dots<s_m\le t$ with $x_{s_1}\notin Y$ and $x_{s_l}\rightsquigarrow
+x_{s_{l+1}}$ for $l<m$. For $t=0$, $\mathcal D_0=\emptyset$. At step $t$
+the links outside $V_{x_t}$ keep their status. If $x_t\notin Y$, the links
+of $V_{x_t}$ have the chain $(t)$. If $x_t\in Y$, the links of $V_{x_t}$
+are in $\mathcal D_t$ only if a link $e'\in\partial V_{x_t}$ lies in
+$\mathcal D_{t-1}$; its chain ends at some $s_m<t$ with $e'\in V_{x_{s_m}}$,
+so $x_{s_m}\rightsquigarrow x_t$, and appending $t$ gives a chain.
+
+If $\mathcal D_t$ meets $S$, there is such a chain with $V_{x_{s_m}}\cap S\ne
+\emptyset$, so $x_{s_m}\in Y_1(S)$ and $x_{s_{m-l}}\in Y_{l+1}(S)$; since
+$x_{s_1}\notin Y$, $m>m_0$. For fixed $m$ there are at most $\binom tm\le
+t^m/m!$ choices of the times, at most $n^4\lvert S\rvert$ of $x_{s_m}$ and at
+most $q_nn^4$ of each earlier cube given the next, and each prescribed
+sequence occurs with probability $\lvert X\rvert^{-m}$. So the probability
+that $\mathcal D_t$ meets $S$ is at most $\frac{\lvert S\rvert}{q_n}\sum_{m>
+m_0}(q_nn^4t/\lvert X\rvert)^m/m!$, and the difference of $f$ is at most
+$2\lVert f\rVert_\infty$.
+\end{proof}
+
+For finite $S,S'\subset E$ let $d(S,S')$ be the least $\lvert b-b'\rvert_\infty$
+over base points $b$ of links of $S$ and $b'$ of links of $S'$.
+
+\begin{theorem}[decay from the averaged condition]\label{thm:avgdecay}
+Suppose that $\mathrm{BP}(n,\varpi)$ holds for $\mu$. Then $\varpi\le4$, and
+for bounded $f,g\in\mathcal A$ that depend only on the links of finite sets
+$S_f,S_g$ with $d=d(S_f,S_g)\ge3n-2$,
+\[
+\begin{split}
+\lvert\Cov_\mu(f,g)\rvert&\le\Bigl(e+\frac{k\lvert S_f\rvert\lvert S_g
+\rvert}{64e^2}\Bigr)\lVert f\rVert_\infty\lVert g\rVert_\infty\,
+e^{-\varpi k/(e^2q_n)},\\
+k&=\Bigl\lfloor\frac{d+2}n\Bigr\rfloor-2 .
+\end{split}
+\]
+In particular, for every $d$, $\lvert\Cov_\mu(f,g)\rvert\le C(1+d)
+e^{-\varpi d/(e^2q_nn)}$ with $C$ depending on $\lvert S_f\rvert$, $\lvert
+S_g\rvert$, $\lVert f\rVert_\infty$, $\lVert g\rVert_\infty$ only, and
+complex $f,g$ satisfy both bounds with an extra factor four.
+\end{theorem}
+
+\begin{proof}
+\emph{The bound $\varpi\le4$.} The function $f=\ReTr U_p$ of one plaquette
+is gauge invariant and not constant on $G^E$, and $\mu$ has a positive
+density, so $\Var_\mu(f)>0$. Each $I-\mathcal P_x$ is an orthogonal
+projection that annihilates constants, so $\mu((f-\mathcal P_xf)^2)\le
+\Var_\mu(f)$, and it vanishes unless $V_x$ contains one of the four links
+of $p$, which happens for at most $4n^4$ points $x$.
+
+\emph{The spectral part.} Let $\mathcal A^0$ be the functions of $\mathcal
+A$ with mean zero. $\mathcal K$ is an average of orthogonal projections that
+preserve $\mathcal A^0$, so it is self-adjoint with $0\le\mathcal K\le I$ on
+$\mathcal A^0$, and $\mathrm{BP}(n,\varpi)$ reads $\ip h{(I-\mathcal K)h}\ge
+\epsilon\lVert h\rVert^2$ on $\mathcal A^0$ with $\epsilon=\varpi n^4/\lvert X
+\rvert$. Hence the spectrum of $\mathcal K$ on $\mathcal A^0$ lies in
+$[0,1-\epsilon]$ and $\lVert\mathcal K^Th\rVert_2\le e^{-\epsilon T}\lVert
+h\rVert_2$ for every integer $T\ge0$.
+
+\emph{The decomposition.} Since $(I-\mathcal K)$ annihilates constants,
+\[
+f-\mu(f)=\mathcal K^T\bigl(f-\mu(f)\bigr)+\sum_{t=0}^{T-1}\mathcal K^t
+(I-\mathcal K)f ,
+\]
+and pairing with $g$ in $L^2(\mu)$,
+\[
+\Cov_\mu(f,g)=\ip{\mathcal K^T(f-\mu f)}{g-\mu g}+\sum_{t=0}^{T-1}
+\ip{\mathcal K^tf}{(I-\mathcal K)g},
+\]
+where the self-adjointness of $\mathcal K$ was used. The first term is at
+most $e^{-\epsilon T}\lVert f\rVert_\infty\lVert g\rVert_\infty$.
+
+\emph{The local part.} Let $Z_g=Y_1(S_g)$, so $\lvert Z_g\rvert\le n^4\lvert
+S_g\rvert$ and $(I-\mathcal K)g=\lvert X\rvert^{-1}\sum_{x\in Z_g}(g-
+\mathcal P_xg)$. If $h$ does not depend on the links of $V_x$, then $\mathcal
+P_xh=h$ and $\ip h{g-\mathcal P_xg}=\ip hg-\ip{\mathcal P_xh}g=0$. Put $m_0=
+\lfloor(d+2)/n\rfloor-3\ge0$, so $k=m_0+1$, and $Y=Y_{m_0}(S_f)$. Suppose a
+link $w$ lies in $V_x$ with $x\in Z_g$, and either $w\in S_f$ or $w\in
+\partial V_y$ with $y\in Y_j(S_f)$, $1\le j\le m_0$. In the second case there
+are $y=y_j\rightsquigarrow y_{j-1}\rightsquigarrow\dots\rightsquigarrow y_1$
+with $y_1\in Y_1(S_f)$, so $\lvert y-y_1\rvert_\infty\le n(m_0-1)$; with a
+base point $b$ of a link of $S_f$ in $y_1+[0,n)^4$, the base point of $w$
+in $y+[-1,n]^4\cap(x+[0,n)^4)$, and a base point $b'$ of a link of $S_g$ in
+$x+[0,n)^4$,
+\[
+\lvert b-b'\rvert_\infty\le(n-1)+n(m_0-1)+n+2(n-1)=n(m_0+3)-3,
+\]
+and the first case gives at most $2(n-1)$. Both are at most $n\lfloor(d+2)/n
+\rfloor-3<d$, which is impossible. So $\mathcal K_Y^tf$, which by
+Lemma~\ref{lem:avgspeed} depends only on $S_f\cup\bigcup_{y\in Y}\partial
+V_y$, does not depend on the links of $V_x$ for $x\in Z_g$, and
+\[
+\begin{split}
+\bigl\lvert\ip{\mathcal K^tf}{(I-\mathcal K)g}\bigr\rvert&=\bigl\lvert
+\ip{\mathcal K^tf-\mathcal K_Y^tf}{(I-\mathcal K)g}\bigr\rvert\\
+&\le\lVert\mathcal K^tf-\mathcal K_Y^tf\rVert_\infty\frac{2\lvert Z_g
+\rvert}{\lvert X\rvert}\lVert g\rVert_\infty .
+\end{split}
+\]
+The bound of Lemma~\ref{lem:avgspeed} increases with $t$; summing over $t<T$
+and putting $\tau=Tn^4/\lvert X\rvert$, the second term is at most
+\[
+\frac{4\lvert S_f\rvert\lvert S_g\rvert\,\tau}{q_n}\lVert f\rVert_\infty
+\lVert g\rVert_\infty\sum_{m\ge k}\frac{(q_n\tau)^m}{m!} .
+\]
+
+\emph{The choice of $T$.} Take $T=\lfloor k\lvert X\rvert/(e^2q_nn^4)\rfloor$,
+so that $z=q_n\tau\le k/e^2$ and $\epsilon T=\varpi\tau\ge\varpi k/(e^2q_n)-
+\varpi n^4/\lvert X\rvert\ge\varpi k/(e^2q_n)-1$, because $\varpi\le4$ and
+$\lvert X\rvert\ge4n^4$. Since $k!\ge(k/e)^k$,
+\[
+\sum_{m\ge k}\frac{z^m}{m!}\le\frac{z^k}{k!}e^z\le\Bigl(\frac{ez}k\Bigr)^k
+e^z\le e^{-k(1-e^{-2})},
+\]
+and $\tau/q_n=z/q_n^2\le k/(256e^2)$. As $\varpi/(e^2q_n)\le4/(16e^2)<1-
+e^{-2}$, both terms are at most the stated bound. For the second form, $k>
+d/n-3$, $k\le d+1$ and $3\varpi/(e^2q_n)<1$; for $d<3n-2$ it holds with $C=
+e\lVert f\rVert_\infty\lVert g\rVert_\infty$, since $\lvert\Cov_\mu(f,g)
+\rvert\le\lVert f\rVert_\infty\lVert g\rVert_\infty$ and $\varpi d/(e^2q_nn)
+<1$. Real and imaginary parts give the complex case.
+\end{proof}
+
+The proof uses the condition only on $\mathcal A$ and only in $L^2(\mu)$;
+the locality of the moves enters through the counting of chains, at speed
+$e^2q_nn$ links per unit of the resampling time. The theorem gives the
+lattice gap and the continuum step. On the torus a \emph{torus limit} at
+$\beta$ is a state $\omega$ on the continuous gauge-invariant local functions
+of $\Z^4$ with $\omega(O)=\lim_j\mu_{L_j}(O)$ along a sequence $L_j\to\infty$,
+each $O$ evaluated on $\Lambda_{L_j}$ through a box of $\Z^4$ centred at the
+origin once $L_j$ is large; by compactness of the marginals and a diagonal
+sequence every sequence $L_j\to\infty$ has a subsequence along which such a
+limit exists.
+
+\begin{corollary}[the lattice gap]\label{cor:avggap}
+Let $\mathcal L$ be an infinite set of even integers $L\ge2n+4$ and suppose
+that $\mathrm{BP}(n,\varpi)$ holds for the Wilson measure of $\Lambda_L$ at
+$\beta\ge0$ for every $L\in\mathcal L$. Then every torus limit $\omega$ along
+$\mathcal L$ is invariant under translations and the hypercubic group and
+reflection positive, and its transfer matrix has spectral gap at least
+\[
+m_n=\frac{\varpi}{e^2q_nn}\ge\frac{16\varpi}{625e^2n}.
+\]
+\end{corollary}
+
+\begin{proof}
+The measures $\mu_L$ are invariant under the translations and the
+hypercubic group of $\Lambda_L$, and for $\beta\ge0$ and even $L$ they are
+reflection positive for reflections in planes through sites and in planes
+bisecting links~\cite{OSei78,Sei82}. Each of these properties is a set of
+identities or inequalities for finitely many local functions, so it passes to
+$\omega$, and Appendix~\ref{app:transfer} applies. Let $F$ be a continuous
+gauge-invariant function of finitely many links at positive times. The
+supports of $\vartheta(\bar F)$ and $\tau_tF$ are at distance $d$ with
+$t-c_F\le d\le t+c_F$, $c_F$ depending only on $F$, and
+Theorem~\ref{thm:avgdecay} on $\Lambda_L$, $L\in\mathcal L$ large, bounds $\lvert\Cov_{\mu_L}(\vartheta(\bar
+F),\tau_tF)\rvert$ by $C_F(1+t)e^{-m_nt}$ with $C_F$ independent of $L$. The
+limit gives $\lvert\omega(\vartheta(\bar F)\tau_tF)-\lvert\omega(F)
+\rvert^2\rvert\le C_F(1+t)e^{-m_nt}$, using $\omega(\vartheta(\bar F))=
+\overline{\omega(F)}$ and translation invariance. These $F$ are dense in the
+gauge-invariant part of $L^2(\omega)$ on each support, so
+Proposition~\ref{prop:gapdecay} with every $m<m_n$ places the spectrum of the
+transfer matrix on $\Omega^\perp$ in $[0,e^{-m}]$, hence in $[0,e^{-m_n}]$.
+\end{proof}
+
+\begin{theorem}[the continuum step from the averaged condition]
+\label{thm:avgtransfer}
+Suppose that there are $\varpi>0$, $\ell>0$ and integers $n_k\ge2$ with
+$n_ka_k\le\ell$ such that, for every $k$, $\mathrm{BP}(n_k,\varpi)$ holds for
+the Wilson measure of $\Lambda_L$ at $\beta_k$ for all $L$ in an infinite
+set $\mathcal L_k$ of even integers $L\ge2n_k+4$, and let $\omega_k$ be a
+torus limit along $\mathcal L_k$. Then every continuum limit of
+$(\omega_k,O_k)$ satisfies
+\[
+\sigma(H)\subset\{0\}\cup[m_*,\infty),\qquad m_*=\frac{16\varpi}{625e^2\ell},
+\]
+and $0$ is a simple eigenvalue. If the limit is nontrivial, $H$ has a mass
+gap of at least $m_*$.
+\end{theorem}
+
+\begin{proof}
+The proof of Theorem~\ref{thm:transfer} uses $D(n_k,\alpha)$ only through
+the gap of $\mathbb T_k$ on $\Omega_k^\perp$. By Corollary~\ref{cor:avggap}
+that gap is at least $16\varpi/(625e^2n_k)$, and for $t=\tau/a_k$,
+$16\varpi t/(625e^2n_k)\ge m_*\tau$; the rest of that proof is unchanged.
+\end{proof}
+
+Proposition~\ref{prop:spatialflow}(iii) holds with
+Theorem~\ref{thm:avgtransfer} in place of Theorem~\ref{thm:transfer}, by
+the same proof. The averaged condition follows from its supremum form, posed
+for the same measure without gauge fixing. On $\Lambda_L$ let
+$C^0_{V,j}$ be defined as $C_{V,j}$ in Section~\ref{sec:bypass} with
+$\gamma^0_V$ in place of $\gamma_V$ and the links of $E$ in place of the
+active links, put $K^0_\nu=\sum_jC^0_{V_0,j}$, the sum over the links
+$j\notin V_0$ of direction $\nu$, and let $D^0_L(n,\alpha)$ be the condition
+$K^0_\nu\le\alpha n^4$ for $\nu=0,\dots,3$. The translations of
+$\Lambda_L$ preserve $\mu$, so $C^0_{V_x,j+x}=C^0_{V_0,j}$.
+
+\begin{proposition}\label{prop:avgsup}
+On $\Lambda_L$:
+\begin{enumerate}[label=\textup{(\roman*)},leftmargin=*]
+\item if $D^0_L(n,\alpha)$ holds with $\alpha<1$, then
+$\mathrm{BP}(n,1-\alpha)$ holds, for every real $f\in L^2(\mu)$;
+\item for $\varphi\equiv1$, that is $\beta=0$, $\mathrm{BP}(n,1)$ holds for
+every $n$ and every real $f\in L^2(\mu)$.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+(i) Let $d_E(U,U')=\sum_{e\in E}\delta(U_e,U'_e)$ and $\kappa_0=(1-\alpha)
+n^4/L^4$. Let $U,U'$ differ only at a link $i$. Couple $\mathcal K(U,\cdot)$
+and $\mathcal K(U',\cdot)$ by choosing the same $x$. If $i\in V_x$, the two
+exteriors agree, the laws of the resampled cube coincide, and the identity
+coupling gives distance $0$. If $i\notin V_x$, an optimal coupling of the two
+cube laws for $d_{V_x}$ costs at most $C^0_{V_x,i}\delta(U_i,U'_i)$, and the
+link $i$ adds $\delta(U_i,U'_i)$. The $x$ with $i\notin V_x$ number $L^4-n^4$,
+and $\sum_{x:\,i\notin V_x}C^0_{V_x,i}=K^0_\nu$ for the direction $\nu$ of
+$i$, so
+\[
+\begin{split}
+W_1^{d_E}\bigl(\mathcal K(U,\cdot),\mathcal K(U',\cdot)\bigr)&\le\frac{L^4-
+n^4+\alpha n^4}{L^4}\,\delta(U_i,U'_i)\\
+&=(1-\kappa_0)\,\delta(U_i,U'_i).
+\end{split}
+\]
+Changing the links of two arbitrary configurations one at a time and using
+the triangle inequality for $W_1^{d_E}$ extends this to $(1-\kappa_0)d_E(U,
+U')$. Hence a function $h$ with Lipschitz constant $\mathrm{Lip}(h)$ for
+$d_E$ has $\mathrm{Lip}(\mathcal K^th)\le(1-\kappa_0)^t\mathrm{Lip}(h)$, and
+since $d_E\le D\lvert E\rvert$,
+\[
+\begin{split}
+\Var_\mu(\mathcal K^th)&=\tfrac12\iint\bigl(\mathcal K^th(U)-\mathcal
+K^th(U')\bigr)^2d\mu\,d\mu\\
+&\le\tfrac12(1-\kappa_0)^{2t}\mathrm{Lip}(h)^2D^2\lvert E\rvert^2 .
+\end{split}
+\]
+Let $\nu_h$ be the spectral measure of the self-adjoint operator
+$0\le\mathcal K\le I$ at $h-\mu(h)$. Then $\Var_\mu(\mathcal K^th)=\int
+\lambda^{2t}d\nu_h$, and if $\nu_h((1-\kappa_0+\eta,1])>0$ for some $\eta>0$
+this exceeds the bound for large $t$; so $\nu_h$ lives on $[0,1-\kappa_0]$.
+Lipschitz functions are uniformly dense in $C(G^E)$ by the Stone--Weierstrass
+theorem, hence dense in $L^2(\mu)$, so the spectral projection of $\mathcal K$
+for $(1-\kappa_0,1]$ vanishes on the functions of mean zero, and
+$\ip f{(I-\mathcal K)f}\ge\kappa_0\Var_\mu(f)$ for every $f$. Multiplying by
+$L^4/n^4$ gives $\mathrm{BP}(n,1-\alpha)$.
+
+(ii) For $\varphi\equiv1$, $\mu$ is the product of Haar measures. Write
+$f=\sum_{S\subset E}f_S$ with $f_S$ depending only on the links of $S$ and
+$\int f_S\,dU_e=0$ for $e\in S$; the $f_S$ are orthogonal, $\Var_\mu(f)=
+\sum_{S\ne\emptyset}\lVert f_S\rVert^2$, and $\mathcal P_xf=\sum_{S\cap V_x=
+\emptyset}f_S$. Hence
+\[
+\sum_x\mu\bigl((f-\mathcal P_xf)^2\bigr)=\sum_{S\ne\emptyset}\lVert f_S
+\rVert^2\,\#\{x:S\cap V_x\ne\emptyset\}\ge n^4\Var_\mu(f),
+\]
+because a link of $S$ lies in $n^4$ cubes.
+\end{proof}
+
+Whether $D(n,\alpha)$ in the forest gauge implies $\mathrm{BP}$ is not
+decided here: the forest gauge does not close on a torus, and on $\Z^4$ the
+two conditions concern different specifications. The averaged condition
+carries the full content of a gap, since by Theorem~\ref{thm:avgdecay} it
+gives decay of every bounded gauge-invariant covariance at the rate
+$\varpi/(e^2q_nn)$; like $D(n,\alpha)$, it fails in the Coulomb phase of the
+abelian theory at every cube size.
+
+\begin{corollary}\label{cor:avgcoulomb}
+Let $G=\U(1)$ with the Villain weight, and let $\beta_0$ be as in
+Proposition~\ref{prop:coulomb}. For $\beta>\beta_0$ there are no $n\ge2$ and
+$\varpi>0$ such that $\mathrm{BP}(n,\varpi)$ holds for the measures with
+free boundary of all boxes of side at least $2n$.
+\end{corollary}
+
+\begin{proof}
+The field strength $\Psi_p$ of the proof of Proposition~\ref{prop:coulomb} is
+a bounded gauge-invariant function of the four links of $p$, and its mean
+vanishes under every box measure by the symmetry $U\mapsto\bar U$. If
+$\mathrm{BP}(n,\varpi)$ held for all boxes, Theorem~\ref{thm:avgdecay} would
+give $\lvert W_\Lambda(\Psi_p\Psi_{p'})\rvert\le C(1+d)e^{-\varpi d/(e^2q_nn)}$
+for parallel plaquettes at distance $d$, with $C$ independent of $\Lambda$
+and $p'$. The state of~\cite{FS82} is the limit of these measures (proof of
+Proposition~\ref{prop:coulomb}), so $\sum_{p'}\lvert\omega(\Psi_p\Psi_{p'})
+\rvert<\infty$, which contradicts~\cite[Sect.~2]{FS82} as in that proof.
+\end{proof}
+
+\begin{remark}[what the averaged condition settles and what it
+leaves]\label{rem:avgstatus}
+Proved: Theorem~\ref{thm:avgtransfer} gives a mass gap of at least
+$16\varpi/(625e^2\ell)$ in every nontrivial continuum limit of torus limits
+from the condition $\mathrm{BP}(n_k,\varpi)$ with $n_ka_k\le\ell$, a
+spectral gap of the cube dynamics on gauge-invariant functions in
+$L^2$ of the Wilson measure, uniform in the torus; the condition follows
+from its supremum form $D^0_L(n,\alpha)$ with $\varpi=1-\alpha$, holds at
+$\beta=0$ with $\varpi=1$ (Proposition~\ref{prop:avgsup}), and fails in the
+Coulomb phase of the Villain theory at every cube size
+(Corollary~\ref{cor:avgcoulomb}). The obstructions of the forest gauge,
+Propositions~\ref{prop:gaussforest}, \ref{prop:gaussevery}
+and~\ref{prop:tetra}, Theorem~\ref{thm:cubeneeds} and
+Corollary~\ref{cor:cubefails}, bound $K_c$ from below through Lipschitz
+functions of the gauge-fixed links, transported by gauge transformations
+of $\Z^4$, which in the Gaussian models are the flat fields $dh$; the
+averaged condition
+involves only gauge-invariant functions, on which every gauge
+transformation acts trivially, so these proofs do not apply to it. Nor do
+Theorem~\ref{thm:fixedobstruction} and Proposition~\ref{prop:hiddenbit},
+which concern bounds uniform in the coarse field and arguments from rarity,
+since the condition contains no supremum and no labels. Not proved: the
+condition $\mathrm{BP}(n_k,\varpi)$ along the continuum tuning for any
+non-abelian group, at any $\beta>0$ uniformly in the torus; the relation
+between $\mathrm{BP}$ and $D(n,\alpha)$; and (E). Corollary~\ref{cor:avgcoulomb}
+shows that a proof of $\mathrm{BP}$ has to use the non-abelian structure of
+$G$, as for (D). Neither the averaged condition nor the mass gap is proved
+here.
+\end{remark}
+
 \section{The open inputs}\label{sec:inputs}
 
 This section states the two unproved inputs of Section~\ref{sec:bypass}, the cube
@@ -4226,7 +4640,10 @@ the limit~\cite{JW06}, belong to (E). (D) is a statement about a single
 cube of fixed physical size and a single coupling at each spacing; (E) is the
 construction problem, on which Ba{\l}aban's renormalisation group
 analysis~\cite{Bal84a,Bal85a,Bal89b} gives the ultraviolet part in finite
-volume.
+volume. Theorem~\ref{thm:avgtransfer} draws the conclusion of (D) from an
+averaged condition, a spectral gap of the dynamics that resamples cubes of
+fixed physical size, on gauge-invariant functions of the Wilson measure on
+tori without gauge fixing; that condition is not proved either.
 
 \begin{remark}\label{rem:cubeheuristic}
 The following count relates (D) to a correlation length. Suppose that the
@@ -34240,7 +34657,15 @@ chains of the bad blocks by Proposition~\ref{prop:linechain} and item (ii) given
 of all islands by Theorem~\ref{thm:manyislands};
 item (iii) is settled by Theorem~\ref{thm:islandthreshold} at one scale
 and by Theorem~\ref{thm:islandswide} at every scale up to $a_{k_*}/8$;
-item (iv) is the multiscale part. Section~\ref{ssec:groups13} carries the single-scale results of this section to every compact simple group, with explicit constants, except the parts listed in Remark~\ref{rem:groups13}. On the continuum side, Lemmas~\ref{lem:positivetime}
+item (iv) is the multiscale part. Theorem~\ref{thm:avgtransfer} replaces (D) by the averaged
+condition $\mathrm{BP}(n,\varpi)$ of Definition~\ref{def:avgcube}, a
+spectral gap of the cube dynamics on gauge-invariant functions in $L^2$ of the
+Wilson measure on tori, with no gauge and no supremum over exteriors; it
+follows from its supremum form (Proposition~\ref{prop:avgsup}), the
+obstructions of the forest gauge and those uniform in the coarse field do not
+apply to it, it fails in the Coulomb phase of the Villain theory at every cube
+size (Corollary~\ref{cor:avgcoulomb}), and it is not proved for any
+non-abelian group along the tuning (Remark~\ref{rem:avgstatus}). Section~\ref{ssec:groups13} carries the single-scale results of this section to every compact simple group, with explicit constants, except the parts listed in Remark~\ref{rem:groups13}. On the continuum side, Lemmas~\ref{lem:positivetime}
 and~\ref{lem:nonvanishing} reduce the nontriviality of the limit to a
 lower bound on one ratio of lattice two-point functions at a fixed
 physical time, uniform along the tuning, which is the open input of
