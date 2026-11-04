@@ -64,6 +64,9 @@
 \newcommand{\ip}[2]{\langle #1,#2\rangle}
 
 \setlength{\emergencystretch}{3em}
+% Preprints.org DOI of the amsart version: put it between the braces once
+% it is published, e.g. \def\preprintsDOI{10.20944/preprints2026xx.xxxx.v1}
+\def\preprintsDOI{}
 \begin{document}
 
 \title{Yang--Mills Mass Gap on the Lattice and Its Reduction to One Cube of the Continuum}
@@ -134,7 +137,9 @@ Primary 81T25, 82B20; Secondary 81T13, 60K35, 82B26, 22E30.
 Lattice gauge theory; mass gap; Dobrushin uniqueness; block averages;
 reflection positivity.
 \scriptsize An earlier version of this paper is available at
-\url{https://hexagonmath.org/2610.00341v6}. New in this version is
+\url{https://hexagonmath.org/2610.00341v6}.\ifx\preprintsDOI\empty\else{} The paper is also
+available on Preprints.org,
+\href{https://doi.org/\preprintsDOI}{doi:\preprintsDOI}.\fi{} New in this version is
 Sec.~\ref{sec:islands}: the product law on good windows with each path link
 determined by its pair (Lemma~\ref{lem:branchbound},
 Proposition~\ref{prop:graphlaw}), the rough background with negative
@@ -12917,7 +12922,7 @@ $\lvert\log q^*\rvert=32481.7$ for $s=1$ and $38354.1$ for $s=5$.
 \end{proof}
 
 The covariance therefore decays exponentially in the width of the good
-layer, at the rate of the chart, with an amplitude that is finite and
+layer (Figure~\ref{fig:layer}), at the rate of the chart, with an amplitude that is finite and
 explicit in $\Lambda_2$; the prefactor $\Lambda_2$, the largest mixed
 derivative of the action of the layer, is of the form $\beta_Wc_W+c_\psi$
 and is not evaluated here. If further bad blocks lie in $\Lambda$ at
@@ -12928,6 +12933,63 @@ factors inside $K$, but $\mu_{x,y}$ is then no longer a good-window law,
 and the cross-ratio of $K$ is the comparison for the remaining islands:
 the corollary is the inductive step for two islands, and the induction
 over all the islands of a window is not performed here.
+
+\begin{figure*}[t]
+\centering
+\begin{minipage}[c]{0.56\textwidth}
+\centering
+\resizebox{\textwidth}{!}{%
+\begin{tikzpicture}[x={(0.62cm,0cm)},y={(0.31cm,0.22cm)},z={(0cm,0.62cm)},>={Stealth[length=1.6mm]}]
+\foreach \i in {0,...,17} \foreach \j in {0,...,5} {
+  \pgfmathsetmacro{\isl}{(\i<=2) || (\i>=15) ? 1 : 0}
+  \pgfmathsetmacro{\col}{((\i>=3 && \i<=5) || (\i>=12 && \i<=14)) ? 1 : 0}
+  \ifnum\isl=1 \def\fc{red!55}\else\ifnum\col=1 \def\fc{yellow!40}\else\def\fc{green!25}\fi\fi
+  \fill[\fc] (\i,\j,0) -- (\i+1,\j,0) -- (\i+1,\j+1,0) -- (\i,\j+1,0) -- cycle;
+  \draw[gray!55,line width=0.2pt] (\i,\j,0) -- (\i+1,\j,0) -- (\i+1,\j+1,0) -- (\i,\j+1,0) -- cycle;}
+\foreach \i in {0,...,17} {
+  \pgfmathsetmacro{\isl}{(\i<=2) || (\i>=15) ? 1 : 0}
+  \pgfmathsetmacro{\col}{((\i>=3 && \i<=5) || (\i>=12 && \i<=14)) ? 1 : 0}
+  \ifnum\isl=1 \def\fc{red!70}\else\ifnum\col=1 \def\fc{yellow!60}\else\def\fc{green!40}\fi\fi
+  \fill[\fc] (\i,0,0) -- (\i+1,0,0) -- (\i+1,0,-1.2) -- (\i,0,-1.2) -- cycle;
+  \draw[gray!55,line width=0.2pt] (\i,0,0) -- (\i+1,0,0) -- (\i+1,0,-1.2) -- (\i,0,-1.2) -- cycle;}
+\draw[thick] (0,0,-1.2) -- (18,0,-1.2) -- (18,0,0) -- (18,6,0) -- (0,6,0) -- (0,0,0) -- cycle;
+\node[white] at (1.5,0,-0.6) {\scriptsize island $a$};
+\node[white] at (16.5,0,-0.6) {\scriptsize island $b$};
+\node[yellow!30!black] at (4.5,0,-0.6) {\scriptsize frozen};
+\node[yellow!30!black] at (13.5,0,-0.6) {\scriptsize frozen};
+\node[green!30!black] at (9,0,-0.6) {\scriptsize layer $D_z$, law $\mu_{x,y}$};
+\draw[->,thick,orange!80!black] (1.5,3,0.2) .. controls (5,3,3.2) and (13,3,3.2) .. node[pos=0.5,above] {\footnotesize cross-ratio $\varDelta$ of $K(x,y)$} (16.5,3,0.2);
+\draw[<->,thick,yellow!40!black] (3,6,0.35) -- (6,6,0.35) node[midway,above] {\scriptsize $s{+}3$};
+\draw[<->,thick,yellow!40!black] (12,6,0.35) -- (15,6,0.35) node[midway,above] {\scriptsize $s{+}3$};
+\draw[<->,thick,blue!60!black] (3,0,-1.8) -- (15,0,-1.8) node[midway,below] {\footnotesize width $w\ge2s+8$};
+\draw[<->,thick,orange!80!black] (6,0,-2.9) -- (12,0,-2.9) node[midway,below] {\footnotesize coarse distance $w-2s-7$};
+\end{tikzpicture}}
+\end{minipage}\hfill
+\begin{minipage}[c]{0.4\textwidth}
+\centering
+\begin{tikzpicture}[x=0.42cm,y=0.9cm]
+\draw[->] (0,0) -- (10.6,0) node[right] {\footnotesize $w$};
+\draw[->] (0,0) -- (0,3.5);
+\foreach \x/\l in {0/0,2/2000,4/4000,6/6000,8/8000,10/10^4}
+  \draw (\x,0) -- (\x,-0.08) node[below] {\scriptsize $\l$};
+\foreach \y/\l in {0/0,0.8/0.25,1.6/0.5,2.4/0.75,3.2/1}
+  \draw (0,\y) -- (-0.12,\y) node[left] {\scriptsize $\l$};
+\draw[thick,orange!80!black,domain=0:10,samples=60] plot (\x,{3.2*exp(-0.5*\x)});
+\node[above right,orange!70!black] at (1.6,2.1) {\footnotesize $e^{-2\alpha_G(w-2s-8)}$};
+\end{tikzpicture}
+\end{minipage}
+\caption{Left: two bad islands at the ends of a slab, the frozen collars
+of width $s+3$ beside them, and the good layer between them, on which the
+layer law $\mu_{x,y}$ obeys the chart bound in the label coordinates
+(Theorem~\ref{thm:layerbound}). The cross-ratio $\varDelta$ of the kernel
+of Theorem~\ref{thm:factorisation} compares the two islands through the
+layer. Right: the factor $e^{-2\alpha_G(w-2s-8)}$ of
+Corollary~\ref{cor:twoislands} at $\alpha_G=2.5\cdot10^{-4}$; the
+amplitude in front of it is $1920\Lambda_2^2r^2\sqrt{n_xn_y}/\beta_W$, of
+order $10^{-34}\Lambda_2^2r^2\sqrt{n_xn_y}$ at the threshold
+$\beta_W=\beta^*$.}
+\label{fig:layer}
+\end{figure*}
 
 \subsection{What remains}\label{ssec:remains}
 
