@@ -1,0 +1,22 @@
+alpha = acos(3/4) = [0.7227342478134156105095, 0.7227342478134156114853]
+q_lo = 0.49 - alpha = [-0.2327342478134156117733, -0.2327342478134156102555]   q_hi = -1/2 + alpha = [0.222734247813415610481, 0.2227342478134156115652]
+CHECK [q_lo, q_hi] subset of [-0.233, 0.223]: OK
+CHECK explicit f_0 agrees with the quaternion V on the torus: OK
+CHECK f_0'' > 0 on [-0.005, q_hi]: OK
+CHECK f_0'(0.0741) < 0 < f_0'(0.0742): OK,  f_0'(0.0741) in [-0.00009500013762012930046419, -0.00009500013762011629003812]  f_0'(0.0742) in [0.0003893334761051964534873, 0.0003893334761052103312751]
+gamma* = f_0(q*) in [0.1697826184473846117262, 0.1697826279473983767439]   (by convexity: f_0(q) >= f_0(a) + f_0'(a)(q-a))
+CHECK f_0'(-0.005) in [-0.3857865695075310824569, -0.3857865695075310711812] < 0;  f_0'(q_hi) in [0.7086828497752134118151, 0.7086828497752134308971] > 0;  f_0(-0.005) in [0.1850115389862948466967, 0.1850115389862948492988] > gamma*: OK
+CHECK chi(-0.005) in [0.6141787118748924349798, 0.6141787118748924419187] <= 0.6146, so f_0' > 0.46 on [q_lo,-0.005]: OK
+CHECK f_0(-0.0172) in [0.1686688411307782165059, 0.1686688411307782201921] < gamma*-1e-3 and f_0(-0.0156) in [0.1708518587336376431517, 0.1708518587336376481391] > gamma*+1e-3: OK
+  so q_L(lambda) in [-0.0172, -0.0156] for every lambda in Lambda, and q* - q_L >= 0.0741+0.0156 = 0.0897
+  chordal distance delta(g*, g_L(lambda)) >= 2 sqrt2 sin(0.0897/2) >= 0.12681243222213579857626797
+  f_0'(q) on [-0.0172,-0.0156] in [1.360462103250522707468, 1.368310203825014581894]
+CHECK f_0'' > 4.6 on [0.05, 0.1]: OK  (so |q_+- - q*| <= sqrt(2e-3/4.6) < 0.021 for lambda in Lambda)
+CHECK strip q in [-0.233,0.223], s in [0,0.02]: dV_k/ds > 0 on every box (3 boxes): OK
+  on q in [-0.0172,-0.0156] (the atom g_L): dV_k/ds >= kappa = 0.51492711141699771572322053
+  on q in [0.05,0.1] (the atoms g_+-): dV_k/ds <= 0.73251359340960786083185585 , |dV_j/ds| <= 0.0047761798949506994570873841
+CHECK region q in [-0.233,0.223], s in [0.02, alpha]: V_k > 0 on every box (97 boxes examined): OK
+Hence V^{-1}(T) = T: every path link g with V(g) in the torus lies in the torus.
+weight of the atom g_L:  w_L <= 1/(f_0'(q_L) kappa^2) <= 2.7721838838451649293159426 (times e^{-beta S} <= 1)
+transverse factor at any torus point of the strip: |lambda_perp| = |dV/ds(q,0)| <= sqrt(LMAX^2+DJMAX^2) <= 0.73252916421412549256155181
+done in 1.4 s
