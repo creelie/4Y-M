@@ -448,10 +448,17 @@ not establish them. No gauge-island or continuum result is claimed.
 - **Proved scalar recursion / open gauge input:** `CROSSOVER_COUNT.md`
   quantifies the number of steps and accumulated one-loop-size errors and
   lists five separate D8 obligations, including matching physical units.
+  Its weighted refinement proves how marginal growth changes the error
+  summability threshold, and gives a scalar example where that threshold
+  is sharp. Actual gauge RG constants and cancellations remain unproved.
 - **Proved symmetry obstruction:** `CONTINUUM_SYMMETRY_TEST.md` shows that
   tightness and exact hypercubic symmetry do not imply continuum rotation
   invariance. The required rotation-defect and reconstruction bounds remain
-  open. None of these results closes D, D8 or the Clay problem.
+  open. `OS_LIMIT_LEDGER.md` proves a countable diagonal extraction with
+  positivity and distinguishes an ordinary variance witness from a
+  nonzero reflection-norm witness. Its uniform bounds and the analytic
+  reconstruction hypotheses remain open. None of these results closes D,
+  D8 or the Clay problem.
 
 ### Flat-holonomy correction to input (b) (2026-11-04)
 
