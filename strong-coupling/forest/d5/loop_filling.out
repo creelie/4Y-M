@@ -1,0 +1,15 @@
+PASS (A) product inequality on 2000 random products near and far from I, max (lhs-rhs)/rhs = 0.00e+00
+PASS (B) ordered filling identity on 240 random closed paths, lengths 4-14, max error 4.9e-14
+PASS (B) number of plaquettes = number of inversions <= l(l-1)/2
+PASS (B) every plaquette of the filling lies in the bounding box of the path
+PASS (C) flat pure-gauge backgrounds: d2 s(V_C) <= (A_C/N) sum ||D_p w||^2, max excess / (bound + 1e-3) 8.7e-08
+PASS (D) R_m'' = -eps m^2 at pi/2 for m = 4, 8, 12, 40, and |R_m| <= eps s
+2 c_* = 0.29131713
+   n = 2: eps'' = 5.59528e-9
+   n = 1024: eps'' = 5.59528e-9
+   n = 1000000: eps'' = 5.59528e-9
+   n = 10000000000000000000000000000000000000000: eps'' = 5.59528e-9
+PASS (E) eps'' <= 5.60e-9 for n <= 1e40
+   largest n with eps'' <= 0.1: 9.28739e+49
+PASS (E) eps'' <= 0.1 for n <= 9.2e49
+0 failures
