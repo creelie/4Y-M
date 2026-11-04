@@ -13339,11 +13339,331 @@ which makes every layer between two islands of width at least $2s+8$:
 $\lvert\log q^*\rvert=32481.7$ for $s=1$ and $38354.1$ for $s=5$.
 \end{proof}
 
+\begin{lemma}[the mixed derivatives of the layer action]\label{lem:lambdatwo}
+Let $G=\SU(2)$, let the data be those of
+Theorem~\ref{thm:factorisation} with $r\le8\cdot10^{-5}$, and let
+$\kappa\le10^{-8}$ be such that $\delta(U_p,I)\le\kappa$ on
+$D_z\times D_x\times D_y$ for every plaquette $p$ of $S_K$ that contains
+the solved path link of a pair one of whose arguments, the non-path
+links of its paths, is a $z$-link.
+Then
+\[
+\Lambda_2\le\beta_Wc_W+c_\psi,\qquad c_W\le101.11,\qquad
+c_\psi\le4.94\cdot10^6,
+\]
+with $c_W$ and $c_\psi$ the explicit functions of $r$ and $\kappa$ given
+in~\eqref{eq:cwcpsi}. Under hypotheses (a) and (c) of
+Theorem~\ref{thm:layerbound} the condition holds with
+$\kappa=\eta+30r\le6.0\cdot10^{-13}$, and
+\[
+\Lambda_2\le99.0001\,\beta_W+4.65\cdot10^6 .
+\]
+\end{lemma}
+
+\begin{proof}
+Norms on $\g$ are Hilbert--Schmidt norms, $\delta(g,h)=\lVert g-h\rVert$
+on $\SU(2)$, and the coordinates are the $\zeta_e$ of
+Theorem~\ref{thm:factorisation}, $U_e=R_e(c)e^{\zeta_e}$, with the
+reconstruction value $R_e(c)=I$ for a link inside a block and
+$R_e(c)=c_k$ for a private link of the pair $k$. For a function $f$ of
+the coordinates and two coordinates $g\ne g'$ write
+$\lVert\partial_g\partial_{g'}f\rVert$ for the supremum of
+$\lvert\partial_s\partial_tf(\zeta+sv_g+tw_{g'})\rvert$ at $s=t=0$ over
+$v,w\in\g$ of norm one placed at $g$ and $g'$: it is the operator norm of
+the $(g,g')$ block of the Hessian.
+
+\emph{Step 1: reduction to row sums.} Let $M=\partial_x\nabla_z\mathcal U$,
+with blocks $M_{ef}$ for $z$-links $e$ and $x$-links $f$. For vectors $u$
+on the $z$-links and $v$ on the $x$-links,
+$\lvert\ip u{Mv}\rvert\le\sum_{e,f}\lVert M_{ef}\rVert\lVert u_e\rVert
+\lVert v_f\rVert$, and the Cauchy--Schwarz inequality gives
+$\lVert M\rVert\le\max\{\max_e\sum_f\lVert M_{ef}\rVert,\max_f\sum_e
+\lVert M_{ef}\rVert\}$. A term $-\log j(\zeta_e)$ of $\psi$ depends on
+one coordinate, so $M_{ef}$ is the sum of the blocks of the Wilson terms
+$\beta_WW_p$, $W_p=1-\frac12\ReTr U_p$, of $S_K$ and of the terms
+$-\log J_k=\log\det(1-DF_k)$ of $\psi$, $J_k$ the inverse Jacobian of
+Proposition~\ref{prop:graphlaw} and $DF_k$ the differential in $X$ of the
+map $F$ of Lemma~\ref{lem:branchbound} at the fixed point, that depend on
+$e$ and on $f$. It therefore suffices to prove that for every $x$- or
+$z$-coordinate $g$
+\[
+R_g=\sum_{g'}\sum_\tau\lVert\partial_g\partial_{g'}\tau\rVert\le
+\beta_Wc_W+c_\psi ,
+\]
+$g'$ running over the coordinates of the other class ($z$ if $g$ is an
+$x$-coordinate, $x$ if $g$ is a $z$-coordinate) and $\tau$ over the
+Wilson terms and the Jacobians that depend on $g$ and $g'$; the bound for
+$\partial_y\nabla_z\mathcal U$ is the mirror statement.
+
+\emph{Step 2: the geometry.} (i) Every link lies in six plaquettes.
+(ii) The solved path link $\Gamma_k$ of $k=(y,\mu)$ is a function of the
+$21$ non-path links of the fourteen paths of nonzero offset
+(Lemma~\ref{lem:branchbound}), its \emph{arguments}: the seven non-path
+private links, each in two of these paths, and the fourteen links of
+direction $\mu$ in $B(y)$ and $B(y+e_\mu)$ other than $(2y,\mu)$ and
+$(2y+2e_\mu,\mu)$, each in one path, the tree links among them being
+fixed at $I$. A path of $k$ consists of links of direction $\mu$, so a
+non-path private link is an argument of its own pair only, and a link of
+direction $\mu$ inside $B(y)$ of the two pairs $(y,\mu)$ and
+$(y-e_\mu,\mu)$. Let $K(g)$ be the set of solved pairs having $g$ as an
+argument and $n_g$ the number of paths of each containing $g$: $n_g=2$,
+$\lvert K(g)\rvert\le1$ for a private link, $n_g=1$,
+$\lvert K(g)\rvert\le2$ for an inside link.
+(iii) Let $\ell=(a,\mu)$, $a=2y+e_\mu$, be a path link and $\nu\ne\mu$. The
+plaquette at $a$ in the plane $\{\mu,\nu\}$ has the further links
+$(a,\nu)$, of offset $e_\mu$, inside $B(y)$; $(a+e_\mu,\nu)$, based at
+the root $2y+2e_\mu$, a tree link; and $(a+e_\nu,\mu)$, of offset
+$e_\mu+e_\nu$, a non-path private link of $(y,\mu)$. The plaquette at
+$a-e_\nu$ has the further links $(a-e_\nu,\mu)$ and $(a-e_\nu,\nu)$, both
+based at $2(y-e_\nu)+e_\mu+e_\nu$ and so non-path private links of
+$(y-e_\nu,\mu)$ and $(y-e_\nu,\nu)$, and $(a+e_\mu-e_\nu,\nu)=
+(2(y+e_\mu-e_\nu)+e_\nu,\nu)$, the path link of $(y+e_\mu-e_\nu,\nu)$.
+Hence each of the six plaquettes of a path link carries at most two
+non-path links, exactly three of them, those at $a-e_\nu$, carry a
+second path link, and no plaquette carries three path links.
+(iv) By (iii) a non-path link lies on a plaquette with a path link only
+if it is an inside link $(2y+e_\mu,\nu)$ with $\nu<\mu$, the only other
+case $\nu>\mu$ being a tree link, or a private link of offset
+$e_\mu+e_\nu$ and direction $\mu$ or $\nu$. The first lies on one such
+plaquette, the one at $2y+e_\mu$ in the plane $\{\mu,\nu\}$, with one path
+link. The second, $(b,\mu)$ with $b=2y+e_\mu+e_\nu$, plays the role of
+$(a+e_\nu,\mu)$ for $a=2y+e_\mu$, on a plaquette with one path link, and
+the roles of $(a-e_\nu,\mu)$ for $a=2(y+e_\nu)+e_\mu$ and of
+$(a-e_\mu,\mu)$ for $a=2(y+e_\mu)+e_\nu$, which are one plaquette, the
+one at $b$ in the plane $\{\mu,\nu\}$, with two path links. So the six
+plaquettes of a non-path link carry at most three path links in all.
+
+\emph{Step 3: one Wilson term.} Let $V_1,\dots,V_4$ be smooth functions
+of $(s,t)$ with values in $\SU(2)$, $P=V_1V_2V_3V_4$, and
+$a_i=\lVert\partial_sV_i\rVert$, $b_i=\lVert\partial_tV_i\rVert$,
+$c_i=\lVert\partial_s\partial_tV_i\rVert$. Then
+\begin{equation}\label{eq:wilsonmixed}
+\bigl\lvert\partial_s\partial_t\tfrac12\ReTr P\bigr\rvert\le\tfrac12
+\Bigl(\sum_ia_i\Bigr)\Bigl(\sum_jb_j\Bigr)+\tfrac12\,\delta(P,I)
+\sum_ic_i .
+\end{equation}
+Indeed $\partial_s\partial_tP$ is the sum of the products with
+$\partial_sV_i$ and $\partial_tV_j$ in two places $i\ne j$, whose traces
+have modulus at most $a_ib_j$ by $\lvert\Tr(AB)\rvert\le\lVert A\rVert
+\lVert B\rVert$ and unitarity of the other factors, and of the products
+with $\partial_s\partial_tV_i$ in place $i$, whose trace is
+$\Tr(\tilde P_iQ_i)$ with $Q_i=V_i^{-1}\partial_s\partial_tV_i$ and
+$\tilde P_i$ a conjugate of $P$. Differentiating $V_i^*V_i=I$ twice gives
+$Q_i+Q_i^*=-(\partial_sV_i)^*\partial_tV_i-(\partial_tV_i)^*\partial_sV_i$,
+so $\lvert\ReTr Q_i\rvert\le a_ib_i$, and $\lvert\Tr((\tilde P_i-I)Q_i)
+\rvert\le\delta(P,I)c_i$. The orientation of a link does not change
+$a_i,b_i,c_i$.
+
+\emph{Step 4: first derivatives.} For $W\in\g$ the map
+$\operatorname{ad}W$ is skew for the trace form, with eigenvalues $0$ and
+$\pm i\theta$, $\theta=\sqrt2\lVert W\rVert$: in a basis diagonalising
+$W=\operatorname{diag}(i\varphi,-i\varphi)$, $\lVert W\rVert=\sqrt2\varphi$,
+it multiplies the off-diagonal entries by $\pm2i\varphi$. A power series
+$f(\operatorname{ad}W)$ is therefore normal with norm $\max\{\lvert f(0)
+\rvert,\lvert f(\pm i\theta)\rvert\}$. For
+$\varpi(u)=(1-e^{-u})/u$ one has $\varpi(i\theta)=e^{-i\theta/2}
+\frac{\sin(\theta/2)}{\theta/2}$, so with $m(\theta)=\frac{\theta/2}
+{\sin(\theta/2)}$, increasing on $(0,2\pi)$,
+\begin{gather*}
+\lVert\varpi(\operatorname{ad}W)\rVert=1,\quad
+\lVert\varpi(\operatorname{ad}W)^{-1}\rVert=m(\theta),\\
+\lVert e^{\operatorname{ad}W}-1\rVert\le\theta,\quad
+\lVert\varpi(\operatorname{ad}W)-1\rVert\le1-\tfrac1{m(\theta)}+
+\tfrac\theta2,\\
+\lVert\varpi(\operatorname{ad}W)^{-1}-1\rVert\le m(\theta)-1+m(\theta)
+\tfrac\theta2 .
+\end{gather*}
+The derivative of the exponential is $\frac d{dt}e^{W(t)}=e^{W}\varpi(
+\operatorname{ad}W)W'$. Hence a non-path link has
+$\lVert\partial_gU_g[v]\rVert=\lVert\varpi(\operatorname{ad}\zeta_g)v\rVert
+\le\lVert v\rVert$. Let $k=(y,\mu)$ be solved, $\Gamma_k=c_ke^X$. For a
+path $x$ of nonzero offset, $c_k^{-1}P_x=e^{\alpha_x}e^{\beta_x}$, where
+$(\alpha_x,\beta_x)$ is $(\operatorname{Ad}(c_k^{-1})\zeta_u,\zeta_q)$
+when $P_x=uq$ with $u$ inside $B(y)$ and $q$ private, and
+$(\zeta_q,\zeta_{u'})$ when $P_x=qu'$ with $u'$ inside $B(y+e_\mu)$, a
+tree link contributing $0$; so $\lVert\alpha_x\rVert,\lVert\beta_x\rVert
+\le r$. Put $Z_x=\log(e^{-X}e^{\alpha_x}e^{\beta_x})$; by
+Lemma~\ref{lem:branchbound}, $\lVert X\rVert\le14r$ and $\lVert Z_x\rVert
+\le16r$. With $Y=e^{Z_x}$ and $Y^{-1}\partial Y=\varpi(\operatorname{ad}
+Z_x)\partial Z_x$,
+\begin{align*}
+\partial_XZ_x[h]&=-T_xh,\\
+T_x&=\varpi(\operatorname{ad}Z_x)^{-1}
+\operatorname{Ad}(e^{-\beta_x}e^{-\alpha_x})\,\varpi(-\operatorname{ad}X),\\
+\partial_{\beta}Z_x[w]&=\varpi(\operatorname{ad}Z_x)^{-1}\varpi(
+\operatorname{ad}\beta_x)w,\\
+\partial_{\alpha}Z_x[v]&=\varpi(\operatorname{ad}Z_x)^{-1}
+\operatorname{Ad}(e^{-\beta_x})\varpi(\operatorname{ad}\alpha_x)v .
+\end{align*}
+With $\theta_Z=16\sqrt2r$, $\theta_X=14\sqrt2r$, $m_1=m(\theta_Z)$, the
+last two have norm at most $m_1$, and writing $T_x-1$ as
+$(\varpi(\operatorname{ad}Z_x)^{-1}-1)\operatorname{Ad}(\cdot)
+\varpi(\cdot)+(\operatorname{Ad}(\cdot)-1)\varpi(\cdot)+(\varpi(-\operatorname{ad}
+X)-1)$,
+\[
+\lVert T_x-1\rVert\le\varepsilon_T=m_1-1+m_1\tfrac{\theta_Z}2+2\sqrt2r
++1-\tfrac1{m(\theta_X)}+\tfrac{\theta_X}2 .
+\]
+Since $F=-\frac1{16}\sum_xZ_x$ over the fourteen paths, $1-DF_k=\frac18
+-\frac1{16}\sum_x(T_x-1)$, so $1-DF_k$ is invertible with
+\[
+\lVert(1-DF_k)^{-1}\rVert\le\mathsf m=\frac8{1-7\varepsilon_T},
+\]
+and $\det(1-DF_k)>0$, every eigenvalue of $8(1-DF_k)$ lying within
+$7\varepsilon_T<1$ of $1$. The implicit function theorem gives
+$\partial_gX=(1-DF_k)^{-1}\partial_gF$ and $\lVert\partial_gF\rVert\le
+n_gm_1/16$, and $\lVert\partial_g\Gamma_k[v]\rVert=\lVert e^X\varpi(
+\operatorname{ad}X)\partial_gX[v]\rVert\le\lVert\partial_gX[v]\rVert$, so
+\[
+\lVert\partial_g\Gamma_k\rVert\le\lVert\partial_gX\rVert\le\gamma_g=
+\frac{n_gm_1}{2(1-7\varepsilon_T)} :
+\]
+$\gamma_g=\gamma$ for a private link and $\gamma_g=\frac\gamma2$ for an
+inside link, with $\gamma=m_1/(1-7\varepsilon_T)$. In both cases
+$\gamma_g\lvert K(g)\rvert\le\gamma$, and the sum of $\gamma_{g'}$ over
+the arguments of one pair is at most $7\gamma+14\frac\gamma2=14\gamma$.
+
+\emph{Step 5: higher derivatives.} Let $G(X,\alpha,\beta)=
+\log(e^{-X}e^\alpha e^\beta)$ for $X,\alpha,\beta\in\g\otimes\C$ with
+$\lVert X\rVert+\lVert\alpha\rVert+\lVert\beta\rVert\le\sigma=\frac12$.
+The Hilbert--Schmidt norm is submultiplicative, so
+$\lVert e^{-X}e^\alpha e^\beta-I\rVert\le e^\sigma-1<1$, the logarithmic
+series converges, $G$ is holomorphic and agrees with the principal
+logarithm at real arguments, and $\lVert G\rVert\le M_G=-\log(2-e^{1/2})$.
+At a real point with $\lVert X\rVert+\lVert\alpha\rVert+\lVert\beta
+\rVert\le16r$ and for unit vectors $v_1,\dots,v_j$ of $\g$ placed in any
+of the three slots, $t\mapsto G(\cdot+\sum_it_iv_i)$ is holomorphic on the
+polydisc $\lvert t_i\rvert\le\rho_j=(\frac12-16r)/j$, and the Cauchy
+estimates give
+\[
+\lVert D^jG[v_1,\dots,v_j]\rVert\le B_j=M_G\rho_j^{-j}\qquad(j=2,3).
+\]
+For $g,g'$ arguments of $k$ let $s_{gg'}\le1$ be the number of paths
+containing both. Differentiating $X=F(X,\zeta)$ twice and using
+$\lVert D_X^2F\rVert\le\frac{14}{16}B_2$,
+$\lVert D_XD_gF\rVert\le\frac{n_g}{16}B_2$,
+$\lVert D_gD_{g'}F\rVert\le\frac{s_{gg'}}{16}B_2$,
+\begin{align*}
+\lVert\partial_g\partial_{g'}X\rVert&\le\frac{\mathsf mB_2}{16}
+\bigl(14\gamma_g\gamma_{g'}+n_{g'}\gamma_g+n_g\gamma_{g'}+s_{gg'}\bigr)\\
+&\le X_2=\frac{\mathsf mB_2}{16}(14\gamma^2+4\gamma+1).
+\end{align*}
+The second differential of $\exp$ at $X$ has norm at most
+$e^{\lVert X\rVert}$ (each of the $n(n-1)$ terms of the second
+derivative of $X^n/n!$ has norm at most $\lVert X\rVert^{n-2}$), so
+$\lVert\partial_g\partial_{g'}\Gamma_k\rVert\le C_2=e^{14r}\gamma^2+X_2$.
+For $\mathcal M=1-DF_k$, the chain rule and the same bounds with $B_3$
+for the third derivatives of $F$ give
+\begin{gather*}
+\lVert\partial_g\mathcal M\rVert\le M_1=\frac{B_2}{16}(14\gamma+2),\\
+\lVert\partial_g\partial_{g'}\mathcal M\rVert\le M_2=\frac{B_3}{16}
+(14\gamma^2+4\gamma+1)+\frac{14}{16}B_2X_2 ,
+\end{gather*}
+the terms of $\partial_g\partial_{g'}\mathcal M$ being
+$D_X^3F[\partial_gX,\partial_{g'}X]$, $D_X^2D_{g'}F[\partial_gX]$,
+$D_X^2D_gF[\partial_{g'}X]$, $D_X^2F[\partial_g\partial_{g'}X]$ and
+$D_XD_gD_{g'}F$.
+
+\emph{Step 6: the Wilson terms.} For a plaquette $p$ and a coordinate
+$g$ let $A_g(p)$ be the sum over the links of $p$ of the bounds of Step 4
+for their derivatives in $g$: $A_g(p)=\mathbf 1_{g\in p}+\gamma_g\,
+\#\{k\in K(g):\Gamma_k\in p\}$. By~\eqref{eq:wilsonmixed},
+$\lVert\partial_g\partial_{g'}W_p\rVert\le\frac12A_g(p)A_{g'}(p)+\frac12
+\delta(U_p,I)C_{gg'}(p)$, with $C_{gg'}(p)\le C_2$ times the number of
+solved path links of $p$ with both $g$ and $g'$ as arguments. Put
+$S_g(p)=\sum_{g'\ne g}A_{g'}(p)$. A non-path link contributes at most one
+to $S_g(p)$ and a solved path link at most $14\gamma$ (Step 4), so
+$S_g(p)\le N+14\gamma\Pi$ with $N$ the number of non-path links of $p$
+other than $g$ and $\Pi$ the number of path links of $p$. If $g\in p$
+then $N+\Pi\le3$ and $S_g(p)\le3+14\gamma\Pi$, and by Step 2(iv) the sum
+over the six plaquettes of $g$ is at most $18+42\gamma$. If
+$\Gamma_k\in p$ then $N\le2$ and $\Pi\le2$, with $\Pi=2$ on three of the
+six plaquettes of $\Gamma_k$ (Step 2(iii)), so the sum over them is at
+most $12+14\gamma(6+3)=12+126\gamma$. Hence
+\begin{align*}
+\sum_p A_g(p)S_g(p)&\le18+42\gamma+\gamma_g\lvert K(g)\rvert
+(12+126\gamma)\\
+&\le18+54\gamma+126\gamma^2 .
+\end{align*}
+The sum of the first part over all $g'\ne g$ bounds its sum over the
+other class. The second part of~\eqref{eq:wilsonmixed} enters only
+through a solved path link $\Gamma_k\in p$ with $g$ and $g'$ among its
+arguments; one of $g,g'$ is a $z$-coordinate, so $k$ has a $z$-link among
+its arguments and the hypothesis gives $\delta(U_p,I)\le\kappa$. There are at most
+$\lvert K(g)\rvert\le2$ such pairs, six plaquettes for each and twenty
+coordinates $g'$, so this part adds at most $\frac12\kappa\cdot240\,C_2$.
+The Wilson terms contribute at most $\beta_Wc_W$ to $R_g$.
+
+\emph{Step 7: the Jacobians.} The term $\log\det\mathcal M$ of a solved
+pair depends on $g$ only if $k\in K(g)$, and on $g'\ne g$ only if $g'$ is
+one of the other twenty arguments. With $\lvert\Tr A\rvert\le3\lVert A
+\rVert$ on $\g$ and $\lVert\mathcal M^{-1}\rVert\le\mathsf m$,
+\begin{multline*}
+\bigl\lvert\partial_g\partial_{g'}\log\det\mathcal M\bigr\rvert=
+\bigl\lvert\Tr(\mathcal M^{-1}\partial_g\partial_{g'}\mathcal M)\\
+-\Tr(\mathcal M^{-1}\partial_{g'}\mathcal M\,\mathcal M^{-1}\partial_g
+\mathcal M)\bigr\rvert\le L=3\mathsf mM_2+3\mathsf m^2M_1^2,
+\end{multline*}
+and the Jacobians contribute at most $c_\psi=2\cdot20\cdot L$ to $R_g$.
+Together,
+\begin{equation}\label{eq:cwcpsi}
+c_W=9+27\gamma+63\gamma^2+120\kappa C_2,\qquad c_\psi=40L .
+\end{equation}
+
+\emph{Step 8: the numbers.} At $r=8\cdot10^{-5}$: $m_1=1+1.4\cdot10^{-7}$,
+$\varepsilon_T=1.924\cdot10^{-3}$, $\mathsf m=8.110$, $\gamma=1.01365$,
+$M_G=1.04618$, $B_2=16.825$, $B_3=227.72$, $X_2=165.77$, $C_2=166.80$,
+$M_1=17.026$, $M_2=2717.1$, $L=1.2329\cdot10^5$; every constant increases
+with $r$, so for $r\le8\cdot10^{-5}$ and $\kappa\le10^{-8}$,
+$c_W\le101.1001+0.0003$ and $c_\psi\le4.94\cdot10^6$. Under hypothesis (a)
+of Theorem~\ref{thm:layerbound}, $62r\le6.0\cdot10^{-13}$, so
+$r\le9.68\cdot10^{-15}$, $\varepsilon_T\le3.0\cdot10^{-13}$, $\gamma\le
+1+2.1\cdot10^{-12}$, $C_2\le160.02$, $L\le1.1614\cdot10^5$, and
+$9+27\gamma+63\gamma^2\le99+4\cdot10^{-10}$. For the condition on
+$\kappa$, let $k=(y,\mu)$ be solved with a $z$-link among its arguments.
+A $z$-link is based in a block of $W'$, so $y$ or $y+e_\mu$ lies in $W'$,
+and by Step 2(iii) the links of a plaquette $p$ through $\Gamma_k$ are
+based in blocks at distance at most one from $B(y)$, hence at distance at
+most two from $W'$; they are $\Gamma_k$, non-path links, a tree link, and
+possibly the path link of $k'=(y+e_\mu-e_\nu,\nu)$, both of whose blocks
+are at distance at most two from $W'$. These blocks are good, by the
+sector event inside $\Lambda$, since they lie at distance at least $s+1$
+from both islands, and by (c) outside it, so every non-path link of $p$
+is within $r$ of its reconstruction value. The path link of $k'$ is within
+$14r$ of $c_{k'}$: if $k'$ is based in $\Lambda$ it is solved, since a
+pair based at distance at most $s+1$ from an island has its path link in
+$L_a\cup p_a$ or $L_b\cup p_b$ and its plaquettes are not $K$-factors, and
+otherwise Lemma~\ref{lem:branchbound} applies by (c). Step 1 of the proof
+of Theorem~\ref{thm:layerbound} gives $\delta(R(c)_p,I)\le\eta$ for these
+plaquettes, and replacing the links one at a time with bi-invariance and
+$\delta\le d$ (Lemma~\ref{lem:logbound}) gives
+$\delta(U_p,I)\le\eta+2\cdot14r+2r=\eta+30r\le6.0\cdot10^{-13}$. Hence
+$120\kappa C_2\le1.2\cdot10^{-8}$, $c_W\le99.0001$ and $c_\psi\le40L\le
+4.65\cdot10^6$.
+\end{proof}
+
+With Lemma~\ref{lem:lambdatwo}, $\Lambda_2^2\le\beta_W^2(c_W+c_\psi/
+\beta_W)^2$ and the bound of Corollary~\ref{cor:twoislands} becomes
+\[
+\varDelta\le1920\,\beta_W\Bigl(c_W+\frac{c_\psi}{\beta_W}\Bigr)^2r^2
+\sqrt{n_xn_y}\,e^{-2\alpha_G(w-2s-8)},
+\]
+which grows linearly in $\beta_W$; at
+$\beta_W=\beta^*=1.13\cdot10^{37}$, $s=1$ and $r=43\rho$,
+$\rho=2.17\cdot10^{-16}$, where $\beta_Wr^2=9.84\cdot10^8$, and for
+islands of one block, $n_x=n_y=45(544+1776)+17\cdot4160=175120$, it reads
+$\varDelta\le3.25\cdot10^{21}e^{-2\alpha_G(w-10)}$. This is not small at
+the threshold: the bound is at most one exactly when $w\ge99072$, at
+fixed $r$ every factor $e$ in $\beta_W/\beta^*$ adds $1/(2\alpha_G)=2000$
+to this width, and islands of
+$\lvert I_a\rvert$ and $\lvert I_b\rvert$ blocks, for which
+$N_d\le\lvert I_a\rvert((2d+1)^4-(2d-1)^4)$, add at most
+$1000\log(\lvert I_a\rvert\lvert I_b\rvert)$.
+
 The covariance therefore decays exponentially in the width of the good
-layer (Figure~\ref{fig:layer}), at the rate of the chart, with an amplitude that is finite and
-explicit in $\Lambda_2$; the prefactor $\Lambda_2$, the largest mixed
-derivative of the action of the layer, is of the form $\beta_Wc_W+c_\psi$
-and is not evaluated here. If further bad blocks lie in $\Lambda$ at
+layer (Figure~\ref{fig:layer}), at the rate of the chart, with the amplitude of
+Lemma~\ref{lem:lambdatwo}, which is below one at the threshold only
+across good layers about $10^5$ blocks wide. If further bad blocks lie in $\Lambda$ at
 distance at least $s+4$ from both islands, the factorisation of
 Theorem~\ref{thm:factorisation} through $K$ still holds as an identity of
 measures, with the constraints of the bad pairs of the layer kept as hard
@@ -13436,7 +13756,9 @@ kernel on the good layer between them, Theorem~\ref{thm:layerbound}
 proves the covariance bound~\eqref{eq:layerbound} for the law of that
 layer in the coordinates of the labels, and Corollary~\ref{cor:twoislands}
 bounds the cross-ratio by $\varDelta$, exponentially small in the width.
-What is not done is the evaluation of the prefactor $\Lambda_2$ and the
+Lemma~\ref{lem:lambdatwo} evaluates the prefactor, $\Lambda_2\le99.0001
+\beta_W+4.65\cdot10^6$, so that $\varDelta\le1$ at the threshold needs a good
+layer of width at least $99072$. What is not done is the
 induction over all the islands of a window, in which the layer between
 two islands contains further islands and its law is no longer a
 good-window law. Proposition~\ref{prop:hiddenbit} shows that no rarity

@@ -77,3 +77,8 @@ of the small-frames lemma, the constants 16.003 and 12.002 of the coarse
 witness, and the counterexample at L = 32, n = 10. `island_radius.py`
 recomputes the island thresholds at the radii 1e-8 and 1e-4 and the gap
 k_* - j_max over 2001 couplings. Both use interval arithmetic.
+
+**The prefactor of the layer bound:** `lambda2_constants.py` computes the
+constants c_W <= 99.0001 and c_psi <= 4.65e6 of the bound on Lambda_2, the
+plaquette and path counts behind them, and the width of the good layer at
+which the two-island cross-ratio falls below one at the threshold.
