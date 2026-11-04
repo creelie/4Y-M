@@ -15294,6 +15294,370 @@ error of the first scale carried to the last. No effective action is constructed
 scale, and item~(iv) of Section~\ref{ssec:remains} remains open.
 \end{remark}
 
+\subsection{Every compact simple group}\label{ssec:groups13}
+
+The constructions of this section were written for $\SU(2)$. This
+subsection records which of them hold for a general group, and with which
+constants. Let $G$ be a compact connected group whose Lie algebra $\g$ is
+simple, with a faithful unitary representation in which $G\subset\U(N)$,
+the metric $\ip XY=-\Tr(XY)$ on $\g$, the least Ricci curvature $\kappa_G$
+of Theorem~\ref{thm:groups}, $d=\dim G$ and $K=\kappa_G/(d-1)$. The
+distance $\delta(g,h)=\lVert g-h\rVert$ is the Hilbert--Schmidt distance,
+$d(g,h)$ the geodesic distance of $G$, the Wilson weight is
+$\exp(-\beta_W\sum_ps_p)$ with
+\[
+s_p=1-\tfrac1N\ReTr U_p=\frac{\delta(U_p,I)^2}{2N},\qquad\beta_W=N^2\beta,
+\]
+which is the normalisation of this section for $N=2$, and $\rho_G$ is the
+radius of Section~\ref{sec:blocks}. Put $I_d(x)=\int_0^x\sin^{d-1}u\,du$.
+
+\begin{lemma}[spectral constants]\label{lem:adspread}
+Let $X,Y\in\g$ and $U\in G$.
+\begin{enumerate}[label=\textup{(\roman*)},leftmargin=*]
+\item The operator $\operatorname{ad}X$ on $\g$ is skew, with spectrum
+in $i[-\sqrt2\lVert X\rVert,\sqrt2\lVert X\rVert]$.
+\item $-\Tr\bigl((\operatorname{ad}X)^2\bigr)=4\kappa_G\lVert X\rVert^2$;
+in particular $\delta_G=\kappa_G/3$ in Proposition~\ref{prop:relstep}.
+\item With $s(V)=1-\frac1N\ReTr V$, the derivative of $s(Ue^{tX})$ at
+$t=0$ has modulus at most $\lVert X\rVert/\sqrt N$; on $\U(N)$,
+$\delta(g,h)\le2\sqrt N$.
+\item Let $j$ be the density of Haar measure in exponential coordinates,
+\[
+j(X)=\det\bigl((1-e^{-\operatorname{ad}X})/\operatorname{ad}X\bigr).
+\]
+If $\lVert X\rVert\le10^{-3}$, then
+\[
+\lvert\partial_Y\log j(X)\rvert\le\tfrac{\kappa_G}3(1+10^{-6})\lVert X
+\rVert\lVert Y\rVert .
+\]
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+(i) Invariance of the trace makes $\operatorname{ad}X$ skew. On $\mathfrak
+u(N)$, in a basis in which $X=\operatorname{diag}(i\lambda_1,\dots,
+i\lambda_N)$, $\operatorname{ad}X$ has eigenvalues $i(\lambda_j-
+\lambda_k)$, and $\g$ is an invariant subspace; $(\lambda_j-\lambda_k)^2\le
+2(\lambda_j^2+\lambda_k^2)\le2\lVert X\rVert^2$.
+(ii) $\Ric(X,X)=-\frac14\Tr((\operatorname{ad}X)^2)$ is an
+$\operatorname{Ad}$-invariant symmetric form. Since $\g\otimes\C$ is
+simple, the adjoint representation is irreducible over $\C$ and every
+invariant symmetric form is a multiple of $\ip\cdot\cdot$, so $\Ric=
+\kappa_G\ip\cdot\cdot$. Then $\delta_G=\frac1{12}\cdot4\kappa_G$.
+(iii) The derivative is $-\frac1N\ReTr(UX)$. Since $\overline{\Tr(UX)}=
+-\Tr(U^*X)$, $\ReTr(UX)=\frac12\Tr((U-U^*)X)$, and $\lVert U-U^*\rVert^2=
+4\sum_j\sin^2\theta_j\le4N$ for the eigenangles $\theta_j$ of $U$. The
+diameter bound is $\lVert g-h\rVert^2=2N-2\ReTr(g^*h)\le4N$.
+(iv) $\Tr\operatorname{ad}X=0$, so $\log j(X)=\Tr\Phi(\operatorname{ad}
+X)$ with $\Phi(z)=\log(\sinh(z/2)/(z/2))$, and $\partial_Y\log j(X)=
+\Tr(\Phi'(\operatorname{ad}X)\operatorname{ad}Y)$. For real $y$,
+$\Phi'(iy)=i(\frac1y-\frac12\cot\frac y2)$ and $0\le\frac1y-\frac12\cot
+\frac y2\le\frac y{12}(1+\frac{y^2}{50})$ for $0\le y\le1$; by (i) the
+spectral radius of $\operatorname{ad}X$ is at most $\sqrt2\cdot10^{-3}$,
+so $\lVert\Phi'(\operatorname{ad}X)\rVert_{HS}\le\frac1{12}(1+10^{-6})
+\lVert\operatorname{ad}X\rVert_{HS}$, and (ii) together with the
+Cauchy--Schwarz inequality gives the bound.
+\end{proof}
+
+For $\SU(2)$ the spectrum in (i) is $\{0,\pm i\sqrt2\lVert X\rVert\}$, and
+the estimates of Lemma~\ref{lem:branchbound}, Proposition~\ref{prop:goodside},
+Lemma~\ref{lem:goodsidedensity} and Step~4 of Lemma~\ref{lem:lambdatwo}
+that use the spectrum of an operator $\operatorname{ad}W$ use only that it
+lies in $i[-\sqrt2\lVert W\rVert,\sqrt2\lVert W\rVert]$: the bounds
+$\lVert L_X\rVert\le\theta/\sin\theta$, $\lVert E_Y\rVert\le1$,
+$\lVert\varpi(\operatorname{ad}W)^{-1}\rVert\le m(\theta)$, the
+divided-difference bounds and $\kappa_0<0.8935$ hold for $G$ unchanged.
+The Hilbert--Schmidt norm $\lVert\operatorname{ad}W\rVert_{HS}=2\lVert W
+\rVert$ becomes $2\sqrt{\kappa_G}\lVert W\rVert$, a trace over $\g$ is
+bounded by $d$ times the operator norm instead of $3$ times it, and the
+pair $(\lVert X\rVert/\sqrt2,2\sqrt2)$ of (iii) becomes $(\lVert X\rVert/
+\sqrt N,2\sqrt N)$.
+
+\begin{lemma}[the logarithm radius of a stabiliser]\label{lem:tensorlog}
+Let $t$ be a tensor in $(\C^N)^{\otimes a}\otimes(\C^{N*})^{\otimes b}$
+with $m=a+b\ge1$, and let $G$ be the identity component of the stabiliser
+of $t$ in $\U(N)$. If $g\in G$ and $\delta(g,I)<2\sin\frac\pi{2m}$, the
+principal logarithm of $g$ lies in $\g$.
+\end{lemma}
+
+\begin{proof}
+Let $e^{i\theta_j}$, $|\theta_j|\le\pi$, be the eigenvalues of $g$ and
+$X=\log g$. Since $4\sin^2(\theta_j/2)\le\delta(g,I)^2<4\sin^2\frac\pi
+{2m}$, every $|\theta_j|<\pi/m$. The induced action of $e^{sX}$ on the
+tensor space is $e^{sD}$, where the derivation $D$ induced by $X$ is
+skew-Hermitian with eigenvalues $i$ times sums of $m$ terms $\pm\theta_j$,
+so its spectrum lies in $i(-\pi,\pi)$. Decompose $t=\sum_\mu t_\mu$ over the
+eigenspaces of $D$. From $e^Dt=t$, $e^{i\mu}t_\mu=t_\mu$ with $|\mu|<\pi$,
+so $t_\mu=0$ for $\mu\ne0$ and $Dt=0$. The one-parameter group $e^{sX}$
+then fixes $t$ and lies in its identity component $G$, so $X\in\g$.
+\end{proof}
+
+$\SO(N)$ and $\mathrm{Sp}(n)$ are the identity components of the
+stabilisers of a symmetric and of a skew form, $m=2$ and $2\sin\frac\pi4
+>1$, so $\rho_G=1$. $G_2\subset\U(7)$, $F_4\subset\U(26)$, $E_6\subset
+\U(27)$ and $E_8\subset\U(248)$ are the identity components of the
+stabilisers of tensors of degree at most three: the three-form of the
+octonions, the quadratic and cubic invariants of the traceless exceptional
+Jordan algebra, its cubic determinant, and the Lie bracket~\cite{Bae02}.
+Each $\rho_G<1$ is admissible for them, for instance $\rho_G=0.99$.
+$E_7\subset\U(56)$ is the identity component of the stabiliser of the
+symplectic and the quartic form of the Freudenthal triple
+system~\cite{Bae02}, $m=4$, so $\rho_G=0.76<2\sin\frac\pi8$ is admissible.
+For $\SU(N)$, $\rho_G=\min\{1,5/\sqrt N\}$.
+
+\begin{lemma}[small balls]\label{lem:haarball}
+For $r>0$, the Haar measure of $\{g\in G:d(g,I)\le r\}$ is at least
+$I_d(\sqrt Kr)/I_d(\pi)$, with equality for $\SU(2)$. If $\sqrt Kr\le
+\frac14$, it is at least $(\frac{95}{96})^{d-1}(\sqrt Kr)^d/(d\,I_d(\pi))$.
+\end{lemma}
+
+\begin{proof}
+The Ricci curvature is at least $(d-1)K$, so the diameter is at most
+$\pi/\sqrt K$ by Myers' theorem, and the relative volume comparison of
+Bishop and Gromov~\cite{Pet16} bounds the ratio of the volume of the ball
+of radius $r$ to that of the ball of radius $\pi/\sqrt K$, which is $G$,
+from below by the same ratio on the sphere of curvature $K$ and dimension
+$d$, $I_d(\sqrt Kr)/I_d(\pi)$. For $\SU(2)$ the group is that sphere,
+of radius $\sqrt2$. The second bound follows from $\sin u\ge u(1-u^2/6)
+\ge\frac{95}{96}u$ on $[0,\frac14]$.
+\end{proof}
+
+Lemma~\ref{lem:haarball} takes the place of the angle density $\frac2\pi
+\sin^2\theta$ used in Lemma~\ref{lem:wilsonZ}. With it, put
+\begin{multline*}
+C_0(G)=\frac12+\frac23\Bigl(\log\bigl(d\,I_d(\pi)\bigr)\\
++\frac d2\log\frac{16}{KN}-(d-1)\log\frac{95}{96}\Bigr).
+\end{multline*}
+
+\begin{lemma}\label{lem:wilsonZG}
+For $\beta_W\ge KN$, the normalising constant of the Wilson measure of $G$
+on $\Lambda_L$ satisfies
+\[
+-\log Z_L\le6L^4\Bigl(\frac d3\log\beta_W+C_0(G)\Bigr),
+\]
+and $\E S\le6L^4(\frac d3\log\beta_W+C_0(G))/\beta_W$. If $KN\le16$, then
+$C_0(G)>0$.
+\end{lemma}
+
+\begin{proof}
+Put $r=\sqrt N/(4\sqrt{\beta_W})$, so that $\sqrt Kr\le\frac14$. If every
+link is within geodesic distance $r$ of $I$, every plaquette has
+$\delta(U_p,I)\le d(U_p,I)\le4r$ and $s_p\le8r^2/N=1/(2\beta_W)$, so
+$\beta_WS\le3L^4$. By Lemma~\ref{lem:haarball} the $4L^4$ links do so
+with probability at least
+\[
+\Bigl(\bigl(\tfrac{95}{96}\bigr)^{d-1}\bigl(\tfrac{KN}{16\beta_W}
+\bigr)^{d/2}\big/\bigl(d\,I_d(\pi)\bigr)\Bigr)^{4L^4},
+\]
+which gives the first bound; the second follows from the concavity of
+$-\log Z_L$ in the coupling, as in Lemma~\ref{lem:wilsonZ}. The integrals
+satisfy $I_dI_{d+1}=2\pi/d$, by induction from $I_{d+2}=\frac d{d+1}I_d$,
+and $I_d\ge I_{d+1}$, so $d\,I_d(\pi)\ge\sqrt{2\pi d}>1$; the other terms
+of $C_0(G)$ are nonnegative when $KN\le16$.
+\end{proof}
+
+For $\SU(2)$, $C_0(G)=4.32001$, below the constant $4.90817$ of
+Lemma~\ref{lem:wilsonZ}. For $\SU(N)$, $KN=N^2/(2(N^2-2))\le1$; for every
+group of Table~\ref{tab:groups}, $KN\le1$, so the lemma holds at every
+$\beta_W\ge1$.
+
+\begin{theorem}\label{thm:defectsG}
+For $\beta_W\ge KN$, $0<\rho\le1$ and every set $A$ of unit cubes,
+Theorem~\ref{thm:defects} and Corollary~\ref{cor:defectclusters} hold for
+the Wilson measure of $G$ with
+\[
+q^G_\rho(\beta_W)=\min\Bigl\{1,\exp\Bigl(2d\log\beta_W+6C_0(G)-
+\frac{\beta_W\rho^2}{8N}\Bigr)\Bigr\}.
+\]
+\end{theorem}
+
+\begin{proof}
+Reflection in a hyperplane through sites preserves Haar measure on $G$ and
+maps $\ReTr U_p$ to $\ReTr U_p$ or $\ReTr U_p^{-1}=\ReTr U_p$, so the
+chessboard estimate holds as in Theorem~\ref{thm:defects}. A bad
+plaquette has $s_p>\rho^2/(2N)$, and if every cube is bad there are at
+least $L^4/4$ bad plaquettes, so $S\ge\rho^2L^4/(8N)$. Lemma~\ref{lem:wilsonZG}
+bounds $Z_L$. The corollary uses only the product bound.
+\end{proof}
+
+\begin{theorem}[Section~\ref{sec:islands} for a compact simple group]
+\label{thm:groups13}
+Let $G\subset\U(N)$ be as above, with $\kappa_G\le2500$ in~(iii).
+Replace $\SU(2)$ by $G$, the hypothesis $\rho\le10^{-8}$ by $\rho\le
+10^{-8}\rho_G$, and $C_0$, $q_\rho$ by $C_0(G)$, $q^G_\rho$. Then:
+\begin{enumerate}[label=\textup{(\roman*)},leftmargin=*]
+\item Lemmas~\ref{lem:coarsewitness}, \ref{lem:branchbound},
+\ref{lem:coverage}, \ref{lem:scalewitness}, Theorems~\ref{thm:islandthreshold}
+and~\ref{thm:islandscales}~\textup{(i)}, \textup{(ii)} hold with
+\[
+f_G(\beta)=2d\log\beta+6C_0(G)-\frac{\beta\rho^2}{8N}
+\]
+in place of $f$ (and $\rho_0$ in place of $\rho$ at scale $j$), and with
+$\beta^*>16dN/\rho^2$ in place of $\beta^*>96/\rho^2$. The numbers $M$,
+$H$, $\varDelta$, $M_j$, $H_j$ and $\log q^*$ do not depend on $G$, and
+\[
+\beta^*_G=\frac{8N\lvert\log q^*\rvert}{\rho^2}(1+\epsilon_G),\quad
+\epsilon_G=\frac{2d\log\beta^*_G+6C_0(G)}{\lvert\log q^*\rvert}.
+\]
+\item Theorems~\ref{thm:fibrechart}, \ref{thm:chartdecay},
+Propositions~\ref{prop:explicitconstants} and~\ref{prop:explicitdecay}
+hold as stated, since they are stated for every compact $G\subset\U(r)$:
+$c_3=\max\{1.5\cdot10^4\sqrt N,d\}$, $c_6=6.81\cdot10^5d\,c_3^2$,
+$\alpha_G=2.5\cdot10^{-4}$.
+\item Theorem~\ref{thm:layerbound} holds with $\lambda=\beta_W/(2N)$,
+hypothesis~(b) read as $\beta_W\ge480Nc_6$, and $\mathcal A=120/\lambda=
+240N/\beta_W$. Corollary~\ref{cor:twoislands} holds with
+\[
+\varDelta=\frac{960N}{\beta_W}\Lambda_2^2r^2\sqrt{n_xn_y}\,e^{-2\alpha_G
+(w-2s-8)},
+\]
+and its hypothesis~(a) holds for $\rho\le1/(2758\cdot7.8\cdot10^7c_3)$.
+\item Lemma~\ref{lem:lambdatwo} holds with $\frac2Nc_W$ and $\frac d3
+c_\psi$ in place of $c_W$ and $c_\psi$; under hypotheses (a) and (c) of
+Theorem~\ref{thm:layerbound},
+\[
+\Lambda_2\le\frac{198.0002}N\beta_W+\frac{4.65\cdot10^6}3d .
+\]
+\item Proposition~\ref{prop:goodside} holds with the density bounds
+$(1+\kappa_0)^{-d}$ and $(1-\kappa_0)^{-d}$, and with radius
+$\rho_G/32$ when $\rho_G<1$; Lemma~\ref{lem:sitelaw} holds with the
+Jacobian bound $\sigma_0^d$; Lemma~\ref{lem:goodsidedensity} holds with
+$64.94\cdot\frac d3\sqrt{\kappa_G}$ and $32.47\cdot\frac d3\sqrt
+{\kappa_G}$; Theorem~\ref{thm:site} holds with $24n_p\beta_W$,
+$197\beta_W+a_G$ and $87\beta_W+b_G$, where
+\begin{gather*}
+a_G=1558.56\,\sqrt N\,\tfrac d3\sqrt{\kappa_G}+1.1986,\\
+b_G=779.28\,\sqrt N\,\tfrac d3\sqrt{\kappa_G}+0.5993 .
+\end{gather*}
+\item Theorem~\ref{thm:manyislands}, Corollary~\ref{cor:islandchains},
+Proposition~\ref{prop:islandmass} and Theorem~\ref{thm:islandwindow} hold
+with the threshold $\beta^*_G$ of~(i), the condition $2758\rho\le1/(7.8
+\cdot10^7c_3)$, $\frac{960N}{\beta_W}$ in place of $\frac{1920}{\beta_W}$,
+and $\bar\Lambda_2=\frac{198.0002}N\beta_W+\frac{4.65\cdot10^6}3d$.
+\item The statements of Subsections~\ref{ssec:counting}
+to~\ref{ssec:spectralweight}, other than
+Proposition~\ref{prop:blockresponse}, of
+Subsection~\ref{ssec:manyislands} and of Subsection~\ref{ssec:relstep}
+hold for $G$ as stated, with $\delta_G=\kappa_G/3$.
+\end{enumerate}
+For $\SU(3)$, $d=8$, $N=3$, $\kappa_G=\frac32$, $\rho_G=1$, $C_0(G)=
+10.44721$, $f_G(\beta)=16\log\beta+6C_0(G)-\beta\rho^2/24$, and
+$\beta^*(10^{-8},1)=5.269\cdot10^{21}$, $\beta^*(10^{-8},5)=8.231\cdot
+10^{21}$, $\beta^*(10^{-9},1)=5.286\cdot10^{23}$, $\beta^*(10^{-9},5)=
+8.248\cdot10^{23}$, $\beta^*(10^{-8},5,10^{30})=2.972\cdot10^{22}$, with
+$0.026<\epsilon_G<0.045$ in the first four. At scale $j$, for $s=5$ and
+$\rho=10^{-8}$, $\beta^*_1=4.368\cdot10^{23}$, $\beta^*_2=6.991\cdot
+10^{24}$, $\beta^*_3=1.786\cdot10^{26}$ and $16^{-j}\beta^*_j\le4.38\cdot
+10^{22}$ for $1\le j\le12$. In~(iii) for $\SU(3)$, $c_3\le25980.8$,
+$c_6\le3.678\cdot10^{15}$, (b) holds for $\beta_W\ge5.30\cdot10^{18}$,
+(a) for $\rho\le1.789\cdot10^{-16}$, and at $\rho=1.78\cdot10^{-16}$ the
+threshold with the joining distance $2s+8$ is $\beta^*=2.570\cdot10^{37}$
+for $s=1$ and $3.015\cdot10^{37}$ for $s=5$, where (b) holds;
+$\Lambda_2\le66.0001\beta_W+1.24\cdot10^7$, and the constant $c_2$ of
+Theorem~\ref{thm:islandwindow} at $s=1$, $\vartheta=0$ is at most
+$10^{22.14}$.
+\end{theorem}
+
+\begin{proof}
+(i) The witness paragraph of the proof of Theorem~\ref{thm:islandthreshold}
+uses Lemma~\ref{lem:smallframes}, which is stated for every $G$ with
+$\kappa\le10^{-8}\rho_G$; Lemma~\ref{lem:logbound}, a statement on $\U(N)$;
+and $d(g,h)\le(1+10^{-12})\delta(g,h)$ for $\delta(g,h)\le10^{-6}$,
+which holds on $G$ because there $\delta\le\rho_G$, the principal
+logarithm of $g^{-1}h$ lies in $\g$ and $d(g,h)=\lVert\log(g^{-1}h)
+\rVert$. In Lemma~\ref{lem:coarsewitness} the constants are those of
+Lemma~\ref{lem:logbound} and the triangle inequality. In
+Lemma~\ref{lem:branchbound} the cut-off is nonzero only where $\max_x
+\delta(v_x,I)<\rho_G$, so the logarithms lie in $\g$, and the contraction
+bound uses the spectrum of $\operatorname{ad}X$ only through
+Lemma~\ref{lem:adspread}(i). Lemmas~\ref{lem:coverage}
+and~\ref{lem:scalewitness} count cubes; Theorem~\ref{thm:defectscales},
+used in the latter, is stated for every $G$. The threshold paragraph
+applies to $f_G$, which is concave with maximum $2d\log(16dN/\rho^2)+6C_0
+(G)-2d>0>\log q^*$ at $16dN/\rho^2$, by Lemma~\ref{lem:wilsonZG} and
+$\rho\le10^{-8}$. The identity for $\epsilon_G$ is $f_G(\beta^*_G)=\log
+q^*$.
+(ii) There is nothing to prove.
+(iii) In the proof of Theorem~\ref{thm:layerbound} the Wilson action
+enters as $\lambda\lVert\cdot\rVert^2$ with $\lambda=\beta_W/(2N)$, the
+dimension enters through $\lVert A_v\rVert_1\le2d\,c_3\lVert x_v
+\rVert_1$ and $\lVert A_a\rVert_2^2\le2d\,c_3^2\lVert\bar P\rVert^2\lvert
+a\rvert^2$, which are absorbed in $c_6$, and the Haar part is the
+logarithmic gradient of $j$ at $\lVert X_e\rVert\le10^{-3}$, at most
+$\frac{\kappa_G}3(1+10^{-6})10^{-3}\le0.84$ per unit of $\lVert x_v
+\rVert_1$ by Lemma~\ref{lem:adspread}(iv) and $\kappa_G\le2500$. The rest
+of the proof is a statement about the chart constants of~(ii). The
+corollary is Proposition~\ref{prop:layercross} with $4\mathcal A=960N/
+\beta_W$, and $\eta+62r=2758\rho$.
+(iv) The Wilson term of a plaquette is $\beta_W(1-\frac1N\ReTr U_p)$, so
+every bound of~\eqref{eq:wilsonmixed} carries $\frac1N$ in place of
+$\frac12$; Steps 2 to 6 use the spectrum of $\operatorname{ad}W$ through
+Lemma~\ref{lem:adspread}(i) only. In Step~7, $\lvert\Tr A\rvert\le d
+\lVert A\rVert$ on $\g$ replaces $\lvert\Tr A\rvert\le3\lVert A\rVert$.
+(v) In the proof of Proposition~\ref{prop:goodside} the density of a
+linear map $T$ with $\lVert T-I\rVert\le\kappa_0$ on $\g$ lies between
+$(1-\kappa_0)^d$ and $(1+\kappa_0)^d$; the cut-off is inactive below
+$\rho_G/2$, which gives the radius $\rho_G/32$. Lemma~\ref{lem:privatesubmersion}
+is stated with $\rho_G$, and $JJ^*\ge\sigma_0^2$ on the $d$-dimensional
+$\g$ gives $\sqrt{\det JJ^*}\ge\sigma_0^d$. In the proof of
+Lemma~\ref{lem:goodsidedensity}, $\operatorname{tr}(T^{-1}\dot T)$ is at
+most $d\lVert T^{-1}\rVert\lVert\dot T\rVert$ and $\lVert\operatorname{ad}
+W\rVert_{HS}=2\sqrt{\kappa_G}\lVert W\rVert$ by Lemma~\ref{lem:adspread}(ii),
+while the spectra lie in the segments used there by
+Lemma~\ref{lem:adspread}(i). In the proof of Theorem~\ref{thm:site} the
+oscillation of a site function is at most $24\cdot2\sqrt N$ and
+$\lvert\dot s_p\rvert\le v/\sqrt N$ by Lemma~\ref{lem:adspread}(iii), so
+the first term is at most $24\sqrt N\sup\lvert\partial_t\log h_t\rvert$;
+the factors $\sqrt N$ cancel in the Wilson part, which gives $24n_p\beta_W$,
+$24\cdot8.1916\,\beta_W<197\beta_W$ and $24\cdot6\cdot0.5993\,\beta_W<
+87\beta_W$, and remain in the density part, which gives $a_G$ and $b_G$.
+For $\SU(2)$, $a_G<2206$ and $b_G<1103$, the constants of the theorem.
+(vi) These statements use the preceding ones through the constants
+listed, and the threshold through $q^G$.
+(vii) These statements concern the label variables, the coupling of
+labels, the island combinatorics and the quadratic forms of a box. The
+group enters them only through the results of Section~\ref{sec:blocks},
+stated for every $G$, through the constants of~(iii) and~(iv), and
+through $\delta_G$ in Subsection~\ref{ssec:relstep}, which is
+$\kappa_G/3$ by Lemma~\ref{lem:adspread}(ii).
+The numbers are the roots of $f_G=\log q^*$ and the values of the
+constants above, evaluated with outward-rounded interval arithmetic; each
+root is bracketed by two points of relative distance $10^{-25}$ at which
+$f_G-\log q^*$ has opposite signs, to the right of the maximum of $f_G$.
+\end{proof}
+
+\begin{remark}\label{rem:groups13}
+Four parts of this section do not transfer. Subsection~\ref{ssec:witnessradius}
+(Lemma~\ref{lem:ladder}, Propositions~\ref{prop:smallframessharp}
+and~\ref{prop:constantcurvature}, Theorem~\ref{thm:islandswide}) measures
+frames by the angle of a unit quaternion; on $\SU(N)$, $N\ge3$, the
+operator-norm angle is subadditive and conjugation invariant, and the
+constants of the subsection have not been computed for it. Proposition~\ref{prop:fold}
+uses every preimage of the average on $\SU(2)$, and
+Proposition~\ref{prop:blockresponse} is a computation with unit
+quaternions. The examples of
+Propositions~\ref{prop:roughbackground}, \ref{prop:nonconvex}
+and~\ref{prop:branches} are stated on $\SU(2)$ and are not claimed for
+other groups.
+\end{remark}
+
+\begin{remark}\label{rem:groups13blocks}
+For $\SU(3)$ the plaquette blocks reach $\beta_W\le0.77$
+(Theorem~\ref{thm:su3blocks}), in place of $0.351$ for $\SU(2)$. For
+other groups the block constant~\eqref{eq:blockconst3} needs the
+modulus $\Lambda(r)$ of~\eqref{eq:alpha}, a gap of the one-link measure
+and bounds on the Hessian of $\log Z$, and none of them has been
+certified. The modulus that holds for every $G$ does not suffice: the
+one-link measure $\nu_b$ satisfies the Bakry--\'Emery condition with
+constant $\kappa_G-\lVert b\rVert_{\rm op}\ge\kappa_G-r$, so
+$\Lambda(r)\le1/(\kappa_G-r)$; with this bound the right side
+of~\eqref{eq:alpha} is below one only for $N\beta<\kappa_G/18$, and,
+since $K_3\ge s\ge\Lambda(r)$, every value of $\alpha_3$ computed from it
+is at least $10N\beta/(\kappa_G-6N\beta)$, below one only for $N\beta<
+\kappa_G/16$. Both ranges lie inside $N\beta<2\kappa_G/29$ of
+Theorem~\ref{thm:groups}.
+\end{remark}
+
 \subsection{One step of the block map: the large fields}\label{ssec:lfstep}
 
 This subsection carries out, for $G=\SU(2)$, the large-field part of one
@@ -15804,7 +16168,7 @@ site of a pair by Theorem~\ref{thm:site} and item (ii) given the labels
 of all islands by Theorem~\ref{thm:manyislands};
 item (iii) is settled by Theorem~\ref{thm:islandthreshold} at one scale
 and by Theorem~\ref{thm:islandswide} at every scale up to $a_{k_*}/8$;
-item (iv) is the multiscale part. On the continuum side, Lemmas~\ref{lem:positivetime}
+item (iv) is the multiscale part. Section~\ref{ssec:groups13} carries the single-scale results of this section to every compact simple group, with explicit constants, except the parts listed in Remark~\ref{rem:groups13}. On the continuum side, Lemmas~\ref{lem:positivetime}
 and~\ref{lem:nonvanishing} reduce the nontriviality of the limit to a
 lower bound on one ratio of lattice two-point functions at a fixed
 physical time, uniform along the tuning, which is the open input of
@@ -17709,6 +18073,11 @@ Basu, R., Ganguly, S.: $\SO(N)$ lattice gauge theory, planar and beyond. Commun.
 \bibitem{Bha22}
 Bhattacharjee, D.: A coherent approach towards quantum gravity. Phys. Sci. Int. J. \textbf{26}(6), 59--78 (2022). \href{https://doi.org/10.9734/psij/2022/v26i6751}{https://doi.org/10.9734/psij/2022/v26i6751}
 
+\bibitem{Bae02}
+J.~C.~Baez, The octonions, Bull. Amer. Math. Soc. \textbf{39} (2002),
+145--205,
+\href{https://doi.org/10.1090/S0273-0979-01-00934-X}{doi:10.1090/S0273-0979-01-00934-X}.
+
 \bibitem{Bha26}
 Bhattacharjee, D.: BLLM: Beyond the LLM with Deep Human-Mind-AI. Zenodo,
 release v3.0.5 (2026).
@@ -17998,6 +18367,11 @@ Commun. Math. Phys. \textbf{42}, 281--305 (1975).
 Osterwalder, K., Seiler, E.: Gauge field theories on a lattice. Ann. Phys.
 \textbf{110}, 440--471 (1978).
 \href{https://doi.org/10.1016/0003-4916(78)90039-8}{https://doi.org/10.1016/0003-4916(78)90039-8}
+
+\bibitem{Pet16}
+P.~Petersen, \emph{Riemannian Geometry}, 3rd ed., Graduate Texts in
+Mathematics \textbf{171}, Springer, Cham, 2016,
+\href{https://doi.org/10.1007/978-3-319-26654-1}{doi:10.1007/978-3-319-26654-1}.
 
 \bibitem{Pop35}
 Popoviciu, T.: Sur les \'equations alg\'ebriques ayant toutes leurs racines r\'eelles. Mathematica (Cluj) \textbf{9}, 129--145 (1935)
