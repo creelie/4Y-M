@@ -119,7 +119,7 @@ reflection positivity.
 \scriptsize An earlier version of this paper is available at
 \url{https://hexagonmath.org/2610.00341v6}.\ifx\preprintsDOI\empty\else{} The paper is also
 available on Preprints.org,
-\href{https://doi.org/\preprintsDOI}{doi:\preprintsDOI}.\fi{} Compared with it, this paper adds Sec.~\ref{sec:islands}, on the labels of the blocks, the islands of bad blocks, the bad side of a projected block average, the obstructions to the remaining routes and the effective action across one scale, Secs.~\ref{ssec:averaged}--\ref{ssec:bpbalaban}, on an averaged form of the cube condition, its local form, the couplings where it holds and fails, its neutral part on small tori, its passage to block variables, the upward step, the measures for which it holds, the split inequality at strong coupling, the condition at the coarsest scale and the coefficients across scales, and Secs.~\ref{ssec:osaxioms}, \ref{ssec:limitE} and~\ref{ssec:chainG}, on the Osterwalder--Schrader axioms for the flowed fields, the limit at separated points of the fields without flow, with the inputs it needs and the examples that separate them, and the conditional chain for every compact simple group, and it proves by hand every constant that the earlier version took from computer certificates.}
+\href{https://doi.org/\preprintsDOI}{doi:\preprintsDOI}.\fi{} Compared with it, this paper adds Sec.~\ref{sec:islands}, on the labels of the blocks, the islands of bad blocks, the bad side of a projected block average, the obstructions to the remaining routes and the effective action across one scale, Secs.~\ref{ssec:averaged}--\ref{ssec:bpfibre}, on an averaged form of the cube condition, its local form, the couplings where it holds and fails, its neutral part on small tori, its passage to block variables, the upward step, the measures for which it holds, the split inequality at strong coupling, the condition at the coarsest scale, the coefficients across scales and the forces in the fibre law, and Secs.~\ref{ssec:osaxioms}, \ref{ssec:limitE} and~\ref{ssec:chainG}, on the Osterwalder--Schrader axioms for the flowed fields, the limit at separated points of the fields without flow, with the inputs it needs and the examples that separate them, and the conditional chain for every compact simple group, and it proves by hand every constant that the earlier version took from computer certificates.}
 \endgroup
 \addtocounter{footnote}{-1}
 
@@ -539,7 +539,15 @@ every law of the block variables with concentrated plaquette variables
 (Theorem~\ref{thm:bpbalnec}, Corollaries~\ref{cor:bpbalwilson}
 and~\ref{cor:bpbalsmall}), while at the coarsest scale the conditional laws
 are spread out along the tuning and this obstruction is absent
-(Proposition~\ref{prop:bpbalrandom}). Along the tuning neither input is
+(Proposition~\ref{prop:bpbalrandom}). The coefficients at the coarsest
+scale are at most $D^2/4$ times the covariances of the forces on distinct
+marks in the fibre law, uniformly in the coarse data, so that the condition
+there follows from a decorrelation of these forces; in a Gaussian model
+they are given by an effective quadratic form of the straight-path map,
+and along the tuning the decorrelation reduces there to a bound of order
+$1/b$ on its row sums, which is not proved
+(Proposition~\ref{prop:bpfibreduce}, Corollaries~\ref{cor:bpfibH1}
+and~\ref{cor:bpfibgauss}). Along the tuning neither input is
 proved; the single-link bounds for the laws of the block variables are the
 effective-action problem of
 Ba{\l}aban.\footnote{Refs.~\cite{Bal84a,Bal85a,Bal89b} control the effective
@@ -9463,6 +9471,757 @@ for groups other than $\SU(2)$, beyond the Doeblin bound of
 Proposition~\ref{prop:bpbalrandom}(i); the abelian and Villain cases, which
 are not treated. Neither $\mathrm{BP}$ along the tuning nor the mass gap is
 proved here.
+\end{remark}
+
+\subsection{The coarsest condition through the fibre law}\label{ssec:bpfibre}
+
+This subsection approaches (H1) through the fibre law of
+Proposition~\ref{prop:bpbalhess}. It proves four things. First, a
+single-link coefficient of every measure with a density $e^{-H}$, $H\in
+C^2$, is at most $D^2/4$ times the bound on the mixed derivatives of $H$ in
+the two links, with no condition on the single-link Hessian and for every
+connected group, abelian or not; gauge invariance, conversely, bounds the
+single-link Hessian by the mixed derivatives into the seven links at one
+end point. Second, for straight-path maps with blocks of side at least
+three the marks of distinct coarse links are never partners, so the mixed
+derivatives of the induced action are minus the covariances of the forces
+on distinct marks in the fibre law; (H1) follows from a decorrelation of
+these forces, uniform in the coarse data and in the torus, the condition
+(FC) below, and (FC) in turn forces the force variance on a mark to equal
+its mean curvature up to $4c/D^2$. Third, in a Gaussian abelian model of the
+fibre the covariance of the forces on distinct marks is minus the coupling
+times the effective quadratic form of the straight-path map; this form is
+a conserved current on the coarse lattice, its diagonal lies between
+$1/b^2$ and $6/b$, its row sums are at least twice the diagonal and are
+bounded uniformly in the torus by an infinite-volume quantity $\gamma_b$,
+and a bound $\gamma_b=O(1/b)$, the condition (G) below, gives the Gaussian
+form of (FC) along every tuning with $2^{-k}\beta_k\to0$. Fourth, the
+strong-coupling range, the group $\U(1)$ and rough coarse data of $\SU(2)$
+are placed with respect to (FC). Neither (FC) along the tuning nor (G) is
+proved here.
+
+Throughout, $G\subset\U(N)$ is closed and connected, $\delta$ is the
+geodesic distance of $\ip XY=-\Tr(XY)$ on $G$ and $D$ its diameter; for
+$\SU(2)$, $D=\sqrt2\pi$ (Corollary~\ref{cor:bpbalwilson}), and for $\U(1)$,
+where $\delta(e^{i\theta},1)=\lvert\theta\rvert$ for $\lvert\theta\rvert\le\pi$,
+$D=\pi$. For $H\in C^2(G^E)$ on the links of a torus and links $e\ne j$ put
+\[
+J_{ej}(H)=\sup\Bigl\lvert\frac{\partial^2}{\partial s\,\partial t}H\bigl((U^{e,
+sX})^{j,tY}\bigr)\Big|_{0}\Bigr\rvert ,
+\]
+the supremum over all $U$ and all unit $X,Y\in\g$, with $U^{e,X}$ as in
+Lemma~\ref{lem:bpcoarsehess}; then $J_{ej}=J_{je}$, and these are the
+smallest numbers admissible in the second hypothesis of that lemma.
+
+\begin{lemma}[oscillation]\label{lem:bpfibosc}
+Let $\varrho$ be the probability measure on $G^E$ with density
+proportional to $e^{-H}$ with respect to $\lambda_E$, $H\in C^2(G^E)$. Then
+$C^\varrho_{ej}\le\frac{D^2}4J_{ej}(H)$ for all links $e\ne j$.
+\end{lemma}
+
+\begin{proof}
+Let $U,U'$ differ only at $j$, $\rho=\delta(U_j,U'_j)>0$, $\gamma=\gamma^\varrho_{
+\{e\}}(\cdot\mid U)$ and $\gamma'=\gamma^\varrho_{\{e\}}(\cdot\mid U')$. Then
+$\gamma'$ has the density $e^{-\Delta}/Z$ with respect to $\gamma$, where
+$\Delta(\sigma)=H(\sigma,U'_{E\setminus\{e\}})-H(\sigma,U_{E\setminus\{e\}})$
+and $Z=\int e^{-\Delta}d\gamma$.
+
+\emph{The oscillation of $\Delta$.} Since $G$ is compact and connected and
+the metric is bi-invariant, two points $\sigma',\sigma$ are joined by a
+minimising geodesic $s\mapsto\sigma'e^{sX}$, $0\le s\le r=\delta(\sigma,\sigma')
+\le D$, $\lvert X\rvert=1$; likewise $U'_j=U_je^{\rho Y}$ with $\lvert Y\rvert
+=1$. Let $f(s,t)$ be the value of $H$ at the configuration with
+$\sigma'e^{sX}$ at $e$, $U_je^{tY}$ at $j$ and the links of $U$ elsewhere.
+Then
+\[
+\begin{split}
+\Delta(\sigma)-\Delta(\sigma')&=f(r,\rho)-f(r,0)-f(0,\rho)+f(0,0)\\
+&=\int_0^r\!\!\int_0^\rho\partial_s\partial_tf\,dt\,ds ,
+\end{split}
+\]
+and since $\sigma'e^{(s+s')X}=\sigma'e^{sX}e^{s'X}$, $\partial_s\partial_tf(s,
+t)$ is a mixed derivative as in the definition of $J_{ej}(H)$, at the
+configuration indexed by $(s,t)$. Hence $\omega=\sup\Delta-\inf\Delta\le
+DJ_{ej}(H)\rho$.
+
+\emph{Total variation.} Let $A$ be a Borel set with $p=\gamma(A)\in(0,1)$,
+and put $x=p^{-1}\int_Ae^{-\Delta}d\gamma$, $y=(1-p)^{-1}\int_{G\setminus A}
+e^{-\Delta}d\gamma$, $t=x/y\in[e^{-\omega},e^\omega]$ and $q=e^\omega$. Then
+\[
+\gamma'(A)-\gamma(A)=\frac{p(1-p)(t-1)}{pt+1-p}\le\frac{p(1-p)(q-1)}{pq+1-p},
+\]
+because $t\mapsto(t-1)/(pt+1-p)$ has the derivative $(pt+1-p)^{-2}>0$. Let
+$T=(\sqrt q-1)/(\sqrt q+1)=\tanh(\omega/4)$. Then $1-T=2/(\sqrt q+1)$ and
+$(q-1)(1-T)^2=4T$, so
+\[
+\begin{split}
+&T(pq+1-p)-p(1-p)(q-1)\\
+&\qquad=(q-1)p^2-(q-1)(1-T)p+T
+\end{split}
+\]
+is a quadratic polynomial in $p$ with leading coefficient $q-1\ge0$ and
+discriminant $(q-1)\bigl((q-1)(1-T)^2-4T\bigr)=0$, hence nonnegative. So
+$\gamma'(A)-\gamma(A)\le T$, and the same bound for $G\setminus A$ gives
+$\gamma(A)-\gamma'(A)\le T$; the cases $p\in\{0,1\}$ are trivial, as
+$\gamma$ and $\gamma'$ are mutually absolutely continuous. Thus
+$\lvert\gamma'(A)-\gamma(A)\rvert\le\tanh(\omega/4)$ for every
+$A$.\footnote{The bound is sharp: for $\Delta$ equal to $\omega$ on $A$ and
+to $0$ elsewhere and $p=1/(1+e^{-\omega/2})$, $\gamma(A)-\gamma'(A)=
+\tanh(\omega/4)$.}
+
+\emph{The Kantorovich distance.} A $1$-Lipschitz function $g$ on $G$ has
+oscillation at most $D$; with $m$ the midpoint of its range, $\lvert g-m
+\rvert\le D/2$, so $\lvert\int g\,d(\gamma'-\gamma)\rvert=\lvert\int(g-m)\,
+d(\gamma'-\gamma)\rvert$ is at most $D/2$ times the total mass of $\lvert
+\gamma'-\gamma\rvert$, which is at most $2\tanh(\omega/4)$. By the
+Kantorovich--Rubinstein duality and $\tanh x\le x$,
+\[
+W_1(\gamma,\gamma')\le D\tanh\Bigl(\frac{DJ_{ej}(H)\rho}4\Bigr)\le\frac{D^2}4
+J_{ej}(H)\,\rho .\qedhere
+\]
+\end{proof}
+
+Lemma~\ref{lem:bpcoarsehess} gives $J_{ej}/(\kappa_G-h_e)$; the two bounds
+agree when $\kappa_G-h_e=4/D^2$, which for $\SU(2)$ is $2/\pi^2$, and
+Lemma~\ref{lem:bpfibosc} is the stronger one beyond that, in particular for
+$h_e\ge\kappa_G$, where Lemma~\ref{lem:bpcoarsehess} gives nothing, and for
+$\U(1)$, where $\kappa_G=0$. The single-link Hessian does not disappear
+from the problem, however: for gauge-invariant $H$ it is controlled by the
+mixed derivatives.
+
+\begin{lemma}[gauge covariance of the Hessian]\label{lem:bpfibgauge}
+Let $H\in C^2(G^E)$ be gauge invariant on the links of $\Lambda_L$, $L\ge3$,
+let $e$ be a link and $S_\pm(e)$ as in Lemma~\textup{\ref{lem:bpbalcov}}.
+Then for every $U$ and $X\in\g$
+\[
+\Bigl\lvert\frac{d^2}{dt^2}H(U^{e,tX})\Big|_0\Bigr\rvert\le\lvert X\rvert^2
+\sum_{k\in S_+(e)}J_{ek}(H),
+\]
+and if $G$ is abelian the same holds with $S_-(e)$ in place of $S_+(e)$.
+\end{lemma}
+
+\begin{proof}
+Write $D^k_ZH(U)=\frac d{dt}H(U^{k,tZ})|_{t=0}$. Let $e=(x,\nu)$, $y=x+e_\nu$,
+$Z\in\g$, and let $g_t$ be the gauge transformation equal to $e^{tZ}$ at $y$
+and to $I$ elsewhere. It replaces $U_k$ by $U_ke^{-tZ}$ for the four links
+$k$ that end at $y$, among them $e$, and $U_k$ by $e^{tZ}U_k=U_ke^{tW_k}$,
+$W_k=U_k^{-1}ZU_k$, for the four links that start at $y$, and leaves the
+others unchanged. Differentiating $H(g_tU)=H(U)$ at $t=0$ gives, for every
+$U$,
+\[
+D^e_ZH(U)=-\sum_kD^k_ZH(U)+\sum_{k'}D^{k'}_{W_{k'}}H(U),
+\]
+the first sum over the three other links that end at $y$, the second over
+the four that start there; these seven are $S_+(e)$, $\lvert W_{k'}\rvert=
+\lvert Z\rvert$, and since $L\ge3$ no link starting at $y$ is $e$, so
+$W_{k'}$ does not depend on $U_e$. Replace $U$ by $U^{e,sX}$ and
+differentiate at $s=0$. On the left, with $Z=X$, $\frac d{ds}D^e_XH(U^{e,sX})|_0
+=\frac{d^2}{dt^2}H(U^{e,tX})|_0$, since $U_ee^{sX}e^{tX}=U_ee^{(s+t)X}$; on the
+right every term is a mixed derivative in $e$ and a link of $S_+(e)$,
+bounded by $J_{ek}(H)\lvert X\rvert^2$. For abelian $G$ the transformation
+at $x$ multiplies every link at $x$ by $e^{\pm tZ}$ with no dependence on
+the link, and the same computation applies with $S_-(e)$.
+\end{proof}
+
+Combined with Proposition~\ref{prop:bpbalhess} and the marking of
+Theorem~\ref{thm:bpbalstep}, these lemmas reduce the coefficients of the
+law of the block variables to covariances in the fibre law. For $b\ge3$ let
+$k_b=\lfloor b/2\rfloor$, so that $1\le k_b\le b-2$, and let $l_b$ be the
+marking with $l_b(y,\nu)$ the link of $\pi(y,\nu)$ with base point
+$by+k_be_\nu$.
+
+\begin{proposition}[the fibre covariance]\label{prop:bpfibreduce}
+Let $c$ be the straight-path map with blocks of side $b\ge3$ from
+$\Lambda_{bL}$ to $\Lambda_L$, $L\ge3$, let $\mu'$ be the Wilson measure of
+$\Lambda_{bL}$ with action $\mathcal S=-N\beta\sum_p\ReTr U_p$, $\mu^c=c_*\mu'$
+with the induced action $H^c$, and let $\varsigma_V$ be the fibre law of
+Proposition~\textup{\ref{prop:bpbalhess}} for the marking $l=l_b$. For a
+coarse link $e$ write $a=l_b(e)$, and put
+\[
+K_{ee'}=\sup_{V}\sup_{\lvert X\rvert=\lvert Y\rvert=1}\bigl\lvert\Cov_{
+\varsigma_V}\bigl(D^a_X\mathcal S,D^{a'}_Y\mathcal S\bigr)\bigr\rvert ,
+\]
+with $a'=l_b(e')$.
+\begin{enumerate}[label=\textup{(\roman*)},leftmargin=*]
+\item For $e\ne e'$ the marks $l_b(e)$ and $l_b(e')$ are not partners.
+\item $J_{ee'}(H^c)=K_{ee'}$ for $e\ne e'$.
+\item $C^{\mu^c}_{ee'}\le\frac{D^2}4K_{ee'}$ for $e\ne e'$.
+\item For every coarse link $e$, every $V$ and every unit $X$,
+\[
+\bigl\lvert\varsigma_V(D^a_XD^a_X\mathcal S)-\Var_{\varsigma_V}(D^a_X\mathcal S)
+\bigr\rvert\le\sum_{e'\in S_+(e)}K_{ee'},
+\]
+and for abelian $G$ also with $S_-(e)$ in place of $S_+(e)$.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+(i) Both end points of $l_b(e)$, $by+k_be_\nu$ and $by+(k_b+1)e_\nu$, are
+inner points of $\pi(e)$, since $1\le k_b$ and $k_b+1\le b-1$, and an inner
+point lies on exactly one path. Two links of different directions in a
+common plaquette share an end point, so marks of different directions are
+not partners. Two links of the same direction in a common plaquette have
+base points that differ by $\pm e_\rho$ for a direction $\rho$, while the
+base points of $l_b(y,\nu)$ and $l_b(y',\nu)$ differ by $b(y-y')$, all of
+whose coordinates are divisible by $b$ modulo $bL$.
+
+(ii) The action $\mathcal S$ is a sum of functions of the four links of a
+plaquette, so $D^{a'}_YD^a_X\mathcal S=0$ unless $a$ and $a'$ are partners,
+and by (i) the mixed derivative of Proposition~\ref{prop:bpbalhess} is
+$-\Cov_{\varsigma_V}(D^a_X\mathcal S,D^{a'}_Y\mathcal S)$.
+
+(iii) By Lemma~\ref{lem:bpcoarselaw}(i), $\mu^c$ has the density $e^{-H^c}$
+with $H^c$ smooth; apply Lemma~\ref{lem:bpfibosc} and (ii).
+
+(iv) The density of $\mu^c$ is gauge invariant (proof of
+Lemma~\ref{lem:bpbalaxial}), hence so is $H^c$. By
+Proposition~\ref{prop:bpbalhess} the left side is the second derivative of
+$H^c$ along $V^{e,tX}$; apply Lemma~\ref{lem:bpfibgauge} and (ii).
+\end{proof}
+
+\begin{corollary}[fibre decorrelation gives (H1)]\label{cor:bpfibH1}
+In Corollary~\textup{\ref{cor:bpuptuning}} let the $c_j$ be straight-path
+maps, let $H^{(0)}_{k,L}$ be the induced action of
+Lemma~\textup{\ref{lem:bpcoarselaw}} and $J^{(k,L)}_{ej}=J_{ej}(H^{(0)}_{k,L})$.
+Suppose that the following condition \textup{(FC)} holds: there are $c<1$
+and $R\ge1$ with
+\[
+\frac{D^2}4\sum_{e\ne j}J^{(k,L)}_{ej}\le c,\qquad\frac{D^2}4\sum_{e:\,\lvert
+\Delta\rvert_\infty>R}J^{(k,L)}_{ej}\le\frac{1-c}{16}
+\]
+for all $k$, all $L\in\mathcal L_k$ and all links $j$ of $\Lambda_{L_0}$.
+\begin{enumerate}[label=\textup{(\roman*)},leftmargin=*]
+\item Condition \textup{(H1)} holds with $\varpi_0=\frac12$ for every
+$n_0\ge\max(2,16Rc/(1-c))$ for which every $L\in\mathcal L_k$ has
+$L_0\ge2n_0+4$.
+\item For $k\ge2$, $J^{(k,L)}_{ej}$ is the number $K_{ej}$ of
+Proposition~\textup{\ref{prop:bpfibreduce}} for the straight-path map with
+blocks of side $2^k$ from $\Lambda_L$ to $\Lambda_{L_0}$ and the Wilson
+measure $\mu_{k,L}$; for $k=0$ it is at most $N\lvert\beta_0\rvert$ for
+partners and vanishes otherwise.
+\item For every link $e$, every configuration $V$ and every unit vector
+$X$, $\lvert\frac{d^2}{dt^2}H^{(0)}_{k,L}(V^{e,tX})|_0\rvert\le4c/D^2$; for $k\ge2$
+this is $\lvert\varsigma_V(D^a_XD^a_X\mathcal S_k)-\Var_{\varsigma_V}(D^a_X
+\mathcal S_k)\rvert\le4c/D^2$ for the marks $a$ and the Wilson action
+$\mathcal S_k$ at $\beta_k$.
+\end{enumerate}
+\end{corollary}
+
+\begin{proof}
+(i) By Lemma~\ref{lem:bpfibosc} and Lemma~\ref{lem:bpcoarselaw}, the
+coefficients of $\mu^{(0)}_{k,L}$ satisfy $C^{(k,L)}_{ej}\le\frac{D^2}4J^{(k,L)
+}_{ej}$, and the first statement of Corollary~\ref{cor:bpcoarseH1} applies.
+(ii) By Lemma~\ref{lem:bpcoarselaw}, $\mu^{(0)}_{k,L}=c^{(k)}_*\mu_{k,L}$ with
+$c^{(k)}$ the straight-path map with blocks of side $2^k\ge4$; use
+Proposition~\ref{prop:bpfibreduce}(ii). For $k=0$, $H^{(0)}_{0,L}$ is the
+Wilson action at $\beta_0$, and Lemma~\ref{lem:mixed} bounds its mixed
+derivatives. (iii) Since $J^{(k,L)}$ is symmetric, its row sums are column
+sums, at most $4c/D^2$; apply Lemma~\ref{lem:bpfibgauge} and, for $k\ge2$,
+Proposition~\ref{prop:bpfibreduce}(iv).
+\end{proof}
+
+So (FC) is a decorrelation statement for the forces on distinct marks in
+the fibre law, uniform in the coarse data $V$, in $k$ and in the torus.
+Part (iii) shows that the oscillation lemma removes the hypothesis
+$h_e<\kappa_G$ of Lemma~\ref{lem:bpcoarsehess} from the criterion but not
+from the problem: through gauge covariance, (FC) forces the variance of the
+force on every mark in the fibre law to equal its mean curvature, both of
+order $N\lvert\beta_k\rvert$, up to $4c/D^2$, which is $2c/\pi^2$ for
+$\SU(2)$, uniformly in $V$. This is the cancellation described after
+Proposition~\ref{prop:bpbalhess}.
+
+\begin{remark}[strong coupling and Dobrushin bounds in the fibre]
+\label{rem:bpfibstrong}
+By Lemma~\ref{lem:bpwilsonfibre}(ii) the fibre law $\varsigma_V$ is the
+Wilson specification $\gamma^0_{E'_0}(\cdot\mid\Theta^l(V,\cdot))$, so its
+single-link coefficients are those of the Wilson measure. If these satisfy
+$C^0_{ee'}\le\mathfrak c$ for all partners, with $\xi=18\mathfrak c<1$,
+Lemma~\ref{lem:bpdecay}(ii) applies to $\varsigma_V$. The force $D^a_X\mathcal
+S$ depends only on the links of $E'_0$ in the six plaquettes of $a$, which
+are partners of $a$, and $\lvert D^a_X\mathcal S\rvert\le6N^{3/2}\lvert\beta
+\rvert\lvert X\rvert$, since $\lvert\ReTr(WX)\rvert\le\lVert W\rVert_{\rm HS}
+\lVert X\rVert_{\rm HS}=\sqrt N\lvert X\rvert$ for unitary $W$. Partners have
+base points at distance at most one in $\lvert\cdot\rvert_\infty$, so the two
+sets of links for marks $a=l_b(e)$, $a'=l_b(e')$ are at chain distance at
+least $d_{ee'}=\max(k_b,b\lvert\Delta\rvert_\infty-k_b)-2$, by the distance
+bound in the proof of Theorem~\ref{thm:bpbalstep}. Hence, for $b\ge6$,
+\[
+K_{ee'}\le\frac{36N^3\beta^2}{1-\xi}\,\xi^{d_{ee'}}
+\]
+uniformly in $V$ and $L$, and the sums of (FC) for this $b$ tend to zero as
+$b\to\infty$ at fixed $\beta$ and $\xi$. This is the range of
+Corollary~\ref{cor:bpbaltower}(iii) and adds nothing along the tuning.
+Outside it a Dobrushin argument for the fibre law itself is excluded by
+gauge covariance: a link of $E'_0$ whose two end points lie on no path has
+all the other links at those points in $E'_0$, the gauge transformations
+at those points preserve $\varsigma_V$, and the proofs of
+Lemma~\ref{lem:bpbalcov} and Theorem~\ref{thm:bpbalnec}(i) give it a row sum
+of single-link coefficients under $\varsigma_V$ of at least $2-4s/D$, with
+$s$ the infimum of the spreads of its conditional laws; at $V=I$, $m=I$
+these are the laws of the proof of Corollary~\ref{cor:bpbalwilson}, so for
+$\SU(2)$ at $\beta_W\ge\frac83$ the row sum exceeds $1.13$. The decay
+required by (FC) concerns the forces on the marks, not the single links of
+the fibre, and the Gaussian model below shows the difference.
+\end{remark}
+
+\emph{A Gaussian model of the fibre.} Let $b\ge3$, $L\ge3$ and $\beta>0$.
+On $\Lambda_{bL}$ consider real $1$-forms $A\in\R^{E'}$, the plaquette
+variables $(dA)_p=A_{(x,\mu)}+A_{(x+e_\mu,\nu)}-A_{(x+e_\nu,\mu)}-A_{(x,\nu)}$
+for the plaquette $p$ at $x$ in the plane $\mu<\nu$, $K=d^{\rm T}d$ on
+$\R^{E'}$ and the action $S(A)=\frac\beta2\lvert dA\rvert^2$, the quadratic
+part of the $\U(1)$ Wilson action $-\beta\sum_p\cos\theta_p$ in the angles.
+Let $P$ be the set of path links, $l=l_b$, $E'_0$ as before, and $\Sigma$
+the set of sites on paths, the block corners and the inner points. For
+$v\in\R^E$ and $m\in\R^{E'_0}$ let $\Theta(v,m)\in\R^{E'}$ be $v_e$ at
+$l(e)$, $0$ on $P\setminus l(E)$ and $m$ on $E'_0$; the force on a mark $a$
+is $F_a=\partial S/\partial A_a=\beta(K\Theta)_a$, and for a link $a$ let
+$\delta_a$ be its indicator.
+
+\begin{lemma}\label{lem:bpfibker}
+Let $\mathcal N$ be the set of restrictions to $E'_0$ of the forms $d\phi$
+with $\phi$ a function on the sites of $\Lambda_{bL}$ vanishing on $\Sigma$.
+Then every such $d\phi$ vanishes on $P$, and $d\Theta(0,m)=0$ exactly when
+$m\in\mathcal N$.
+\end{lemma}
+
+\begin{proof}
+A path link joins two points of $\Sigma$, so $d\phi$ vanishes on it, and
+$\Theta(0,d\phi|_{E'_0})=d\phi$ is closed. Conversely let $\omega=\Theta(0,m)$
+be closed, and lift it to a $bL$-periodic closed form on $\Z^4$. On $\Z^4$
+the sum of $\omega$ along a lattice path from $0$ to $x$ does not depend
+on the path, since two such paths differ by a sum of boundaries of
+plaquettes, so $\omega=d\phi$. The lift of $\Sigma$ is connected by lifted
+path links, on which $\omega$ vanishes, so $\phi$ is constant there and may
+be taken to vanish there. For $z\in bL\Z^4$ the function $x\mapsto\phi(x+z)
+-\phi(x)$ has zero differential and vanishes on the lift of $\Sigma$, so
+$\phi$ is periodic and $m=d\phi|_{E'_0}$.
+\end{proof}
+
+Since $d\Theta(v,m+n)=d\Theta(v,m)$ for $n\in\mathcal N$, and $m\mapsto\lvert
+d\Theta(0,m)\rvert^2$ is positive definite on the orthogonal complement
+$\mathcal N^\perp$ of $\mathcal N$ in $\R^{E'_0}$, the \emph{Gaussian fibre
+law} $\varsigma_v$ is defined as the probability measure on $\mathcal
+N^\perp$ with density proportional to $e^{-S(\Theta(v,m))}$ with respect
+to Lebesgue measure; the forces depend on $m$ only through $d\Theta(v,m)$.
+Let $\Gamma$ be the symmetric matrix on $\R^E$ with $\ip v{\Gamma v}=\min_m
+\lvert d\Theta(v,m)\rvert^2$, the \emph{effective quadratic form}: completing
+the square, $\frac\beta2\ip v{\Gamma v}$ is, up to a constant, the induced
+action $-\log\int_{\mathcal N^\perp}e^{-S(\Theta(v,m))}dm$, and its mixed
+derivatives in $v_e$, $v_{e'}$ are $\beta\Gamma_{ee'}$.
+
+\begin{proposition}[the Gaussian fibre law]\label{prop:bpfibgauss}
+In the Gaussian model, with $a=l(e)$ and $a'=l(e')$:
+\begin{enumerate}[label=\textup{(\roman*)},leftmargin=*]
+\item Under $\varsigma_v$, $\Var(F_a)=\beta(6-\Gamma_{ee})$ and $\Cov(F_a,
+F_{a'})=-\beta\Gamma_{ee'}$ for $e\ne e'$, for every $v$. Under the Gaussian
+law on the orthogonal complement of $\ker K$ in $\R^{E'}$ with density
+proportional to $e^{-S}$, without a fixed skeleton, the forces $\beta(KA)_a$
+have $\Cov(\beta(KA)_a,\beta(KA)_{a''})=\beta K_{aa''}$ for all links $a,a''$,
+which vanishes unless $a=a''$ or they are partners.
+\item Let $m_v$ attain the minimum and $\mathcal J=K\Theta(v,m_v)$. Then
+$\mathcal J$ vanishes on $E'_0$, is constant on each path $\pi(e)$ with the
+value $(\Gamma v)_e$, and these values form a co-closed $1$-form on the
+coarse torus: $\sum_\nu\bigl((\Gamma v)_{(y,\nu)}-(\Gamma v)_{(y-e_\nu,\nu)}
+\bigr)=0$ for every coarse site $y$.
+\item $1/b^2\le\Gamma_{ee}\le6/b$ and $\lvert\Gamma_{ee'}\rvert\le6/b$.
+\item The sums of $\lvert\Gamma_{ee'}\rvert$ over $e'\in S_+(e)$ and over
+$e'\in S_-(e)$ are each at least $\Gamma_{ee}$, so $\sum_{e'\ne e}\lvert
+\Gamma_{ee'}\rvert\ge2\Gamma_{ee}\ge2/b^2$.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+(i) For a mark $a$ let $\psi_a=(K\delta_a)|_{E'_0}$, let $K_0$ be the block of
+$K$ on $E'_0$, and $\Psi v=\sum_ev_e\psi_{l(e)}$. A link lies in six
+plaquettes and distinct marks are not partners
+(Proposition~\ref{prop:bpfibreduce}(i)), so the block of $K$ on the marks
+is $6I$ and
+\[
+\lvert d\Theta(v,m)\rvert^2=6\lvert v\rvert^2+2\ip m{\Psi v}+\ip m{K_0m}.
+\]
+By Lemma~\ref{lem:bpfibker} the kernel of $K_0$ is $\mathcal N$, and
+$\psi_a$ is orthogonal to $\mathcal N$, since $\ip{\psi_a}{d\phi|_{E'_0}}=\ip{K\delta_a}{d\phi}=\ip{\delta_a}{d^{
+\rm T}dd\phi}=0$. With $K_0^+$ the inverse of $K_0$ on $\mathcal N^\perp$, the
+minimiser is $m_v=-K_0^+\Psi v$ and $\Gamma=6I-\Psi^{\rm T}K_0^+\Psi$. Under
+$\varsigma_v$, $m=m_v+n$ with $n$ centred Gaussian on $\mathcal N^\perp$ of
+covariance $\beta^{-1}K_0^+$, and $F_a=\beta(K\Theta(v,m_v))_a+\beta\ip{\psi_a}
+n$, as $(K\Theta(0,n))_a=\ip{K\delta_a}{\Theta(0,n)}=\ip{\psi_a}n$. Hence
+$\Cov(F_a,F_{a'})=\beta\ip{\psi_a}{K_0^+\psi_{a'}}=\beta(6\delta_{ee'}-
+\Gamma_{ee'})$. Without the skeleton the law of $A$ is the centred Gaussian
+law with covariance $\beta^{-1}K^+$, and then
+\[
+\Cov\bigl(\beta(KA)_a,\beta(KA)_{a''}\bigr)=\beta\ip{\delta_a}{KK^+K\delta_{
+a''}}=\beta K_{aa''},
+\]
+where $K_{aa''}$ is a signed count of the plaquettes containing $a$
+and~$a''$.
+
+(ii) The minimiser satisfies $(K\Theta(v,m_v))_{E'_0}=0$, and $d^{\rm T}
+\mathcal J=d^{\rm T}d^{\rm T}d\Theta=0$. At an inner point $s$ of a path of
+direction $\nu$ the links with an end point at $s$ are the two links of
+that path and six links of $E'_0$: a link at $s$ of direction $\rho\ne\nu$
+lies on a path only if $s$ lies on a line of direction $\rho$ through
+block corners, whose points have their $\nu$-coordinate divisible by $b$,
+which that of $s$ is not. So $d^{\rm T}\mathcal J(s)=0$ says that the
+values of $\mathcal J$ on the two path links at $s$ agree, and $\mathcal J$
+is constant on each path. At a block corner $by$ the eight links are the
+first links of the paths $\pi(y,\nu)$ and the last links of the paths
+$\pi(y-e_\nu,\nu)$, and $d^{\rm T}\mathcal J(by)=0$ is the stated relation.
+Finally $\mathcal J_{l(e)}=6v_e+\ip{\psi_{l(e)}}{m_v}=(\Gamma v)_e$.
+
+(iii) First, $\ip v{\Gamma v}$ is the minimum of $\lvert dA\rvert^2$ over all
+$A\in\R^{E'}$ whose sum along each path $\pi(e)$ is $v_e$. Every
+$\Theta(v,m)$ has these sums. Conversely, given such $A$, let $a_0,\dots,
+a_{b-1}$ be the links of $\pi(y,\nu)$ in order, from $s_i$ to $s_{i+1}$,
+and let $\phi(s_t)=-\sum_{i<t}A_{a_i}$ for $t\le k_b$, $\phi(s_t)=\sum_{i\ge t}
+A_{a_i}$ for $t>k_b$, and $\phi=0$ at the sites on no path. This defines
+$\phi$ consistently, with $\phi=0$ at the block corners, and $A+d\phi$
+vanishes on $a_i$ for $i\ne k_b$ and equals $v_e$ on $a_{k_b}=l(e)$; so
+$A+d\phi=\Theta(v,m)$ for some $m$, and $\lvert d(A+d\phi)\rvert=\lvert dA
+\rvert$. For $v=\delta_e$ take $A=b^{-1}\sum_{a\in\pi(e)}\delta_a$: collinear
+links lie in no common plaquette, so the $6b$ plaquettes that contain a
+link of $\pi(e)$ are distinct and each has $(dA)_p=\pm1/b$, and $\lvert dA
+\rvert^2=6/b$. For the lower bound let $\mathcal P$ be a coarse plaquette
+with $e$ on its boundary and $\Phi$ the indicator of the $b^2$ plaquettes
+of the square of side $b$ under it, which all lie in one plane. The
+interior links of the square cancel in $\ip{dA}\Phi=\sum_{p}(dA)_p$, which
+is the signed sum of the path sums of the four coarse links of $\mathcal P$,
+that is $\pm v_e=\pm1$. So $1\le\lvert dA\rvert\,\lvert\Phi\rvert=b\lvert dA
+\rvert$. As $\Gamma$ is positive semidefinite, $\lvert\Gamma_{ee'}\rvert\le
+(\Gamma_{ee}\Gamma_{e'e'})^{1/2}$.
+
+(iv) Apply (ii) to $v=\delta_e$: the column $(\Gamma_{e'e})_{e'}$ is
+co-closed, and the relation at the end point $y+e_\nu$ of $e=(y,\nu)$
+writes $\Gamma_{ee}$ as a signed sum of the $\Gamma_{e'e}$, $e'\in S_+(e)$;
+likewise at $y$. The two sets are disjoint since $L\ge3$, and $\Gamma$ is
+symmetric.
+\end{proof}
+
+By (i), the decorrelation of forces asked for by (FC) is, in this model,
+the locality of the effective quadratic form of the straight-path map, and
+the decay of a free-field force covariance plays no role, since without
+the skeleton the forces are correlated only between partners. Part (i) and
+(iii) also exhibit the cancellation of Corollary~\ref{cor:bpfibH1}(iii):
+the force variance on a mark is $6\beta(1-\Gamma_{ee}/6)\ge6\beta(1-1/b)$,
+equal to the mean curvature $6\beta$ up to $\beta\Gamma_{ee}\le6\beta/b$,
+because the coarse variable is spread over the $b$ links of its path. Part
+(iv) is the analogue of Theorem~\ref{thm:bpbalnec} and of
+Lemma~\ref{lem:bpfibgauge}: gauge invariance forces the row sums of the
+mixed derivatives to be at least twice the diagonal.
+
+The model is invariant under the translations by $b\Z^4$, which gives the
+dependence on the torus. For $\kappa\in\R^4$ and a set $X$ of sites or
+links of the fine lattice $\Z^4$ invariant under $b\Z^4$, let $\mathcal
+H_\kappa(X)$ be the space of complex functions on $X$ with $f(x+bz)=
+e^{i\kappa\cdot z}f(x)$ for $z\in\Z^4$, with the inner product summed over
+one fundamental domain.
+
+\begin{proposition}[the Gaussian model on all tori]\label{prop:bpfibbloch}
+Fix $b\ge3$. There are $4\times4$ matrices $\Gamma^\infty_b(w)$, $w\in\Z^4$,
+and constants $M_b,\kappa_b>0$ with $\lVert\Gamma^\infty_b(w)\rVert\le M_be^{
+-\kappa_b\lvert w\rvert_1}$, such that for every $L\ge3$ the effective
+quadratic form on $\Lambda_L$ is
+\[
+\Gamma_{(y,\mu),(y',\nu)}=\sum_{z\in\Z^4}\Gamma^\infty_b(y'-y+Lz)_{\mu\nu} .
+\]
+In particular, for every $L\ge3$ and every coarse link $e=(y,\mu)$,
+\[
+\sum_{e'\ne e}\lvert\Gamma_{ee'}\rvert\le\gamma_b=\max_\mu\sum_{(w,\nu)\ne(0,
+\mu)}\bigl\lvert\Gamma^\infty_b(w)_{\mu\nu}\bigr\rvert<\infty ,
+\]
+and $1/b^2\le\Gamma^\infty_b(0)_{\mu\mu}\le6/b$ and $\gamma_b\ge2\min_\mu
+\Gamma^\infty_b(0)_{\mu\mu}$.
+\end{proposition}
+
+\begin{proof}
+\emph{Gauge fixing.} Let $B$ map a function $\phi$ on the sites of
+$\Lambda_{bL}$ off $\Sigma$ to $d\phi|_{E'_0}$, $\phi$ extended by $0$ on
+$\Sigma$, so that $\mathcal N$ is the range of $B$, and put $\mathcal A=K_0+
+BB^{\rm T}$. If $\ip m{\mathcal Am}=0$, then $m\in\ker K_0=\mathcal N$ and
+$B^{\rm T}m=0$, so $m$ lies in the range of $B$ and in its orthogonal
+complement, and $m=0$. Since $K_0$ maps into $\mathcal N^\perp$ and vanishes
+on $\mathcal N$, while $BB^{\rm T}$ maps into $\mathcal N$ and vanishes on
+$\mathcal N^\perp$, $\mathcal A^{-1}\psi=K_0^+\psi$ for $\psi\in\mathcal
+N^\perp$, and by the proof of Proposition~\ref{prop:bpfibgauss},
+$\Gamma=6I-\Psi^{\rm T}\mathcal A^{-1}\Psi$.
+
+\emph{Quasi-periodic functions.}\footnote{This is the Floquet--Bloch
+decomposition with respect to the translations by $b\Z^4$; the exponential
+decay of $\Gamma^\infty_b$ below is the Paley--Wiener argument for a matrix
+symbol that is holomorphic and bounded in a strip.} The sets $\Sigma$, $P$, $l(E)$ and $E'_0$,
+lifted to $\Z^4$, are invariant under $b\Z^4$, and $d$, $K$, the
+restrictions and $B$ commute with these translations and have finite range.
+They map the spaces $\mathcal H_\kappa$ into one another, the adjoint of
+$B$ on them is the restriction of $B^{\rm T}$, and in bases indexed by a
+fundamental domain their matrices $K_0(\kappa)$, $B(\kappa)$, $\Psi(\kappa)$
+have entries that are trigonometric polynomials in $\kappa$. The space of
+complex functions on the links of $\Lambda_{bL}$ is the direct sum of the
+$\mathcal H_\kappa$ with $\kappa\in(2\pi/L)\Z^4$ modulo $2\pi\Z^4$, and the
+same holds for each invariant subset.
+
+\emph{Positivity for every $\kappa$.} Let $\mathcal A(\kappa)=K_0(\kappa)+
+B(\kappa)B(\kappa)^*$ on $\mathcal H_\kappa(E'_0)$, and suppose that $\ip f{
+\mathcal A(\kappa)f}=0$. Then the form $\omega$ equal to $f$ on $E'_0$ and
+to $0$ on $P$ is closed on $\Z^4$ and $B(\kappa)^*f=0$. As in the proof of
+Lemma~\ref{lem:bpfibker}, $\omega=d\phi$ with $\phi=0$ on the lift of
+$\Sigma$; for $z\in\Z^4$ the function $\phi(x+bz)-e^{i\kappa\cdot z}\phi(x)$
+has zero differential and vanishes on the lift of $\Sigma$, so $\phi\in
+\mathcal H_\kappa$ and $f=B(\kappa)\phi$. Thus $f$ lies in the range of
+$B(\kappa)$ and in the kernel of its adjoint, and $f=0$. So $\mathcal A(\kappa)$
+is positive definite for every real $\kappa$; its least eigenvalue is
+continuous and $2\pi\Z^4$-periodic, hence at least some $\lambda_b>0$.
+
+\emph{Analyticity and the torus.} The entries of $\mathcal A(\kappa)$ are
+finite sums of terms $e^{\pm i\kappa_\rho}$, so there is $\kappa_b>0$ with
+$\lVert\mathcal A(\kappa)-\mathcal A(\operatorname{Re}\kappa)\rVert\le\lambda_b/2$
+for $\lvert\operatorname{Im}\kappa_\rho\rvert\le\kappa_b$, $\rho=0,\dots,3$;
+there $\lVert\mathcal A(\kappa)f\rVert\ge\frac{\lambda_b}2\lVert f\rVert$, and
+\[
+\hat\Gamma(\kappa)=6I-\Psi(\kappa)^*\mathcal A(\kappa)^{-1}\Psi(\kappa),
+\]
+with $\Psi(\kappa)^*$ continued as the transpose of $\Psi(-\bar\kappa)$
+conjugated, is holomorphic, bounded and periodic. On $\Lambda_{bL}$,
+writing $\Gamma_{(y,\mu),(y',\nu)}=g_{\mu\nu}(y'-y)$ by translation
+invariance, $\Gamma$ acts on $f\in\mathcal H_\kappa(l(E))$, $f(l(y,\nu))=e^{
+i\kappa\cdot y}f_\nu$, by $(\Gamma f)(l(y,\mu))=e^{i\kappa\cdot y}\sum_\nu\hat
+g_{\mu\nu}(\kappa)f_\nu$ with $\hat g_{\mu\nu}(\kappa)=\sum_{w\in(\Z/L\Z)^4}g_{
+\mu\nu}(w)e^{i\kappa\cdot w}$, and by the gauge fixing applied on each
+$\mathcal H_\kappa$, $\hat g(\kappa)=\hat\Gamma(\kappa)$ for $\kappa\in(2\pi/L)
+\Z^4$. Let $\Gamma^\infty_b(w)=(2\pi)^{-4}\int_{[-\pi,\pi]^4}\hat\Gamma(\kappa)
+e^{-i\kappa\cdot w}d\kappa$. Shifting each variable $\kappa_\rho$ by $\mp i
+\kappa_b$ according to the sign of $w_\rho$, which periodicity allows, gives
+$\lVert\Gamma^\infty_b(w)\rVert\le M_be^{-\kappa_b\lvert w\rvert_1}$ with $M_b$
+the supremum of $\lVert\hat\Gamma\rVert$ on the strip. So $\hat\Gamma(\kappa)=
+\sum_w\Gamma^\infty_b(w)e^{i\kappa\cdot w}$ converges absolutely, and
+\[
+\begin{split}
+g(w)&=L^{-4}\sum_\kappa\hat\Gamma(\kappa)e^{-i\kappa\cdot w}\\
+&=\sum_{w'}\Gamma^\infty_b(w')\,L^{-4}\sum_\kappa e^{i\kappa\cdot(w'-w)}\\
+&=\sum_{z\in\Z^4}\Gamma^\infty_b(w+Lz),
+\end{split}
+\]
+the sums over $\kappa\in(2\pi/L)\Z^4$ modulo $2\pi\Z^4$.
+The pairs $(w,\nu)\ne(0,\mu)$ with $w$ in a class modulo $L$ fall into one
+term $\Gamma_{ee'}$, $e'\ne e$, or into $\Gamma_{ee}$, so the triangle
+inequality gives the bound by $\gamma_b$. As $L\to\infty$, $g(w)\to
+\Gamma^\infty_b(w)$ for each $w$, and the bounds and the co-closedness of
+Proposition~\ref{prop:bpfibgauss}(ii)--(iv) pass to the limit.
+\end{proof}
+
+So in the Gaussian model the row sums of the effective form are finite
+uniformly in the torus for each $b$, and their size is the single
+infinite-volume number $\gamma_b$; the proof gives no control of $M_b$ and
+$\kappa_b$ in $b$. The remaining condition is
+\[
+\textup{(G)}\qquad\gamma_*=\sup_{b\ge3}b\,\gamma_b<\infty .
+\]
+Proposition~\ref{prop:bpfibbloch} gives only $b\gamma_b\ge2/b$.
+
+\begin{corollary}[the Gaussian form of (FC)]\label{cor:bpfibgauss}
+In the Gaussian model let $J^{\rm G}_{ee'}=\beta\lvert\Gamma_{ee'}\rvert$, the
+mixed derivatives of the induced action $\frac\beta2\ip v{\Gamma v}$. For
+every $L\ge3$ and every coarse link $j$,
+\[
+\frac{D^2}2\,\frac\beta{b^2}\le\frac{D^2}2\,\beta\,\Gamma_{jj}\le\frac{D^2}4
+\sum_{e\ne j}J^{\rm G}_{ej}\le\frac{D^2}4\,\beta\,\gamma_b .
+\]
+If \textup{(G)} holds, the inequalities of \textup{(FC)} for $J^{\rm G}$ hold
+with $c=\frac1{17}$ and $R=1$ on every torus as soon as $D^2\beta\gamma_*\le
+\frac4{17}b$; in particular, along every sequence of block sides $b=2^k$
+and couplings $\beta_k$ with $2^{-k}\beta_k\to0$, for all large $k$,
+uniformly in $L_0$.
+\end{corollary}
+
+\begin{proof}
+The bounds are Propositions~\ref{prop:bpfibgauss}(iii),(iv)
+and~\ref{prop:bpfibbloch}. Under (G) the column sums are at most $\frac{D^2}
+4\beta\gamma_*/b\le\frac1{17}$, and the tails are at most the column sums,
+while $(1-\frac1{17})/16=\frac1{17}$.
+\end{proof}
+
+The logarithmic growth of $\beta_k$ along the tuning,
+after Proposition~\ref{prop:bpbalrandom}, satisfies $2^{-k}\beta_k\to0$. So
+in the Gaussian model (FC) along the tuning reduces to (G), a statement on
+one explicit quadratic form for each $b$, uniform in the torus by
+Proposition~\ref{prop:bpfibbloch} and in the coarse data because the
+covariances do not depend on $v$. The model is the quadratic part of the action, and for a non-abelian
+group it can describe the fibre law only where the fluctuations of the
+path-ordered products are small; the marks are $b$ links apart, a distance
+at which the running coupling along the tuning is of order one, and
+nothing proved here relates the fibre covariances of $\SU(2)$ to $\Gamma$.
+Figure~\ref{fig:bpfibre} shows the fibre, the current of
+Proposition~\ref{prop:bpfibgauss}(ii) and the bounds on $\Gamma$.
+
+\begin{figure*}[t]
+\centering
+\includegraphics[width=0.95\textwidth]{figures/fig_bpfibre.png}
+\caption{The fibre route to the coarsest condition. (a) The fibre law of
+one step of the straight-path map with blocks of side $b=4$, in a plane: the
+coarse data fix the marks (red), the other links of the paths are fixed to
+$I$ (black) and the links off the paths (grey) are integrated. In the
+Gaussian model the minimiser carries a current that vanishes off the
+paths, is constant along each path with the value $(\Gamma v)_e$ and is
+conserved at every block corner (Proposition~\ref{prop:bpfibgauss}(ii)).
+(b) The proved bounds $1/b^2\le\Gamma_{ee}\le6/b$ and $\gamma_b\ge2/b^2$
+(Propositions~\ref{prop:bpfibgauss} and~\ref{prop:bpfibbloch}), and the
+decay $\gamma_b=O(1/b)$ asked for by (G), drawn with an arbitrary constant;
+(G) is not proved. (c) The lower bound $4\beta_k\delta^2/(\pi^2b^2)$ on the
+action that rough coarse data of $\SU(2)$ force on the square of a coarse
+plaquette, for $\delta=\sqrt2\pi$, $b=2^k$ and $\beta_k=2+\frac{11}{3\pi^2}
+k\log2$, an illustration of the growth along the tuning
+(Proposition~\ref{prop:bpfibrough}); it tends to zero and obstructs
+nothing.}
+\label{fig:bpfibre}
+\end{figure*}
+
+\begin{remark}[the abelian group]\label{rem:bpfibuone}
+For $G=\U(1)$ Lemma~\ref{lem:bpcoarsehess} does not apply, since $\kappa_G=0$,
+while Lemmas~\ref{lem:bpfibosc} and~\ref{lem:bpfibgauge},
+Proposition~\ref{prop:bpfibreduce} and Corollary~\ref{cor:bpfibH1} do, with
+$D=\pi$, and the Gaussian model is the quadratic part of the Wilson action.
+Nothing in Propositions~\ref{prop:bpfibgauss} and~\ref{prop:bpfibbloch}
+distinguishes $\U(1)$ from a direction of the Lie algebra of $\SU(2)$. A
+proof of (FC) through the Gaussian model would therefore apply to $\U(1)$
+in its Coulomb phase as well, at fixed $\beta$, and give (H1) there for
+large $k$. This does not contradict the massless photon of that
+phase~\cite{Gut80,FS82}. Condition (H1) concerns only the law of the block
+variables at the spacing $a_0$; it is independent of (H2)
+(Proposition~\ref{prop:bpcoarseflat}), and the product of the Haar
+measures, the law towards which the straight-path maps randomise the
+coarse links, satisfies $\mathrm{BP}(n,1)$
+(Proposition~\ref{prop:avgsup}(ii)). The averaged condition fails in the
+Coulomb phase of the Villain theory (Corollary~\ref{cor:avgcoulomb}, on
+boxes), and wherever $\mathrm{BP}(n_k,\varpi)$ fails along a tower of tori
+on which (H1) holds, Corollary~\ref{cor:bpuptuning} forces (H2) to fail. So
+the route of this subsection, completed, would prove (H1) and nothing about
+the gap: as for the averaged condition itself
+(Remark~\ref{rem:avgstatus}), the gap has to come from the non-abelian
+structure, and through Corollary~\ref{cor:bpuptuning} it has to enter (H2).
+\end{remark}
+
+The uniformity in $V$ in (FC) includes rough coarse data, whose plaquette
+variables are far from $I$. For them the fibre law carries a forced
+background, which the Gaussian model does not see.
+
+\begin{proposition}[rough coarse data]\label{prop:bpfibrough}
+Let $c$, $l_b$, $\mu'$, $\varsigma_V$ and $K_{ee'}$ be as in
+Proposition~\textup{\ref{prop:bpfibreduce}}.
+\begin{enumerate}[label=\textup{(\roman*)},leftmargin=*]
+\item Let $\hat g$ be a gauge transformation of $\Lambda_L$ and $g$ the
+gauge transformation of $\Lambda_{bL}$ equal to $\hat g(y)$ at $by$ and at
+the inner points of $\pi(y,\nu)$ up to the start of the mark, to $\hat g(y+
+e_\nu)$ at the inner points after it, and to $I$ at the sites on no path.
+Then $\varsigma_{\hat gV}$ is the image of $\varsigma_V$ under $m\mapsto(g
+\Theta^l(V,m))_{E'_0}$, and the covariances of the forces at $\hat gV$ with
+unit $X,Y$ are those at $V$ with unit vectors $X',Y'$ conjugate to $X,Y$.
+So the supremum in $K_{ee'}$ is a supremum over the gauge classes of $V$.
+\item For every coarse plaquette $\mathcal P$ with plaquette variable
+$V_{\mathcal P}$, the set $Q_{\mathcal P}$ of the $b^2$ plaquettes of the
+square of side $b$ under it, and every $m$,
+\[
+\sum_{p\in Q_{\mathcal P}}\delta\bigl(\Theta^l(V,m)_p,I\bigr)\ge\delta(V_{
+\mathcal P},I).
+\]
+For $G=\SU(2)$, $\beta\ge0$ and $\mathcal S_0=N\beta\sum_p(2-\ReTr U_p)$,
+\[
+\mathcal S_0(\Theta^l(V,m))\ge\frac{4\beta}{\pi^2b^2}\sum_{\mathcal P}\delta(
+V_{\mathcal P},I)^2,
+\]
+and hence
+\[
+\int e^{-\mathcal S_0(\Theta^l(V,m))}\,\lambda_{E'_0}(dm)\le\exp\Bigl(-\frac{
+4\beta}{\pi^2b^2}\sum_{\mathcal P}\delta(V_{\mathcal P},I)^2\Bigr).
+\]
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+(i) The values of $g$ are consistent, since an inner point lies on one
+path and the corner $by$ ends the paths $\pi(y-e_\nu,\nu)$, where $g$ is
+$\hat g(y)$ after the mark. On $\pi(y,\nu)$ the links of $\Theta^l(V,m)$
+before and after the mark become $\hat g(y)\hat g(y)^{-1}=I$ and $\hat g(y+
+e_\nu)\hat g(y+e_\nu)^{-1}=I$, and the mark becomes $\hat g(y)V_{(y,\nu)}\hat
+g(y+e_\nu)^{-1}=(\hat gV)_{(y,\nu)}$; so $g\Theta^l(V,m)=\Theta^l(\hat gV,m^g)$
+with $m^g=(g\Theta^l(V,m))_{E'_0}$, a translation of each link of $E'_0$ on
+both sides by elements that do not depend on $m$, which preserves
+$\lambda_{E'_0}$. As $\mathcal S$ is gauge invariant, the density of
+$\varsigma_{\hat gV}$ at $m^g$ equals that of $\varsigma_V$ at $m$. For the
+mark $a$ from $s$ to $s'$, $g(s)U_ag(s')^{-1}e^{tX}=g(s)U_ae^{tX'}g(s')^{-1}$
+with $X'=g(s')^{-1}Xg(s')$, so $D^a_X\mathcal S(gU)=D^a_{X'}\mathcal S(U)$, with
+$g(s')$ independent of $m$.
+
+(ii) The boundary of the square of $\mathcal P$, traversed from its corner,
+consists of the four paths of the coarse links of $\mathcal P$, whose
+products under $\Theta^l(V,m)$ are the coarse links, the unmarked links
+being $I$; so its holonomy is $V_{\mathcal P}$ up to orientation. By
+Lemma~\ref{lem:bpstokes} it is an ordered product of conjugates of the
+$U_p^{\pm1}$, $p\in Q_{\mathcal P}$, and for a bi-invariant metric
+$\delta(XY,I)\le\delta(X,I)+\delta(Y,I)$, $\delta(hXh^{-1},I)=\delta(X^{-1},I)=
+\delta(X,I)$. For $\SU(2)$, with $\theta$ the angle of $U$, $2-\ReTr U=4\sin^2(
+\theta/2)\ge4\theta^2/\pi^2=2\delta(U,I)^2/\pi^2$, so $\mathcal S_0\ge\frac{4
+\beta}{\pi^2}\sum_p\delta(U_p,I)^2$; by the Cauchy--Schwarz inequality the
+sum over $Q_{\mathcal P}$ is at least $\delta(V_{\mathcal P},I)^2/b^2$, and
+distinct coarse plaquettes have disjoint squares. The integral is at most
+the supremum of the integrand.
+\end{proof}
+
+Along the tuning $\beta_k4^{-k}\to0$, so the background forced on the
+squares of the coarse plaquettes has vanishing action per coarse
+plaquette, and part (ii) gives no obstruction to the uniformity in $V$;
+part (i) reduces it to the gauge classes, which still contain every
+assignment of conjugacy classes to the coarse plaquettes. In the Gaussian
+model the covariances do not depend on $v$ at all
+(Proposition~\ref{prop:bpfibgauss}(i)). The dependence of $K_{ee'}$ on $V$
+for $\SU(2)$ is a non-linear effect, and no bound on it is proved here.
+
+\begin{remark}[what is proved about the fibre route]\label{rem:bpfibre}
+Proved: every measure with a density $e^{-H}$, $H\in C^2$, on the links of
+a torus, for every closed connected $G\subset\U(N)$ including $\U(1)$, has
+single-link coefficients at most $D^2/4$ times the bounds on the mixed
+derivatives of $H$, with no condition on the single-link Hessian
+(Lemma~\ref{lem:bpfibosc}), and gauge invariance bounds the single-link
+Hessian by the sum of the mixed-derivative bounds into the seven links at
+an end point, at both end points for abelian $G$
+(Lemma~\ref{lem:bpfibgauge}); for straight-path maps with blocks of side
+$b\ge3$ and the middle marking the marks of distinct coarse links are not
+partners, the mixed derivatives of the induced action are minus the
+covariances of the forces on the marks in the fibre law, and the
+coefficients of the law of the block variables are at most $D^2/4$ times
+their suprema over the coarse data (Proposition~\ref{prop:bpfibreduce}); the
+condition (FC) on these covariances gives (H1) with $\varpi_0=\frac12$, and
+it forces the force variance on every mark to equal its mean curvature up
+to $4c/D^2$, uniformly in the coarse data (Corollary~\ref{cor:bpfibH1}); in
+the strong-coupling range the covariances decay exponentially in the
+distance of the marks, which covers the range of
+Corollary~\ref{cor:bpbaltower}(iii), and the fibre law itself fails the
+Dobrushin condition for $\SU(2)$ at $\beta_W\ge\frac83$
+(Remark~\ref{rem:bpfibstrong}); in the Gaussian model the force
+covariances are $-\beta$ times the effective quadratic form of the
+straight-path map, independent of the coarse data, without the skeleton
+they vanish beyond partners, the form is a co-closed current on the coarse
+lattice with $1/b^2\le\Gamma_{ee}\le6/b$ and row sums at least
+$2\Gamma_{ee}$ (Proposition~\ref{prop:bpfibgauss}), and for each $b$ it
+decays exponentially, with row sums bounded on every torus by one
+infinite-volume number $\gamma_b$ (Proposition~\ref{prop:bpfibbloch}); the
+condition (G), $\gamma_b=O(1/b)$, gives the Gaussian form of (FC) along every
+tuning with $2^{-k}\beta_k\to0$, uniformly in the torus
+(Corollary~\ref{cor:bpfibgauss}); a proof of (FC) through the Gaussian model
+would apply to $\U(1)$, which is consistent with its massless phase
+because (H1) carries no information on the gap
+(Remark~\ref{rem:bpfibuone}); the covariances for rough coarse data depend
+only on their gauge class, and the background they force on the faces has
+action at least $4\beta\delta(V_{\mathcal P},I)^2/(\pi^2b^2)$ per coarse
+plaquette for $\SU(2)$, which vanishes along the tuning
+(Proposition~\ref{prop:bpfibrough}).
+
+Not proved: (FC) for any $k$ with $\beta_k$ outside the strong-coupling
+range, and hence (H1) along the tuning; the cancellation of
+Corollary~\ref{cor:bpfibH1}(iii) for $\SU(2)$ along the tuning; condition
+(G), or any bound $\gamma_b=o(1/\log b)$, and any control of the decay rate
+$\kappa_b$ in $b$; any comparison of the fibre covariances of $\SU(2)$ with
+the Gaussian model at the separation of the marks; any bound on the
+covariances uniform in rough coarse data for $\SU(2)$; (H1) for $\U(1)$.
+Neither $\mathrm{BP}$ along the tuning nor the mass gap is proved here.
 \end{remark}
 
 \section{The open inputs}\label{sec:inputs}
@@ -45564,7 +46323,23 @@ along the tuning is proved (Theorems~\ref{thm:bpbalstep}
 and~\ref{thm:bpbalnec}, Corollaries~\ref{cor:bpbaltower},
 \ref{cor:bpbalwilson} and~\ref{cor:bpbalsmall},
 Propositions~\ref{prop:bpbalrandom} and~\ref{prop:bpbalhess},
-Remark~\ref{rem:bpbalaban}). Sec.~\ref{ssec:groups13} carries the single-scale results of this section to every compact simple group, with explicit constants, except the parts listed in Remark~\ref{rem:groups13}. Sec.~\ref{ssec:chainG} states the conditional continuum chain for every compact simple group, with the averaged condition in its local form, the centre sectors of $Z(G)$ and the Schwinger functions at separated points (Theorem~\ref{thm:chainG}, Proposition~\ref{prop:bpcentreG}), proves the averaged condition and the triviality of the limits for $N\beta\le\kappa_G/48$ (Corollary~\ref{cor:limitEstrongG}), and extends the obstruction at fixed cube size under a condition (CP) that holds for $\SU(N)$ and fails for $\mathrm{Sp}(n)$ with $n$ even (Proposition~\ref{prop:bpfixedG}); its hypotheses are not proved for any group, and an analogue of the sharp quarter for $G\ne\SU(2)$ is not proved (Proposition~\ref{prop:modulusG}). On the continuum side, Lemmas~\ref{lem:positivetime}
+Remark~\ref{rem:bpbalaban}); Sec.~\ref{ssec:bpfibre} bounds the coarsest
+coefficients by $D^2/4$ times the mixed derivatives of the induced action,
+with no condition on its single-link Hessian, shows that for straight-path
+maps with blocks of side at least three these are the covariances of the
+forces on distinct marks in the fibre law, so that (H1) follows from a
+decorrelation (FC) of these forces, which also forces their variances to
+equal the mean curvatures up to a bounded error, computes them in a
+Gaussian abelian model as $-\beta$ times a co-closed effective quadratic
+form with diagonal between $1/b^2$ and $6/b$, row sums at least twice the
+diagonal and bounded uniformly in the torus, and reduces (FC) in that model
+along the tuning to a bound (G) of order $1/b$ on its row sums, which is
+not proved; (FC) is not proved along the tuning
+(Lemmas~\ref{lem:bpfibosc} and~\ref{lem:bpfibgauge},
+Propositions~\ref{prop:bpfibreduce}, \ref{prop:bpfibgauss},
+\ref{prop:bpfibbloch} and~\ref{prop:bpfibrough},
+Corollaries~\ref{cor:bpfibH1} and~\ref{cor:bpfibgauss},
+Remark~\ref{rem:bpfibre}). Sec.~\ref{ssec:groups13} carries the single-scale results of this section to every compact simple group, with explicit constants, except the parts listed in Remark~\ref{rem:groups13}. Sec.~\ref{ssec:chainG} states the conditional continuum chain for every compact simple group, with the averaged condition in its local form, the centre sectors of $Z(G)$ and the Schwinger functions at separated points (Theorem~\ref{thm:chainG}, Proposition~\ref{prop:bpcentreG}), proves the averaged condition and the triviality of the limits for $N\beta\le\kappa_G/48$ (Corollary~\ref{cor:limitEstrongG}), and extends the obstruction at fixed cube size under a condition (CP) that holds for $\SU(N)$ and fails for $\mathrm{Sp}(n)$ with $n$ even (Proposition~\ref{prop:bpfixedG}); its hypotheses are not proved for any group, and an analogue of the sharp quarter for $G\ne\SU(2)$ is not proved (Proposition~\ref{prop:modulusG}). On the continuum side, Lemmas~\ref{lem:positivetime}
 and~\ref{lem:nonvanishing} reduce the nontriviality of the limit to a
 lower bound on one ratio of lattice two-point functions at a fixed
 physical time, uniform along the tuning, which is the open input of
