@@ -149,7 +149,7 @@ nonconvex bad side and its three-preimage branch family
 of the path-link law: the response to the links that enter only the
 action, the good side to radius $1/32$, and the fold across which the law
 jumps for every coupling (Lemma~\ref{lem:wilsononly},
-Propositions~\ref{prop:goodside} and~\ref{prop:fold}), the exact factorisation of the weight of two bad islands through one kernel on the good layer between them, on a domain that their labels do not move, with the covariance bound of the chart for the layer law in the coordinates of the labels and a cross-ratio exponentially small in the width of the layer (Theorems~\ref{thm:factorisation} and~\ref{thm:layerbound}, Proposition~\ref{prop:layercross}, Corollaries~\ref{cor:twolabels} and~\ref{cor:twoislands}), the floor $q^2/16$ on the covariance of
+Propositions~\ref{prop:goodside} and~\ref{prop:fold}), the exact factorisation of the weight of two bad islands through one kernel on the good layer between them, on a domain that their labels do not move, with the covariance bound of the chart for the layer law in the coordinates of the labels and a cross-ratio exponentially small in the width of the layer (Theorems~\ref{thm:factorisation} and~\ref{thm:layerbound}, Proposition~\ref{prop:layercross}, Corollaries~\ref{cor:twolabels} and~\ref{cor:twoislands}), the growth by a factor four per step of an error bounded by a multiple of the Euclidean form, which forces the one-step errors of an effective action to be relative and gauge invariant (Proposition~\ref{prop:massgrowth}), the floor $q^2/16$ on the covariance of
 rare labels (Proposition~\ref{prop:hiddenbit}), the explicit island
 threshold $\beta^*(\rho,s)$ past which the islands of bad blocks at one
 scale are rarer than their entropy (Theorem~\ref{thm:islandthreshold}),
@@ -11983,6 +11983,48 @@ of the locality norm. Both are conditions that an effective action built
 from Theorem~\ref{thm:chartdecay} at every scale would have to meet; the
 theorem at one scale provides the bounds $a,b,g$ for the first step only.
 
+An error bound that is a multiple of the Euclidean form does not survive
+this repetition, because the block constraint enlarges it at every step.
+
+\begin{proposition}[absolute errors grow under the block map]\label{prop:massgrowth}
+Let $U$ have plaquettes at most $\kappa$, let $B$ be the derivative at $U$
+of the block averages of a window, as in Theorem~\ref{thm:smallfibre}, and
+$\mathcal G=BB^*$. For every positive semidefinite form $N$ on the link
+coordinates, every $\varepsilon\ge0$ and every $w$ in the range of $B$,
+\[
+\inf_{BX=w}\bigl(N(X)+\varepsilon\lVert X\rVert^2\bigr)\ge\inf_{BX=w}N(X)
++\frac{4\varepsilon}{1+2724\kappa}\lvert w\rvert^2 .
+\]
+\end{proposition}
+
+\begin{proof}
+The infimum of a sum is at least the sum of the infima, and
+$\inf_{BX=w}\lVert X\rVert^2=\langle w,\mathcal G^{-1}w\rangle$, attained
+at $X=B^*\mathcal G^{-1}w$. By the proof of
+Theorem~\ref{thm:smallfibre}(iii), a row of $\mathcal G$ has its diagonal
+block of norm at most $\frac3{16}+227\kappa$ and two further blocks of norm
+at most $\frac1{32}+227\kappa$, so the Schur test gives $\lVert\mathcal G
+\rVert\le\frac14+681\kappa$ and $\mathcal G^{-1}\ge4/(1+2724\kappa)$.
+\end{proof}
+
+A one-step bound of the form $\lvert\operatorname{Hess}-H_{\mathrm{ref}}
+\rvert\le\lambda\varepsilon\lVert\cdot\rVert^2$ on the fine links, which is
+the form in which Theorems~\ref{thm:smallfibre} and~\ref{thm:fibrechart}
+and Proposition~\ref{prop:explicitdecay} control every non-Gaussian term,
+is therefore met by $H_{\mathrm{ref}}+\lambda\varepsilon\lVert\cdot
+\rVert^2$, whose block infimum exceeds that of $H_{\mathrm{ref}}$ by
+$4\lambda\varepsilon(1+2724\kappa)^{-1}\lvert w\rvert^2$. Carried over $k$
+blocking steps with the Gaussian fibre gap independent of the scale
+(Proposition~\ref{prop:effective}(iv)), such a bound certifies the gap of
+the fibre only while $4^k\varepsilon$ stays small against it, that is, for
+a number of scales of order $\log_4(1/\varepsilon)$: an absolute error is a
+mass term and is relevant in four dimensions. The comparison of
+Proposition~\ref{prop:formstability} is relative and is preserved with
+factor one, so the one-step errors that an effective action needs are
+relative bounds by a gauge-invariant form; since the block action
+$\inf_{BX=w}Q_U(X)$ vanishes along the coarse gauge directions, such a
+bound requires the one-step error to vanish along them as well.
+
 \subsection{Spectral weight at positive time}\label{ssec:spectralweight}
 
 Theorem~\ref{thm:flowlimit} makes the nontriviality of the continuum limit
@@ -13038,6 +13080,10 @@ settles the entropy count of the islands at every scale up to
 $a_{k_*}/512$, and Proposition~\ref{prop:constantcurvature} shows that
 fine witnesses carry it no further; the law of the iterates given their
 labels, which the effective action is for, is untouched.
+Proposition~\ref{prop:massgrowth} shows that the one-step errors must be
+relative bounds by a gauge-invariant form: an error bounded by a multiple
+of the Euclidean form grows by a factor at least $4/(1+2724\kappa)$ at each
+step.
 \end{enumerate}
 Item (i) and the induction of item (ii) are the single-scale part of (D)
 that remains open, item (ii) being settled for two islands by
@@ -13136,8 +13182,9 @@ polynomials, their outputs and the list of certified boxes are in the
 repository \url{https://github.com/creelie/4Y-M}, release v4.32.0
 (\href{https://doi.org/10.5281/zenodo.23933856}{doi:10.5281/zenodo.23933856}), together
 with a Lean~4 certificate of the line field, Lean~4 files for the
-comparison arithmetic and the coupling lemmas of
-Sec.~\ref{ssec:couplingcost}, independent exact or
+comparison arithmetic, the coupling lemmas of
+Sec.~\ref{ssec:couplingcost} and the finite arithmetic of Theorem~\ref{thm:layerbound},
+Corollary~\ref{cor:twoislands} and Proposition~\ref{prop:massgrowth}, independent exact or
 numerical checks of the other finite statements, our checks of the
 certificate of~\cite{Rom26}, and the certificate of
 Proposition~\ref{prop:blockgapsharp} with its exact check. The code was
