@@ -1,0 +1,85 @@
+
+================ s = 1 ================
+PASS s=1: root bracket beta* in [1.12206202024e+37, 1.12206202024e+37]
+beta* rho^2/16 >= 33022.9865446
+PASS s=1: beta* rho^2/16 >= 32481
+log10 Mq* <= -14102.4456335   log10 A_* <= -14098.898734
+--- vartheta = 0  kappa = 0.0005  R = 10000000
+log10 c_1(beta*) <= 21.7370169078   sigma(kappa/2) <= 9.8304000256e+16
+log10 tau <= -1047.00661666
+PASS s=1 theta=0 R=10000000: tau <= 1e-1047
+log10 l_{M_1} in [ 1704.44139693 , 1704.44139693 ]
+PASS s=1 theta=0: l_{M_1} <= 10^1705
+log10 (N_l A^{1/2}) at l=1e1705 <= -228.24524701
+nu <= 0.212917385368   log10 nu <= -0.671788875617
+PASS s=1 theta=0: nu_l <= 0.213 for l <= l_{M_1}
+log10 prefactor A^{(H+1)/2H}/(1-nu) <= -7054.78477726
+PASS s=1 theta=0: global bound <= |Lambda| 10^{-0.67 M_1}
+l_{m0} <= 10138155.1056  log10 near <= -28126.4353728  log10 tail <= -74233.6723389
+log10 (near + tail) <= -28126.4353728
+PASS s=1 theta=0: P(y bad, U(y) not an island) <= 1e-28126 + global
+PASS s=1 theta=0: same with the factor 1+1e-6 (beta_W > beta*)
+--- vartheta = 1/2  kappa = 0.00025  R = 20000000
+log10 c_1(beta*) <= 21.735822598   sigma(kappa/2) <= 1.57286400102e+18
+log10 tau <= -1045.80369099
+PASS s=1 theta=1/2 R=20000000: tau <= 1e-1045
+log10 l_{M_1} in [ 1704.74242693 , 1704.74242693 ]
+PASS s=1 theta=1/2: l_{M_1} <= 10^1705
+log10 (N_l A^{1/2}) at l=1e1705 <= -228.24524701
+nu <= 0.212917385368   log10 nu <= -0.671788875617
+PASS s=1 theta=1/2: nu_l <= 0.213 for l <= l_{M_1}
+log10 prefactor A^{(H+1)/2H}/(1-nu) <= -7054.78477726
+PASS s=1 theta=1/2: global bound <= |Lambda| 10^{-0.67 M_1}
+l_{m0} <= 20276310.2112  log10 near <= -28124.0271329  log10 tail <= -74233.6723389
+log10 (near + tail) <= -28124.0271329
+PASS s=1 theta=1/2: P(y bad, U(y) not an island) <= 1e-28124 + global
+PASS s=1 theta=1/2: same with the factor 1+1e-6 (beta_W > beta*)
+PASS s=1: (1+1e-7)^8 <= 1+1e-6
+nu_l = 1 at log10 l about 1763.24464932 1763.24464932
+N_l A_* = 1 at log10 l about 3524.4236535 3524.4236535
+nu at log10 l = 1763.2 <= 0.734620029119 ; at 1763.3 >= 1.52337517749
+PASS s=1: nu_l < 1 at log10 l = 1763.2 (A = eMHq*)
+PASS s=1: nu_l > 1 at log10 l = 1763.3 (A = eMHq*)
+log10 N_l A_* at log10 l = 3524.5 in 0.305385997092 0.305385997092
+PASS s=1: N_l A_* >= 1 at log10 l = 3524.5
+
+================ s = 5 ================
+PASS s=5: root bracket beta* in [1.32162904986e+37, 1.32162904986e+37]
+beta* rho^2/16 >= 38896.3689555
+PASS s=5: beta* rho^2/16 >= 38354
+log10 Mq* <= -16652.7966484   log10 A_* <= -16649.2497489
+--- vartheta = 0  kappa = 0.0005  R = 10000000
+log10 c_1(beta*) <= 22.914672447   sigma(kappa/2) <= 9.8304000256e+16
+log10 tau <= -1045.82896112
+PASS s=5 theta=0 R=10000000: tau <= 1e-1045
+log10 l_{M_1} in [ 1704.44139693 , 1704.44139693 ]
+PASS s=5 theta=0: l_{M_1} <= 10^1705
+log10 (N_l A^{1/2}) at l=1e1705 <= -1503.42075445
+nu <= 0.0220942572173   log10 nu <= -1.65572059432
+PASS s=5 theta=0: nu_l <= 0.0222 for l <= l_{M_1}
+log10 prefactor A^{(H+1)/2H}/(1-nu) <= -8331.03849309
+PASS s=5 theta=0: global bound <= |Lambda| 10^{-1.65 M_1}
+l_{m0} <= 10138155.1056  log10 near <= -33227.1374026  log10 tail <= -173903.097925
+log10 (near + tail) <= -33227.1374026
+PASS s=5 theta=0: P(y bad, U(y) not an island) <= 1e-33227 + global
+PASS s=5 theta=0: same with the factor 1+1e-6 (beta_W > beta*)
+--- vartheta = 1/2  kappa = 0.00025  R = 20000000
+log10 c_1(beta*) <= 22.9126095482   sigma(kappa/2) <= 1.57286400102e+18
+log10 tau <= -1044.62690404
+PASS s=5 theta=1/2 R=20000000: tau <= 1e-1044
+log10 l_{M_1} in [ 1704.74242693 , 1704.74242693 ]
+PASS s=5 theta=1/2: l_{M_1} <= 10^1705
+log10 (N_l A^{1/2}) at l=1e1705 <= -1503.42075445
+nu <= 0.0220942572173   log10 nu <= -1.65572059432
+PASS s=5 theta=1/2: nu_l <= 0.0222 for l <= l_{M_1}
+log10 prefactor A^{(H+1)/2H}/(1-nu) <= -8331.03849309
+PASS s=5 theta=1/2: global bound <= |Lambda| 10^{-1.65 M_1}
+l_{m0} <= 20276310.2112  log10 near <= -33224.7291627  log10 tail <= -173903.097925
+log10 (near + tail) <= -33224.7291627
+PASS s=5 theta=1/2: P(y bad, U(y) not an island) <= 1e-33224 + global
+PASS s=5 theta=1/2: same with the factor 1+1e-6 (beta_W > beta*)
+PASS s=5: (1+1e-7)^8 <= 1+1e-6
+nu_l = 1 at log10 l about 2082.30807828 2082.30807828
+N_l A_* = 1 at log10 l about 4162.01140722 4162.01140722
+
+all checks passed: True (33 checks)
