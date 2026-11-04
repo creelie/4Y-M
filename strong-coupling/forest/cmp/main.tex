@@ -17351,6 +17351,24 @@ and (ii) holds with $L$ replaced by $1.857$. If every $w_a$ equals $I$,
 the same holds with $u$ arbitrary in the coordinates $\xi_a=\ell_ag^{-1}$,
 in which $V^\sharp_k=\exp(\chi N')\,g$ with $N'=\frac1{16}\sum_x\log(P_x
 g^{-1})$, $P_{x_a}g^{-1}=u_a\xi_a$ and $P_{x'_a}g^{-1}=\xi_a$.
+
+More generally, put $\kappa=\frac74\sqrt2\,\alpha+\frac7{16}\Lambda$, so
+that $\kappa<2.2670$, and
+\[
+\sigma_u=\max_{a\ne0}\lVert\operatorname{Ad}(u_a)-1\rVert,\qquad
+\sigma_w=\max_{a\ne0}\lVert\operatorname{Ad}(w_a)-1\rVert .
+\]
+If $\sigma_u<1/\kappa$, then (i)--(iv) hold for every $w$ with $\lambda$
+replaced by $\lambda_u=\kappa\sigma_u$ and $L$ by $L_u=(\frac74\sqrt2\,
+\alpha+\frac1{16}\Lambda)/(1-\lambda_u)$, the range of $D$ being
+$[(1-\lambda_u)^3,(1+\lambda_u)^3]$, provided in (ii) that $\sigma_u<1/
+\kappa$ along the move. If $\sigma_w<1/\kappa$, the same holds for every
+$u$ in the coordinates $\xi_a=\ell_ag^{-1}$, with $\sigma_w$ in place of
+$\sigma_u$; there $P_{x'_a}g^{-1}=\xi_a\,gw_ag^{-1}$. As $\lVert\operatorname
+{Ad}(u)-1\rVert=2\sin\theta$ for $u$ with eigenangles $\pm\theta$,
+$\theta\in[0,\pi]$, the first condition holds when $\sin\theta\le0.2205$
+for every $u_a$, $a\ne0$, and $d(u_a,I)\le\frac1{32}$ gives $\lambda_u
+\le\lambda$.
 \end{lemma}
 
 \begin{proof}
@@ -17421,6 +17439,23 @@ multiplying the paths by $g^{-1}$ on the right and conjugating the
 logarithms by $g$ gives the stated form, in which $g$ enters only as the
 right factor; the same proof applies with $\lambda=0$, and right
 translation preserves Haar measure.
+
+For the last part, the hypothesis on $u$ enters the proof only through the
+speed of $\tilde u_a$ in (i), which is at most $\lVert\operatorname{Ad}
+(\tilde u_a^{-1})-1\rVert=\lVert\operatorname{Ad}(u_a)-1\rVert\le\sigma_u$,
+since $\operatorname{Ad}(\tilde u_a^{-1})$ is conjugate to $\operatorname
+{Ad}(u_a)^{-1}$ and $\operatorname{Ad}(u_a)$ is orthogonal. With this
+bound, $m$ moves at speed at most $\sigma_u$, $\chi$ at most $2\sigma_u$
+and $N$ at most $\frac7{16}\Lambda\sigma_u$, so $Y$ is $\kappa\sigma_u
+$-Lipschitz in $g$, and (i)--(iv) follow as before. In the coordinates
+$\xi_a=\ell_ag^{-1}$, conjugating by $g$ gives $V^\sharp_k=\exp(\chi N')\,g$
+with $N'=\frac1{16}\sum_x\log(P_xg^{-1})$, $P_{x_a}g^{-1}=u_a\xi_a$ and
+$P_{x'_a}g^{-1}=\xi_a\,gw_ag^{-1}$, and $m=\max_x\delta(P_xg^{-1},I)$; so
+$g$ enters $N'$ and $m$ only through $gw_ag^{-1}$, which moves at speed at
+most $\sigma_w$, and the fixed-point equation $g=E'(g,\xi)^{-1}c_k$,
+$E'=\exp(\chi N')$, is treated in the same way. Finally $\kappa<2.2670$
+by $\alpha<0.7228$, $\Lambda<1.0927$ and $\sqrt2<1.41422$, and $2\cdot
+0.2205\cdot2.2670<1$.
 \end{proof}
 
 The normaliser has a lower bound that does not depend on the chart. Let
@@ -17485,7 +17520,15 @@ with $\iota=0$ for $B=\SU(2)^7$ and $\iota=1$ for $B=B^{\mathrm{bad}}_r$.
 If every $u_a$ equals $I$ and $e$ is a link $w_b$, or every $w_a$ equals
 $I$ and $e$ is a link $u_b$, then \textup{(J)} holds with $K=0$, and for
 $B=\SU(2)^7$ the bound holds with $u$, respectively $w$, otherwise
-arbitrary.
+arbitrary. For $B=\SU(2)^7$ and $\sigma_u<1/\kappa$ along the move, or
+$\sigma_w<1/\kappa$ in the coordinates $\xi_a=\ell_ag^{-1}$, with
+$\lambda_u,L_u$ of Lemma~\ref{lem:relchart} (respectively $\lambda_w,L_w$)
+and (J) in that chart,
+\[
+W_1(Q,Q')\le\Bigl(8L_u+16\sqrt2\,R_u\bigl(24\sqrt2\,L_u\beta_W+K\bigr)
+\Bigr)\,d(e,e'),
+\]
+where $R_u=(1+\lambda_u)^3/(1-\lambda_u)^3$.
 \end{theorem}
 
 \begin{proof}
@@ -17561,8 +17604,175 @@ $16\sqrt2\cdot128.07<2898$, $16\sqrt2\cdot1.828<41.37$ and $16\sqrt2\cdot
 by Lemma~\ref{lem:relchart}, and (J) holds with $K=0$; likewise in the
 coordinates $\xi_a=\ell_ag^{-1}$ if every $w_a=I$ and $e=u_b$, where
 Lemma~\ref{lem:relchart} needs no bound on $u$, and the case $B=\SU(2)^7$
-uses no bound on the inside links at all.
+uses no bound on the inside links at all. For the last statement the case
+$B=\SU(2)^7$ uses Lemma~\ref{lem:relchart} only, through the displacement
+$8L$ of the eight links, the ratio $(\frac{1+\lambda}{1-\lambda})^3$ of the
+bounds on $D$, which bounds $e^{\lvert\varDelta\rvert}$ and the ratio of
+$D'^{-1}$ to $D^{-1}$, and the change $\frac{48L}{\sqrt2}=24\sqrt2\,L$ of
+the action per unit move; with $\lambda_u,L_u$ in place of $\lambda,L$ the
+same three steps give the stated bound.
 \end{proof}
+
+The Jacobian $D$ jumps only where the maximal path changes. Write
+$f_x(\xi)=\delta(v_x,I)$ at $g=G(\xi)$, so that $m=\max_xf_x$. Call
+$\xi$ \emph{flat} if $m\notin(\frac12,1)$ or the maximum is attained at
+a path from some $x'_c$ only, and of \emph{type} $a$ if $\frac12<m<1$ and
+the maximum is attained at $x_a$ only, $a\ne0$. The two paths of index
+$a$ \emph{tie at the top} at $\xi$ if $f_{x_a}(\xi)=f_{x'_a}(\xi)=m(\xi)
+\in[\frac12,1]$.
+
+\begin{proposition}[the Jacobian off the ties]\label{prop:jreduce}
+Let $k$, $B$ and the move $e\to e'$ be as in
+Theorem~\textup{\ref{thm:relresponse}}, and for $t>0$ let $T(t)$ be the
+set of $\xi$ for which some index $a\ne0$ satisfies
+\[
+\lvert f_{x_a}-f_{x'_a}\rvert\le t,\qquad f_{x_a}\ge m-t,\qquad
+\tfrac12-t\le f_{x_a}\le1+t
+\]
+before the move. If $\operatorname{Haar}(T(t))\le M\,t$ for $t\le0.1$,
+uniformly along the geodesic, then \textup{(J)} holds with
+\[
+K\le\bigl(148.2+1.96\,M\bigr)\,e^{72\beta_W} .
+\]
+\end{proposition}
+
+\begin{proof}
+\emph{Where $D$ is smooth.} On flat points $D_gY=\phi(m)\,D_gN$, since
+$\phi'(m)D_gm=0$ there: either $\phi'(m)=0$, or the maximum sits at a
+path that does not depend on $g$. At points of type $a$, $D_gY=-2N\otimes
+D_gf_{x_a}+\phi(m)D_gN$. Write $\Phi(z)=(e^z-1)/z$. The left-translated
+differential of $F(g)=gE(g,\xi)$ is $\operatorname{Ad}(E^{-1})(1+A)$ with
+$A=\Phi(\operatorname{ad}Y)\,D_gY$, so $D=\det(1+A)$ and $\lVert A\rVert
+\le\lambda$ by Lemma~\ref{lem:relchart}(iii). Let $\xi$ keep one type, or
+stay flat, for all parameters $t$ of the move, at unit speed along the
+geodesic from $e$ to $e'$. Then $\frac d{dt}\log D=\operatorname{tr}
+((1+A)^{-1}\dot A)$, of modulus at most $3\lVert\dot A\rVert/(1-\lambda)$.
+We bound $\dot A$ with $\sigma=\frac{\sqrt2}{32}$, the norm $\lVert
+\operatorname{Ad}(u_a)-1\rVert\le\sigma$, and $\sigma L<0.0912$.
+\begin{itemize}
+\item By Lemma~\ref{lem:relchart}(ii), $G$ moves at speed at most $L$, so
+each $\tilde u_c$ moves at speed at most $\sigma L$, plus $1$ for the
+moving link; every $v_x$, every $f_x$ and $m$ therefore move at speed at most
+$1+\sigma L<1.0912$, and $Y$ at speed at most $\lambda L+(1-\lambda)L=L$.
+\item $\lVert N\rVert\le\frac78\sqrt2\,\alpha<0.8945$, $\lVert D_gN\rVert
+\le\frac7{16}\Lambda\sigma<0.0212$, $\lVert D_gf_{x_a}\rVert\le\sigma$,
+and $\lVert\dot N\rVert\le\frac1{16}\Lambda(1+7\sigma L)<0.1120$.
+\item On $\mathfrak{su}(2)$, $\lVert\operatorname{ad}X\rVert=\sqrt2\lVert
+X\rVert$, so $\lVert\operatorname{ad}Y\rVert\le r=1.2650$. The series of
+$\Phi$ gives $\lVert\Phi(\operatorname{ad}Y)\rVert\le1$ and
+\begin{align*}
+\lVert\Phi(\operatorname{ad}Y)-\Phi(\operatorname{ad}Y')\rVert
+&\le\frac{re^r-e^r+1}{r^2}\sqrt2\,\lVert Y-Y'\rVert\\
+&\le1.715\,\lVert Y-Y'\rVert .
+\end{align*}
+\item In left-translated form,
+\[
+D_gf_{x_a}=\nabla\delta(v)\circ\operatorname{Ad}(\xi_a^{-1})
+\bigl(1-\operatorname{Ad}(\tilde u_a^{-1})\bigr).
+\]
+At a point
+of type $a$, $\delta(v,I)=2\sqrt2\sin\frac\theta2\ge\frac12$, so $\theta\ge
+0.3554$. The metric of $\SU(2)$ is that of the round sphere of radius
+$\sqrt2$, and the Hessian of the radial function $\delta$ has norm at most
+$\max\{\frac1{2\sqrt2}\sin\frac\theta2,\frac1{\sqrt2}\cos\frac\theta2
+\cot\theta\}\le1.875$. The left-translated derivative of the gradient adds
+$\frac12\lVert\operatorname{ad}\rVert\le0.7072$. With $\lVert\frac d{dt}
+\operatorname{Ad}(\tilde u_a^{-1})\rVert\le\sqrt2(1+\sigma L)$, this gives
+$\lVert\frac d{dt}D_gf_{x_a}\rVert\le2.583\cdot1.0912\,\sigma+1.5433<
+1.669$.
+\item $D_gN=\frac1{16}\sum_c\mathrm d\!\log_{v_{x_c}}\circ\operatorname{Ad}
+(\xi_c^{-1})(1-\operatorname{Ad}(\tilde u_c^{-1}))$. In left-translated
+form $\mathrm d\!\log_v=\psi(\operatorname{ad}X)$, where $X=\log v$ and
+$\psi(z)=z/(1-e^{-z})=1+\frac z2+\frac{z^2}{12}-\frac{z^4}{720}+\dots$.
+With $\lVert\operatorname{ad}X\rVert\le2\alpha<1.4457$ the series gives
+Lipschitz constant $0.76\sqrt2\,\Lambda<1.176$ in $v$. Hence $\lVert\frac
+d{dt}D_gN\rVert\le\frac1{16}(1.176\sigma+\sqrt2\Lambda)(1+7\sigma L)<
+0.1636$.
+\end{itemize}
+Since $\phi'\in\{0,-2\}$ is constant along the move and $\phi$ is
+$2$-Lipschitz,
+\begin{multline*}
+\Bigl\lVert\frac d{dt}D_gY\Bigr\rVert\le2\bigl(0.1120\,\sigma+0.8945\cdot
+1.669\bigr)\\
++2\cdot1.0912\cdot0.0212+0.1636<3.205 ,
+\end{multline*}
+and $\lVert\dot A\rVert\le1.715\,L\lambda+3.205<3.560$. So
+$\lvert\log D-\log D'\rvert\le11.87\,d(e,e')$ at every $\xi$ that keeps
+one type or stays flat.
+
+\emph{Where the type changes.} If the type of $\xi$ changes during the
+move, then by continuity, at some parameter, either $f_{x_a}\in\{\frac12,
+1\}$ with the maximum at $x_a$, or $f_{x_a}=f_y=m\in[\frac12,1]$ for some
+$a\ne0$ and some other path $y$. These are the $7\cdot8$ events of an
+index $a$ against a level or a path $x'_c$, $c\ne a$, the $21$ events of
+two paths $x_a,x_c$, and the ties at the top. Every $f_x$ moves at speed at
+most $1+\sigma L$, and at most one of them is moved directly. So for a
+difference $h$ of two of them, or of one of them and a level, $\lvert
+h\rvert\le\omega\,d(e,e')$ before the move, with $\omega=1+2\sigma L<
+1.1824$.
+
+Fix the coordinates other than $\xi_a$ and use $v=\tilde u_a(G(\xi))\xi_a$
+in place of $\xi_a$. At fixed $g$, a unit move of $\xi_a$ moves
+$v_{x_a}$ and $v_{x'_a}$ at unit speed. As in
+Lemma~\ref{lem:relchart}(i), $Y$ then moves at speed at most $2\cdot\frac78
+\sqrt2\,\alpha+\frac18\Lambda<1.9256$, and $G$ at speed at most
+$L_\xi=1.9256/(1-\lambda)<2.140$. Since $d(\tilde u\xi,\tilde u'\xi')$
+differs from $d(\xi,\xi')$ by at most $d(\tilde u,\tilde u')\le
+\sigma L_\xi\,d(\xi,\xi')$, the map $\xi_a\mapsto v$ is a bi-Lipschitz
+bijection of $\SU(2)$, with constants $1\pm0.0946$. It is onto by
+invariance of domain, and its inverse multiplies Haar measure by at most
+at most $(1/0.9054)^3<1.348$.
+
+Write $v=\exp(\theta\nu)$ with $\theta\in[0,\pi]$ and $\nu$ a unit
+direction. The Haar measure is $\frac2\pi\sin^2\theta\,d\theta$ times the
+uniform measure in $\nu$. Along a ray of fixed $\nu$:
+\begin{itemize}
+\item $f_{x_a}=2\sqrt2\sin\frac\theta2$ increases at rate $\sqrt2\cos
+\frac\theta2\ge1.3029$ while $f_{x_a}\le1.1$, that is $\theta\le0.7990$;
+\item $\xi_a$ moves at speed at most $\sqrt2/0.9054$, so $f_{x_c}$, $c\ne a$,
+which depends on $\xi_a$ only through $G$, moves at rate at most $\sigma
+L_\xi\sqrt2/0.9054<0.1478$;
+\item $f_{x'_c}$ and the levels do not move.
+\end{itemize}
+For each of the first two kinds of event, $h=f_{x_a}-f_y$ or
+$f_{x_a}-\ell$ therefore increases at rate at least $1.154$ on $\{0.4\le
+f_{x_a}\le1.1\}$, and $\{\lvert h\rvert\le t\}$ meets each ray in an
+interval of length at most $2t/1.154$. With $\sin^2\theta\le0.5146$ for
+$\theta\le0.7990$, its Haar measure in $v$ is at most
+$\frac2\pi\cdot0.5146\cdot1.7331\,t<0.5678\,t$, and in $\xi_a$ at most
+$0.766\,t$. For $d(e,e')\le0.08$ every $\xi$ whose type changes through
+these events lies in such a set with $t=\omega\,d(e,e')$. By Fubini the
+$77$ events cover Haar measure at most $77\cdot0.766\cdot1.1824\,d(e,e')
+<69.75\,d(e,e')$. The ties cover at most $M\omega\,d(e,e')$, since at the
+tie both functions equal $m$ and each has moved by at most $\omega\,
+d(e,e')$.
+
+\emph{Conclusion.} On a set where the type changes, $\lvert\log D-\log D'
+\rvert\le3\log\frac{1+\lambda}{1-\lambda}<0.6034$. Hence
+\begin{align*}
+\int\lvert\log D-\log D'\rvert\,d\xi
+&\le\bigl(11.87+0.6034\,(69.75+1.1824M)\bigr)\\
+&\quad\times d(e,e') .
+\end{align*}
+By Lemma~\ref{lem:relnorm} the density of $\hat Q$ is at most
+\[
+\frac1{Z(1-\lambda)^3}\le\frac{2.00002\,e^{72\beta_W}}{0.7285},
+\]
+while $2.00002\cdot53.97/0.7285<148.2$ and $2.00002\cdot0.6034\cdot
+1.1824/0.7285<1.96$. Adding along a subdivision of the geodesic gives the
+bound.
+\end{proof}
+
+At the ties of index $a$ the jump of $D_gY$ is the rank-one term $-2N
+\otimes D_gf_{x_a}$, and it does not vanish. For fixed $g$ the tie set
+$\{f_{x_a}=f_{x'_a}\}$ is $\{\operatorname{Re}\operatorname{Tr}(\xi_a(
+\tilde u_a-w_a))=0\}$, a great two-sphere of $\SU(2)$, since
+$\operatorname{Re}\operatorname{Tr}(\tilde u_a\xi_a)=\operatorname{Re}
+\operatorname{Tr}(\xi_a\tilde u_a)$. Its normal derivative
+$\lVert\tilde u_a-w_a\rVert$ vanishes when $\tilde u_a=w_a$, that is,
+when $G$ conjugates $u_a$ to $w_a$. So the bound $\operatorname{Haar}(T(t))
+\le Mt$ is a statement about how often $G(\xi)$ comes close to that
+conjugating set, and it is the part of (J) that is not proved.
 
 The other inside links of the two blocks are not $\mu$-links, do not
 enter $V^\sharp_k$, and lie in at most one plaquette with a private link;
@@ -17573,8 +17783,9 @@ bounded, with the constants of Theorem~\ref{thm:relresponse}, as soon as
 the Jacobian condition (J) holds: for $B^{\mathrm{bad}}_r$ on every
 configuration that the labels produce, since there $d(u_a,I),d(w_a,I)\le r$
 by Proposition~\ref{prop:eightlabels}, and for $\SU(2)^7$ on every
-configuration whose links $u_a$ lie within $\frac1{32}$ of $I$. Condition
-(J) is not proved. By
+configuration whose links $u_a$ lie within $\frac1{32}$ of $I$.
+Proposition~\ref{prop:jreduce} proves (J) except at the ties of the two
+paths of one index, where it is not proved. By
 Lemma~\ref{lem:relchart}(iii), $D$ lies in $[0.728,1.332]$ for all inside
 links, so (J) asks only for its continuity in the mean. The derivative of
 $Y=\chi N$ in $g$ contains $N\otimes\phi'(m)D_gm$, and $D_gm$ vanishes when
@@ -17591,10 +17802,26 @@ sets $B_\varepsilon$ of Theorem~\ref{thm:eightlinkuniform}, whose inside
 links are within $\frac1{32}$ of $I$, Lemma~\ref{lem:relchart} applies and
 the fibre is a graph over $\xi$; the bound fails there through the
 restricting set, whose boundary is not in the good shell and whose
-normaliser tends to zero with $\varepsilon$. For the first set with inside
-links farther than $\frac1{32}$ from $I$ in both blocks the chart is not
-available and nothing is proved. What the cube condition uses can instead
-be taken from the site, in a form whose units do not overlap.
+normaliser tends to zero with $\varepsilon$. For the first set the chart
+is available whenever $\sigma_u<1/\kappa$ or $\sigma_w<1/\kappa$, by the
+last part of Lemma~\ref{lem:relchart}, and the response is then bounded
+under (J) in that chart. A chart based at another path does not remove the
+condition: with $h=P_{x_b}=u_b\ell_b$ as base and $\xi_a=h^{-1}\ell_a$
+($a\ne b$), $\xi_0=h^{-1}g$, the paths are $v_{x_a}=\xi_0^{-1}(h^{-1}u_a
+h)\xi_a$, $v_{x'_a}=\xi_0^{-1}\xi_aw_a$, $v_{x_b}=\xi_0^{-1}$ and $v_{x'_b}=
+\xi_0^{-1}(h^{-1}u_b^{-1}h)w_b$, the equation $V^\sharp_k=c_k$ reads $h=
+c_k\exp(-\chi N)\,\xi_0^{-1}$, and $h$ enters only through $\operatorname
+{Ad}(h)$ on the $u_a$, with the contraction constant $\kappa\sigma_u$ again;
+basing at $h=P_{x'_b}$ with $\xi_a=\ell_ah^{-1}$ leads in the same way to
+$\operatorname{Ad}(h)$ on the $w_a$ and to $\kappa\sigma_w$. When $\sigma_u
+\ge1/\kappa$ and $\sigma_w\ge1/\kappa$ the argument of
+Lemma~\ref{lem:relchart}(i) gives no contraction in these charts, and
+nothing is proved. The jumps of $D$ come from the two operations in the
+definition of $\chi_{y,\mu}$ before~\eqref{eq:cutoff} that are not
+differentiable, the function $\phi$ and the maximum over the sites; that
+definition is made in this paper, and every result on the cut-off average
+is proved for it. What the cube condition uses can instead be taken from
+the site, in a form whose units do not overlap.
 
 The sites of two consecutive bad pairs along $\mu$ share seven inside
 links, so the sites themselves do not partition the bad side. The
@@ -28533,9 +28760,13 @@ Lemma~\ref{lem:relchart} the fibre is one graph over the coordinates
 $g^{-1}\ell_a$, and Theorem~\ref{thm:relresponse} bounds the response for
 the two sets that the labels produce (Proposition~\ref{prop:eightlabels})
 under one condition, the continuity in the mean~(J) of the Jacobian of
-that chart, which is not proved; it holds, and the response to the inside
+that chart. Proposition~\ref{prop:jreduce} reduces (J) to a bound of order
+$t$ on the Haar measure of the set where the two paths of one index tie at
+the top within $t$, and that bound is not proved; (J) holds, and the response to the inside
 $\mu$-links of one block is bounded, when those of the other block equal
-$I$. The chains of Definition~\ref{def:linechain} carry the inside
+$I$. For the first set the chart exists unless both blocks contain an
+inside $\mu$-link $u$ with $\lVert\operatorname{Ad}(u)-1\rVert\ge1/\kappa$,
+$\kappa<2.2670$, and nothing is proved in that case. The chains of Definition~\ref{def:linechain} carry the inside
 links among their variables, partition the bad side, and respond to every
 other link with the constants of Theorem~\ref{thm:site} in which $24$ is
 replaced by their size $n\le23n_b+1$ (Proposition~\ref{prop:linechain});
