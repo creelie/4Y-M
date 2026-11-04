@@ -18050,166 +18050,410 @@ the action per unit move; with $\lambda_u,L_u$ in place of $\lambda,L$ the
 same three steps give the stated bound.
 \end{proof}
 
-The Jacobian $D$ jumps only where the maximal path changes. Write
-$f_x(\xi)=\delta(v_x,I)$ at $g=G(\xi)$, so that $m=\max_xf_x$. Call
-$\xi$ \emph{flat} if $m\notin(\frac12,1)$ or the maximum is attained at
-a path from some $x'_c$ only, and of \emph{type} $a$ if $\frac12<m<1$ and
-the maximum is attained at $x_a$ only, $a\ne0$. The two paths of index
-$a$ \emph{tie at the top} at $\xi$ if $f_{x_a}(\xi)=f_{x'_a}(\xi)=m(\xi)
-\in[\frac12,1]$.
+The Jacobian $D$ of Lemma~\ref{lem:relchart}(iii) jumps
+only where the maximal path changes. Write $f_x(\xi)=\delta(v_x,I)$ at
+$g=G(\xi)$, so that $m=\max_xf_x$. Call $\xi$ \emph{flat} if $m\notin
+(\frac12,1)$ or the maximum is attained only at paths from points $x'_c$,
+and of \emph{type} $a$ if $\frac12<m<1$ and the maximum is attained at
+$x_a$ only, $a\ne0$. The two paths of index $a$ \emph{tie at the top} at
+$\xi$ if $f_{x_a}=f_{x'_a}=m\in(\frac12,1)$ and $f_y<m$ for every other
+path $y$.
 
-\begin{proposition}[the Jacobian off the ties]\label{prop:jreduce}
+Near a tie at the top of index $a$ the map $g\mapsto F(g)=gE(g,\xi)$ has
+two branches. Put $f^{(1)}(g,\xi)=\delta(\tilde u_a\xi_a,I)$, which depends
+on $g$, and $f^{(2)}(\xi)=\delta(\xi_aw_a,I)$, which does not, and
+$Y_i=\phi(f^{(i)})N$, $F_i=g\exp Y_i$. Since $\phi$ decreases, $Y=Y_1$
+where $f^{(1)}\ge f^{(2)}$ and $Y=Y_2$ where $f^{(2)}\ge f^{(1)}$, as long
+as the other paths stay below. At a tie $\xi_0$ with $g_0=G(\xi_0)$ the
+two branches agree, and the proof of Lemma~\ref{lem:relchart}(iii) applies
+to each of them, so $D_gF_i$ is invertible; $\log$ is analytic on
+$\{\delta(v,I)<1\}$ and $\phi$ is affine on $(\frac12,1)$, so the
+implicit function theorem gives analytic maps $G_i$ near $\xi_0$, also
+analytic in the inside links, with $G_i(\xi_0)=g_0$ and $F_i(G_i(\xi),\xi)
+=c_k$. Put $D_i=\det D_gF_i(G_i)$ and $h_i(\xi)=f^{(1)}(G_i(\xi),\xi)-
+f^{(2)}(\xi)$. Tangent vectors $\eta=(\eta_b)_{b\ne0}$ at $\xi$ are
+derivatives of $\xi_be^{s\eta_b}$, with $\lVert\eta\rVert^2=\sum_b\lVert
+\eta_b\rVert^2$, and $\nabla h_2$ is the gradient for this metric.
+
+\begin{lemma}[the ties]\label{lem:ties}
+Let $\xi_0$ be a tie at the top of index $a$, and suppose $d(u_b,I)\le
+\frac1{32}$ for every $b\ne0$, $d(w_a,I)\le\frac1{32}$, and $d(w_c,I)\le
+\frac1{32}$ for some $c\ne0,a$. At $(g_0,\xi_0)$ let $\ell=D_gf^{(1)}$,
+$A_2=\Phi(\operatorname{ad}Y)\,\phi\,D_gN$ and $\kappa_0=\ell((1+A_2)^{-1}N)$.
+\begin{enumerate}[label=\textup{(\roman*)},leftmargin=*]
+\item Near $\xi_0$, $h_1$ and $h_2$ have the same sign; $G=G_1$ and $D=D_1$
+where it is positive, and $G=G_2$ and $D=D_2$ where it is negative.
+\item At $\xi_0$, $D_1=D_2\,(1-2\kappa_0)$ and $\lvert\kappa_0\rvert<0.04039$.
+\item At $\xi_0$, $\lvert\log D_1-\log D_2\rvert\le1.9811\,\lvert\nabla
+h_2\rvert$.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+(i) For real $\tau$ near $0$ let $\Gamma(\tau)$ be the solution near $g_0$
+of
+\[
+g\exp\bigl((\phi(f^{(2)})-2\tau)N\bigr)=c_k .
+\]
+As in the proof of
+Lemma~\ref{lem:relchart}(ii),
+\[
+d(\Gamma(\tau),\Gamma(\tau'))\le\lambda\,d(\Gamma(\tau),\Gamma(\tau'))+
+2\lVert N\rVert\,\lvert\tau-\tau'\rvert ,
+\]
+so $\Gamma$ is Lipschitz with constant $2\cdot0.8945/(1-\lambda)<1.989$.
+Since $\phi(t)=2-2t$ on $(\frac12,1)$, $\phi(f^{(2)})-2\tau=\phi(f^{(2)}+
+\tau)$, so $\Gamma(0)=G_2$ and $\Gamma(h_1)=G_1$. Let $k(\tau)=f^{(1)}
+(\Gamma(\tau),\xi)-f^{(2)}-\tau$. By the proof of
+Lemma~\ref{lem:relchart}(i), $f^{(1)}$ is $\sigma$-Lipschitz in $g$, with
+$\sigma=\frac{\sqrt2}{32}$, so $k(\tau')-k(\tau)\le-(1-1.989\,\sigma)
+(\tau'-\tau)$ for $\tau'>\tau$, and $1.989\,\sigma<0.088$. As $k(0)=h_2$
+and $k(h_1)=0$, $h_1$ and $h_2$ have the same sign. If $h_1>0$, then
+$f^{(1)}>f^{(2)}$ at $G_1$, so $F=F_1$ near $G_1$ and $F(G_1)=c_k$; by
+uniqueness in Lemma~\ref{lem:relchart}(i), $G=G_1$ and $D=\lvert\det
+D_gF_1\rvert=D_1$, the determinant being positive since $\lVert A\rVert
+\le\lambda$. The case $h_2<0$ is the same with $F_2$.
+
+(ii) At $\xi_0$, $G_1=G_2=g_0$ and $Y_1=Y_2=Y$, while $D_gY_1=
+\phi'(f^{(1)})\,N\otimes\ell+\phi\,D_gN=-2N\otimes\ell+\phi\,D_gN$ and
+$D_gY_2=\phi\,D_gN$. Since $[Y,N]=0$, $\Phi(\operatorname{ad}Y)N=N$, so
+$1+A_1=(1+A_2)-2N\otimes\ell$, and the determinant of a rank-one
+perturbation gives $D_1=D_2(1-2\ell((1+A_2)^{-1}N))$. The operator
+$\operatorname{ad}Y$ is normal with eigenvalues $0,\pm i\rho$, and $\lvert
+\Phi(i\rho)\rvert=\lvert\sin\frac\rho2\rvert/\frac\rho2\le1$, so $\lVert
+\Phi(\operatorname{ad}Y)\rVert\le1$. By the proof of
+Lemma~\ref{lem:relchart}(i), $\lVert D_gN\rVert\le\frac7{16}\Lambda\sigma
+<0.02113$, $\lVert\ell\rVert\le\sigma$ and $\lVert N\rVert<0.8945$, so
+$\lvert\kappa_0\rvert\le0.044195\cdot0.8945/(1-0.02113)<0.04039$.
+
+(iii) Identify $\SU(2)$ with the unit quaternions, and write $\langle X,
+Y\rangle=-\Tr(XY)$ on $\mathfrak{su}(2)$ and $\Pi(z)=\frac12(z-z^*)$ for
+the projection of $2\times2$ matrices to $\mathfrak{su}(2)$, orthogonal for
+$\ReTr(X^*Y)$. For $z\in\SU(2)$, $\delta(z,I)^2=4-2\ReTr z$, so the
+derivative of $\delta(ze^{s\eta},I)$ at $s=0$ is $-\ReTr(z\eta)/\delta=
+\langle\Pi(z),\eta\rangle/\delta$. At fixed $g$, with $z_1=\tilde u_a
+\xi_a$ and $z_2=w_a\xi_a$, and since $\ReTr(\xi_ae^{s\eta}w_a)=\ReTr(w_a
+\xi_ae^{s\eta})$, the derivatives of $f^{(1)}$ and $f^{(2)}$ along
+$\eta_a$ are $p(\eta_a)=\langle\Pi(z_1),\eta_a\rangle/m$ and $q(\eta_a)=
+\langle\Pi(z_2),\eta_a\rangle/m$. If $z=\cos\theta+\sin\theta\,n$ with
+$n\in\mathfrak{su}(2)$, $n^2=-1$, then $\Pi(z)=\sin\theta\,n$ and $\lVert
+n\rVert=\sqrt2$, so $\lvert p\rvert=\sqrt2\sin\theta/(2\sqrt2\sin
+\frac\theta2)=\cos\frac\theta2=:\gamma$, and $\lvert q\rvert=\gamma$ as
+$z_2$ has the same $\delta$. As $m<1$, $\theta<\alpha$, so $\gamma^2>
+\cos^2\frac\alpha2=\frac12(1+\cos\alpha)=\frac78$, since $\cos\alpha=1-2
+\sin^2\frac\alpha2=\frac34$. Also $\lvert p-q\rvert\le\lVert z_1-z_2
+\rVert/m=\lVert\tilde u_a-w_a\rVert/m\le(\delta(u_a,I)+\delta(w_a,I))/m<
+\frac18$, because $m>\frac12$. Hence $\lvert p+q\rvert^2=4\gamma^2-
+\lvert p-q\rvert^2>\frac72-\frac1{64}$. Let $\eta_a$ be the vector dual to
+$(p+q)/(\gamma^2+\langle p,q\rangle)$; as $\gamma^2+\langle p,q\rangle=
+\frac12\lvert p+q\rvert^2>0$, $p(\eta_a)=q(\eta_a)=1$ and $\lVert\eta_a
+\rVert=2/\lvert p+q\rvert<2/(\frac72-\frac1{64})^{1/2}<1.0715$.
+
+Differentiating $F_2(G_2(\xi),\xi)=c_k$, translated to the identity as in
+the proof of Lemma~\ref{lem:relchart}(iii), gives $(1+A_2)\,dG_2(\eta)=
+-\Phi(\operatorname{ad}Y)(-2q(\eta_a)N+\phi\,\partial N(\eta))$, where
+$\partial N$ is the derivative of $N$ in $\xi$ at fixed $g$. With $\ell'=
+\ell\circ(1+A_2)^{-1}\Phi(\operatorname{ad}Y)$, so that $\ell'(N)=\kappa_0$,
+\begin{align*}
+dh_2(\eta)&=\ell(dG_2(\eta))+(p-q)(\eta_a)\\
+&=(p-q)(\eta_a)+2\kappa_0\,q(\eta_a)-\phi\,\ell'(\partial N(\eta)) .
+\end{align*}
+In the translated form the differential of $\log$ at $v=e^X$ is
+$\psi(\operatorname{ad}X)$ with $\psi(z)=z/(1-e^{-z})$, since $e^{-X}
+de^X=\Phi(-\operatorname{ad}X)\,dX$ and $\Phi(-z)\psi(z)=1$; and
+$\xi_be^{s\eta}w_b=\xi_bw_be^{s\operatorname{Ad}(w_b^{-1})\eta}$. So
+$\partial N(\eta)=\frac1{16}\sum_bT_b\eta_b$ with $T_b=\psi(\operatorname
+{ad}X_b)+\psi(\operatorname{ad}X'_b)\operatorname{Ad}(w_b^{-1})$, $X_b=
+\log v_{x_b}$, $X'_b=\log v_{x'_b}$. If $X$ has eigenangle $\vartheta<
+\alpha$, $\operatorname{ad}X$ is normal with eigenvalues $0,\pm2i\vartheta$,
+and $\psi(\pm2i\vartheta)=\vartheta e^{\pm i\vartheta}/\sin\vartheta$; so
+$\lVert\psi(\operatorname{ad}X)\rVert\le\Lambda$, and the symmetric part
+of $\psi(\operatorname{ad}X)$ has eigenvalues $1$ and $\vartheta\cot
+\vartheta\ge\alpha\cot\alpha=3\alpha/\sqrt7>0.8194$. Every path has
+$\delta<1$ at a tie at the top, so $\lVert T_a\rVert\le2\Lambda$, and, with
+$\lVert\operatorname{Ad}(w_c^{-1})-1\rVert\le\sigma$ as in the proof of
+Lemma~\ref{lem:relchart}(i),
+\[
+\langle T_c\zeta,\zeta\rangle\ge(2\cdot0.8194-1.0927\,\sigma)\lVert\zeta
+\rVert^2>1.5905\,\lVert\zeta\rVert^2 .
+\]
+Take $\eta_b=0$ for $b\ne a,c$, and $\eta_c=0$ if $\ell'=0$, otherwise
+$\eta_c$ the vector dual to $-\ell'(T_a\eta_a)\,T_c^*\ell'/\lvert T_c^*
+\ell'\rvert^2$. Then $\ell'(\partial N(\eta))=0$, and $\lvert T_c^*\ell'
+\rvert\,\lvert\ell'\rvert\ge\langle T_c\ell'^\sharp,\ell'^\sharp\rangle$
+gives $\lvert T_c^*\ell'\rvert\ge1.5905\,\lvert\ell'\rvert$, so $\lVert
+\eta_c\rVert\le2\Lambda\lVert\eta_a\rVert/1.5905<1.3741\,\lVert\eta_a
+\rVert$ and $\lVert\eta\rVert<1.0715\,(1+1.3741^2)^{1/2}<1.8210$. Hence
+$dh_2(\eta)=2\kappa_0$ and $2\lvert\kappa_0\rvert\le1.8210\,\lvert\nabla h_2
+\rvert$. Finally $\lvert\log(1-x)\rvert\le\lvert x\rvert/(1-\lvert x
+\rvert)$ for $\lvert x\rvert<1$ and $2\lvert\kappa_0\rvert<0.0808$ give
+$\lvert\log D_1-\log D_2\rvert\le2.1758\,\lvert\kappa_0\rvert\le2.1758\cdot
+0.9105\,\lvert\nabla h_2\rvert<1.9811\,\lvert\nabla h_2\rvert$.
+\end{proof}
+
+Near a tie at the top of index $a$ the ties of index $a$ are exactly the
+zeros of $h_2$, by (i). Let $Z_a$ be the set of those ties at the top of
+index $a$ at which $\nabla h_2\ne0$, a hypersurface of $\SU(2)^7$, and let
+$H^{20}$ be its Hausdorff measure for the metric above, under which
+$\SU(2)$ has volume $V=4\sqrt2\,\pi^2$. Put
+\[
+\mathcal A_{\mathrm{tie}}=\sup V^{-7}H^{20}(Z_a),
+\]
+the supremum over $a\ne0$, over $c_k$ and over inside links within
+$\frac1{32}$ of $I$.
+
+\begin{proposition}[the Jacobian across the ties]\label{prop:jreduce}
 Let $k$, $B$ and the move $e\to e'$ be as in
-Theorem~\textup{\ref{thm:relresponse}}, and for $t>0$ let $T(t)$ be the
-set of $\xi$ for which some index $a\ne0$ satisfies
+Theorem~\textup{\ref{thm:relresponse}}, with $d(u_a,I),d(w_a,I)\le\frac1
+{32}$ for $a\ne0$ along the geodesic. Then
 \[
-\lvert f_{x_a}-f_{x'_a}\rvert\le t,\qquad f_{x_a}\ge m-t,\qquad
-\tfrac12-t\le f_{x_a}\le1+t
+\int\bigl\lvert\log D-\log D'\bigr\rvert\,d\xi\le\bigl(53.96+15.134\,
+\mathcal A_{\mathrm{tie}}\bigr)\,d(e,e')
 \]
-before the move. If $\operatorname{Haar}(T(t))\le M\,t$ for $t\le0.1$,
-uniformly along the geodesic, then \textup{(J)} holds with
-\[
-K\le\bigl(148.2+1.96\,M\bigr)\,e^{72\beta_W} .
-\]
+for $d(e,e')\le0.08$, with $d\xi$ Haar measure on $\SU(2)^7$, and
+\textup{(J)} holds with $K\le(148.2+41.6\,\mathcal A_{\mathrm{tie}})\,e^{72\beta_W}$.
 \end{proposition}
 
 \begin{proof}
-\emph{Where $D$ is smooth.} On flat points $D_gY=\phi(m)\,D_gN$, since
-$\phi'(m)D_gm=0$ there: either $\phi'(m)=0$, or the maximum sits at a
-path that does not depend on $g$. At points of type $a$, $D_gY=-2N\otimes
-D_gf_{x_a}+\phi(m)D_gN$. Write $\Phi(z)=(e^z-1)/z$. The left-translated
-differential of $F(g)=gE(g,\xi)$ is $\operatorname{Ad}(E^{-1})(1+A)$ with
-$A=\Phi(\operatorname{ad}Y)\,D_gY$, so $D=\det(1+A)$ and $\lVert A\rVert
-\le\lambda$ by Lemma~\ref{lem:relchart}(iii). Let $\xi$ keep one type, or
-stay flat, for all parameters $t$ of the move, at unit speed along the
-geodesic from $e$ to $e'$. Then $\frac d{dt}\log D=\operatorname{tr}
-((1+A)^{-1}\dot A)$, of modulus at most $3\lVert\dot A\rVert/(1-\lambda)$.
-We bound $\dot A$ with $\sigma=\frac{\sqrt2}{32}$, the norm $\lVert
-\operatorname{Ad}(u_a)-1\rVert\le\sigma$, and $\sigma L<0.0912$.
+\emph{Where the type is kept.} On flat points $D_gY=\phi(m)\,D_gN$, since
+$\phi'(m)D_gm=0$ there: either $\phi'(m)=0$, or the maximum sits at a path
+that does not depend on $g$. At points of type $a$, $D_gY=-2N\otimes
+D_gf_{x_a}+\phi(m)D_gN$. With $\Phi(z)=(e^z-1)/z$, the translated
+differential of $F$ is $\operatorname{Ad}(E^{-1})(1+A)$ with $A=\Phi(
+\operatorname{ad}Y)\,D_gY$, so $D=\det(1+A)$ and $\lVert A\rVert\le
+\lambda$ by Lemma~\ref{lem:relchart}(iii). Let $\xi$ keep one type, or
+stay flat, for the parameters $t$ of an interval of the move, at unit
+speed along the geodesic from $e$ to $e'$. Then $\frac d{dt}\log D=
+\operatorname{tr}((1+A)^{-1}\dot A)$, of modulus at most $3\lVert\dot A
+\rVert/(1-\lambda)$. We bound $\dot A$ with $\sigma=\frac{\sqrt2}{32}<
+0.044195$, the norm $\lVert\operatorname{Ad}(u_a)-1\rVert\le\sigma$, and
+$\sigma L<0.09122$.
 \begin{itemize}
 \item By Lemma~\ref{lem:relchart}(ii), $G$ moves at speed at most $L$, so
 each $\tilde u_c$ moves at speed at most $\sigma L$, plus $1$ for the
-moving link; every $v_x$, every $f_x$ and $m$ therefore move at speed at most
-$1+\sigma L<1.0912$, and $Y$ at speed at most $\lambda L+(1-\lambda)L=L$.
+moving link; every $v_x$, every $f_x$ and $m$ therefore move at speed at
+most $1+\sigma L<1.0913$, and $Y$ at speed at most $\lambda L+(1-\lambda)
+L=L$.
 \item $\lVert N\rVert\le\frac78\sqrt2\,\alpha<0.8945$, $\lVert D_gN\rVert
-\le\frac7{16}\Lambda\sigma<0.0212$, $\lVert D_gf_{x_a}\rVert\le\sigma$,
+\le\frac7{16}\Lambda\sigma<0.02113$, $\lVert D_gf_{x_a}\rVert\le\sigma$,
 and $\lVert\dot N\rVert\le\frac1{16}\Lambda(1+7\sigma L)<0.1120$.
 \item On $\mathfrak{su}(2)$, $\lVert\operatorname{ad}X\rVert=\sqrt2\lVert
-X\rVert$, so $\lVert\operatorname{ad}Y\rVert\le r=1.2650$. The series of
+X\rVert$, so $\lVert\operatorname{ad}Y\rVert\le r=1.2651$. The series of
 $\Phi$ gives $\lVert\Phi(\operatorname{ad}Y)\rVert\le1$ and
 \begin{align*}
 \lVert\Phi(\operatorname{ad}Y)-\Phi(\operatorname{ad}Y')\rVert
 &\le\frac{re^r-e^r+1}{r^2}\sqrt2\,\lVert Y-Y'\rVert\\
 &\le1.715\,\lVert Y-Y'\rVert .
 \end{align*}
-\item In left-translated form,
-\[
-D_gf_{x_a}=\nabla\delta(v)\circ\operatorname{Ad}(\xi_a^{-1})
-\bigl(1-\operatorname{Ad}(\tilde u_a^{-1})\bigr).
-\]
-At a point
-of type $a$, $\delta(v,I)=2\sqrt2\sin\frac\theta2\ge\frac12$, so $\theta\ge
-0.3554$. The metric of $\SU(2)$ is that of the round sphere of radius
-$\sqrt2$, and the Hessian of the radial function $\delta$ has norm at most
-$\max\{\frac1{2\sqrt2}\sin\frac\theta2,\frac1{\sqrt2}\cos\frac\theta2
-\cot\theta\}\le1.875$. The left-translated derivative of the gradient adds
-$\frac12\lVert\operatorname{ad}\rVert\le0.7072$. With $\lVert\frac d{dt}
+\item $D_gf_{x_a}=\nabla\delta(v)\circ\operatorname{Ad}(\xi_a^{-1})
+(1-\operatorname{Ad}(\tilde u_a^{-1}))$ in translated form. At a point
+of type $a$, $\delta(v,I)=2\sqrt2\sin\frac\theta2\ge\frac12$, so $\sin
+\frac\theta2\ge\frac1{4\sqrt2}$. The metric of $\SU(2)$ is that of the
+round sphere of radius $\sqrt2$, and the Hessian of the radial function
+$\delta$ has norm at most $\max\{\frac1{2\sqrt2}\sin\frac\theta2,\cos\theta
+/(2\sqrt2\sin\frac\theta2)\}$, at most $2\cos\theta\le2(1-\frac2{32})=
+\frac{15}8$. The translated derivative of the gradient adds $\frac12
+\lVert\operatorname{ad}\rVert\le0.7072$. With $\lVert\frac d{dt}
 \operatorname{Ad}(\tilde u_a^{-1})\rVert\le\sqrt2(1+\sigma L)$, this gives
-$\lVert\frac d{dt}D_gf_{x_a}\rVert\le2.583\cdot1.0912\,\sigma+1.5433<
-1.669$.
-\item $D_gN=\frac1{16}\sum_c\mathrm d\!\log_{v_{x_c}}\circ\operatorname{Ad}
-(\xi_c^{-1})(1-\operatorname{Ad}(\tilde u_c^{-1}))$. In left-translated
-form $\mathrm d\!\log_v=\psi(\operatorname{ad}X)$, where $X=\log v$ and
-$\psi(z)=z/(1-e^{-z})=1+\frac z2+\frac{z^2}{12}-\frac{z^4}{720}+\dots$.
-With $\lVert\operatorname{ad}X\rVert\le2\alpha<1.4457$ the series gives
-Lipschitz constant $0.76\sqrt2\,\Lambda<1.176$ in $v$. Hence $\lVert\frac
-d{dt}D_gN\rVert\le\frac1{16}(1.176\sigma+\sqrt2\Lambda)(1+7\sigma L)<
-0.1636$.
+$\lVert\frac d{dt}D_gf_{x_a}\rVert\le2.5822\cdot1.0913\,\sigma+
+1.41422\cdot1.0913<1.6679$.
+\item $D_gN=\frac1{16}\sum_c\mathrm d\!\log_{v_{x_c}}\circ
+\operatorname{Ad}(\xi_c^{-1})(1-\operatorname{Ad}(\tilde u_c^{-1}))$. In
+translated form $\mathrm d\!\log_v=\psi(\operatorname{ad}X)$, where $X=
+\log v$ and $\psi(z)=z/(1-e^{-z})=1+\frac z2+\frac{z^2}{12}-\frac{z^4}
+{720}+\dots$. With $\lVert\operatorname{ad}X\rVert\le2\alpha<1.4457$ the
+series gives Lipschitz constant $0.76\sqrt2\,\Lambda<1.176$ in $v$. Hence
+$\lVert\frac d{dt}D_gN\rVert\le\frac1{16}(1.176\,\sigma+\sqrt2\Lambda)
+(1+7\sigma L)<0.1636$.
 \end{itemize}
-Since $\phi'\in\{0,-2\}$ is constant along the move and $\phi$ is
+Since $\phi'\in\{0,-2\}$ is constant along the interval and $\phi$ is
 $2$-Lipschitz,
 \begin{multline*}
 \Bigl\lVert\frac d{dt}D_gY\Bigr\rVert\le2\bigl(0.1120\,\sigma+0.8945\cdot
-1.669\bigr)\\
-+2\cdot1.0912\cdot0.0212+0.1636<3.205 ,
+1.6679\bigr)\\
++2\cdot1.0913\cdot0.02113+0.1636<3.204 ,
 \end{multline*}
-and $\lVert\dot A\rVert\le1.715\,L\lambda+3.205<3.560$. So
-$\lvert\log D-\log D'\rvert\le11.87\,d(e,e')$ at every $\xi$ that keeps
-one type or stays flat.
+and $\lVert\dot A\rVert\le1.715\,L\lambda+3.204<3.559$. So $\lvert\frac
+d{dt}\log D\rvert\le3\cdot3.559/(1-\lambda)<11.87$ on the interval. The
+same bounds hold for $\log D_1$ and $\log D_2$ near a tie at the top,
+since $D_1$ has the form of type $a$ and $D_2$ the flat form, and $G_1$,
+$G_2$ move at speed at most $L$ by the proof of
+Lemma~\ref{lem:relchart}(ii).
 
-\emph{Where the type changes.} If the type of $\xi$ changes during the
-move, then by continuity, at some parameter, either $f_{x_a}\in\{\frac12,
-1\}$ with the maximum at $x_a$, or $f_{x_a}=f_y=m\in[\frac12,1]$ for some
-$a\ne0$ and some other path $y$. These are the $7\cdot8$ events of an
-index $a$ against a level or a path $x'_c$, $c\ne a$, the $21$ events of
-two paths $x_a,x_c$, and the ties at the top. Every $f_x$ moves at speed at
-most $1+\sigma L$, and at most one of them is moved directly. So for a
-difference $h$ of two of them, or of one of them and a level, $\lvert
-h\rvert\le\omega\,d(e,e')$ before the move, with $\omega=1+2\sigma L<
-1.1824$.
+\emph{The events.} Call the following $77$ conditions on $\xi$ the
+\emph{events}: $f_{x_a}=m\in\{\frac12,1\}$; $f_{x_a}=f_{x'_c}=m\in[\frac12,
+1]$ with $c\ne a$; and $f_{x_a}=f_{x_c}=m\in[\frac12,1]$ with $c\ne a$,
+for $a,c\ne0$. Every $f_x$ moves at speed at most $1+\sigma L$, and at
+most one of them is moved directly. So for a difference $h$ of two of them,
+or of one of them and a level, $\lvert h\rvert\le\omega\,d(e,e')$ before
+the move, if $\xi$ meets the event $h=0$ during the move, with $\omega=1+
+2\sigma L<1.1825$.
 
 Fix the coordinates other than $\xi_a$ and use $v=\tilde u_a(G(\xi))\xi_a$
-in place of $\xi_a$. At fixed $g$, a unit move of $\xi_a$ moves
-$v_{x_a}$ and $v_{x'_a}$ at unit speed. As in
-Lemma~\ref{lem:relchart}(i), $Y$ then moves at speed at most $2\cdot\frac78
-\sqrt2\,\alpha+\frac18\Lambda<1.9256$, and $G$ at speed at most
-$L_\xi=1.9256/(1-\lambda)<2.140$. Since $d(\tilde u\xi,\tilde u'\xi')$
-differs from $d(\xi,\xi')$ by at most $d(\tilde u,\tilde u')\le
-\sigma L_\xi\,d(\xi,\xi')$, the map $\xi_a\mapsto v$ is a bi-Lipschitz
-bijection of $\SU(2)$, with constants $1\pm0.0946$. It is onto by
-invariance of domain, and its inverse multiplies Haar measure by at most
-at most $(1/0.9054)^3<1.348$.
+in place of $\xi_a$. At fixed $g$, a unit move of $\xi_a$ moves $v_{x_a}$
+and $v_{x'_a}$ at unit speed. As in Lemma~\ref{lem:relchart}(i), $Y$ then
+moves at speed at most $2\cdot\frac78\sqrt2\,\alpha+\frac18\Lambda<1.9256$,
+and $G$ at speed at most $L_\xi=1.9256/(1-\lambda)<2.140$. Since $d(\tilde
+u\xi,\tilde u'\xi')$ differs from $d(\xi,\xi')$ by at most $d(\tilde u,
+\tilde u')\le\sigma L_\xi\,d(\xi,\xi')$, the map $\xi_a\mapsto v$ is a
+bi-Lipschitz bijection of $\SU(2)$, with constants $1\pm0.0946$. It is onto
+by invariance of domain, and its inverse multiplies Haar measure by at most
+$(1/0.9054)^3<1.348$.
 
 Write $v=\exp(\theta\nu)$ with $\theta\in[0,\pi]$ and $\nu$ a unit
 direction. The Haar measure is $\frac2\pi\sin^2\theta\,d\theta$ times the
 uniform measure in $\nu$. Along a ray of fixed $\nu$:
 \begin{itemize}
 \item $f_{x_a}=2\sqrt2\sin\frac\theta2$ increases at rate $\sqrt2\cos
-\frac\theta2\ge1.3029$ while $f_{x_a}\le1.1$, that is $\theta\le0.7990$;
-\item $\xi_a$ moves at speed at most $\sqrt2/0.9054$, so $f_{x_c}$, $c\ne a$,
-which depends on $\xi_a$ only through $G$, moves at rate at most $\sigma
-L_\xi\sqrt2/0.9054<0.1478$;
-\item $f_{x'_c}$ and the levels do not move.
+\frac\theta2>1.3028$ while $f_{x_a}\le1.1$, that is $\theta\le0.7990$;
+\item $\xi_a$ moves at speed at most $\sqrt2/0.9054$, so $f_{x_c}$, $c\ne
+a$, which depends on $\xi_a$ only through $G$, moves at rate at most
+$\sigma L_\xi\sqrt2/0.9054<0.1478$;
+\item $f_{x'_c}$, $c\ne a$, and the levels do not move.
 \end{itemize}
-For each of the first two kinds of event, $h=f_{x_a}-f_y$ or
-$f_{x_a}-\ell$ therefore increases at rate at least $1.154$ on $\{0.4\le
-f_{x_a}\le1.1\}$, and $\{\lvert h\rvert\le t\}$ meets each ray in an
-interval of length at most $2t/1.154$. With $\sin^2\theta\le0.5146$ for
-$\theta\le0.7990$, its Haar measure in $v$ is at most
-$\frac2\pi\cdot0.5146\cdot1.7331\,t<0.5678\,t$, and in $\xi_a$ at most
-$0.766\,t$. For $d(e,e')\le0.08$ every $\xi$ whose type changes through
-these events lies in such a set with $t=\omega\,d(e,e')$. By Fubini the
-$77$ events cover Haar measure at most $77\cdot0.766\cdot1.1824\,d(e,e')
-<69.75\,d(e,e')$. The ties cover at most $M\omega\,d(e,e')$, since at the
-tie both functions equal $m$ and each has moved by at most $\omega\,
-d(e,e')$.
+For each event, $h=f_{x_a}-f_y$ or $f_{x_a}-\frac12$ or $f_{x_a}-1$
+therefore increases at rate at least $1.154$ on $\{0.4\le f_{x_a}\le
+1.1\}$, and $\{\lvert h\rvert\le t\}$ meets each ray in an interval of
+length at most $2t/1.154$. With $\sin^2\theta\le0.5146$ for $\theta\le
+0.7990$, its Haar measure in $v$ is at most $\frac2\pi\cdot0.5146\cdot
+\frac2{1.154}\,t<0.5678\,t$, and in $\xi_a$ at most $0.766\,t$. For
+$d(e,e')\le0.08$ every $\xi$ that meets an event during the move lies in
+such a set with $t=\omega\,d(e,e')$. By Fubini these $\xi$ have Haar
+measure at most $77\cdot0.766\cdot1.1825\,d(e,e')<69.75\,d(e,e')$, and for
+them $\lvert\log D-\log D'\rvert\le3\log\frac{1+\lambda}{1-\lambda}<
+0.6034$.
 
-\emph{Conclusion.} On a set where the type changes, $\lvert\log D-\log D'
-\rvert\le3\log\frac{1+\lambda}{1-\lambda}<0.6034$. Hence
-\begin{align*}
-\int\lvert\log D-\log D'\rvert\,d\xi
-&\le\bigl(11.87+0.6034\,(69.75+1.1824M)\bigr)\\
-&\quad\times d(e,e') .
-\end{align*}
-By Lemma~\ref{lem:relnorm} the density of $\hat Q$ is at most
+\emph{The ties.} Let $\xi$ meet no event during the move, with $D$ and
+$D'$ defined at $\xi$, and let $C$ be the set of parameters $t$ at which
+$\xi$ is a tie at the top of some index. Between two times of $C$ the point
+$\xi$ keeps one type or stays flat: the maximal path can change only at an
+event, at a tie at the top, or between two paths from points $x'_c$, where
+$D$ does not jump. At a time $t_0\in C$ of index $a$, Lemma~\ref{lem:ties}
+applies with the inside links as parameters, and the times near $t_0$ in
+$C$ are the zeros of the analytic function $t\mapsto h_2$; since no event
+occurs, $C$ is closed. If $C$ has an interior point, it is open by
+analyticity, so $C=[0,d(e,e')]$; otherwise $C$ is finite. Where $D$ is
+defined at a tie at the top, $\kappa_0=0$: if $\ell\ne0$, both branches meet
+$G$, so $D_gF_1=D_gF_2$, that is $N\otimes\ell=0$ and $N=0$. Hence $\log D=\log D_1=
+\log D_2$ at the ends that lie in $C$. By Lemma~\ref{lem:ties}(i) and
+the bound on the derivatives,
 \[
-\frac1{Z(1-\lambda)^3}\le\frac{2.00002\,e^{72\beta_W}}{0.7285},
+\lvert\log D-\log D'\rvert\le11.87\,d(e,e')+\sum_{t}1.9811\,\lvert
+\nabla h_2\rvert ,
 \]
-while $2.00002\cdot53.97/0.7285<148.2$ and $2.00002\cdot0.6034\cdot
-1.1824/0.7285<1.96$. Adding along a subdivision of the geodesic gives the
-bound.
+the sum over the times $t\in C$ at which $h_2$ changes sign, the terms
+with $\nabla h_2=0$ vanishing; so the sum runs over times $t$ with $\xi\in
+Z_a(t)$, the set $Z_a$ at the parameter $t$.
+
+For one index $a$, the set $S=\{(t,\xi):\xi\in Z_a(t)\}$ is locally the
+zero set of $H(t,\xi)=h_2$ with $\nabla_\xi H\ne0$, a $C^1$ hypersurface of
+$[0,d(e,e')]\times\SU(2)^7$. The area formula for the projection $(t,\xi)
+\mapsto\xi$, of Jacobian $\lvert\partial_tH\rvert/\lvert\nabla H\rvert$
+on $S$, and the coarea formula for $(t,\xi)\mapsto t$, of Jacobian
+$\lvert\nabla_\xi H\rvert/\lvert\nabla H\rvert$ on $S$
+\cite[3.2.20, 3.2.22]{Fed69}, give
+\[
+\int\sum_{t:\,\xi\in Z_a(t)}w\;d\mathrm{vol}(\xi)=\int_0^{d(e,e')}\!\!
+\int_{Z_a(t)}w\,\frac{\lvert\partial_tH\rvert}{\lvert\nabla_\xi H\rvert}
+\,dH^{20}\,dt
+\]
+for $w\ge0$. Here $H=f^{(1)}(G_2,\xi)-f^{(2)}$ changes at rate at most
+$1+\sigma L<1.0913$, since $G_2$ moves at speed at most $L$, $f^{(1)}$ is
+$\sigma$-Lipschitz in $g$, and only the moving link enters directly. With
+$w=1.9811\lvert\nabla_\xi H\rvert$ and $d\xi=V^{-7}d\mathrm{vol}$, the
+ties of index $a$ contribute at most $1.9811\cdot1.0913\,\mathcal A_{\mathrm{tie}}\,
+d(e,e')$, and the seven indices at most $15.134\,\mathcal A_{\mathrm{tie}}\,d(e,e')$.
+
+\emph{Conclusion.} Adding the three parts, with $11.87+0.6034\cdot69.75<
+53.96$, gives the first bound. The density of $\hat Q$ is at most $1/(Z
+(1-\lambda)^3)\le2.00002\,e^{72\beta_W}/0.7285$ by Lemma~\ref{lem:relnorm},
+and $2.00002\cdot53.96/0.7285<148.2$, $2.00002\cdot15.134/0.7285<41.6$.
+Since $\lvert\log D-\log D'\rvert$ is at most the sum of its increments
+along a subdivision of the geodesic into steps of length at most $0.08$,
+and the bound on the density does not depend on the step, \textup{(J)}
+holds with the stated $K$.
 \end{proof}
 
-At the ties of index $a$ the jump of $D_gY$ is the rank-one term $-2N
-\otimes D_gf_{x_a}$, and it does not vanish. For fixed $g$ the tie set
-$\{f_{x_a}=f_{x'_a}\}$ is $\{\operatorname{Re}\operatorname{Tr}(\xi_a(
-\tilde u_a-w_a))=0\}$, a great two-sphere of $\SU(2)$, since
-$\operatorname{Re}\operatorname{Tr}(\tilde u_a\xi_a)=\operatorname{Re}
-\operatorname{Tr}(\xi_a\tilde u_a)$. Its normal derivative
-$\lVert\tilde u_a-w_a\rVert$ vanishes when $\tilde u_a=w_a$, that is,
-when $G$ conjugates $u_a$ to $w_a$. So the bound $\operatorname{Haar}(T(t))
-\le Mt$ is a statement about how often $G(\xi)$ comes close to that
-conjugating set, and it is the part of (J) that is not proved.
+\begin{proposition}[the area of the ties]\label{prop:tiearea}
+$\mathcal A_{\mathrm{tie}}<\infty$.
+\end{proposition}
+
+\begin{proof}
+Identify $\SU(2)$ with the unit sphere of $\R^4$; the metric above is
+twice the Euclidean one, so $H^{20}$ is $2^{10}$ times the Euclidean
+Hausdorff measure on $\SU(2)^7\subset\R^{28}$. Every object of the
+construction is definable in the o-minimal structure $\R_{\mathrm
+{an}}$ of restricted analytic functions \cite{Dri86}: $\delta$, $\phi$ and
+the maximum are semialgebraic; $\log$ on $\{\ReTr v\ge\frac32\}$, which
+contains $\{\delta(v,I)\le1\}$, and $\exp$ on $\{\lVert X\rVert\le1\}$ are
+restricted analytic; $N$ may be set to $0$ where $m\ge1$ without changing
+$Y=\phi(m)N$; and the graph of $G$ is $\{g\exp Y=c_k\}$. The formula for
+$dh_2$ in the proof of Lemma~\ref{lem:ties} is a definable function of $g$,
+$\xi$ and the parameters $P=(c_k,(u_b,w_b)_{b\ne0})$, so $Z_a(P)$ is a
+definable family over a bounded set of parameters, of $C^1$ submanifolds
+of dimension $20$. For an orthogonal projection $\varpi$ of $\mathbb
+R^{28}$ onto $\R^{20}$ and $y\in\R^{20}$, the sets $Z_a(P)
+\cap\varpi^{-1}(y)$ form a definable family with parameters $(P,\varpi,
+y)$, so those that are finite have at most $\mathfrak b$ points, with
+$\mathfrak b$ independent of $(P,\varpi,y)$ \cite[Ch.~3]{Dri98}; and for
+fixed $(P,\varpi)$ the $y$ with an infinite fibre form a definable set of
+dimension at most $19$ \cite[Ch.~4]{Dri98}, which is Lebesgue-null. By
+the integralgeometric formula, $H^{20}(Z)$ equals a constant depending only
+on $(28,20)$ times the average over $\varpi$ of $\int\#(Z\cap\varpi^{-1}
+(y))\,dy$ \cite[2.10.15, 3.2.26]{Fed69}, and $\varpi(Z)$ lies in the ball
+of radius $\sqrt7$. So $H^{20}(Z_a(P))$ is bounded uniformly in $P$ and
+$a$.
+\end{proof}
+
+\begin{theorem}[condition (J)]\label{thm:jholds}
+Let $k$, $B$ and the move be as in Theorem~\textup{\ref{thm:relresponse}},
+with $d(u_a,I),d(w_a,I)\le\frac1{32}$ for $a\ne0$ along the geodesic. Then
+\textup{(J)} holds with $K=(148.2+41.6\,\mathcal A_{\mathrm{tie}})\,e^{72\beta_W}$, where
+$\mathcal A_{\mathrm{tie}}<\infty$ does not depend on $k$, $c_k$, the inside links or
+$\beta_W$. In particular \textup{(J)} holds for $B^{\mathrm{bad}}_r$ on
+every configuration that the labels produce.
+\end{theorem}
+
+\begin{proof}
+Proposition~\ref{prop:jreduce} and Proposition~\ref{prop:tiearea}; the
+last statement by Proposition~\ref{prop:eightlabels}.
+\end{proof}
+
+The proof of Proposition~\ref{prop:tiearea} gives no value for $\mathcal A_{\mathrm{tie}}$:
+the number $\mathfrak b$ comes from o-minimality. The weight $\lvert\log
+D_1-\log D_2\rvert$ in the flux cannot be dropped, since the near-ties need
+not be thin.
+
+\begin{proposition}[thick near-ties]\label{prop:thickties}
+Fix $a\ne0$, let $u_a=w_a=u$ with $d(u,I)=s\le\frac1{32}$, the other
+inside links within $\frac1{32}$ of $I$, and let $T(t)$ be the set of $\xi$
+with
+\[
+\lvert f_{x_a}-f_{x'_a}\rvert\le t,\qquad f_{x_a}\ge m-t,\qquad\tfrac12
+-t\le f_{x_a}\le1+t .
+\]
+Then $T(t)$ contains the open set $U_0=\{\xi:\frac{17}{32}<\delta(\xi_a,I)
+<\frac{31}{32},\ \delta(\xi_b,I)<\frac{15}{32}\text{ for }b\ne a\}$ for
+every $t\ge2s$, for every $c_k$. For $s=0$ every point of $U_0$ is a tie
+at the top of index $a$, and $\nabla h_2=0$ there.
+\end{proposition}
+
+\begin{proof}
+Since $\delta(v,I)=\lVert v-I\rVert$ and $\lVert\tilde u-I\rVert=\lVert
+u-I\rVert\le s$, $\lvert f_{x_a}-\delta(\xi_a,I)\rvert\le s$ and $\lvert
+f_{x'_a}-\delta(\xi_a,I)\rvert\le s$, using $\delta(\xi_au,I)=\delta(u
+\xi_a,I)$; so on $U_0$ both lie in $(\frac12,1)$ and differ by at most
+$\lVert\tilde u-u\rVert\le2s$. For $b\ne a$, $f_{x_b},f_{x'_b}\le
+\delta(\xi_b,I)+\frac1{32}<\frac12$, and the paths of offset zero give $0$.
+So $m=\max(f_{x_a},f_{x'_a})$ and $f_{x_a}\ge m-2s$. For $s=0$, $f_{x_a}=
+f_{x'_a}=\delta(\xi_a,I)$ on $U_0$, so $h_2$ vanishes on the open set
+$U_0$.
+\end{proof}
+
+So no bound $\operatorname{Haar}(T(t))\le Mt$ holds with $M$ uniform in
+the inside links, nor one by $t\lvert\log t\rvert$: the Haar measure of
+$T(2s)$ is at least that of $U_0$ as $s\to0$. At $s=0$ the jump vanishes,
+since $\ell=0$ when $u_a=I$.
 
 The other inside links of the two blocks are not $\mu$-links, do not
 enter $V^\sharp_k$, and lie in at most one plaquette with a private link;
@@ -18221,8 +18465,9 @@ the Jacobian condition (J) holds: for $B^{\mathrm{bad}}_r$ on every
 configuration that the labels produce, since there $d(u_a,I),d(w_a,I)\le r$
 by Proposition~\ref{prop:eightlabels}, and for $\SU(2)^7$ on every
 configuration whose links $u_a$ lie within $\frac1{32}$ of $I$.
-Proposition~\ref{prop:jreduce} proves (J) except at the ties of the two
-paths of one index, where it is not proved. By
+Theorem~\ref{thm:jholds} proves (J) there whenever the links $w_a$ also
+lie within $\frac1{32}$ of $I$, in particular for $B^{\mathrm{bad}}_r$;
+for $\SU(2)^7$ with some $w_a$ farther from $I$ it is not proved. By
 Lemma~\ref{lem:relchart}(iii), $D$ lies in $[0.728,1.332]$ for all inside
 links, so (J) asks only for its continuity in the mean. The derivative of
 $Y=\chi N$ in $g$ contains $N\otimes\phi'(m)D_gm$, and $D_gm$ vanishes when
@@ -31311,9 +31556,16 @@ Lemma~\ref{lem:relchart} the fibre is one graph over the coordinates
 $g^{-1}\ell_a$, and Theorem~\ref{thm:relresponse} bounds the response for
 the two sets that the labels produce (Proposition~\ref{prop:eightlabels})
 under one condition, the continuity in the mean~(J) of the Jacobian of
-that chart. Proposition~\ref{prop:jreduce} reduces (J) to a bound of order
-$t$ on the Haar measure of the set where the two paths of one index tie at
-the top within $t$, and that bound is not proved; (J) holds, and the response to the inside
+that chart. Theorem~\ref{thm:jholds} proves (J) when the inside
+$\mu$-links of both blocks lie within $\frac1{32}$ of $I$, which includes
+every configuration of $B^{\mathrm{bad}}_r$ that the labels produce, with a
+constant uniform in the configuration. The constant contains the largest
+normalised area of the hypersurfaces where the two paths of one index tie
+at the top, which is finite by o-minimality (Proposition~\ref{prop:tiearea})
+and not computed; a bound of order $t$ on the Haar measure of the set where
+these paths tie at the top within $t$ is false
+(Proposition~\ref{prop:thickties}). Condition (J) also holds, and the
+response to the inside
 $\mu$-links of one block is bounded, when those of the other block equal
 $I$. For the first set the chart exists unless both blocks contain an
 inside $\mu$-link $u$ with $\lVert\operatorname{Ad}(u)-1\rVert\ge1/\kappa$,
@@ -33677,6 +33929,12 @@ pp.~347--370. Birkh\"auser, Boston (1985).
 \bibitem{Dri89}
 Driver, B.K.: YM$_2$: continuum expectations, lattice convergence, and lassos. Commun. Math. Phys. \textbf{123}, 575--616 (1989). \href{https://doi.org/10.1007/BF01218586}{https://doi.org/10.1007/BF01218586}
 
+\bibitem{Dri86}
+van den Dries, L.: A generalization of the Tarski--Seidenberg theorem, and some nondefinability results. Bull. Amer. Math. Soc. (N.S.) \textbf{15}, 189--193 (1986). \href{https://doi.org/10.1090/S0273-0979-1986-15468-6}{https://doi.org/10.1090/S0273-0979-1986-15468-6}
+
+\bibitem{Dri98}
+van den Dries, L.: Tame Topology and O-minimal Structures. London Math. Soc. Lecture Note Ser. 248. Cambridge University Press, Cambridge (1998). \href{https://doi.org/10.1017/CBO9780511525919}{https://doi.org/10.1017/CBO9780511525919}
+
 \bibitem{Eck54}
 Eckmann, B.: R{\"a}ume mit Mittelbildungen. Comment. Math. Helv.
 \textbf{28}, 329--340 (1954).
@@ -33688,6 +33946,9 @@ four-dimensional $\SU(N)$ Yang--Mills theory with mass gap and confinement,
 preprint, 2026, \href{https://arxiv.org/abs/2606.19362v1}{arXiv:2606.19362v1};
 Fortschr. Phys. \textbf{74} (2026), e70097,
 \href{https://doi.org/10.1002/prop.70097}{doi:10.1002/prop.70097}.
+
+\bibitem{Fed69}
+Federer, H.: Geometric Measure Theory. Grundlehren Math. Wiss. 153. Springer, Berlin (1969); reprinted in Classics in Mathematics, Springer, Berlin (1996). \href{https://doi.org/10.1007/978-3-642-62010-2}{https://doi.org/10.1007/978-3-642-62010-2}
 
 \bibitem{FH91}
 Fulton, W., Harris, J.: Representation Theory: A First Course. Grad. Texts
