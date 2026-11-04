@@ -7017,6 +7017,539 @@ Proposition~\ref{prop:tuned} satisfies (RC), (M), (W) and the tree
 bounds, and not (U).
 \end{remark}
 
+\emph{The time direction and the slice field.} The two parts of (M) can be
+compared with correlations of slice fields, as the ratio was in
+Proposition~\ref{prop:sliceratio}. In the time direction the comparison is
+exact, because the transfer matrix is positive. In the spatial directions no
+such comparison is available: the spatial flow acts within each time slice
+and mixes the two sides of every spatial reflection plane. For
+$h'\in C_c(\R^3)$ put
+\[
+U^{h'}_k=\sum_{x\in\Z^3}a_k^3h'(a_kx)\bigl(\varphi_k(0,x)-\omega_k(
+\varphi_k(0,x))\bigr),
+\]
+and, for $r\in a_k\Z_{\ge0}$ and $\delta>0$,
+\[
+\begin{split}
+D^{h'}_k(r)&=\omega_k\bigl(\bar U^{h'}_k\,\tau_{r/a_k}U^{h'}_k\bigr),\\
+I^{h'}_k(\delta)&=a_k\!\!\sum_{r\in a_k\Z,\,0\le r<\delta}\!\!D^{h'}_k(r).
+\end{split}
+\]
+For the spatial factor $h$ of a product packet, $U^h_k=U_k$ and
+$D^h_k=D_k$ are those of Proposition~\ref{prop:sliceratio}; write
+$I_k=I^h_k$. As in the proof of Proposition~\ref{prop:msplit}(iv),
+$D^{h'}_k(r)=\ip u{\mathbb T_k^{r/a_k}u}$ with $u=\Psi_{U^{h'}_k}$.
+
+\begin{lemma}\label{lem:timekernel}
+Let $\mathbb T$ be self-adjoint with $0\le\mathbb T\le1$ on a Hilbert space,
+let $v_n$, $n\in\Z$, be vectors, nonzero only for $n$ in a set of $N$
+consecutive integers, put $D_n(j)=\ip{v_n}{\mathbb T^jv_n}$ and
+\[
+B=\sum_{n,n'\in\Z}\ip{v_n}{\mathbb T^{|n-n'|}v_{n'}} .
+\]
+
+\textup{(i)} $|B|\le2N\max_n\sum_{j=0}^{N-1}D_n(j)$.
+
+\textup{(ii)} If $v_n=w_nv$ with $w_n\ge0$, and $w_n\ge\eta$ on a set of
+$M\ge1$ consecutive integers, then, with $D(j)=\ip v{\mathbb T^jv}$,
+\[
+B\ge\eta^2M\sum_{j=0}^{\lceil M/2\rceil-1}D(j) .
+\]
+
+\textup{(iii)} $D(j)$ is nonnegative and nonincreasing in $j$, and
+$\sum_{j<pq}D(j)\le q\sum_{j<p}D(j)$ for integers $p,q\ge1$.
+\end{lemma}
+
+\begin{proof}
+(i) Since $\mathbb T^j\ge0$, the Cauchy--Schwarz inequality for the form
+$\ip\cdot{\mathbb T^j\cdot}$ gives $|\ip{v_n}{\mathbb T^jv_{n'}}|\le
+\frac12(D_n(j)+D_{n'}(j))$. Summing over $n,n'$ and using the symmetry,
+$|B|\le\sum_n\sum_{n'}D_n(|n-n'|)$, and for fixed $n$ the integers $n'$
+with $v_{n'}\ne0$ give each value of $|n-n'|$ at most twice, all values
+below $N$.
+
+(ii) All terms of $B$ are nonnegative, since $D\ge0$. Keep the pairs in the
+set $J$ of $M$ consecutive integers. An element of $J$ has at least
+$\lceil M/2\rceil-1$ further elements of $J$ on one of its sides, so its row
+contributes at least $\eta^2\sum_{j<\lceil M/2\rceil}D(j)$.
+
+(iii) $D(j)=\int\lambda^jd\nu$ for the spectral measure $\nu$ of
+$\mathbb T$ at $v$, carried by $[0,1]$. Each of the $q$ blocks of $p$
+consecutive terms is at most the first block.
+\end{proof}
+
+By (iii), $D^{h'}_k$ is nonincreasing and $I^{h'}_k(p\delta)\le
+pI^{h'}_k(\delta)$ for integers $p\ge1$ and $\delta\in a_k\Z$. By (i) and
+(ii), with $v_n=\Psi_{U^{h'}_k}$ for $0\le a_kn<\delta$, the number
+$\delta^{-1}I^{h'}_k(\delta)$ lies between one half and twice the variance
+of the average of $\tau_nU^{h'}_k$ over these $n$: $I^{h'}_k(\delta)$ is the
+variance of the slice field averaged over a physical time $\delta$, times
+$\delta$. In the rest of this paragraph the states are invariant under
+translations and $\vartheta$ and reflection positive, with the transfer
+matrices of Appendix~\ref{app:transfer}, $\Phi$ is real, and $f_0=g\otimes h$
+is a product packet as in Proposition~\ref{prop:sliceratio}, with an interval
+$I$ of length $\ell_I>0$ and $c_g>0$ such that $g\ge c_g$ on $I$, as in
+Proposition~\ref{prop:msplit}(iv).
+
+\begin{proposition}\label{prop:mzslice}
+Let $\delta>0$ be dyadic and let $k$ be so large that $\delta/a_k\in\Z$ and
+$a_k\le\min(\ell_I/4,\delta)$.
+
+\textup{(i)} Put $T_g=t_1-t_0+\delta$ and
+\[
+\begin{split}
+c_-(\delta)&=\frac{3c_g^2\ell_I}{4\lceil8\delta/(3\ell_I)\rceil},\qquad
+c_+(\delta)=2\|g\|_\infty^2T_g\Bigl\lceil\frac{T_g}\delta\Bigr\rceil.
+\end{split}
+\]
+Then $c_-(\delta)I_k(\delta)\le V_k\le c_+(\delta)I_k(\delta)$ and
+\[
+\bigl(\tfrac34c_g\ell_I\bigr)^2D_k(2a_kn_1)\le C_k(0)\le
+\|g\|_\infty^2T_g^2\,D_k(2a_kn_0) .
+\]
+
+\textup{(ii)} Consider
+\begin{enumerate}[label=\textup{(Z$_{\mathrm{sl}}$)},leftmargin=*]
+\item There are a dyadic $\delta>0$ and $C<\infty$ with
+$I_k(\delta)\le C\,D_k(\delta)$ for all large $k$.
+\end{enumerate}
+If \textup{(Z$_{\mathrm{sl}}$)} holds for one dyadic $\delta$, it holds for
+every dyadic $\delta>0$, and then $D_k(\delta)\ge(\delta/(2C))D_k(\delta/2)$
+and $a_kD_k(0)\le C\,D_k(\delta)$ for all large $k$.
+
+\textup{(iii)} \textup{(M$_Z$)} holds if and only if
+\textup{(Z$_{\mathrm{sl}}$)} holds. In particular \textup{(M$_Z$)} holds for
+one product packet with spatial factor $h$ if and only if it holds for every
+product packet $g'\otimes h$ with $g'$ as above, and it implies
+$(\mathrm N_u)$ for every dyadic $u\ge0$.
+\end{proposition}
+
+\begin{proof}
+(i) By time translation invariance, $A_k=\sum_nw_n\tau_nU_k$ with
+$w_n=a_kg(a_kn)$, and $V_k=\sum_{n,n'}w_nw_{n'}D_k(a_k|n-n'|)$ by the
+identity of the proof of Proposition~\ref{prop:msplit}(iv). The $n$ with
+$w_n\ne0$ lie in $[n_0,n_1]$, a set of $N\le(t_1-t_0)/a_k+1$ integers, so
+$a_kN\le T_g$. Lemma~\ref{lem:timekernel}(i) with $v_n=w_nu_k$ and
+$|w_n|\le a_k\|g\|_\infty$ gives
+\[
+V_k\le2\|g\|_\infty^2(a_kN)\,I_k(a_kN)\le2\|g\|_\infty^2T_g\Bigl\lceil
+\frac{T_g}\delta\Bigr\rceil I_k(\delta) ,
+\]
+by (iii) of the lemma. The set $J$ of $n$ with $a_kn\in I$ consists of
+$M\ge\ell_I/a_k-1\ge\frac34\ell_I/a_k$ consecutive integers, and $w_n\ge
+a_kc_g$ there. Lemma~\ref{lem:timekernel}(ii) gives, with
+$b=a_k\lceil M/2\rceil\ge\frac38\ell_I$,
+\[
+V_k\ge a_k^2c_g^2M\!\!\sum_{j<\lceil M/2\rceil}\!\!D_k(a_kj)
+=c_g^2(a_kM)\,I_k(b)\ge\tfrac34c_g^2\ell_I\,I_k(b),
+\]
+and $I_k(\delta)\le\lceil\delta/b\rceil I_k(b)\le\lceil8\delta/(3\ell_I)
+\rceil I_k(b)$. The bounds on $C_k(0)$ are those of the proof of
+Proposition~\ref{prop:sliceratio}(i), $C_k(0)=\int W^2d\nu$ with
+$\|w\|_1\lambda^{n_1}\le W(\lambda)\le\|w\|_1\lambda^{n_0}$, together with
+$\|w\|_1\ge a_kc_gM\ge\frac34c_g\ell_I$ and $\|w\|_1\le a_kN\|g\|_\infty
+\le T_g\|g\|_\infty$.
+
+(ii) Since $D_k$ is nonincreasing, $I_k(\delta)\ge\frac\delta2D_k(\delta/2)$
+and $I_k(\delta)\ge a_kD_k(0)$, which gives the two bounds; in particular
+$c=\delta/(2C)\le1$, because $D_k(\delta)\le D_k(\delta/2)$ and
+$D_k(\delta/2)>0$ by Proposition~\ref{prop:sliceratio}(i). Let
+$\delta'$ be dyadic. If $\delta'<\delta$, then $I_k(\delta')\le
+I_k(\delta)\le CD_k(\delta)\le CD_k(\delta')$. If $\delta'>\delta$,
+Proposition~\ref{prop:sliceratio}(ii) with $r=\delta/2$, $r'=\delta$ gives
+$D_k(\delta')\ge c^{e}D_k(\delta)$ with $e=\max(1,2(\delta'-\delta)/\delta)$,
+and
+\[
+I_k(\delta')\le I_k(\delta)+(\delta'-\delta)D_k(\delta)\le
+(C+\delta')\,c^{-e}D_k(\delta') .
+\]
+
+(iii) Suppose $\Upsilon_k\le\Upsilon$ for all $k$, and take a dyadic
+$\delta\le2t_0$. Then $2a_kn_0\ge2t_0\ge\delta$, and by (i)
+\[
+I_k(\delta)\le\frac{V_k}{c_-(\delta)}\le\frac{\Upsilon C_k(0)}{c_-(\delta)}
+\le\frac{\Upsilon\|g\|_\infty^2T_g^2}{c_-(\delta)}D_k(\delta) ,
+\]
+which is (Z$_{\mathrm{sl}}$). Conversely, assume (Z$_{\mathrm{sl}}$) at
+$\delta$ with the constant $C$, and take a dyadic $R\ge\max(2t_1,\delta)$.
+Then $D_k(2a_kn_1)\ge D_k(R)\ge c^eD_k(\delta)$ with $c=\delta/(2C)$ and
+$e=\max(1,2(R-\delta)/\delta)$, as in (ii), and by (i)
+\[
+\Upsilon_k=\frac{V_k}{C_k(0)}\le\frac{c_+(\delta)\,C\,c^{-e}}
+{(\frac34c_g\ell_I)^2}
+\]
+for all large $k$; the finitely many other $\Upsilon_k$ are finite, since
+$C_k(0)>0$. Condition (Z$_{\mathrm{sl}}$) involves $h$ and not $g$, and
+(M$_Z$) implies $(\mathrm N_u)$ by Proposition~\ref{prop:msplit}(iv).
+\end{proof}
+
+So for product packets (M$_Z$) is a statement about the slice field alone:
+the variance of $U_k$ averaged over a physical time $\delta$ is at most a
+constant times $D_k(\delta)/\delta$. Since $I_k(\delta)\ge a_kD_k(0)$, it
+contains the bound $a_k\Var U_k\le C\,D_k(\delta)$: the equal-time variance
+of the slice field may exceed its correlation at a physical separation by
+at most a factor of order $1/a_k$. In terms of the spectral measure
+$\mu_k$ of $\mathbb T_k$ at $u_k$, in energies $E=-a_k^{-1}\log\lambda$,
+$I_k(\delta)$ is the integral of $a_k(1-e^{-\delta E})/(1-e^{-a_kE})$, a
+weight between $(1-e^{-\delta E})/E$ and that plus $a_k$, and
+(Z$_{\mathrm{sl}}$) bounds it by $\int e^{-\delta E}d\mu_k$; it bounds the
+spectral weight at high energy, counted with the factor $1/E$, by the
+weight at bounded physical energy. By (ii) it contains a ratio bound for
+$D_k$, hence $(\mathrm N_0)$, and it is strictly stronger than
+$(\mathrm N_u)$: for the field of Proposition~\ref{prop:msplit}(vi),
+$\rho_k(u,\sigma)=e^{-m\sigma}$ while $a_kD_k(0)$, which contains
+$a_k\cdot a_k^{-5}a_k^6\sum_xh(a_kx)^2$, grows like $a_k^{-1}$, and
+$D_k(\delta)$ converges. Along the constant tunings of
+Proposition~\ref{prop:cubecompatible}(ii) the hypothesis of
+Theorem~\ref{thm:transfer} holds and (Z$_{\mathrm{sl}}$) fails, since
+$(\mathrm N_u)$ fails there. So (M$_Z$) reduces to $(\mathrm N_u)$ in one
+direction only, and no argument that uses (D) only through the hypothesis of
+Theorem~\ref{thm:transfer} gives it.
+
+\begin{proposition}\label{prop:mlocslice}
+Let $\delta$ and $k$ be as in Proposition~\textup{\ref{prop:mzslice}}.
+
+\textup{(i)} Let $g_1,g_2\in C_c(\R)$ be supported in an interval of length
+$L$, $y_1,y_2\in a_k\Z^3$ and $f_i=g_i\otimes h(\cdot-y_i)$. Then
+\[
+\bigl|\omega_k\bigl(A_k(f_1)A_k(f_2)\bigr)\bigr|\le K_L\,V_k\,
+\|g_1\|_\infty\|g_2\|_\infty ,
+\]
+with $K_L=2(L+\delta)\lceil(L+\delta)/\delta\rceil/c_-(\delta)$. So
+\textup{(M$_{\mathrm{loc}}$)} holds for $n=2$ on these products, along every
+sequence of couplings.
+
+\textup{(ii)} \textup{(M$_{\mathrm{loc}}$)} holds for $n=2$ if and only if
+the following holds for one dyadic $\delta>0$, and then it holds for every
+dyadic $\delta>0$:
+\begin{enumerate}[label=\textup{(M$_{\mathrm{sp}}$)},leftmargin=*]
+\item For every cube $Q_3\subset\R^3$ there is $C<\infty$ with
+$I^{h'}_k(\delta)\le C\,I_k(\delta)$ for all large $k$ and all
+$h'\in C_c(\R^3)$ supported in $Q_3$ with $\|h'\|_\infty\le1$.
+\end{enumerate}
+
+\textup{(iii)} \textup{(M$_{\mathrm{loc}}$)} holds if and only if for every
+even $n\ge2$ and every cube $Q$ there are $C_n(Q)$ and $k_0$ with
+$\omega_k(|A_k(f)|^n)\le C_n(Q)V_k^{n/2}\|f\|_\infty^n$ for $k\ge k_0$ and
+$f\in C_c(\R^4)$ supported in $Q$. The case $n=2$ is equivalent to
+\textup{(M$_{\mathrm{sp}}$)}, and the case $n$ implies the cases below it.
+
+\textup{(iv)} Let $m>0$, $q_k=e^{-ma_k}$, $\kappa(\mathbf z)=e^{-|\mathbf
+z|^2}$ on $\R^3$, and let $\psi_k$ be the centred Gaussian field on $\Z^4$
+with covariance
+\[
+q_k^{|x_0-y_0|}\Bigl(\kappa\bigl(a_k(\mathbf x-\mathbf y)\bigr)+a_k^{-1}
+(-1)^{\sum_{i=1}^3(x_i-y_i)}\Bigr),
+\]
+$A_k(f)=\sum_xa_k^4f(a_kx)\psi_k(x)$, and $f_0=g\otimes h$ a product packet as in
+Proposition~\textup{\ref{prop:sliceratio}} with $g,h\ge0$ nonzero and
+continuously differentiable. The law of $\psi_k$ is invariant
+under translations and $\Gamma$ and reflection positive for the time
+reflections through sites and bisecting links, its transfer matrix has gap
+$ma_k$, $\rho_k(u,\sigma)=e^{-m\sigma}$ for all $u,\sigma$, so \textup{(RC)}
+holds for every $\sigma_0$, and \textup{(M$_Z$)} holds. But
+\textup{(M$_{\mathrm{sp}}$)} fails, and \textup{(M$_{\mathrm{loc}}$)} and
+\textup{(M)} fail for $n=2$.
+
+\textup{(v)} Let $m>0$, $q_k=e^{-ma_k}$, $\epsilon_k=a_k$, let
+$(\xi_n)_{n\in\Z}$ be the stationary Markov chain on $\{-1,0,1\}$ with the
+law $\pi$ of Remark~\textup{\ref{rem:markov}} at $\epsilon=\epsilon_k$ and
+transition operator $P=q_kI+(1-q_k)\Pi$, and $X_n=\xi_n/\sqrt{\epsilon_k}$.
+Let $\psi_k(x)=X_{x_0}$, and $A_k$, $f_0$ as in \textup{(iv)}. This field has the properties listed in \textup{(iv)}, and
+\textup{(M$_{\mathrm{sp}}$)} holds; but $\omega_k(A_k^4)/V_k^2\to\infty$, so
+\textup{(M$_{\mathrm{loc}}$)} and \textup{(M)} fail for $n=4$.
+\end{proposition}
+
+\begin{proof}
+(i) Since $\Phi$ is real, $A_k(\bar f)=\overline{A_k(f)}$, so by the
+Cauchy--Schwarz inequality
+\[
+\bigl|\omega_k\bigl(A_k(f_1)A_k(f_2)\bigr)\bigr|\le\prod_{i=1}^2
+\omega_k\bigl(|A_k(f_i)|^2\bigr)^{1/2},
+\]
+and it suffices to bound $\omega_k(|A_k(f)|^2)$ for $f=g\otimes h(\cdot-y)$
+by $K_LV_k\|g\|_\infty^2$. By spatial translation invariance $y$ may be
+taken to be $0$. As in the proof of Proposition~\ref{prop:mzslice}(i),
+$\omega_k(|A_k(f)|^2)$ is $B$ of Lemma~\ref{lem:timekernel} with
+$v_n=a_kg(a_kn)u_k$, nonzero for $n$ in a set of $N\le L/a_k+1$ consecutive
+integers, so
+\[
+\begin{split}
+\omega_k(|A_k(f)|^2)&\le2\|g\|_\infty^2(a_kN)I_k(a_kN)\\
+&\le2\|g\|_\infty^2(L+\delta)\Bigl\lceil\frac{L+\delta}\delta\Bigr\rceil
+I_k(\delta),
+\end{split}
+\]
+and Proposition~\ref{prop:mzslice}(i) gives the claim.
+
+(ii) Independence of $\delta$: for dyadic $\delta'>\delta$,
+$I^{h'}_k(\delta')\le\lceil\delta'/\delta\rceil I^{h'}_k(\delta)\le
+\lceil\delta'/\delta\rceil C\,I_k(\delta')$, and for $\delta'<\delta$,
+$I^{h'}_k(\delta')\le I^{h'}_k(\delta)\le C\,I_k(\delta)\le C\lceil\delta/
+\delta'\rceil I_k(\delta')$.
+Assume (M$_{\mathrm{sp}}$), and let $f\in C_c(\R^4)$ be supported in a cube
+$Q=[t_Q,t_Q+L]\times Q_3$. As in (i) it suffices to bound
+$\omega_k(|A_k(f)|^2)$. By time translation invariance $A_k(f)=\sum_n\tau_n
+(a_kU^{h_n}_k)$ with $h_n=f(a_kn,\cdot)$, supported in $Q_3$ with
+$\|h_n\|_\infty\le\|f\|_\infty$, and nonzero for $n$ in a set of $N\le
+L/a_k+1$ consecutive integers. The identity of the proof of
+Proposition~\ref{prop:msplit}(iv) and translation invariance give
+$\omega_k(\bar U^{h_n}_k\tau_jU^{h_{n'}}_k)=\ip{\Psi_{U^{h_n}_k}}{\mathbb
+T_k^j\Psi_{U^{h_{n'}}_k}}$ for $j\ge0$, so $\omega_k(|A_k(f)|^2)$ is $B$ of
+Lemma~\ref{lem:timekernel} with $v_n=a_k\Psi_{U^{h_n}_k}$, and
+\[
+\begin{split}
+\omega_k(|A_k(f)|^2)&\le2(a_kN)\max_nI^{h_n}_k(a_kN)\\
+&\le\frac{2(L+\delta)C}{c_-(\delta)}\Bigl\lceil\frac{L+\delta}\delta
+\Bigr\rceil\|f\|_\infty^2V_k ,
+\end{split}
+\]
+by (iii) of the lemma, (M$_{\mathrm{sp}}$) and
+Proposition~\ref{prop:mzslice}(i). Conversely, let $g_*\in C_c(\R)$ satisfy
+$0\le g_*\le1$, $g_*=0$ outside $[0,1]$ and $g_*=1$ on $[\frac14,\frac34]$,
+and let $h'$ be as in (M$_{\mathrm{sp}}$). For $a_k\le\frac14$ the $n$ with
+$a_kn\in[\frac14,\frac34]$ are $M'\ge1/(4a_k)$ consecutive integers, and
+Lemma~\ref{lem:timekernel}(ii) with $v_n=a_kg_*(a_kn)\Psi_{U^{h'}_k}$ and
+$\eta=a_k$ gives, with $b=a_k\lceil M'/2\rceil\ge\frac18$,
+\[
+\omega_k\bigl(|A_k(g_*\otimes h')|^2\bigr)\ge a_kM'\,I^{h'}_k(b)\ge
+\frac{I^{h'}_k(\delta)}{4\lceil8\delta\rceil} .
+\]
+Since $A_k(g_*\otimes\bar h')=\overline{A_k(g_*\otimes h')}$,
+(M$_{\mathrm{loc}}$) for $n=2$ on a cube $Q\supseteq[0,1]\times Q_3$ bounds
+the left side by $M^{\mathrm{loc}}_2(Q)V_k\le M^{\mathrm{loc}}_2(Q)c_+(\delta)
+I_k(\delta)$, which is (M$_{\mathrm{sp}}$).
+
+(iii) The bounds are (M$_{\mathrm{loc}}$) with $f_j$ equal to $\bar f$ and
+$f$ alternately, since $A_k(\bar f)=\overline{A_k(f)}$. Conversely, for
+$f_1,\dots,f_n$ supported in $Q$ and an even $n'\ge n$, H\"older's
+inequality gives $|\omega_k(\prod_jA_k(f_j))|\le\prod_j\omega_k(|A_k(f_j)|
+^{n'})^{1/n'}$. The case $n=2$ is (M$_{\mathrm{loc}}$) for $n=2$ by the
+Cauchy--Schwarz inequality, hence (M$_{\mathrm{sp}}$) by (ii), and the last
+claim is the monotonicity of $L^n$ norms for the probability measure
+$\omega_k$.
+
+(iv) The spatial kernel is the sum of two positive definite functions on
+$\Z^3$, the first because the Fourier transform of $\kappa$ is positive, the
+second because it is $\varepsilon_{\mathbf x}\varepsilon_{\mathbf y}$ with
+$\varepsilon_{\mathbf x}=(-1)^{x_1+x_2+x_3}$; both are invariant under the
+signed permutations of the spatial coordinates. The field is the stationary
+Markov chain of the proof of Proposition~\ref{prop:osobstruction}(a), with
+$\gamma$ the Gaussian law of this spatial covariance, which gives the
+invariance, reflection positivity and the gap, and as in
+Proposition~\ref{prop:msplit}(vi) the time factor gives
+$\rho_k(u,\sigma)=e^{-m\sigma}$. Put $S_k=\sum_{\mathbf x}a_k^3h(a_k
+\mathbf x)\varepsilon_{\mathbf x}$. Grouping $\mathbf x$ with $x_1$ even with
+$\mathbf x+e_1$, $|S_k|\le a_k\|\partial_1h\|_\infty(L_h+2a_k)^3$, where
+$L_h$ is the side of a cube containing the support of $h$. The part of $V_k$
+from the second term of the kernel is
+\[
+a_k^{-1}\sum_{n,n'}a_k^2g(a_kn)g(a_kn')q_k^{|n-n'|}S_k^2\le a_k^{-1}
+\Bigl(a_k\sum_ng(a_kn)\Bigr)^2S_k^2 ,
+\]
+which tends to $0$, and the same holds for $C_k(0)$. The parts from $\kappa$
+are Riemann sums converging to
+\[
+\begin{split}
+&\iint f_0(x)f_0(y)e^{-m|x_0-y_0|}\kappa(\mathbf x-\mathbf y)\,dx\,dy>0,\\
+&\iint g(t)g(s)e^{-m(t+s)}dt\,ds\iint h(\mathbf x)h(\mathbf y)
+\kappa(\mathbf x-\mathbf y)\,d\mathbf x\,d\mathbf y>0 .
+\end{split}
+\]
+So $\Upsilon_k$ converges, which is (M$_Z$). Let
+\[
+f_k(t,\mathbf x)=g(t)h(\mathbf x)\cos\bigl(\pi(x_1+x_2+x_3)/a_k\bigr),
+\]
+a continuous function supported in the support of $f_0$, with
+$\|f_k\|_\infty\le\|g\|_\infty\|h\|_\infty$, equal to $g(a_kx_0)h(a_k
+\mathbf x)\varepsilon_{\mathbf x}$ at the point $a_kx$. Both terms of the kernel are positive definite, so
+\[
+\omega_k\bigl(A_k(f_k)^2\bigr)\ge a_k^{-1}\sum_{n,n'}a_k^2g(a_kn)g(a_kn')
+q_k^{|n-n'|}\Bigl(\sum_{\mathbf x}a_k^3h(a_k\mathbf x)\Bigr)^2 ,
+\]
+and the factor of $a_k^{-1}$ on the right converges to
+\[
+\iint g(t)g(s)e^{-m|t-s|}dt\,ds\,\Bigl(\int h\Bigr)^2>0 ,
+\]
+while $V_k$ converges. So (M$_{\mathrm{loc}}$) fails for $n=2$, and
+with it (M$_{\mathrm{sp}}$), by (ii), and (M), by
+Proposition~\ref{prop:msplit}(ii).
+
+(v) $P=\Pi+q_k(I-\Pi)$ is symmetric on $L^2(\pi)$ with spectrum
+$\{1,q_k\}$ and $1$ simple, and $P\ge0$; the argument of the proof of
+Proposition~\ref{prop:osobstruction}(a) gives reflection positivity, and the
+gap is $ma_k$. The field does not depend on the spatial coordinates, which
+gives the invariance. Since $X\perp1$ and $\pi(X^2)=1$, $P^jX=q_k^jX$ and
+the covariance is $q_k^{|x_0-y_0|}$, that of
+Proposition~\ref{prop:osobstruction}(b); so $\rho_k(u,\sigma)=e^{-m\sigma}$,
+and $V_k$ and $C_k(0)$ converge to positive limits, which gives (M$_Z$).
+Further $U^{h'}_k=(\sum_{\mathbf x}a_k^3h'(a_k\mathbf x))X_0$, so
+$I^{h'}_k(\delta)/I_k(\delta)=|\sum a_k^3h'(a_k\mathbf x)|^2/(\sum a_k^3
+h(a_k\mathbf x))^2$, which is bounded for $h'$ as in (M$_{\mathrm{sp}}$),
+since the denominator converges to $(\int h)^2>0$. For times $s_1\le s_2\le
+s_3\le s_4$ with $j_i=s_{i+1}-s_i$, the Markov property and $P^j=\Pi+
+q_k^j(I-\Pi)$ give, as in Remark~\ref{rem:markov} and with $X^3=X/\epsilon$,
+\[
+\E\Bigl[\prod_{i=1}^4X_{s_i}\Bigr]=q_k^{j_1+j_3}\bigl(q_k^{j_2}/\epsilon_k
++1-q_k^{j_2}\bigr)\ge\epsilon_k^{-1}q_k^{s_4-s_1} .
+\]
+With $F_n=a_k^3\sum_{\mathbf x}f_0(a_kn,a_k\mathbf x)\ge0$, $A_k=\sum_n
+a_kF_nX_n$, and $F_n=0$ unless $a_kn\in[t_0,t_1]$, so
+\[
+\omega_k(A_k^4)\ge\epsilon_k^{-1}e^{-m(t_1-t_0)}\Bigl(a_k\sum_nF_n\Bigr)^4 ,
+\]
+and $a_k\sum_nF_n\to\int f_0>0$. Since $\epsilon_k=a_k\to0$ and $V_k$
+converges, the ratio diverges.
+\end{proof}
+
+Part (i) is the part of (M$_{\mathrm{loc}}$) that the positivity of the
+transfer matrix gives: test functions in time, on both sides of the
+reflection plane and of either sign, cost no more than the packet $f_0$, for
+every state with a positive transfer matrix. What remains for $n=2$ is
+(M$_{\mathrm{sp}}$), a comparison between spatial profiles at one spacing,
+which involves neither the reflection nor the tuning. Example (iv) has a
+spatial mode at the lattice scale whose variance diverges, and the time
+structure of an exact Markov field; example (v) has no spatial structure
+and four-point functions of order $1/\epsilon_k$, as in
+Remark~\ref{rem:markov}. For a Gaussian field the linear heat flow in space at the flow time
+$\tau/a_k^2$ multiplies the variance of the lattice-scale mode of (iv) by
+$e^{-c\tau/a_k^2}$, with $c>0$ fixed by the normalisation of the flow, and
+removes the divergence there. For the gauge field the flow does not do this
+configuration by configuration.
+
+\begin{proposition}\label{prop:centralpattern}
+Let $G=\SU(N)$, $N\ge2$, $\zeta=e^{2\pi i/N}$ and $c_N=N(1-\cos(2\pi/N))$.
+Let $m:\Z\to\Z$ satisfy $m(j+1)-m(j)=1$ for $j\equiv0,1$ and
+$m(j+1)-m(j)=0$ for $j\equiv2,3$ modulo $4$, and let $U^\sharp$ be the
+configuration with all temporal links equal to $1$ and spatial links
+\[
+U^\sharp_{(x,x+e_1)}=U^\sharp_{(x,x+e_3)}=1,\qquad
+U^\sharp_{(x,x+e_2)}=\zeta^{m(x_1)} .
+\]
+
+\textup{(i)} The spatial plaquettes of $U^\sharp$ in the plane of $e_1,e_2$
+with base point $x$ are $\zeta^{\pm1}$ for $x_1\equiv0,1$ and $1$ for
+$x_1\equiv2,3$ modulo $4$, all other spatial plaquettes are $1$, and
+$\Phi_s(gU^\sharp)=gU^\sharp$ for every gauge transformation $g$ and every
+$s\in\R$.
+
+\textup{(ii)} Let $\Phi$ be the sum of $N-\ReTr U_p$ over the twelve spatial
+plaquettes with a corner at $0$. Then for all $x$ and $s$
+\[
+\Phi_x\circ\Phi_s(U^\sharp)=2c_N\Bigl(1+\cos\frac{\pi(x_1-1)}2\Bigr).
+\]
+
+\textup{(iii)} Let $g\in C_c(\R)$ and $h\in C_c(\R^3)$ be nonnegative and
+$h^\sharp_k(\mathbf x)=h(\mathbf x)\cos(\pi(x_1/a_k-1)/2)$, and let
+$\omega$ be as in Proposition~\textup{\ref{prop:stationary}(iii)}. At every
+flow time the $\omega$-essential supremum and infimum of $A_k(g\otimes
+h^\sharp_k)$ differ by at least
+\[
+4c_N\,a_k^4\sum_ng(a_kn)\!\!\sum_{\mathbf x:\,x_1\equiv1\ (4)}\!\!h(a_k
+\mathbf x) ,
+\]
+which converges to $c_N\int g\int h$. For $A_k(g\otimes h)$ the
+difference is at least
+\[
+12c_Na_k^4\sum_ng(a_kn)\sum_{\mathbf x}h(a_k\mathbf x) ,
+\]
+which converges to $12c_N\int g\int h$.
+\end{proposition}
+
+\begin{proof}
+(i) With the plaquette formula of the proof of
+Proposition~\ref{prop:stationary}(i), the plaquette in the plane of $e_1,e_2$
+at $x$ is $\zeta^{m(x_1+1)-m(x_1)}$; in the plane of $e_1,e_3$ all four links
+are $1$, and in the plane of $e_2,e_3$ it is $\zeta^{m(x_1)}\zeta^{-m(x_1)}
+=1$, because $x$ and $x+e_3$ have the same first coordinate. All links are
+central, and the computation of the proof of
+Proposition~\ref{prop:stationary}(i) shows that the gradient in the flow
+equation vanishes; uniqueness and gauge covariance give the rest.
+
+(ii) Only the four plaquettes of the plane of $e_1,e_2$ with a corner at
+$x$ can be nontrivial; their base points have first coordinates $x_1$ and
+$x_1-1$, twice each. So $\Phi_x(U^\sharp)=2c_N(d(x_1)+d(x_1-1))$ with
+$d(j)=m(j+1)-m(j)$, which is $2c_N$ times $1,2,1,0$ for $x_1\equiv0,1,2,3$,
+and the flow does not move $U^\sharp$.
+
+(iii) With $c_x=\cos(\pi(x_1-1)/2)\in\{1,0,-1,0\}$ for $x_1\equiv1,2,3,0$,
+\[
+\begin{split}
+&\sum_xa_k^4g(a_kx_0)h^\sharp_k(a_k\mathbf x)\,\Phi_x\circ\Phi_s(U^\sharp)\\
+&\qquad=2c_N\sum_xa_k^4g(a_kx_0)h(a_k\mathbf x)(c_x+c_x^2) ,
+\end{split}
+\]
+and $c_x+c_x^2$ is $2$ for $x_1\equiv1$ and $0$ otherwise; at the
+configuration $1$ the sum is $0$. The proof of
+Proposition~\ref{prop:stationary}(iii) applies with $U^\sharp$ in place of
+$U^*$; the centring constant cancels in the difference. The points with
+$x_1\equiv1$ modulo $4$ form a sublattice of index four, which gives the
+limit. The second statement is Proposition~\ref{prop:stationary}(iii).
+\end{proof}
+
+At every flow time the packet with a spatial profile oscillating at the
+lattice scale has, at the stationary configurations, a range of values of
+the same order as the smooth packet, the ratio of the two lower bounds
+tending to $1/12$. A proof of (M$_{\mathrm{sp}}$) by way of the flow has
+therefore to bound the probability of the configurations near those with
+nontrivial central plaquettes, uniformly along the tuning; this is an
+estimate on large fields of the Wilson measure at the couplings $\beta_k$,
+of the kind of Section~\ref{ssec:largefields}, compared with the size of
+$I_k(\delta)$, which is not known.
+
+\begin{remark}\label{rem:opensplit}
+For the flowed fields along a tuning, with a product packet $f_0=g\otimes
+h$, the five statements stand as follows.
+
+(M$_{\mathrm{loc}}$): the case $n=1$ holds since the packets are centred,
+and the case $n=2$ holds on the products of time profiles with the lattice
+translates of $h$ (Proposition~\ref{prop:mlocslice}(i)), for every state with
+a positive transfer matrix. Not proved: (M$_{\mathrm{sp}}$), equivalent to
+the case $n=2$, and the bounds $\omega_k(|A_k(f)|^n)\le C_n(Q)V_k^{n/2}
+\|f\|_\infty^n$ for even $n\ge4$, which with it are equivalent to
+(M$_{\mathrm{loc}}$). Both concern one spacing at a time, without
+reflection; they are not consequences of the gap, $(\mathrm N_u)$, (RC),
+(M$_Z$), reflection positivity and the symmetry $\Gamma$, by
+Proposition~\ref{prop:mlocslice}(iv), (v), so no argument that uses (D)
+only through the transfer-matrix gap, together with $(\mathrm N_u)$, gives
+them.
+
+(M$_Z$): equivalent to (Z$_{\mathrm{sl}}$), $I_k(\delta)\le C\,D_k(\delta)$
+for the slice field, and independent of $g$
+(Proposition~\ref{prop:mzslice}). Not proved. It implies $(\mathrm N_u)$ for
+every $u$; it is not implied by $(\mathrm N_u)$, the gap and the lattice
+symmetries (Proposition~\ref{prop:msplit}(vi)), nor by the hypothesis of
+Theorem~\ref{thm:transfer} (Proposition~\ref{prop:cubecompatible}(ii)). The
+missing estimate is a bound on the high-energy spectral weight of the slice
+field, with the factor $1/E$, and on $a_k\Var U_k$, by its correlation at a
+physical separation.
+
+(W): equivalent to $\Delta^{E_{12}}_k(f_1,\dots,f_n)\to0$ for all $n$ and
+$f_j\in C^\infty_c(\R^4)$ (Proposition~\ref{prop:wardform}(ii)); a bound
+$C(f_1,\dots,f_n)a_k^p$ with $p>0$ suffices. Not proved. Example (a) of
+Proposition~\ref{prop:osobstruction} has the gap in every direction, (RC),
+(M), hence (M$_{\mathrm{sp}}$) and (Z$_{\mathrm{sl}}$), and (U), and not
+(W); so no argument that uses (D) only through the gap, together with
+$(\mathrm N_u)$ and (M), gives (W). The lattice
+symmetry gives the cancellation of $\Delta^{E_{12}}_k$ only on average over
+the angle.
+
+(U1) and (U2), given (RC): (U1) is $\delta_k\to0$, for which
+$\sum_k|\delta_k|<\infty$ on a set with dense span suffices
+(Proposition~\ref{prop:tuned}(iii)), and (U2) is the total disconnectedness
+of $\mathfrak L$. Not proved. Example (iv) of Proposition~\ref{prop:tuned}
+and its alternating variant satisfy (RC), (M) and (W), each with one of
+(U1), (U2) and not the other, so neither follows from the gap,
+$(\mathrm N_u)$, (RC), (M) and (W); (U1) compares two spacings, which no
+statement at one spacing contains.
+
+The examples are Gaussian and Markov fields, not lattice gauge theories. They
+show that a proof of any of the four open statements has to use properties
+of the Wilson measure along the tuning beyond translation and $\Gamma$
+invariance, reflection positivity, the transfer-matrix gap, the
+normalisation (RC) and the parts of (M) proved or assumed here.
+\end{remark}
+
 \emph{Status of (M), (W) and (U).} None of the three statements is proved.
 Proposition~\ref{prop:msplit}(i)--(iii) uses translation and
 $\vartheta$-invariance and reflection positivity of the states and the
@@ -7031,10 +7564,18 @@ Proposition~\ref{prop:fourflow} concerns the free field and limits of
 families. Proposition~\ref{prop:tuned}(i) assumes (RC), whose existence
 along a tuning is not proved and which contains $(\mathrm N_0)$, and the
 hypothesis of Theorem~\ref{thm:transfer} for the bound on $m_*$; parts
-(ii) and (iii) assume (M). What remains open is (M$_{\mathrm{loc}}$) and
-(M$_Z$), the second of which contains $(\mathrm N_0)$ for product packets;
-the Ward identity $\Delta^X_k\to0$ for one $X\in\mathfrak{so}(3)_{\mathrm
-{sp}}$; and, given (RC), (U1) and (U2).
+(ii) and (iii) assume (M). Lemma~\ref{lem:timekernel} and
+Propositions~\ref{prop:mzslice} and~\ref{prop:mlocslice}(i)--(iii) use
+translation and $\vartheta$-invariance, reflection positivity and the
+positivity of the transfer matrix, and no hypothesis on the tuning. What
+remains open is (M$_{\mathrm{loc}}$), whose time direction for $n=2$ is
+Proposition~\ref{prop:mlocslice}(i) and whose remainder is the spatial
+comparison (M$_{\mathrm{sp}}$) and the bounds of
+Proposition~\ref{prop:mlocslice}(iii) for even $n\ge4$; (M$_Z$), which for
+product packets is the short-time bound (Z$_{\mathrm{sl}}$) on the slice
+field and is strictly stronger than $(\mathrm N_0)$; the Ward identity
+$\Delta^X_k\to0$ for one $X\in\mathfrak{so}(3)_{\mathrm{sp}}$; and, given
+(RC), (U1) and (U2) (Remark~\ref{rem:opensplit}).
 
 \subsection{Tuning by the ratio}\label{ssec:ratiotuning}
 
@@ -20422,8 +20963,11 @@ a loop remainder is bounded by a covariant plaquette form plus a Euclidean
 term of order $\kappa$ (Proposition~\ref{prop:curvedloops}). On the window
 the Euclidean term costs a factor of order $\kappa n^2$
 (Lemma~\ref{lem:smallcurv}), and this order is attained
-(Proposition~\ref{prop:curvedsharp}). Norms of matrices in $\U(N)$ are
-operator norms in this part.
+(Proposition~\ref{prop:curvedsharp}). Measured by the action of the
+background on the window, the loss is of order $\lVert\kappa\rVert_2$ for
+every $n$, and this order is attained as well
+(Proposition~\ref{prop:actionloops}, Corollary~\ref{cor:actionsharp}).
+Norms of matrices in $\U(N)$ are operator norms in this part.
 
 For a path $\gamma$ and $w\in\g^K$, extended by zero, let
 \[
@@ -20815,6 +21359,477 @@ $\varsigma=-1$ it changes sign near $\kappa(n+1)^2=23$, below the
 threshold $31$ of part (ii).}
 \label{fig:curvedsharp}
 \end{figure}
+
+\emph{Curvature in the action.} The loss $\kappa n^2$ of
+Proposition~\ref{prop:curvedloops}(iii) comes from the supremum $\kappa$ of
+the curvature and from the gap $C_n$ of the window in $\ell^2$. In four
+dimensions the Euclidean term can be paid instead with the $\ell^2$ norm of
+the curvature, the square root of the Wilson action of the background, and
+an $\ell^4$ bound on the field, which holds on the window with a constant
+independent of $n$. For a plaquette $p$ write $\kappa_p=\lVert I-V_{0,p}
+\rVert$, the operator norm, which does not depend on the corner from which
+$p$ is read or on its orientation, and put
+\[
+\lVert\kappa\rVert_2=\Bigl(\sum_p\kappa_p^2\Bigr)^{1/2}\le\Bigl(2N\sum_p
+s(V_{0,p})\Bigr)^{1/2},
+\]
+the sums over the plaquettes with their corners in the box $\Lambda'=
+\prod_\nu[a_\nu-1,a_\nu+n]$ of Lemma~\ref{lem:smallcurv}; the inequality is
+$\kappa_p\le\lVert I-V_{0,p}\rVert_{HS}$. For $w\in\g^K$ put $\lvert w
+\rvert_4=(\sum_k\lVert w_k\rVert^4)^{1/4}$. As in the proof of
+Lemma~\ref{lem:windowgap}, a link $(y,\mu)\in K$ is inner when $y_\nu>a_\nu$
+for every $\nu\ne\mu$, and a face link otherwise.
+
+The $\ell^4$ bound rests on an inequality of Gagliardo type. For finite
+sets $X_1,\dots,X_d$, $d\ge2$, and $x\in\prod_iX_i$, let $\hat x_i$ be $x$
+with its $i$-th coordinate removed. If $F_i\ge0$ are functions of $\hat
+x_i$, then
+\begin{equation}\label{eq:gagliardo}
+\sum_x\prod_{i=1}^dF_i(\hat x_i)^{\frac1{d-1}}\le\prod_{i=1}^d\Bigl(
+\sum_{\hat x_i}F_i(\hat x_i)\Bigr)^{\frac1{d-1}}.
+\end{equation}
+For $d=2$ both sides equal $\sum F_1\sum F_2$. For $d\ge3$, sum first over
+$x_d$, on which $F_d$ does not depend. H\"older's inequality with $d-1$
+factors bounds $\sum_{x_d}\prod_{i<d}F_i^{1/(d-1)}$ by $\prod_{i<d}
+G_i^{1/(d-1)}$, where $G_i=\sum_{x_d}F_i$ does not depend on $x_i$ or
+$x_d$. H\"older's inequality with the exponents $d-1$ and $(d-1)/(d-2)$ in
+the remaining variables, and~\eqref{eq:gagliardo} for $d-1$ applied to the
+$G_i$, give the claim, since $\sum G_i=\sum F_i$.
+
+\begin{lemma}[a Sobolev inequality on the window]\label{lem:windowsobolev}
+Let $n\ge2$, fix $\mu$, and let $B_\mu$ be the set of $y$ with $a_\mu\le
+y_\mu\le a_\mu+n-1$ and $a_\nu+1\le y_\nu\le a_\nu+n-1$ for $\nu\ne\mu$. For
+$f\colon B_\mu\to[0,\infty)$, extended by zero, let $E_\mu(f)$ be the sum
+of $(f(y+e_\nu)-f(y))^2$ over the pairs $(y,y+e_\nu)$, $\nu\ne\mu$, that
+meet $B_\mu$, and over the pairs $(y,y+e_\mu)$ in $B_\mu$. Then
+\[
+\Bigl(\sum_yf(y)^4\Bigr)^{1/2}\le c_S\,E_\mu(f),\qquad c_S=\Bigl(\frac{27}
+{32}\Bigr)^{1/2}<0.9186 .
+\]
+\end{lemma}
+
+\begin{proof}
+Put $g=f^3$, $\Phi=(\sum f^4)^{1/2}$, $a_\nu^2$ for the part of
+$E_\mu(f)$ in the direction $\nu$, and $b=a_\mu$. In a direction $\nu\ne
+\mu$ a line of $B_\mu$ has $n-1$ points and $g$ vanishes at its two ends
+outside $B_\mu$. Summing the differences of $g$ from either end gives $g(y)
+\le F_\nu(\hat y_\nu)=\frac12h_\nu(\hat y_\nu)$, where $h_\nu$ is the sum of
+$\lvert g(z+e_\nu)-g(z)\rvert$ over the $n$ pairs of the line. In the
+direction $\mu$ a line has $n$ points, and $g(y)\le g(z)+h_\mu$ for every
+$z$ on it, where $h_\mu$ is the sum over its $n-1$ pairs; averaging over
+$z$ gives $g(y)\le F_\mu(\hat y_\mu)=\frac1n\sum_zg(z)+h_\mu(\hat y_\mu)$.
+
+For $s,t\ge0$, $\lvert s^3-t^3\rvert\le\frac32\lvert s-t\rvert(s^2+t^2)$,
+and each point of a line is an end of at most two of its pairs. By
+Cauchy--Schwarz and $(s^2+t^2)^2\le2(s^4+t^4)$, the sum of $\lvert g(z+e_
+\nu)-g(z)\rvert$ over all pairs in the direction $\nu$ is at most
+\[
+\frac32a_\nu\Bigl(\sum2\bigl(f(z)^4+f(z+e_\nu)^4\bigr)\Bigr)^{1/2}\le3a_\nu
+\Phi .
+\]
+Fix $\nu_0\ne\mu$. The Dirichlet Laplacian on a line of $n-1$ points has
+least eigenvalue $4\sin^2(\pi/2n)\ge4/n^2$, so $\sum f^2\le\frac{n^2}4
+a_{\nu_0}^2$, and $\frac1n\sum g\le\frac1n(\sum f^2)^{1/2}\Phi\le\frac12
+a_{\nu_0}\Phi$. Hence $\sum F_\nu\le\frac32a_\nu\Phi$ for $\nu\ne\mu$ and
+$\sum F_\mu\le(\frac12a_{\nu_0}+3b)\Phi$. Since $f^4=g^{4/3}\le\prod_\rho
+F_\rho^{1/3}$, \eqref{eq:gagliardo} with $d=4$ gives
+\[
+\Phi^2\le\Phi^{4/3}\Bigl(\frac{27}8\,a_{\nu_0}a_{\nu_1}a_{\nu_2}\bigl(
+\tfrac12a_{\nu_0}+3b\bigr)\Bigr)^{1/3},
+\]
+where $\{\nu_0,\nu_1,\nu_2\}$ are the directions other than $\mu$. Let $E=
+E_\mu(f)$. Then $a_{\nu_0}^2a_{\nu_1}a_{\nu_2}\le\frac12a_{\nu_0}^2(a_{\nu_1}^2
++a_{\nu_2}^2)\le\frac18E^2$ and $a_{\nu_0}a_{\nu_1}a_{\nu_2}b\le(E/4)^2$, so
+$\Phi^2\le\frac{27}8(\frac1{16}+\frac3{16})E^2=\frac{27}{32}E^2$.
+\end{proof}
+
+For $v\in\g^K$ and $x$ with $(x,\mu)\in K$, let
+\[
+(D_\nu v_\mu)(x)=v_{x+e_\nu,\mu}-\operatorname{Ad}\bigl(V_{0,x+e_\mu,\nu}^{
+-1}\bigr)v_{x,\mu},
+\]
+with $v$ extended by zero off $K$. The term $v_{x,\mu}$ is the coordinate
+of $V_{0,x,\mu}e^{v_{x,\mu}}$ and transforms at $x+e_\mu$, so $D_\nu v_\mu$
+compares two values at $x+e_\mu+e_\nu$; it is the covariant difference of
+$v_\mu$ in the direction $\nu$. Since $\operatorname{Ad}$ is isometric,
+\begin{equation}\label{eq:kato}
+\bigl\lvert\lVert v_{x+e_\nu,\mu}\rVert-\lVert v_{x,\mu}\rVert\bigr\rvert
+\le\lVert(D_\nu v_\mu)(x)\rVert .
+\end{equation}
+
+\begin{lemma}[the covariant Gaffney inequality]\label{lem:covgaffney}
+Let $n\ge2$ and let $v\in\g^K$ vanish on the face links. Let $E_\mu$ be as
+in Lemma~\ref{lem:windowsobolev}, $f_\mu(y)=\lVert v_{y,\mu}\rVert$, and for
+$k=(y,\mu)$ let $c_k=\sum_{\nu\ne\mu}\kappa_{p(y;\mu,\nu)}$ if $y\in
+W^\circ$ and $c_k=0$ otherwise, where $p(y;\mu,\nu)$ is the plaquette at
+$y$ in the plane $\{\mu,\nu\}$. Then
+\[
+\sum_\mu E_\mu(f_\mu)\le\sum_{P\text{ inner}}\lVert Z_P(v)\rVert^2+\lvert
+d_{V_0}^*v\rvert^2+2\sum_kc_k\lVert v_k\rVert^2,
+\]
+and $\sum_kc_k^2\le6\lVert\kappa\rVert_2^2$.
+\end{lemma}
+
+\begin{proof}
+The support of $v$ is $\bigcup_\mu B_\mu\times\{\mu\}$. For $\nu\ne\mu$ the
+pairs $(x,x+e_\nu)$ of $E_\mu$ are those with $x$ the base of an inner
+plaquette in the plane $\{\mu,\nu\}$, and the pairs $(y-e_\mu,y)$ of
+$E_\mu$ in the direction $\mu$ are those with $y\in W^\circ$. By
+\eqref{eq:kato}, $\sum_\mu E_\mu(f_\mu)$ is at most the covariant energy
+$\mathcal E(v)$, the sum of $\lVert(D_\nu v_\mu)(x)\rVert^2$ over the same
+pairs.
+
+Let $P$ be the plaquette at $x$ in the plane $\{\mu,\nu\}$, $\mu<\nu$, with
+links $k_1=(x,\mu)$, $k_2=(x+e_\mu,\nu)$, $k_3=(x+e_\nu,\mu)$, $k_4=(x,
+\nu)$, and write $V_i=V_{0,k_i}$. By~\eqref{eq:pathexp},
+\[
+Z_P(v)=\operatorname{Ad}(V_4V_3)\bigl(\operatorname{Ad}(V_2^{-1})v_{k_1}+
+v_{k_2}-v_{k_3}-\operatorname{Ad}(V_3^{-1})v_{k_4}\bigr),
+\]
+so $\lVert Z_P(v)\rVert=\lVert(D_\nu v_\mu)(x)-(D_\mu v_\nu)(x)\rVert$.
+Also $(d_{V_0}^*v)_y=\sum_\mu\operatorname{Ad}(V_{0,y,\mu})(D_\mu v_\mu)(y-
+e_\mu)$ for $y\in W^\circ$. Expanding the squares,
+\[
+\sum_{P\text{ inner}}\lVert Z_P(v)\rVert^2+\lvert d_{V_0}^*v\rvert^2=
+\mathcal E(v)+2\sum_{\mu<\nu}(\Sigma_{\mu\nu}-\Sigma'_{\mu\nu}),
+\]
+where, with $a(x)=v_{x,\mu}$, $b(x)=v_{x,\nu}$, $\alpha_y=\operatorname
+{Ad}(V_{0,y,\mu})$ and $\beta_y=\operatorname{Ad}(V_{0,y,\nu})$,
+\[
+\begin{split}
+\Sigma_{\mu\nu}&=\sum_{y\in W^\circ}\bigl\langle\alpha_ya(y)-a(y-e_\mu),
+\beta_yb(y)-b(y-e_\nu)\bigr\rangle,\\
+\Sigma'_{\mu\nu}&=\sum_{P\text{ inner}}\bigl\langle(D_\nu v_\mu)(x),(D_\mu
+v_\nu)(x)\bigr\rangle .
+\end{split}
+\]
+Each sum has four terms per index. Since $\alpha_{x+e_\nu}=\operatorname
+{Ad}(V_3)$ and $\beta_{x+e_\mu}=\operatorname{Ad}(V_2)$, three terms of
+$\Sigma$ equal three terms of $\Sigma'$, with the same signs:
+\[
+\begin{aligned}
+\ip{\alpha_ya(y)}{b(y-e_\nu)}&=\ip{a(x+e_\nu)}{\alpha_y^{-1}b(x)},\\
+\ip{a(y-e_\mu)}{\beta_yb(y)}&=\ip{\beta_y^{-1}a(x)}{b(x+e_\mu)},\\
+\ip{a(y-e_\mu)}{b(y-e_\nu)}&=\ip{a(x+e_\nu)}{b(x+e_\mu)},
+\end{aligned}
+\]
+at $y=x+e_\nu$, $y=x+e_\mu$ and $y=x+e_\mu+e_\nu$ respectively. Each of these terms vanishes unless both
+its links are inner,
+and two inner links in these positions force $y\in W^\circ$ and $P$
+inner. For instance $(y,\mu)$ and $(y-e_\nu,\nu)$ inner give $a_\rho<
+y_\rho<a_\rho+n$ for $\rho\notin\{\mu,\nu\}$ from either link, $y_\nu\ge
+a_\nu+1$ and $y_\nu\le a_\nu+n-1$ from the first, and $a_\mu<y_\mu<a_\mu+
+n$ from the second. So these three kinds of terms cancel, and what remains
+is
+\[
+\Sigma_{\mu\nu}-\Sigma'_{\mu\nu}=\sum_{x\in W^\circ}\bigl\langle\bigl(
+\operatorname{Ad}(V_4^{-1}V_1)-\operatorname{Ad}(V_3V_2^{-1})\bigr)a(x),
+b(x)\bigr\rangle .
+\]
+Here $(V_3V_2^{-1})^{-1}V_4^{-1}V_1=V_1^{-1}V_{0,P}V_1$, so the operator
+has norm $\lVert\operatorname{Ad}(V_1^{-1}V_{0,P}V_1)-1\rVert\le2\kappa_P$,
+and $2\lvert\Sigma_{\mu\nu}-\Sigma'_{\mu\nu}\rvert\le2\sum_{x\in W^\circ}
+\kappa_P(\lVert a(x)\rVert^2+\lVert b(x)\rVert^2)$. Summed over $\mu<\nu$
+this is $2\sum_kc_k\lVert v_k\rVert^2$. Finally $c_k^2\le3\sum_{\nu\ne\mu}
+\kappa_{p(y;\mu,\nu)}^2$, and the plaquette $p(y;\mu,\nu)$ enters $c_k$ for
+the two links $(y,\mu)$, $(y,\nu)$, so $\sum_kc_k^2\le6\lVert\kappa
+\rVert_2^2$.
+\end{proof}
+
+\begin{lemma}[the window in $\ell^4$]\label{lem:windowlfour}
+Let $n\ge1$, $\theta=\frac92\lVert\kappa\rVert_2<1$ and $u\in\mathcal
+O_{V_0}^\perp$. Then
+\[
+\lvert u\rvert_4^2\le\Bigl(1+\frac{3c_S}{1-\theta}\Bigr)Q^{V_0}(u).
+\]
+In particular $\lvert u\rvert_4^2\le c_4Q^{V_0}(u)$ with $c_4=1+\frac94
+\sqrt6<6.512$ if $\lVert\kappa\rVert_2\le\frac19$.
+\end{lemma}
+
+\begin{proof}
+Write $u=v+f$ with $v$ on the inner links and $f$ on the face links. If
+$n=1$ there are no inner links, and $\lvert u\rvert_4^2\le|u|^2=|f|^2\le
+Q^{V_0}(u)$ by the face-link plaquettes below. Let $n\ge2$. A link $(y,\mu)$
+on which some $d_{V_0}\eta$ is nonzero has $y\in W^\circ$ or $y+e_\mu\in
+W^\circ$, and is inner, so $\mathcal O_{V_0}$ lies on the inner links,
+$v\perp\mathcal O_{V_0}$ and $d_{V_0}^*v=0$.
+
+As in the proof of Lemma~\ref{lem:windowgap}(ii), each face link $k$ is the
+only link in $K$ of a plaquette that is not inner, distinct for distinct
+$k$, and for it $\lVert Z_p(u)\rVert=\lVert f_k\rVert$ by~\eqref{eq:pathexp}.
+An inner plaquette $P$ contains at most two face links, and a face link
+lies in at most one inner plaquette, so $\lVert Z_P(v)\rVert^2\le3(\lVert
+Z_P(u)\rVert^2+\sum_{k\in P}\lVert f_k\rVert^2)$, the sum over the face
+links of $P$. With $A=\sum_{P\text{ inner}}\lVert Z_P(u)\rVert^2$ and $B=
+|f|^2$, this gives $\sum_{P\text{ inner}}\lVert Z_P(v)\rVert^2\le3(A+B)$ and
+$A+B\le Q^{V_0}(u)$.
+
+Let $\Phi_\mu=(\sum_y\lVert v_{y,\mu}\rVert^4)^{1/2}$. Then $\lvert v\rvert_
+4^2=(\sum_\mu\Phi_\mu^2)^{1/2}\le\sum_\mu\Phi_\mu$, and
+Lemmas~\ref{lem:windowsobolev} and~\ref{lem:covgaffney}, with Cauchy--Schwarz
+in $\sum_kc_k\lVert v_k\rVert^2$, give
+\[
+\lvert v\rvert_4^2\le c_S\bigl(3(A+B)+2\sqrt6\,\lVert\kappa\rVert_2\lvert
+v\rvert_4^2\bigr).
+\]
+Since $2\sqrt6\,c_S=\frac92$, $(1-\theta)\lvert v\rvert_4^2\le3c_S(A+B)$.
+The supports of $v$ and $f$ are disjoint, so $\lvert u\rvert_4^2\le\lvert v
+\rvert_4^2+\lvert f\rvert_4^2$, and $\lvert f\rvert_4^2\le|f|^2=B$. Hence
+$\lvert u\rvert_4^2\le\frac{3c_S}{1-\theta}(A+B)+B$. For $\theta\le\frac12$,
+$6c_S=\frac94\sqrt6<5.512$.
+\end{proof}
+
+For a closed path $C$ with a filling in normal form, as in
+Lemma~\ref{lem:curvedloop}, let $\kappa_C=\sum_pm_{Cp}\kappa_p$ and $a_C=
+(1+\kappa_C)^2$, let $\ell(h_j)$ be the length of the path $h_j$ and
+$t_{jk}$ the number of its steps along $k$. For a loop sum $R=\sum_Cr_C\,
+s(V_C)$ put
+\[
+\begin{split}
+\mathcal L^\sharp&=\sup_p\sum_C\lvert r_C\rvert a_CA_Cm_{Cp},\\
+\mathcal K(k,p)&=\sum_C\lvert r_C\rvert\Bigl(m_{Cp}\ell_Cn_{Ck}+4a_C\sum_{j
+:p_j=p}\ell(h_j)t_{jk}\Bigr),\\
+\mathcal N&=\Bigl(\sup_k\sum_p\mathcal K(k,p)\Bigr)^{1/2}\Bigl(\sup_p\sum
+_k\mathcal K(k,p)\Bigr)^{1/2}.
+\end{split}
+\]
+
+\begin{proposition}[loop remainders in the action]\label{prop:actionloops}
+Let $R(V)=\sum_Cr_C\,s(V_C)$, with paths and fillings in normal form in
+$\Lambda'$, converge with its first two derivatives near $V_0$, with
+$\mathcal L^\sharp,\mathcal N<\infty$.
+\begin{enumerate}[label=\textup{(\roman*)},leftmargin=*]
+\item For every $w\in\g^K$,
+\[
+\bigl\lvert\Hess R(0)[w,w]\bigr\rvert\le\frac{\mathcal L^\sharp}NQ^{V_0}
+(w)+\frac{\mathcal N\lVert\kappa\rVert_2}N\lvert w\rvert_4^2 .
+\]
+\item If $\lVert\kappa\rVert_2\le\frac19$, then for every $w\in\g^K$
+\[
+\lvert\mathcal HR(w,w)\rvert\le\frac{\mathcal L^\sharp+c_4\mathcal N
+\lVert\kappa\rVert_2}N\,Q^{V_0}(\Pi_{V_0}w).
+\]
+\item For the plaquette sum $R=r\sum_ps(V_p)$ over the plaquettes with
+their corners in $\Lambda'$, $\mathcal L^\sharp\le\lvert r\rvert(1+\kappa_\infty)
+^2$ with $\kappa_\infty=\max_p\kappa_p$, and $\mathcal N=8\sqrt6\lvert r
+\rvert$. If $\lVert\kappa\rVert_2\le\frac19$, the factor in \textup{(ii)}
+is at most $(1+130\lVert\kappa\rVert_2)\lvert r\rvert/N$, for every $n$.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+(i) Let $C$ be one of the paths and $G_j=h_jV_{p_j}^{\epsilon_j}h_j^{-1}$
+the factors of its filling at $V_0$, with $\lVert I-G_j\rVert=
+\kappa_{p_j}$. The telescoping sum in the proof of
+Lemma~\ref{lem:loopfill}(i) gives $\lVert I-V_C(V_0)\rVert\le\kappa_C$, and
+the proof of Lemma~\ref{lem:curvedloop}(iii) with this bound gives
+\[
+\begin{split}
+\Bigl\lvert\Hess s(V_C)(0)[w,w]&-\frac1N\lVert Z_C\rVert^2\Bigr\rvert\\
+&\le\frac{\kappa_C}N\Bigl(\lVert Z_C\rVert^2+\ell_C\sum_kn_{Ck}\lVert w_k
+\rVert^2\Bigr).
+\end{split}
+\]
+The proof of Lemma~\ref{lem:curvedloop}(ii) gives
+\[
+\lVert Z_C\rVert\le\sum_j\lVert Z_{p_j}\rVert+2\sum_j\kappa_{p_j}\lVert
+Z_{h_j}\rVert .
+\]
+By Cauchy--Schwarz, $\bigl(\sum_j\lVert Z_{p_j}\rVert\bigr)^2\le A_C
+\sum_pm_{Cp}\lVert Z_p\rVert^2$. The norm $\lVert Z_{h_j}\rVert$ is at
+most the sum of $\lVert w_k\rVert$ over the steps of $h_j$,
+by~\eqref{eq:pathexp}, so
+\[
+\begin{split}
+\Bigl(\sum_j\kappa_{p_j}\lVert Z_{h_j}\rVert\Bigr)^2&\le\kappa_C\sum_j
+\kappa_{p_j}\lVert Z_{h_j}\rVert^2\\
+&\le\kappa_C\sum_j\kappa_{p_j}\ell(h_j)\sum_kt_{jk}\lVert w_k\rVert^2 .
+\end{split}
+\]
+With $(s+t)^2\le(1+\kappa_C)s^2+(1+\kappa_C^{-1})t^2$, and directly if
+$\kappa_C=0$,
+\[
+\begin{split}
+\lVert Z_C\rVert^2&\le(1+\kappa_C)A_C\sum_pm_{Cp}\lVert Z_p\rVert^2\\
+&\quad+4(1+\kappa_C)\sum_j\kappa_{p_j}\ell(h_j)\sum_kt_{jk}\lVert w_k
+\rVert^2 .
+\end{split}
+\]
+Hence
+\[
+N\bigl\lvert\Hess s(V_C)(0)[w,w]\bigr\rvert\le a_CA_C\sum_pm_{Cp}\lVert
+Z_p\rVert^2+\sum_k\beta^C_k\lVert w_k\rVert^2,
+\]
+where
+\[
+\beta^C_k=\sum_p\kappa_p\Bigl(m_{Cp}\ell_Cn_{Ck}+4a_C\sum_{j:p_j=p}\ell
+(h_j)t_{jk}\Bigr).
+\]
+Summing with the weights $\lvert r_C\rvert$,
+\[
+N\bigl\lvert\Hess R(0)[w,w]\bigr\rvert\le\mathcal L^\sharp Q^{V_0}(w)+
+\sum_k\beta_k\lVert w_k\rVert^2,
+\]
+with $\beta_k=\sum_p\mathcal K(k,p)\kappa_p$. By Cauchy--Schwarz,
+\[
+\beta_k^2\le\sum_p\mathcal K(k,p)\sum_p\mathcal K(k,p)\kappa_p^2,
+\]
+so $\sum_k\beta_k^2\le\mathcal N^2\lVert\kappa\rVert_2^2$, and the last
+sum is at most $\mathcal N\lVert\kappa\rVert_2\lvert w\rvert_4^2$.
+
+(ii) As in Proposition~\ref{prop:curvedloops}(ii), $\mathcal HR(w,w)$ is
+the Hessian of $R$ at $0$ in the direction $\Pi_{V_0}w$. This field lies in
+$\mathcal O_{V_0}^\perp$, and Lemma~\ref{lem:windowlfour} applies to it.
+
+(iii) Here every path is a plaquette $p$ read from its base point, with
+$A_C=1$, $m_{Cp}=1$, $\ell_C=4$, $n_{Ck}=1$ for the four links $k$ of $p$
+and no paths $h_j$. So $\mathcal K(k,p)=4\lvert r\rvert$ if $k\in p$ and
+$0$ otherwise. A link lies in six plaquettes and a plaquette has four
+links, so $\mathcal N=(24\cdot16)^{1/2}\lvert r\rvert=8\sqrt6\lvert r\rvert$.
+Since $\kappa_\infty\le\lVert\kappa\rVert_2\le\frac19$, $(1+\kappa_\infty)
+^2\le1+\frac{19}9\lVert\kappa\rVert_2$, and $8\sqrt6\,c_4=8\sqrt6+108<
+127.6$.
+\end{proof}
+
+Since $\lVert\kappa\rVert_2^2\le6(n+1)^2(n+2)^2\kappa_\infty^2$, the
+hypothesis of Lemma~\ref{lem:smallcurv} with $\kappa_\infty(n+2)^2\le
+10^{-2}$ gives $\lVert\kappa\rVert_2\le0.025$, and part (iii) then gives a
+factor $1+O(\kappa_\infty n^2)$, the order of
+Proposition~\ref{prop:curvedloops}(iii) with a larger constant. When the
+curvature is concentrated the factor does not grow with $n$. If $V_0=I$
+except on one link $k_0\in K$, where $V_{0,k_0}=g$, then the six plaquettes
+of $k_0$ have $\kappa_p=\lVert I-g\rVert$ and the others are flat, so
+$\lVert\kappa\rVert_2=\sqrt6\lVert I-g\rVert$. Part (iii) gives the factor
+$1+319\lVert I-g\rVert$ on every window that contains $k_0$, against
+$(1+\kappa)^2+14\kappa(n+2)^2$ in Proposition~\ref{prop:curvedloops}(iii).
+The order of the loss in the action cannot be improved, and the
+hypothesis that the action of the background on the window is small cannot
+be dropped.
+
+\begin{corollary}[the loss is attained in the action]\label{cor:actionsharp}
+Let $G=\SU(2)$, and let $V_0$, $u$ and $P$ be as in
+Proposition~\ref{prop:curvedsharp}. Then $\lVert\kappa\rVert_2=\kappa(n+1)
+(n+2)$.
+\begin{enumerate}[label=\textup{(\roman*)},leftmargin=*]
+\item If $n\ge9$, $\varsigma=1$ and $\lVert\kappa\rVert_2\le2$, then
+$\mathcal HP(u,u)\ge(1+0.0336\lVert\kappa\rVert_2)\frac12Q^{V_0}(u)$.
+\item For every $n\ge39$ there is a background with $\lVert\kappa
+\rVert_2\le31.8$ at which $\mathcal HP$ is negative at $u\in\mathcal
+O_{V_0}^\perp$.
+\end{enumerate}
+\end{corollary}
+
+\begin{proof}
+The plaquettes with their corners in $\Lambda'=[0,n+1]^4$ in the plane
+$\{0,1\}$ have bases with $x_0,x_1\in[0,n]$ and $x_2,x_3\in[0,n+1]$, so
+there are $(n+1)^2(n+2)^2$ of them, each with $\kappa_p=\kappa$, and the
+others are flat. (i) Here $\kappa\le2/110$, so $\sin^2\alpha=\kappa/2\le
+10^{-2}$, and $\kappa(n+1)^2=\lVert\kappa\rVert_2(n+1)/(n+2)\le2$.
+Proposition~\ref{prop:curvedsharp}(i) gives the factor $1+0.037\,\kappa(n+
+1)^2\ge1+0.037\cdot\frac{10}{11}\lVert\kappa\rVert_2$. (ii) Take $\varsigma=
+-1$ and $\sin^2\alpha=15.5/(n+1)^2\le15.5/1600<10^{-2}$, so that $\kappa(n+
+1)^2=31$; Proposition~\ref{prop:curvedsharp}(ii) applies, and $\lVert\kappa
+\rVert_2=31(n+2)/(n+1)\le31\cdot\frac{41}{40}<31.8$.
+\end{proof}
+
+So the threshold of the unstable mode is a bound on the action of the
+background on the window, independent of $n$, and the condition
+$\lVert\kappa\rVert_2\le\frac19$ of Proposition~\ref{prop:actionloops} is
+necessary up to the constant. The calm windows of
+Corollary~\ref{cor:calmexterior} satisfy both forms of the condition,
+because their curvature is scaled with the size of the window.
+
+\begin{corollary}[calm windows]\label{cor:actioncalm}
+Let $G=\SU(2)$, $0<K\le10^{-8}$, let $W$ be a box of $n^4$ blocks, $n_P$ as
+in Proposition~\ref{prop:calmfibre} and $\kappa_f=K/(4\sqrt{n_P})$. Let $U$
+be a fine field with $\delta(U_p,I)\le\kappa_f$ for every fine plaquette
+$p$ with a vertex in a block at $\ell^\infty$ distance at most two from
+$W$, and let $V_0$ be its cut-off averages on the links of $\Lambda'$. Then
+$\kappa_p\le2.683K/n^2$ for every coarse plaquette with its corners in
+$\Lambda'$, so that
+\[
+\kappa_\infty(n+2)^2\le24.2\,K,\qquad\lVert\kappa\rVert_2\le39.5\,K.
+\]
+In particular Proposition~\ref{prop:curvedloops}\textup{(iii)} and
+Proposition~\ref{prop:actionloops}\textup{(ii)} hold on $W$ with a factor
+$\mathcal L_\kappa+14.1K\mathcal M_\kappa$, respectively $\mathcal L^\sharp
++257.3K\mathcal N$, for every $n$.
+\end{corollary}
+
+\begin{proof}
+A coarse plaquette $P$ with its corners in $\Lambda'$ has its four blocks
+at $\ell^\infty$ distance at most one from $W$, and the blocks at distance
+at most one from these are at distance at most two from $W$. So
+Lemma~\ref{lem:coarsewitness} applies with $\kappa_f\le10^{-8}$ and gives
+$\kappa_P\le\delta(V_{0,P},I)\le92\kappa_f=23K/\sqrt{n_P}$. As in the proof
+of Proposition~\ref{prop:calmrare}, $n_P\ge73.5\lvert W\rvert=73.5\,n^4$,
+and $\sqrt{73.5}>8.573$, $23/8.573<2.683$. Then $(n+2)^2/n^2\le9$ gives
+$24.15K$, and $\lVert\kappa\rVert_2\le\sqrt6(n+1)(n+2)\kappa_\infty$ with
+$(n+1)(n+2)/n^2\le6$ gives $\sqrt6\cdot6\cdot2.683K<39.44K$. Both bounds are
+far below the hypotheses $\kappa_\infty(n+2)^2\le10^{-2}$ and $\lVert
+\kappa\rVert_2\le\frac19$. The factors follow from
+Proposition~\ref{prop:curvedloops}(iii), $0.58\cdot24.2<14.1$, and from
+$c_4\cdot39.5<257.3$.
+\end{proof}
+
+On calm windows the loss $\kappa n^2$ is therefore already of order $K$,
+uniformly in $n$, and the bound in the action adds no strength there. Its
+use lies in the hypothesis and in the count of windows. The action is
+additive over windows, and the sup norm scaled by $n^2$ is not.
+
+\begin{corollary}[windows that fail]\label{cor:actioncount}
+Let the coarse torus have side $L=mn$ with $m,n\ge2$, tiled by the boxes
+$W_i=a_i+[0,n-1]^4$, $a_i\in n\Z^4$, with the boxes $\Lambda'_i$, and let
+$\lVert\kappa\rVert_{2,i}$ be $\lVert\kappa\rVert_2$ on $\Lambda'_i$. For
+every coarse field $V_0$ and $\eta>0$,
+\[
+\#\{i:\lVert\kappa\rVert_{2,i}>\eta\}\le\frac{32N}{\eta^2}\sum_Ps(V_{0,P}),
+\]
+the sum over all coarse plaquettes.
+\end{corollary}
+
+\begin{proof}
+In each coordinate a plaquette occupies one value $x$ or two values $x,x+1$,
+and lies in $[a-1,a+n]$ only if $a$ is among $n+2$ consecutive integers.
+For $n\ge2$ these contain at most two multiples of $n$, and $L\ge2n\ge n+2$
+keeps them distinct modulo $L$. So a plaquette has its corners in at most
+$2^4$ of the boxes $\Lambda'_i$, and $\sum_i\lVert\kappa\rVert_{2,i}^2\le
+16\sum_P\kappa_P^2\le32N\sum_Ps(V_{0,P})$.
+\end{proof}
+
+With $\eta=\frac19$, all but $2592N\sum_Ps(V_{0,P})$ windows of the tiling
+satisfy Proposition~\ref{prop:actionloops}(ii) with a factor at most
+$\mathcal L^\sharp+0.73\mathcal N$, whatever $n$. The supremum condition
+counts differently. Let $V_0=I$ except on the link $a_i+(0,e_0)$ of each
+$W_i$, where $V_0=g$ with $\lVert I-g\rVert=2\eta'(n+2)^{-2}$. Links of
+distinct windows differ by at least $n\ge2$ in a coordinate and share no
+plaquette, so every window has $\kappa_\infty(n+2)^2=2\eta'>\eta'$, while
+$\sum_P\kappa_P^2=24m^4\eta'^2(n+2)^{-4}$. A curved plaquette with its
+corners in $\Lambda'_i$ contains a curved link whose base, a corner, lies in
+$\Lambda'_i$; the coordinates of that base minus $a_i$ lie in $\{0,n\}$, so
+there are at most $16$ such links and $\lVert\kappa\rVert_{2,i}\le
+\sqrt{96}\,\lVert I-g\rVert=8\sqrt6\,\eta'(n+2)^{-2}$. All $m^4$ windows
+fail the condition $\kappa_\infty(n+2)^2\le\eta'$, and none fails
+$\lVert\kappa\rVert_{2,i}\le\frac19$ once $(n+2)^2\ge72\sqrt6\,\eta'$.
+
+\begin{remark}[what the iteration needs]\label{rem:actioniteration}
+The one-step factors $1+130\lVert\kappa^{(j)}\rVert_2$ of
+Proposition~\ref{prop:actionloops}(iii) at the backgrounds of the scales
+$j=1,2,\dots$ have a bounded product exactly when $\sum_j\lVert\kappa^{(j)}
+\rVert_2<\infty$. On calm windows at the levels $K_j$ this holds if $\sum_j
+K_j<\infty$, by Corollary~\ref{cor:actioncalm}. Three inputs are not
+proved here. First, Corollary~\ref{cor:actioncalm} uses the supremum form of
+Lemma~\ref{lem:coarsewitness}; a bound of the coarse action $\sum_P\kappa_P
+^2$ by the fine action near the window, with a constant at most one, would
+let the action bound $Q_W\le\frac34\kappa^2$ of the calm completions
+(Corollary~\ref{cor:calmexterior}) pass from scale to scale, and it is not
+proved. Second, the comparison of the Gaussian reference $S^U_W\circ\Pi_{
+V_0}$ with $Q^{V_0}\circ\Pi_{V_0}$ of Remark~\ref{rem:relstepinputs}(d)
+remains open. Third, the Haar term keeps the factor $C_n$ in every loop
+representation (Proposition~\ref{prop:loopsums}(iv)), since it is a
+multiple of $|\Pi_{V_0}w|^2$ and not of $\lvert\Pi_{V_0}w\rvert_4^2$;
+Lemma~\ref{lem:windowlfour} does not remove it.
+\end{remark}
 
 The loop representation itself is the remaining question. For $\SU(2)$ the
 class of loop sums is closed under products and dense, while a loop sum
@@ -24148,7 +25163,13 @@ remainder is bounded by the covariant plaquette form with a loss of order
 $\kappa n^2$, at critical and non-critical points alike
 (Proposition~\ref{prop:curvedloops}); the loss is attained, and for
 $\kappa(n+1)^2\ge31$ the plaquette action itself has a negative direction
-off the gauge directions (Proposition~\ref{prop:curvedsharp}). That the
+off the gauge directions (Proposition~\ref{prop:curvedsharp}). In terms of
+the $\ell^2$ norm $\lVert\kappa\rVert_2$ of the curvature, the square root
+of the Wilson action of the background on the window, the loss is of order
+$\lVert\kappa\rVert_2$ for every $n$ (Proposition~\ref{prop:actionloops}),
+the unstable mode appears at a background with $\lVert\kappa\rVert_2<31.8$
+(Corollary~\ref{cor:actionsharp}), and on calm windows both forms of the
+loss are of order $K$ (Corollary~\ref{cor:actioncalm}). That the
 induced action is a loop sum with summable coefficients is not proved: for
 $\SU(2)$ loop sums are dense among invariant functions
 (Proposition~\ref{prop:loopsums}), which controls neither values nor
