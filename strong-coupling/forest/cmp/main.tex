@@ -59,7 +59,7 @@ Road, Golpark, Kolkata 700029, West Bengal, India}
 \urladdr{\href{https://orcid.org/0000-0003-0466-750X}{orcid.org/0000-0003-0466-750X}}
 \thanks{$^{*}$Corresponding author: Deep Bhattacharjee, itsdeep@live.com.}
 \thanks{\scriptsize An earlier version of this paper is available at
-\url{https://hexagonmath.org/2610.00341v6}. Compared with it, this paper adds Section~\ref{sec:islands}, on the labels of the blocks, the islands of bad blocks, the bad side of a projected block average, the obstructions to the remaining routes and the effective action across one scale, Subsections~\ref{ssec:averaged}--\ref{ssec:bprefine}, on an averaged form of the cube condition, its local form, the couplings where it holds and fails, its neutral part on small tori, its passage to block variables, the upward step and the measures for which it holds, and Subsections~\ref{ssec:osaxioms} and~\ref{ssec:limitE}, on the Osterwalder--Schrader axioms for the flowed fields and the limit at separated points of the fields without flow, and it proves by hand every constant that the earlier version took from computer certificates.}
+\url{https://hexagonmath.org/2610.00341v6}. Compared with it, this paper adds Section~\ref{sec:islands}, on the labels of the blocks, the islands of bad blocks, the bad side of a projected block average, the obstructions to the remaining routes and the effective action across one scale, Subsections~\ref{ssec:averaged}--\ref{ssec:bprefine}, on an averaged form of the cube condition, its local form, the couplings where it holds and fails, its neutral part on small tori, its passage to block variables, the upward step and the measures for which it holds, and Subsections~\ref{ssec:osaxioms} and~\ref{ssec:limitE}, on the Osterwalder--Schrader axioms for the flowed fields and the limit at separated points of the fields without flow, with the inputs it needs and the examples that separate them, and it proves by hand every constant that the earlier version took from computer certificates.}
 
 \author[U. Bhattacharya]{Ushashi Bhattacharya}
 \address{Formerly, National Taiwan University, Taipei 106319, Taiwan}
@@ -83,16 +83,11 @@ averages, reflection positivity}
 
 \begin{abstract}
 We prove that four-dimensional lattice Yang--Mills theory with any compact
-simple gauge group has a unique infinite-volume state and an explicit
-transfer-matrix gap in a forest gauge, up to $\beta_W=0.348$ for $\SU(2)$
-and $\beta_W=0.52$ for $\SU(3)$, and that a Dobrushin--Shlosman estimate in
-one cube of fixed physical size, or a spectral gap of the dynamics that
-resamples such cubes on local gauge-invariant functions, gives a mass gap
-in every continuum limit.
-Towards that estimate we factorise the weight of bad islands through the
-good layers between them and bound the bad side of a projected block
-average with no hypothesis. The cube estimate itself, the covariance of
-the labels and the effective action across scales remain open.
+simple gauge group has a unique infinite-volume state and a mass gap at
+strong coupling, and that one averaged estimate in a single cube of fixed
+physical size carries a mass gap to every continuum limit. The estimate
+holds at strong coupling; whether it holds as the coupling is tuned to the
+continuum is open.
 \end{abstract}
 
 \maketitle
@@ -7220,6 +7215,19 @@ has a positive continuous density. So $m$ is strictly increasing, and $m(0)=
 0$.
 \end{proof}
 
+\begin{figure}[t]
+\centering
+\includegraphics[width=\textwidth]{figures/fig_bptower.png}
+\caption{The averaged condition across scales. (a)~Three lattices of spacings
+$a_0$, $a_0/b$, $a_0/b^2$, $b=2$, each with a cube of the same physical
+side, of $n=3,6,12$ sites. The condition passes down to the block variables
+for every gauge-invariant measure (Theorem~\ref{thm:bpdescent}) and up one
+scale under the split inequality S (Theorem~\ref{thm:bpup}). (b)~S holds
+for every Haar refinement (Theorem~\ref{thm:bprefine}), the product of
+Haar measures included; a Wilson measure at $\beta\ne0$ is not a Haar
+refinement (Proposition~\ref{prop:bpnotrefine}), and for it S is open.}\label{fig:bptower}
+\end{figure}
+
 \begin{remark}[what the refinements give and what they
 leave]\label{rem:bprefine}
 Proved: for every gauge-invariant law $\varrho$ of the block variables, its
@@ -7317,7 +7325,10 @@ equivalent to a comparison of reflected norms at short distance
 (Corollary~\ref{cor:limitEtwo}), and its rate to a power rate in that
 comparison (Proposition~\ref{prop:limitEtwotempered}); the comparison bounds
 the physical gap from above and fails in the strong-coupling range
-(Proposition~\ref{prop:limitEsd}).
+(Proposition~\ref{prop:limitEsd}). For $n\ge3$ the moment bound does not
+follow from the two-point statements, reflection positivity and the gap, and
+its rate does not follow from bounds at each order
+(Propositions~\ref{prop:limitEthree} and~\ref{prop:limitEfactorial}).
 
 \begin{remark}\label{rem:cubeheuristic}
 The following count relates (D) to a correlation length. Suppose that the
@@ -15826,6 +15837,542 @@ the analogue of (RC), fixes the scale within a set of limits related by
 dilations only where the corresponding ratio of the limits is injective
 along that set, which is not proved.
 
+\emph{The pointwise bound on an axis.} Reflection positivity in the
+coordinate directions bounds the separated two-point moments at every point
+by their values on a coordinate axis, where they form a completely monotone
+function of the distance. For $n=2$ write $g_k(s)=M_k(0,se_0)$ for
+$s\in\Z$, and $\lfloor t\rceil=\lfloor t+\frac12\rfloor$. Let $h\in\{1,-1\}$
+be such that $\vartheta x=(h-x_0,\mathbf x)$ for $x=(x_0,\mathbf x)\in\Z^4$;
+the plane fixed by $\vartheta$ is $\{x_0=h/2\}$.
+
+\begin{proposition}\label{prop:limitEaxial}
+Assume the hypothesis of Theorem~\textup{\ref{thm:avgtransfer}}, and let
+$\gamma_k$ be the norm of $\mathbb T_k$ on $\Omega_k^\perp$.
+
+\textup{(i)} For integers $s\ge2r+3$ and $j\ge0$, $0\le g_k(s+j)\le
+\gamma_k^jg_k(s)$, and for $s\ge4r+6$
+\[
+0\le g_k(s)-g_k(s+j)\le\frac{4j}s\,g_k\bigl(\lceil s/2\rceil\bigr) .
+\]
+
+\textup{(ii)} For $y\in\Z^4$ with $|y|_\infty\ge2r+4$, $|M_k(0,y)|\le
+g_k(|y|_\infty-1)$.
+
+\textup{(iii)} \textup{(SB$_2$)} holds if and only if $\limsup_kZ_k^2
+g_k(\lceil\delta/a_k\rceil)<\infty$ for every $\delta>0$. In that case, for
+every $\delta>0$ and with $b(\delta)=\limsup_kZ_k^2g_k(\lceil\delta/(4a_k)
+\rceil)$,
+\[
+Z_k^2|M_k(0,y)|\le\bigl(b(\delta)+1\bigr)e^{-m_*(a_k|y|_\infty-\delta/2)}
+\]
+for all large $k$ and all $y\in\Z^4$ with $|y|\ge\delta/a_k$; in particular
+$b_2(\delta,\Lambda)\le b(\delta)+1$ for every $\Lambda>\delta$.
+
+\textup{(iv)} Under \textup{(SB$_2$)}, \textup{(RI$_2$)} holds if and only
+if for $0<\delta<\Lambda$
+\[
+\lim_k\sup_yZ_k^2\bigl|M_k(0,y)-g_k(\lfloor|y|\rceil)\bigr|=0,
+\]
+the supremum over the $y\in\Z^4$ with $\delta/a_k\le|y|\le\Lambda/a_k$.
+
+\textup{(v)} Under \textup{(SB$_2$)}, every limit of
+Theorem~\textup{\ref{thm:limitEsep}} has $S_2(f,g)=\iint f(x)g(y)K(x-y)\,dx
+\,dy$ for the separated pairs, with $K$ measurable on $\R^4\setminus\{0\}$,
+$K(-z)=K(z)$, $K\circ g=K$ almost everywhere for $g\in B_4$, and
+$|K(z)|\le(b(\delta)+1)e^{-m_*(|z|_\infty-\delta/2)}$ for almost every $z$
+with $|z|\ge2\delta$, for every $\delta>0$.
+\end{proposition}
+
+\begin{proof}
+For $j\ge r+1$ let $F_j=\Phi_{je_0}-c_k$, a real function of the links with
+both endpoints in $\{x_0\ge1\}$. Since $\vartheta\Phi_x=\Phi_{\vartheta x}$,
+$\vartheta F_j=\Phi_{(h-j)e_0}-c_k$, and by translation invariance
+\[
+\omega_k\bigl(\vartheta(F_j)\tau_tF_{j'}\bigr)=M_k\bigl((h-j)e_0,(j'+t)e_0
+\bigr)=g_k(j+j'+t-h)
+\]
+for integers $t\ge0$. In particular $N_0(F_j)^2=g_k(2j-h)$.
+
+(i) By the proof of Lemma~\ref{lem:limitElattice}(iii), with $s_0=2r+2-h$
+and $\Psi=\Psi_{F_{r+1}}$, $g_k(s_0+t)=\ip\Psi{\mathbb T_k^t\Psi}$ for
+integers $t\ge0$, and $\ip{\Omega_k}\Psi=\omega_k(F_{r+1})=0$. Since
+$\mathbb T_k$ is self-adjoint, fixes $\Omega_k$ and has spectrum on
+$\Omega_k^\perp$ in $[0,\gamma_k]$, the spectral measure $\nu$ of
+$\mathbb T_k$ at $\Psi$ is a positive measure on $[0,\gamma_k]$, and
+$g_k(s_0+t)=\int\lambda^t\,d\nu(\lambda)$, $0^0=1$. As $s_0\le2r+3$, this
+gives $g_k(s)\ge0$ and $g_k(s+j)\le\gamma_k^jg_k(s)$ for $s\ge2r+3$. Let
+$s\ge4r+6$ and $u=s-s_0$. From $1-\lambda^j\le j(1-\lambda)$ and $\max_{0\le
+x\le1}x^p(1-x)=p^p(p+1)^{-p-1}\le(p+1)^{-1}$, applied with $p=\lfloor u/2
+\rfloor$ to $\lambda^u(1-\lambda)=\lambda^{\lceil u/2\rceil}\lambda^p(1-
+\lambda)$,
+\[
+\begin{split}
+g_k(s)-g_k(s+j)&=\int\lambda^u(1-\lambda^j)\,d\nu\le\frac j{p+1}
+\int\lambda^{\lceil u/2\rceil}d\nu\\
+&=\frac{j\,g_k(s_0+\lceil u/2\rceil)}{\lfloor u/2\rfloor+1} .
+\end{split}
+\]
+Here $s_0+\lceil u/2\rceil=\lceil(s+s_0)/2\rceil\ge\lceil s/2\rceil\ge2r+3$,
+so the numerator is at most $j\,g_k(\lceil s/2\rceil)$, and $\lfloor u/2
+\rfloor+1\ge(s-s_0+1)/2\ge(s-2r-2)/2\ge s/4$.
+
+(ii) Let $s=|y|_\infty$. Choose $g\in B_4$, a permutation of the axes
+followed by a sign change, with $(gy)_0=s$; then $M_k(0,y)=M_k(0,gy)$, since
+$\omega_k$ is invariant under $B_4$ and $g\Phi_x=\Phi_{gx}$. Write
+$gy=se_0+v$ with $v_0=0$, and let $j=\lfloor(s+h)/2\rfloor$ and $j'=s+h-j$,
+both at least $\lfloor(s-1)/2\rfloor\ge r+1$. By translation invariance
+\[
+M_k(0,gy)=M_k\bigl((h-j)e_0,j'e_0+v\bigr)=\omega_k\bigl(\vartheta(F_j)
+\tau_vF_{j'}\bigr),
+\]
+and $\tau_vF_{j'}$ is again a function of the links in $\{x_0\ge1\}$. The
+Cauchy--Schwarz inequality for the positive form of
+Lemma~\ref{lem:limitElattice}(iii) and $N_0(\tau_vF_{j'})=N_0(F_{j'})$ give
+$|M_k(0,y)|\le(g_k(2j-h)g_k(2j'-h))^{1/2}$. If $s+h$ is even, $2j-h=2j'-h=
+s$; otherwise the two arguments are $s-1$ and $s+1$. By (i) both products
+are at most $g_k(s-1)^2$.
+
+(iii) Let $a_k\le\delta$. The pair $(0,\lceil\delta/a_k\rceil e_0)$ lies in
+$\mathcal W_k(\delta,2\delta)$, and (SB$_2$) gives
+\[
+\limsup_kZ_k^2g_k(\lceil\delta/a_k\rceil)\le b_2(\delta,2\delta).
+\] Conversely let $\delta>0$,
+$s_1=\lceil\delta/(4a_k)\rceil$ and $|y|\ge\delta/a_k$. Then $|y|_\infty\ge
+|y|/2\ge\delta/(2a_k)$, which for large $k$ is at least $2r+4$ and at least
+$s_1+1$. By (ii) and (i), and $\gamma_k\le e^{-m_*a_k}$,
+\[
+|M_k(0,y)|\le g_k(|y|_\infty-1)\le e^{-m_*a_k(|y|_\infty-1-s_1)}g_k(s_1),
+\]
+and $a_k(1+s_1)\le2a_k+\delta/4\le\delta/2$ for $a_k\le\delta/8$. Since
+$Z_k^2g_k(s_1)\le b(\delta)+1$ for large $k$, this is the bound, and
+$a_k|y|_\infty\ge\delta/2$ gives the last claim.
+
+(iv) Suppose (RI$_2$), and let $\delta/a_k\le|y|\le\Lambda/a_k$. The point
+$y'=\lfloor|y|\rceil e_0$ has $||y|-|y'||\le\frac12$, both pairs $(0,y)$,
+$(0,y')$ lie in $\mathcal W_k(\delta/2,2\Lambda)$ for large $k$, and
+$M_k(0,y')=g_k(\lfloor|y|\rceil)$; so (RI$_2$) with $(\delta/2,2\Lambda)$
+gives the condition. Conversely, let $x,x'\in\mathcal W_k(\delta,\Lambda)$
+with $||x_1-x_2|-|x'_1-x'_2||\le4$, $y=x_2-x_1$, $y'=x'_2-x'_1$,
+$s=\lfloor|y|\rceil$ and $s'=\lfloor|y'|\rceil$. By translation invariance
+$M_k(x)=M_k(0,y)$ and $M_k(x')=M_k(0,y')$, and
+\[
+\begin{split}
+Z_k^2|M_k(x)-M_k(x')|&\le Z_k^2|M_k(0,y)-g_k(s)|\\
+&\quad+Z_k^2|g_k(s)-g_k(s')|\\
+&\quad+Z_k^2|M_k(0,y')-g_k(s')| .
+\end{split}
+\]
+The first and last terms tend to $0$ uniformly by the condition. Since
+$|s-s'|\le5$ and $\min(s,s')\ge\delta/(2a_k)$ for large $k$, (i) bounds the
+middle term by $40a_k\delta^{-1}Z_k^2g_k(\lceil\delta/(4a_k)\rceil)$, which
+tends to $0$ by (iii).
+
+(v) Let $S$ be a limit along a subsequence, $f,g$ separated, supported in a
+cube $Q$ of side $L$ at $\ell^\infty$ distance $\eta>0$, and $\Theta(z)=\int
+f(u)g(u+z)\,du$, continuous and supported in $\{|z|_\infty\ge\eta\}\cap
+[-L,L]^4$. With $\varrho_k$ as in the proof of Theorem~\ref{thm:limitErot}
+put $K_k(z)=Z_k^2M_k(0,\varrho_k(z))$. By translation invariance,
+\[
+\begin{split}
+&Z_k^2\omega_k\bigl(A_k(f)A_k(g)\bigr)-\int K_k\Theta\,dz=\sum_wZ_k^2
+M_k(0,w)\\
+&\quad\times\Bigl(a_k^8\sum_xf(a_kx)g(a_kx+a_kw)-\int_{\varrho_k^{-1}(w)}
+\Theta\,dz\Bigr) .
+\end{split}
+\]
+The bracket vanishes unless $|w|_\infty\ge\eta/a_k-2$ and $|w|_\infty\le
+L/a_k+2$, and it is at most $a_k^4\epsilon_k$, where $\epsilon_k\to0$ by
+the uniform continuity of $f$, $g$ and $\Theta$, the inner sum being a
+Riemann sum for $\Theta(a_kw)$ with error uniform in $w$. At most
+$(2L/a_k+5)^4$ vectors $w$ contribute, and by (iii) with $\delta=\eta/2$
+each has $Z_k^2|M_k(0,w)|\le b(\eta/2)+1$ for large $k$. So the difference
+tends to $0$. By (iii), $K_k$ is bounded on every set $\{|z|\ge\delta\}$,
+$\delta>0$, for large $k$, and a further subsequence converges weakly-$*$
+in $L^\infty(\{|z|\ge\delta\})$ for every $\delta=1/i$ to some $K$. Since
+$\Theta$ is integrable and supported in $\{|z|\ge\eta\}$, $\int K_k\Theta\,dz
+\to\int K\Theta\,dz$, which is the representation. For $|z|\ge2\delta$ and
+large $k$, $|\varrho_k(z)|\ge|z|/a_k-1\ge\delta/a_k$ and $a_k|\varrho_k(z)|
+_\infty\ge|z|_\infty-a_k$, so (iii) gives $|K_k(z)|\le(b(\delta)+1)
+e^{-m_*(|z|_\infty-a_k-\delta/2)}$, a bound that passes to the weak-$*$ limit.
+Finally $M_k(0,-w)=M_k(0,w)$ and $M_k(0,gw)=M_k(0,w)$ for $g\in B_4$, while
+$\varrho_k(-z)=-\varrho_k(z)$ and $\varrho_k(gz)=g\varrho_k(z)$ off a null
+set; so $K_k$ and $K$ are even and $B_4$-invariant almost everywhere.
+\end{proof}
+
+So (SB$_2$) is a bound on one function of one variable, the renormalised
+two-point moment on a coordinate axis, and (RI$_2$) asks that the
+renormalised moment at a point be close to its value on the axis at the
+same Euclidean length. Under (SB$_2$) the kernel of (v) is square
+integrable on every compact subset of $\R^4\setminus\{0\}$, so
+Proposition~\ref{prop:limitEaniso} applies to it, and (W$_{\mathrm s}$) for
+$n=2$ is the radial symmetry of $K$. Neither part follows from the other
+properties. For (RI$_2$) this is Proposition~\ref{prop:limitEproduct}, whose
+fields satisfy (SB$_n$) for every $n$. For (SB$_2$) it is part (b) of the
+following proposition, whose fields satisfy the separated moment bound with
+constants independent of the separation, the mass condition and
+(U$_{\mathrm s}$), and concentrate the two-point function on the coordinate
+axes, where the bound of (M$_{\mathrm s}$) on averages over regions of
+physical size does not control the pointwise values.
+
+\begin{proposition}\label{prop:limitEgauss}
+Let $m>0$ and $q_k=e^{-ma_k}$.
+
+\textup{(a)} Let $J$ be a finite set, $q_{j,\mu}\in[0,1)$ for $j\in J$ and
+$\mu=0,\dots,3$, and let $\psi=(\psi_j(x))_{j\in J,x\in\Z^4}$ be the centred
+Gaussian field with $\E\psi_j(x)\psi_{j'}(y)=\delta_{jj'}\prod_\mu
+q_{j,\mu}^{|x_\mu-y_\mu|}$, $0^0=1$. Its law is invariant under translations
+and reflection positive for the reflections in coordinate hyperplanes
+through sites and bisecting links, and in the direction $\mu$ its transfer
+matrix $\mathbb T$ has $0\le\mathbb T\le1$, $\mathbb T\Omega=\Omega$ and norm
+at most $\max_jq_{j,\mu}$ on $\Omega^\perp$.
+
+\textup{(b)} Let $J=\{0,1,2,3\}$, $q_{j,\mu}=q_k$ for $j=\mu$ and $0$
+otherwise, $\Phi_x=\sum_j\psi_j(x)$, $A_k(f)=\sum_xa_k^4f(a_kx)\Phi_x$,
+$f_0\ge0$ not zero, $C_k$ formed from $f_0$, and $Z_k=C_k(\sigma_0)^{-1/2}$.
+The law is invariant under $B_4$, acting by $\psi_j(x)\mapsto\psi_{\bar gj}
+(gx)$ with $\bar g$ the permutation of the axes underlying $g$, so that
+$g\Phi_x=\Phi_{gx}$. Moreover $C_k(t)=e^{-mt}C_k(0)$ for $t\in a_k\Z_{\ge0}$
+and $a_k^{-3}C_k(0)\to\mathcal J=\int_{\R^3}(\int_\R f_0(s,\mathbf x)
+e^{-ms}ds)^2d\mathbf x>0$. There is $B<\infty$ such that for large $k$,
+every $n$ and all $f_j\in C_c(\R^4)$ supported in a cube of side $L\ge a_k$,
+\[
+\Bigl|\omega_k\Bigl(\prod_{j=1}^nZ_kA_k(f_j)\Bigr)\Bigr|\le(n-1)!!\,
+\bigl(B(2L)^4\bigr)^{n/2}\prod_{j=1}^n\|f_j\|_\infty
+\]
+for even $n$, the moments vanishing for odd $n$; so \textup{(M$_{\mathrm
+s}$)} holds with constants independent of $\delta$, and the growth
+condition \textup{(G$_{\mathrm s}$)} posed below holds with $p=0$. The
+moments converge along the whole sequence to the Gaussian family with
+\[
+S_2(f,g)=\frac{e^{m\sigma_0}}{\mathcal J}\sum_{\mu=0}^3\int_{\R^4}\int_\R
+f(x)g(x+ue_\mu)e^{-m|u|}\,du\,dx ,
+\]
+so \textup{(U$_{\mathrm s}$)} holds, and \textup{(MC$_m$)} holds. Further
+\textup{(SB$_2$)} and \textup{(RI$_2$)} fail, $G_S=B_4$, and there is no
+locally integrable $K$ on $\R^4\setminus\{0\}$ with $S_2(f,g)=\iint f(x)g(y)
+K(x-y)\,dx\,dy$ for all separated pairs.
+
+\textup{(c)} Let $m'>m$, $q'_k=e^{-m'a_k}$, and let $\omega_k$ be the law of
+the field $\Phi=\psi_1$ of \textup{(a)} with $J=\{1\}$, $q_{1,\mu}=q_k$, for
+even $k$, and of $\Phi=\psi_1+\psi_2$ with $J=\{1,2\}$, $q_{1,\mu}=q_k$,
+$q_{2,\mu}=q'_k$, for odd $k$; let $f_0\ge0$ be not zero and $Z_k=C_k(
+\sigma_0)^{-1/2}$. The laws are invariant under translations and $B_4$,
+reflection positive as in \textup{(a)}, with transfer matrices of norm at
+most $q_k$ on $\Omega_k^\perp$. \textup{(M$_{\mathrm s}$)} and
+\textup{(MC$_m$)} hold along the whole sequence. The moments converge along
+the even and along the odd $k$ to Gaussian families $S$ and $S'$ with
+continuous kernels $\kappa e^{-m\|z\|_1}$ and $\kappa'(e^{-m\|z\|_1}+
+e^{-m'\|z\|_1})$, $\kappa,\kappa'>0$, and $S'\ne D_{\lambda,c}S$ for all
+$\lambda,c>0$. So \textup{(O$_{\mathrm s}$)} and \textup{(U$_{\mathrm s}$)}
+fail.
+\end{proposition}
+
+\begin{proof}
+(a) Fix $\mu=0$ as time; the other directions are the same. The field at
+time $0$ has a Gaussian law $\gamma$ with covariance $C=\delta_{jj'}
+\prod_{i\ge1}q_{j,i}^{|x_i-y_i|}$, positive definite as a product of the
+one-dimensional covariances $q^{|n|}$, $0\le q<1$, whose Fourier transforms
+$(1-q^2)/(1-2q\cos p+q^2)$ are positive. Let $(Qh)_j(\mathbf x)=q_{j,0}
+h_j(\mathbf x)$ on the finitely supported $h$; $Q$ commutes with $C$, so the
+stationary chain $\psi_{t+1}=Q\psi_t+(1-Q^2)^{1/2}\xi_{t+1}$, with $\xi_t$
+independent of law $\gamma$, has covariance $Q^{|t-s|}C$, which is that of
+the field. As in the proof of Proposition~\ref{prop:osobstruction}(a), its
+transition operator $P$ satisfies $P\mathcal E_h=\mathcal E_{Qh}$, so on the
+$N$-th Wiener chaos, the closure of the parts of the $\mathcal E_h$
+homogeneous of degree $N$ in $h$, it acts as the $N$-th tensor power of $Q$
+on the symmetric tensors over the space of the $h$ with the inner product
+$\ip h{Ch'}$. $Q$ is self-adjoint there with $0\le Q\le q_{\max}=\max_j
+q_{j,0}$, so $0\le P\le1$, $P$ fixes the constants and has norm at most
+$q_{\max}^N\le q_{\max}$ on the chaos of order $N\ge1$. The rest of that
+proof gives reflection positivity for both kinds of planes and identifies
+the transfer matrix with $P$.
+
+(b) Here $\E\Phi_x\Phi_y=w_k(y-x)$ with $w_k(z)=q_k^{|z_\mu|}$ if $z\ne0$
+is a multiple of $e_\mu$, $w_k(0)=4$, and $w_k(z)=0$ otherwise. Since $(gz)_{\bar gj}=\pm z_j$, the covariance of the
+transformed field is that of $\psi$, which gives the $B_4$ invariance;
+$\omega_k(\Phi_0)=0$, so $c_k=0$. For $f_0(a_kx)f_0(a_ky)\ne0$ the time
+coordinate of $y+(t/a_k)e_0-\vartheta x$ is $x_0+y_0-h+t/a_k\ge1$, so only
+the term $\mu=0$ contributes, with $\mathbf x=\mathbf y$, and
+\[
+C_k(t)=e^{-mt}e^{mha_k}a_k^3\cdot a_k^3\sum_{\mathbf x}\Bigl(a_k
+\sum_{x_0}f_0(a_kx)e^{-ma_kx_0}\Bigr)^2 .
+\]
+The last factor is a Riemann sum converging to $\mathcal J$, which is
+positive because $f_0\ge0$ is not zero. For the pairs,
+\[
+\begin{split}
+&\omega_k\bigl(A_k(f)A_k(g)\bigr)\\
+&\quad=a_k^3\sum_\mu a_k^5\sum_{x\in\Z^4,\,s\in\Z}f(a_kx)g(a_kx+a_kse_\mu)
+e^{-ma_k|s|} .
+\end{split}
+\]
+The inner sums are Riemann sums converging to $\int\!\int f(x)g(x+ue_\mu)
+e^{-m|u|}du\,dx$, and since at most $(L+a_k)^4/a_k^4\le(2L)^4/a_k^4$ sites
+have $a_kx$ in the cube and $a_k\sum_se^{-ma_k|s|}=a_k(1+q_k)/(1-q_k)\le4/m$
+for $ma_k\le1$, they are at most $(4/m)(2L)^4\|f\|_\infty\|g\|_\infty$.
+With $Z_k^2a_k^3=e^{m\sigma_0}a_k^3/C_k(0)\to e^{m\sigma_0}/\mathcal J$ this
+gives the bound for $n=2$ with $B=32e^{m\sigma_0}/(m\mathcal J)$ and the
+limit of $S_2$, and Wick's formula, a sum over the $(n-1)!!$ pairings,
+gives the bound for all $n$ and the convergence of all moments. Since
+$(n-1)!!\le(n!)^{1/2}$ and $(B(2L)^4)^{n/2}\le(4B^{1/2})^n(1+L)^{2n}$, the
+bound has the form of (G$_{\mathrm s}$) with $\beta=\frac12$, $q=2$ and
+$p=0$. By (a) the transfer matrix has norm at most $q_k$ on $\Omega_k^\perp$,
+so $\liminf_ka_k^{-1}\log(1/\gamma_k)\ge m$, and $C_k(t)=e^{-m(t-\sigma_0)}
+C_k(\sigma_0)$; this is (MC$_m$) with $c_0=e^{m\sigma_0}$.
+
+For $s\ge1$, $g_k(s)=w_k(se_0)=q_k^s$, so $Z_k^2g_k(\lceil\delta/a_k\rceil)
+\ge(e^{m\sigma_0}/(2\mathcal J))a_k^{-3}e^{-m(\delta+a_k)}\to\infty$; as
+the pair $(0,\lceil\delta/a_k\rceil e_0)$ lies in $\mathcal W_k(\delta,
+2\delta)$ for large $k$, (SB$_2$) fails. With $N=\lceil
+\delta/a_k\rceil+1$, the points $y=Ne_0$ and $y'=(N-1)e_0+e_1$ have
+$N-1\le|y'|\le|y|=N$, both pairs $(0,y)$, $(0,y')$ lie in $\mathcal W_k(
+\delta,2\delta)$ for large $k$, $M_k(0,y')=w_k(y')=0$ and $Z_k^2M_k(0,y)=
+Z_k^2q_k^N\to\infty$; so (RI$_2$) fails.
+
+Let $T(\varphi)=\frac{e^{m\sigma_0}}{\mathcal J}\sum_\mu\int\varphi(ue_\mu)
+e^{-m|u|}du$ for $\varphi\in C_c(\R^4\setminus\{0\})$; then $S_2(f,g)=
+T(\Theta)$ with $\Theta(z)=\int f(u)g(u+z)\,du$. If $S_2$ had a locally
+integrable kernel $K$, the argument of Proposition~\ref{prop:limitEaniso}(i)
+would give $T(\varphi)=\int K\varphi\,dz$ for all $\varphi$, $T$ being
+even. Take
+$\varphi_\varepsilon$ with values in $[0,1]$, equal to $1$ on the segment
+$\{ue_0:1\le u\le2\}$ and supported in its $\varepsilon$-neighbourhood
+$N_\varepsilon$; then $T(\varphi_\varepsilon)\ge\frac{e^{m\sigma_0}}
+{\mathcal J}\int_1^2e^{-mu}du>0$, while $\int|K|\varphi_\varepsilon\le
+\int_{N_\varepsilon}|K|\to0$ as $\varepsilon\to0$, since $N_\varepsilon$
+decreases to a null set. Let $R\in G_S$ and suppose $R^{-1}e_0$ is not one
+of the $\pm e_\nu$; then it has positive distance $3\varepsilon$ from the
+union $A$ of the coordinate axes. Take $f,g\ge0$ supported in the balls of
+radius $\varepsilon$ about $0$ and $R^{-1}e_0$, with $f(0)>0$ and
+$g(R^{-1}e_0)>0$. Then $\Theta$ is supported in the ball of radius
+$2\varepsilon$ about $R^{-1}e_0$, which misses $A$, so $S_2(f,g)=0$, while
+$S_2(f\circ R^{-1},g\circ R^{-1})=T(\Theta\circ R^{-1})\ge\frac{e^{m
+\sigma_0}}{\mathcal J}\int\Theta(R^{-1}ue_0)e^{-m|u|}du>0$, because
+$\Theta(R^{-1}e_0)>0$. So $R^{-1}e_0\in\{\pm e_\nu\}$, and applying this to
+$\pi_\mu R\in G_S$ gives $R^{-1}e_\mu\in\{\pm e_\nu\}$ for every $\mu$, that
+is, $R\in B_4$.
+
+(c) The symmetries, positivity and the norm of the transfer matrices follow
+from (a), the covariances $\prod_\mu q^{|z_\mu|}$ being invariant under
+$B_4$. Let $C^{(i)}_k$ be formed with the covariance $\prod_\mu
+q_i^{|z_\mu|}$, $q_1=q_k$, $q_2=q'_k$. As in (b), the time factor of the
+covariance between the two packets of $C^{(i)}_k(t)$ is $q_i^{t/a_k}$ times
+that at $t=0$, so $C^{(1)}_k(t)=e^{-mt}C^{(1)}_k(0)$, $C^{(2)}_k(t)=
+e^{-m't}C^{(2)}_k(0)$, and $C^{(i)}_k(0)$ converges to
+$\mathcal J_1=\iint f_0(x)f_0(y)e^{-m\|\theta_0x-y\|_1}dx\,dy>0$ and
+$\mathcal J_2$, defined with $m'$ in place of $m$, by Riemann sums. For even $k$, $C_k=C^{(1)}_k$; for odd $k$,
+$C_k=C^{(1)}_k+C^{(2)}_k$, and for $t\ge\sigma_0$
+\[
+\begin{split}
+\frac{C_k(t)}{C_k(\sigma_0)}&\ge\frac{e^{-mt}C^{(1)}_k(0)}{e^{-m\sigma_0}
+(C^{(1)}_k(0)+C^{(2)}_k(0))}\\
+&\ge\frac{\mathcal J_1}{2(\mathcal J_1+\mathcal J_2)}e^{-m(t-\sigma_0)}
+\end{split}
+\]
+for large $k$. With the norm bound $q_k$ this is (MC$_m$) with $c_0=
+e^{m\sigma_0}\mathcal J_1/(2(\mathcal J_1+\mathcal J_2))$. As in the proof
+of Proposition~\ref{prop:osobstruction}(a), the moments converge along the
+even and along the odd $k$ to the Gaussian families with the stated
+kernels, $\kappa=e^{m\sigma_0}/\mathcal J_1$, $\kappa'=(e^{-m\sigma_0}
+\mathcal J_1+e^{-m'\sigma_0}\mathcal J_2)^{-1}$, and the moments of
+packets supported in a cube of side $L$ are bounded by $(n-1)!!$ times
+$((2L)^4\sup_kZ_k^2a_k^4\sum_z(q_k^{|z|_1}+q_k'^{|z|_1}))^{n/2}\prod_j\|f_j
+\|_\infty$, where $a_k^4\sum_zq_k^{|z|_1}=(a_k(1+q_k)/(1-q_k))^4$ is bounded;
+this gives (M$_{\mathrm s}$). The kernel of $D_{\lambda,c}S$ is $c^2
+\lambda^{-8}\kappa e^{-(m/\lambda)\|z\|_1}$, by the substitution $u=\lambda
+x$, $v=\lambda y$. If $S'=D_{\lambda,c}S$, then the two continuous kernels
+coincide, since by Proposition~\ref{prop:limitEaniso}(i) a continuous kernel
+is determined by $S_2$; at $z=te_0$, after multiplication by $e^{mt}$,
+\[
+\kappa'\bigl(1+e^{-(m'-m)t}\bigr)=c^2\lambda^{-8}\kappa\,e^{(m-m/\lambda)t}
+\]
+for all $t>0$. The left side tends to $\kappa'>0$ as $t\to\infty$, which
+forces $\lambda=1$, and then the right side is constant while the left side
+is strictly decreasing.
+\end{proof}
+
+\emph{The mass.} The gap of Theorem~\ref{thm:avgtransfer} gives the first
+half of (MC$_{m_0}$) with $m_0=m_*$, and reflection positivity with
+(M$_{\mathrm s}$) gives the second half, but with a rate that is in general
+larger.
+
+\begin{proposition}\label{prop:limitEbracket}
+Assume the hypothesis of Theorem~\textup{\ref{thm:avgtransfer}},
+$C_k(0)>0$ for large $k$, $Z_k=C_k(\sigma_0)^{-1/2}$ and
+\textup{(M$_{\mathrm s}$)}. Let $Q$ be a cube that contains
+$\operatorname{supp}f_0$ and $\theta_{0,k}(\operatorname{supp}f_0)$ for all
+$k$, and $m_1=\sigma_0^{-1}\log(M_2(Q,t_0)\|f_0\|_\infty^2)$.
+
+\textup{(i)} $m_1\ge m_*$; $\liminf_ka_k^{-1}\log(1/\gamma_k)\ge m_*$; and
+for large $k$ and $t\in a_k\Z$ with $t\ge\sigma_0$,
+\[
+C_k(t)\ge e^{-m_1(t-\sigma_0)}C_k(\sigma_0) .
+\]
+
+\textup{(ii)} Every limit $S$ of Theorem~\textup{\ref{thm:limitEsep}} has
+$m_*\le m(S)\le m_1$. If \textup{(MC$_{m_0}$)} holds, then $m_*\le m_0\le
+m_1$.
+
+\textup{(iii)} If $S$ and $S'$ are limits of
+Theorem~\textup{\ref{thm:limitEsep}} with $S'=D_{\lambda,c}S$, then
+$\lambda=m(S)/m(S')$ lies in $[m_*/m_1,m_1/m_*]$.
+\end{proposition}
+
+\begin{proof}
+(i) By Proposition~\ref{prop:limitEnorm}(i),(ii), $(M_2(Q,t_0)\|f_0\|_\infty^2
+)^{-1}\le C_k(\sigma_0)/C_k(0)\le e^{-m_*\sigma_0}$ for large $k$, which gives
+$m_1\ge m_*$ and $C_k(\sigma_0)/C_k(0)\ge e^{-m_1\sigma_0}$. The second claim
+is $\gamma_k\le e^{-m_*a_k}$. By the proof of
+Proposition~\ref{prop:limitEnorm}(i), $C_k(t)=\int\lambda^{t/a_k}d\nu(
+\lambda)$ with a positive measure $\nu$, so by H\"older's inequality, with
+$i=t/a_k$ and $p=\sigma_0/a_k$, $C_k(\sigma_0)^i\le C_k(0)^{i-p}C_k(t)^p$.
+Hence
+\[
+C_k(t)\ge C_k(\sigma_0)\Bigl(\frac{C_k(\sigma_0)}{C_k(0)}\Bigr)^{(t-\sigma_0)/
+\sigma_0}\ge e^{-m_1(t-\sigma_0)}C_k(\sigma_0) .
+\]
+
+(ii) $m(S)\ge m_*$ is Theorem~\ref{thm:limitEsep}(iv). As in the proof of
+Theorem~\ref{thm:limitEunique}(i), (i) gives $\ip{\Psi_0(f_0)}{e^{-tH_0}
+\Psi_0(f_0)}=\lim_kZ_k^2C_k(t)\ge e^{-m_1(t-\sigma_0)}$ for dyadic
+$t\ge\sigma_0$, while the left side is at most $e^{-m(S)t}\|\Psi_0(f_0)
+\|^2$; so $m(S)\le m_1$. Under (MC$_{m_0}$), $m(S)=m_0$ by
+Theorem~\ref{thm:limitEunique}(i).
+
+(iii) By Lemma~\ref{lem:limitEdil}, $m(S')=m(S)/\lambda$, and (ii)
+applies to both.
+\end{proof}
+
+So the two halves of (MC$_{m_0}$) hold separately, with the rates $m_*$
+and $m_1$, and (MC$_{m_0}$) asks that they coincide. Since $C_k(t)\le
+\gamma_k^{(t-\sigma_0)/a_k}C_k(\sigma_0)$ for $t\ge\sigma_0$, by the spectral
+representation, its second half gives $a_k^{-1}\log(1/\gamma_k)\le m_0$ for
+$k\ge k_1$, so (MC$_{m_0}$) says that the lattice gaps in physical units
+converge to $m_0$ and that the reflected correlation of $f_0$ decays at
+this rate uniformly in $k$. This is not implied by the other
+properties: the interleaved two-mass field of
+Theorem~\ref{thm:limitEunique}(iii) has them and violates (MC$_{m_0}$) for
+every $m_0$. Nor is it necessary for (U$_{\mathrm s}$): for the products of
+Proposition~\ref{prop:limitEproduct} with $p\ge2$, the transfer matrix has
+norm $q_k$ on $\Omega_k^\perp$, attained on the first chaos of one factor,
+while the covariance of $\Phi$ is $e^{-pma_k\|z\|_1}$ and $C_k(t)=e^{-pmt}
+C_k(0)$ for $f_0\ge0$; so (MC$_{m_0}$) would need $m_0\le m$ and $m_0\ge
+pm$, while (U$_{\mathrm s}$) holds, also with $Z_k=C_k(\sigma_0)^{-1/2}$,
+which converges to a positive limit.
+
+\emph{The dilations.} (O$_{\mathrm s}$) is a statement about the set of
+limits. It is equivalent to a statement about the lattice moments alone:
+convergence after a change of the spacing by a bounded factor. Write
+$B_k(f_1,\dots,f_n)=\omega_k(\prod_jZ_kA_k(f_j))$ and $(D_{\lambda,c}
+B_k)(f_1,\dots,f_n)=c^nB_k(f_1(\lambda\,\cdot),\dots,f_n(\lambda\,\cdot))$.
+Since $A_k(f(\lambda\,\cdot))=\lambda^{-4}\sum_x(\lambda a_k)^4f(\lambda
+a_kx)(\Phi_x-c_k)$, $D_{\lambda,c}B_k$ is the moment family of the packets of
+the same states formed at the spacing $\lambda a_k$, with the constants
+$c\lambda^{-4}Z_k$. Consider
+\begin{enumerate}[label=\textup{(DS)},leftmargin=*]
+\item there are $\Lambda\ge1$, $\lambda_k\in[\Lambda^{-1},\Lambda]$,
+$c_k>0$ and a nontrivial family $T$ with $D_{\lambda_k,c_k}B_k\to T$ on
+every separated tuple.
+\end{enumerate}
+A family is trivial if it vanishes on all separated tuples of length
+$n\ge1$.
+
+\begin{proposition}\label{prop:limitEdilate}
+Assume the hypothesis of Theorem~\textup{\ref{thm:avgtransfer}},
+$C_k(0)>0$ for large $k$, $Z_k=C_k(\sigma_0)^{-1/2}$ and \textup{(M$_{\mathrm
+s}$)}, and let $m_1$ be as in Proposition~\textup{\ref{prop:limitEbracket}}.
+
+\textup{(i)} \textup{(DS)} implies \textup{(O$_{\mathrm s}$)}: every limit
+$S$ of Theorem~\textup{\ref{thm:limitEsep}} has $T=D_{\lambda,c}S$ for some
+$\lambda,c>0$.
+
+\textup{(ii)} \textup{(O$_{\mathrm s}$)} implies \textup{(DS)} with
+$\Lambda=m_1/m_*$, and $T$ can be taken to be any limit of
+Theorem~\textup{\ref{thm:limitEsep}}.
+
+\textup{(iii)} Under \textup{(DS)}, \textup{(U$_{\mathrm s}$)} holds if and
+only if $(\lambda_k,c_k)$ converges in $(0,\infty)^2$.
+\end{proposition}
+
+\begin{proof}
+For $\lambda>0$ the map $f\mapsto f(\lambda\,\cdot)$ is a bijection of the
+separated tuples. Let $(f_j)\in\mathcal C_n(Q,\delta)$, $\lambda_k\to
+\lambda\in[\Lambda^{-1},\Lambda]$. For large $k$ the tuples $(f_j(\lambda_k
+\,\cdot))$, $(f_j(\lambda\,\cdot))$ and the telescoping tuples with one
+factor $f_i(\lambda_k\,\cdot)-f_i(\lambda\,\cdot)$ lie in one $\mathcal C_n(
+Q',\delta/(2\Lambda))$, and $f_i(\lambda_k\,\cdot)\to f_i(\lambda\,\cdot)$
+uniformly; so (M$_{\mathrm s}$) and multilinearity give $B_k(f_1(\lambda_k
+\,\cdot),\dots)-B_k(f_1(\lambda\,\cdot),\dots)\to0$. Hence, along a
+subsequence with $B_k\to S$ on every separated tuple,
+\[
+B_k\bigl(f_1(\lambda_k\,\cdot),\dots,f_n(\lambda_k\,\cdot)\bigr)\to S_n\bigl(
+f_1(\lambda\,\cdot),\dots,f_n(\lambda\,\cdot)\bigr) .\tag{$*$}
+\]
+By Proposition~\ref{prop:limitEnorm}(ii) every limit is nontrivial.
+
+(i) Let $S$ be the limit along a subsequence, and pass to a further one
+with $\lambda_k\to\lambda$ and $c_k\to c\in[0,\infty]$. By ($*$), $T_n(f)=
+\lim_kc_k^nB_k(f(\lambda_k\,\cdot))$ with $B_k(f(\lambda_k\,\cdot))\to
+S_n(f(\lambda\,\cdot))$. If $c=\infty$, then $S_n(f(\lambda\,\cdot))=0$ for
+every separated tuple of length $n\ge1$, and $S$ is trivial; if $c=0$, $T$
+is trivial. So $0<c<\infty$ and $T=D_{\lambda,c}S$. For two limits,
+$D_{\lambda,c}S=D_{\lambda',c'}S'$ gives $S'=D_{\lambda/\lambda',c/c'}S$.
+
+(ii) Let $\mathcal G$ be the countable set of the proof of
+Theorem~\ref{thm:limitEsep}(i), $F_1,F_2,\dots$ the separated tuples of its
+elements, and $d(B,B')=\sum_i2^{-i}\min(1,|B(F_i)-B'(F_i)|)$ for families
+$B,B'$. By the approximation in that proof, a family bounded on every
+$\mathcal C_n(Q,\delta)$ by a multiple of $\prod_j\|f_j\|_\infty$ that
+vanishes at every $F_i$ vanishes on all separated tuples; such bounds hold
+for every $D_{\lambda,c}S$ with $S$ a limit. Fix a limit $S$, let $I=[m_*/
+m_1,m_1/m_*]$, $e_k(\lambda,c)=d(D_{\lambda,c}B_k,S)$, and choose
+$(\lambda_k,c_k)\in I\times(0,\infty)$ with $e_k(\lambda_k,c_k)\le
+\inf_{I\times(0,\infty)}e_k+1/k$. Suppose $e_k(\lambda_k,c_k)\ge\varepsilon>0$
+along a subsequence. A further subsequence has $B_k\to S'$ on every
+separated tuple, and (O$_{\mathrm s}$) gives $S=D_{\lambda,c}S'$ with
+$\lambda\in I$ by Proposition~\ref{prop:limitEbracket}(iii). Then
+$D_{\lambda,c}B_k\to S$ on every separated tuple by ($*$) with constant
+$\lambda_k=\lambda$, so $e_k(\lambda,c)\to0$ and $e_k(\lambda_k,c_k)\to0$, a
+contradiction. Hence $e_k(\lambda_k,c_k)\to0$. Now take any subsequence and
+a further one with $\lambda_k\to\lambda\in I$ and $B_k\to S'$. Some $F_i$,
+of length $n_i\ge1$, has $S(F_i)\ne0$, and $c_k^{n_i}B_k(F_i(\lambda_k\,
+\cdot))\to S(F_i)$. If $c_k\to\infty$ along a further subsequence, then
+$B_k(F_l(\lambda_k\,\cdot))\to0$ for every $l$ with $n_l\ge1$, so by ($*$)
+$D_{\lambda,1}S'$ vanishes at every $F_l$, and $S'$ is trivial; if $c_k\to0$,
+then $S(F_i)=0$. So a further subsequence has $c_k\to c\in(0,\infty)$, and
+$D_{\lambda_k,c_k}B_k\to D_{\lambda,c}S'$ on every separated tuple by ($*$).
+This family agrees with $S$ at every $F_l$, hence everywhere. Every
+subsequence thus has a further subsequence along which $D_{\lambda_k,c_k}
+B_k\to S$, which is (DS) with $T=S$.
+
+(iii) If $(\lambda_k,c_k)\to(\lambda,c)$, the proof of (i) gives $S=
+D_{1/\lambda,1/c}T$ for every limit $S$, which is (U$_{\mathrm s}$).
+Conversely, under (U$_{\mathrm s}$) let $S$ be the limit. By the proof of
+(i), $(c_k)$ has no subsequence tending to $0$ or $\infty$, so
+$(\lambda_k,c_k)$ lies in a compact subset of $(0,\infty)^2$, and every
+limit point $(\lambda,c)$ has $D_{\lambda,c}S=T$. Two limit points
+$(\lambda,c)$, $(\lambda',c')$ give $D_{\lambda/\lambda',c/c'}S=S$, so
+$\lambda=\lambda'$ and $c=c'$ by Lemma~\ref{lem:limitEdil}.
+\end{proof}
+
+So (O$_{\mathrm s}$) says that the spacings $a_k$ can be corrected by
+bounded factors $\lambda_k$ so that the moments of the same states converge,
+and under it (U$_{\mathrm s}$) is the convergence of the corrections and of
+the constants, which (MC$_{m_0}$) gives by Theorem~\ref{thm:limitEunique}(ii).
+Neither
+(O$_{\mathrm s}$) nor (U$_{\mathrm s}$) follows from the properties proved
+here together with (MC$_{m_0}$): the fields of
+Proposition~\ref{prop:limitEgauss}(c) are reflection positive, invariant
+under translations and $B_4$, have the gap $ma_k$ in every coordinate
+direction and satisfy (M$_{\mathrm s}$) and (MC$_m$), and their two limits
+are not related by any $D_{\lambda,c}$. Conversely (O$_{\mathrm s}$) does
+not give (MC$_{m_0}$) (Theorem~\ref{thm:limitEunique}(iii)). The proofs of
+Propositions~\ref{prop:limitEaxial}, \ref{prop:limitEbracket}
+and~\ref{prop:limitEdilate} use the averaged condition only through
+Lemma~\ref{lem:limitElattice}(iii) and the bound $\gamma_k\le e^{-m_*a_k}$,
+which the fields of Proposition~\ref{prop:limitEgauss} have with $m$ in
+place of $m_*$.
+
 \emph{Temperedness.} The Schwinger functions of~\cite{OS73} are linear
 functionals on the space $\mathcal S_0(\R^{4n})$ of the
 $F\in\mathcal S(\R^{4n})$ that vanish, with all their derivatives, at every
@@ -16372,6 +16919,1454 @@ fails by Proposition~\ref{prop:limitEsing}. At strong coupling
 and its extension is $0$.
 \end{remark}
 
+\emph{Asymptotic freedom at short distance.} Renormalised perturbation
+theory predicts how the two-point function of $\Phi$ behaves at short
+distance, and this behaviour can be posed as a condition on the lattice
+states. Let $G_k(z)=\omega_k(\Phi_0\Phi_z)-
+c_k^2$ for $z\in\Z^4$, as in the proof of Theorem~\ref{thm:limitErot}(iv),
+so that $\omega_k((\Phi_x-c_k)(\Phi_y-c_k))=G_k(y-x)$; let
+$\log^+t=\max(\log t,0)$ and, for $\gamma\ge0$ and $\rho>0$,
+\[
+\ell(\rho)=1+\log^+\frac1\rho,\qquad w_\gamma(\rho)=\rho^{-8}\ell(\rho)^
+{-\gamma} .
+\]
+\begin{enumerate}[label=\textup{(AF)},leftmargin=*]
+\item There are $\gamma\ge0$, $0<c_1\le C_1$, $r_0\in(0,1]$ and $k_0$ such
+that for all $k\ge k_0$ and $z\in\Z^4$ with $|z|_\infty\ge2r+1$
+\[
+Z_k^2|G_k(z)|\le C_1w_\gamma(a_k|z|),
+\]
+and $Z_k^2G_k(z)\ge c_1w_\gamma(a_k|z|)$ if moreover $a_k|z|\le r_0$.
+\end{enumerate}
+\begin{enumerate}[label=\textup{(AF$_\infty$)},leftmargin=*]
+\item There are $\gamma\ge0$ and $C_{\mathrm{AF}}>0$ such that every limit
+$S_2$ of $Z_k^2\omega_k(A_k(f)A_k(g))$ on the separated pairs along a
+subsequence is $S_2(f,g)=\iint f(x)g(y)K(x-y)\,dx\,dy$ with $K$ locally
+integrable on $\R^4\setminus\{0\}$ and
+\[
+\lim_{\rho\to0}\ \operatorname*{ess\,sup}_{0<|z|\le\rho}\Bigl||z|^8\Bigl(
+\log\frac1{|z|}\Bigr)^\gamma K(z)-C_{\mathrm{AF}}\Bigr|=0 .
+\]
+\end{enumerate}
+\begin{enumerate}[label=\textup{(AF$_\beta$)},leftmargin=*]
+\item For some $\Lambda>0$, with $L_k=\log(1/(a_k\Lambda))$, the couplings
+are $\beta_{W,k}=2N/g_k^2$ with $g_k^{-2}=2b_0L_k+(b_1/b_0)\log L_k+O(1)$.
+\end{enumerate}
+(AF) is the two-sided form, at every lattice distance from $2r+1$ to
+$r_0/a_k$, of the law $|x-y|^{-8}(\log\frac1{|x-y|})^{-\gamma}$, with only
+a power bound at physical distances; (AF$_\infty$) is the exact law of the
+limit at short distance; (AF$_\beta$) is the two-loop tuning of
+Remark~\ref{rem:twoloop}. None of the three is proved here for the Wilson
+measure.
+
+\begin{remark}\label{rem:limitEafpert}
+\emph{The perturbative values.} Renormalised perturbation theory gives the
+following values; they are predictions and no proof below uses them. Let
+$F^a_{\mu\nu}$ be the field strength normalised by the action $\frac14\int
+F^a_{\mu\nu}F^a_{\mu\nu}$, with generators $\Tr(T^aT^b)=\frac12\delta^{ab}$,
+and let $\beta(g)=-b_0g^3+O(g^5)$, $b_0=11N/(48\pi^2)$~\cite{GW73,Pol73}.
+The trace of the energy--momentum tensor, $\Theta=(\beta(g)/2g)F^a_{\mu\nu}
+F^a_{\mu\nu}$, is finite and invariant under the renormalisation
+group~\cite{CDJ77}, so $\ip{\Theta(x)}{\Theta(0)}$, the connected two-point
+function, is $|x|^{-8}F(\bar g(|x|))$ with $\bar g(|x|)$ the running coupling
+at the scale $1/|x|$, and $F(g)=\frac14b_0^2g^4\,T_0(1+O(g^2))$, where
+$T_0|x|^{-8}$ is the connected two-point function of $F^a_{\mu\nu}
+F^a_{\mu\nu}$ in the free theory. There, in the Feynman gauge, the
+propagator of the gauge field is $\delta^{ab}\delta_{\mu\nu}D(x)$ with
+$D(x)=1/(4\pi^2|x|^2)$, and that of the field strength, which is gauge
+independent, is $\ip{F^a_{\mu\nu}(x)}{F^b_{\rho\sigma}(0)}=-\delta^{ab}
+P_{\mu\nu\rho\sigma}$ with
+\[
+P_{\mu\nu\rho\sigma}=\delta_{\nu\sigma}D_{\mu\rho}-\delta_{\nu\rho}
+D_{\mu\sigma}-\delta_{\mu\sigma}D_{\nu\rho}+\delta_{\mu\rho}D_{\nu\sigma},
+\]
+$D_{\mu\rho}=\partial_\mu\partial_\rho D=M_{\mu\rho}/(2\pi^2|x|^4)$, where $M=4uu^{\mathsf T}-1$,
+$u=x/|x|$. Since $\operatorname{tr}M=0$ and $\operatorname{tr}M^2=12$, each
+of the four squared terms of the bracket, summed over $\mu,\nu,\rho,\sigma$,
+gives $4\cdot12$, the two cross terms with a trace vanish and the other four
+give $-12$ each, so the sum of the squares is $(192-96)(2\pi^2|x|^4)^{-2}=
+24\pi^{-4}|x|^{-8}$, and Wick's theorem gives $T_0=2(N^2-1)\cdot24\pi^{-4}=
+48(N^2-1)/\pi^4$. With $\bar g(|x|)^{-2}=2b_0\log\frac1{|x|\Lambda}(1+o(1))$
+this gives, as $|x|\to0$,
+\[
+\ip{\Theta(x)}{\Theta(0)}=\frac{3(N^2-1)}{\pi^4}\,|x|^{-8}\Bigl(\log\frac1
+{|x|}\Bigr)^{-2}(1+o(1)),
+\]
+which is (AF$_\infty$) with $\gamma=2$ for every $N$ and with
+$C_{\mathrm{AF}}=3(N^2-1)/\pi^4$, a constant free of $b_0$ and $\Lambda$.\footnote{For $\SU(2)$, $C_{\mathrm{AF}}=9/\pi^4\approx0.092$; for
+$\SU(3)$, $C_{\mathrm{AF}}=24/\pi^4\approx0.246$.}
+For the sum $\Phi$ of $N-\ReTr U_p$ over the $24$ plaquettes with a corner
+at $0$, $U_p=\exp(ia_k^2g_kF^a_{\mu\nu}T^a+\cdots)$ gives $N-\ReTr U_p=
+\frac14a_k^4g_k^2F^a_{\mu\nu}F^a_{\mu\nu}+\cdots$ (no sum) for $p$ in the
+plane $\{\mu,\nu\}$, and each plane carries four of the $24$ plaquettes, so
+$\Phi_x=\frac12a_k^4g_k^2F^a_{\mu\nu}F^a_{\mu\nu}+\cdots=-(a_k^4/b_0)
+\Theta(1+O(g_k^2))$, up to a constant and fields of higher dimension. Thus
+$Z_ka_k^4\to b_0$ makes $Z_kA_k(f)$ tend to $-\Theta(f)$; then (AF) holds
+with $\gamma=2$ and $Z_k$ of order $a_k^{-4}$, and $G_k(z)$ at a fixed
+lattice distance is of order $g_k^4$, that is of order $\beta_{W,k}^{-2}$
+under (AF$_\beta$).
+\end{remark}
+
+\begin{theorem}\label{thm:limitEaf}
+Assume the hypothesis of Theorem~\textup{\ref{thm:avgtransfer}} and
+\textup{(AF)} for the constants $Z_k$.
+
+\textup{(i)} Let $Q$ be a cube of side $L$ and $\delta\in(0,1]$. For
+$k\ge k_0$ with $a_k\le\min(1,\delta/(2r+1))$ and for $(f,g)\in\mathcal
+C_2(Q,\delta)$,
+\[
+Z_k^2\bigl|\omega_k\bigl(A_k(f)A_k(g)\bigr)\bigr|\le100\,C_1(1+L)^4
+\delta^{-4}\|f\|_\infty\|g\|_\infty .
+\]
+So \textup{(M$_{\mathrm s,2}$)} holds; every limit $S_2$ along a
+subsequence satisfies
+\[
+|S_2(f,g)|\le C_1\iint|f(x)||g(y)|w_\gamma(|x-y|)\,dx\,dy
+\]
+on the separated pairs, and extends uniquely to a continuous linear
+functional on $\mathcal S_0(\R^8)$ with $|S_2(F)|\le C|F|_{33}$.
+
+\textup{(ii)} If $f,g\ge0$ form a separated pair and $|x-y|\le r_0$ for
+$x\in\operatorname{supp}f$, $y\in\operatorname{supp}g$, then $S_2(f,g)\ge
+c_1\iint f(x)g(y)w_\gamma(|x-y|)\,dx\,dy$. In particular no limit $S_2$
+vanishes identically, and the moment bound \textup{(M)} of
+Section~\textup{\ref{ssec:osaxioms}}, posed for the packets $Z_kA_k(f)$, fails
+for $n=2$ and $Q=[0,1]^4$.
+
+\textup{(iii)} For every $\varepsilon>0$, $\mathcal N_k(\varepsilon)>0$ for
+large $k$ and
+\[
+0<\liminf_kZ_k^2\mathcal N_k(\varepsilon)\le\limsup_kZ_k^2\mathcal
+N_k(\varepsilon)<\infty .
+\]
+
+\textup{(iv)} \textup{(SD$_{\mathrm p}$)} holds with $p_0=4$, hence
+\textup{(SD)} and \textup{(UV)}, and \textup{(NE)} holds. Every limit
+$S_2$ of Corollary~\textup{\ref{cor:limitEtwo}(b)} is not identically zero,
+extends to $\mathcal S_0(\R^8)$ as in
+Proposition~\textup{\ref{prop:limitEtwotempered}(b)}, and its Hamiltonian
+$H^{(1)}$ has a nonempty spectrum in $[m_*,\infty)$.
+
+\textup{(v)} If the transfer matrices $\mathbb T_k$ have spectrum on
+$\Omega_k^\perp$ in $[0,e^{-m_{\mathrm{lat}}}]$ for a fixed $m_{\mathrm{lat}}
+>0$ and all $k$, then \textup{(AF)} fails for every choice of $Z_k$; this
+is the case under the hypotheses of
+Corollary~\textup{\ref{cor:limitEstrong}}.
+\end{theorem}
+
+\begin{proof}
+(i) By Lemma~\ref{lem:limitElattice}(i) and translation invariance,
+\[
+\omega_k(A_k(f)A_k(g))=\sum_{x,y}a_k^8f(a_kx)g(a_ky)G_k(y-x).
+\]
+A nonzero
+term has $|a_kx-a_ky|_\infty\ge\delta$, so $|y-x|_\infty\ge\delta/a_k\ge
+2r+1$, and (AF) with $\ell\ge1$ bounds $Z_k^2|G_k(y-x)|$ by $C_1(a_k|y-x|)
+^{-8}\le C_1(a_k|y-x|_\infty)^{-8}$. There are $(2j+1)^4-(2j-1)^4=64j^3+16j
+\le80j^3$ points $v\in\Z^4$ with $|v|_\infty=j\ge1$, so with $J=\lceil
+\delta/a_k\rceil$
+\[
+\begin{aligned}
+\sum_{|v|_\infty\ge J}a_k^4(a_k|v|_\infty)^{-8}&\le80a_k^{-4}\sum_{j\ge J}
+j^{-5}\\
+&\le80a_k^{-4}\Bigl(J^{-5}+\frac{J^{-4}}4\Bigr)\le100\,\delta^{-4},
+\end{aligned}
+\]
+while at most $(L/a_k+1)^4$ sites $x$ have $a_kx\in Q$, and $a_k^4(L/a_k+1)
+^4\le(1+L)^4$. This gives the bound, and (M$_{\mathrm s,2}$) follows since
+$\mathcal C_2(Q,\delta)\subset\mathcal C_2(Q,1)$ for $\delta\ge1$. In the
+same sum $Z_k^2|G_k(y-x)|\le C_1w_\gamma(a_k|y-x|)$, and $(x,y)\mapsto|f(x)|
+|g(y)|w_\gamma(|x-y|)$ is continuous with compact support in $\R^8$, since
+$w_\gamma$ is continuous on $(0,\infty)$; its Riemann sums converge to its
+integral, which gives the bound on $S_2$. The extension is
+Lemma~\ref{lem:limitEextend} with $n=2$, $C=100C_1$, $q'=p'=4$ and
+$w=4+4+24+1=33$.
+
+(ii) For large $k$ every nonzero term of the sum has $|y-x|_\infty\ge2r+1$
+and $a_k|y-x|\le r_0$, so the lower bound of (AF) gives $Z_k^2\omega_k(A_k(
+f)A_k(g))\ge c_1\sum_{x,y}a_k^8f(a_kx)g(a_ky)w_\gamma(a_k|y-x|)$, and the
+Riemann sums converge as in (i). The integral is positive when $f$ and $g$
+are not zero. For (M), let $s_0=r_0/2$ and $0<\delta\le r_0/16$; let $f$ be
+continuous with values in $[0,1]$, equal to $1$ on $[\frac12-2\delta,
+\frac12-\delta]\times[\frac{s_0}4,\frac{3s_0}4]^3$ and supported in
+$[\frac12-3\delta,\frac12-\frac\delta2]\times[0,s_0]^3$, and $g$ continuous
+with values in $[0,1]$, equal to $1$ on $[\frac12+\delta,\frac12+2\delta]
+\times[\frac{s_0}8,\frac{7s_0}8]^3$ and supported in $[\frac12+\frac\delta2,
+\frac12+3\delta]\times[0,s_0]^3$. The supports lie in $[0,1]^4$, at distance
+$\delta$, and all their points are within $(36\delta^2+3s_0^2)^{1/2}\le r_0$
+of each other. The pairs with $x$ in the first box, $x_0+\delta\le y_0\le
+x_0+4\delta$ with $y_0\in[\frac12+\delta,\frac12+2\delta]$, and $|y_i-x_i|
+\le\delta$ for $i=1,2,3$ have measure $\frac{\delta s_0^3}8\cdot\delta\cdot
+8\delta^3=s_0^3\delta^5$, $f(x)g(y)=1$ and $2\delta\le|x-y|\le\sqrt{19}\,
+\delta<5\delta$, where $w_\gamma\ge(5\delta)^{-8}\ell(2\delta)^{-\gamma}$.
+Hence $S_2(f,g)\ge c_15^{-8}s_0^3\delta^{-3}(1+\log\frac1{2\delta})^{-\gamma}$,
+which is unbounded as $\delta\to0$, while $\|f\|_\infty\|g\|_\infty=1$; under
+(M) the limit would be bounded by $M_2(Q)$, as in the proof of
+Proposition~\ref{prop:limitEsing}.
+
+(iii) Let $Q_0$ be the cube of side $L_0=2(\varepsilon+2+2a_0)$ of the proof
+of Proposition~\ref{prop:limitEtwotempered}(a), which contains
+$B_{\varepsilon'}$ and $\theta_{0,k}(B_{\varepsilon'})$ for all $k$ and
+$\varepsilon'\le\varepsilon$. For $h$ supported in $B_{\varepsilon'}$ with
+$\|h\|_\infty\le1$ and $a_k\le\varepsilon'$, $\omega_k(\vartheta(\overline{
+A_k(h)})A_k(h))=\omega_k(A_k(\bar h\circ\theta_{0,k})A_k(h))$, and the pair
+lies in $\mathcal C_2(Q_0,\varepsilon')$; so by (i)
+\[
+Z_k^2\mathcal N_k(\varepsilon')\le100\,C_1(1+L_0)^4\max(1,\varepsilon'^{-4})
+\]
+for large $k$, which with $\varepsilon'=\varepsilon$ is the upper bound.
+Suppose that $Z_k^2\mathcal N_k(\varepsilon)\to0$ along a subsequence. By
+(M$_{\mathrm s,2}$) and the proof of Theorem~\ref{thm:limitEsep}(i) a further
+subsequence has a limit $S_2$ on all separated pairs. Let $g$ be supported in
+a cube of side $L$ in $\{x_0\ge\eta\}$, $\eta>0$, and $t\ge4\varepsilon+1$
+dyadic. For large $k$, $\bar g\circ\theta_{0,k}$ is supported in $\{x_0\le
+-\eta+a_k\}$ and $g(\cdot-te_0)$ in $\{x_0\ge\eta+t\}$, so with $c=2
+\varepsilon-\eta+a_k$ and $d=0$ the inequality of
+Theorem~\ref{thm:limitEtwo}(i), multiplied by $\mathcal N_k(\varepsilon)$,
+whose proof does not use $\mathcal N_k(\varepsilon)>0$, gives
+\[
+Z_k^2\bigl|\omega_k\bigl(A_k(\bar g\circ\theta_{0,k})A_k(g(\cdot-te_0))
+\bigr)\bigr|\le\mathsf K_L^2Z_k^2\mathcal N_k(\varepsilon)\|g\|_\infty^2\to0 .
+\]
+By the approximation of $\theta_{0,k}$ by $\theta_0$ in the proof of
+Theorem~\ref{thm:limitEsep}(iii), $S_2(\bar g\circ\theta_0,g(\cdot-te_0))=0$.
+The construction in the proof of Corollary~\ref{cor:limitEtwo}(b), which
+uses only (M$_{\mathrm s,2}$), gives a Hilbert space $\mathcal H^{(1)}$ and
+a self-adjoint $H^{(1)}\ge0$ with $S_2(\bar g\circ\theta_0,g(\cdot-te_0))=
+\|e^{-tH^{(1)}/2}w\|^2$, $w$ the vector of $g$. Since $e^{-tH^{(1)}/2}$ is
+injective, $w=0$, that is $S_2(\bar g\circ\theta_0,g)=0$, for every $g$
+supported in $\{x_0>0\}$, and by the proof of Corollary~\ref{cor:limitEtwo}(b)
+$S_2$ vanishes identically. This contradicts (ii). So $\liminf_kZ_k^2
+\mathcal N_k(\varepsilon)>0$, and in particular $\mathcal N_k(\varepsilon)
+>0$ for large $k$.
+
+(iv) Let $c_\varepsilon=\frac12\liminf_kZ_k^2\mathcal N_k(\varepsilon)$
+and $C_2=100\,C_1(1+L_0)^4$. By (iii), for $\varepsilon'\in(0,\varepsilon]$
+and large $k$,
+\[
+\begin{aligned}
+\mathcal N_k(\varepsilon')&\le\frac{C_2\max(1,\varepsilon'^{-4})}
+{c_\varepsilon}\,\mathcal N_k(\varepsilon)\\
+&\le C_0\Bigl(\frac\varepsilon{\varepsilon'}\Bigr)^4\mathcal N_k(\varepsilon),
+\end{aligned}
+\]
+where $C_0=C_2\max(1,\varepsilon^{-4})/c_\varepsilon$; the second
+inequality holds because $\max(1,\varepsilon'^{-4})$ is at most
+$\max(1,\varepsilon^{-4})(\varepsilon/\varepsilon')^4$. This is (SD$_{\mathrm p}$) with $p_0=4$; it gives (SD),
+and (UV) by Proposition~\ref{prop:limitEsd}(ii). Let $S^\sharp_2$ be a limit
+of Corollary~\ref{cor:limitEtwo}(b), formed with $\mathcal N_k(\varepsilon)
+^{-1}$ in place of $Z_k^2$. By (i) and (iii) a further subsequence has
+$Z_k^2\mathcal N_k(\varepsilon)\to\lambda\in(0,\infty)$ and a limit $S_2$
+with the constants $Z_k$, and then $S^\sharp_2=S_2/\lambda$, which is not
+identically zero by (ii). By Proposition~\ref{prop:limitEne}(i) this is
+(NE), and Corollary~\ref{cor:limitEtwo}(b) and
+Proposition~\ref{prop:limitEtwotempered}(b) give the rest.
+
+(v) Under (AF), (iii) and (iv) give $\mathcal N_k(\varepsilon)>0$ for large
+$k$ and (SD), which Proposition~\ref{prop:limitEsd}(iii) excludes under a
+lattice gap; Corollary~\ref{cor:limitEstrong} provides the gap.
+\end{proof}
+
+So the short-distance law, in the two-sided form (AF), gives the two inputs
+(SD) and (NE) of Section~\ref{ssec:limitE} for $n=2$, with the power rate
+(SD$_{\mathrm p}$) that temperedness needs, and it excludes the trivial
+limits of the strong-coupling range. It says nothing about $n\ge3$: the
+bounds (RN$_m$) with $m\ge2$ of Proposition~\ref{prop:limitEreflect} are
+not consequences of it. It also fixes the constants $Z_k$ up to bounded
+factors.
+
+\begin{proposition}\label{prop:limitEafscale}
+Assume \textup{(AF)} for the constants $Z_k$, and let $z_0\in\Z^4$ with
+$|z_0|_\infty\ge2r+1$.
+
+\textup{(i)} For large $k$, $G_k(z_0)>0$ and
+\[
+c_1|z_0|^{-8}\le Z_k^2a_k^8\,\ell(a_k|z_0|)^\gamma\,G_k(z_0)\le C_1|z_0|^{-8} .
+\]
+
+\textup{(ii)} $Z_k\ge c_1^{1/2}|z_0|^{-4}\|\Phi\|_\infty^{-1}a_k^{-4}\ell(a_k
+|z_0|)^{-\gamma/2}$ for large $k$; in particular $Z_k\to\infty$.
+
+\textup{(iii)} For large $k$ and every $z\in\Z^4$ with $|z|_\infty\ge2r+1$ and
+$a_k|z|\le r_0$,
+\[
+\frac{c_1}{C_1}\,\frac{w_\gamma(a_k|z|)}{w_\gamma(a_k|z_0|)}\le\frac{G_k(z)}
+{G_k(z_0)}\le\frac{C_1}{c_1}\,\frac{w_\gamma(a_k|z|)}{w_\gamma(a_k|z_0|)} .
+\]
+
+\textup{(iv)} Under the hypothesis of
+Theorem~\textup{\ref{thm:avgtransfer}}, if \textup{(AF)} also holds for
+constants $Z'_k$ with an exponent $\gamma'$, then $\gamma'=\gamma$ and
+$Z'_k/Z_k$ is bounded above and below by positive constants; both are
+comparable to $\mathcal N_k(\varepsilon)^{-1/2}$ for every $\varepsilon>0$.
+
+\textup{(v)} Under \textup{(AF$_\beta$)}, $Z_ka_k^4$ is bounded above and
+below by positive constants if and only if $\beta_{W,k}^\gamma G_k(z_0)$ is.
+\end{proposition}
+
+\begin{proof}
+(i) is (AF) at $z=z_0$, valid for large $k$ because $a_k|z_0|\to0$. (ii)
+follows from (i), since $|G_k(z_0)|=|\Cov(\Phi_0,\Phi_{z_0})|\le\Var(\Phi_0)
+\le\|\Phi\|_\infty^2$ by the Cauchy--Schwarz inequality and translation
+invariance, and $\ell(a_k|z_0|)^\gamma a_k^8\to0$. (iii) is the quotient
+of the two bounds of (AF) at $z$ and $z_0$. For (iv), Theorem~\ref{thm:limitEaf}(iii)
+applied to $Z_k$ and to $Z'_k$ makes $Z_k^2\mathcal N_k(\varepsilon)$ and
+${Z'_k}^2\mathcal N_k(\varepsilon)$ bounded above and below, hence
+$Z'_k/Z_k$; and (i) for both gives $\ell(a_k|z_0|)^{\gamma-\gamma'}$ bounded
+above and below, which forces $\gamma'=\gamma$ since $\ell(a_k|z_0|)\to
+\infty$. For (v), (AF$_\beta$) gives $\beta_{W,k}/\log(1/a_k)\to4Nb_0>0$,
+and $\ell(a_k|z_0|)/\log(1/a_k)\to1$, so by (i) $Z_k^2a_k^8$ is bounded
+above and below exactly when $\beta_{W,k}^\gamma G_k(z_0)$ is.
+\end{proof}
+
+By Remark~\ref{rem:limitEafpert}, perturbation theory predicts $\gamma=2$ and
+$G_k(z_0)$ of order $\beta_{W,k}^{-2}$, hence $Z_k$ of order $a_k^{-4}$, and
+for the plaquette sum $Z_ka_k^4\to b_0$ in the normalisation of $\Theta$.
+Part (iii) is the content of (AF) without reference to $Z_k$: the connected
+correlation of $\Phi$ decays from the lattice distance $|z_0|$ to every
+distance up to $r_0/a_k$ like the eighth power of the distance, with the
+logarithmic correction, within fixed factors. Its lower half is a lower
+bound on correlations at physical separations, the kind of input that upper
+bounds do not supply (compare Proposition~\ref{prop:upperbounds}).
+
+The two-sided law is consistent with the other properties of
+Section~\ref{ssec:limitE} and implies neither (W$_{\mathrm s}$) nor the exact
+law (AF$_\infty$).
+
+\begin{proposition}\label{prop:limitEafexample}
+Let $\gamma\ge0$, $\mu_j=2^{4(j-1)}(1+j)^{-\gamma/2}$ for $j\ge0$, let
+$a_k\le1$ and $J_k=\lfloor\log_2(2/a_k)\rfloor$, let $\phi^{(j)}_k$,
+$0\le j\le J_k$, be independent copies of the field of
+Proposition~\textup{\ref{prop:osobstruction}(a)} with $q_k$ replaced by
+$q_{k,j}=e^{-2^{j-1}a_k}$, and put $\phi_k=\sum_{j\le J_k}\mu_j\phi^{(j)}_k$,
+$A_k(f)=\sum_xa_k^4f(a_kx)\phi_k(x)$, $r=0$ and $Z_k=1$.
+
+\textup{(a)} The law of $\phi_k$ is invariant under translations and $B_4$
+and reflection positive for the reflections in coordinate hyperplanes
+through sites and bisecting links, and the spectrum of its transfer matrix
+in each coordinate direction on $\Omega_k^\perp$ lies in $[0,e^{-a_k/2}]$
+and contains $e^{-a_k/2}$: the gap is $\frac12$ in physical units.
+
+\textup{(b)} \textup{(AF)} holds with this $\gamma$, $r_0=\frac12$,
+$c_1=e^{-1}2^{-16-\gamma}$ and $C_1=\max(2^\gamma(A_\gamma+B),B')$, where
+$A_\gamma=\sum_{i\ge0}2^{-8i}(1+i)^\gamma$, $B=\sum_{i\ge1}2^{8i}e^{-2^{i-1}}$
+and $B'=\sum_{j\ge0}\sup_{t\ge2^j}t^8e^{-t}$.
+
+\textup{(c)} The moments converge along the whole sequence to the Gaussian
+family with $S_2(f,g)=\iint f(x)g(y)K(x-y)\,dx\,dy$, $K(v)=h(\|v\|_1)$,
+$h(u)=\sum_{j\ge0}\mu_j^2e^{-2^{j-1}u}$. \textup{(G$_{\mathrm s}$)} holds with
+$\beta=\frac12$ and $p=q=2$, and \textup{(U$_{\mathrm s}$)} holds; the
+conclusions of Theorem~\textup{\ref{thm:limitEaf}}(i)--(iv) hold with
+$m_*=\frac12$. The group $G_S$ is $B_4$, so \textup{(W$_{\mathrm s}$)}
+fails, and \textup{(AF$_\infty$)} fails.
+\end{proposition}
+
+\begin{proof}
+(a) As in the proof of Proposition~\ref{prop:limitEheavy}(a), with $J_k+1$
+independent fields in place of two: the tuple is a reversible Markov chain
+in each coordinate direction with transfer operator $\bigotimes_jP_j$, of
+spectrum $\{\prod_jq_{k,j}^{N_j}\}$ with $1$ simple, the functions of
+$\phi_k$ at positive times are functions of the tuple there, and the vector
+of $\phi_k(x)$ at positive time has a nonzero component of eigenvalue
+$q_{k,0}=e^{-a_k/2}$, the largest $q_{k,j}$.
+
+(b) The covariance is $G_k(z)=\sum_{j\le J_k}\mu_j^2e^{-2^{j-1}u}$ with
+$u=a_k\|z\|_1$; for $z\ne0$ let $\rho=a_k|z|$, so that $\rho\le u\le2\rho$
+and $u\ge a_k$. If $u\le2$, let $j_*=\lfloor\log_2(2/u)\rfloor\ge0$, so that
+$\frac12<2^{j_*-1}u\le1$. The terms with $j=j_*-i$, $i\ge0$, are at most
+$\mu_{j_*}^22^{-8i}(1+i)^\gamma$, because $(1+j_*)/(1+j)\le1+i$; those with
+$j=j_*+i$, $i\ge1$, at most $\mu_{j_*}^22^{8i}e^{-2^{i-1}}$, because
+$2^{j-1}u>2^{i-1}$. So $G_k(z)\le(A_\gamma+B)(2^{j_*-1})^8(1+j_*)^{-\gamma}
+\le(A_\gamma+B)\rho^{-8}(1+j_*)^{-\gamma}$. Here $1+j_*\ge\max(1,\log_2(2/u))
+\ge\max(1,\log_2(1/\rho))$, which is at least $\frac12\ell(\rho)$, so
+$G_k(z)\le2^\gamma(A_\gamma+B)w_\gamma(\rho)$. If $u>2$, then $\rho>1$,
+$2^{j-1}u\ge2^j$ and $\mu_j^2\le2^{8(j-1)}$, so $G_k(z)\le u^{-8}\sum_j
+(2^{j-1}u)^8e^{-2^{j-1}u}\le B'u^{-8}\le B'w_\gamma(\rho)$. For the lower
+bound let $\rho\le\frac12$, so $u\le1$; then $j_*\le J_k$ because $u\ge a_k$,
+and the term $j_*$ alone is at least $(2u)^{-8}(1+j_*)^{-\gamma}e^{-1}$.
+Since $(2u)^{-8}\ge(4\rho)^{-8}$ and $1+j_*\le1+\log_2(2/\rho)=2+\log(1/\rho)/
+\log2\le2\ell(\rho)$, because $1/\log2<1.5$, this is at least $e^{-1}
+2^{-16-\gamma}w_\gamma(\rho)$. The finiteness of $A_\gamma$, $B$, $B'$
+follows from the ratio test, since $t^8e^{-t}$ decreases for $t\ge8$.
+
+(c) $\omega_k(A_k(f)A_k(g))=\sum_{x,y}a_k^8f(a_kx)g(a_ky)h_k(a_k\|y-x\|_1)$
+with $h_k$ the partial sum of $h$ up to $J_k$. On a separated pair at
+distance $\delta$ only $u\ge\delta$ occurs, where $0\le h-h_k\le\sum_{j>J_k}
+\mu_j^2e^{-2^{j-1}\delta}\to0$, and $h$ is continuous on $(0,\infty)$; so
+the Riemann sums converge to $\iint f(x)g(y)K(x-y)\,dx\,dy$. The fields are
+centred Gaussian, so the moments of separated tuples are sums over the
+$(n-1)!!$ pairings of products of these two-point functions, and they
+converge as well; this gives (U$_{\mathrm s}$). Theorem~\ref{thm:limitEaf}(i)
+and $(n-1)!!\le(n!)^{1/2}$ bound the moments of tuples in $\mathcal
+C_n(Q,\delta)$, $\delta\le1$, by $(100C_1)^{n/2}(n!)^{1/2}(1+L)^{2n}
+\delta^{-2n}\prod_j\|f_j\|_\infty$ for large $k$, which is
+(G$_{\mathrm s}$). The proofs of Theorem~\ref{thm:limitEaf}(i)--(iv) use
+the states only through their invariance, reflection positivity and gap, as
+in Remark~\ref{rem:limitEscope}. $K$ is continuous on $\R^4\setminus\{0\}$ and
+$h$ is strictly decreasing, so by Proposition~\ref{prop:limitEaniso}(i) an
+$R\in\mathrm O(4)$ lies in $G_S$ only if $\|Rv\|_1=\|v\|_1$ for all $v$; then
+$R$ permutes the vertices $\pm e_\mu$ of the unit ball of $\|\cdot\|_1$, and
+$R\in B_4$. Finally, choose $i_1$ with $((1+i)/(2+i))^\gamma\ge\frac12$ for
+$i\ge i_1$. Since $\mu_{i+1}^2=2^8((1+i)/(2+i))^\gamma\mu_i^2$,
+\[
+h(\rho)\ge\sum_{i\ge i_1}\mu_{i+1}^2e^{-2^i\rho}\ge2^7\Bigl(h(2\rho)-
+\sum_{i<i_1}\mu_i^2\Bigr),
+\]
+and $h(2\rho)\to\infty$ as $\rho\to0$, so $\liminf_{\rho\to0}h(\rho)/
+h(2\rho)\ge2^7$. With $v=\rho e_0$ and $v'=\frac\rho2(1,1,1,1)$, $|v|=|v'|=
+\rho$, $\|v\|_1=\rho$ and $\|v'\|_1=2\rho$, while (AF$_\infty$), $K$ being
+continuous, would give $K(v)/K(v')\to1$.
+\end{proof}
+
+The example is not a lattice gauge theory. With (AF$_\infty$) in place of
+(AF), the leading term at short distance is rotation invariant: if $K$ is
+as in (AF$_\infty$) and square integrable on compact subsets of $\R^4
+\setminus\{0\}$, the components $K_{2j}(\rho,\cdot)$, $j\ge1$, of
+Proposition~\ref{prop:limitEaniso}(ii) satisfy $\rho^8(\log\frac1\rho)
+^\gamma\|K_{2j}(\rho,\cdot)\|_{L^2(S^3)}\to0$ as $\rho\to0$ along almost every
+$\rho$, because the projection onto $\mathcal Y_{2j}$, $j\ge1$, has norm one
+and annihilates the constant $C_{\mathrm{AF}}$. This is not
+(W$_{\mathrm s}$), which asks that these components vanish.
+
+\begin{remark}\label{rem:limitEafstatus}
+\emph{Status of (AF).} No part of (AF), (AF$_\infty$) or (AF$_\beta$) is
+proved for the Wilson measure, in any regime of couplings that tends to the
+continuum, and (AF) fails in the strong-coupling range
+(Theorem~\ref{thm:limitEaf}(v)). Ba{\l}aban's renormalisation
+group~\cite{Bal84a,Bal85a,Bal87,Bal88,Bal89b} constructs effective actions in
+a small-field approximation with a coupling constant renormalisation by
+recursive renormalisation-group equations~\cite{Bal87}, and proves the
+ultraviolet stability of four-dimensional pure lattice gauge theories, that
+is, bounds on the partition function in a box of fixed physical size uniform
+in the spacing~\cite{Bal89b}; these bounds concern the partition function,
+not the two-point function of a local field, and the box is fixed.
+Magnen, Rivasseau and S\'en\'eor~\cite{MRS93} give the basis for a
+construction of the Schwinger functions of the $\SU(2)$ gauge field with a
+fixed infrared cut-off and no ultraviolet cut-off, in a regularised axial
+gauge; these are correlations of the gauge field in a gauge, with an
+infrared cut-off, not of a gauge-invariant composite field such as $\Phi$,
+and they are not states of the Wilson measure along a lattice tuning. An
+asymptotically free ultraviolet limit has been constructed by convergent
+expansions in the running coupling for the two-dimensional Gross--Neveu
+model~\cite{GK85}, not for a gauge theory in four dimensions. What is
+missing is exactly the following inequality, for $\Phi$ the plaquette sum,
+the torus limits $\omega_k$ along the tuning (AF$_\beta$), $\gamma=2$ and
+some $Z_k>0$, $0<c_1\le C_1$, $r_0>0$: for large $k$ and all $z\in\Z^4$
+with $|z|_\infty\ge2r+1$, where $G_k(z)=\omega_k(\Phi_0\Phi_z)-\omega_k(
+\Phi_0)^2$,
+\[
+Z_k^2|G_k(z)|\le C_1w_2(a_k|z|),
+\]
+and $Z_k^2G_k(z)\ge c_1w_2(a_k|z|)$ if moreover $a_k|z|\le r_0$;
+equivalently, by Proposition~\ref{prop:limitEafscale}(iii), the
+$Z_k$-free two-sided comparison of $G_k(z)$ with $G_k(z_0)\,w_2(a_k|z|)/
+w_2(a_k|z_0|)$ for $2r+1\le|z|_\infty$, $a_k|z|\le r_0$, together with the
+upper bound for $a_k|z|>r_0$ with $Z_k^2=w_2(a_k|z_0|)/G_k(z_0)$. It is open, both halves, already in a box of
+fixed physical size. Given it, Theorem~\ref{thm:limitEaf} supplies (SD$_{\mathrm
+p}$) and (NE) for $n=2$; (RN$_m$) for $m\ge2$, (W$_{\mathrm s}$),
+(U$_{\mathrm s}$) and the averaged condition along the tuning stay open.
+\end{remark}
+
+\emph{Products and the two-point properties.} After
+Proposition~\ref{prop:limitEreflect} the separated moments of order
+$n\ge3$ rest on (RN$_m$), $m\ge2$, and the rate (G$_{\mathrm s}$) on a rate
+in these bounds. Functions of two independent copies of the field of
+Proposition~\ref{prop:osobstruction}(a) show what the two-point properties do
+not give. Write $\gamma_2$ for the standard Gaussian measure on $\R^2$,
+$\|\cdot\|_p$ for the norm of $L^p(\gamma_2)$, and $T_M(u)=\max(-M,\min(M,u))$
+for $M>0$.
+
+\begin{lemma}\label{lem:limitEtrunc}
+Let $m>0$, $q_k=e^{-ma_k}$, let $\phi^{(1)}_k,\phi^{(2)}_k$ be independent
+copies of the field of Proposition~\textup{\ref{prop:osobstruction}(a)},
+$\xi_x=(\phi^{(1)}_k(x),\phi^{(2)}_k(x))$, let $U\colon\R^2\to\R$ be
+continuous, in $L^p(\gamma_2)$ for every $p<\infty$, with $\int
+U\,d\gamma_2=0$, and put $\Phi_x=U(\xi_x)$ and $A_k(f)=\sum_xa_k^4f(a_kx)
+\Phi_x$, with $r=0$.
+
+\textup{(i)} The law of $\Phi$ is invariant under translations and $B_4$ and
+reflection positive for the reflections in coordinate hyperplanes through
+sites and bisecting links, and in each coordinate direction the spectrum of
+its transfer matrix on $\Omega_k^\perp$ lies in $[0,q_k]$. It contains $q_k$
+if $\int U(u)u_i\,d\gamma_2(u)\ne0$ for $i=1$ or $i=2$.
+
+\textup{(ii)} Let $U_M=T_M\circ U-\int T_M\circ U\,d\gamma_2$, so that
+$|U_M|\le2M$. For $n\ge1$ and random vectors $\zeta_1,\dots,\zeta_n$ in
+$\R^2$, each of law $\gamma_2$,
+\begin{gather*}
+\Bigl|\E\prod_iU(\zeta_i)\Bigr|\le\|U\|_n^n,\\
+\Bigl|\E\prod_iU_M(\zeta_i)-\E\prod_iU(\zeta_i)\Bigr|\le e_n(M),
+\end{gather*}
+with $e_n(M)=2n(2\|U\|_n)^{n-1}\|U\mathbf 1_{\{|U|>M\}}\|_n\to0$ as
+$M\to\infty$. Hence, if $f_j$ is supported in a cube of side $L_j$, the
+moments $\omega_k(\prod_jA_k(f_j))$ formed with $U_M$ and with $U$ differ by
+at most $e_n(M)\prod_j(L_j+a_k)^4\|f_j\|_\infty$.
+\end{lemma}
+
+\begin{proof}
+(i) As in the proof of Proposition~\ref{prop:limitEheavy}(a), the pair
+$(\phi^{(1)}_k,\phi^{(2)}_k)$ is invariant, reflection positive, and in
+each coordinate direction a reversible Markov chain with transfer operator
+$P\otimes P$, of spectrum $\{q_k^{N+N'}\}$ with $1$ simple; the functions of
+$\Phi$ at positive times are functions of the pair there, so $\Phi$ has the
+stated invariance and positivity, and its transfer matrix is the restriction
+of $P\otimes P$ to an invariant subspace. For a site $x$ at time $s\ge1$,
+$g_{\Phi_x}$ is $(P\otimes P)^s$ applied to $U(\xi_x)$, viewed as a function
+of the field at one time, and $P\otimes P$ acts as $q_k$ on the linear
+functions of that field. By Gaussian integration by parts the orthogonal
+projection of $U(\xi_x)$ on these linear functions has inner product
+$\int U(u)u_i\,d\gamma_2(u)$ with $\phi^{(i)}_k(x)$, so it is not zero, and
+$g_{\Phi_x}$ has a nonzero component of eigenvalue $q_k$.
+
+(ii) The first bound is H\"older's inequality with $n$ exponents $n$. Since
+$|T_Mu|\le|u|$, $|T_Mu-u|\le|u|\mathbf 1_{\{|u|>M\}}$ and $\int
+U\,d\gamma_2=0$,
+\[
+\|U_M\|_n\le2\|U\|_n,\qquad\|U_M-U\|_n\le2\|U\mathbf 1_{\{|U|>M\}}\|_n .
+\]
+The difference of the two products is the sum over $j$ of the products
+$\prod_{i<j}U_M(\zeta_i)\,(U_M-U)(\zeta_j)\prod_{i>j}U(\zeta_i)$, and
+H\"older's inequality for each of them gives the second bound. By dominated
+convergence $e_n(M)\to0$, as $|U|^n$ is integrable. The moments
+are $\sum_{x_1,\dots,x_n}a_k^{4n}\prod_jf_j(a_kx_j)\E\prod_jU(\xi_{x_j})$,
+each $\xi_{x_j}$ has law $\gamma_2$, and $\sum_xa_k^4|f_j(a_kx)|\le(L_j+
+a_k)^4\|f_j\|_\infty$.
+\end{proof}
+
+The moments of exponentials are explicit. For a centred Gaussian vector
+$(X_1,\dots,X_n)$ with unit variances and covariances $\rho_{ii'}$, $t>0$, and
+$u_{ii'}=e^{t^2\rho_{ii'}}-1$,
+\begin{equation}\label{eq:limitEcover}
+\E\prod_{i=1}^n\bigl(e^{tX_i-t^2/2}-1\bigr)=\sum_G\prod_{\{i,i'\}\in G}
+u_{ii'} ,
+\end{equation}
+the sum over the sets $G$ of pairs whose union is $\{1,\dots,n\}$. Indeed
+$\E\prod_{i\in S}e^{tX_i-t^2/2}=\prod_{\{i,i'\}\subset S}(1+u_{ii'})$ for
+$S\subset\{1,\dots,n\}$; expanding the product of the factors
+$e^{tX_i-t^2/2}-1$ and these products, the coefficient of
+$\prod_{\{i,i'\}\in G}u_{ii'}$ is the sum of $(-1)^{n-|S|}$ over the $S$
+that contain every pair of $G$, which is $1$ if $G$ covers $\{1,\dots,n\}$
+and $0$ otherwise. When all $\rho_{ii'}\ge0$, every term is nonnegative and
+nondecreasing in each $\rho_{ii'}$.
+
+\begin{proposition}\label{prop:limitEthree}
+In the setting of Lemma~\textup{\ref{lem:limitEtrunc}} let $t_k>0$ with
+$t_k\to\infty$, $\lambda_k=e^{-t_k^2/2}$ and
+\[
+U_k(u)=u_1+\lambda_k\bigl(e^{t_ku_2-t_k^2/2}-1\bigr),
+\]
+let $\varepsilon>0$, form $\mathcal N_k(\varepsilon)$ with $\Phi_x=U_k(\xi_x)$,
+and put $Z_k=\mathcal N_k(\varepsilon)^{-1/2}$ and $\ell_0=(\frac38)^8
+e^{-m(2\varepsilon+6)}$.
+
+\textup{(a)} The spectrum of the transfer matrix on $\Omega_k^\perp$ lies in
+$[0,q_k]$ and contains $q_k$: the gap is $m$ in physical units. For large
+$k$, $\ell_0\le\mathcal N_k(\varepsilon)\le2(1+2a_0)^8$. \textup{(SD$_{\mathrm
+p}$)} holds with $p_0=0$; hence \textup{(SD)}, \textup{(UV)},
+\textup{(RN$_1$)} and \textup{(M$_{\mathrm s,2}$)} hold. \textup{(NE)} holds,
+and every limit $S_2$ of Corollary~\textup{\ref{cor:limitEtwo}(b)} is
+$S_2(f,g)=z\iint f(x)g(y)e^{-m\|x-y\|_1}dx\,dy$ with $z\in[\frac12(1+2a_0)^{-8},
+\ell_0^{-1}]$.
+
+\textup{(b)} Let $n\ge3$, $\eta=1/(4m(3n+5))$, $c_j=3j\eta e_1$, and let
+$f_1,\dots,f_n$ be continuous with values in $[0,1]$, $f_j$ equal to $1$ on
+$c_j+[-\frac\eta2,\frac\eta2]^4$ and supported in $c_j+[-\eta,\eta]^4$.
+Then $(f_j)\in\mathcal C_n(Q,\eta)$ for a cube $Q$ of side $3n\eta$, and for
+large $k$
+\[
+Z_k^n\,\omega_k\Bigl(\prod_{j=1}^nA_k(f_j)\Bigr)\ge\frac{(\eta/2)^{4n}
+e^{nt_k^2/4}}{2^{n(n-1)/2}(2(1+2a_0)^8)^{n/2}}\to\infty .
+\]
+So \textup{(M$_{\mathrm s,n}$)} fails for every $n\ge3$.
+
+\textup{(c)} Let $j\ge2$, $\eta'=1/(4m(3j+10))$, and let $f_1,\dots,f_j$ be
+as in \textup{(b)}, with $\eta'$ in place of $\eta$ and centres
+$2\eta'e_0+3i\eta'e_1$, $i=1,\dots,j$. They are supported in
+$\{x_0\ge\eta'\}$, $(f_i)\in\mathcal C_j(Q',\eta')$ for a cube $Q'$ of side
+$3j\eta'$, and for large $k$, with $P_k=\prod_iA_k(f_i)$,
+\[
+Z_k^{2j}\,\omega_k\bigl(\vartheta(\bar P_k)P_k\bigr)\ge\frac{(\eta'/2)^{8j}
+e^{jt_k^2/2}}{2^{j(2j-1)}(2(1+2a_0)^8)^j}\to\infty .
+\]
+So \textup{(RN$_j$)} fails for every $j\ge2$.
+
+\textup{(d)} There are $M_k\to\infty$ such that \textup{(a)--(c)} hold for
+the fields $\Phi_x=U_{k,M_k}(\xi_x)/(2M_k)$, with $U_{k,M}$ formed from $U_k$
+as in Lemma~\textup{\ref{lem:limitEtrunc}(ii)}, which take values in
+$[-1,1]$, with $\frac12\ell_0$ and $4(1+2a_0)^8$ in place of $\ell_0$ and
+$2(1+2a_0)^8$ and the right sides of \textup{(b)}, \textup{(c)} halved. For
+these fields $Z_k\to\infty$.
+\end{proposition}
+
+\begin{proof}
+(a) The spectrum is given by Lemma~\ref{lem:limitEtrunc}(i), since
+$\int U_ku_1\,d\gamma_2=1$. Let $\rho(z)=\prod_\mu q_k^{|z_\mu|}=e^{-ma_k\|z\|_1}$ be the
+covariance of $\phi^{(i)}_k$ and $E_x=e^{t_k\phi^{(2)}_k(x)-t_k^2/2}$. By
+independence and centring, for $h$ supported in $B_{\varepsilon'}$ with
+$\|h\|_\infty\le1$ and $(r+1)a_k\le\varepsilon'$,
+\[
+\omega_k\bigl(\vartheta(\overline{A_k(h)})A_k(h)\bigr)=\sum_{x,y}a_k^8
+\overline{h(a_kx)}h(a_ky)\bigl(\rho+\lambda_k^2(e^{t_k^2\rho}-1)\bigr),
+\]
+with $\rho=\rho(y-\vartheta x)$, since $\E[(E_x-1)(E_y-1)]=e^{t_k^2\rho(x-y)}-1$
+by \eqref{eq:limitEcover}. For $a_kx_0,a_ky_0\ge\varepsilon'$ the time
+component of $y-\vartheta x$ is at least $2\varepsilon'/a_k-1$, so
+$\rho\le e^{-m(2\varepsilon'-a_k)}$, and $\lambda_k^2e^{t_k^2\rho}\le
+e^{-t_k^2(1-e^{-m(2\varepsilon'-a_k)})}\to0$. As $\sum_xa_k^4|h(a_kx)|\le
+(1+2a_0)^4$ and $\rho\le1$, $\mathcal N_k(\varepsilon')\le2(1+2a_0)^8$ for
+large $k$. For the function $h_*\ge0$ of the proof of
+Proposition~\ref{prop:limitEheavy}(b), formed for $\varepsilon$ with
+$\tau=\frac14$, both parts are nonnegative, and that proof gives
+$\sum_{x,y}a_k^8h_*(a_kx)h_*(a_ky)\rho(y-\vartheta x)\ge\ell_0$; so
+$\mathcal N_k(\varepsilon)\ge\ell_0$, and the ratio in (NE) with $g_0=h_*$
+is at least $\ell_0/(2(1+2a_0)^8)$. Hence $\mathcal N_k(\varepsilon')\le C_0\mathcal
+N_k(\varepsilon)$ with $C_0=2(1+2a_0)^8/\ell_0$ for every $\varepsilon'\in
+(0,\varepsilon]$ and large $k$, which is (SD$_{\mathrm p}$) with $p_0=0$.
+(UV) follows by Proposition~\ref{prop:limitEsd}(ii), (RN$_1$) by
+Proposition~\ref{prop:limitEreflect}(iii) and (M$_{\mathrm s,2}$) by
+Corollary~\ref{cor:limitEtwo}(a), whose proofs use the state only through
+the properties of Lemma~\ref{lem:limitEtrunc}(i). For $(f,g)\in\mathcal
+C_2(Q,\delta)$, $Q$ of side $L$, the sites carrying $f$ and $g$ have
+$\|a_k(x-y)\|_1\ge\delta$, so the part of $Z_k^2\omega_k(A_k(f)A_k(g))$ with
+$\lambda_k^2$ is at most $Z_k^2(L+1)^8e^{-t_k^2(1-e^{-m\delta})}\|f\|_\infty
+\|g\|_\infty\to0$, and the other part is $Z_k^2$ times a Riemann sum of the
+continuous function $f(x)g(y)e^{-m\|x-y\|_1}$; along a subsequence with
+$Z_k^2\to z$ the limit is the stated one.
+
+(b) Distinct $c_j$ differ by $3\eta$ along $e_1$, so the supports are at
+$\ell^\infty$ distance at least $\eta$; they lie in
+$[2\eta,(3n+1)\eta]\times[-\eta,\eta]^3$, of $\ell^1$ diameter at most
+$(3n-1)\eta+6\eta=1/(4m)$. Expanding $\prod_jU_k(\xi_{x_j})$ over the sets
+$I$ of indices that take the first summand, independence gives
+\[
+\E\prod_jU_k(\xi_{x_j})=\sum_I\E\Bigl[\prod_{j\in I}\phi^{(1)}_k(x_j)\Bigr]
+\lambda_k^{n-|I|}\E\Bigl[\prod_{j\notin I}(E_{x_j}-1)\Bigr] .
+\]
+The first factor is a sum of products of the covariances $\rho>0$ by
+Wick's formula, and the second is nonnegative by \eqref{eq:limitEcover};
+the term $I=\emptyset$ and the term $G$ of all pairs in
+\eqref{eq:limitEcover} give
+\[
+\E\prod_jU_k(\xi_{x_j})\ge\lambda_k^n\prod_{i<i'}\bigl(e^{t_k^2
+\rho(x_i-x_{i'})}-1\bigr).
+\]
+For sites in the supports $\rho\ge e^{-1/4}\ge\frac34$; for
+$\frac34t_k^2\ge\log2$, each factor is at least $\frac12e^{t_k^2\rho}$, and
+the right side is at least $2^{-n(n-1)/2}\exp(t_k^2n(\frac38(n-1)-\frac12))
+\ge2^{-n(n-1)/2}e^{nt_k^2/4}$, since $n\ge3$. All terms of the moment are
+nonnegative; keeping the sites with $a_kx_j\in c_j+[-\frac\eta2,\frac\eta2]^4$,
+at least $(\eta/(2a_k))^4$ for each $j$ when $a_k\le\eta/2$, and using
+$Z_k^2\ge\frac12(1+2a_0)^{-8}$ from (a) gives the bound.
+
+(c) The supports lie in $[\eta',3\eta']\times[2\eta',(3j+1)\eta']\times
+[-\eta',\eta']^2$, at $\ell^\infty$ distance at least $\eta'$ from each other.
+By Lemma~\ref{lem:limitElattice}(i), $\vartheta(\bar P_k)=\prod_iA_k(f_i\circ
+\theta_{0,k})$, and the $2j$ functions $f_i\circ\theta_{0,k}$, $f_i$ are
+nonnegative with supports in $\{x_0\le-\eta'+a_k\}$ and $\{x_0\ge\eta'\}$,
+whose union has $\ell^1$ diameter at most $(6\eta'+a_k)+(3j-1)\eta'+4\eta'
+\le(3j+10)\eta'=1/(4m)$ for $a_k\le\eta'$. The proof of (b) with $n=2j$
+applies, the map $x\mapsto\vartheta x$ being a bijection of $\Z^4$.
+
+(d) Choose $M_k\ge k$ with $e_n(M_k)\le1/k$ for $n\le k$, $e_n$ formed with
+$U_k$, and $\|U_{k,M_k}-U_k\|_2\le\frac12$. Then $\int U_{k,M_k}(u)u_1\,
+d\gamma_2\ge\frac12$, and Lemma~\ref{lem:limitEtrunc} gives the spectrum and
+shows that, for each fixed $n$ and fixed supports, the moments and the
+reflected norms formed with $U_{k,M_k}$ differ from those of $U_k$ by
+$O(1/k)$, uniformly in the functions of norm at most $1$ with supports in
+the given cubes; in particular $\mathcal N_k(\varepsilon')$ changes by at
+most $(1+2a_0)^8/k$. The field $U_{k,M_k}(\xi_x)/(2M_k)$ has packets
+$A_k/(2M_k)$, reflected norms $\mathcal N_k/(4M_k^2)$ and $Z_k$ multiplied
+by $2M_k$, so the moments of $Z_kA_k(f_j)$ are those formed with
+$U_{k,M_k}$ and its own $\mathcal N_k(\varepsilon)$, and the claims follow
+from (a)--(c).
+\end{proof}
+
+The fields of Proposition~\ref{prop:limitEthree} have every property that
+this subsection uses at separated points, the gap included, and (SD),
+(SD$_{\mathrm p}$), (UV), (NE) and nontrivial two-point limits. The
+exponential part has variance $\lambda_k^2(e^{t_k^2}-1)=1-e^{-t_k^2}$ at
+each site, correlations that vanish at every fixed distance, and moments of
+every order $n\ge3$ that grow like $e^{nt_k^2/4}$ at points closer than
+$1/(4m)$; it does not enter the two-point functions. So (RN$_m$), $m\ge2$,
+does not follow from the invariance, the reflection positivity in the
+coordinate hyperplanes, the transfer-matrix gap and the two-point
+properties; any argument that uses the state only through these, such as a
+chessboard or multiple-reflection estimate or a bound by powers of the
+transfer matrix, gives neither (RN$_2$) nor (M$_{\mathrm s,3}$). The
+choice of $Z_k$ does not matter: the unnormalised separated two-point moments
+are bounded in $k$, so every normalisation for which some separated
+two-point limit is nonzero has $\liminf_kZ_k>0$, and for it the moments in
+(b) and (c) still tend to infinity; this applies to $Z_k=C_k(\sigma_0)^{-1/2}$
+of Proposition~\ref{prop:limitEnorm}(ii) for $f_0\ge0$, $f_0\ne0$. Part (d)
+takes into account that $\Phi$ is bounded for the Wilson measure: for
+bounded fields (M$_{\mathrm s}$) is automatic when $Z_k$ is bounded, and in
+(d) $Z_k\to\infty$.
+
+The rate (G$_{\mathrm s}$) is a rate in (RN). Consider
+\begin{enumerate}[label=\textup{(RN$_{\mathrm p}$)},leftmargin=*]
+\item there are $K_1,\beta_1,p_1,q_1\ge0$ such that for every $m\ge1$, every
+cube $Q$ of side $L$ and every $\delta\in(0,1]$ there is $k_0$ with
+\[
+Z_k^{2m}\omega_k\bigl(\vartheta(\bar P_k)P_k\bigr)\le K_1^m(m!)^{\beta_1}
+(1+L)^{q_1m}\delta^{-p_1m}\prod_{j=1}^m\|f_j\|_\infty^2
+\]
+for $P_k=\prod_{j=1}^mA_k(f_j)$, all $k\ge k_0$ and all $(f_1,\dots,f_m)\in
+\mathcal C_m(Q,\delta)$ with supports in $\{x_0\ge\delta\}$.
+\end{enumerate}
+
+\begin{proposition}\label{prop:limitErate}
+Assume the hypothesis of Theorem~\textup{\ref{thm:avgtransfer}}.
+
+\textup{(i)} \textup{(G$_{\mathrm s}$)} implies \textup{(RN$_{\mathrm p}$)}
+with $K_1=4^\beta7^{2q}K^2$, $\beta_1=2\beta$, $q_1=2q$, $p_1=2p$.
+
+\textup{(ii)} \textup{(RN$_{\mathrm p}$)} implies \textup{(G$_{\mathrm s}$)}
+with $K=2^8e^4\,5^{q_1/2}(16e^2)^{p_1/2}K_1^{1/2}$,
+$\beta=4+\frac12(\beta_1+p_1)$, $q=4+\frac12q_1$, $p=4+\frac12p_1$.
+
+\textup{(iii)} With $Z_k=\mathcal N_k(\varepsilon)^{-1/2}$ as in
+Theorem~\textup{\ref{thm:limitEtwo}}, the case $m=1$ of the bound in
+\textup{(RN$_{\mathrm p}$)}, with its own constants, holds if and only if
+\textup{(SD$_{\mathrm p}$)} holds. So under \textup{(SD$_{\mathrm p}$)},
+\textup{(G$_{\mathrm s}$)} holds if and only if the cases $m\ge2$ hold with
+constants of the form in \textup{(RN$_{\mathrm p}$)}.
+\end{proposition}
+
+\begin{proof}
+(i) Let $(f_j)\in\mathcal C_m(Q,\delta)$ have supports in $\{x_0\ge\delta\}$,
+$Q=\prod_\nu[q_\nu,q_\nu+L]$, let $s\ge\delta$ be the least time in the
+supports, $n_0=\lfloor(s-\delta)/a_k\rfloor$, $v_\nu=\lfloor q_\nu/a_k\rfloor$
+for $\nu\ne0$, $v_\perp=(0,v_1,v_2,v_3)$, and $f'_j=f_j(\cdot+a_k(n_0e_0+
+v_\perp))$, supported in $[\delta,L+2]\times[0,L+1]^3$ for $a_k\le1$. With
+$P'_k=\prod_jA_k(f'_j)$, $P_k=\tau_{n_0e_0}\tau_{v_\perp}P'_k$ by
+Lemma~\ref{lem:limitElattice}(i), and, as in the proof of
+Lemma~\ref{lem:limitEbox}, $\omega_k(\vartheta(\bar P_k)P_k)=\|\mathbb
+T_k^{n_0}\Psi_{\tau_{v_\perp}P'_k}\|^2\le\omega_k(\vartheta(\bar P'_k)
+P'_k)$. The last is the moment of the $2m$ functions $\bar f'_j\circ
+\theta_{0,k}$, $f'_j$, which lie in $Q''=[-L-3,L+3]^4$ and are pairwise at
+$\ell^\infty$ distance at least $\delta$ for $a_k\le\delta$, the reflected
+ones being supported in $\{x_0\le-\delta+a_k\}$. (G$_{\mathrm s}$) with
+$n=2m$ and $Q''$, of side $2L+6$, gives the bound with $((2m)!)^\beta\le
+4^{\beta m}(m!)^{2\beta}$ and $7+2L\le7(1+L)$.
+
+(ii) The moments of order one vanish. For $n\ge2$, part (ii) of
+Proposition~\ref{prop:limitEreflect} gives (M$_{\mathrm s,n}$) with
+$M_n(Q,\delta)=\mathsf K_{2nL/\delta}^n\max_i(R_iR_{n-i})^{1/2}$, $R_i$ taken
+at $Q^*$, of side $2L+4$, and $\delta_n=\delta/(16(n+1))\le1$. By
+(RN$_{\mathrm p}$) and $i!(n-i)!\le n!$,
+\begin{multline*}
+(R_iR_{n-i})^{1/2}\le K_1^{n/2}(n!)^{\beta_1/2}\bigl(5(1+L)\bigr)^{q_1n/2}\\
+\times\bigl(16(n+1)\bigr)^{p_1n/2}\delta^{-p_1n/2} .
+\end{multline*}
+From $e^n\ge n^n/n!$, $(n+1)^n\le e\,n^n\le e^{n+1}n!\le e^{2n}n!$. For
+$\delta\le1$, $4nL/\delta+3\le4n(1+L)/\delta$, so $\mathsf K_{2nL/\delta}^n
+\le4^{4n}n^{4n}(1+L)^{4n}\delta^{-4n}\le4^{4n}e^{4n}(n!)^4(1+L)^{4n}
+\delta^{-4n}$. Multiplying gives the constants stated.
+
+(iii) If (SD$_{\mathrm p}$) holds, Lemma~\ref{lem:limitEbox} gives, for $f$
+supported in a cube of side $L$ in $\{x_0\ge\delta\}$ and large $k$,
+\[
+Z_k^2\omega_k\bigl(\vartheta(\overline{A_k(f)})A_k(f)\bigr)\le\mathsf K_L^2
+\|f\|_\infty^2\frac{\mathcal N_k(\delta)}{\mathcal N_k(\varepsilon)} ,
+\]
+with $\mathsf K_L^2\le3^8(1+L)^8$. The ratio is at most $C_0\max(1,\varepsilon)^{p_0}
+\delta^{-p_0}$ for $\delta\le\varepsilon$ and at most $\mathsf K^2$ for
+$\delta>\varepsilon$, by Proposition~\ref{prop:limitEsd}(i). Conversely, if
+the case $m=1$ holds, let $\varepsilon'\in(0,\varepsilon]$ and $h$ be
+supported in $B_{\varepsilon'}\subset[0,L_0]^4$, $L_0=\varepsilon+1+a_0$;
+the bound with $\delta=\min(\varepsilon',1)$ gives $\mathcal
+N_k(\varepsilon')\le C_0(\varepsilon/\varepsilon')^{p_1}\mathcal
+N_k(\varepsilon)$ with $C_0=K_1(1+L_0)^{q_1}\max(1,\varepsilon^{-p_1})$.
+The last claim follows from (i), (ii).
+\end{proof}
+
+Bounds on each moment do not give the factor $K^n(n!)^\beta$: in the next
+fields every moment is bounded uniformly in the separation, and
+(G$_{\mathrm s}$) fails.
+
+\begin{proposition}\label{prop:limitEfactorial}
+In the setting of Lemma~\textup{\ref{lem:limitEtrunc}} let $t>0$,
+$U(u)=e^{tu_2-t^2/2}-1$, $\varepsilon>0$, form $\mathcal N_k(\varepsilon)$
+with $\Phi_x=U(\xi_x)$, and put $Z_k=\mathcal N_k(\varepsilon)^{-1/2}$, with
+$\ell_0$ as in Proposition~\textup{\ref{prop:limitEthree}}.
+
+\textup{(a)} The gap is $m$ in physical units. For large $k$, $t^2\ell_0\le
+\mathcal N_k(\varepsilon)\le(1+2a_0)^8(e^{t^2}-1)$, \textup{(SD$_{\mathrm
+p}$)} holds with $p_0=0$, \textup{(NE)} holds, and for every $n$ and all
+$f_j$ supported in a cube of side $L$, separated or not,
+\[
+\Bigl|\omega_k\Bigl(\prod_{j=1}^nZ_kA_k(f_j)\Bigr)\Bigr|\le
+\frac{2^ne^{t^2n(n-1)/2}(L+1)^{4n}}{(t^2\ell_0)^{n/2}}\prod_{j=1}^n\|f_j\|
+_\infty ;
+\]
+in particular \textup{(M$_{\mathrm s}$)} and \textup{(RN)} hold.
+
+\textup{(b)} Let $n$ be even with $n\ge e\log2/t^2+\frac12$, $s=\lceil
+n^{1/4}\rceil$, $\eta=1/(12(1+m)s)$, let $v_1,\dots,v_n$ be distinct points of
+$\{0,\dots,s-1\}^4$, and let $f_j$ be as in
+Proposition~\textup{\ref{prop:limitEthree}(b)} with centres $c_j=3\eta v_j$.
+Then $(f_j)\in\mathcal C_n(Q,\eta)$ for a cube $Q$ of side at most $1$, and
+for large $k$
+\[
+Z_k^n\,\omega_k\Bigl(\prod_{j=1}^nA_k(f_j)\Bigr)\ge\frac{(\eta/2)^{4n}
+e^{t^2n(n-1)/(2e)}}{2^{n+1}\bigl((1+2a_0)^8(e^{t^2}-1)\bigr)^{n/2}} .
+\]
+\textup{(G$_{\mathrm s}$)} fails for all $K,\beta,p,q$, and no limit of
+Theorem~\textup{\ref{thm:limitEsep}} satisfies the bound of
+\textup{(G$_{\mathrm s}$)}.
+
+\textup{(c)} For every sequence $M_k\to\infty$, \textup{(a)} and \textup{(b)}
+hold for the fields $U_{M_k}(\xi_x)/(2M_k)$, with values in $[-1,1]$, with
+$4^n$ in place of $2^n$, $\frac12t^2\ell_0$ in place of $t^2\ell_0$, and the
+right side of \textup{(b)} halved, for $k$ large depending on $n$; for these
+fields $Z_k\to\infty$.
+\end{proposition}
+
+\begin{proof}
+(a) The gap is Lemma~\ref{lem:limitEtrunc}(i), with $\int U(u)u_2\,d\gamma_2
+=t$. As in the proof of Proposition~\ref{prop:limitEthree}(a), the
+reflected norm of $A_k(h)$ is $\sum_{x,y}a_k^8\overline{h(a_kx)}h(a_ky)
+(e^{t^2\rho}-1)$, with $\rho=\rho(y-\vartheta x)\in(0,1]$; the upper bound
+follows, and the lower one from $e^{t^2\rho}-1\ge t^2\rho$ and the function
+$h_*$, which also bounds the ratio in (NE) with $g_0=h_*$ below by
+$t^2\ell_0/((1+2a_0)^8(e^{t^2}-1))$, and (SD$_{\mathrm p}$) with $p_0=0$. By
+Lemma~\ref{lem:limitEtrunc}(ii) the moments are at most $\|U\|_n^n\prod_j
+(L+1)^4\|f_j\|_\infty$, and $\|U\|_n\le\|e^{tu_2-t^2/2}\|_n+1=e^{t^2(n-1)/2}
++1\le2e^{t^2(n-1)/2}$. This gives (M$_{\mathrm s}$), and (RN) by
+Proposition~\ref{prop:limitEreflect}(i).
+
+(b) Distinct $v_j$ differ by at least $1$ in some coordinate, so the supports
+are at $\ell^\infty$ distance at least $\eta$; they lie in a cube of side
+$3\eta s\le1$, of $\ell^1$ diameter at most $12\eta s\le1/m$, so
+$\rho\ge e^{-1}$ for all sites in them. By \eqref{eq:limitEcover} and its
+monotonicity, $\E\prod_jU(\xi_{x_j})$ is at least its value for the
+Gaussian vector $X_i=e^{-1/2}Y+(1-e^{-1})^{1/2}W_i$ with $Y,W_1,\dots,W_n$
+independent standard normal, whose covariances are all $e^{-1}$.
+Conditionally on $Y$ the factors are independent, and with
+$\sigma=te^{-1/2}$ this value is $\E[(e^{\sigma Y-\sigma^2/2}-1)^n]$. For
+$n$ even the integrand is nonnegative, and it is at least
+$2^{-n}e^{n\sigma Y-n\sigma^2/2}$ where $y_0=(\log2+\sigma^2/2)/\sigma\le
+Y$. Since $\E[e^{n\sigma Y}\mathbf 1_{\{Y\ge y_0\}}]=e^{n^2\sigma^2/2}
+\mathbb P(Y\ge y_0-n\sigma)\ge\frac12e^{n^2\sigma^2/2}$ for $n\sigma\ge
+y_0$, that is $n\ge\log2/\sigma^2+\frac12$, the value is at least
+$2^{-n-1}e^{\sigma^2n(n-1)/2}$. Keeping the sites with $a_kx_j\in
+c_j+[-\frac\eta2,\frac\eta2]^4$, as in the proof of
+Proposition~\ref{prop:limitEthree}(b), gives the bound. If
+(G$_{\mathrm s}$) held, these moments would be at most $K^n(n!)^\beta
+2^{qn}\eta^{-pn}$, and $\eta^{-1}\le24(1+m)n^{1/4}$; the logarithm of this
+is $O(n\log n)$, while the logarithm of the lower bound is $t^2n(n-1)/(2e)-
+O(n\log n)$, a contradiction for large even $n$. The limits of
+Theorem~\ref{thm:limitEsep}(i) satisfy the same lower bound.
+
+(c) By Lemma~\ref{lem:limitEtrunc}(ii), $|\E\prod_jU_{M_k}(\zeta_j)|\le
+(2\|U\|_n)^n$, the moments and reflected norms change by at most
+$e_n(M_k)\prod_j(L_j+1)^4\|f_j\|_\infty\to0$ for each fixed $n$, and
+$\int U_{M_k}(u)u_2\,d\gamma_2\to t$; the rescaling by $2M_k$ is that of the
+proof of Proposition~\ref{prop:limitEthree}(d).
+\end{proof}
+
+One inequality between the moments and the separated two-point functions
+gives (M$_{\mathrm s}$) and (G$_{\mathrm s}$) from (SD) and
+(SD$_{\mathrm p}$). For a cube $Q$ and $\delta>0$ put
+\[
+\mu_k(Q,\delta)=\sup Z_k^2\bigl|\omega_k\bigl(A_k(h)A_k(h')\bigr)\bigr| ,
+\]
+the supremum over the $(h,h')\in\mathcal C_2(Q,\delta)$ with
+$\|h\|_\infty,\|h'\|_\infty\le1$.
+\begin{enumerate}[label=\textup{(GD)},leftmargin=*]
+\item There are $K_0,\beta_0\ge0$ such that for every $n\ge3$, every cube $Q$
+and every $\delta>0$ there is $k_0$ with
+\[
+\Bigl|\omega_k\Bigl(\prod_{j=1}^nZ_kA_k(f_j)\Bigr)\Bigr|\le K_0^n(n!)^{
+\beta_0}\mu_k(Q,\delta)^{n/2}\prod_{j=1}^n\|f_j\|_\infty
+\]
+for all $k\ge k_0$ and $(f_1,\dots,f_n)\in\mathcal C_n(Q,\delta)$.
+\end{enumerate}
+
+\begin{proposition}\label{prop:limitEdomination}
+Assume the hypothesis of Theorem~\textup{\ref{thm:avgtransfer}}.
+
+\textup{(i)} Under \textup{(GD)}, \textup{(M$_{\mathrm s,2}$)} implies
+\textup{(M$_{\mathrm s}$)}. With $Z_k=\mathcal N_k(\varepsilon)^{-1/2}$ as in
+Theorem~\textup{\ref{thm:limitEtwo}}, \textup{(GD)} and \textup{(SD)} imply
+\textup{(M$_{\mathrm s}$)}, and \textup{(GD)} and \textup{(SD$_{\mathrm p}$)}
+imply \textup{(G$_{\mathrm s}$)} with $K=\max(1,K_0)C_2^{1/2}$, $\beta=\beta_0$,
+$q=4$, $p=4+\frac12p_0$, where $C_2=(\frac{77}2)^8\max(1,C_0)\max(1,
+8\varepsilon)^{p_0}$.
+
+\textup{(ii)} If for every $k$ the packets $A_k(f)$ form a centred Gaussian
+family, \textup{(GD)} holds with $K_0=1$, $\beta_0=\frac12$.
+
+\textup{(iii)} \textup{(GD)} fails for $n=3$ in the fields of
+Proposition~\textup{\ref{prop:limitEthree}}.
+\end{proposition}
+
+\begin{proof}
+(i) (M$_{\mathrm s,2}$) gives $\mu_k(Q,\delta)\le M_2(Q,\delta)$ for large
+$k$, and Corollary~\ref{cor:limitEtwo}(a) gives (M$_{\mathrm s,2}$) from
+(SD). Under (SD$_{\mathrm p}$) the proof of
+Proposition~\ref{prop:limitEtwotempered}(a) gives $\mu_k(Q,\delta)\le
+C_2(1+L)^8\delta^{-8-p_0}$ for $Q$ of side $L$, $\delta\le1$ and large $k$,
+which is the case $n=2$; the moments of order one vanish.
+
+(ii) By Wick's formula the moment is $0$ for odd $n$ and, for even $n$, the
+sum over the $(n-1)!!$ perfect matchings of the products of the
+$\omega_k(A_k(f_a)A_k(f_b))$; each pair lies in $\mathcal C_2(Q,\delta)$, and
+$((n-1)!!)^2\le(n-1)!!\,n!!=n!$.
+
+(iii) There (M$_{\mathrm s,2}$) holds, so $\mu_k(Q,\eta)$ is bounded, while
+the left side of (GD) for the functions of
+Proposition~\ref{prop:limitEthree}(b) with $n=3$ tends to infinity.
+\end{proof}
+
+So the case $m=1$ of (RN) is (SD), and its rate is (SD$_{\mathrm p}$)
+(Propositions~\ref{prop:limitEreflect}(iii) and~\ref{prop:limitErate}(iii));
+the cases $m\ge2$ are a further input on the Wilson measure, which the
+two-point properties, reflection positivity and the gap do not supply
+(Proposition~\ref{prop:limitEthree}); (G$_{\mathrm s}$) is (RN) with
+constants $K_1^m(m!)^{\beta_1}(1+L)^{q_1m}\delta^{-p_1m}$
+(Proposition~\ref{prop:limitErate}), and bounds on each moment do not give
+the dependence on $n$ (Proposition~\ref{prop:limitEfactorial}). The single
+inequality (GD), of Gaussian domination type, gives (M$_{\mathrm s}$) from
+(SD) and (G$_{\mathrm s}$) from (SD$_{\mathrm p}$); it holds for Gaussian
+packets, fails in the fields of Proposition~\ref{prop:limitEthree}, and is not
+proved here for the Wilson measure.
+
+\emph{The effective energy.} Along each lattice of distances from the
+reflection plane the largest reflected norm is logarithmically convex, and
+(SD) becomes a bound, in physical units, on its rate of decay. For
+$(r+2)a_k\le s$ with $\mathcal N_k(s)>0$ put
+\[
+\mathfrak E_k(s)=\frac1{2a_k}\log\frac{\mathcal N_k(s)}{\mathcal N_k(s+a_k)} .
+\]\footnote{For one correlator this is the effective mass of lattice
+spectroscopy; here it is taken of the largest reflected norm, a supremum over
+packets.}
+
+\begin{lemma}\label{lem:limitElogconvex}
+Assume the hypothesis of Theorem~\textup{\ref{thm:avgtransfer}}, let
+$(r+2)a_k\le s$ and $\mathcal N(n)=\mathcal N_k(s+na_k)$ for integers $n\ge0$.
+
+\textup{(i)} $\mathcal N(n)$ is the supremum of $\|\mathbb T_k^n
+\Psi_{A_k(h)}\|^2$ over $h$ supported in $B_s$ with $\|h\|_\infty\le1$;
+$\mathcal N(n+1)\le\gamma_k^2\mathcal N(n)$, and $\mathcal N(n)^2\le
+\mathcal N(n-1)\mathcal N(n+1)$ for $n\ge1$.
+
+\textup{(ii)} If $\mathcal N(0)>0$, then $\mathcal N(n)>0$ for every $n$, and
+$n\mapsto\mathfrak E_k(s+na_k)$ is nonincreasing, with values in
+$[a_k^{-1}\log(1/\gamma_k),\infty)\subset[m_*,\infty)$.
+\end{lemma}
+
+\begin{proof}
+(i) Since $B_{s+na_k}=B_s+na_ke_0$, $h$ is supported in $B_{s+na_k}$ if and
+only if $h'=h(\cdot+na_ke_0)$ is supported in $B_s$, and then $A_k(h)=
+\tau_nA_k(h')$ by Lemma~\ref{lem:limitElattice}(i), so $\Psi_{A_k(h)}=
+\mathbb T_k^n\Psi_{A_k(h')}$ as in the proof of
+Lemma~\ref{lem:limitElattice}(iii). The packets are centred, so
+$\Psi_{A_k(h')}\perp\Omega_k$ and $\|\mathbb T_k^{n+1}\Psi_{A_k(h')}\|\le
+\gamma_k\|\mathbb T_k^n\Psi_{A_k(h')}\|$. For a vector $\Psi$ and
+$f(n)=\|\mathbb T_k^n\Psi\|^2=\ip{\mathbb T_k^{n-1}\Psi}{\mathbb
+T_k^{n+1}\Psi}$, the Cauchy--Schwarz inequality gives $f(n)^2\le f(n-1)
+f(n+1)\le\mathcal N(n-1)\mathcal N(n+1)$ when $\Psi=\Psi_{A_k(h')}$;
+the supremum over $h'$ gives the last claim.
+
+(ii) For $h'$ supported in $B_s$, $h''=h'(\cdot+a_ke_0)$ is supported in
+$\{x_0\ge s-a_k\}$ and $(r+1)a_k\le s-a_k$, so $\Psi_{A_k(h')}=\mathbb T_k
+\Psi_{A_k(h'')}$ lies in the range of $\mathbb T_k$, which is orthogonal to
+$\ker\mathbb T_k=\ker\mathbb T_k^n$. So $\mathbb T_k^n\Psi_{A_k(h')}\ne0$
+when $\Psi_{A_k(h')}\ne0$, and $\mathcal N(n)>0$ by (i). The convexity in
+(i) says that $\log\mathcal N(n-1)-\log\mathcal N(n)\ge\log\mathcal N(n)-
+\log\mathcal N(n+1)$, and the bound $\mathcal N(n+1)\le\gamma_k^2
+\mathcal N(n)$ gives the lower bound, with $\gamma_k\le e^{-m_*a_k}$.
+\end{proof}
+
+For a single packet, $(2a_k)^{-1}\log(\|\mathbb T_k^n\Psi\|^2/
+\|\mathbb T_k^{n+1}\Psi\|^2)$ decreases, as $n\to\infty$, to the least point
+of the support of its spectral measure, written in physical energy; so
+$\mathfrak E_k(s)$ is the energy, in physical units, at which the largest
+reflected norm decays at the distance $s$ from the plane.
+
+\begin{proposition}\label{prop:limitEenergy}
+Assume the hypothesis of Theorem~\textup{\ref{thm:limitEtwo}}, and let
+$C_{\varepsilon'}$ be as in Proposition~\textup{\ref{prop:limitEsd}(iii)}.
+
+\textup{(i)} \textup{(SD)} holds if and only if $\limsup_k\mathfrak
+E_k(s)<\infty$ for every $s\in(0,\varepsilon)$. Under \textup{(SD)},
+$\limsup_k\mathfrak E_k(s)\le\log(\mathsf K^4C_{s/2})/s$; conversely, for
+$\varepsilon'\in(0,\varepsilon)$,
+\[
+\limsup_k\frac{\mathcal N_k(\varepsilon')}{\mathcal N_k(\varepsilon)}\le
+\mathsf K^2\exp\Bigl(2(\varepsilon-\varepsilon')\limsup_k\mathfrak
+E_k(\varepsilon')\Bigr).
+\]
+
+\textup{(ii)} Under \textup{(SD$_{\mathrm p}$)}, for every $s\in(0,
+\varepsilon]$ and all large $k$,
+\[
+\mathfrak E_k(s)\le\frac{\log(\mathsf K^4C_0)+p_0\log(2\varepsilon/s)}
+{s-2a_k} .
+\]
+Conversely, if there are $p,E_0\ge0$ and, for every $\varepsilon'\in(0,
+\varepsilon]$, a $k_0$ with $\mathfrak E_k(s)\le p/(2s)+E_0$ for all
+$s\in[\varepsilon',\varepsilon]$ and $k\ge k_0$, then
+\textup{(SD$_{\mathrm p}$)} holds with $p_0=p$.
+\end{proposition}
+
+\begin{proof}
+For $s\in(0,\varepsilon]$ and large $k$, $\mathcal N_k(s)\ge\mathsf K^{-2}
+\mathcal N_k(\varepsilon)>0$ by Proposition~\ref{prop:limitEsd}(i), so
+$\mathfrak E_k(s)$ is defined. Let $n=\lfloor s/(2a_k)\rfloor$. By
+Lemma~\ref{lem:limitElogconvex}(ii), applied at $s-na_k$,
+$\mathfrak E_k(s)\le\mathfrak E_k(s-ia_k)$ for $1\le i\le n$, so
+\[
+\mathfrak E_k(s)\le\frac1n\sum_{i=1}^n\mathfrak E_k(s-ia_k)=\frac1{2a_kn}
+\log\frac{\mathcal N_k(s-na_k)}{\mathcal N_k(s)} .
+\]
+Since $s-na_k\ge s/2$ and $s\le\varepsilon$,
+Proposition~\ref{prop:limitEsd}(i) gives $\mathcal N_k(s-na_k)\le\mathsf
+K^2\mathcal N_k(s/2)$ and $\mathcal N_k(s)\ge\mathsf K^{-2}\mathcal
+N_k(\varepsilon)$, and $2a_kn\ge s-2a_k$. Hence
+\[
+\mathfrak E_k(s)\le\frac1{s-2a_k}\log\Bigl(\mathsf K^4\frac{\mathcal
+N_k(s/2)}{\mathcal N_k(\varepsilon)}\Bigr),
+\]
+which gives the bound in (i) under (SD), and the bound in (ii) under
+(SD$_{\mathrm p}$) at $\varepsilon'=s/2$.
+
+Conversely, let $\varepsilon'\in(0,\varepsilon)$, $E'>\limsup_k\mathfrak
+E_k(\varepsilon')$ and $n=\lceil(\varepsilon-\varepsilon')/a_k\rceil$. For
+large $k$, Lemma~\ref{lem:limitElogconvex}(ii) gives
+\[
+\log\frac{\mathcal N_k(\varepsilon')}{\mathcal N_k(\varepsilon'+na_k)}=
+2a_k\sum_{j=0}^{n-1}\mathfrak E_k(\varepsilon'+ja_k)\le2a_knE' ,
+\]
+and $2a_kn\le2(\varepsilon-\varepsilon'+a_k)$. Since $\varepsilon'+na_k\ge
+\varepsilon$, Proposition~\ref{prop:limitEsd}(i) gives $\mathcal
+N_k(\varepsilon'+na_k)\le\mathsf K^2\mathcal N_k(\varepsilon)$. Letting
+$k\to\infty$ and $E'\downarrow\limsup_k\mathfrak E_k(\varepsilon')$ gives
+the inequality of (i), hence (SD). Under the hypothesis of the converse in
+(ii) the same sum is at most $\sum_j(pa_k/(\varepsilon'+ja_k)+2a_kE_0)\le
+pa_k/\varepsilon'+p\log((\varepsilon+a_k)/\varepsilon')+2(\varepsilon+
+a_k)E_0$, so for $a_k\le\min(\varepsilon',\varepsilon,1)$
+\[
+\frac{\mathcal N_k(\varepsilon')}{\mathcal N_k(\varepsilon)}\le\mathsf
+K^2e^{p+2(\varepsilon+1)E_0}2^p\Bigl(\frac\varepsilon{\varepsilon'}
+\Bigr)^p ,
+\]
+which is (SD$_{\mathrm p}$) for $\varepsilon'<\varepsilon$; for
+$\varepsilon'=\varepsilon$ it holds with $C_0\ge1$.
+\end{proof}
+
+So (SD) says that at every distance from the reflection plane the largest
+reflected norm decays at a rate bounded in physical units, and
+(SD$_{\mathrm p}$) that this rate grows at most like $p_0/(2s)$ as $s\to0$,
+up to the logarithm in (ii). Under a gap $m_{\mathrm{lat}}$ in lattice units
+the rate is at least $m_{\mathrm{lat}}/a_k$ at every distance, which is the
+failure of (SD) in Proposition~\ref{prop:limitEsd}(iii). By
+Proposition~\ref{prop:limitEsd}(ii) the bound on the rate is equivalent to
+the spectral condition (UV).
+
+\emph{The abelian theory.} For $G=\U(1)$ the positivity behind
+Proposition~\ref{prop:limitEne}(ii) is a theorem.
+
+\begin{corollary}\label{cor:limitEabelian}
+Let $G=\U(1)$ with the Wilson weight and $\beta_k\ge0$, assume the
+hypothesis of Theorem~\textup{\ref{thm:limitEtwo}}, and let
+$\Phi=b_0-\sum_jb_j\cos\theta_j$ with $b_j\ge0$ for $j\ge1$ and each
+$\theta_j$ an integer combination of the angles of the links with both
+endpoints in $[-r,r]^4$; the sum of $1-\cos\theta_p$ over the $24$
+plaquettes with a corner at $0$ is an example. Then $K_k(z)\ge0$ for all
+$z\in\Z^4$. If \textup{(SD)} holds, then \textup{(NE)} holds, every limit
+$S_2$ of Corollary~\textup{\ref{cor:limitEtwo}(b)} is not identically zero,
+and $\mathcal N_k(\varepsilon)\le\omega_k(\vartheta(A_k(g_0))A_k(g_0))$ for
+large $k$ and every $g_0$ as in Proposition~\textup{\ref{prop:limitEne}(ii)}.
+\end{corollary}
+
+\begin{proof}
+Let $\mu_L$ be the Wilson measure on $\Lambda_L$. Its density with respect
+to the product of the normalised Lebesgue measures on the link angles is
+$Z^{-1}\exp(\beta_k\sum_p\cos\theta_p)$, where each $\theta_p$ is a signed
+sum of four link angles. By Ginibre's inequality~\cite{Gin70},
+$\int\cos\theta\cos\theta'd\mu_L\ge\int\cos\theta\,d\mu_L\int\cos\theta'
+d\mu_L$ for any two integer combinations $\theta,\theta'$ of link angles.
+So $\Cov_{\mu_L}(\Phi_0,\Phi_z)=\sum_{j,l\ge1}b_jb_l\Cov_{\mu_L}(\cos
+\theta_j,\cos\tau_z\theta_l)\ge0$ once $L$ is large, and the torus limit
+preserves this inequality for the local functions $\Phi_0$, $\Phi_z$. This
+is the hypothesis of Proposition~\ref{prop:limitEne}(ii), whose proof gives
+the last claim, and Proposition~\ref{prop:limitEne}(i) gives the others.
+\end{proof}
+
+For $\U(1)$ the averaged condition fails in the Coulomb phase of the Villain
+theory (Corollary~\ref{cor:avgcoulomb}), and (SD) fails under a gap in
+lattice units (Proposition~\ref{prop:limitEsd}(iii)); whether the
+hypotheses of the corollary hold together for $\U(1)$ along any tuning is
+not decided here. What the corollary excludes is the mechanism of the
+example below, whose two-point function changes sign.
+
+\emph{Spatial momentum.} The spatial translations act on the reconstructed
+space. For $v\in\Z^4$ with $v_0=0$, $\omega_k(\vartheta(\tau_v\bar F)
+\tau_vF')=\omega_k(\tau_v(\vartheta(\bar F)F'))=\omega_k(\vartheta(\bar F)F')$
+for $F,F'$ at positive times, so $\Psi_F\mapsto\Psi_{\tau_vF}$ extends to a
+unitary $U_k(v)$; $U_k$ is a representation of $\Z^3$ that commutes with
+$\mathbb T_k$, since $\tau_v\tau_1=\tau_1\tau_v$. By the spectral theorem for
+the commuting unitaries $U_k(e_i)$ there is a projection-valued measure
+$\mathsf P_k$ on $(-\pi,\pi]^3$ with $U_k(v)=\int e^{ip\cdot v}\,d\mathsf
+P_k(p)$. For $K>0$ let $\mathbb P_k(K)=\mathsf P_k(\{|p|_\infty\le Ka_k\})$,
+the states of spatial momentum at most $K$ in physical units; it commutes
+with $\mathbb T_k$ and $\mathbb E_k(\Lambda)$. For $(r+1)a_k\le s$ let
+$\mathcal N^{\mathrm{sp}}_k(s;K)$ be the supremum of $\|\mathbb P_k(K)
+\Psi_{A_k(h)}\|^2$ over $h$ supported in $B_s$ with $\|h\|_\infty\le1$, and
+consider
+\begin{enumerate}[label=\textup{(LM)},leftmargin=*]
+\item for some $K<\infty$, $c>0$ and $\varepsilon_1\in(0,\varepsilon]$,
+$\mathcal N^{\mathrm{sp}}_k(\varepsilon_1;K)\ge c\,\mathcal N_k(\varepsilon)$
+for all large $k$.
+\end{enumerate}
+It says that, up to a fixed fraction, the largest reflected norm is carried
+by spatial momenta bounded in physical units, as (UV) says for the energy.
+The proofs below use the Fej\'er weights: for an integer $N\ge1$,
+\[
+F_N(q)=\sum_{|n|<N}\frac1N\Bigl(1-\frac{|n|}N\Bigr)e^{iqn}=\Bigl(\frac{\sin
+(Nq/2)}{N\sin(q/2)}\Bigr)^2
+\]
+for $0<|q|\le\pi$, $F_N(0)=1$. Then $0\le F_N\le1$, $F_N(q)\ge(2/\pi)^2$ for
+$N|q|\le\pi$, because $\sin x\ge2x/\pi$ on $[0,\frac\pi2]$ and $N\sin(|q|/2)
+\le N|q|/2$, and $F_N(q)\le\pi^2/(Nq)^2$ for $0<|q|\le\pi$, because
+$\sin(|q|/2)\ge|q|/\pi$. For $v\in\Z^4$ with $v_0=0$ put $f^N_v=\prod_{i=1}^3
+N^{-1}(1-|v_i|/N)_+$, so that $\sum_vf^N_v=1$ and $\sum_vf^N_ve^{ip\cdot v}=
+F_N^{(3)}(p)=\prod_iF_N(p_i)$.
+
+\begin{proposition}\label{prop:limitElm}
+Assume the hypothesis of Theorem~\textup{\ref{thm:limitEtwo}} and
+\textup{(SD)}. Then \textup{(NE)} holds if and only if \textup{(LM)} holds.
+\end{proposition}
+
+\begin{proof}
+Two facts are used. First, for $g$ supported in a cube of side $L$ in
+$\{x_0\ge s\}$, $(r+1)a_k\le s$, the proof of Lemma~\ref{lem:limitEbox}
+writes $\Psi_{A_k(g)}$ as a sum of at most $\mathsf K_L$ vectors $\mathbb
+T_k^nU_k(v)\Psi_{A_k(h')}$ with $h'$ supported in $B_s$ and $\|h'\|_\infty
+\le\|g\|_\infty$; since $\mathbb P_k(K)$ commutes with $\mathbb T_k$ and
+$U_k$,
+\[
+\|\mathbb P_k(K)\Psi_{A_k(g)}\|\le\mathsf K_L\,\mathcal N^{\mathrm{sp}}_k
+(s;K)^{1/2}\|g\|_\infty .
+\]
+Second, for $g$ supported in $\{x_0\ge s\}$ and $g^N=\sum_vf^N_vg(\cdot-
+a_kv)$, Lemma~\ref{lem:limitElattice}(i) gives $A_k(g^N)=\sum_vf^N_v\tau_v
+A_k(g)$, so $\Psi_{A_k(g^N)}=F^{(3)}_N(\mathsf P_k)\Psi_{A_k(g)}$, where
+$F^{(3)}_N(\mathsf P_k)=\int F^{(3)}_N\,d\mathsf P_k$. By (SD) and
+Proposition~\ref{prop:limitEsd}(i), for every $s>0$ there is $C(s)$ with
+$\mathcal N_k(s)\le C(s)\mathcal N_k(\varepsilon)$ for large $k$.
+
+Let (NE) hold with $g_0$ supported in $\{x_0\ge t_0\}$, $t_0>0$, and in a
+cube of side $L$, and $c_0>0$ with $4c_0<\liminf_kR_k(g_0)$. Let $\delta\in(0,1]$,
+$a_k\le\delta$ and $N=\lfloor\delta/a_k\rfloor\ge\delta/(2a_k)$. The
+function $g_0^N-g_0$ is supported in a cube of side $L+2$ in $\{x_0\ge t_0\}$
+and bounded by $\varrho(\delta)=\sup\{|g_0(y)-g_0(y')|:|y-y'|_\infty\le
+\delta\}$, because $f^N_v\ne0$ only for $|a_kv|_\infty<\delta$. For
+$|p|_\infty>Ka_k$ some $|p_i|>Ka_k$, so $F^{(3)}_N(p)\le(\pi/(NKa_k))^2\le
+(2\pi/(\delta K))^2$. With Lemma~\ref{lem:limitEbox},
+\[
+\begin{split}
+&\|(1-\mathbb P_k(K))\Psi_{A_k(g_0)}\|\\
+&\quad\le\|\Psi_{A_k(g_0-g_0^N)}\|+
+\|(1-\mathbb P_k(K))F^{(3)}_N(\mathsf P_k)\Psi_{A_k(g_0)}\|\\
+&\quad\le\Bigl(\mathsf K_{L+2}\varrho(\delta)+\frac{4\pi^2\mathsf K_L
+\|g_0\|_\infty}{\delta^2K^2}\Bigr)\mathcal N_k(t_0)^{1/2} .
+\end{split}
+\]
+Fix $\delta$, and then $K$, so that the bracket is at most
+$(c_0/C(t_0))^{1/2}$. For large $k$ this gives
+\[
+\|\mathbb P_k(K)\Psi_{A_k(g_0)}\|\ge(2c_0^{1/2}-c_0^{1/2})\mathcal
+N_k(\varepsilon)^{1/2},
+\]
+and the first fact
+gives $\mathcal N^{\mathrm{sp}}_k(t_0;K)\ge c_0\mathsf K_L^{-2}\|g_0\|
+_\infty^{-2}\mathcal N_k(\varepsilon)$. If $t_0\le\varepsilon$ this is (LM)
+with $\varepsilon_1=t_0$. If $t_0>\varepsilon$, every $h$ supported in
+$B_{t_0}$ is $h'(\cdot-na_ke_0)$ with $n\ge0$ and $h'$ supported in a cube of
+side $1+a_0$ in $\{x_0\ge\varepsilon\}$, so $\|\mathbb P_k(K)\Psi_{A_k(h)}\|
+\le\|\mathbb P_k(K)\Psi_{A_k(h')}\|$ and $\mathcal N^{\mathrm{sp}}_k(t_0;K)
+\le\mathsf K^2\mathcal N^{\mathrm{sp}}_k(\varepsilon;K)$, which is (LM) with
+$\varepsilon_1=\varepsilon$.
+
+Conversely, let (LM) hold and, for large $k$, $h_k$ be supported in
+$B_{\varepsilon_1}$ with $\|h_k\|_\infty\le1$ and $\|\mathbb P_k(K)\Psi_k\|^2
+\ge\frac c2\mathcal N_k(\varepsilon)$, $\Psi_k=\Psi_{A_k(h_k)}$.
+
+\emph{Energy.} Let $n=\lfloor\varepsilon_1/(2a_k)\rfloor$ and $h'_k=h_k(
+\cdot+na_ke_0)$, supported in a cube of side $1+a_0$ in $\{x_0\ge
+\varepsilon_1/2\}$. Then $\Psi_k=\mathbb T_k^n\Psi_{A_k(h'_k)}$ and
+$\|\mathbb T_k^n(1-\mathbb E_k(\Lambda))\|\le e^{-\Lambda a_kn}$, so for
+$a_k\le\varepsilon_1/4$, by Lemma~\ref{lem:limitEbox},
+\[
+\|(1-\mathbb E_k(\Lambda))\Psi_k\|\le e^{-\Lambda\varepsilon_1/4}\mathsf K
+\,C(\tfrac{\varepsilon_1}2)^{1/2}\mathcal N_k(\varepsilon)^{1/2} .
+\]
+Fix $\Lambda$ with
+\[
+e^{-\Lambda\varepsilon_1/4}\mathsf KC(\tfrac{\varepsilon_1}2)^{1/2}\le(c/8)^{1/2}.
+\]
+Since $\mathbb E_k(\Lambda)$ and $\mathbb P_k(K)$
+commute, $\|\mathbb E_k(\Lambda)\mathbb P_k(K)\Psi_k\|\ge(c/8)^{1/2}
+\mathcal N_k(\varepsilon)^{1/2}$.
+
+\emph{Smoothing.} Let $\sigma>0$, $M=\lfloor\sigma/a_k\rfloor$, $N=
+\lfloor\pi/(Ka_k)\rfloor$, both at least $1$, $w_n=M^{-1}(1-|n-M|/M)_+$ for
+$n\in\Z$, which vanish unless $1\le n\le2M-1$ and add up to $1$, and
+\[
+g_k=\sum_{n,v}w_nf^N_v\,h_k(\cdot-a_k(ne_0+v)) .
+\]
+By Lemma~\ref{lem:limitElattice}(i), $\Psi_{A_k(g_k)}=W(\mathbb T_k)
+F^{(3)}_N(\mathsf P_k)\Psi_k$ with $W(\lambda)=\sum_nw_n\lambda^n\ge
+\lambda^{2M}$ on $[0,1]$. On the range of $\mathbb E_k(\Lambda)\mathbb
+P_k(K)$ the joint spectrum of $\mathbb T_k$ and $U_k$ lies where
+$\lambda\ge e^{-\Lambda a_k}$, so $W\ge e^{-2\Lambda\sigma}$, and
+$|p|_\infty\le Ka_k$, so $N|p_i|\le\pi$ and $F^{(3)}_N\ge(2/\pi)^6$. Hence
+\[
+\omega_k\bigl(\vartheta(\overline{A_k(g_k)})A_k(g_k)\bigr)\ge4c'
+\mathcal N_k(\varepsilon),
+\]
+with $4c'=\frac c8e^{-4\Lambda\sigma}(2/\pi)^{12}$.
+
+\emph{Compactness.} $A_k(g)$ depends only on the values of $g$ on $a_k\Z^4$.
+Let $u(t)=M^{-1}(1-|t/a_k-M|/M)_+$, $\varsigma(t)=N^{-1}(1-|t/a_k|/N)_+$,
+$\kappa(y)=u(y_0)\prod_{i=1}^3\varsigma(y_i)$ and
+\[
+G_k(y)=\sum_{z\in\Z^4}\kappa(y-a_kz)h_k(a_kz) .
+\]
+Then $G_k(a_kx)=g_k(a_kx)$, so $A_k(G_k)=A_k(g_k)$. The function $G_k$ is supported in $S=B_{\varepsilon_1}+[0,
+2\sigma]\times[-\pi/K,\pi/K]^3$, a compact subset of $\{x_0\ge
+\varepsilon_1\}$ independent of $k$. For $t,t'\in\R$, at most $2M$ terms of
+$\sum_{n\in\Z}u(t-a_kn)$ are nonzero, so this sum is at most $2$, and
+$\sum_n|u(t-a_kn)-u(t'-a_kn)|\le4|t-t'|/(Ma_k)\le8|t-t'|/\sigma$; likewise
+$\sum_n\varsigma(t-a_kn)\le2$ and $\sum_n|\varsigma(t-a_kn)-\varsigma(t'-
+a_kn)|\le8K|t-t'|/\pi$, for $a_k\le\min(\sigma,\pi/K)$. Writing the
+difference of two products of four factors as a telescoping sum, $|G_k|\le
+16$ and $G_k$ is Lipschitz with constant $8(8/\sigma+24K/\pi)$ for the
+$\ell^\infty$ norm. By the Arzel\`a--Ascoli theorem the $G_k$ lie in a
+compact subset of $C(S)$.
+
+\emph{One packet.} Let $L_S$ be the side of a cube containing $S$ and
+$\eta>0$ with $\mathsf K_{L_S}C(\varepsilon_1)^{1/2}\eta\le c'^{1/2}$. A
+finite set $G^1,\dots,G^J$ of the $G_k$ is an $\eta$-net, so for each large
+$k$ there is $j$ with $\|G_k-G^j\|_\infty\le\eta$, and
+Lemma~\ref{lem:limitEbox} gives $\|\Psi_{A_k(G_k)}-\Psi_{A_k(G^j)}\|\le
+c'^{1/2}\mathcal N_k(\varepsilon)^{1/2}$, hence $R_k(G^j)\ge c'$. Let
+$g_0=\sum_jG^j(\cdot-jDe_1)$ with $D$ dyadic. As in the proof of
+Proposition~\ref{prop:limitEne}(i), for large $k$
+\[
+R_k(g_0)\ge\sum_jR_k(G^j)-16^2J^2\mathsf K_{L_S}^2e^{-m_*(D-L_S-4
+\varepsilon-1)} ,
+\]
+and $R_k\ge0$. For $D$ large the right side is at least $c'/2$ for all large
+$k$, and $g_0$ is continuous and supported in $\{x_0\ge\varepsilon_1\}$:
+this is (NE).
+\end{proof}
+
+\emph{An example.} (NE) is not implied by (SD) together with the properties
+used so far: in the following Gaussian field the largest reflected norms
+are carried by spatial momenta of order $\pi/a_k$ at energies bounded in
+physical units, so that (UV) holds and (LM) fails.\footnote{$D_k$ depends on $p$ only through the product of the four
+factors $2-2\cos p_\mu$, so the energy of a spatial momentum is small only
+where all three spatial factors are large, near the corner $(\pi,\pi,\pi)$
+of the Brillouin zone; the packets that carry the largest reflected norm live
+there, and smooth test functions do not see them.}
+
+\begin{proposition}\label{prop:limitEflat}
+Let $m>0$, $A_k=(128(\cosh(ma_k)-1))^{-1}$,
+\[
+D_k(p)=1+A_k\prod_{\mu=0}^3(2-2\cos p_\mu),\qquad p\in(-\pi,\pi]^4,
+\]
+let $\phi_k$ be the centred Gaussian field on $\Z^4$ with covariance
+$\int e^{ip\cdot(x-y)}D_k(p)^{-1}dp/(2\pi)^4$, $A_k(f)=\sum_xa_k^4f(a_kx)
+\phi_k(x)$, and form $\mathcal N_k(\varepsilon)$ and $R_k$ with these
+packets and $r=0$.
+
+\textup{(a)} The law of $\phi_k$ is invariant under translations and $B_4$
+and reflection positive for the reflections in coordinate hyperplanes through
+sites and bisecting links. Its transfer matrix in each coordinate direction
+has spectrum on $\Omega_k^\perp$ in $[0,e^{-ma_k}]$ containing
+$e^{-ma_k}$: the gap is $m$ in physical units.
+
+\textup{(b)} For every $\varepsilon>0$, $\varepsilon'\in(0,\varepsilon]$ and
+all large $k$,
+\[
+2^{-15}me^{-4m(\varepsilon+2)}a_k^4\le\mathcal N_k(\varepsilon),\qquad
+\mathcal N_k(\varepsilon')\le(2+a_0)^4a_k^4 ;
+\]
+so \textup{(SD$_{\mathrm p}$)} holds with $p_0=0$, and \textup{(UV)}.
+
+\textup{(c)} $R_k(g)\to0$ for every $g\in C_c(\R^4)$ supported in
+$\{x_0>0\}$: \textup{(NE)} fails, and every limit $S_2$ of
+Corollary~\textup{\ref{cor:limitEtwo}(b)} vanishes identically.
+
+\textup{(d)} With $Z_k=\mathcal N_k(\varepsilon)^{-1/2}$,
+\textup{(M$_{\mathrm s}$)} holds and every limit of
+Theorem~\textup{\ref{thm:limitEsep}} is trivial. With $Z_k=C_k(\sigma_0)
+^{-1/2}$, formed from any $f_0$ as before Proposition~\textup{\ref{prop:limitEnorm}}
+with $C_k(0)>0$, \textup{(M$_{\mathrm s,2}$)} fails.
+\end{proposition}
+
+\begin{proof}
+(a) $D_k$ is positive and invariant under permutations and sign changes of
+the coordinates, so the covariance is positive definite, real, and
+invariant under translations and $B_4$. Write $u_\mu=2-2\cos p_\mu$, and for
+$p\in(-\pi,\pi]^3$ let $b(p)=A_ku_1u_2u_3$, $\lambda(p)\in[0,1)$ the root of
+$\lambda+\lambda^{-1}=2+1/b(p)$ ($\lambda=0$ if $b(p)=0$), $E(p)=
+-\log\lambda(p)$ and $w(p)=(1-\lambda(p))/(1+\lambda(p))=\tanh(E(p)/2)$. Then
+$1+b\,u_0=b\lambda^{-1}(1-\lambda e^{ip_0})(1-\lambda e^{-ip_0})$, and
+expanding $(1-\lambda^2)/((1-\lambda e^{ip_0})(1-\lambda e^{-ip_0}))=\sum_t
+\lambda^{|t|}e^{-ip_0t}$ and using $b(\lambda^{-1}-\lambda)=1/w$,
+\[
+\frac1{1+b\,u_0}=w\sum_{t\in\Z}\lambda^{|t|}e^{-ip_0t},
+\]
+also for $b=0$. So the covariance of $\phi_k(t,\mathbf x)$ and $\phi_k(s,
+\mathbf y)$ is $\int e^{ip\cdot(\mathbf x-\mathbf y)}w(p)\lambda(p)^{|t-s|}
+dp/(2\pi)^3$. Let $\gamma$ be the centred Gaussian law on $\R^{\Z^3}$ with
+covariance the multiplier $w$, $\Lambda$ the convolution with multiplier
+$\lambda$, and $\xi_t$ independent of law the centred Gaussian with
+multiplier $w(1-\lambda^2)\ge0$. The stationary chain $\phi_{t+1}=\Lambda
+\phi_t+\xi_{t+1}$ has covariance with multiplier $w\lambda^{|t-s|}$, so it is
+the field; it is reversible because $\Lambda$ and the covariance of
+$\gamma$ commute and are symmetric. The proof of
+Proposition~\ref{prop:osobstruction}(a) applies with the operator $\Lambda$
+in place of $q$: the transition operator satisfies $P\mathcal E_h=
+\mathcal E_{\Lambda h}$, so it acts on the $N$-th Wiener chaos as the $N$-th
+tensor power of the restriction of $\Lambda$ to the one-particle space, the
+completion of the finitely supported $h$ for $\int|\hat h|^2w\,dp/(2\pi)^3$,
+on which $\Lambda$ is multiplication by $\lambda$. Since $b\le64A_k$ with
+equality only at $p=(\pi,\pi,\pi)$, $\cosh E=1+1/(2b)\ge1+1/(128A_k)=
+\cosh(ma_k)$, so $0\le\lambda\le e^{-ma_k}$, with equality at that point.
+Hence $0\le P\le e^{-ma_kN}$ on the $N$-th chaos for $N\ge1$, and
+$e^{-ma_k}$ lies in the spectrum on the first, $\lambda$ being continuous and
+$w$ positive. Reflection positivity and the identification of the transfer
+matrix with $P$ follow as there, and $B_4$ gives the other directions.
+
+For $h$ supported in $\{x_0\ge1\}$ and $\vartheta$ fixing $\{x_0=c\}$,
+$|c|\le\frac12$, the time component of $y-\vartheta x$ is $x_0+y_0-2c\ge0$,
+and
+\[
+\omega_k\bigl(\vartheta(\overline{A_k(h)})A_k(h)\bigr)=\int w|\hat H|^2
+\frac{dp}{(2\pi)^3},
+\]
+where
+\[
+\hat H(p)=\sum_{x_0}a_k\lambda^{x_0-c}\hat h_{x_0}(p),\qquad\hat h_{x_0}(p)
+=a_k^3\sum_{\mathbf x}h(a_kx)e^{ip\cdot\mathbf x} .
+\]
+Let $h$ be supported in $\{x_0\ge t\}$ with $t\ge a_k$. Since
+$\sum_{x_0\ge t/a_k}\lambda^{x_0-c}\le\lambda^{t/a_k-1/2}/(1-\lambda)$ and
+$w/(1-\lambda)\le1$, the Cauchy--Schwarz inequality with the weights
+$\lambda^{x_0-c}$ gives
+\[
+w|\hat H|^2\le a_k^2\lambda^{2t/a_k-1}\sum_{x_0}|\hat h_{x_0}|^2 .\tag{$*$}
+\]
+
+(b) For $h$ supported in $B_{\varepsilon'}$ with $\|h\|_\infty\le1$ and
+$a_k\le\min(\varepsilon',1)$, ($*$) with $\lambda\le1$ and Parseval's
+identity give at most $a_k^8$ times the number of sites $x$ with $a_kx\in
+B_{\varepsilon'}$, which is at most $(2+a_0)^4a_k^{-4}$. For the lower bound
+let $a_k\le\frac1{20}$, $ma_k\le2$, let $b_0$ be continuous with values in
+$[0,1]$, supported in $[\varepsilon,\varepsilon+1]$ and equal to $1$ on
+$[\varepsilon+\frac14,\varepsilon+\frac34]$, let $b_1$ be the function equal
+to $1$ on $[\frac14,\frac34]$, to $0$ outside $[0,1]$ and linear in between,
+and $h_k(y)=b_0(y_0)\prod_{i=1}^3\cos(\pi y_i/a_k)b_1(y_i)$, supported in
+$B_\varepsilon$ with $\|h_k\|_\infty\le1$. Since $\cos(\pi x_i)=(-1)^{x_i}$,
+$\hat H(p)=T(\lambda)\prod_i\beta(p_i+\pi)$ with $T(\lambda)=\sum_{x_0}a_k
+b_0(a_kx_0)\lambda^{x_0-c}$ and $\beta(q)=\sum_na_kb_1(a_kn)e^{iqn}$. On
+$Q=\{p:|p_i-\pi|\le\frac\pi3\bmod2\pi\}$, $u_i\ge3$, so $b\ge27A_k$ and
+$\cosh E-1\le1/(54A_k)\le4(\cosh(ma_k)-1)\le\cosh(2ma_k)-1$, since $\cosh
+2x-1=2(\cosh x-1)(\cosh x+1)$; so $ma_k\le E\le2ma_k$ on $Q$. Then $w\ge
+\tanh(ma_k/2)\ge ma_k/4$, and $T(\lambda)\ge e^{-2ma_k((\varepsilon+1)/a_k+
+1/2)}\sum_{x_0}a_kb_0(a_kx_0)\ge e^{-2m(\varepsilon+2)}/4$. By Parseval's
+identity $\int_{-\pi}^\pi|\beta|^2dq/2\pi=a_k^2\sum_nb_1(a_kn)^2\ge a_k/4$,
+and since $|1-e^{iq}|\ge1$ for $|q|\ge\frac\pi3$ and $b_1$ is $4$-Lipschitz,
+\[
+\int_{\frac\pi3\le|q|\le\pi}|\beta|^2\frac{dq}{2\pi}\le a_k^2\sum_n|b_1(a_kn)
+-b_1(a_kn-a_k)|^2\le48a_k^3 ,
+\]
+so $\int_{|q|\le\pi/3}|\beta|^2dq/2\pi\ge a_k/8$. Restricting the integral
+to $Q$ gives
+\[
+\mathcal N_k(\varepsilon)\ge\frac{ma_k}4\cdot\frac{e^{-4m(\varepsilon+2)}}{16}\Bigl(\frac{a_k}8\Bigr)^3 .
+\]
+(SD$_{\mathrm p}$) follows with $C_0=2^{15}(2+a_0)^4e^{4m(\varepsilon+2)}/m$, and (UV) by Proposition~\ref{prop:limitEsd}(ii),
+whose proof uses only the invariance, the reflection positivity and the gap.
+
+(c) Let $g$ be supported in $\{x_0\ge t_0\}$, $t_0>0$, and in a cube of side
+$L$, and $\delta\in(0,1]$. Let $V$ be the set of $p$ with $|p_i|<\delta$ for
+some $i$. There $u_i<\delta^2$ for that $i$, so $b\le16A_k\delta^2$ and
+$\cosh E-1\ge4(\cosh(ma_k)-1)/\delta^2\ge2(ma_k/\delta)^2$; since $\cosh x-1
+\le x^2$ for $0\le x\le1$, $E\ge ma_k/\delta$ for $ma_k\le\delta$. By ($*$)
+and Parseval's identity the part of the integral over $V$ is at most
+$e^{-(m/\delta)(2t_0-a_k)}a_k^8$ times $\sum_x|g(a_kx)|^2\le(L+1)^4a_k^{-4}
+\|g\|_\infty^2$. On the complement, $|p_1|\ge\delta$ and $|1-e^{ip_1}|\ge
+2\delta/\pi$, and ($*$) with $\lambda\le1$ bounds that part by
+\[
+\begin{split}
+&\Bigl(\frac\pi{2\delta}\Bigr)^2a_k^8\sum_x|g(a_kx)-g(a_kx-a_ke_1)|^2\\
+&\quad\le\Bigl(\frac\pi{2\delta}\Bigr)^2(L+2)^4a_k^4\varrho(a_k)^2,
+\end{split}
+\]
+with $\varrho$ the modulus of continuity of $g$ for $|\cdot|_\infty$. With
+(b),
+\[
+\limsup_kR_k(g)\le\frac{2^{15}(L+2)^4\|g\|_\infty^2}{m\,e^{-4m(\varepsilon+
+2)}}e^{-2mt_0/\delta},
+\]
+and $\delta\to0$ gives $R_k(g)\to0$. The last claim is
+Corollary~\ref{cor:limitEtwo}(b).
+
+(d) By (b) and Corollary~\ref{cor:limitEtwo}(a), whose proof uses only the
+invariance, the reflection positivity and the gap, (M$_{\mathrm s,2}$) holds
+for $Z_k=\mathcal N_k(\varepsilon)^{-1/2}$. The moments of a centred Gaussian
+field are sums over pairings of products of covariances, and every pair of
+a separated tuple is separated; so (M$_{\mathrm s}$) holds with $M_n\le
+(n-1)!!M_2^{n/2}$, and by (c) every limit vanishes for $n\ge1$. For $Z_k=
+C_k(\sigma_0)^{-1/2}$, (M$_{\mathrm s,2}$) would give, as in the proof of
+Corollary~\ref{cor:limitEtwo}(a), $\mathcal N_k(\varepsilon')\le
+M_2(Q,\varepsilon')C_k(\sigma_0)$ for $\varepsilon'<\varepsilon$, while
+$C_k(\sigma_0)\le C_k(0)=R_k(f_0)\mathcal N_k(\varepsilon)$ by
+Proposition~\ref{prop:limitEnorm}(i), $R_k(f_0)\to0$ by (c), and $\mathcal
+N_k(\varepsilon')\ge\mathsf K^{-2}\mathcal N_k(\varepsilon)$.
+\end{proof}
+
+So (NE) is an input of its own: reflection positivity, the invariance, a
+gap bounded above and below in physical units and (SD$_{\mathrm p}$) do not
+give it, and with the normalisation $Z_k=\mathcal N_k(\varepsilon)^{-1/2}$
+the separated moment bound holds for every $n$ while every limit is trivial.
+By Proposition~\ref{prop:limitElm}, under (SD) it is exactly the statement
+that bounded spatial momenta carry a fixed fraction of the largest reflected
+norm, and by Corollary~\ref{cor:limitEabelian} it follows from (SD) for
+$\U(1)$. The example is not a lattice gauge theory. For the Wilson measure
+along the tuning the regimes are these: under a gap in lattice units, in
+particular in the strong-coupling range of Corollary~\ref{cor:limitEstrong},
+(SD) fails and the rate $\mathfrak E_k$ diverges like $a_k^{-1}$; under the
+short-distance law (AF) of Theorem~\ref{thm:limitEaf}, which asymptotic
+freedom predicts, (SD$_{\mathrm p}$) and (NE) hold; which of the two
+occurs, if either, is not decided here.
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\textwidth]{figures/fig_limitlogic.png}
+\caption{The conditions of Subsection~\ref{ssec:limitE}, given the averaged condition
+along the tuning. Bottom: inputs on reflected norms of packets under the
+Wilson measure, none of them proved. Middle: lattice bounds; (M$_{\mathrm
+s}$) is (RN) (Proposition~\ref{prop:limitEreflect}), and (G$_{\mathrm s}$)
+is (RN) with factorial constants (Proposition~\ref{prop:limitErate}). Top:
+what the bounds give in the limit (Theorems~\ref{thm:limitEsep}
+and~\ref{thm:limitEtempered}, Corollaries~\ref{cor:limitEOS}
+and~\ref{cor:limitEexact}). From the bottom row: Theorem~\ref{thm:limitEtwo}
+and Proposition~\ref{prop:limitEtwotempered} for $n=2$,
+Proposition~\ref{prop:limitEdomination} for every $n$,
+Theorems~\ref{thm:limitErot} and~\ref{thm:limitEunique}. Crossed arrows
+fail in examples: the two-point properties do not give (RN$_m$), $m\ge2$
+(Proposition~\ref{prop:limitEthree}), and the bounds of the middle row do
+not give (W$_{\mathrm s}$) (Proposition~\ref{prop:osobstruction}(a)).}\label{fig:limitlogic}
+\end{figure}
+
 \begin{remark}\label{rem:limitEscope}
 \emph{What is proved.} Given the averaged condition along the tuning,
 Theorem~\ref{thm:limitEsep} turns (M$_{\mathrm s}$) into Schwinger
@@ -16398,7 +18393,12 @@ grow at most like a power of the inverse separation, and under
 (G$_{\mathrm s}$) gives the linear growth condition of~\cite{OS75},
 reflection positivity and clustering on $\mathcal S_0$
 (Corollary~\ref{cor:limitEOS}); for $n=2$, (G$_{\mathrm s}$) is the rate
-(SD$_{\mathrm p}$) in (SD) (Proposition~\ref{prop:limitEtwotempered}).
+(SD$_{\mathrm p}$) in (SD) (Proposition~\ref{prop:limitEtwotempered}). For
+every $n$, (G$_{\mathrm s}$) is (RN) with constants
+$K_1^m(m!)^{\beta_1}(1+L)^{q_1m}\delta^{-p_1m}$
+(Proposition~\ref{prop:limitErate}), and the inequality (GD) gives
+(M$_{\mathrm s}$) from (SD) and (G$_{\mathrm s}$) from (SD$_{\mathrm p}$)
+(Proposition~\ref{prop:limitEdomination}).
 
 \emph{Which inputs are needed.} (M$_{\mathrm s}$) with constants that keep a
 reflected correlation fixed is not implied by the averaged condition, by
@@ -16418,6 +18418,29 @@ the argument of Proposition~\ref{prop:uniquelimit}(ii); it satisfies
 the field are not Gaussian, have the same properties and $G_S=B_4$, and
 violate (RI$_2$) (Proposition~\ref{prop:limitEproduct}). The normalisation
 by $C_k(\sigma_0)$ does not fix the scale (Proposition~\ref{prop:limitEscale}).
+The bounds (RN$_m$), $m\ge2$, are not implied by the two-point properties:
+the fields of Proposition~\ref{prop:limitEthree}, bounded ones included, have
+the invariance, the reflection positivity, gap $m$, (SD), (SD$_{\mathrm p}$),
+(UV), (NE) and nonzero two-point limits, and violate (M$_{\mathrm s,n}$) for
+every $n\ge3$ and (RN$_m$) for every $m\ge2$. Bounds at each order do not
+give (G$_{\mathrm s}$): the fields of Proposition~\ref{prop:limitEfactorial}
+satisfy (M$_{\mathrm s}$), (RN) and (SD$_{\mathrm p}$), with moment bounds
+uniform in the separation, and their moments grow faster than
+$K^n(n!)^\beta$ for all $K,\beta$.
+
+\emph{Short-distance law.} The two-sided condition (AF), the lattice form of
+the law $|x-y|^{-8}(\log\frac1{|x-y|})^{-\gamma}$ that asymptotic freedom
+predicts with $\gamma=2$ (Remark~\ref{rem:limitEafpert}), gives
+(M$_{\mathrm s,2}$), (SD$_{\mathrm p}$) with $p_0=4$, (SD), (UV) and (NE),
+excludes trivial limits and fails in the strong-coupling range
+(Theorem~\ref{thm:limitEaf}). It fixes $Z_k$ up to bounded factors, with
+$Z_k\to\infty$ and $Z_k$ comparable to $\mathcal N_k(\varepsilon)^{-1/2}$
+(Proposition~\ref{prop:limitEafscale}), it is consistent with a gap in
+physical units and with (U$_{\mathrm s}$), and it implies neither
+(W$_{\mathrm s}$) nor the exact law (AF$_\infty$)
+(Proposition~\ref{prop:limitEafexample}). It is not proved for the Wilson
+measure; the missing inequality is stated in
+Remark~\ref{rem:limitEafstatus}.
 
 \emph{Relation to Theorem~\ref{thm:srladder}.} Under the hypothesis of
 Theorem~\ref{thm:transfer}, Corollary~\ref{cor:srladder} shows that, when
@@ -16434,16 +18457,36 @@ distance.
 \emph{What is not proved.} (M$_{\mathrm s}$) for $n\ge3$ with the constants
 of Proposition~\ref{prop:limitEnorm}(ii), equivalently the bounds (RN$_m$),
 $m\ge2$, on reflected norms of products of separated packets
-(Proposition~\ref{prop:limitEreflect}); (SD), equivalently the spectral
+(Proposition~\ref{prop:limitEreflect}), which do not follow from the
+two-point properties, reflection positivity and the gap
+(Proposition~\ref{prop:limitEthree}), and the inequality (GD) that gives them
+from (SD) (Proposition~\ref{prop:limitEdomination}); (SD), equivalently the spectral
 condition (UV) (Proposition~\ref{prop:limitEsd}), which fails under a gap in
-lattice units and is not implied by reflection positivity and a gap bounded
-in physical units (Proposition~\ref{prop:limitEheavy}); (NE), which under
-(SD) is the nontriviality of every limit (Proposition~\ref{prop:limitEne});
-(W$_{\mathrm s}$), and (SB$_n$), (RI$_n$); (U$_{\mathrm s}$), and
-(MC$_{m_0}$), (O$_{\mathrm s}$); whether $\mathrm O(4)$ invariance of $S_2$
+lattice units, is not implied by reflection positivity and a gap bounded
+in physical units (Proposition~\ref{prop:limitEheavy}), is a bound in
+physical units on the rate $\mathfrak E_k$ at which the largest reflected
+norm decays (Proposition~\ref{prop:limitEenergy}), and follows from the
+short-distance law (AF) (Theorem~\ref{thm:limitEaf}); (NE), which under (SD) is the
+nontriviality of every limit (Proposition~\ref{prop:limitEne}) and the
+condition (LM) that spatial momenta bounded in physical units carry a fixed
+fraction of the largest reflected norm (Proposition~\ref{prop:limitElm}),
+which follows from (SD) for $\U(1)$ (Corollary~\ref{cor:limitEabelian}) and
+is not implied by (SD$_{\mathrm p}$), reflection positivity, the invariance
+and a gap bounded above and below in physical units
+(Proposition~\ref{prop:limitEflat});
+(W$_{\mathrm s}$), and (SB$_n$), (RI$_n$), of which (SB$_2$) is a bound on
+the axis and is not implied by the separated moment bounds
+(Propositions~\ref{prop:limitEaxial} and~\ref{prop:limitEgauss}(b));
+(U$_{\mathrm s}$), and (MC$_{m_0}$), of which the two halves hold separately
+with different rates (Proposition~\ref{prop:limitEbracket}), and
+(O$_{\mathrm s}$), equivalently (DS) (Proposition~\ref{prop:limitEdilate});
+whether $\mathrm O(4)$ invariance of $S_2$
 together with the other properties gives (W$_{\mathrm s}$); the rate
-(G$_{\mathrm s}$) at coinciding points, and its form (SD$_{\mathrm p}$) for
-$n=2$; and the averaged condition along the tuning. None of these is proved
+(G$_{\mathrm s}$) at coinciding points, equivalently (RN$_{\mathrm p}$)
+(Proposition~\ref{prop:limitErate}), and its form (SD$_{\mathrm p}$) for
+$n=2$, which with (M$_{\mathrm s}$) does not give (G$_{\mathrm s}$)
+(Proposition~\ref{prop:limitEfactorial}); and the averaged condition along
+the tuning. None of these is proved
 here, and the mass gap of the continuum theory is not proved. The extension
 of the $S_n$ to the test functions of~\cite{OS73} with the linear growth
 condition of~\cite{OS75} is therefore proved only under (G$_{\mathrm s}$),
@@ -40678,7 +42721,7 @@ This is the summability required in item~(iv), now for the ratio, and $(\mathrm 
 Osterwalder--Schrader axioms for the spatially flowed fields, with the
 symmetry $\mathrm O(3)\times\mathrm O(1)$, follow from three statements, a
 moment bound (M), one spatial rotation (W) and one limit (U), each of
-them necessary and none of them proved. Full $\mathrm O(4)$ invariance is not among these conclusions: at positive flow time the spatial flow breaks it even for the free field (Proposition~\ref{prop:osobstruction}(c)), so it has to be posed for $\mathrm O(4)$-covariant observables, such as fields of the four-dimensional flow, and the four-dimensional flow loses reflection positivity already for the free field (Proposition~\ref{prop:fourflow}). Of the three statements, (M) is a local moment bound together with the bound $\sup_k\Upsilon_k<\infty$, which contains $(\mathrm N_0)$ for product packets and fails in the strong-coupling range (Proposition~\ref{prop:msplit}), and the flow alone cannot give it (Proposition~\ref{prop:stationary}); its spatial comparison (M$_{\mathrm{sp}}$) follows from spatial reflection positivity (SR$_0$) of the slice field (Theorem~\ref{thm:spatialrp}), which cannot hold for a field and its Laplacian together in a state that clusters in space (Corollary~\ref{cor:srladder}) and is destroyed by the linear heat flow (Proposition~\ref{prop:heatrp}); (W) is the Ward identity for one spatial generator (Proposition~\ref{prop:wardform}); and under the renormalisation condition (RC), (U) is the vanishing of the moment differences between consecutive scales together with a totally disconnected set of limits, and a first-order bound in the running coupling for those differences does not give it (Proposition~\ref{prop:tuned}). For unsmoothed local fields at separated points (Section~\ref{ssec:limitE}) the inputs are of the same kind: the separated moment bound (M$_{\mathrm s}$) for $n\ge3$ is equivalent to bounds on reflected norms of products of separated packets (Proposition~\ref{prop:limitEreflect}); for $n=2$ it is equivalent to the comparison (SD), which holds if and only if the largest reflected norm of a unit packet near the reflection plane is carried by energies bounded in physical units, bounds the physical gap from above, fails in the strong-coupling range and is not implied by reflection positivity and a gap bounded above and below in physical units (Propositions~\ref{prop:limitEsd} and~\ref{prop:limitEheavy}); and under (SD) the nonvanishing condition (NE) is the nontriviality of every limit (Proposition~\ref{prop:limitEne}). The rotations (W$_{\mathrm s}$) and the uniqueness (U$_{\mathrm s}$) follow from rotation invariance of the renormalised lattice moments at large lattice distance with a pointwise bound (Theorem~\ref{thm:limitErot}), and from a mass condition together with uniqueness of the limit up to dilations (Theorem~\ref{thm:limitEunique}), and the normalisation by one reflected correlation does not fix the scale (Proposition~\ref{prop:limitEscale}). None of these inputs is proved for the Wilson measure.
+them necessary and none of them proved. Full $\mathrm O(4)$ invariance is not among these conclusions: at positive flow time the spatial flow breaks it even for the free field (Proposition~\ref{prop:osobstruction}(c)), so it has to be posed for $\mathrm O(4)$-covariant observables, such as fields of the four-dimensional flow, and the four-dimensional flow loses reflection positivity already for the free field (Proposition~\ref{prop:fourflow}). Of the three statements, (M) is a local moment bound together with the bound $\sup_k\Upsilon_k<\infty$, which contains $(\mathrm N_0)$ for product packets and fails in the strong-coupling range (Proposition~\ref{prop:msplit}), and the flow alone cannot give it (Proposition~\ref{prop:stationary}); its spatial comparison (M$_{\mathrm{sp}}$) follows from spatial reflection positivity (SR$_0$) of the slice field (Theorem~\ref{thm:spatialrp}), which cannot hold for a field and its Laplacian together in a state that clusters in space (Corollary~\ref{cor:srladder}) and is destroyed by the linear heat flow (Proposition~\ref{prop:heatrp}); (W) is the Ward identity for one spatial generator (Proposition~\ref{prop:wardform}); and under the renormalisation condition (RC), (U) is the vanishing of the moment differences between consecutive scales together with a totally disconnected set of limits, and a first-order bound in the running coupling for those differences does not give it (Proposition~\ref{prop:tuned}). For unsmoothed local fields at separated points (Section~\ref{ssec:limitE}) the inputs are of the same kind: the separated moment bound (M$_{\mathrm s}$) for $n\ge3$ is equivalent to bounds on reflected norms of products of separated packets (Proposition~\ref{prop:limitEreflect}), which do not follow from the two-point properties, reflection positivity and the gap (Proposition~\ref{prop:limitEthree}), and its rate (G$_{\mathrm s}$) is a rate of the form $K_1^m(m!)^{\beta_1}(1+L)^{q_1m}\delta^{-p_1m}$ in these bounds (Proposition~\ref{prop:limitErate}), which bounds at each order do not supply (Proposition~\ref{prop:limitEfactorial}); one inequality of Gaussian domination type, (GD), would give both from the two-point statements (Proposition~\ref{prop:limitEdomination}); for $n=2$, (M$_{\mathrm s}$) is equivalent to the comparison (SD), which holds if and only if the largest reflected norm of a unit packet near the reflection plane is carried by energies bounded in physical units, bounds the physical gap from above, fails in the strong-coupling range and is not implied by reflection positivity and a gap bounded above and below in physical units (Propositions~\ref{prop:limitEsd} and~\ref{prop:limitEheavy}); and under (SD) the nonvanishing condition (NE) is the nontriviality of every limit (Proposition~\ref{prop:limitEne}) and is equivalent to the condition that spatial momenta bounded in physical units carry a fixed fraction of that largest reflected norm (Proposition~\ref{prop:limitElm}); (NE) follows from (SD) for $\U(1)$ (Corollary~\ref{cor:limitEabelian}), is not implied by (SD) together with reflection positivity and a gap bounded above and below in physical units (Proposition~\ref{prop:limitEflat}). The rotations (W$_{\mathrm s}$) and the uniqueness (U$_{\mathrm s}$) follow from rotation invariance of the renormalised lattice moments at large lattice distance with a pointwise bound (Theorem~\ref{thm:limitErot}), and from a mass condition together with uniqueness of the limit up to dilations (Theorem~\ref{thm:limitEunique}), and the normalisation by one reflected correlation does not fix the scale (Proposition~\ref{prop:limitEscale}). Reflection positivity reduces the pointwise bound for $n=2$ to a bound on a coordinate axis and (RI$_2$) to a comparison with the axis (Proposition~\ref{prop:limitEaxial}), and that bound does not follow from the separated moment bounds, the mass condition and (U$_{\mathrm s}$) (Proposition~\ref{prop:limitEgauss}(b)); the gap and (M$_{\mathrm s}$) give the two halves of the mass condition, with two rates that need not coincide (Proposition~\ref{prop:limitEbracket}); and (O$_{\mathrm s}$) is equivalent to the convergence of the moments after a change of the spacing by bounded factors and does not follow from the other properties together with the mass condition (Propositions~\ref{prop:limitEdilate} and~\ref{prop:limitEgauss}(c)). For $n=2$, (SD) and (NE) follow from the two-sided short-distance law (AF) predicted by asymptotic freedom, which excludes the trivial limits of the strong-coupling range (Theorem~\ref{thm:limitEaf}); the inequality that (AF) requires of the Wilson measure is stated in Remark~\ref{rem:limitEafstatus}. None of these inputs, (AF) included, is proved for the Wilson measure.
 
 \begin{figure}[t]
 \centering
@@ -42831,6 +44874,9 @@ W.~E.~Caswell, Asymptotic behavior of non-Abelian gauge theories to two-loop
 order, Phys. Rev. Lett. \textbf{33} (1974), 244--246,
 \href{https://doi.org/10.1103/PhysRevLett.33.244}{doi:10.1103/PhysRevLett.33.244}.
 
+\bibitem{CDJ77}
+J.~C.~Collins, A.~Duncan and S.~D.~Joglekar, Trace and dilatation anomalies in gauge theories, Phys. Rev. D \textbf{16} (1977), 438--449, \href{https://doi.org/10.1103/PhysRevD.16.438}{doi:10.1103/PhysRevD.16.438}.
+
 \bibitem{Chat19}
 Chatterjee, S.: Yang--Mills for probabilists. In: Probability and Analysis in Interacting Physical Systems, Springer Proc. Math. Stat., vol.~283, pp.~1--16. Springer, Cham (2019). \href{https://doi.org/10.1007/978-3-030-15338-0_1}{https://doi.org/10.1007/978-3-030-15338-0\_1}
 
@@ -42928,10 +44974,16 @@ Ghora, R., Bhattacharjee, D., Nandi, P., Samal, P., Patra, R., Singha Roy, S., B
 \bibitem{Gil81}
 R.~Giles, Reconstruction of gauge potentials from Wilson loops, Phys. Rev. D \textbf{24} (1981), 2160--2168, \href{https://doi.org/10.1103/PhysRevD.24.2160}{doi:10.1103/PhysRevD.24.2160}.
 
+\bibitem{Gin70}
+J.~Ginibre, General formulation of Griffiths' inequalities, Comm. Math. Phys. \textbf{16} (1970), 310--328, \href{https://doi.org/10.1007/BF01646537}{doi:10.1007/BF01646537}.
+
 \bibitem{GJ87}
 Glimm, J., Jaffe, A.: Quantum Physics. A Functional Integral Point of
 View, 2nd edn. Springer, New York (1987).
 \href{https://doi.org/10.1007/978-1-4612-4728-9}{https://doi.org/10.1007/978-1-4612-4728-9}
+
+\bibitem{GK85}
+K.~Gaw\c{e}dzki and A.~Kupiainen, Gross--Neveu model through convergent perturbation expansions, Comm. Math. Phys. \textbf{102} (1985), 1--30, \href{https://doi.org/10.1007/BF01208817}{doi:10.1007/BF01208817}.
 
 \bibitem{GKS89}
 Gross, L., King, C., Sengupta, A.: Two dimensional Yang--Mills theory via stochastic differential equations. Ann. Phys. \textbf{194}, 65--112 (1989). \href{https://doi.org/10.1016/0003-4916(89)90032-8}{https://doi.org/10.1016/0003-4916(89)90032-8}
