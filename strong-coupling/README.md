@@ -2,7 +2,7 @@
 
 Deep Bhattacharjee and Ushashi Bhattacharya.
 
-## The current paper (`prd/`)
+## The paper of `prd/`
 
 `prd/main.tex` is the paper "Mass Gap of Lattice Yang–Mills Theory up to the
 Dobrushin Ceiling", in REVTeX 4-2 (Physical Review D, two columns, 29 pages),
@@ -46,114 +46,10 @@ units remain open. `OPEN.md` records what is known of each.
 
 ## Forest gauge fixing (`forest/`, `gauge-fixed/`)
 
-`forest/main.tex` is the paper "Explicit Lattice Yang–Mills Mass Gap for Every Compact Simple Group Reducing the Continuum Gap to One Cube" by Deep
-Bhattacharjee, Ushashi Bhattacharya and James Montgomery Lockwood (REVTeX
-4-2, two columns, 68 pages), compiled as
-`preprintYangMillsForestGauge/YangMillsForestGauge.pdf` in the repository
-root; `forest/cmp/main.tex` is the same paper in the AMS article class (101
-pages). Its figures are written by `forest/figures/make_figures.py` and the
-schematic figures by `forest/figures/make_schematics.py`. The paper is
-self-contained: the transfer-matrix reconstruction, the facts on spectral
-measures and on the character expansion, and the sharp quarter for the
-single-link law of SU(2) are proved in its appendices.
-The working notes and the scripts behind it are in `gauge-fixed/`.
-
-Fixing the gauge on one link of every plaquette, along a field of straight
-lines, lowers the number of Dobrushin partners of a link from 18 to 12. The
-results, proved by hand and not yet refereed (see
-`gauge-fixed/README.md`):
-
-- four-dimensional SU(2): uniqueness of the free-boundary state, decay and a
-  transfer-matrix gap m ≥ −log(3β_W) for β_W < 1/3, the ceiling of
-  single-link Dobrushin after any forest gauge fixing;
-- every SU(N): the gauge-fixed Hessian is bounded by 29/2 (against 16), so
-  Bakry–Émery, decay and a gap hold for |β| < 1/29 (SU(3): β_W < 9/29);
-- four-dimensional SU(3): single-link Dobrushin in the same gauge, with an
-  analytic lower bound for the spectral gap of the one-link measure and a
-  corrector of degree two evaluated with the exact moments of the one-link
-  measure at every staple sum, gives uniqueness, decay and a gap for
-  β_W ≤ 3/4; blocks of the three free links of a plaquette extend it to
-  β_W ≤ 0.77;
-- every compact simple group: with κ_G = h^∨/(2ℓ_ρ) the least Ricci
-  curvature, uniqueness, clustering and a gap m_G(β) for N|β| < 2κ_G/29;
-- conditional: a Dobrushin–Shlosman condition on one cube of fixed physical
-  size, uniform along the continuum tuning, gives a mass gap for every
-  continuum limit; the cube estimate and the existence of the limit are open.
-- what (D) requires: it holds at strong coupling, forces the gauge-fixed links
-  of a cube with trivial exterior to keep at least the fraction 1−α of the
-  Haar disorder (mean distance (1−α)D/2 for a representation metric; so it fails at every fixed cube size at large β), and cannot come
-  from single-line bounds uniform in the exterior (an SU(2) line with gap
-  e^(−b/1280) up to powers of b); for SU(2) it needs
-  n⁴ ≥ 2(1−α) β_W/(5 L(β_W)), and the n² lost in that bound is of the right
-  order (a stationary flux configuration);
-- the quadratic approximation of the forest gauge: the Gaussian field of the
-  Wilson action with the forest links fixed has class sums of cube
-  coefficients at least the cube size, so (D) fails there at every n;
-- a Gaussian benchmark: the averaged cube coefficient of a Gaussian field is
-  exactly 1 when it is massless and bounded below 1 at a fixed physical scale
-  when it has a mass;
-- smoothed observables: the continuum step holds after the spatial gradient
-  flow, which keeps reflection positivity and the transfer matrix;
-- renormalised flowed observables: with one renormalisation condition they
-  have continuum limits along subsequences for every tuning, and a nontrivial
-  limit exists if and only if C(σ)/C(0) does not tend to zero (not proved);
-  in a periodic spatial box C(0) > 0 for product test functions; a lower
-  bound on the ratio would give tight spectral measures after renormalising
-  at σ, and a one-slab bound on the transfer matrix would give the ratio
-  (neither proved); for product test functions the packet ratio is
-  squeezed between ratios of slice correlations D(r′)/D(r) at fixed physical
-  separations, which converge to a positive limit for the free field and
-  for two-dimensional SU(N) along its tuning (energies g²ℓC₂(λ)/2); for the
-  free field, conditioning an energy packet on block averages leaves a fixed
-  fraction of its variance at every spacing, so a blocking route has to be
-  measured in the reflected norm;
-- higher correlations: tree bounds on the truncated correlations give all
-  n-point Schwinger functions as reflection-positive distributions along a
-  subsequence, Gaussian if the tree weight has vanishing physical volume;
-  with amplitude scales they also give a time semigroup, the ratio bound
-  C(σ)/C(0) ≥ 1/2 and, with (D), the gap for every polynomial in the fields
-  (the tree bounds are not proved along the continuum tuning); their
-  order-two cases force the lattice gap m_k ≤ a_k log 2/σ and put a fixed
-  fraction of the tree weight at physical time distance 2t₀, so they fail at
-  every fixed strong coupling; for a smooth packet they give
-  C(σ)/C(0) ≥ e^{−2√B₁σ}, m_k ≤ 2√B₁ a_k, tight spectral measures and a
-  limit packet with ∫E^{2m} dμ ≤ B_m;
-- uniform local estimates: SU(N) force moments E e^{ηE_e} ≤ (1−12η/N)^{−q/2},
-  the Ward identity E[W_e F] = −E⟨∇S_e, ∇F⟩, the SU(2) plaquette variance
-  ≥ 1/(2¹⁹(1+6b)²), and bare blocking (coarse links within total variation
-  (K/2)e^{3b}(4b/(4b+1))^{B−3} of Haar); none of them reaches the ratio,
-  the tree bounds or (D);
-- the cube size for every SU(N): n⁴ ≥ 2(1−α) β_W/(5 L_N(β_W)) with
-  L_N(b) = 1 + ((N²−1)/2) log(81π²b) + N(N−1) log(12/11).
-- block averages: in a gauge whose fixed links are trees inside blocks of
-  side two, the quadratic approximation of (D) holds at every coupling for
-  cubes of side at least 2·10¹⁵/α, and one step of averaging bounds the cube
-  coefficients by the constrained ones plus those of the averages; for the
-  group-valued links the straight path between block roots gives
-  D_v² ≤ 224 Q for every compact group and every field but does not compose
-  (thin paths), and for every compact connected group no continuous
-  covariant block map treats the positions of a block alike (the homology
-  matrices of the slice links in a maximal torus add up to the identity);
-  a cut-off of Bałaban's averaging operation is continuous, covariant,
-  coercive for every field with one-step constants 1431 and 2956, and agrees
-  with the block averages to first order; on torus-valued fields of small
-  curvature at every scale it composes with nonincreasing energy, and a
-  random coherent path offset composes exactly in mean for every field.
-
-Checks in `prd/checks/` (the paper does not rely on them):
-
-| Script | Checks |
-|---|---|
-| `pairblock_derive.py` | the pair block M of Lemma 2 from the trace expansion |
-| `sos_delta.py` | the reflection M(−1,θ) = M(1,θ+π), the real form Δ*MΔ and its sum of squares |
-| `barta_riccati.py` | the Barta computation and the first two Riccati barriers of Appendix B |
-| `quarter/check_quarter.py` | the coefficients of the function 𝒟, the Bessel sums, both parts of the norm below 1/4, the third barrier and the factorisation of the zonal majorant (49 checks) |
-
-The Lean files `YangMills/StrongCoupling/{QxCoefficients,ZonalBound,Thresholds}.lean`
-certify the finite and algebraic steps of the sharp quarter and of
-Theorems E and F (25 theorems, see the root README);
-`YangMills/StrongCoupling/GaugeFix.lean` certifies the combinatorics of the
-forest gauge (7 theorems).
+`forest/main.tex` (REVTeX) and `forest/cmp/main.tex` (amsart) are the two
+copies of the main paper of the archive, "Yang–Mills Mass Gap Reduced to One
+Cube"; the README at the root of the repository says what it proves.
+`gauge-fixed/` holds the certified constants it uses (`blocks/`, `su3/`).
 
 ## The earlier amsart version (`paper/`)
 
