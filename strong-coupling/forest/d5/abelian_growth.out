@@ -1,0 +1,9 @@
+(A) L=256, constant plaquette angle theta=9.587380e-05
+   scale j=0: side 256, plaquette angle min=9.587380e-05 max=9.587380e-05, 4^j theta=9.587380e-05
+   scale j=1: side 128, plaquette angle min=3.834952e-04 max=3.834952e-04, 4^j theta=3.834952e-04
+   scale j=2: side  64, plaquette angle min=1.533981e-03 max=1.533981e-03, 4^j theta=1.533981e-03
+   scale j=3: side  32, plaquette angle min=6.135923e-03 max=6.135923e-03, 4^j theta=6.135923e-03
+   scale j=4: side  16, plaquette angle min=2.454369e-02 max=2.454369e-02, 4^j theta=2.454369e-02
+(B) L=32, random field with link angles ~1e-3: max |coarse plaquette - mean of four squares| = 1.332e-15
+    growth of the maximal plaquette angle in one step (random field): 6.479e-03 -> 5.119e-03
+all checks passed
