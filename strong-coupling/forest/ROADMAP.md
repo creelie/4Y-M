@@ -415,3 +415,17 @@ locality of conditional physical observables are not proved for the gauge
 fibres. `RESEARCH_DIRECTIONS_2026_11_04.md` records literature and next
 steps for bad regions, multiscale crossover and continuum reconstruction.
 No new Yang--Mills mass gap or continuum construction is claimed.
+
+### Interfaces and boundary obstruction (2026-11-04)
+
+- **Proved abstract interfaces:** `CROSSOVER_LEDGER.md` gives an exact
+  scale-dependent error ledger and a small-gain split criterion;
+  `CONTINUUM_GAP_INTERFACE.md` gives sufficient semigroup convergence and
+  density hypotheses for a physical gap to survive reconstruction. Neither
+  supplies the needed Yang--Mills inputs.
+- **Proved scalar obstruction:** `TRANSVERSE_FOLD.md` now gives a submersion
+  with a hard boundary where the normalizer and bounded-observable response
+  are not uniformly Lipschitz. A full-rank constraint alone cannot close bad
+  transport; boundary transversality or another mechanism must be proved.
+- **Open:** uniform gauge-island/environment estimates, the nonlinear
+  crossover and a nontrivial reconstructed continuum theory.
