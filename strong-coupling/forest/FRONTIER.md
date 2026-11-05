@@ -57,3 +57,6 @@ and block size b. The question: does small-field convexity need an angle margin 
   (job 1663501). So uniform fields are not a counterexample on calm data. Whether that holds near and above θ = π is open.
 - **Not yet verified by me (do not cite):** Rajabu, 0.419 (Oct 2026); Douglas et al., Lean lattice gauge theory; Douglas, Nature Rev. Phys. 2026.
 - **Priority 3 (scale-composition theorem)** is the same wall as Conjecture L / averaged (R1) here. Agreed that it is where the effort should go.
+- **Checked 2026-11-05:** Douglas `lgt` (Lean reservoir @mrdouglasny/LGT) exists. It covers U(n) Wilson theory at β < 1/(32n(d−1)), proved by Dobrushin
+  (after Chatterjee, Ch. 16), with 0 sorry and only foundational axioms reported. For n = 2, d = 4 that is β < 1/192. The normalisation still
+  has to be matched against β_W = 2/9 before comparing. Rajabu 0.419: not found by search, remains unverified.
