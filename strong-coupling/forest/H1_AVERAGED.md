@@ -82,3 +82,14 @@ we need the exact gauge-orbit dimension (to separate gauge modes from soft modes
 
 **Consequence for idea D.** On uniform data, small-field fibre convexity holds with constant ≍ (π − θ)/b². A calm class
 θ ≤ π − δ gives a gap ≳ δ/b². This is compatible with Bałaban's small-field condition. It does not touch the large-field wall.
+
+## Exact gauge removal (gaugegap v2, request f0c061083e8c714deb103b2d, L=8) — heuristic
+
+The v2 analysis works in ker J coordinates, with the residual gauge computed exactly. Validity: leakage ≤ 5e-10, and the singular-value cut is clean (gap ~1e10).
+- 'corner' map: reproduces gapscan exactly (b=2: 0.5 → 0.0745 at θ=0.88π; b=4: 0.146 → 0.090 at 0.5π).
+- 'all' map: there are **no zero modes and no negatives below π** after exact removal, so the earlier 1e-6-cut
+  "zeros" were gauge. Genuine soft modes remain. Their gap depends on flux parity (b=2: n=0 0.157, n=1 0.0105,
+  n=2 0.0358, n=4 0.0872, n=6 0.0141, n=7 0.0022), and the residual-gauge count depends on n (72 vs 56).
+- Hypothesis under test: the odd-n soft modes are torus/toron artefacts with gap ~ L^-4.
+  Jobs: L=12 (4e528eba147bb9e8d8dc3b1f), L=16 (848a2647c6a2448929299ffe).
+- At θ=π exact zeros appear (LLL), as before. Above π, negatives appear, except at b=4 'all', θ=2π, n=4.
