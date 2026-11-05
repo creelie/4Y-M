@@ -313,3 +313,28 @@ block, i.e. the coarse gauge.
    and make T_{B′} avoid it. ✓ (bookkeeping only)
 3. Status: **sketch, believed correct.** It removes the "unchecked transfer" item of §9.4 for fixed b. The Bloch job checks
    the constant.
+
+### 9.6 Bypassing the complete axial gauge: IMS localisation + Combes–Thomas (sketch)
+
+The §9.3 snag (between blocks, gauges don't match) matters only if one wants a *global* gauge. A gap is a local property:
+- **IMS localisation.** Take a partition of unity Σχ_i² = 1 made of functions that are **constant on each block** and
+  vary on a scale of R blocks, with jumps ≤ 1/R across block faces.
+  - Multiplying by χ_i preserves ker J, because the constraint is linear and block-local.
+  - H has range 1, so H ≥ Σ_i χ_i H χ_i − (C/R²).
+  - On the support of each χ_i (diameter ≈ Rb), the axial gauge gives |U − 1| ≤ Rb·ε = Rθ/b. Combined with §9.5 and the
+    relative bound of §9.3, this gives χ_iHχ_i ≥ (c₁ − C R θ)/b²·χ_i².
+  - Result: gap ≥ (c₁ − CRθ)/b² − C/R². With b fixed, take R = R(b) large, then θ ≤ θ₀(b) > 0.
+- **Combes–Thomas.** A finite-range operator with gap g has an inverse that decays like e^{−c√g·d}. So the **small-field
+  decay of §9 follows from the gap, with no Bałaban propagator theory needed** at one scale.
+- **Gauge directions.** Work with H + D(D*D)⁻¹... or more simply with the gauge-fixed form H + DD*-type term, which is also
+  finite range. Then check that IMS commutes with it up to C/R². **Unchecked detail.**
+
+**Adversarial check.**
+- θ₀ now depends on b, whereas §9.1 hoped for a b-free θ₀. That is fine for the one-scale cube coefficient, where b is fixed,
+  but it means the large-field suppression is only e^{−cλθ₀(b)²}.
+- IMS needs χ to be block-constant to keep ker J. Then |∇χ| jumps at block faces, and the error is C/R² in fine-lattice units,
+  not C/(Rb)². Accounted for above.
+- Combes–Thomas on a *constrained subspace*: the inverse is P(PHP)⁻¹P, with P the projector onto ker J ∩ (gauge)^⊥. P is not
+  finite range (the gauge projector is nonlocal). Using the gauge-fixed operator H + κ D D* restricted to ker J instead keeps
+  locality, because ker J is block-local. This must be done that way. **Item to verify.**
+- Status: **sketch.** It replaces "complete axial gauge (open)" by two routine-looking checks.
