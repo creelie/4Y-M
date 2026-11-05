@@ -145,3 +145,10 @@ construction: local Uhlenbeck gauges on blocks of size ℓ, with transition data
 targets (§6), and charge deposited in lumps. Next steps: look for an existing "small-energy extension / Chern–Simons filling"
 lemma, for example in the Uhlenbeck–Wehrheim boundary-value literature, or in Bałaban's own large-field
 fill (*Comm. Math. Phys.* 1985–89), which may already do exactly this on the lattice.
+
+**Literature pointer, to check next.** In Bałaban's scheme (*Large field renormalization I/II*, CMP 122, 1989; exposition: Dimock,
+*The renormalization group according to Bałaban*, arXiv:1108.1335 and 1212.5562), large-field regions are treated "crudely".
+Their weight is bounded by stability plus the e^{-p(g)/g²} suppression per large cube, and the matching lower bound on Z comes
+from the global small-field expansion. **If that is right, no regionwise fill lemma is needed. The fill serves only as one
+way to get the denominator.** Read Dimock §§ on large fields to decide whether (P1) can follow that route, which would
+make §§4–8 optional.
