@@ -95,3 +95,22 @@ constant, domain hypotheses) still to be read from the paper. If S³ = SU(2) is 
 
 **Numerics.** Job 2023a16d (κ ≤ 0.01, R ≤ 10, so κR² ≤ 1) only tests the easy regime. The follow-up needs κ = 0.1–0.3 at R = 10
 (κR² = 10–30).
+
+## 7. Calm-fill numerics, 3D SU(2) cooling (heuristic)
+
+Jobs 2023a16d (κ = 0.001, 0.01) and d2257246 (κ = 0.1, 0.3), with R = 3…10. Collar links are a smooth gauge transform composed
+with iid noise of size κ. The table gives interior max plaquette / boundary max plaquette:
+
+| κ | R=3 | 4 | 6 | 8 | 10 |
+|---|---|---|---|---|---|
+| 0.001 | 0.57 | 0.53 | 0.43 | 0.44 | 0.36 |
+| 0.01 | 0.57 | 0.53 | 0.43 | 0.44 | 0.36 |
+| 0.1 | 0.53 | 0.38 | 0.40 | 0.47 | 0.36 |
+| 0.3 | 0.57 | 0.42 | 0.44 | 0.53 | 0.39 |
+
+No growth with R: C ≤ 1 in every run.
+
+**Adversarial caveat.** With iid noise, the curvature integrated over the collar is a random walk of size ~κR, not
+κR², so these collars are nearly the easy case. Coherent abelian fields are trivially fillable by the same field.
+The real test is coherent *noncommuting* curvature. That is the hedgehog collar: each face carries field κ with
+generator n̂·σ. It runs as job 0e0d65f7 (κ = 0.05 and 0.2, so κR² reaches 20).
