@@ -375,3 +375,34 @@ small-field half reduces to one lemma.
 For the corner map, a crossing link together with the two corner lines closes a plaquette chain of length O(b).
 That suggests k = 3, matching §9.5. Lemma X has not been checked. Also note that b³ instead of b² still gives
 θ₀(b) > 0, only with worse b-dependence, which is harmless at a fixed scale.
+
+### 9.9 Lemma X: abelian 2D proof sketch, k = 3
+
+**Setup.** Blocks B₁ = [bx, bx+b) × [by, by+b) and B₂ is its right neighbour. The crossing link l is horizontal
+in row y. Inside each block use the axial gauge:
+- the vertical links on the block's corner column are 0 below the top link;
+- the top link is then 0 too, because the coarse-link constraint (sum along the corner line = 0) forces it;
+- the horizontal links in each row are 0 except one per row (row y keeps only l).
+This is a legitimate gauge on the patch: the block gauge functions match along the shared corner column
+because both are fixed by the corner value.
+
+**Stokes.** Take the rectangle with corners (bx, y), (bx+b, y), (bx+b, by+b), (bx, by+b).
+- Its vertical sides lie on corner columns, so they are 0 in this gauge.
+- Its top side is the corner line of the block above. Its sum is 0 by the constraint, and in that block's gauge
+  its links are individually 0 except one, which is controlled by §9.5 for that block.
+- Its bottom side is row y, whose sum is A_l.
+Hence A_l = Σ_{rectangle} dA + (§9.5-controlled terms). Cauchy–Schwarz over an area ≤ b² gives
+
+  |A_l|² ≤ 2b²‖dA‖²_{B₁∪B₂∪above} + 2C b³‖dA‖²_{local},
+
+so k = 3, matching §9.5. **Status: sketch**, for abelian 2D only.
+
+**Nonabelian, small field.** The same loop with the parallel transport inserted gives corrections of size O(θ)
+relative to the main term (§9.2). It is not yet written in d dimensions, where the loop becomes a b × b strip
+in each transverse plane; the argument is the same plane by plane.
+
+**Adversarial check.** My first attempt took the loop with vertical sides on *partial* corner segments and
+assumed those segments were constrained. They are not; only the full corner lines are. The fix is the gauge
+choice above, which makes the partial segments vanish identically. Still to double-check: whether the axial
+gauge in B₂ can fix B₂'s corner column given that B₁'s gauge already fixed the shared corner site. I believe it
+can, since each block's gauge is free on its own interior sites, but this is unverified.
