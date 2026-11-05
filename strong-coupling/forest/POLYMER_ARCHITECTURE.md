@@ -169,3 +169,6 @@ stability bound. Since our model is a one-scale strong-coupling forest rather th
 *does our cube coefficient admit a Bałaban-style split, with large-field cubes suppressed by their own action and small-field
 Dirichlet dependence controlled analytically?* The calm-fill numerics remain useful as a sanity check of stability. Proved
 status of every piece: unchanged (open).
+
+**Job af45d8e1: invalid.** The covariant-phase solve failed (flux_err ≈ π, bd_max ≈ 2.8). The run was cancelled and **not fixed**, because
+§8 settles that collar analytically and the Bałaban route makes the fill lemma optional. Dead end as numerics, dropped.
