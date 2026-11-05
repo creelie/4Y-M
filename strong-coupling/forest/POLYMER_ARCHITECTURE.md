@@ -487,3 +487,19 @@ If Lemma D holds, the one-scale large-field half closes in averaged form.
 **Not addressed.** Scale composition, i.e. iterating over all scales with uniform constants, and the continuum
 limit. Chessboard needs the torus measure at each scale; after one renormalisation step the effective action
 is not obviously reflection positive. This is a probable obstruction to iterating.
+
+### 10.3 Scale composition: does the chessboard bound iterate? (quick test, negative for now)
+
+**Idea.** For a block-symmetric map, large-field events at scale k are events of the *original* torus measure,
+measurable in cells of side L = b^k. So chessboard with cell-sized reflections applies at every scale, with no need
+for the effective action to be reflection positive. Our corner map is not reflection symmetric; an averaged map
+would be.
+
+**Energy.** In 4D the classical action is scale invariant. A holonomy angle θ around the L × L loop of a cell costs
+action ≳ θ², independent of L, so the disseminated event costs e^{−cβθ²} per cell.
+
+**Entropy, where it fails.** The crude bound Z ≥ e^{−C L⁴ log β} per cell swamps the energy cost once
+L⁴ log β ≳ β. A sharper Peierls bound needs an energy–entropy comparison map at scale L. That comparison is
+exactly the running-coupling (asymptotic freedom) problem, β_k ≈ β − b₀ k log b. **Verdict:** chessboard does not
+bypass scale composition; it relocates it into the per-cell large-field probability at scale L. Iterating is
+not available cheaply, so the effort stays at one scale (Lemma D).
