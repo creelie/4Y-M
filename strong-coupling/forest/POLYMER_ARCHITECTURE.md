@@ -656,3 +656,14 @@ Ideas, with quick verdicts:
    Open sub-question: is there a gauge-invariant finite-size mixing criterion that is uniform under the
    block-spin map? See preprintYangMillsDobrushinCeiling, where earlier work hit a ceiling on this.
 Next: re-read the Dobrushin-ceiling preprint against idea 3.
+
+§11 update. Idea 3 is not new: our own paper (strong-coupling/paper §sec:box) already has the gauge-invariant
+finite-box criterion GDS(V,ε). Its Lemma lem:stability shows the obstruction: corrections ℰ cost
+ε' = ε − 2t|V|·max|∂V|/n_min, so the required smallness shrinks with the box. **So idea 3, as stated, is
+already known to hit this wall.**
+Idea 3′ (new, untested). The |V| factor comes from a sup-norm oscillation bound over *all* of V. Replace it with
+a boundary-weighted bound: use shell decay (§10.8, a factor of about 10 per block in abelian 2D) so that a
+correction at depth s from ∂V moves boundary-observable expectations by only about e^{-αs}. The effective cost
+would then be ∝|∂V| rather than |V|·|∂V|.
+Weakness: shell decay itself was derived in the small-field/Gaussian regime, which is exactly the regime the
+terminal-scale problem lacks. **Possibly circular; check before investing.**
