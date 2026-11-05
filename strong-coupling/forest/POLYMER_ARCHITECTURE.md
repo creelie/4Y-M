@@ -271,3 +271,18 @@ scale-free.
 - **Computing c₁.** It is translation-invariant over the coarse lattice, so a Bloch decomposition reduces it to small
   per-momentum matrices. That can be certified later with interval arithmetic. Job `bloch-flat-gap` computes it:
   2D b = 2, 3, 4 to validate against gaugegap n = 0 (2.0–2.44), and **4D** b = 2, 3, which earlier runs never covered.
+
+### 9.4 Literature for c₁ and step 4 (2026-11-05)
+
+Source: Dimock, *Covariant axial gauge*, arXiv:1410.2798 (abelian, single scale, d = 3 explicitly; the paper says the methods
+are "not specific to any dimension").
+- **Prop. 6.** For the block-*averaged* map Q (an average over the L³ block with weights L⁻⁴), under QA = 0 and covariant axial
+  gauge τA = 0, ‖dA‖² ≥ C‖A‖² with C independent of N and k. The proof adapts Bałaban's lemma 2.4 (CMP 95). This is the
+  flat-c₁ statement, **but for averaged maps, not our corner map**.
+- **Sec. 3.8.** The constrained operator is strictly positive with an exponentially decaying kernel, and by Bałaban's lemma so
+  is its inverse. This is the small-field decay of §9, in the abelian single-scale case.
+- **Gap for us.** `H1_AVERAGED.md` found that only corner/[CD]-type maps are viable for our fibres, which rules out
+  averaged maps. So Prop. 6 does not transfer directly. The proof pattern (Bałaban lemma 2.4) should, but this is
+  **unchecked**. Non-abelian 4D remains Bałaban's CMP 95/99 only.
+- Torons: on the torus Dimock imposes Q•A = 0 to suppress them. Our fibre conditions on all of V♯, which includes the
+  analogue, so no extra issue is expected.
