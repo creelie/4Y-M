@@ -705,3 +705,15 @@ Under translation invariance this is ε − C″ ‖ℰ‖ |∂V|/(1−e^{-α}),
 - **Self-check:** the smallness needed is then ‖ℰ‖ ≲ e^{-O(r^d)}-type in the worst case, because the DS
   openness constants are exponential in the sub-box volume. So the gain over lem:stability may be eaten by the
   bootstrap. **Not yet a win; this is the next thing to decide.**
+
+§11 Decision on S′: **parked; the bootstrap fails.**
+- The bootstrap needs (M_s) on sub-boxes of size r ≪ L, where L is the certification box.
+- But L is large precisely *because* GDS fails on smaller boxes at terminal coupling. If GDS held at size r,
+  lem:stability applied at size r would already be uniform in V. Its cost ‖ℰ‖ r^{2d−1} ≪ ε is polynomial,
+  not exponential, so my earlier "DS constants exponential" worry was wrong, but irrelevant.
+- So S′ helps only if mixing of Φ + sℰ is proved *at scale L directly*, for example by continuity in s on
+  the single box L. That requires controlling ∂_s of the mixing rate on V, and that derivative is again a sum
+  over X ⊂ V: the same |V| factor comes back.
+- Net effect: 3′ moves the volume factor around but does not remove it. Dead end unless the finite-box
+  certificate itself is made perturbation-robust, i.e. certify a whole ℰ-ball of interactions at once (a
+  computation over an interaction family, not a single Φ). Noted as idea 3″; I see no tractable form yet.
