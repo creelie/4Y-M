@@ -26,7 +26,14 @@ Sanity checks pass. At n = 0 there are no negatives. |∇S| ≈ 10⁻¹², so th
 | 8 | all | 12 | 18.8 | 12.6 (n=8) |
 | 8 | corner (weak, codim 24) | 4 | 6.28 | 3.14 |
 
-**Finding.** The dimension-count argument in my earlier sketch (negative modes once the flux quanta exceed the constraint count) is **wrong**. The block map kills the lowest-Landau-level modes until the magnetic length is below the block scale. For every tested map, the fibre is stable whenever the coarse plaquette angle b²φ ≤ π. Instability appears only at b²φ ≥ 3π/2, where the coarse field is already large (beyond the angle π, where it aliases), and not a calm datum.
+**Finding.** The dimension-count argument in my earlier sketch (negative modes once the flux quanta exceed the constraint count) is **wrong**. The block map kills the lowest-Landau-level modes until the magnetic length is below the block scale. For every tested map, the fibre is stable whenever the coarse plaquette angle b²φ ≤ π. Instability appears only above π (sharp at L = 32, see below), where the coarse field is already large (beyond the angle π, where it aliases), and not a calm datum.
+
+**L = 32 rerun (job 1662119).** The threshold is sharp. For b = 4 and b = 8, with both block maps, the fibre has **no** negative
+directions for coarse angle b²φ ≤ π, and has negatives as soon as b²φ > π (first tested points: 1.12π for b = 4, 1.25π for b = 8).
+The L = 16 onsets "3π/2" and "6π" were artefacts of a coarse flux grid and a 2×2 coarse lattice.
+*Reading:* past π the principal-log coarse datum aliases to angle b²φ − 2π. The uniform field is then no longer the
+low-action point of its own fibre. So the instability is exactly an aliasing effect, not a Nielsen–Olesen
+effect inside calm data.
 
 ## 3. Verdict
 - The uniform-field obstruction does **not** show up at the linearised level for calm coarse data (L = 16, b ≤ 8). It is therefore **not**
@@ -35,4 +42,4 @@ Sanity checks pass. At n = 0 there are no negatives. |∇S| ≈ 10⁻¹², so th
 - Sup-over-V **over all V** is still unreasonable, because large-angle data do have fibre saddles. The sound targets are (H1) on calm V
   (angle < π per coarse plaquette, plus a margin), or (H1-avg). Large V should be handled by the polymer/large-field expansion.
 - Limits: linear stability only, one slice size, straight-path maps (not the [CD] V♯ map), floating point.
-  Next check: repeat with the V♯ averaging map and L = 32, and scan b²φ ∈ (π, 3π/2) to locate the threshold.
+  The threshold is now located (π, sharp at L = 32). Next check: repeat with the [CD] V♯ averaging map.
