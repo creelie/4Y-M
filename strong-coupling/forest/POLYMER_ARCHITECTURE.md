@@ -731,3 +731,13 @@ Under translation invariance this is ε − C″ ‖ℰ‖ |∂V|/(1−e^{-α}),
     result is not rigorous).
 - Adversarial: 2D is exactly solvable and always gapped, so a positive result there is weak evidence.
   A negative result there is a strong falsifier.
+Idea 4 falsified analytically, so no run is needed.
+- Any blocked single-plaquette weight is a class function f with its maximum at U = 1, so −log f is maximal at
+  U = −1.
+- Hence Hess S′ is negative at the antipodal configuration, with size of order the effective inverse coupling
+  β_eff, and it is uniform over all plaquettes at once (the extremal configuration is still allowed).
+- Ricci curvature of G^E is a fixed constant per link, so Bakry–Émery holds iff β_eff ≲ const/(d−1). This is
+  exactly the strong-coupling threshold again, now for the effective coupling. Multi-plaquette terms in the
+  effective action do not change the antipodal argument at leading order.
+- So idea 4 = "run the RG until β_eff is below the Shen–Zhu–Zhu threshold", which is the same uncontrolled window.
+  **Dropped.**
