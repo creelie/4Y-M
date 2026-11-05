@@ -541,3 +541,30 @@ perturbative KL bound should finish it.
 **Numerical test (to write).** Compute ‖Σ^{−1/2}M‖ exactly for the constrained abelian field on a
 shell geometry as a function of t, using gfdecay's assembly code. The prediction is a slope −α equal to the
 gfdecay rate. This test is cheap: 2D, 4 CPUs.
+
+### 10.5 Corrections to the §10.4 adversarial pass
+
+**Item 3 (coarse angle) is not a gap; it was self-inflicted.**
+- Inside a small-field shell, every plaquette satisfies |1 − U_p| ≤ ε.
+- Composing the transported plaquettes gives a block holonomy θ ≤ Cb²ε. This bound holds for nonabelian groups
+  too, for small ε.
+- With ε = β^{−1/4}, this is below θ₀ once β ≫ (Cb²/θ₀)⁴.
+- So θ < θ₀ holds automatically on every shell. Coarse-large blocks are just fine-large blocks, and they are
+  already inside the chessboard-controlled bad set.
+- §10.3's entropy problem appears only when the cell side L grows with scale. At fixed b the chessboard ratio is
+  exp(−cβε² + C log β), with no factor of b⁴.
+
+**Item 4 (summability): fine.**
+- The cube coefficient sums Ξ_j over j (`GAUSS_GREEN.md` §5).
+- At distance d there are ≲ d³ observables. Hence Σ_d d³ e^{−cd/log d} < ∞, and the prefactor carries the
+  chessboard density.
+- So subexponential decay suffices for the cube coefficient. Whether the *downstream* polymer expansion (`OPEN.md`,
+  "compose") needs exponential weights e^{a|X|} has **not** been checked.
+
+**Status of averaged Conjecture L at one scale.**
+- Chessboard density (sketch; literature check incomplete).
+- Shell existence (sketch).
+- Lemma D: Gaussian part sketched, shelltv job running; nonlinear part by citing Bałaban.
+- Markov-chain coupling across shells (standard).
+- No ingredient is proved here. The wall is now **Lemma D's nonlinear part**, plus the unchanged multi-scale and
+  continuum issues.
