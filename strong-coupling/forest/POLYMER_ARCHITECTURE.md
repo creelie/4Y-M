@@ -231,3 +231,27 @@ suppression is e^{−cλθ₀²} with an O(1) θ₀.
 - Covariant Poincaré with zero *gauge-covariant* block average needs a proof. At θ ≪ 1, parallel-transport to the block
   corner gives it, with error O(θ).
 - Status: **sketch.** It is consistent with the numerics, which also show the true threshold (π) is better than this bound.
+
+### 9.2 Lattice version of 9.1 (sketch, with the steps made explicit)
+
+Setting: a block B of side b, with every plaquette deviation |1−U_p| ≤ ε, and θ := b²ε.
+
+1. **Axial (comb) gauge from the block corner.** Tree links become 1. Every other link equals the holonomy of a lattice
+   strip of at most b plaquettes, so |U_l − 1| ≤ bε = θ/b. This holds nonabelian, because a loop's holonomy deviation is
+   at most the sum of the deviations of the conjugated plaquettes of a spanning surface. **Proved** (standard).
+2. **Covariant Poincaré.** Take ψ with zero covariant block average, which is the axial-gauge flat average.
+   - Then ‖D_Uψ‖ ≥ ‖∇ψ‖ − (θ/b)‖ψ‖.
+   - Flat Poincaré gives ‖∇ψ‖ ≥ √c₁‖ψ‖/b.
+   - So ‖D_Uψ‖² ≥ (√c₁ − θ)²‖ψ‖²/b².
+   **Proved** modulo the flat constant c₁ for the block map used: corner-type maps, not exactly a mean.
+3. **Curvature term.** The Wilson Hessian equals Σ_p |(D a)_p|² plus terms bounded by C·Σ_p|1−U_p|·|a|² over the 6
+   plaquettes per link. That is ≥ −6Cε‖a‖² = −6Cθ‖a‖²/b².
+4. **Coupling the constrained fluctuations to step 2.** This passes through the Hodge split (gauge directions removed exactly,
+   with D*D + DD* on 1-forms). It is the **open** step: a 1-form version of steps 1–2 is needed.
+
+**Consequence (modulo step 4):** gap ≥ ((√c₁−θ)² − 6Cθ)/b² > 0 for θ ≤ θ₀ = θ₀(c₁, C) = O(1). That is the calm condition of
+§9, now at lattice level with explicit dependence on the constants.
+
+**Adversarial check.** Step 1 is the place where a naive version fails. Bounding links by the *whole-block* flux θ, instead
+of by a strip of bε, gives the condition θ ≲ 1/b, which is useless at large b. The strip bound is what makes the condition
+scale-free.
