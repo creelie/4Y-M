@@ -38,3 +38,17 @@ Prove the non-abelian Stokes/fillability lemma at one scale. Statement: a w-coll
 Ω of diameter R has a calm fill with plaquettes ≤ C κ (R/w)^{?}, in the absence of instanton winding. Then check whether
 the exponent in (R/w) is compatible with the threshold K. This is testable numerically on small SU(2) lattices
 (minimise the action of the fill given random calm collars).
+
+## 4. Adversarial correction to §2 (heuristic)
+- **Holonomy obstruction: spurious for ball-like Ω in d=4.** The collar ≅ S³×[0,w] is simply connected. Every loop in
+  it bounds a disk inside the collar, so non-abelian Stokes gives holonomy ≤ C·κ·(area in the collar). A loop does not need
+  to pass through Ω to be bounded. The calm data on the collar is therefore close to a pure gauge g: S³→SU(2).
+- **Winding is the real obstruction.** g has a degree k (π₃(SU(2)) = ℤ). By Lüscher admissibility, if all plaquettes are
+  small, the lattice charge is an integer, so a fill must carry charge k. Its action is ≥ 8π²|k|/g², i.e. ≳ β_W·const per
+  unit of winding, and the fill can be calm only if its size is ≳ K^{−1/2}.
+- So non-trivial winding is suppressed by the action itself, e^{−cβ_W}: it is just one more large-field cost. Non-ball Ω
+  (handles, i.e. non-simply-connected collars) bring the holonomy problem back on non-contractible loops. That needs the
+  enlargement rule "fill the holes of Ω", and its entropy is a constant factor per block.
+- Revised open lemma: **calm fill for k = 0 with plaquettes ≤ Cκ, C independent of R.** The danger is C growing with R
+  (elliptic estimates for the fill are fine for Laplace-type problems, but the fill is non-linear). This can be tested
+  numerically.
