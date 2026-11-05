@@ -117,3 +117,10 @@ The v2 analysis works in ker J coordinates, with the residual gauge computed exa
   measured minimum of 0.157. A variational upper bound cannot sit below the true minimum, so the 1/4 normalisation and/or
   the trial mode's membership in the gauge-orthogonal physical space is wrong. Only the L⁻² **scaling** is supported
   (two sizes; L=16 pending). The constant is not derived.
+
+### L=16 (request 848a2647c6a2448929299ffe): prediction confirmed (heuristic)
+- 'all', θ=0: b=2 measured **0.03878** against the predicted 0.039. b=4 goes 0.0775 → 0.0416 from L=12 to 16 (ratio 1.86 vs 1.78).
+  **L⁻² scaling confirmed at three sizes.** The 'all'-type block maps are ruled out for idea D.
+- 'all', odd n: 0.0105 / 0.00219 / 0.00072 at L = 8/12/16 (ratios 4.8, 3.04 vs L⁻⁴: 5.06, 3.16), and n=3,5 are
+  also ≈ 7e-4. So the odd-flux gap ~ L⁻⁴, a finite-volume effect on top of the L⁻² mode.
+- 'corner': L-independent (n=0: 0.5 at b=2, 0.146 at b=4, for L=8, 12, 16). No negatives below θ=π. Leakage ≤ 6.4e-10.
