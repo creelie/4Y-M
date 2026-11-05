@@ -43,3 +43,23 @@ effect inside calm data.
   (angle < π per coarse plaquette, plus a margin), or (H1-avg). Large V should be handled by the polymer/large-field expansion.
 - Limits: linear stability only, one slice size, straight-path maps (not the [CD] V♯ map), floating point.
   The threshold is now located (π, sharp at L = 32). Next check: repeat with the [CD] V♯ averaging map.
+
+## Mechanism of the θ = π threshold: Nielsen–Olesen lowest Landau level (heuristic, checked against existing data, 2026-11-05)
+Background diag(e^{iφx}, e^{−iφx}). The adjoint W± components carry charge 2, so they see flux 2φ per plaquette and total flux 2·2πn.
+Predictions from the continuum Nielsen–Olesen picture:
+- **Unconstrained:** the lowest Landau level has 2n complex modes, i.e. 4n real negative directions, with eigenvalue ≈ −φ/2.
+  Data: free_neg = 4n exactly for every n in both runs (L=16 and L=32), and free_min = −0.0248 at φ = 0.0491. ✓
+- **Constrained (block b):** an LLL mode can avoid the block constraint only if it is localised inside one block. That requires
+  each block to carry more than one charged flux quantum: 2·b²φ > 2π ⇔ θ = b²φ > π. Just above threshold the predicted count
+  is one complex mode per block, i.e. 2·(L/b)² real.
+  Data: 32 = 2·16 (L=32, b=8, θ=1.25π); 128 = 2·64 (L=32, b=4, θ=1.12π); 32 = 2·16 (L=16, b=4, θ=1.5π, 'corner');
+  8 = 2·4 (L=16, b=8, θ=2π, 'corner'). ✓ At θ = π exactly there are no negatives (b2 n=32, b4 n=8 and n=32, b8 n=2). ✓
+- **Crossing:** the min eigenvalue at L=32, b=4, θ = 1.12, 1.25, 1.37, 1.5 π is −.034, −.062, −.088, −.115. That is linear in θ − π
+  and extrapolates to ≈ −0.006 at π. So the crossing is consistent with continuous closing, not a jump. Job uniform-field-gapscan
+  measures the θ < π side, with the prediction gap ∝ (π − θ)/b².
+
+**Consequence.** The instability is the standard Nielsen–Olesen one. The block constraint removes it exactly while the coarse
+plaquette angle is below π, i.e. while the coarse plaquette stays away from −I. Bałaban's small-field condition (coarse plaquette
+near I) already imposes this margin. So uniform fields are **not** an obstruction to idea D. They do show that the small-field
+convexity constant must degrade like (π − θ), and cannot be uniform in V. Still heuristic: these are floating-point numbers,
+and the LLL count is matched, not proved.
