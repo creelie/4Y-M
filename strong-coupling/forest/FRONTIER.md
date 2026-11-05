@@ -136,3 +136,14 @@ in the continuum. Proof text not available, so this changes nothing proved here.
   of that kind.
 - Martinelli–Olivieri SSM definition. These are the standard references for idea 3; I found no paper with a
   volume→boundary improvement of perturbative stability for finite-size conditions.
+
+## 2026-11-05 — Chatterjee, "strong mass gap ⇒ confinement" (arXiv 2006.16229, CMP 385 (2021))
+- Exponential decay of correlations *uniformly over arbitrary boundary conditions* ("strong mass gap"), with a
+  compact connected G of nontrivial center, implies Wilson's area law.
+- Our Conjecture L, GDS, and the Doeblin/shell route are all sup-over-ω statements, so they target the *strong*
+  mass gap. That is stronger than what Clay needs (decay in the transfer-matrix / periodic state), and it would
+  also imply confinement.
+- Adversarial implication: we may be aiming at a harder target than necessary. The weak form only needs decay
+  for the infinite-volume periodic/free state. Its natural tools are reflection positivity and transfer-matrix
+  spectral methods, which our finite-box criterion does not use.
+- No 2025–26 converse or all-β result was found in a standard search.
