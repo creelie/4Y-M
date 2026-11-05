@@ -126,3 +126,22 @@ topological in SU(2) because π₁ = 0, but non-topological does not mean cheap.
 - **3D check: job af45d8e1** (`fill_mono.py`). Valid only if flux_err ≈ 0. Its output includes the depth profile.
 - **4D analogue.** On S³ the corresponding object is a calm collar carrying a large, non-quantised Chern–Simons
   density. Same open question.
+
+## 8. Calm fill by distributed lumps (sketch; prediction for job af45d8e1)
+
+**3D, degree-N reducible collar.** Place N unit-charge cores, each of radius ℓ ≈ κ^{-1/2}, uniformly in the ball B_R. Away from the cores,
+take a reducible connection with F = f n̂, where n̂ has a degree-1 defect at each core. The core count adds up to degree N on the
+boundary, as it must. Gauss's law gives |f(r)| ≈ N r/R³ ≈ κ r/R ≤ κ at radius r. The cores are smoothed abelian monopoles,
+capped in SU(2), with |F| ≈ 1/ℓ² ≈ κ. ∇n̂ does not enter F. **This gives a calm fill with C independent of R and N.**
+So the monopole collar is *not* a counterexample. Prediction for job af45d8e1: the ratio stays O(1).
+
+**4D.** Topological charge can be stored in lumps of scale ℓ ≈ κ^{-1/2} at density ≤ ℓ^{-4}, so the ball holds up to about κ²R⁴ units.
+The collar's Chern–Simons term is |CS| ≲ κ²R⁴ (§6). Dimension counting therefore always lets the charge be
+placed calmly, and this holds even for k ≠ 0 with |k| ≲ κ²R⁴. **Correction to §4:** winding is an obstruction only when
+|k| ≫ κ²R⁴. The calm-fill cost is action, not topology.
+
+**Remaining gap (open).** This handles reducible or "abelian-like" collars. A general calm collar needs a multiscale
+construction: local Uhlenbeck gauges on blocks of size ℓ, with transition data glued by the linear null-homotopies of scalable
+targets (§6), and charge deposited in lumps. Next steps: look for an existing "small-energy extension / Chern–Simons filling"
+lemma, for example in the Uhlenbeck–Wehrheim boundary-value literature, or in Bałaban's own large-field
+fill (*Comm. Math. Phys.* 1985–89), which may already do exactly this on the lattice.
