@@ -35,3 +35,15 @@ Mathematically `hW` holds at β_W < 2/9 with C_ij = |β| on the 18 neighbours an
 could find**. Formalising it needs (i) the quarter theorem in Lean (not present: `ZonalBound.lean` has
 `zonal_final` under 9k² ≤ 88, a related but separate bound), (ii) finite OT existence, and (iii) the Voronoi/mesh
 estimates. The chain becomes unconditional in that range only after those are written and checked.
+
+## Update (Nov 2026): what the formal gap in step 5 actually is
+- Existence of a minimal coupling is **already in our Lean** (`exists_min_coupling`, used by `finite_dobrushin_comparison`,
+  dump2 l. ~3310, by compactness). So "inf attained" is not missing.
+- What is missing is **min-cost ≤ dual bound**: finite Kantorovich–Rubinstein, i.e. the minimal coupling cost is at most
+  sup over 1-Lipschitz f of ∫f d(k x − k y). The continuum Lemma `rate` is stated in that dual form.
+- Mathlib (cluster checkout) has no optimal transport, but it does have the Farkas lemma / cone duality
+  (`Mathlib/Analysis/Convex/Cone/Dual.lean`, `InnerDual.lean`). Finite KR is then the LP duality of the transport
+  polytope, derived from Farkas. That is standard and a few hundred lines.
+- Value check: this raises a *formal strong-coupling* range (β_W < 2/9). It does not touch the weak-coupling wall
+  (large-field expansion) that blocks the Clay statement. Priority is low; it would be worth doing as a formalisation
+  deliverable, not as Clay progress.
