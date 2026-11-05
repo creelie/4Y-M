@@ -148,3 +148,23 @@ numerics establish that:
 3. the threshold, if it is reached at all, is local (pending the Riemannian check).
 None of this bears on the large-field wall (Conjecture L / averaged (R1)). The line is closed after the pending job;
 effort returns to the large-field polymer step.
+
+### Riemannian fibre-Hessian rerun (job 1664405, heuristic)
+
+`varfield2.py` computes P(H − Σλ_k∇²c_k)P with λ = (JJᵀ)⁻¹Jg, the correct second-order form on the
+fibre when the background is not critical. L = 16, AMP = 0.5, corner map.
+
+| n | b=2 min (Riem / naive) | b=4 min (Riem / naive) | #neg b4 |
+|---|---|---|---|
+| 4 | 0.44214 / 0.44214 | 0.05034 / 0.05035 | 0 |
+| 5 | 0.42303 / 0.42303 | 0.02169 / 0.02170 | 0 |
+| 6 | 0.40375 | −0.01185 / −0.01183 | 8 |
+| 8 | 0.36517 | −0.0882 / −0.0880 | 16 |
+| 21 | 0.01745 | −0.422 | 68 |
+| 22 | −0.01728 (16 neg) | −0.445 | 72 |
+
+The multiplier correction is ≤ 3·10⁻⁴ (|λ| ≤ 0.05), so the onsets are unchanged: b=4 at n=6, b=2 at
+n=22, tracking θ_max = b²φ_max ≈ π. This settles the gtan caveat. Adversarial note: the background is not a
+critical point of the constrained problem, so "negative fibre Hessian" means the background is not a local
+minimum on its fibre. That is all (H1)-sup needs to fail, and it is irrelevant on small-field data (θ ≲ b²g^{1−ε}).
+**Uniform/slowly varying field line: closed.**
