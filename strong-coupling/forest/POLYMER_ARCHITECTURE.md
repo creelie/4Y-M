@@ -741,3 +741,11 @@ Idea 4 falsified analytically, so no run is needed.
   effective action do not change the antipodal argument at leading order.
 - So idea 4 = "run the RG until β_eff is below the Shen–Zhu–Zhu threshold", which is the same uncontrolled window.
   **Dropped.**
+
+§11 idea 5 (dropped quickly): reach pure YM from the Higgs phase.
+- Fradkin–Shenker / Osterwalder–Seiler: with a fundamental Higgs, the Higgs and confinement regions are connected
+  by a path along which correlations are analytic, with a gap via cluster expansion.
+- But the OS analyticity region covers small β or large hopping κ, and pure YM is the κ = 0 edge at large β, which
+  lies outside the region. Continuing a gap to κ → 0 at weak coupling is the window problem again.
+- Nissim's random-U(1)-environment trick (arXiv 2510.22788) is a strong-coupling device; there is no analogue at
+  the window.
