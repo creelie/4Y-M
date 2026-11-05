@@ -152,3 +152,20 @@ Their weight is bounded by stability plus the e^{-p(g)/g²} suppression per larg
 from the global small-field expansion. **If that is right, no regionwise fill lemma is needed. The fill serves only as one
 way to get the denominator.** Read Dimock §§ on large fields to decide whether (P1) can follow that route, which would
 make §§4–8 optional.
+
+**Checked, from Dimock's exposition (arXiv:1212.5562, scalar φ⁴₃, §1–2):**
+- **Suppression is local.** Every large-field cube carries a factor e^{-O(1)p₀²} from the integrand itself, and regions Ω₁ᶜ
+  are summed over the whole lattice. This is (P1) by summation, with no conditioning.
+- **No fill appears.** The normalisations are explicit Gaussian constants (eqs. 8, 14–16). In the readable part there is no
+  lower bound on Z obtained by extending small-field configurations.
+- **The boundary dependence is real, but handled differently.** The small-field part sits on Ω₁ with Dirichlet data on ∂Ω₁,
+  and the bonds across ∂Ω₁ are split. This is where our "boundary supremum" wall lives. In Bałaban's approach it is controlled
+  analytically, not by a probabilistic sup.
+- **For gauge theory,** what plays the fill's role is Bałaban's *R operation*: a stability bound for the effective action in
+  large-field regions (CMP 122, 1989, parts I–II).
+
+**Conclusion.** The fill lemma (§§4–8) is a sufficient device, but Bałaban does not use it. The real (P1) input is an R-operation-type
+stability bound. Since our model is a one-scale strong-coupling forest rather than a UV multiscale, the next concrete question is:
+*does our cube coefficient admit a Bałaban-style split, with large-field cubes suppressed by their own action and small-field
+Dirichlet dependence controlled analytically?* The calm-fill numerics remain useful as a sanity check of stability. Proved
+status of every piece: unchanged (open).
