@@ -406,3 +406,42 @@ assumed those segments were constrained. They are not; only the full corner line
 choice above, which makes the partial segments vanish identically. Still to double-check: whether the axial
 gauge in B₂ can fix B₂'s corner column given that B₁'s gauge already fixed the shared corner site. I believe it
 can, since each block's gauge is free on its own interior sites, but this is unverified.
+
+## 10. Redirect: the large-field half (2026-11-05)
+
+**Adversarial verdict on §9–9.9.** The small-field half is Bałaban's propagator theory (CMP 95, 99, 1984–85),
+which is already proved in greater generality. §9.1–9.9 re-derive it at sketch level. From now on that half is
+**cited, not re-proved**, and the bloch-flat-gap job is dropped. gfdecay stays: it is cheap, and it checks the
+corner map directly.
+
+### 10.1 Lead: averaged large-field density via chessboard estimates
+
+Large-field regions are bad under a supremum over exteriors, but not under the torus measure. Averaged
+over c, the joint measure is the torus Wilson measure, which is reflection positive (Osterwalder–Seiler).
+Chessboard estimates (Fröhlich–Israel–Lieb–Simon) then give, for a set X of plaquettes of one orientation class,
+
+  μ(|1 − U_p| > ε for all p ∈ X) ≤ z_ε^{|X|},
+  z_ε = μ(the event at every translate)^{1/N}.
+
+A disseminated bad event costs action ≥ βε²·N/2. The partition function satisfies Z ≥ e^{−C N log β} by a Gaussian
+lower bound, so
+
+  z_ε ≤ exp(−βε²/2 + C log β),
+
+which is small once βε² ≫ log β. Summing over orientation classes costs a factor 2^{|X|}. The result is a
+**Peierls bound for large-field sets in averaged form, with no exterior supremum**, which is exactly the form §3
+said is needed. **Status: sketch.** The technique is standard for spin systems, and its use for lattice gauge theory
+is probably known (Borgs; Fröhlich–Israel–Lieb–Simon), so the literature needs checking before this is claimed as new.
+
+**What it does not give.** Conjecture L needs *decay* of Cov(F, ∂_jQ·1_{large near j}), not only small density.
+- Density alone gives |Cov| ≤ 2‖F‖ μ(large near j), uniform in d.
+- Decay needs either the small-field cluster expansion with the large-field set as a random polymer, which is
+  Bałaban's R-operation, or a coupling argument.
+
+**Next concrete test.** Does chessboard density plus Bałaban small-field decay plus an annulus argument give decay?
+- Split by whether a large-field path connects j to supp F.
+- Connected: probability ≤ (2z_ε)^{d/size} by chessboard, summed over paths.
+- Not connected: condition on the large-field cluster of j. The obstacle is that the conditioning breaks reflection
+  positivity, and the remaining measure is the fibre measure with a random exterior; that is the original wall
+  again. **To check:** whether the conditioning can be avoided by working with the event "no large-field
+  crossing of the annulus" and using small-field decay *inside* the annulus only.
