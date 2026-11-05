@@ -21,7 +21,7 @@ Each is at the level of the Clay problem. Nothing in this file is a proof unless
 | B | Derive averaged (H1) from total-measure decay | **dead.** The absolute value sits inside the V-integral, and a conditional covariance is not the total covariance. |
 | C | Bakry–Émery on SU(2)ⁿ, with Ric = 1/2 > 0 | **only strong coupling.** The negative part of the Hessian of βS is O(β). This is already known, and is the regime of `hW`. |
 | D | Calm-V fibre convexity + Helffer–Sjöstrand: H\|ker J ≥ c > 0, uniformly over calm V, gives decay at the Green's-function rate | **alive, but it is Bałaban's small-field programme.** Needs gauge fixing and the large-field polymer expansion. |
-| E | Uniform-field obstruction restricted to calm V | **not an obstruction at linear order** (L=16). An L=32 threshold scan is running (request 5c25edb7…). |
+| E | Uniform-field obstruction restricted to calm V | **not an obstruction at linear order** (L=16). At L=32 (job 1662119) the onset is exactly coarse angle π, the aliasing threshold. Calm uniform data are linearly stable in their fibre. |
 
 ## Adversarial notes on our own outputs
 - `FLOOR_1e-4.md`: downgraded to "likely explanation" after the exact rational check (`c7febc5`).
