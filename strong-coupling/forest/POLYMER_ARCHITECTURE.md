@@ -210,3 +210,24 @@ the constraint (a Bałaban fluctuation propagator), not from a mass gap. This is
 (polymer sum of large-field cubes under the averaged measure). Each item is **open** for our specific constraint map V♯. The
 first item is being tested numerically by job gfdecay-l16 (constrained propagator profile, L = 16, b = 2, n = 0, 4, 12),
 which is queued because the cluster is at its CPU budget.
+
+### 9.1 A non-perturbative calm-fibre gap via Weitzenböck (sketch, continuum heuristic)
+
+This is aimed at the "Bałaban's small field is perturbative" objection. Write the Yang–Mills Hessian at a background A on
+gauge-orthogonal fluctuations a as ⟨a, (D_A*D_A) a⟩ + 2⟨a, ad(F)·a⟩ (Weitzenböck/Bochner). The curvature term is ≥ −2|F|·|a|².
+On each block of side b, with the block constraint removing the lowest mode, a covariant Poincaré inequality gives
+D*D ≥ c₁/b² − O(|F|). The holonomy around a block is θ = |F|b², so
+
+  gap ≥ (c₁ − c₂θ)/b²,
+
+which is positive for θ < θ₀ := c₁/c₂. The bound is linear in θ, like the measured law (2–2.4)/b²·(1−θ/π) in `H1_AVERAGED.md`.
+The Weitzenböck constant is cruder, though: it puts the zero near θ ≈ 1 rather than π. So the calm condition is only
+**|F|b² ≤ θ₀ for a fixed θ₀ ≈ 1**, which is not small in Bałaban's ε₀ sense. Large-field cubes then mean θ > θ₀, and their
+suppression is e^{−cλθ₀²} with an O(1) θ₀.
+
+**Caveats.**
+- This is a continuum argument. The lattice version needs a lattice Weitzenböck formula with O(|F|²) corrections, which are
+  harmless at small θ.
+- Covariant Poincaré with zero *gauge-covariant* block average needs a proof. At θ ≪ 1, parallel-transport to the block
+  corner gives it, with error O(θ).
+- Status: **sketch.** It is consistent with the numerics, which also show the true threshold (π) is better than this bound.
