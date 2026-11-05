@@ -104,3 +104,20 @@ Translated to our setting:
 
 Useful as a clean decomposition ("restricted-ensemble Dobrushin + contour Peierls"), but it does not avoid the
 non-abelian large-field Peierls estimate. *(Reading of the extracted text, not a full proof check.)*
+
+## 2026-11-05 — Announced OpenAI existence proof for 4D quantum YM (secondhand, UNVERIFIED)
+
+Source: KITP working-group statement, "Proof by OpenAI of the Existence of Quantum Yang-Mills theory",
+shepherding committee Douglas, Gross (Chair), Jaffe, Klebanov, Nekrasov, Oct 2026
+(https://www.kitp.ucsb.edu/sites/default/files/YM_working_group.pdf). Commentary: Woit
+(https://www.math.columbia.edu/~woit/wordpress/?p=15948). The text I extracted from the PDF says:
+- The claim is existence of the continuum limit, "including coupling to fermions". Bałaban's RG was among
+  the key ingredients, used "to follow the theory all the way to infinite distances".
+- "confinement and the mass gap remain very important open challenges."
+- The manuscripts total 1147 pages and come with a Lean formalization. Neither is public yet; the committee
+  will release them after it has checked them.
+
+Implication for this programme (my reading only): if the claim holds, it settles our "scale composition" and
+"continuum limit" walls (§10.3, §10.6), very likely by full Bałaban multiscale control. Our one-scale results
+would then be superseded on existence. The Clay-relevant open piece is the **mass gap**, i.e. Conjecture L
+in the continuum. Proof text not available, so this changes nothing proved here.
