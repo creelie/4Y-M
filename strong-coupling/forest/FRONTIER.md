@@ -147,3 +147,11 @@ in the continuum. Proof text not available, so this changes nothing proved here.
   for the infinite-volume periodic/free state. Its natural tools are reflection positivity and transfer-matrix
   spectral methods, which our finite-box criterion does not use.
 - No 2025–26 converse or all-β result was found in a standard search.
+
+## 2026-11-05 — Weak-form route via finite-size spectral-gap criteria: dead end as is
+- Knabe (1988); Lemm (threshold 3/n); Anshu (~1/ℓ²); Lemm–Xiang (arXiv 2112.07756); Lemm–Mozgunov (arXiv
+  1801.08915, open boundaries). All of these require **frustration-freeness**, which is called essential.
+- The Kogut–Susskind Hamiltonian, i.e. the transfer matrix of lattice YM, is not frustration-free: the electric
+  and magnetic terms do not share ground states. No non-FF finite-size gap criterion was found.
+- Verdict: the transfer-matrix finite-size route is a dead end without a new non-FF criterion. Proving such a
+  criterion would be a major result in quantum many-body theory by itself. Dropped.
