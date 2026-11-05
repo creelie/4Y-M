@@ -67,3 +67,18 @@ and the LLL count is matched, not proved.
 at θ = 2π, and negatives only appear by θ = 6π. At L=32 it does follow the θ > π threshold (b=8: 32 negatives at 1.25π), but with
 smaller |min|. So the clean threshold is established for 'corner'. For 'all' it holds at L=32, while the L=16, b=8 case looks
 like a finite-size effect (too few blocks for a block-localised LLL mode to fit). This is not settled.
+
+## Gap scan result (job 1663501, L=16, heuristic floating point)
+**'corner' map:** gap(θ) ≈ gap₀ · (1 − θ/π), with the ratio to that law in [1.01, 1.21] over every θ < π
+(b = 2, 4, 8). gap₀ · b² = 2.0, 2.34, 2.44. So **gap ≈ (2–2.4)/b² · (1 − θ/π)**: the gap closes linearly and continuously as θ → π.
+At θ = π exactly, the soft modes become exact zero modes (zero count 576 → 704 = 576 + 4n with n = 32, the Landau-level count).
+So the "gap" reported at θ = π is the next level up, not a reopening. This confirms the prediction made from the lowest-Landau-level
+mechanism before the job was read.
+
+**'all' map: inconclusive.** The zero-mode count depends on n (240 when 8 | n, 208 otherwise, and 504/456/472 for b = 4). At odd n,
+32 near-zero eigenvalues (~7e-4) appear even at θ ≈ 0.03π. These are accidental zero modes, flat at n = 0, that commensurability
+splits. They are not a convexity gap, and the 1e-6 zero cut cannot tell them apart from soft modes. To measure the 'all' gap,
+we need the exact gauge-orbit dimension (to separate gauge modes from soft modes) rather than a numerical cut.
+
+**Consequence for idea D.** On uniform data, small-field fibre convexity holds with constant ≍ (π − θ)/b². A calm class
+θ ≤ π − δ gives a gap ≳ δ/b². This is compatible with Bałaban's small-field condition. It does not touch the large-field wall.
