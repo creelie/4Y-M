@@ -635,3 +635,24 @@ wall is unchanged.
   - Abelian, 2D, Gaussian only.
   - rank(Σ_y) = 4 of 8: only half the boundary column is free after the corner constraints.
   - The width P is fixed at 8, so the √A growth in §10.4 was not tested. Next: vary P at fixed t.
+
+## §11 Reframing after the announced existence proof (ideas, unverified)
+
+Suppose existence is settled, for example by Bałaban-type multiscale control down to scale ℓ. Then the mass gap
+reduces to a **terminal-scale problem**: the effective lattice theory at the scale where the running coupling
+g(ℓ) is O(1) must have exponential clustering. That theory is not at weak coupling, and it is not at strong coupling.
+
+Ideas, with quick verdicts:
+1. Strong-coupling cluster expansion at the terminal scale (Osterwalder–Seiler). It needs g(ℓ) ≫ 1, but the
+   RG can only be run until g is O(1), which leaves a window in the middle that nobody controls.
+   **Dead end as stated**; this is the known core difficulty.
+2. Our Conjecture L, as a uniform-in-β Doeblin over nested shells (§10.2). The shell lemma would have to hold
+   at intermediate coupling, where neither the small-field analyticity (§10.7) nor the large-field Peierls
+   bound (§10.1) applies. **Same window.**
+3. A finite-size criterion of Dobrushin–Shlosman / Martinelli type: verify mixing on one finite box at the
+   terminal scale, and get infinite-volume clustering from it. This turns the gap into a finite but enormous
+   computation. Lattice Monte Carlo strongly suggests the condition holds; a rigorous version would need
+   certified numerics on a 4D SU(N) box. **Not dead; it is the only route that avoids the window.**
+   Open sub-question: is there a gauge-invariant finite-size mixing criterion that is uniform under the
+   block-spin map? See preprintYangMillsDobrushinCeiling, where earlier work hit a ceiling on this.
+Next: re-read the Dobrushin-ceiling preprint against idea 3.
