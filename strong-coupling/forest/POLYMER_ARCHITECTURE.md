@@ -114,3 +114,15 @@ No growth with R: C ≤ 1 in every run.
 κR², so these collars are nearly the easy case. Coherent abelian fields are trivially fillable by the same field.
 The real test is coherent *noncommuting* curvature. That is the hedgehog collar: each face carries field κ with
 generator n̂·σ. It runs as job 0e0d65f7 (κ = 0.05 and 0.2, so κR² reaches 20).
+
+**Hedgehog v1 (job 0e0d65f7): invalid as a test.** The generator jumps where faces meet, so the edge plaquettes are of order
+κR. bd_max therefore grew linearly in R, from 0.08 to 0.36 at κ = 0.05, and the collar was not calm. Measured against the
+intended κ, the interior grows like ≈ 0.3κR. That is ambiguous: it may only reflect the non-calm edges.
+
+**The real threat, identified.** The test case is a reducible connection with direction field n̂ of degree N, covariantly constant, and
+uniform curvature F = κ n̂·σ. Total flux is 4πN, with N ≈ κR²/4π. This collar is calm. Filling it in the ball means unwinding
+charge N through non-abelian configurations, and **I know no bound on that cost**: the "monopole charge" is not
+topological in SU(2) because π₁ = 0, but non-topological does not mean cheap.
+- **3D check: job af45d8e1** (`fill_mono.py`). Valid only if flux_err ≈ 0. Its output includes the depth profile.
+- **4D analogue.** On S³ the corresponding object is a calm collar carrying a large, non-quantised Chern–Simons
+  density. Same open question.
