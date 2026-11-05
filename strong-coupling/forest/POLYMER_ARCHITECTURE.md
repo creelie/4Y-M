@@ -626,3 +626,12 @@ wall is unchanged.
     here; possibly a near-zero mode (min ≈ 0.008). Treat as a warning, not a refutation.
 - shelltv v1 (job 1668728) crashed: Σ_y is singular because corner constraints fix directions on the
   boundary column. v2 restricts to the support of Σ_y and reports the leak; resubmitted.
+- shelltv v2 (job 1670575; abelian 2D cylinder, b=2, P=8). tv_op = ‖Σ_y^{-1/2} M_y‖ for t = 1..6, 8:
+  0.383, 0.0389, 0.00393, 3.97e-4, 4.01e-5, 4.05e-6, (t=8) 4.13e-8.
+  - Exact exponential with a factor of about 9.9 per block, i.e. slope ≈ −2.29 per block.
+  - That is far below the −0.3 threshold, so it **supports Lemma D's Gaussian part** in this model.
+  - Leak outside supp Σ_y is ~1e-16, and minSy stabilises at 0.2887 = 1/(2√3).
+  Adversarial caveats:
+  - Abelian, 2D, Gaussian only.
+  - rank(Σ_y) = 4 of 8: only half the boundary column is free after the corner constraints.
+  - The width P is fixed at 8, so the √A growth in §10.4 was not tested. Next: vary P at fixed t.
