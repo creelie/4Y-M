@@ -503,3 +503,41 @@ L⁴ log β ≳ β. A sharper Peierls bound needs an energy–entropy comparison
 exactly the running-coupling (asymptotic freedom) problem, β_k ≈ β − b₀ k log b. **Verdict:** chessboard does not
 bypass scale composition; it relocates it into the per-cell large-field probability at scale L. Iterating is
 not available cheaply, so the effort stays at one scale (Lemma D).
+
+### 10.4 Lemma D, Gaussian part (sketch) and adversarial pass
+
+**Gaussian part.** Expand around the background minimiser with fixed outer data x (Bałaban's background field).
+The inner-boundary law is N(Mx, Σ), with Σ independent of x. Then:
+
+- TV(N(Mx,Σ), N(Mx′,Σ)) ≤ ‖Σ^{−1/2}M(x − x′)‖.
+- **Bound on Σ^{−1/2}.** Σ ≥ (β‖H_κ‖)^{−1}, so ‖Σ^{−1/2}‖ ≤ (Cβ)^{1/2}. No gap is needed for this bound;
+  the gap enters only through M.
+- **Bound on M.** M = G_f(inner, shell)·H(shell, outer) satisfies ‖M‖ ≤ Ce^{−αt} by Combes–Thomas from the
+  §9.6 gap, which is Bałaban's.
+- **Bound on x − x′.** With c fixed, two small-field data sets differ by ≲ εb per link, so
+  ‖x − x′‖ ≲ εb√A, where A is the shell area.
+- **Result:** TV ≲ β^{1/2}·εb·e^{−αt}√A = b·β^{1/4}e^{−αt}√A. So TV ≤ 1/2 once
+  t ≥ α^{−1}(¼ log β + ½ log A + log 2b). This matches §10.2.
+
+**Nonlinear part (sketch).** Fluctuations around the background have size β^{−1/2}, so the cubic terms are
+β·β^{−3/2} = β^{−1/2}, which is small. The background itself depends nonlinearly on x, and its decay into the
+interior is Bałaban's background-field estimate (CMP 1984–85, proved). Passing from KL to TV via Pinsker plus a
+perturbative KL bound should finish it.
+
+**Adversarial pass.**
+1. *Do small-field shells exist?* I worried this repeats the v1 flaw: a full shell of area r³ is entirely
+   small-field with probability (1 − z)^{r³ t} → 0. It does not repeat it, because the shells need not be round:
+   they can be block-aligned separating sets that bend around the bad islands. Such sets exist unless a bad
+   cluster of diameter ≳ t appears. By chessboard and path counting, that has probability ≤ r⁴(Cz)^{t/b},
+   which is negligible. So the shells exist w.h.p., but they are irregular. Lemma D is therefore needed
+   uniformly over irregular block domains; §9.8 localisation is per block, so this looks fine.
+2. *Data adjacent to large fields.* The inner and outer data may sit next to large-field islands. Lemma D
+   conditions on them, and the Gaussian bound used only the small-field property of the shell itself. OK.
+3. *Uniform in c?* Only θ < θ₀ on the shell is needed. If the coarse angle is large somewhere, that is a
+   coarse-level large field, which belongs to scale composition and is not handled here. **This is a genuine gap.**
+4. *Does subexponential decay suffice?* e^{−cd/log d} times polynomial counting factors is summable over the
+   cube coefficient's sum over d. It still has to be checked against the specific sum in the cube coefficient.
+
+**Numerical test (to write).** Compute ‖Σ^{−1/2}M‖ exactly for the constrained abelian field on a
+shell geometry as a function of t, using gfdecay's assembly code. The prediction is a slope −α equal to the
+gfdecay rate. This test is cheap: 2D, 4 CPUs.
