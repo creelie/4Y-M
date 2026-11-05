@@ -172,5 +172,5 @@ in the continuum. Proof text not available, so this changes nothing proved here.
 - Still no accepted rigorous gap for 4D lattice YM at intermediate β. Chatterjee 2401.10507 (an SU(2) YMH scaling limit, Higgs-mechanism mass, Gaussian limit) is not pure YM.
 - Zenodo 18923847-family (self-published, Mar 2026): claims an SU(2) Wilson gap for β ≥ ~9587 via block RG.
   - A fixed-large-β gap would be *exactly* our blocked scale-composition step: it would have to beat the asymptotic-freedom flow to the window.
-  - Red flag: for fixed β the RG flow reaches strong coupling after ~β/b₀ log steps, so any proof must handle the window. Check before trusting. Status: unverified, likely flawed.
+  - Red flag: for fixed β the RG flow reaches strong coupling after ~β/b₀ log steps, so any proof must handle the window. Check before trusting. Status: unverified, likely flawed. Checked record 18923847: it is the CFUT item, a 12.9 kB markdown "proof" with no RG treatment. Dropped.
 - Others (CFUT, "Universal Cascade", PhilArchive): non-rigorous, ignore.
