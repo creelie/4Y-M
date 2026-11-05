@@ -135,3 +135,16 @@ Background φ(x) = φ₀(1 + ½cos 2πx/L), L=16, 'corner' map. This background 
   Its size is ~|grad| ≈ 0.014 at the b=4 onset, comparable to the eigenvalue −0.012. The onset points are therefore
   not conclusive on their own; n ≥ 7 at b=4 is robust (|λ| ≥ 3|grad|). The rerun with the tangential gradient |Nᵀg|
   reported is job 1664168 (request d92d894724852dea90bd2504).
+- *Rerun with |Nᵀg| (job 1664168):* the tangential gradient is 0.14 at the b=4 onset, far above |λ| = 0.012, so the
+  onset points are **inconclusive** as computed. A Riemannian fibre Hessian P(H − Σλₖ∇²cₖ)P, with least-squares
+  multipliers, has been submitted (request 5a5a3011bc736ac5267c4da3).
+
+## Closing the uniform-field line (assessment)
+At weak coupling, Bałaban's small-field condition |F_p| ≲ g^{1−ε} gives a block flux θ ≲ b²g^{1−ε} → 0 at fixed b. So the
+θ ≈ π threshold (the LLL instability) is **never active on small-field data**. The uniform/slowly-varying-field
+numerics establish that:
+1. corner/[CD]-type maps have an L-independent fibre gap on calm data, degrading like (1−θ/π);
+2. every-line ('all') maps fail at zero field (L⁻²), so they are excluded;
+3. the threshold, if it is reached at all, is local (pending the Riemannian check).
+None of this bears on the large-field wall (Conjecture L / averaged (R1)). The line is closed after the pending job;
+effort returns to the large-field polymer step.
