@@ -749,3 +749,16 @@ Idea 4 falsified analytically, so no run is needed.
   lies outside the region. Continuing a gap to κ → 0 at weak coupling is the window problem again.
 - Nissim's random-U(1)-environment trick (arXiv 2510.22788) is a strong-coupling device; there is no analogue at
   the window.
+
+## §12 Pre-registered prediction for the patch run (fcb8df51, results not yet fetched; cluster SSH down 2026-11-05)
+
+Setup: Gaussian shell with plaquette weights wp on a patch of size PATCH×P/4, weight 1 elsewhere; H = dᵀWd.
+
+Prediction, derived by hand before seeing the data:
+- **wp > 0.** W ≥ min(wp,1)·I, so H restricted to ran(dᵀ) is comparable to the unweighted H up to a factor of 1/wp. The decay of the shell-to-shell coupling is set by the bulk Green's function outside the patch, and the patch is a compact perturbation. Expect the per-block rate to stay ≈×9.9, with a prefactor growing like O(1/wp) (or a power of it); minQ > 0.
+- **wp = 0.** The patch plaquettes drop out, so the patch modes gain a flat direction. Projecting onto the support hides it from Sy, but the conditional law of those modes is unconstrained. Expect rank to grow, or minQ → 0, and tv_op to stop decaying near the patch.
+- **wp < 0.** H is indefinite, so the Gaussian is undefined. Expect minQ < 0 or an error.
+
+Consequence if confirmed: the Gaussian shell lemma tolerates any *quantitatively* small-field patch (wp bounded below) at the cost of a prefactor only. A genuinely degenerate (large-field) patch must be separated from the shell by a buffer, which is the standard Bałaban large-field/small-field separation, so nothing new is required at the Gaussian level.
+
+Falsifier: the rate degrades for wp = 0.1 or 0.01, which would mean bad patches alter the bulk rate and not just the constant.
