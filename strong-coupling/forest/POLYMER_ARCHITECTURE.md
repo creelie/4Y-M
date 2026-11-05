@@ -69,3 +69,29 @@ sphere it has Lipschitz constant L ≈ κR, where κ is the per-link deviation.
   κR ≫ 1 collars separately. Gromov's linear conjecture is open in general. For S³ → S³, which is degree theory only,
   linear null-homotopies may be easier: **open, to check**.
 - The numerical test (job 2023a16d…, 3D cube) cannot see the L² issue, because π₂(SU(2)) = 0 and its collars have L = O(1).
+
+## 6. Correction to §5: the parameter is κR² (curvature), not the gauge Lipschitz constant (sketch / open)
+
+**Scalability lead.** Berdnikov–Manin, *Scalable spaces* (Invent. Math. 2022, arXiv:1912.00590), and Manin, *Plato's cave*
+(arXiv:1801.00335), give O(L)-Lipschitz null-homotopies X → Y for scalable Y. Spheres and Lie groups are, I believe, in this class;
+**verify in the paper before citing**. If S³ = SU(2) is scalable, the L² width in §5 disappears for the *flat* part of a collar.
+
+**Adversarial point: the gauge function is the wrong object.**
+- **Exactly pure-gauge collar.** If U_xy = g_x g_y⁻¹ on the collar, then any extension of g to interior sites gives
+  plaquettes exactly 1. Lipschitz bounds are irrelevant, and no winding question arises, because k counts curvature
+  and the collar's curvature is zero.
+- **Calm collar.** Plaquettes ≤ κ only. In a radial gauge from a pole of S³_R, the collar connection has |A| ≲ κ·dist ≤ κR.
+  The cone fill A_t = tA has F = tF_A + (t² − t)A∧A, which gives **|F| ≲ κ + (κR)²**.
+  - So a naive fill is calm iff κR ≲ 1, i.e. κR² ≲ R. This regime is not uniform.
+  - Uhlenbeck-type gauge needs ∫_{S³_R}|F|^{3/2} ~ κ^{3/2}R³ small, which also fails for large R.
+- **Consistency check (no contradiction).** For any fill, ∫_B tr F∧F ≡ CS(collar) mod ℤ. Both sides are O(κ²R⁴), and a
+  calm fill has ∫|F|² ≤ κ²R⁴. So there is no dimensional obstruction to a calm k = 0 fill.
+- **Revised open lemma (multiscale).** For a collar on S³_R with |F| ≤ κ and k = 0, there is a fill with |F| ≤ Cκ and C
+  independent of R. A plausible proof is a dyadic decomposition: on each scale-ℓ sub-block, κℓ² ≪ 1 holds once ℓ ≪ κ^{-1/2},
+  which allows local Uhlenbeck gauges. The transition functions then form a Lipschitz map into SU(2), which needs scalability to
+  be null-homotopic with linear constants. **Open.**
+- **Relevance check for (P1).** Calm regions in the polymer expansion have κ ~ g·polylog, so κR² ≫ 1 holds for large
+  regions. The hard regime is generic, not an edge case.
+
+**Numerics.** Job 2023a16d (κ ≤ 0.01, R ≤ 10, so κR² ≤ 1) only tests the easy regime. The follow-up needs κ = 0.1–0.3 at R = 10
+(κR² = 10–30).
