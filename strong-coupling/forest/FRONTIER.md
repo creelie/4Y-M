@@ -167,3 +167,10 @@ in the continuum. Proof text not available, so this changes nothing proved here.
   not the pure-YM gap.
 - A reported Oct-28-2026 preprint: a volume-uniform gap in a strong-coupling window only. Primary source not found.
 - Many Zenodo/SSRN "solutions": not credible, ignored.
+
+### 2026-11-05 sweep: intermediate-coupling mass gap literature
+- Still no accepted rigorous gap for 4D lattice YM at intermediate β. Chatterjee 2401.10507 (an SU(2) YMH scaling limit, Higgs-mechanism mass, Gaussian limit) is not pure YM.
+- Zenodo 18923847-family (self-published, Mar 2026): claims an SU(2) Wilson gap for β ≥ ~9587 via block RG.
+  - A fixed-large-β gap would be *exactly* our blocked scale-composition step: it would have to beat the asymptotic-freedom flow to the window.
+  - Red flag: for fixed β the RG flow reaches strong coupling after ~β/b₀ log steps, so any proof must handle the window. Check before trusting. Status: unverified, likely flawed.
+- Others (CFUT, "Universal Cascade", PhilArchive): non-rigorous, ignore.
