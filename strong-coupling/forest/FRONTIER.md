@@ -124,3 +124,15 @@ in the continuum. Proof text not available, so this changes nothing proved here.
 - Follow-up (2026-11-05): OpenAI's own post (https://openai.com/index/building-scientific-understanding-with-academic-communities/)
   gives these dates: natural-language YM existence proof on 2026-09-09, a QCD proof on 2026-09-18, and the Lean formalization
   finished on 2026-10-16. All YM materials are withheld pending the Gross panel. No arXiv preprint found. Mass gap not claimed.
+
+## 2026-11-05 — Literature bearing on §11 idea 3′ (stability of mixing under perturbation)
+- Crawford–De Roeck (arXiv 1612.02620). Uniqueness for ferromagnetic Glauber dynamics is stable under small
+  perturbations throughout the *whole* uniqueness phase. The input is weak spatial mixing on finite boxes.
+  This is the closest analogue of 3′ gap (a): stability needs mixing of the unperturbed system, not a
+  perturbative regime. Caveat: ferromagnetic, discrete spins, monotonicity is used. None of that applies to SU(N).
+- Martinelli–Olivieri–Schonmann (mp_arc 93-154). In d=2, weak mixing implies strong mixing for squares, with
+  counterexamples in higher d. Relevant warning: in 4D, mixing on cubes does not imply strong mixing, so the
+  finite-box certificate must be the strong (all-boundary-condition) kind. Our GDS is sup over ω, so it is already
+  of that kind.
+- Martinelli–Olivieri SSM definition. These are the standard references for idea 3; I found no paper with a
+  volume→boundary improvement of perturbative stability for finite-size conditions.
