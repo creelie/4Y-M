@@ -44,3 +44,16 @@ treatment beyond Bałaban's original series. That is exactly the wall for (H1) a
 ## Queued test (not run: CPU budget full)
 `uniform-field/gapscan.py` + `plan-gap.json` (reviewed). It measures the gauge-reduced fibre Hessian gap as a function of coarse angle θ ∈ [0, π]
 and block size b. The question: does small-field convexity need an angle margin θ ≤ π − δ?
+
+## External review (James's agent, 2026-11-04): what I accept
+- **Floor (item 7):** agreed that it is not a demonstrated defect. `FLOOR_1e-4.md` already says "likely ridge, not proved", and nothing
+  shows that it affects Romanov's exact rational/SOS certificate (h_F ≤ 14.420001). Any objection would need to name a specific matrix and
+  the theorem that depends on it.
+- **"No progress on the core difficulty" (items 10, 16):** too categorical. The thresholds belong to different methods: 2/9 single-link,
+  1/3 forest, 0.351 plaquette-block (v6). The compact-coupling G1 theorem and the forest combinatorics are real content. The wall
+  (large fields, scale composition, continuum limit) is unchanged.
+- **H1 sup (item 12):** never claimed disproved. The uniform-field work answers the reviewer's priority 2. The exterior field
+  has a Nielsen–Olesen instability, and the block constraint removes it exactly for coarse angle θ < π, with gap ≈ (2–2.4)/b²·(1−θ/π)
+  (job 1663501). So uniform fields are not a counterexample on calm data. Whether that holds near and above θ = π is open.
+- **Not yet verified by me (do not cite):** Rajabu, 0.419 (Oct 2026); Douglas et al., Lean lattice gauge theory; Douglas, Nature Rev. Phys. 2026.
+- **Priority 3 (scale-composition theorem)** is the same wall as Conjecture L / averaged (R1) here. Agreed that it is where the effort should go.
