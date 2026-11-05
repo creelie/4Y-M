@@ -108,3 +108,8 @@ The v2 analysis works in ker J coordinates, with the residual gauge computed exa
   convexity**, even at zero field. This is the lattice form of axial gauge's known lack of decay. For idea D,
   only averaging maps of corner/[CD] type are viable. The (1−θ/π) law and the θ<π rule are about those maps.
 - Odd n: the 'all' gap falls faster (n=1: 0.0105 → 0.0022, about L⁻⁴). It is not needed for the conclusion above.
+- *Adversarial note:* "ker J consists of half-gauge moves" is automatic for line constraints: a perturbation with a
+  fixed line holonomy is a discrete derivative along the line of a function vanishing at its ends. So an
+  eigenvector test of that structure would not discriminate, and it was dropped. The content of the mechanism is
+  the L⁻² cost of slowly modulated ψ = h(x)s(y). It is tested by the L=16 prediction (0.039), and analytically by
+  the 1D quotient: minimise Σ|∂ₓh|²|∂ᵧs|² with s pinned on block rows, which gives c·(2π/L)².
