@@ -255,3 +255,19 @@ Setting: a block B of side b, with every plaquette deviation |1−U_p| ≤ ε, a
 **Adversarial check.** Step 1 is the place where a naive version fails. Bounding links by the *whole-block* flux θ, instead
 of by a strip of bε, gives the condition θ ≲ 1/b, which is useless at large b. The strip bound is what makes the condition
 scale-free.
+
+### 9.3 Step 4 of 9.2: reduction and a hidden snag (2026-11-05)
+
+- **Inside one block.** Pick the comb tree so that it contains the corner lines of the constraint. Then J at U equals J
+  at 1 exactly, and the kernel ker J does not move. In comb gauge H_U − H_1 is relatively form-bounded: for any δ > 0,
+  H_U ≥ (1−δ)H_1 − (C²θ²/δ + Cθ)/b². The block gap therefore follows from the **flat** constrained gap c₁, so step 4
+  reduces to computing c₁.
+- **Snag: links between blocks.** The comb gauge is per block. A plaquette that straddles two blocks mixes two gauges, and
+  the crossing links are close to the *coarse* link, not to 1. A global axial gauge would give |U − 1| ≲ Lε, which is
+  useless. This is exactly what Bałaban's **complete axial gauge** handles (CMP 95, 1984): the background is replaced by a
+  coarse field that is smooth on scale b, and the fluctuation is measured relative to that. So step 4 = Bałaban's
+  complete-axial-gauge reduction plus the flat constant c₁. **Open** for our V♯, but now a literature-shaped task rather
+  than a new idea.
+- **Computing c₁.** It is translation-invariant over the coarse lattice, so a Bloch decomposition reduces it to small
+  per-momentum matrices. That can be certified later with interval arithmetic. Job `bloch-flat-gap` computes it:
+  2D b = 2, 3, 4 to validate against gaugegap n = 0 (2.0–2.44), and **4D** b = 2, 3, which earlier runs never covered.
