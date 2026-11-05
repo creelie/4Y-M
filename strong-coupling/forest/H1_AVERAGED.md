@@ -113,3 +113,7 @@ The v2 analysis works in ker J coordinates, with the residual gauge computed exa
   eigenvector test of that structure would not discriminate, and it was dropped. The content of the mechanism is
   the L⁻² cost of slowly modulated ψ = h(x)s(y). It is tested by the L=16 prediction (0.039), and analytically by
   the 1D quotient: minimise Σ|∂ₓh|²|∂ᵧs|² with s pinned on block rows, which gives c·(2π/L)².
+- *Analytic constant (b=2, back of envelope):* the trial mode ψ = cos(2πx/L)·s(y), with s alternating 0,1,
+  has Rayleigh quotient (1/4)(2 sin(π/L))². That gives 0.146 (L=8) and 0.067 (L=12) against the measured 0.157 and 0.069.
+  So the scaling and the order of the constant agree; the 4–7% excess is unexplained (a trial-mode
+  computation is only a heuristic: ψ is not exactly an eigenmode).
