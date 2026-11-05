@@ -93,3 +93,18 @@ The v2 analysis works in ker J coordinates, with the residual gauge computed exa
 - Hypothesis under test: the odd-n soft modes are torus/toron artefacts with gap ~ L^-4.
   Jobs: L=12 (4e528eba147bb9e8d8dc3b1f), L=16 (848a2647c6a2448929299ffe).
 - At θ=π exact zeros appear (LLL), as before. Above π, negatives appear, except at b=4 'all', θ=2π, n=4.
+
+### L=12 result (job 1663616) and the 'all'-map soft mode — heuristic, with mechanism
+- 'corner' map: the gaps are L-independent (n=0: 0.5 / 0.146 at b=2/4, the same as at L=8). At b=4, n=5 (θ=1.11π)
+  there are 18 negatives, as the θ>π rule predicts.
+- 'all' map at θ=0: the gap goes 0.157 (L=8) → 0.0692 (L=12), a ratio of 0.44 = (8/12)². Fit: gap = 0.254·(2π/L)².
+  **Prediction for L=16: 0.039** (job 848a2647…).
+- **Mechanism (to quadratic order, derived here):** 'all' fixes every line holonomy, so each link lies on one
+  constrained line. The fibre is then spanned by half-gauge moves: g_x acts on horizontal links only, g_y on
+  vertical links only. The curvature change is ∂ₓ∂ᵧ(g_y − g_x), so the Hessian is |∂ₓ∂ᵧψ|², with ψ pinned only at
+  block corners. The modes ψ = h(x)s(y) (s vanishing on block rows, h slowly varying) cost ~|h′|² ~ L⁻².
+  The combinations f(x)+g(y) are exact gauge, consistent with the measured zero count of 0.
+- **Consequence:** a block map that constrains every parallel line (axial-type) has **no volume-uniform fibre
+  convexity**, even at zero field. This is the lattice form of axial gauge's known lack of decay. For idea D,
+  only averaging maps of corner/[CD] type are viable. The (1−θ/π) law and the θ<π rule are about those maps.
+- Odd n: the 'all' gap falls faster (n=1: 0.0105 → 0.0022, about L⁻⁴). It is not needed for the conclusion above.
