@@ -360,3 +360,18 @@ jumps of χ, and its norm is ≤ C‖H_κ‖/R², which is the claimed −C/R².
 **What remains.** The local gap on an R-block patch with free boundary. §9.5 is per-strip, so it localises, but it
 has not been written for patches. The large-field polymer half is untouched. None of this has been tested
 numerically yet; gfdecay is still queued.
+
+### 9.8 Patch-local gap: reduction (sketch)
+
+The §9.5 inequality ‖A‖² ≤ C_d b³‖dA‖² is assembled one block at a time. Each strip or surface sum uses only
+the links of one block and that block's corner lines. On an R-block patch with free boundary it therefore
+holds with the same constant, **provided** every link sits in the gauge of a single block. Links that cross
+between blocks are exactly the §9.3 snag: the complete-axial-gauge issue. So after §9.6–9.7, the whole
+small-field half reduces to one lemma.
+
+**Lemma X (open).** In tree + corner-line gauge, the links crossing between blocks satisfy
+|A_l|² ≤ C b^k (‖dA‖² on the two adjacent blocks) for some k.
+
+For the corner map, a crossing link together with the two corner lines closes a plaquette chain of length O(b).
+That suggests k = 3, matching §9.5. Lemma X has not been checked. Also note that b³ instead of b² still gives
+θ₀(b) > 0, only with worse b-dependence, which is harmless at a fixed scale.
