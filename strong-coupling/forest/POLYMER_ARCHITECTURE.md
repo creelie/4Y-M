@@ -762,3 +762,23 @@ Prediction, derived by hand before seeing the data:
 Consequence if confirmed: the Gaussian shell lemma tolerates any *quantitatively* small-field patch (wp bounded below) at the cost of a prefactor only. A genuinely degenerate (large-field) patch must be separated from the shell by a buffer, which is the standard Bałaban large-field/small-field separation, so nothing new is required at the Gaussian level.
 
 Falsifier: the rate degrades for wp = 0.1 or 0.01, which would mean bad patches alter the bulk rate and not just the constant.
+
+### §12 result (fcb8df51; b=2, P=16, PATCH=5)
+| wp | tv_op at t=1..5 | minQ |
+|---|---|---|
+| 1 (baseline) | 0.383, 0.0389, 0.00393, 3.97e-4, 4.01e-5 | — |
+| 0.3 | …, 4.008e-5 at t=5 | 0.476 |
+| 0.1 | 0.375, 0.0377, 0.00392, 3.97e-4, 4.008e-5 | 0.199 |
+| 0.01 | 0.372, 0.0373, 0.00388, 3.97e-4, 4.008e-5 | 0.0209 |
+| 0 | 3e4, 2e-4, 1.7e-3, 7e-5, 0.11 (rank 2–6, minSy_all ~ -1e15): numerically meaningless | ~0 |
+| -0.2 | numbers finite, but minQ < 0, so the Gaussian is undefined: meaningless | -1.40 |
+
+Verdict against the prediction:
+- **Rate confirmed.** For wp > 0 the rate is ×9.9 per block, unchanged down to wp = 0.01.
+- **Prefactor prediction falsified.** It is not O(1/wp): tv_op is essentially *independent* of wp (it moves by about 3% between wp=1 and wp=0.01). Only minQ scales, and it scales linearly (≈2·wp).
+  - Interpretation: the shell TV sees the patch only through the harmonic extension. A weak but positive patch changes the local stiffness, not the decay of the Poisson kernel away from it.
+  - Caveat: the patch at x<5 may be on the far side relative to where tv is measured, so a patch overlapping the shell is untested.
+- **wp ≤ 0 breaks as predicted.** The Gaussian is degenerate or undefined, so a large-field patch needs a buffer. This is the standard Bałaban separation.
+- **Consequence:** at the Gaussian level, "small-field" can be taken as merely *positive* stiffness. No quantitative lower bound enters the rate, and the constant is uniform.
+
+Next test: put the patch inside or adjacent to the measured shell, to probe the worst case.
