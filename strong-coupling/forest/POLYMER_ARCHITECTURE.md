@@ -674,3 +674,21 @@ terminal-scale problem lacks. **Possibly circular; check before investing.**
     an operator effect, so the §10.4 form is confirmed rather than worsened.
   - Doeblin then needs e^{-2.29 t} ε √A ≲ 1, i.e. t ≳ log A / 4.6 blocks in this model.
   - Caveat: a translation-invariant boundary is the easy case. Inhomogeneous (bad-region) boundaries were not tested.
+
+§11 idea 3′, circularity check (sketch).
+- The stability margin concerns the *boundary-dependence* coefficient of the box law. That is a mixed quantity:
+  it changes under ℰ_X only through the joint sensitivity to (ω, ℰ_X).
+- Write the change as an interpolation integral. ∂_{ℰ_X} of the ω-dependence is a covariance of Φ-observables
+  between X and ∂V, under the interpolated measure Φ + sℰ.
+- If the *unperturbed* Φ has strong mixing with rate α on V, then by Dobrushin–Shlosman that covariance decays
+  like e^{-α dist(X,∂V)}. Strong mixing is what GDS certifies, or a finite-box computation.
+- Summing over X gives a cost of order |∂V| · sup‖ℰ_X‖ / (1 − e^{-α}), not |V|·|∂V|. **So it is not circular:**
+  the decay comes from the mixing of Φ on V itself, not from small-field analyticity.
+Gaps:
+(a) Strong mixing must hold along the whole interpolation Φ + sℰ, not just at s = 0. This needs a bootstrap or
+    an openness argument. A plausible, standard trick, but unchecked.
+(b) Our lem:stability is uniform over all ω. The mixing route gives decay of *covariances*; converting that into
+    the sup-TV form GDS uses costs a constant (Martinelli-style), which should be fine but needs writing.
+(c) It does not remove the need to *certify* mixing on the terminal-scale box, which is a 4D SU(N) computation.
+    Still the hard, possibly infeasible part.
+Status: 3′ is a candidate improvement of lem:stability (volume factor → boundary factor), worth writing properly.
