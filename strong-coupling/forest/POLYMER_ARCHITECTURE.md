@@ -588,3 +588,31 @@ reach n one must compose about log_b n scales, and that is §10.3, which is bloc
 coupling instead of Bałaban's R-operation. It does nothing for composition or for the continuum limit.
 A one-scale step is already within Bałaban's (proved) framework. So its value is a possibly simpler proof of a
 known-type step, **not progress on the Clay problem itself**.
+
+### §10.7 Lemma D, nonlinear part: reduction to Bałaban small-field analyticity (SKETCH, not verified)
+
+Claim. Suppose a shell Σ of thickness t and cross-section A is small-field everywhere. Then for any two outer
+boundary data ω, ω', the inner conditional laws satisfy
+  ‖P_ω − P_ω'‖_TV ≤ 1 − δ with a fixed δ > 0,  provided t ≥ C log(A β).
+
+Idea.
+- Doeblin needs only a constant overlap, not closeness. So it suffices to bound the Radon–Nikodym derivative
+  dP_ω/dP_ω' on an event of probability ≥ 1/2.
+- In the small-field region, Bałaban's effective action (CMP 95/99, cited) is analytic in the fluctuation.
+  Its kernels decay like e^{-α|x−y|}.
+- So ω enters the inner region only through couplings that cross the shell. Those are O(e^{-αt}) per site.
+- This gives |log dP_ω/dP_ω'| ≤ C A β^{1/4} e^{-αt}, which is the Gaussian §10.4 bound with the
+  cubic/quartic terms absorbed into the analytic kernels. Taking t ≥ C log(Aβ) makes it O(1).
+
+Adversarial check.
+(i) The hypothesis "shell is small-field" is itself random. Its failure probability is ≤ A t z_ε by §10.1. This
+    is small only when β ≫ log(A t), so the argument works at a fixed scale only. It does not touch the §10.6
+    wall, and the result is still one-scale.
+(ii) The bound on the log-ratio must hold uniformly, not just in expectation. Bałaban gives deterministic
+     analyticity bounds on the small-field domain, so this looks fine. I have not checked his domain conventions
+     against our nested shells.
+(iii) Gauge fixing: the analyticity is stated in axial/Landau-type gauges on blocks. Our shell needs gauge fixing
+      that is compatible across the inner boundary. Same issue as §9.7, where block-constant χ handled it. Not
+      checked here.
+Status: Lemma D, small-field part, is plausibly reducible to cited results at one scale. The scale-composition
+wall is unchanged.
