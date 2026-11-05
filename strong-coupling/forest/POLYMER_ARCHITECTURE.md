@@ -692,3 +692,16 @@ Gaps:
 (c) It does not remove the need to *certify* mixing on the terminal-scale box, which is a 4D SU(N) computation.
     Still the hard, possibly infeasible part.
 Status: 3′ is a candidate improvement of lem:stability (volume factor → boundary factor), worth writing properly.
+
+§11 Lemma S′ (draft statement for 3′; proof not written)
+Let Φ satisfy, for the box V and all s∈[0,1], the influence bound for the interpolated specification
+γ^s = γ[Φ + sℰ]:
+  sup_ω |γ^s_V(F; G_X | ω)| ≤ ‖F‖ ‖G_X‖ C e^{-α dist(X, supp F)}   for F supported near ∂V.   (M_s)
+Then  ε′ ≥ ε − C′ (Σ_X ‖ℰ_X‖ e^{-α dist(X,∂V)}) max_ν|∂V|_ν / n_min.
+Under translation invariance this is ε − C″ ‖ℰ‖ |∂V|/(1−e^{-α}), replacing |V||∂V| in lem:stability.
+- Hard part: (M_s) for all s. Bootstrap: (M_0) holds, plus the analogue of lem:stability on sub-boxes of size
+  r ~ α^{-1} log(1/‖ℰ‖), which gives (M_s) with α/2. This is the usual Dobrushin–Shlosman "complete
+  analyticity is open" argument. Its 4D gauge version has not been checked by me.
+- **Self-check:** the smallness needed is then ‖ℰ‖ ≲ e^{-O(r^d)}-type in the worst case, because the DS
+  openness constants are exponential in the sub-box volume. So the gain over lem:stability may be eaten by the
+  bootstrap. **Not yet a win; this is the next thing to decide.**
