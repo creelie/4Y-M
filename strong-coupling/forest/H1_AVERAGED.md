@@ -124,3 +124,14 @@ The v2 analysis works in ker J coordinates, with the residual gauge computed exa
 - 'all', odd n: 0.0105 / 0.00219 / 0.00072 at L = 8/12/16 (ratios 4.8, 3.04 vs L⁻⁴: 5.06, 3.16), and n=3,5 are
   also ≈ 7e-4. So the odd-flux gap ~ L⁻⁴, a finite-volume effect on top of the L⁻² mode.
 - 'corner': L-independent (n=0: 0.5 at b=2, 0.146 at b=4, for L=8, 12, 16). No negatives below θ=π. Leakage ≤ 6.4e-10.
+
+## Non-uniform flux: is the threshold local? (job 1664161, provisional; heuristic)
+Background φ(x) = φ₀(1 + ½cos 2πx/L), L=16, 'corner' map. This background is **not** a critical point (|grad| ≤ 0.05).
+- b=4: negatives first appear at **n=6 (θ_max = 1.125π, mean θ = 0.75π)**; gap +0.022 at n=5 (θ_max 0.94π). Then −0.050 at n=7 and −0.088 at n=8.
+- b=2: negatives first appear at **n=22 (θ_max = 1.03π)**; gap +0.017 at n=21 (θ_max 0.98π).
+- Reading: the onset follows the **local maximum** θ, not the mean. So a calm condition for idea D must be pointwise
+  (θ ≤ π−δ in every block), and it cannot be an average over blocks.
+- *Adversarial caveat:* off a critical point, the true fibre Hessian has an extra ⟨∇S, II⟩ term that H|ker J omits.
+  Its size is ~|grad| ≈ 0.014 at the b=4 onset, comparable to the eigenvalue −0.012. The onset points are therefore
+  not conclusive on their own; n ≥ 7 at b=4 is robust (|λ| ≥ 3|grad|). The rerun with the tangential gradient |Nᵀg|
+  reported is job 1664168 (request d92d894724852dea90bd2504).
