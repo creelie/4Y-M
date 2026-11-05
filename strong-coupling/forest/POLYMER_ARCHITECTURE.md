@@ -286,3 +286,30 @@ are "not specific to any dimension").
   **unchecked**. Non-abelian 4D remains Bałaban's CMP 95/99 only.
 - Torons: on the torus Dimock imposes Q•A = 0 to suppress them. Our fibre conditions on all of V♯, which includes the
   analogue, so no extra issue is expected.
+
+### 9.5 c₁ > 0 for the corner map, any d (sketch, elementary)
+
+This is flat and abelian, with each colour component treated separately. Gauge: in each block B pick a comb tree T_B that
+contains the corner lines starting at B's corner, and set A = 0 on T_B. The only residual gauge left is constant on each
+block, i.e. the coarse gauge.
+- **Constraint.** In this gauge, the corner-line constraint fixes each coarse link to 0. The remaining coarse gauge is then
+  global and constant, which on the torus is trivial (torons are excluded by fixing V♯).
+- **Links inside a block that are not tree links.** Such an A_l equals ∮ over the loop tree–l–tree, which is the sum of dA
+  over a comb strip of ≤ b plaquettes. Hence |A_l|² ≤ b·Σ_strip|dA|², and each plaquette lies in ≤ b strips.
+- **Crossing links** (x ∈ B, x+e ∈ B′). The loop runs from x along T_B to the corner, then along the coarse line (sum 0),
+  then along T_{B′} to x+e. It has length O(b) and bounds a surface of O(b²) plaquettes. Each plaquette lies in O(b)
+  surfaces.
+- **Result.** ‖A‖² ≤ C_d b³‖dA‖², so **c₁ ≥ 1/(C_d b)** in units where the gap is c₁/b², and c₁ > 0 for every fixed b.
+  That is all the one-scale cube coefficient needs, since b is a fixed constant. The b³ comes from using a single crude
+  surface per crossing link. Averaging over surfaces, as in Bałaban's lemma 2.4, should improve it to b². The numerics
+  (2.0–2.44 in 2D) suggest b² is the truth.
+
+**Adversarial check.**
+1. A ∈ ker J must be orthogonal to the gauge directions, not merely gauge-fixed. But the gap of the quotient form equals the
+   minimum over gauge-fixed representatives only up to the norm distortion of the gauge-fixing projection. Axial-gauge
+   representatives have norm ≥ that of the orthogonal representative? **No, the inequality goes the other way.** The
+   orthogonal representative has the *smallest* norm, so ‖A_⊥‖ ≤ ‖A_axial‖ ≤ C b^{3/2}‖dA‖. The bound transfers. ✓
+2. The corner-line links belong to the tree, but the last link of a corner line ends in B′. Assign the whole line to T_B
+   and make T_{B′} avoid it. ✓ (bookkeeping only)
+3. Status: **sketch, believed correct.** It removes the "unchecked transfer" item of §9.4 for fixed b. The Bloch job checks
+   the constant.
