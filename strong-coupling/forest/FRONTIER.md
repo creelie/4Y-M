@@ -121,3 +121,6 @@ Implication for this programme (my reading only): if the claim holds, it settles
 "continuum limit" walls (§10.3, §10.6), very likely by full Bałaban multiscale control. Our one-scale results
 would then be superseded on existence. The Clay-relevant open piece is the **mass gap**, i.e. Conjecture L
 in the continuum. Proof text not available, so this changes nothing proved here.
+- Follow-up (2026-11-05): OpenAI's own post (https://openai.com/index/building-scientific-understanding-with-academic-communities/)
+  gives these dates: natural-language YM existence proof on 2026-09-09, a QCD proof on 2026-09-18, and the Lean formalization
+  finished on 2026-10-16. All YM materials are withheld pending the Gross panel. No arXiv preprint found. Mass gap not claimed.
