@@ -717,3 +717,17 @@ Under translation invariance this is ε − C″ ‖ℰ‖ |∂V|/(1−e^{-α}),
 - Net effect: 3′ moves the volume factor around but does not remove it. Dead end unless the finite-box
   certificate itself is made perturbation-robust, i.e. certify a whole ℰ-ball of interactions at once (a
   computation over an interaction family, not a single Φ). Noted as idea 3″; I see no tractable form yet.
+
+§11 idea 4 (candidate, not started): curvature at the terminal scale.
+- Shen–Zhu–Zhu prove the gap via Bakry–Émery for Wilson's action, but only at β < 1/(16(d−1)). Our Theorem C shows
+  the curvature method stops there for Wilson's action, because the extremal configurations (all plaquettes equal
+  to z) are allowed.
+- An RG-improved effective action at the terminal scale contains terms that penalise exactly those extremal
+  configurations. So its Ricci + Hess S lower bound on the gauge quotient *might* be positive where Wilson's is not.
+- Cheapest falsifier: a 2D SU(2) blocked action from one exact Migdal–Kadanoff-style step (exact in 2D), then
+  the minimum of Ric + Hess S over a grid of configurations.
+  - If it is negative somewhere, drop the idea.
+  - If it is positive, consider 4D (no exact blocking; would need an approximate effective action, and then the
+    result is not rigorous).
+- Adversarial: 2D is exactly solvable and always gapped, so a positive result there is weak evidence.
+  A negative result there is a strong falsifier.
