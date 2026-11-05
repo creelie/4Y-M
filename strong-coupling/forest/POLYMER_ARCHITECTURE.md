@@ -172,3 +172,41 @@ status of every piece: unchanged (open).
 
 **Job af45d8e1: invalid.** The covariant-phase solve failed (flux_err ≈ π, bd_max ≈ 2.8). The run was cancelled and **not fixed**, because
 §8 settles that collar analytically and the Bałaban route makes the fill lemma optional. Dead end as numerics, dropped.
+
+## 9. Bałaban-style split of Conjecture L: reduction and adversarial check (2026-11-05)
+
+**Observation.** The covariance in Conjecture L, λ·Cov(F, ∂_jQ·1_{m≥ρ/2}), is taken in the **fibre measure π₀(c)**. That measure
+conditions on V♯ for *every* block. So its small-field part is a *block-constrained* Gaussian. Its decay therefore comes from
+the constraint (a Bałaban fluctuation propagator), not from a mass gap. This is the structure Bałaban proves at one scale:
+- Bałaban, *Propagators and renormalization transformations for lattice gauge theories I*, CMP 95 (1984) 17–40;
+- *Propagators for lattice gauge theories in a background field*, CMP 99 (1985). It proves regularity and exponential decay of the
+  constrained propagators around small, non-flat backgrounds.
+- Modern exposition of the decay mechanism (Combes–Thomas): Dybalski–Stottmeister–Tanimoto, arXiv:2303.10754.
+
+**Proposed split** (sketch, not proved):
+1. **Small field** (every coarse plaquette angle ≤ θ₀ < π, and fine field calm). The constrained Hessian has a uniform gap.
+   Our heuristic data (`H1_AVERAGED.md`, gaugegap v2) give gap ≈ (2–2.4)/b²·(1−θ/π), even for uniform-field backgrounds.
+   The constrained propagator should then decay like e^{−γd/b} (Bałaban 1985 for the gauge-covariant version), and the
+   covariance with a local event decays by a random-walk/cluster expansion.
+2. **Large field** (coarse angle > θ₀, or fine m ≥ ρ/2). Each such cube is suppressed by its own action, about e^{−cλθ₀²},
+   and is summed in a polymer expansion. Pointwise in c this fails: c may itself be large-field, which is the uniform-field
+   counterexample of `CALM_LINK.md` §4. **Averaged over c** (Lemma `mixture`), large coarse fields are suppressed by the
+   marginal, which is the averaged (R1).
+
+**Adversarial check.**
+- *Degeneration at θ→π.* It is real: the gap ∝ (1−θ/π) → 0. So θ₀ must stay a fixed distance below π, and the large-field
+  activity e^{−cλθ₀²} has to beat the polymer entropy. At λ = O(β) this is fine. It is **not** uniform in the coarse field,
+  so the split works only in averaged form. That is consistent with the existing wall diagnosis, not a way round it.
+- *Bałaban's small-field condition is perturbative* (|1−U_p| ≤ ε₀, with ε₀ small). Our calm region m < ρ/2 with ρ_G = 1 is
+  not small in that sense. Either shrink ρ (this costs the constants in `SHELL_TRANSPORT.md` §1 a factor of 1/ρ) or prove the
+  gap directly for the calm region. The numerics only cover uniform-field backgrounds.
+- *Gauge fixing.* Bałaban's propagators use axial/Landau-type gauge inside blocks. Our transport Y is gauge-covariant, and
+  gaugegap v2 removes the gauge directions exactly. No Gribov issue arises at small field, but at the calm/large interface
+  this is unchecked.
+- *What it does not give.* It gives decay at **one block scale**, which is what the cube coefficient needs. It gives **no**
+  mass gap and does not touch the continuum limit.
+
+**Status.** Conjecture L ⇐ (constrained gap on calm fibres, uniform for coarse angle ≤ θ₀) + (Bałaban 1985 decay) +
+(polymer sum of large-field cubes under the averaged measure). Each item is **open** for our specific constraint map V♯. The
+first item is being tested numerically by job gfdecay-l16 (constrained propagator profile, L = 16, b = 2, n = 0, 4, 12),
+which is queued because the cluster is at its CPU budget.
