@@ -445,3 +445,45 @@ is probably known (Borgs; Fröhlich–Israel–Lieb–Simon), so the literature 
   positivity, and the remaining measure is the fibre measure with a random exterior; that is the original wall
   again. **To check:** whether the conditioning can be avoided by working with the event "no large-field
   crossing of the annulus" and using small-field decay *inside* the annulus only.
+
+### 10.2 Reduction attempt for averaged Conjecture L (sketch, with a flaw found and a repair route)
+
+**Literature check (2026-11-05).** Chessboard and contour bounds in a gauge-theory setting do exist:
+- arXiv:2501.10065 (Z₂ π-flux, J. Stat. Phys. 2026) bounds the probability of bad plaquette configurations;
+- Biskup–Kotecký, math-ph/0610060, is the general reference for contour suppression via reflection positivity.
+
+I found no explicit continuous-group large-field Peierls bound of the form in §10.1. Treat it as plausible but not
+yet located: it may be new, or folklore.
+
+**Choice of ε.** Take ε = β^{−1/4}. Then βε² = β^{1/2} ≫ log β, so chessboard suppression holds. At the same
+time the coarse angle θ ≲ εb² → 0, so Bałaban's small-field regime holds. The two halves are compatible at weak coupling.
+
+**Attempt v1 (wrong).** Let N = {no large-field path from j to supp F}, and let S be the outermost separating
+small-field surface. S is a stopping set, so the domain Markov property holds for the fibre measure if S is
+block-aligned. This gives Cov_c(F,G) ≤ C π_c(N^c) + ‖F‖·osc_{b_S} E[G | b_S], and the plan was to bound the
+oscillation by small-field decay across the annulus. **Flaw:** the annulus between S and j's cluster is not
+all small-field; it has a density z of large-field islands. A fully small-field annulus of radius d has probability
+about (1 − z)^{d⁴} → 0. So v1 secretly assumes what Bałaban's R-operation provides.
+
+**Repair v2: nested shells and a Doeblin condition.**
+- On N, explore inward from F's side to get many disjoint small-field shells around j: k ≳ d/t shells of
+  thickness t, except on an event whose μ-probability is bounded by chessboard plus path counting.
+- The Markov property makes the shell configurations X₁, X₂, … a Markov chain going inward.
+- If every transition satisfies a uniform minorisation P(X_{i+1} ∈ · | X_i = x) ≥ η ν(·), then coupling gives
+  osc ≤ (1 − η)^k.
+
+**Open Lemma D (the real content).** For a small-field shell of thickness t, with c fixed and θ < θ₀, the law of
+the inner boundary of the shell given the outer data has total-variation oscillation ≤ 1 − η, uniformly.
+- Heuristically, the Gaussian part shifts the mean by ≲ εe^{−αt} against fluctuations of size β^{−1/2}, with α
+  the constraint mass from gfdecay.
+- The TV distance also picks up a factor √(area). Hence t ≳ log β + log(area), which gives decay
+  e^{−c d/log d}: subexponential but summable. This is enough for the cube coefficient only if it is used with
+  polynomial losses; check this.
+
+**What is genuinely new versus Bałaban.** The large-field sets are controlled by an averaged chessboard bound,
+not by the R-operation, and the composition is a Markov-chain coupling across shells, not a polymer expansion.
+If Lemma D holds, the one-scale large-field half closes in averaged form.
+
+**Not addressed.** Scale composition, i.e. iterating over all scales with uniform constants, and the continuum
+limit. Chessboard needs the torus measure at each scale; after one renormalisation step the effective action
+is not obviously reflection positive. This is a probable obstruction to iterating.
