@@ -34,3 +34,13 @@ Each is at the level of the Clay problem. Nothing in this file is a proof unless
   1/4 bound is chordal (`zonal_final`, dump2 l. 9044), so choosing chordal `dX` is consistent. Remaining
   caveat: the Lean condition is a weighted column sum, Σ_i w_i C_ij ≤ θ w_j. With uniform w and the symmetric C here,
   that equals the row sum.
+
+## Literature: Bałaban–Dimock method (searched 2026-11-05)
+Dimock, "The Renormalization Group According to Balaban", I–III: arXiv 1108.1335 (small fields), 1212.5562 (large fields),
+1304.0705 (convergence). These treat φ⁴ in d = 3. Large fields are handled "crudely" there, using the stability of the interaction.
+A 2025 Roma Tre talk extends this to U(1)-Higgs in d = 2, 3 and the O(4) σ-model. I found no published 4D non-abelian large-field
+treatment beyond Bałaban's original series. That is exactly the wall for (H1) and (H2).
+
+## Queued test (not run: CPU budget full)
+`uniform-field/gapscan.py` + `plan-gap.json` (reviewed). It measures the gauge-reduced fibre Hessian gap as a function of coarse angle θ ∈ [0, π]
+and block size b. The question: does small-field convexity need an angle margin θ ≤ π − δ?
