@@ -667,3 +667,10 @@ correction at depth s from ∂V moves boundary-observable expectations by only a
 would then be ∝|∂V| rather than |V|·|∂V|.
 Weakness: shell decay itself was derived in the small-field/Gaussian regime, which is exactly the regime the
 terminal-scale problem lacks. **Possibly circular; check before investing.**
+- shelltv P=32 (request 2e991fd3). tv_op agrees with P=8 to all printed digits for t=1..5, and the rank is 16 = P/2.
+  - Interpretation: the problem is translation-invariant along y, so the operator norm is a sup over Fourier
+    modes and does not depend on the width.
+  - The √A in §10.4 therefore comes from the boundary *data*: a mean shift of size ≤ tv_op · ε√A. It is not
+    an operator effect, so the §10.4 form is confirmed rather than worsened.
+  - Doeblin then needs e^{-2.29 t} ε √A ≲ 1, i.e. t ≳ log A / 4.6 blocks in this model.
+  - Caveat: a translation-invariant boundary is the easy case. Inhomogeneous (bad-region) boundaries were not tested.
