@@ -338,3 +338,25 @@ The §9.3 snag (between blocks, gauges don't match) matters only if one wants a 
   finite range (the gauge projector is nonlocal). Using the gauge-fixed operator H + κ D D* restricted to ker J instead keeps
   locality, because ker J is block-local. This must be done that way. **Item to verify.**
 - Status: **sketch.** It replaces "complete axial gauge (open)" by two routine-looking checks.
+
+### 9.7 The §9.6 items (sketch, checked on paper)
+
+**Gauge-fixed operator.** Let C₀ = {gauge parameters c vanishing on the corner lattice}, Π the projection onto C₀
+(it zeroes the corner sites), and D the linearised gauge action. Then D(C₀) ⊂ ker J, because the corner map only
+conjugates by c at block corners. Put H_κ = H + κ DΠD*. This operator is finite range (range 2) and preserves
+ker J. Write ψ ∈ ker J as ψ = ψ_⊥ + DΠc with ΠD*ψ_⊥ = 0. If the background is a critical point, HD = 0, the cross
+terms vanish, and
+
+  ⟨ψ,H_κψ⟩ = ⟨ψ_⊥,Hψ_⊥⟩ + κ‖ΠD*DΠc‖² ≥ gap_phys‖ψ_⊥‖² + κλ₁^D‖DΠc‖²,
+
+where λ₁^D ≳ 1/b² is the Dirichlet Laplacian gap with the corners pinned. So gap(H_κ|ker J) =
+min(gap_phys, κλ₁^D), and κ = O(1) gives a gap of order 1/b². This settles the first item.
+Caveat: at a non-critical background HD = O(|∇S|), which adds an error term of size small-field·ε.
+
+**IMS.** Take χ_i constant on every corner line, which a block-constant χ is. Then J(χ_iψ) = χ_iJψ = 0, so the
+localised pieces stay in ker J. The double commutator Σ[χ_i,[χ_i,H_κ]] is supported within range 2 of the
+jumps of χ, and its norm is ≤ C‖H_κ‖/R², which is the claimed −C/R². This settles the second item.
+
+**What remains.** The local gap on an R-block patch with free boundary. §9.5 is per-strip, so it localises, but it
+has not been written for patches. The large-field polymer half is untouched. None of this has been tested
+numerically yet; gfdecay is still queued.
