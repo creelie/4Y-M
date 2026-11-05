@@ -568,3 +568,23 @@ gfdecay rate. This test is cheap: 2D, 4 CPUs.
 - Markov-chain coupling across shells (standard).
 - No ingredient is proved here. The wall is now **Lemma D's nonlinear part**, plus the unchanged multi-scale and
   continuum issues.
+
+### 10.6 Downstream check: what D(n, α) actually needs (adversarial)
+
+`OPEN.md` l. 55 states the consumer: the averaged-cube condition D(n, α) with **n·a ≤ ℓ uniformly along the
+continuum tuning**, so n ~ ℓ/a → ∞ in lattice units. §10 delivers Conjecture L only at a *fixed* block size b. To
+reach n one must compose about log_b n scales, and that is §10.3, which is blocked.
+
+**Shortcut tested: take one step with b = n (dead end, quantitative).**
+- Small field on the shells requires θ ≤ Cn²ε < θ₀, so ε ≲ θ₀/n².
+- Chessboard requires βε² ≫ log β, hence **β ≫ n⁴ log β**.
+- Along the tuning, asymptotic freedom gives n ~ ℓ/a ~ e^{cβ}, so β ~ log n ≪ n⁴.
+- So the single big step fails, and it fails for the physical reason: at the scale of the correlation length the
+  coarse field is O(1), not small.
+- **No version of the one-scale argument avoids running-coupling control across ~β scales.** This is the Clay
+  core, and it is unchanged.
+
+**Net.** §10 gives a plausible *new route for the one-scale large-field step*: averaged chessboard plus shell
+coupling instead of Bałaban's R-operation. It does nothing for composition or for the continuum limit.
+A one-scale step is already within Bałaban's (proved) framework. So its value is a possibly simpler proof of a
+known-type step, **not progress on the Clay problem itself**.
