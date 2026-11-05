@@ -60,3 +60,13 @@ and block size b. The question: does small-field convexity need an angle margin 
 - **Checked 2026-11-05:** Douglas `lgt` (Lean reservoir @mrdouglasny/LGT) exists. It covers U(n) Wilson theory at β < 1/(32n(d−1)), proved by Dobrushin
   (after Chatterjee, Ch. 16), with 0 sorry and only foundational axioms reported. For n = 2, d = 4 that is β < 1/192. The normalisation still
   has to be matched against β_W = 2/9 before comparing. Rajabu 0.419: not found by search, remains unverified.
+
+## Literature check 2026-11-05 (second pass)
+- No 2024–26 paper found that extends Bałaban–Dimock large-field control to 4D non-abelian YM. The Roma Tre reading
+  list (Tanimoto) is rereading Bałaban's gauge papers and Dimock's scalar QED d=3 in 2025, so it is review work, not new results.
+- Adhikari–Cao (Ann. Probab. 2025): weak-coupling correlation decay, **finite** gauge groups only. Its method
+  (rarity of vortices) has no direct SU(2) analogue, because continuous groups have spin waves. Logged, not pursued.
+- An unreviewed listing (SynapseSocial) claims a "Bałaban on S³, large-field region empty inside the Gribov horizon" result.
+  Unverified. Treat it as noise unless an arXiv record turns up.
+- Internal: 'all'-type (every-line) block maps have an L⁻² half-gauge soft mode at zero field (H1_AVERAGED.md).
+  Restrict idea D to single-average-per-block-link maps ([CD] V♯, corner).
