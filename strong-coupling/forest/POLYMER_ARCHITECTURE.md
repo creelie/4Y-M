@@ -782,3 +782,15 @@ Verdict against the prediction:
 - **Consequence:** at the Gaussian level, "small-field" can be taken as merely *positive* stiffness. No quantitative lower bound enters the rate, and the constant is uniform.
 
 Next test: put the patch inside or adjacent to the measured shell, to probe the worst case.
+
+### §12 worst case: patch centred on the measured column (ce399f73, job 1674876; b=2, P=16, PATCH=5)
+| wp | tv_op at t=1..5 | minQ (t=5) |
+|---|---|---|
+| 1 | 0.383, 0.0389, 0.00393, 3.97e-4, 4.008e-5 | 0.667 |
+| 0.1 | 0.375, 0.0376, 0.00376, 3.76e-4, 3.78e-5 | 0.221 |
+| 0.01 | 0.372, 0.0371, 0.00369, 3.68e-4, 3.68e-5 | 0.0221 |
+
+- **Rate.** Unchanged at ×9.9–10 per block.
+- **Prefactor.** tv_op *decreases* as wp decreases (by 8% at wp=0.01). This matches the expectation that larger fluctuations on the weakened links mask the boundary mean shift.
+- **Combined with the outer-edge run.** At the Gaussian level a positive-stiffness patch costs nothing anywhere, neither in the rate nor in the prefactor. Only wp ≤ 0 (a genuinely large-field region) needs a buffer.
+- **Scope.** This is heuristic: abelian 2D, b=2, P=16, one patch shape, floating point.
