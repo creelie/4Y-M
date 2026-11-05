@@ -73,8 +73,8 @@ sphere it has Lipschitz constant L ≈ κR, where κ is the per-link deviation.
 ## 6. Correction to §5: the parameter is κR² (curvature), not the gauge Lipschitz constant (sketch / open)
 
 **Scalability lead.** Berdnikov–Manin, *Scalable spaces* (Invent. Math. 2022, arXiv:1912.00590), and Manin, *Plato's cave*
-(arXiv:1801.00335), give O(L)-Lipschitz null-homotopies X → Y for scalable Y. Spheres and Lie groups are, I believe, in this class;
-**verify in the paper before citing**. If S³ = SU(2) is scalable, the L² width in §5 disappears for the *flat* part of a collar.
+(arXiv:1801.00335), give O(L)-Lipschitz null-homotopies X → Y for scalable Y. Confirmed from the abstract: the scalable class includes spheres and Lie groups. Precise theorem form (linear null-homotopy
+constant, domain hypotheses) still to be read from the paper. If S³ = SU(2) is scalable, the L² width in §5 disappears for the *flat* part of a collar.
 
 **Adversarial point: the gauge function is the wrong object.**
 - **Exactly pure-gauge collar.** If U_xy = g_x g_y⁻¹ on the collar, then any extension of g to interior sites gives
