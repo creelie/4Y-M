@@ -155,3 +155,15 @@ in the continuum. Proof text not available, so this changes nothing proved here.
   and magnetic terms do not share ground states. No non-FF finite-size gap criterion was found.
 - Verdict: the transfer-matrix finite-size route is a dead end without a new non-FF criterion. Proving such a
   criterion would be a major result in quantum many-body theory by itself. Dropped.
+
+## 2026-11-05 — Recent rigorous lattice gap results (none reaches the window)
+- Nissim, "U(N) lattice Yang–Mills in the 't Hooft regime" (arXiv 2510.22788).
+  - Claims: a mass gap, a unique infinite-volume limit, and a new proof of the large-N limit, via cluster
+    expansion plus Langevin dynamics on a U(1)×SU(N) random-environment model.
+  - It notes that the earlier SU(N)/SO(N) gaps relied on Bakry–Émery, which fails for U(N).
+  - From the abstract, the regime is presumably small 't Hooft coupling, i.e. strong coupling. Not checked in the full text.
+  - Not a window result.
+- Chatterjee 2026 (Prob. Math. Phys.): Gaussian scaling limit of SU(2) Yang–Mills–Higgs. Higgs matter,
+  not the pure-YM gap.
+- A reported Oct-28-2026 preprint: a volume-uniform gap in a strong-coupling window only. Primary source not found.
+- Many Zenodo/SSRN "solutions": not credible, ignored.
