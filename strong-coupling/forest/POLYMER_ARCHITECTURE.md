@@ -616,3 +616,13 @@ Adversarial check.
       checked here.
 Status: Lemma D, small-field part, is plausibly reducible to cited results at one scale. The scale-composition
 wall is unchanged.
+
+### §10.8 Run results (2026-11-05)
+- gfdecay (job 1666174), n=12, b=2, φ≈0.295, Nielsen–Olesen background.
+  - corner constraint: the profile decays exponentially, roughly a factor 2.5 per step, falling from 1.38 to 1.7e-6
+    over 16 steps. min = 0.36. Consistent with the §9.7 gap.
+  - 'all' constraint: min = 0.008, and the profile *plateaus* at about 0.25 for steps 10–15 before dropping.
+    Not clean exponential decay over this window. So the stronger block map does not obviously give the decay
+    here; possibly a near-zero mode (min ≈ 0.008). Treat as a warning, not a refutation.
+- shelltv v1 (job 1668728) crashed: Σ_y is singular because corner constraints fix directions on the
+  boundary column. v2 restricts to the support of Σ_y and reports the leak; resubmitted.
