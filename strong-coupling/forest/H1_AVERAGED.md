@@ -63,3 +63,7 @@ plaquette angle is below π, i.e. while the coarse plaquette stays away from −
 near I) already imposes this margin. So uniform fields are **not** an obstruction to idea D. They do show that the small-field
 convexity constant must degrade like (π − θ), and cannot be uniform in V. Still heuristic: these are floating-point numbers,
 and the LLL count is matched, not proved.
+*Adversarial caveat.* The 'all' map (b parallel lines per block) is stronger. At L=16, b=8 (only 2×2 blocks) it shows no negatives
+at θ = 2π, and negatives only appear by θ = 6π. At L=32 it does follow the θ > π threshold (b=8: 32 negatives at 1.25π), but with
+smaller |min|. So the clean threshold is established for 'corner'. For 'all' it holds at L=32, while the L=16, b=8 case looks
+like a finite-size effect (too few blocks for a block-localised LLL mode to fit). This is not settled.
