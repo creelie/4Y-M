@@ -52,3 +52,20 @@ the exponent in (R/w) is compatible with the threshold K. This is testable numer
 - Revised open lemma: **calm fill for k = 0 with plaquettes ≤ Cκ, C independent of R.** The danger is C growing with R
   (elliptic estimates for the fill are fine for Laplace-type problems, but the fill is non-linear). This can be tested
   numerically.
+
+## 5. Literature lead for the fill lemma: quantitative null-homotopy (sketch, not checked in detail)
+
+Chambers–Manin–Weinberger, *Quantitative nullhomotopy and rational homotopy type*, GAFA 2018 (arXiv:1611.03513):
+a null-homotopic L-Lipschitz map S^m → S^n has a null-homotopy of thickness C(m,n)(L+1) and width C(m,n)(L+1)².
+Companion paper: Chambers–Dotterrer–Manin–Weinberger, *Quantitative null-cobordism*, JAMS 2018.
+
+How this maps onto the fill. The collar's gauge function is g: S³_R → SU(2) ≅ S³ with degree k = 0. Rescaled to the unit
+sphere it has Lipschitz constant L ≈ κR, where κ is the per-link deviation.
+- **L ≲ 1 (κR ≲ 1).** g stays near a constant up to O(L). A geodesic radial contraction then fills with link
+  deviation O(κ), so C is independent of R. This is elementary.
+- **L ≫ 1 (κR ≫ 1).** Put the CMW homotopy in the radial direction. Spatial gradient ~ L/R ~ κ, which is fine. But the
+  width is ~ L², which forces a radial Lipschitz of order L²/R ~ κ²R. That is **not** uniform in R.
+  Either a better (linear-width) bound is needed for maps S³ → S³, or the polymer counting has to pay for
+  κR ≫ 1 collars separately. Gromov's linear conjecture is open in general. For S³ → S³, which is degree theory only,
+  linear null-homotopies may be easier: **open, to check**.
+- The numerical test (job 2023a16d…, 3D cube) cannot see the L² issue, because π₂(SU(2)) = 0 and its collars have L = O(1).
