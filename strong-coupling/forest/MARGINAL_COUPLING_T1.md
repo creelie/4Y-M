@@ -141,3 +141,17 @@ At L = 3, some boundary links still get a larger column (up to ×1.32). Under th
 rule this is a **fail**: no gain in the quantities that enter the Dobrushin sum.
 Next: variant (b), marginalizing only the near set of the single tested j and reporting
 per-j column ratios (min/median/max), not just the global maxima.
+
+### 6b. Variant (b), one j at a time (job 1680007): park #2
+
+| L | β_W | total ∂-influence unred → red | per-j ratio min / q25 / median / q75 / max | j improved |
+|---|---|---|---|---|
+| 2 | 0.30 | 86.4 → 77.0 (−11%) | 0.675 / 0.675 / 0.675 / 1.00 / 1.00 | 96/160 |
+| 2 | 0.351 | 101.1 → 94.0 (−7%) | 0.79 / 0.79 / 0.79 / 1.00 / 1.00 | 96/160 |
+| 3 | 0.30 | 388.8 → 366.1 (−6%) | 0.675 / 0.675 / 0.90 / 1.00 / 1.125 | 384/648 |
+| 3 | 0.351 | 454.9 → 449.6 (−1%) | 0.79 / 0.79 / 1.00 / 1.05 / 1.32 | 192/648 |
+
+Face-type j gain a factor 0.675 (β_W = 0.30), but edge and corner j gain nothing and some
+get worse. The total gain is 11% at the benchmark, under the 20% threshold, and it shrinks
+with β_W and with L. Decision: **near-set marginalization gives no usable gain. #2 is parked**
+and #4 (weak gap in the RP state) is next, as the #3 result also suggested.

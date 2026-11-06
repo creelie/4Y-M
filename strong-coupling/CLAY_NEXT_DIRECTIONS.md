@@ -84,3 +84,6 @@ Sources:
 - 2026-11-06: **#2 step 5.1 done** (job 1679093). Reduced specification is worse in raw
   Lipschitz form (row 5.40 → 6.54 at L=2, β_W=0.30). See MARGINAL_COUPLING_T1 §6.
   Next is the second-derivative bound for the Z-terms.
+- 2026-11-06: **#2 parked.** Variants (a) Hessian bound and (b) one-j marginalization give at most an
+  11% drop in total boundary influence (L=2, β_W=0.30), shrinking with L and β (MARGINAL_COUPLING_T1 §6a–b).
+  Next: **#4**.
