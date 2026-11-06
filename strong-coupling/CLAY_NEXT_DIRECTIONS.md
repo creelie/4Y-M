@@ -87,3 +87,6 @@ Sources:
 - 2026-11-06: **#2 parked.** Variants (a) Hessian bound and (b) one-j marginalization give at most an
   11% drop in total boundary influence (L=2, β_W=0.30), shrinking with L and β (MARGINAL_COUPLING_T1 §6a–b).
   Next: **#4**.
+- 2026-11-06: **#4 closed** (`forest/RP_WEAK_GAP_4.md`). The correlation-level RP criterion is a no-go, because
+  effective masses are non-increasing (log-convexity), so finite data only bound the gap from above. The chessboard
+  version reduces to C2 = (D). This also means #3's L* = 2 has no rigorous force. Next: **#6**.
