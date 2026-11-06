@@ -1,0 +1,3226 @@
+# Composition of bounds across scales: a Lean 4 development
+
+This is a self-contained Lean 4 development, built on Mathlib, about how scale-by-scale bounds
+compose in a multiscale argument. It proves:
+
+* **Lemma W.** For a real matrix `R` (a linear reconstruction map from coarse to fine fields) and
+  fine weights `λ ≥ 0`, the site-additive metric `d_μ` is admissible for `d_λ` through `R`, i.e.
+  `d_λ(R z, R z') ≤ d_μ(z, z')` for all `z, z'`, if and only if `|R|ᵀ λ ≤ μ` entrywise. So
+  `|R|ᵀ λ` is the least admissible weight vector, and across scales every admissible chain with
+  `λ⁽⁰⁾ ≥ 1` dominates the minimal weights `Λ⁽ᵏ⁾ = |R_{k−1}|ᵀ ⋯ |R_0|ᵀ 1`.
+* **Proposition C.** If the columns of each `R_i` have a common `ℓ¹` norm `L_i` and a common sum
+  `s_i`, and `R_i 1 = 1`, the overestimate of the constant field after `k` scales is
+  `Π_{i<k} γ_i` with `γ_i = L_i / s_i ≥ 1`; moreover `γ_i > 1` if and only if the columns of `R_i`
+  change sign, and there is no loss at all when every `R_i ≥ 0`.
+* **Lemma LC.** The arithmetic half of the local-cost comparison: the Dobrushin–Shlosman
+  comparison for a cost that is a sum of local terms, with the multiplicity of each term.
+* **A 1D chain.** Closed forms of the per-scale constants of the 1D Gaussian toy chain and of the
+  optimal value-plus-gradient chain `β_k`, with the bounded loss `1 + 2β_k < 4 + 2√3` for every
+  `k` (and `4 + 2√3` is the limit, so it cannot be lowered), in contrast with the geometric
+  site-additive loss `Π_{i<k} γ_i ≥ (√2)^k`. Only the arithmetic of the closed forms is
+  formalised; their identification with the optimal operator constants, and the bound
+  `Θ_k ≤ 1 + 2β_k` on the loss itself, are not.
+
+**Scope.** These are results about proof methods at Gaussian order. They say nothing about the
+Yang–Mills measure; the estimates (D) (the cube estimate) and (E) (a nontrivial continuum limit
+with a gap in physical units), and the mass gap itself, remain open, and nothing here addresses
+them. Several analytic inputs are not formalised: they either enter as explicit
+hypotheses or are out of scope. The module docstring at the top of the source lists them, and
+each part states its own scope.
+
+## How to check
+
+The development imports Mathlib only and contains no `sorry`, no `admit`, no `axiom`
+declarations and no `native_decide`. Save the source below as `ScaleComposition.lean` in a Lake
+project that depends on Mathlib and run `lake env lean ScaleComposition.lean` from the project
+root. It should finish with no errors and no warnings.
+
+## Contents
+
+1. [Preamble](#preamble): `import Mathlib` and the module docstring (overview, scope, what is not
+   formalised, conventions).
+2. [Part 1: composition loss (Lemma W, Proposition C)](#part-1-composition-loss-lemma-w-proposition-c):
+   admissibility of site-additive metrics, the minimal weights across scales, the per-scale loss
+   `γ = L / s` and its sign-change criterion, no loss for nonnegative reconstructions, the
+   gauge-field (direction-class) form, and worked examples on the cycles `ℤ/6` and `ℤ/4`.
+   Namespace `CompositionLoss`.
+3. [Part 2: the local-cost comparison (Lemma LC)](#part-2-the-local-cost-comparison-lemma-lc):
+   the arithmetic half of Lemma LC, its site-additive special case, and examples showing that
+   every hypothesis bundle is satisfiable. Namespace
+   `YangMills.StrongCoupling.LocalCostComparison`.
+4. [Part 3: the 1D value-plus-gradient chain](#part-3-the-1d-value-plus-gradient-chain): the
+   closed-form constants of the 1D Gaussian toy chain, the optimal chain and its bounded loss,
+   and the site-additive contrast. Namespace `ValueGradientChain`.
+
+Concatenated in order, the four Lean code blocks below reproduce the source file exactly.
+
+## Preamble
+
+```lean
+import Mathlib
+
+/-!
+# Composition of bounds across scales: Lemma W, Proposition C, Lemma LC and a 1D chain
+
+A Lean 4 / Mathlib development about how scale-by-scale bounds compose in a multiscale argument.
+It has three parts. Each part was written as a separate module and is wrapped here in its own
+`section`, so that its `open` commands stay local; the namespaces are distinct, so no names clash.
+
+| part | section | namespace | content |
+|---|---|---|---|
+| 1 | `Part1_CompositionLoss` | `CompositionLoss` | Lemma W and Proposition C: the composition loss of site-additive metrics across scales |
+| 2 | `Part2_LocalCostComparison` | `YangMills.StrongCoupling.LocalCostComparison` | Lemma LC: the local-cost comparison, arithmetic half |
+| 3 | `Part3_ValueGradientChain` | `ValueGradientChain` | the constants of the 1D value-plus-gradient chain and its bounded loss |
+
+## Main results
+
+* **Lemma W** (Part 1). Let `R` be a real matrix (a linear reconstruction map from coarse to fine
+  fields) and `λ ≥ 0` fine weights. The site-additive metric `d_μ` is admissible for `d_λ`
+  through `R`, i.e. `d_λ(R z, R z') ≤ d_μ(z, z')` for all `z, z'`, iff `|R|ᵀ λ ≤ μ` entrywise
+  (`admissible_iff`); so `|R|ᵀ λ` is the least admissible weight vector (`isLeast_admissible`).
+  Across scales, every admissible chain with `λ⁽⁰⁾ ≥ 1` satisfies `λ⁽ᵏ⁾ ≥ Λ⁽ᵏ⁾` entrywise, where
+  the minimal weights `Λ⁽ᵏ⁾ = |R_{k−1}|ᵀ ⋯ |R_0|ᵀ 1` form an admissible chain themselves
+  (`minimal_weights`, `minWeights_admissible`).
+* **Proposition C** (Part 1). If every column of `R_i` has the same `ℓ¹` norm `L_i` and the same
+  sum `s_i`, and `R_i 1 = 1`, then the overestimate ratio of the constant field after `k` scales is
+  `ω_k(1) = Π_{i<k} γ_i` with `γ_i = L_i / s_i ≥ 1` (`overcount_one_eq_prod`, `one_le_gamma`), and
+  `γ_i > 1` iff some column of `R_i` changes sign (`one_lt_gamma_iff`). If every `R_i ≥ 0`, there
+  is no loss: `⟨Λ⁽ᵏ⁾, x⟩ = ‖T_k x‖₁` for every `x ≥ 0` (`no_loss_of_nonneg`). Part 1 also proves
+  the gauge-field (direction-class) form of Proposition C, and works out two 1D examples: the
+  periodic chain `ℤ/6` with blocks of two (`γ₀ = 7/5`, strict loss) and the periodic chain `ℤ/4`
+  with two blocks of two (a nonnegative reconstruction, no loss).
+* **Lemma LC** (Part 2). The arithmetic half of the Dobrushin–Shlosman comparison for a cost that
+  is a sum of local terms. From minimality against block updates, locality of the updates, a
+  response bound (H1), a column condition in `θ` that counts multiplicities, `0 ≤ θ < 1` and
+  `ρ_t ≤ D` on `S`: `(1 − θ) Σ_{t ∉ S} m_t w_t ρ_t ≤ θ Σ_{t ∈ S} m_t w_t ρ_t`, and hence
+  `Σ_{t ∉ S} m_t w_t ρ_t ≤ θ D / (1 − θ) · Σ_{t ∈ S} m_t w_t` (`local_cost_comparison`). With one
+  term per site it recovers the per-site comparison (`site_additive_comparison`).
+* **The 1D chain** (Part 3). Closed forms of the per-scale constants `ρ_k`, `μ_k`, `τ_k`, `γ_k`
+  of the 1D Gaussian toy chain and of the optimal value-plus-gradient chain `β_k`, with exact
+  values, monotonicity and limits. The gradient constant stays below `2` (`mu_lt_two`), and the
+  loss bound of the chain stays bounded: `1 + 2β_k < 4 + 2√3` for every `k` (`theta_bound`);
+  `4 + 2√3` is the least constant that bounds `1 + 2β_k` uniformly in `k`, since
+  `1 + 2β_k → 4 + 2√3` (`theta_tendsto`). This bound compares with the exact-composite iterated
+  bound, not with the true response. The site-additive product, by contrast, grows
+  geometrically: `Π_{i<k} γ_i ≥ (√2)^k → ∞` (`bounded_versus_geometric`).
+
+## Scope
+
+These are results about proof methods at Gaussian order (site-additive and local-cost comparison
+arithmetic, and the constants of the 1D value-plus-gradient chain). Nothing here is about the
+Yang–Mills measure. The estimates (D) (the cube estimate `D(n, α)`) and (E) (the existence of a
+nontrivial continuum limit satisfying the Osterwalder–Schrader axioms with a gap in physical
+units) remain open, and so does the mass gap; nothing here addresses them.
+
+## Not formalised here
+
+* the reduction from Wasserstein admissibility to the linear condition (Fact G and Lemma 0 in
+  Part 1): `Admissible` is the linear form;
+* Proposition C (C3), the growth rate via Perron–Frobenius (Part 1 proves a Collatz–Wielandt
+  column-sum bound in its place), and, for gauge fields, the statements that every column changes
+  sign and that the negative mass is at least `m_*`: they enter only as hypotheses;
+* the measure-theoretic half of Lemma LC: the existence of block-minimal couplings, and (H1) for
+  gauge fields;
+* the identification of the 1D closed forms with the optimal operator constants, and the bound
+  `Θ_k ≤ 1 + 2β_k` (Part 3 proves the arithmetic of the formulas only).
+
+## Conventions
+
+* Labels such as Lemma W, Proposition C, (C1)–(C4), Fact G, Lemma 0, Lemma LC, (H1)–(H3) and
+  (Σ_w) name the mathematical statements that the parts formalise or assume; each is stated where
+  it is used.
+* Part 2 refers to `CouplingMinimality.comparison_of_minimality`, `CouplingMinimality.cost` and
+  `Comparison.comparison_weighted`. These are declarations of a separate Lean development of the
+  per-site comparison, in the namespace `YangMills.StrongCoupling`. That development is not
+  imported: Part 2 re-proves everything it uses.
+* The file imports Mathlib only. It contains no `sorry`, no `admit`, no `axiom` declarations and
+  no `native_decide`.
+-/
+
+```
+
+## Part 1: composition loss (Lemma W, Proposition C)
+
+```lean
+/-! # Part 1: composition loss of site-additive metrics across scales -/
+section Part1_CompositionLoss
+
+/-!
+# Composition loss of site-additive metrics across scales (Lemma W, Proposition C)
+
+A Lean formalisation of Lemma W and of Proposition C, together with the gauge-field
+(direction-class) form of Proposition C.
+
+**Scope.** Every result in this part is a statement about one proof method (site-additive
+metrics); it says nothing about the Yang–Mills measure.  It says nothing about whether
+D(n, α) holds or whether there is a gap.
+
+## Setting
+
+* A scale-`k` field is a vector `x : X k → ℝ` over a finite index type `X k`.
+* The site-additive metric with weights `λ` is `d_λ(x, x') = Σ_i λ_i |x_i − x'_i|` (`addDist`).
+* `R : Matrix κ ι ℝ` is the linear reconstruction (response) map, from coarse fields
+  `z : ι → ℝ` to fine fields `R z : κ → ℝ`.
+* `d_μ` is *admissible* for `d_λ` through `R` (`Admissible R λ μ`) when
+  `d_λ(R z, R z') ≤ d_μ(z, z')` for all `z, z'`.
+
+**What is formalised.** The linear-algebra content.  In the multiscale argument, admissibility is
+the Wasserstein condition `W₁^{d_k}(κ_k(·|η,y), κ_k(·|η,y')) ≤ d_{k+1}(y,y')`.  Its reduction to
+`Admissible` uses Fact G (the conditional laws are Gaussian translates whose means differ by
+`R_k(y − y')`) and Lemma 0 (`W₁` between translates of a Gaussian equals the norm of the shift).
+Fact G and Lemma 0 are **not** formalised here.  Nor is the torus geometry of (C2) or of the
+gauge-field setting: its consequences (constant column norms and column sums, exact
+reconstruction of constants, the flat fields) enter as explicit hypotheses.  Proposition C (C3)
+(growth rate via Perron–Frobenius) is not formalised; in the gauge-field setting it is replaced by
+a Collatz–Wielandt column-sum bound, which is formalised (`classWeights_ge_prod`).  The
+gauge-field statements that every column changes sign and that the negative mass is at least
+`m_*` are not formalised; their conclusions would enter as the hypotheses `hc` of
+`classWeights_ge_prod`.
+
+## Main results
+
+* `admissible_iff` (Lemma W (i)): for `λ ≥ 0`, `Admissible R λ μ ↔ |R|ᵀ λ ≤ μ` entrywise.
+  Necessity (`weight_le_of_admissible`, no sign condition) uses single-coordinate test vectors;
+  this is where additivity of `d_μ` is used.
+* `isLeast_admissible`: `|R|ᵀ λ` is the least admissible weight vector.
+* `minimal_weights` (Lemma W (ii)): every chain with `λ⁽⁰⁾ ≥ 1` that is admissible at the steps
+  `i < k` has `λ⁽ᵏ⁾ ≥ Λ⁽ᵏ⁾ = |R_{k−1}|ᵀ ⋯ |R_0|ᵀ 1`; `minWeights_admissible`: the chain `Λ` itself is
+  admissible.
+* `l1_Tmap_le`, `one_le_overcount`, `iterated_bound_ge`: `‖T_k x‖₁ ≤ ⟨Λ⁽ᵏ⁾, |x|⟩` with
+  `T_k = R_0 ⋯ R_{k−1}`, so `ω_k ≥ 1`, and the deterministic skeleton of (C1).
+* `abs_sum_lt_sum_abs_iff`, `signed_lt_abs_weight_iff`: a column has entries of both signs iff
+  `|Σ column| < ‖column‖₁`, iff the `|R|ᵀ` weight strictly exceeds the signed weight.
+* `overcount_one_eq_prod` (Proposition C (C2)): with constant column `ℓ¹` norms `L_i`, constant
+  column sums `s_i` and `R_i 1 = 1`, `ω_k(1) = Π_{i<k} γ_i` with `γ_i = L_i / s_i`;
+  `one_le_gamma`, `one_lt_gamma_iff`: `γ_i ≥ 1`, and `γ_i > 1` iff some column of `R_i` changes sign;
+  `pow_le_overcount_one`: the product bound over `k` steps.
+* `no_loss_of_nonneg`: if every `R_i ≥ 0` then `⟨Λ⁽ᵏ⁾, x⟩ = ‖T_k x‖₁` for `x ≥ 0` (no loss).
+* `minimal_bound_eq_truth_of_fine` ((C4)): with no coarse components the minimal bound equals the
+  truth, so the unrestricted `Π γ` inequality is false (`chain6_C4`).
+* `minWeights_eq_classWeights`, `classWeights_ge_prod`, `overcount_flat`,
+  `overcount_flat_eq_prod_gamma`: the class (direction-matrix) collapse for gauge fields, the
+  Collatz–Wielandt column-sum bound, and the flat-field form `ω_k(ψ) = λ⁽ᵏ⁾_μ / q^k = Π γ_i(μ)`.
+* Examples (non-vacuity): `R6` (1D periodic chain `ℤ/6`, blocks of two; `γ₀ = 7/5`, strict loss:
+  `R6_strict_loss`, `R6_admissible`, `chain6_overcount`, `chain6_weights`, `chain6_C4`,
+  `chain6_flat`, `chain6_two_classes`) and `R4` (1D periodic chain `ℤ/4`, two blocks of two;
+  nonnegative, no loss: `R4_no_loss`, `chain4_overcount`); `signed_vs_abs_examples` compares the
+  two.  Both are certified to be the minimal-energy reconstructions of the massless chain
+  (`R6_isMin`, `R4_isMin`).  Every hypothesis bundle of the general theorems is applied, with all
+  hypotheses discharged, in at least one of these examples.
+-/
+
+namespace CompositionLoss
+
+open Finset Matrix
+
+/-! ## 1. One scale: Lemma W (i) -/
+
+section OneStep
+
+variable {κ ι : Type*} [Fintype κ] [Fintype ι]
+
+/-- The site-additive (weighted `ℓ¹`) distance `d_λ(x, x') = Σ_i λ_i |x_i − x'_i|`. -/
+def addDist (lam x x' : κ → ℝ) : ℝ := ∑ i, lam i * |x i - x' i|
+
+/-- **Admissibility.** `d_μ` (coarse, on `ι`) is admissible for `d_λ` (fine, on `κ`) through the
+linear map `R`: `d_λ(R z, R z') ≤ d_μ(z, z')` for all coarse `z, z'`.
+
+This is the linear-algebra form of the Wasserstein admissibility condition.  The reduction from
+the Wasserstein form (via Fact G and Lemma 0) is not formalised; it also needs every coarse value
+to be allowed, which holds since `P_{k+1}` is surjective and the Gaussian law has full support. -/
+def Admissible (R : Matrix κ ι ℝ) (lam : κ → ℝ) (mu : ι → ℝ) : Prop :=
+  ∀ z z' : ι → ℝ, addDist lam (R *ᵥ z) (R *ᵥ z') ≤ addDist mu z z'
+
+omit [Fintype ι] in
+/-- `(|R|ᵀ λ)_j = Σ_i |R_{ij}| λ_i`.
+
+Scope: a statement about one proof method (site-additive metrics); it says nothing about the
+Yang–Mills measure. -/
+theorem absT_mulVec_apply (R : Matrix κ ι ℝ) (lam : κ → ℝ) (j : ι) :
+    ((R.map abs)ᵀ *ᵥ lam) j = ∑ i, |R i j| * lam i := by
+  simp [Matrix.mulVec, dotProduct]
+
+omit [Fintype ι] in
+/-- `(Rᵀ λ)_j = Σ_i R_{ij} λ_i` (the signed weight).
+
+Scope: a statement about one proof method (site-additive metrics); it says nothing about the
+Yang–Mills measure. -/
+theorem transpose_mulVec_apply (R : Matrix κ ι ℝ) (lam : κ → ℝ) (j : ι) :
+    (Rᵀ *ᵥ lam) j = ∑ i, R i j * lam i := by
+  simp [Matrix.mulVec, dotProduct]
+
+omit [Fintype κ] in
+/-- `R e_j` is the `j`-th column of `R`.
+
+Scope: a statement about one proof method (site-additive metrics); it says nothing about the
+Yang–Mills measure. -/
+theorem mulVec_single_one_eq [DecidableEq ι] (R : Matrix κ ι ℝ) (j : ι) :
+    R *ᵥ Pi.single j 1 = fun i => R i j := by
+  ext i
+  simp [Matrix.mulVec, dotProduct, Pi.single_apply]
+
+/-- `d_λ(e_j, 0) = λ_j`: an additive metric charges a single-coordinate move its own weight.
+
+Scope: a statement about one proof method (site-additive metrics); it says nothing about the
+Yang–Mills measure. -/
+theorem addDist_single_zero [DecidableEq κ] (lam : κ → ℝ) (j : κ) :
+    addDist lam (Pi.single j 1) 0 = lam j := by
+  unfold addDist
+  rw [Finset.sum_eq_single j]
+  · simp
+  · intro b _ hb
+    simp [hb]
+  · intro h
+    exact absurd (Finset.mem_univ j) h
+
+/-- Single-coordinate identity: `d_λ(R e_j, R 0) = (|R|ᵀ λ)_j`.
+
+Scope: a statement about one proof method (site-additive metrics); it says nothing about the
+Yang–Mills measure. -/
+theorem addDist_single [DecidableEq ι] (R : Matrix κ ι ℝ) (lam : κ → ℝ) (j : ι) :
+    addDist lam (R *ᵥ Pi.single j 1) (R *ᵥ 0) = ((R.map abs)ᵀ *ᵥ lam) j := by
+  rw [mulVec_single_one_eq, Matrix.mulVec_zero, absT_mulVec_apply]
+  simp [addDist, mul_comm]
+
+/-- **Lemma W (i), necessity.** If `d_μ` is admissible for `d_λ` through `R`, then
+`μ ≥ |R|ᵀ λ` entrywise.  No sign condition on the weights is needed.
+
+The proof tests admissibility on the single-coordinate pair `(z, z') = (e_j, 0)`; this is where
+additivity of `d_μ` is used (`d_μ(e_j, 0) = μ_j`).
+
+Scope: a statement about one proof method (site-additive metrics); it says nothing about the
+Yang–Mills measure. -/
+theorem weight_le_of_admissible {R : Matrix κ ι ℝ} {lam : κ → ℝ} {mu : ι → ℝ}
+    (h : Admissible R lam mu) : (R.map abs)ᵀ *ᵥ lam ≤ mu := by
+  classical
+  intro j
+  have hj := h (Pi.single j 1) 0
+  rwa [addDist_single, addDist_single_zero] at hj
+
+/-- **Lemma W (i), sufficiency.** If `λ ≥ 0` and `μ ≥ |R|ᵀ λ` entrywise, then `d_μ` is admissible
+for `d_λ` through `R` (triangle inequality).
+
+Scope: a statement about one proof method (site-additive metrics); it says nothing about the
+Yang–Mills measure. -/
+theorem admissible_of_weight_le {R : Matrix κ ι ℝ} {lam : κ → ℝ} {mu : ι → ℝ}
+    (hlam : 0 ≤ lam) (h : (R.map abs)ᵀ *ᵥ lam ≤ mu) : Admissible R lam mu := by
+  intro z z'
+  have step : ∀ i, lam i * |(R *ᵥ z) i - (R *ᵥ z') i|
+      ≤ ∑ j, lam i * |R i j| * |z j - z' j| := by
+    intro i
+    have e : (R *ᵥ z) i - (R *ᵥ z') i = ∑ j, R i j * (z j - z' j) := by
+      simp [Matrix.mulVec, dotProduct, mul_sub, Finset.sum_sub_distrib]
+    rw [e]
+    calc lam i * |∑ j, R i j * (z j - z' j)|
+        ≤ lam i * ∑ j, |R i j * (z j - z' j)| :=
+          mul_le_mul_of_nonneg_left (Finset.abs_sum_le_sum_abs _ _) (hlam i)
+      _ = ∑ j, lam i * |R i j| * |z j - z' j| := by
+          rw [Finset.mul_sum]
+          refine Finset.sum_congr rfl fun j _ => ?_
+          rw [abs_mul]
+          ring
+  calc addDist lam (R *ᵥ z) (R *ᵥ z')
+      ≤ ∑ i, ∑ j, lam i * |R i j| * |z j - z' j| := Finset.sum_le_sum fun i _ => step i
+    _ = ∑ j, ((R.map abs)ᵀ *ᵥ lam) j * |z j - z' j| := by
+        rw [Finset.sum_comm]
+        refine Finset.sum_congr rfl fun j _ => ?_
+        rw [absT_mulVec_apply, Finset.sum_mul]
+        refine Finset.sum_congr rfl fun i _ => ?_
+        ring
+    _ ≤ addDist mu z z' :=
+        Finset.sum_le_sum fun j _ => mul_le_mul_of_nonneg_right (h j) (abs_nonneg _)
+
+/-- **Lemma W (i).** For finite index types, a real matrix `R` and fine weights `λ ≥ 0`:
+`d_λ(R z, R z') ≤ d_μ(z, z')` for all `z, z'` **iff** `μ ≥ |R|ᵀ λ` entrywise, where `|R|` is the
+entrywise absolute value.
+
+Scope: a statement about one proof method (site-additive metrics); it says nothing about the
+Yang–Mills measure. -/
+theorem admissible_iff {R : Matrix κ ι ℝ} {lam : κ → ℝ} {mu : ι → ℝ} (hlam : 0 ≤ lam) :
+    Admissible R lam mu ↔ (R.map abs)ᵀ *ᵥ lam ≤ mu :=
+  ⟨weight_le_of_admissible, admissible_of_weight_le hlam⟩
+
+/-- **Minimal admissible weights at one scale.** For `λ ≥ 0`, `|R|ᵀ λ` is the least element (in
+the entrywise order) of `{μ | d_μ is admissible for d_λ through R}`.
+
+Scope: a statement about one proof method (site-additive metrics); it says nothing about the
+Yang–Mills measure. -/
+theorem isLeast_admissible {R : Matrix κ ι ℝ} {lam : κ → ℝ} (hlam : 0 ≤ lam) :
+    IsLeast {mu | Admissible R lam mu} ((R.map abs)ᵀ *ᵥ lam) :=
+  ⟨admissible_of_weight_le hlam le_rfl, fun _ hmu => weight_le_of_admissible hmu⟩
+
+omit [Fintype ι] in
+/-- `|R|ᵀ` is a nonnegative matrix, so it is monotone: `v ≤ w → |R|ᵀ v ≤ |R|ᵀ w`.
+
+Scope: a statement about one proof method (site-additive metrics); it says nothing about the
+Yang–Mills measure. -/
+theorem absT_mulVec_mono (R : Matrix κ ι ℝ) {v w : κ → ℝ} (h : v ≤ w) :
+    (R.map abs)ᵀ *ᵥ v ≤ (R.map abs)ᵀ *ᵥ w := by
+  intro j
+  rw [absT_mulVec_apply, absT_mulVec_apply]
+  exact Finset.sum_le_sum fun i _ => mul_le_mul_of_nonneg_left (h i) (abs_nonneg _)
+
+omit [Fintype ι] in
+/-- `v ≥ 0 → |R|ᵀ v ≥ 0`.
+
+Scope: a statement about one proof method (site-additive metrics); it says nothing about the
+Yang–Mills measure. -/
+theorem absT_mulVec_nonneg (R : Matrix κ ι ℝ) {v : κ → ℝ} (h : 0 ≤ v) :
+    0 ≤ (R.map abs)ᵀ *ᵥ v := by
+  intro j
+  rw [Pi.zero_apply, absT_mulVec_apply]
+  exact Finset.sum_nonneg fun i _ => mul_nonneg (abs_nonneg _) (h i)
+
+end OneStep
+
+/-! ## 2. Across scales: Lemma W (ii) -/
+
+section Chain
+
+variable {X : ℕ → Type*} [∀ k, Fintype (X k)] (R : ∀ k, Matrix (X k) (X (k + 1)) ℝ)
+
+/-- The **minimal additive weights** `Λ⁽⁰⁾ = 1`, `Λ⁽ᵏ⁺¹⁾ = |R_k|ᵀ Λ⁽ᵏ⁾`; that is,
+`Λ⁽ᵏ⁾ = |R_{k−1}|ᵀ ⋯ |R_0|ᵀ 1` (see `minWeights_stationary` for the matrix-power form). -/
+def minWeights : (k : ℕ) → X k → ℝ
+  | 0 => 1
+  | k + 1 => ((R k).map abs)ᵀ *ᵥ minWeights k
+
+/-- The exact composite `T_k = R_0 R_1 ⋯ R_{k−1}`, from scale-`k` fields to fine fields:
+`T_0 x = x`, `T_{k+1} x = T_k (R_k x)`. -/
+def Tmap : (k : ℕ) → (X k → ℝ) → (X 0 → ℝ)
+  | 0, x => x
+  | k + 1, x => Tmap k (R k *ᵥ x)
+
+/-- `Λ⁽⁰⁾ = 1`.
+
+Scope: a statement about one proof method (site-additive metrics); it says nothing about the
+Yang–Mills measure. -/
+@[simp] theorem minWeights_zero : minWeights R 0 = 1 := rfl
+
+/-- `Λ⁽ᵏ⁺¹⁾ = |R_k|ᵀ Λ⁽ᵏ⁾`.
+
+Scope: a statement about one proof method (site-additive metrics); it says nothing about the
+Yang–Mills measure. -/
+@[simp] theorem minWeights_succ (k : ℕ) :
+    minWeights R (k + 1) = ((R k).map abs)ᵀ *ᵥ minWeights R k := rfl
+
+/-- `T_0 x = x`.
+
+Scope: a statement about one proof method (site-additive metrics); it says nothing about the
+Yang–Mills measure. -/
+@[simp] theorem Tmap_zero (x : X 0 → ℝ) : Tmap R 0 x = x := rfl
+
+/-- `T_{k+1} x = T_k (R_k x)`.
+
+Scope: a statement about one proof method (site-additive metrics); it says nothing about the
+Yang–Mills measure. -/
+@[simp] theorem Tmap_succ (k : ℕ) (x : X (k + 1) → ℝ) : Tmap R (k + 1) x = Tmap R k (R k *ᵥ x) :=
+  rfl
+
+/-- `Λ⁽ᵏ⁾ ≥ 0`.
+
+Scope: a statement about one proof method (site-additive metrics); it says nothing about the
+Yang–Mills measure. -/
+theorem minWeights_nonneg (k : ℕ) : 0 ≤ minWeights R k := by
+  induction k with
+  | zero => intro x; simp
+  | succ k ih => rw [minWeights_succ]; exact absT_mulVec_nonneg _ ih
+
+/-- **The minimal chain is admissible**: `d_{Λ⁽ᵏ⁺¹⁾}` is admissible for `d_{Λ⁽ᵏ⁾}` through `R_k`
+(the equality case of Lemma W (ii)).
+
+Scope: a statement about one proof method (site-additive metrics); it says nothing about the
+Yang–Mills measure. -/
+theorem minWeights_admissible (k : ℕ) :
+    Admissible (R k) (minWeights R k) (minWeights R (k + 1)) :=
+  admissible_of_weight_le (minWeights_nonneg R k) le_rfl
+
+/-- **Lemma W (ii).** Along any chain of additive metrics `d_{λ⁽ⁱ⁾}` with `λ⁽⁰⁾ ≥ 1` (in the
+multiscale argument, `λ⁽⁰⁾ = 1`) in which `d_{λ⁽ⁱ⁺¹⁾}` is admissible for `d_{λ⁽ⁱ⁾}` through `R_i`
+for every `i < k`, `λ⁽ᵏ⁾ ≥ Λ⁽ᵏ⁾ = |R_{k−1}|ᵀ ⋯ |R_0|ᵀ 1` entrywise.  No sign condition on the
+`λ⁽ⁱ⁾` is needed.
+
+Scope: a statement about one proof method (site-additive metrics); it says nothing about the
+Yang–Mills measure. -/
+theorem minimal_weights (lam : ∀ k, X k → ℝ) (h0 : 1 ≤ lam 0) (k : ℕ)
+    (hadm : ∀ i < k, Admissible (R i) (lam i) (lam (i + 1))) :
+    minWeights R k ≤ lam k := by
+  induction k with
+  | zero => exact h0
+  | succ k ih =>
+      rw [minWeights_succ]
+      exact le_trans (absT_mulVec_mono _ (ih fun i hi => hadm i (Nat.lt_succ_of_lt hi)))
+        (weight_le_of_admissible (hadm k (Nat.lt_succ_self k)))
+
+/-- **Stationary case**: if `R_k = A` for all `k` (on a fixed index type), then
+`Λ⁽ᵏ⁾ = (|A|ᵀ)ᵏ 1`.
+
+Scope: a statement about one proof method (site-additive metrics); it says nothing about the
+Yang–Mills measure. -/
+theorem minWeights_stationary {Y : Type*} [Fintype Y] [DecidableEq Y] (A : Matrix Y Y ℝ)
+    (k : ℕ) : minWeights (X := fun _ => Y) (fun _ => A) k = ((A.map abs)ᵀ ^ k) *ᵥ 1 := by
+  induction k with
+  | zero => simp
+  | succ k ih => rw [minWeights_succ, ih, pow_succ', ← Matrix.mulVec_mulVec]
+
+/-- **The minimal additive bound is never below the exact composite**:
+`‖T_k x‖₁ ≤ ⟨Λ⁽ᵏ⁾, |x|⟩` for every scale-`k` field `x`.
+
+Scope: a statement about one proof method (site-additive metrics); it says nothing about the
+Yang–Mills measure. -/
+theorem l1_Tmap_le (k : ℕ) :
+    ∀ x : X k → ℝ, ∑ v, |Tmap R k x v| ≤ ∑ w, minWeights R k w * |x w| := by
+  induction k with
+  | zero => intro x; simp
+  | succ k ih =>
+      intro x
+      rw [Tmap_succ]
+      calc ∑ v, |Tmap R k (R k *ᵥ x) v|
+          ≤ ∑ w, minWeights R k w * |(R k *ᵥ x) w| := ih _
+        _ = addDist (minWeights R k) (R k *ᵥ x) (R k *ᵥ 0) := by simp [addDist]
+        _ ≤ addDist (minWeights R (k + 1)) x 0 := minWeights_admissible R k x 0
+        _ = ∑ w, minWeights R (k + 1) w * |x w| := by simp [addDist]
+
+/-- The **overestimate ratio** `ω_k(x) = ⟨Λ⁽ᵏ⁾, |x|⟩ / ‖T_k x‖₁`, meaningful for `T_k x ≠ 0`
+(when `T_k x = 0`, Lean's convention `a / 0 = 0` gives `0`). -/
+noncomputable def overcount (k : ℕ) (x : X k → ℝ) : ℝ :=
+  (∑ w, minWeights R k w * |x w|) / ∑ v, |Tmap R k x v|
+
+/-- `ω_k(x) ≥ 1` whenever `T_k x ≠ 0`.
+
+Scope: a statement about one proof method (site-additive metrics); it says nothing about the
+Yang–Mills measure. -/
+theorem one_le_overcount {k : ℕ} {x : X k → ℝ} (hx : Tmap R k x ≠ 0) : 1 ≤ overcount R k x := by
+  have hpos : 0 < ∑ v, |Tmap R k x v| := by
+    obtain ⟨v, hv⟩ := Function.ne_iff.mp hx
+    exact lt_of_lt_of_le (abs_pos.mpr hv)
+      (Finset.single_le_sum (fun i _ => abs_nonneg (Tmap R k x i)) (Finset.mem_univ v))
+  rw [overcount, le_div_iff₀ hpos, one_mul]
+  exact l1_Tmap_le R k x
+
+/-- **(C1), deterministic skeleton.** Let `λ⁽ⁱ⁾` (`i ≤ M`) be a chain with `λ⁽⁰⁾ ≥ 1` that is
+admissible at the steps `i < M`, and let `x_k` (`k ≤ M`) be scale-`k` vectors (in the multiscale
+argument, `x_k = a⁽ᵏ⁾` for `k < M`, `x_M = Δ_M`).  Put `u = Σ_{k≤M} T_k x_k` (the true fine shift;
+the multiscale argument derives this formula from the law of total expectation, which is not
+formalised) and
+`B = Σ_{k≤M} ⟨λ⁽ᵏ⁾, |x_k|⟩` (the iterated bound, after Lemma 0).  Then
+`‖u‖₁ ≤ Σ_{k≤M} ⟨Λ⁽ᵏ⁾, |x_k|⟩ ≤ B`.
+
+Scope: a statement about one proof method (site-additive metrics); it says nothing about the
+Yang–Mills measure. -/
+theorem iterated_bound_ge (lam : ∀ k, X k → ℝ) (h0 : 1 ≤ lam 0) (M : ℕ)
+    (hadm : ∀ i < M, Admissible (R i) (lam i) (lam (i + 1))) (x : ∀ k, X k → ℝ) :
+    ∑ v, |∑ k ∈ range (M + 1), Tmap R k (x k) v|
+        ≤ ∑ k ∈ range (M + 1), ∑ w, minWeights R k w * |x k w| ∧
+      ∑ k ∈ range (M + 1), ∑ w, minWeights R k w * |x k w|
+        ≤ ∑ k ∈ range (M + 1), ∑ w, lam k w * |x k w| := by
+  constructor
+  · calc ∑ v, |∑ k ∈ range (M + 1), Tmap R k (x k) v|
+        ≤ ∑ v, ∑ k ∈ range (M + 1), |Tmap R k (x k) v| :=
+          Finset.sum_le_sum fun v _ => Finset.abs_sum_le_sum_abs _ _
+      _ = ∑ k ∈ range (M + 1), ∑ v, |Tmap R k (x k) v| := Finset.sum_comm
+      _ ≤ ∑ k ∈ range (M + 1), ∑ w, minWeights R k w * |x k w| :=
+          Finset.sum_le_sum fun k _ => l1_Tmap_le R k (x k)
+  · refine Finset.sum_le_sum fun k hk => Finset.sum_le_sum fun w _ => ?_
+    have hkM : k ≤ M := Nat.lt_succ_iff.mp (Finset.mem_range.mp hk)
+    exact mul_le_mul_of_nonneg_right
+      (minimal_weights R lam h0 k (fun i hi => hadm i (lt_of_lt_of_le hi hkM)) w) (abs_nonneg _)
+
+/-- If `R_i ψ⁽ⁱ⁺¹⁾ = ψ⁽ⁱ⁾` for `i < k`, then `T_k ψ⁽ᵏ⁾ = ψ⁽⁰⁾`.
+
+Scope: a statement about one proof method (site-additive metrics); it says nothing about the
+Yang–Mills measure. -/
+theorem Tmap_of_rec (ψ : ∀ k, X k → ℝ) (k : ℕ) (hrec : ∀ i < k, R i *ᵥ ψ (i + 1) = ψ i) :
+    Tmap R k (ψ k) = ψ 0 := by
+  induction k with
+  | zero => rfl
+  | succ k ih =>
+      rw [Tmap_succ, hrec k (Nat.lt_succ_self k)]
+      exact ih fun i hi => hrec i (Nat.lt_succ_of_lt hi)
+
+/-- If `R_i 1 = 1` for `i < k` (constants are reconstructed exactly), then `T_k 1 = 1`.
+
+Scope: a statement about one proof method (site-additive metrics); it says nothing about the
+Yang–Mills measure. -/
+theorem Tmap_one (k : ℕ) (h1 : ∀ i < k, R i *ᵥ 1 = 1) : Tmap R k 1 = 1 :=
+  Tmap_of_rec R (fun _ => 1) k h1
+
+/-- `T_k 0 = 0`.
+
+Scope: a statement about one proof method (site-additive metrics); it says nothing about the
+Yang–Mills measure. -/
+theorem Tmap_zero_vec (k : ℕ) : Tmap R k 0 = 0 := by
+  induction k with
+  | zero => rfl
+  | succ k ih => rw [Tmap_succ, Matrix.mulVec_zero, ih]
+
+/-- If `x_k = 0` for every `k ≥ 1`, the true fine shift is `u = Σ_{k≤M} T_k x_k = x_0`.
+
+Scope: a statement about one proof method (site-additive metrics); it says nothing about the
+Yang–Mills measure. -/
+theorem truth_of_fine (M : ℕ) (x : ∀ k, X k → ℝ) (hx : ∀ k, 1 ≤ k → x k = 0) (v : X 0) :
+    ∑ k ∈ range (M + 1), Tmap R k (x k) v = x 0 v := by
+  rw [Finset.sum_eq_single 0]
+  · rfl
+  · intro k _ hk
+    rw [hx k (by omega), Tmap_zero_vec]
+    rfl
+  · intro h
+    exact absurd (Finset.mem_range.mpr (Nat.succ_pos M)) h
+
+/-- **(C4), deterministic skeleton: no compounding without coarse components.** If the data vanish
+at every scale `k ≥ 1` (in the multiscale argument: the exterior change moves no coarse average,
+so only the fine component `x_0 = a⁽⁰⁾` is present), then the bound of the minimal chain equals
+the truth:
+`Σ_{k≤M} ⟨Λ⁽ᵏ⁾, |x_k|⟩ = ‖u‖₁` with `u = Σ_{k≤M} T_k x_k`.  So an inequality
+"bound `≥ Π_k γ_k · ‖u‖₁` for every exterior change" fails as soon as some `Π γ_k > 1`
+(see `chain6_C4`).
+
+Scope: a statement about one proof method (site-additive metrics); it says nothing about the
+Yang–Mills measure. -/
+theorem minimal_bound_eq_truth_of_fine (M : ℕ) (x : ∀ k, X k → ℝ)
+    (hx : ∀ k, 1 ≤ k → x k = 0) :
+    ∑ k ∈ range (M + 1), ∑ w, minWeights R k w * |x k w| =
+      ∑ v, |∑ k ∈ range (M + 1), Tmap R k (x k) v| := by
+  have hB : ∑ k ∈ range (M + 1), ∑ w, minWeights R k w * |x k w| = ∑ w, |x 0 w| := by
+    rw [Finset.sum_eq_single 0]
+    · simp
+    · intro k _ hk
+      rw [hx k (by omega)]
+      simp
+    · intro h
+      exact absurd (Finset.mem_range.mpr (Nat.succ_pos M)) h
+  rw [hB]
+  exact Finset.sum_congr rfl fun v _ => by rw [truth_of_fine R M x hx v]
+
+end Chain
+
+/-! ## 3. Proposition C -/
+
+section SignChange
+
+variable {κ ι : Type*} [Fintype κ] [Fintype ι]
+
+/-- **Strict triangle inequality.** For a finite family `c`, `|Σ_i c_i| < Σ_i |c_i|` iff `c` has
+entries of both signs (some `c_a < 0` and some `c_b > 0`).
+
+Scope: a statement about one proof method (site-additive metrics); it says nothing about the
+Yang–Mills measure. -/
+theorem abs_sum_lt_sum_abs_iff (c : κ → ℝ) :
+    |∑ i, c i| < ∑ i, |c i| ↔ ∃ a b, c a < 0 ∧ 0 < c b := by
+  have hneg : ∑ i, c i < ∑ i, |c i| ↔ ∃ a, c a < 0 := by
+    have e : ∑ i, c i < ∑ i, |c i| ↔ 0 < ∑ i, (|c i| - c i) := by
+      rw [Finset.sum_sub_distrib]
+      constructor <;> intro h <;> linarith
+    rw [e, Finset.sum_pos_iff_of_nonneg fun i _ => sub_nonneg.mpr (le_abs_self (c i))]
+    simp only [Finset.mem_univ, true_and]
+    refine exists_congr fun a => ⟨fun h => ?_, fun h => ?_⟩
+    · refine not_le.mp fun h' => ?_
+      rw [abs_of_nonneg h'] at h
+      linarith
+    · rw [abs_of_neg h]
+      linarith
+  have hpos : -∑ i, |c i| < ∑ i, c i ↔ ∃ b, 0 < c b := by
+    have e : -∑ i, |c i| < ∑ i, c i ↔ 0 < ∑ i, (|c i| + c i) := by
+      rw [Finset.sum_add_distrib]
+      constructor <;> intro h <;> linarith
+    rw [e, Finset.sum_pos_iff_of_nonneg fun i _ => by linarith [neg_abs_le (c i)]]
+    simp only [Finset.mem_univ, true_and]
+    refine exists_congr fun b => ⟨fun h => ?_, fun h => ?_⟩
+    · refine not_le.mp fun h' => ?_
+      rw [abs_of_nonpos h'] at h
+      linarith
+    · rw [abs_of_pos h]
+      linarith
+  rw [abs_lt, hneg, hpos]
+  constructor
+  · rintro ⟨⟨b, hb⟩, ⟨a, ha⟩⟩
+    exact ⟨a, b, ha, hb⟩
+  · rintro ⟨a, b, ha, hb⟩
+    exact ⟨⟨b, hb⟩, ⟨a, ha⟩⟩
+
+omit [Fintype ι] in
+/-- **The `|R|ᵀ` weight exceeds the signed weight exactly at sign-changing columns.** For strictly
+positive weights `λ > 0` and a column index `j`:
+`|(Rᵀ λ)_j| < (|R|ᵀ λ)_j` iff column `j` of `R` has entries of both signs.
+(With `λ = 1`: `|Σ column| < ‖column‖₁`.)
+
+Scope: a statement about one proof method (site-additive metrics); it says nothing about the
+Yang–Mills measure. -/
+theorem signed_lt_abs_weight_iff (R : Matrix κ ι ℝ) {lam : κ → ℝ} (hlam : ∀ i, 0 < lam i)
+    (j : ι) :
+    |(Rᵀ *ᵥ lam) j| < ((R.map abs)ᵀ *ᵥ lam) j ↔ ∃ a b, R a j < 0 ∧ 0 < R b j := by
+  rw [transpose_mulVec_apply, absT_mulVec_apply]
+  have e : ∑ i, |R i j| * lam i = ∑ i, |R i j * lam i| := by
+    refine Finset.sum_congr rfl fun i _ => ?_
+    rw [abs_mul, abs_of_pos (hlam i)]
+  rw [e, abs_sum_lt_sum_abs_iff]
+  have k1 : ∀ a, R a j * lam a < 0 ↔ R a j < 0 := fun a =>
+    ⟨fun h => not_le.mp fun h' => absurd h (not_lt.mpr (mul_nonneg h' (hlam a).le)),
+     fun h => mul_neg_of_neg_of_pos h (hlam a)⟩
+  have k2 : ∀ b, 0 < R b j * lam b ↔ 0 < R b j := fun b =>
+    ⟨fun h => not_le.mp fun h' =>
+      absurd h (not_lt.mpr (mul_nonpos_of_nonpos_of_nonneg h' (hlam b).le)),
+     fun h => mul_pos h (hlam b)⟩
+  simp only [k1, k2]
+
+/-- Exact reconstruction of constants forces the common column sum: if `A 1 = 1` and every column
+of `A` sums to `s`, then `s · |ι| = |κ|`.  (In (C2), for blocks of `2^d` sites:
+`s = |X_k|/|X_{k+1}| = 2^d`.)
+
+Scope: a statement about one proof method (site-additive metrics); it says nothing about the
+Yang–Mills measure. -/
+theorem colSum_mul_card (A : Matrix κ ι ℝ) (s : ℝ) (h1 : A *ᵥ 1 = 1)
+    (hs : ∀ j, ∑ i, A i j = s) : s * Fintype.card ι = Fintype.card κ := by
+  have hrow : ∀ i, ∑ j, A i j = 1 := fun i => by
+    have := congrFun h1 i
+    simpa [Matrix.mulVec, dotProduct] using this
+  calc s * Fintype.card ι = ∑ j, ∑ i, A i j := by simp [hs, mul_comm]
+    _ = ∑ i, ∑ j, A i j := Finset.sum_comm
+    _ = Fintype.card κ := by simp [hrow]
+
+/-- Under the hypotheses of `colSum_mul_card`, with `κ, ι` nonempty, the column sum is positive.
+
+Scope: a statement about one proof method (site-additive metrics); it says nothing about the
+Yang–Mills measure. -/
+theorem colSum_pos [Nonempty κ] [Nonempty ι] (A : Matrix κ ι ℝ) (s : ℝ) (h1 : A *ᵥ 1 = 1)
+    (hs : ∀ j, ∑ i, A i j = s) : 0 < s := by
+  have h := colSum_mul_card A s h1 hs
+  have hκ : (0 : ℝ) < Fintype.card κ := by exact_mod_cast Fintype.card_pos
+  have hι : (0 : ℝ) < Fintype.card ι := by exact_mod_cast Fintype.card_pos
+  refine not_le.mp fun hns => ?_
+  have : s * Fintype.card ι ≤ 0 := mul_nonpos_of_nonpos_of_nonneg hns hι.le
+  linarith
+
+/-- **`γ ≥ 1`.** If `A 1 = 1`, every column of `A` has `ℓ¹` norm `L` and column sum `s`, then
+`γ := L / s ≥ 1`.
+
+Scope: a statement about one proof method (site-additive metrics); it says nothing about the
+Yang–Mills measure. -/
+theorem one_le_gamma [Nonempty κ] [Nonempty ι] (A : Matrix κ ι ℝ) (L s : ℝ) (h1 : A *ᵥ 1 = 1)
+    (hL : ∀ j, ∑ i, |A i j| = L) (hs : ∀ j, ∑ i, A i j = s) : 1 ≤ L / s := by
+  have hspos := colSum_pos A s h1 hs
+  rw [one_le_div hspos]
+  obtain ⟨j⟩ := ‹Nonempty ι›
+  rw [← hL j, ← hs j]
+  exact (le_abs_self _).trans (Finset.abs_sum_le_sum_abs _ _)
+
+/-- **`γ > 1` iff some column changes sign** (Proposition C (C2)).  Under the hypotheses of
+`one_le_gamma`, `γ = L / s > 1` iff some column of `A` has entries of both signs.
+
+Scope: a statement about one proof method (site-additive metrics); it says nothing about the
+Yang–Mills measure. -/
+theorem one_lt_gamma_iff [Nonempty κ] [Nonempty ι] (A : Matrix κ ι ℝ) (L s : ℝ)
+    (h1 : A *ᵥ 1 = 1) (hL : ∀ j, ∑ i, |A i j| = L) (hs : ∀ j, ∑ i, A i j = s) :
+    1 < L / s ↔ ∃ j a b, A a j < 0 ∧ 0 < A b j := by
+  have hspos := colSum_pos A s h1 hs
+  have habs : ∀ j, |∑ i, A i j| = s := fun j => by rw [hs j, abs_of_pos hspos]
+  rw [one_lt_div hspos]
+  constructor
+  · intro hlt
+    obtain ⟨j⟩ := ‹Nonempty ι›
+    have : |∑ i, A i j| < ∑ i, |A i j| := by rw [habs j, hL j]; exact hlt
+    obtain ⟨a, b, ha, hb⟩ := (abs_sum_lt_sum_abs_iff fun i => A i j).mp this
+    exact ⟨j, a, b, ha, hb⟩
+  · rintro ⟨j, a, b, ha, hb⟩
+    have := (abs_sum_lt_sum_abs_iff fun i => A i j).mpr ⟨a, b, ha, hb⟩
+    rwa [habs j, hL j] at this
+
+/-- Under the hypotheses of `one_le_gamma` the columns change sign all together or not at all:
+some column changes sign iff every column does (since the column `ℓ¹` norm is the same for all).
+
+Scope: a statement about one proof method (site-additive metrics); it says nothing about the
+Yang–Mills measure. -/
+theorem exists_sign_change_iff_forall [Nonempty κ] [Nonempty ι] (A : Matrix κ ι ℝ) (L s : ℝ)
+    (h1 : A *ᵥ 1 = 1) (hL : ∀ j, ∑ i, |A i j| = L) (hs : ∀ j, ∑ i, A i j = s) :
+    (∃ j a b, A a j < 0 ∧ 0 < A b j) ↔ ∀ j, ∃ a b, A a j < 0 ∧ 0 < A b j := by
+  have hspos := colSum_pos A s h1 hs
+  have habs : ∀ j, |∑ i, A i j| = s := fun j => by rw [hs j, abs_of_pos hspos]
+  constructor
+  · rintro ⟨j, a, b, ha, hb⟩ j'
+    have h := (abs_sum_lt_sum_abs_iff fun i => A i j).mpr ⟨a, b, ha, hb⟩
+    rw [habs j, hL j] at h
+    exact (abs_sum_lt_sum_abs_iff fun i => A i j').mp (by rw [habs j', hL j']; exact h)
+  · intro h
+    obtain ⟨j⟩ := ‹Nonempty ι›
+    obtain ⟨a, b, ha, hb⟩ := h j
+    exact ⟨j, a, b, ha, hb⟩
+
+end SignChange
+
+section ScalarTorus
+
+variable {X : ℕ → Type*} [∀ k, Fintype (X k)] (R : ∀ k, Matrix (X k) (X (k + 1)) ℝ)
+
+/-- If every column of `R_i` (`i < k`) has `ℓ¹` norm `L_i`, then `Λ⁽ᵏ⁾ = (Π_{i<k} L_i) · 1`.
+
+Scope: a statement about one proof method (site-additive metrics); it says nothing about the
+Yang–Mills measure. -/
+theorem minWeights_of_colNorm (L : ℕ → ℝ) (k : ℕ)
+    (hL : ∀ i < k, ∀ j, ∑ w, |R i w j| = L i) :
+    minWeights R k = fun _ => ∏ i ∈ range k, L i := by
+  induction k with
+  | zero => ext x; simp
+  | succ k ih =>
+      have ih' := ih fun i hi => hL i (Nat.lt_succ_of_lt hi)
+      ext j
+      rw [minWeights_succ, absT_mulVec_apply, ih', Finset.prod_range_succ]
+      simp only
+      rw [← Finset.sum_mul, hL k (Nat.lt_succ_self k) j, mul_comm]
+
+/-- Telescoping of the column sums: if `R_i 1 = 1` and the columns of `R_i` all sum to `s_i`
+(`i < k`), then `(Π_{i<k} s_i) · |X_k| = |X_0|`.
+
+Scope: a statement about one proof method (site-additive metrics); it says nothing about the
+Yang–Mills measure. -/
+theorem prod_colSum_mul_card (s : ℕ → ℝ) (k : ℕ) (h1 : ∀ i < k, R i *ᵥ 1 = 1)
+    (hs : ∀ i < k, ∀ j, ∑ w, R i w j = s i) :
+    (∏ i ∈ range k, s i) * Fintype.card (X k) = Fintype.card (X 0) := by
+  induction k with
+  | zero => simp
+  | succ k ih =>
+      have ih' := ih (fun i hi => h1 i (Nat.lt_succ_of_lt hi))
+        (fun i hi => hs i (Nat.lt_succ_of_lt hi))
+      have hk := colSum_mul_card (R k) (s k) (h1 k (Nat.lt_succ_self k))
+        (hs k (Nat.lt_succ_self k))
+      rw [Finset.prod_range_succ, mul_assoc, hk, ih']
+
+/-- **Proposition C (C2), constant components.** Assume, for every `i < k`:
+* every column of `R_i` has the same `ℓ¹` norm `L_i` (on the torus: `L⁽ⁱ⁾ = ‖R_i e_w‖₁`, the same
+  for all `w`, by translation invariance);
+* every column of `R_i` has the same sum `s_i` (by translation invariance; necessarily
+  `s_i = |X_i|/|X_{i+1}|`, `colSum_mul_card`, which is `2^d` for blocks of `2^d` sites);
+* constants are reconstructed exactly: `R_i 1 = 1`.
+
+Then `Λ⁽ᵏ⁾ = (Π_{i<k} L_i) 1`, `T_k 1 = 1`, and the overestimate factor of the constant field is
+`ω_k(1) = Π_{i<k} γ_i` with `γ_i = L_i / s_i`.
+
+Scope: a statement about one proof method (site-additive metrics); it says nothing about the
+Yang–Mills measure. -/
+theorem overcount_one_eq_prod [∀ k, Nonempty (X k)] (L s : ℕ → ℝ) (k : ℕ)
+    (hL : ∀ i < k, ∀ j, ∑ w, |R i w j| = L i) (hs : ∀ i < k, ∀ j, ∑ w, R i w j = s i)
+    (h1 : ∀ i < k, R i *ᵥ 1 = 1) :
+    overcount R k 1 = ∏ i ∈ range k, L i / s i := by
+  have hT := Tmap_one R k h1
+  have hW := minWeights_of_colNorm R L k hL
+  have hcard := prod_colSum_mul_card R s k h1 hs
+  have hk : (0 : ℝ) < Fintype.card (X k) := by exact_mod_cast Fintype.card_pos
+  have h0 : (0 : ℝ) < Fintype.card (X 0) := by exact_mod_cast Fintype.card_pos
+  have hsne : (∏ i ∈ range k, s i) ≠ 0 := by
+    intro h
+    rw [h, zero_mul] at hcard
+    linarith
+  rw [overcount, hT, hW, Finset.prod_div_distrib]
+  simp only [Pi.one_apply, abs_one, mul_one, Finset.sum_const, Finset.card_univ, nsmul_eq_mul]
+  rw [← hcard]
+  field_simp
+
+/-- **Product bound over `k` steps for constant fields.** Under the hypotheses of
+`overcount_one_eq_prod`, if `γ_i = L_i / s_i ≥ g ≥ 0` for every `i < k`, then `ω_k(1) ≥ gᵏ`.
+
+Scope: a statement about one proof method (site-additive metrics); it says nothing about the
+Yang–Mills measure. -/
+theorem pow_le_overcount_one [∀ k, Nonempty (X k)] (L s : ℕ → ℝ) (k : ℕ)
+    (hL : ∀ i < k, ∀ j, ∑ w, |R i w j| = L i) (hs : ∀ i < k, ∀ j, ∑ w, R i w j = s i)
+    (h1 : ∀ i < k, R i *ᵥ 1 = 1) (g : ℝ) (hg0 : 0 ≤ g) (hg : ∀ i < k, g ≤ L i / s i) :
+    g ^ k ≤ overcount R k 1 := by
+  rw [overcount_one_eq_prod R L s k hL hs h1]
+  calc g ^ k = ∏ _i ∈ range k, g := by rw [Finset.prod_const, Finset.card_range]
+    _ ≤ ∏ i ∈ range k, L i / s i :=
+        Finset.prod_le_prod (fun _ _ => hg0) fun i hi => hg i (Finset.mem_range.mp hi)
+
+/-- **No loss for nonnegative reconstructions.** If every `R_i` (`i < k`) is entrywise
+nonnegative, then for every `x ≥ 0` at scale `k`, `‖T_k x‖₁ = ⟨Λ⁽ᵏ⁾, x⟩`: the minimal additive
+bound is exact on nonnegative (in particular constant) fields.
+
+Scope: a statement about one proof method (site-additive metrics); it says nothing about the
+Yang–Mills measure. -/
+theorem no_loss_of_nonneg (k : ℕ) (hR : ∀ i < k, ∀ a b, 0 ≤ R i a b) :
+    ∀ x : X k → ℝ, 0 ≤ x → ∑ v, |Tmap R k x v| = ∑ w, minWeights R k w * x w := by
+  induction k with
+  | zero =>
+      intro x hx
+      simp only [Tmap_zero, minWeights_zero, Pi.one_apply, one_mul]
+      exact Finset.sum_congr rfl fun v _ => abs_of_nonneg (hx v)
+  | succ k ih =>
+      intro x hx
+      have hRk := hR k (Nat.lt_succ_self k)
+      have hy : 0 ≤ R k *ᵥ x := fun a => by
+        simp only [Pi.zero_apply, Matrix.mulVec, dotProduct]
+        exact Finset.sum_nonneg fun b _ => mul_nonneg (hRk a b) (hx b)
+      rw [Tmap_succ, ih (fun i hi => hR i (Nat.lt_succ_of_lt hi)) _ hy, minWeights_succ]
+      calc ∑ w, minWeights R k w * (R k *ᵥ x) w
+          = ∑ w, ∑ j, minWeights R k w * R k w j * x j := by
+            refine Finset.sum_congr rfl fun w _ => ?_
+            simp only [Matrix.mulVec, dotProduct, Finset.mul_sum, mul_assoc]
+        _ = ∑ j, ∑ w, minWeights R k w * R k w j * x j := Finset.sum_comm
+        _ = ∑ j, (((R k).map abs)ᵀ *ᵥ minWeights R k) j * x j := by
+            refine Finset.sum_congr rfl fun j _ => ?_
+            rw [absT_mulVec_apply, Finset.sum_mul]
+            refine Finset.sum_congr rfl fun w _ => ?_
+            rw [abs_of_nonneg (hRk w j)]
+            ring
+
+/-- Corollary of `no_loss_of_nonneg`: for nonnegative `R_i` and `x ≥ 0` with `T_k x ≠ 0`,
+`ω_k(x) = 1`.
+
+Scope: a statement about one proof method (site-additive metrics); it says nothing about the
+Yang–Mills measure. -/
+theorem overcount_eq_one_of_nonneg (k : ℕ) (hR : ∀ i < k, ∀ a b, 0 ≤ R i a b) (x : X k → ℝ)
+    (hx : 0 ≤ x) (hT : Tmap R k x ≠ 0) : overcount R k x = 1 := by
+  have hpos : 0 < ∑ v, |Tmap R k x v| := by
+    obtain ⟨v, hv⟩ := Function.ne_iff.mp hT
+    exact lt_of_lt_of_le (abs_pos.mpr hv)
+      (Finset.single_le_sum (fun i _ => abs_nonneg (Tmap R k x i)) (Finset.mem_univ v))
+  have e := no_loss_of_nonneg R k hR x hx
+  have e' : ∑ w, minWeights R k w * |x w| = ∑ w, minWeights R k w * x w :=
+    Finset.sum_congr rfl fun w _ => by rw [abs_of_nonneg (hx w)]
+  rw [overcount, e', ← e, div_self hpos.ne']
+
+end ScalarTorus
+
+/-! ### Gauge-field (direction-class) form of Proposition C -/
+
+section Classes
+
+variable {X : ℕ → Type*} [∀ k, Fintype (X k)] (R : ∀ k, Matrix (X k) (X (k + 1)) ℝ)
+variable {D : Type*} [Fintype D]
+
+/-- Class weights (for gauge fields: direction weights): `λ⁽⁰⁾ = 1`, `λ⁽ᵏ⁺¹⁾ = M_kᵀ λ⁽ᵏ⁾`. -/
+def classWeights (M : ℕ → Matrix D D ℝ) : ℕ → D → ℝ
+  | 0 => 1
+  | k + 1 => (M k)ᵀ *ᵥ classWeights M k
+
+/-- `λ⁽⁰⁾ = 1`.
+
+Scope: a statement about one proof method (site-additive metrics); it says nothing about the
+Yang–Mills measure. -/
+@[simp] theorem classWeights_zero (M : ℕ → Matrix D D ℝ) : classWeights M 0 = 1 := rfl
+
+/-- `λ⁽ᵏ⁺¹⁾ = M_kᵀ λ⁽ᵏ⁾`.
+
+Scope: a statement about one proof method (site-additive metrics); it says nothing about the
+Yang–Mills measure. -/
+@[simp] theorem classWeights_succ (M : ℕ → Matrix D D ℝ) (k : ℕ) :
+    classWeights M (k + 1) = (M k)ᵀ *ᵥ classWeights M k := rfl
+
+/-- **Class collapse.**  Let `cls_i : X_i → D` assign a class (for gauge fields: the link
+direction) to each site, and assume, for `i < k`, that the class-sum matrix
+`M_i(ν, μ) = Σ_{e : cls_i e = ν} |R_i(e, w)|` depends on the column `w` only through
+`μ = cls_{i+1} w`.  Then `Λ⁽ᵏ⁾_e = λ⁽ᵏ⁾_{cls_k e}`, with `λ⁽⁰⁾ = 1`, `λ⁽ⁱ⁺¹⁾ = M_iᵀ λ⁽ⁱ⁾`.
+
+Scope: a statement about one proof method (site-additive metrics); it says nothing about the
+Yang–Mills measure. -/
+theorem minWeights_eq_classWeights [DecidableEq D] (cls : ∀ k, X k → D)
+    (M : ℕ → Matrix D D ℝ) (k : ℕ)
+    (hM : ∀ i < k, ∀ (w : X (i + 1)) (ν : D),
+      ∑ e ∈ univ.filter (fun e => cls i e = ν), |R i e w| = M i ν (cls (i + 1) w)) :
+    ∀ e, minWeights R k e = classWeights M k (cls k e) := by
+  induction k with
+  | zero => intro e; simp
+  | succ k ih =>
+      have ih' := ih fun i hi => hM i (Nat.lt_succ_of_lt hi)
+      intro w
+      rw [minWeights_succ, classWeights_succ, absT_mulVec_apply, transpose_mulVec_apply]
+      simp only [ih']
+      rw [← Finset.sum_fiberwise Finset.univ (cls k)]
+      refine Finset.sum_congr rfl fun ν _ => ?_
+      rw [← hM k (Nat.lt_succ_self k) w ν, Finset.sum_mul]
+      refine Finset.sum_congr rfl fun e he => ?_
+      rw [(Finset.mem_filter.mp he).2]
+
+/-- **Collatz–Wielandt column-sum bound.**  If `A ≥ 0` entrywise, every column sum of
+`A` is at least `c`, and `v ≥ m ≥ 0` entrywise, then `(Aᵀ v)_μ ≥ c · m` for every `μ`.
+
+Scope: a statement about one proof method (site-additive metrics); it says nothing about the
+Yang–Mills measure. -/
+theorem colSum_lower_bound (A : Matrix D D ℝ) (hA : ∀ ν μ, 0 ≤ A ν μ) {c m : ℝ}
+    (hc : ∀ μ, c ≤ ∑ ν, A ν μ) (hm : 0 ≤ m) {v : D → ℝ} (hv : ∀ ν, m ≤ v ν) (μ : D) :
+    c * m ≤ (Aᵀ *ᵥ v) μ := by
+  rw [transpose_mulVec_apply]
+  calc c * m ≤ (∑ ν, A ν μ) * m := mul_le_mul_of_nonneg_right (hc μ) hm
+    _ = ∑ ν, A ν μ * m := Finset.sum_mul _ _ _
+    _ ≤ ∑ ν, A ν μ * v ν := Finset.sum_le_sum fun ν _ => mul_le_mul_of_nonneg_left (hv ν) (hA ν μ)
+
+/-- **Iterated column-sum bound.** If, for `i < k`, `M_i ≥ 0` entrywise and every column sum of
+`M_i` is at least `c_i ≥ 0`, then `λ⁽ᵏ⁾_μ ≥ Π_{i<k} c_i` for every class `μ` (for gauge fields:
+the column sums of `M_k = 8I + 2n_k` are `8 + 2 m_k(μ)`, so the negative-mass bound
+`m_k(μ) ≥ m_*`, which is not formalised here, would give `c_i = 8 + 2 m_*` and
+`min_μ λ⁽ᵏ⁾_μ ≥ (8 + 2 m_*)ᵏ`).
+
+Scope: a statement about one proof method (site-additive metrics); it says nothing about the
+Yang–Mills measure. -/
+theorem classWeights_ge_prod (M : ℕ → Matrix D D ℝ) (c : ℕ → ℝ) (k : ℕ)
+    (hM : ∀ i < k, ∀ ν μ, 0 ≤ M i ν μ) (hc0 : ∀ i < k, 0 ≤ c i)
+    (hc : ∀ i < k, ∀ μ, c i ≤ ∑ ν, M i ν μ) :
+    ∀ μ, ∏ i ∈ range k, c i ≤ classWeights M k μ := by
+  induction k with
+  | zero => intro μ; simp
+  | succ k ih =>
+      intro μ
+      have ih' := ih (fun i hi => hM i (Nat.lt_succ_of_lt hi))
+        (fun i hi => hc0 i (Nat.lt_succ_of_lt hi)) (fun i hi => hc i (Nat.lt_succ_of_lt hi))
+      have hp : 0 ≤ ∏ i ∈ range k, c i :=
+        Finset.prod_nonneg fun i hi => hc0 i (Nat.lt_succ_of_lt (Finset.mem_range.mp hi))
+      rw [Finset.prod_range_succ, mul_comm, classWeights_succ]
+      exact colSum_lower_bound (M k) (hM k (Nat.lt_succ_self k)) (hc k (Nat.lt_succ_self k)) hp
+        ih' μ
+
+/-- **Flat-field overcount.**  Under the class collapse hypothesis of
+`minWeights_eq_classWeights`, let `ψ⁽ⁱ⁾` (`i ≤ k`) be fields with
+* `R_i ψ⁽ⁱ⁺¹⁾ = ψ⁽ⁱ⁾` for `i < k` (for gauge fields: the flat field is reconstructed exactly),
+* `ψ⁽ᵏ⁾ ≥ 0`, supported on the sites of class `μ`, and `ψ⁽⁰⁾ ≥ 0` with `‖ψ⁽⁰⁾‖₁ > 0`,
+* `‖ψ⁽ᵏ⁾‖₁ = q⁻ᵏ ‖ψ⁽⁰⁾‖₁` (for gauge fields: `q = 8`, by counting links).
+
+Then `ω_k(ψ⁽ᵏ⁾) = λ⁽ᵏ⁾_μ / qᵏ`.
+
+Scope: a statement about one proof method (site-additive metrics); it says nothing about the
+Yang–Mills measure. -/
+theorem overcount_flat [DecidableEq D] (cls : ∀ k, X k → D) (M : ℕ → Matrix D D ℝ) (k : ℕ)
+    (hM : ∀ i < k, ∀ (w : X (i + 1)) (ν : D),
+      ∑ e ∈ univ.filter (fun e => cls i e = ν), |R i e w| = M i ν (cls (i + 1) w))
+    (μ : D) (ψ : ∀ k, X k → ℝ) (q : ℝ) (hrec : ∀ i < k, R i *ᵥ ψ (i + 1) = ψ i)
+    (hψk : 0 ≤ ψ k) (hsupp : ∀ e, cls k e ≠ μ → ψ k e = 0) (hψ0 : 0 ≤ ψ 0)
+    (hpos : 0 < ∑ e, ψ 0 e) (hmass : ∑ e, ψ k e = (∑ e, ψ 0 e) / q ^ k) :
+    overcount R k (ψ k) = classWeights M k μ / q ^ k := by
+  have hW := minWeights_eq_classWeights R cls M k hM
+  have hT := Tmap_of_rec R ψ k hrec
+  have num : ∑ w, minWeights R k w * |ψ k w| = classWeights M k μ * ∑ e, ψ k e := by
+    rw [Finset.mul_sum]
+    refine Finset.sum_congr rfl fun e _ => ?_
+    rw [hW e, abs_of_nonneg (hψk e)]
+    by_cases he : cls k e = μ
+    · rw [he]
+    · rw [hsupp e he, mul_zero, mul_zero]
+  have den : ∑ v, |Tmap R k (ψ k) v| = ∑ e, ψ 0 e := by
+    rw [hT]
+    exact Finset.sum_congr rfl fun e _ => abs_of_nonneg (hψ0 e)
+  rw [overcount, num, den, hmass]
+  field_simp
+
+/-- **Flat-field overcount as a product of per-scale factors.**  Under the hypotheses of
+`overcount_flat`, if `q ≠ 0` and `λ⁽ⁱ⁾_μ ≠ 0` for `i < k`, then
+`ω_k(ψ⁽ᵏ⁾) = Π_{i<k} γ_i(μ)` with `γ_i(μ) = λ⁽ⁱ⁺¹⁾_μ / (q λ⁽ⁱ⁾_μ)`.
+
+Scope: a statement about one proof method (site-additive metrics); it says nothing about the
+Yang–Mills measure. -/
+theorem overcount_flat_eq_prod_gamma [DecidableEq D] (cls : ∀ k, X k → D)
+    (M : ℕ → Matrix D D ℝ) (k : ℕ)
+    (hM : ∀ i < k, ∀ (w : X (i + 1)) (ν : D),
+      ∑ e ∈ univ.filter (fun e => cls i e = ν), |R i e w| = M i ν (cls (i + 1) w))
+    (μ : D) (ψ : ∀ k, X k → ℝ) (q : ℝ) (hrec : ∀ i < k, R i *ᵥ ψ (i + 1) = ψ i)
+    (hψk : 0 ≤ ψ k) (hsupp : ∀ e, cls k e ≠ μ → ψ k e = 0) (hψ0 : 0 ≤ ψ 0)
+    (hpos : 0 < ∑ e, ψ 0 e) (hmass : ∑ e, ψ k e = (∑ e, ψ 0 e) / q ^ k)
+    (hq : q ≠ 0) (hne : ∀ i < k, classWeights M i μ ≠ 0) :
+    overcount R k (ψ k) =
+      ∏ i ∈ range k, classWeights M (i + 1) μ / (q * classWeights M i μ) := by
+  rw [overcount_flat R cls M k hM μ ψ q hrec hψk hsupp hψ0 hpos hmass]
+  clear hrec hψk hsupp hψ0 hpos hmass hM
+  induction k with
+  | zero => simp
+  | succ k ih =>
+      rw [Finset.prod_range_succ, ← ih fun i hi => hne i (Nat.lt_succ_of_lt hi)]
+      have h := hne k (Nat.lt_succ_self k)
+      field_simp
+      ring
+
+end Classes
+
+/-! ## 4. Examples (non-vacuity) -/
+
+noncomputable section Examples
+
+/-! ### The 1D periodic chain `ℤ/6`, blocks of two: a sign-changing reconstruction
+
+Fine sites `0, …, 5` on the cycle `ℤ/6`, blocks `{0,1}, {2,3}, {4,5}`, massless energy
+`E(φ) = Σ_{x ∈ ℤ/6} (φ_{x+1} − φ_x)²`.  `R6 y` is the minimal-energy field with block averages `y`
+(certified by `R6_isMin`).  Every column has entries `{1, 1, ±1/5, ±1/5}` of both signs, column sum
+`2` and `ℓ¹` norm `14/5`, so `γ₀ = 7/5`.  (The infinite-line value is `γ₀ = √2`.  For the
+cycles `ℤ/(2N)` the column norm is `14/5, 48/17, 82/29, …, 1632/577` for `N = 3, 4, 5, …, 16`,
+converging to `2√2`; this was computed in exact rationals outside Lean and is not formalised.) -/
+
+/-- The reconstruction map of the 1D periodic chain `ℤ/6` with blocks of two. -/
+def R6 : Matrix (Fin 6) (Fin 3) ℝ :=
+  !![1, -1/5, 1/5;
+     1, 1/5, -1/5;
+     1/5, 1, -1/5;
+     -1/5, 1, 1/5;
+     -1/5, 1/5, 1;
+     1/5, -1/5, 1]
+
+/-- The block averages `(P6 φ)_b = (φ_{2b} + φ_{2b+1}) / 2` on `ℤ/6`. -/
+def P6 : Matrix (Fin 3) (Fin 6) ℝ :=
+  !![1/2, 1/2, 0, 0, 0, 0;
+     0, 0, 1/2, 1/2, 0, 0;
+     0, 0, 0, 0, 1/2, 1/2]
+
+/-- The massless energy on the cycle `ℤ/6`: `E(φ) = Σ_x (φ_{x+1} − φ_x)²`. -/
+def energy6 (φ : Fin 6 → ℝ) : ℝ :=
+  (φ 1 - φ 0) ^ 2 + (φ 2 - φ 1) ^ 2 + (φ 3 - φ 2) ^ 2 + (φ 4 - φ 3) ^ 2 + (φ 5 - φ 4) ^ 2 +
+    (φ 0 - φ 5) ^ 2
+
+/-- `R6` reproduces the block averages: `P6 R6 = I`.
+
+Scope: a statement about one proof method (site-additive metrics); it says nothing about the
+Yang–Mills measure. -/
+theorem P6_mul_R6 : P6 * R6 = 1 := by
+  ext i j
+  fin_cases i <;> fin_cases j <;>
+    simp [P6, R6, Matrix.mul_apply, Fin.sum_univ_succ] <;> norm_num
+
+/-- **`R6` is the minimal-energy reconstruction**: for every `y`, `P6 (R6 y) = y`, and
+`E(R6 y) ≤ E(φ)` for every `φ` with `P6 φ = y`.
+
+Scope: a statement about one proof method (site-additive metrics); it says nothing about the
+Yang–Mills measure. -/
+theorem R6_isMin (y : Fin 3 → ℝ) :
+    P6 *ᵥ (R6 *ᵥ y) = y ∧ ∀ φ : Fin 6 → ℝ, P6 *ᵥ φ = y → energy6 (R6 *ᵥ y) ≤ energy6 φ := by
+  refine ⟨by rw [Matrix.mulVec_mulVec, P6_mul_R6, Matrix.one_mulVec], ?_⟩
+  rintro φ rfl
+  have key : energy6 φ = energy6 (R6 *ᵥ (P6 *ᵥ φ)) + energy6 (φ - R6 *ᵥ (P6 *ᵥ φ)) := by
+    simp [energy6, R6, P6, Matrix.mulVec, dotProduct, Fin.sum_univ_succ]
+    ring
+  have h0 : 0 ≤ energy6 (φ - R6 *ᵥ (P6 *ᵥ φ)) := by unfold energy6; positivity
+  linarith
+
+/-- `R6 1 = 1`: constants are reconstructed exactly.
+
+Scope: a statement about one proof method (site-additive metrics); it says nothing about the
+Yang–Mills measure. -/
+theorem R6_mulVec_one : R6 *ᵥ 1 = 1 := by
+  ext i
+  fin_cases i <;> simp [R6, Matrix.mulVec, dotProduct, Fin.sum_univ_succ] <;> norm_num
+
+/-- Every column of `R6` sums to `2`.
+
+Scope: a statement about one proof method (site-additive metrics); it says nothing about the
+Yang–Mills measure. -/
+theorem R6_colSum : ∀ j, ∑ i, R6 i j = 2 := by
+  intro j
+  fin_cases j <;> simp [R6, Fin.sum_univ_succ] <;> norm_num
+
+/-- Every column of `R6` has `ℓ¹` norm `14/5`.
+
+Scope: a statement about one proof method (site-additive metrics); it says nothing about the
+Yang–Mills measure. -/
+theorem R6_colNorm : ∀ j, ∑ i, |R6 i j| = 14 / 5 := by
+  intro j
+  fin_cases j <;> simp [R6, Fin.sum_univ_succ, abs_div] <;> norm_num
+
+/-- Every column of `R6` has entries of both signs.
+
+Scope: a statement about one proof method (site-additive metrics); it says nothing about the
+Yang–Mills measure. -/
+theorem R6_sign_change : ∀ j, ∃ a b, R6 a j < 0 ∧ 0 < R6 b j := by
+  intro j
+  fin_cases j
+  · exact ⟨3, 0, by change (-1 / 5 : ℝ) < 0; norm_num, by change (0 : ℝ) < 1; norm_num⟩
+  · exact ⟨0, 1, by change (-1 / 5 : ℝ) < 0; norm_num, by change (0 : ℝ) < 1 / 5; norm_num⟩
+  · exact ⟨1, 0, by change (-1 / 5 : ℝ) < 0; norm_num, by change (0 : ℝ) < 1 / 5; norm_num⟩
+
+/-- **`γ₀ = 7/5` for `R6`.** `R6` satisfies the hypotheses of `one_lt_gamma_iff` with `L = 14/5`,
+`s = 2`; its columns change sign, so `γ₀ = L/s = 7/5 > 1`.
+
+Scope: a statement about one proof method (site-additive metrics); it says nothing about the
+Yang–Mills measure. -/
+theorem R6_gamma :
+    (1 < (14 / 5 : ℝ) / 2 ↔ ∃ j a b, R6 a j < 0 ∧ 0 < R6 b j) ∧
+      (∃ j a b, R6 a j < 0 ∧ 0 < R6 b j) ∧ (14 / 5 : ℝ) / 2 = 7 / 5 ∧ 1 < (14 / 5 : ℝ) / 2 := by
+  have hiff := one_lt_gamma_iff R6 (14 / 5) 2 R6_mulVec_one R6_colNorm R6_colSum
+  have hex : ∃ j a b, R6 a j < 0 ∧ 0 < R6 b j :=
+    let ⟨a, b, ha, hb⟩ := R6_sign_change 0
+    ⟨0, a, b, ha, hb⟩
+  exact ⟨hiff, hex, by norm_num, hiff.mpr hex⟩
+
+/-- **Strict loss for `R6`.** If `d_μ` is admissible for the fine cube metric `d_1` (`λ = 1`)
+through `R6`, then for the constant coarse shift `z = 1` (exact composite cost
+`d_1(R6 1, R6 0) = ‖1‖₁ = 6`) the additive metric charges `d_μ(1, 0) ≥ (7/5) · 6 = 42/5`; in
+particular strictly more than the exact cost.
+
+Scope: a statement about one proof method (site-additive metrics); it says nothing about the
+Yang–Mills measure. -/
+theorem R6_strict_loss (mu : Fin 3 → ℝ) (hmu : Admissible R6 1 mu) :
+    addDist 1 (R6 *ᵥ 1) (R6 *ᵥ 0) = 6 ∧
+      (7 / 5 : ℝ) * addDist 1 (R6 *ᵥ 1) (R6 *ᵥ 0) ≤ addDist mu 1 0 ∧
+      addDist 1 (R6 *ᵥ 1) (R6 *ᵥ 0) < addDist mu 1 0 := by
+  have hw := weight_le_of_admissible hmu
+  have hj : ∀ j, (14 / 5 : ℝ) ≤ mu j := fun j => by
+    have := hw j
+    rwa [absT_mulVec_apply, show ∑ i, |R6 i j| * (1 : Fin 6 → ℝ) i = ∑ i, |R6 i j| by simp,
+      R6_colNorm j] at this
+  have h6 : addDist 1 (R6 *ᵥ 1) (R6 *ᵥ 0) = 6 := by
+    rw [R6_mulVec_one, Matrix.mulVec_zero]
+    simp [addDist]
+  have hmu1 : addDist mu 1 0 = mu 0 + mu 1 + mu 2 := by
+    simp [addDist, Fin.sum_univ_succ]
+    ring
+  refine ⟨h6, ?_, ?_⟩
+  · rw [h6, hmu1]
+    linarith [hj 0, hj 1, hj 2]
+  · rw [h6, hmu1]
+    linarith [hj 0, hj 1, hj 2]
+
+/-- **Admissible weights for `R6`, exactly.** For the fine metric `d_1`: `d_μ` is admissible through
+`R6` iff `μ_j ≥ 14/5` for every `j` (`admissible_iff`); the least admissible weight is
+`|R6|ᵀ 1 = (14/5, 14/5, 14/5)` (`isLeast_admissible`); and it charges the constant coarse shift
+`d_μ(1, 0) = 42/5 = (7/5) · 6`.  So the hypothesis of `R6_strict_loss` is satisfiable and its
+bound is attained.
+
+Scope: a statement about one proof method (site-additive metrics); it says nothing about the
+Yang–Mills measure. -/
+theorem R6_admissible :
+    (∀ mu : Fin 3 → ℝ, Admissible R6 1 mu ↔ ∀ j, 14 / 5 ≤ mu j) ∧
+      IsLeast {mu | Admissible R6 1 mu} (fun _ => 14 / 5) ∧
+      Admissible R6 1 (fun _ => 14 / 5) ∧
+      addDist (fun _ : Fin 3 => (14 / 5 : ℝ)) 1 0 = 42 / 5 := by
+  have hw : (R6.map abs)ᵀ *ᵥ 1 = fun _ => 14 / 5 := by
+    ext j
+    rw [absT_mulVec_apply]
+    simpa using R6_colNorm j
+  have h0 : (0 : Fin 6 → ℝ) ≤ 1 := fun _ => by simp
+  have hleast : IsLeast {mu | Admissible R6 1 mu} (fun _ => 14 / 5) := by
+    rw [← hw]
+    exact isLeast_admissible h0
+  refine ⟨fun mu => ?_, hleast, hleast.1, ?_⟩
+  · rw [admissible_iff h0, hw]
+    exact Pi.le_def
+  · norm_num [addDist, Fin.sum_univ_succ]
+
+/-- **Column facts for `R6`** (closed instances of `colSum_mul_card`, `colSum_pos`, `one_le_gamma`,
+`exists_sign_change_iff_forall`): `s · |ι| = |κ|` reads `2 · 3 = 6`; `s = 2 > 0`;
+`γ₀ = (14/5)/2 ≥ 1`; and, since one column changes sign, every column does.
+
+Scope: a statement about one proof method (site-additive metrics); it says nothing about the
+Yang–Mills measure. -/
+theorem R6_column_facts :
+    (2 : ℝ) * Fintype.card (Fin 3) = Fintype.card (Fin 6) ∧ (0 : ℝ) < 2 ∧
+      1 ≤ (14 / 5 : ℝ) / 2 ∧ ∀ j, ∃ a b, R6 a j < 0 ∧ 0 < R6 b j :=
+  ⟨colSum_mul_card R6 2 R6_mulVec_one R6_colSum, colSum_pos R6 2 R6_mulVec_one R6_colSum,
+    one_le_gamma R6 (14 / 5) 2 R6_mulVec_one R6_colNorm R6_colSum,
+    (exists_sign_change_iff_forall R6 (14 / 5) 2 R6_mulVec_one R6_colNorm R6_colSum).mp
+      R6_gamma.2.1⟩
+
+/-! A chain instance for the multi-scale theorems: `X 0 = Fin 6`, `X k = Fin 3` for `k ≥ 1`,
+`R_0 = R6`.  Only the step `0 → 1` enters the statements at `k = 1`; the later maps are set to
+`0` and never used. -/
+
+/-- Index types of the chain built on `R6`. -/
+def X6 : ℕ → Type
+  | 0 => Fin 6
+  | _ + 1 => Fin 3
+
+instance instFintypeX6 : ∀ k, Fintype (X6 k)
+  | 0 => inferInstanceAs (Fintype (Fin 6))
+  | _ + 1 => inferInstanceAs (Fintype (Fin 3))
+
+instance instNonemptyX6 : ∀ k, Nonempty (X6 k)
+  | 0 => inferInstanceAs (Nonempty (Fin 6))
+  | _ + 1 => inferInstanceAs (Nonempty (Fin 3))
+
+/-- The chain built on `R6`. -/
+def chain6 : ∀ k, Matrix (X6 k) (X6 (k + 1)) ℝ
+  | 0 => R6
+  | _ + 1 => 0
+
+/-- The column-norm hypothesis of (C2) for the `R6` chain at `k = 1`: `L_0 = 14/5`.
+
+Scope: a statement about one proof method (site-additive metrics); it says nothing about the
+Yang–Mills measure. -/
+theorem chain6_hL : ∀ i < 1, ∀ j, ∑ w, |chain6 i w j| = (fun _ => (14 / 5 : ℝ)) i := by
+  intro i hi j
+  obtain rfl : i = 0 := Nat.lt_one_iff.mp hi
+  exact R6_colNorm j
+
+/-- The column-sum hypothesis of (C2) for the `R6` chain at `k = 1`: `s_0 = 2`.
+
+Scope: a statement about one proof method (site-additive metrics); it says nothing about the
+Yang–Mills measure. -/
+theorem chain6_hs : ∀ i < 1, ∀ j, ∑ w, chain6 i w j = (fun _ => (2 : ℝ)) i := by
+  intro i hi j
+  obtain rfl : i = 0 := Nat.lt_one_iff.mp hi
+  exact R6_colSum j
+
+/-- The constants hypothesis of (C2) for the `R6` chain at `k = 1`: `R_0 1 = 1`.
+
+Scope: a statement about one proof method (site-additive metrics); it says nothing about the
+Yang–Mills measure. -/
+theorem chain6_h1 : ∀ i < 1, chain6 i *ᵥ 1 = 1 := by
+  intro i hi
+  obtain rfl : i = 0 := Nat.lt_one_iff.mp hi
+  exact R6_mulVec_one
+
+/-- **Non-vacuity of (C2) with strict loss.** The chain built on `R6` satisfies the hypotheses of
+`overcount_one_eq_prod` at `k = 1`, and `ω_1(1) = γ₀ = 7/5 > 1`.
+
+Scope: a statement about one proof method (site-additive metrics); it says nothing about the
+Yang–Mills measure. -/
+theorem chain6_overcount : overcount chain6 1 1 = 7 / 5 := by
+  rw [overcount_one_eq_prod chain6 _ _ 1 chain6_hL chain6_hs chain6_h1]
+  norm_num
+
+/-- **Lemma W (ii) and the (C2) bounds on the `R6` chain** (closed instances of
+`minWeights_of_colNorm`, `prod_colSum_mul_card`, `minimal_weights`, `iterated_bound_ge`,
+`one_le_overcount`, `pow_le_overcount_one`):
+* `Λ⁽¹⁾ = (14/5) 1`, and `s_0 · |X_1| = |X_0|` (`2 · 3 = 6`);
+* the minimal chain has `Λ⁽⁰⁾ = 1` and is admissible at every step, so the hypotheses of
+  `minimal_weights` and `iterated_bound_ge` are satisfiable;
+* every chain with `λ⁽⁰⁾ ≥ 1` admissible at step `0` has `λ⁽¹⁾ ≥ 14/5` entrywise;
+* for the constant data `x_0 = x_1 = 1`, `‖T_0 1 + T_1 1‖₁ ≤ ⟨Λ⁽⁰⁾, 1⟩ + ⟨Λ⁽¹⁾, 1⟩`;
+* `ω_1(1) ≥ 1` and `ω_1(1) ≥ (7/5)¹`.
+
+Scope: a statement about one proof method (site-additive metrics); it says nothing about the
+Yang–Mills measure. -/
+theorem chain6_weights :
+    minWeights chain6 1 = (fun _ => 14 / 5) ∧
+      (∏ _i ∈ range 1, (2 : ℝ)) * Fintype.card (X6 1) = Fintype.card (X6 0) ∧
+      (1 ≤ minWeights chain6 0 ∧
+        ∀ k, Admissible (chain6 k) (minWeights chain6 k) (minWeights chain6 (k + 1))) ∧
+      (∀ lam : ∀ k, X6 k → ℝ, 1 ≤ lam 0 →
+        (∀ i < 1, Admissible (chain6 i) (lam i) (lam (i + 1))) → ∀ j, 14 / 5 ≤ lam 1 j) ∧
+      ∑ v, |∑ k ∈ range 2, Tmap chain6 k (1 : X6 k → ℝ) v| ≤
+        ∑ k ∈ range 2, ∑ w, minWeights chain6 k w * |(1 : X6 k → ℝ) w| ∧
+      1 ≤ overcount chain6 1 1 ∧ (7 / 5 : ℝ) ^ 1 ≤ overcount chain6 1 1 := by
+  have hW : minWeights chain6 1 = (fun _ => 14 / 5) := by
+    rw [minWeights_of_colNorm chain6 (fun _ => 14 / 5) 1 chain6_hL]
+    simp
+  have hT : Tmap chain6 1 1 ≠ 0 := by
+    rw [Tmap_one chain6 1 chain6_h1]
+    exact one_ne_zero
+  refine ⟨hW, prod_colSum_mul_card chain6 (fun _ => 2) 1 chain6_h1 chain6_hs,
+    ⟨(minWeights_zero chain6).ge, minWeights_admissible chain6⟩, ?_,
+    (iterated_bound_ge chain6 (minWeights chain6) (minWeights_zero chain6).ge 1
+      (fun i _ => minWeights_admissible chain6 i) (fun k => 1)).1,
+    one_le_overcount chain6 hT,
+    pow_le_overcount_one chain6 (fun _ => 14 / 5) (fun _ => 2) 1 chain6_hL chain6_hs chain6_h1
+      (7 / 5) (by norm_num) (fun i _ => by norm_num)⟩
+  intro lam h0 hadm j
+  have := minimal_weights chain6 lam h0 1 hadm j
+  rwa [hW] at this
+
+/-- Data for the (C4) example on the `R6` chain: a unit change at the fine site `0`, and no coarse
+component (`x_k = 0` for `k ≥ 1`). -/
+def xFine6 : ∀ k, X6 k → ℝ
+  | 0 => fun i : Fin 6 => if i = 0 then 1 else 0
+  | _ + 1 => 0
+
+/-- **(C4) on the `R6` chain: the unrestricted `Π γ` inequality is false.** For the constant
+coarse field the factor is `Π_{i<1} γ_i = 7/5` (`chain6_overcount`).  For the purely fine change
+`xFine6` (with `M = 1`), the bound of the minimal chain equals the truth `‖u‖₁ = 1`, hence is
+strictly smaller than `Π_{i<1} γ_i · ‖u‖₁ = 7/5`.
+
+Scope: a statement about one proof method (site-additive metrics); it says nothing about the
+Yang–Mills measure. -/
+theorem chain6_C4 :
+    ∑ k ∈ range 2, ∑ w, minWeights chain6 k w * |xFine6 k w| =
+        ∑ v, |∑ k ∈ range 2, Tmap chain6 k (xFine6 k) v| ∧
+      ∑ v, |∑ k ∈ range 2, Tmap chain6 k (xFine6 k) v| = 1 ∧
+      ∑ k ∈ range 2, ∑ w, minWeights chain6 k w * |xFine6 k w| <
+        (∏ _i ∈ range 1, (14 / 5 : ℝ) / 2) *
+          ∑ v, |∑ k ∈ range 2, Tmap chain6 k (xFine6 k) v| := by
+  have hx : ∀ k, 1 ≤ k → xFine6 k = 0 := by
+    intro k hk
+    obtain ⟨j, rfl⟩ : ∃ j, k = j + 1 := ⟨k - 1, by omega⟩
+    rfl
+  have heq : ∑ k ∈ range 2, ∑ w, minWeights chain6 k w * |xFine6 k w| =
+      ∑ v, |∑ k ∈ range 2, Tmap chain6 k (xFine6 k) v| :=
+    minimal_bound_eq_truth_of_fine chain6 1 xFine6 hx
+  have hu : ∑ v, |∑ k ∈ range 2, Tmap chain6 k (xFine6 k) v| = 1 := by
+    have e : ∀ v, ∑ k ∈ range 2, Tmap chain6 k (xFine6 k) v = xFine6 0 v :=
+      truth_of_fine chain6 1 xFine6 hx
+    simp only [e]
+    change ∑ v : Fin 6, |(if v = 0 then (1 : ℝ) else 0)| = 1
+    simp [Fin.sum_univ_succ]
+  refine ⟨heq, hu, ?_⟩
+  rw [heq, hu]
+  norm_num
+
+/-- The `1 × 1` class matrices of the `R6` chain (a single class; `M_0 = (14/5)`). -/
+def M6 : ℕ → Matrix Unit Unit ℝ := fun _ => Matrix.of fun _ _ => 14 / 5
+
+/-- **Non-vacuity of the class form** (`overcount_flat`, `overcount_flat_eq_prod_gamma`,
+`classWeights_ge_prod`), on the `R6` chain with a single class, `ψ⁽ᵏ⁾ = 1` and `q = 2`:
+`Λ⁽¹⁾_e = λ⁽¹⁾` for every coarse site (`minWeights_eq_classWeights`), the one-step column-sum bound
+`(M_0ᵀ 1) ≥ 14/5 · 1` (`colSum_lower_bound`), `ω_1(1) = λ⁽¹⁾/2 = γ_0 = 7/5`, and
+`λ⁽¹⁾ = 14/5 ≥ Π_{i<1} 14/5`.
+
+Scope: a statement about one proof method (site-additive metrics); it says nothing about the
+Yang–Mills measure. -/
+theorem chain6_flat :
+    (∀ e, minWeights chain6 1 e = classWeights M6 1 ()) ∧
+      (14 / 5 : ℝ) * 1 ≤ ((M6 0)ᵀ *ᵥ 1) () ∧
+      overcount chain6 1 1 = classWeights M6 1 () / 2 ^ 1 ∧
+      overcount chain6 1 1 =
+        ∏ i ∈ range 1, classWeights M6 (i + 1) () / (2 * classWeights M6 i ()) ∧
+      ∏ _i ∈ range 1, (14 / 5 : ℝ) ≤ classWeights M6 1 () ∧
+      classWeights M6 1 () / 2 ^ 1 = 7 / 5 := by
+  have hM : ∀ i < 1, ∀ (w : X6 (i + 1)) (ν : Unit),
+      ∑ e ∈ univ.filter (fun e => (fun (k : ℕ) (_ : X6 k) => ()) i e = ν), |chain6 i e w| =
+        M6 i ν ((fun (k : ℕ) (_ : X6 k) => ()) (i + 1) w) := by
+    intro i hi w ν
+    obtain rfl : i = 0 := Nat.lt_one_iff.mp hi
+    rw [Finset.filter_true_of_mem fun e _ => Subsingleton.elim _ _]
+    exact R6_colNorm w
+  have hrec : ∀ i < 1, chain6 i *ᵥ (fun k => (1 : X6 k → ℝ)) (i + 1) =
+      (fun k => (1 : X6 k → ℝ)) i := by
+    intro i hi
+    obtain rfl : i = 0 := Nat.lt_one_iff.mp hi
+    exact R6_mulVec_one
+  have hψ1 : (0 : X6 1 → ℝ) ≤ 1 := fun _ => by simp
+  have hψ0 : (0 : X6 0 → ℝ) ≤ 1 := fun _ => by simp
+  have hsupp : ∀ e : X6 1, (fun (k : ℕ) (_ : X6 k) => ()) 1 e ≠ () → (1 : X6 1 → ℝ) e = 0 :=
+    fun _ h => absurd rfl h
+  have c0 : Fintype.card (X6 0) = 6 := by
+    change Fintype.card (Fin 6) = 6
+    simp
+  have c1 : Fintype.card (X6 1) = 3 := by
+    change Fintype.card (Fin 3) = 3
+    simp
+  have hpos : 0 < ∑ e : X6 0, (1 : X6 0 → ℝ) e := by simp [c0]
+  have hmass : ∑ e : X6 1, (1 : X6 1 → ℝ) e = (∑ e : X6 0, (1 : X6 0 → ℝ) e) / 2 ^ 1 := by
+    simp [c0, c1]
+    norm_num
+  have hne : ∀ i < 1, classWeights M6 i () ≠ 0 := by
+    intro i hi
+    obtain rfl : i = 0 := Nat.lt_one_iff.mp hi
+    simp
+  have hlam : classWeights M6 1 () = 14 / 5 := by
+    simp [M6, Matrix.mulVec, dotProduct]
+  have hge := classWeights_ge_prod M6 (fun _ => 14 / 5) 1
+    (fun i _ _ _ => by simp [M6]; norm_num) (fun i _ => by norm_num)
+    (fun i _ _ => by simp [M6]) ()
+  refine ⟨minWeights_eq_classWeights chain6 (fun _ _ => ()) M6 1 hM,
+    colSum_lower_bound (M6 0) (fun _ _ => by simp [M6]; norm_num) (fun _ => by simp [M6])
+      zero_le_one (fun _ => by simp) (),
+    overcount_flat chain6 (fun _ _ => ()) M6 1 hM () (fun k => 1) 2 hrec hψ1 hsupp hψ0
+      hpos hmass,
+    overcount_flat_eq_prod_gamma chain6 (fun _ _ => ()) M6 1 hM () (fun k => 1) 2 hrec hψ1 hsupp
+      hψ0 hpos hmass (by norm_num) hne, hge, ?_⟩
+  rw [hlam]
+  norm_num
+
+/-- Parity classes on the `R6` chain: the fine site `e` has class `e mod 2` (its position in its
+block), and every coarse site has class `0`. -/
+def cls6 : ∀ k, X6 k → Fin 2
+  | 0 => fun e : Fin 6 => ![0, 1, 0, 1, 0, 1] e
+  | _ + 1 => fun _ => 0
+
+/-- The `2 × 2` class matrices for `cls6`, every entry `7/5`: each column of `R6` has `ℓ¹` mass
+`7/5` on the even sites and `7/5` on the odd sites. -/
+def M62 : ℕ → Matrix (Fin 2) (Fin 2) ℝ := fun _ => Matrix.of fun _ _ => 7 / 5
+
+/-- **Non-vacuity of the class collapse with two classes** (`minWeights_eq_classWeights` with
+`D = Fin 2`, the parity classes `cls6`): the class-sum hypothesis holds for `R6`, and
+`Λ⁽¹⁾_e = λ⁽¹⁾_{cls e}` with `λ⁽¹⁾_0 = M_0(0,0) + M_0(1,0) = 14/5`.
+
+Scope: a statement about one proof method (site-additive metrics); it says nothing about the
+Yang–Mills measure. -/
+theorem chain6_two_classes :
+    (∀ e, minWeights chain6 1 e = classWeights M62 1 (cls6 1 e)) ∧
+      classWeights M62 1 0 = 14 / 5 := by
+  have hM : ∀ i < 1, ∀ (w : X6 (i + 1)) (ν : Fin 2),
+      ∑ e ∈ univ.filter (fun e => cls6 i e = ν), |chain6 i e w| = M62 i ν (cls6 (i + 1) w) := by
+    intro i hi w ν
+    obtain rfl : i = 0 := Nat.lt_one_iff.mp hi
+    change ∑ e ∈ univ.filter (fun e : Fin 6 => ![0, 1, 0, 1, 0, 1] e = ν), |R6 e w| = 7 / 5
+    rw [Finset.sum_filter]
+    fin_cases w <;> fin_cases ν <;> simp [Fin.sum_univ_succ, R6, abs_div] <;> norm_num
+  refine ⟨minWeights_eq_classWeights chain6 cls6 M62 1 hM, ?_⟩
+  simp [M62, Matrix.mulVec, dotProduct]
+  norm_num
+
+/-! ### The 1D periodic chain `ℤ/4`, two blocks of two: a nonnegative reconstruction
+
+On the cycle `ℤ/4` with blocks `{0,1}, {2,3}` the minimal-energy reconstruction is block-constant,
+so `R4 ≥ 0` and there is no loss.  This is a 1D two-block effect.  It is not representative of the
+block gauge, where the two-block torus `(ℤ/4)⁴` has sign-changing columns and `γ₀ = 5/2` (not
+formalised here). -/
+
+/-- The reconstruction map of the 1D periodic chain `ℤ/4` with two blocks of two. -/
+def R4 : Matrix (Fin 4) (Fin 2) ℝ :=
+  !![1, 0;
+     1, 0;
+     0, 1;
+     0, 1]
+
+/-- The block averages on `ℤ/4`. -/
+def P4 : Matrix (Fin 2) (Fin 4) ℝ :=
+  !![1/2, 1/2, 0, 0;
+     0, 0, 1/2, 1/2]
+
+/-- The massless energy on the cycle `ℤ/4`. -/
+def energy4 (φ : Fin 4 → ℝ) : ℝ :=
+  (φ 1 - φ 0) ^ 2 + (φ 2 - φ 1) ^ 2 + (φ 3 - φ 2) ^ 2 + (φ 0 - φ 3) ^ 2
+
+/-- `P4 R4 = I`.
+
+Scope: a statement about one proof method (site-additive metrics); it says nothing about the
+Yang–Mills measure. -/
+theorem P4_mul_R4 : P4 * R4 = 1 := by
+  ext i j
+  fin_cases i <;> fin_cases j <;>
+    simp [P4, R4, Matrix.mul_apply, Fin.sum_univ_succ] <;> norm_num
+
+/-- **`R4` is the minimal-energy reconstruction** on `ℤ/4`.
+
+Scope: a statement about one proof method (site-additive metrics); it says nothing about the
+Yang–Mills measure. -/
+theorem R4_isMin (y : Fin 2 → ℝ) :
+    P4 *ᵥ (R4 *ᵥ y) = y ∧ ∀ φ : Fin 4 → ℝ, P4 *ᵥ φ = y → energy4 (R4 *ᵥ y) ≤ energy4 φ := by
+  refine ⟨by rw [Matrix.mulVec_mulVec, P4_mul_R4, Matrix.one_mulVec], ?_⟩
+  rintro φ rfl
+  have key : energy4 φ = energy4 (R4 *ᵥ (P4 *ᵥ φ)) + energy4 (φ - R4 *ᵥ (P4 *ᵥ φ)) := by
+    simp [energy4, R4, P4, Matrix.mulVec, dotProduct, Fin.sum_univ_succ]
+    ring
+  have h0 : 0 ≤ energy4 (φ - R4 *ᵥ (P4 *ᵥ φ)) := by unfold energy4; positivity
+  linarith
+
+/-- `R4 ≥ 0` entrywise.
+
+Scope: a statement about one proof method (site-additive metrics); it says nothing about the
+Yang–Mills measure. -/
+theorem R4_nonneg : ∀ a b, 0 ≤ R4 a b := by
+  intro a b
+  fin_cases a <;> fin_cases b <;> simp [R4]
+
+/-- `R4 1 = 1`.
+
+Scope: a statement about one proof method (site-additive metrics); it says nothing about the
+Yang–Mills measure. -/
+theorem R4_mulVec_one : R4 *ᵥ 1 = 1 := by
+  ext i
+  fin_cases i <;> simp [R4, Matrix.mulVec, dotProduct, Fin.sum_univ_succ]
+
+/-- **No loss for `R4`.** The minimal admissible weight is `|R4|ᵀ 1 = (2, 2)`, and the minimal
+additive metric equals the exact composite on every pair:
+`d_1(R4 z, R4 z') = d_{|R4|ᵀ1}(z, z')` for all `z, z'`.  Also `γ₀ = 2/2 = 1`.
+
+Scope: a statement about one proof method (site-additive metrics); it says nothing about the
+Yang–Mills measure. -/
+theorem R4_no_loss :
+    (R4.map abs)ᵀ *ᵥ 1 = (fun _ => 2) ∧
+      (∀ z z' : Fin 2 → ℝ,
+        addDist 1 (R4 *ᵥ z) (R4 *ᵥ z') = addDist ((R4.map abs)ᵀ *ᵥ 1) z z') ∧
+      ¬ ∃ j a b, R4 a j < 0 ∧ 0 < R4 b j := by
+  have hw : (R4.map abs)ᵀ *ᵥ 1 = (fun _ => 2) := by
+    ext j
+    rw [absT_mulVec_apply]
+    fin_cases j <;> simp [R4, Fin.sum_univ_succ] <;> norm_num
+  refine ⟨hw, fun z z' => ?_, ?_⟩
+  · rw [hw]
+    simp [addDist, R4, Matrix.mulVec, dotProduct, Fin.sum_univ_succ]
+    ring
+  · rintro ⟨j, a, b, ha, -⟩
+    exact absurd ha (not_lt.mpr (R4_nonneg a j))
+
+/-- **Signed versus `|R|ᵀ` weight** (`signed_lt_abs_weight_iff` with `λ = 1`, both directions): for
+`R6` every column has `|Σ column| < ‖column‖₁` (`2 < 14/5`); for `R4` no column does.
+
+Scope: a statement about one proof method (site-additive metrics); it says nothing about the
+Yang–Mills measure. -/
+theorem signed_vs_abs_examples :
+    (∀ j, |(R6ᵀ *ᵥ 1) j| < ((R6.map abs)ᵀ *ᵥ 1) j) ∧
+      (∀ j, ¬ |(R4ᵀ *ᵥ 1) j| < ((R4.map abs)ᵀ *ᵥ 1) j) := by
+  have h6 : ∀ i : Fin 6, (0 : ℝ) < (1 : Fin 6 → ℝ) i := fun _ => by simp
+  have h4 : ∀ i : Fin 4, (0 : ℝ) < (1 : Fin 4 → ℝ) i := fun _ => by simp
+  refine ⟨fun j => (signed_lt_abs_weight_iff R6 h6 j).mpr (R6_sign_change j), fun j h => ?_⟩
+  obtain ⟨a, b, ha, -⟩ := (signed_lt_abs_weight_iff R4 h4 j).mp h
+  exact absurd ha (not_lt.mpr (R4_nonneg a j))
+
+/-- The chain built on `R4`: `X 0 = Fin 4`, `X k = Fin 2` for `k ≥ 1`, `R_0 = R4`. -/
+def X4 : ℕ → Type
+  | 0 => Fin 4
+  | _ + 1 => Fin 2
+
+instance instFintypeX4 : ∀ k, Fintype (X4 k)
+  | 0 => inferInstanceAs (Fintype (Fin 4))
+  | _ + 1 => inferInstanceAs (Fintype (Fin 2))
+
+instance instNonemptyX4 : ∀ k, Nonempty (X4 k)
+  | 0 => inferInstanceAs (Nonempty (Fin 4))
+  | _ + 1 => inferInstanceAs (Nonempty (Fin 2))
+
+/-- The chain built on `R4`. -/
+def chain4 : ∀ k, Matrix (X4 k) (X4 (k + 1)) ℝ
+  | 0 => R4
+  | _ + 1 => 0
+
+/-- **Non-vacuity of the no-loss case.** The chain built on `R4` satisfies the hypotheses of
+`overcount_one_eq_prod`, `overcount_eq_one_of_nonneg` and `no_loss_of_nonneg` at `k = 1`:
+`ω_1(1) = Π_{i<1} γ_i = 2/2`, `ω_1(1) = 1`, and `‖T_1 x‖₁ = ⟨Λ⁽¹⁾, x⟩` for every `x ≥ 0`.
+
+Scope: a statement about one proof method (site-additive metrics); it says nothing about the
+Yang–Mills measure. -/
+theorem chain4_overcount :
+    overcount chain4 1 1 = ∏ _i ∈ range 1, (2 : ℝ) / 2 ∧ overcount chain4 1 1 = 1 ∧
+      ∀ x : X4 1 → ℝ, 0 ≤ x → ∑ v, |Tmap chain4 1 x v| = ∑ w, minWeights chain4 1 w * x w := by
+  have hR : ∀ i < 1, ∀ a b, 0 ≤ chain4 i a b := by
+    intro i hi
+    obtain rfl : i = 0 := Nat.lt_one_iff.mp hi
+    exact R4_nonneg
+  have hL : ∀ i < 1, ∀ j, ∑ w, |chain4 i w j| = (fun _ => (2 : ℝ)) i := by
+    intro i hi j
+    obtain rfl : i = 0 := Nat.lt_one_iff.mp hi
+    change ∑ w : Fin 4, |R4 w j| = 2
+    fin_cases j <;> simp [R4, Fin.sum_univ_succ] <;> norm_num
+  have hs : ∀ i < 1, ∀ j, ∑ w, chain4 i w j = (fun _ => (2 : ℝ)) i := by
+    intro i hi j
+    obtain rfl : i = 0 := Nat.lt_one_iff.mp hi
+    change ∑ w : Fin 4, R4 w j = 2
+    fin_cases j <;> simp [R4, Fin.sum_univ_succ] <;> norm_num
+  have h1 : ∀ i < 1, chain4 i *ᵥ 1 = 1 := by
+    intro i hi
+    obtain rfl : i = 0 := Nat.lt_one_iff.mp hi
+    exact R4_mulVec_one
+  have hT : Tmap chain4 1 1 ≠ 0 := by
+    rw [Tmap_one chain4 1 h1]
+    exact one_ne_zero
+  exact ⟨overcount_one_eq_prod chain4 _ _ 1 hL hs h1,
+    overcount_eq_one_of_nonneg chain4 1 hR 1 (fun _ => by simp) hT, no_loss_of_nonneg chain4 1 hR⟩
+
+end Examples
+
+end CompositionLoss
+end Part1_CompositionLoss
+
+```
+
+## Part 2: the local-cost comparison (Lemma LC)
+
+```lean
+/-! # Part 2: the local-cost comparison (Lemma LC) -/
+section Part2_LocalCostComparison
+
+/-!
+# Lemma LC: the local-cost comparison, arithmetic half
+
+Lemma LC generalises the Dobrushin–Shlosman comparison from a per-site cost to a cost that is a
+**sum of local terms**. This part proves the arithmetic half of Lemma LC. It follows the per-site
+version `CouplingMinimality` (a separate Lean development, not imported here): couplings are the
+points of an abstract type `P`, and the minimal coupling and its block updates are abstract
+points of `P`. This part needs only Mathlib and re-proves what it uses.
+
+"The full lemma" below means Lemma LC as stated for couplings of probability measures (the
+minimal coupling `π*`, the block couplings `π_x`, expectations `E_π`); that measure-theoretic
+setting is not formalised here.
+
+**Setting.**
+* `β` is a finite type of blocks `x`, and `τ` a finite type of cost terms `t`.
+* `T x : Finset τ` is the touched set `T_x`: the terms that block `x` touches.
+* `mult T t = m_t = #{x : t ∈ T_x}` is the multiplicity of `t`.
+* `w t ≥ 0` are the term weights, and `ρ p t ≥ 0` is the term profile of the point `p : P`
+  (in the full lemma, `ρ_t = E_π φ_t`).
+* The cost is `Ψ(p) = ∑_t w_t ρ_t(p)` (`cost`; it is `CouplingMinimality.cost` with the terms
+  as index type).
+* `A : Finset β` is the set of admissible blocks (in the full lemma, `V_x ∩ S = ∅`), and
+  `S : Finset τ` is a set of terms containing every `T_x` with `x ∉ A`. The set
+  `𝒮 = ⋃_{x ∉ A} T_x` is the smallest choice.
+
+**Contents.**
+* `cost_update_block`: a block update changes only the touched summands.
+* `recurrence_with_error_block`, `recurrence_of_block_minimality`: minimality of `p` against a
+  block update gives the block recurrence (the block-recurrence step).
+* `block_recurrence_of_approx`: the same from ε-optimal block updates, letting ε → 0.
+* `comparison_of_block_recurrence`: the counting step, from the block recurrences.
+* `local_cost_comparison_summed`: Lemma LC from the weakest form (Σ_w) (the block-recurrence and
+  counting steps).
+* `sigma_w_of_column`: the column condition in θ bounds the summed right side of (H1), which
+  gives (Σ_w).
+* `local_cost_comparison`: Lemma LC under (H1)–(H3), with θ as a parameter.
+* `local_cost_uniqueness`: the case `S = ∅`, where the profile vanishes.
+* `weighted_column_of_H3`: (H3) with constant α and the weight ratio `w̄_x ≤ L w_s` give the
+  column condition in θ with `θ = α L` (in the full lemma `L = e^{λR}`: the weight-ratio step).
+* `site_additive_comparison`, `site_additive_comparison_of_local`: one term per site, touched
+  only by its own block, recovers `CouplingMinimality.comparison_of_minimality`.
+* `Example`: a non-vacuity instance for `local_cost_comparison` (3 blocks, 3 terms, every term
+  touched by two blocks, α = 3/8, θ = 3/4, far side 1/4 > 0). The same data also instantiate
+  the block-recurrence, (Σ_w), counting and uniqueness bundles.
+* `SiteExample`: a non-vacuity instance for both site-additive theorems.
+
+This is an arithmetic statement about the comparison method; the measure-theoretic half
+(existence of block-minimal couplings, (H1) for gauge fields) is not proved here. In forest
+gauges (H1) meets an obstruction, which is not formalised here either.
+-/
+
+open Finset
+
+namespace YangMills.StrongCoupling.LocalCostComparison
+
+section General
+
+variable {β τ P : Type*} [Fintype β] [Fintype τ] [DecidableEq τ]
+
+/-- **Multiplicity.** `mult T t = m_t = #{x : t ∈ T_x}`, the number of blocks that touch the
+term `t`. -/
+def mult (T : β → Finset τ) (t : τ) : ℕ := (univ.filter fun x => t ∈ T x).card
+
+/-- **The cost of an abstract coupling.** `Ψ_w(p) = ∑_t w_t ρ_t(p)`, the weighted sum of its term
+profile. This is `CouplingMinimality.cost` with the cost terms as index type. -/
+def cost (w : τ → ℝ) (ρ : P → τ → ℝ) (p : P) : ℝ := ∑ t, w t * ρ p t
+
+omit [Fintype β] in
+/-- **A block update changes the cost only on the touched terms** (the block form of
+`CouplingMinimality.cost_update`). If `q` agrees with `p` on every term that block `x` does not
+touch, `ρ_t(q) = ρ_t(p)` for `t ∉ T_x`, then
+`Ψ(q) = Ψ(p) + ∑_{t ∈ T_x} w_t (ρ_t(q) − ρ_t(p))`.
+This is the block-recurrence step of the proof of Lemma LC. -/
+theorem cost_update_block (w : τ → ℝ) (ρ : P → τ → ℝ) (p q : P) (T : β → Finset τ) (x : β)
+    (hfix : ∀ t ∉ T x, ρ q t = ρ p t) :
+    cost w ρ q = cost w ρ p + ∑ t ∈ T x, w t * (ρ q t - ρ p t) := by
+  have hterm : ∀ t, w t * ρ q t =
+      w t * ρ p t + if t ∈ T x then w t * (ρ q t - ρ p t) else 0 := by
+    intro t
+    by_cases ht : t ∈ T x
+    · rw [if_pos ht]; ring
+    · rw [if_neg ht, hfix t ht, add_zero]
+  simp only [cost, hterm, sum_add_distrib, sum_ite_mem, univ_inter]
+
+omit [Fintype β] in
+/-- **Block recurrence with error** (the block form of `CouplingMinimality.recurrence_with_error`).
+If `p` is `ε`-minimal against `q`, `Ψ(p) ≤ Ψ(q) + ε`, and `q` agrees with `p` off `T_x`, then
+`∑_{t ∈ T_x} w_t ρ_t(p) ≤ ∑_{t ∈ T_x} w_t ρ_t(q) + ε`.
+There are no sign hypotheses, and no weight is divided out, so `w > 0` is not needed. -/
+theorem recurrence_with_error_block (w : τ → ℝ) (ρ : P → τ → ℝ) (p q : P) (T : β → Finset τ)
+    (x : β) (ε : ℝ) (hmin : cost w ρ p ≤ cost w ρ q + ε) (hfix : ∀ t ∉ T x, ρ q t = ρ p t) :
+    ∑ t ∈ T x, w t * ρ p t ≤ ∑ t ∈ T x, w t * ρ q t + ε := by
+  have h := cost_update_block w ρ p q T x hfix
+  simp only [mul_sub, sum_sub_distrib] at h
+  linarith
+
+omit [Fintype β] in
+/-- **Block recurrence from minimality** (the block form of
+`CouplingMinimality.recurrence_of_minimality`). Suppose
+* `p` is minimal against the block update `upd x`: `Ψ(p) ≤ Ψ(upd_x)`;
+* `upd x` agrees with `p` off `T_x`: `ρ_t(upd_x) = ρ_t(p)` for `t ∉ T_x`;
+* the block response bound holds: `∑_{t ∈ T_x} w_t ρ_t(upd_x) ≤ ∑_{s ∉ T_x} K_{x,s} ρ_s(p)`.
+
+Then the block recurrence holds: `∑_{t ∈ T_x} w_t ρ_t(p) ≤ ∑_{s ∉ T_x} K_{x,s} ρ_s(p)`.
+
+An arithmetic statement about the comparison method; the measure-theoretic half (existence of
+block-minimal couplings, (H1) for gauge fields) is not proved here. In forest gauges (H1) meets an
+obstruction, which is not formalised here either. -/
+theorem recurrence_of_block_minimality (w : τ → ℝ) (ρ : P → τ → ℝ) (p : P) (upd : β → P)
+    (T : β → Finset τ) (K : β → τ → ℝ) (x : β)
+    (hmin : cost w ρ p ≤ cost w ρ (upd x)) (hfix : ∀ t ∉ T x, ρ (upd x) t = ρ p t)
+    (hresp : ∑ t ∈ T x, w t * ρ (upd x) t ≤ ∑ s ∈ (T x)ᶜ, K x s * ρ p s) :
+    ∑ t ∈ T x, w t * ρ p t ≤ ∑ s ∈ (T x)ᶜ, K x s * ρ p s := by
+  have h := recurrence_with_error_block w ρ p (upd x) T x 0 (by rw [add_zero]; exact hmin) hfix
+  linarith
+
+omit [Fintype β] in
+/-- **Double counting.** `∑_{x ∈ A} ∑_{t ∈ T_x} f_t = ∑_t #{x ∈ A : t ∈ T_x} · f_t`. -/
+theorem sum_touched_eq (A : Finset β) (T : β → Finset τ) (f : τ → ℝ) :
+    ∑ x ∈ A, ∑ t ∈ T x, f t = ∑ t, ((A.filter fun x => t ∈ T x).card : ℝ) * f t := by
+  have h : ∀ x t, x ∈ A ∧ t ∈ T x ↔ x ∈ A.filter (fun x => t ∈ T x) ∧ t ∈ (univ : Finset τ) := by
+    intro x t
+    simp
+  rw [sum_comm' h]
+  simp only [sum_const, nsmul_eq_mul]
+
+omit [Fintype β] in
+/-- **Block recurrence from ε-optimal block updates** (letting ε → 0 in the block-recurrence
+step). In the full lemma the block couplings are only ε-optimal: the resampled coupling satisfies
+`∑_{t ∈ T_x} w_t E_{π_x} φ_t ≤ w̄_x (E_{π*} 𝒯_x + ε)`. Suppose that for every `ε > 0` there is a
+competitor `q` with `Ψ(p) ≤ Ψ(q)`, `ρ_t(q) = ρ_t(p)` for `t ∉ T_x`, and
+`∑_{t ∈ T_x} w_t ρ_t(q) ≤ r + ε`. Then `∑_{t ∈ T_x} w_t ρ_t(p) ≤ r`.
+With `comparison_of_block_recurrence` this gives Lemma LC from ε-optimal block updates. -/
+theorem block_recurrence_of_approx (w : τ → ℝ) (ρ : P → τ → ℝ) (p : P) (T : β → Finset τ)
+    (x : β) (r : ℝ)
+    (happrox : ∀ ε > 0, ∃ q : P, cost w ρ p ≤ cost w ρ q ∧ (∀ t ∉ T x, ρ q t = ρ p t) ∧
+      ∑ t ∈ T x, w t * ρ q t ≤ r + ε) :
+    ∑ t ∈ T x, w t * ρ p t ≤ r := by
+  refine le_of_forall_pos_le_add fun ε hε => ?_
+  obtain ⟨q, hmin, hfix, hresp⟩ := happrox ε hε
+  have h := recurrence_with_error_block w ρ p q T x 0 (by rw [add_zero]; exact hmin) hfix
+  linarith
+
+/-- **The counting step of Lemma LC.** Let `w ≥ 0` and `ρ ≥ 0`, and let `S` contain `T_x`
+for every block `x ∉ A`. If the block recurrence `∑_{t ∈ T_x} w_t ρ_t ≤ r_x` holds for every
+`x ∈ A`, and `∑_{x ∈ A} r_x ≤ θ ∑_t m_t w_t ρ_t`, then
+`(1 − θ) ∑_{t ∉ S} m_t w_t ρ_t ≤ θ ∑_{t ∈ S} m_t w_t ρ_t`.
+A term `t ∉ S` is touched only by admissible blocks, `m_t` of them, so summing the recurrences
+counts it `m_t` times; the other summands are nonnegative and are dropped. -/
+theorem comparison_of_block_recurrence (A : Finset β) (S : Finset τ) (T : β → Finset τ)
+    (w ρ : τ → ℝ) (r : β → ℝ) (θ : ℝ) (hw : ∀ t, 0 ≤ w t) (hρ : ∀ t, 0 ≤ ρ t)
+    (hS : ∀ x ∉ A, T x ⊆ S)
+    (hrec : ∀ x ∈ A, ∑ t ∈ T x, w t * ρ t ≤ r x)
+    (hsum : ∑ x ∈ A, r x ≤ θ * ∑ t, (mult T t : ℝ) * w t * ρ t) :
+    (1 - θ) * ∑ t ∈ Sᶜ, (mult T t : ℝ) * w t * ρ t ≤
+      θ * ∑ t ∈ S, (mult T t : ℝ) * w t * ρ t := by
+  have hL : ∑ x ∈ A, ∑ t ∈ T x, w t * ρ t ≤ θ * ∑ t, (mult T t : ℝ) * w t * ρ t :=
+    (sum_le_sum hrec).trans hsum
+  rw [sum_touched_eq] at hL
+  -- A term outside `S` is touched only by admissible blocks, so its count is `m_t`.
+  have hcount : ∀ t ∉ S, (A.filter fun x => t ∈ T x) = univ.filter fun x => t ∈ T x := by
+    intro t ht
+    ext x
+    simp only [mem_filter, mem_univ, true_and]
+    constructor
+    · exact fun h => h.2
+    · intro hx
+      refine ⟨?_, hx⟩
+      by_contra hA
+      exact ht (hS x hA hx)
+  have hlow : ∑ t ∈ Sᶜ, (mult T t : ℝ) * w t * ρ t ≤
+      ∑ t, ((A.filter fun x => t ∈ T x).card : ℝ) * (w t * ρ t) := by
+    calc ∑ t ∈ Sᶜ, (mult T t : ℝ) * w t * ρ t
+        = ∑ t ∈ Sᶜ, ((A.filter fun x => t ∈ T x).card : ℝ) * (w t * ρ t) := by
+          refine sum_congr rfl fun t ht => ?_
+          rw [hcount t (mem_compl.mp ht), mul_assoc]
+          rfl
+      _ ≤ ∑ t, ((A.filter fun x => t ∈ T x).card : ℝ) * (w t * ρ t) :=
+          sum_le_sum_of_subset_of_nonneg (subset_univ _)
+            (fun t _ _ => mul_nonneg (Nat.cast_nonneg _) (mul_nonneg (hw t) (hρ t)))
+  have hsplit := sum_compl_add_sum S (fun t => (mult T t : ℝ) * w t * ρ t)
+  have hX : ∑ t ∈ Sᶜ, (mult T t : ℝ) * w t * ρ t ≤
+      θ * (∑ t ∈ Sᶜ, (mult T t : ℝ) * w t * ρ t + ∑ t ∈ S, (mult T t : ℝ) * w t * ρ t) := by
+    rw [hsplit]
+    exact hlow.trans hL
+  linarith
+
+/-- **Lemma LC from the weakest form (Σ_w).** Suppose, for every admissible block `x ∈ A`:
+* minimality: `Ψ(p) ≤ Ψ(upd_x)`;
+* locality: `ρ_t(upd_x) = ρ_t(p)` for `t ∉ T_x`;
+* a response bound `∑_{t ∈ T_x} w_t ρ_t(upd_x) ≤ r_x`;
+
+and the summed condition (Σ_w): `∑_{x ∈ A} r_x ≤ θ ∑_t m_t w_t ρ_t(p)`. If `w ≥ 0`, `ρ(p) ≥ 0`, and
+`S` contains `T_x` for every inadmissible `x`, then
+`(1 − θ) ∑_{t ∉ S} m_t w_t ρ_t(p) ≤ θ ∑_{t ∈ S} m_t w_t ρ_t(p)`.
+
+In the full lemma `r_x = w̄_x E_{π*} 𝒯_x`, and (Σ_w) is posed with the sum over all blocks; since
+`𝒯_x ≥ 0`, that implies the form used here, which sums over the admissible blocks only. So the
+block-recurrence, weight-ratio and counting steps together use only (Σ_w). No condition on θ is
+needed for this inequality.
+
+An arithmetic statement about the comparison method; the measure-theoretic half (existence of
+block-minimal couplings, (H1) for gauge fields) is not proved here. In forest gauges (H1) meets an
+obstruction, which is not formalised here either. -/
+theorem local_cost_comparison_summed (A : Finset β) (S : Finset τ) (T : β → Finset τ)
+    (w : τ → ℝ) (ρ : P → τ → ℝ) (p : P) (upd : β → P) (r : β → ℝ) (θ : ℝ)
+    (hw : ∀ t, 0 ≤ w t) (hρ : ∀ t, 0 ≤ ρ p t)
+    (hS : ∀ x ∉ A, T x ⊆ S)
+    (hmin : ∀ x ∈ A, cost w ρ p ≤ cost w ρ (upd x))
+    (hfix : ∀ x ∈ A, ∀ t ∉ T x, ρ (upd x) t = ρ p t)
+    (hresp : ∀ x ∈ A, ∑ t ∈ T x, w t * ρ (upd x) t ≤ r x)
+    (hsum : ∑ x ∈ A, r x ≤ θ * ∑ t, (mult T t : ℝ) * w t * ρ p t) :
+    (1 - θ) * ∑ t ∈ Sᶜ, (mult T t : ℝ) * w t * ρ p t ≤
+      θ * ∑ t ∈ S, (mult T t : ℝ) * w t * ρ p t := by
+  -- The block recurrence at every admissible block, then the count of multiplicities.
+  refine comparison_of_block_recurrence A S T w (ρ p) r θ hw hρ hS (fun x hx => ?_) hsum
+  have h := recurrence_with_error_block w ρ p (upd x) T x 0
+    (by rw [add_zero]; exact hmin x hx) (hfix x hx)
+  linarith [hresp x hx]
+
+omit [DecidableEq τ] in
+/-- **Finishing step.** From `(1 − θ) X ≤ θ Y` with `X = ∑_{t ∉ S} c_t ρ_t` and `Y = ∑_{t ∈ S} c_t ρ_t`,
+`c ≥ 0`, `ρ ≤ D` on `S` and `0 ≤ θ < 1`: `θ Y ≤ θ D ∑_{t ∈ S} c_t` and
+`X ≤ θ D / (1 − θ) · ∑_{t ∈ S} c_t`. -/
+theorem comparison_finish [DecidableEq τ] (S : Finset τ) (c ρ : τ → ℝ) (θ D : ℝ) (hθ : θ < 1)
+    (hθ0 : 0 ≤ θ) (hc : ∀ t, 0 ≤ c t) (hD : ∀ t ∈ S, ρ t ≤ D)
+    (h : (1 - θ) * ∑ t ∈ Sᶜ, c t * ρ t ≤ θ * ∑ t ∈ S, c t * ρ t) :
+    θ * ∑ t ∈ S, c t * ρ t ≤ θ * D * ∑ t ∈ S, c t ∧
+      ∑ t ∈ Sᶜ, c t * ρ t ≤ θ * D / (1 - θ) * ∑ t ∈ S, c t := by
+  have hpos : 0 < 1 - θ := by linarith
+  have hY : ∑ t ∈ S, c t * ρ t ≤ D * ∑ t ∈ S, c t := by
+    rw [mul_sum]
+    refine sum_le_sum fun t ht => ?_
+    calc c t * ρ t ≤ c t * D := mul_le_mul_of_nonneg_left (hD t ht) (hc t)
+      _ = D * c t := mul_comm _ _
+  have h2 : θ * ∑ t ∈ S, c t * ρ t ≤ θ * D * ∑ t ∈ S, c t := by
+    rw [mul_assoc]
+    exact mul_le_mul_of_nonneg_left hY hθ0
+  refine ⟨h2, ?_⟩
+  have h3 : ∑ t ∈ Sᶜ, c t * ρ t ≤ θ * D * (∑ t ∈ S, c t) / (1 - θ) := by
+    rw [le_div_iff₀ hpos]
+    linarith
+  calc ∑ t ∈ Sᶜ, c t * ρ t ≤ θ * D * (∑ t ∈ S, c t) / (1 - θ) := h3
+    _ = θ * D / (1 - θ) * ∑ t ∈ S, c t := by ring
+
+/-- **The column condition bounds the summed right side of (H1).** If `w̄ ≥ 0`, `K ≥ 0`, `ρ ≥ 0`
+and, for every term `s`, `∑_{x : s ∉ T_x} w̄_x K_{x,s} ≤ θ m_s w_s`, then for every set `A` of blocks
+`∑_{x ∈ A} w̄_x ∑_{s ∉ T_x} K_{x,s} ρ_s ≤ θ ∑_t m_t w_t ρ_t`.
+Since (H1) bounds `𝒯_x` by `∑_{s ∉ T_x} K_{x,s} φ_s`, applying this to `φ` (or to the profile `ρ`)
+gives (Σ_w): this is the claim of the full lemma that (H1)–(H3) imply (Σ_w), with the column
+condition in θ as in `local_cost_comparison`. -/
+theorem sigma_w_of_column (A : Finset β) (T : β → Finset τ) (w : τ → ℝ) (wbar : β → ℝ)
+    (K : β → τ → ℝ) (ρ : τ → ℝ) (θ : ℝ)
+    (hwbar : ∀ x, 0 ≤ wbar x) (hK : ∀ x s, 0 ≤ K x s) (hρ : ∀ t, 0 ≤ ρ t)
+    (hcol : ∀ s, ∑ x ∈ univ.filter (fun x => s ∉ T x), wbar x * K x s ≤
+      θ * (mult T s : ℝ) * w s) :
+    ∑ x ∈ A, wbar x * ∑ s ∈ (T x)ᶜ, K x s * ρ s ≤ θ * ∑ t, (mult T t : ℝ) * w t * ρ t := by
+  have hnn : ∀ x, 0 ≤ wbar x * ∑ s ∈ (T x)ᶜ, K x s * ρ s := fun x =>
+    mul_nonneg (hwbar x) (sum_nonneg fun s _ => mul_nonneg (hK x s) (hρ s))
+  have hswap : ∀ x s, x ∈ (univ : Finset β) ∧ s ∈ (T x)ᶜ ↔
+      x ∈ univ.filter (fun x => s ∉ T x) ∧ s ∈ (univ : Finset τ) := by
+    intro x s
+    simp
+  calc ∑ x ∈ A, wbar x * ∑ s ∈ (T x)ᶜ, K x s * ρ s
+      ≤ ∑ x, wbar x * ∑ s ∈ (T x)ᶜ, K x s * ρ s :=
+        sum_le_sum_of_subset_of_nonneg (subset_univ A) (fun x _ _ => hnn x)
+    _ = ∑ x, ∑ s ∈ (T x)ᶜ, wbar x * K x s * ρ s := by
+        refine sum_congr rfl fun x _ => ?_
+        rw [mul_sum]
+        exact sum_congr rfl fun s _ => by ring
+    _ = ∑ s, ∑ x ∈ univ.filter (fun x => s ∉ T x), wbar x * K x s * ρ s := sum_comm' hswap
+    _ = ∑ s, (∑ x ∈ univ.filter (fun x => s ∉ T x), wbar x * K x s) * ρ s := by
+        simp only [sum_mul]
+    _ ≤ ∑ s, (θ * (mult T s : ℝ) * w s) * ρ s :=
+        sum_le_sum fun s _ => mul_le_mul_of_nonneg_right (hcol s) (hρ s)
+    _ = θ * ∑ t, (mult T t : ℝ) * w t * ρ t := by
+        rw [mul_sum]
+        exact sum_congr rfl fun t _ => by ring
+
+/-- **Lemma LC (local-cost comparison) under (H1)–(H3).**
+
+*Data.* Blocks `x : β` with touched sets `T_x`; terms `t : τ` with multiplicities `m_t`; term
+weights `w_t ≥ 0`; row weights `w̄_x ≥ 0` (in the full lemma `w̄_x = max_{t ∈ T_x} w_t`); a matrix
+`K_{x,s} ≥ 0`; a point `p` (the minimal coupling `π*`) with profile `ρ_t = ρ_t(p) ≥ 0`; block
+updates `upd x` (the couplings `π_x`); the admissible blocks `A`; a set of terms `S` containing
+`T_x` for every inadmissible `x`.
+
+*Hypotheses.* For every admissible `x`:
+* minimality: `Ψ(p) ≤ Ψ(upd_x)`;
+* locality: `ρ_t(upd_x) = ρ_t(p)` for `t ∉ T_x`;
+* the response bound, (H1) integrated against `π*`:
+  `∑_{t ∈ T_x} w_t ρ_t(upd_x) ≤ w̄_x ∑_{s ∉ T_x} K_{x,s} ρ_s(p)`.
+
+For every term `s`, the column condition in θ: `∑_{x : s ∉ T_x} w̄_x K_{x,s} ≤ θ m_s w_s`.
+Finally `0 ≤ θ < 1`, and `ρ_t ≤ D` for `t ∈ S`.
+
+*Conclusion.* The two inequalities of the full lemma, and their solved form:
+* `(1 − θ) ∑_{t ∉ S} m_t w_t ρ_t ≤ θ ∑_{t ∈ S} m_t w_t ρ_t`;
+* `θ ∑_{t ∈ S} m_t w_t ρ_t ≤ θ D ∑_{t ∈ S} m_t w_t`;
+* `∑_{t ∉ S} m_t w_t ρ_t ≤ θ D / (1 − θ) · ∑_{t ∈ S} m_t w_t`.
+
+*On θ.* In the full lemma θ = α e^{λR}: (H3) reads `∑_{x : s ∉ T_x} K_{x,s} ≤ α m_s`, and the range
+(H2) with the weights `w_t = e^{−λ dist(s(t), T)}` gives `w̄_x ≤ e^{λR} w_s` whenever
+`K_{x,s} ≠ 0`. As in `Comparison.comparison_weighted` and
+`CouplingMinimality.comparison_of_minimality`, θ is a parameter here, and the column condition is
+stated in θ with the weights inside. `weighted_column_of_H3` derives it from (H3) and the weight
+ratio `w̄_x ≤ L w_s`, with θ = α L. With `w ≡ w̄ ≡ 1` it is (H3) with α = θ.
+
+*On the block updates.* They are exact here, as in `comparison_of_minimality`. For the
+ε-optimal block couplings of the full lemma, `block_recurrence_of_approx` gives the same
+block recurrence, and `comparison_of_block_recurrence`, `sigma_w_of_column` and
+`comparison_finish` give the same conclusion.
+
+An arithmetic statement about the comparison method; the measure-theoretic half (existence of
+block-minimal couplings, (H1) for gauge fields) is not proved here. In forest gauges (H1) meets an
+obstruction, which is not formalised here either. -/
+theorem local_cost_comparison (A : Finset β) (S : Finset τ) (T : β → Finset τ)
+    (w : τ → ℝ) (wbar : β → ℝ) (K : β → τ → ℝ) (ρ : P → τ → ℝ) (p : P) (upd : β → P)
+    (θ D : ℝ) (hθ : θ < 1) (hθ0 : 0 ≤ θ)
+    (hw : ∀ t, 0 ≤ w t) (hwbar : ∀ x, 0 ≤ wbar x) (hK : ∀ x s, 0 ≤ K x s)
+    (hρ : ∀ t, 0 ≤ ρ p t) (hD : ∀ t ∈ S, ρ p t ≤ D)
+    (hS : ∀ x ∉ A, T x ⊆ S)
+    (hmin : ∀ x ∈ A, cost w ρ p ≤ cost w ρ (upd x))
+    (hfix : ∀ x ∈ A, ∀ t ∉ T x, ρ (upd x) t = ρ p t)
+    (hresp : ∀ x ∈ A, ∑ t ∈ T x, w t * ρ (upd x) t ≤ wbar x * ∑ s ∈ (T x)ᶜ, K x s * ρ p s)
+    (hcol : ∀ s, ∑ x ∈ univ.filter (fun x => s ∉ T x), wbar x * K x s ≤
+      θ * (mult T s : ℝ) * w s) :
+    (1 - θ) * ∑ t ∈ Sᶜ, (mult T t : ℝ) * w t * ρ p t ≤
+        θ * ∑ t ∈ S, (mult T t : ℝ) * w t * ρ p t ∧
+      θ * ∑ t ∈ S, (mult T t : ℝ) * w t * ρ p t ≤ θ * D * ∑ t ∈ S, (mult T t : ℝ) * w t ∧
+      ∑ t ∈ Sᶜ, (mult T t : ℝ) * w t * ρ p t ≤
+        θ * D / (1 - θ) * ∑ t ∈ S, (mult T t : ℝ) * w t := by
+  have hcore := local_cost_comparison_summed A S T w ρ p upd
+    (fun x => wbar x * ∑ s ∈ (T x)ᶜ, K x s * ρ p s) θ hw hρ hS hmin hfix hresp
+    (sigma_w_of_column A T w wbar K (ρ p) θ hwbar hK hρ hcol)
+  have hfin := comparison_finish S (fun t => (mult T t : ℝ) * w t) (ρ p) θ D hθ hθ0
+    (fun t => mul_nonneg (Nat.cast_nonneg _) (hw t)) hD hcore
+  exact ⟨hcore, hfin.1, hfin.2⟩
+
+/-- **Uniqueness (`S = ∅`).** Suppose every block is admissible, every term is touched
+(`m_t ≥ 1`), the weights are positive (`w > 0`) and θ < 1. If minimality, locality, the response
+bound and the column condition of `local_cost_comparison` hold at every block, then the profile
+vanishes: `ρ_t(p) = 0` for every `t`. This is the statement "if S = ∅, then ρ ≡ 0" of the full
+lemma. (No sign
+condition on θ is needed.)
+
+An arithmetic statement about the comparison method; the measure-theoretic half (existence of
+block-minimal couplings, (H1) for gauge fields) is not proved here. In forest gauges (H1) meets an
+obstruction, which is not formalised here either. -/
+theorem local_cost_uniqueness (T : β → Finset τ) (w : τ → ℝ) (wbar : β → ℝ) (K : β → τ → ℝ)
+    (ρ : P → τ → ℝ) (p : P) (upd : β → P) (θ : ℝ) (hθ : θ < 1)
+    (hw : ∀ t, 0 < w t) (hwbar : ∀ x, 0 ≤ wbar x) (hK : ∀ x s, 0 ≤ K x s)
+    (hρ : ∀ t, 0 ≤ ρ p t) (hm : ∀ t, 1 ≤ mult T t)
+    (hmin : ∀ x, cost w ρ p ≤ cost w ρ (upd x))
+    (hfix : ∀ x, ∀ t ∉ T x, ρ (upd x) t = ρ p t)
+    (hresp : ∀ x, ∑ t ∈ T x, w t * ρ (upd x) t ≤ wbar x * ∑ s ∈ (T x)ᶜ, K x s * ρ p s)
+    (hcol : ∀ s, ∑ x ∈ univ.filter (fun x => s ∉ T x), wbar x * K x s ≤
+      θ * (mult T s : ℝ) * w s) :
+    ∀ t, ρ p t = 0 := by
+  have h := local_cost_comparison_summed univ ∅ T w ρ p upd
+    (fun x => wbar x * ∑ s ∈ (T x)ᶜ, K x s * ρ p s) θ (fun t => (hw t).le) hρ (by simp)
+    (fun x _ => hmin x) (fun x _ => hfix x) (fun x _ => hresp x)
+    (sigma_w_of_column univ T w wbar K (ρ p) θ hwbar hK hρ hcol)
+  simp only [compl_empty, sum_empty, mul_zero] at h
+  have hpos : 0 < 1 - θ := by linarith
+  have hnn : ∀ t, 0 ≤ (mult T t : ℝ) * w t * ρ p t := fun t =>
+    mul_nonneg (mul_nonneg (Nat.cast_nonneg _) (hw t).le) (hρ t)
+  have hsum0 : ∑ t, (mult T t : ℝ) * w t * ρ p t = 0 := by
+    have h0 := sum_nonneg fun t (_ : t ∈ (univ : Finset τ)) => hnn t
+    have hle : ∑ t, (mult T t : ℝ) * w t * ρ p t ≤ 0 := by
+      by_contra hc
+      push Not at hc
+      have := mul_pos hpos hc
+      linarith
+    linarith
+  intro t
+  have ht := (sum_eq_zero_iff_of_nonneg fun t _ => hnn t).mp hsum0 t (mem_univ t)
+  have hmw : 0 < (mult T t : ℝ) * w t := mul_pos (Nat.cast_pos.mpr (hm t)) (hw t)
+  rcases mul_eq_zero.mp ht with h0 | h0
+  · exact absurd h0 hmw.ne'
+  · exact h0
+
+omit [Fintype τ] in
+/-- **Where θ = α L enters.** If (H3) holds with constant α, `∑_{x : s ∉ T_x} K_{x,s} ≤ α m_s`,
+and the row weights satisfy `w̄_x ≤ L w_s` whenever `s ∉ T_x` and `K_{x,s} ≠ 0`, then the column
+condition of `local_cost_comparison` holds with θ = α L:
+`∑_{x : s ∉ T_x} w̄_x K_{x,s} ≤ (α L) m_s w_s`.
+In the full lemma `L = e^{λR}`: by the range (H2), `dist(s(s), T) ≤ dist(s(t), T) + R` for
+`t ∈ T_x` and `K_{x,s} ≠ 0`, so `w_t ≤ e^{λR} w_s` (the weight-ratio step), hence θ = α e^{λR}. -/
+theorem weighted_column_of_H3 (T : β → Finset τ) (K : β → τ → ℝ) (w : τ → ℝ) (wbar : β → ℝ)
+    (α L : ℝ) (hK : ∀ x s, 0 ≤ K x s) (hw : ∀ s, 0 ≤ w s) (hL : 0 ≤ L)
+    (hrange : ∀ x s, s ∉ T x → K x s ≠ 0 → wbar x ≤ L * w s)
+    (hH3 : ∀ s, ∑ x ∈ univ.filter (fun x => s ∉ T x), K x s ≤ α * (mult T s : ℝ)) :
+    ∀ s, ∑ x ∈ univ.filter (fun x => s ∉ T x), wbar x * K x s ≤
+      α * L * (mult T s : ℝ) * w s := by
+  intro s
+  have hterm : ∀ x ∈ univ.filter (fun x => s ∉ T x), wbar x * K x s ≤ L * w s * K x s := by
+    intro x hx
+    by_cases h0 : K x s = 0
+    · simp [h0]
+    · exact mul_le_mul_of_nonneg_right (hrange x s (mem_filter.mp hx).2 h0) (hK x s)
+  calc ∑ x ∈ univ.filter (fun x => s ∉ T x), wbar x * K x s
+      ≤ ∑ x ∈ univ.filter (fun x => s ∉ T x), L * w s * K x s := sum_le_sum hterm
+    _ = L * w s * ∑ x ∈ univ.filter (fun x => s ∉ T x), K x s := by rw [mul_sum]
+    _ ≤ L * w s * (α * (mult T s : ℝ)) :=
+        mul_le_mul_of_nonneg_left (hH3 s) (mul_nonneg hL (hw s))
+    _ = α * L * (mult T s : ℝ) * w s := by ring
+
+end General
+
+section SiteAdditive
+
+/-! ### The site-additive case
+
+One term per site, touched only by its own block: `β = τ = ι` and `T_i = {i}`, so `m_i = 1`. -/
+
+variable {ι P : Type*} [Fintype ι] [DecidableEq ι]
+
+/-- With singleton touched sets every multiplicity is one. -/
+theorem mult_singleton (j : ι) : mult (fun i : ι => ({i} : Finset ι)) j = 1 := by
+  unfold mult
+  rw [card_eq_one]
+  exact ⟨j, by ext x; simp [eq_comm]⟩
+
+/-- **The site-additive case recovers `CouplingMinimality.comparison_of_minimality`.** With one
+term per site, touched only by its own block (`T_i = {i}`, `m_i = 1`), the hypotheses below are
+those of `comparison_of_minimality` verbatim, except that the weights need only be nonnegative
+(`0 ≤ w`, not `0 < w`), and the conclusion is the same:
+`∑_{i ∉ S} w_i d_i(p) ≤ θ D / (1 − θ) · ∑_{j ∈ S} w_j`.
+
+It is obtained from `local_cost_comparison_summed`, the (Σ_w) form of Lemma LC, with
+`r_i = w_i ∑_j C_{ij} d_j(p)`; the (Σ_w) form allows the diagonal `C_{ii}` of
+`comparison_of_minimality`. For the (H1)–(H3) form see `site_additive_comparison_of_local`. -/
+theorem site_additive_comparison (S : Finset ι) (w : ι → ℝ) (d : P → ι → ℝ) (p : P)
+    (update : ι → P) (C : ι → ι → ℝ) (θ D : ℝ) (hθ : θ < 1) (hθ0 : 0 ≤ θ)
+    (hC : ∀ i j, 0 ≤ C i j) (hw : ∀ i, 0 ≤ w i)
+    (hd : ∀ i, 0 ≤ d p i) (hD : ∀ i ∈ S, d p i ≤ D)
+    (hmin : ∀ i ∉ S, cost w d p ≤ cost w d (update i))
+    (hfix : ∀ i ∉ S, ∀ j, j ≠ i → d (update i) j = d p j)
+    (hstep : ∀ i ∉ S, d (update i) i ≤ ∑ j, C i j * d p j)
+    (hcol : ∀ j, ∑ i, w i * C i j ≤ θ * w j) :
+    ∑ i ∈ Sᶜ, w i * d p i ≤ θ * D / (1 - θ) * ∑ j ∈ S, w j := by
+  have hm : ∀ j, (mult (fun i : ι => ({i} : Finset ι)) j : ℝ) = 1 := fun j => by
+    rw [mult_singleton, Nat.cast_one]
+  have hsum : ∑ i ∈ Sᶜ, w i * ∑ j, C i j * d p j ≤
+      θ * ∑ t, (mult (fun i : ι => ({i} : Finset ι)) t : ℝ) * w t * d p t := by
+    calc ∑ i ∈ Sᶜ, w i * ∑ j, C i j * d p j
+        ≤ ∑ i, w i * ∑ j, C i j * d p j :=
+          sum_le_sum_of_subset_of_nonneg (subset_univ _)
+            (fun i _ _ => mul_nonneg (hw i) (sum_nonneg fun j _ => mul_nonneg (hC i j) (hd j)))
+      _ = ∑ j, (∑ i, w i * C i j) * d p j := by
+          simp_rw [mul_sum, sum_mul]
+          rw [sum_comm]
+          exact sum_congr rfl fun _ _ => sum_congr rfl fun _ _ => by ring
+      _ ≤ ∑ j, (θ * w j) * d p j :=
+          sum_le_sum fun j _ => mul_le_mul_of_nonneg_right (hcol j) (hd j)
+      _ = θ * ∑ t, (mult (fun i : ι => ({i} : Finset ι)) t : ℝ) * w t * d p t := by
+          rw [mul_sum]
+          exact sum_congr rfl fun t _ => by rw [hm t]; ring
+  have hcore := local_cost_comparison_summed Sᶜ S (fun i : ι => ({i} : Finset ι)) w d p update
+    (fun i => w i * ∑ j, C i j * d p j) θ hw hd
+    (fun x hx => by simpa using hx)
+    (fun i hi => hmin i (mem_compl.mp hi))
+    (fun i hi t ht => hfix i (mem_compl.mp hi) t (by simpa using ht))
+    (fun i hi => by
+      simp only [sum_singleton]
+      exact mul_le_mul_of_nonneg_left (hstep i (mem_compl.mp hi)) (hw i))
+    hsum
+  simp only [hm, one_mul] at hcore
+  exact (comparison_finish S w (d p) θ D hθ hθ0 hw hD hcore).2
+
+/-- **The (H1)–(H3) form specialises to the site-additive case.** With `T_i = {i}`, row weights
+`w̄_i = w_i` and `K = C`, `local_cost_comparison` gives the conclusion of
+`CouplingMinimality.comparison_of_minimality` from its hypotheses, provided `C` has zero diagonal
+(the response bound (H1) runs over the untouched terms `s ∉ T_i`, i.e. `s ≠ i`). The column
+condition `∑_{x : s ∉ T_x} w̄_x K_{x,s} ≤ θ m_s w_s` is then `∑_{i ≠ j} w_i C_{ij} ≤ θ w_j`. -/
+theorem site_additive_comparison_of_local (S : Finset ι) (w : ι → ℝ) (d : P → ι → ℝ) (p : P)
+    (update : ι → P) (C : ι → ι → ℝ) (θ D : ℝ) (hθ : θ < 1) (hθ0 : 0 ≤ θ)
+    (hC : ∀ i j, 0 ≤ C i j) (hdiag : ∀ i, C i i = 0) (hw : ∀ i, 0 ≤ w i)
+    (hd : ∀ i, 0 ≤ d p i) (hD : ∀ i ∈ S, d p i ≤ D)
+    (hmin : ∀ i ∉ S, cost w d p ≤ cost w d (update i))
+    (hfix : ∀ i ∉ S, ∀ j, j ≠ i → d (update i) j = d p j)
+    (hstep : ∀ i ∉ S, d (update i) i ≤ ∑ j, C i j * d p j)
+    (hcol : ∀ j, ∑ i, w i * C i j ≤ θ * w j) :
+    ∑ i ∈ Sᶜ, w i * d p i ≤ θ * D / (1 - θ) * ∑ j ∈ S, w j := by
+  have hm : ∀ j, (mult (fun i : ι => ({i} : Finset ι)) j : ℝ) = 1 := fun j => by
+    rw [mult_singleton, Nat.cast_one]
+  have hoff : ∀ i, ∑ j, C i j * d p j = ∑ s ∈ ({i} : Finset ι)ᶜ, C i s * d p s := by
+    intro i
+    rw [← sum_compl_add_sum {i}, sum_singleton, hdiag i, zero_mul, add_zero]
+  have h := local_cost_comparison Sᶜ S (fun i : ι => ({i} : Finset ι)) w w C d p update θ D
+    hθ hθ0 hw hw hC hd hD
+    (fun x hx => by simpa using hx)
+    (fun i hi => hmin i (mem_compl.mp hi))
+    (fun i hi t ht => hfix i (mem_compl.mp hi) t (by simpa using ht))
+    (fun i hi => by
+      simp only [sum_singleton]
+      rw [← hoff i]
+      exact mul_le_mul_of_nonneg_left (hstep i (mem_compl.mp hi)) (hw i))
+    (fun s => by
+      rw [hm s, mul_one]
+      calc ∑ x ∈ univ.filter (fun x => s ∉ ({x} : Finset ι)), w x * C x s
+          ≤ ∑ x, w x * C x s :=
+            sum_le_sum_of_subset_of_nonneg (subset_univ _)
+              (fun x _ _ => mul_nonneg (hw x) (hC x s))
+        _ ≤ θ * w s := hcol s)
+  simpa only [hm, one_mul] using h.2.2
+
+end SiteAdditive
+
+/-! ### Non-vacuity
+
+Three sites on a triangle, single-site blocks and pure gradient (edge) terms: block `x` touches
+the two edges at `x`, which are the terms `x` and `x + 1` (indices in `Fin 3`), and it leaves the
+opposite edge `x + 2` untouched. Every term is touched by two blocks, `m_t = 2`.
+
+* Weights `w = (1/2, 1, 1/2)`, decaying away from the edge `1`; row weights
+  `w̄ = (1, 1, 1/2) = (max_{t ∈ T_x} w_t)_x`.
+* `K_{x,x+2} = 3/4`, and `K_{x,s} = 0` otherwise. (H3) holds with α = 3/8 (tight: `3/4 ≤ α m_s`),
+  the weight ratio with `L = 2`, so θ = α L = 3/4 < 1.
+* Block 2 is inadmissible, so `S = T_2 = {0, 2}`, and the far term is the edge `1`, which is touched
+  by the two admissible blocks 0 and 1.
+* The points are `Fin 3`: `p = 0` with profile `(1, 1/8, 1)`; the block updates `upd x = x + 1`,
+  with profiles `(1/2, 1/2, 1)` (for block 0) and `(1, 1/2, 1/2)` (for block 1). Minimality is
+  strict (`Ψ(p) = 9/8 < 5/4`), and the response bounds hold with equality.
+
+The conclusion is not trivial: the far side is `∑_{t ∉ S} m_t w_t ρ_t = 1/4 > 0`
+(`example_values`). Without the multiplicity, i.e. with `m_s` replaced by 1, the column condition
+would need θ ≥ 3/2 (`example_needs_multiplicity`). -/
+
+namespace Example
+
+/-- Touched sets: block `x` touches the terms `x` and `x + 1`. -/
+def exT (x : Fin 3) : Finset (Fin 3) := {x, x + 1}
+
+/-- The admissible blocks. -/
+def exA : Finset (Fin 3) := {0, 1}
+
+/-- The terms touched by the inadmissible block 2. -/
+def exS : Finset (Fin 3) := {0, 2}
+
+/-- Term weights. -/
+noncomputable def exW : Fin 3 → ℝ := ![1 / 2, 1, 1 / 2]
+
+/-- Row weights `w̄_x = max_{t ∈ T_x} w_t`. -/
+noncomputable def exWbar : Fin 3 → ℝ := ![1, 1, 1 / 2]
+
+/-- The (H1) matrix: block `x` responds to its untouched term `x + 2` only. -/
+noncomputable def exK (x s : Fin 3) : ℝ := if s = x + 2 then 3 / 4 else 0
+
+/-- Profiles of the three points: `p = 0` and the two block updates `1`, `2`. -/
+noncomputable def exRho : Fin 3 → Fin 3 → ℝ :=
+  ![![1, 1 / 8, 1], ![1 / 2, 1 / 2, 1], ![1, 1 / 2, 1 / 2]]
+
+/-- Block updates. -/
+def exUpd (x : Fin 3) : Fin 3 := x + 1
+
+theorem exT_compl : ∀ x : Fin 3, (exT x)ᶜ = {x + 2} := by decide
+
+theorem exT_filter : ∀ s : Fin 3, univ.filter (fun x => s ∉ exT x) = {s + 1} := by decide
+
+theorem exT_mult : ∀ t : Fin 3, mult exT t = 2 := by decide
+
+theorem exS_compl : exSᶜ = {1} := by decide
+
+theorem exK_succ : ∀ s : Fin 3, exK (s + 1) s = 3 / 4 := by
+  intro s
+  unfold exK
+  rw [if_pos]
+  revert s
+  decide
+
+theorem exK_ne : ∀ x s : Fin 3, exK x s ≠ 0 → s = x + 2 := by
+  intro x s h
+  by_contra hs
+  exact h (by simp [exK, hs])
+
+/-- **Every hypothesis of `local_cost_comparison` holds**, with (H3) at α = 3/8 < 1 and the weight
+ratio at `L = 2`. Every term is touched by two blocks (`m_t = 2`), minimality is strict, the
+response bounds hold with equality, and `w̄_x = max_{t ∈ T_x} w_t` (the last two conjuncts). -/
+theorem example_hypotheses :
+    (∀ t, mult exT t = 2) ∧
+    (∀ t, 0 ≤ exW t) ∧ (∀ x, 0 ≤ exWbar x) ∧ (∀ x s, 0 ≤ exK x s) ∧
+    (∀ t, 0 ≤ exRho 0 t) ∧ (∀ t ∈ exS, exRho 0 t ≤ 1) ∧
+    (∀ x ∉ exA, exT x ⊆ exS) ∧
+    (∀ x ∈ exA, cost exW exRho 0 < cost exW exRho (exUpd x)) ∧
+    (∀ x ∈ exA, ∀ t ∉ exT x, exRho (exUpd x) t = exRho 0 t) ∧
+    (∀ x ∈ exA, ∑ t ∈ exT x, exW t * exRho (exUpd x) t =
+      exWbar x * ∑ s ∈ (exT x)ᶜ, exK x s * exRho 0 s) ∧
+    (∀ s, ∑ x ∈ univ.filter (fun x => s ∉ exT x), exK x s ≤ (3 / 8 : ℝ) * (mult exT s : ℝ)) ∧
+    (∀ x s, s ∉ exT x → exK x s ≠ 0 → exWbar x ≤ 2 * exW s) ∧
+    (∀ x, ∀ t ∈ exT x, exW t ≤ exWbar x) ∧
+    (∀ x, ∃ t ∈ exT x, exW t = exWbar x) := by
+  refine ⟨exT_mult, ?_, ?_, ?_, ?_, ?_, by decide, ?_, ?_, ?_, ?_, ?_, ?_, ?_⟩
+  · intro t; fin_cases t <;> simp [exW]
+  · intro x; fin_cases x <;> simp [exWbar]
+  · intro x s; unfold exK; split_ifs <;> norm_num
+  · intro t; fin_cases t <;> simp [exRho]
+  · intro t ht
+    simp only [exS, mem_insert, mem_singleton] at ht
+    rcases ht with rfl | rfl <;> simp [exRho]
+  · intro x hx
+    simp only [exA, mem_insert, mem_singleton] at hx
+    rcases hx with rfl | rfl <;>
+      simp [cost, Fin.sum_univ_three, exW, exRho, exUpd] <;> norm_num
+  · intro x hx t ht
+    rw [← mem_compl, exT_compl, mem_singleton] at ht
+    subst ht
+    simp only [exA, mem_insert, mem_singleton] at hx
+    rcases hx with rfl | rfl <;> simp [exRho, exUpd]
+  · intro x hx
+    rw [exT_compl, sum_singleton]
+    simp only [exA, mem_insert, mem_singleton] at hx
+    rcases hx with rfl | rfl <;> simp [exT, exW, exWbar, exK, exRho, exUpd] <;> norm_num
+  · intro s
+    rw [exT_filter, sum_singleton, exK_succ, exT_mult]
+    norm_num
+  · intro x s _ hK
+    have hs := exK_ne x s hK
+    subst hs
+    fin_cases x <;> simp [exWbar, exW]
+    norm_num
+  · intro x t ht
+    fin_cases x <;> simp only [exT, mem_insert, mem_singleton] at ht <;>
+      rcases ht with rfl | rfl <;> simp [exW, exWbar] <;> norm_num
+  · intro x
+    fin_cases x
+    · exact ⟨1, by decide, by simp [exW, exWbar]⟩
+    · exact ⟨1, by decide, by simp [exW, exWbar]⟩
+    · exact ⟨2, by decide, by simp [exW, exWbar]⟩
+
+/-- **The conclusion of Lemma LC for the example**, with θ = α L = 3/8 · 2 = 3/4 and `D = 1`,
+obtained by applying `local_cost_comparison` (the column condition comes from
+`weighted_column_of_H3`). -/
+theorem example_conclusion :
+    (1 - 3 / 4 : ℝ) * ∑ t ∈ exSᶜ, (mult exT t : ℝ) * exW t * exRho 0 t ≤
+        3 / 4 * ∑ t ∈ exS, (mult exT t : ℝ) * exW t * exRho 0 t ∧
+      (3 / 4 : ℝ) * ∑ t ∈ exS, (mult exT t : ℝ) * exW t * exRho 0 t ≤
+        3 / 4 * 1 * ∑ t ∈ exS, (mult exT t : ℝ) * exW t ∧
+      ∑ t ∈ exSᶜ, (mult exT t : ℝ) * exW t * exRho 0 t ≤
+        3 / 4 * 1 / (1 - 3 / 4) * ∑ t ∈ exS, (mult exT t : ℝ) * exW t := by
+  obtain ⟨_, hw, hwbar, hK, hρ, hD, hS, hmin, hfix, hresp, hH3, hrange, _, _⟩ :=
+    example_hypotheses
+  have hcol := weighted_column_of_H3 exT exK exW exWbar (3 / 8) 2 hK hw (by norm_num) hrange hH3
+  have hθ : (3 / 8 : ℝ) * 2 = 3 / 4 := by norm_num
+  rw [hθ] at hcol
+  exact local_cost_comparison exA exS exT exW exWbar exK exRho 0 exUpd (3 / 4) 1
+    (by norm_num) (by norm_num) hw hwbar hK hρ hD hS (fun x hx => (hmin x hx).le) hfix
+    (fun x hx => (hresp x hx).le) hcol
+
+/-- **The values in the example.** The far side `∑_{t ∉ S} m_t w_t ρ_t = 1/4` is positive, and
+`∑_{t ∈ S} m_t w_t ρ_t = ∑_{t ∈ S} m_t w_t = 2`; so `example_conclusion` reads
+`1/16 ≤ 3/2`, `3/2 ≤ 3/2` and `1/4 ≤ 6`. -/
+theorem example_values :
+    ∑ t ∈ exSᶜ, (mult exT t : ℝ) * exW t * exRho 0 t = 1 / 4 ∧
+      ∑ t ∈ exS, (mult exT t : ℝ) * exW t * exRho 0 t = 2 ∧
+      ∑ t ∈ exS, (mult exT t : ℝ) * exW t = 2 := by
+  refine ⟨?_, ?_, ?_⟩
+  · rw [exS_compl, sum_singleton, exT_mult]
+    norm_num [exW, exRho]
+  · simp [exS, exT_mult, exW, exRho]
+    norm_num
+  · simp [exS, exT_mult, exW]
+    norm_num
+
+/-- **The multiplicity is needed.** In the example, with `m_s` replaced by 1, the column condition
+`∑_{x : s ∉ T_x} w̄_x K_{x,s} ≤ θ · 1 · w_s` fails at `s = 0` for every θ < 3/2. -/
+theorem example_needs_multiplicity (θ : ℝ) (hθ : θ < 3 / 2) :
+    ¬ ∑ x ∈ univ.filter (fun x => (0 : Fin 3) ∉ exT x), exWbar x * exK x 0 ≤ θ * 1 * exW 0 := by
+  rw [exT_filter, sum_singleton, exK_succ]
+  norm_num [exWbar, exW]
+  linarith
+
+/-- **Non-vacuity of the block-recurrence bundles.** At each admissible block `x` of the example,
+the hypotheses of `recurrence_of_block_minimality` (with the matrix `w̄_x K_{x,s}`) and of
+`block_recurrence_of_approx` (with `r = w̄_x ∑_{s ∉ T_x} K_{x,s} ρ_s(p)` and the update `upd x` as
+the competitor for every ε) hold. The block recurrence reads `5/8 ≤ 3/4`. -/
+theorem example_block_recurrence (x : Fin 3) (hx : x ∈ exA) :
+    ∑ t ∈ exT x, exW t * exRho 0 t ≤ ∑ s ∈ (exT x)ᶜ, (exWbar x * exK x s) * exRho 0 s ∧
+      ∑ t ∈ exT x, exW t * exRho 0 t ≤ exWbar x * ∑ s ∈ (exT x)ᶜ, exK x s * exRho 0 s ∧
+      ∑ t ∈ exT x, exW t * exRho 0 t = 5 / 8 ∧
+      exWbar x * ∑ s ∈ (exT x)ᶜ, exK x s * exRho 0 s = 3 / 4 := by
+  obtain ⟨_, _, _, _, _, _, _, hmin, hfix, hresp, _, _, _, _⟩ := example_hypotheses
+  have hresp' : ∑ t ∈ exT x, exW t * exRho (exUpd x) t ≤
+      ∑ s ∈ (exT x)ᶜ, (exWbar x * exK x s) * exRho 0 s := by
+    rw [hresp x hx, mul_sum]
+    exact le_of_eq (sum_congr rfl fun s _ => by ring)
+  refine ⟨recurrence_of_block_minimality exW exRho 0 exUpd exT
+      (fun x s => exWbar x * exK x s) x (hmin x hx).le (hfix x hx) hresp',
+    block_recurrence_of_approx exW exRho 0 exT x _ fun ε hε =>
+      ⟨exUpd x, (hmin x hx).le, hfix x hx, by rw [hresp x hx]; linarith⟩, ?_, ?_⟩
+  · simp only [exA, mem_insert, mem_singleton] at hx
+    rcases hx with rfl | rfl <;> simp [exT, exW, exRho] <;> norm_num
+  · rw [exT_compl, sum_singleton]
+    simp only [exA, mem_insert, mem_singleton] at hx
+    rcases hx with rfl | rfl <;> simp [exWbar, exK, exRho]
+
+/-- **Non-vacuity of the (Σ_w) bundle.** `local_cost_comparison_summed` applies to the example with
+`r_x = w̄_x ∑_{s ∉ T_x} K_{x,s} ρ_s(p)`. Here (Σ_w) is checked by direct computation,
+`∑_{x ∈ A} r_x = 3/2 ≤ 27/16 = θ ∑_t m_t w_t ρ_t(p)` with θ = 3/4, not through the column
+condition. -/
+theorem example_summed :
+    ∑ x ∈ exA, exWbar x * ∑ s ∈ (exT x)ᶜ, exK x s * exRho 0 s = 3 / 2 ∧
+      (3 / 4 : ℝ) * ∑ t, (mult exT t : ℝ) * exW t * exRho 0 t = 27 / 16 ∧
+      (1 - 3 / 4 : ℝ) * ∑ t ∈ exSᶜ, (mult exT t : ℝ) * exW t * exRho 0 t ≤
+        3 / 4 * ∑ t ∈ exS, (mult exT t : ℝ) * exW t * exRho 0 t := by
+  obtain ⟨_, hw, _, _, hρ, _, hS, hmin, hfix, hresp, _, _, _, _⟩ := example_hypotheses
+  have h1 : ∑ x ∈ exA, exWbar x * ∑ s ∈ (exT x)ᶜ, exK x s * exRho 0 s = 3 / 2 := by
+    simp only [exA, exT_compl, sum_singleton]
+    rw [sum_insert (by decide), sum_singleton]
+    simp [exWbar, exK, exRho]
+    norm_num
+  have h2 : (3 / 4 : ℝ) * ∑ t, (mult exT t : ℝ) * exW t * exRho 0 t = 27 / 16 := by
+    simp [Fin.sum_univ_three, exT_mult, exW, exRho]
+    norm_num
+  refine ⟨h1, h2, ?_⟩
+  exact local_cost_comparison_summed exA exS exT exW exRho 0 exUpd
+    (fun x => exWbar x * ∑ s ∈ (exT x)ᶜ, exK x s * exRho 0 s) (3 / 4) hw hρ hS
+    (fun x hx => (hmin x hx).le) hfix (fun x hx => (hresp x hx).le)
+    (by rw [h1, h2]; norm_num)
+
+/-- **Non-vacuity of the counting bundle.** `comparison_of_block_recurrence` applies to the example
+with the block recurrences of `example_block_recurrence` and the values of `example_summed`. -/
+theorem example_counting :
+    (1 - 3 / 4 : ℝ) * ∑ t ∈ exSᶜ, (mult exT t : ℝ) * exW t * exRho 0 t ≤
+      3 / 4 * ∑ t ∈ exS, (mult exT t : ℝ) * exW t * exRho 0 t := by
+  obtain ⟨_, hw, _, _, hρ, _, hS, _, _, _, _, _, _, _⟩ := example_hypotheses
+  obtain ⟨h1, h2, _⟩ := example_summed
+  exact comparison_of_block_recurrence exA exS exT exW (exRho 0)
+    (fun x => exWbar x * ∑ s ∈ (exT x)ᶜ, exK x s * exRho 0 s) (3 / 4) hw hρ hS
+    (fun x hx => (example_block_recurrence x hx).2.1) (by rw [h1, h2]; norm_num)
+
+/-- The column condition of the example in θ = 3/4, from `weighted_column_of_H3`. -/
+theorem example_column : ∀ s, ∑ x ∈ univ.filter (fun x => s ∉ exT x), exWbar x * exK x s ≤
+    3 / 4 * (mult exT s : ℝ) * exW s := by
+  obtain ⟨_, _, _, hK, _, _, _, _, _, _, hH3, hrange, _, _⟩ := example_hypotheses
+  have hw : ∀ t, 0 ≤ exW t := example_hypotheses.2.1
+  have hcol := weighted_column_of_H3 exT exK exW exWbar (3 / 8) 2 hK hw (by norm_num) hrange hH3
+  have hθ : (3 / 8 : ℝ) * 2 = 3 / 4 := by norm_num
+  rwa [hθ] at hcol
+
+/-- The zero profile: every point has `ρ_t = 0`. -/
+noncomputable def exZero : Fin 3 → Fin 3 → ℝ := fun _ _ => 0
+
+/-- **Non-vacuity of the uniqueness bundle.** Take every block admissible (`S = ∅`), the example's
+touched sets `exT`, weights `exW`, row weights `exWbar`, matrix `exK`, updates `exUpd`,
+θ = 3/4, and the zero profile `ρ ≡ 0` (`exZero`) at the point `p = 0`. The first ten conjuncts
+are the hypotheses of `local_cost_uniqueness` on these data: θ < 1, `w > 0`, `w̄ ≥ 0`, `K ≥ 0`,
+`ρ ≥ 0`, `m_t ≥ 1`, minimality, locality, the response bound (H1) and the column condition in θ.
+The last conjunct is its conclusion, `ρ_t(p) = 0`, obtained by applying the theorem. The instance
+is the zero profile, and by the theorem every instance is; its content is that the hypotheses are
+jointly satisfiable. -/
+theorem example_uniqueness :
+    (3 / 4 : ℝ) < 1 ∧
+    (∀ t, 0 < exW t) ∧ (∀ x, 0 ≤ exWbar x) ∧ (∀ x s, 0 ≤ exK x s) ∧
+    (∀ t, 0 ≤ exZero 0 t) ∧ (∀ t, 1 ≤ mult exT t) ∧
+    (∀ x, cost exW exZero 0 ≤ cost exW exZero (exUpd x)) ∧
+    (∀ x, ∀ t ∉ exT x, exZero (exUpd x) t = exZero 0 t) ∧
+    (∀ x, ∑ t ∈ exT x, exW t * exZero (exUpd x) t ≤
+      exWbar x * ∑ s ∈ (exT x)ᶜ, exK x s * exZero 0 s) ∧
+    (∀ s, ∑ x ∈ univ.filter (fun x => s ∉ exT x), exWbar x * exK x s ≤
+      3 / 4 * (mult exT s : ℝ) * exW s) ∧
+    (∀ t, exZero 0 t = 0) := by
+  have hθ : (3 / 4 : ℝ) < 1 := by norm_num
+  have hwpos : ∀ t, 0 < exW t := by intro t; fin_cases t <;> simp [exW]
+  obtain ⟨_, _, hwbar, hK, _, _, _, _, _, _, _, _, _, _⟩ := example_hypotheses
+  have hρ : ∀ t, 0 ≤ exZero 0 t := fun _ => le_rfl
+  have hm : ∀ t, 1 ≤ mult exT t := fun t => by rw [exT_mult t]; norm_num
+  have hmin : ∀ x, cost exW exZero 0 ≤ cost exW exZero (exUpd x) := fun _ => by
+    simp [cost, exZero]
+  have hfix : ∀ x, ∀ t ∉ exT x, exZero (exUpd x) t = exZero 0 t := fun _ _ _ => rfl
+  have hresp : ∀ x, ∑ t ∈ exT x, exW t * exZero (exUpd x) t ≤
+      exWbar x * ∑ s ∈ (exT x)ᶜ, exK x s * exZero 0 s := fun _ => by simp [exZero]
+  exact ⟨hθ, hwpos, hwbar, hK, hρ, hm, hmin, hfix, hresp, example_column,
+    local_cost_uniqueness exT exW exWbar exK exZero 0 exUpd (3 / 4) hθ hwpos hwbar hK hρ hm
+      hmin hfix hresp example_column⟩
+
+end Example
+
+/-! ### Non-vacuity of the site-additive bundles
+
+Two sites, `S = {1}`. Site 0 is influenced by site 1 with `C_{01} = 1/2` and `C = 0` otherwise
+(zero diagonal), the weights are `w ≡ 1`, θ = 1/2 and `D = 1`. The points are `Fin 2`: `p = 0`
+with profile `(1/4, 1)`, and the update of site 0 is the point 1, with profile `(1/2, 1)`.
+Minimality is strict (`5/4 < 3/2`), the response bound and the column condition at `j = 1` hold
+with equality, and the far side is `w_0 d_0(p) = 1/4 > 0`. -/
+
+namespace SiteExample
+
+/-- The boundary set. -/
+def sS : Finset (Fin 2) := {1}
+
+/-- Unit weights. -/
+noncomputable def sW : Fin 2 → ℝ := fun _ => 1
+
+/-- Influence of site 1 on site 0. -/
+noncomputable def sC (i j : Fin 2) : ℝ := if i = 0 ∧ j = 1 then 1 / 2 else 0
+
+/-- Profiles of the points `0` (the minimal coupling) and `1` (the update of site 0). -/
+noncomputable def sD : Fin 2 → Fin 2 → ℝ := ![![1 / 4, 1], ![1 / 2, 1]]
+
+/-- Every site is updated to the point 1 (only site 0 is outside `S`). -/
+def sUpd (_ : Fin 2) : Fin 2 := 1
+
+theorem sS_out : ∀ i : Fin 2, i ∉ sS → i = 0 := by decide
+
+/-- Every hypothesis of `site_additive_comparison` and `site_additive_comparison_of_local` holds
+(with θ = 1/2, `D = 1`); minimality is strict. -/
+theorem site_example_hypotheses :
+    (∀ i j, 0 ≤ sC i j) ∧ (∀ i, sC i i = 0) ∧ (∀ i, 0 ≤ sW i) ∧
+    (∀ i, 0 ≤ sD 0 i) ∧ (∀ i ∈ sS, sD 0 i ≤ 1) ∧
+    (∀ i ∉ sS, cost sW sD 0 < cost sW sD (sUpd i)) ∧
+    (∀ i ∉ sS, ∀ j, j ≠ i → sD (sUpd i) j = sD 0 j) ∧
+    (∀ i ∉ sS, sD (sUpd i) i ≤ ∑ j, sC i j * sD 0 j) ∧
+    (∀ j, ∑ i, sW i * sC i j ≤ 1 / 2 * sW j) := by
+  refine ⟨?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_⟩
+  · intro i j; unfold sC; split_ifs <;> norm_num
+  · intro i; fin_cases i <;> simp [sC]
+  · intro i; simp [sW]
+  · intro i; fin_cases i <;> simp [sD]
+  · intro i hi
+    simp only [sS, mem_singleton] at hi
+    subst hi
+    simp [sD]
+  · intro i hi
+    obtain rfl := sS_out i hi
+    simp [cost, Fin.sum_univ_two, sW, sD, sUpd]
+    norm_num
+  · intro i hi j hj
+    obtain rfl := sS_out i hi
+    fin_cases j
+    · exact absurd rfl hj
+    · simp [sD, sUpd]
+  · intro i hi
+    obtain rfl := sS_out i hi
+    simp [sC, sD, sUpd]
+  · intro j
+    fin_cases j <;> simp [sW, sC]
+
+/-- **Both site-additive theorems apply**, and the far side is positive:
+`∑_{i ∉ S} w_i d_i(p) = 1/4 ≤ θ D / (1 − θ) · ∑_{j ∈ S} w_j = 1`. -/
+theorem site_example :
+    ∑ i ∈ sSᶜ, sW i * sD 0 i = 1 / 4 ∧
+      ∑ i ∈ sSᶜ, sW i * sD 0 i ≤ 1 / 2 * 1 / (1 - 1 / 2) * ∑ j ∈ sS, sW j ∧
+      ∑ i ∈ sSᶜ, sW i * sD 0 i ≤ 1 / 2 * 1 / (1 - 1 / 2) * ∑ j ∈ sS, sW j := by
+  obtain ⟨hC, hdiag, hw, hd, hD, hmin, hfix, hstep, hcol⟩ := site_example_hypotheses
+  refine ⟨?_, ?_, ?_⟩
+  · have hc : sSᶜ = {0} := by decide
+    rw [hc, sum_singleton]
+    simp [sW, sD]
+  · exact site_additive_comparison sS sW sD 0 sUpd sC (1 / 2) 1 (by norm_num) (by norm_num)
+      hC hw hd hD (fun i hi => (hmin i hi).le) hfix hstep hcol
+  · exact site_additive_comparison_of_local sS sW sD 0 sUpd sC (1 / 2) 1 (by norm_num)
+      (by norm_num) hC hdiag hw hd hD (fun i hi => (hmin i hi).le) hfix hstep hcol
+
+end SiteExample
+
+end YangMills.StrongCoupling.LocalCostComparison
+end Part2_LocalCostComparison
+
+```
+
+## Part 3: the 1D value-plus-gradient chain
+
+```lean
+/-! # Part 3: the constants of the 1D value-plus-gradient chain -/
+section Part3_ValueGradientChain
+
+/-!
+# The 1D Gaussian toy chain: scale-recursion arithmetic of value-plus-gradient composition
+
+This part formalises the *arithmetic* of the result that, in the 1D Gaussian toy chain,
+value-plus-gradient composition loses only a bounded factor: the closed forms of the constants,
+their exact values, and their bounds, monotonicity and limits.
+
+**Scope.** The 1D Gaussian toy chain; a statement about one composition method (per-scale norms
+`N_k = 2^k (‖·‖₁ + β_k ‖∇·‖₁)`, composed scale by scale and summed over scales by the triangle
+inequality) at Gaussian order; nothing about Yang–Mills.
+
+**What is and is not formalised.** The constants below are defined by their closed forms, as
+real-valued functions of the scale `k : ℕ`, and this part proves the inequalities, monotonicity
+statements, limits and recursion bounds of these closed forms. The *identification* of the
+closed forms with the optimal operator constants is the analytic part of the argument
+(`τ_k = sup_z (‖R_k z‖₁ − 2‖z‖₁)/‖∇z‖₁`, `μ_k = sup_z ‖∇R_k z‖₁/‖∇z‖₁`, `γ_k = ‖R_k e_w‖₁/2`, the
+minimal admissible chain `β_{k+1} = F_k(β_k)/2`, and `Θ_k ≤ 1 + 2β_k`). That part is out of
+scope: no operator `R_k`, `T_k`, no norm `N_k` and no overestimate `Θ_k` appears in this part.
+
+## The constants (closed forms)
+
+* `ρ_k = √((4 + 2·4^{−k})/3)` (`rho`); `ρ₀ = √2`, `ρ₁ = √6/2`, strictly decreasing to `2/√3`.
+* gradient constant `μ_k = 1 + 1/ρ_k` (`mu`): `μ₀ = 1 + √2/2`, strictly increasing to
+  `1 + √3/2 < 2`, never attained.
+* value constant `τ_k = 2/(ρ_k(2 + ρ_k))` (`tau`), and `γ_k = 1 + 2/(ρ_k(2 + ρ_k))` (`gamma`), so
+  `τ_k = γ_k − 1`; `τ₀ = √2 − 1`, `γ₀ = √2`; `γ_k` strictly increasing to `(1 + 3√3)/4`.
+* parameters of the kernel of `R_k`: `q_k = −(2 − ρ_k)/(2 + ρ_k)` (`qRoot`), `p_k = |q_k|`
+  (`pRoot`), `a_k = 1/(2(2 + ρ_k))` (`aAmp`); identities `τ = (1 + p)/(2ρ)`,
+  `μ = 1 + 4a/(1 − p)`, `γ = μ − 2a` (the case `n = 1`), and `(1 − p)/(2ρ·2a) = 1` (the
+  normalisation of the threshold rule, see `betaThr`).
+* the minimal chain with `ã ≡ 1`, i.e. without value loss (called the "optimal chain"; it is
+  minimal only among the chains with `ã ≡ 1`), `beta`: `β₀ = 0`, `β₁ = (√2 − 1)/2`,
+  `β₂ = (τ₁ + γ₁β₁)/2 = (8√6 + 16√3 + 3√2 − 27)/60`, and for `k ≥ 2`
+  `β_{k+1} = (1/(2ρ_k) + (1 + 1/ρ_k) β_k)/2`.
+
+## Main results
+
+* `rho_gt`, `rho_strictAnti`, `rho_tendsto`: `ρ_k > 2/√3`, strictly decreasing, `ρ_k → 2/√3`.
+* `mu_lt_two`, `mu_lt_sup`, `mu_strictMono`, `mu_tendsto`: `μ_k < 1 + √3/2 < 2`, strictly
+  increasing, `μ_k → 1 + √3/2`.
+* `gamma_zero`: `γ₀ = √2`; `gamma_strictMono`, `gamma_lt_lim`, `gamma_tendsto`.
+* `beta_lt`: `β_k < 3/2 + √3` for every `k`; `beta_lt_fixedPt`: `β_k < 1/(2(ρ_k − 1))` for
+  `k ≥ 2`; `beta_strictMono`; `beta_tendsto`: `β_k → 3/2 + √3`.
+* `theta_bound`: `1 + 2β_k < 4 + 2√3` for every `k` (the arithmetic half of the bounded-loss
+  bound `Θ_k ≤ 1 + 2β_k < 4 + 2√3`); `theta_tendsto`: `1 + 2β_k → 4 + 2√3`, so the constant cannot
+  be lowered for this chain.
+* `beta_one_window`, `beta_gt_threshold`: the branch inequalities at `k = 1` and for `k ≥ 2`,
+  which fix the form of the recursion for `beta`.
+* `gamma_prod_ge`, `gamma_prod_tendsto`, `bounded_versus_geometric`: the site-additive contrast
+  `∏_{i<k} γ_i ≥ (√2)^k → ∞`.
+-/
+
+open Filter Topology
+
+namespace ValueGradientChain
+
+/-! ## 0. Elementary facts about `√2`, `√3`, `√6` and `(1/4)^k` -/
+
+lemma sqrt_two_sq : Real.sqrt 2 ^ 2 = 2 := Real.sq_sqrt (by norm_num)
+
+lemma sqrt_three_sq : Real.sqrt 3 ^ 2 = 3 := Real.sq_sqrt (by norm_num)
+
+lemma sqrt_six_sq : Real.sqrt 6 ^ 2 = 6 := Real.sq_sqrt (by norm_num)
+
+lemma sqrt_three_pos : 0 < Real.sqrt 3 := Real.sqrt_pos.2 (by norm_num)
+
+lemma sqrt_two_pos : 0 < Real.sqrt 2 := Real.sqrt_pos.2 (by norm_num)
+
+lemma one_lt_sqrt_two : 1 < Real.sqrt 2 := by nlinarith [sqrt_two_sq, sqrt_two_pos]
+
+lemma sqrt_two_lt_three_halves : Real.sqrt 2 < 3 / 2 := by nlinarith [sqrt_two_sq, sqrt_two_pos]
+
+lemma sqrt_two_gt : (1.4 : ℝ) < Real.sqrt 2 := (Real.lt_sqrt (by norm_num)).2 (by norm_num)
+
+lemma sqrt_three_gt : (1.7 : ℝ) < Real.sqrt 3 := (Real.lt_sqrt (by norm_num)).2 (by norm_num)
+
+lemma sqrt_three_lt : Real.sqrt 3 < 1.75 := (Real.sqrt_lt' (by norm_num)).2 (by norm_num)
+
+lemma sqrt_three_lt_two : Real.sqrt 3 < 2 := by have := sqrt_three_lt; linarith
+
+lemma one_lt_sqrt_three : 1 < Real.sqrt 3 := by have := sqrt_three_gt; linarith
+
+lemma sqrt_six_eq : Real.sqrt 6 = Real.sqrt 2 * Real.sqrt 3 := by
+  rw [← Real.sqrt_mul (by norm_num)]; norm_num
+
+lemma quarter_pow_pos (k : ℕ) : 0 < (1 / 4 : ℝ) ^ k := by positivity
+
+lemma quarter_pow_le_one (k : ℕ) : (1 / 4 : ℝ) ^ k ≤ 1 := pow_le_one₀ (by norm_num) (by norm_num)
+
+lemma quarter_pow_succ_lt (k : ℕ) : (1 / 4 : ℝ) ^ (k + 1) < (1 / 4 : ℝ) ^ k := by
+  rw [pow_succ]; have := quarter_pow_pos k; nlinarith
+
+/-! ## 1. The scale parameter `ρ_k` -/
+
+/-- The scale parameter (after the spectral reduction):
+`ρ_k = √((4 + 2·4^{−k})/3) = √(2 − 4c_k)` with `c_k = (1 − 4^{−k})/6`. Here `4^{−k}` is written
+`(1/4)^k`. In the 1D Gaussian toy chain this parametrises the conditional-mean map `R_k` of the
+scale-`k` block averages; that identification is analytic and is not formalised here (nothing
+about Yang–Mills). -/
+noncomputable def rho (k : ℕ) : ℝ := Real.sqrt ((4 + 2 * (1 / 4 : ℝ) ^ k) / 3)
+
+lemma rho_sq (k : ℕ) : rho k ^ 2 = (4 + 2 * (1 / 4 : ℝ) ^ k) / 3 := Real.sq_sqrt (by positivity)
+
+lemma rho_pos (k : ℕ) : 0 < rho k := Real.sqrt_pos.2 (by positivity)
+
+lemma rho_sq_gt (k : ℕ) : 4 / 3 < rho k ^ 2 := by
+  rw [rho_sq]; have := quarter_pow_pos k; linarith
+
+lemma rho_sq_le (k : ℕ) : rho k ^ 2 ≤ 2 := by
+  rw [rho_sq]; have := quarter_pow_le_one k; linarith
+
+lemma one_lt_rho (k : ℕ) : 1 < rho k := by nlinarith [rho_sq_gt k, rho_pos k]
+
+lemma rho_lt_three_halves (k : ℕ) : rho k < 3 / 2 := by nlinarith [rho_sq_le k, rho_pos k]
+
+/-- `ρ_k √3 > 2`, the form of `ρ_k > 2/√3` used in the proofs. -/
+lemma rho_mul_sqrt_three_gt (k : ℕ) : 2 < rho k * Real.sqrt 3 := by
+  have h1 : (rho k * Real.sqrt 3) ^ 2 = 3 * rho k ^ 2 := by rw [mul_pow, sqrt_three_sq]; ring
+  have h2 : 0 < rho k * Real.sqrt 3 := mul_pos (rho_pos k) sqrt_three_pos
+  nlinarith [rho_sq_gt k]
+
+/-- `2√3 < 3ρ_k`, i.e. `ρ_k > 2/√3` once more, in the form without division. -/
+lemma two_sqrt_three_lt (k : ℕ) : 2 * Real.sqrt 3 < 3 * rho k := by
+  have h : rho k * Real.sqrt 3 * Real.sqrt 3 = 3 * rho k := by
+    rw [mul_assoc, Real.mul_self_sqrt (by norm_num)]; ring
+  nlinarith [mul_lt_mul_of_pos_right (rho_mul_sqrt_three_gt k) sqrt_three_pos]
+
+/-- **`ρ_k > ρ_∞ = 2/√3` for every `k`.** -/
+theorem rho_gt (k : ℕ) : 2 / Real.sqrt 3 < rho k := by
+  rw [div_lt_iff₀ sqrt_three_pos]; exact rho_mul_sqrt_three_gt k
+
+/-- **`ρ_k` is strictly decreasing.** -/
+theorem rho_strictAnti : StrictAnti rho := by
+  refine strictAnti_nat_of_succ_lt fun k => ?_
+  unfold rho
+  apply Real.sqrt_lt_sqrt (by positivity)
+  have := quarter_pow_succ_lt k
+  linarith
+
+/-- `ρ₀ = √2`. -/
+theorem rho_zero : rho 0 = Real.sqrt 2 := by norm_num [rho]
+
+/-- `ρ₁ = √6/2`. -/
+theorem rho_one : rho 1 = Real.sqrt 6 / 2 := by
+  unfold rho
+  rw [show ((4 : ℝ) + 2 * (1 / 4) ^ 1) / 3 = (Real.sqrt 6 / 2) ^ 2 by
+    rw [div_pow (Real.sqrt 6) 2 2, sqrt_six_sq]; norm_num]
+  exact Real.sqrt_sq (by positivity)
+
+/-- `√(4/3) = 2/√3`, the value of `ρ_∞`. -/
+lemma sqrt_four_thirds : Real.sqrt ((4 + 2 * 0) / 3) = 2 / Real.sqrt 3 := by
+  rw [show ((4 : ℝ) + 2 * 0) / 3 = (2 / Real.sqrt 3) ^ 2 by rw [div_pow, sqrt_three_sq]; norm_num]
+  exact Real.sqrt_sq (by positivity)
+
+/-- **`ρ_k → 2/√3`** as `k → ∞`. -/
+theorem rho_tendsto : Tendsto rho atTop (𝓝 (2 / Real.sqrt 3)) := by
+  have h0 : Tendsto (fun k : ℕ => (1 / 4 : ℝ) ^ k) atTop (𝓝 0) :=
+    tendsto_pow_atTop_nhds_zero_of_lt_one (by norm_num) (by norm_num)
+  have h1 : Tendsto (fun k : ℕ => (4 + 2 * (1 / 4 : ℝ) ^ k) / 3) atTop
+      (𝓝 ((4 + 2 * 0) / 3)) :=
+    (tendsto_const_nhds.add (tendsto_const_nhds.mul h0)).div_const 3
+  rw [← sqrt_four_thirds]
+  exact h1.sqrt
+
+/-! ## 2. The gradient constant `μ_k` -/
+
+/-- The **gradient constant** `μ_k = 1 + 1/ρ_k` (the constant "κ" that must stay below 2). Here
+it is the closed form only; that it equals the optimal constant `sup_z ‖∇R_k z‖₁/‖∇z‖₁` of the
+1D Gaussian toy chain is analytic and not formalised (one composition method at Gaussian order;
+nothing about Yang–Mills). -/
+noncomputable def mu (k : ℕ) : ℝ := 1 + 1 / rho k
+
+lemma mu_pos (k : ℕ) : 0 < mu k := by unfold mu; have := rho_pos k; positivity
+
+/-- **`μ_k < 1 + √3/2`** for every `k`: the supremum `1 + √3/2` is never attained. -/
+theorem mu_lt_sup (k : ℕ) : mu k < 1 + Real.sqrt 3 / 2 := by
+  unfold mu
+  have : 1 / rho k < Real.sqrt 3 / 2 := by
+    rw [div_lt_div_iff₀ (rho_pos k) (by norm_num)]; linarith [rho_mul_sqrt_three_gt k]
+  linarith
+
+/-- **`μ_k < 2` for every `k`**: the gradient constant stays below the threshold 2 at every
+scale. -/
+theorem mu_lt_two (k : ℕ) : mu k < 2 := by
+  have := mu_lt_sup k; linarith [sqrt_three_lt_two]
+
+/-- **`μ_k` is strictly increasing.** -/
+theorem mu_strictMono : StrictMono mu := by
+  refine strictMono_nat_of_lt_succ fun k => ?_
+  unfold mu
+  have := one_div_lt_one_div_of_lt (rho_pos (k + 1)) (rho_strictAnti (Nat.lt_succ_self k))
+  linarith
+
+/-- `μ_k` is increasing (monotone). -/
+theorem mu_monotone : Monotone mu := mu_strictMono.monotone
+
+/-- **`μ_k → 1 + √3/2`** as `k → ∞`. -/
+theorem mu_tendsto : Tendsto mu atTop (𝓝 (1 + Real.sqrt 3 / 2)) := by
+  have h : Tendsto (fun k => 1 + 1 / rho k) atTop (𝓝 (1 + 1 / (2 / Real.sqrt 3))) :=
+    tendsto_const_nhds.add (tendsto_const_nhds.div rho_tendsto (by positivity))
+  rw [one_div_div] at h
+  exact h
+
+/-- `μ₀ = 1 + √2/2` (the exact value of the gradient constant at `k = 0`). -/
+theorem mu_zero : mu 0 = 1 + Real.sqrt 2 / 2 := by
+  unfold mu
+  rw [rho_zero]
+  congr 1
+  rw [div_eq_div_iff (ne_of_gt sqrt_two_pos) (by norm_num)]
+  nlinarith [Real.mul_self_sqrt (show (0 : ℝ) ≤ 2 by norm_num)]
+
+/-- `μ₁ = 1 + √6/3`. -/
+theorem mu_one : mu 1 = 1 + Real.sqrt 6 / 3 := by
+  unfold mu
+  rw [rho_one, one_div_div]
+  congr 1
+  rw [div_eq_div_iff (ne_of_gt (Real.sqrt_pos.2 (by norm_num))) (by norm_num)]
+  nlinarith [Real.mul_self_sqrt (show (0 : ℝ) ≤ 6 by norm_num)]
+
+/-! ## 3. The value constant `τ_k` and `γ_k = 1 + τ_k` -/
+
+/-- The **value constant** `τ_k = 2/(ρ_k(2 + ρ_k))` (the optimal `κ₀` of
+`‖R_k y‖₁ ≤ 2‖y‖₁ + τ_k ‖∇y‖₁`, attained at `y = e_w`). Closed form only; the identification
+with the optimal constant is analytic and not formalised. 1D Gaussian toy chain; nothing about
+Yang–Mills. -/
+noncomputable def tau (k : ℕ) : ℝ := 2 / (rho k * (2 + rho k))
+
+/-- `γ_k = 1 + 2/(ρ_k(2 + ρ_k))`: the closed form of the 1D per-scale factor
+`γ_k = ‖R_k e_w‖₁/2` of the site-additive class (Proposition C). The identification with
+`‖R_k e_w‖₁/2` is analytic and not formalised. -/
+noncomputable def gamma (k : ℕ) : ℝ := 1 + 2 / (rho k * (2 + rho k))
+
+lemma gamma_eq (k : ℕ) : gamma k = 1 + tau k := rfl
+
+/-- **`τ_k = γ_k − 1`.** -/
+theorem tau_eq_gamma_sub_one (k : ℕ) : tau k = gamma k - 1 := by rw [gamma_eq]; ring
+
+lemma den_pos (k : ℕ) : 0 < rho k * (2 + rho k) := by have := rho_pos k; positivity
+
+lemma den_gt_three (k : ℕ) : 3 < rho k * (2 + rho k) := by nlinarith [one_lt_rho k]
+
+lemma den_lt_six (k : ℕ) : rho k * (2 + rho k) < 6 := by
+  nlinarith [rho_lt_three_halves k, rho_pos k]
+
+lemma den_strictAnti : StrictAnti fun k => rho k * (2 + rho k) := by
+  refine strictAnti_nat_of_succ_lt fun k => ?_
+  have h := rho_strictAnti (Nat.lt_succ_self k)
+  have := rho_pos (k + 1)
+  show rho (k + 1) * (2 + rho (k + 1)) < rho k * (2 + rho k)
+  nlinarith
+
+lemma tau_pos (k : ℕ) : 0 < tau k := div_pos (by norm_num) (den_pos k)
+
+lemma tau_lt_one (k : ℕ) : tau k < 1 := by
+  unfold tau; rw [div_lt_one (den_pos k)]; linarith [den_gt_three k]
+
+lemma tau_gt_third (k : ℕ) : 1 / 3 < tau k := by
+  unfold tau; rw [lt_div_iff₀ (den_pos k)]; linarith [den_lt_six k]
+
+lemma gamma_pos (k : ℕ) : 0 < gamma k := by rw [gamma_eq]; linarith [tau_pos k]
+
+/-- `τ_k` is strictly increasing. -/
+theorem tau_strictMono : StrictMono tau := by
+  refine strictMono_nat_of_lt_succ fun k => ?_
+  unfold tau
+  exact div_lt_div_of_pos_left (by norm_num) (den_pos (k + 1))
+    (den_strictAnti (Nat.lt_succ_self k))
+
+/-- **`γ_k` is strictly increasing** (`γ_k` increases from `√2`). -/
+theorem gamma_strictMono : StrictMono gamma := by
+  intro i j hij
+  rw [gamma_eq, gamma_eq]
+  linarith [tau_strictMono hij]
+
+/-- `τ_k < τ_∞ = 3(√3 − 1)/4` for every `k`. -/
+theorem tau_lt_lim (k : ℕ) : tau k < 3 * (Real.sqrt 3 - 1) / 4 := by
+  set s := Real.sqrt 3 with hs_def
+  have hs : s ^ 2 = 3 := sqrt_three_sq
+  have hρ := rho_pos k
+  have ht := rho_mul_sqrt_three_gt k
+  have key : 3 * (s - 1) * (rho k * (2 + rho k)) - 8
+      = (rho k * s - 2) * ((s - 1) * (rho k * s) + 4) := by
+    linear_combination (2 * rho k - (s - 1) * rho k ^ 2) * hs
+  have hpos : 0 < (rho k * s - 2) * ((s - 1) * (rho k * s) + 4) := by
+    apply mul_pos (by linarith)
+    have : 0 < s - 1 := by linarith [one_lt_sqrt_three]
+    have : 0 < rho k * s := by positivity
+    positivity
+  unfold tau
+  rw [div_lt_div_iff₀ (den_pos k) (by norm_num)]
+  nlinarith
+
+/-- **`γ_k < γ_∞ = (1 + 3√3)/4`** for every `k`. -/
+theorem gamma_lt_lim (k : ℕ) : gamma k < (1 + 3 * Real.sqrt 3) / 4 := by
+  rw [gamma_eq]; linarith [tau_lt_lim k]
+
+/-- The value of `τ` at `ρ_∞ = 2/√3`: `2/(ρ_∞(2 + ρ_∞)) = 3(√3 − 1)/4`. -/
+lemma tau_at_lim :
+    2 / (2 / Real.sqrt 3 * (2 + 2 / Real.sqrt 3)) = 3 * (Real.sqrt 3 - 1) / 4 := by
+  set s := Real.sqrt 3 with hs_def
+  have hs : s ^ 2 = 3 := sqrt_three_sq
+  have hs0 : 0 < s := sqrt_three_pos
+  have h2s : 2 / s = 2 * s / 3 := by
+    rw [div_eq_div_iff (ne_of_gt hs0) (by norm_num)]; nlinarith
+  rw [h2s, div_eq_div_iff (by positivity) (by norm_num)]
+  linear_combination (-(8 / 3 + 4 * s / 3)) * hs
+
+/-- **`τ_k → 3(√3 − 1)/4`** as `k → ∞`. -/
+theorem tau_tendsto : Tendsto tau atTop (𝓝 (3 * (Real.sqrt 3 - 1) / 4)) := by
+  have h : Tendsto (fun k => 2 / (rho k * (2 + rho k))) atTop
+      (𝓝 (2 / (2 / Real.sqrt 3 * (2 + 2 / Real.sqrt 3)))) :=
+    tendsto_const_nhds.div (rho_tendsto.mul (tendsto_const_nhds.add rho_tendsto))
+      (by positivity)
+  rw [tau_at_lim] at h
+  exact h
+
+/-- **`γ_k → (1 + 3√3)/4`** as `k → ∞`. -/
+theorem gamma_tendsto : Tendsto gamma atTop (𝓝 ((1 + 3 * Real.sqrt 3) / 4)) := by
+  have h := (tendsto_const_nhds (x := (1 : ℝ))).add tau_tendsto
+  rw [show (1 : ℝ) + 3 * (Real.sqrt 3 - 1) / 4 = (1 + 3 * Real.sqrt 3) / 4 by ring] at h
+  exact h
+
+/-- `τ₀ = √2 − 1` (the exact optimal `κ₀` at `k = 0`). -/
+theorem tau_zero : tau 0 = Real.sqrt 2 - 1 := by
+  unfold tau
+  rw [rho_zero, div_eq_iff (ne_of_gt (by rw [← rho_zero]; exact den_pos 0))]
+  linear_combination (-(Real.sqrt 2 + 1)) * sqrt_two_sq
+
+/-- **`γ₀ = √2`** (the exact infinite-chain value). -/
+theorem gamma_zero : gamma 0 = Real.sqrt 2 := by rw [gamma_eq, tau_zero]; ring
+
+/-- `τ₁ = (8√6 − 12)/15`. -/
+theorem tau_one : tau 1 = (8 * Real.sqrt 6 - 12) / 15 := by
+  unfold tau
+  rw [rho_one, div_eq_div_iff (ne_of_gt (by rw [← rho_one]; exact den_pos 1)) (by norm_num)]
+  linear_combination (-(2 * Real.sqrt 6 + 5)) * sqrt_six_sq
+
+/-- `γ₁ = (3 + 8√6)/15`. -/
+theorem gamma_one : gamma 1 = (3 + 8 * Real.sqrt 6) / 15 := by rw [gamma_eq, tau_one]; ring
+
+/-- `γ_k ≥ √2` for every `k`. -/
+theorem gamma_ge_sqrt_two (k : ℕ) : Real.sqrt 2 ≤ gamma k :=
+  gamma_zero ▸ gamma_strictMono.monotone (Nat.zero_le k)
+
+/-! ## 4. The kernel parameters of `R_k` and the identities between the constants -/
+
+/-- `p_k = |q_k| = (2 − ρ_k)/(2 + ρ_k)`. -/
+noncomputable def pRoot (k : ℕ) : ℝ := (2 - rho k) / (2 + rho k)
+
+/-- The geometric ratio `q_k = −(2 − ρ_k)/(2 + ρ_k)` of the kernel of `R_k`. -/
+noncomputable def qRoot (k : ℕ) : ℝ := -pRoot k
+
+/-- The kernel amplitude `a_k = 1/(2(2 + ρ_k))` of `R_k`. -/
+noncomputable def aAmp (k : ℕ) : ℝ := 1 / (2 * (2 + rho k))
+
+lemma pRoot_pos (k : ℕ) : 0 < pRoot k := by
+  unfold pRoot; have := rho_lt_three_halves k; have := rho_pos k
+  exact div_pos (by linarith) (by linarith)
+
+lemma pRoot_lt_one (k : ℕ) : pRoot k < 1 := by
+  unfold pRoot; have := rho_pos k
+  rw [div_lt_one (by linarith)]; linarith
+
+lemma one_sub_pRoot (k : ℕ) : 1 - pRoot k = 2 * rho k / (2 + rho k) := by
+  unfold pRoot; have := rho_pos k
+  field_simp; ring
+
+/-- `q₀ = −3 + 2√2`, the Green-function root at `k = 0`. -/
+theorem qRoot_zero : qRoot 0 = -3 + 2 * Real.sqrt 2 := by
+  unfold qRoot pRoot
+  rw [rho_zero, neg_eq_iff_eq_neg, div_eq_iff (by linarith [sqrt_two_pos])]
+  linear_combination (2 : ℝ) * sqrt_two_sq
+
+/-- `τ_k = (1 + p_k)/(2ρ_k)` (the value constant in terms of the kernel parameter `p_k`). -/
+theorem tau_eq_kernel (k : ℕ) : tau k = (1 + pRoot k) / (2 * rho k) := by
+  unfold tau pRoot; have := rho_pos k
+  field_simp; ring
+
+/-- `μ_k = 1 + 4a_k/(1 − p_k)` (in kernel form: `μ = d_{−1} + 2Σ|d_y| = 1 + 4a/(1 − p)`). -/
+theorem mu_eq_kernel (k : ℕ) : mu k = 1 + 4 * aAmp k / (1 - pRoot k) := by
+  rw [one_sub_pRoot]; unfold mu aAmp; have := rho_pos k
+  field_simp; ring
+
+/-- `γ_k = μ_k − 2a_k` (at `n = 1`: `g₁ = μ − Δ₁` with `Δ₁ = 2a`). -/
+theorem gamma_eq_mu_sub (k : ℕ) : gamma k = mu k - 2 * aAmp k := by
+  unfold gamma mu aAmp; have := rho_pos k
+  field_simp; ring
+
+/-- `(1 − p_k)/(2ρ_k · 2a_k) = 1` (the normalisation used in the threshold rule of `betaThr`). -/
+theorem threshold_identity (k : ℕ) : (1 - pRoot k) / (2 * rho k * (2 * aAmp k)) = 1 := by
+  rw [one_sub_pRoot]; unfold aAmp; have := rho_pos k
+  field_simp
+
+/-- The odd-`n` thresholds of the threshold rule: `n = 2m + 1` beats `φ_∞` iff
+`β < β*_m(k) := p_k^{m+1}/((1 + p_k) − 2p_k^{m+1})`. The threshold rule itself is analytic and
+not formalised; only the numbers are. -/
+noncomputable def betaThr (k m : ℕ) : ℝ :=
+  pRoot k ^ (m + 1) / ((1 + pRoot k) - 2 * pRoot k ^ (m + 1))
+
+/-- `β*₀(k) = p_k/(1 − p_k) = 1/ρ_k − 1/2`. -/
+theorem betaThr_zero (k : ℕ) : betaThr k 0 = 1 / rho k - 1 / 2 := by
+  unfold betaThr
+  rw [zero_add, pow_one, show (1 + pRoot k) - 2 * pRoot k = 1 - pRoot k by ring,
+    one_sub_pRoot]
+  unfold pRoot; have := rho_pos k
+  field_simp
+
+/-! ## 5. The optimal chain `β_k` -/
+
+/-- The **minimal chain with `ã ≡ 1`** (no value loss; called the "optimal chain"),
+`N_k = 2^k(‖·‖₁ + β_k‖∇·‖₁)`:
+* `β₀ = 0`;
+* `β₁ = (√2 − 1)/2` (`= F₀(0)/2 = τ₀/2`);
+* `β₂ = (τ₁ + γ₁β₁)/2` (`= φ₁(β₁)/2`: at `k = 1` the single site `n = 1` is the argmax);
+* `β_{k+1} = (1/(2ρ_k) + (1 + 1/ρ_k)β_k)/2` for `k ≥ 2` (`= φ_∞(β_k)/2`).
+
+Here `β` is *defined* by this recursion. That it is the minimal admissible coefficient
+`β_{k+1} = F_k(β_k)/2` is analytic (the threshold rule and the optimal-chain analysis), not
+formalised.
+1D Gaussian toy chain; one composition method at Gaussian order; nothing about Yang–Mills. -/
+noncomputable def beta : ℕ → ℝ
+  | 0 => 0
+  | 1 => (Real.sqrt 2 - 1) / 2
+  | 2 => (tau 1 + gamma 1 * ((Real.sqrt 2 - 1) / 2)) / 2
+  | k + 3 => (1 / (2 * rho (k + 2)) + mu (k + 2) * beta (k + 2)) / 2
+
+/-- The scale-`k` map of the recursion, `f_k(β) = (1/(2ρ_k) + μ_kβ)/2 = φ_∞(β)/2`. -/
+noncomputable def step (k : ℕ) (b : ℝ) : ℝ := (1 / (2 * rho k) + mu k * b) / 2
+
+/-- The fixed point `φ*_k = 1/(2(ρ_k − 1))` of the scale-`k` map. -/
+noncomputable def fixedPt (k : ℕ) : ℝ := 1 / (2 * (rho k - 1))
+
+theorem beta_zero : beta 0 = 0 := rfl
+
+theorem beta_one : beta 1 = (Real.sqrt 2 - 1) / 2 := rfl
+
+theorem beta_two_eq : beta 2 = (tau 1 + gamma 1 * beta 1) / 2 := rfl
+
+theorem beta_add_three (k : ℕ) :
+    beta (k + 3) = (1 / (2 * rho (k + 2)) + mu (k + 2) * beta (k + 2)) / 2 := rfl
+
+/-- The recursion for `k ≥ 2`: `β_{k+1} = (1/(2ρ_k) + (1 + 1/ρ_k)β_k)/2`. -/
+theorem beta_succ (k : ℕ) (hk : 2 ≤ k) :
+    beta (k + 1) = (1 / (2 * rho k) + mu k * beta k) / 2 := by
+  obtain ⟨j, rfl⟩ : ∃ j, k = j + 2 := ⟨k - 2, by omega⟩
+  exact beta_add_three j
+
+theorem beta_succ_eq_step (k : ℕ) (hk : 2 ≤ k) : beta (k + 1) = step k (beta k) :=
+  beta_succ k hk
+
+/-- The initial value `β₁` is the `k = 0` step of the single-site branch:
+`β₁ = (τ₀ + γ₀β₀)/2 = τ₀/2`. -/
+theorem beta_one_eq_step : beta 1 = (tau 0 + gamma 0 * beta 0) / 2 := by
+  rw [beta_one, tau_zero, beta_zero]; ring
+
+/-- `β₂ = (8√6 + 16√3 + 3√2 − 27)/60 ≈ 0.409190`. -/
+theorem beta_two : beta 2 =
+    (8 * Real.sqrt 6 + 16 * Real.sqrt 3 + 3 * Real.sqrt 2 - 27) / 60 := by
+  rw [beta_two_eq, tau_one, gamma_one, beta_one, sqrt_six_eq]
+  linear_combination (2 * Real.sqrt 3 / 15) * sqrt_two_sq
+
+/-- `f_k(φ*_k) = φ*_k`: `φ*_k` is the fixed point of the scale-`k` map. -/
+theorem step_fixedPt (k : ℕ) : step k (fixedPt k) = fixedPt k := by
+  unfold step fixedPt mu
+  have h1 := rho_pos k
+  have h2 : rho k - 1 ≠ 0 := ne_of_gt (by linarith [one_lt_rho k])
+  field_simp
+  ring
+
+/-- `4ρ_k β_{k+1} = 1 + 2(ρ_k + 1)β_k` for `k ≥ 2` (the recursion without division). -/
+lemma beta_succ_mul (k : ℕ) (hk : 2 ≤ k) :
+    4 * rho k * beta (k + 1) = 1 + 2 * (rho k + 1) * beta k := by
+  rw [beta_succ k hk]; unfold mu; have := rho_pos k
+  field_simp; ring
+
+lemma beta_one_gt : 1 / 5 < beta 1 := by rw [beta_one]; linarith [sqrt_two_gt]
+
+lemma beta_one_lt : beta 1 < 1 / 4 := by rw [beta_one]; linarith [sqrt_two_lt_three_halves]
+
+lemma beta_two_lt_one : beta 2 < 1 := by
+  rw [beta_two_eq]
+  have h1 := tau_lt_one 1
+  have h2 := beta_one_lt
+  have h3 := beta_one_gt
+  have h4 : gamma 1 < 2 := by rw [gamma_eq]; linarith
+  have h5 := gamma_pos 1
+  nlinarith
+
+/-- `β_k ≥ 0` for every `k`. -/
+theorem beta_nonneg : ∀ k, 0 ≤ beta k
+  | 0 => by rw [beta_zero]
+  | 1 => by have := beta_one_gt; linarith
+  | 2 => by
+      rw [beta_two_eq]
+      have := beta_one_gt
+      nlinarith [tau_pos 1, gamma_pos 1]
+  | k + 3 => by
+      rw [beta_add_three]
+      have h1 := beta_nonneg (k + 2)
+      have h2 : 0 ≤ 1 / (2 * rho (k + 2)) := by have := rho_pos (k + 2); positivity
+      have h3 : 0 ≤ mu (k + 2) * beta (k + 2) := mul_nonneg (mu_pos _).le h1
+      linarith
+
+/-- **The invariant** `2(ρ_k − 1)β_k < 1`, i.e. `β_k < φ*_k`, for every `k ≥ 2`
+(by induction: base case `β₂ < φ*₂`, and `β_k ≤ φ*_k ⇒ β_{k+1} ≤ φ*_k ≤ φ*_{k+1}`
+because the scale map has slope `μ_k/2 > 0` and fixed point `φ*_k`, and `ρ_k` decreases). -/
+theorem beta_invariant (k : ℕ) (hk : 2 ≤ k) : 2 * (rho k - 1) * beta k < 1 := by
+  induction k, hk using Nat.le_induction with
+  | base =>
+    have h1 := rho_lt_three_halves 2
+    have h2 := one_lt_rho 2
+    have h3 := beta_two_lt_one
+    have h4 := beta_nonneg 2
+    nlinarith
+  | succ k hk ih =>
+    have hrec := beta_succ_mul k hk
+    have hρ := rho_pos k
+    have hanti : rho (k + 1) < rho k := rho_strictAnti (Nat.lt_succ_self k)
+    have hnn := beta_nonneg (k + 1)
+    have key : 2 * (rho k - 1) * (4 * rho k * beta (k + 1)) < 4 * rho k := by
+      rw [hrec]
+      nlinarith [mul_lt_mul_of_pos_left ih (by linarith : (0 : ℝ) < 2 * (rho k + 1))]
+    have hstep : 2 * (rho k - 1) * beta (k + 1) < 1 := by nlinarith
+    have hmono : (rho (k + 1) - 1) * beta (k + 1) ≤ (rho k - 1) * beta (k + 1) :=
+      mul_le_mul_of_nonneg_right (by linarith) hnn
+    linarith
+
+/-- **`β_k < φ*_k = 1/(2(ρ_k − 1))`** for every `k ≥ 2`. -/
+theorem beta_lt_fixedPt (k : ℕ) (hk : 2 ≤ k) : beta k < fixedPt k := by
+  unfold fixedPt
+  have := one_lt_rho k
+  rw [lt_div_iff₀ (by linarith)]
+  linarith [beta_invariant k hk]
+
+/-- `1 < 2(ρ_k − 1)(3/2 + √3)`: the limit fixed point `3/2 + √3 = 1/(2(2/√3 − 1))` lies strictly
+above every scale fixed point. -/
+lemma fixedPoint_gap (k : ℕ) : 1 < 2 * (rho k - 1) * (3 / 2 + Real.sqrt 3) := by
+  nlinarith [rho_mul_sqrt_three_gt k, two_sqrt_three_lt k]
+
+/-- `φ*_k < 3/2 + √3` for every `k`. -/
+theorem fixedPt_lt (k : ℕ) : fixedPt k < 3 / 2 + Real.sqrt 3 := by
+  unfold fixedPt
+  have := one_lt_rho k
+  rw [div_lt_iff₀ (by linarith)]
+  linarith [fixedPoint_gap k]
+
+/-- `φ*_k` is strictly increasing (because `ρ_k` is strictly decreasing). -/
+theorem fixedPt_strictMono : StrictMono fixedPt := by
+  intro i j hij
+  unfold fixedPt
+  have := rho_strictAnti hij
+  have := one_lt_rho j
+  exact one_div_lt_one_div_of_lt (by linarith) (by linarith)
+
+/-- **`β_k < 3/2 + √3` for every `k`.** For `k ≥ 2` this is the
+invariant `2(ρ_k − 1)β_k < 1` together with `2(ρ_k − 1)(3/2 + √3) > 1`; the latter says that
+the fixed point of each scale map lies below the limit fixed point `3/2 + √3`, using
+`ρ_k > 2/√3`. -/
+theorem beta_lt (k : ℕ) : beta k < 3 / 2 + Real.sqrt 3 := by
+  have hs := sqrt_three_pos
+  rcases lt_or_ge k 2 with hk | hk
+  · interval_cases k
+    · rw [beta_zero]; linarith
+    · linarith [beta_one_lt]
+  · have hinv := beta_invariant k hk
+    have hgap := fixedPoint_gap k
+    have hρ := one_lt_rho k
+    by_contra hcon
+    replace hcon := not_lt.1 hcon
+    nlinarith [mul_le_mul_of_nonneg_left hcon (by linarith : (0 : ℝ) ≤ 2 * (rho k - 1))]
+
+/-- `β_k < β_{k+1}` for every `k`. -/
+theorem beta_lt_succ (k : ℕ) : beta k < beta (k + 1) := by
+  match k with
+  | 0 => rw [beta_zero]; exact lt_trans (by norm_num) beta_one_gt
+  | 1 =>
+    show beta 1 < beta 2
+    rw [beta_two_eq, gamma_eq]
+    have h1 := tau_gt_third 1
+    have h2 := beta_one_lt
+    have h3 := beta_one_gt
+    nlinarith
+  | k + 2 =>
+    have hrec := beta_succ_mul (k + 2) (by omega)
+    have ih := beta_invariant (k + 2) (by omega)
+    have hρ := rho_pos (k + 2)
+    nlinarith
+
+/-- **`β_k` is strictly increasing.** -/
+theorem beta_strictMono : StrictMono beta := strictMono_nat_of_lt_succ beta_lt_succ
+
+/-- `β_k` is increasing (monotone). -/
+theorem beta_monotone : Monotone beta := beta_strictMono.monotone
+
+/-- **`β_k → 3/2 + √3`**: the bound of `beta_lt` is the limit, so it
+cannot be lowered. Proof: `β` is increasing and bounded, so it converges to some `ℓ`; passing to
+the limit in the recursion (`ρ_k → 2/√3`, `μ_k → 1 + √3/2`) gives
+`ℓ = (√3/4 + (1 + √3/2)ℓ)/2`, whose only solution is `3/2 + √3`. -/
+theorem beta_tendsto : Tendsto beta atTop (𝓝 (3 / 2 + Real.sqrt 3)) := by
+  have hbdd : BddAbove (Set.range beta) :=
+    ⟨3 / 2 + Real.sqrt 3, by rintro _ ⟨k, rfl⟩; exact (beta_lt k).le⟩
+  have hlim : Tendsto beta atTop (𝓝 (⨆ k, beta k)) := tendsto_atTop_ciSup beta_monotone hbdd
+  set ℓ := ⨆ k, beta k with hℓ
+  have hb2 : Tendsto (fun k => beta (k + 2)) atTop (𝓝 ℓ) := (tendsto_add_atTop_iff_nat 2).2 hlim
+  have hb3 : Tendsto (fun k => beta (k + 3)) atTop (𝓝 ℓ) := (tendsto_add_atTop_iff_nat 3).2 hlim
+  have hρ2 : Tendsto (fun k => rho (k + 2)) atTop (𝓝 (2 / Real.sqrt 3)) :=
+    (tendsto_add_atTop_iff_nat 2).2 rho_tendsto
+  have hμ2 : Tendsto (fun k => mu (k + 2)) atTop (𝓝 (1 + Real.sqrt 3 / 2)) :=
+    (tendsto_add_atTop_iff_nat 2).2 mu_tendsto
+  have hrhs : Tendsto (fun k => (1 / (2 * rho (k + 2)) + mu (k + 2) * beta (k + 2)) / 2) atTop
+      (𝓝 ((1 / (2 * (2 / Real.sqrt 3)) + (1 + Real.sqrt 3 / 2) * ℓ) / 2)) :=
+    ((tendsto_const_nhds.div (tendsto_const_nhds.mul hρ2) (by positivity)).add
+      (hμ2.mul hb2)).div_const 2
+  have heq : ℓ = (1 / (2 * (2 / Real.sqrt 3)) + (1 + Real.sqrt 3 / 2) * ℓ) / 2 :=
+    tendsto_nhds_unique hb3 (hrhs.congr fun k => (beta_add_three k).symm)
+  have hs := sqrt_three_sq
+  have hs0 := sqrt_three_pos
+  have h1 : 1 / (2 * (2 / Real.sqrt 3)) = Real.sqrt 3 / 4 := by field_simp; ring
+  rw [h1] at heq
+  have hprod : (ℓ - (3 / 2 + Real.sqrt 3)) * (2 - Real.sqrt 3) = 0 := by
+    linear_combination 4 * heq + hs
+  have hℓv : ℓ = 3 / 2 + Real.sqrt 3 := by
+    rcases mul_eq_zero.1 hprod with h | h
+    · linarith
+    · linarith [sqrt_three_lt_two]
+  rw [← hℓv]
+  exact hlim
+
+/-! ## 6. Bounded loss -/
+
+/-- **Bounded loss (`theta_bound`).** The bounded-loss bound of the optimal chain is
+`Θ_k ≤ 1 + 2β_k < 4 + 2√3` for every `k`. This theorem proves the arithmetic part,
+`1 + 2β_k < 4 + 2√3`, for every `k`.
+
+Meaning. `Θ_k := sup_{y ≠ 0} N_k(y)/‖T_k y‖₁` is the overestimate of a scale-`k` component by the
+chain norm `N_k = 2^k(‖·‖₁ + β_k‖∇·‖₁)`, and `1 + 2β_k` is the analytic upper bound for it. So
+this bounds the **composite-norm loss of the chain**: it compares the iterated bound
+`Σ_k N_k(a^{(k)})` built from the chain with the exact-composite iterated bound
+`Σ_k ‖T_k a^{(k)}‖₁`. It does **not** bound the loss against the true response
+`‖Σ_k T_k a^{(k)}‖₁`; the cross-scale triangle inequality
+`‖Σ_k T_k a^{(k)}‖₁ ≤ Σ_k ‖T_k a^{(k)}‖₁` is untouched by the choice of per-scale norm. The
+inequality `Θ_k ≤ 1 + 2β_k`, and the identification of `β_k` with the minimal admissible chain,
+are analytic and not formalised.
+1D Gaussian toy chain; one composition method at Gaussian order; nothing about Yang–Mills. -/
+theorem theta_bound (k : ℕ) : 1 + 2 * beta k < 4 + 2 * Real.sqrt 3 := by
+  linarith [beta_lt k]
+
+/-- The bound `4 + 2√3` of `theta_bound` is the limit of `1 + 2β_k`, hence the least constant
+that bounds `1 + 2β_k` uniformly in `k`. This says nothing about `Θ_k` itself, whose exact value
+is open: the analytic argument gives only `Θ_k ≤ 1 + 2β_k`, and the `e₀` test gives an observed
+lower bound `≈ 4.70` (a numerical observation, not a proof). -/
+theorem theta_tendsto :
+    Tendsto (fun k => 1 + 2 * beta k) atTop (𝓝 (4 + 2 * Real.sqrt 3)) := by
+  have h := (tendsto_const_nhds (x := (1 : ℝ))).add
+    ((tendsto_const_nhds (x := (2 : ℝ))).mul beta_tendsto)
+  rw [show (1 : ℝ) + 2 * (3 / 2 + Real.sqrt 3) = 4 + 2 * Real.sqrt 3 by ring] at h
+  exact h
+
+/-! ## 7. The branch inequalities at `k = 1` and for `k ≥ 2` -/
+
+/-- **`k = 1` window** (numerically `0.0514 < 0.2071 < 0.3165`): `β*₁(1) < β₁ < β*₀(1)`. By the
+threshold rule (see `betaThr`; analytic, not formalised) this makes the single site `n = 1` the
+argmax at `k = 1`, hence `β₂ = (τ₁ + γ₁β₁)/2`. -/
+theorem beta_one_window : betaThr 1 1 < beta 1 ∧ beta 1 < betaThr 1 0 := by
+  have hρ1 : rho 1 ^ 2 = 3 / 2 := by rw [rho_sq]; norm_num
+  have hρpos := rho_pos 1
+  constructor
+  · -- `p₁ < 1/4` because `ρ₁ > 6/5`; then `β*₁(1) < 1/14 < 1/5 < β₁`.
+    have hρ65 : 6 / 5 < rho 1 := by nlinarith
+    have hp0 := pRoot_pos 1
+    have hp : pRoot 1 < 1 / 4 := by
+      unfold pRoot; rw [div_lt_iff₀ (by linarith)]; linarith
+    have hp2 : pRoot 1 ^ 2 < 1 / 16 := by nlinarith
+    have hden : 0 < (1 + pRoot 1) - 2 * pRoot 1 ^ 2 := by linarith
+    have hthr : betaThr 1 1 < 1 / 5 := by
+      show pRoot 1 ^ 2 / ((1 + pRoot 1) - 2 * pRoot 1 ^ 2) < 1 / 5
+      rw [div_lt_iff₀ hden]
+      linarith
+    linarith [beta_one_gt]
+  · -- `β*₀(1) = 1/ρ₁ − 1/2`, and `ρ₁ < ρ₀ = √2` gives `1/ρ₁ > √2/2`.
+    rw [betaThr_zero, beta_one]
+    have hlt : rho 1 < Real.sqrt 2 := rho_zero ▸ rho_strictAnti (show 0 < 1 by norm_num)
+    have : Real.sqrt 2 / 2 < 1 / rho 1 := by
+      rw [div_lt_div_iff₀ (by norm_num) hρpos]
+      nlinarith [sqrt_two_sq, sqrt_two_pos]
+    linarith
+
+/-- `β₂ > (√3 − 1)/2`. -/
+theorem beta_two_gt : (Real.sqrt 3 - 1) / 2 < beta 2 := by
+  rw [beta_two, sqrt_six_eq]
+  have h2 := sqrt_two_gt
+  have h3 := sqrt_three_gt
+  have h3' := sqrt_three_lt
+  nlinarith [mul_pos (by linarith : (0 : ℝ) < Real.sqrt 2 - 1.4)
+    (by linarith : (0 : ℝ) < Real.sqrt 3 - 1.7)]
+
+/-- **`k ≥ 2`: `β_k > β*₀(k)`**: `β*₀(k) = 1/ρ_k − 1/2 < (√3 − 1)/2 < β₂ ≤ β_k`. By the threshold
+rule (see `betaThr`; analytic, not formalised) this puts every `k ≥ 2` on the `φ_∞` branch,
+i.e. `β_{k+1} = (1/(2ρ_k) + μ_kβ_k)/2`, the recursion used in `beta`. -/
+theorem beta_gt_threshold (k : ℕ) (hk : 2 ≤ k) : betaThr k 0 < beta k := by
+  rw [betaThr_zero]
+  have h1 : 1 / rho k < Real.sqrt 3 / 2 := by
+    rw [div_lt_div_iff₀ (rho_pos k) (by norm_num)]; linarith [rho_mul_sqrt_three_gt k]
+  have h2 := beta_two_gt
+  have h3 := beta_monotone hk
+  linarith
+
+/-! ## 8. The site-additive contrast: `∏_{i<k} γ_i ≥ (√2)^k` -/
+
+/-- **`∏_{i<k} γ_i ≥ (√2)^k`**: the site-additive class loses at least `(√2)^k` on constant
+components, because `γ_i ≥ γ₀ = √2` for every `i`. The identification of `γ_i` with the per-scale
+factor `‖R_i e_w‖₁/2` of Proposition C, and of the product with the additive-class loss `ω_k(1)`,
+is analytic and not formalised. 1D Gaussian toy chain; nothing about
+Yang–Mills. -/
+theorem gamma_prod_ge (k : ℕ) : Real.sqrt 2 ^ k ≤ ∏ i ∈ Finset.range k, gamma i := by
+  induction k with
+  | zero => simp
+  | succ k ih =>
+    rw [Finset.prod_range_succ, pow_succ]
+    exact mul_le_mul ih (gamma_ge_sqrt_two k) (Real.sqrt_nonneg 2)
+      (le_trans (by positivity) ih)
+
+/-- `∏_{i<k} γ_i → ∞`: geometric growth of the site-additive loss. -/
+theorem gamma_prod_tendsto :
+    Tendsto (fun k => ∏ i ∈ Finset.range k, gamma i) atTop atTop :=
+  tendsto_atTop_mono gamma_prod_ge (tendsto_pow_atTop_atTop_of_one_lt one_lt_sqrt_two)
+
+/-- **Bounded versus geometric**: the value-plus-gradient chain's loss bound
+`1 + 2β_k` stays below `4 + 2√3` at every scale, while the site-additive product `∏_{i<k} γ_i` is
+at least `(√2)^k` and tends to infinity. Both statements are about the closed-form constants of
+the 1D Gaussian toy chain; their identification with the actual losses is analytic (not
+formalised), and the first compares with the exact-composite iterated bound, not
+with the true response. One composition method at Gaussian order; nothing about Yang–Mills. -/
+theorem bounded_versus_geometric :
+    (∀ k, 1 + 2 * beta k < 4 + 2 * Real.sqrt 3) ∧
+    (∀ k, Real.sqrt 2 ^ k ≤ ∏ i ∈ Finset.range k, gamma i) ∧
+    Tendsto (fun k => ∏ i ∈ Finset.range k, gamma i) atTop atTop :=
+  ⟨theta_bound, gamma_prod_ge, gamma_prod_tendsto⟩
+
+/-! ## 9. Non-vacuity: concrete values
+
+The definitions are concrete closed forms, so non-vacuity is shown by evaluating them. -/
+
+example : rho 0 = Real.sqrt 2 := rho_zero
+example : rho 1 = Real.sqrt 6 / 2 := rho_one
+example : mu 0 = 1 + Real.sqrt 2 / 2 := mu_zero
+example : mu 1 = 1 + Real.sqrt 6 / 3 := mu_one
+example : tau 0 = Real.sqrt 2 - 1 := tau_zero
+example : tau 1 = (8 * Real.sqrt 6 - 12) / 15 := tau_one
+example : gamma 0 = Real.sqrt 2 := gamma_zero
+example : gamma 1 = (3 + 8 * Real.sqrt 6) / 15 := gamma_one
+example : qRoot 0 = -3 + 2 * Real.sqrt 2 := qRoot_zero
+example : beta 0 = 0 := beta_zero
+example : beta 1 = (Real.sqrt 2 - 1) / 2 := beta_one
+example : beta 1 = (tau 0 + gamma 0 * beta 0) / 2 := beta_one_eq_step
+example : beta 2 = (8 * Real.sqrt 6 + 16 * Real.sqrt 3 + 3 * Real.sqrt 2 - 27) / 60 := beta_two
+example : beta 3 = (1 / (2 * rho 2) + mu 2 * beta 2) / 2 := beta_succ 2 le_rfl
+/-- Numerically `β₁ ≈ 0.2071` and `0.3660 < β₂ ≈ 0.4092`. -/
+example : (1 / 5 : ℝ) < beta 1 ∧ beta 1 < 1 / 4 := ⟨beta_one_gt, beta_one_lt⟩
+example : (Real.sqrt 3 - 1) / 2 < beta 2 ∧ beta 2 < 1 := ⟨beta_two_gt, beta_two_lt_one⟩
+/-- The strict inequalities are not vacuous at `k = 0`: `μ₀ = 1 + √2/2 < 2`, `β₀ = 0`. -/
+example : mu 0 < 2 ∧ 1 + 2 * beta 0 < 4 + 2 * Real.sqrt 3 := ⟨mu_lt_two 0, theta_bound 0⟩
+
+end ValueGradientChain
+end Part3_ValueGradientChain
+```

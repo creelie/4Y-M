@@ -60,7 +60,7 @@ Road, Golpark, Kolkata 700029, West Bengal, India}
 \urladdr{\href{https://orcid.org/0000-0003-0466-750X}{orcid.org/0000-0003-0466-750X}}
 \thanks{$^{*}$Corresponding author: Deep Bhattacharjee, itsdeep@live.com.}
 \thanks{\scriptsize An earlier version of this paper is available at
-\url{https://hexagonmath.org/2610.00341v6}. Compared with it, this paper adds Section~\ref{sec:islands}, on the labels of the blocks, the islands of bad blocks, the bad side of a projected block average, the obstructions to the remaining routes and the effective action across one scale, Subsections~\ref{ssec:averaged}--\ref{ssec:bprowsum}, on an averaged form of the cube condition, its local form, the couplings where it holds and fails, its neutral part on small tori, its passage to block variables, the upward step, the measures for which it holds, the split inequality at strong coupling, the condition at the coarsest scale, the coefficients across scales, the forces in the fibre law, the smoothing along the paths and the order of the row sums of the Gaussian model, and Subsections~\ref{ssec:osaxioms}, \ref{ssec:limitE} and~\ref{ssec:chainG}, on the Osterwalder--Schrader axioms for the flowed fields, the limit at separated points of the fields without flow, with the inputs it needs and the examples that separate them, and the conditional chain for every compact simple group, together with the concluding Section~\ref{sec:conclusion}, and it proves by hand every constant that the earlier version took from computer certificates.}
+\url{https://hexagonmath.org/2610.00341v6}. Compared with it, this paper adds Section~\ref{sec:islands}, on the labels of the blocks, the islands of bad blocks, the bad side of a projected block average, the obstructions to the remaining routes and the effective action across one scale, Subsections~\ref{ssec:averaged}--\ref{ssec:bpmetrics}, on an averaged form of the cube condition, its local form, the couplings where it holds and fails, its neutral part on small tori, its passage to block variables, the upward step, the measures for which it holds, the split inequality at strong coupling, the condition at the coarsest scale, the coefficients across scales, the forces in the fibre law, the smoothing along the paths, the order of the row sums of the Gaussian model and the metrics that compose across scales, and Subsections~\ref{ssec:osaxioms}, \ref{ssec:limitE} and~\ref{ssec:chainG}, on the Osterwalder--Schrader axioms for the flowed fields, the limit at separated points of the fields without flow, with the inputs it needs and the examples that separate them, and the conditional chain for every compact simple group, together with the concluding Section~\ref{sec:conclusion}, and it proves by hand every constant that the earlier version took from computer certificates.}
 
 \author[U. Bhattacharya]{Ushashi Bhattacharya}
 \address{Formerly, National Taiwan University, Taipei 106319, Taiwan}
@@ -11269,6 +11269,319 @@ decay of the score covariances under $\pi_V$ in the distance of the coarse
 links, uniform in $V$ and in the torus; (H1) along the tuning; (H1) for
 $\U(1)$. Neither $\mathrm{BP}$ along the tuning nor the mass gap is proved
 here.
+\end{remark}
+
+\subsection{Metrics across scales}\label{ssec:bpmetrics}
+
+The constant $\Gamma$ of (H2) bounds the product $\prod_{i\ge j}C_{B,i}$ of
+the split constants of all finer scales, so a proof of (H2) by a comparison
+at each scale has to carry a metric on the fields of one scale to the next
+through the reconstruction of the fine field from the coarse one, with
+losses whose product over the scales stays bounded. This subsection
+determines which metrics can do this when the reconstruction is linear, as
+it is at Gaussian order. A site-additive metric loses a fixed factor at
+every scale at which the reconstruction changes sign, and the conditional
+mean of a Gaussian field given its block averages always changes sign; a
+metric with a separate term for the deviation from the reconstructed field
+composes with a loss independent of the number of scales once one
+two-term inequality holds at every scale. Nothing in this subsection
+concerns the Wilson measure itself.
+
+Let $X_0,X_1,\dots$ be finite sets, $X_0$ the finest, and for each $k$ let
+$R_k$ be a real $X_k\times X_{k+1}$ matrix, the reconstruction of a field on
+$X_k$ from one on $X_{k+1}$. Put $T_0=I$ and $T_k=R_0R_1\cdots R_{k-1}$, which
+maps fields on $X_k$ to fields on $X_0$. For weights $p\in[0,\infty)^{X}$ let
+$d_p(x,x')=\sum_ip_i\lvert x_i-x'_i\rvert$. We say that $d_q$ on $X_{k+1}$ is
+\emph{admissible} for $d_p$ on $X_k$ through $R_k$ if $d_p(R_kz,R_kz')\le
+d_q(z,z')$ for all $z,z'$, and write $\lvert R\rvert$ for the matrix of the
+absolute values of the entries of $R$. The minimal weights are
+\[
+m^{(0)}=\mathbf 1,\qquad m^{(k+1)}=\lvert R_k\rvert^{\mathsf T}m^{(k)} .
+\]
+
+\begin{lemma}[admissible site-additive metrics]\label{lem:bpweights}
+Let $R$ be a real matrix and $p,q$ weight vectors.
+\begin{enumerate}[label=\textup{(\roman*)},leftmargin=*]
+\item If $p\ge0$, then $d_q$ is admissible for $d_p$ through $R$ if and
+only if $\lvert R\rvert^{\mathsf T}p\le q$ entrywise; so $\lvert R\rvert^{\mathsf
+T}p$ is the least admissible weight vector.
+\item If $p^{(0)}\ge\mathbf 1$ and $d_{p^{(k+1)}}$ is admissible for
+$d_{p^{(k)}}$ through $R_k$ for every $k<K$, then $p^{(k)}\ge m^{(k)}$ for
+$k\le K$; the minimal weights themselves form such a chain.
+\item $\lVert T_kx\rVert_1\le\langle m^{(k)},\lvert x\rvert\rangle$ for every
+field $x$ on $X_k$.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+(i) If $\lvert R\rvert^{\mathsf T}p\le q$, then for $\xi=z-z'$
+\[
+d_p(R\xi,0)=\sum_ip_i\Bigl\lvert\sum_jR_{ij}\xi_j\Bigr\rvert\le\sum_j
+\Bigl(\sum_ip_i\lvert R_{ij}\rvert\Bigr)\lvert\xi_j\rvert\le d_q(\xi,0).
+\]
+Conversely, $\xi=e_j$ gives $\sum_ip_i\lvert R_{ij}\rvert\le q_j$; this is
+the step that uses the additivity of $d_q$ over the sites. (ii) By (i),
+$p^{(k+1)}\ge\lvert R_k\rvert^{\mathsf T}p^{(k)}$, and $\lvert R_k
+\rvert^{\mathsf T}$ preserves the order of nonnegative vectors, so
+induction from $p^{(0)}\ge m^{(0)}$ gives the claim; the minimal weights
+satisfy (i) with equality. (iii) Apply (i) $k$ times with $p=m^{(0)}$.
+\end{proof}
+
+By (ii) and (iii), every admissible chain of site-additive metrics with
+$p^{(0)}\ge\mathbf 1$ overestimates the $\ell^1$ distance at the finest
+scale of two fields on $X_k$ that differ by $x$ at least by the factor
+\[
+\omega_k(x)=\frac{\langle m^{(k)},\lvert x\rvert\rangle}{\lVert T_kx\rVert_1}
+\ge1 .
+\]
+
+\begin{proposition}[the loss of site-additive metrics]\label{prop:bpsiteloss}
+Suppose that for each $i<k$ every column of $R_i$ has the same $\ell^1$ norm
+$\nu_i$ and the same sum $\sigma_i$, and that $R_i\mathbf 1=\mathbf 1$. Then
+$\sigma_i>0$, the factors $\theta_i=\nu_i/\sigma_i$ satisfy $\theta_i\ge1$,
+\[
+\omega_k(\mathbf 1)=\prod_{i<k}\theta_i ,
+\]
+and $\theta_i>1$ if and only if some column of $R_i$ has a negative entry.
+If $R_i\ge0$ for every $i<k$, then $\langle m^{(k)},x\rangle=\lVert T_kx
+\rVert_1$ for every $x\ge0$, so there is no loss on nonnegative fields.
+\end{proposition}
+
+\begin{proof}
+Since the rows of $R_i$ sum to one, the sum of all its entries is $\lvert
+X_i\rvert=\sigma_i\lvert X_{i+1}\rvert$, so $\sigma_i=\lvert X_i\rvert/\lvert
+X_{i+1}\rvert>0$. The equal column norms give $\lvert R_i\rvert^{\mathsf
+T}\mathbf 1=\nu_i\mathbf 1$, hence $m^{(k)}=(\prod_{i<k}\nu_i)\mathbf 1$ and
+$\langle m^{(k)},\mathbf 1\rangle=\lvert X_k\rvert\prod_{i<k}\nu_i$, while
+$T_k\mathbf 1=\mathbf 1$ gives $\lVert T_k\mathbf 1\rVert_1=\lvert X_0\rvert=
+\lvert X_k\rvert\prod_{i<k}\sigma_i$. The quotient is $\prod_{i<k}\theta_i$.
+For a column $c$, $\sigma_i=\lvert\sum_jc_j\rvert\le\sum_j\lvert c_j\rvert=
+\nu_i$, with equality if and only if the entries of $c$ have one sign, which,
+as $\sigma_i>0$, means that none is negative; all columns share $\nu_i$ and
+$\sigma_i$. If every $R_i\ge0$, then $\lvert R_i\rvert=R_i$, so $(m^{(k)})^{\mathsf
+T}=\mathbf 1^{\mathsf T}T_k$, and $T_kx\ge0$ for $x\ge0$ gives $\mathbf 1^{\mathsf
+T}T_kx=\lVert T_kx\rVert_1$.
+\end{proof}
+
+The reconstructions that arise at Gaussian order are conditional means. A
+\emph{positive block average} on a partition $X=\bigcup_{a\in\mathcal B}B(a)$
+with $\lvert\mathcal B\rvert\ge2$ is a matrix $P\in\R^{\mathcal B\times X}$
+with $P_{ax}>0$ for $x\in B(a)$ and $P_{ax}=0$ otherwise. For a matrix $A$ on
+$X$ the blocks are \emph{thick} if for $a\ne a'$ the block $B(a')$ contains a
+site $x$ with $A_{xy}=0$ for every $y\in B(a)$.
+
+\begin{proposition}[conditional means change sign]\label{prop:bpnegative}
+Let $A$ be invertible with $A^{-1}$ entrywise positive, let $P$ be a positive
+block average whose blocks are thick for $A$, and suppose that $PA^{-1}
+P^{\mathsf T}$ is invertible. Then
+\[
+R=A^{-1}P^{\mathsf T}\bigl(PA^{-1}P^{\mathsf T}\bigr)^{-1}
+\]
+has a negative entry. If $A$ is symmetric and positive definite, $Rz$ is
+the minimiser of $\langle\varphi,A\varphi\rangle$ under $P\varphi=z$, which
+is the conditional mean, given $P\varphi=z$, of the centred Gaussian field
+with covariance $A^{-1}$.
+\end{proposition}
+
+\begin{proof}
+Put $\Lambda=(PA^{-1}P^{\mathsf T})^{-1}$, so that $PR=I$ and $AR=P^{\mathsf
+T}\Lambda$. Suppose that $R\ge0$. For $a'\ne a$, $0=(PR)_{a'a}=\sum_{x\in
+B(a')}P_{a'x}R_{xa}$ with positive $P_{a'x}$, so $R_{xa}=0$ for $x\notin
+B(a)$: the column $a$ of $R$ is supported in $B(a)$. For a site $x\in
+B(a')$ as in the definition of thickness, $(AR)_{xa}=\sum_{y\in B(a)}
+A_{xy}R_{ya}=0$, while $(P^{\mathsf T}\Lambda)_{xa}=P_{a'x}\Lambda_{a'a}$;
+hence $\Lambda_{a'a}=0$ and $\Lambda$ is diagonal. Then $PA^{-1}P^{\mathsf
+T}=\Lambda^{-1}$ is diagonal. But for $a\ne a'$ its entry
+$\sum_{x,y}P_{ax}(A^{-1})_{xy}P_{a'y}$ is positive, since every term is
+nonnegative and those with $x\in B(a)$, $y\in B(a')$ are positive. This
+contradiction shows that $R$ has a negative entry. The last statement is
+the method of Lagrange multipliers: the minimiser satisfies $A\varphi=
+P^{\mathsf T}\lambda$ and $P\varphi=z$, so $\lambda=\Lambda z$ and $\varphi=Rz$.
+\end{proof}
+
+\begin{remark}[thick blocks]\label{rem:bpthick}
+On the periodic lattice $(\Z/L\Z)^d$ let $A=\varepsilon+2d-N$ with
+$\varepsilon>0$ and $N$ the adjacency matrix. Then $A^{-1}=\sum_{j\ge0}
+N^j/(\varepsilon+2d)^{j+1}$, since $\lVert N\rVert\le2d$, and this is entrywise
+positive because the lattice is connected. With blocks of side $b\ge2$ and
+at least three blocks in each direction the blocks are thick for $A$: if
+$B(a)$ and $B(a')$ are not neighbours in one direction, every site of
+$B(a')$ will do; if $B(a)=B(a')\pm be_\mu$, a site of $B(a')$ on its face
+opposite to $B(a)$ has its neighbours in $B(a')$, in $B(a')\mp be_\mu\ne
+B(a)$, or in blocks displaced in other directions. So the conditional mean
+of the block averages, with equal weights, of a massive Gaussian field has a negative entry in
+every column, the columns being translates of one another, and $\lvert R
+\rvert^{\mathsf T}\mathbf 1$ exceeds $R^{\mathsf T}\mathbf 1$ in every entry.
+Thickness cannot be dropped: on the cycle $\Z/4\Z$ with the two blocks
+$\{0,1\}$ and $\{2,3\}$, each site has a neighbour in the other block, and the
+reflection $x\mapsto1-x$, which preserves $A$, $P$ and both blocks, shows that
+$R$ is constant on each block; with $PR=I$ this makes $R$ the matrix of the
+block indicators, which is nonnegative.
+\end{remark}
+
+A metric need not lose at every scale. Let $\lVert\cdot\rVert_k$ be a norm
+on the fields on $X_k$, let $\Phi_k$ be a seminorm on them (a gradient term,
+say), and let $V_k$ be linear from fields on $X_k$ to fields on $X_{k+1}$ with
+$V_kR_k=I$, so that $\Pi_k=R_kV_k$ is a projection onto the range of $R_k$.
+For $s>0$ and $\beta',\delta\ge0$ put
+\[
+Q_k(y)=\lVert y\rVert_k+\beta'\Phi_k(y)+\delta\lVert(I-\Pi_k)y\rVert_k
+\]
+and $N_0=\lVert\cdot\rVert_0$, $N_k=s^kQ_k$ for $k\ge1$.
+The chain $(N_k)$ \emph{composes} if $N_k(R_kz)\le N_{k+1}(z)$ for all $k$ and
+$z$.
+
+\begin{theorem}[composition with a deviation term]\label{thm:bpdeviation}
+Suppose that $\lVert R_kz\rVert_k\le c_1\lVert z\rVert_{k+1}$,
+$\Phi_k(R_kz)\le c_2\lVert z\rVert_{k+1}$ and $\Phi_k\le c_3\lVert\cdot
+\rVert_k$ for all $k$, and that
+\[
+\delta\ge1+c_3\beta'+\frac{c_1+\beta'c_2}s .
+\]
+\begin{enumerate}[label=\textup{(\roman*)},leftmargin=*]
+\item The chain composes if and only if $\lVert R_0u\rVert_0\le s(\lVert u
+\rVert_1+\beta'\Phi_1(u))$ for every $u$ in the range of $R_1$, and
+\[
+\lVert R_ku\rVert_k+\beta'\Phi_k(R_ku)\le s\bigl(\lVert u\rVert_{k+1}+
+\beta'\Phi_{k+1}(u)\bigr)
+\]
+for every $k\ge1$ and every $u$ in the range of $R_{k+1}$.
+\item If moreover $s\lVert z\rVert_{k+1}\le\lVert R_kz\rVert_k$ and
+$\lVert V_ky\rVert_{k+1}\le c_4\lVert y\rVert_k$ for all $k$, then
+\[
+N_k(y)\le\bigl(1+c_3\beta'+\delta(1+c_1c_4)\bigr)\lVert T_ky\rVert_0
+\]
+for every $k$ and every field $y$ on $X_k$.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+(i) Since $V_kR_k=I$, $(I-\Pi_k)R_k=0$, so $N_k(R_kz)=s^k(\lVert R_kz\rVert_k
++\beta'\Phi_k(R_kz))$ for $k\ge1$. If the chain composes, take $z=u=R_{k+1}w$:
+then $(I-\Pi_{k+1})z=0$, and dividing by $s^k$ gives the two conditions.
+Conversely, let $k\ge1$ and write $z=u+e$ with $u=\Pi_{k+1}z$ in the range of
+$R_{k+1}$ and $e=(I-\Pi_{k+1})z$. The triangle inequality, the condition at
+$u$ and the bounds on $R_k$ and $\Phi_k$ give
+\[
+\begin{split}
+&\lVert R_kz\rVert_k+\beta'\Phi_k(R_kz)\\
+&\quad\le s\bigl(\lVert u\rVert_{k+1}+\beta'\Phi_{k+1}(u)\bigr)+(c_1+
+\beta'c_2)\lVert e\rVert_{k+1}\\
+&\quad\le s\bigl(\lVert z\rVert_{k+1}+\beta'\Phi_{k+1}(z)\bigr)\\
+&\qquad+\bigl(s(1+c_3\beta')+c_1+\beta'c_2\bigr)\lVert e\rVert_{k+1},
+\end{split}
+\]
+using $\lVert u\rVert\le\lVert z\rVert+\lVert e\rVert$ and $\Phi_{k+1}(u)
+\le\Phi_{k+1}(z)+c_3\lVert e\rVert$; the last coefficient is at most
+$s\delta$, which is the step $N_k(R_kz)\le N_{k+1}(z)$. The step $k=0$ is the
+same with $\beta'=0$ on the left side.
+
+(ii) Iterating $s\lVert z\rVert_{k+1}\le\lVert R_kz\rVert_k$ gives $s^k
+\lVert y\rVert_k\le\lVert T_ky\rVert_0$. Also $\lVert(I-\Pi_k)y\rVert_k\le
+(1+c_1c_4)\lVert y\rVert_k$ and $\Phi_k(y)\le c_3\lVert y\rVert_k$, so $Q_k(y)
+\le(1+c_3\beta'+\delta(1+c_1c_4))\lVert y\rVert_k$, and the bound follows,
+for $k=0$ because the constant is at least one.
+\end{proof}
+
+The theorem moves the whole difficulty into the two-term inequality with one
+factor $s$ at every scale; the deviation term absorbs the part of the field
+that the reconstruction does not produce. A comparison argument with local
+costs needs, in addition, that the transport cost of a perturbation is
+controlled by finitely many local terms, and the next lemma says exactly
+when this is possible.
+
+\begin{lemma}[local response bounds]\label{lem:bptwist}
+Let $\mathsf t$ be a seminorm on a finite-dimensional real vector space and
+$l_j$, $j\in J$, finitely many linear forms on it. There are $K_j\ge0$ with
+$\mathsf t\le\sum_jK_j\lvert l_j\rvert$ if and only if $\mathsf t(\xi)=0$
+for every $\xi$ with $l_j(\xi)=0$ for all $j$. Finiteness of $J$ cannot be
+dropped.
+\end{lemma}
+
+\begin{proof}
+The condition is clearly necessary. Conversely, $n=\sum_j\lvert l_j\rvert$ is
+a seminorm whose kernel lies in that of $\mathsf t$, so both descend to the
+quotient by $\ker n$, on which $n$ is a norm; all norms on a
+finite-dimensional space are equivalent and the seminorm $\mathsf t$ is
+continuous, so $\mathsf t\le Kn$ on the unit sphere of $n$ and everywhere.
+For the last statement take finitely supported real sequences, $\mathsf
+t(\xi)=\lvert\xi_0\rvert$ and $l_j(\xi)=\xi_j-\xi_{j+1}$ for $j\ge0$. If every
+$l_j(\xi)$ vanishes, $\xi$ is constant and finitely supported, hence zero;
+but for a finite set $J$ and $M>\max J$ the indicator $\xi$ of $\{0,\dots,M\}$
+has $l_j(\xi)=0$ for $j\in J$ and $\mathsf t(\xi)=1$.
+\end{proof}
+
+\begin{remark}[a chain in one dimension]\label{rem:bpchain}
+Put
+\[
+\varrho_k=\sqrt{\frac{4+2\cdot4^{-k}}3},\qquad\theta_k=1+\frac2{\varrho_k
+(2+\varrho_k)},
+\]
+$\zeta_0=0$, $\zeta_1=(\sqrt2-1)/2$, $\zeta_2=(\theta_1-1+\theta_1\zeta_1)/2$
+and
+\[
+\zeta_{k+1}=\frac12\Bigl(\frac1{2\varrho_k}+\Bigl(1+\frac1{\varrho_k}
+\Bigr)\zeta_k\Bigr)\qquad(k\ge2).
+\]
+These are the closed forms, computed in the archive, of the per-scale loss
+of the site-additive metrics and of the gradient coefficient of the optimal
+value-and-gradient chain for the Gaussian chain of block averages of side
+two on the line; that identification is not proved here, and only the
+following arithmetic is. Since $\varrho_k\le\varrho_0=\sqrt2$,
+$\theta_k\ge1+2/(\sqrt2(2+\sqrt2))=\sqrt2$, so $\prod_{i<k}\theta_i\ge(\sqrt2
+)^k$. The map $f_k(\zeta)=\frac12(\frac1{2\varrho_k}+(1+\frac1{\varrho_k})
+\zeta)$ is increasing, with slope less than one and fixed point $\zeta^*_k=
+1/(2(\varrho_k-1))$, and $f_k(\zeta)-\zeta=(1-\frac12(1+\frac1{\varrho_k}))
+(\zeta^*_k-\zeta)$. As $\varrho_k$ decreases to $2/\sqrt3$, $\zeta^*_k$
+increases to $\zeta^*=(3+2\sqrt3)/2$, so $f_k(\zeta^*)\le\zeta^*$; with
+$\zeta_2<\zeta^*$ induction gives $\zeta_k<\zeta^*$, that is,
+\[
+1+2\zeta_k<4+2\sqrt3\qquad\text{for every }k,
+\]
+and $4+2\sqrt3$ is the limit of $1+2\zeta_k$, since $\zeta_k-\zeta^*_k$
+contracts by a factor tending to $(1+\sqrt3/2)/2<1$ and $\zeta^*_k\to\zeta^*$.
+Figure~\ref{fig:bpmetrics} shows both sequences.
+\end{remark}
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\textwidth]{figures/fig_bpmetrics.png}
+\caption{Metrics across scales. (a) A column of the conditional mean
+$R=A^{-1}P^{\mathsf T}(PA^{-1}P^{\mathsf T})^{-1}$ of the block averages
+over blocks of side two on the periodic $18\times18$ lattice, for
+$A=\frac1{10}+4-N$: positive on its own block (blue), negative on the ring
+of neighbouring blocks (red), as Proposition~\ref{prop:bpnegative} requires.
+(b) The site-additive loss $\prod_{i<k}\theta_i\ge(\sqrt2)^k$ against
+$1+2\zeta_k<4+2\sqrt3$ for the closed forms of Remark~\ref{rem:bpchain}, on a
+logarithmic scale.}
+\label{fig:bpmetrics}
+\end{figure}
+
+\begin{remark}[what is proved about the metrics]\label{rem:bpmetrics}
+Proved: the admissible site-additive weights through a linear
+reconstruction are exactly those above $\lvert R\rvert^{\mathsf T}p$, and every
+admissible chain lies above the minimal weights
+(Lemma~\ref{lem:bpweights}); under equal column norms and sums the loss on
+constants is the product of the factors $\theta_i$, which exceed one exactly
+when the reconstruction changes sign, and nonnegative reconstructions lose
+nothing (Proposition~\ref{prop:bpsiteloss}); the conditional means of block
+averages over thick blocks change sign (Proposition~\ref{prop:bpnegative}),
+in particular for massive Gaussian fields on tori with at least three blocks
+in each direction (Remark~\ref{rem:bpthick}); a chain with a deviation term
+composes if and only if a two-term inequality holds at every scale, and then
+its loss is bounded independently of the number of scales
+(Theorem~\ref{thm:bpdeviation}); local response bounds exist exactly when
+no perturbation is invisible to all local terms (Lemma~\ref{lem:bptwist}).
+So a proof of (H2) through a scale-by-scale comparison cannot use
+site-additive metrics on the block variables at Gaussian order: their loss
+grows geometrically in the number of scales.
+
+Not proved: a linear, or nearly linear, reconstruction of the block-spin
+maps of the Wilson measure along the tuning; the two-term inequality of
+Theorem~\ref{thm:bpdeviation} for them with one factor $s$ at every scale;
+the identification in Remark~\ref{rem:bpchain}; (H2) at weak coupling. The
+statements of this subsection and their Lean~4 formalisation are due to
+James Montgomery Lockwood.
 \end{remark}
 
 \section{The open inputs}\label{sec:inputs}
@@ -28871,6 +29184,27 @@ gives $\delta(\ell_P,I)\le4\kappa$, where $\ell_P$ is that holonomy. Replacing
 the four $\ell_k$ by $c_k$ one at a time, bi-invariance of $\delta$ and the
 triangle inequality add $4\cdot7\pi\kappa$.
 \end{proof}
+
+\begin{remark}[flat fields far from the identity]\label{rem:flatholonomy}
+Lemma~\ref{lem:coarsewitness} bounds coarse curvature, not the links, and
+no bound on the links in the tree gauge follows from flatness alone. On
+the periodic lattice of side $2L$ with blocks of side two, fix a direction
+$\mu$, put $U_e=-I$ on every link in the direction $\mu$ that joins two
+different blocks, and $U_e=I$ on every other link. The tree links lie
+inside the blocks, so $U$ is in the tree gauge. A plaquette in a plane
+containing $\mu$ has its two links in the direction $\mu$ at the same
+$\mu$-coordinate, so both cross a block boundary or neither does, and every
+plaquette holonomy is $I$. Yet every crossing link is $-I$, the point of
+$\SU(2)$ farthest from $I$, every path of the cut-off average across a block
+boundary in the direction $\mu$ carries $-I$, and so does the coarse link.
+For odd $L$ the Wilson line around the direction $\mu$ is $(-I)^L=-I$,
+which is central and hence gauge invariant, so no gauge transformation
+makes $U$ trivial. A witness that forces a large plaquette near every link
+far from $I$ in the tree gauge is therefore false; witnesses have to be
+taken relative to a reference such as the reconstruction of
+Lemma~\ref{lem:branchbound}, as they are in this section. The example is
+due to Tristan Romanov.
+\end{remark}
 
 With the coarse field calm, the chart has a centre. The next lemma shows
 that for a pair whose non-path links are near the reconstruction, the
@@ -47516,6 +47850,12 @@ properties of Section~\ref{ssec:limitE}. Given them, the results above give
 the continuum theory a mass gap; without them the mass gap is not proved
 here.
 
+Lattice gauge fields also define four-dimensional gauge theories with
+chiral fermions in every anomaly-free representation, once the lattice
+field is interpolated to the continuum and coupled to continuum
+fermions~\cite{Wit26}. The mass gap problem concerns the pure gauge
+theory, to which every result here refers.
+
 \section*{Acknowledgements}
 
 This paper rests on the work of many earlier scientists. Lattice gauge
@@ -47574,7 +47914,7 @@ release v4.36.0,
 with a Lean~4 certificate of the line field, Lean~4 files for the
 comparison arithmetic, the coupling lemmas of
 Section~\ref{ssec:couplingcost} and the finite arithmetic of Theorem~\ref{thm:layerbound},
-Corollary~\ref{cor:twoislands}, Proposition~\ref{prop:massgrowth}, Proposition~\ref{prop:smallframessharp} and Theorem~\ref{thm:islandswide}, the counting and trace identities and the constants of Subsections~\ref{ssec:averaged}--\ref{ssec:bpneutral} and of Theorem~\ref{thm:endlinear}, independent exact or
+Corollary~\ref{cor:twoislands}, Proposition~\ref{prop:massgrowth}, Proposition~\ref{prop:smallframessharp} and Theorem~\ref{thm:islandswide}, the counting and trace identities and the constants of Subsections~\ref{ssec:averaged}--\ref{ssec:bpneutral} and of Theorem~\ref{thm:endlinear}, the linear algebra of Subsection~\ref{ssec:bpmetrics}, independent exact or
 numerical checks of the other finite statements, our checks of the
 certificate of~\cite{Rom26}, and the certificate of
 Remark~\ref{rem:blockgapsharp} with its exact check. The code was
@@ -47600,7 +47940,7 @@ James Montgomery Lockwood contributed the analysis of constrained
 cubes~\cite{Loc26} and its code, and the Lean~4 formalisations of the
 quaternion model of $\SU(2)$, the open-gluon certificates, the coupling
 lemmas of Section~\ref{ssec:couplingcost}, the strong-coupling comparison and
-the limit of couplings. Tristan Romanov contributed the certified
+the limit of couplings, and the composition of metrics across scales of Subsection~\ref{ssec:bpmetrics} with its Lean~4 formalisation. Tristan Romanov contributed the certified
 bound on the forest-gauge Hessian~\cite{Rom26} and the research
 continuation on which Section~\ref{sec:islands} is built: the finite
 Dobrushin arithmetic, the minimality of the coupling cost and its
@@ -47608,7 +47948,7 @@ measure-level form, the relative and canonical charts, the matching of
 labels on independent links, the rough-background and branch
 obstructions, the rarity witnesses and the island kernel, the analysis of
 the lattice slice field with the exact Wick coefficients on finite boxes,
-the block-response diagnostics, four Lean~4 modules, and the programs and
+the block-response diagnostics, the flat fields of Remark~\ref{rem:flatholonomy}, four Lean~4 modules, and the programs and
 certificates behind them. All four authors approved the final
 text.
 
@@ -49997,6 +50337,10 @@ Press, Princeton, 1957,
 Wilson, K.G.: Confinement of quarks. Phys. Rev. D \textbf{10}, 2445--2459
 (1974).
 \href{https://doi.org/10.1103/PhysRevD.10.2445}{https://doi.org/10.1103/PhysRevD.10.2445}
+
+\bibitem{Wit26}
+Witten, E.: A note on lattice definition of gauge theories with chiral
+fermions. Preprint (2026). \href{https://arxiv.org/abs/2611.05051}{arXiv:2611.05051}
 
 \end{thebibliography}
 
