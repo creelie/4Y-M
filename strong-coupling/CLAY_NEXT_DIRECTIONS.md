@@ -90,3 +90,7 @@ Sources:
 - 2026-11-06: **#4 closed** (`forest/RP_WEAK_GAP_4.md`). The correlation-level RP criterion is a no-go, because
   effective masses are non-increasing (log-convexity), so finite data only bound the gap from above. The chessboard
   version reduces to C2 = (D). This also means #3's L* = 2 has no rigorous force. Next: **#6**.
+- 2026-11-06: **#6 audited** (`forest/TOMBOULIS_AUDIT_6.md`). The gap localizes to (★′), monotonicity of the vortex
+  ratio Z⁻/Z under c_j ↦ αc_j, or to the global continuation step. (★′) holds exactly in 2D for every group,
+  including U(1), so 2D tests are uninformative. The decisive test is 4D U(1) vs SU(2) (small Monte Carlo job).
+  This is not a route to the gap.
