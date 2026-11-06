@@ -98,3 +98,5 @@ Sources:
   6% at 0.55 (L = 2), shrinking with L. It is O(β) by construction (β²/4 vs β weights). #2 is parked in both 3D and 4D.
   Remaining #7 content: #1 is dimension-free, #5 was dropped. Status: every concrete route is parked or closed except waiting for
   the OpenAI text (#1 interface) and the optional #6 Monte Carlo test.
+- 2026-11-06: **#6 closed** (job 1681808, TOMBOULIS_AUDIT_6 §6). The (★′) proxy holds for 4D U(1) in its Coulomb phase (Δ < 0 at 11–16σ),
+  so the Tomboulis failure is in the global continuation/eq. 5.21, not in the vortex inequality. Plan exhausted; next is the OpenAI text (#1 interface).

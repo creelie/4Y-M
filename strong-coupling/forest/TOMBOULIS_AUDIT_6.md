@@ -65,3 +65,28 @@ for SU(2) and U(1), with α scaling the Wilson coupling. It is a small Monte Car
 #6 localizes to (★′) or to the continuation step. Neither is a repair route with lower difficulty than the
 window problem; at best it is a clean obstruction statement. Value: moderate as a write-up, low as a route
 to the gap. Optional next step: the §4 Monte Carlo test.
+
+## 6. Monte Carlo result (job 1681808, 2026-11-06): the (★′) proxy holds for U(1), so the gap is in the continuation
+
+The proxy is d/dβ log(Z⁻/Z) = ⟨S⟩_tw − ⟨S⟩_per (Wilson β-scaling in place of c_j ↦ αc_j). Setup: 4⁴ lattice, π/center-flux twist
+on the (0,1)-plaquettes at x₀ = x₁ = L−1, 4 replicas × 2400 measured sweeps. Sanity check: ⟨P⟩ = 0.61 (SU(2), β = 2.3),
+0.72 (U(1), β = 1.1), consistent with the literature.
+
+| group | β | Δ = ⟨S⟩_tw − ⟨S⟩_per | σ | Δ/σ |
+|---|---|---|---|---|
+| SU(2) | 1.5 | −0.27 | 0.47 | −0.6 |
+| SU(2) | 2.0 | −1.41 | 0.98 | −1.4 |
+| SU(2) | 2.3 | −5.34 | 1.16 | −4.6 |
+| SU(2) | 2.6 | −3.27 | 0.58 | −5.6 |
+| U(1) | 0.8 | −0.46 | 0.97 | −0.5 |
+| U(1) | 0.95 | −0.68 | 3.45 | −0.2 |
+| U(1) | 1.1 | −8.21 | 0.75 | −11.0 |
+| U(1) | 1.4 | −4.93 | 0.31 | −15.7 |
+
+Δ ≤ 0 everywhere, and it is strongly negative in the 4D U(1) **Coulomb phase**. So the vortex ratio decreases in the coupling for
+U(1) exactly as it does for SU(2), and the (★′) monotonicity does not separate the groups. By §4, case 2: **the step that
+must fail for U(1) is the global continuation of t(λ) (Ito–Seiler Problem 3, Kanazawa-type), or eq. 5.21, not inequality (★)**.
+Caveats: this is a proxy (β-scaling, not uniform character rescaling), a single small volume, and Metropolis statistics.
+Neither caveat is likely to flip an 11–16σ sign, but a strict statement needs the c_j-scaling version.
+Consequence for Clay: any repair of Tomboulis must supply a non-abelian global-continuation argument. That is no easier
+than the window problem. #6 is closed.
