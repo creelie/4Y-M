@@ -22,7 +22,7 @@ Our own §10.6 and §11 notes have already reached the main point. **Every route
 **3. A feasibility study on the cluster before committing to #1 and #2.**
 - With the exact-marginal coupling, not the naive linkwise one, measure the GDS/influence coefficient against box size at β_W ≈ 2.0–2.6, on both Wilson and MCRG-blocked actions.
 - Output: the smallest box L* at which contraction appears numerically, and the size of the action family that needs certifying.
-- If L* ≥ 6 in 4D, a direct certificate is out of reach and we need a dimension reduction (class functions, symmetry). Better to learn that in a week than in two months. This is cheap CPU work within the 64-CPU budget.
+- If L* ≥ 6 in 4D, a direct certificate is out of reach and we need a dimension reduction (class functions, symmetry). Better to learn that in a week than in two months. This is cheap CPU work.
 
 **4. Go after the weak mass gap with reflection-positive and transfer-matrix tools.**
 - Our infrastructure only partly uses these yet: the slice ratio, Theorem 46, and the tree bounds (T1)–(T3).
@@ -70,3 +70,17 @@ Sources:
 - [Chevyrev–Shen (arXiv 2503.03060)](https://arxiv.org/abs/2503.03060v2)
 - [Dimock, Bałaban RG II (arXiv 1212.5562)](https://arxiv.org/pdf/1212.5562)
 - [Wikipedia: Yang–Mills existence and mass gap](https://en.wikipedia.org/wiki/Yang%E2%80%93Mills_existence_and_mass_gap)
+
+## Progress log
+
+- **2026-11-06, #5 dropped.** Falsifier `research/experiments/polchinski2d/` (cluster job 1677160): for the single-plaquette SU(2) measure e^{β cos θ} on S³ (2D axial gauge), the multiscale curvature rate along the heat flow divided by the exact Poincaré gap is 0.59, 0.51, 0.33, 0.11, 0.007 at β = 0.5, 1, 2, 4, 8, which is exponential decay. The flow restores convexity only at t* ≈ 0.4, and the antipodal curvature ≈ −2β is paid for before then. β ≥ 16 rows are numerical underflow. Heuristic proxy for the BBD criterion, not a theorem about it.
+- **2026-11-06, benchmark frozen** (see `forest/BALL_CERTIFICATE.md`): SU(2) 0.351, SU(3) 0.77. The 0.348/0.52 figures were a stale README.
+- **2026-11-06, #1 interface drafted:** `forest/BALL_CERTIFICATE.md`.
+- **#3 running:** `research/experiments/linresp/`.
+- 2026-11-06: **#3 done** (job 1676562). L* = 2 for β ∈ [2.0, 2.6] at L=8, T=16. Caveats:
+  C(r≥2) is at the noise level, and this is a weak-form periodic-state heuristic, not a
+  sup-ω influence. Decision rule (L* ≤ 4) says continue with #1/#2 at small L and favours
+  **#4** (weak gap in the RP state) over #6.
+- 2026-11-06: **#2 step 5.1 done** (job 1679093). Reduced specification is worse in raw
+  Lipschitz form (row 5.40 → 6.54 at L=2, β_W=0.30). See MARGINAL_COUPLING_T1 §6.
+  Next is the second-derivative bound for the Z-terms.
