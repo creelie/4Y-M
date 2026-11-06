@@ -1,5 +1,28 @@
 # The two walls, (D) and (E): where they stand (November 2026)
 
+**Latest shell advance (proved / application open).** `SU2_RADIAL_HAZARD.md`
+proves a uniform O(1+κ) radial hazard bound for a von Mises--Fisher law on
+SU(2), and extends it to a maximum of dependent radii under explicit
+conditional-law assumptions. This gives the order needed in the fixed-radius
+flux ledger. The actual SU(2) path conditioning and identification with
+maximum-shell flux, and the conditional large-field displacement, are not established;
+this does not close (I1) or D. The relative curvature witness and its
+annealed rarity already appear in `RELATIVE_CHART.md` and `COARSE_LABELS.md`.
+
+**Latest averaging step (proved conditional bound).**
+`AVERAGED_SHELL_MASS.md` proves that fibre normalization cancels exactly
+when shell weights are averaged over the induced coarse distribution. It
+combines the SU(2) hazard bound with a deterministic transport-speed bound
+to control one-sided approximations to the averaged shell mass. Identifying
+those approximations with the actual signed constraint flux and bounding
+the large-field displacement remain open.
+
+**Audit correction.** `SHELL_REMAINDER_AUDIT.md` checks the source
+definition of Xi: the remainder differentiates the full large-path
+contribution. The earlier proposal that it consists only of kink-surface
+measures was not established. The new shell-mass bound does not by itself
+control bulk score or observable-transport terms.
+
 **Latest finite interfaces (2026-11-03; proved conditional deductions).**
 `ISLAND_KERNEL.md` shows that a uniform connected collar-kernel bound
 survives arbitrary separate positive island weights, including hard
@@ -101,7 +124,7 @@ D_c(n, α), with a supremum over boundary conditions, uniformly along β_W ∼ b
 | D4 | mass off the chart on fibres with no calm completion | **open**; bounded only in mean over exteriors (Theorem `offchart`) | Remark `chartdecayopen`(a) |
 | D5 | fibre decay ⇒ cube coefficient, with the supremum over boundary conditions | **open**. Calm case done in `D5.md` (C_G ≤ 3·10¹³, links in no average); the global form is volume-limited, and the local form needs (L), sketched in `ISLANDS.md`. Merged with the OpenGluon calm-data note and reduced to one-point calm rarity under an arbitrary exterior, (R1), in `CALM_LINK.md` | Remark `chartdecayopen`(b), `D5.md`, `ISLANDS.md` |
 | D6 | large fields: rare | **proved** on the torus, with explicit constants | Theorem `defects`, `rare/RARE.md` |
-| D7 | large fields: harmless | **open** | `rare/RARE.md` §4 |
+| D7 | large fields: harmless | **open**. Conjecture B for bounded local F: **proved** in φ-averaged form, Lipschitz F (`GAUSS_GREEN.md`; C_G not evaluated). The decay form needed by the cube coefficient is Conjecture L, still open | `rare/RARE.md` §4 |
 | D8 | the cube condition for the averages ⇒ the law one scale up; the coarsest averages; the crossover | **open** | `OPEN.md` §4 |
 
 D4, D5, D7 and D8 are the open content. D5 and D7 are the two halves of Lockwood's sentence: "proved only at strong

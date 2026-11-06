@@ -67,3 +67,32 @@ unity, then bound the integrated scores and chart changes. Hard label
 boundaries introduce flux terms that the compact smooth bump avoids.
 The scalar example neither controls those terms nor the full branch sum,
 and gives no volume- or exterior-uniform Wasserstein coefficient.
+
+## Hard-boundary obstruction even with a transverse coordinate
+
+**Proved (scalar counterexample).** A uniformly nonzero transverse
+derivative by itself does not provide a uniform response bound after a
+hard restriction. Let (q,t) range over [0,1]^2 with Lebesgue density and
+condition on f(q,t)=q^2+t=gamma. Here partial_t f=1 everywhere, so f is a
+submersion and the coarea integral can be taken in t without a singular
+Jacobian. For 0<gamma<1 the unnormalised density is
+
+    Z(gamma)=integral_0^1 1_{0<=gamma-q^2<=1} dq=sqrt(gamma).
+
+The conditional expectation of q is sqrt(gamma)/2. Hence both Z' and
+the derivative of this bounded observable diverge as gamma decreases to
+zero, despite complete transverse solvability. For gamma in (0,1), the
+conditional law is uniform on [0,sqrt(gamma)], so its Wasserstein-1
+distance to the law at gamma=0, interpreted by the weak limit delta_0,
+is sqrt(gamma)/2. Therefore even uniform Lipschitz transport fails at this
+hard boundary. The mechanism is the moving endpoint q=sqrt(gamma), where
+the level surface meets t=0 tangentially; it is not a bulk coarea fold.
+
+**Scope / next.** This toy example does not establish a failure for the
+actual SU(2) fibre. It shows that a full-constraint submersion and a
+bounded coarea factor alone cannot settle the hard-label transport task.
+An application needs quantitative transversality to the active boundary,
+a cancellation or a bound after averaging over the boundary, with a
+normalizer controlled on the relevant parameter range. In particular,
+refining a numerical branch solver near a fold cannot certify such a
+uniform estimate without controlling these boundary terms.

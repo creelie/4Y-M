@@ -405,3 +405,98 @@ preceding implementation pass: no new (I1), D8 or continuum theorem is
 claimed by this integration. The complete contribution is open as
 [draft PR #160](https://github.com/creelie/4Y-M/pull/160), with 129 changed
 files. `UPSTREAM_STATUS.md` records the reconciliation and earlier scope.
+
+### After upstream merge (2026-11-04)
+
+**Proved finite criterion / open application:** `ENVIRONMENT_COMPARISON.md`
+connects uniform conditional label odds to environment covariance through
+a Dobrushin resolvent. The necessary all-background influence bounds and
+locality of conditional physical observables are not proved for the gauge
+fibres. `RESEARCH_DIRECTIONS_2026_11_04.md` records literature and next
+steps for bad regions, multiscale crossover and continuum reconstruction.
+No new Yang--Mills mass gap or continuum construction is claimed.
+
+### Interfaces and boundary obstruction (2026-11-04)
+
+- **Proved abstract interfaces:** `CROSSOVER_LEDGER.md` gives an exact
+  scale-dependent error ledger and a small-gain split criterion;
+  `CONTINUUM_GAP_INTERFACE.md` gives sufficient semigroup convergence and
+  density hypotheses for a physical gap to survive reconstruction. Neither
+  supplies the needed Yang--Mills inputs.
+- **Proved scalar obstruction:** `TRANSVERSE_FOLD.md` now gives a submersion
+  with a hard boundary where the normalizer and bounded-observable response
+  are not uniformly Lipschitz. A full-rank constraint alone cannot close bad
+  transport; boundary transversality or another mechanism must be proved.
+- **Open:** uniform gauge-island/environment estimates, the nonlinear
+  crossover and a nontrivial reconstructed continuum theory.
+
+### Boundary-preserving transport criterion (2026-11-04)
+
+**Proved conditional criterion:** `BOUNDARY_TRANSPORT.md` derives a fibre
+response identity and a Wasserstein bound from a boundary-preserving lift
+with uniformly controlled speed and score oscillation. Its active-stratum
+rank test shows why the scalar hard-boundary counterexample cannot satisfy
+those hypotheses. **Open:** whether the actual gauge labels admit compatible
+uniform lifts and score bounds; the bulk private-link submersion alone does
+not establish them. No gauge-island or continuum result is claimed.
+
+### Three-front decomposition (2026-11-04)
+
+- **Proved finite obstruction:** `RARE_LABEL_INFLUENCE.md` shows that even
+  arbitrarily rare labels can have conditional influence tending to one.
+  Graded control or conditional collar estimates remain to be proved.
+- **Proved scalar recursion / open gauge input:** `CROSSOVER_COUNT.md`
+  quantifies the number of steps and accumulated one-loop-size errors and
+  lists five separate D8 obligations, including matching physical units.
+  Its weighted refinement proves how marginal growth changes the error
+  summability threshold, and gives a scalar example where that threshold
+  is sharp. Actual gauge RG constants and cancellations remain unproved.
+- **Proved symmetry obstruction:** `CONTINUUM_SYMMETRY_TEST.md` shows that
+  tightness and exact hypercubic symmetry do not imply continuum rotation
+  invariance. The required rotation-defect and reconstruction bounds remain
+  open. `OS_LIMIT_LEDGER.md` proves a countable diagonal extraction with
+  positivity and distinguishes an ordinary variance witness from a
+  nonzero reflection-norm witness. Its uniform bounds and the analytic
+  reconstruction hypotheses remain open. None of these results closes D,
+  D8 or the Clay problem.
+
+### Flat-holonomy correction to input (b) (2026-11-04)
+
+**Proved gauge-field counterexample:** `FLAT_HOLONOMY_OBSTRUCTION.md`
+exhibits a flat SU(2) configuration in block tree gauge with links far from
+identity. Thus the unrestricted absolute version of bad-link-implies-large-
+plaquette is false, not merely unchecked. A same-endpoints path comparison
+is proved there. A relative witness and its annealed rarity were already proved in
+`RELATIVE_CHART.md` and `COARSE_LABELS.md`; it was incorrect to list that
+witness itself as open. Matching its labels to the conditional law and
+controlling bad-side response and the environment remain open.
+
+**Proved conditional counting:** `WITNESS_COUNTING.md` turns any local
+finite-multiplicity curvature witness plus joint plaquette rarity into a
+joint bad-label rarity bound, with explicit entropy and overlap factors.
+The sharper existing gauge result is in `COARSE_LABELS.md`; both are
+annealed rather than uniform in the exterior.
+
+### SU(2) shell hazard (2026-11-04)
+
+**Proved:** `SU2_RADIAL_HAZARD.md` gives a uniform O(1+kappa) radial
+hazard bound on SU(2), sufficient in order for the fixed-threshold shell
+ledger in `CALM_LINK.md` if its conditioning and flux assumptions are
+verified. It also proves a shell bound for the dependent maximum and applies
+it to the fourteen nontrivial two-link paths before the coarse averages are
+conditioned, when the exterior leaves the seven private links free. The
+sharper Gaussian-scale estimate, the weighted fibre flux, and large-field
+displacement remain open.
+
+**Proved conditional averaging:** `AVERAGED_SHELL_MASS.md` combines the
+shell hazard with a deterministic path-speed bound and disintegration,
+without a lower bound on individual fibre normalizers. The actual signed
+fibre flux must still be identified and the rare-event displacement bounded.
+A compact regular-level criterion now identifies the one-sided shell limit
+with a coarea surface mass on almost every fibre; regularity for the actual
+maximum and the connection to its transport flux remain unproved.
+
+**Audit correction:** `SHELL_REMAINDER_AUDIT.md` compares the actual source
+definition of Xi with the earlier surface-only sketch. Bulk density and
+observable-motion terms cannot be omitted without proof, so the shell bound
+does not by itself settle Xi.
