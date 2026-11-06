@@ -122,3 +122,22 @@ Redesign options:
     (that is what T-1 actually needs).
 (c) Include the vMF W₁ conversion factor before comparing.
 Option (a) is the cheapest next computation.
+
+### 6a. Variant (a), Hessian bound (job 1679518)
+
+Numerically sup_{|S|≤6} ‖Hess_S log Z_β‖ = β²/4 exactly (the small-|S| limit), i.e. 0.0225 at
+β_W = 0.30 against βR = 0.12. With that weight for Z-term cross influences:
+
+| L | β_W | max row unred / red | max ∂-col unred / red | max_j col ratio red/unred |
+|---|---|---|---|---|
+| 2 | 0.30 | 5.40 / 5.40 | 0.90 / 0.90 | 1.00 |
+| 2 | 0.351 | 6.32 / 6.32 | 1.05 / 1.05 | 1.00 |
+| 3 | 0.30 | 5.40 / 5.40 | 1.80 / 1.80 | 1.13 |
+| 3 | 0.351 | 6.32 / 6.32 | 2.11 / 2.11 | 1.32 |
+
+So the reduced specification is no longer worse in the maxima, but it is not better either.
+The maxima are attained by links and boundary links that the marginalization does not touch.
+At L = 3, some boundary links still get a larger column (up to ×1.32). Under the decision
+rule this is a **fail**: no gain in the quantities that enter the Dobrushin sum.
+Next: variant (b), marginalizing only the near set of the single tested j and reporting
+per-j column ratios (min/median/max), not just the global maxima.
