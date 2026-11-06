@@ -155,3 +155,21 @@ Face-type j gain a factor 0.675 (β_W = 0.30), but edge and corner j gain nothin
 get worse. The total gain is 11% at the benchmark, under the 20% threshold, and it shrinks
 with β_W and with L. Decision: **near-set marginalization gives no usable gain. #2 is parked**
 and #4 (weak gap in the RP state) is next, as the #3 result also suggested.
+
+### 6c. Direction #7: the same test in d = 3 (job 1681239): #2 stays parked
+
+Same per-j Hessian-weight computation, d = 3 (4 plaquettes and 4 near links per link), across the 3D forest range β_W < 4/7.
+
+| L | β_W | total ∂-influence unred → red | gain | per-j ratio min / median / max |
+|---|---|---|---|---|
+| 2 | 0.30 | 21.6 → 17.6 | 18% | 0.45 / 0.73 / 1.00 |
+| 2 | 0.45 | 32.4 → 28.9 | 11% | 0.68 / 0.84 / 1.00 |
+| 2 | 0.55 | 39.6 → 37.3 | 6% | 0.83 / 0.91 / 1.00 |
+| 3 | 0.45 | 97.2 → 90.3 | 7% | 0.68 / 1.00 / 1.01 |
+| 4 | 0.55 | 237.6 → 240.1 | −1% | 0.83 / 1.00 / 1.24 |
+
+(L = 3, 4 at 0.30 give 16% and 15%; at 0.55, L = 3 gives 1%.) The per-j gain is the Hessian/Wilson weight ratio
+β²/4 ÷ β = β/4 per near-link staple, so the gain must shrink linearly in β_W in every dimension, and it does.
+The best case (18%, at the weakest coupling) is below the 20% rule, and at the edge of the forest region the gain
+is gone. Rows are unchanged (the maxima sit on untouched links). **#2 stays parked in 3D as well.** The
+mechanism caps the gain at O(β), so no dimension or box size can rescue it.

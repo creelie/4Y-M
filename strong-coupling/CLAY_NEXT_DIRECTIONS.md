@@ -94,3 +94,7 @@ Sources:
   ratio Z⁻/Z under c_j ↦ αc_j, or to the global continuation step. (★′) holds exactly in 2D for every group,
   including U(1), so 2D tests are uninformative. The decisive test is 4D U(1) vs SU(2) (small Monte Carlo job).
   This is not a route to the gap.
+- 2026-11-06: **#7 started: #2 retested in 3D** (job 1681239, MARGINAL_COUPLING_T1 §6c). The gain is 18% at β_W = 0.30, 11% at 0.45,
+  6% at 0.55 (L = 2), shrinking with L. It is O(β) by construction (β²/4 vs β weights). #2 is parked in both 3D and 4D.
+  Remaining #7 content: #1 is dimension-free, #5 was dropped. Status: every concrete route is parked or closed except waiting for
+  the OpenAI text (#1 interface) and the optional #6 Monte Carlo test.
