@@ -6,7 +6,7 @@ Repository: https://github.com/creelie/4Y-M
 
 Release: [v4.41.0](https://github.com/creelie/4Y-M/releases/tag/v4.41.0)
 
-Version DOI: [release page](https://github.com/creelie/4Y-M/releases/tag/v4.41.0) (DOI awaiting archive verification)
+Version DOI: [10.5281/zenodo.24044466](https://doi.org/10.5281/zenodo.24044466)
 
 Date: 2026-11-08
 
