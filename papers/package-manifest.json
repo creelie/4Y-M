@@ -1,0 +1,12 @@
+{
+  "release": "v4.41.0",
+  "version_doi": null,
+  "files": {
+    "aiprovenance.md": "52347ea3ec108569bc199a581142e72308a67aea5116e61586f8ac83951372c1",
+    "hexagon-submission-form.md": "0ca38255cfebbbcc42244ecd799a194cda31073c7fc4ff6b37c8c6b1e636a166",
+    "next-version-submission-notes.md": "e5eea058dab12dea593e2c87e7995533ae70f0161ff2d0bdbbe8d7db04c87a84",
+    "release-details.md": "a5d5de6c1609c62fb49faf6c8ec1a5d7dfe599c107404bfff7d0e2326cf9f342",
+    "ym4d.pdf": "e920d6254f731bdcdb8d43bd2a46e0dee60b50870439c31d505129f6f96f77ec",
+    "ym4dtex.zip": "820ec3cd957341aadab68e9b3f15bfe88aec959c3dd5e1c97a4ca2bb1a58641a"
+  }
+}
