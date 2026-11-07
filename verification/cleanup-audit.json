@@ -1,0 +1,202 @@
+{
+  "scope": "Only superseded compiled manuscript/archive copies and generated build artifacts are discarded from active main. Every removed mathematical source or release-evidence file is preserved byte-for-byte at the recorded historical path. Git history and all existing release tags are retained.",
+  "previous_main": "345304ecdb3e4471cabfe8a1dd0d4f2bd3b23e08",
+  "entries": [
+    {
+      "previous_path": ".github/workflows/publish-integrated-ym.yml",
+      "category": "historical source or release evidence retained byte-for-byte",
+      "preserved_path": "verification/historical-release-metadata/.github/workflows/publish-integrated-ym.yml",
+      "previous_commit": "345304ecdb3e4471cabfe8a1dd0d4f2bd3b23e08",
+      "sha256": "77a6e33cd3c078dd1b9fde4642949eb5eb840569d4b7e934984a9f8e1cac501a"
+    },
+    {
+      "previous_path": ".github/workflows/publish-v4.38.0.yml",
+      "category": "historical source or release evidence retained byte-for-byte",
+      "preserved_path": "verification/historical-release-metadata/.github/workflows/publish-v4.38.0.yml",
+      "previous_commit": "345304ecdb3e4471cabfe8a1dd0d4f2bd3b23e08",
+      "sha256": "069d29ef49c61d21aa301652a495bf21fc169cff13c16d85c2e3f5380ad19afb"
+    },
+    {
+      "previous_path": ".github/workflows/publish-v4.39.0.yml",
+      "category": "historical source or release evidence retained byte-for-byte",
+      "preserved_path": "verification/historical-release-metadata/.github/workflows/publish-v4.39.0.yml",
+      "previous_commit": "345304ecdb3e4471cabfe8a1dd0d4f2bd3b23e08",
+      "sha256": "4fb536a4f91319c3e708fc9b7e02cf6286a0ad63e7f14951f02323338941a8fe"
+    },
+    {
+      "previous_path": "YangMills_masterzipfinal2.zip",
+      "category": "superseded compiled manuscript or source archive",
+      "preserved_path": null,
+      "previous_commit": "345304ecdb3e4471cabfe8a1dd0d4f2bd3b23e08",
+      "sha256": "2ed461b70141bbe5ba401f14a1006f00c17cb9c854e7facf74372937ab5d65f1"
+    },
+    {
+      "previous_path": "preprints/preprintshexagon/YangMills_Hexagon.pdf",
+      "category": "superseded compiled manuscript or source archive",
+      "preserved_path": null,
+      "previous_commit": "345304ecdb3e4471cabfe8a1dd0d4f2bd3b23e08",
+      "sha256": "216f4056dfd372aa40ccd7848b8a70effcfdaf1c98ae1c45821bbdad61ca591e"
+    },
+    {
+      "previous_path": "preprints/preprintsmdpi/YangMills_MDPI.pdf",
+      "category": "superseded compiled manuscript or source archive",
+      "preserved_path": null,
+      "previous_commit": "345304ecdb3e4471cabfe8a1dd0d4f2bd3b23e08",
+      "sha256": "3c14f9d57f0b1f494cb739fde87b6c62ee703e9274cad58f8719dd00e26e92b3"
+    },
+    {
+      "previous_path": "preprints/texsources/hexagontex.zip",
+      "category": "superseded compiled manuscript or source archive",
+      "preserved_path": null,
+      "previous_commit": "345304ecdb3e4471cabfe8a1dd0d4f2bd3b23e08",
+      "sha256": "ced1ecd857ab5f78213f1e5b9de36ab69582b7a0265fdd4e297ce1b063802fca"
+    },
+    {
+      "previous_path": "preprints/texsources/mdpitex.zip",
+      "category": "superseded compiled manuscript or source archive",
+      "preserved_path": null,
+      "previous_commit": "345304ecdb3e4471cabfe8a1dd0d4f2bd3b23e08",
+      "sha256": "62ac5de9d9a64dc06be4a5765c0c2266ff246dba5318ea81110b97f670248bb4"
+    },
+    {
+      "previous_path": "preprints/texsources/tex.zip",
+      "category": "superseded compiled manuscript or source archive",
+      "preserved_path": null,
+      "previous_commit": "345304ecdb3e4471cabfe8a1dd0d4f2bd3b23e08",
+      "sha256": "ced1ecd857ab5f78213f1e5b9de36ab69582b7a0265fdd4e297ce1b063802fca"
+    },
+    {
+      "previous_path": "revision-v4.38.0/RELEASE-NOTES.md",
+      "category": "historical source or release evidence retained byte-for-byte",
+      "preserved_path": "verification/historical-release-metadata/revision-v4.38.0/RELEASE-NOTES.md",
+      "previous_commit": "345304ecdb3e4471cabfe8a1dd0d4f2bd3b23e08",
+      "sha256": "b35eea97bfd9903d31b3701a9160663c671aa278d3bb37e8d32664b0b8fabe6a"
+    },
+    {
+      "previous_path": "revision-v4.38.0/SHA256SUMS.txt",
+      "category": "historical source or release evidence retained byte-for-byte",
+      "preserved_path": "verification/historical-release-metadata/revision-v4.38.0/SHA256SUMS.txt",
+      "previous_commit": "345304ecdb3e4471cabfe8a1dd0d4f2bd3b23e08",
+      "sha256": "abd3bf7503552fd72c968636fb34d430145fd653e2a21a0d096e6388b7e1865f"
+    },
+    {
+      "previous_path": "revision-v4.38.0/YangMills_Hexagon.pdf",
+      "category": "superseded compiled manuscript or source archive",
+      "preserved_path": null,
+      "previous_commit": "345304ecdb3e4471cabfe8a1dd0d4f2bd3b23e08",
+      "sha256": "4e2f6353271c1a1967f26467501446564cae9c0ec857ace49bb5b1dd9be1201c"
+    },
+    {
+      "previous_path": "revision-v4.38.0/hexagontex.zip",
+      "category": "superseded compiled manuscript or source archive",
+      "preserved_path": null,
+      "previous_commit": "345304ecdb3e4471cabfe8a1dd0d4f2bd3b23e08",
+      "sha256": "772ab07b4427c61988c8b3559bfdf91cb1feb02551ad28206f1588e0e5d0a940"
+    },
+    {
+      "previous_path": "revision-v4.38.0/release.json",
+      "category": "historical source or release evidence retained byte-for-byte",
+      "preserved_path": "verification/historical-release-metadata/revision-v4.38.0/release.json",
+      "previous_commit": "345304ecdb3e4471cabfe8a1dd0d4f2bd3b23e08",
+      "sha256": "3614ec0ecf7cf60cd9ee2e718866e216ebd3f1815dff3ffce52a7b5f8ae52b54"
+    },
+    {
+      "previous_path": "revision-v4.39.0/RELEASE-NOTES.md",
+      "category": "historical source or release evidence retained byte-for-byte",
+      "preserved_path": "verification/historical-release-metadata/revision-v4.39.0/RELEASE-NOTES.md",
+      "previous_commit": "345304ecdb3e4471cabfe8a1dd0d4f2bd3b23e08",
+      "sha256": "b955907f2a72f9f3db6da936fac2bf056b3ccd5f1cfbb58d531d098286bcb383"
+    },
+    {
+      "previous_path": "revision-v4.39.0/SHA256SUMS.txt",
+      "category": "historical source or release evidence retained byte-for-byte",
+      "preserved_path": "verification/historical-release-metadata/revision-v4.39.0/SHA256SUMS.txt",
+      "previous_commit": "345304ecdb3e4471cabfe8a1dd0d4f2bd3b23e08",
+      "sha256": "b9a901b80157be0af3f44fd1f98c61e186097ad601191526616c566d24c1af38"
+    },
+    {
+      "previous_path": "revision-v4.39.0/YangMills_Hexagon.pdf",
+      "category": "superseded compiled manuscript or source archive",
+      "preserved_path": null,
+      "previous_commit": "345304ecdb3e4471cabfe8a1dd0d4f2bd3b23e08",
+      "sha256": "61c7b26a011f8fda6e253f05351ed4cb18a44bc352547d303f06b20bc880a1cb"
+    },
+    {
+      "previous_path": "revision-v4.39.0/hexagontex.zip",
+      "category": "superseded compiled manuscript or source archive",
+      "preserved_path": null,
+      "previous_commit": "345304ecdb3e4471cabfe8a1dd0d4f2bd3b23e08",
+      "sha256": "c990696f05b6d9e00685f29f59515e0137eff143fe6aa6c48398a4dfb99b564d"
+    },
+    {
+      "previous_path": "revision-v4.39.0/release.json",
+      "category": "historical source or release evidence retained byte-for-byte",
+      "preserved_path": "verification/historical-release-metadata/revision-v4.39.0/release.json",
+      "previous_commit": "345304ecdb3e4471cabfe8a1dd0d4f2bd3b23e08",
+      "sha256": "6fa506c4b5e2a4f2b3882aab257ef36f1a4e93070652e456c41448615f47a1b6"
+    },
+    {
+      "previous_path": "revision-v4.40.0/RELEASE-NOTES.md",
+      "category": "historical source or release evidence retained byte-for-byte",
+      "preserved_path": "verification/historical-release-metadata/revision-v4.40.0/RELEASE-NOTES.md",
+      "previous_commit": "345304ecdb3e4471cabfe8a1dd0d4f2bd3b23e08",
+      "sha256": "b4d348e50280a2669100f69dde2d4ef1379d4b91721c4801cdf1830a250ca402"
+    },
+    {
+      "previous_path": "revision-v4.40.0/SHA256SUMS.txt",
+      "category": "historical source or release evidence retained byte-for-byte",
+      "preserved_path": "verification/historical-release-metadata/revision-v4.40.0/SHA256SUMS.txt",
+      "previous_commit": "345304ecdb3e4471cabfe8a1dd0d4f2bd3b23e08",
+      "sha256": "69ad5e80f0cc16597eea18648922dd909a8e9a045c1409cd975134a4d23dfd0c"
+    },
+    {
+      "previous_path": "revision-v4.40.0/release.json",
+      "category": "historical source or release evidence retained byte-for-byte",
+      "preserved_path": "verification/historical-release-metadata/revision-v4.40.0/release.json",
+      "previous_commit": "345304ecdb3e4471cabfe8a1dd0d4f2bd3b23e08",
+      "sha256": "11313723cb2d2394c473992bea1995cdccbc27721dff8e60bb352e1fea7295b4"
+    },
+    {
+      "previous_path": "revision-v4.40.0/ym4d.zip",
+      "category": "superseded compiled manuscript or source archive",
+      "preserved_path": null,
+      "previous_commit": "345304ecdb3e4471cabfe8a1dd0d4f2bd3b23e08",
+      "sha256": "dd0d5cb95a1ad49baba577e07de2fd4ec75dcd8eb1ccba7e32da877c3a15ac95"
+    },
+    {
+      "previous_path": "strong-coupling/forest/cmp/main.tex",
+      "category": "historical source or release evidence retained byte-for-byte",
+      "preserved_path": "source-history/superseded-layouts/strong-coupling/forest/cmp/main.tex",
+      "previous_commit": "345304ecdb3e4471cabfe8a1dd0d4f2bd3b23e08",
+      "sha256": "198f7d0f5948ccddc2301fe115126f35bd07e80ef1ab1e870bdc55de18c8f020"
+    },
+    {
+      "previous_path": "strong-coupling/gauge-fixed/checks/su3/__pycache__/lip.cpython-313.pyc",
+      "category": "generated build artifact",
+      "preserved_path": null,
+      "previous_commit": "345304ecdb3e4471cabfe8a1dd0d4f2bd3b23e08",
+      "sha256": "c898fa4606b07c1bb63508db4e4e6f2692f5b29156915db4c51ce20004046b67"
+    },
+    {
+      "previous_path": "strong-coupling/paper/YangMillsStrongCoupling.pdf",
+      "category": "superseded compiled manuscript or source archive",
+      "preserved_path": null,
+      "previous_commit": "345304ecdb3e4471cabfe8a1dd0d4f2bd3b23e08",
+      "sha256": "f550d37ac3880113d14f09fc2cb5956285ed85f4afc8c3f0713f12877e692ac6"
+    },
+    {
+      "previous_path": "tex/main.pdf",
+      "category": "superseded compiled manuscript or source archive",
+      "preserved_path": null,
+      "previous_commit": "345304ecdb3e4471cabfe8a1dd0d4f2bd3b23e08",
+      "sha256": "3c8b2e2bd754f91af27eaf9f54f5697c352b6ab3438c45c77a2948cdc3a0ca11"
+    },
+    {
+      "previous_path": "tex/main.tex",
+      "category": "historical source or release evidence retained byte-for-byte",
+      "preserved_path": "source-history/superseded-layouts/tex/main.tex",
+      "previous_commit": "345304ecdb3e4471cabfe8a1dd0d4f2bd3b23e08",
+      "sha256": "93546df5ad29f40212072965e323b5139b19e1520fb28afd3dc2c49ac3d14ba5"
+    }
+  ]
+}

@@ -1,0 +1,70 @@
+\subsection{An integrated response criterion for covariance row sums}
+\label{ssec:integrated-response}
+
+The slow Gaussian modes in the preceding calculation motivate
+a response estimate that keeps track of both time and distance.
+Here is an exact sufficient condition, applicable to a finite
+Wilson fibre whenever its heat-bath dynamics is ergodic.
+It requires no lower bound on the spectral support of a force.
+
+\begin{proposition}\label{prop:integrated-response}
+Let \(P_i\) be the single-coordinate conditional expectations
+on a probability space, with finitely many coordinates, and
+let \(\mathscr L=\sum_i(I-P_i)\).
+Assume its kernel consists of constants, and write
+\(\mathscr P_t=e^{-t\mathscr L}\).
+Let \(F_a\) be a finite family of centred real \(L^2\)
+observables. Give the indices \(a\) and the coordinates \(i\)
+locations in one metric space, with distance \(d\).
+For \(\eta\ge0\) define
+\[
+ \begin{split}
+ A_\eta&=\sup_a\sum_i e^{\eta d(a,i)}
+                 \|(I-P_i)F_a\|_2,\\
+ B_\eta(t)&=\sup_i\sum_b e^{\eta d(i,b)}
+                 \|(I-P_i)\mathscr P_tF_b\|_2.
+ \end{split}
+\]
+Then
+\[
+ \sup_a\sum_b e^{\eta d(a,b)}
+           |\operatorname{Cov}(F_a,F_b)|
+ \le A_\eta\int_0^\infty B_\eta(t)\,dt .
+\]
+In particular, if
+\(B_\eta(t)\le B_0(1+t/\tau)^{-1-\delta}\)
+for \(\tau,\delta>0\), the right side is at most
+\(A_\eta B_0\tau/\delta\).
+\end{proposition}
+
+\begin{proof}
+Each \(P_i\) is an orthogonal projection in \(L^2\), so
+\(\mathscr L\) is bounded, nonnegative and self-adjoint.
+Its semigroup converges strongly to the projection onto
+the constants by the spectral theorem. Differentiation and
+integration of the covariance give
+\[
+ \operatorname{Cov}(F_a,F_b)
+ =\int_0^\infty
+       \sum_i\langle (I-P_i)F_a,
+                    (I-P_i)\mathscr P_tF_b\rangle\,dt .
+\]
+The identity follows first up to a finite time \(T\);
+the remainder is
+\(\langle F_a,\mathscr P_TF_b\rangle\to0\).
+Absolute integrability follows whenever the displayed bound
+is finite. Otherwise the asserted inequality has an infinite
+right side and is immediate. Apply Cauchy--Schwarz to each
+inner product, use
+\(d(a,b)\le d(a,i)+d(i,b)\), sum over \(b,i\), and integrate.
+Finally \(\int_0^\infty(1+t/\tau)^{-1-\delta}dt=\tau/\delta\).
+\end{proof}
+
+For a sequence of finite Wilson fibres, this would give
+vanishing weighted covariance row sums if its response
+estimates were uniform in volume and exterior fields and
+\(A_\eta B_0\tau\to0\), with a fixed positive \(\delta\).
+The proposition proves the implication. The required
+Wilson response bound along the continuum tuning is
+unproved. It is a stronger requirement than a small
+equal-time covariance in a quadratic approximation.

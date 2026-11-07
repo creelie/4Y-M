@@ -1,7 +1,7 @@
 {
   "title": "Lattice Mass Gaps and Continuum Criteria for Four-Dimensional Yang-Mills Theory",
   "upload_type": "publication",
-  "description": "The complete two-column REVTeX manuscript incorporates the slow Gaussian heat-bath mode, slow marked-force response, an explicit operator counterexample and a corrected gap-transfer lemma at equal physical times. The weak-coupling Wilson bounds and nontrivial continuum construction remain open.",
+  "description": "We prove strong-coupling lattice mass gaps for compact simple gauge groups and a conditional transfer from a physical-scale cube estimate. An integrated response criterion controls spatial covariance row sums without a uniform relaxation gap. The required weak-coupling Wilson bounds and nontrivial four-dimensional continuum construction remain open.",
   "creators": [
     {
       "name": "Bhattacharjee, Deep",
@@ -32,7 +32,7 @@
     "Lean 4"
   ],
   "access_right": "open",
-  "version": "4.40.0",
-  "publication_date": "2026-11-07",
+  "version": "4.41.0",
+  "publication_date": "2026-11-08",
   "publication_type": "preprint"
 }
