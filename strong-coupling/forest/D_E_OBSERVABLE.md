@@ -22,17 +22,18 @@ Status: **direction D deliverable, part 1** (`../CLAY_NEXT_DIRECTIONS.md`). Line
 | Cor `limitEexact` | convergence of separated moments | Depends on avgtransfer; to be checked line by line (open). |
 | Cor `limitEstrong` | gap ≥ ϖ/(2e²q_2) in physical units | **No.** |
 | Prop `limitEsing` | none (|x−y|^{−8} incompatible with (M)) | **Yes.** It is a no-go result and needs no input. |
-| Lem `limitEbox`, Thm `limitEtwo`(i)–(iv) (two-point moment bound for Z_k = 𝒩_k(ε)^{−1/2}) | γ_k ≤ e^{−m_* a_k} in the box reduction | The bound K_L K_{4L/δ}² looks **combinatorial plus RP**. Whether γ_k is used for the bound or only for decay is to be checked (open item D1). |
-| Thm `limitEtwo`(v), Cor `limitEtwo`, Prop `limitEsd` | spectral decay, σ(H^{(1)}) ⊂ [m_*,∞) | **No.** |
+| Lem `limitEbox`, Thm `limitEtwo`(i)–(iv) (two-point moment bound for Z_k = 𝒩_k(ε)^{−1/2}) | γ_k ≤ e^{−m_* a_k} in the box reduction | **Yes (D1 done).** The paper states that (i)–(iii) use only translation/B_4 invariance and RP. Checked: Lem limitEbox uses ‖𝕋_k^{n_0}‖ ≤ 1 and (ii) uses γ_k^{⌊d/a_k⌋} ≤ 1, so γ_k enters only (i)'s decay factor and (iv). |
+| Thm `limitEtwo`(v), Prop `limitEsd`(i),(iii) | spectral decay, σ(H^{(1)}) ⊂ [m_*,∞) | **No.** |
+| Cor `limitEtwo`(a),(b) existence, RP, nontriviality ⇔ the (NE)-type ratio | the decay estimate and σ(H^{(1)}) ⊂ [m_*,∞) only | **Yes** for existence and for nontriviality. (SD) ⇔ (M_s) for n = 2, and (SD) ⇔ (UV) (Prop limitEsd(ii)) are gap-free statements. |
 
 ## 3. Reading
 
-1. **A nonzero limit currently rests on MIX** (Prop `limitEnorm`(ii), and Cor `limitEtwo` "some S_2 not identically 0"). This is the one dependency that violates the D rule outright. An independent infrared input is needed, for example a lower bound on 𝒩_k(ε) relative to 𝒩_k(ε') that comes from RP and the spectral measure alone (Prop `limitEsd` with γ_k ≤ 1 instead of e^{−m_* a_k}).
-2. **Uniform moments** for n = 2 may be MIX-free through Thm `limitEtwo`(i)–(iii) (item D1). For n ≥ 3, (M_s) is assumed, not proved.
+1. **Nontriviality.** In my first pass I flagged this as resting on MIX; that is **corrected** here. Prop `limitEnorm`(ii) does derive nontriviality from the gap, but that is for the C_k(σ_0) normalization. For the chosen Z_k = 𝒩_k(ε)^{−1/2}, Cor `limitEtwo`(b) shows: some S_2 ≠ 0 ⇔ limsup_k ω_k(ϑ(Ā_k(g))A_k(g))/𝒩_k(ε) > 0 for some g, and (NE) gives every limit ≠ 0. This is MIX-free. The D rule is therefore met for n = 2, provided (SD)/(UV) and (NE) are proved as independent infrared/UV inputs. Those two are now the honest open inputs, and the gap is not one of them.
+2. **Uniform moments** for n = 2 are MIX-free, modulo (SD) at smaller separations (D1, done). For n ≥ 3, (M_s) is assumed, not proved.
 3. **Rotations** come from B_4 plus one rotation of infinite order (Prop `rotations`(iv)). The clustering step that upgrades this uses MIX.
 4. **Convergence** is through a subsequence by compactness, which is MIX-free given (M_s). Full-sequence convergence (Cor `limitEexact`) is still to be audited.
 
 ## 4. Next items
-- **D1.** Audit the proofs of Lem `limitEbox` and Thm `limitEtwo`(i)–(iii) for γ_k. Decide whether the two-point bound for the normalization survives γ_k ≤ 1.
-- **D2.** A MIX-free nontriviality argument for S_2, built from the RP spectral measure alone.
+- **D1.** Done: no γ_k in the bounds.
+- **D2.** Replaced by: prove (NE) and (SD)⇔(UV) for the 24-plaquette density. These are the remaining non-gap inputs for n = 2. (UV) is the natural target: the spectral weight of near-plane packets must sit at bounded physical energy.
 - **D3.** Audit Cor `limitEexact`.
