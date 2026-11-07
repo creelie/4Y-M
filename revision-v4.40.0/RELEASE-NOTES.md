@@ -10,4 +10,6 @@ Repository https://github.com/creelie/4Y-M
 
 Release https://github.com/creelie/4Y-M/releases/tag/v4.40.0
 
-Zenodo concept DOI https://doi.org/10.5281/zenodo.23444338
+Version DOI https://doi.org/10.5281/zenodo.24028596
+
+The immutable release snapshot was archived before the version DOI was available. The reviewed PDF and TeX assets carry the subsequently verified version DOI.
