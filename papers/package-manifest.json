@@ -1,12 +1,14 @@
 {
-  "release": "v4.41.0",
-  "version_doi": "10.5281/zenodo.24044466",
+  "release": "v4.41.1",
+  "version_doi": null,
+  "pages": 392,
   "files": {
-    "aiprovenance.md": "dc84c1c65e0db7c6ba0d53249148ac264576f2b32d7f848c612abda6aee663b7",
-    "hexagon-submission-form.md": "35efe4f64d828b5d225db5dab6dd57ecef6e5db28d64b45dcc677dfa1b48cc27",
-    "next-version-submission-notes.md": "1e5a70e1eaeabdcb60a48acf1fe216a8137cda868644d080f3c5bae34b9e6cad",
-    "release-details.md": "7f8b0db15baf2c5100e6a838b425c15f5d3ebcd03dc7109be2816e1879aedba0",
-    "ym4d.pdf": "9aaae68c1ad07e4505c9ed1c570fbe24c1f47f5f9bf6d388e99c1e257f2aa647",
-    "ym4dtex.zip": "f36a26f5ae9893adfd4fbfa8ac5b17b25c456130cc4897c98580c90ecac59343"
+    "aiprovenance.md": "c26352882b4915942980fe357597e11babc21adcf5fb2eaf67db443872ae2588",
+    "bibliography-audit.md": "cab42ba336a2375631a359144d93f7be64f2995ea45d2e40478dd409ad87ff9f",
+    "hexagon-submission-form.md": "4729201033c0eca06d1ac334aedec7c16ad9006d7d8fa10a9fe59fc48ef6fe95",
+    "next-version-submission-notes.md": "f7601a84140a0979deb6b0eb3830110e76c2c4363deabf4433a5d1757ecffda4",
+    "release-details.md": "2469bb004c800cec30fc2b764d8cf02ddf42d9cd4de56bc7ce26fa157863d62f",
+    "ym4d.pdf": "5dd43a51f43a393e1a7039a8d0c4e190d97d228a7f752afd5efe0d09bdd02715",
+    "ym4dtex.zip": "8a8d3372e37b8977bd9e53b48d575c7e9806e5dbcba6c7d0873b7b344a4a2fa4"
   }
 }

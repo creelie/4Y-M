@@ -23470,7 +23470,7 @@ quadratic approximation: gauge transformations constant on the lines of $F$
 move the whole cube and change few links outside it. By
 Proposition~\ref{prop:gaussevery} every gauge fixed on an invariant forest
 fails in the same way, through the constant fields. This section takes
-up the programme of the report~\cite{Loc26} of the third author, which keeps
+up the programme of the report of the third author, which keeps
 the cube condition but changes the gauge and conditions the cube on block
 averages of the field, as in Ba{\l}aban's renormalisation
 group~\cite{Bal84a,Bal85a}. The natural block averages of the line field
@@ -23502,7 +23502,7 @@ In this subsection everything concerns the quadratic approximation: real
 fields $\varphi$ on links, $(d\varphi)_p$ the signed sum around the plaquette
 $p$, and $(dh)_{(x,\mu)}=h(x)-h(x+e_\mu)$ for a function $h$ on sites.
 
-\begin{proposition}[\cite{Loc26}]\label{prop:invisible}
+\begin{proposition}\label{prop:invisible}
 In the setting of Proposition~\ref{prop:gaussforest}, condition the cube in
 addition on any family of the face averages
 \[
@@ -23705,7 +23705,7 @@ quadratic form on $\Z^4$ has a spectral gap at least $\frac1{52}$; it removes
 in particular the four flat connections that are zero modes of the
 unconstrained form. In the Bloch decomposition the exact gap is
 $0.10748776948684\dots$, attained at the momentum $(0,\pi,\pi,\pi)$, a
-floating-point value computed in~\cite{Loc26} and reproduced in the archive;
+floating-point value computed and reproduced in the archive;
 the theorem does not use it. The cube conditions now take the following
 form. Let $n$ be even, $V$ the active links with base in $[0,n)^4$, $W$ its
 blocks, and for an exterior $\eta$ and values $v=(v_{y,\mu})_{y\in W}$ let
@@ -23819,7 +23819,7 @@ K^{\rm c}_c\le\Bigl(\Bigl(\frac n2+2\Bigr)^4-\Bigl(\frac n2\Bigr)^4\Bigr)
 for $n\ge10^4$, which is at most $\alpha N_n$ when $n\ge2\cdot10^{15}/\alpha$.
 \end{proof}
 
-The constants are crude. The computations of~\cite{Loc26} give $C^{\rm
+The constants are crude. The computations give $C^{\rm
 c}_{V,j}\le12.48$ at $n=4$, and an exact face expansion $K^{\rm c}_c/N_n=
 a_c/n+O(n^{-2})$ with $\max_ca_c=61.18$, so that $D_{\rm c}(n,0.95)$ first
 holds at $n=64$; they are floating-point values, reproduced in the archive
@@ -23832,7 +23832,7 @@ Re-weighting the classes does not help much: if $\sum_{j\in c\setminus V}
 $C^{c'}_{V,j}$ is the part of $\|u_j\|_1$ on the links of the class $c'$,
 then $\alpha N_n$ is at least the spectral radius of the non-negative matrix
 of these sums, hence at least $\min_cK^{\rm c}_c$, by the Collatz--Wielandt
-inequality~\cite{Loc26}.
+inequality.
 
 The block averages can be integrated out one scale at a time. For a field
 $v$ on the coarse links put $Q_1(v)=\sum_P(dv)_P^2$ over the plaquettes $P$
@@ -24608,7 +24608,7 @@ small-field steps are listed in Remark~\ref{rem:chartdecayopen}.
 \item \emph{Second order.} Let $b_0=11N/(48\pi^2)$ for $\SU(N)$, $t=2b_0\log2$,
 and let $g_m^{-2}=g_*^{-2}+tm$ be the one-loop coupling $m$ steps above a
 matching scale. Comparison with integrals gives $\sum_{m\le M}g_m^2=
-t^{-1}\log M+O(1)$ and $\sum_mg_m^4\le\pi^2/(6t^2)$~\cite{Loc26}. A loss $1+cg_m^2$ per step therefore
+t^{-1}\log M+O(1)$ and $\sum_mg_m^4\le\pi^2/(6t^2)$. A loss $1+cg_m^2$ per step therefore
 compounds to a power of $M$, and a step from one scale to the next has to be
 exact at order $g^2$, with that term absorbed into the running coupling and
 the normalisation of the field, and remainders of order $g^4$.
@@ -47978,8 +47978,8 @@ $\SU(2)$ and the row sums of the Gaussian model; and the conditional chain
 for every compact simple group. He wrote the programs of the certified
 computations and the paper, and checked every statement. Ushashi
 Bhattacharya checked the proofs and the references and edited the text.
-James Montgomery Lockwood supplied the internal-fibre formulation~\cite{Loc26Fibres}, whose averaging projection and spectral estimates motivated the heat-bath criterion in Sec.~\ref{ssec:fibre-heatbath}. He also contributed the analysis of constrained
-cubes~\cite{Loc26} and its code, and the Lean~4 formalisations of the
+James Montgomery Lockwood supplied the internal-fibre formulation, whose averaging projection and spectral estimates motivated the heat-bath criterion in Sec.~\ref{ssec:fibre-heatbath}. He also contributed the analysis of constrained
+cubes and its code, and the Lean~4 formalisations of the
 quaternion model of $\SU(2)$, the open-gluon certificates, the coupling
 lemmas of Sec.~\ref{ssec:couplingcost}, the strong-coupling comparison and
 the limit of couplings, and the composition of metrics across scales of Sec.~\ref{ssec:bpmetrics} with its Lean~4 formalisation. Tristan Romanov contributed the certified
@@ -49832,8 +49832,6 @@ stated with $\frac{29}2$, whose proof uses no computer.
 
 \begin{thebibliography}{99}\raggedright\advance\leftskip\labelwidth
 
-\bibitem{Loc26Fibres} J.~M.~Lockwood, \emph{Fields over internal fibres: geometric and spectral formulation}, unpublished note, 6 November 2026.
-
 \bibitem{AC25}
 A.~Adhikari and S.~Cao, Correlation decay for finite lattice gauge theories at weak coupling, Ann. Probab. \textbf{53} (2025), 140--174, \href{https://doi.org/10.1214/24-AOP1702}{doi:10.1214/24-AOP1702}.
 
@@ -50214,12 +50212,6 @@ Math. \textbf{2169}, Springer, Cham, 2017, 265--275,
 \bibitem{Lev03}
 T.~L\'evy, Yang--Mills measure on compact surfaces, Mem. Amer. Math. Soc. \textbf{166} (2003), no.~790, \href{https://doi.org/10.1090/memo/0790}{doi:10.1090/memo/0790}.
 
-\bibitem{Loc26}
-J.~M.~Lockwood, Toward the continuum limit of forest-gauge lattice
-Yang--Mills theory: constrained cubes, exact Gaussian diagnostics, and a
-gauge-suited mixing test, technical report, 29 October 2026, distributed with
-the archive.
-
 \bibitem{Lus77}
 M.~L\"uscher, Construction of a selfadjoint, strictly positive transfer matrix
 for Euclidean lattice gauge theories, Comm. Math. Phys. \textbf{54} (1977),
@@ -50380,13 +50372,6 @@ K.~G.~Wilson, Confinement of quarks, Phys. Rev. D \textbf{10} (1974),
 \bibitem{Wit26}
 E.~Witten, A note on lattice definition of gauge theories with chiral
 fermions, preprint, 2026, \href{https://arxiv.org/abs/2611.05051}{arXiv:2611.05051}.
-
-\bibitem{Round26FS26} M.~Faizal and A.~Shabir,
-\emph{Reflection-Positive Construction of a Four-Dimensional
-$\mathrm{SU}(N)$ Yang--Mills Theory with Mass Gap and Confinement},
-\href{https://arxiv.org/abs/2606.19362v1}{arXiv:2606.19362v1},
-9 June 2026. References here concern the first paper in the
-combined PDF, (5.23), (11.1), (11.5)--(11.8).
 
 \end{thebibliography}
 

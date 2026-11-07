@@ -8,7 +8,7 @@ Submission route: Hexagon, v7 to v8. The platform version is independent of GitH
 
 Existing record: [v7](https://hexagonmath.org/2610.00341v7). The v8 identifier is not claimed to exist before submission is accepted by the platform.
 
-Research release: [v4.41.0](https://github.com/creelie/4Y-M/releases/tag/v4.41.0). Version DOI: [10.5281/zenodo.24044466](https://doi.org/10.5281/zenodo.24044466).
+Current release: https://github.com/creelie/4Y-M/releases/tag/v4.41.1. The version DOI is pending archival verification.
 
 ## Abstract to paste
 
@@ -34,3 +34,8 @@ Compile with pdfLaTeX at least three times. Upload the TeX ZIP when the platform
 ## Checks and declarations
 
 The current source compiles locally. Finite ancillary checks do not prove the remaining existence or uniform estimates. This revision has not supplied a new Lean formalization of its analytic or geometric arguments. The submitting authors must confirm the human-understanding, authorship, licence and platform declarations for the current additions.
+
+
+## Bibliography and layout in v4.41.1
+
+Removes the two unpublished bibliography entries and their citation markers at the author’s request. Consolidates a duplicate record for the same cited preprint version. The surrounding text, mathematical statements and contributor credit are preserved. The compiled manuscript has 392 pages. See `bibliography-audit.md` for the source of every retained reference.

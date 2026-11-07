@@ -49,4 +49,9 @@ Tools: OpenAI Codex; Python; pdfLaTeX. Use the current repository's formalizatio
 
 Upload `ym4dtex.zip`; review `ym4d.pdf`. Keep ancillary permitted scripts in `anc/`. No Lean sources are included in the TeX ZIP. The repository metadata currently uses MIT; select a platform-supported licence only after the authors confirm it covers every uploaded file. Do not assume the form's default CC BY applies automatically.
 
-No arXiv identifier is supplied or invented. Version DOI: [10.5281/zenodo.24044466](https://doi.org/10.5281/zenodo.24044466).
+Current release: https://github.com/creelie/4Y-M/releases/tag/v4.41.1. The version DOI is pending archival verification.
+
+
+## Bibliography and layout in v4.41.1
+
+Removes the two unpublished bibliography entries and their citation markers at the author’s request. Consolidates a duplicate record for the same cited preprint version. The surrounding text, mathematical statements and contributor credit are preserved. The compiled manuscript has 392 pages. See `bibliography-audit.md` for the source of every retained reference.
