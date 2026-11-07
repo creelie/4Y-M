@@ -1,6 +1,6 @@
 \documentclass[aps,prd,twocolumn,superscriptaddress,nofootinbib,longbibliography,floatfix,amsmath,amssymb,10pt]{revtex4-2}
 
-\usepackage{mathptmx}
+\usepackage{mathptmx,mathrsfs}
 \usepackage{amsthm}
 \usepackage{graphicx}
 \usepackage{booktabs}
@@ -68,16 +68,16 @@
 % it is published, e.g. \def\preprintsDOI{10.20944/preprints2026xx.xxxx.v1}
 \def\preprintsDOI{}
 \begin{document}
-\hypersetup{pdftitle={Lattice Yang--Mills Mass Gaps and the Continuum Cube Criterion}}
+\hypersetup{pdftitle={Lattice Mass Gaps and Continuum Criteria for Four-Dimensional Yang-Mills Theory}}
 
-\title{Lattice Yang--Mills Mass Gaps and the Continuum Cube Criterion}
+\title{Lattice Mass Gaps and Continuum Criteria for Four-Dimensional Yang-Mills Theory}
 
 \author{Deep Bhattacharjee$^{*}$\,\orcidlink{0000-0003-0466-750X}}
 \email{itsdeep@live.com}
 \thanks{$^{*}$\,Corresponding author. Secondary address:
 \nolinkurl{d.bhattacharjee@erl-forschung.de}; GitHub contact:
 \nolinkurl{egspl@proton.me}, \href{https://github.com/creelie}{github.com/creelie}.}
-\thanks{Research release \href{https://github.com/creelie/4Y-M/releases/tag/v4.39.0}{v4.39.0}. Version DOI \href{https://doi.org/10.5281/zenodo.24025857}{10.5281/zenodo.24025857}.}
+\input{round26-imprint}
 
 \affiliation{Formerly, Electro-Gravitational Space Propulsion Laboratory
 (EGSPL), Bhubaneswar, Odisha 751030, India}
@@ -100,15 +100,7 @@ Road, Golpark, Kolkata 700029, West Bengal, India}
 \date{7 November 2026}
 
 \begin{abstract}
-\itshape
-We prove that four-dimensional lattice Yang--Mills theory with any compact
-simple gauge group has a unique infinite-volume state and a mass gap at
-strong coupling, and that one averaged estimate in a single cube of fixed
-physical size gives a mass gap to every continuum limit. For $\SU(2)$ the
-block variables approach the Haar measure in every representation as the
-coupling is tuned to the continuum, and this proves the estimate at the
-coarsest scale on every torus of side up to $e^{2^k/(17k)}$ after $k$ blocking steps.
-We also prove the sharp order of the Gaussian block kernel's decay rate and derive a sufficient heat-bath relaxation rate for the Wilson force covariance bound. The estimate along the whole tuning remains open.
+We prove strong-coupling lattice mass gaps for compact simple gauge groups and a conditional transfer to every continuum limit from one physical-scale cube estimate. The Gaussian block action has sharp spatial decay of order $b^{-1/2}$. Explicit modes show slow full and marked-force heat-bath response. A corrected gap-transfer lemma compares equal physical times with controlled total error. The weak-coupling Wilson bounds and a nontrivial four-dimensional continuum construction remain open.
 \end{abstract}
 
 \maketitle
@@ -11616,6 +11608,7 @@ James Montgomery Lockwood.
 
 \input{gaussian-decay-section}
 \input{fibre-heatbath-section}
+\input{round26-relaxation}
 
 \section{The open inputs}\label{sec:inputs}
 
@@ -49834,6 +49827,8 @@ stated with $\frac{29}2$, whose proof uses no computer.
 
 \def\bibsection{\par\vskip10pt\noindent\hfil\rule{0.5\columnwidth}{0.4pt}\hfil\par\vskip8pt}
 
+\input{round26-check-appendix}
+
 \begin{thebibliography}{99}\raggedright\advance\leftskip\labelwidth
 
 \bibitem{Loc26Fibres} J.~M.~Lockwood, \emph{Fields over internal fibres: geometric and spectral formulation}, unpublished note, 6 November 2026.
@@ -50384,6 +50379,13 @@ K.~G.~Wilson, Confinement of quarks, Phys. Rev. D \textbf{10} (1974),
 \bibitem{Wit26}
 E.~Witten, A note on lattice definition of gauge theories with chiral
 fermions, preprint, 2026, \href{https://arxiv.org/abs/2611.05051}{arXiv:2611.05051}.
+
+\bibitem{Round26FS26} M.~Faizal and A.~Shabir,
+\emph{Reflection-Positive Construction of a Four-Dimensional
+$\mathrm{SU}(N)$ Yang--Mills Theory with Mass Gap and Confinement},
+\href{https://arxiv.org/abs/2606.19362v1}{arXiv:2606.19362v1},
+9 June 2026. References here concern the first paper in the
+combined PDF, (5.23), (11.1), (11.5)--(11.8).
 
 \end{thebibliography}
 
