@@ -1,0 +1,173 @@
+\subsection{Sharp spatial decay of the Gaussian block action}\label{ssec:blockdecay}
+
+Let $b\ge3$ be an integer. The real Fourier symbol of the quadratic block
+action obtained by constraining straight-path sums of the lattice Maxwell
+action is given in the subsection ``The row sums of the Gaussian model'' of
+\href{https://hexagonmath.org/2610.00341v7}{Hexagon 2610.00341v7}.
+We use the formula below and quantify the decay of its coefficients as $b$
+grows. All constants in this note are independent of $b$.
+
+For a complex vector $z$ write
+\[
+ \epsilon(z)=\sum_{\rho=1}^4 4\sin^2(z_\rho/2),\qquad
+ \sigma_\rho^\pm(z)=e^{\pm iz_\rho}-1,
+ \qquad F_b(q)=\sum_{|r|<b}(b-|r|)e^{irq}.
+\]
+Let $Z_b$ be the representatives of $(\mathbb Z/b\mathbb Z)^4$ with each
+coordinate in $[-\lfloor(b-1)/2\rfloor,\lfloor b/2\rfloor]$.
+For real $z\notin 2\pi\mathbb Z^4$, put
+\[
+ G_\mu(z)=b^{-4}\sum_{n\in Z_b}
+     \frac{F_b((z_\mu+2\pi n_\mu)/b)}{\epsilon((z+2\pi n)/b)},
+ \quad r_\mu=G_\mu^{-1},\quad T=\sum_\rho r_\rho\sigma_\rho^+\sigma_\rho^- .
+\]
+The symbol in the manuscript, with its value at zero set equal to zero, is
+\begin{equation}\label{eq:blockdecay-symbol}
+ \widehat\Gamma_b(z)_{\mu\nu}
+ =\delta_{\mu\nu}r_\mu-
+   \frac{r_\mu r_\nu\sigma_\mu^+\sigma_\nu^-}{T}.
+\end{equation}
+
+\begin{theorem}\label{thm:blockdecay}
+There are absolute constants $c,C>0$ such that the Fourier coefficients of
+\eqref{eq:blockdecay-symbol} satisfy
+\[
+ |\Gamma_b^\infty(w)_{\mu\nu}|\le \frac Cb
+       \exp\left(-c|w|_1/\sqrt b\right)
+ \quad (w\in\mathbb Z^4).
+\]
+For all sufficiently large $b$, the one-variable continuation of
+$t\mapsto\widehat\Gamma_b(t,0,0,0)_{22}$ has a pole at $i t_b$ with
+$0<t_b\le 9/\sqrt b$, and
+\[
+ \lim_{b\to\infty}\sqrt b\,t_b=\mathfrak g_3^{-1/2},\qquad
+ \mathfrak g_3=\frac{1}{(2\pi)^3}\int_{[-\pi,\pi]^3}
+           \frac{dq}{4\sum_{j=1}^3\sin^2(q_j/2)}.
+\]
+In particular, an entrywise exponential decay bound
+with finite prefactor and a rate larger than $9/\sqrt b$ cannot hold for this
+matrix of Fourier coefficients.
+\end{theorem}
+
+\begin{proof}
+Let $x\in[-\pi,\pi]^4$ and let $z=x+h$. In estimates of complex vectors the
+norm is the Euclidean norm using the complex moduli. Put $p=(x+2\pi n)/b$.
+For real $p$ and $|h|\le 1$, the sine and cosine addition formulas give
+\begin{equation}\label{eq:blockdecay-perturb}
+ |\epsilon(p+h/b)-\epsilon(p)|
+ \le C\left(b^{-1}|h|\sqrt{\epsilon(p)}+b^{-2}|h|^2\right).
+\end{equation}
+Indeed, for $f(t)=4\sin^2(t/2)$ one has $|f'(t)|=2|\sin t|\le2\sqrt{f(t)}$
+on the real axis and $f''$ is uniformly bounded in the strip of height one.
+Sum the Taylor inequalities and apply Cauchy--Schwarz to the linear term.
+The distance of $p_\rho$ to $2\pi\mathbb Z$ is at least
+$\pi |n_\rho|/b$, so $\epsilon(p)\ge4|n|^2/b^2$ for $n\ne0$.
+For $n=0$, $\epsilon(p)\ge 4|x|^2/(\pi^2b^2)$.
+It follows from \eqref{eq:blockdecay-perturb} that the denominators for $n\ne0$ remain
+bounded below in modulus by $2|n|^2/b^2$ for $|h|\le c_1$, with $c_1>0$
+absolute. The denominator for $n=0$ stays bounded below by
+$2|x|^2/(\pi^2b^2)$ for $|h|\le c_2|x|$ with $c_2>0$ sufficiently small.
+
+The defining finite Fourier sum gives $|F_b(q)|\le e^{c_1}b^2$ when
+$|\operatorname{Im}q|\le c_1/b$. For $n_\mu\ne0$ the identity
+$F_b(q)=\sin^2(bq/2)/\sin^2(q/2)$ improves this bound at
+$q=(z_\mu+2\pi n_\mu)/b$ to $Cb^2/n_\mu^2$. Here the numerator is uniformly
+bounded, and $|\sin((p_\mu+h_\mu/b)/2)|$ stays at least a fixed fraction of
+$|\sin(p_\mu/2)|\ge |n_\mu|/b$. Thus the part $H_\mu(z)$ of $G_\mu(z)$
+with $n\ne0$ is holomorphic in the ball $|z-x|<c_1$ and satisfies
+\begin{equation}\label{eq:blockdecay-alias}
+ |H_\mu(z)|\le C\sum_{n\ne0}\frac{\min(1,|n_\mu|^{-2})}{|n|^2}\le Cb,
+\end{equation}
+where the minimum is defined as $1$ for $n_\mu=0$. To see the last bound,
+fix $n_\mu$. For nonzero transverse vector $v\in\mathbb Z^3$, the shell
+$|v|_\infty=j$ has $24j^2+2$ points and each denominator is at least $j^2$.
+The transverse sum is at most $Cb$, including $v=0$ when $n_\mu\ne0$.
+The sum of the weights over $n_\mu$ is bounded independently of $b$.
+
+First consider a neighbourhood of the origin. Set
+\[
+ s(z)=b^2\epsilon(z/b),\quad a_\mu(z)=F_b(z_\mu/b)/b^2,\quad
+ B_\mu(z)=a_\mu(z)+s(z)H_\mu(z).
+\]
+We have $G_\mu=a_\mu/s+H_\mu$, hence $r_\mu=s/B_\mu$ wherever the
+original fractions are defined. The Fej\'er formula gives the exact identity
+$\sigma_\rho^+\sigma_\rho^-/a_\rho=b^2\,4\sin^2(z_\rho/(2b))$ near the origin,
+including removable zeros. Thus
+\[
+ T=s^2 J,\qquad
+ J=1-\sum_\rho\frac{\sigma_\rho^+\sigma_\rho^- H_\rho}{a_\rho B_\rho},
+\]
+and the symbol extends there by
+\begin{equation}\label{eq:blockdecay-origin}
+ \widehat\Gamma_b(z)_{\mu\nu}
+  =\delta_{\mu\nu}\frac{s}{B_\mu}
+   -\frac{\sigma_\mu^+\sigma_\nu^-}{B_\mu B_\nu J}.
+\end{equation}
+The finite sum gives $|a_\mu-1|\le C|z_\mu|$ for $|z|\le c_1$.
+Also $|s|\le C|z|^2$ and $|\sigma_\rho^\pm|\le C|z_\rho|$ there.
+By \eqref{eq:blockdecay-alias}, there is an absolute $c_3>0$ such that for
+$|z|<c_3/\sqrt b$ one has $|a_\mu|,|B_\mu|\ge1/2$ and $|J|\ge1/2$.
+In this ball \eqref{eq:blockdecay-origin} is holomorphic and bounded by $C|z|^2$.
+
+To treat the rest of a strip, take a real $x\ne0$ in the fundamental cube
+and write $\omega=\min(b^{-1},|x|^2)$. The preceding estimates show that
+$|G_\mu(z)|\le C/\omega$ on $|z-x|<c_4|x|$ for an absolute $c_4>0$.
+On the real cube the positive alias sum gives $G_\mu(x)\ge c/\omega$.
+Indeed, the $n=0$ term is at least $c|x|^{-2}$ by the sine bounds on
+$[-\pi,\pi]$. For $n_\mu=0$, the numerator is at least $cb^2$ on that cube,
+the denominator is at most $16$, and there are $b^3$ such terms, giving a
+lower bound $cb$. Cauchy's estimate on the complex line from $x$ to $z$
+now gives
+\[
+ |G_\mu(z)-G_\mu(x)|\le \frac C\omega \frac{|z-x|}{|x|}
+ \qquad (|z-x|<c_4|x|/2).
+\]
+Taking a smaller absolute ball yields $|r_\mu(z)|\le C\omega$ and
+$|r_\mu(z)-r_\mu(x)|\le C\omega |z-x|/|x|$. Since
+$\sum_\rho\sigma_\rho^+(x)\sigma_\rho^-(x)\ge c|x|^2$, we have
+$T(x)\ge c\omega |x|^2$. Each $\sigma_\rho^\pm(z)$ has size $O(|x|)$ on this
+ball and changes by $O(|z-x|)$. Consequently
+$|T(z)-T(x)|\le C\omega |x||z-x|$. There is therefore an absolute $c_5>0$
+such that \eqref{eq:blockdecay-symbol} is holomorphic and bounded by $C\omega$ on
+$|z-x|<c_5|x|$.
+
+For $|x|\le c_3/(2\sqrt b)$ use \eqref{eq:blockdecay-origin}. Otherwise use the latter
+ball. These neighbourhoods cover $|\operatorname{Im}z|<c_6/\sqrt b$ for an
+absolute $c_6>0$, reducing $\operatorname{Re}z$ modulo $2\pi\mathbb Z^4$.
+Their formulas agree wherever the original denominators are nonzero, and
+periodicity follows by reindexing the alias sum. On the strip the symbol
+is bounded by $C/b$. Shift the Fourier integral in each variable by
+$-i c\operatorname{sgn}(w_\rho)/\sqrt b$, with $2c<c_6$. The faces of each
+rectangle cancel by periodicity. The exponential factor then gives the
+claimed estimate.
+
+Finally, on the line $(t,0,0,0)$, the $22$ entry equals $r_2=s/(1+sH_2)$.
+At zero the alias sum here consists of $b^3-1$ terms with $n_2=0$, each at
+least $1/(16b^2)$, so $H_2(0)\ge b/32$. The value $H_2(iu,0,0,0)$ is real
+because conjugation pairs $n$ with $-n$ modulo $b$. The bound \eqref{eq:blockdecay-alias}
+and Cauchy's estimate in a ball of fixed radius give
+$|H_2(iu,0,0,0)-H_2(0)|\le Cb|u|$ for $|u|$ sufficiently small. Hence
+$H_2(iu,0,0,0)\ge b/64$ for $0\le u\le9/\sqrt b$ and sufficiently large $b$.
+Since $s(iu,0,0,0)=-4b^2\sinh^2(u/(2b))\le-u^2$, the real denominator
+$1+sH_2$ is positive at $u=0$ and negative at $u=9/\sqrt b$. Its first
+zero in between is a pole because $s\ne0$ there. An exponential decay
+bound of rate strictly greater than $9/\sqrt b$ would extend the Fourier
+series, restricted to the same line, analytically past that pole.
+
+To compute its asymptotic position, observe that $H_2(0)/b$ is the Riemann
+sum for $\mathfrak g_3$ with its zero summand omitted. For a ball of radius
+$\delta$ about zero, the summands in the ball, including the factor $b^{-3}$,
+have sum at most $C(\delta+b^{-1})$: use $C b^2/|n|^2$ for the inverse
+denominator at $q=2\pi n/b$ and sum in three-dimensional shells. The
+integral over that ball is $O(\delta)$ by the same inverse-square bound.
+Outside it the Riemann sums converge by continuity away from zero and the
+fact that the boundary of the ball has measure zero. Thus $H_2(0)/b\to
+\mathfrak g_3$. The preceding Cauchy bound gives $H_2(it_b,0,0,0)/b\to
+\mathfrak g_3$ as well. Since $-s(it_b,0,0,0)/t_b^2\to1$, the equation
+$1=-s(it_b,0,0,0)H_2(it_b,0,0,0)$ gives the stated limit.
+\end{proof}
+
+This result concerns the effective quadratic action of the abelian Gaussian
+model. The mixed derivatives of the compact Wilson block action require a
+separate comparison with the posterior score covariances before this decay
+estimate can be used in the continuum Yang--Mills problem.
