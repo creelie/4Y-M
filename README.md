@@ -2,7 +2,7 @@
 
 The complete two-column REVTeX manuscript incorporates the slow Gaussian heat-bath mode, slow marked-force response, an explicit operator counterexample and a corrected gap-transfer lemma at equal physical times. The weak-coupling Wilson bounds and nontrivial continuum construction remain open.
 
-[Complete PDF](revision-v4.40.0/ym4d.pdf) · [TeX ZIP](revision-v4.40.0/ym4dtex.zip) · [Submission package](revision-v4.40.0/ym4d.zip) · [Release](https://github.com/creelie/4Y-M/releases/tag/v4.40.0) · [Zenodo DOI](https://doi.org/10.5281/zenodo.23444338)
+[Complete PDF](revision-v4.40.0/ym4d.pdf) · [TeX ZIP](revision-v4.40.0/ym4dtex.zip) · [Submission package](revision-v4.40.0/ym4d.zip) · [Release](https://github.com/creelie/4Y-M/releases/tag/v4.40.0) · [Zenodo DOI](https://doi.org/10.5281/zenodo.24028596)
 
 <!-- integrated-round26 -->
 
