@@ -1,0 +1,10 @@
+{"id":"bloch-flat-gap","argv":["bash","research/experiments/bloch/run.sh"],
+"files":["research/experiments/bloch/bloch.py","research/experiments/bloch/run.sh"],"resources":{"cpus":4,"gpus":0,"seconds":10800,"memory_mb":8000},
+"classification":"heuristic numerics, floating point Bloch sampling, no certification",
+"connection_to_goal":"Computes the flat constrained gap constant c1 of POLYMER_ARCHITECTURE 9.2 in 2D (check vs gaugegap) and in 4D, the dimension that matters",
+"cpu_baseline":"cell matrices are at most 4*81=324 dimensional; 6^4 k points per 4D run, minutes to an hour",
+"decision_rule":"If 2D gap*b^2 matches gaugegap n=0 (2.0-2.44) the code is validated; 4D gap*b^2 bounded below away from 0 supports c1>0 in 4D; zero means corner map fails in 4D",
+"expected_result":"2D values 2.0-2.4, 4D positive of order 1, possibly smaller than 2D",
+"question":"Is the flat block-constrained gauge-fixed fluctuation gap positive in 4D with b-independent b^2 scaling?",
+"resource_justification":"4 CPUs fit under the 128 budget; six independent small runs in background",
+"stop_rule":"stop after these six runs; certification only if 4D positivity holds"}
