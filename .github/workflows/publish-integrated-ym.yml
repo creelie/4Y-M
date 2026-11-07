@@ -1,0 +1,31 @@
+name: Publish integrated ym manuscript
+on:
+  push:
+    branches: [main]
+    paths: [revision-v4.40.0/release.json]
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Verify reviewed assets
+        working-directory: revision-v4.40.0
+        run: |
+          sha256sum -c SHA256SUMS.txt
+          python -m zipfile -t ym4dtex.zip
+          python -m zipfile -t ym4d.zip
+      - name: Publish or refresh assets
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          folder=revision-v4.40.0
+          title='Lattice Mass Gaps and Continuum Criteria for Four-Dimensional Yang-Mills Theory'
+          if gh release view v4.40.0 >/dev/null 2>&1; then
+            gh release upload v4.40.0 "$folder/ym4d.pdf" "$folder/ym4dtex.zip" "$folder/ym4d.zip" "$folder/SHA256SUMS.txt" --clobber
+            gh release edit v4.40.0 --title "$title" --notes-file "$folder/RELEASE-NOTES.md"
+          else
+            gh release create v4.40.0 "$folder/ym4d.pdf" "$folder/ym4dtex.zip" "$folder/ym4d.zip" "$folder/SHA256SUMS.txt" --target "$(git rev-parse HEAD)" --title "$title" --notes-file "$folder/RELEASE-NOTES.md"
+          fi

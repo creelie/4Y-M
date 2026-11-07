@@ -1,3 +1,11 @@
+# Lattice Mass Gaps and Continuum Criteria for Four-Dimensional Yang-Mills Theory
+
+The complete two-column REVTeX manuscript incorporates the slow Gaussian heat-bath mode, slow marked-force response, an explicit operator counterexample and a corrected gap-transfer lemma at equal physical times. The weak-coupling Wilson bounds and nontrivial continuum construction remain open.
+
+[Complete PDF](revision-v4.40.0/ym4d.pdf) · [TeX ZIP](revision-v4.40.0/ym4dtex.zip) · [Submission package](revision-v4.40.0/ym4d.zip) · [Release](https://github.com/creelie/4Y-M/releases/tag/v4.40.0) · [Zenodo DOI](https://doi.org/10.5281/zenodo.23444338)
+
+<!-- integrated-round26 -->
+
 # Lattice Yang–Mills Mass Gaps and the Continuum Cube Criterion
 
 The Gaussian block action has a sharp spatial decay rate of order b^(-1/2). A constrained heat-bath estimate gives a quantitative sufficient condition for the Wilson covariance bound. James Montgomery Lockwood is credited for the internal-fibre formulation that motivated this approach. The weak-coupling Wilson estimates and the nontrivial continuum construction remain open.
