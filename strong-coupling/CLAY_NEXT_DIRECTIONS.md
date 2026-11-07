@@ -147,3 +147,12 @@ Sources:
 - 2026-11-07: **D part 2:** D1 is done. Lem limitEbox and Thm limitEtwo(i)–(iii) use only invariance and RP (γ_k ≤ 1). This **corrects part 1**: under Z_k = 𝒩_k(ε)^{−1/2}, nontriviality ⇔ the (NE)-type ratio (Cor limitEtwo(b)), with no gap. For n = 2, (E) is MIX-free modulo (SD)⇔(UV) and (NE). Those are the D targets now. D3 (limitEexact) and n ≥ 3 moments are still open.
 - 2026-11-07: **D part 3 (audit complete):** D3 is done. Cor limitEexact uses only compactness and the O(4) subgroup dichotomy. MIX enters (E) only as a conclusion (clustering, continuum gap), never as a premise. The remaining (E) inputs are (SD)⇔(UV), (NE), (M_s) for n ≥ 3, (U_s) and (W_s).
 - 2026-11-07: **A-D reduced to the first chaos (Lemma A4, forest/A_GAUSSIAN_FIBRE_4D.md §7).** With the Fock exponential law Γ(T) = (Γ(T_1)⊗Γ(T_2))Γ(J) and polar decomposition, the k-dependence disappears. R ≤ R_∠ = sup_x Σ_y ‖P_{V_x}P_{V_y}‖, where V_x = ran((I−P_c)P_𝓕 on C'_x). So in the Gaussian model Thm 114 holds on all of L² with (λ_F, ρ_1, R_∠). The open input is R_∠ < ∞ uniformly in volume: the leak subspaces of distant cubes must be almost orthogonal. Next: compute the principal angles numerically, and prove the decay from Thm blockdecay.
+- 2026-11-07: **ρ_1 result (forest/A_GAUSSIAN_FIBRE_4D.md §8).**
+  - ρ_1 ∈ [0.79, 0.86], volume-stable to 1e-3, so (X) holds uniformly.
+  - It is flat in n'/b (0.79, 0.83, 0.835 at n'/b = 1, 2, 3). Hence **Σ_j ρ_j² diverges, and B as framed fails in the Gaussian model.**
+  - B must be reframed. Options: use the uniform ρ < 1 as a per-scale contraction, or use a block map whose exterior constant decays.
+  - The R_∠ (principal-angle) job ym-gaussangle-a4 is submitted, job 1698522.
+- 2026-11-07: **C run 2 result (forest/H1_PATHCOV.md).**
+  - The planted control passes: 1–3% recovery, null |Z| ≤ 1.1.
+  - After debiasing, β_W = 1.5 has no covariance at all. β_W = 2.3, b = 4 has covariance only in shells 0–1, and the sum (0.56 → 0.58, L = 6 → 8) is volume-stable. At b = 6 it is zero.
+  - This is consistent with Prop 168. Next: a β_W depth scan and a random-V stress test.

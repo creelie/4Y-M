@@ -170,3 +170,32 @@ A-D is **closed modulo** the finiteness of R_∠ uniformly in the volume. This i
 - The expected input is the exponential decay of β^{−1}K_0^+ (Thm `blockdecay`). Because V_x is a range, not a kernel, locality of V_x has to be proved: either V_x is close to the fibre directions near V'_{x'}, or an approximate-locality argument is needed.
 
 **Next.** Compute r(x',y') numerically alongside ρ_1: principal angles between V_x and V_y as a function of |x'−y'|/n'. Then prove the decay from Thm `blockdecay`.
+
+## 8. ρ_1 measured (abelian Gaussian model, straight-path block map)
+
+The cluster run computed ρ_1² = 1 − min eig(W, M) on C' (the code is local and untracked). There were 8 configurations at 16 CPUs, taking 68 min in total.
+
+| b | L | n' | n'/b | offset | dim C' | ρ_1 |
+|---|---|---|---|---|---|---|
+| 3 | 6 | 3 | 1 | 0 | 4 | 0.789 |
+| 4 | 6 | 4 | 1 | 0 | 4 | 0.796 |
+| 3 | 6 | 6 | 2 | 0 | 63 | 0.828 |
+| 3 | 6 | 6 | 2 | 1 | 63 | 0.828 |
+| 3 | 8 | 6 | 2 | 0 | 63 | 0.829 |
+| 4 | 6 | 8 | 2 | 0 | 63 | 0.859 |
+| 4 | 6 | 8 | 2 | 2 | 80 | 0.815 |
+| 3 | 8 | 9 | 3 | 0 | 308 | 0.835 |
+
+**Reading.**
+1. **(X) holds with a uniform ρ < 1.** Every value lies in [0.79, 0.86].
+   - The value is volume-stable: L = 6 → 8 changes ρ_1 by 1e-3.
+   - At b = 3 it does not depend on the offset.
+   - At b = 4 the offset moves it by ±0.02, because the offset changes which coarse links T(x') hits (64 vs 96).
+2. **ρ_1 does not decrease with n'/b.** It rises slightly, 0.79 → 0.83 → 0.835, and looks saturated.
+   - The worst direction keeps about 30% of its variance after conditioning (min ratio 0.30–0.38).
+   - That direction is a coarse current that runs through the cube. The exterior field determines it only partially, whatever the cube size.
+3. **Consequence for B: as framed, B fails in the Gaussian model.**
+   - Along n_j = 2n_{j−1}, ρ_j → about 0.83, so Σ_j ρ_j² diverges.
+   - The decision rule in §4 recorded exactly this outcome. ρ_1 is not near 1, so the failure is of summability, not of (X).
+   - B has to be reframed. One option is to use a uniform ρ < 1 as a per-scale contraction, with ∏_j(ρ_j² + η_j) controlled geometrically rather than Σρ_j² summed. Whether Thm 114's iteration admits that is the next question for B.
+   - Another option is a block map whose exterior constant does decay, for example a smeared rather than straight-path block map.
