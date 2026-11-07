@@ -1,12 +1,12 @@
 {
   "release": "v4.41.0",
-  "version_doi": null,
+  "version_doi": "10.5281/zenodo.24044466",
   "files": {
-    "aiprovenance.md": "52347ea3ec108569bc199a581142e72308a67aea5116e61586f8ac83951372c1",
-    "hexagon-submission-form.md": "0ca38255cfebbbcc42244ecd799a194cda31073c7fc4ff6b37c8c6b1e636a166",
-    "next-version-submission-notes.md": "e5eea058dab12dea593e2c87e7995533ae70f0161ff2d0bdbbe8d7db04c87a84",
-    "release-details.md": "a5d5de6c1609c62fb49faf6c8ec1a5d7dfe599c107404bfff7d0e2326cf9f342",
-    "ym4d.pdf": "e920d6254f731bdcdb8d43bd2a46e0dee60b50870439c31d505129f6f96f77ec",
-    "ym4dtex.zip": "820ec3cd957341aadab68e9b3f15bfe88aec959c3dd5e1c97a4ca2bb1a58641a"
+    "aiprovenance.md": "dc84c1c65e0db7c6ba0d53249148ac264576f2b32d7f848c612abda6aee663b7",
+    "hexagon-submission-form.md": "35efe4f64d828b5d225db5dab6dd57ecef6e5db28d64b45dcc677dfa1b48cc27",
+    "next-version-submission-notes.md": "1e5a70e1eaeabdcb60a48acf1fe216a8137cda868644d080f3c5bae34b9e6cad",
+    "release-details.md": "7f8b0db15baf2c5100e6a838b425c15f5d3ebcd03dc7109be2816e1879aedba0",
+    "ym4d.pdf": "9aaae68c1ad07e4505c9ed1c570fbe24c1f47f5f9bf6d388e99c1e257f2aa647",
+    "ym4dtex.zip": "f36a26f5ae9893adfd4fbfa8ac5b17b25c456130cc4897c98580c90ecac59343"
   }
 }

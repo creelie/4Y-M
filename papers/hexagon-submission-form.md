@@ -49,4 +49,4 @@ Tools: OpenAI Codex; Python; pdfLaTeX. Use the current repository's formalizatio
 
 Upload `ym4dtex.zip`; review `ym4d.pdf`. Keep ancillary permitted scripts in `anc/`. No Lean sources are included in the TeX ZIP. The repository metadata currently uses MIT; select a platform-supported licence only after the authors confirm it covers every uploaded file. Do not assume the form's default CC BY applies automatically.
 
-No arXiv identifier is supplied or invented. Version DOI: [release page](https://github.com/creelie/4Y-M/releases/tag/v4.41.0) (DOI awaiting archive verification).
+No arXiv identifier is supplied or invented. Version DOI: [10.5281/zenodo.24044466](https://doi.org/10.5281/zenodo.24044466).

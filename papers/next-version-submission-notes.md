@@ -8,7 +8,7 @@ Submission route: Hexagon, v7 to v8. The platform version is independent of GitH
 
 Existing record: [v7](https://hexagonmath.org/2610.00341v7). The v8 identifier is not claimed to exist before submission is accepted by the platform.
 
-Research release: [v4.41.0](https://github.com/creelie/4Y-M/releases/tag/v4.41.0). Version DOI: [release page](https://github.com/creelie/4Y-M/releases/tag/v4.41.0) (DOI awaiting archive verification).
+Research release: [v4.41.0](https://github.com/creelie/4Y-M/releases/tag/v4.41.0). Version DOI: [10.5281/zenodo.24044466](https://doi.org/10.5281/zenodo.24044466).
 
 ## Abstract to paste
 
