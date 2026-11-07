@@ -142,3 +142,4 @@ Sources:
   (X) constant (exact on all of L² by Lemma A2) via div-free path currents, the Hodge Green's function and the cube Hessian
   pseudo-inverse. Covers b = 3, 4, n'/b = 1, 2, 3, L = 6 vs 8 and cube offset. Selftests: Hodge identity, cube block, 0 ≤ ratio ≤ 1.
   The decision is ρ_1 vs n'/b: decreasing feeds B (Σ ρ_j² < ∞); flat near 1 blocks B as framed.
+- 2026-11-07: **A week 2, (D):** Lemma A3 gives the exact chaos expansion w = Σ_{S≠∅} B^{⊗S}⊗A^{⊗rest}⊗I, which is orthogonal in |S|. A-D reduces to one combinatorial bound c_k(s) on symmetrized contractions. It is still open; the naive bound is C(k,s)². See forest/A_GAUSSIAN_FIBRE_4D.md §6. The C run 2 and ρ_1 jobs are still running.

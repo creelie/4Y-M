@@ -76,7 +76,7 @@ So the item "extend the variance estimate from linear observables to all of Gaus
 On H^{:k:}, w_{x'} = (I − P_c^{⊗k}) P_{𝓕,x'}^{⊗k} g_{x'}, and (D) asks for almost-orthogonality of these vectors across x' with a constant independent of the torus.
 - At k = 1 this is a statement about the operators (I − P_c) P_{𝓕,x'} on C'_{x'}. It should follow from the exponential decay of the fibre covariance β^{−1}K_0^+, at rate ~ 1/√b by Thm `thm:blockdecay`. That would give a Schur bound R_1 ≲ Σ_{x''} sup ‖w_{x'}^* w_{x''}‖ / ‖w‖² = O((n' + √b)^4 / n'^4).
 - At k ≥ 2, w_{x'} contains mixed tensors, with one factor in the fibre directions near V'_{x'} and the other factors coarse variables anywhere in T(x'). Two such vectors for distant x', x'' overlap through their coarse factors, which are **not** localized. The Schur constant at level k is not obviously bounded by a power of R_1.
-- **Open item A-D:** bound R_k uniformly in k, or show that (D) only needs the k = 1 constant after a further projection.
+- **Open item A-D** (see §6 for the reduced form): bound R_k uniformly in k, or show that (D) only needs the k = 1 constant after a further projection.
   - One route: replace g_{x'} by its Hoeffding/Efron–Stein component relative to T(x'). Only the component of g_{x'} that is *linear* in C'_{x'} survives (I − Q) P_𝓕.
   - That would reduce (D) to k = 1 with coefficients in L²(coarse), i.e. R = R_1 ⊗ I, if the identity (I − P_c^{⊗k}) P_𝓕^{⊗k} = Σ_j ((I − P_c) P_𝓕)_{(j)} ⊗ (P_c P_𝓕)_{(rest)} can be organized as an orthogonal sum. It cannot naively, because the terms overlap. This is the first thing to do in week 2.
 
@@ -99,3 +99,35 @@ Plan:
 Draft, not sent:
 
 > Does lean05 contain the 4D aligned covers, i.e. a formal version of the cube/path geometry (T(x'), marks l(e), Σ connected), and is it coming to main? A1 above uses the Gaussian chaos reduction for (F) and (X). If lean05 has the cube/path combinatorics, we would state (F) and (X) in the Gaussian model as "Thm 114 holds with C_F = λ_F, ρ = ρ_1" and only need to formalize the first-chaos constants.
+
+## 6. Week 2: exact chaos form of the (D) vectors (towards A-D)
+
+Fix x' and drop it from the notation. Take Q = Γ(P_c), the conditional expectation onto σ(c).
+
+**Two operators.** For u ∈ C', the proof of A2 gives P_𝓕 u ⊥ H_{c,out}. So P_c P_𝓕 u ∈ C', and P_𝓕 splits on C' as A + B:
+- A = P_c P_𝓕|_{C'} : C' → C', with ‖A‖ ≤ ρ_1;
+- B = (I − P_c) P_𝓕|_{C'} : C' → H ⊖ H_c (fibre directions), with A*A + B*B = (P_𝓕|_{C'})*(P_𝓕|_{C'}) ≤ I.
+
+**Lemma A3 (exact form).** Let g ∈ H_c^{:k:} have exactly j ≥ 1 factors in C' and k − j factors in H_{c,out}. Then
+
+    w = (I − P_c^{⊗k}) P_𝓕^{⊗k} g = Σ_{∅≠S⊆[j]} (B^{⊗S} ⊗ A^{⊗([j]∖S)} ⊗ I^{⊗(k−j)}) g   (symmetrized).
+
+The summands with different |S| are mutually orthogonal, because they have |S| factors in H ⊖ H_c. Hence
+
+    ‖w‖² = Σ_{s≥1} ‖w^{(s)}‖² ≥ ‖w^{(1)}‖².
+
+*Proof.* P_𝓕^{⊗k} = (A+B)^{⊗j} ⊗ I on such g, since P_𝓕 fixes H_{c,out}. Expand the product. Q removes exactly the S = ∅ term, which is the only term with every factor in H_c. ∎
+
+**What this reduces A-D to.** For distant x', y', a cross term ⟨w_{x'}^{(s)}, w_{y'}^{(t)}⟩ vanishes unless s = t. Its fibre part is a product of s kernels B_{x'}*B_{y'}. Its coarse part is an inner product of coarse factors, which is bounded by norms but not localized.
+
+**Remaining claim.** Write r(x',y') = ‖B_{x'}* B_{y'}‖. Then
+
+    |⟨w_{x'}^{(s)}, w_{y'}^{(s)}⟩| ≤ c_k(s) · r(x',y')^s · ‖g_{x'}‖ ‖g_{y'}‖.
+
+Combined with Σ_{y'} r(x',y') ≤ R_1, the Schur test would give R ≤ sup_s c_k(s) R_1.
+
+The unresolved point is c_k(s). Symmetrization can contract the s fibre factors against *different* slots of the two tensors. A naive count gives c_k(s) ≤ C(k,s)², which is not uniform in k. To get uniformity, one needs either:
+- a combinatorial cancellation; or
+- the Hoeffding route of §3, which keeps only s = 1.
+
+A-D therefore stays **open**. The progress is that it is now one precise combinatorial inequality, not a structural question.
