@@ -135,3 +135,6 @@ Sources:
 - 2026-11-07: **C run 1 done** (job 1695040, `forest/H1_PATHCOV.md`). Negative on method: Σ|Ĉov| equals its time-permuted null
   to < 0.4% at β_W ≤ 1.5, and scales by √2 on half the data, so it is the sampling-noise floor (∝ #pairs/√T), not Prop 168's sum.
   A ~10% excess at β_W = 2.3 is unresolved (possibly autocorrelation). Run 2 needs debiased per-shell estimators before b = 8, random V, or bphidden.
+- 2026-11-07: **C run 2 submitted** (ym-pathcov-c2-debiased). Split-block unbiased estimator of per-shell ‖Cov‖_F² with jackknife
+  errors, checked first on a synthetic hidden-mixture control with known truth (amp 0 and 0.1, L = 4, 6, 8). Chains: b = 4 at L = 4, 6, 8
+  and b = 6 at L = 4, β_W ∈ {1.5, 2.3}, 3000 measurements each.
