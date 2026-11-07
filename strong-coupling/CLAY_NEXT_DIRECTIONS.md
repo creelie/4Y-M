@@ -156,3 +156,8 @@ Sources:
   - The planted control passes: 1–3% recovery, null |Z| ≤ 1.1.
   - After debiasing, β_W = 1.5 has no covariance at all. β_W = 2.3, b = 4 has covariance only in shells 0–1, and the sum (0.56 → 0.58, L = 6 → 8) is volume-stable. At b = 6 it is zero.
   - This is consistent with Prop 168. Next: a β_W depth scan and a random-V stress test.
+- 2026-11-07: **B quantified under flat ρ (forest/A_GAUSSIAN_FIBRE_4D.md §8.1).**
+  - Π_{j≤k} C_B ≈ n_k^α with α = log₂(1/(1−ρ²)) ≈ 1.7 (range 1.4–1.9). So B degrades to a power law rather than failing.
+  - New target (B′): does the (H2) chain absorb C_B growth n_k^α with α < 2?
+  - Fallback: a smeared block map.
+  - The R_∠ job 1698522 is queued (per-user CPU limit).

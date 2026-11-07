@@ -199,3 +199,21 @@ The cluster run computed ρ_1² = 1 − min eig(W, M) on C' (the code is local a
    - The decision rule in §4 recorded exactly this outcome. ρ_1 is not near 1, so the failure is of summability, not of (X).
    - B has to be reframed. One option is to use a uniform ρ < 1 as a per-scale contraction, with ∏_j(ρ_j² + η_j) controlled geometrically rather than Σρ_j² summed. Whether Thm 114's iteration admits that is the next question for B.
    - Another option is a block map whose exterior constant does decay, for example a smeared rather than straight-path block map.
+
+### 8.1 What a flat ρ costs B, quantitatively
+
+With ρ_j ≡ ρ, η_j → 0 and n_j = 2n_{j−1}, the per-scale constant is C_B,j ≈ (1−ρ²)^{−1}. At depth k the product is
+
+  Π_{j≤k} C_B,j ≈ (1−ρ²)^{−k} = n_k^{α},  α = log₂(1/(1−ρ²)).
+
+| ρ_1 | (1−ρ²)^{−1} | α |
+|---|---|---|
+| 0.789 (n'/b = 1) | 2.65 | 1.41 |
+| 0.828 (n'/b = 2) | 3.18 | 1.67 |
+| 0.835 (n'/b = 3) | 3.30 | 1.72 |
+| 0.859 (b = 4, worst offset) | 3.82 | 1.93 |
+
+So B does not fail outright. The depth-uniform bound degrades into a power law n_k^α with α ≈ 1.7 < 2 in the Gaussian model. The reframed question for B is:
+
+- **(B′)** Does the (H2) chain tolerate polynomial growth n_k^α of C_B? In particular, can the n_k^{−2} gain in η_j and the (n'/(bn))⁴ factor of Thm 114 absorb α < 2, or a geometric step n_j = λn_{j−1} with larger λ? Note that λ does not help directly: with a larger λ, α = log_λ(1/(1−ρ_λ²)) shrinks only if ρ_λ stays flat, which it appears to (ρ_1 is saturated by n'/b = 2).
+- If (B′) fails, the alternative remains a block map with decaying exterior constant (smeared paths). It should be tested by rerunning gauss_rho with a smeared Pth.
