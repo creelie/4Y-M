@@ -8,19 +8,19 @@ We use the formula below and quantify the decay of its coefficients as $b$
 grows. All constants in this note are independent of $b$.
 
 For a complex vector $z$ write
-\[
- \epsilon(z)=\sum_{\rho=1}^4 4\sin^2(z_\rho/2),\qquad
- \sigma_\rho^\pm(z)=e^{\pm iz_\rho}-1,
- \qquad F_b(q)=\sum_{|r|<b}(b-|r|)e^{irq}.
-\]
+\begin{align*}
+ \epsilon(z)&=\sum_{\rho=1}^4 4\sin^2(z_\rho/2),\\
+ \sigma_\rho^\pm(z)&=e^{\pm iz_\rho}-1,\\
+ F_b(q)&=\sum_{|r|<b}(b-|r|)e^{irq}.
+\end{align*}
 Let $Z_b$ be the representatives of $(\mathbb Z/b\mathbb Z)^4$ with each
 coordinate in $[-\lfloor(b-1)/2\rfloor,\lfloor b/2\rfloor]$.
 For real $z\notin 2\pi\mathbb Z^4$, put
-\[
+\begin{gather*}
  G_\mu(z)=b^{-4}\sum_{n\in Z_b}
-     \frac{F_b((z_\mu+2\pi n_\mu)/b)}{\epsilon((z+2\pi n)/b)},
- \quad r_\mu=G_\mu^{-1},\quad T=\sum_\rho r_\rho\sigma_\rho^+\sigma_\rho^- .
-\]
+     \frac{F_b((z_\mu+2\pi n_\mu)/b)}{\epsilon((z+2\pi n)/b)},\\
+ r_\mu=G_\mu^{-1},\qquad T=\sum_\rho r_\rho\sigma_\rho^+\sigma_\rho^- .
+\end{gather*}
 The symbol in the manuscript, with its value at zero set equal to zero, is
 \begin{equation}\label{eq:blockdecay-symbol}
  \widehat\Gamma_b(z)_{\mu\nu}
@@ -39,11 +39,11 @@ There are absolute constants $c,C>0$ such that the Fourier coefficients of
 For all sufficiently large $b$, the one-variable continuation of
 $t\mapsto\widehat\Gamma_b(t,0,0,0)_{22}$ has a pole at $i t_b$ with
 $0<t_b\le 9/\sqrt b$, and
-\[
- \lim_{b\to\infty}\sqrt b\,t_b=\mathfrak g_3^{-1/2},\qquad
+\begin{gather*}
+ \lim_{b\to\infty}\sqrt b\,t_b=\mathfrak g_3^{-1/2},\\
  \mathfrak g_3=\frac{1}{(2\pi)^3}\int_{[-\pi,\pi]^3}
            \frac{dq}{4\sum_{j=1}^3\sin^2(q_j/2)}.
-\]
+\end{gather*}
 In particular, an entrywise exponential decay bound
 with finite prefactor and a rate larger than $9/\sqrt b$ cannot hold for this
 matrix of Fourier coefficients.
@@ -85,10 +85,11 @@ The transverse sum is at most $Cb$, including $v=0$ when $n_\mu\ne0$.
 The sum of the weights over $n_\mu$ is bounded independently of $b$.
 
 First consider a neighbourhood of the origin. Set
-\[
- s(z)=b^2\epsilon(z/b),\quad a_\mu(z)=F_b(z_\mu/b)/b^2,\quad
- B_\mu(z)=a_\mu(z)+s(z)H_\mu(z).
-\]
+\begin{align*}
+ s(z)&=b^2\epsilon(z/b),\\
+ a_\mu(z)&=F_b(z_\mu/b)/b^2,\\
+ B_\mu(z)&=a_\mu(z)+s(z)H_\mu(z).
+\end{align*}
 We have $G_\mu=a_\mu/s+H_\mu$, hence $r_\mu=s/B_\mu$ wherever the
 original fractions are defined. The Fej\'er formula gives the exact identity
 $\sigma_\rho^+\sigma_\rho^-/a_\rho=b^2\,4\sin^2(z_\rho/(2b))$ near the origin,
