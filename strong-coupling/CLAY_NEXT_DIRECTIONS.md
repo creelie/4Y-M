@@ -132,3 +132,6 @@ Sources:
 - 2026-11-07: **A week 1 written** (`forest/A_GAUSSIAN_FIBRE_4D.md`). 4D data collected. In the Gaussian model, (F) and (X)
   reduce to the first Wiener chaos with the same constants (Lemmas A1, A2). (D) does not: open item A-D (mixed chaos
   overlaps through non-local coarse factors). Computation plan for λ_F, ρ_1, R_1 set; the lean05 question is drafted, not sent.
+- 2026-11-07: **C run 1 done** (job 1695040, `forest/H1_PATHCOV.md`). Negative on method: Σ|Ĉov| equals its time-permuted null
+  to < 0.4% at β_W ≤ 1.5, and scales by √2 on half the data, so it is the sampling-noise floor (∝ #pairs/√T), not Prop 168's sum.
+  A ~10% excess at β_W = 2.3 is unresolved (possibly autocorrelation). Run 2 needs debiased per-shell estimators before b = 8, random V, or bphidden.
