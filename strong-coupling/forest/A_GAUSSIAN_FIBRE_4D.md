@@ -76,7 +76,7 @@ So the item "extend the variance estimate from linear observables to all of Gaus
 On H^{:k:}, w_{x'} = (I − P_c^{⊗k}) P_{𝓕,x'}^{⊗k} g_{x'}, and (D) asks for almost-orthogonality of these vectors across x' with a constant independent of the torus.
 - At k = 1 this is a statement about the operators (I − P_c) P_{𝓕,x'} on C'_{x'}. It should follow from the exponential decay of the fibre covariance β^{−1}K_0^+, at rate ~ 1/√b by Thm `thm:blockdecay`. That would give a Schur bound R_1 ≲ Σ_{x''} sup ‖w_{x'}^* w_{x''}‖ / ‖w‖² = O((n' + √b)^4 / n'^4).
 - At k ≥ 2, w_{x'} contains mixed tensors, with one factor in the fibre directions near V'_{x'} and the other factors coarse variables anywhere in T(x'). Two such vectors for distant x', x'' overlap through their coarse factors, which are **not** localized. The Schur constant at level k is not obviously bounded by a power of R_1.
-- **Open item A-D** (see §6 for the reduced form): bound R_k uniformly in k, or show that (D) only needs the k = 1 constant after a further projection.
+- **Open item A-D** (reduced in §6, closed modulo R_∠ < ∞ in §7): bound R_k uniformly in k, or show that (D) only needs the k = 1 constant after a further projection.
   - One route: replace g_{x'} by its Hoeffding/Efron–Stein component relative to T(x'). Only the component of g_{x'} that is *linear* in C'_{x'} survives (I − Q) P_𝓕.
   - That would reduce (D) to k = 1 with coefficients in L²(coarse), i.e. R = R_1 ⊗ I, if the identity (I − P_c^{⊗k}) P_𝓕^{⊗k} = Σ_j ((I − P_c) P_𝓕)_{(j)} ⊗ (P_c P_𝓕)_{(rest)} can be organized as an orthogonal sum. It cannot naively, because the terms overlap. This is the first thing to do in week 2.
 
@@ -131,3 +131,42 @@ The unresolved point is c_k(s). Symmetrization can contract the s fibre factors 
 - the Hoeffding route of §3, which keeps only s = 1.
 
 A-D therefore stays **open**. The progress is that it is now one precise combinatorial inequality, not a structural question.
+
+## 7. A-D reduced to the first chaos (Lemma A4)
+
+§6 left a constant c_k(s) that came from symmetrization. It disappears if the Fock structure is used instead of tensor counting.
+
+**Setup.** Write T_x = P_{𝓕,x'}|_{H_c} : H_c → H = H_c^⊥ ⊕ H_c. By §6, T_x = ι_1 T_{1x} + ι_2 T_{2x}, where:
+- T_{1x} = (I − P_c)P_𝓕 Π_{C'_x} = B_xΠ_{C'_x};
+- T_{2x} = P_c P_𝓕|_{H_c} = A_x ⊕ I_{out}, with ‖T_{2x}‖ ≤ 1.
+
+Let J : H_c → H_c ⊕ H_c, u ↦ (u,u). Then T_x = (T_{1x} ⊕ T_{2x})J. By the exponential law Γ(K_1 ⊕ K_2) ≅ Γ(K_1) ⊗ Γ(K_2),
+
+    Γ(T_x) = (Γ(T_{1x}) ⊗ Γ(T_{2x})) Γ(J),
+
+where Γ(J) does **not** depend on x'. The s-th component, with s factors in H_c^⊥, is w_x^{(s)}. Q = Γ(P_c) removes exactly s = 0. Components with different s are orthogonal *for all x', y' simultaneously*, so
+
+    ‖Σ_x w_x‖² = Σ_{s≥1} ‖Σ_x w_x^{(s)}‖².
+
+**Lemma A4.** Let V_x ⊂ H_c^⊥ be the closure of the range of B_x, i.e. the fibre directions that (X) leaks into. Put r(x',y') = ‖P_{V_x} P_{V_y}‖. Then (D) holds on all of L², at every chaos level, with
+
+    R ≤ R_∠ := sup_{x'} Σ_{y'} r(x',y').
+
+*Proof.*
+1. Polar decomposition: T_{1x} = U_x|T_{1x}|, where U_x is a partial isometry with final space V_x.
+2. Put v_x = (Γ(|T_{1x}|) ⊗ Γ(T_{2x}))Γ(J)g_x, restricted to level s. Then w_x^{(s)} = (Γ(U_x) ⊗ I)v_x and ‖v_x‖ = ‖w_x^{(s)}‖.
+3. The cross terms satisfy ⟨w_x^{(s)}, w_y^{(s)}⟩ = ⟨v_x, (Γ(U_x^*U_y) ⊗ I)v_y⟩.
+4. Γ restricted to Sym^s has norm ‖·‖^s. Also ‖U_x^*U_y‖ = r(x',y') ≤ 1.
+5. Hence |⟨w_x^{(s)}, w_y^{(s)}⟩| ≤ r(x',y')^s ‖w_x^{(s)}‖ ‖w_y^{(s)}‖ ≤ r(x',y') ‖w_x^{(s)}‖ ‖w_y^{(s)}‖.
+6. The Schur test gives ‖Σ_x w_x^{(s)}‖² ≤ R_∠ Σ_x ‖w_x^{(s)}‖². Sum over s. ∎
+
+**Consequence.** In the Gaussian model all three hypotheses of Thm 114 hold on all of L², with first-chaos constants:
+
+    C_F = λ_F,  ρ = ρ_1,  R = R_∠.
+
+A-D is **closed modulo** the finiteness of R_∠ uniformly in the volume. This is a geometric statement: the fibre-leak subspaces V_x of distant cubes are almost orthogonal, with summable cosines.
+
+- R_∠ ≥ R_1(best). At level 1 the bound is Schur-tight only up to the usual Schur loss.
+- The expected input is the exponential decay of β^{−1}K_0^+ (Thm `blockdecay`). Because V_x is a range, not a kernel, locality of V_x has to be proved: either V_x is close to the fibre directions near V'_{x'}, or an approximate-locality argument is needed.
+
+**Next.** Compute r(x',y') numerically alongside ρ_1: principal angles between V_x and V_y as a function of |x'−y'|/n'. Then prove the decay from Thm `blockdecay`.
