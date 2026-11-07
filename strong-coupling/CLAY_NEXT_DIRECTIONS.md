@@ -129,3 +129,6 @@ Sources:
   - D: a continuum programme.
 
   Checked that Π C_B ≤ exp(S/(1−q)). The real summability condition is Σ_j ρ_j² ≤ S.
+- 2026-11-07: **A week 1 written** (`forest/A_GAUSSIAN_FIBRE_4D.md`). 4D data collected. In the Gaussian model, (F) and (X)
+  reduce to the first Wiener chaos with the same constants (Lemmas A1, A2). (D) does not: open item A-D (mixed chaos
+  overlaps through non-local coarse factors). Computation plan for λ_F, ρ_1, R_1 set; the lean05 question is drafted, not sent.
