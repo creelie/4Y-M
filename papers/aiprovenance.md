@@ -2,7 +2,7 @@
 
 Work: Lattice Mass Gaps and Continuum Criteria for Four-Dimensional Yang-Mills Theory
 
-Research release: v4.41.0, 2026-11-08. Version DOI: [10.5281/zenodo.24044466](https://doi.org/10.5281/zenodo.24044466).
+Current release: https://github.com/creelie/4Y-M/releases/tag/v4.41.1. The version DOI is pending archival verification.
 
 Human authors in manuscript order: Deep Bhattacharjee; Ushashi Bhattacharya; James Montgomery Lockwood; Tristan Romanov.
 
@@ -13,3 +13,6 @@ Adds a space-time integrated response estimate for weighted force covariance row
 Human-understanding declaration: no new declaration is inferred for additions made after the authors' earlier review. The submitting authors must choose the platform option that accurately describes their understanding of this complete current revision. This is not a certification that a human has already checked every new line.
 
 This file is a concise provenance summary. It contains no fabricated conversations, private reasoning traces, or benchmark claims.
+
+
+For this revision, OpenAI Codex checked bibliographic records, edited citation metadata, reviewed PDF layout, and rebuilt the submission files.
