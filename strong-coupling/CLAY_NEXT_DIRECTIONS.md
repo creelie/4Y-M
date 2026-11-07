@@ -1,62 +1,84 @@
-I read the git log (the §9–§12 run), dump1, dump9, dump10, `strong-coupling/OPEN.md`, `forest/FRONTIER.md`, `POLYMER_ARCHITECTURE.md` §10–12 and `how-to-use-cluster.md`, then searched the web. Here is a ranked list of what to explore next.
+Directions after Hexagon v7 (upstream main c794c07) and James's message of 2026-11-07. The 2026-11-06 plan (old #1–#8) is exhausted and is summarized at the end of the ranked list.
 
 ## Where things stand
 
-Our own §10.6 and §11 notes have already reached the main point. **Every route we have tried ends up at the same intermediate-coupling window.** Strong-coupling, curvature, Dobrushin, Higgs-continuation and polymer arguments all stop where the running coupling is O(1). Two outside facts change how we should spend effort:
+Hexagon v7 reduces the mass gap to three inputs (Conclusion; Thm `avgtransfer`, Cor `bpuptuning`). Until all three are proved, the gap is not proved:
 
-- **OpenAI's existence claim.** It covers existence only, not the mass gap, and the proof is still withheld by the Gross panel with no release date. If it holds, it covers roughly Target 3 and OPEN.md problems 2–3 (except the window). What remains is a gap at the terminal scale.
-- **We are aiming at a harder target than Clay needs.** GDS, D(n,α) and Conjecture L all take a supremum over boundary conditions. That is Chatterjee's "strong mass gap", which would also imply confinement. Clay only needs the gap in the periodic or reflection-positive state.
+- **(H1)** The covariance bound at the coarsest scale, along the tuning. See Prop 130 `prop:bpcoarsezero`, Cor 149 `cor:bpfibH1`, and the sufficient condition in Prop 168 `prop:bppathsuff`.
+- **(H2)** The split inequality at weak coupling, uniform in depth and volume. See Thm 114 `thm:bpsplitcond`. Prop 656 `prop:h2volume` shows that the naive version depends on the volume.
+- **(E)** A nontrivial continuum limit (`ssec:limitE`).
 
-## Ranked proposals
+New in main:
+- Commit d90d88b: sharp Gaussian block decay and the Wilson fibre criterion.
+- `gaussian-decay-section.tex` and `fibre-heatbath-section.tex`.
 
-**1. A box certificate that covers a whole ball of actions (our idea 3″, made concrete). Highest Clay value of anything we can do.**
-- The finite-box criterion is the only route we know that avoids the window (§11, idea 3). Lemma S′ failed because the certificate was for one action Φ, so stability brought the |V| factor back.
-- The fix is to certify GDS(V,ε) uniformly over a parametrised family: Wilson plus a few loop and adjacent-plaquette terms plus a remainder of norm ≤ δ. This is exactly the object a Bałaban-type construction outputs at the terminal scale.
-- First deliverable: a precise statement of the form "effective action in ball B(Φ₀,δ) in norm N, plus a robust certificate on that ball, implies a gap". Write it so that we can plug it in the day OpenAI's proof is released.
+Only lean01–lean03 are in main. lean05 is not.
 
-**2. A certified finite-box marginal coupling (dump10 T-1 to T-3). Concrete, and it feeds #1.**
-- Integrate out the links next to the boundary exactly using SU(2) characters, then maximally couple the far-field marginal. Certify it over all boundary holonomies with interval arithmetic.
-- Run it first as a benchmark at d=4, L=2, β_W=0.30, then try to beat 0.351 (the Hexagon v6 SU(2) number).
-- This is also the engine #1 needs. Freeze the benchmark first: the README says 0.348/0.52 and v6 says 0.351/0.77.
+The OpenAI existence claim is still unreleased. If it holds, it bears on (E), not on (H1) or (H2) as Hexagon states them.
 
-**3. A feasibility study on the cluster before committing to #1 and #2.**
-- With the exact-marginal coupling, not the naive linkwise one, measure the GDS/influence coefficient against box size at β_W ≈ 2.0–2.6, on both Wilson and MCRG-blocked actions.
-- Output: the smallest box L* at which contraction appears numerically, and the size of the action family that needs certifying.
-- If L* ≥ 6 in 4D, a direct certificate is out of reach and we need a dimension reduction (class functions, symmetry). Better to learn that in a week than in two months. This is cheap CPU work.
+## Ranked directions
 
-**4. Go after the weak mass gap with reflection-positive and transfer-matrix tools.**
-- Our infrastructure only partly uses these yet: the slice ratio, Theorem 46, and the tree bounds (T1)–(T3).
-- Candidate: a chessboard/reflection-positivity argument that turns a gap at one block scale in the periodic state into decay, avoiding the supremum over boundaries entirely.
-- The finite-size criterion for non-frustration-free Hamiltonians is dead, but a correlation-level (not Hamiltonian-level) criterion in the reflection-positive state has not been ruled out.
-- Worth one focused session to find either a no-go result or a lemma.
+**A. A 4D SU(2) Gaussian fibre theorem, mapped into Thm 114. Highest priority.**
+- Fix the 4D data explicitly: the section, the block map c, the curvature operator and the fibres F_{x'}.
+- Prove the geometric hypotheses on the lattice. Get a stable decomposition with constants independent of depth and volume.
+- Extend the variance estimate from linear observables to all of Gaussian L².
+- Deliverable: explicit constants in the Gaussian model for the three hypotheses of Thm 114: (F) C_F, (X) ρ and (D) R. State the result as "Thm 114 holds with …".
+- Build on:
+  - d90d88b and `gaussian-decay-section.tex`;
+  - `thm:bprowgauss`;
+  - `cor:bprowFC` (Gaussian row sums (log b)/b).
+- Ask James what lean05 covers (4D aligned covers?) and whether it is coming to main.
 
-**5. Polchinski-flow log-Sobolev (Bauerschmidt–Bodineau–Dagallier) for lattice gauge fields.**
-- Idea 4 killed curvature of a *single* effective action through the antipodal configuration.
-- The Polchinski method needs something different: a bound on the Hessian of the renormalised potential *relative to the covariance increment at each scale*. Non-convex potentials are allowed if the flow smooths them, as in their φ⁴ and sinh-Gordon work.
-- Cheap falsifier: 2D U(1) and SU(2), which are exactly computable. Check whether the multiscale condition holds beyond the Shen–Zhu–Zhu threshold. If it does, this is a genuinely new non-perturbative tool. If the antipodal obstruction survives, drop it quickly.
+**B. Nonlinear (H2), organized around Thm 114 and Thm 181 (`thm:bpdeviation`).**
+- **What Thm 114 gives.** It yields S(n',n; C_F/(1−η), (n'/(bn))⁴/(1−ρ²−η)), with η = ρ(RC_F)^{1/2}/n'².
+- **Per-scale quantities.** Take n_j = 2n_{j−1}, so n'/(bn) = 1 when b = 2. Set η_{k,j} = ρ√(R C_F)/n_j² and δ_{k,j} = ρ² + η_{k,j}.
+- **Target.** C_F ≤ C*, δ_{k,j} ≤ q < 1 and sup_k Σ_j δ_{k,j} ≤ S, all independent of depth and volume.
+- **Consequence (checked).** C_A ≤ C*/(1−q), and Π_j C_B ≤ Π_j (1−δ_j)^{−1} ≤ exp(S/(1−q)), using −log(1−x) ≤ x/(1−q) on [0,q].
+- **Where the content is.** η is summable automatically because n_j² grows geometrically. So the real condition is Σ_j ρ_j² ≤ S: the exterior constant (X) must decay along the scales.
+- **Inputs.** The (X) and (D) bounds have to come from A. Thm 181 handles the deviation term when the chain does not compose exactly.
 
-**6. Transferring the Migdal–Kadanoff result: audit Tomboulis's 2007 confinement claim.**
-- OPEN.md notes that confinement is known at every coupling in hierarchical models, with no transfer to Z⁴.
-- Tomboulis's interpolation argument tried exactly this transfer, and the community considers it to have a gap (Ito–Tomboulis follow-ups).
-- Pin down precisely which inequality fails, and test it numerically in 2D/3D. If the failure can be localised, that is either a repair route or a sharp obstruction worth publishing. This is a literature task plus small numerics.
+**C. An (H1) computational campaign on Prop 168, on the cluster with ≤ 64 CPUs. Diagnostics only.**
+- **What to measure.** The partial sums Σ_{e≠j} |Cov_{π_V}(a_e^X, a_j^Y)|, against the threshold (1−h_{b−2})/3.
+- **Order of runs:**
+  1. against coarse volume at fixed depth k;
+  2. varying k;
+  3. stressing the conditioning V.
+- **Where the sum accumulates.** Record the contribution from each of:
+  - the 3 links sharing j's base point;
+  - nearby shells;
+  - distant shells, fitting the decay exponent (Prop 168 needs p > 4, with S_p = 3 + 320(1+1/(p−4)));
+  - exceptional configurations.
+- **Limits.** Sampled conditioning cannot establish the supremum over V, X and Y.
+- **Control.** Prop `prop:bphidden`(ii) is a warning case: a mixture of product laws for which the sum grows with the volume. Run it as a control.
 
-**7. 3D as a proving ground.**
-- The 3D mass gap is also open, and 3D is super-renormalisable, with a shorter and easier RG.
-- We already have the 3D forest (β_W < 4/7). Running #1, #2 and #5 in 3D first gives credible milestones and catches failures at lower cost.
+**D. Keep (E) alive with one concrete programme.**
+- Fix one gauge-invariant observable, such as a smeared plaquette or a small Wilson loop, and one normalization.
+- Targets for its separated correlations:
+  - a nonzero limit;
+  - uniform moments;
+  - rotation restoration;
+  - convergence.
+- Every use of MIX must cite an independent infrared input, so the gap is never an assumed premise.
 
-**8. Lower priority or defer:**
-- **Target 1, (H1) on every torus, and Target 2, (H2):** both are Bałaban-control statements. If OpenAI's construction is correct, it supersedes our own attempts at them. Wait for their text.
-- **(N_u) nontriviality:** existence claims normally include it. Defer, but keep the slice-ratio criterion ready as a checkable interface.
-- **More h_F tightening or Lean arithmetic:** no Clay value. James's composition results in dump9 are useful as a theorem that the site-additive approach cannot work, nothing more.
-- **Already dropped and should stay dropped:** BKMP relativised Dobrushin, frustration-free finite-size criteria, Higgs continuation, curvature of the blocked action, and the shell-transport chain (§10–12, which is one-scale and already within Bałaban's framework).
+**Closed or parked (the 2026-11-06 plan; details in the log):**
+- #1 ball certificate: interface drafted; waits on the OpenAI text.
+- #2 marginal coupling: parked, gain O(β).
+- #3 feasibility: done, L* = 2, heuristic only.
+- #4 RP weak gap: no-go.
+- #5 Polchinski: dropped.
+- #6 Tomboulis: closed.
+- #7 3D: folded into the others.
+
+The old #8 deferred (H1) and (H2). That is reversed: they are now the main line. James's dump9 composition results are now the frame for B (Thm 181), not just a no-go.
 
 ## Suggested sequencing
 
 | When | What |
 |---|---|
-| Week 1 | #3 feasibility runs on the cluster, the #1 interface theorem on paper, and the #5 2D falsifier, in parallel |
-| Weeks 2–4 | #2 certification at the benchmark, then #4 or #6, depending on what #3 shows |
-| On OpenAI release | Read it against the #1 interface, specifically: what norm and what δ their terminal-scale effective action comes with |
+| Week 1 | **A:** write out the 4D section, block map, curvature operator and fibres; confirm lean05's scope with James. **C:** first fixed-depth volume scan on the cluster. |
+| Weeks 2–3 | **A:** stable decomposition and the Gaussian L² variance bound. **B:** bound ρ_j along the scales using A, and check Σδ ≤ S. |
+| Weeks 3–4 | **C:** depth scan and conditioning stress. **D:** pick the observable and list every MIX dependency. |
+| On OpenAI release | Read it against D and the #1 interface. |
 
 Sources:
 - [KITP working-group statement](https://www.kitp.ucsb.edu/sites/default/files/YM_working_group.pdf)
@@ -100,3 +122,10 @@ Sources:
   the OpenAI text (#1 interface) and the optional #6 Monte Carlo test.
 - 2026-11-06: **#6 closed** (job 1681808, TOMBOULIS_AUDIT_6 §6). The (★′) proxy holds for 4D U(1) in its Coulomb phase (Δ < 0 at 11–16σ),
   so the Tomboulis failure is in the global continuation/eq. 5.21, not in the vortex inequality. Plan exhausted; next is the OpenAI text (#1 interface).
+- 2026-11-07: **Plan replaced** after Hexagon v7 (main c794c07) and James's message, with four directions:
+  - A: a 4D Gaussian fibre theorem, mapped into Thm 114.
+  - B: nonlinear (H2) via Thm 114 and Thm 181.
+  - C: diagnostics for the Prop 168 covariance sums.
+  - D: a continuum programme.
+
+  Checked that Π C_B ≤ exp(S/(1−q)). The real summability condition is Σ_j ρ_j² ≤ S.
