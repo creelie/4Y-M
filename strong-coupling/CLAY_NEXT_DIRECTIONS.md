@@ -143,3 +143,4 @@ Sources:
   pseudo-inverse. Covers b = 3, 4, n'/b = 1, 2, 3, L = 6 vs 8 and cube offset. Selftests: Hodge identity, cube block, 0 ≤ ratio ≤ 1.
   The decision is ρ_1 vs n'/b: decreasing feeds B (Σ ρ_j² < ∞); flat near 1 blocks B as framed.
 - 2026-11-07: **A week 2, (D):** Lemma A3 gives the exact chaos expansion w = Σ_{S≠∅} B^{⊗S}⊗A^{⊗rest}⊗I, which is orthogonal in |S|. A-D reduces to one combinatorial bound c_k(s) on symmetrized contractions. It is still open; the naive bound is C(k,s)². See forest/A_GAUSSIAN_FIBRE_4D.md §6. The C run 2 and ρ_1 jobs are still running.
+- 2026-11-07: **D part 1:** the observable is fixed (24-plaquette action density at 0, Z_k = 𝒩_k(ε)^{−1/2}) and every MIX use in §limitE is listed (forest/D_E_OBSERVABLE.md). Finding: the *nontriviality* of the limit currently comes from the gap (Prop limitEnorm(ii)), which violates the D rule. Next: D1 (γ_k audit of limitEtwo), D2 (MIX-free nontriviality), D3 (audit limitEexact).
