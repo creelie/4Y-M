@@ -1,0 +1,30 @@
+name: Publish manuscript v4.38.0
+on:
+  push:
+    branches: [main]
+    paths: [revision-v4.38.0/release.json]
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Verify reviewed assets
+        working-directory: revision-v4.38.0
+        run: |
+          sha256sum -c SHA256SUMS.txt
+          python -m zipfile -t hexagontex.zip
+      - name: Publish or refresh assets
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          folder=revision-v4.38.0
+          title='Lattice Yang–Mills Mass Gaps and the Continuum Cube Criterion'
+          if gh release view v4.38.0 >/dev/null 2>&1; then
+            gh release upload v4.38.0 "$folder/YangMills_Hexagon.pdf" "$folder/hexagontex.zip" "$folder/SHA256SUMS.txt" --clobber
+            gh release edit v4.38.0 --title "$title" --notes-file "$folder/RELEASE-NOTES.md"
+          else
+            gh release create v4.38.0 "$folder/YangMills_Hexagon.pdf" "$folder/hexagontex.zip" "$folder/SHA256SUMS.txt" --target "$(git rev-parse HEAD)" --title "$title" --notes-file "$folder/RELEASE-NOTES.md"
+          fi

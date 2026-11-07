@@ -1,6 +1,6 @@
 cff-version: 1.2.0
 message: "If you use this work, please cite it as below."
-title: "One Cube Estimate Implies the Yang–Mills Mass Gap"
+title: "Lattice Yang–Mills Mass Gaps and the Continuum Cube Criterion"
 authors:
   - family-names: Bhattacharjee
     given-names: Deep
@@ -15,8 +15,8 @@ authors:
   - family-names: Romanov
     given-names: Tristan
     affiliation: "Independent Researcher, San Francisco, CA, USA"
-version: 4.37.0
-date-released: 2026-11-06
+version: "4.38.0"
+date-released: "2026-11-07"
 repository-code: "https://github.com/creelie/4Y-M"
 license: MIT
-doi: 10.5281/zenodo.23444338
+doi: "10.5281/zenodo.23444338"
