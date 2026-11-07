@@ -1,6 +1,6 @@
 # Lattice Mass Gaps and Continuum Criteria for Four-Dimensional Yang-Mills Theory
 
-Current release: https://github.com/creelie/4Y-M/releases/tag/v4.41.1. The version DOI is pending archival verification.
+Current research release [v4.41.1](https://github.com/creelie/4Y-M/releases/tag/v4.41.1). Version DOI: [10.5281/zenodo.24045649](https://doi.org/10.5281/zenodo.24045649).
 
 We prove strong-coupling lattice mass gaps for compact simple gauge groups and a conditional transfer from a physical-scale cube estimate. An integrated response criterion controls spatial covariance row sums without a uniform relaxation gap. The required weak-coupling Wilson bounds and nontrivial four-dimensional continuum construction remain open.
 
