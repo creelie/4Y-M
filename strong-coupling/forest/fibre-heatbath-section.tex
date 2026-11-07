@@ -51,12 +51,12 @@ $\Delta^k$. Hence
 \]
 Each $Q_i$ is an orthogonal projection, $Q_i f=0$ for $i\notin A$, and
 $\|Q_i h\|_\infty\le\delta_i h$. Therefore
-\[
- \big|\langle f,g-e^{-TL}g\rangle_\nu\big|
+\begin{multline*}
+ \big|\langle f,g-e^{-TL}g\rangle_\nu\big|\\
  \le \sum_{i\in A}\int_0^T
-       \big|\langle Q_i f,Q_i e^{-tL}g\rangle_\nu\big|\,dt
+       \big|\langle Q_i f,Q_i e^{-tL}g\rangle_\nu\big|\,dt\\
  \le \frac{4|A|}{e\Delta}\|f\|_\infty\|g\|_\infty e^{-r+e\Delta T}.
-\]
+\end{multline*}
 The spectral assumption bounds
 $|\operatorname{Cov}_\nu(f,e^{-TL}g)|$ by
 $e^{-\lambda T}\sqrt{\operatorname{Var}_\nu(f)\operatorname{Var}_\nu(g)}$.
