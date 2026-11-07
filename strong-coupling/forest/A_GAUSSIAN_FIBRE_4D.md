@@ -217,3 +217,20 @@ So B does not fail outright. The depth-uniform bound degrades into a power law n
 
 - **(B′)** Does the (H2) chain tolerate polynomial growth n_k^α of C_B? In particular, can the n_k^{−2} gain in η_j and the (n'/(bn))⁴ factor of Thm 114 absorb α < 2, or a geometric step n_j = λn_{j−1} with larger λ? Note that λ does not help directly: with a larger λ, α = log_λ(1/(1−ρ_λ²)) shrinks only if ρ_λ stays flat, which it appears to (ρ_1 is saturated by n'/b = 2).
 - If (B′) fails, the alternative remains a block map with decaying exterior constant (smeared paths). It should be tested by rerunning gauss_rho with a smeared Pth.
+
+### 8.2 (B′) answered: polynomial growth of Γ is fatal, and in the Gaussian model it must be
+
+- Thm `bpuptower` gives ϖ_K = min(ϖ_0, 1/C_A)/Γ with Γ = Π_j C_B,j.
+- Cor `bpuptuning` turns ϖ into the gap bound σ(H) ⊂ {0} ∪ [16ϖ/(625e²ℓ), ∞), with ℓ = n_k a_k fixed.
+- If Γ_k ≈ n_k^α = (ℓ/a_k)^α, then ϖ → 0 as a_k → 0, and the gap bound is empty in the continuum limit. So (B′) fails: Γ must be bounded uniformly in k. No polynomial loss can be absorbed downstream, because ℓ is fixed and nothing else in the corollary scales with n_k.
+
+**This is forced, not a defect of the bound.**
+- The abelian Gaussian model is the free Maxwell field, which has no mass gap.
+- A depth-uniform Γ would prove a positive gap for it via Cor `bpuptuning`, which is false.
+- So in the Gaussian model ρ_j cannot be summable (Σρ_j² < ∞ would give bounded Γ), and the flat ρ_1 ≈ 0.83 is exactly what consistency requires.
+
+**Consequences for the programme.**
+1. The Gaussian model is a valid testbed for (F), (X) and (D) as *per-scale* bounds. It is not a testbed for the *decay* of ρ_j along scales. That decay is where the non-abelian (confining) content of B must enter.
+2. By the D audit (forest/D_E_OBSERVABLE.md), (E) never uses MIX as a premise. B is needed only for the gap conclusion, not for existence and nontriviality of the limit.
+3. The useful Gaussian output for B is a *sanity bound*: any proposed mechanism for ρ_j → 0 must use something that the free field lacks. Examples are a nonzero string tension, or the strong-coupling cluster expansion at the coarsest scales. A mechanism that would also apply to the Gaussian model is wrong.
+4. The smeared-block-map fallback of §8.1 is therefore moot in the Gaussian model, for the same reason: no block map can give a free massless field a uniform BP constant.

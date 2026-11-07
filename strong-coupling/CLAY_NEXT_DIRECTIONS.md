@@ -161,3 +161,8 @@ Sources:
   - New target (B′): does the (H2) chain absorb C_B growth n_k^α with α < 2?
   - Fallback: a smeared block map.
   - The R_∠ job 1698522 is queued (per-user CPU limit).
+- 2026-11-07: **(B′) answered (forest/A_GAUSSIAN_FIBRE_4D.md §8.2).**
+  - Cor bpuptuning needs Γ = ΠC_B bounded uniformly in k, so the n_k^α loss of §8.1 empties the gap bound and (B′) fails.
+  - This is forced: the Gaussian model is free Maxwell (gapless), so a bounded Γ there would prove a false gap.
+  - The Gaussian model therefore tests (F), (X) and (D) per scale, but cannot test the ρ_j decay. That decay must come from non-abelian or confining input.
+  - B matters only for the gap: by the D audit, (E) does not use MIX as a premise.
