@@ -2,7 +2,7 @@
 
 The Gaussian block action has a sharp spatial decay rate of order b^(-1/2). A constrained heat-bath estimate gives a quantitative sufficient condition for the Wilson covariance bound. James Montgomery Lockwood is credited for the internal-fibre formulation that motivated this approach. The weak-coupling Wilson estimates and the nontrivial continuum construction remain open.
 
-[PDF](revision-v4.38.0/YangMills_Hexagon.pdf) · [TeX ZIP](revision-v4.38.0/hexagontex.zip) · [Release](https://github.com/creelie/4Y-M/releases/tag/v4.38.0) · [Zenodo concept DOI](https://doi.org/10.5281/zenodo.23444338)
+[PDF](revision-v4.38.0/YangMills_Hexagon.pdf) · [TeX ZIP](revision-v4.38.0/hexagontex.zip) · [Release](https://github.com/creelie/4Y-M/releases/tag/v4.38.0) · [Version DOI](https://doi.org/10.5281/zenodo.24025135)
 
 <!-- current-2026-11-07-revision -->
 
