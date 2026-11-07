@@ -138,3 +138,7 @@ Sources:
 - 2026-11-07: **C run 2 submitted** (ym-pathcov-c2-debiased). Split-block unbiased estimator of per-shell ‖Cov‖_F² with jackknife
   errors, checked first on a synthetic hidden-mixture control with known truth (amp 0 and 0.1, L = 4, 6, 8). Chains: b = 4 at L = 4, 6, 8
   and b = 6 at L = 4, β_W ∈ {1.5, 2.3}, 3000 measurements each.
+- 2026-11-07: **A/B: Gaussian ρ_1 job submitted** (ym-gaussrho-a1, job 1696054). Abelian Gaussian model: computes the first-chaos
+  (X) constant (exact on all of L² by Lemma A2) via div-free path currents, the Hodge Green's function and the cube Hessian
+  pseudo-inverse. Covers b = 3, 4, n'/b = 1, 2, 3, L = 6 vs 8 and cube offset. Selftests: Hodge identity, cube block, 0 ≤ ratio ≤ 1.
+  The decision is ρ_1 vs n'/b: decreasing feeds B (Σ ρ_j² < ∞); flat near 1 blocks B as framed.
