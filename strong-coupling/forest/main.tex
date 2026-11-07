@@ -68,14 +68,17 @@
 % it is published, e.g. \def\preprintsDOI{10.20944/preprints2026xx.xxxx.v1}
 \def\preprintsDOI{}
 \begin{document}
+\hypersetup{pdftitle={Lattice Yang--Mills Mass Gaps and the Continuum Cube Criterion}}
 
-\title{One Cube Estimate Implies the Yang--Mills Mass Gap}
+\title{Lattice Yang--Mills Mass Gaps and the Continuum Cube Criterion}
 
 \author{Deep Bhattacharjee$^{*}$\,\orcidlink{0000-0003-0466-750X}}
 \email{itsdeep@live.com}
 \thanks{$^{*}$\,Corresponding author. Secondary address:
 \nolinkurl{d.bhattacharjee@erl-forschung.de}; GitHub contact:
 \nolinkurl{egspl@proton.me}, \href{https://github.com/creelie}{github.com/creelie}.}
+\thanks{Research release \href{https://github.com/creelie/4Y-M/releases/tag/v4.38.0}{v4.38.0}. Zenodo concept DOI \href{https://doi.org/10.5281/zenodo.23444338}{10.5281/zenodo.23444338}.}
+
 \affiliation{Formerly, Electro-Gravitational Space Propulsion Laboratory
 (EGSPL), Bhubaneswar, Odisha 751030, India}
 \affiliation{Formerly, University of Calcutta (Heramba Chandra College), 23/49 Gariahat
@@ -94,7 +97,7 @@ Road, Golpark, Kolkata 700029, West Bengal, India}
 \email{romanov360@gmail.com}
 \affiliation{Independent Researcher, San Francisco, CA, USA}
 
-\date{4 November 2026}
+\date{7 November 2026}
 
 \begin{abstract}
 \itshape
@@ -105,7 +108,7 @@ physical size gives a mass gap to every continuum limit. For $\SU(2)$ the
 block variables approach the Haar measure in every representation as the
 coupling is tuned to the continuum, and this proves the estimate at the
 coarsest scale on every torus of side up to $e^{2^k/(17k)}$ after $k$ blocking steps.
-The estimate along the whole tuning remains open.
+We also prove the sharp order of the Gaussian block kernel's decay rate and derive a sufficient heat-bath relaxation rate for the Wilson force covariance bound. The estimate along the whole tuning remains open.
 \end{abstract}
 
 \maketitle
@@ -11288,9 +11291,7 @@ minus the mixed derivatives of the induced action, so in the Gaussian model
 they are $-\beta\Gamma_{ej}$, while every row of the model has an entry at
 least $\beta/(7b^2)$ (Remark~\ref{rem:bprowposterior}).
 
-Not proved: an explicit value of $C$; the pointwise decay of
-$\Gamma^\infty_b(w)$ in $\lvert w\rvert$, and any control of the decay rate
-$\kappa_b$ of Proposition~\ref{prop:bpfibbloch} in $b$; any comparison of
+The pointwise Gaussian decay and the order of its rate are proved in Theorem~\ref{thm:blockdecay}. Not proved: an explicit value of $C$ in the row bound; any comparison of
 the fibre covariances or of the score covariances of $\SU(2)$ with the
 Gaussian model; (FC) for $\SU(2)$ along the tuning, in the form of
 Corollary~\ref{cor:bpfibH1} or in the form of Sec.~\ref{ssec:bppaths}; any
@@ -11612,6 +11613,9 @@ the identification in Remark~\ref{rem:bpchain}; (H2) at weak coupling. The
 statements of this subsection and their Lean~4 formalisation are due to
 James Montgomery Lockwood.
 \end{remark}
+
+\input{gaussian-decay-section}
+\input{fibre-heatbath-section}
 
 \section{The open inputs}\label{sec:inputs}
 
@@ -47980,7 +47984,7 @@ $\SU(2)$ and the row sums of the Gaussian model; and the conditional chain
 for every compact simple group. He wrote the programs of the certified
 computations and the paper, and checked every statement. Ushashi
 Bhattacharya checked the proofs and the references and edited the text.
-James Montgomery Lockwood contributed the analysis of constrained
+James Montgomery Lockwood supplied the internal-fibre formulation~\cite{Loc26Fibres}, whose averaging projection and spectral estimates motivated the heat-bath criterion in Sec.~\ref{ssec:fibre-heatbath}. He also contributed the analysis of constrained
 cubes~\cite{Loc26} and its code, and the Lean~4 formalisations of the
 quaternion model of $\SU(2)$, the open-gluon certificates, the coupling
 lemmas of Sec.~\ref{ssec:couplingcost}, the strong-coupling comparison and
@@ -49832,6 +49836,8 @@ stated with $\frac{29}2$, whose proof uses no computer.
 \def\bibsection{\par\vskip10pt\noindent\hfil\rule{0.5\columnwidth}{0.4pt}\hfil\par\vskip8pt}
 
 \begin{thebibliography}{99}\raggedright\advance\leftskip\labelwidth
+
+\bibitem{Loc26Fibres} J.~M.~Lockwood, \emph{Fields over internal fibres: geometric and spectral formulation}, unpublished note, 6 November 2026.
 
 \bibitem{AC25}
 A.~Adhikari and S.~Cao, Correlation decay for finite lattice gauge theories at weak coupling, Ann. Probab. \textbf{53} (2025), 140--174, \href{https://doi.org/10.1214/24-AOP1702}{doi:10.1214/24-AOP1702}.

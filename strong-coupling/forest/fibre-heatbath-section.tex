@@ -1,0 +1,125 @@
+\subsection{A conditional heat-bath criterion for the Wilson fibre}
+\label{ssec:fibre-heatbath}
+
+The orthogonal projection onto the constants in the internal-fibre
+framework of James Montgomery Lockwood~\cite{Loc26Fibres} suggests an
+analogous projection on a constrained lattice fibre. Here the measure is
+the Wilson posterior, and each projection averages a single free link
+conditional on all other free links. These projections act on a
+finite-volume probability space. Their generator and its spectral gap
+are different from the vertical Laplacian and its gap in the internal
+scalar model.
+
+\begin{lemma}[From fibre relaxation to covariance]\label{lem:fibre-heatbath}
+Let $\nu$ have a positive density on a finite product and suppose its
+single-coordinate conditional laws depend only on the neighbours in an
+undirected graph of maximum degree at most $\Delta$, where $\Delta\ge1$.
+Write $P_i$ for conditional expectation given all coordinates except $i$,
+$Q_i=I-P_i$, and $L=\sum_i Q_i$. If
+$\langle h,Lh\rangle_\nu\ge\lambda\operatorname{Var}_\nu(h)$ for every real
+$h\in L^2(\nu)$, with $\lambda>0$, then bounded real $f,g$ supported on
+coordinate sets $A,B$ at graph distance $r\ge1$ satisfy
+\[
+ |\operatorname{Cov}_\nu(f,g)|\le
+ \|f\|_\infty\|g\|_\infty
+ \left[\frac{4|A|}{e\Delta}e^{-r/2}
+        +e^{-\lambda r/(2e\Delta)}\right].
+\]
+The right side is taken to be zero if there is no path from $A$ to $B$.
+\end{lemma}
+
+\begin{proof}
+Let $\delta_j h$ be the supremum of $|h(u)-h(u')|$ over configurations
+differing only at $j$. For $j\ne i$, subtract the two conditional
+integrals defining $P_i h$, first at fixed conditional law and then at
+fixed integrand. This gives
+$\delta_j P_i h\le\delta_j h+\mathbf{1}_{i\sim j}\delta_i h$.
+Also $\delta_i P_i h=0$. The Markov operator $I-sL$ is a convex
+combination of the identity and the $P_i$ for $0\le s\le1/|I|$, where
+$|I|$ is the number of coordinates. Thus
+$\delta((I-sL)h)\le (I-sI+s\mathcal A)\delta(h)$ componentwise, with
+$\mathcal A$ the graph adjacency matrix. Apply this to Euler products
+and use uniform convergence of the bounded-operator exponential to get
+$\delta(e^{-tL}h)\le e^{t(\mathcal A-I)}\delta(h)$.
+For $j\in A$, the terms of order $k<r$ vanish when applied to $\delta(g)$,
+and the total weight of walks of length $k$ from $j$ is at most
+$\Delta^k$. Hence
+\[
+ \delta_j(e^{-tL}g)\le 2\|g\|_\infty e^{-t}
+   \sum_{k\ge r}\frac{(t\Delta)^k}{k!}
+ \le 2\|g\|_\infty\exp(-r+e\Delta t).
+\]
+Each $Q_i$ is an orthogonal projection, $Q_i f=0$ for $i\notin A$, and
+$\|Q_i h\|_\infty\le\delta_i h$. Therefore
+\[
+ \big|\langle f,g-e^{-TL}g\rangle_\nu\big|
+ \le \sum_{i\in A}\int_0^T
+       \big|\langle Q_i f,Q_i e^{-tL}g\rangle_\nu\big|\,dt
+ \le \frac{4|A|}{e\Delta}\|f\|_\infty\|g\|_\infty e^{-r+e\Delta T}.
+\]
+The spectral assumption bounds
+$|\operatorname{Cov}_\nu(f,e^{-TL}g)|$ by
+$e^{-\lambda T}\sqrt{\operatorname{Var}_\nu(f)\operatorname{Var}_\nu(g)}$.
+Set $T=r/(2e\Delta)$. If $r=\infty$, the walk sum is zero for all
+$t$ and one lets $T\to\infty$.
+\end{proof}
+
+\begin{corollary}[A sufficient relaxation rate for \textup{(FC)}]
+\label{cor:fibre-heatbath}
+For the straight-path Wilson fibres of Proposition~\ref{prop:bpfibreduce},
+let $b\ge16$ be the blocking factor, and choose the marks nearest the
+midpoints of the paths. Suppose the single-free-link heat-bath operators
+have $L^2$ gaps at least $\lambda_b>0$, uniformly over all coarse data and
+all torus sizes under consideration. Put $a_b=b\min(1,\lambda_b)$.
+For a fixed matrix gauge group there are constants $C,c>0$, independent
+of $b$, the coarse data and the torus, such that if $a_b\ge1$ then
+\[
+ \sup_j\sum_{e\ne j}J_{ej}(H^c)\le C\beta_b^2 e^{-c a_b}.
+\]
+The same sum over coarse separations at least $R\ge1$ is at most
+$C\beta_b^2 e^{-c a_b R}$. In particular, a rate with
+$a_b/\log(2+|\beta_b|)\to\infty$ gives the row and tail bounds in
+\textup{(FC)} for all sufficiently large $b$.
+\end{corollary}
+
+\begin{proof}
+In the marked gauge the remaining coordinates are the free fine links.
+Join two such links if they belong to a common fine plaquette. The Wilson
+action gives the required locality of each conditional law. Each fine link
+belongs to at most six plaquettes and the graph has maximum degree at
+most $18$. The force $D_X^a\mathcal S$ at a marked link $a$, for a unit
+Lie-algebra vector $X$, is a function of the at most $18$ free links
+sharing one of those plaquettes with $a$. Its supremum norm is at most
+$C_G|\beta_b|$, since each term is a derivative of the trace of a
+product of unitary matrices and each matrix has bounded norm.
+
+Adjacent links in the plaquette graph have midpoint sup distance at most
+one on the fine torus. If the starting vertices of the marked paths
+have coarse torus sup distance $d\ge1$, their fine midpoint distance
+is at least $bd-b/2$. If the starts coincide, distinct marks have
+distinct orientations and midpoint distance at least $b/2-1/2$.
+Passing from a mark to its support loses at most one in this distance
+at each end. Thus the two force supports have graph distance at least
+$(b/4)\max(1,d)$ for $b\ge16$. If a force has empty support, its covariance
+is zero. Proposition~\ref{prop:bpfibreduce} identifies the mixed
+derivative for distinct marks with minus the covariance of the two
+forces. Apply Lemma~\ref{lem:fibre-heatbath} and take the supremum over
+coarse data and unit tangent directions. This gives the entrywise bound
+$C\beta_b^2\exp[-c a_b\max(1,d)]$.
+The number of coarse links at sup distance $d$ is at most $C(1+d)^3$,
+uniformly on tori, by counting lattice shells. Summing the estimate and
+using $a_b\ge1$ gives both inequalities, after reducing $c$ to absorb the
+polynomial shell factor.
+\end{proof}
+
+This criterion reduces a Wilson force bound to a rate of relaxation for
+an explicit constrained heat bath. Finite-volume positivity alone gives
+only a gap bound by the density ratio $\exp(-\operatorname{osc}\mathcal S)$.
+Indeed, the heat-bath quadratic form is a sum of squared distances to
+the single-link conditioning subspaces. Comparing each squared distance
+and the variance with the corresponding product-Haar quantity proves
+the density-ratio bound, since the product-Haar heat bath has gap one.
+That comparison gives no volume-uniform rate along the tuning. A proof
+of the hypothesis of Corollary~\ref{cor:fibre-heatbath} would still
+require uniform control of the constrained Wilson measures, including
+rough coarse data.
