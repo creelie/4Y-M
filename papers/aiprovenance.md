@@ -2,7 +2,7 @@
 
 Work: Lattice Mass Gaps and Continuum Criteria for Four-Dimensional Yang-Mills Theory
 
-Current release: https://github.com/creelie/4Y-M/releases/tag/v4.41.1. The version DOI is pending archival verification.
+Research release: v4.41.1, 2026-11-08. Version DOI: [10.5281/zenodo.24045649](https://doi.org/10.5281/zenodo.24045649).
 
 Human authors in manuscript order: Deep Bhattacharjee; Ushashi Bhattacharya; James Montgomery Lockwood; Tristan Romanov.
 
