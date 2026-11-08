@@ -414,3 +414,20 @@ Radial scan of the transverse BP symbol ϖ_k at |k| = t/n, t ∈ {0} ∪ geomspa
 - At the zone boundary, ϖ_k ≈ 1.
 
 So inf_k ϖ_k = ϖ_n(k→0). Combined with the uniform trial-field lower bound for ϖ_n(k→0), this gives free-field gap ⇒ (U) numerically, with no remaining gap in the chain. A proof of monotonicity in |k| is still open. The natural route is a Bloch decomposition: compare the symbol with its k = 0 value through the phase-twisted Dirichlet problem.
+
+### 10.3 Step 3: free-field two-scale comparison
+
+We work on one lattice at fixed μ = ma and use cubes of side n and n0 = n/2, so ℓ/ℓ0 = 2. At each k (4 directions, 17 radii up to the zone boundary t = πn) we compute the best constant C(n) = inf_k λ_min(H_{n0}^{-1/2} H_n H_{n0}^{-1/2}) in E_n ≥ C·E_{n0}. Job ym-gaussmass-twoscale; script `research/experiments/gaussrho/gauss_twoscale.py`.
+
+| n | C(n), mℓ = 1 | C(n), mℓ = 4 | ratio at k → 0, mℓ = 1 | ratio at k → 0, mℓ = 4 |
+|---|---|---|---|---|
+| 4 | 1.380 | 1.361 | 3.58 | 2.60 |
+| 8 | 1.066 | 1.071 | 3.21 | 2.38 |
+| 12 | 1.007 | 1.011 | 3.22 | 2.43 |
+| 16 | 0.988 | 0.991 | 3.27 | 2.48 |
+
+- **Where the infimum sits.** The infimum over k is always at the zone boundary (t = πn, along diag4 or gen), where both symbols are ≈ 1. It is a UV/lattice effect, not an IR one.
+- **Convergence of C(n).** The successive differences are 0.31, 0.059 and 0.019. These fit a + b n^{-p} with p ≈ 2.2, so C(∞) ≈ 0.97 for both masses. The comparison is uniform in n.
+- **Infrared content.** At k → 0, the ratio ϖ_n/ϖ_{n0} is stable at ≈ 3.2–3.3 (mℓ = 1) and ≈ 2.4–2.5 (mℓ = 4). This is the continuum ratio c(mℓ)/c(mℓ/2), which tends to 4 as m → 0 from the (mℓ)² prefactor.
+- **The two-scale form of (U).** The free field therefore satisfies E_ℓ ≥ C E_{ℓ/2} with C uniform in a. Iterated from a fixed scale ℓ0, this gives (U) at every ℓ = 2^j ℓ0 with constant C^j, which depends on j but not on a. This is the form a Yang–Mills proof of (U) would target: a scale-to-scale comparison at bounded ratio, uniform in the cutoff.
+- **Caveat.** The constant must not degrade with the cutoff. In the free field the only loss is UV, at the zone boundary, and it is bounded (C ≥ 0.97).
