@@ -199,3 +199,15 @@ Sources:
 - 2026-11-08: **Higher chaos is reduced to the first chaos** by the Amit Gaussian Gibbs-sampler theorem (block resampling = Γ(P_Λ)) (§10). Free-field "gap ⇒ (U)" now rests only on (a) the k-infimum being at k → 0 and (b) the infinite-volume extension. C_B^lin at n = 4 (L = 8, 9) is submitted.
 - 2026-11-08: **C_B^lin(n = 4, L = 8) = 0.770.** The sequence 0.658 / 0.724 / 0.770 extrapolates to 0.86–0.91, which is below 1 but drifting up, so it is inconclusive for §8.3 step 1. L = 9 is still running. Remaining for the free field: prove the k-infimum is at k → 0, and do the infinite-volume Amit extension. Then the main open question returns to Yang–Mills: a uniform two-scale comparison E_{ℓ/a} ≳ E_{ℓ₀/a} (§8.4) as the route to (U).
 - 2026-11-08: C_B^lin(n = 4, L = 9) = 0.7685, so the result is volume-stable to 0.2%. The numerical items in the plan are now all done. What remains is proof work: (a) k-infimum at k → 0 for the free massive field; (b) Amit reduction in infinite volume; (c) the Yang–Mills two-scale comparison for (U).
+
+## Next phase (from 2026-11-08, branch research/next-steps-3)
+
+Where things stand: (U) ⇒ gap holds in general (Thm `avgtransfer`). Gap ⇒ (U) holds in the free massive field, modulo steps 1–2 below. So, in the free theory, (U) and a mass gap are equivalent inputs. The plan, in order:
+
+1. **Prove the k-infimum is at k → 0** (free field). First a fine radial numerical scan at |k| = t/n along 5 directions for n = 8, 12, 16. Then a monotonicity proof.
+2. **Amit reduction in infinite volume.** Write out the finite-torus to L → ∞ argument that reduces all observables to linear ones.
+3. **Two-scale comparison in the free field.** Compute E_{ℓ/a} against E_{ℓ₀/a} exactly, using the `gauss_k0` machinery, and check whether the constant is uniform in a. This shapes the Yang–Mills form of (U).
+4. **(U) with interactions.** Measure ϖ_n at fixed physical ℓ in an interacting gapped model, compact U(1) in 3D or SU(2) in 2D/3D, using the path-covariance Monte Carlo setup. Flat in a supports gap ⇒ (U) beyond Gaussians.
+5. Deprioritized: C_B^lin at larger n.
+
+- 2026-11-08: Step 1 numerical scan submitted (ym-gaussmass-kscan).
