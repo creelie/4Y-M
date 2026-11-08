@@ -261,6 +261,23 @@ Setting: Thm `bpuptower` with n_j = 2n_{j−1}. Let C_B^opt(μ; n) be the *small
 - Numerically: compute the first-chaos lower bound C_B^lin = sup_{f linear} E^c_n(F_f)/E'_{2n}(f) as a generalized eigenproblem in the gauss_rho model. C_B^lin ≤ C^G, so C_B^lin > 1, flat in n, confirms Step 1 independently of the finite-size assumption.
 - Analytically: (LSC) is plausible because C_B^opt is a supremum of ratios of continuous functionals of μ, and suprema of continuous functions are lower semicontinuous. The open point is uniformity in n.
 
+### 8.4 What input actually suffices (precise form)
+
+Cor `bpuptuning` uses the tower only to produce its conclusion **(U)**:
+
+> **(U)** There are ℓ > 0 and ϖ > 0 such that BP(ℓ/a_k, ϖ) holds for the Wilson measure μ_{k,L} for all k and all L ∈ 𝓛_k.
+
+Thm `avgtransfer` turns (U) alone into σ(H) ⊂ {0} ∪ [16ϖ/(625e²ℓ), ∞). So (U) is the exact input this framework needs from Yang–Mills. It is a uniform Poincaré inequality for resampling cubes of fixed *physical* size ℓ.
+
+**Reading.**
+- (U) is not obviously weaker than a mass gap. The remark after Cor `bpuptuning` notes that part of the tower hypotheses is contained in its conclusion. Whether a gap (or an area law) implies (U) is open here. If it does, the framework is a reformulation of the gap, not a reduction of it.
+- §8.3 says that the multiplicative tower probably cannot prove (U), because of the UV scales and assuming (LSC). Any proof of (U) must handle the UV scales without multiplying per-scale losses.
+- Confinement enters as follows. An input at the coarse scales (strong coupling, string tension) can at best bound the last O(1) factors. The UV part must be an independent uniform statement, for example a two-scale comparison E_{ℓ/a} ≳ E_{ℓ₀/a} with a constant uniform in a.
+
+**Next.**
+1. Test whether a gap implies (U) in the Gaussian *massive* model (free massive field). If the answer is yes with ϖ ~ m²ℓ²-type behaviour, (U) is the natural gap-equivalent target.
+2. Look for a direct UV argument for (U) (a two-scale comparison), and test it against the massless Gaussian, where it must fail.
+
 ## 9. R_∠ measured (Lemma A4), first volume
 
 This section reports r(0, z) = ‖P_{V_0} P_{V_z}‖ for every cube offset z on the cube torus (Z_m)⁴, with m = bL/n'. It uses the same model and block map as §8, and translation invariance gives R_∠ = 1 + Σ_{z≠0} r(0, z).
