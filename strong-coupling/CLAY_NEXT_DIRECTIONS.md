@@ -173,3 +173,7 @@ Sources:
   - Fix: remove the harmonic part from u before conditioning. The self-test now asserts the identity to 1e-8.
   - The same inconsistency is in gauss_rho's ρ₁, so the published ρ₁ values carry a bias of about this size. That is below the ±0.02 offset spread, so the §8 conclusions are unchanged. The new self-test prints both values at b = 3, L = 4, n' = 3, to size the bias exactly.
   - C run 3 (job 1701862) is running.
+- 2026-11-08: **R_∠ at L = 4 (forest/A_GAUSSIAN_FIBRE_4D.md §9).**
+  - R_∠ = 4.08 at (b, L, n') = (3, 4, 3) and 3.84 at (4, 4, 4). Face overlap 0.155, edge 0.07; the d_∞ = 2 shell sits at a 2–5e-3 floor and sums to about 0.7.
+  - The fix to the harmonic mode shifts ρ₁ by only 3e-4, so §8 stands.
+  - The three L = 6 configurations crashed (gesdd did not converge) and are rerunning with gesvd as job 1703813. They decide whether R_∠ is volume-stable or diverges with L, which is the question of whether the decay exponent exceeds 4.

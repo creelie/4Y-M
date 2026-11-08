@@ -234,3 +234,24 @@ So B does not fail outright. The depth-uniform bound degrades into a power law n
 2. By the D audit (forest/D_E_OBSERVABLE.md), (E) never uses MIX as a premise. B is needed only for the gap conclusion, not for existence and nontriviality of the limit.
 3. The useful Gaussian output for B is a *sanity bound*: any proposed mechanism for ρ_j → 0 must use something that the free field lacks. Examples are a nonzero string tension, or the strong-coupling cluster expansion at the coarsest scales. A mechanism that would also apply to the Gaussian model is wrong.
 4. The smeared-block-map fallback of §8.1 is therefore moot in the Gaussian model, for the same reason: no block map can give a free massless field a uniform BP constant.
+
+## 9. R_∠ measured (Lemma A4), first volume
+
+This section reports r(0, z) = ‖P_{V_0} P_{V_z}‖ for every cube offset z on the cube torus (Z_m)⁴, with m = bL/n'. It uses the same model and block map as §8, and translation invariance gives R_∠ = 1 + Σ_{z≠0} r(0, z).
+
+**Numerical fix (also affects §8).** Coarse path currents have a torus-harmonic part (constant in each direction). The Green function drops that part, but the conditioning term u_inᵀK_in⁺u_in does not. With the part removed, the Pythagoras identity Var(u) − Var(P_𝓕u) = u_inᵀK_in⁺u_in holds to 8e-14. Without it the error is 9e-4. The same inconsistency in the §8 code shifts ρ₁ by 3e-4 (0.78665 → 0.78693 at b = 3, L = 4, n' = 3), which is negligible against the ±0.02 offset spread. §8 stands.
+
+**L = 4 (m = 4, so d_∞ ≤ 2).** dim C' = 4 in both configurations.
+
+| (b, L, n') | face r(0,e_μ) | edge r(0,e_μ−e_ν) | other d_∞ = 1 | d_∞ = 2 | Σ_{d_∞=1} | Σ_{d_∞=2} | R_∠ |
+|---|---|---|---|---|---|---|---|
+| (3, 4, 3) | 0.155 | 0.071 | 0.001–0.010 | 0.002–0.013 | 2.38 | 0.71 | 4.08 |
+| (4, 4, 4) | 0.154 | 0.063 | 0.001–0.009 | 0.002–0.011 | 2.21 | 0.63 | 3.84 |
+
+**Reading.**
+1. Overlaps are small apart from the face and edge neighbours, and R_∠ is O(1) at this volume. It is insensitive to b at fixed n'/b = 1 (4.08 vs 3.84).
+2. The d_∞ = 2 shell does not shrink geometrically. Its values sit at 2–5e-3 and grow toward the body diagonal ((2,2,2,2): 5.5e-3), so most of that shell's 0.7 comes from the ~150 cubes in it. This is the expected signature of power-law (massless) correlations that wrap the torus. Decay of the leak overlaps like dist^{-p} keeps Σ_y r bounded in 4D only if p > 4. With p ≤ 4 (the field-strength correlator decays like dist^{-4}), R_∠ diverges like log L or worse, and (D) fails as framed in infinite volume.
+3. L = 4 alone cannot separate these cases. The L = 6 runs (3, 6, 3), (3, 6, 6) and (4, 6, 8) decide it: R_∠ is volume-stable if the d_∞ ≥ 2 shells sum to a bounded, L-independent amount. They crashed in a gesdd SVD and are rerunning with gesvd.
+4. A partial L = 6 result is already in: at n'/b = 2 (m = 3) the face overlap is 0.330 at b = 3 and 0.332 at b = 4. Larger cubes overlap more across a face, at the same n'/b ratio as ρ₁'s mild growth in §8. This is consistent with a leak that lives near the cube boundary.
+
+Decision (unchanged): R_∠ volume-stable → record (D) in the Gaussian model and fit the decay exponent for a blockdecay proof. R_∠ growing with L → (D) fails as framed, and Lemma A4 needs a summable replacement, for example one weighted by the coarse-scale mass or confinement input that §8.2 already requires for B.
