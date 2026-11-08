@@ -76,7 +76,7 @@ So the item "extend the variance estimate from linear observables to all of Gaus
 On H^{:k:}, w_{x'} = (I − P_c^{⊗k}) P_{𝓕,x'}^{⊗k} g_{x'}, and (D) asks for almost-orthogonality of these vectors across x' with a constant independent of the torus.
 - At k = 1 this is a statement about the operators (I − P_c) P_{𝓕,x'} on C'_{x'}. It should follow from the exponential decay of the fibre covariance β^{−1}K_0^+, at rate ~ 1/√b by Thm `thm:blockdecay`. That would give a Schur bound R_1 ≲ Σ_{x''} sup ‖w_{x'}^* w_{x''}‖ / ‖w‖² = O((n' + √b)^4 / n'^4).
 - At k ≥ 2, w_{x'} contains mixed tensors, with one factor in the fibre directions near V'_{x'} and the other factors coarse variables anywhere in T(x'). Two such vectors for distant x', x'' overlap through their coarse factors, which are **not** localized. The Schur constant at level k is not obviously bounded by a power of R_1.
-- **Open item A-D** (see §6 for the reduced form): bound R_k uniformly in k, or show that (D) only needs the k = 1 constant after a further projection.
+- **Open item A-D** (reduced in §6, closed modulo R_∠ < ∞ in §7): bound R_k uniformly in k, or show that (D) only needs the k = 1 constant after a further projection.
   - One route: replace g_{x'} by its Hoeffding/Efron–Stein component relative to T(x'). Only the component of g_{x'} that is *linear* in C'_{x'} survives (I − Q) P_𝓕.
   - That would reduce (D) to k = 1 with coefficients in L²(coarse), i.e. R = R_1 ⊗ I, if the identity (I − P_c^{⊗k}) P_𝓕^{⊗k} = Σ_j ((I − P_c) P_𝓕)_{(j)} ⊗ (P_c P_𝓕)_{(rest)} can be organized as an orthogonal sum. It cannot naively, because the terms overlap. This is the first thing to do in week 2.
 
@@ -131,3 +131,264 @@ The unresolved point is c_k(s). Symmetrization can contract the s fibre factors 
 - the Hoeffding route of §3, which keeps only s = 1.
 
 A-D therefore stays **open**. The progress is that it is now one precise combinatorial inequality, not a structural question.
+
+## 7. A-D reduced to the first chaos (Lemma A4)
+
+§6 left a constant c_k(s) that came from symmetrization. It disappears if the Fock structure is used instead of tensor counting.
+
+**Setup.** Write T_x = P_{𝓕,x'}|_{H_c} : H_c → H = H_c^⊥ ⊕ H_c. By §6, T_x = ι_1 T_{1x} + ι_2 T_{2x}, where:
+- T_{1x} = (I − P_c)P_𝓕 Π_{C'_x} = B_xΠ_{C'_x};
+- T_{2x} = P_c P_𝓕|_{H_c} = A_x ⊕ I_{out}, with ‖T_{2x}‖ ≤ 1.
+
+Let J : H_c → H_c ⊕ H_c, u ↦ (u,u). Then T_x = (T_{1x} ⊕ T_{2x})J. By the exponential law Γ(K_1 ⊕ K_2) ≅ Γ(K_1) ⊗ Γ(K_2),
+
+    Γ(T_x) = (Γ(T_{1x}) ⊗ Γ(T_{2x})) Γ(J),
+
+where Γ(J) does **not** depend on x'. The s-th component, with s factors in H_c^⊥, is w_x^{(s)}. Q = Γ(P_c) removes exactly s = 0. Components with different s are orthogonal *for all x', y' simultaneously*, so
+
+    ‖Σ_x w_x‖² = Σ_{s≥1} ‖Σ_x w_x^{(s)}‖².
+
+**Lemma A4.** Let V_x ⊂ H_c^⊥ be the closure of the range of B_x, i.e. the fibre directions that (X) leaks into. Put r(x',y') = ‖P_{V_x} P_{V_y}‖. Then (D) holds on all of L², at every chaos level, with
+
+    R ≤ R_∠ := sup_{x'} Σ_{y'} r(x',y').
+
+*Proof.*
+1. Polar decomposition: T_{1x} = U_x|T_{1x}|, where U_x is a partial isometry with final space V_x.
+2. Put v_x = (Γ(|T_{1x}|) ⊗ Γ(T_{2x}))Γ(J)g_x, restricted to level s. Then w_x^{(s)} = (Γ(U_x) ⊗ I)v_x and ‖v_x‖ = ‖w_x^{(s)}‖.
+3. The cross terms satisfy ⟨w_x^{(s)}, w_y^{(s)}⟩ = ⟨v_x, (Γ(U_x^*U_y) ⊗ I)v_y⟩.
+4. Γ restricted to Sym^s has norm ‖·‖^s. Also ‖U_x^*U_y‖ = r(x',y') ≤ 1.
+5. Hence |⟨w_x^{(s)}, w_y^{(s)}⟩| ≤ r(x',y')^s ‖w_x^{(s)}‖ ‖w_y^{(s)}‖ ≤ r(x',y') ‖w_x^{(s)}‖ ‖w_y^{(s)}‖.
+6. The Schur test gives ‖Σ_x w_x^{(s)}‖² ≤ R_∠ Σ_x ‖w_x^{(s)}‖². Sum over s. ∎
+
+**Consequence.** In the Gaussian model all three hypotheses of Thm 114 hold on all of L², with first-chaos constants:
+
+    C_F = λ_F,  ρ = ρ_1,  R = R_∠.
+
+A-D is **closed modulo** the finiteness of R_∠ uniformly in the volume. This is a geometric statement: the fibre-leak subspaces V_x of distant cubes are almost orthogonal, with summable cosines.
+
+- R_∠ ≥ R_1(best). At level 1 the bound is Schur-tight only up to the usual Schur loss.
+- The expected input is the exponential decay of β^{−1}K_0^+ (Thm `blockdecay`). Because V_x is a range, not a kernel, locality of V_x has to be proved: either V_x is close to the fibre directions near V'_{x'}, or an approximate-locality argument is needed.
+
+**Next.** Compute r(x',y') numerically alongside ρ_1: principal angles between V_x and V_y as a function of |x'−y'|/n'. Then prove the decay from Thm `blockdecay`.
+
+## 8. ρ_1 measured (abelian Gaussian model, straight-path block map)
+
+The cluster run computed ρ_1² = 1 − min eig(W, M) on C' (the code is local and untracked). There were 8 configurations at 16 CPUs, taking 68 min in total.
+
+| b | L | n' | n'/b | offset | dim C' | ρ_1 |
+|---|---|---|---|---|---|---|
+| 3 | 6 | 3 | 1 | 0 | 4 | 0.789 |
+| 4 | 6 | 4 | 1 | 0 | 4 | 0.796 |
+| 3 | 6 | 6 | 2 | 0 | 63 | 0.828 |
+| 3 | 6 | 6 | 2 | 1 | 63 | 0.828 |
+| 3 | 8 | 6 | 2 | 0 | 63 | 0.829 |
+| 4 | 6 | 8 | 2 | 0 | 63 | 0.859 |
+| 4 | 6 | 8 | 2 | 2 | 80 | 0.815 |
+| 3 | 8 | 9 | 3 | 0 | 308 | 0.835 |
+
+**Reading.**
+1. **(X) holds with a uniform ρ < 1.** Every value lies in [0.79, 0.86].
+   - The value is volume-stable: L = 6 → 8 changes ρ_1 by 1e-3.
+   - At b = 3 it does not depend on the offset.
+   - At b = 4 the offset moves it by ±0.02, because the offset changes which coarse links T(x') hits (64 vs 96).
+2. **ρ_1 does not decrease with n'/b.** It rises slightly, 0.79 → 0.83 → 0.835, and looks saturated.
+   - The worst direction keeps about 30% of its variance after conditioning (min ratio 0.30–0.38).
+   - That direction is a coarse current that runs through the cube. The exterior field determines it only partially, whatever the cube size.
+3. **Consequence for B: as framed, B fails in the Gaussian model.**
+   - Along n_j = 2n_{j−1}, ρ_j → about 0.83, so Σ_j ρ_j² diverges.
+   - The decision rule in §4 recorded exactly this outcome. ρ_1 is not near 1, so the failure is of summability, not of (X).
+   - B has to be reframed. One option is to use a uniform ρ < 1 as a per-scale contraction, with ∏_j(ρ_j² + η_j) controlled geometrically rather than Σρ_j² summed. Whether Thm 114's iteration admits that is the next question for B.
+   - Another option is a block map whose exterior constant does decay, for example a smeared rather than straight-path block map.
+
+### 8.1 What a flat ρ costs B, quantitatively
+
+With ρ_j ≡ ρ, η_j → 0 and n_j = 2n_{j−1}, the per-scale constant is C_B,j ≈ (1−ρ²)^{−1}. At depth k the product is
+
+  Π_{j≤k} C_B,j ≈ (1−ρ²)^{−k} = n_k^{α},  α = log₂(1/(1−ρ²)).
+
+| ρ_1 | (1−ρ²)^{−1} | α |
+|---|---|---|
+| 0.789 (n'/b = 1) | 2.65 | 1.41 |
+| 0.828 (n'/b = 2) | 3.18 | 1.67 |
+| 0.835 (n'/b = 3) | 3.30 | 1.72 |
+| 0.859 (b = 4, worst offset) | 3.82 | 1.93 |
+
+So B does not fail outright. The depth-uniform bound degrades into a power law n_k^α with α ≈ 1.7 < 2 in the Gaussian model. The reframed question for B is:
+
+- **(B′)** Does the (H2) chain tolerate polynomial growth n_k^α of C_B? In particular, can the n_k^{−2} gain in η_j and the (n'/(bn))⁴ factor of Thm 114 absorb α < 2, or a geometric step n_j = λn_{j−1} with larger λ? Note that λ does not help directly: with a larger λ, α = log_λ(1/(1−ρ_λ²)) shrinks only if ρ_λ stays flat, which it appears to (ρ_1 is saturated by n'/b = 2).
+- If (B′) fails, the alternative remains a block map with decaying exterior constant (smeared paths). It should be tested by rerunning gauss_rho with a smeared Pth.
+
+### 8.2 (B′) answered: polynomial growth of Γ is fatal, and in the Gaussian model it must be
+
+- Thm `bpuptower` gives ϖ_K = min(ϖ_0, 1/C_A)/Γ with Γ = Π_j C_B,j.
+- Cor `bpuptuning` turns ϖ into the gap bound σ(H) ⊂ {0} ∪ [16ϖ/(625e²ℓ), ∞), with ℓ = n_k a_k fixed.
+- If Γ_k ≈ n_k^α = (ℓ/a_k)^α, then ϖ → 0 as a_k → 0, and the gap bound is empty in the continuum limit. So (B′) fails: Γ must be bounded uniformly in k. No polynomial loss can be absorbed downstream, because ℓ is fixed and nothing else in the corollary scales with n_k.
+
+**This is forced, not a defect of the bound.**
+- The abelian Gaussian model is the free Maxwell field, which has no mass gap.
+- A depth-uniform Γ would prove a positive gap for it via Cor `bpuptuning`, which is false.
+- So in the Gaussian model ρ_j cannot be summable (Σρ_j² < ∞ would give bounded Γ), and the flat ρ_1 ≈ 0.83 is exactly what consistency requires.
+
+**Consequences for the programme.**
+1. The Gaussian model is a valid testbed for (F), (X) and (D) as *per-scale* bounds. It is not a testbed for the *decay* of ρ_j along scales. That decay is where the non-abelian (confining) content of B must enter.
+2. By the D audit (forest/D_E_OBSERVABLE.md), (E) never uses MIX as a premise. B is needed only for the gap conclusion, not for existence and nontriviality of the limit.
+3. The useful Gaussian output for B is a *sanity bound*: any proposed mechanism for ρ_j → 0 must use something that the free field lacks. Examples are a nonzero string tension, or the strong-coupling cluster expansion at the coarsest scales. A mechanism that would also apply to the Gaussian model is wrong.
+4. The smeared-block-map fallback of §8.1 is therefore moot in the Gaussian model, for the same reason: no block map can give a free massless field a uniform BP constant.
+
+### 8.3 Candidate no-go: the UV scales defeat bounded Γ (sketch, conditional)
+
+Setting: Thm `bpuptower` with n_j = 2n_{j−1}. Let C_B^opt(μ; n) be the *smallest* C_B for which S(2n, n; C_A, C_B) holds for a fixed C_A < ∞. Write C^G(n) for its value at the Gaussian (free Maxwell) measure.
+
+**Step 1 (Gaussian, from §8.2 alone).**
+- The free field is scale invariant, so C^G(n) depends on n only through finite-volume effects. Assume C^G(n) → C^G_∞ as n → ∞, at a summable rate in j (for example, power-law corrections in n_j = 2^j n_0).
+- Only finitely many scales have n_j below any fixed size. So if C^G_∞ = 1, then Π_j C^G(n_j) is bounded uniformly in k. By §8.2 that would give the free field a gap, which is false.
+- Hence **C^G_∞ > 1**. This is a statement about the *optimal* constant, not about the Thm 114 upper bound (1−ρ²)^{-1}.
+
+**Step 2 (Yang–Mills, UV end).**
+- Under asymptotic freedom, β_j → ∞ at the fine scales (j near k). The number of scales with β_j ≥ B is k − O_B(1).
+- Hypothesis (LSC): the optimal constant is lower semicontinuous at the Gaussian point, i.e. liminf_{β→∞} C_B^opt(μ_β; n) ≥ C^G(n), uniformly in n.
+- Then Γ_0 ≥ (C^G_∞ − ε)^{k − O(1)} → ∞, and Cor `bpuptuning` gives no gap. This holds for any block map that reduces to the straight-path map at weak coupling.
+
+**What this means.**
+- Assuming (LSC), the framework as framed (one split inequality per scale, multiplied along the tower) cannot prove the gap. The obstruction comes from the UV and has nothing to do with confinement. A confinement input at the coarse scales cannot remove it.
+- The ways out are exactly the ways (LSC) or the setting can fail:
+  1. a scale-dependent block map whose weak-coupling limit is not the Gaussian straight-path map;
+  2. a non-multiplicative tower, in which the UV constants are absorbed into an E-type (energy) bound rather than multiplied into Γ;
+  3. stopping the tower at a fixed physical scale, so that the UV scales are handled by a separate (E)-type argument and only ~O(1) scales enter Γ.
+- Option 3 is the most promising. It moves B to a fixed number of coarse scales, which is where the confinement interface (CLAY_NEXT_DIRECTIONS B step 3) should be stated.
+
+**To check.**
+- Numerically: compute the first-chaos lower bound C_B^lin = sup_{f linear} E^c_n(F_f)/E'_{2n}(f) as a generalized eigenproblem in the gauss_rho model. C_B^lin ≤ C^G, so C_B^lin > 1, flat in n, confirms Step 1 independently of the finite-size assumption.
+- Analytically: (LSC) is plausible because C_B^opt is a supremum of ratios of continuous functionals of μ, and suprema of continuous functions are lower semicontinuous. The open point is uniformity in n.
+
+### 8.4 What input actually suffices (precise form)
+
+Cor `bpuptuning` uses the tower only to produce its conclusion **(U)**:
+
+> **(U)** There are ℓ > 0 and ϖ > 0 such that BP(ℓ/a_k, ϖ) holds for the Wilson measure μ_{k,L} for all k and all L ∈ 𝓛_k.
+
+Thm `avgtransfer` turns (U) alone into σ(H) ⊂ {0} ∪ [16ϖ/(625e²ℓ), ∞). So (U) is the exact input this framework needs from Yang–Mills. It is a uniform Poincaré inequality for resampling cubes of fixed *physical* size ℓ.
+
+**Reading.**
+- (U) is not obviously weaker than a mass gap. The remark after Cor `bpuptuning` notes that part of the tower hypotheses is contained in its conclusion. Whether a gap (or an area law) implies (U) is open here. If it does, the framework is a reformulation of the gap, not a reduction of it.
+- §8.3 says that the multiplicative tower probably cannot prove (U), because of the UV scales and assuming (LSC). Any proof of (U) must handle the UV scales without multiplying per-scale losses.
+- Confinement enters as follows. An input at the coarse scales (strong coupling, string tension) can at best bound the last O(1) factors. The UV part must be an independent uniform statement, for example a two-scale comparison E_{ℓ/a} ≳ E_{ℓ₀/a} with a constant uniform in a.
+
+**Next.**
+1. Test whether a gap implies (U) in the Gaussian *massive* model (free massive field). If the answer is yes with ϖ ~ m²ℓ²-type behaviour, (U) is the natural gap-equivalent target.
+2. Look for a direct UV argument for (U) (a two-scale comparison), and test it against the massless Gaussian, where it must fail.
+
+**Result, first run (job 1712103, Proca, all linear u):**
+
+ϖ_n for BP(n, ϖ) at lattice mass μ = mℓ/n, in infinite volume:
+
+| mℓ \ n | 2 | 3 | 4 | 5 | 6 | 8 |
+|---|---|---|---|---|---|---|
+| 0.5 | .0102 | .0101 | .0095 | .0090 | .0086 | .0079 |
+| 1 | .0385 | .0385 | .0365 | .0346 | .0331 | .0306 |
+| 2 | .125 | .130 | .125 | .120 | .115 | .108 |
+| 4 | .286 | .324 | .325 | .319 | .312 | .299 |
+
+- ϖ_n drifts down slowly, roughly like n^{-0.25} at mℓ ≤ 1. The infimum is attained at **k = 0**, which is the longitudinal (pure-gauge-like) mode of the Proca field.
+- Gauge-invariant observables exclude that mode, so this run does not answer the question.
+- Rerun submitted: transverse (divergence-free) u only, n up to 10.
+- **Order of magnitude:** the gap bound 16ϖ/(625e²ℓ) is about 1e-4 to 3e-4 times m. So even where (U) holds, the constants lose about four orders of magnitude.
+
+## 9. R_∠ measured (Lemma A4), first volume
+
+This section reports r(0, z) = ‖P_{V_0} P_{V_z}‖ for every cube offset z on the cube torus (Z_m)⁴, with m = bL/n'. It uses the same model and block map as §8, and translation invariance gives R_∠ = 1 + Σ_{z≠0} r(0, z).
+
+**Numerical fix (also affects §8).** Coarse path currents have a torus-harmonic part (constant in each direction). The Green function drops that part, but the conditioning term u_inᵀK_in⁺u_in does not. With the part removed, the Pythagoras identity Var(u) − Var(P_𝓕u) = u_inᵀK_in⁺u_in holds to 8e-14. Without it the error is 9e-4. The same inconsistency in the §8 code shifts ρ₁ by 3e-4 (0.78665 → 0.78693 at b = 3, L = 4, n' = 3), which is negligible against the ±0.02 offset spread. §8 stands.
+
+**L = 4 (m = 4, so d_∞ ≤ 2).** dim C' = 4 in both configurations.
+
+| (b, L, n') | face r(0,e_μ) | edge r(0,e_μ−e_ν) | other d_∞ = 1 | d_∞ = 2 | Σ_{d_∞=1} | Σ_{d_∞=2} | R_∠ |
+|---|---|---|---|---|---|---|---|
+| (3, 4, 3) | 0.155 | 0.071 | 0.001–0.010 | 0.002–0.013 | 2.38 | 0.71 | 4.08 |
+| (4, 4, 4) | 0.154 | 0.063 | 0.001–0.009 | 0.002–0.011 | 2.21 | 0.63 | 3.84 |
+
+**Reading.**
+1. Overlaps are small apart from the face and edge neighbours, and R_∠ is O(1) at this volume. It is insensitive to b at fixed n'/b = 1 (4.08 vs 3.84).
+2. The d_∞ = 2 shell does not shrink geometrically. Its values sit at 2–5e-3 and grow toward the body diagonal ((2,2,2,2): 5.5e-3), so most of that shell's 0.7 comes from the ~150 cubes in it. This is the expected signature of power-law (massless) correlations that wrap the torus. Decay of the leak overlaps like dist^{-p} keeps Σ_y r bounded in 4D only if p > 4. With p ≤ 4 (the field-strength correlator decays like dist^{-4}), R_∠ diverges like log L or worse, and (D) fails as framed in infinite volume.
+3. L = 4 alone cannot separate these cases. The L = 6 runs (3, 6, 3), (3, 6, 6) and (4, 6, 8) decide it: R_∠ is volume-stable if the d_∞ ≥ 2 shells sum to a bounded, L-independent amount. They crashed in a gesdd SVD and are rerunning with gesvd.
+4. A partial L = 6 result is already in: at n'/b = 2 (m = 3) the face overlap is 0.330 at b = 3 and 0.332 at b = 4. Larger cubes overlap more across a face, at the same n'/b ratio as ρ₁'s mild growth in §8. This is consistent with a leak that lives near the cube boundary.
+
+Decision (unchanged): R_∠ volume-stable → record (D) in the Gaussian model and fit the decay exponent for a blockdecay proof. R_∠ growing with L → (D) fails as framed, and Lemma A4 needs a summable replacement, for example one weighted by the coarse-scale mass or confinement input that §8.2 already requires for B.
+
+### 9.1 Volume test (L = 6), result
+
+| (b, L, n') | R_∠ | d_∞=1 | d_∞=2 | d_∞=3 | dimC |
+|---|---|---|---|---|---|
+| (3,4,3) | 4.08 | 2.38 | 0.71 | — | |
+| (3,6,3) | 4.81 | 2.51 | 0.57 | 0.74 | 4 |
+| (3,6,6) | 11.17 | 10.17 | — | — | 63 |
+| (4,6,8) | 10.11 | 9.11 | — | — | 63 |
+
+- R_∠ rises 18% from L=4 to L=6 at fixed (b, n') = (3, 3). The growth comes from the new d_∞=3 shell (0.74).
+- The far overlaps are a distance-independent floor: r ≈ 6e-4 to 1.3e-3 at d_∞ = 3, against 2 to 5e-3 at L = 4. The ratio is about (4/6)^4, so the floor scales like 1/volume, while the number of cubes scales like volume.
+- **Reading:** R_∠ looks like a bounded local part (d_∞ ≤ 2, which is stable or decreasing) plus a global-mode part that is O(1) and roughly constant in volume. That is consistent with R_∠ bounded uniformly in volume, but it is not proved: two volumes cannot separate a 1/V floor from slow decay.
+- **Decision:** (D) is not refuted. The floor is a candidate for a torus zero-mode or flux effect, and should be removable by projecting out the global coarse modes. The next test is L = 8 at (3, 3), or the same L = 6 run with the global modes projected out.
+
+## 10. Addenda to §8.3 and §8.4 (2026-11-08)
+
+**C_B^lin (step 1 of §8.3).** Linear test functions f = w·c in the coarse variables give the following top generalized eigenvalue of Q_f against Q_c:
+
+| L | n | C_B^lin |
+|---|---|---|
+| 6 | 2 | 0.65795 |
+| 8 | 2 | 0.65795 |
+| 6 | 3 | 0.72445 |
+| 8 | 3 | 0.72444 |
+
+The values don't change with volume, are below 1 and rise with n. Because C_B^lin is only a lower bound on the optimal C^G, this doesn't settle C^G_∞ > 1, so step 1 still rests on the consistency argument in §8.3. The rise with n means the n → ∞ limit is worth computing.
+
+**Transverse massive field (the (U) test of §8.4).** This rerun keeps only gauge-invariant (transverse) modes and drops k = 0:
+
+| mℓ | n=2 | n=3 | n=4 | n=6 | n=8 |
+|---|---|---|---|---|---|
+| 0.5 | | .0101 | | | .0079 |
+| 1 | .0385 | .0385 | .0365 | .0331 | .0306 |
+| 2 | .125 | .130 | | | .108 |
+| 4 | | .324 | | | .299 |
+
+The infimum sits at the transverse k → 0 limit. These values are essentially the same as in the Proca run, so the slow decay (about n^{-0.25} at mℓ = 1) is **not** a longitudinal artefact. In the free massive field (first chaos only), ϖ_n appears to go to 0 as a → 0 at fixed ℓ. If so, (U) is strictly stronger than a mass gap even for the free theory. Then "gap ⇒ (U)" fails, and the framework would need (U) as an independent input. We can't yet rule out a slow (logarithmic) approach to a positive limit: n = 10 ran out of memory, and the next step is an analytic small-k expansion of ϖ_n.
+
+**Small-k analysis.** As k → 0 on the transverse block, S → μ²I. By cubic symmetry Q̂(0) = q(n)·I, where q(n) = eᵀ(K_in + μ²)⁻¹e and e is the constant field on the interior links of one direction. So
+
+  ϖ_n(k → 0) = μ² n⁻⁴ q(n) = (mℓ)² · q(n)/n⁶.
+
+e is orthogonal to the gradients of functions that vanish on the cube boundary, because ⟨e, dψ⟩ is a sum of boundary values. So q stays finite as μ → 0. Continuum scaling then gives q(n)/n⁶ → c₀ > 0, the value of sup_v [2∫v·e − ∫|curl v|²] on the unit cube with v = 0 outside. If that holds, ϖ_∞ ≈ c₀(mℓ)² > 0 at small mℓ, and the decay observed for n ≤ 8 is a boundary-layer lattice correction of order O(1/n). The data fit this: ϖ scales close to (mℓ)² between mℓ = 0.5, 1 and 2. On this reading, (U) is **not** refuted for the free massive field. A sparse exact computation of q(n) up to n = 24 (job ym-gaussmass-k0) is meant to decide this with a fit c₀ + c₁/n.
+
+**Result (sparse exact k → 0, n ≤ 24).** For n ≤ 8, ϖ_lim(n) = (mℓ)² q(n)/n⁶ reproduces the transverse scan to all printed digits, which confirms that the infimum is the k → 0 limit. All CG solves converged.
+
+| mℓ | n=8 | 10 | 12 | 16 | 20 | 24 |
+|---|---|---|---|---|---|---|
+| 0.5 | .00792 | .00746 | .00712 | .00666 | .00636 | .00615 |
+| 1 | .03063 | .02890 | .02763 | .02588 | .02475 | .02396 |
+| 2 | .1081 | .1028 | .0987 | .0931 | .0894 | .0868 |
+| 4 | .2986 | .2883 | .2801 | .2683 | .2602 | .2543 |
+
+Fitting c₀ + c₁/n at mℓ = 1 to point pairs (8,16), (12,24) and (16,24) gives c₀ = .0211, .0203 and .0201. At mℓ = 2 the pairs (12,24) and (16,24) give c₀ = .0749 and .0742. The local power exponent shrinks in magnitude, from −0.24 (n 8 → 16) to −0.21 (n 12 → 24), which is the signature of convergence to a positive constant and not of a power law. Conclusion: **in the free massive field (first chaos), ϖ_n → ϖ_∞ ≈ 0.020 (mℓ = 1) > 0, so (U) holds, consistent with "gap ⇒ (U)".** The earlier decay was an O(1/n) boundary-layer correction. The size of the limit is roughly c₀(mℓ)² for mℓ ≲ 2. The remaining caveats are that this covers only linear observables (first chaos), and that a slower log tail can't be excluded rigorously from n ≤ 24.
+
+**Continuum constant (step (i)).** Variational principle: q(n) = sup_v [2⟨v,e⟩ − ⟨v,(K_in+μ²)v⟩]. Take the trial field v = t·φ(x₁,x₂,x₃)·e₀, which points along the field direction, does not depend on x₀, and has φ vanishing on the transverse faces. Cutting the field off in x₀ creates no curl, so only the transverse gradients cost energy. Optimizing over t gives, for every n (as a discrete sum, up to O(1/n) Riemann errors in the continuum form),
+
+  ϖ_n(k→0) ≥ (mℓ)² (Σφ)² / (Σ|∇_⊥φ|² + (mℓ)²Σφ²)  (rescaled to the unit cube).
+
+The supremum over φ is the Dirichlet resolvent on the unit **3**-cube:
+
+  c(mℓ) = (mℓ)² ⟨1, (−Δ_D + (mℓ)²)⁻¹ 1⟩_{[0,1]³} = (mℓ)² Σ_{j,k,l odd} 512 / (π⁶ j²k²l² (π²(j²+k²+l²) + (mℓ)²)).
+
+| mℓ | c(mℓ) (series) | c₀ + c₁/n fit to the n ≤ 24 lattice data |
+|---|---|---|
+| 1 | 0.0196 | 0.020–0.021 |
+| 2 | 0.0719 | 0.074–0.075 |
+
+The two agree, so c(mℓ) is (numerically) the exact limit and not just a lower bound. The x₀-independent field saturates the variational problem. The trial-field lower bound is uniform in n, so ϖ_n(k→0) stays away from 0 **rigorously** for the transverse first-chaos block. What is left for a full proof of (U) in the free massive field: (a) show that the infimum over k is attained as k → 0 (numerically true on the 9⁴ grid); (b) extend to higher chaos. For (b), the Gaussian structure (second quantization of the one-particle bound) should reduce higher chaos to the first.
+
+**Higher chaos (step (ii)).** For a Gaussian field, resampling a cube Λ is a conditional expectation onto a Gaussian sub-σ-algebra. On the Fock (Wiener-chaos) decomposition it acts as the second quantization Γ(P_Λ) of the one-particle projection P_Λ. So the BP Dirichlet form is E_n(f) = avg_Λ ⟨f, (1 − Γ(P_Λ)) f⟩, a random-scan block Gibbs sampler. For such samplers with a Gaussian target, the L² spectral gap equals the gap restricted to linear functions (Amit 1991, 1996, *J. Multivariate Anal.*; see also Roberts–Sahu 1997). The mechanism is that the chain maps each chaos to itself, and on the m-th chaos the one-step operator is a symmetrized product of contractions whose norm is at most the norm on the first chaos. The gauge projection commutes with every Γ(P_Λ) when Λ is gauge-covariant, so the same holds on the gauge-invariant sector. **Consequence: in the free massive field, BP(n, ϖ) for all observables follows from its first-chaos version, which the computations above control.** Caveat: those references treat finitely many coordinates and a finite family of blocks. Our infinite-volume, translation-averaged family needs a limiting argument (finite torus, then L → ∞, using the volume stability already seen). This has not been written out.
+
+**Status of "gap ⇒ (U)" in the free massive field.** Proven modulo two items: (a) the infimum over k is attained as k → 0 (seen numerically on the full 9⁴ grid, not proven); (b) the finite-to-infinite-volume extension of the Amit reduction. Granting both, ϖ_∞ = (mℓ)²⟨1,(−Δ_D+(mℓ)²)⁻¹1⟩_{[0,1]³} > 0. So, at least for the free theory, (U) is implied by a gap, and the framework is a reformulation of the gap and not a strictly stronger demand.
+
+**C_B^lin at n = 4 (step (iii)).** L = 8 gives C_B^lin = 0.76997, with a 5-fold degenerate top eigenvalue (cubic symmetry) and median 0.734. The L = 9 volume check is still running. The sequence is 0.658, 0.724, 0.770 for n = 2, 3, 4. Fitting c₀ − c/n gives c₀ = 0.857 from n = 2, 3 and c₀ = 0.907 from n = 3, 4. The extrapolated limit is still below 1 but rising as more points are used, so the sequence converges more slowly than 1/n. **Reading:** linear coarse test functions alone probably don't push C_B past 1. Either C^G_∞ > 1 comes from nonlinear test functions, or C_B^lin creeps to ≥ 1 only at large n. In either case step 1 of §8.3 is still argued only by consistency. The §8.3 no-go is therefore conditional on step 1 as well as on (LSC). This matters less now: the free-field computation above shows that (U), and not the tower, is the right target.
+
+**C_B^lin n = 4, volume check.** L = 9 gives 0.76850, against 0.76997 at L = 8. The difference is 0.2%, larger than the 10⁻⁵ seen at n = 2 and 3, as expected since the cube is now half the box. The n = 4 value is ≈ 0.769, and the conclusions above are unchanged.
