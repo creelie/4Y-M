@@ -392,3 +392,15 @@ The two agree, so c(mℓ) is (numerically) the exact limit and not just a lower 
 **C_B^lin at n = 4 (step (iii)).** L = 8 gives C_B^lin = 0.76997, with a 5-fold degenerate top eigenvalue (cubic symmetry) and median 0.734. The L = 9 volume check is still running. The sequence is 0.658, 0.724, 0.770 for n = 2, 3, 4. Fitting c₀ − c/n gives c₀ = 0.857 from n = 2, 3 and c₀ = 0.907 from n = 3, 4. The extrapolated limit is still below 1 but rising as more points are used, so the sequence converges more slowly than 1/n. **Reading:** linear coarse test functions alone probably don't push C_B past 1. Either C^G_∞ > 1 comes from nonlinear test functions, or C_B^lin creeps to ≥ 1 only at large n. In either case step 1 of §8.3 is still argued only by consistency. The §8.3 no-go is therefore conditional on step 1 as well as on (LSC). This matters less now: the free-field computation above shows that (U), and not the tower, is the right target.
 
 **C_B^lin n = 4, volume check.** L = 9 gives 0.76850, against 0.76997 at L = 8. The difference is 0.2%, larger than the 10⁻⁵ seen at n = 2 and 3, as expected since the cube is now half the box. The n = 4 value is ≈ 0.769, and the conclusions above are unchanged.
+
+### 10.1 Step 2: higher chaos, any volume (self-contained proof)
+
+**Lemma.** Let P_Λ be orthogonal projections on a Hilbert space H, and let T₁ = avg_Λ P_Λ be any average (finite, or a weak limit of Følner averages). Then for every m ≥ 1, on H^{⊗m} (in particular on the symmetric tensors),
+
+  avg_Λ P_Λ^{⊗m} ≤ T₁ ⊗ 1^{⊗(m−1)}.
+
+The same holds after compressing to any subspace of the form H_T ⊗ H′.
+
+*Proof.* P_Λ ≥ 0 and 0 ≤ P_Λ^{⊗(m−1)} ≤ 1. For A ≥ 0 and B ≤ C, A ⊗ B ≤ A ⊗ C, so P_Λ^{⊗m} ≤ P_Λ ⊗ 1. Averaging preserves the inequality. For ψ ∈ H_T ⊗ H′, ⟨ψ,(T₁⊗1)ψ⟩ = ⟨ψ,(Π_T T₁ Π_T ⊗ 1)ψ⟩. ∎
+
+**Application.** For a Gaussian field, resampling Λ is the conditional expectation Γ(P_Λ), and it acts on the m-th Wiener chaos as P_Λ^{⊗m}. So the BP form is E_n(f) = Σ_m ⟨f_m,(1 − avg P_Λ^{⊗m}) f_m⟩. A transverse (first-chaos) bound ‖Π_T T₁ Π_T‖ ≤ 1 − ϖ, together with the Lemma, gives E_n(f) ≥ ϖ Var(f) for every f whose chaos kernels lie in H_T^{⊗m}. Those are exactly the polynomials that are invariant under gradient shifts in each slot, which is the gauge-invariant sector. The argument uses only operator positivity. It needs no finite-dimensionality, so it holds directly in infinite volume and replaces the appeal to Amit (§10). **Step 2 is closed.** This is a simpler, slightly weaker cousin of Amit's theorem (the gap on chaos m is at least the gap on chaos 1), and it is all (U) needs.

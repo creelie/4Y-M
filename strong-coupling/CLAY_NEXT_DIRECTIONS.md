@@ -211,3 +211,4 @@ Where things stand: (U) ⇒ gap holds in general (Thm `avgtransfer`). Gap ⇒ (U
 5. Deprioritized: C_B^lin at larger n.
 
 - 2026-11-08: Step 1 numerical scan submitted (ym-gaussmass-kscan).
+- 2026-11-08: **Step 2 closed** (§10.1). A two-line positivity lemma, avg P^{⊗m} ≤ (avg P) ⊗ 1, reduces BP on all gauge-invariant observables to the first chaos, in any volume, with no appeal to Amit. Free-field gap ⇒ (U) now rests only on step 1 (k-infimum at k → 0); its numerical scan is submitted.
