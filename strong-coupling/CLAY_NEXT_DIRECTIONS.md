@@ -167,3 +167,9 @@ Sources:
   - The Gaussian model therefore tests (F), (X) and (D) per scale, but cannot test the ρ_j decay. That decay must come from non-abelian or confining input.
   - B matters only for the gap: by the D audit, (E) does not use MIX as a premise.
 - 2026-11-07: **C run 3 submitted** (ym-pathcov-c3-depth, job 1701862). Same debiased estimator at b = 4, L = 6, 8: β_W ∈ {3.0, 4.0} with V = id, plus Haar-random V at β_W = 2.3. Decision: an equal significant shell sum at L = 6 and 8 means Prop 168 is volume-stable through β_W = 4. The R_∠ job 1698522 is still queued.
+- 2026-11-08: **R_∠ job 1698522 failed its self-test; resubmitted as job 1703021.**
+  - The Pythagoras check Var(u) − Var(P_𝓕u) = u_inᵀK_in⁺u_in came out at 9e-4 instead of ~1e-12.
+  - Cause: coarse path currents keep their torus-harmonic part (constant per direction). The Green function drops that part, but K_in⁺ acting on u_in does not.
+  - Fix: remove the harmonic part from u before conditioning. The self-test now asserts the identity to 1e-8.
+  - The same inconsistency is in gauss_rho's ρ₁, so the published ρ₁ values carry a bias of about this size. That is below the ±0.02 offset spread, so the §8 conclusions are unchanged. The new self-test prints both values at b = 3, L = 4, n' = 3, to size the bias exactly.
+  - C run 3 (job 1701862) is running.
