@@ -36,6 +36,15 @@ The OpenAI existence claim is still unreleased. If it holds, it bears on (E), no
 - **Consequence (checked).** C_A ≤ C*/(1−q), and Π_j C_B ≤ Π_j (1−δ_j)^{−1} ≤ exp(S/(1−q)), using −log(1−x) ≤ x/(1−q) on [0,q].
 - **Where the content is.** η is summable automatically because n_j² grows geometrically. So the real condition is Σ_j ρ_j² ≤ S: the exterior constant (X) must decay along the scales.
 - **Inputs.** The (X) and (D) bounds have to come from A. Thm 181 handles the deviation term when the chain does not compose exactly.
+- **Status (2026-11-08): the Gaussian route for B is closed.**
+  - In the abelian Gaussian model ρ₁ ≈ 0.8 is flat across scales, so Π C_B ≈ n_k^1.7 and (B′) fails (A_GAUSSIAN_FIBRE_4D.md §8–8.2).
+  - This failure is forced: free Maxwell is gapless, so no block map can give it a uniform BP constant.
+  - A therefore supplies (F), (X) and (D) per scale only. The decay ρ_j → 0 must come from input the free field lacks.
+- **Next for B: find the non-Gaussian source of ρ_j decay.**
+  1. *Coarse end.* At the last few scales the effective coupling is strong. A strong-coupling cluster expansion (Osterwalder–Seiler type) should give ρ_j ≤ Cβ_j^{1/4}-style smallness directly. Make this explicit for the BP exterior constant, and find the scale k* past which it holds.
+  2. *Bridge.* Between the Gaussian regime and k*, test whether a *finite* number of non-decaying scales suffices. Π C_B stays bounded if ρ_j decays only beyond a fixed j₀. Write the version of Cor bpuptuning with a finite head and a summable tail.
+  3. *Interface.* State the input needed from confinement (an area law, or a string tension bounded below) as a hypothesis on ρ_j, in the spirit of Chatterjee's mass gap ⇒ area law, but in reverse.
+- **Sanity rule for B.** Any proposed mechanism for ρ_j decay that also applies to the free Maxwell field is wrong. Check every candidate against §8.2 first.
 
 **C. An (H1) computational campaign on Prop 168, on the cluster with ≤ 64 CPUs. Diagnostics only.**
 - **What to measure.** The partial sums Σ_{e≠j} |Cov_{π_V}(a_e^X, a_j^Y)|, against the threshold (1−h_{b−2})/3.
@@ -76,7 +85,7 @@ The old #8 deferred (H1) and (H2). That is reversed: they are now the main line.
 | When | What |
 |---|---|
 | Week 1 | **A:** write out the 4D section, block map, curvature operator and fibres; confirm lean05's scope with James. **C:** first fixed-depth volume scan on the cluster. |
-| Weeks 2–3 | **A:** stable decomposition and the Gaussian L² variance bound. **B:** bound ρ_j along the scales using A, and check Σδ ≤ S. |
+| Weeks 2–3 | **A:** stable decomposition and the Gaussian L² variance bound. **B:** ~~bound ρ_j along the scales using A~~ (closed: forced to fail in the Gaussian model). Now: strong-coupling bound on ρ_j at the coarse end, plus the finite-head/summable-tail form of Cor bpuptuning. |
 | Weeks 3–4 | **C:** depth scan and conditioning stress. **D:** pick the observable and list every MIX dependency. |
 | On OpenAI release | Read it against D and the #1 interface. |
 
@@ -177,3 +186,4 @@ Sources:
   - R_∠ = 4.08 at (b, L, n') = (3, 4, 3) and 3.84 at (4, 4, 4). Face overlap 0.155, edge 0.07; the d_∞ = 2 shell sits at a 2–5e-3 floor and sums to about 0.7.
   - The fix to the harmonic mode shifts ρ₁ by only 3e-4, so §8 stands.
   - The three L = 6 configurations crashed (gesdd did not converge) and are rerunning with gesvd as job 1703813. They decide whether R_∠ is volume-stable or diverges with L, which is the question of whether the decay exponent exceeds 4.
+- 2026-11-08: **Direction B redirected.** The Gaussian route is closed, because (B′) fails and the failure is forced. B now targets the non-Gaussian source of ρ_j decay: strong-coupling smallness at the coarse end, a finite-head/summable-tail form of Cor bpuptuning, and confinement input stated as a hypothesis on ρ_j. A and C will be revisited when the R_∠ volume test and C run 3 finish.
