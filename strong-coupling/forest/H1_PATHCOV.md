@@ -81,3 +81,16 @@ The estimator used here measures its own noise floor, not the covariance sum. No
 - Depth scan in β_W ∈ {2.3, 3.0, 4.0} at b = 4, L = 6, 8, to see where shell 2 turns on.
 - Random-V stress test at b = 4, β_W = 2.3.
 - b = 8 only if the depth scan shows growth.
+
+## Run 3 (depth in β_W, b = 4)
+
+| L | β_W | V | shellQ[0..2] | CSbound | CSbound_sig |
+|---|---|---|---|---|---|
+| 6 | 2.3 | Haar | ≈0 (all |Z|<1.4) | 0 | 0 |
+| 8 | 2.3 | Haar | ≈0 (all |Z|<1) | 0.22 | 0 |
+| 6 | 3.0 | id | .095, .364, .0034 | 14.05 | 14.05 |
+| 8 | 3.0 | id | .094, .363, .0032 | 15.05 | 13.96 |
+| 6 | 4.0 | id | .292, 1.129, .0101 | 25.79 | 24.62 |
+| 8 | 4.0 | id | .292, 1.134, .0114 | 28.92 | 24.96 |
+
+The significant shell sums agree between L = 6 and L = 8 to within errors, so under the stated decision rule **Prop 168 is volume-stable through β_W = 4**. The raw CSbound creeps up with L only through insignificant far shells; CSbound_sig is flat. With Haar-random V the covariance is consistent with zero at every shell. The bound grows with β_W (14 → 25), which matches weaker decay toward weak coupling. It does not show a volume divergence.

@@ -328,3 +328,27 @@ Decision (unchanged): R_∠ volume-stable → record (D) in the Gaussian model a
 - The far overlaps are a distance-independent floor: r ≈ 6e-4 to 1.3e-3 at d_∞ = 3, against 2 to 5e-3 at L = 4. The ratio is about (4/6)^4, so the floor scales like 1/volume, while the number of cubes scales like volume.
 - **Reading:** R_∠ looks like a bounded local part (d_∞ ≤ 2, which is stable or decreasing) plus a global-mode part that is O(1) and roughly constant in volume. That is consistent with R_∠ bounded uniformly in volume, but it is not proved: two volumes cannot separate a 1/V floor from slow decay.
 - **Decision:** (D) is not refuted. The floor is a candidate for a torus zero-mode or flux effect, and should be removable by projecting out the global coarse modes. The next test is L = 8 at (3, 3), or the same L = 6 run with the global modes projected out.
+
+## 10. Addenda to §8.3 and §8.4 (2026-11-08)
+
+**C_B^lin (step 1 of §8.3).** Linear test functions f = w·c in the coarse variables give the following top generalized eigenvalue of Q_f against Q_c:
+
+| L | n | C_B^lin |
+|---|---|---|
+| 6 | 2 | 0.65795 |
+| 8 | 2 | 0.65795 |
+| 6 | 3 | 0.72445 |
+| 8 | 3 | 0.72444 |
+
+The values don't change with volume, are below 1 and rise with n. Because C_B^lin is only a lower bound on the optimal C^G, this doesn't settle C^G_∞ > 1, so step 1 still rests on the consistency argument in §8.3. The rise with n means the n → ∞ limit is worth computing.
+
+**Transverse massive field (the (U) test of §8.4).** This rerun keeps only gauge-invariant (transverse) modes and drops k = 0:
+
+| mℓ | n=2 | n=3 | n=4 | n=6 | n=8 |
+|---|---|---|---|---|---|
+| 0.5 | | .0101 | | | .0079 |
+| 1 | .0385 | .0385 | .0365 | .0331 | .0306 |
+| 2 | .125 | .130 | | | .108 |
+| 4 | | .324 | | | .299 |
+
+The infimum sits at the transverse k → 0 limit. These values are essentially the same as in the Proca run, so the slow decay (about n^{-0.25} at mℓ = 1) is **not** a longitudinal artefact. In the free massive field (first chaos only), ϖ_n appears to go to 0 as a → 0 at fixed ℓ. If so, (U) is strictly stronger than a mass gap even for the free theory. Then "gap ⇒ (U)" fails, and the framework would need (U) as an independent input. We can't yet rule out a slow (logarithmic) approach to a positive limit: n = 10 ran out of memory, and the next step is an analytic small-k expansion of ϖ_n.
