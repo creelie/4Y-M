@@ -6,7 +6,7 @@ Authors, unchanged: Deep Bhattacharjee; Ushashi Bhattacharya; James Montgomery L
 
 Research release: https://github.com/creelie/4Y-M/releases/tag/v4.42.0
 
-Version DOI: awaiting confirmation of this new release archive; no identifier has been guessed.
+Version DOI: https://doi.org/10.5281/zenodo.24055064
 
 Permanent work DOI printed in the paper: https://doi.org/10.5281/zenodo.23444338
 

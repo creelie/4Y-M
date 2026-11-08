@@ -4,6 +4,6 @@ Adds proved off-diagonal semigroup and static Poisson-residual identities matchi
 
 The uniform weak-coupling Wilson estimate (D), the all-scale construction needed in this route, and a nontrivial continuum limit (E) remain unproved.
 
-Version DOI: awaiting confirmation of this new release archive; no identifier has been guessed.
+Version DOI: https://doi.org/10.5281/zenodo.24055064
 
 Permanent work DOI: https://doi.org/10.5281/zenodo.23444338

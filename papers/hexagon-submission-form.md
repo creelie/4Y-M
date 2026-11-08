@@ -49,7 +49,7 @@ Tools: OpenAI Codex; Python; pdfLaTeX. Use the current repository's formalizatio
 
 Upload `ym4dtex.zip`; review `ym4d.pdf`. Keep ancillary permitted scripts in `anc/`. No Lean sources are included in the TeX ZIP. The repository metadata currently uses MIT; select a platform-supported licence only after the authors confirm it covers every uploaded file. Do not assume the form's default CC BY applies automatically.
 
-No arXiv identifier is supplied or invented. Version DOI: awaiting confirmation of this new release archive; no identifier has been guessed..
+No arXiv identifier is supplied or invented. Version DOI: https://doi.org/10.5281/zenodo.24055064.
 
 ## Current revision v4.42.0
 
@@ -57,6 +57,6 @@ Adds proved off-diagonal semigroup and static Poisson-residual identities matchi
 
 PDF pages: 398. The uniform weak-coupling Wilson estimate (D), the all-scale construction needed in this route, and a nontrivial continuum limit (E) remain unproved.
 
-Version DOI: awaiting confirmation of this new release archive; no identifier has been guessed.
+Version DOI: https://doi.org/10.5281/zenodo.24055064
 
 Permanent work DOI in the paper: https://doi.org/10.5281/zenodo.23444338
