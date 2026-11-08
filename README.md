@@ -1,27 +1,26 @@
 # Lattice Mass Gaps and Continuum Criteria for Four-Dimensional Yang-Mills Theory
 
-Current research release [v4.41.1](https://github.com/creelie/4Y-M/releases/tag/v4.41.1). Version DOI: [10.5281/zenodo.24045649](https://doi.org/10.5281/zenodo.24045649).
+Current research release: [v4.42.0](https://github.com/creelie/4Y-M/releases/tag/v4.42.0).
 
-We prove strong-coupling lattice mass gaps for compact simple gauge groups and a conditional transfer from a physical-scale cube estimate. An integrated response criterion controls spatial covariance row sums without a uniform relaxation gap. The required weak-coupling Wilson bounds and nontrivial four-dimensional continuum construction remain open.
+Version DOI: awaiting confirmation of this new release archive; no identifier has been guessed.
 
-## Current manuscript
+Permanent work DOI, printed in the manuscript: https://doi.org/10.5281/zenodo.23444338
 
-- [PDF](papers/ym4d.pdf)
-- [Compilable TeX ZIP](papers/ym4dtex.zip)
-- [Next-version submission notes](papers/next-version-submission-notes.md)
-- [AI provenance](papers/aiprovenance.md)
-- [Release details](papers/release-details.md)
-- [Hexagon v7 to v8 form text](papers/hexagon-submission-form.md)
+We prove strong-coupling lattice mass gaps for compact simple gauge groups and a conditional continuum transfer. Off-diagonal response identities and finite-volume Wilson Poisson constructions give explicit residual certificates. The weak-coupling cube estimate and a nontrivial four-dimensional continuum construction remain open.
 
-## Scope
+## Current submission files
 
-The required Wilson response bound, the uniform cube estimate along continuum tuning, and a nontrivial continuum construction remain unproved. A finite-volume response implication is not a proof of those hypotheses.
+- [PDF](papers/ym4d.pdf): 398 pages, REVTeX 4.2, two columns.
+- [Complete TeX ZIP](papers/ym4dtex.zip): compile main.tex with pdfLaTeX, three passes.
+- [Revision notes](papers/next-version-submission-notes.md).
+- [AI provenance](papers/aiprovenance.md).
+- [Bibliography audit](papers/bibliography-audit.md).
+- [Hexagon v7 to v8 form text](papers/hexagon-submission-form.md).
 
-## Source and checking
+## This revision
 
-Current source is in `strong-coupling/forest/`. Compile `main.tex` with pdfLaTeX at least three times. Ancillary scripts in `strong-coupling/forest/anc/` document their own finite scope. Historical verification records and independent research material are retained outside `papers/`. Earlier manuscript versions are available through release tags, rather than duplicate active PDFs and ZIPs.
+Adds proved off-diagonal semigroup and static Poisson-residual identities matching the excluded same-link block in (FC); derives Gaussian full-row and response lower obstructions from the existing collective-source identities; constructs finite-volume Wilson Poisson trials as finite sums of actual conditional expectations, with a proved residual rate uniform in the coarse data at fixed geometry; proves a mixed Poisson/flux enclosure without assuming a global inverse gap; and adds a detailed appendix on spectral cutoffs, minimum fluxes, Gaussian transport and an explicitly specified nonconvex probability model. Three new figures and 64 exact checks accompany the derivations. The full prior manuscript and all four authors are retained. All 116 bibliography entries are retained without adding an unverified bibliographic item.
 
-Adds a space-time integrated response estimate for weighted force covariance row sums.
+The uniform weak-coupling Wilson estimate (D), the all-scale construction needed in this route, and a nontrivial continuum limit (E) remain unproved.
 
-
-[Reference audit](papers/bibliography-audit.md) · Current PDF: 392 pages.
+Exact supporting checks are in verification/response-certificates/. The active papers directory has one current manuscript PDF and one current manuscript source ZIP. Historical release tags, source history, independent papers and proof certificates retain their distinct purposes.

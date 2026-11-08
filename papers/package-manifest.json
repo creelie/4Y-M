@@ -1,14 +1,18 @@
 {
-  "release": "v4.41.1",
-  "version_doi": "10.5281/zenodo.24045649",
-  "pages": 392,
+  "release": "v4.42.0",
+  "version_doi": null,
+  "permanent_work_doi": "10.5281/zenodo.23444338",
+  "pages": 398,
+  "baseline_commit": "1a6f46663f0ccf6eb5d3c9a73a039a5394bce6d3",
   "files": {
-    "aiprovenance.md": "67c4f2c829c9d41d39d4e60b14eac71d0dbb89302e7afeaa41d2fe9d261b28b7",
-    "bibliography-audit.md": "e761945b200ae661830b60fae135abc1a46b52415ba466f45b4922a4cec6910d",
-    "hexagon-submission-form.md": "6aa5c31009a8ab769b43e8da28ad34688e2aff6d6fa95e0da94391b890449426",
-    "next-version-submission-notes.md": "1a63956a82914fd5fbe50acca0c74134acf9fd823d5e4523b1e9839ff3aa32ad",
-    "release-details.md": "2b6e2a11923460036370ab77a2189ef5d3d3224d2e4eeda4c7776711fc1ea4a3",
-    "ym4d.pdf": "4e15d4bc8ad5b910f698f471d7178320cce8a53907bacb40251afc20f0a0c899",
-    "ym4dtex.zip": "77c3d17a845557b19d0330c1979f779aa397425feb301cdea97628879486a1b7"
+    "aiprovenance.md": "44688f875c6c83d2a2504227c6fa78782430d36dc36a43f5ce64d32c9bf119e2",
+    "bibliography-audit.md": "98985ca56cecf582b6a295980697e330e489df56141f9d6d683ecb45cf89184c",
+    "hexagon-submission-form.md": "85c27d41a834032282ee59e1f0ffc28b998834389fe7f2cee54d7091e4e9a94c",
+    "next-version-submission-notes.md": "fe7d2b18d400397c454eb38a09a77d495c27c7d9ef87897cdd1f8ca2a620f89b",
+    "release-details.md": "c3346af14fd412c143a81d54585c21b5209741ab5f703215b9bbcdf7e6c23bb6",
+    "source-zip-validation.json": "883ec17c9e90def3bbacb4f15c9c7de4511fc6fb7a55efce177992a7b1d61cd7",
+    "validation.json": "d77f6a25d8274a2f34052e56c9b9abb16fbf3d182e1e8e5ff6775e21ee373482",
+    "ym4d.pdf": "51438309af580ff2bf15f9a7d033abd45e1d5d36bcf73f620c83e3a31292c1b6",
+    "ym4dtex.zip": "1001bc91c5fb2b40db518baf35b5ceb5550d8117720309d9fd057abafd52f31a"
   }
 }

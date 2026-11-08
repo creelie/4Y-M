@@ -1,0 +1,217 @@
+{
+  "pages": 398,
+  "issues": [],
+  "new_labels": {
+    "ssec:r42off": {
+      "number": "X\\,Z",
+      "page": 101
+    },
+    "eq:r42cx": {
+      "number": "35",
+      "page": 101
+    },
+    "prop:r42obstruction": {
+      "number": "192",
+      "page": 101
+    },
+    "eq:r42responsegrowth": {
+      "number": "36",
+      "page": 101
+    },
+    "eq:r42fullrow": {
+      "number": "37",
+      "page": 101
+    },
+    "fig:r42growth": {
+      "number": "24",
+      "page": 102
+    },
+    "fig:r42off": {
+      "number": "25",
+      "page": 102
+    },
+    "eq:r42metricnecessary": {
+      "number": "38",
+      "page": 102
+    },
+    "eq:r42soff": {
+      "number": "39",
+      "page": 102
+    },
+    "eq:r42theta": {
+      "number": "40",
+      "page": 102
+    },
+    "prop:r42semigroup": {
+      "number": "193",
+      "page": 102
+    },
+    "eq:r42integrated": {
+      "number": "41",
+      "page": 102
+    },
+    "eq:r42finiteT": {
+      "number": "42",
+      "page": 102
+    },
+    "prop:r42static": {
+      "number": "194",
+      "page": 102
+    },
+    "eq:r42static": {
+      "number": "43",
+      "page": 102
+    },
+    "eq:r42blockrow": {
+      "number": "44",
+      "page": 103
+    },
+    "ssec:r42wilson": {
+      "number": "X\\,AA",
+      "page": 103
+    },
+    "eq:r42wilsonaction": {
+      "number": "45",
+      "page": 103
+    },
+    "eq:r42lambda0": {
+      "number": "46",
+      "page": 103
+    },
+    "lem:r42fixedvolgap": {
+      "number": "195",
+      "page": 103
+    },
+    "thm:r42neumann": {
+      "number": "196",
+      "page": 103
+    },
+    "eq:r42trial": {
+      "number": "47",
+      "page": 103
+    },
+    "eq:r42residualrate": {
+      "number": "48",
+      "page": 103
+    },
+    "eq:r42rowsresidual": {
+      "number": "49",
+      "page": 103
+    },
+    "eq:r42explicitrowerror": {
+      "number": "50",
+      "page": 104
+    },
+    "ssec:r42flux": {
+      "number": "X\\,AB",
+      "page": 104
+    },
+    "eq:r42variational": {
+      "number": "51",
+      "page": 104
+    },
+    "thm:r42flux": {
+      "number": "197",
+      "page": 104
+    },
+    "eq:r42fluxidentity": {
+      "number": "52",
+      "page": 104
+    },
+    "eq:r42fluxenclosure": {
+      "number": "53",
+      "page": 104
+    },
+    "eq:r42cutoff": {
+      "number": "54",
+      "page": 104
+    },
+    "fig:r42chain": {
+      "number": "26",
+      "page": 105
+    },
+    "app:r42certificates": {
+      "number": "P",
+      "page": 392
+    },
+    "eq:r42spectralvariational": {
+      "number": "P1",
+      "page": 393
+    },
+    "eq:r42minflux": {
+      "number": "P2",
+      "page": 393
+    },
+    "prop:r42nonconvex": {
+      "number": "711",
+      "page": 394
+    },
+    "eq:r42nonconvexgap": {
+      "number": "P3",
+      "page": 394
+    }
+  },
+  "format": "REVTeX 4.2, two columns",
+  "baseline_pages": 392,
+  "elapsed_seconds": 31.22,
+  "source_inputs": [
+    "fibre-heatbath-section.tex",
+    "gaussian-decay-section.tex",
+    "main.tex",
+    "response-certificates-appendix.tex",
+    "response-certificates.tex",
+    "response-covariance.tex",
+    "round26-check-appendix.tex",
+    "round26-imprint.tex",
+    "round26-relaxation.tex"
+  ],
+  "active_graphics": [
+    "figures/fig_blocking.png",
+    "figures/fig_bpbalaban.png",
+    "figures/fig_bpfibre.png",
+    "figures/fig_bphidden.png",
+    "figures/fig_bpmetrics.png",
+    "figures/fig_bpneutral.png",
+    "figures/fig_bppaths.png",
+    "figures/fig_bpranges.png",
+    "figures/fig_bpsectors.png",
+    "figures/fig_bpsplitstrong.png",
+    "figures/fig_bptower.png",
+    "figures/fig_centreodd.png",
+    "figures/fig_certificate.png",
+    "figures/fig_chessceiling.png",
+    "figures/fig_cover.png",
+    "figures/fig_cubes.png",
+    "figures/fig_curvedsharp.png",
+    "figures/fig_cutoff.png",
+    "figures/fig_endslinear.png",
+    "figures/fig_face.png",
+    "figures/fig_groups.png",
+    "figures/fig_induction.png",
+    "figures/fig_largefields.png",
+    "figures/fig_limitlogic.png",
+    "figures/fig_linefield.png",
+    "figures/fig_locality.png",
+    "figures/fig_logic.png",
+    "figures/fig_manyislands.png",
+    "figures/fig_offchart.png",
+    "figures/fig_offchartmass.png",
+    "figures/fig_packet.png",
+    "figures/fig_pathblocks.png",
+    "figures/fig_percolation.png",
+    "figures/fig_plaqblocks.png",
+    "figures/fig_projected.png",
+    "figures/fig_ranges.png",
+    "figures/fig_scalelosses.png",
+    "figures/fig_scales.png",
+    "figures/fig_slice.png",
+    "figures/fig_thickties.png",
+    "figures/fig_twod.png",
+    "figures/fig_whitney.png",
+    "figures/r42-gaussian-obstruction.pdf",
+    "figures/r42-gaussian-obstruction.tex"
+  ],
+  "ancillary_files": 4,
+  "all_original_main_labels_retained": 900,
+  "bibliography_entries_unchanged": 116
+}

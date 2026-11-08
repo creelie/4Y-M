@@ -1,7 +1,9 @@
-Removes the two unpublished bibliography entries and their citation markers at the author’s request. Consolidates a duplicate record for the same cited preprint version. The surrounding text, mathematical statements and contributor credit are preserved.
+# Research revision v4.42.0
 
-The PDF has **392 pages**, compared with 392 in v4.41.0. The revised bibliography contains 116 cited entries and 106 checked DOI links. See `papers/bibliography-audit.md` for individual sources. The `papers/` folder contains the current PDF, TeX ZIP and submission notes.
+Adds proved off-diagonal semigroup and static Poisson-residual identities matching the excluded same-link block in (FC); derives Gaussian full-row and response lower obstructions from the existing collective-source identities; constructs finite-volume Wilson Poisson trials as finite sums of actual conditional expectations, with a proved residual rate uniform in the coarse data at fixed geometry; proves a mixed Poisson/flux enclosure without assuming a global inverse gap; and adds a detailed appendix on spectral cutoffs, minimum fluxes, Gaussian transport and an explicitly specified nonconvex probability model. Three new figures and 64 exact checks accompany the derivations. The full prior manuscript and all four authors are retained. All 116 bibliography entries are retained without adding an unverified bibliographic item.
 
-[Version DOI](https://doi.org/10.5281/zenodo.24045649)
+The uniform weak-coupling Wilson estimate (D), the all-scale construction needed in this route, and a nontrivial continuum limit (E) remain unproved.
 
-The Zenodo archive contains the tagged manuscript. The current downloads add the verified DOI to that same revision.
+Version DOI: awaiting confirmation of this new release archive; no identifier has been guessed.
+
+Permanent work DOI: https://doi.org/10.5281/zenodo.23444338

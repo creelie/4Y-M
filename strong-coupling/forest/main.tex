@@ -9,6 +9,8 @@
 \usepackage[colorlinks=true,linkcolor=blue!50!black,citecolor=blue!50!black,urlcolor=blue!50!black,bookmarks=false]{hyperref}
 \usepackage{orcidlink}
 \usepackage{microtype}
+\usepackage{alphalph}
+\AtBeginDocument{\renewcommand{\thesubsection}{\AlphAlph{\value{subsection}}}}
 \usepackage{xurl}
 \usepackage{tikz}
 \usetikzlibrary{arrows.meta,patterns}
@@ -100,7 +102,7 @@ Road, Golpark, Kolkata 700029, West Bengal, India}
 \date{8 November 2026}
 
 \begin{abstract}
-We prove strong-coupling lattice mass gaps for compact simple gauge groups and a conditional transfer from a physical-scale cube estimate. An integrated response criterion controls spatial covariance row sums without a uniform relaxation gap. The required weak-coupling Wilson bounds and nontrivial four-dimensional continuum construction remain open.
+We prove strong-coupling lattice mass gaps for compact simple gauge groups and a conditional continuum transfer. Off-diagonal response identities and finite-volume Wilson Poisson constructions give explicit residual certificates. The weak-coupling cube estimate and a nontrivial four-dimensional continuum construction remain open.
 \end{abstract}
 
 \maketitle
@@ -11610,8 +11612,12 @@ James Montgomery Lockwood.
 \input{fibre-heatbath-section}
 \input{round26-relaxation}
 \input{response-covariance}
+\input{response-certificates}
 
 \section{The open inputs}\label{sec:inputs}
+
+Sections~\ref{ssec:r42off}--\ref{ssec:r42flux} add off-diagonal response certificates and a finite-volume Wilson Poisson construction. Their explicit residual bounds do not establish the uniform tuning estimate; the two open inputs stated below are unchanged.
+
 
 This section states the two unproved inputs of Sec.~\ref{sec:bypass}, the cube
 estimate and the limit, and measures the first: what can be controlled
@@ -47937,6 +47943,9 @@ L\'evy~\cite{Lev03}.
 
 \section*{Data and code availability}
 
+\par The current manuscript and complete TeX inputs are in the \texttt{papers/} directory of \url{https://github.com/creelie/4Y-M}, research release \href{https://github.com/creelie/4Y-M/releases/tag/v4.42.0}{v4.42.0}. The permanent work DOI is \href{https://doi.org/10.5281/zenodo.23444338}{10.5281/zenodo.23444338}. The earlier DOI links below identify historical computational records. The new response checks are in \texttt{anc/check-response.py} of the source ZIP; they verify finite identities and do not certify the remaining Wilson uniformity or continuum inputs.
+
+
 The proofs are analytic. Remarks~\ref{rem:su3cover} and~\ref{rem:su3blocks}
 report evaluations for $\SU(3)$ in interval arithmetic with rigorous error
 bounds, and Remarks~\ref{rem:blockgapsharp} and~\ref{rem:certificate}
@@ -47992,6 +48001,8 @@ obstructions, the rarity witnesses and the island kernel, the analysis of
 the lattice slice field with the exact Wick coefficients on finite boxes,
 the block-response diagnostics, the flat fields of Remark~\ref{rem:flatholonomy}, four Lean~4 modules, and the programs and
 certificates behind them. The author list follows the supplied v7 preprint.
+
+\emph{Response revision.} The additions in Secs.~\ref{ssec:r42off}--\ref{ssec:r42flux} and Appendix~\ref{app:r42certificates} were derived and prepared with AI assistance under the direction of the corresponding author. Their exact finite checks are recorded with this release. These continuous-measure arguments have not received a new Lean formalization. The finite-fibre source supplied by James Montgomery Lockwood is credited at its point of use.
 
 \emph{Use of artificial intelligence.} The computations, the checks and parts of the drafting were done with AI
 assistance (Claude Opus~5.5, Claude Fable~5.1, GPT-6.1 Sol Ultra and GPT-6
@@ -49829,6 +49840,7 @@ stated with $\frac{29}2$, whose proof uses no computer.
 \def\bibsection{\par\vskip10pt\noindent\hfil\rule{0.5\columnwidth}{0.4pt}\hfil\par\vskip8pt}
 
 \input{round26-check-appendix}
+\input{response-certificates-appendix}
 
 \begin{thebibliography}{99}\raggedright\advance\leftskip\labelwidth
 

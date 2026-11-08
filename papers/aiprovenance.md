@@ -1,18 +1,13 @@
-# AI provenance statement
+# AI provenance
 
 Work: Lattice Mass Gaps and Continuum Criteria for Four-Dimensional Yang-Mills Theory
 
-Research release: v4.41.1, 2026-11-08. Version DOI: [10.5281/zenodo.24045649](https://doi.org/10.5281/zenodo.24045649).
+Research release: v4.42.0. Version DOI: awaiting confirmation of this new release archive; no identifier has been guessed.
 
-Human authors in manuscript order: Deep Bhattacharjee; Ushashi Bhattacharya; James Montgomery Lockwood; Tristan Romanov.
+Authors, unchanged: Deep Bhattacharjee; Ushashi Bhattacharya; James Montgomery Lockwood; Tristan Romanov.
 
-The manuscript combines human-written and AI-generated text. The authors supplied the research manuscripts and direction. OpenAI Codex assisted with the present proof development, checking, explanatory text, TeX editing, compilation and packaging. Python was used for the included finite checks, and pdfLaTeX and PDF rendering tools for document checks. This statement identifies the tools actually used in this revision; it does not assign an unsupported model name.
+The supplied manuscripts and collaborator notes provided the baseline and research direction. OpenAI Codex assisted with reviewing the exact source snapshots, developing and checking the new derivations, writing finite verification code, preparing diagrams, editing TeX, compiling and packaging. The text mixes supplied human-written and AI-generated material. AI is not listed as an author or contributor.
 
-Adds a space-time integrated response estimate for weighted force covariance row sums. These additions have written mathematical arguments. Existing finite certificates are separate from proof of the full conjecture. No new complete Lean verification is asserted. The required Wilson response bound, the uniform cube estimate along continuum tuning, and a nontrivial continuum construction remain unproved. A finite-volume response implication is not a proof of those hypotheses.
+The source of Lockwood’s finite-fibre interfaces is pinned to jlthermoelectric/4Y-M commit dc5807171ae1aa8de6cc455f7eb5756d415eec55; its finite scope and assumptions are preserved. The current revision does not claim a new Lean kernel replay. New finite arithmetic checks cover 64 identities and do not certify continuous Wilson integrals, (D), (E) or a physical continuum mass.
 
-Human-understanding declaration: no new declaration is inferred for additions made after the authors' earlier review. The submitting authors must choose the platform option that accurately describes their understanding of this complete current revision. This is not a certification that a human has already checked every new line.
-
-This file is a concise provenance summary. It contains no fabricated conversations, private reasoning traces, or benchmark claims.
-
-
-For this revision, OpenAI Codex checked bibliographic records, edited citation metadata, reviewed PDF layout, and rebuilt the submission files.
+The authors must choose a human-understanding declaration matching their actual review of the new sections. No new assertion of complete human verification is inferred here. No private reasoning traces or fabricated benchmark records are included.

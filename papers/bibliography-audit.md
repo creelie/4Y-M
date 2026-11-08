@@ -592,3 +592,8 @@ The author explicitly requested removal of the two unpublished references withou
 ### `Wit26`
 
 - [Primary source](https://arxiv.org/abs/2611.05051): identity checked against the original repository/publisher record; retrieved source SHA-256 `f14ec8ca6b4faffda25ce75cf72840beaf93b47a2a801ef4858f4ac8f56a7f3a`.
+
+
+## Retention in v4.42.0
+
+This revision retains exactly the 116 bibliography entries in v4.41.1. No new journal or preprint bibliography item is added. The finite-fibre code footnote links to the verified exact public commit dc5807171ae1aa8de6cc455f7eb5756d415eec55. Existing metadata checks above are carried forward; this revision does not claim a fresh independent re-audit of all cited proofs.
