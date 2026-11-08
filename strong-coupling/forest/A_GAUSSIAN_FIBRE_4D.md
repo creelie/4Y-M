@@ -404,3 +404,13 @@ The same holds after compressing to any subspace of the form H_T ⊗ H′.
 *Proof.* P_Λ ≥ 0 and 0 ≤ P_Λ^{⊗(m−1)} ≤ 1. For A ≥ 0 and B ≤ C, A ⊗ B ≤ A ⊗ C, so P_Λ^{⊗m} ≤ P_Λ ⊗ 1. Averaging preserves the inequality. For ψ ∈ H_T ⊗ H′, ⟨ψ,(T₁⊗1)ψ⟩ = ⟨ψ,(Π_T T₁ Π_T ⊗ 1)ψ⟩. ∎
 
 **Application.** For a Gaussian field, resampling Λ is the conditional expectation Γ(P_Λ), and it acts on the m-th Wiener chaos as P_Λ^{⊗m}. So the BP form is E_n(f) = Σ_m ⟨f_m,(1 − avg P_Λ^{⊗m}) f_m⟩. A transverse (first-chaos) bound ‖Π_T T₁ Π_T‖ ≤ 1 − ϖ, together with the Lemma, gives E_n(f) ≥ ϖ Var(f) for every f whose chaos kernels lie in H_T^{⊗m}. Those are exactly the polynomials that are invariant under gradient shifts in each slot, which is the gauge-invariant sector. The argument uses only operator positivity. It needs no finite-dimensionality, so it holds directly in infinite volume and replaces the appeal to Amit (§10). **Step 2 is closed.** This is a simpler, slightly weaker cousin of Amit's theorem (the gap on chaos m is at least the gap on chaos 1), and it is all (U) needs.
+
+### 10.2 Step 1 (k-infimum at k → 0): numerical confirmation
+
+Radial scan of the transverse BP symbol ϖ_k at |k| = t/n, t ∈ {0} ∪ geomspace(0.02, πn, 24), along five directions (axis, two diagonals of rank 2, 3, 4, and generic (1,2,3,5)), for n ∈ {8, 12, 16}, mℓ ∈ {1, 4}, plus n = 3 as a selftest.
+
+- In all 35 (n, mℓ, direction) groups, ϖ_k is monotone nondecreasing in t, so its minimum is at t = 0.
+- The t = 0 values reproduce the k = 0 computation exactly. For mℓ = 1 they are 0.03063, 0.02763 and 0.02588 at n = 8, 12 and 16. For mℓ = 4 they are 0.29859, 0.28014 and 0.26831.
+- At the zone boundary, ϖ_k ≈ 1.
+
+So inf_k ϖ_k = ϖ_n(k→0). Combined with the uniform trial-field lower bound for ϖ_n(k→0), this gives free-field gap ⇒ (U) numerically, with no remaining gap in the chain. A proof of monotonicity in |k| is still open. The natural route is a Bloch decomposition: compare the symbol with its k = 0 value through the phase-twisted Dirichlet problem.

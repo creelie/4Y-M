@@ -212,3 +212,5 @@ Where things stand: (U) ⇒ gap holds in general (Thm `avgtransfer`). Gap ⇒ (U
 
 - 2026-11-08: Step 1 numerical scan submitted (ym-gaussmass-kscan).
 - 2026-11-08: **Step 2 closed** (§10.1). A two-line positivity lemma, avg P^{⊗m} ≤ (avg P) ⊗ 1, reduces BP on all gauge-invariant observables to the first chaos, in any volume, with no appeal to Amit. Free-field gap ⇒ (U) now rests only on step 1 (k-infimum at k → 0); its numerical scan is submitted.
+
+- 2026-11-08: Next-phase step 1 numerically confirmed. The k-scan over 35 groups (n ≤ 16, mℓ ∈ {1,4}, 5 directions) is monotone in |k| with the minimum at k → 0; see A_GAUSSIAN_FIBRE_4D §10.2. A proof of the monotonicity is open. Step 3 (free-field two-scale comparison, cubes of side n and n/2 at fixed mℓ, n ≤ 16) has been submitted.
