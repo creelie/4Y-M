@@ -278,6 +278,22 @@ Thm `avgtransfer` turns (U) alone into σ(H) ⊂ {0} ∪ [16ϖ/(625e²ℓ), ∞)
 1. Test whether a gap implies (U) in the Gaussian *massive* model (free massive field). If the answer is yes with ϖ ~ m²ℓ²-type behaviour, (U) is the natural gap-equivalent target.
 2. Look for a direct UV argument for (U) (a two-scale comparison), and test it against the massless Gaussian, where it must fail.
 
+**Result, first run (job 1712103, Proca, all linear u):**
+
+ϖ_n for BP(n, ϖ) at lattice mass μ = mℓ/n, in infinite volume:
+
+| mℓ \ n | 2 | 3 | 4 | 5 | 6 | 8 |
+|---|---|---|---|---|---|---|
+| 0.5 | .0102 | .0101 | .0095 | .0090 | .0086 | .0079 |
+| 1 | .0385 | .0385 | .0365 | .0346 | .0331 | .0306 |
+| 2 | .125 | .130 | .125 | .120 | .115 | .108 |
+| 4 | .286 | .324 | .325 | .319 | .312 | .299 |
+
+- ϖ_n drifts down slowly, roughly like n^{-0.25} at mℓ ≤ 1. The infimum is attained at **k = 0**, which is the longitudinal (pure-gauge-like) mode of the Proca field.
+- Gauge-invariant observables exclude that mode, so this run does not answer the question.
+- Rerun submitted: transverse (divergence-free) u only, n up to 10.
+- **Order of magnitude:** the gap bound 16ϖ/(625e²ℓ) is about 1e-4 to 3e-4 times m. So even where (U) holds, the constants lose about four orders of magnitude.
+
 ## 9. R_∠ measured (Lemma A4), first volume
 
 This section reports r(0, z) = ‖P_{V_0} P_{V_z}‖ for every cube offset z on the cube torus (Z_m)⁴, with m = bL/n'. It uses the same model and block map as §8, and translation invariance gives R_∠ = 1 + Σ_{z≠0} r(0, z).
@@ -298,3 +314,17 @@ This section reports r(0, z) = ‖P_{V_0} P_{V_z}‖ for every cube offset z on 
 4. A partial L = 6 result is already in: at n'/b = 2 (m = 3) the face overlap is 0.330 at b = 3 and 0.332 at b = 4. Larger cubes overlap more across a face, at the same n'/b ratio as ρ₁'s mild growth in §8. This is consistent with a leak that lives near the cube boundary.
 
 Decision (unchanged): R_∠ volume-stable → record (D) in the Gaussian model and fit the decay exponent for a blockdecay proof. R_∠ growing with L → (D) fails as framed, and Lemma A4 needs a summable replacement, for example one weighted by the coarse-scale mass or confinement input that §8.2 already requires for B.
+
+### 9.1 Volume test (L = 6), result
+
+| (b, L, n') | R_∠ | d_∞=1 | d_∞=2 | d_∞=3 | dimC |
+|---|---|---|---|---|---|
+| (3,4,3) | 4.08 | 2.38 | 0.71 | — | |
+| (3,6,3) | 4.81 | 2.51 | 0.57 | 0.74 | 4 |
+| (3,6,6) | 11.17 | 10.17 | — | — | 63 |
+| (4,6,8) | 10.11 | 9.11 | — | — | 63 |
+
+- R_∠ rises 18% from L=4 to L=6 at fixed (b, n') = (3, 3). The growth comes from the new d_∞=3 shell (0.74).
+- The far overlaps are a distance-independent floor: r ≈ 6e-4 to 1.3e-3 at d_∞ = 3, against 2 to 5e-3 at L = 4. The ratio is about (4/6)^4, so the floor scales like 1/volume, while the number of cubes scales like volume.
+- **Reading:** R_∠ looks like a bounded local part (d_∞ ≤ 2, which is stable or decreasing) plus a global-mode part that is O(1) and roughly constant in volume. That is consistent with R_∠ bounded uniformly in volume, but it is not proved: two volumes cannot separate a 1/V floor from slow decay.
+- **Decision:** (D) is not refuted. The floor is a candidate for a torus zero-mode or flux effect, and should be removable by projecting out the global coarse modes. The next test is L = 8 at (3, 3), or the same L = 6 run with the global modes projected out.
