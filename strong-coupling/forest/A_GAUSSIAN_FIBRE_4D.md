@@ -235,6 +235,32 @@ So B does not fail outright. The depth-uniform bound degrades into a power law n
 3. The useful Gaussian output for B is a *sanity bound*: any proposed mechanism for ρ_j → 0 must use something that the free field lacks. Examples are a nonzero string tension, or the strong-coupling cluster expansion at the coarsest scales. A mechanism that would also apply to the Gaussian model is wrong.
 4. The smeared-block-map fallback of §8.1 is therefore moot in the Gaussian model, for the same reason: no block map can give a free massless field a uniform BP constant.
 
+### 8.3 Candidate no-go: the UV scales defeat bounded Γ (sketch, conditional)
+
+Setting: Thm `bpuptower` with n_j = 2n_{j−1}. Let C_B^opt(μ; n) be the *smallest* C_B for which S(2n, n; C_A, C_B) holds for a fixed C_A < ∞. Write C^G(n) for its value at the Gaussian (free Maxwell) measure.
+
+**Step 1 (Gaussian, from §8.2 alone).**
+- The free field is scale invariant, so C^G(n) depends on n only through finite-volume effects. Assume C^G(n) → C^G_∞ as n → ∞, at a summable rate in j (for example, power-law corrections in n_j = 2^j n_0).
+- Only finitely many scales have n_j below any fixed size. So if C^G_∞ = 1, then Π_j C^G(n_j) is bounded uniformly in k. By §8.2 that would give the free field a gap, which is false.
+- Hence **C^G_∞ > 1**. This is a statement about the *optimal* constant, not about the Thm 114 upper bound (1−ρ²)^{-1}.
+
+**Step 2 (Yang–Mills, UV end).**
+- Under asymptotic freedom, β_j → ∞ at the fine scales (j near k). The number of scales with β_j ≥ B is k − O_B(1).
+- Hypothesis (LSC): the optimal constant is lower semicontinuous at the Gaussian point, i.e. liminf_{β→∞} C_B^opt(μ_β; n) ≥ C^G(n), uniformly in n.
+- Then Γ_0 ≥ (C^G_∞ − ε)^{k − O(1)} → ∞, and Cor `bpuptuning` gives no gap. This holds for any block map that reduces to the straight-path map at weak coupling.
+
+**What this means.**
+- Assuming (LSC), the framework as framed (one split inequality per scale, multiplied along the tower) cannot prove the gap. The obstruction comes from the UV and has nothing to do with confinement. A confinement input at the coarse scales cannot remove it.
+- The ways out are exactly the ways (LSC) or the setting can fail:
+  1. a scale-dependent block map whose weak-coupling limit is not the Gaussian straight-path map;
+  2. a non-multiplicative tower, in which the UV constants are absorbed into an E-type (energy) bound rather than multiplied into Γ;
+  3. stopping the tower at a fixed physical scale, so that the UV scales are handled by a separate (E)-type argument and only ~O(1) scales enter Γ.
+- Option 3 is the most promising. It moves B to a fixed number of coarse scales, which is where the confinement interface (CLAY_NEXT_DIRECTIONS B step 3) should be stated.
+
+**To check.**
+- Numerically: compute the first-chaos lower bound C_B^lin = sup_{f linear} E^c_n(F_f)/E'_{2n}(f) as a generalized eigenproblem in the gauss_rho model. C_B^lin ≤ C^G, so C_B^lin > 1, flat in n, confirms Step 1 independently of the finite-size assumption.
+- Analytically: (LSC) is plausible because C_B^opt is a supremum of ratios of continuous functionals of μ, and suprema of continuous functions are lower semicontinuous. The open point is uniformity in n.
+
 ## 9. R_∠ measured (Lemma A4), first volume
 
 This section reports r(0, z) = ‖P_{V_0} P_{V_z}‖ for every cube offset z on the cube torus (Z_m)⁴, with m = bL/n'. It uses the same model and block map as §8, and translation invariance gives R_∠ = 1 + Σ_{z≠0} r(0, z).
