@@ -431,3 +431,32 @@ We work on one lattice at fixed μ = ma and use cubes of side n and n0 = n/2, so
 - **Infrared content.** At k → 0, the ratio ϖ_n/ϖ_{n0} is stable at ≈ 3.2–3.3 (mℓ = 1) and ≈ 2.4–2.5 (mℓ = 4). This is the continuum ratio c(mℓ)/c(mℓ/2), which tends to 4 as m → 0 from the (mℓ)² prefactor.
 - **The two-scale form of (U).** The free field therefore satisfies E_ℓ ≥ C E_{ℓ/2} with C uniform in a. Iterated from a fixed scale ℓ0, this gives (U) at every ℓ = 2^j ℓ0 with constant C^j, which depends on j but not on a. This is the form a Yang–Mills proof of (U) would target: a scale-to-scale comparison at bounded ratio, uniform in the cutoff.
 - **Caveat.** The constant must not degrade with the cutoff. In the free field the only loss is UV, at the zone boundary, and it is bounded (C ≥ 0.97).
+
+### 10.4 Step 4, first interacting test: 3D compact U(1)
+
+Job ym-u1-3d-bp. Wilson action, L = 32, 2000 configurations per point. ϖ_n(f) = E Var(f | cube^c)/(n³ Var f / V) is estimated directly by nested conditional heat-bath resampling, with error bars from a 20-block jackknife.
+
+**Checks.**
+- The n = L selftest gives 0.95–1.01, against an expected value of 1.
+- Inner thinning s = 10 against s = 4 at β = 1.9, n = 4 agrees within errors (0.461 ± 0.072 against 0.391 ± 0.060).
+- The masses are effective masses at t = 1 from x₃-slice correlators of Σ sin θ₁₂. They are 1.14 ± 0.16 (β = 1.6), 0.57 ± 0.07 (1.9) and 0.29 ± 0.06 (2.2), so the mass halves per β step.
+
+**ϖ for f = Σ e^{ik x₁} sin θ₁₂ at k = 2π/L** (the k = 0 and k ∥ x₃ variants agree within errors):
+
+| m·n | β = 1.6 | β = 1.9 | β = 2.2 |
+|---|---|---|---|
+| ≈ 0.6 | | | 0.10 ± 0.02 |
+| ≈ 1.06 | | 0.22 ± 0.03 | 0.14 ± 0.02 |
+| ≈ 1.75 | | 0.34 ± 0.04 | 0.21 ± 0.03 |
+| ≈ 2.35 | 0.67 ± 0.06 | 0.39 ± 0.06 | 0.24 ± 0.05 |
+| ≈ 3.4 | 0.84 ± 0.07 | 0.49 ± 0.09 | |
+| ≈ 4.3 | 0.90 ± 0.06 | 0.52 ± 0.07 | |
+
+The plaquette-energy observables (Σ cos θ) give ϖ ≈ 1 everywhere and carry no information.
+
+**Reading.**
+- **No collapse.** At fixed m·ℓ, ϖ falls by a factor of about 0.6 each time m·a halves. At m·n ≈ 2.35 it goes 0.67 → 0.39 → 0.24; successive steps are separated by about 3σ and 2σ.
+- **Rate.** That is ϖ ∝ (ma)^{≈0.75}. Along this line of β, ϖ at fixed physical ℓ tends to 0, so (U) fails while the theory stays gapped.
+- **Caveat: this is not a single-scale limit.** Compact U(1)₃ has two scales: the photon mass m ~ exp(−cβ)/a and the coupling e² = 1/(βa). Along β → ∞ at fixed m, m/e² → 0, so the theory approaches a free massless photon at every fixed ratio to e². The drift may therefore reflect the hierarchy m ≪ e² rather than a general failure of gap ⇒ (U).
+- **What this shows.** A gap alone does not imply (U) uniformly. If (U) is to follow from a gap, it can only do so in a theory with a single scale (with m/Λ fixed along the limit), which is the Yang–Mills situation.
+- **Next.** The clean interacting test is 3D SU(2). There g² is the only scale, β = 4/(g²a), and m/g² is a fixed number, so fixed mℓ is a genuine continuum line.
