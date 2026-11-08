@@ -352,3 +352,9 @@ The values don't change with volume, are below 1 and rise with n. Because C_B^li
 | 4 | | .324 | | | .299 |
 
 The infimum sits at the transverse k → 0 limit. These values are essentially the same as in the Proca run, so the slow decay (about n^{-0.25} at mℓ = 1) is **not** a longitudinal artefact. In the free massive field (first chaos only), ϖ_n appears to go to 0 as a → 0 at fixed ℓ. If so, (U) is strictly stronger than a mass gap even for the free theory. Then "gap ⇒ (U)" fails, and the framework would need (U) as an independent input. We can't yet rule out a slow (logarithmic) approach to a positive limit: n = 10 ran out of memory, and the next step is an analytic small-k expansion of ϖ_n.
+
+**Small-k analysis.** As k → 0 on the transverse block, S → μ²I. By cubic symmetry Q̂(0) = q(n)·I, where q(n) = eᵀ(K_in + μ²)⁻¹e and e is the constant field on the interior links of one direction. So
+
+  ϖ_n(k → 0) = μ² n⁻⁴ q(n) = (mℓ)² · q(n)/n⁶.
+
+e is orthogonal to the gradients of functions that vanish on the cube boundary, because ⟨e, dψ⟩ is a sum of boundary values. So q stays finite as μ → 0. Continuum scaling then gives q(n)/n⁶ → c₀ > 0, the value of sup_v [2∫v·e − ∫|curl v|²] on the unit cube with v = 0 outside. If that holds, ϖ_∞ ≈ c₀(mℓ)² > 0 at small mℓ, and the decay observed for n ≤ 8 is a boundary-layer lattice correction of order O(1/n). The data fit this: ϖ scales close to (mℓ)² between mℓ = 0.5, 1 and 2. On this reading, (U) is **not** refuted for the free massive field. A sparse exact computation of q(n) up to n = 24 (job ym-gaussmass-k0) is meant to decide this with a fit c₀ + c₁/n.
