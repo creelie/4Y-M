@@ -358,3 +358,14 @@ The infimum sits at the transverse k → 0 limit. These values are essentially t
   ϖ_n(k → 0) = μ² n⁻⁴ q(n) = (mℓ)² · q(n)/n⁶.
 
 e is orthogonal to the gradients of functions that vanish on the cube boundary, because ⟨e, dψ⟩ is a sum of boundary values. So q stays finite as μ → 0. Continuum scaling then gives q(n)/n⁶ → c₀ > 0, the value of sup_v [2∫v·e − ∫|curl v|²] on the unit cube with v = 0 outside. If that holds, ϖ_∞ ≈ c₀(mℓ)² > 0 at small mℓ, and the decay observed for n ≤ 8 is a boundary-layer lattice correction of order O(1/n). The data fit this: ϖ scales close to (mℓ)² between mℓ = 0.5, 1 and 2. On this reading, (U) is **not** refuted for the free massive field. A sparse exact computation of q(n) up to n = 24 (job ym-gaussmass-k0) is meant to decide this with a fit c₀ + c₁/n.
+
+**Result (sparse exact k → 0, n ≤ 24).** For n ≤ 8, ϖ_lim(n) = (mℓ)² q(n)/n⁶ reproduces the transverse scan to all printed digits, which confirms that the infimum is the k → 0 limit. All CG solves converged.
+
+| mℓ | n=8 | 10 | 12 | 16 | 20 | 24 |
+|---|---|---|---|---|---|---|
+| 0.5 | .00792 | .00746 | .00712 | .00666 | .00636 | .00615 |
+| 1 | .03063 | .02890 | .02763 | .02588 | .02475 | .02396 |
+| 2 | .1081 | .1028 | .0987 | .0931 | .0894 | .0868 |
+| 4 | .2986 | .2883 | .2801 | .2683 | .2602 | .2543 |
+
+Fitting c₀ + c₁/n at mℓ = 1 to point pairs (8,16), (12,24) and (16,24) gives c₀ = .0211, .0203 and .0201. At mℓ = 2 the pairs (12,24) and (16,24) give c₀ = .0749 and .0742. The local power exponent shrinks in magnitude, from −0.24 (n 8 → 16) to −0.21 (n 12 → 24), which is the signature of convergence to a positive constant and not of a power law. Conclusion: **in the free massive field (first chaos), ϖ_n → ϖ_∞ ≈ 0.020 (mℓ = 1) > 0, so (U) holds, consistent with "gap ⇒ (U)".** The earlier decay was an O(1/n) boundary-layer correction. The size of the limit is roughly c₀(mℓ)² for mℓ ≲ 2. The remaining caveats are that this covers only linear observables (first chaos), and that a slower log tail can't be excluded rigorously from n ≤ 24.
