@@ -369,3 +369,18 @@ e is orthogonal to the gradients of functions that vanish on the cube boundary, 
 | 4 | .2986 | .2883 | .2801 | .2683 | .2602 | .2543 |
 
 Fitting c₀ + c₁/n at mℓ = 1 to point pairs (8,16), (12,24) and (16,24) gives c₀ = .0211, .0203 and .0201. At mℓ = 2 the pairs (12,24) and (16,24) give c₀ = .0749 and .0742. The local power exponent shrinks in magnitude, from −0.24 (n 8 → 16) to −0.21 (n 12 → 24), which is the signature of convergence to a positive constant and not of a power law. Conclusion: **in the free massive field (first chaos), ϖ_n → ϖ_∞ ≈ 0.020 (mℓ = 1) > 0, so (U) holds, consistent with "gap ⇒ (U)".** The earlier decay was an O(1/n) boundary-layer correction. The size of the limit is roughly c₀(mℓ)² for mℓ ≲ 2. The remaining caveats are that this covers only linear observables (first chaos), and that a slower log tail can't be excluded rigorously from n ≤ 24.
+
+**Continuum constant (step (i)).** Variational principle: q(n) = sup_v [2⟨v,e⟩ − ⟨v,(K_in+μ²)v⟩]. Take the trial field v = t·φ(x₁,x₂,x₃)·e₀, which points along the field direction, does not depend on x₀, and has φ vanishing on the transverse faces. Cutting the field off in x₀ creates no curl, so only the transverse gradients cost energy. Optimizing over t gives, for every n (as a discrete sum, up to O(1/n) Riemann errors in the continuum form),
+
+  ϖ_n(k→0) ≥ (mℓ)² (Σφ)² / (Σ|∇_⊥φ|² + (mℓ)²Σφ²)  (rescaled to the unit cube).
+
+The supremum over φ is the Dirichlet resolvent on the unit **3**-cube:
+
+  c(mℓ) = (mℓ)² ⟨1, (−Δ_D + (mℓ)²)⁻¹ 1⟩_{[0,1]³} = (mℓ)² Σ_{j,k,l odd} 512 / (π⁶ j²k²l² (π²(j²+k²+l²) + (mℓ)²)).
+
+| mℓ | c(mℓ) (series) | c₀ + c₁/n fit to the n ≤ 24 lattice data |
+|---|---|---|
+| 1 | 0.0196 | 0.020–0.021 |
+| 2 | 0.0719 | 0.074–0.075 |
+
+The two agree, so c(mℓ) is (numerically) the exact limit and not just a lower bound. The x₀-independent field saturates the variational problem. The trial-field lower bound is uniform in n, so ϖ_n(k→0) stays away from 0 **rigorously** for the transverse first-chaos block. What is left for a full proof of (U) in the free massive field: (a) show that the infimum over k is attained as k → 0 (numerically true on the 9⁴ grid); (b) extend to higher chaos. For (b), the Gaussian structure (second quantization of the one-particle bound) should reduce higher chaos to the first.
