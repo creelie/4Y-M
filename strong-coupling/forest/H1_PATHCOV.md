@@ -5,7 +5,7 @@ The estimator used here measures its own noise floor, not the covariance sum. No
 
 ## Setup
 
-- Code: `research/experiments/pathcov/` (local, untracked). Heat bath + overrelaxation for free links, Metropolis near paths. Self-test passed: logZ to 1e-12, analytic vs finite-difference scores to 1e-10.
+- Code: `strong-coupling/forest/experiments/pathcov/`. Heat bath + overrelaxation for free links, Metropolis near paths. Self-test passed: logZ to 1e-12, analytic vs finite-difference scores to 1e-10.
 - Run: b = 4, conditioning V = id, coarse L ∈ {4, 6, 8}, β_W ∈ {0.5, 1.5, 2.3}. 200 thermalization sweeps, then T = 400 measurements, one every 2 sweeps. 10 CPUs, 76 min.
 - Measured quantity: S = Σ_{e≠j} ‖Cov(a_e, a_j)‖_op (3×3 path scores), split into shells by |Δ|_∞.
 - Two checks are built in:

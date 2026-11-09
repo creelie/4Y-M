@@ -417,7 +417,7 @@ So inf_k ϖ_k = ϖ_n(k→0). Combined with the uniform trial-field lower bound f
 
 ### 10.3 Step 3: free-field two-scale comparison
 
-We work on one lattice at fixed μ = ma and use cubes of side n and n0 = n/2, so ℓ/ℓ0 = 2. At each k (4 directions, 17 radii up to the zone boundary t = πn) we compute the best constant C(n) = inf_k λ_min(H_{n0}^{-1/2} H_n H_{n0}^{-1/2}) in E_n ≥ C·E_{n0}. Job ym-gaussmass-twoscale; script `research/experiments/gaussrho/gauss_twoscale.py`.
+We work on one lattice at fixed μ = ma and use cubes of side n and n0 = n/2, so ℓ/ℓ0 = 2. At each k (4 directions, 17 radii up to the zone boundary t = πn) we compute the best constant C(n) = inf_k λ_min(H_{n0}^{-1/2} H_n H_{n0}^{-1/2}) in E_n ≥ C·E_{n0}. Job ym-gaussmass-twoscale; script `strong-coupling/forest/experiments/gaussrho/gauss_twoscale.py`.
 
 | n | C(n), mℓ = 1 | C(n), mℓ = 4 | ratio at k → 0, mℓ = 1 | ratio at k → 0, mℓ = 4 |
 |---|---|---|---|---|
@@ -463,7 +463,7 @@ The plaquette-energy observables (Σ cos θ) give ϖ ≈ 1 everywhere and carry 
 
 ### 10.5 Step 4b, single-scale interacting test: 3D SU(2)
 
-Job ym-su2-3d-bp. Wilson action, L = 32, 1200 configurations per point. The estimator is the same as in §10.4, with Kennedy–Pendleton heat-bath plus overrelaxation on quaternion links. Error bars come from a 20-block jackknife. The observables are w×w Wilson loops (w = 1, 2, 3) summed at k = 0 (all planes), and at k = 2π/L along x₁ and along x₃. The only scale is g², with β = 4/(g²a), so ℓg² = 4n/β labels a continuum line. Code, plan and raw output: `experiments/su2bp/`.
+Job ym-su2-3d-bp. Wilson action, L = 32, 1200 configurations per point. The estimator is the same as in §10.4, with Kennedy–Pendleton heat-bath plus overrelaxation on quaternion links. Error bars come from a 20-block jackknife. The observables are w×w Wilson loops (w = 1, 2, 3) summed at k = 0 (all planes), and at k = 2π/L along x₁ and along x₃. The only scale is g², with β = 4/(g²a), so ℓg² = 4n/β labels a continuum line. Code, launcher and raw output: `experiments/su2bp/`.
 
 **Checks.**
 - The n = L selftest (L = 6, β = 5) gives 0.88–1.05 ± 0.17–0.35 across the 9 observables, consistent with 1.

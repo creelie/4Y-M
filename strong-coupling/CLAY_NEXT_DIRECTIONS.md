@@ -104,10 +104,10 @@ Sources:
 
 ## Progress log
 
-- **2026-11-06, #5 dropped.** Falsifier `research/experiments/polchinski2d/` (cluster job 1677160): for the single-plaquette SU(2) measure e^{β cos θ} on S³ (2D axial gauge), the multiscale curvature rate along the heat flow divided by the exact Poincaré gap is 0.59, 0.51, 0.33, 0.11, 0.007 at β = 0.5, 1, 2, 4, 8, which is exponential decay. The flow restores convexity only at t* ≈ 0.4, and the antipodal curvature ≈ −2β is paid for before then. β ≥ 16 rows are numerical underflow. Heuristic proxy for the BBD criterion, not a theorem about it.
+- **2026-11-06, #5 dropped.** Falsifier `strong-coupling/forest/experiments/polchinski2d/` (cluster job 1677160): for the single-plaquette SU(2) measure e^{β cos θ} on S³ (2D axial gauge), the multiscale curvature rate along the heat flow divided by the exact Poincaré gap is 0.59, 0.51, 0.33, 0.11, 0.007 at β = 0.5, 1, 2, 4, 8, which is exponential decay. The flow restores convexity only at t* ≈ 0.4, and the antipodal curvature ≈ −2β is paid for before then. β ≥ 16 rows are numerical underflow. Heuristic proxy for the BBD criterion, not a theorem about it.
 - **2026-11-06, benchmark frozen** (see `forest/BALL_CERTIFICATE.md`): SU(2) 0.351, SU(3) 0.77. The 0.348/0.52 figures were a stale README.
 - **2026-11-06, #1 interface drafted:** `forest/BALL_CERTIFICATE.md`.
-- **#3 running:** `research/experiments/linresp/`.
+- **#3 running:** `strong-coupling/forest/experiments/linresp/`.
 - 2026-11-06: **#3 done** (job 1676562). L* = 2 for β ∈ [2.0, 2.6] at L=8, T=16. Caveats:
   C(r≥2) is at the noise level, and this is a weak-form periodic-state heuristic, not a
   sup-ω influence. Decision rule (L* ≤ 4) says continue with #1/#2 at small L and favours
@@ -215,7 +215,7 @@ Where things stand: (U) ⇒ gap holds in general (Thm `avgtransfer`). Gap ⇒ (U
 
 - 2026-11-08: Next-phase step 1 numerically confirmed. The k-scan over 35 groups (n ≤ 16, mℓ ∈ {1,4}, 5 directions) is monotone in |k| with the minimum at k → 0; see A_GAUSSIAN_FIBRE_4D §10.2. A proof of the monotonicity is open. Step 3 (free-field two-scale comparison, cubes of side n and n/2 at fixed mℓ, n ≤ 16) has been submitted.
 - 2026-11-08: Next-phase step 3 done for the free field (A_GAUSSIAN_FIBRE_4D §10.3). The two-scale constant C(n) for ℓ/ℓ0 = 2 is 1.38, 1.07, 1.01, 0.99 at n = 4–16 and converges to ≈ 0.97. The infimum sits at the zone boundary (a UV effect); the IR ratio is stable at ≈ c(mℓ)/c(mℓ/2). Remaining: step 4, (U) in an interacting model (compact U(1) in 3D first), and a proof of the step-1 monotonicity.
-- 2026-11-08: Step 4 started with 3D compact U(1) (monopole-gapped). `research/experiments/u1bp/u1bp.c` estimates ϖ_n directly from the definition: E Var(f | outside cube) / (n³ Var(f)/V), with nested conditional heat-bath resampling of non-adjacent cubes. Observables are sin θ₁₂ at k = 0 and at the smallest k, plus plaquette energies. The mass m(β) comes from slice correlators. The grid is β ∈ {1.6, 1.9, 2.2}, n ∈ {2,3,4,6,8}, L = 32, plus an n = L selftest (should give ϖ = 1) and an inner-thinning check. Test: do the ϖ curves collapse in m(β)·n with no downward drift in β?
+- 2026-11-08: Step 4 started with 3D compact U(1) (monopole-gapped). `strong-coupling/forest/experiments/u1bp/u1bp.c` estimates ϖ_n directly from the definition: E Var(f | outside cube) / (n³ Var(f)/V), with nested conditional heat-bath resampling of non-adjacent cubes. Observables are sin θ₁₂ at k = 0 and at the smallest k, plus plaquette energies. The mass m(β) comes from slice correlators. The grid is β ∈ {1.6, 1.9, 2.2}, n ∈ {2,3,4,6,8}, L = 32, plus an n = L selftest (should give ϖ = 1) and an inner-thinning check. Test: do the ϖ curves collapse in m(β)·n with no downward drift in β?
 - 2026-11-08: **Step 4, compact U(1)₃ result (A_GAUSSIAN_FIBRE_4D §10.4).** ϖ_n at fixed m·ℓ does not collapse. It falls about 0.6× per halving of m·a (0.67, 0.39, 0.24 at mℓ ≈ 2.35; about 3σ per step), roughly ϖ ∝ (ma)^0.75. So (U) fails along this line although the theory is gapped. Caveat: U(1)₃ has two scales (m ≪ e² as β → ∞), so this refutes gap ⇒ (U) only for theories with a scale hierarchy. Next: **3D SU(2)** (one scale, m/g² fixed), which is the decisive interacting test. Reuse u1bp.c with SU(2) heat-bath (Kennedy–Pendleton), the observable Re tr of plaquettes at small k, and the 0++ mass from slice correlators.
 
 **2026-11-08 — step 4b (3D SU(2)) submitted.** Same conditional cube-resampling estimator as the U(1) run, now with quaternion links
@@ -238,14 +238,14 @@ Work the list in order and tick each item as it lands.
    (W1_kx1: β = 5: 1.68 → 1.23; β = 10: 1.43 → 1.14 over ℓg² = 1.6 → 4.8). At fixed ℓg² there is a mild downward drift in β,
    within about 1σ, so collapse and a U(1)-like drift cannot be separated yet. Before writing, run su2bp/analyze.py on the
    output and quote its numbers, not this first read.
-2. [ ] **Track the experiment code.** Move the code that backs the results since #289, and ideally #289 too, into
+2. [x] **Track the experiment code.** (done 2026-11-09: all 8 directories, launchers rewritten to plain `python`; cluster request plans left out) Move the code that backs the results since #289, and ideally #289 too, into
    `strong-coupling/forest/experiments/`, starting with `gaussrho/` (gauss_k0, gauss_kscan, gauss_twoscale, gauss_massU, …),
    `u1bp/` and `su2bp/` (.c, analyze.py, plan*.json). Leave the `run*.sh` launchers untracked, because they name the cluster.
    Replace them with one README per experiment: build line, `python` / `cc` invocation, plan file, expected output format.
    Decide whether to include pathcov, linresp, polchinski2d, reduced_dobrushin and vortex_mc (they back earlier sections).
-3. [ ] **Commit the raw result files** each § cites (small JSON lines, such as the SU(2) output), next to their experiment.
+3. [x] **Commit the raw result files** (done: gaussrho, u1bp, su2bp; older pathcov/linresp outputs not recovered) each § cites (small JSON lines, such as the SU(2) output), next to their experiment.
    Strip any paths.
-4. [ ] **Fix references.** Point notes that cite `research/experiments/...` (e.g. the step-4 entry above) to the new tracked
+4. [x] **Fix references.** (done) Point notes that cite `research/experiments/...` (e.g. the step-4 entry above) to the new tracked
    paths.
 5. [ ] **Pre-PR checks.** Grep the full `upstream/main...HEAD` diff for forbidden strings and for `/home/` and `/n/` paths.
    Confirm no `__pycache__`, PDFs or binaries are included. Make sure it merges cleanly into upstream/main.

@@ -22,7 +22,7 @@ spectral theory alone. A finite stretch of a log-convex sequence is compatible w
 (take μ_O with a small atom near λ = 1). Consistency check: 4D U(1) is RP and gapless at weak coupling,
 yet at any fixed r its periodic-state correlators can be made to look gapped by taking β just above the transition.
 
-Consequence for `BALL_CERTIFICATE.md` (weak-form variant) and for #3 (`research/experiments/linresp/`):
+Consequence for `BALL_CERTIFICATE.md` (weak-form variant) and for #3 (`strong-coupling/forest/experiments/linresp/`):
 L* = 2 is a statement about a finite stretch of a log-convex sequence. It bounds the gap from above, not below.
 The "chessboard estimate transporting κ(r) < 1 to decay" asked for there does not exist in that form:
 chessboard estimates bound probabilities of **block events** (via tiled partition functions), not covariances.

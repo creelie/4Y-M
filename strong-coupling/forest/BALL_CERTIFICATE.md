@@ -44,7 +44,7 @@ box volume L⁴, not |Λ|. That is exactly what S′ lacked.
 
 Replace sup_ω by the reflection-positive periodic state and W₁ by covariance response:
 κ(r) = β · Σ_{p at distance r} |Cov(O, P_p)|. This is what
-`research/experiments/linresp/` measures numerically (heuristic only). A weak-form
+`strong-coupling/forest/experiments/linresp/` measures numerically (heuristic only). A weak-form
 target would need a chessboard estimate transporting κ(r) < 1 to decay. **Closed negatively** (2026-11-06,
 `RP_WEAK_GAP_4.md` §1): finite-r periodic-state data only bound the gap from above (log-convexity).
 What survives is a good-boundary version of (C) plus chessboard rarity (§2 there), whose input is (D).
