@@ -1,26 +1,12 @@
 # Yang-Mills Theory and the Mass Gap
 
-Current research release: [v4.42.0](https://github.com/creelie/4Y-M/releases/tag/v4.42.0).
+Deep Bhattacharjee, Ushashi Bhattacharya, James Montgomery Lockwood, Tristan Romanov and Sanjeevan Singha Roy.
 
-Version DOI: https://doi.org/10.5281/zenodo.24055064
+DOI (all versions): https://doi.org/10.5281/zenodo.23444338
 
-Permanent work DOI, printed in the manuscript: https://doi.org/10.5281/zenodo.23444338
+- [PDF](papers/ym4d.pdf): 203 pages, REVTeX 4.2, two columns.
+- [TeX source](papers/ym4dtex.zip): compile main.tex with pdfLaTeX, three passes.
 
-We prove a mass gap for four-dimensional lattice Yang-Mills theory with any compact simple gauge group at strong coupling, and we prove that one uniform estimate on cubes of fixed physical size gives every continuum limit a mass gap. That estimate along the weak-coupling tuning and a nontrivial four-dimensional continuum construction remain open.
+Four-dimensional lattice Yang-Mills theory with any compact simple gauge group G in U(N) has the mass gap m >= arccosh(1 + (kappa_G/(N beta) - 29/2)/12) > 0 at strong coupling beta, and one uniform cube estimate with constant varpi at physical scale l gives every continuum limit the mass gap m >= 16 varpi/(625 e^2 l).
 
-## Current submission files
-
-- [PDF](papers/ym4d.pdf): 398 pages, REVTeX 4.2, two columns.
-- [Complete TeX ZIP](papers/ym4dtex.zip): compile main.tex with pdfLaTeX, three passes.
-- [Revision notes](papers/next-version-submission-notes.md).
-- [AI provenance](papers/aiprovenance.md).
-- [Bibliography audit](papers/bibliography-audit.md).
-- [Hexagon v7 to v8 form text](papers/hexagon-submission-form.md).
-
-## This revision
-
-Adds proved off-diagonal semigroup and static Poisson-residual identities matching the excluded same-link block in (FC); derives Gaussian full-row and response lower obstructions from the existing collective-source identities; constructs finite-volume Wilson Poisson trials as finite sums of actual conditional expectations, with a proved residual rate uniform in the coarse data at fixed geometry; proves a mixed Poisson/flux enclosure without assuming a global inverse gap; and adds a detailed appendix on spectral cutoffs, minimum fluxes, Gaussian transport and an explicitly specified nonconvex probability model. Three new figures and 64 exact checks accompany the derivations. The full prior manuscript and all four authors are retained. All 116 bibliography entries are retained without adding an unverified bibliographic item.
-
-The uniform weak-coupling Wilson estimate (D), the all-scale construction needed in this route, and a nontrivial continuum limit (E) remain unproved.
-
-Exact supporting checks are in verification/response-certificates/. The active papers directory has one current manuscript PDF and one current manuscript source ZIP. Historical release tags, source history, independent papers and proof certificates retain their distinct purposes.
+The cube estimate (D) along the weak-coupling tuning and a nontrivial continuum limit (E) are not proved, so the mass gap of the continuum theory is not proved here. The multiscale material of earlier versions is in the Hexagon preprint 2610.00341v7.

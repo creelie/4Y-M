@@ -46,15 +46,15 @@ units remain open. `OPEN.md` records what is known of each.
 
 ## Forest gauge fixing (`forest/`, `gauge-fixed/`)
 
-`forest/main.tex` (REVTeX) and `forest/cmp/main.tex` (amsart) are the two
-copies of the main paper of the archive, "Yang–Mills Mass Gap Reduced to One
-Cube"; the README at the root of the repository says what it proves.
-`gauge-fixed/` holds the certified constants it uses (`blocks/`, `su3/`).
+`forest/main.tex` (REVTeX) is the main paper of the archive, "Yang–Mills
+Theory and the Mass Gap"; the README at the root of the repository says what
+it proves, and `papers/` holds its PDF and TeX source. `gauge-fixed/` holds
+the certified constants it uses (`blocks/`, `su3/`).
 
 ## The earlier amsart version (`paper/`)
 
-`paper/` holds the source (`main.tex`, figures as TikZ sources and 200 dpi PNG)
-and the compiled `YangMillsStrongCoupling.pdf` (17 pages). Build with
+`paper/` holds the source (`main.tex`, figures as TikZ sources and 200 dpi
+PNG) of a 17-page earlier version. Build with
 `latexmk -pdf -bibtex- main.tex`; the bibliography is written by hand.
 
 ## What the paper proves

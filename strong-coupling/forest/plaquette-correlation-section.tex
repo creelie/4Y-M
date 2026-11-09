@@ -1,0 +1,1343 @@
+\subsection{The connected plaquette correlation on a finite torus}
+\label{ssec:rEtwo}
+
+This subsection records what the Wilson measure of a finite torus gives for
+the connected two-point function of the plaquette field $\Phi$ of
+Sec.~\ref{ssec:limitE} at every coupling, and what it gives in the
+strong-coupling range. The results are unconditional. They do not prove
+either half of the two-sided law (AF) of Remark~\ref{rem:limitEafstatus};
+the last part restates the lower half of (AF) along an axis in spectral
+terms and locates the step at which an argument for it leaves the range
+of the tools used here.
+
+\emph{Conventions.} Throughout, $G\subset\U(N)$ is a compact group with a
+faithful representation $\rho$, by which it is identified with a closed
+subgroup of $\U(N)$, so that $G$ is a compact Lie group; $\chi=\Tr\rho$ is
+its character, $\bar\chi$ the character of the dual representation, and
+$\delta=1$ if $\chi$ is real and $\delta=0$ otherwise. From
+Lemma~\ref{rEtwo:polymer} on, $\rho$ is irreducible, as it is for the
+defining representation of every compact simple group. The Wilson measure
+$\mu_L$ of $\Lambda_L=(\Z/L\Z)^4$, $L\ge6$ even, has density
+$\exp(N\beta\sum_p\ReTr U_p)$ with respect to the product Haar measure on
+the links, $\beta>0$, as in Sec.~\ref{sec:intro}, and $\langle\cdot
+\rangle_L$ is its expectation. For a plaquette $p$ put $F_p=N-\ReTr U_p
+\ge0$, and for a site $x$ let $\Phi_x=\sum_{p\ni x}F_p$ be the sum over the
+$24$ plaquettes with a corner at $x$; this is the field $\Phi$ of
+Sec.~\ref{ssec:limitE} with $r=1$. Put
+\[
+c_L=\langle\Phi_0\rangle_L,\qquad G_L(z)=\langle\Phi_0\Phi_z\rangle_L-c_L^2
+\qquad(z\in\Lambda_L).
+\]
+By the invariance of $\mu_L$ under translations and the hypercubic group
+(proof of Lemma~\ref{rE:torus}(ii)), $G_L(z)=\langle\Phi_x\Phi_{x+z}
+\rangle_L-c_L^2$ for every $x$, $G_L(gz)=G_L(z)$ for $g\in B_4$, and
+$G_L(-z)=G_L(z)$. The torus limits $\omega$ of Lemma~\ref{rE:torus} are
+weak limits of $\mu_L$ along subsequences; for them $c=\omega(\Phi_0)$,
+$G(z)=\omega(\Phi_0\Phi_z)-c^2$, and $G(z)=\lim G_{L}(z)$ along the
+subsequence, since $\Phi_0\Phi_z$ is a continuous function of finitely
+many links.
+
+\subsubsection{The transfer matrix of the torus}
+
+For $\beta>0$ and an irreducible representation $R$ of $G$ let
+\[
+c_R(\beta)=\int_Ge^{N\beta\ReTr g}\,\overline{\chi_R(g)}\,dg,\quad
+e^{N\beta\ReTr g}=\sum_Rc_R(\beta)\chi_R(g),
+\]
+the series converging absolutely and uniformly, this being
+the Peter--Weyl expansion of a smooth class function on a compact Lie
+group. Expanding the exponential, $c_R(\beta)=\sum_{n\ge0}(N\beta/2)^n
+m^{(n)}_R/n!$, where $m^{(n)}_R\in\Z_{\ge0}$ is the multiplicity of $R$ in
+$(\rho\oplus\bar\rho)^{\otimes n}$; every $R$ occurs in some tensor power
+because $\rho$ is faithful (Stone--Weierstrass and Schur orthogonality, as
+in the proof of Proposition~\ref{prop:flowpositive}), so
+\begin{equation}\label{rEtwo:eqcpos}
+c_R(\beta)>0\qquad\text{for every $R$ and every }\beta>0 .
+\end{equation}
+
+Fix the time direction $0$. Let $\Lambda^3=(\Z/L\Z)^3$ be the spatial
+torus, $E^3$ its links, $P^3$ its plaquettes, $\mathfrak h=L^2(G^{E^3})$
+with respect to the product Haar measure, and let the gauge group
+$\mathcal G=G^{\Lambda^3}$ act on $G^{E^3}$ by $(g\cdot U)_{xy}=g_xU_{xy}
+g_y^{-1}$ and on $\mathfrak h$ by the unitaries $(R_g\psi)(U)=\psi(g\cdot
+U)$. Let $P=\int_{\mathcal G}R_g\,dg$ be the orthogonal projection onto
+the gauge-invariant functions and $\mathfrak h_P=P\mathfrak h$. Define
+the kernel
+\begin{align*}
+T(U,U')&=D(U)\,K(U,U')\,D(U'),\\
+D(U)&=\exp\Bigl(\frac{N\beta}2\sum_{p\in P^3}\ReTr U_p\Bigr),\\
+K(U,U')&=\prod_{l\in E^3}\exp\bigl(N\beta\ReTr(U_lU_l'^{-1})\bigr),
+\end{align*}
+and the operator $(T\psi)(U)=\int T(U,U')\psi(U')\,dU'$ on $\mathfrak h$.
+This is the transfer matrix of L\"uscher~\cite{Lus77} in the temporal
+gauge, and of Osterwalder and Seiler~\cite{OSei78}; its positivity is
+recalled in the proof of Proposition~\ref{prop:flowpositive}. What is
+needed here beyond that proof is the trace formula on a torus of finite
+time extent and the form of the plaquette insertions.
+
+\begin{lemma}[the transfer matrix]\label{rEtwo:transfer}
+\textup{(i)} $T$ is a self-adjoint Hilbert--Schmidt operator on
+$\mathfrak h$ with $\ip\psi{T\psi}\ge0$ for all $\psi$, and $T$ is
+injective. It commutes with every $R_g$, with $P$, and with the unitaries
+induced by the translations and the cubic symmetries of $\Lambda^3$.
+Consequently $T$ maps $\mathfrak h_P$ into itself, and $\mathfrak h_P$ has
+an orthonormal basis $(e_j)_{j\ge0}$ of eigenvectors of $T$ with
+eigenvalues $\lambda_j>0$, $\lambda_j\to0$.
+
+\textup{(ii)} $Z_L=\int\exp(N\beta\sum_p\ReTr U_p)\,dU=\Tr(PT^L)$.
+
+\textup{(iii)} Let $B$ be the operator on $\mathfrak h$ with kernel
+\begin{align*}
+B(U,U')&=\int\Phi(U,V,U')\,T(U,V)\,T(V,U')\,dV,\\
+\Phi(U,V,U')&=\sum_{p\in P^3,\,p\ni0}(N-\ReTr V_p)\\
+&\quad+\sum_{l\in E^3,\,l\ni0}\bigl[(N-\ReTr(U_lV_l^{-1}))\\
+&\qquad\qquad+(N-\ReTr(V_lU_l'^{-1}))\bigr].
+\end{align*}
+Then $B$ is self-adjoint and Hilbert--Schmidt, commutes with every
+$R_g$ and with $P$, and for $2\le t\le L-2$
+\[
+c_L=\frac{\Tr(PT^{L-2}B)}{Z_L},\quad\langle\Phi_0\Phi_{te_0}\rangle_L=
+\frac{\Tr\bigl(PT^{L-t-2}BT^{t-2}B\bigr)}{Z_L}.
+\]
+\end{lemma}
+
+\begin{proof}
+(i) The kernel is continuous and real, and symmetric because $K(U,U')=
+K(U',U)$, which follows from $\ReTr(U'U^{-1})=\ReTr((UU'^{-1})^{-1})=
+\ReTr(UU'^{-1})$ for unitary matrices; so $T$ is self-adjoint and
+Hilbert--Schmidt. Write $T=\mathsf DK\mathsf D$ with $\mathsf D$ the
+multiplication by the bounded function $D$, which has values in a compact
+subinterval of $(0,\infty)$, so that $\mathsf D$ is invertible. The
+operator $K$ is the tensor product over $l\in E^3$ of the convolution
+operators $K_l$ on $L^2(G)$ with kernel $k_\beta(U_lU_l'^{-1})$,
+$k_\beta(g)=e^{N\beta\ReTr g}=\sum_Rc_R(\beta)\chi_R(g)$. After the
+substitution $V=W^{-1}U$,
+\begin{align*}
+\int k_\beta(UV^{-1})R(V)_{ij}\,dV&=\sum_m\Bigl(\int k_\beta(W)\,
+\overline{R(W)_{mi}}\,dW\Bigr)R(U)_{mj}\\
+&=\frac{c_R(\beta)}{d_R}\,R(U)_{ij}
+\end{align*}
+by the Schur orthogonality relations, so $K_l$ acts on the matrix
+coefficients of each irreducible $R$, which form an orthogonal basis of
+$L^2(G)$, as multiplication by $c_R(\beta)/d_R>0$ \eqref{rEtwo:eqcpos}.
+Hence $K$ is positive and injective, its eigenvalues on the product basis
+being the products $\prod_lc_{R_l}(\beta)/d_{R_l}>0$, and $\ip\psi{T\psi}=
+\ip{\mathsf D\psi}{K\mathsf D\psi}\ge0$; $T\psi=0$ gives $K\mathsf D\psi=0$,
+so $\psi=0$. The kernel satisfies $T(g\cdot U,g\cdot U')=T(U,U')$ because
+every $\ReTr$ in it is the trace of a product around a closed loop of
+links, so $T$ commutes with $R_g$, hence with $P$; the same holds for the
+lattice symmetries, which permute links and plaquettes and preserve
+$\ReTr U_p$ under reversal of orientation. A positive compact injective
+operator on the separable Hilbert space $\mathfrak h_P$ has an orthonormal
+eigenbasis with positive eigenvalues tending to $0$.
+
+(ii) Write the links of $\Lambda_L$ as spatial links $U_{(x,s),i}$ and
+temporal links $U_{(x,s),0}$, $s\in\Z/L\Z$. Given a configuration, define
+$h_{(x,0)}=1$ and $h_{(x,s)}=U_{(x,0),0}U_{(x,1),0}\cdots U_{(x,s-1),0}$
+for $1\le s\le L-1$, and let $U'=h\cdot U$. Then $U'_{(x,s),0}=1$ for
+$s\le L-2$ and $U'_{(x,L-1),0}=g_x:=\prod_{s=0}^{L-1}U_{(x,s),0}$ (ordered
+product). The map $U\mapsto(U'_{(x,s),i},\,U_{(x,s),0}\ (s\le L-2),\,g_x)$
+preserves the product Haar measure: at each site the map $(U_0,\dots,U_{
+L-1})\mapsto(U_0,\dots,U_{L-2},U_0\cdots U_{L-1})$ of $G^L$ does, and for
+fixed temporal links the spatial links are transformed by a gauge
+transformation, which does. The Wilson density and every gauge-invariant
+observable depend only on $(U'_{(x,s),i},g)$; the variables $U_{(x,s),0}$,
+$s\le L-2$, integrate to $1$. With $U_s$ the spatial configuration of
+slice $s$, the temporal plaquette at the link $l=\{x,x+e_i\}$ between the
+slices $s$ and $s+1\le L-1$ is $U_{s,l}U_{s+1,l}^{-1}$, and between the
+slices $L-1$ and $0$ it is $U_{L-1,l}g_{x+e_i}U_{0,l}^{-1}g_x^{-1}=U_{L-1,l}
+((g\cdot U_0)_l)^{-1}$. Distributing each spatial factor $D(U_s)^2$ over
+the two adjacent temporal steps gives
+\begin{align*}
+Z_L=\int_{\mathcal G}dg\int T(U_0,U_1)&\cdots T(U_{L-2},U_{L-1})\\
+&\times T(U_{L-1},g\cdot U_0)\,\prod_sdU_s .
+\end{align*}
+The inner integral is $\int T^L(U_0,g\cdot U_0)\,dU_0=\Tr(T^LR_g)$, since
+$T^L$ has a continuous symmetric kernel and is trace class ($L\ge2$), and
+$\int\Tr(T^LR_g)\,dg=\Tr(T^LP)$.
+
+(iii) Place $\Phi_0$ at the vertex $(0,1)$, so that it is a function of
+the slices $0,1,2$: its $12$ spatial plaquettes lie in slice $1$, and its
+$12$ temporal plaquettes are $U_{0,l}U_{1,l}^{-1}$ and $U_{1,l}U_{2,l}^{-1}$
+for the six spatial links $l$ at $0$; this is $\Phi(U_0,U_1,U_2)$. Inserting
+it into the integral of (ii), with the step carrying $g$ chosen among the
+$L-2\ge1$ steps not touched by the observable (the relabelling of the
+times is a symmetry of $\mu_L$), gives $\langle\Phi_0\rangle_LZ_L=
+\Tr(PT^{L-2}B)$. For the two-point function place the second copy at
+$(0,t+1)$, a function of the slices $t,t+1,t+2$; for $2\le t\le L-2$ the
+two copies are separated by $t-2\ge0$ and $L-t-2\ge0$ transfer steps,
+$(t-2)+(L-t-2)=L-4\ge2$, and the step carrying $g$ is chosen in one of the
+two gaps. The kernel $B$ is real and symmetric because $\Phi(U,V,U')=
+\Phi(U',V,U)$ and $T$ is symmetric, and gauge covariant because $\Phi$ and
+$T$ are.
+\end{proof}
+
+\subsubsection{Positivity, convexity and the dichotomy along an axis}
+
+Let $(\lambda_j,e_j)$ be as in Lemma~\ref{rEtwo:transfer}(i), $B_{jk}=
+\ip{e_j}{Be_k}$, $\pi_j=\lambda_j^L/Z_L$ and $b_j=B_{jj}/\lambda_j^2$. Then
+$\sum_j\pi_j=1$, $\pi_j>0$, and $Z_Lc_L=\sum_j\lambda_j^{L-2}B_{jj}$ gives
+$c_L=\sum_j\pi_jb_j$. Put
+\[
+V_L=\sum_j\pi_jb_j^2-\Bigl(\sum_j\pi_jb_j\Bigr)^2\ge0 .
+\]
+
+\begin{theorem}[the axial two-point function on a torus]\label{rEtwo:axial}
+Let $\beta>0$ and $L\ge6$ even. For $2\le t\le L-2$ and every direction
+$\mu$,
+\[
+G_L(te_\mu)=G_L(te_0)=V_L+\frac1{Z_L}\sum_{j\ne k}\lambda_j^{L-t-2}
+\lambda_k^{t-2}\,|B_{jk}|^2 ,
+\]
+the series converging absolutely. Consequently:
+
+\textup{(i)} $G_L(te_0)\ge V_L\ge0$ and $G_L(te_0)=G_L((L-t)e_0)$;
+
+\textup{(ii)} $t\mapsto G_L(te_0)$ is log-convex on $\{2,\dots,L-2\}$, that
+is $G_L(te_0)^2\le G_L((t-1)e_0)\,G_L((t+1)e_0)$ for $3\le t\le L-3$, and
+nonincreasing on $\{2,\dots,L/2\}$;
+
+\textup{(iii)} either $G_L(te_0)>0$ for every $t\in\{2,\dots,L-2\}$, or
+$G_L(te_0)=0$ for every such $t$; the second alternative holds if and
+only if $B=c_LT^2$ on $\mathfrak h_P$.
+
+\textup{(iv)} In the second alternative of \textup{(iii)}, $G_L(z)=0$ for
+every $z\in\Lambda_L$ having a coordinate $z_\mu$ with $2\le|z_\mu|\le
+L-2$, and $\langle\Phi_0\rangle$ on $(\Z/L'\Z)\times\Lambda^3$ equals $c_L$
+for every even $L'\ge6$.
+\end{theorem}
+
+\begin{proof}
+The equality $G_L(te_\mu)=G_L(te_0)$ is the $B_4$-invariance of $\mu_L$
+and $\Phi$. By Lemma~\ref{rEtwo:transfer}(iii) and the eigenbasis of
+$\mathfrak h_P$, using that $B$ commutes with $P$ so that $PT^{L-t-2}BT^{
+t-2}B=PT^{L-t-2}(PBP)T^{t-2}(PBP)$,
+\begin{align*}
+Z_L\langle\Phi_0\Phi_{te_0}\rangle_L&=\sum_{j,k}\lambda_j^{L-t-2}\lambda_k^{
+t-2}B_{jk}B_{kj}\\
+&=\sum_{j,k}\lambda_j^{L-t-2}\lambda_k^{t-2}|B_{jk}|^2 ,
+\end{align*}
+since $B$ is self-adjoint; the terms are nonnegative and their sum is the
+trace of $PT^{L-t-2}BT^{t-2}B$, which is trace class: $T^aB$ is
+Hilbert--Schmidt for $a\ge1$ and the product of two Hilbert--Schmidt
+operators is trace class, and if $t-2=0$ or $L-t-2=0$ the other exponent is
+$L-4\ge2$ and $BT^{L-4}B=(BT^{L/2-2})(T^{L/2-2}B)$. The diagonal terms
+give $\sum_j\lambda_j^{L-4}B_{jj}^2/Z_L=\sum_j\pi_jb_j^2$, and subtracting
+$c_L^2=(\sum_j\pi_jb_j)^2$ yields the formula.
+
+(i) Both parts are nonnegative, and $V_L\ge0$ is the variance of $b$ under
+$\pi$. Exchanging $j$ and $k$ in the sum shows the symmetry $t\mapsto L-t$.
+
+(ii) Each term $\lambda_j^{L-t-2}\lambda_k^{t-2}|B_{jk}|^2=C_{jk}(\lambda_k/
+\lambda_j)^t$ with $C_{jk}\ge0$ is log-convex in $t$, a constant is
+log-convex, and sums of log-convex functions are log-convex (by the
+Cauchy--Schwarz inequality for the measure with weights $C_{jk}$).
+Grouping $(j,k)$ with $(k,j)$ gives $(\lambda_j\lambda_k)^{L/2-2}\bigl(x^{
+L/2-t}+x^{t-L/2}\bigr)|B_{jk}|^2$ with $x=\lambda_j/\lambda_k$, which is
+nonincreasing in $t$ on $[2,L/2]$.
+
+(iii) If $G_L(te_0)=0$ for one $t$, then $V_L=0$ and every term of the
+off-diagonal sum vanishes; as all $\lambda_j>0$, $B_{jk}=0$ for all $j\ne k$,
+so $Be_k=B_{kk}e_k=b_k\lambda_k^2e_k$, and $V_L=0$ with $\pi_k>0$ for all
+$k$ forces $b_k=\sum_j\pi_jb_j=c_L$ for all $k$. Hence $B=c_LT^2$ on
+$\mathfrak h_P$, and then the formula gives $G_L(te_0)=0$ for every $t$.
+Conversely $B=c_LT^2$ on $\mathfrak h_P$ gives $B_{jk}=c_L\lambda_k^2
+\delta_{jk}$, $b_k=c_L$, $V_L=0$.
+
+(iv) Let $z=(t,\vec z)$ with $2\le t\le L-2$ and let $\tau_{\vec z}$ be
+the unitary of the spatial translation by $\vec z$; it commutes with $T$
+and $P$. The proof of Lemma~\ref{rEtwo:transfer}(iii) gives $Z_L\langle
+\Phi_0\Phi_z\rangle_L=\Tr(PT^{L-t-2}BT^{t-2}\tau_{\vec z}B\tau_{\vec z}^{-1})$,
+which under $B=c_LT^2$ equals $c_L^2\Tr(PT^L)=c_L^2Z_L$. The other
+directions follow from the $B_4$-invariance. For the time extent $L'$,
+Lemma~\ref{rEtwo:transfer}(ii),(iii) with $L'$ in place of $L$ give
+$\langle\Phi_0\rangle=\Tr(PT^{L'-2}B)/\Tr(PT^{L'})=c_L$.
+\end{proof}
+
+\begin{remark}\label{rEtwo:axialremark}
+Reflection positivity of $\mu_L$ in the plane $\{x_0=0\}$ through sites
+(with its antipode) and in the plane $\{x_0=\frac12\}$ bisecting
+links~\cite{OSei78} gives $G_L(te_0)\ge0$ for all $2\le t\le L-2$: for even
+$t=2s$ the function $\Phi_{se_0}-c_L$ depends on links at times in
+$[s-1,s+1]\subset[0,L/2]$ and is reflected onto $\Phi_{-se_0}-c_L$, and for
+odd $t=2s+1$ the function $\Phi_{(s+1)e_0}-c_L$ depends on links at times
+in $[s,s+2]\subset[1,L/2]$ and is reflected onto $\Phi_{-se_0}-c_L$.
+Theorem~\ref{rEtwo:axial} gives in addition the floor $V_L$, the
+log-convexity, the monotonicity and the exact form of the degenerate
+alternative. The quantity $V_L$ is the variance, under the Gibbs weights
+$\pi_j$ of the torus of time extent $L$, of the diagonal values $b_j$; it
+does not depend on $t$.
+\end{remark}
+
+The torus limits inherit the structure. Let $\omega$ be a torus limit as
+in Lemma~\ref{rE:torus}, and let $\vartheta'$ be the reflection in the
+plane $\{x_0=\tfrac12\}$ bisecting links, for which $\omega$ is reflection
+positive by Lemma~\ref{rE:torus}(iii). The reconstruction of
+Appendix~\ref{app:transfer} applies to $\vartheta'$ as to $\vartheta$: the
+positive-time functions are those of the links with both endpoints at
+times $\ge1$, the time translation $\tau_1$ maps them into themselves, and
+$\vartheta'\tau_t=\tau_{-t}\vartheta'$; it gives $\mathbb T'$, $\Omega'$ and
+$F\mapsto\Psi'_F$ with $\ip{\Psi'_F}{\mathbb T'^n\Psi'_H}=\omega(\vartheta'
+(\bar F)\tau_nH)$ for $n\ge0$. Let $\Psi'=\Psi'_{\Phi_{2e_0}-c}$ be the
+vector of the centred field at the site $2e_0$, whose links have both
+endpoints at times in $[1,3]$, and let $\sigma$ be the spectral measure of
+$\mathbb T'$ at $\Psi'$, a finite measure on $[0,1]$.
+
+\begin{corollary}[torus limits]\label{rEtwo:limit}
+For every torus limit $\omega$ at $\beta\ge0$:
+
+\textup{(i)} $G(te_0)\ge0$ for all $t\ge2$, $t\mapsto G(te_0)$ is
+log-convex and nonincreasing on $\{2,3,\dots\}$, and for $n\ge0$
+\[
+G((3+n)e_0)=\ip{\Psi'}{\mathbb T'^n\Psi'}=\int_{[0,1]}\lambda^n\,d\sigma(\lambda);
+\]
+
+\textup{(ii)} either $G(te_0)>0$ for all $t\ge3$, or $G(te_0)=0$ for all
+$t\ge4$; the second alternative holds if and only if $\sigma$ is
+concentrated at $\lambda=0$;
+
+\textup{(iii)} in the first alternative the local rates
+\[
+m(t)=\log\bigl(G(te_0)/G((t+1)e_0)\bigr),\qquad t\ge2,
+\]
+are nonnegative, nonincreasing in $t$, and converge to
+$m_\Phi=-\log\max\operatorname{supp}\sigma\in[0,\infty)$, which satisfies
+$m_\Phi\ge\log(1/\gamma')$ with $\gamma'=\|\mathbb T'|_{\Omega'^\perp}\|$,
+the analogue of $\gamma(\omega)$ for the reflection $\vartheta'$.
+\end{corollary}
+
+\begin{proof}
+(i) For fixed $t$, $G(te_0)=\lim G_L(te_0)$ along the subsequence, and
+positivity, log-convexity on $\{2,\dots,L-2\}$ and monotonicity on
+$\{2,\dots,L/2\}$ pass to the limit, the ranges exhausting $\{2,3,\dots\}$.
+The identity for $n\ge0$ is the reconstruction: $\vartheta'(\Phi_{2e_0}-c)
+=\Phi_{-e_0}-c$, $\tau_n(\Phi_{2e_0}-c)=\Phi_{(2+n)e_0}-c$, so $\omega(
+\vartheta'(\bar F)\tau_nF)=G((3+n)e_0)$ with $F=\Phi_{2e_0}-c$, and this
+equals $\ip{\Psi'_F}{\mathbb T'^n\Psi'_F}$.
+
+(ii) If $G(t_0e_0)=0$ for some $t_0\ge4$, then $\int\lambda^{t_0-3}d\sigma
+=0$, so $\sigma((0,1])=0$ and $G(te_0)=\int\lambda^{t-3}d\sigma=0$ for all
+$t\ge4$; if $G(3e_0)=0$ then $\sigma=0$. If $\sigma((0,1])>0$ then
+$\int\lambda^nd\sigma>0$ for all $n\ge0$.
+
+(iii) The ratios $\int\lambda^{n+1}d\sigma/\int\lambda^nd\sigma$ of the
+moments of a finite measure on $[0,1]$ with $\sigma((0,1])>0$ are at most
+$1$, nondecreasing in $n$ by the Cauchy--Schwarz inequality, and converge
+to $\max\operatorname{supp}\sigma$; so $m(t)$ is nonnegative, nonincreasing
+and converges to $m_\Phi$ for $t\ge3$. For $t=2$ use the log-convexity and
+monotonicity of (i) directly. The vector $\Psi'$ is orthogonal to
+$\Omega'$ since $\omega(F)=0$, so $\operatorname{supp}\sigma\subset[0,\|
+\mathbb T'|_{\Omega'^\perp}\|]$.
+\end{proof}
+
+\subsubsection{Strict positivity and the exceptional couplings}
+
+The dichotomy of Theorem~\ref{rEtwo:axial}(iii) is decided for a single
+spatial plaquette at every coupling.
+
+\begin{theorem}[one plaquette]\label{rEtwo:plaquette}
+Let $\beta>0$, $L\ge6$ even, let $p$ be a plaquette in a plane not
+containing the direction $0$, and let $1\le t\le L-1$. Then
+$\langle F_pF_{p+te_0}\rangle_L-\langle F_p\rangle_L^2>0$. The same holds
+for every direction $\mu$ not in the plane of $p$ in place of $e_0$.
+\end{theorem}
+
+\begin{proof}
+Place $p$ in the slice $0$ and let $M_p$ be the multiplication by $F_p$
+on $\mathfrak h$, a bounded self-adjoint operator commuting with every
+$R_g$. The proof of Lemma~\ref{rEtwo:transfer}(iii), with $M_p$ at the
+slices $0$ and $t$ and the step carrying $g$ in one of the two gaps of
+lengths $t\ge1$ and $L-t\ge1$, gives $Z_L\langle F_pF_{p+te_0}\rangle_L=
+\Tr(PT^{L-t}M_pT^tM_p)=\sum_{j,k}\lambda_j^{L-t}\lambda_k^t|M_{jk}|^2$ with
+$M_{jk}=\ip{e_j}{M_pe_k}$, and $Z_L\langle F_p\rangle_L=\sum_j\lambda_j^L
+M_{jj}$. As in the proof of Theorem~\ref{rEtwo:axial}, the covariance is
+the sum of the variance of $(M_{jj})_j$ under $(\pi_j)_j$ and of
+$Z_L^{-1}\sum_{j\ne k}\lambda_j^{L-t}\lambda_k^t|M_{jk}|^2$, both
+nonnegative, and it vanishes only if $M_{jk}=0$ for $j\ne k$ and $M_{jj}$
+is constant, that is, only if $M_p\psi=c\psi$ for every $\psi\in\mathfrak
+h_P$. The constant function $1$ lies in $\mathfrak h_P$, so $F_p$ would be
+almost everywhere equal to $c$. The map $(U_l)_{l\in p}\mapsto U_p$
+carries the product Haar measure on $G^4$ to the Haar measure of $G$,
+which has full support, and $g\mapsto\ReTr g$ is continuous; so $\ReTr g=c$
+would hold on a dense set, hence everywhere, in particular $c=\ReTr1=N$,
+whereas $\ReTr g<N$ for $g\ne1$ and $G\ne\{1\}$. The statement for $\mu$
+follows by a cubic symmetry.
+\end{proof}
+
+For the field $\Phi$ the first ingredient is analyticity in the coupling.
+
+\begin{lemma}\label{rEtwo:analytic}
+For fixed $L$ and $z$, $\beta\mapsto G_L(z;\beta)$ is the restriction to
+$(0,\infty)$ of a function meromorphic on $\C$ and real-analytic on
+$\R$. If it does not vanish identically, its zero set in $(0,\infty)$ is
+closed and discrete.
+\end{lemma}
+
+\begin{proof}
+$Z_L(\beta)$, $\int\Phi_0e^{N\beta\sum\ReTr U_p}$ and $\int\Phi_0\Phi_ze^{
+N\beta\sum\ReTr U_p}$ are integrals over a compact space of functions
+entire in $\beta$ with a uniform bound on compact sets of $\beta$, hence
+entire; $Z_L(\beta)>0$ for real $\beta$. The zeros of a real-analytic
+function on an interval that is not identically zero are isolated.
+\end{proof}
+
+The second ingredient is the strong-coupling expansion, which identifies
+the leading Taylor coefficient. We recall the polymer representation in
+the form of Osterwalder and Seiler~\cite{OSei78} and Seiler~\cite{Sei82}.
+From now on $\rho$ is irreducible, so that $\chi$ and $\bar\chi$ are the
+only irreducible characters occurring in $\chi+\bar\chi$; $\delta=1$ if
+$\chi=\bar\chi$. For an irreducible $R\ne1$ let $n(R)$ be the least $n$
+with $m^{(n)}_R>0$; then $n(\rho)=n(\bar\rho)=1$, $n(R)\ge2$ otherwise,
+and $a_R(\beta)=c_R(\beta)/c_0(\beta)$ satisfies
+\begin{equation}\label{rEtwo:eqactivity}
+\begin{aligned}
+a_R(\beta)&=O(\beta^{n(R)}),\qquad a_\rho(\beta)=\tfrac{1+\delta}2N\beta+
+O(\beta^2),\\
+c_0(\beta)&=1+O(\beta^2),
+\end{aligned}
+\end{equation}
+the last because $\int\ReTr=0$ for a nontrivial irreducible $\rho$. For a
+plaquette $p$ and $s\in\C$ let $c^{(p)}_R(\beta,s)$ be the character
+coefficients of $e^{sF_p}e^{N\beta\ReTr U_p}=e^{sN}e^{(N\beta-s)\ReTr U_p}$
+and $a^{(p)}_R(s)=c^{(p)}_R(\beta,s)/c^{(p)}_0(\beta,s)$; then $a^{(p)}_R(0)
+=a_R(\beta)$ and, since $F_pe^{N\beta\ReTr}=\sum_n(N\beta)^n(N-\ReTr)
+(\ReTr)^n/n!$,
+\begin{equation}\label{rEtwo:eqsource}
+\partial_sa^{(p)}_R(0)=O(\beta^{n(R)-1}),\qquad\partial_sa^{(p)}_\rho(0)=
+-\tfrac{1+\delta}2+O(\beta).
+\end{equation}
+For complex $|s|\le r_N:=1/(2N)$ one has $|s\ReTr g|\le\frac12$, so
+$\operatorname{Re}e^{-s\ReTr g}\ge e^{-1/2}\cos\frac12>\frac12$ and
+$|c^{(p)}_0(\beta,s)|\ge\frac12e^{-1/2}c_0(\beta)$, while
+$\sum_Rd_R|c^{(p)}_R(\beta,s)|\le e^{N/2}\sum_n((N\beta+\frac12)/2)^n(2N)^n/
+n!=e^{N^2\beta+N}$, because $c^{(p)}_R(\beta,s)=e^{sN}\sum_n((N\beta-s)/2)^n
+m^{(n)}_R/n!$ and $\sum_Rd_Rm^{(n)}_R=(2N)^n$; hence
+\begin{equation}\label{rEtwo:eqsourcebound}
+\sum_{R\ne1}d_R\,|a^{(p)}_R(s)|\le C_N\quad(|s|\le r_N,\ \beta\le1/N^2),
+\end{equation}
+and, by the same count restricted to $n\ge n(R)$, for $\beta\le1/N^2$,
+\[
+\sum_{R:\,n(R)\ge n}d_R\,a_R(\beta)\le2e\,(N^2\beta)^n.
+\]
+
+\begin{lemma}[polymer expansion]\label{rEtwo:polymer}
+A \emph{polymer} is a pair $\gamma=(A,R)$ with $A$ a nonempty finite set
+of plaquettes of $\Lambda_L$ that is connected under the relation of
+sharing a link, and $R$ an assignment of a nontrivial irreducible
+representation $R_a$ to each $a\in A$, such that $I(\gamma)=\int\prod_{a
+\in A}\chi_{R_a}(U_a)\,dU\ne0$. Two polymers are compatible if their
+plaquette sets share no link. For sources $s,s'$ at two plaquettes $p\ne
+q$ let $W(\gamma;s,s')=I(\gamma)\prod_{a\in A}a^{(a)}_{R_a}$ with
+$a^{(a)}_R=a^{(p)}_R(s)$, $a^{(q)}_R(s')$, $a_R(\beta)$ for $a=p$, $a=q$
+and otherwise. Then:
+
+\textup{(i)} If a link lies in exactly one plaquette of $A$, then
+$I(A,R)=0$; in particular $|A|\ge6$ for every polymer. For every $(A,R)$,
+$I(A,R)$ is the product of the $I$ of the link-connected components of $A$.
+
+\textup{(ii)} $\int e^{sF_p+s'F_q}e^{N\beta\sum\ReTr U_a}dU=\prod_ac^{(a)}_0
+\sum\prod_iW(\gamma_i;s,s')$, the sum over finite families of pairwise
+compatible polymers, including the empty family.
+
+\textup{(iii)} There is $\beta_0=\beta_0(N)>0$ such that for $0\le\beta
+\le\beta_0$ and complex $|s|,|s'|\le r_N$ the Mayer expansion
+\[
+\log\frac{\int e^{sF_p+s'F_q}e^{N\beta\sum\ReTr U_a}dU}{\prod_ac^{(a)}_0}=
+\sum_X\varphi(X)\prod_{\gamma\in X}W(\gamma;s,s')
+\]
+over clusters $X$ (finite multisets of polymers whose incompatibility
+graph is connected, $\varphi$ the Ursell coefficients, $\varphi(X)=1$ for
+one polymer) converges absolutely, uniformly in $L$, $s$, $s'$, and the
+sum of $|\varphi(X)\prod W|$ over the clusters $X$ with $\sum_{\gamma\in X}
+\sum_{a\in A_\gamma\setminus\{p,q\}}n(R_a)\ge n$ and with some polymer
+containing $p$ is at most $K_N(C_N\beta)^n$, with constants depending on
+$N$ only.
+\end{lemma}
+
+\begin{proof}
+(i) If the link $e$ lies only in $a\in A$, write $U_a=XU_e^{\pm1}Y$ with
+$X,Y$ independent of $U_e$; then
+\begin{align*}
+\chi_{R_a}(XU_e^{\pm1}Y)&=\sum_{i,j,k}R_a(X)_{ij}R_a(U_e^{\pm1})_{jk}R_a(Y)_{ki},\\
+\int_G R_a(U)_{jk}\,dU&=0
+\end{align*}
+for nontrivial irreducible $R_a$. A set of plaquettes in which every link lies in at
+least two plaquettes has at least six members, the faces of a cube being
+the least case. The factorisation is Fubini. (ii) Expand each plaquette
+factor as $c^{(a)}_0(1+\sum_{R\ne1}a^{(a)}_R\chi_R(U_a))$, multiply out,
+integrate, and group the plaquettes carrying a nontrivial representation
+into link-connected components; by (i) only the components with
+$I\ne0$ survive, and distinct components share no link. (iii) is the
+convergent strong-coupling cluster expansion of~\cite{OSei78} (see
+also~\cite[Ch.~3]{Sei82}), with the sources carried along; we indicate the
+bounds. Since $|\chi_R|\le d_R$, $|W(\gamma;s,s')|\le\prod_{a\in A}d_{R_a}
+|a^{(a)}_{R_a}|$, and summing over the assignments $R$ with
+\eqref{rEtwo:eqsourcebound} and the bound after it, the polymers with a
+given plaquette set $A$ have total weight at most $C_N^{2}(2eN^2\beta)^{|A|
+-2}$; the number of link-connected sets of $n$ plaquettes containing a
+given link is at most $C^n$ with an absolute $C$, and $|A|\ge6$ by (i).
+Hence for every polymer $\gamma_0$ the polymers incompatible with it,
+which contain one of its at most $4|A_{\gamma_0}|$ links, satisfy
+$\sum_{\gamma\not\sim\gamma_0}|W(\gamma)|e^{|A_\gamma|}\le|A_{\gamma_0}|$
+once $\beta\le\beta_0(N)$, which is the Koteck\'y--Preiss
+criterion~\cite{KP86} with $a(\gamma)=|A_\gamma|$, uniformly in $L$, $s$,
+$s'$; it gives the absolute convergence of the Mayer series, uniformly on
+the polydisc, and, applied with the activities of the plaquettes $a\ne p,q$
+multiplied by $e^{n(R_a)}$ for $\beta\le\beta_0(N)/e$, the bound
+$K_N(C_N\beta)^n$ on the clusters of order at least $n$ through $p$.
+\end{proof}
+
+\begin{lemma}[the minimal surfaces]\label{rEtwo:plateau}
+Let $L\ge6$ even, $2\le t<L/2$, let $p$ be a plaquette with the corner $0$
+and $q$ a plaquette with the corner $te_0$, and let $\Sigma$ be a finite
+set of plaquettes of $\Lambda_L$ containing $p$ and $q$, connected under
+the relation of sharing a link, such that every link of every plaquette
+of $\Sigma$ lies in at least two plaquettes of $\Sigma$. Then $|\Sigma
+\setminus\{p,q\}|\ge4t$, with equality if and only if $\Sigma=\partial
+\mathcal B$ is the set of the $4t+2$ faces of a box $\mathcal B=[0,t]
+\times I\times J$, where $I=[a,a+1]$ and $J=[b,b+1]$ lie in two distinct
+spatial directions, $a,b\in\{-1,0\}$, and the fourth coordinate is $0$.
+There are $12$ such boxes; each has exactly three faces with the corner
+$0$ and three with the corner $te_0$, so there are $108$ triples
+$(\mathcal B,p,q)$ with $p,q\in\partial\mathcal B$.
+\end{lemma}
+
+\begin{proof}
+Identify the times with $\{-L/2+1,\dots,L/2\}$; the plaquettes with the
+corner $0$ have their vertices at times in $\{-1,0,1\}$, those with the
+corner $te_0$ at times in $\{t-1,t,t+1\}$. For a half-integer $\tau$ let
+$E_\tau$ be the set of temporal plaquettes of $\Sigma$ with time extent
+$[\tau-\tfrac12,\tau+\tfrac12]$; each is $[\tau-\tfrac12,\tau+\tfrac12]
+\times e$ for a spatial link $e$, and we identify $E_\tau$ with a set of
+spatial links. If a spatial site $y$ is an endpoint of a link of
+$E_\tau$, the temporal link at $y$ over $[\tau-\tfrac12,\tau+\tfrac12]$
+lies in a plaquette of $\Sigma$, hence in at least two, which are
+plaquettes of $E_\tau$; so every vertex of the graph $E_\tau$ has degree
+$0$ or at least $2$, and $E_\tau$, if nonempty, contains a cycle of the
+graph $\Lambda^3$, which has at least $4$ links since $L\ge6$: cycles of
+$\Lambda^3$ have even length, and a cycle of length $4$ is the boundary
+of a unit square because a straight closed path needs length $L$.
+
+Every plaquette has its vertices at one time or at two consecutive times,
+and two plaquettes sharing a link have a common time. Along a chain of
+plaquettes of $\Sigma$ from $p$ to $q$, consecutive members sharing a
+link, the union of the times of the members is therefore an arc of the
+time circle containing $0$ and $t$, and the passage from a time $s$ to
+$s+1$ inside the arc is made by a member with vertices at both times, that
+is, by a temporal plaquette over $[s,s+1]$. Let $s\in\{0,\dots,t-1\}$. If
+$E_{s+1/2}=\emptyset$, the arc does not contain the step from $s$ to
+$s+1$, so it runs from $0$ through $-1,-2,\dots$ to $t$, and $E_\tau\ne
+\emptyset$ for each of the $L-t$ half-integers $\tau$ between $t$ and
+$L\equiv0$; then $|\Sigma\setminus\{p,q\}|\ge4(L-t)-2>4t$ because $L-t\ge
+t+1$. So assume $E_{s+1/2}\ne\emptyset$, hence $|E_{s+1/2}|\ge4$, for all
+$s\in\{0,\dots,t-1\}$. The plaquettes $p$ and $q$ belong to at most one
+of these sets each, $p$ to $E_{1/2}$ if $p$ is temporal over $[0,1]$, $q$
+to $E_{t-1/2}$ if $q$ is temporal over $[t-1,t]$. If $p$ is temporal over
+$[0,1]$, its spatial link at time $0$ lies in a second plaquette of
+$\Sigma$, which is a spatial plaquette at time $0$ or a temporal plaquette
+over $[-1,0]$ (another temporal plaquette over $[0,1]$ through the same
+spatial link would be $p$ itself); in the second case $|E_{-1/2}|\ge4$. In
+every case $\Sigma\setminus\{p,q\}$ contains the $\sum_s|E_{s+1/2}|-[p\in
+E_{1/2}]-[q\in E_{t-1/2}]\ge4t-2$ plaquettes of the $E_{s+1/2}$, $0\le s
+\le t-1$, other than $p,q$, plus at least one further plaquette, at times
+in $\{-1,0\}$, for $p$ if $p$ is temporal, and one at times in $\{t,t+1\}$
+for $q$ if $q$ is temporal; these are distinct since $t\ge2$. If $p$ is
+spatial, it is not counted in the $E$'s and the bound $4t$ holds
+directly. The bound $4t$ follows.
+
+Equality forces: $|E_{s+1/2}|=4$ for $0\le s\le t-1$, so $E_{s+1/2}=
+\partial Q_s$ for a unit square $Q_s$ of $\Lambda^3$; $E_\tau=\emptyset$
+for every other $\tau$ (a nonempty $E_\tau$ has at least four members, at
+most one of which is $p$ or $q$, and would add at least three plaquettes
+to the count); and no spatial plaquettes besides $p$, $q$ and one spatial
+plaquette at time $0$ (resp.\ $t$) when $p$ (resp.\ $q$) is temporal. For
+$0\le s\le t-2$ the four spatial links $\partial Q_s$ at time $s+1$ lie in
+the plaquettes of $E_{s+1/2}$ and need a second plaquette of $\Sigma$
+each; spatial plaquettes at time $s+1\in[1,t-1]$ are excluded, so these
+links lie in $E_{s+3/2}=\partial Q_{s+1}$, and $Q_{s+1}=Q_s=:Q$. The links
+$\partial Q$ at time $0$ need a second plaquette, which is spatial at time
+$0$ since $E_{-1/2}=\emptyset$: if $p$ is spatial it is $p$, so $p=Q\times
+\{0\}$ and $0\in Q$; if $p$ is temporal, $p\in E_{1/2}$ and the single
+allowed spatial plaquette at time $0$ must contain all four links, so it
+is $Q\times\{0\}$, and $0\in p$ gives $0\in Q$ again. Symmetrically at
+time $t$. Hence $\Sigma$ consists of the tube $\bigcup_s\partial Q\times
+[s,s+1]$ and the two faces $Q\times\{0\}$, $Q\times\{t\}$, which is
+$\partial\mathcal B$ for $\mathcal B=[0,t]\times Q$ with $Q=I\times J\ni0$
+as stated; conversely each such $\partial\mathcal B$ satisfies the
+hypotheses with equality. The unit squares $Q\ni0$ in the three spatial
+coordinate planes number $3\cdot4=12$. The faces of $\partial\mathcal B$
+containing the vertex $(0,0)$ are the end face $Q\times\{0\}$ and the two
+side faces $e\times[0,1]$ for the two links $e$ of $\partial Q$ at $0$;
+likewise at $(t,0)$.
+\end{proof}
+
+\begin{lemma}[weight of a box]\label{rEtwo:boxweight}
+Let $\mathcal B$ be as in Lemma~\textup{\ref{rEtwo:plateau}} and let
+$R$ assign $\rho$ or $\bar\rho$ to each face of $\partial\mathcal B$. Then
+$I(\partial\mathcal B,R)=N^{-4t}$ if the assignment is \emph{consistent},
+that is, if for every link the two faces containing it carry mutually
+dual representations with respect to the orientations induced by the
+plaquette variables, and $I=0$ otherwise. There are exactly $2-\delta$
+consistent assignments. If some face carries a representation $R_a\notin
+\{\rho,\bar\rho\}$ while its neighbours carry $\rho$ or $\bar\rho$, then
+$I=0$.
+\end{lemma}
+
+\begin{proof}
+Each link $e$ of $\partial\mathcal B$ lies in exactly two faces. Writing
+the two plaquette variables as $XU_e^{\epsilon}Y$ and $X'U_e^{\epsilon'}Y'$,
+the integral over $U_e$ of the product of the two matrix coefficients of
+$U_e$ vanishes unless the two representations of $U_e$ appearing are dual
+to each other, that is, unless $R'$ restricted along $e$ is $\bar R$ with
+respect to the induced orientations; when it does not vanish it equals
+$\delta\delta/N$ by the Schur relations. This gives the last statement.
+Choosing the orientation of $\partial\mathcal B$ as the boundary of the
+box, each link is traversed in opposite directions by its two faces, so a
+consistent assignment is one in which every face carries $\rho$ with
+respect to the boundary orientation, or every face carries $\bar\rho$;
+these two coincide when $\chi=\bar\chi$. For a consistent assignment the
+integral is the partition function of two-dimensional lattice gauge theory
+on the sphere $\partial\mathcal B$ with the face weight $\chi_\rho$: after
+the link integrals, the remaining index contractions close up into one
+loop at each of the $4(t+1)$ vertices, giving $N^{V}$, against the factor
+$N^{-1}$ of each of the $8t+4$ links, and $V-E=-4t$.
+\end{proof}
+
+\begin{theorem}[leading strong-coupling term]\label{rEtwo:taylor}
+Let $\rho$ be irreducible, $L\ge6$ even and $2\le t<L/2$. There are
+$\beta_0(N)>0$ and $C(N,t)<\infty$, independent of $L$, such that for
+$0\le\beta\le\beta_0(N)$
+\[
+\Bigl|G_L(te_0;\beta)-108\Bigl(\frac{1+\delta}2\Bigr)^{4t+1}\beta^{4t}\Bigr|
+\le C(N,t)\,\beta^{4t+1}.
+\]
+The same holds for $G(te_0)$ in every torus limit.
+\end{theorem}
+
+\begin{proof}
+Since the left side is the second mixed cumulant,
+\[
+G_L(te_0)=\sum_{p\ni0,\,q\ni te_0}\partial_s\partial_{s'}\log\int e^{sF_p
++s'F_q}e^{N\beta\sum\ReTr}\Big|_{s=s'=0},
+\]
+a sum of $576$ terms. Apply Lemma~\ref{rEtwo:polymer}(iii) to each term:
+the series converges uniformly on the polydisc $|s|,|s'|\le r_N$, so it
+may be differentiated term by term. The volume factors $\prod_ac^{(a)}_0$
+contribute $\log c^{(p)}_0(s)+\log c^{(q)}_0(s')$, whose mixed derivative
+is $0$; a cluster contributes a nonzero mixed derivative only if some
+polymer of it contains $p$ and some polymer contains $q$. For such a
+cluster $X$ let $\Sigma$ be the union of the plaquette sets of its
+polymers. It contains $p$ and $q$, is connected under sharing a link (each
+polymer is, and incompatible polymers share a link), and every link of a
+plaquette of $\Sigma$ lies in at least two plaquettes of the polymer
+containing that plaquette, by Lemma~\ref{rEtwo:polymer}(i). By
+Lemma~\ref{rEtwo:plateau}, $\sum_{\gamma\in X}\sum_{a\in A_\gamma\setminus
+\{p,q\}}n(R_a)\ge|\Sigma\setminus\{p,q\}|\ge4t$, with equality only if
+$\Sigma=\partial\mathcal B$, every $n(R_a)=1$ for $a\ne p,q$, and no
+plaquette other than $p,q$ belongs to two polymers of $X$. In the equality
+case $X$ consists of a single polymer: a polymer whose plaquettes lie in
+$\{p,q\}$ does not exist ($p$ and $q$ share no link, and a polymer has at
+least six plaquettes), and if two polymers of $X$ partitioned the faces of
+the sphere $\partial\mathcal B$, a link whose two faces lie in different
+polymers would lie in one plaquette of each, contradicting
+Lemma~\ref{rEtwo:polymer}(i); moreover $R_p,R_q\in\{\rho,\bar\rho\}$ by the
+last statement of Lemma~\ref{rEtwo:boxweight}. By
+Lemma~\ref{rEtwo:polymer}(iii) and the Cauchy estimates on the polydisc,
+the clusters of order at least $4t+1$ contribute at most $r_N^{-2}K_N(C_N
+\beta)^{4t+1}$ to the mixed derivative of each of the $576$ terms. The
+order-$4t$ part is the sum over the $108$ triples $(\mathcal B,p,q)$ of
+$\partial_s\partial_{s'}W(\partial\mathcal B,R;s,s')$ summed over the
+consistent $R$ of Lemma~\ref{rEtwo:boxweight}, which by
+\eqref{rEtwo:eqactivity}, \eqref{rEtwo:eqsource} equals
+\begin{align*}
+&(2-\delta)\,N^{-4t}\Bigl(\frac{1+\delta}2N\beta\Bigr)^{4t}\Bigl(\frac{1+
+\delta}2\Bigr)^2\bigl(1+O(\beta)\bigr)\\
+&\qquad=\Bigl(\frac{1+\delta}2\Bigr)^{4t+1}\beta^{4t}\bigl(1+O(\beta)\bigr),
+\end{align*}
+using $(2-\delta)(1+\delta)/2=1$ for $\delta\in\{0,1\}$. The $O(\beta)$ is
+uniform in $L$. The statement for torus limits follows since $G(te_0)=
+\lim G_L(te_0)$ along the subsequence.
+\end{proof}
+
+\begin{corollary}[the exceptional set]\label{rEtwo:exceptional}
+Let $\rho$ be irreducible and $L\ge6$ even. The set $\mathcal D_L=\{\beta>0:
+G_L(2e_0;\beta)=0\}$ is closed and discrete in $(0,\infty)$, and there is
+$\beta_1(N)>0$ independent of $L$ with $\mathcal D_L\cap(0,\beta_1(N)]=
+\emptyset$. For $\beta\notin\mathcal D_L$, $G_L(te_\mu;\beta)>0$ for all
+$\mu$ and all $2\le t\le L-2$; for $\beta\in\mathcal D_L$ the degenerate
+alternative of Theorem~\textup{\ref{rEtwo:axial}(iii),(iv)} holds. For
+every torus limit at $\beta\in(0,\beta_1(N)]$, $G(te_0)>0$ for all
+$t\ge2$.
+\end{corollary}
+
+\begin{proof}
+Put
+\[
+\beta_1(N)=\min\Bigl(\beta_0(N),\ \min_{t=2,3,4}54\bigl(\tfrac{1+\delta}2
+\bigr)^{4t+1}/C(N,t)\Bigr).
+\]
+By Theorem~\ref{rEtwo:taylor} with $t=2$,
+$G_L(2e_0;\beta)\ge\frac12\cdot108(\frac{1+\delta}2)^9\beta^8>0$ for $0<\beta
+\le\beta_1(N)$, so $\beta\mapsto G_L(2e_0;\beta)$ does not vanish
+identically and Lemma~\ref{rEtwo:analytic} applies; the rest of the
+finite-torus statement is Theorem~\ref{rEtwo:axial}(iii),(iv). For a torus
+limit at $\beta\le\beta_1(N)$, Theorem~\ref{rEtwo:taylor} with $t=2,3,4$
+(admissible since $L\to\infty$ along the subsequence) gives $G(te_0)>0$
+for $t=2,3,4$, so the first alternative of Corollary~\ref{rEtwo:limit}(ii)
+holds and $G(te_0)>0$ for all $t\ge2$.
+\end{proof}
+
+\begin{proposition}[sum rule]\label{rEtwo:sumrule}
+With $S=\sum_{p}F_p$ the Wilson action of $\Lambda_L$, for every $\beta>0$
+\[
+\sum_{z\in\Lambda_L}G_L(z)=\frac{16}{L^4}\Var_L(S)=-\frac{16}
+{NL^4}\,\frac{d}{d\beta}\langle S\rangle_L>0 .
+\]
+\end{proposition}
+
+\begin{proof}
+$\sum_x\Phi_x=4S$ since every plaquette has four corners, so $\sum_zG_L(z)
+=L^{-4}\sum_{x,z}\Cov(\Phi_x,\Phi_{x+z})=L^{-4}\Var(4S)$. The density is
+$e^{-N\beta S}$ up to a constant, so $d\langle S\rangle_L/d\beta=-N\Var_L(S)$,
+and $\Var_L(S)>0$ because $S$ is a nonconstant continuous function and the
+Wilson measure has a strictly positive density.
+\end{proof}
+
+\begin{remark}[what is and is not proved about nonvanishing]
+\label{rEtwo:status1}
+For $\Phi$ on a finite torus, the connected correlation at an axial
+separation $te_\mu$, $2\le t\le L-2$, is strictly positive for every
+coupling outside the closed discrete set $\mathcal D_L$, which is empty
+in $(0,\beta_1(N)]$, and its vanishing at one coupling is equivalent to
+the operator identity $B=c_LT^2$ on $\mathfrak h_P$, which forces the
+vanishing at every axial separation and at every $z$ with a coordinate of
+modulus in $[2,L-2]$, and forces the one-point function to be independent
+of the time extent. Whether $\mathcal D_L$ is empty for every $L$ is not
+decided here; it is decided for a single spatial plaquette
+(Theorem~\ref{rEtwo:plaquette}). For non-axial $z$ only the
+real-analyticity of $\beta\mapsto G_L(z;\beta)$ (Lemma~\ref{rEtwo:analytic})
+and the vanishing in the degenerate alternative are obtained; neither the
+sign of $G_L(z;\beta)$ nor the sign of its first nonvanishing Taylor
+coefficient is asserted. The sum rule shows that $G_L$ does not vanish
+identically in $z$ at any coupling.
+\end{remark}
+
+\subsubsection{Quantitative lower bounds along an axis}
+
+The dichotomy of Theorem~\ref{rEtwo:axial} comes with a rate. In the
+nondegenerate alternative put, for $\beta\notin\mathcal D_L$,
+\[
+m_L(t;\beta)=\log\frac{G_L(te_0;\beta)}{G_L((t+1)e_0;\beta)}\qquad
+(2\le t\le L-3),
+\]
+and for a torus limit in the first alternative of
+Corollary~\ref{rEtwo:limit}(ii) let $m(t)$ be as in
+Corollary~\ref{rEtwo:limit}(iii).
+
+\begin{theorem}[secant bound]\label{rEtwo:logconvex}
+Let $\beta>0$, $L\ge6$ even and $\beta\notin\mathcal D_L$. Then $t\mapsto
+m_L(t;\beta)$ is nonincreasing on $\{2,\dots,L-3\}$, $m_L(t;\beta)\ge0$ for
+$t\le L/2-1$, $m_L(L-1-t;\beta)=-m_L(t;\beta)$, and for $2\le t_0<t\le L-2$
+\begin{align*}
+G_L(te_0;\beta)&\ge G_L(t_0e_0;\beta)\,e^{-(t-t_0)\,m_L(t_0;\beta)}\\
+&\ge G_L(t_0e_0;\beta)\,e^{-(t-t_0)\,m_L(2;\beta)} .
+\end{align*}
+For a torus limit $\omega$ at $\beta>0$ in the first alternative of
+Corollary~\textup{\ref{rEtwo:limit}(ii)}, and all $2\le t_0<t$,
+\[
+G(te_0)\ge G(t_0e_0)\,e^{-(t-t_0)m(t_0)}\ge G(t_0e_0)\,e^{-(t-t_0)m(2)},
+\]
+and $m(t_0)\downarrow m_\Phi$, so that the exponential rate of the bound
+improves to $m_\Phi$ as $t_0\to\infty$; moreover
+\[
+G(te_0)\le G(t_0e_0)\,e^{-(t-t_0)m(t-1)},\quad
+\lim_{t\to\infty}\frac{\log G(te_0)}{t}=-m_\Phi,
+\]
+so $m_\Phi$ is the exact exponential rate of $G$ along the axis.
+\end{theorem}
+
+\begin{proof}
+By Corollary~\ref{rEtwo:exceptional}, $G_L(te_0;\beta)>0$ for $2\le t\le
+L-2$, so $g(t)=\log G_L(te_0;\beta)$ is defined there, and
+Theorem~\ref{rEtwo:axial}(ii) says that $g$ is convex on $\{2,\dots,L-2\}$:
+its increments $g(t+1)-g(t)=-m_L(t;\beta)$ are nondecreasing in $t$. The
+symmetry $g(t)=g(L-t)$ of Theorem~\ref{rEtwo:axial}(i) gives $m_L(L-1-t)=
+-m_L(t)$, and the monotonicity of Theorem~\ref{rEtwo:axial}(ii) gives
+$m_L(t)\ge0$ for $t+1\le L/2$. For $t_0<t$,
+\begin{align*}
+g(t)-g(t_0)&=\sum_{s=t_0}^{t-1}\bigl(g(s+1)-g(s)\bigr)\\
+&\ge(t-t_0)\bigl(g(t_0+1)-g(t_0)\bigr),
+\end{align*}
+which is the first inequality; the second follows from $m_L(t_0)\le
+m_L(2)$. In a torus limit the same argument applies to $g(t)=\log G(te_0)$,
+$t\ge2$, which is finite by the first alternative and the positivity
+$G(2e_0)\ge G(3e_0)>0$ of Corollary~\ref{rEtwo:limit}(i),(ii); the
+monotonicity and the limit $m_\Phi$ of the $m(t)$ are
+Corollary~\ref{rEtwo:limit}(iii). The upper bound is the convexity
+inequality $g(t)-g(t_0)\le(t-t_0)(g(t)-g(t-1))$. Finally $t^{-1}(g(t)-g(2))
+=-t^{-1}\sum_{s=2}^{t-1}m(s)\to-m_\Phi$ by Ces\`aro.
+\end{proof}
+
+At strong coupling the two numbers entering the bound are explicit.
+
+\begin{theorem}[explicit constants at strong coupling]\label{rEtwo:strong}
+Let $\rho$ be irreducible. There are $\beta_2(N)\in(0,\beta_1(N)]$ and
+$C_2(N)<\infty$ such that for $0<\beta\le\beta_2(N)$ and every even
+$L\ge8$ the numbers
+\[
+c(\beta)=108\Bigl(\frac{1+\delta}2\Bigr)^{9}\beta^8,\qquad
+m(\beta)=4\log\frac2{(1+\delta)\beta}
+\]
+satisfy
+\[
+\Bigl|\frac{G_L(2e_0;\beta)}{c(\beta)}-1\Bigr|\le C_2(N)\beta,\quad
+|m_L(2;\beta)-m(\beta)|\le C_2(N)\beta ,
+\]
+and consequently, for $2\le t\le L-2$,
+\begin{align*}
+G_L(te_0;\beta)&\ge\bigl(1-C_2(N)\beta\bigr)\,c(\beta)\,
+e^{-(t-2)\,(m(\beta)+C_2(N)\beta)}\\
+&=\bigl(1-C_2(N)\beta\bigr)\,108\Bigl(\frac{1+\delta}2\Bigr)^{9}\beta^{8}\\
+&\qquad\times\Bigl(\frac{(1+\delta)\beta}{2}\Bigr)^{4(t-2)}e^{-C_2(N)\beta(t-2)} .
+\end{align*}
+The same inequalities hold for $G(te_0)$ and $m(2)$ in every torus limit
+at $\beta\in(0,\beta_2(N)]$, for all $t\ge2$. The constants $\beta_2(N)$
+and $C_2(N)$ do not depend on $L$.
+\end{theorem}
+
+\begin{proof}
+Theorem~\ref{rEtwo:taylor} with $t=2$ and $t=3$ (admissible since $3<L/2$
+for $L\ge8$) gives, for $\beta\le\beta_0(N)$,
+\begin{align*}
+G_L(2e_0;\beta)&=108\Bigl(\frac{1+\delta}2\Bigr)^{9}\beta^8\bigl(1+
+\varepsilon_2(\beta)\bigr),\\
+G_L(3e_0;\beta)&=108\Bigl(\frac{1+\delta}2\Bigr)^{13}\beta^{12}\bigl(1+
+\varepsilon_3(\beta)\bigr),
+\end{align*}
+with $|\varepsilon_t(\beta)|\le C(N,t)\beta/(108((1+\delta)/2)^{4t+1})$.
+Choose $\beta_2(N)\le\beta_1(N)$ so small that $|\varepsilon_2|,
+|\varepsilon_3|\le1/2$ on $(0,\beta_2(N)]$. Then both values are positive,
+and
+\[
+m_L(2;\beta)=\log\frac{G_L(2e_0;\beta)}{G_L(3e_0;\beta)}=4\log\frac2{(1+
+\delta)\beta}+\log\frac{1+\varepsilon_2(\beta)}{1+\varepsilon_3(\beta)},
+\]
+where
+\[
+\bigl|\log\bigl((1+\varepsilon_2)/(1+\varepsilon_3)\bigr)\bigr|
+\le2(|\varepsilon_2|+|\varepsilon_3|)
+\]
+because $|\log(1+x)|\le2|x|$ for $|x|\le1/2$. This gives
+the two estimates with a $C_2(N)$ depending only on $C(N,2)$, $C(N,3)$ and
+$\delta$. The lower bound on $G_L(te_0;\beta)$ is then
+Theorem~\ref{rEtwo:logconvex} with $t_0=2$, and $e^{-(t-2)m(\beta)}=
+((1+\delta)\beta/2)^{4(t-2)}$. For torus limits, Theorem~\ref{rEtwo:taylor}
+holds for $G(te_0)$ as stated, the first alternative holds by
+Corollary~\ref{rEtwo:exceptional}, and the bound is
+Theorem~\ref{rEtwo:logconvex}.
+\end{proof}
+
+\begin{remark}\label{rEtwo:strongremark}
+(a) The bound of Theorem~\ref{rEtwo:strong} is sharp to leading order at
+$t=2,3$ and, by Theorem~\ref{rEtwo:taylor}, sharp in the exponent at every
+fixed $t<L/2$: $G_L(te_0;\beta)=108((1+\delta)/2)^{4t+1}\beta^{4t}(1+O(
+\beta))$, while the bound gives $108((1+\delta)/2)^{4t+1}\beta^{4t}(1-O(
+t\beta))$. The factor $e^{-C_2(N)\beta(t-2)}$ is the price of using only
+the two shortest distances; it is removed, at any fixed $t_0$, by starting
+the secant at $t_0$ instead of $2$, since $m_L(t_0;\beta)=4\log(2/((1+
+\delta)\beta))+O(\beta)$ for every fixed $t_0<L/2-1$ by the same
+computation.
+
+(b) In the language of Sec.~\ref{ssec:limitE}, the rate is a lattice mass.
+Since $m(t)\downarrow m_\Phi$, Theorem~\ref{rEtwo:strong} gives $m_\Phi\le
+m(2)=4\log(2/((1+\delta)\beta))+O(\beta)$ in every torus limit at $\beta
+\le\beta_2(N)$, and by (a) the same upper bound holds with $m(t_0)$ for
+every fixed $t_0$. The equality $m_\Phi=4\log(2/((1+\delta)\beta))+O(\beta)$
+would require the remainder $C(N,t)\beta^{4t+1}$ of
+Theorem~\ref{rEtwo:taylor} to be of the form $C(N)^t\beta^{4t+1}$ uniformly
+in $t$; this is not established here. The number $4\log(1/\beta)$ is the
+area-law cost of the four side plaquettes per unit length of the tube of
+Lemma~\ref{rEtwo:plateau}; in the normalisation $\beta_W=N^2\beta$ of
+Sec.~\ref{sec:intro} the bound reads $m_\Phi\le4\log(2N^2/((1+\delta)
+\beta_W))+O(\beta_W/N^2)$, the leading strong-coupling estimate of the
+lightest glueball mass in the plaquette channel, for which see~\cite{MM94}.
+\end{remark}
+
+\paragraph{The natural parameter and the degeneration of the bound.}
+Let $\nu_\beta$ be the one-link measure $c_0(\beta)^{-1}e^{N\beta\ReTr g}
+\,dg$ on $G$ and
+\[
+u(\beta)=\frac{a_\rho(\beta)}N=\frac1N\int_G\chi(g)\,d\nu_\beta(g)
+=\frac1N\int_G\ReTr g\,d\nu_\beta(g),
+\]
+the second equality because $g\mapsto g^{-1}$ preserves $\nu_\beta$ and
+$\chi(g^{-1})=\overline{\chi(g)}$. Then $u$ is real-analytic on $[0,
+\infty)$, $u(\beta)=\tfrac{1+\delta}2\beta+O(\beta^2)$ by
+\eqref{rEtwo:eqactivity}, $u'(\beta)=\Var_{\nu_\beta}(\ReTr g)>0$ since
+$\ReTr g$ is not constant on $G\ne\{1\}$, and $u(\beta)\uparrow1$ as
+$\beta\to\infty$: writing $\ReTr g=N-\tfrac12\|g-1\|_{\mathrm{HS}}^2$, the
+set $\{\ReTr g<N-\varepsilon\}$ has $\nu_\beta$-measure at most
+$e^{-N\beta\varepsilon/2}/\operatorname{Haar}\{\ReTr g\ge N-\varepsilon/2\}
+\to0$. The leading strong-coupling term of Theorem~\ref{rEtwo:taylor} is
+$108\,\tfrac{1+\delta}2\,u(\beta)^{4t}(1+O(\beta))$, each of the $4t$
+plaquettes of the box contributing one factor $u$ (the activity $a_\rho$
+divided by the dimension $N$ of Lemma~\ref{rEtwo:boxweight}), so that
+$m(\beta)=4\log(1/u(\beta))+O(\beta)$. As $\beta$ grows, $u(\beta)$
+increases to $1$ and the formal rate $4\log(1/u(\beta))$ decreases to $0$.
+What is proved is the following.
+
+\begin{proposition}[the bound at every coupling]\label{rEtwo:degenerate}
+Let $\rho$ be irreducible and $L\ge8$ even.
+
+\textup{(i)} For every $\beta\in(0,\infty)\setminus\mathcal D_L$ and
+$2\le t\le L-2$,
+\[
+G_L(te_0;\beta)\ge G_L(2e_0;\beta)\,e^{-(t-2)m_L(2;\beta)},
+\]
+where $\beta\mapsto G_L(2e_0;\beta)>0$ and $\beta\mapsto
+m_L(2;\beta)\ge0$ are real-analytic on $(0,\infty)\setminus\mathcal D_L$.
+For $\beta\in\mathcal D_L$ both sides vanish.
+
+\textup{(ii)} On $(0,\beta_2(N)]$ the two functions are given by
+Theorem~\ref{rEtwo:strong}; in particular $m_L(2;\beta)\to\infty$ as
+$\beta\downarrow0$: the exponential rate $4\log(2/((1+\delta)\beta))$ of
+the bound diverges while its prefactor $G_L(2e_0;\beta)\asymp\beta^8$
+vanishes. For $\beta>\beta_2(N)$ no bound on $G_L(2e_0;\beta)$ from below
+or on $m_L(2;\beta)$ from above that is uniform in $L$ is obtained here:
+Lemma~\ref{rEtwo:polymer}(iii) controls the Taylor series only for $\beta
+\le\beta_0(N)$, and Lemma~\ref{rEtwo:analytic} gives analyticity in
+$\beta$ for each $L$ without bounds uniform in $L$.
+
+\textup{(iii)} If a sequence $\omega_k$ of torus limits at couplings
+$\beta_k$ satisfies (AF) with constants $c_1\le C_1$, $\gamma$, $r_0$, then
+for all $k\ge k_0$ with $4a_k\le r_0$
+\[
+\Bigl|m_k(3)-8\log\frac43\Bigr|\le\log\frac{C_1}{c_1}+\gamma\log
+\frac{\ell(3a_k)}{\ell(4a_k)} ,
+\]
+where $m_k(3)=\log(G_k(3e_0)/G_k(4e_0))$ and the last term tends to $0$
+as $a_k\to0$. In particular the lattice rates $m_k(3)$ stay in a bounded
+window, whereas the strong-coupling rate $4\log(2/((1+\delta)\beta_k))$
+leaves every bounded window as $\beta_k\to0$ and the formal rate
+$4\log(1/u(\beta_k))$ tends to $0$ as $\beta_k\to\infty$.
+\end{proposition}
+
+\begin{proof}
+(i) is Theorem~\ref{rEtwo:logconvex} with $t_0=2$ together with
+Lemma~\ref{rEtwo:analytic} (the ratio of two positive real-analytic
+functions is real-analytic, and $m_L(2;\beta)\ge0$ since $2\le L/2-1$) and
+Theorem~\ref{rEtwo:axial}(iii). (ii) is Theorem~\ref{rEtwo:strong} and a
+statement about the proofs given. For (iii), (AF) applied at $z=3e_0$ and
+$z=4e_0$, both with $|z|_\infty\ge3$ and $a_k|z|\le r_0$, gives
+\[
+\frac{c_1w_\gamma(3a_k)}{C_1w_\gamma(4a_k)}\le\frac{G_k(3e_0)}{G_k(4e_0)}
+\le\frac{C_1w_\gamma(3a_k)}{c_1w_\gamma(4a_k)},
+\]
+and $w_\gamma(3a_k)/w_\gamma(4a_k)=(4/3)^8(\ell(4a_k)/\ell(3a_k))^\gamma$,
+with $1\le\ell(3a)/\ell(4a)\to1$ as $a\to0$.
+\end{proof}
+
+\paragraph{What reflection positivity gives.} The question whether
+reflection positivity alone yields a lower bound along a reflection axis
+has a precise answer.
+
+\begin{proposition}[reflection positivity and lower bounds]
+\label{rEtwo:rp}
+Let $\omega$ be a torus limit at $\beta\ge0$, $\vartheta$ the reflection
+through the hyperplane $x_0=0$ and $\vartheta'$ the reflection through
+$x_0=\tfrac12$ of Lemma~\textup{\ref{rE:torus}(iii)}.
+
+\textup{(i)} Reflection positivity gives $\omega((\Phi_{se_0}-c)\,
+\vartheta(\Phi_{se_0}-c))=G(2se_0)\ge0$ and $\omega((\Phi_{(s+1)e_0}-c)\,
+\vartheta'(\Phi_{(s+1)e_0}-c))=G((2s+1)e_0)\ge0$ for $s\ge1$, hence
+$G(te_0)\ge0$ for all $t\ge2$; with the transfer-matrix reconstruction it
+gives the log-convexity and monotonicity of Corollary~\ref{rEtwo:limit}
+and the secant bound of Theorem~\ref{rEtwo:logconvex}: a lower bound for
+$G(te_0)$ at every $t$ in terms of the two values $G(t_0e_0)$, $G((t_0+1)
+e_0)$.
+
+\textup{(ii)} No positive lower bound on $G(te_0)$, $t\ge2$, follows from
+reflection positivity, invariance and monotonicity alone: the function
+$G\equiv0$ on $\{|z|_\infty\ge2\}$ satisfies every inequality that these
+properties impose, and it is realised, with $c=\omega(\Phi_0)=24N$, by the
+product Haar measure $\beta=0$, which is a reflection-positive, translation-
+and hypercubically invariant torus limit. Within the Wilson measures at
+$\beta>0$ the same conclusion holds at every $\beta\in\mathcal D_L$ on the
+torus $\Lambda_L$, by Theorem~\textup{\ref{rEtwo:axial}(iv)}.
+
+\textup{(iii)} Monotonicity gives $G(te_0)\ge\lim_{s\to\infty}G(se_0)=
+\sigma(\{1\})$ for all $t\ge3$, the mass of the spectral measure of
+Corollary~\ref{rEtwo:limit} at $\lambda=1$; this is $0$ whenever
+$\gamma'<1$, in particular whenever $\omega$ has a mass gap for the
+reflection $\vartheta'$, so monotonicity yields no positive lower bound in
+the situations of interest.
+\end{proposition}
+
+\begin{proof}
+(i) For $F=\Phi_{se_0}-c$, which depends on the links in $\{x_0\ge s-1\}
+\subset\{x_0\ge0\}$ when $s\ge1$, reflection positivity for $\vartheta$
+gives $\omega(\bar F\vartheta F)\ge0$, and $\vartheta\Phi_{se_0}=
+\Phi_{-se_0}$ because $\vartheta$ maps the plaquettes with a corner at
+$se_0$ onto those with a corner at $-se_0$ and $F_p$ is invariant under
+orientation reversal; so $\omega(\bar F\vartheta F)=\omega(\Phi_{se_0}
+\Phi_{-se_0})-c^2=G(2se_0)$ by invariance. For $\vartheta'$, $\Phi_{(s+1)
+e_0}$ depends on links in $\{x_0\ge s\}\subset\{x_0\ge1\}$ for $s\ge1$,
+and $\vartheta'\Phi_{(s+1)e_0}=\Phi_{-se_0}$, giving $G((2s+1)e_0)\ge0$.
+The rest of (i) is Corollary~\ref{rEtwo:limit} and
+Theorem~\ref{rEtwo:logconvex}, whose proofs use only the Osterwalder--Seiler
+reconstruction from reflection positivity.
+
+(ii) At $\beta=0$ the links are independent Haar variables. For
+$|z|_\infty\ge2$ let $p\ni0$ and $q\ni z$ be plaquettes; then $p\ne q$,
+since the corners of $p$ lie in $\{|x|_\infty\le1\}$, and two distinct
+plaquettes share at most one link. If they share no link, $F_p$ and $F_q$
+are independent. If they share the link $l$, then conditionally on $U_l$
+the remaining three links of $p$ are independent Haar variables, and, with
+the links of $p$ taken in cyclic order from $l$ and $P_0=\int_G\rho(g)\,dg$
+the orthogonal projection onto the $G$-invariant vectors of $\C^N$,
+\begin{align*}
+E(F_p\mid U_l)&=N-\ReTr\bigl(U_l^{\pm1}E(U_{l_1}^{\pm1}U_{l_2}^{\pm1}U_{l_3}
+^{\pm1})\bigr)\\
+&=N-\ReTr(U_l^{\pm1}P_0^3)=N-\Tr P_0 ,
+\end{align*}
+because Haar measure is inversion invariant, $P_0^3=P_0$ and $\rho(g)P_0=
+P_0$; this is a constant, equal to $E(F_p)$. Hence $E(F_pF_q)=E(E(F_p\mid
+U_l)F_q)=E(F_p)E(F_q)$, since $F_q$ depends on $U_l$ and on links
+independent of those of $p$, and summing over $p\ni0$, $q\ni z$ gives
+$G(z)=0$. The product measure is reflection positive and invariant, and
+$c=24(N-\Tr P_0)=24N$ for irreducible $\rho$. The statement about
+$\mathcal D_L$ is Theorem~\ref{rEtwo:axial}(iv).
+
+(iii) By Corollary~\ref{rEtwo:limit}(i), $G((3+n)e_0)=\int\lambda^n\,
+d\sigma\downarrow\sigma(\{1\})$ by dominated convergence, and $\sigma$ is
+carried by $[0,\gamma']$ because $\Psi'\perp\Omega'$, as shown in the proof
+of Corollary~\ref{rEtwo:limit}(iii).
+\end{proof}
+
+\begin{remark}\label{rEtwo:rpremark}
+Proposition~\ref{rEtwo:rp} separates the two inputs of a lower bound:
+reflection positivity propagates positivity from two short distances to
+all distances along the axis, with the exact rate $m_\Phi$ in the limit,
+while the nonvanishing at short distance is a property of the specific
+measure, established here by analyticity and the strong-coupling
+expansion outside the discrete set $\mathcal D_L$
+(Corollary~\ref{rEtwo:exceptional}) and with explicit values for
+$\beta\le\beta_2(N)$ (Theorem~\ref{rEtwo:strong}). For a non-axial $z$
+there is no reflection in a coordinate hyperplane mapping $0$ to $z$; the
+diagonal reflections are not among the reflection positivities proved in
+Lemma~\ref{rE:torus}(iii), and the positivity $G(z)\ge0$ for general $z$
+is not asserted here.
+\end{remark}
+
+\subsubsection{Comparison with the perturbative law and the missing step}
+
+Let $\omega_k$ be torus limits at couplings $\beta_k$ with spacings $a_k
+\to0$, and $G_k$, $Z_k$, $c_1\le C_1$, $\gamma$, $r_0$, $\ell$, $w_\gamma$
+as in (AF) of Sec.~\ref{ssec:limitE}; with $r=1$ the range of (AF) is
+$|z|_\infty\ge3$, and for $z=te_0$ one has $|z|=t$. For $t\ge2$ put
+$m_k(t)=\log(G_k(te_0)/G_k((t+1)e_0))$ when $G_k((t+1)e_0)>0$.
+Theorem~\ref{rEtwo:logconvex} gives, in the first alternative of
+Corollary~\ref{rEtwo:limit}(ii), the exponential lower bound
+\begin{equation}\label{rEtwo:eqsecant}
+Z_k^2G_k(te_0)\ge Z_k^2G_k(t_0e_0)\,e^{-(t-t_0)m_k(t_0)}\qquad(2\le t_0<t),
+\end{equation}
+whereas the lower half of (AF) asks for $Z_k^2G_k(te_0)\ge c_1w_\gamma(a_k
+t)$, a power law, on $3\le t\le r_0/a_k$. The two are compared first as
+functions of $t$ and then in spectral terms.
+
+\begin{proposition}[exponential against power law]\label{rEtwo:compare}
+\textup{(i)} If $\omega_k$ satisfies (AF), then for $3\le t$ with $(t+1)
+a_k\le r_0$
+\[
+\Bigl|m_k(t)-8\log\frac{t+1}t\Bigr|\le\log\frac{C_1}{c_1}+\gamma\log
+\frac{\ell(a_kt)}{\ell(a_k(t+1))} ,
+\]
+and the lattice mass $m_{\Phi,k}=\lim_tm_k(t)$ of Corollary~\ref{rEtwo:limit}
+satisfies $\limsup_km_{\Phi,k}\le\log(C_1/c_1)$.
+
+\textup{(ii)} Among all positive log-convex sequences with prescribed
+values at $t_0$ and $t_0+1$, the geometric sequence $G(t_0)e^{-(t-t_0)
+m(t_0)}$ is the smallest; so \eqref{rEtwo:eqsecant} is the best lower bound
+at $t>t_0+1$ that follows from the values at $t_0$, $t_0+1$ and
+log-convexity. If $G(t_0)$ and $G(t_0+1)$ are the values of the power law
+$c\,t^{-8}$, this bound is $c\,t_0^{-8}(1+1/t_0)^{-8(t-t_0)}$, equal to
+$c\,t^{-8}$ at $t=t_0+1$ and strictly smaller for every $t\ge t_0+2$.
+
+\textup{(iii)} For every finite set $S\subset\{3,4,\dots\}$ and $c>0$ there
+is a finite measure $\sigma$ on $[0,1]$ such that $G(t)=\int\lambda^{t-3}
+d\sigma$ satisfies $\tfrac12c\,t^{-8}\le G(t)\le c\,t^{-8}$ for $t\in S$ and
+$G(t)\le c\,\varepsilon^{t-3}$ for all $t\ge3$, for some $\varepsilon\in(0,1)$.
+Hence the lower bounds $Z_k^2G_k(te_0)\ge c_1w_\gamma(a_kt)$ at the
+separations $t\in S$, together with every inequality that the spectral
+representation of Corollary~\ref{rEtwo:limit} imposes, do not imply the
+lower bound at the separations $t\notin S$ with $t\le r_0/a_k$, once $a_k$
+is small.
+\end{proposition}
+
+\begin{proof}
+(i) is the computation of Proposition~\ref{rEtwo:degenerate}(iii) at the
+separations $t,t+1$, where $\ell(a_kt)\ge\ell(a_k(t+1))$ since $\ell$ is
+nonincreasing; the first alternative holds because the lower half of (AF)
+gives $G_k(te_0)>0$ for $3\le t\le r_0/a_k$. For the mass, $m_{\Phi,k}\le
+m_k(t)$ for every admissible $t$ by Corollary~\ref{rEtwo:limit}(iii);
+taking $t+1=\lfloor r_0/a_k\rfloor$ and letting $k\to\infty$, $8\log((t+1)/
+t)\to0$ and $\log(\ell(a_kt)/\ell(a_k(t+1)))\le\log(\ell(r_0-2a_k)/\ell(
+r_0))\to0$.
+
+(ii) A sequence $g(t)=\log G(t)$ is convex if and only if its increments
+are nondecreasing, so $g(t)\ge g(t_0)+(t-t_0)(g(t_0+1)-g(t_0))$, with
+equality for affine $g$, that is, geometric $G$. With $G(t_0)=ct_0^{-8}$
+and $G(t_0+1)=c(t_0+1)^{-8}$ the geometric bound is $ct_0^{-8}(t_0/(t_0+1))
+^{8(t-t_0)}$, and $(1+1/t_0)^{n}>1+n/t_0$ for $n=t-t_0\ge2$ is Bernoulli's
+inequality, strict for $n\ge2$.
+
+(iii) The power law is a moment sequence: $c(3+n)^{-8}=\int_0^\infty
+e^{-(3+n)E}\,c\,E^7\,dE/7!$, so $c\,t^{-8}=\int\lambda^{t-3}d\sigma_0$ with
+$\sigma_0$ the image of $cE^7e^{-3E}dE/7!$ under $\lambda=e^{-E}$. Let
+$\sigma=\sigma_0|_{[\varepsilon',\varepsilon]}$ with $0<\varepsilon'<\varepsilon<1$.
+Then $G(t)\le ct^{-8}$ for all $t$, $G(t)\le\varepsilon^{t-3}\sigma_0([0,1])
+=c\,3^{-8}\varepsilon^{t-3}$, and $G(t)\ge ct^{-8}-\sigma_0([0,\varepsilon'))
+-\sigma_0((\varepsilon,1])$ for every $t$. Since
+$\sigma_0$ has no atoms, $\sigma_0([0,\varepsilon'))\to0$ as $\varepsilon'
+\to0$ and $\sigma_0((\varepsilon,1])\to0$ as $\varepsilon\to1$; choose
+$\varepsilon$ close to $1$ and then $\varepsilon'$ close to $0$ so that both
+are at most $\tfrac14c(\max S)^{-8}$. Then $G(t)\ge\tfrac12ct^{-8}$ on $S$.
+For the last statement take $c=2c_1a_k^{-8}$: then $G(t)\ge c_1a_k^{-8}
+t^{-8}\ge c_1w_\gamma(a_kt)$ on $S$, $G$ has the spectral form of
+Corollary~\ref{rEtwo:limit}(i), and $G(t)\le2c_1a_k^{-8}3^{-8}\varepsilon^{
+t-3}<c_1w_\gamma(a_kt)$ for $t$ large with $a_kt\le r_0$, since
+$\varepsilon^{t}t^{8}\ell(a_kt)^\gamma\to0$ and $\ell(a_kt)\le\ell(a_k)$.
+\end{proof}
+
+\paragraph{Spectral form of (AF).} Let $\sigma_k$ be the spectral measure
+of Corollary~\ref{rEtwo:limit}(i) for $\omega_k$, and let $\tau_k$ be the
+image of $Z_k^2\sigma_k$ under $\lambda\mapsto E=-\log\lambda\in[0,\infty]$,
+the energy distribution, in lattice units of the time direction, of the
+state $Z_k(\Phi_{2e_0}-c_k)\Omega'$ for the transfer matrix of the link
+reflection. Then
+\begin{equation}\label{rEtwo:eqlaplace}
+Z_k^2G_k((3+n)e_0)=\int_{[0,\infty)}e^{-nE}\,d\tau_k(E)\qquad(n\ge1),
+\end{equation}
+and $\tau_k([0,\infty))=Z_k^2G_k(3e_0)$.
+
+\begin{proposition}[spectral form of the two-point law]\label{rEtwo:spectral}
+Let $\omega_k$ satisfy (AF), and put $A=\log(2C_1/c_1)$, $B=8+\gamma$.
+
+\textup{(i)} \textup{(}Upper half.\textup{)} For $0<E\le1$,
+\[
+\tau_k([0,E])\le e\,C_1\,w_\gamma\bigl(a_k(3+\lfloor1/E\rfloor)\bigr)\le
+e\,C_1\,a_k^{-8}E^{8} .
+\]
+
+\textup{(ii)} \textup{(}Lower half.\textup{)} For $4\le t\le r_0/a_k$ the
+number $M_k(t)=\log\bigl(2C_1w_\gamma(3a_k)/(c_1w_\gamma(a_kt))\bigr)$
+satisfies $\log2\le M_k(t)\le A+B\log(t/3)$ and
+\[
+\tau_k\Bigl(\Bigl[0,\frac{M_k(t)}{t-3}\Bigr]\Bigr)\ge\frac{c_1}2\,w_\gamma(
+a_kt).
+\]
+Consequently, for $0<E\le1$ and $t_E=3+\lceil(2/E)(A+B\log(2B/E))\rceil$,
+if $t_E\le r_0/a_k$ then
+\begin{align*}
+\tau_k([0,E])&\ge\frac{c_1}2\,w_\gamma(a_kt_E)\\
+&\ge\frac{c_1}2\,a_k^{-8}\Bigl(\frac{E}{C_3\log(4/E)}\Bigr)^{8}\ell(a_k/E)
+^{-\gamma},
+\end{align*}
+with $C_3=4+2A+2B\log(2B)+2B$; the condition $t_E\le r_0/a_k$ holds for
+$E\ge C_4(a_k/r_0)\log(r_0/a_k)$ when $a_k/r_0$ is small, for a $C_4$
+depending on $C_1/c_1$ and $\gamma$.
+
+\textup{(iii)} \textup{(}Converse.\textup{)} If
+\[
+\tau_k([0,E])\ge C^{-1}a_k^{-8}\Bigl(\frac{E}{\log(4/E)}\Bigr)^8
+\ell(a_k/E)^{-\gamma}
+\]
+for $E_k\le E\le1$, then for $11\le t\le3+8/E_k$
+\[
+Z_k^2G_k(te_0)\ge\frac{(8/e)^8}{C\,(1+\log16)^{\gamma}}\,\frac{w_\gamma(a_kt)}
+{\bigl(\log((t-3)/2)\bigr)^8},
+\]
+the lower half of (AF) up to the factor $(\log((t-3)/2))^{-8}$; and if
+$\tau_k([0,E])\le C'a_k^{-8}E^8$ for $0<E\le1$ and $\tau_k([0,\infty))\le
+C'a_k^{-8}$, then $Z_k^2G_k(te_0)\le C''a_k^{-8}t^{-8}$ for $t\ge4$, the
+upper half with $\gamma=0$.
+\end{proposition}
+
+\begin{proof}
+(i) For $n\ge1$ and $E>0$,
+\begin{align*}
+\tau_k([0,E])&\le e^{nE}\!\int\! e^{-nE'}d\tau_k(E')
+=e^{nE}Z_k^2G_k((3+n)e_0)\\
+&\le e^{nE}C_1w_\gamma(a_k(3+n))
+\end{align*}
+by the upper half of (AF), valid at every $|z|_\infty\ge3$. With
+$n=\lfloor1/E\rfloor\ge1$ one has $nE\le1$ and $3+n\ge1/E$, and
+$w_\gamma(\rho)\le\rho^{-8}$.
+
+(ii) By Corollary~\ref{rEtwo:limit}(i) and (AF),
+\[
+c_1w_\gamma(a_kt)\le Z_k^2G_k(te_0)\le Z_k^2G_k(3e_0)\le C_1w_\gamma(3a_k),
+\]
+so $M_k(t)\ge\log2$; and
+\begin{align*}
+\frac{w_\gamma(3a_k)}{w_\gamma(a_kt)}&=\Bigl(\frac t3\Bigr)^8
+\Bigl(\frac{\ell(a_kt)}{\ell(3a_k)}\Bigr)^{\gamma},\\
+\frac{\ell(3a_k)}{\ell(a_kt)}&=1+\frac{\log(t/3)}{\ell(a_kt)}\le1+\log(t/3),
+\end{align*}
+so $M_k(t)\le A+8\log(t/3)+\gamma\log(t/3)$. Split \eqref{rEtwo:eqlaplace} at
+$E_0$ with $n=t-3\ge1$:
+\begin{align*}
+Z_k^2G_k(te_0)&\le\tau_k([0,E_0])+e^{-(t-3)E_0}\,\tau_k((E_0,\infty))\\
+&\le\tau_k([0,E_0])+e^{-(t-3)E_0}\,C_1w_\gamma(3a_k).
+\end{align*}
+With $E_0=M_k(t)/(t-3)$ the last term is $\tfrac12c_1w_\gamma(a_kt)$ by the
+definition of $M_k(t)$, and the lower half of (AF) gives the claim. For the
+consequence: for $s\ge0$ and $0<\eta\le1$, $\log(1+s)\le\eta s+\log(1/
+\eta)$, since the left side minus $\eta s$ is maximal at $s=1/\eta-1$ with
+value $\log(1/\eta)-1+\eta$. With $\eta=E/(2B)$, $s=t-3$ and $t/3\le1+(t-3)$,
+\[
+M_k(t)\le A+B\log(1+(t-3))\le A+\tfrac12E(t-3)+B\log(2B/E),
+\]
+so $M_k(t)/(t-3)\le E$ as soon as $(t-3)E/2\ge A+B\log(2B/E)$, which holds
+for $t=t_E$. If $t_E\le r_0/a_k$ the first bound applies at $t_E$ and
+gives $\tau_k([0,E])\ge\tau_k([0,M_k(t_E)/(t_E-3)])\ge\tfrac12c_1w_\gamma(
+a_kt_E)$. Finally $t_E\le4+(2/E)(A+B\log(2B)+B\log(1/E))\le C_3\log(4/E)/E$
+for $E\le1$, using $1\le\log(4/E)$ and $\log(1/E)\le\log(4/E)$ for $E\le1$, and
+$t_E\ge1/E$ gives $\ell(a_kt_E)\le\ell(a_k/E)$, $\ell$ being nonincreasing.
+The condition $t_E\le r_0/a_k$ follows from $C_3\log(4/E)/E\le r_0/a_k$;
+with $E=C_4y\log(1/y)$, $y=a_k/r_0$, this reads $C_3\log(4/(C_4y\log(1/y)))
+\le C_4\log(1/y)$ and holds for $C_4=2C_3$ once $y$ is small, and
+$\log(4/E)/E$ is decreasing in $E$.
+
+(iii) For $t\ge11$ put $E=8/(t-3)\le1$; if $E\ge E_k$, that is $t\le3+8/
+E_k$, then by \eqref{rEtwo:eqlaplace}
+\begin{align*}
+Z_k^2G_k(te_0)&\ge e^{-(t-3)E}\tau_k([0,E])\\
+&\ge\frac{a_k^{-8}}{e^{8}C}\Bigl(\frac{8}{(t-3)\log((t-3)/2)}\Bigr)^8
+\ell\Bigl(\frac{a_k(t-3)}8\Bigr)^{-\gamma},
+\end{align*}
+and $(t-3)/8\ge t/16$ for $t\ge6$ gives
+\begin{align*}
+\ell\bigl(a_k(t-3)/8\bigr)&\le\ell(a_kt/16)\le\ell(a_kt)+\log16\\
+&\le(1+\log16)\,\ell(a_kt),
+\end{align*}
+while $(t-3)^{-8}\ge t^{-8}$.
+For the upper half, integrate by parts in \eqref{rEtwo:eqlaplace} with
+$n=t-3\ge1$:
+\begin{align*}
+Z_k^2G_k(te_0)&=\int_0^\infty ne^{-nE}\tau_k([0,E])\,dE\\
+&\le C'a_k^{-8}\int_0^1ne^{-nE}E^8\,dE+e^{-n}C'a_k^{-8}\\
+&\le C'a_k^{-8}(8!\,n^{-8}+e^{-n}),
+\end{align*}
+$e^{-n}\le8!\,n^{-8}$, and $(t-3)^{-8}\le4^8t^{-8}$ for $t\ge4$.
+\end{proof}
+
+\begin{remark}\label{rEtwo:spectralremark}
+Proposition~\ref{rEtwo:spectral} says that (AF) along an axis is, up to
+powers of logarithms, the statement that the energy distribution of the
+local excitation $Z_k(\Phi_{2e_0}-c_k)\Omega'$ has weight of order
+$a_k^{-8}E^8$ below every lattice energy $E$ between $(a_k/r_0)\log(r_0/a_k)$
+and $1$: in physical units $E_{\mathrm{ph}}=E/a_k$, weight of order
+$E_{\mathrm{ph}}^{\,8}$ below every energy between $\log(r_0/a_k)/r_0$ and
+the cutoff $1/a_k$, the distribution $E_{\mathrm{ph}}^{\,7}dE_{\mathrm{ph}}$.
+The lower half concerns the low-energy part at every intermediate scale;
+the exponential bound \eqref{rEtwo:eqsecant} controls the Laplace transform
+\eqref{rEtwo:eqlaplace} at a single $n$, hence, by
+Proposition~\ref{rEtwo:compare}(ii),(iii), nothing of this kind.
+\end{remark}
+
+\paragraph{The two inputs of the lower half.} This subsection provides, for
+the sequence $\omega_k$, two kinds of information: the positivity,
+log-convexity and dichotomy of Theorem~\ref{rEtwo:axial} and
+Corollary~\ref{rEtwo:limit}, valid at every $k$ with no uniformity in $k$,
+and the explicit values of Theorem~\ref{rEtwo:strong}, valid for $\beta_k
+\le\beta_2(N)$ only. A continuum sequence has $\beta_k\to\infty$ by
+(AF$_\beta$) and leaves the second range; inside it,
+Theorem~\ref{rEtwo:taylor} shows that the two-point function is
+exponential in $t$, $G_k(te_0)\asymp\beta_k^{4t}$, in accordance with
+Theorem~\ref{thm:limitEaf}(v).
+
+\begin{corollary}[the two inputs]\label{rEtwo:step}
+Let $\omega_k$ be torus limits at couplings $\beta_k\to\infty$ in the first
+alternative of Corollary~\textup{\ref{rEtwo:limit}(ii)}, and consider
+
+\textup{(a)} \textup{(}cutoff scale\textup{)} $\liminf_kZ_k^2G_k(3e_0)/
+w_\gamma(3a_k)>0$, and
+
+\textup{(b)} \textup{(}intermediate scales\textup{)} for all $k\ge k_0$
+and $E_k\le E\le1$,
+\[
+\tau_k([0,E])\ge C^{-1}a_k^{-8}\Bigl(\frac{E}{\log(4/E)}\Bigr)^8
+\ell(a_k/E)^{-\gamma}.
+\]
+
+The lower half of (AF) implies \textup{(a)} and \textup{(b)} with $E_k=
+C_4(a_k/r_0)\log(r_0/a_k)$. Conversely \textup{(a)} and \textup{(b)} imply
+the lower half of (AF) up to the factor $(\log((t-3)/2))^{-8}$ on $3\le t
+\le3+8/E_k$; with the $E_k$ above this is the range $a_kt\le8r_0/(C_4\log(
+r_0/a_k))(1+o(1))$, shorter than $a_kt\le r_0$ by a logarithm. Neither
+\textup{(a)} nor \textup{(b)} follows from the results of this subsection:
+\textup{(a)} is a lower bound at three lattice units for the Wilson
+measure at $\beta_k\to\infty$, where the strong-coupling expansion does
+not reach, analyticity in $\beta$ gives no bound uniform in $k$, and
+reflection positivity gives $G_k(3e_0)\ge0$ only; \textup{(b)} is a lower
+bound on the low-energy spectral weight of the local excitation at every
+scale between $r_0$ and the cutoff, which by
+Proposition~\ref{rEtwo:compare}(iii) is not implied by \textup{(a)}, nor by
+the lower half of (AF) at any finite set of separations, together with
+every consequence of reflection positivity.
+\end{corollary}
+
+\begin{proof}
+If the lower half of (AF) holds, (a) is its case $t=3$ and (b) is
+Proposition~\ref{rEtwo:spectral}(ii) with $C=2C_3^8/c_1$. Conversely (b)
+gives, by Proposition~\ref{rEtwo:spectral}(iii), the lower half for $11\le
+t\le3+8/E_k$ up to the factor $(\log((t-3)/2))^{-8}$; (a) gives it at
+$t=3$ since $w_\gamma(3a_k)\ge3^{-8}\ell(3a_k)^{-\gamma}a_k^{-8}$ is the
+right side of (AF) there; and Corollary~\ref{rEtwo:limit}(i) gives it at
+$4\le t\le10$ from the value at $t=11$, since $G_k(te_0)\ge G_k(11e_0)$
+there and $w_\gamma(a_kt)\le(11/t)^8w_\gamma(11a_k)\le(11/4)^8w_\gamma(11a_k)$
+for $4\le t\le11$, $\ell$ being nonincreasing. The negative statements are
+Proposition~\ref{rEtwo:degenerate}(ii), Theorem~\ref{rEtwo:taylor},
+Proposition~\ref{rEtwo:rp} and Proposition~\ref{rEtwo:compare}(iii).
+\end{proof}
+
+\begin{remark}\label{rEtwo:balaban}
+Statement (b) at the scale $E$ concerns, in the renormalisation-group
+description of Ba{\l}aban~\cite{Bal87,Bal88,Bal89b}, the effective theory
+after the block-spin steps that bring the lattice spacing from $a_k$ to
+about $a_k/E$, with the two insertions of $\Phi$ made at the cutoff scale
+and carried through every step. As recalled in
+Remarks~\ref{rem:limitEafstatus} and~\ref{rE:status}, the bounds
+of~\cite{Bal89b} concern the partition function of a box of fixed physical
+size, with the large-field regions localised and exponentiated, and give
+no lower bound on a connected correlation. What Corollary~\ref{rEtwo:step}
+adds to those remarks is the form of the missing bound: a lower bound on
+the low-energy weight of the two-source generating function at every
+intermediate scale, with the large-field contribution dominated by the
+small-field connected part of order $a_k^{-8}E^8$ at that scale, and the
+same at the cutoff scale for (a). Positivity, analyticity and the
+strong-coupling expansion give the lower bound at every scale from the
+values at two consecutive separations, but the values at two separations,
+at any fixed scale, do not determine the low-energy weight at the others.
+\end{remark}
+
+\begin{remark}[status]\label{rEtwo:status2}
+Proved here, for every $\beta>0$, every even torus $L\ge6$ and every
+compact $G\subset\U(N)$ with $\rho$ irreducible: the axial connected
+correlation of $\Phi$ is nonnegative, log-convex and monotone, and either
+strictly positive at all axial separations or zero at all of them, the
+latter only on a closed discrete set $\mathcal D_L$ of couplings that
+misses $(0,\beta_1(N)]$; for a single spatial plaquette it is strictly
+positive at every $\beta$; the exponential lower bound
+\eqref{rEtwo:eqsecant} holds with the exact rate $m_\Phi$ in torus limits;
+its constants are $c(\beta)=108((1+\delta)/2)^9\beta^8$ and $m(\beta)=4
+\log(2/((1+\delta)\beta))$ to leading order at strong coupling; reflection
+positivity propagates positivity but does not create it. Not proved: that
+$\mathcal D_L$ is empty for every $L$; positivity at non-axial
+separations; any bound uniform in the lattice spacing along a continuum
+sequence; either half of (AF). Nothing here bears on the existence of a
+continuum limit or on a mass gap; Corollary~\ref{rEtwo:step} states the two
+inputs that an argument for the lower half of (AF) along an axis would
+have to supply.
+\end{remark}

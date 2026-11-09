@@ -1,9 +1,7 @@
-# Research revision v4.42.0
+# Yang-Mills Theory and the Mass Gap (v4.43.0)
 
-Adds proved off-diagonal semigroup and static Poisson-residual identities matching the excluded same-link block in (FC); derives Gaussian full-row and response lower obstructions from the existing collective-source identities; constructs finite-volume Wilson Poisson trials as finite sums of actual conditional expectations, with a proved residual rate uniform in the coarse data at fixed geometry; proves a mixed Poisson/flux enclosure without assuming a global inverse gap; and adds a detailed appendix on spectral cutoffs, minimum fluxes, Gaussian transport and an explicitly specified nonconvex probability model. Three new figures and 64 exact checks accompany the derivations. The full prior manuscript and all four authors are retained. All 116 bibliography entries are retained without adding an unverified bibliographic item.
+The paper (203 pages) proves the strong-coupling mass gap m >= arccosh(1 + (kappa_G/(N beta) - 29/2)/12) for every compact simple gauge group and shows that one uniform cube estimate at physical scale l gives every continuum limit the mass gap m >= 16 varpi/(625 e^2 l). It contains the cube estimate for free massive fields with its exact constant and its stability under convex perturbations, weak-coupling estimates for SU(2) with a constant independent of beta, a renormalisation-group recursion for the cube constant, the renormalised two-point continuum theory, lower bounds on plaquette correlations and ultraviolet tightness. Side material not needed for these results was removed. Sanjeevan Singha Roy joins as fifth author, and the declarations are complete.
 
-The uniform weak-coupling Wilson estimate (D), the all-scale construction needed in this route, and a nontrivial continuum limit (E) remain unproved.
+The uniform weak-coupling cube estimate (D) and a nontrivial continuum limit (E) remain unproved, so the continuum mass gap is not proved.
 
-Version DOI: https://doi.org/10.5281/zenodo.24055064
-
-Permanent work DOI: https://doi.org/10.5281/zenodo.23444338
+DOI (all versions): https://doi.org/10.5281/zenodo.23444338
