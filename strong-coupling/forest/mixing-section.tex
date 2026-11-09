@@ -12,7 +12,7 @@ surveys. The averaged condition $\mathrm{BP}(n,\varpi)$ is a statement of this
 kind for the dynamics that resamples whole cubes of side $n$. For a block
 dynamics with blocks larger than the mixing length, Dyer, Sinclair, Vigoda
 and Weitz derive the contraction of the block dynamics from strong spatial
-mixing by path coupling~\cite{DSVW04,BD97}, in the spirit of the
+mixing by path coupling~\cite{DSVW04,BD97},\footnote{Path coupling reduces a contraction estimate for a Markov chain in a path metric to pairs of states at distance one: if every such pair can be coupled so that the expected distance after one step is at most $1-\delta$, the same holds for all pairs~\cite{BD97}.} in the spirit of the
 constructive criterion of~\cite{DS85}. This subsection carries that
 argument out for the cube chain of Sec.~\ref{ssec:averaged} on gauge orbits.
 It formulates a mixing condition on the cubes of side $n$ alone, posed for
@@ -401,6 +401,17 @@ and the same holds if $G=\SU(N)$ and the condition is assumed only with $h$
 ranging over $\mathcal G\mathcal Z$.
 \end{enumerate}
 \end{corollary}
+
+\begin{figure*}[t]
+\centering
+\includegraphics[width=0.92\textwidth]{figures/fig_mixing.png}
+\caption{The constant of Theorem~\ref{rW9:main} in the limit $n\to\infty$
+at fixed $\theta=s/n$, namely $\bar R(1-\theta)^4-(\bar R-1)(1+\theta)^4$,
+cut off at $0$. (a) As a surface over $\theta$ and $\bar R$. (b) Against
+$\theta$ for $\bar R=1,1.1,1.25,1.5$, with the level $\frac13$ of
+Corollary~\ref{rW9:physical} and the line $8s=n$.}
+\label{fig:mixing}
+\end{figure*}
 
 \begin{proof}
 (i) With $\theta=s/n\le\frac18$ and $1+\frac1n\le\frac98$, the bound of

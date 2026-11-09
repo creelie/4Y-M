@@ -7,7 +7,7 @@ units of the cube. This subsection asks which perturbations of the Gaussian
 preserve it. The answer has a negative and a positive half. A lower bound on
 the Hessian of the Hamiltonian does not preserve it: a convex perturbation of
 the free field can drive the constant to zero, because the Dirichlet form of
-the cube dynamics, unlike the carr\'e du champ of the Langevin dynamics,
+the cube dynamics, unlike the carr\'e du champ of the Langevin dynamics,\footnote{For a Markov generator $\mathcal L$ the carr\'e du champ is $\Gamma(f)=\frac12\bigl(\mathcal L f^2-2f\mathcal Lf\bigr)$; for the Langevin dynamics $\mathcal L=\Delta-\nabla S\cdot\nabla$ it equals $\lvert\nabla f\rvert^2$, and the Dirichlet form is $\E\,\Gamma(f)$.}
 depends on the Hessian and is not monotone in it. What preserves it is a
 two-sided control of the Hessian, or more precisely a pointwise stable
 decomposition of the Hessian along the cubes; under that hypothesis the
@@ -89,6 +89,18 @@ convex, $\mathrm{BP}(n,\varpi_0)$ for $\mu_0$ implies $\mathrm{BP}(n,c
 \varpi_0)$ for $\mu$; and the same holds with ``$\Hess(-\log\mu)\ge\Hess
 (-\log\mu_0)$'' in place of ``$V$ convex''.
 \end{theorem}
+
+\begin{figure*}[t]
+\centering
+\includegraphics[width=0.92\textwidth]{figures/fig_stability.png}
+\caption{A convex perturbation can destroy the cube condition
+(Theorem~\ref{thm:rSnonmono}). (a) The bound
+$s^2/(s^2+(1+t)\,16d/9)$, $d=4$, on the constant of the free scalar field
+perturbed by $\frac t2\lVert\nabla\phi\rVert^2$, over $s=m\ell$ and $t$.
+(b) The same bound against $t$ for $s=1,2,4,8$; it tends to $0$ as
+$t\to\infty$ although the Hessian only grows.}
+\label{fig:stability}
+\end{figure*}
 
 \begin{proof}
 $\mu_t$ is the Gaussian with precision $Q_t=(1+t)(-\Delta)+\mu^2=(1+t)

@@ -1,0 +1,894 @@
+\subsection{Block dynamics on cells and a coarse-scale hypothesis in four
+dimensions}\label{rC12:coarse}
+
+A route to the averaged condition $\mathrm{BP}(n,\varpi)$ of
+Definition~\ref{def:avgcube} is to coarse-grain the lattice into cells of
+side $d$, to treat the inside of the cells by the Efron--Stein inequality,
+and to treat the coarse variables by comparison with $\beta=0$. This
+subsection carries out that route in four dimensions and locates the step
+where it stops. The results are the following.
+\begin{enumerate}[label=\textup{(\alph*)},leftmargin=*]
+\item A finite-size criterion: a gap of the block dynamics on patches of
+$m^4$ cells, uniform in the boundary condition, gives
+$\mathrm{BP}(2d-1,\varpi)$ on every torus with $\varpi$ depending on that gap
+and on $m$ only (Theorem~\ref{rC12:finite}). Blocks that share no plaquette
+give commuting projections, and this replaces the disjointness used in the
+criteria of Knabe~\cite{Kna88} and of Gosset and Mozgunov~\cite{GM16}.
+\item A coarse-scale hypothesis, a density of the coarse links close to the
+Haar density uniformly in the boundary condition
+(Definition~\ref{rC12:C}), holds for every compact $G$, every weight and
+every coupling once $d$ is large, with an error exponentially small in $d$
+(Theorem~\ref{rC12:segment}). Links on one straight line share no
+plaquette, so a coarse link is a product of $d-2$ conditionally independent
+variables. The hypothesis therefore holds in the Coulomb phase of the
+$\U(1)$ Villain theory, where the averaged condition fails for box measures,
+and it implies neither the averaged condition nor confinement
+(Proposition~\ref{rC12:coulomb}).
+\item For every nonconstant weight two adjacent cells are not
+conditionally independent given the coarse links, nor given any functions
+of the two cells that leave out one pair of links of a plaquette crossing
+their common face (Proposition~\ref{rC12:nogo}). With the quantitative
+substitute $(\mathrm T_{d,m}(\kappa))$ of Definition~\ref{rC12:T}, an
+approximate tensorisation of the variance over the cells given the coarse
+links, the route closes and gives $\mathrm{BP}(2d-1,\varpi)$ with
+$\varpi=1/(1024\kappa+16384)$ (Theorem~\ref{rC12:reduction}).
+\item At fixed $d$ and small coupling the patch gap follows from comparison
+with $\beta=0$; this gives the averaged condition in an explicit range
+without Dobrushin coefficients or gauge fixing
+(Corollary~\ref{rC12:strong}), a range far smaller than that of
+Corollary~\ref{cor:bpranges}.
+\end{enumerate}
+The hypothesis $(\mathrm T_{d,m}(\kappa))$ and the patch gap are not proved
+at weak coupling. Nothing in this subsection proves
+$\mathrm{BP}(n_k,\varpi)$ along the continuum tuning, condition $D(n,
+\alpha)$, condition (E), an area law or the mass gap.
+
+\emph{Setting.} As in Sec.~\ref{ssec:averaged}, $G\subset\U(N)$ is compact
+and nontrivial, $\varphi$ is a positive continuous class function on $G$,
+$\Lambda=\Lambda_L=(\Z/L\Z)^4$, $E$ and $P$ are the sets of links and
+plaquettes, $\mu$ is the measure with weight $\varphi$, and $h$ denotes
+Haar probability measure (on $G$, or the product of Haar measures on $G^A$
+for a set $A$ of links). Put
+\[
+\omega_\varphi=\log\frac{\max\varphi}{\min\varphi}.
+\]
+For $\SU(2)$ with $\varphi=e^{2\beta\ReTr(\cdot)}$, $\omega_\varphi=8\lvert
+\beta\rvert=2\lvert\beta_W\rvert$. For a set $A$ of links, $P_A$ is the
+conditional expectation under $\mu$ given the links outside $A$; the
+conditional law of $U_A$ has density proportional to $\prod_{p\cap A\ne
+\emptyset}\varphi(U_p)$ with respect to $h$ on $G^A$ and depends only on the
+links that share a plaquette with a link of $A$. Two sets $A,A'$ of links
+are \emph{non-interacting} if no plaquette contains a link of $A$ and a link
+of $A'$. A plaquette with base point $y$ in the plane $\{\mu,\nu\}$ consists
+of links with base points $y$, $y+e_\mu$, $y+e_\nu$, so the base points of
+its links differ by at most one in each coordinate; a link lies on six
+plaquettes, and two distinct links share at most one plaquette.
+
+Fix an integer $d\ge2$ dividing $L$, put $K=L/d$, $n=2d-1$, and fix a shift
+$a\in[0,d)^4$. For $j$ in the coarse torus $T_K=(\Z/K\Z)^4$ let $r_j=a+dj$
+be the \emph{root} of $j$, let the \emph{block} $B_j=V_{r_j}$ be the set of
+links with base point in $r_j+[0,n)^4$, and write $\mathcal P_j=P_{B_j}$,
+which is the cube move $\mathcal P_{r_j}$ of Sec.~\ref{ssec:averaged} for
+cubes of side $n$. Displacements $v=j'-j$ in $T_K$ are represented in
+$(-K/2,K/2]^4$.
+
+\subsubsection{A finite-size criterion}
+
+\begin{lemma}\label{rC12:commute}
+\begin{enumerate}[label=\textup{(\roman*)},leftmargin=*]
+\item For non-interacting sets $A,A'\subset E$ of links, $P_AP_{A'}=
+P_{A'}P_A=P_{A\cup A'}$, and $(I-P_A)(I-P_{A'})$ is an orthogonal projection.
+\item If $K\ge4$ and $\lvert j'-j\rvert_\infty\ge2$, then $B_j$ and $B_{j'}$
+are non-interacting.
+\item The blocks $B_j$, $j\in T_K$, cover $E$.
+\item If $f\in L^2(\mu)$ and $\mathcal P_jf=f$ for every $j\in T_K$, then $f$
+is almost surely constant.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+(i) Every link lies on a plaquette, so $A\cap A'=\emptyset$, and no link of
+$A'$ shares a plaquette with a link of $A$. Given the links outside $A\cup
+A'$, the law of $(U_A,U_{A'})$ has density proportional to $\prod_{p\cap(A
+\cup A')\ne\emptyset}\varphi(U_p)$, and each factor involves the links of
+exactly one of $A$, $A'$; so the density is a product of a function of
+$U_A$ and a function of $U_{A'}$, with coefficients depending on the links
+outside $A\cup A'$. Hence $U_A$ and $U_{A'}$ are conditionally independent,
+the conditional law $\gamma_A$ of $U_A$ given the links outside $A$ does not
+depend on $U_{A'}$, and likewise for $A'$. Therefore $P_AP_{A'}f$ and
+$P_{A'}P_Af$ are both the integral of $f$ against $\gamma_A\otimes
+\gamma_{A'}$, which is $P_{A\cup A'}f$. Then $(I-P_A)(I-P_{A'})=I-P_A-P_{A'}+
+P_{A\cup A'}$ is self-adjoint and idempotent.
+
+(ii) Let $\lvert v_i\rvert\ge2$ for $v=j'-j$. In the coordinate $i$ the base
+points of the links of $B_j$ and $B_{j'}$ lie in $dj_i+a_i+[0,2d-2]$ and
+$dj_i+a_i+dv_i+[0,2d-2]$ modulo $L$. If $v_i\ge2$, their distance in $\Z/L\Z$
+is at least $\min\{(v_i-2)d+2,(K-v_i-2)d+2\}\ge2$, since $v_i\le K/2$ and
+$K\ge4$; $v_i\le-2$ is symmetric. A plaquette meeting both would have two
+links whose base points differ by at least two in the coordinate $i$.
+
+(iii) The sets $r_j+[0,d)^4$ partition $\Lambda_L$, and $[0,d)\subset[0,n)$.
+
+(iv) The density $Z^{-1}\prod_p\varphi(U_p)$ of $\mu$ with respect to $h$ on
+$G^E$ is bounded above and below by positive constants, so $\mu$ and $h$ have
+the same null sets and $L^2(\mu)=L^2(h)$. If $\mathcal P_jf=f$, then $f$ is
+almost surely equal to a function of $U_{E\setminus B_j}$, and so it is fixed
+by the conditional expectation $Q_j$ of $h$ given $U_{E\setminus B_j}$, which
+integrates out $U_{B_j}$. By Fubini's theorem the $Q_j$ commute and their
+product integrates out the links of $\bigcup_jB_j=E$, so $f=\int f\,dh$
+almost surely.
+\end{proof}
+
+The next lemma is a finite-size criterion of the kind of
+Knabe~\cite{Kna88} and of Gosset and Mozgunov~\cite{GM16}. In four
+dimensions the displacements $v$ with $\lvert v\rvert_\infty=1$ are $80$
+in number, and those with $\lvert v\rvert_\infty\ge2$ give commuting
+projections by Lemma~\ref{rC12:commute}. For $s\in T_K$ and $m\ge4$ let
+$S_s=s+[0,m-1]^4$ be the \emph{patch} at $s$ and $S^\circ_s=s+[0,m-2]^4$
+the set of its $(m-1)^4$ block indices; put
+\[
+H=\sum_{j\in T_K}(I-\mathcal P_j),\qquad H_s=\sum_{j\in S^\circ_s}(I-
+\mathcal P_j).
+\]
+
+\begin{lemma}\label{rC12:knabe}
+Let $m\ge4$, $p=m-1$ and $K\ge2m$, and suppose that $H_s^2\ge\gamma H_s$
+for every $s\in T_K$, with $\gamma>0$. Then $H^2\ge\varepsilon H$ with
+\[
+\varepsilon=1-\frac{(1-\gamma)p^4+72p^3-168p^2+96p-16}{p^3(p-2)}\ge
+\frac{\gamma p-74}{p-2}.
+\]
+In particular $\varepsilon\ge\gamma/2$ if $m-1\ge148/\gamma$.
+\end{lemma}
+
+\begin{proof}
+Write $\mathbf P_j=I-\mathcal P_j$ and $A_v=\sum_j\mathbf P_j\mathbf P_{j+v}$.
+Since $K\ge2m$, $j$ and $j+v$ lie in a common $S^\circ_s$ only if $\lvert v_i
+\rvert\le m-2$ for all $i$, and then for exactly $c_v=\prod_{i=1}^4(p-\lvert
+v_i\rvert)$ points $s$. Let $O$ be the set of the $80$ displacements with
+$\lvert v\rvert_\infty=1$, $D$ the set of those with $\lvert v\rvert_\infty
+\ge2$ and $D'$ the set of $v\in D$ with all $\lvert v_i\rvert\le m-2$. For
+$v\in D$, $\mathbf P_j\mathbf P_{j+v}$ is an orthogonal projection by
+Lemma~\ref{rC12:commute}(i),(ii), so $A_v\ge0$. Summing over $s$,
+\[
+\sum_sH_s^2=c_0H+\sum_{v\in O}c_vA_v+\sum_{v\in D'}c_vA_v\ge\gamma\sum_sH_s
+=\gamma c_0H .
+\]
+Put $c_*=p^3(p-2)$; then $c_v\le c_*$ for $v\in D'$, since one factor of
+$c_v$ is at most $p-2$ and the others at most $p$. For projections
+$\mathbf P,\mathbf P'$, $(\mathbf P\pm\mathbf P')^2\ge0$ gives $-(\mathbf P+
+\mathbf P')\le\mathbf P\mathbf P'+\mathbf P'\mathbf P\le\mathbf P+\mathbf
+P'$, so $-2H\le A_v+A_{-v}\le2H$; $O$ is symmetric and $c_{-v}=c_v$, hence
+\[
+\sum_{v\in O}(c_*-c_v)A_v\ge-\Sigma H,\qquad\Sigma=\sum_{v\in O}\lvert c_*-
+c_v\rvert,
+\]
+and
+\[
+\begin{split}
+c_*\sum_{v\in O}A_v&=\sum_{v\in O}c_vA_v+\sum_{v\in O}(c_*-c_v)A_v\\
+&\ge-\bigl((1-\gamma)c_0+\Sigma\bigr)H-\sum_{v\in D'}c_vA_v .
+\end{split}
+\]
+Since $H^2=\sum_vA_v=H+\sum_{O}A_v+\sum_DA_v$,
+\[
+\begin{split}
+H^2&\ge\Bigl(1-\frac{(1-\gamma)c_0+\Sigma}{c_*}\Bigr)H\\
+&\quad+\sum_{v\in D'}\Bigl(1-\frac{c_v}{c_*}\Bigr)A_v+\sum_{v\in D
+\setminus D'}A_v,
+\end{split}
+\]
+and the last two sums are nonnegative. It remains to compute $\Sigma$. A
+$v\in O$ with $k$ nonzero coordinates has $c_v=p^{4-k}(p-1)^k$, and there are
+$8$, $24$, $32$, $16$ of them for $k=1,2,3,4$. The differences $c_v-c_*$ are
+$p^3$, $p^2$, $-p(p^2-3p+1)$ and $-2p(p-1)(p-2)+1$, with the signs shown
+since $p\ge3$, so
+\[
+\begin{split}
+\Sigma&=8p^3+24p^2+32p(p^2-3p+1)\\
+&\quad+16\bigl(2p(p-1)(p-2)-1\bigr),
+\end{split}
+\]
+which is $72p^3-168p^2+96p-16$. With $c_0=p^4$ this is the formula for
+$\varepsilon$. As $-168p^2+96p-16<0$, $\varepsilon\ge1-((1-\gamma)p+72)/(p-
+2)=(\gamma p-74)/(p-2)$, and if $\gamma p\ge148$ this is at least $(\gamma
+p-74)/p\ge\gamma/2$.
+\end{proof}
+
+For a patch $S_s$ let $\Pi_s=\bigcup_{j\in S^\circ_s}B_j$, the set of links
+with base point in $r_s+[0,md-1)^4$. For $\omega\in G^{E\setminus\Pi_s}$ let
+$\nu^\omega_s$ be the probability measure on $G^{\Pi_s}$ with density
+proportional to $\prod_{p\cap\Pi_s\ne\emptyset}\varphi(U_p)$, $U$ equal to
+$\omega$ off $\Pi_s$; it is the conditional law of $U_{\Pi_s}$ under $\mu$
+given $U_{E\setminus\Pi_s}=\omega$. For $j\in S^\circ_s$ let
+$\mathcal P^\omega_j$ be the conditional expectation under $\nu^\omega_s$
+given the links of $\Pi_s\setminus B_j$.
+
+\begin{definition}\label{rC12:patch}
+The \emph{patch gap} $\gamma_{d,m}$ is the largest $\gamma\ge0$ such that
+\[
+\gamma\Var_{\nu^\omega_s}(g)\le\sum_{j\in S^\circ_s}\nu^\omega_s\bigl((g-
+\mathcal P^\omega_jg)^2\bigr)
+\]
+for every $s$, every $\omega$ and every real $g\in L^2(\nu^\omega_s)$.
+\end{definition}
+
+The law $\nu^\omega_s$ involves only the plaquettes meeting $\Pi_s$, whose
+links have base points in a cube of side $md+1$; for $L\ge md+2$ these are
+the links and plaquettes of $\Z^4$, and translations carry the patches of
+one shift to those of another. So $\gamma_{d,m}$ depends on $G$, $\varphi$,
+$d$ and $m$ only. It is the gap of the dynamics that resamples the blocks of
+one patch, uniform in the configuration outside the patch.
+
+\begin{theorem}\label{rC12:finite}
+Let $d\ge2$, $m\ge4$, $d\mid L$ and $L\ge2md$, and suppose that
+$\gamma_{d,m}\ge\gamma>0$ and that $\varepsilon$, defined from $\gamma$ and
+$m$ as in Lemma~\ref{rC12:knabe}, is positive. Then every real $f\in
+L^2(\mu)$ satisfies
+\[
+\frac{\varepsilon}{16}\Var_\mu(f)\le\frac1{n^4}\sum_{x\in\Lambda_L}\mu\bigl(
+(f-\mathcal P_xf)^2\bigr),\qquad n=2d-1.
+\]
+For even $L$ this is $\mathrm{BP}(2d-1,\varepsilon/16)$, and
+$\mathrm{BP}_{\rm loc}(2d-1,\varepsilon/16)$ and, for $G=\SU(N)$,
+$\mathrm{BP}_0(2d-1,\varepsilon/16)$ hold as well. If $m-1\ge148/\gamma$,
+then $\varepsilon/16\ge\gamma/32$.
+\end{theorem}
+
+\begin{proof}
+Fix $a$. Since $L\ge2md$, $K\ge2m\ge8$. First, $H_s^2\ge\gamma H_s$ for
+every $s$. Write $U=(\sigma,\omega)$ with $\sigma\in G^{\Pi_s}$, $\omega\in
+G^{E\setminus\Pi_s}$; under $\mu$ the conditional law of $\sigma$ given
+$\omega$ is $\nu^\omega_s$. For $j\in S^\circ_s$, $B_j\subset\Pi_s$, and the
+conditional law of $U_{B_j}$ given the other links is the same under $\mu$
+and under $\nu^\omega_s$; so $(\mathcal P_jF)(\cdot,\omega)=\mathcal
+P^\omega_j(F(\cdot,\omega))$ for $F\in L^2(\mu)$ and almost every $\omega$,
+and $H_s$ acts on each fibre as $H^\omega_s=\sum_{j\in S^\circ_s}(I-\mathcal
+P^\omega_j)$. This operator is self-adjoint and nonnegative, it annihilates
+the constants and so preserves their orthogonal complement, and on that
+complement $\ip g{H^\omega_sg}=\sum_j\nu^\omega_s((g-\mathcal P^\omega_j
+g)^2)\ge\gamma\lVert g\rVert^2$ by Definition~\ref{rC12:patch}. Hence
+the spectrum of $H^\omega_s$ lies in $\{0\}\cup[\gamma,\infty)$ and
+$(H^\omega_s)^2\ge\gamma H^\omega_s$; integrating over $\omega$,
+$\lVert H_sF\rVert^2\ge\gamma\ip F{H_sF}$.
+
+By Lemma~\ref{rC12:knabe}, $H^2\ge\varepsilon H$, so the spectrum of $H$
+lies in $\{0\}\cup[\varepsilon,\infty)$. If $HF=0$ then $\sum_j\lVert F-
+\mathcal P_jF\rVert^2=\ip F{HF}=0$, so $F$ is constant by
+Lemma~\ref{rC12:commute}(iv). Hence for $g=f-\mu(f)$, which is orthogonal
+to the kernel,
+\[
+\varepsilon\Var_\mu(f)\le\ip g{Hg}=\sum_{j\in T_K}\mu\bigl((f-\mathcal
+P_{r_j}f)^2\bigr).
+\]
+As $a$ runs over $[0,d)^4$ and $j$ over $T_K$, $r_j=a+dj$ runs over
+$\Lambda_L$ once. Averaging over $a$ gives $\varepsilon d^4\Var_\mu(f)\le
+\sum_x\mu((f-\mathcal P_xf)^2)$, and $d^4\ge n^4/16$. For even $L$,
+$L\ge8d\ge2n+4$, so the inequality is $\mathrm{BP}(2d-1,\varepsilon/16)$
+(on all real $f$, in particular on the gauge-invariant ones); the local
+and neutral forms follow by Theorem~\ref{thm:bplocal}(i), and the last claim
+by Lemma~\ref{rC12:knabe}.
+\end{proof}
+
+The theorem reduces the averaged condition on every large torus to a
+finite-volume statement, uniform in the boundary condition, about patches of
+side $md$. The passage costs a factor: at $\beta=0$, $\gamma_{d,m}\ge1$ by
+Lemma~\ref{rC12:anova} below, and the theorem gives
+$\mathrm{BP}(2d-1,\varepsilon/16)$ with $\varepsilon<1$, against
+$\mathrm{BP}(n,1)$ from Proposition~\ref{prop:avgsup}(ii).
+
+\subsubsection{The reference measure and the coarse links}
+
+The following decomposition is that of Hoeffding~\cite{Hoe48} and of the
+proof of the Efron--Stein inequality~\cite{ES81}, and it is the one used in
+Proposition~\ref{prop:avgsup}(ii).
+
+\begin{lemma}\label{rC12:anova}
+Let $A$ be a finite set, $(X_e)_{e\in A}$ independent random variables with
+values in measurable spaces, $\rho$ their joint law, and for $B\subset A$
+let $Q_B$ be the conditional expectation given $X_{A\setminus B}$.
+\begin{enumerate}[label=\textup{(\roman*)},leftmargin=*]
+\item If $B_1,\dots,B_k$ cover $A$, then $\sum_{i}\rho((g-Q_{B_i}g)^2)\ge
+\Var_\rho(g)$ for every real $g\in L^2(\rho)$.
+\item If $A$ is partitioned into $C_1,\dots,C_k$, then $\Var_\rho(g)\le
+\sum_i\rho((g-Q_{C_i}g)^2)$ for every real $g\in L^2(\rho)$.
+\end{enumerate}
+In particular, for $\varphi\equiv1$, $\gamma_{d,m}\ge1$ for all $d$ and
+$m$.
+\end{lemma}
+
+\begin{proof}
+Write $Q_e=Q_{\{e\}}$. By Fubini's theorem $Q_B$ integrates out $X_B$, the
+$Q_e$ are commuting orthogonal projections, and $Q_B=\prod_{e\in B}Q_e$.
+Expanding $I=\prod_{e\in A}(Q_e+(I-Q_e))$ gives $I=\sum_{F\subset A}\Delta_F$
+with $\Delta_F=\prod_{e\notin F}Q_e\prod_{e\in F}(I-Q_e)$. Each $\Delta_F$ is
+an orthogonal projection, $\Delta_F\Delta_{F'}=0$ for $F\ne F'$ (a factor
+$Q_e(I-Q_e)$ occurs for $e$ in the symmetric difference), $\Delta_\emptyset
+g=\rho(g)$, and $Q_B\Delta_F$ equals $\Delta_F$ if $F\cap B=\emptyset$ and $0$
+otherwise. Hence, with $g_F=\Delta_Fg$,
+\[
+\rho\bigl((g-Q_Bg)^2\bigr)=\sum_{F\cap B\ne\emptyset}\lVert g_F\rVert^2,
+\qquad\Var_\rho(g)=\sum_{F\ne\emptyset}\lVert g_F\rVert^2 .
+\]
+In (i) every $F\ne\emptyset$ meets some $B_i$, and (ii) is the special case
+of a partition. For $\varphi\equiv1$, $\nu^\omega_s$ is the product of Haar
+measures on $G^{\Pi_s}$, the blocks $B_j$, $j\in S^\circ_s$, cover $\Pi_s$,
+and $\mathcal P^\omega_j=Q_{B_j}$; (i) gives $\gamma_{d,m}\ge1$.
+\end{proof}
+
+Part (ii) is the Efron--Stein inequality. Now the coarse variables. For $j\in
+T_K$ and a direction $\nu$, the \emph{segment} $c=(j,\nu)$ is the set of the
+$d$ links $(r_j+te_\nu,\nu)$, $0\le t<d$, which runs from $r_j$ to
+$r_{j+e_\nu}$; its \emph{coarse link} is the ordered product
+\[
+W_c=U_{r_j,\nu}U_{r_j+e_\nu,\nu}\cdots U_{r_j+(d-1)e_\nu,\nu},
+\]
+and its \emph{middle links} are those with $1\le t\le d-2$, a set
+$\mathrm{mid}(c)$. A gauge transformation $g$ acts by $W_{(j,\nu)}\mapsto
+g_{r_j}W_{(j,\nu)}g_{r_{j+e_\nu}}^{-1}$, so the $W_c$ form a lattice gauge
+field on $T_K$; its plaquettes are the holonomies of the boundaries of the
+$d\times d$ squares spanned by the roots. The \emph{cell} of $j$ is the set
+$D_j$ of links with base point in $r_j+[0,d)^4$; the cells partition $E$,
+and the four segments $(j,\nu)$ lie in $D_j$. Lines of links are the sets
+$\{(y+te_\nu,\nu):t\in\Z/L\Z\}$, and the segments lie on the \emph{coarse
+lines}, those through roots; a link of direction $\nu$ lies on a coarse line
+exactly when the coordinates of its base point other than $\nu$ are
+congruent to those of $a$ modulo $d$.
+
+\begin{lemma}\label{rC12:lines}
+\begin{enumerate}[label=\textup{(\roman*)},leftmargin=*]
+\item No plaquette contains two links of the same line.
+\item Let $d\ge3$. A plaquette that contains a middle link of a segment
+contains no other link of any coarse line.
+\item Let $M\subset E$ be a set of links no two of which share a plaquette.
+Given the links outside $M$, the variables $U_e$, $e\in M$, are independent,
+and $U_e$ has a density $h_e$ with respect to $h$ satisfying
+$e^{-6\omega_\varphi}\le h_e\le e^{6\omega_\varphi}$.
+\item For $\varphi\equiv1$ the coarse links are independent and Haar
+distributed, and the $U_{D_j}$, $j\in T_K$, are independent given all the
+coarse links.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+(i) The two links of a plaquette in the plane $\{\mu,\nu\}$ that have
+direction $\nu$ have base points $y$ and $y+e_\mu$, which differ in a
+coordinate other than $\nu$, so they lie on different lines.
+
+(ii) Let $e=(r_j+te_\nu,\nu)$ with $1\le t\le d-2$, and let the plaquette lie
+in the plane $\{\nu,\mu\}$. Its other link of direction $\nu$ has base point
+$r_j+te_\nu\pm e_\mu$, whose coordinate $\mu$ is $a_\mu\pm1$ modulo $d$, not
+$a_\mu$ since $d\ge3$, so it is on no coarse line. Its links of direction
+$\mu$ have base points $r_j+te_\nu$, $r_j+(t+1)e_\nu$ or these minus $e_\mu$,
+whose coordinate $\nu$ is $a_\nu+t$ or $a_\nu+t+1$ with $1\le t<t+1\le d-1$,
+so they are on no coarse line either.
+
+(iii) The conditional density of $U_M$ is proportional to $\prod_{p\cap M\ne
+\emptyset}\varphi(U_p)$, and each such $p$ contains exactly one link of $M$;
+so it is a product over $e\in M$ of functions of $U_e$, the one for $e$ being
+the product over the six plaquettes containing $e$. Normalised to
+mean one, $h_e$ has maximum at least one and minimum at most one, and the
+ratio of the two is at most $e^{6\omega_\varphi}$.
+
+(iv) The segments are disjoint sets of independent Haar variables, and the
+product of $d$ independent Haar variables is Haar distributed. The $U_{D_j}$
+are independent and each $W_{(j,\nu)}$ is a function of $U_{D_j}$, so the
+pairs $(U_{D_j},(W_{(j,\nu)})_\nu)$ are independent, and conditioning on all
+second components keeps the first ones independent.
+\end{proof}
+
+By (iv), at $\beta=0$ the coarse links are coordinates in which the reference
+law is a product: the Bianchi identity of the coarse plaquettes is carried
+by the parametrisation, not by the measure. By
+Lemma~\ref{rC12:anova}(ii), the $\beta=0$ dynamics that resamples one
+coarse link at a time has gap one on all functions of the coarse links, in
+particular on the coarse gauge-invariant functions.
+
+\subsubsection{The coarse-scale hypothesis holds at every coupling}
+
+For a patch $S_s$ let $C_s$ be the set of the segments $(j,\nu)$ with $j$ and
+$j+e_\nu$ in $S_s$; there are $N_m=4m^3(m-1)$ of them. The links of such a
+segment have base points $r_j+te_\nu$ whose coordinates lie in $r_s+[0,
+(m-1)d]\subset r_s+[0,md-1)$, so they lie in $\Pi_s$. Write $W_{C}=(W_c)_{c\in
+C}$ for a set $C$ of segments and $\mathrm{mid}(C)=\bigcup_{c\in C}
+\mathrm{mid}(c)$.
+
+\begin{definition}\label{rC12:C}
+\begin{enumerate}[label=\textup{(\roman*)},leftmargin=*]
+\item $(\mathrm C_{d,m}(\epsilon))$: for every $s$ and every $\omega\in
+G^{E\setminus\Pi_s}$ the law of $W_{C_s}$ under $\nu^\omega_s$ has a density
+with respect to $h$ on $G^{C_s}$ with values in $[e^{-\epsilon},e^\epsilon]$.
+\item $(\mathrm C^*_d(\eta))$: for every set $C$ of segments and every
+configuration of the links outside $\mathrm{mid}(C)$, under the law of
+$U_{\mathrm{mid}(C)}$ with density proportional to $\prod_{p\cap
+\mathrm{mid}(C)\ne\emptyset}\varphi(U_p)$ the $W_c$, $c\in C$, are
+independent and each has a density with respect to $h$ with values in
+$[1-\eta,1+\eta]$.
+\end{enumerate}
+\end{definition}
+
+At $\beta=0$ the law of $W_{C_s}$ under $\nu^\omega_s$ is $h$ for every
+$\omega$ (Lemma~\ref{rC12:lines}(iv)), so (i) says that the coarse links
+of a patch have a density ratio within $e^{\pm\epsilon}$ with respect to
+their $\beta=0$ law, uniformly in the boundary condition. The coarse
+plaquettes, and every function of the coarse links, inherit the bound,
+since the density of an image law is the conditional expectation of the
+density. The law in (ii) is the conditional law under $\mu$ of
+$U_{\mathrm{mid}(C)}$ given the links outside $\mathrm{mid}(C)$, and also
+under $\nu^\omega_s$ when $\mathrm{mid}(C)\subset\Pi_s$. Condition (ii)
+concerns only the local conditional laws of the measure, so it holds for
+one measure with these conditional laws exactly when it holds for every
+such measure.
+
+\begin{lemma}\label{rC12:mixture}
+Assume $(\mathrm C^*_d(\eta))$ with $\eta<1$, let $C$ be a set of segments
+and $\mathcal A$ a $\sigma$-algebra contained in $\sigma(U_{E\setminus
+\mathrm{mid}(C)})$. Under $\mu$, the conditional law of $W_C$ given
+$\mathcal A$ has a density with respect to $h$ with values in
+$[(1-\eta)^{\lvert C\rvert},(1+\eta)^{\lvert C\rvert}]$. The same holds
+under $\nu^\omega_s$ if $\mathrm{mid}(C)\subset\Pi_s$ and $\mathcal A\subset
+\sigma(U_{\Pi_s\setminus\mathrm{mid}(C)})$. In particular
+$(\mathrm C^*_d(\eta))$ implies $(\mathrm C_{d,m}(\epsilon))$ with $\epsilon=
+N_m\log(1/(1-\eta))$.
+\end{lemma}
+
+\begin{proof}
+Let $\rho(w)=\prod_{c\in C}\rho_c(w_c)$ be the conditional density of $W_C$
+given $U_{E\setminus\mathrm{mid}(C)}$ from $(\mathrm C^*_d(\eta))$; it is
+jointly measurable in $w$ and the conditioning links, being given by an
+explicit integral. For bounded measurable $F$, by the tower property and
+Fubini's theorem, $\E[F(W_C)\mid\mathcal A]=\int F(w)\,\E[\rho(w)\mid\mathcal
+A]\,dh(w)$, and $\E[\rho(w)\mid\mathcal A]$ has values in the stated
+interval. Under $\nu^\omega_s$ the argument is the same. For the last claim
+take $C=C_s$ and $\mathcal A$ trivial under $\nu^\omega_s$, and note
+$\log(1+\eta)\le\log(1/(1-\eta))$.
+\end{proof}
+
+\begin{lemma}\label{rC12:convolution}
+Let $X_1,\dots,X_k$, $k\ge2$, be independent $G$-valued random variables
+whose laws have densities $h_i$ with respect to $h$ with $e^{-\delta}\le h_i
+\le e^\delta$, $\delta>0$, and let $g,g'\in G$. Then $gX_1\cdots X_kg'$ has
+a density $\psi$ with
+\[
+\sup_G\lvert\psi-1\rvert\le(e^\delta-1)(1-e^{-\delta})^{k-1}.
+\]
+\end{lemma}
+
+\begin{proof}
+For densities $u,v$ the law of the product of independent variables with
+these laws has density $u*v(x)=\int u(y)v(y^{-1}x)\,dh(y)=\int u(xz^{-1})
+v(z)\,dh(z)$, by invariance of $h$ under translations and inversion. For
+integrable $u,v$, $u*1$ and $1*v$ are the constants $\int u$ and $\int v$,
+and $u*v$ has integral $(\int u)(\int v)$. Put $u_i=h_i-1$, so $\int u_i=0$.
+In the expansion of $(1+u_1)*\cdots*(1+u_k)$ every term that contains both
+a factor $1$ and a factor $u_i$ is a convolution of $1$ with a function of
+integral zero, hence zero; so $h_1*\cdots*h_k-1=u_1*\cdots*u_k$. Since
+$(e^\delta-h_i)(h_i-e^{-\delta})\ge0$ and $\int h_i=1$,
+\[
+\lVert u_i\rVert_2^2=\int h_i^2-1\le(e^\delta-1)(1-e^{-\delta}).
+\]
+Write $c=e^{-\delta}$ and $h_i=c+(1-c)g_i$; then $g_i\ge0$ and $\int g_i=1$.
+For $v$ with $\int v=0$, $v*u_i=v*h_i=(1-c)v*g_i$, and $v*g_i=\int
+v(\cdot\,z^{-1})g_i(z)\,dh(z)$ is an average of right translates of $v$, so
+$\lVert v*u_i\rVert_2\le(1-c)\lVert v\rVert_2$ by Minkowski's inequality,
+and $v*u_i$ has integral zero. Hence $\lVert u_1*\cdots*u_{k-1}\rVert_2\le
+(1-c)^{k-2}\lVert u_1\rVert_2$, and by the Cauchy--Schwarz inequality, for
+every $x$,
+\[
+\begin{split}
+\lvert u_1*\cdots*u_k(x)\rvert&\le\lVert u_1*\cdots*u_{k-1}\rVert_2\,\lVert
+u_k\rVert_2\\
+&\le(1-c)^{k-2}(e^\delta-1)(1-c).
+\end{split}
+\]
+The left side is continuous in $x$, as a convolution of two square
+integrable functions. Translation by $g$ and $g'$ preserves $h$, so
+$\psi(x)=(h_1*\cdots*h_k)(g^{-1}xg'^{-1})$ obeys the same bound.
+\end{proof}
+
+\begin{theorem}\label{rC12:segment}
+Let $d\ge4$ and $\delta=6\omega_\varphi>0$. Then $(\mathrm C^*_d(\eta))$
+holds with
+\[
+\eta=(e^\delta-1)(1-e^{-\delta})^{d-3}\le e^\delta\exp\bigl(-(d-3)
+e^{-\delta}\bigr).
+\]
+Consequently $N_m\eta\le1/4$, and $(\mathrm C_{d,m}(\epsilon))$ holds with
+$\epsilon\le2N_m\eta$, as soon as $d\ge3+e^\delta(\delta+\log(4N_m))$. For
+$\SU(2)$ with $\lvert\beta_W\rvert\le1/20$, $\eta\le0.823\cdot0.452^{d-3}$.
+\end{theorem}
+
+\begin{proof}
+By Lemma~\ref{rC12:lines}(i),(ii), with $d\ge3$, no plaquette contains
+two links of $\mathrm{mid}(C)$: two middle links of one segment lie on one
+line, and a plaquette through a middle link contains no other link of a
+coarse line. By Lemma~\ref{rC12:lines}(iii), given the links outside
+$\mathrm{mid}(C)$ the $U_e$, $e\in\mathrm{mid}(C)$, are independent with
+densities in $[e^{-\delta},e^\delta]$. The segments are disjoint, and $W_c=
+U_{c,0}\bigl(\prod_{t=1}^{d-2}U_{c,t}\bigr)U_{c,d-1}$ with the end links
+$U_{c,0}$, $U_{c,d-1}$ fixed by the conditioning; so the $W_c$ are
+independent, and Lemma~\ref{rC12:convolution} with $k=d-2\ge2$ gives the
+bound on the density. The second form of $\eta$ uses $e^\delta-1<e^\delta$
+and $1-x\le e^{-x}$; with $d-3\ge e^\delta(\delta+\log(4N_m))$ it gives
+$\eta\le1/(4N_m)$, and then $\epsilon=N_m\log(1/(1-\eta))\le2N_m\eta$ by
+Lemma~\ref{rC12:mixture}, since $\log(1/(1-\eta))\le\eta/(1-\eta)\le2\eta$.
+For $\SU(2)$, $\delta=12\lvert\beta_W\rvert\le0.6$, $e^{0.6}-1<0.823$ and
+$1-e^{-0.6}<0.452$.
+\end{proof}
+
+So the coarse links are close to Haar, in the strong sense of
+$(\mathrm C^*_d(\eta))$, uniformly in the boundary condition, for every
+compact group, every weight and every coupling, once the cells are large: a
+coarse link multiplies $d-2$ conditionally independent group elements, and
+products of independent elements with densities bounded below
+equidistribute. The proof uses no property of the weight beyond
+$\omega_\varphi<\infty$, and the next proposition shows that the
+hypothesis does not distinguish a confining from a nonconfining phase.
+
+\begin{proposition}\label{rC12:coulomb}
+Let $G=\U(1)$ with the Villain weight $\varphi_\beta$ of
+Proposition~\ref{prop:coulomb}, and let $\beta_0$ be as there. For every
+$\beta>0$ and every $m\ge4$ there is $d_1$ such that for $d\ge d_1$ the
+condition $(\mathrm C^*_d(\eta))$ holds with $N_m\eta\le1/4$, for the
+measures of all tori with $d\mid L$ and for the free-boundary measures of
+all boxes, with the segments contained in the box. For $\beta>\beta_0$ no
+$\mathrm{BP}(n,\varpi)$ holds for the latter measures uniformly in the
+boxes of side at least $2n$. Hence $(\mathrm C^*_d(\eta))$, even uniformly
+in the volume, does not imply the averaged condition for box measures.
+\end{proposition}
+
+\begin{proof}
+The Villain weight is a positive continuous class function, so
+$\omega_{\varphi_\beta}<\infty$, and Theorem~\ref{rC12:segment} gives
+$d_1$ for the tori. Its proof uses only that no plaquette contains two
+links of $\mathrm{mid}(C)$ and that a link lies on at most six plaquettes.
+Both remain true for the plaquettes of a box with free boundary, and
+Lemma~\ref{rC12:lines}(iii) holds there with ``at most six'', so the proof
+applies verbatim to box measures. The failure of $\mathrm{BP}$ is
+Corollary~\ref{cor:avgcoulomb}.
+\end{proof}
+
+Since $(\mathrm C^*_d(\eta))$ concerns only the local conditional laws, it
+holds at every $\beta>0$ for every finite-volume measure and every
+infinite-volume Gibbs state of the Villain theory, in particular in the
+nonconfining phase whose existence Guth proved~\cite{Gut80}; it does not
+imply confinement. For tori the paper proves no failure of $\mathrm{BP}$ in
+the Coulomb phase, so Proposition~\ref{rC12:coulomb} excludes a proof of
+$\mathrm{BP}$ from the coarse-scale hypothesis alone for boxes; a proof for
+tori would have to use a property of the torus measures that the box
+measures of the same specification lack.
+
+\begin{lemma}\label{rC12:condind}
+Let $X$, $Y$ be random variables and $\mathcal A$ a $\sigma$-algebra with
+$X$ and $Y$ conditionally independent given $\mathcal A$. Let $X_2$ be a
+measurable function of $X$, $Y_2$ one of $Y$, and $\mathcal A'=\mathcal A
+\vee\sigma(X_2,Y_2)$. Then $X$ and $Y$ are conditionally independent given
+$\mathcal A'$.
+\end{lemma}
+
+\begin{proof}
+For bounded $\mathcal A$-measurable $a,a'$ and bounded $f(X)$, $g(Y)$,
+$\E[afa'g\mid\mathcal A]=aa'\E[f\mid\mathcal A]\E[g\mid\mathcal A]=\E[af
+\mid\mathcal A]\E[a'g\mid\mathcal A]$; by the monotone class theorem every
+bounded $\sigma(\mathcal A,X)$-measurable function and every bounded
+$\sigma(\mathcal A,Y)$-measurable function are conditionally uncorrelated
+given $\mathcal A$ in this sense. Fix bounded $f(X)$, $g(Y)$ and put $\phi=
+\E[f\mid\mathcal A\vee\sigma(X_2)]$, $\psi=\E[g\mid\mathcal A\vee
+\sigma(Y_2)]$; they are $\sigma(\mathcal A,X)$- and $\sigma(\mathcal
+A,Y)$-measurable. For bounded $\mathcal A$-measurable $a$ and bounded
+$k(X_2)$, $l(Y_2)$,
+\[
+\begin{split}
+\E[fg\,akl]&=\E\bigl[a\,\E[fk\mid\mathcal A]\,\E[gl\mid\mathcal A]\bigr]\\
+&=\E\bigl[a\,\E[\phi k\mid\mathcal A]\,\E[\psi l\mid\mathcal A]\bigr]=
+\E[\phi\psi\,akl],
+\end{split}
+\]
+and likewise with $g=1$ or $f=1$. The products $akl$ form a class closed
+under multiplication that generates $\mathcal A'$, and $\phi$, $\psi$ are
+$\mathcal A'$-measurable, so $\E[fg\mid\mathcal A']=\phi\psi$, $\E[f\mid
+\mathcal A']=\phi$ and $\E[g\mid\mathcal A']=\psi$.
+\end{proof}
+
+\begin{proposition}\label{rC12:nogo}
+Let $\varphi$ be nonconstant, $d\ge2$, $K\ge2$, $j\in T_K$, $D=D_j$,
+$D'=D_{j+e_0}$, and let $\mathcal O$ be generated by the links outside
+$D\cup D'$. Let $y=r_j+(d-1)e_0+e_1+e_2+e_3$, $e=(y,1)$ and $e'=(y+e_0,1)$,
+and let $X_2$, $Y_2$ be measurable functions of $U_{D\setminus\{e\}}$ and
+of $U_{D'\setminus\{e'\}}$. Then $U_D$ and $U_{D'}$ are not conditionally
+independent under $\mu$ given $\mathcal O\vee\sigma(X_2,Y_2)$. In
+particular they are not conditionally independent given the links outside
+$D\cup D'$ and all the coarse links.
+\end{proposition}
+
+\begin{proof}
+The base point $y$ lies in $r_j+[0,d)^4$ and $y+e_0=r_{j+e_0}+e_1+e_2+e_3$
+lies in $r_{j+e_0}+[0,d)^4$, so $e\in D$ and $e'\in D'$. The coordinate $2$
+of $y$ and of $y+e_0$ is $a_2+1\not\equiv a_2$ modulo $d$, so neither link
+lies on a coarse line. Hence the coarse links of the segments in $D$ (in
+$D'$) are functions of $U_{D\setminus\{e\}}$ (of $U_{D'\setminus\{e'\}}$),
+and the other coarse links are functions of the links outside $D\cup D'$;
+the last claim follows from the first. Both $e$ and $e'$ lie on the
+plaquette $p$ at $y$ in the plane $\{0,1\}$.
+
+If the claim failed, Lemma~\ref{rC12:condind}, applied with $X=U_D$,
+$Y=U_{D'}$, $\mathcal A=\mathcal O\vee\sigma(X_2,Y_2)$ and the functions
+$U_{D\setminus\{e\}}$, $U_{D'\setminus\{e'\}}$, would make $U_D$ and $U_{D'}$
+conditionally independent given all links other than $e$, $e'$, and so
+$U_e$ and $U_{e'}$ as well. Their conditional law has a continuous positive
+density proportional to $\varphi(AU_{e'}BU_e^{-1})\alpha(U_e)\alpha'(U_{e'})$
+with respect to $h\otimes h$. Here $AU_{e'}BU_e^{-1}$, with $A=U_{y,0}$ and
+$B=U_{y+e_1,0}^{-1}$, is the plaquette variable of $p$ (replace $\varphi$ by
+$\varphi(\cdot^{-1})$ if the orientation is the opposite one), and $\alpha$,
+$\alpha'$ collect the other plaquettes through $e$ and through $e'$; no
+other plaquette contains both, since two links share at most one
+plaquette. Conditional independence for almost every configuration of the
+other links gives one configuration at which this continuous density equals
+the product of its continuous marginals $h\otimes h$-almost everywhere,
+hence everywhere, as $h$ has full support. So $\varphi(AXBY^{-1})=a(X)b(Y)$
+for all $X,Y\in G$ with $a,b$ positive, and with $Z=AXB$,
+$\varphi(ZY^{-1})=\tilde a(Z)b(Y)$. Setting $Y=1$ and then $Z=1$ gives
+$\varphi(ZY^{-1})\varphi(1)=\varphi(Z)\varphi(Y^{-1})$. Thus $\varphi/
+\varphi(1)$ is a continuous homomorphism of $G$ into $(\R_{>0},\cdot)$, whose
+image is a compact subgroup, hence $\{1\}$, and $\varphi$ is constant, a
+contradiction.
+\end{proof}
+
+At $\beta=0$ the cells are independent given the coarse links
+(Lemma~\ref{rC12:lines}(iv)); the coarse links are coordinates in which the
+reference law is a product. For a nonconstant weight every plaquette that
+crosses a face between two cells couples them, and by
+Proposition~\ref{rC12:nogo} no conditioning on variables of the two cells
+that leaves out one pair of links on such a plaquette removes the coupling.
+A decoupling of the cells can therefore only be quantitative.
+
+\subsubsection{A quantitative decoupling of the cells}
+
+For $j\in S_s$ let $D^s_j=D_j\cap\Pi_s$; these sets partition $\Pi_s$,
+because $r_s+[0,md-1)^4\subset r_s+[0,md)^4=\bigcup_{j\in S_s}(r_j+
+[0,d)^4)$. Every segment of $C_s$ starting at $j$ lies in $D^s_j$.
+
+\begin{definition}\label{rC12:T}
+$(\mathrm T_{d,m}(\kappa))$: for every $s$, every $\omega\in G^{E\setminus
+\Pi_s}$ and every real $g\in L^2(\nu^\omega_s)$, with $\nu=\nu^\omega_s$,
+\[
+\begin{split}
+\nu\bigl(\Var_\nu(g\mid W_{C_s})\bigr)&\le\kappa\sum_{j\in S_s}\nu\bigl(
+\Var_\nu(g\mid\mathcal C_j)\bigr),\\
+\mathcal C_j&=\sigma\bigl(W_{C_s},U_{\Pi_s\setminus D^s_j}\bigr).
+\end{split}
+\]
+\end{definition}
+
+As for the patch gap, for $L\ge md+2$ this condition depends on $G$,
+$\varphi$, $d$, $m$ and $\kappa$ only. At $\beta=0$ the pairs $(U_{D^s_j},
+(W_c)_{c\subset D^s_j})$ are independent under $\nu$, so given $W_{C_s}$ the
+$U_{D^s_j}$ are independent (as in Lemma~\ref{rC12:lines}(iv)), and the
+Efron--Stein inequality for the conditional law gives
+$(\mathrm T_{d,m}(1))$. For a nonconstant weight the cells are not
+conditionally independent (Proposition~\ref{rC12:nogo}), and
+$(\mathrm T_{d,m}(\kappa))$ asks that they be so up to the factor
+$\kappa$ in the sense of variances.
+
+\begin{theorem}\label{rC12:reduction}
+Let $d\ge4$, $m\ge4$, $d\mid L$, $L\ge2md$. Suppose that
+$(\mathrm C^*_d(\eta))$ holds with $N_m\eta\le1/4$, $N_m=4m^3(m-1)$, and
+that $(\mathrm T_{d,m}(\kappa))$ holds. Then $\gamma_{d,m}\ge1/(32\kappa+
+512)$. If moreover $L$ is even and $m-1\ge148(32\kappa+512)$, then
+$\mathrm{BP}(2d-1,1/(1024\kappa+16384))$ holds on $\Lambda_L$, together with
+its local and, for $G=\SU(N)$, neutral forms.
+\end{theorem}
+
+\begin{proof}
+Fix $s$ and $\omega$; write $\nu$, $\Pi$, $\mathcal P_k=\mathcal P^\omega_k$
+for $k\in S^\circ_s$, $\mathcal E(g)=\sum_{k\in S^\circ_s}\lVert g-\mathcal
+P_kg\rVert^2$ with norms in $L^2(\nu)$, $\mathcal W=\sigma(W_{C_s})$, and
+$\mathcal W_{-c}=\sigma(W_{c'}:c'\in C_s,\,c'\ne c)$. Let $g$ be real and
+$F=\E_\nu[g\mid\mathcal W]$, so that $\Var g=\nu(\Var(g\mid\mathcal W))+
+\Var F$.
+
+\emph{Step 1: cells and blocks.} For $j\in S_s$ let $k(j)\in S^\circ_s$ have
+coordinates $k_i=j_i$ if $j_i-s_i\le m-2$ and $k_i=j_i-1$ if $j_i-s_i=m-1$.
+Then $D^s_j\subset B_{k(j)}$: in a coordinate with $k_i=j_i$ the offsets
+$[0,d)$ lie in $[0,2d-1)$, and with $k_i=j_i-1$ the base points of $D^s_j$
+have offsets in $(m-1)d+[0,d-1)$ from $r_s$, inside $(m-2)d+[0,2d-1)$. Each
+$k$ is $k(j)$ for at most $16$ cells $j$, and each segment of $C_s$ lies in
+the cell of its starting point, so in $B_{k(j)}$; each block receives at
+most $64$ segments in this way.
+
+\emph{Step 2: the fine part.} By $(\mathrm T_{d,m}(\kappa))$, and since
+$\nu(\Var(g\mid\mathcal A))=\lVert g-\E[g\mid\mathcal A]\rVert^2$ decreases
+when $\mathcal A$ grows,
+\[
+\begin{split}
+\nu(\Var(g\mid\mathcal W))&\le\kappa\sum_{j\in S_s}\lVert g-\E[g\mid
+U_{\Pi\setminus D^s_j}]\rVert^2\\
+&\le\kappa\sum_{j\in S_s}\lVert g-\mathcal
+P_{k(j)}g\rVert^2\le16\kappa\,\mathcal E(g),
+\end{split}
+\]
+where the middle step holds because $\mathcal P_{k(j)}g$ is a function of
+$U_{\Pi\setminus B_{k(j)}}$, hence of $U_{\Pi\setminus D^s_j}$.
+
+\emph{Step 3: the coarse part.} By Lemma~\ref{rC12:mixture} the law
+$\lambda$ of $W_{C_s}$ under $\nu$ has density in $[(1-\eta)^{N_m},
+(1+\eta)^{N_m}]$ with respect to $h$. Write $F=\Phi(W_{C_s})$ and let
+$Q_c$ integrate out $w_c$ under $h$. By Lemma~\ref{rC12:anova}(ii), and
+since $h((\Phi-Q_c\Phi)^2)$ is the least $h((\Phi-\Psi)^2)$ over functions
+$\Psi$ of $w_{-c}$,
+\[
+\begin{split}
+\Var_\lambda\Phi&\le(1+\eta)^{N_m}\Var_h\Phi\le(1+\eta)^{N_m}\sum_ch\bigl(
+(\Phi-Q_c\Phi)^2\bigr)\\
+&\le R^{N_m}\sum_{c\in C_s}\bigl\lVert F-\E[F\mid
+\mathcal W_{-c}]\bigr\rVert^2,
+\end{split}
+\]
+with $R=(1+\eta)/(1-\eta)$. As $N_m\ge768$, $\eta\le1/3072$ and $N_m\log R
+\le2N_m\eta/(1-\eta)<0.51$, so $R^{N_m}\le2$. Moreover $\E[F\mid\mathcal
+W_{-c}]=\E[g\mid\mathcal W_{-c}]$.
+
+\emph{Step 4: leakage.} Let $c\in C_s$ lie in $B_b$, $b=k(j)$ as in Step 1,
+let $\mathcal U_b=\sigma(U_{\Pi\setminus B_b})$ and $v=\mathcal P_bg$. The
+operator $E_{\mathcal W}-E_{\mathcal W_{-c}}$, with $E_{\mathcal A}$ the
+conditional expectation given $\mathcal A$, is an orthogonal projection,
+since $\mathcal W_{-c}\subset\mathcal W$; so
+\[
+\lVert F-\E[g\mid\mathcal W_{-c}]\rVert\le\lVert g-\mathcal P_bg\rVert+
+\lVert\psi\rVert,
+\]
+where $\psi=(E_{\mathcal W}-E_{\mathcal W_{-c}})v$.
+Put $\mathcal K=\mathcal U_b\vee\mathcal W_{-c}$. Since $\mathrm{mid}(c)
+\subset B_b$ and the segments are disjoint, $\mathcal K\subset\sigma(U_{\Pi
+\setminus\mathrm{mid}(c)})$, and by Lemma~\ref{rC12:mixture} the
+conditional laws of $W_c$ given $\mathcal K$ and given $\mathcal W_{-c}$
+have densities $\rho_{\mathcal K}$, $\rho'$ in $[1-\eta,1+\eta]$. Write
+$\psi=\Psi(W_c,W_{-c})$; then $\E[\psi\mid\mathcal W_{-c}]=\int\Psi(w,
+W_{-c})\rho'(w)\,dh(w)=0$, and as $W_{-c}$ is $\mathcal K$-measurable,
+\[
+\begin{split}
+\lvert\E[\psi\mid\mathcal K]\rvert&=\Bigl\lvert\int\Psi(w,W_{-c})(\rho_{
+\mathcal K}-\rho')(w)\,dh(w)\Bigr\rvert\\
+&\le\theta\,\E\bigl[\lvert\psi\rvert
+\bigm|\mathcal W_{-c}\bigr],\qquad\theta=\frac{2\eta}{1-\eta},
+\end{split}
+\]
+since $\lvert\rho_{\mathcal K}-\rho'\rvert\le2\eta\le\theta\rho'$. The
+function $v$ is $\mathcal K$-measurable and $\nu(\psi)=0$, so
+\[
+\lVert\psi\rVert^2=\ip\psi v=\ip{\E[\psi\mid\mathcal K]}{v-\nu(v)}\le\theta
+\lVert\psi\rVert\,\Var(v)^{1/2},
+\]
+and $\Var v\le\Var g$. Hence $\lVert F-\E[g\mid\mathcal W_{-c}]\rVert^2\le2
+\lVert g-\mathcal P_bg\rVert^2+2\theta^2\Var g$.
+
+\emph{Step 5: conclusion.} Summing over $c$ with Step 1,
+$\Var F\le2(128\,\mathcal E(g)+2N_m\theta^2\Var g)$, and with Step 2,
+\[
+\Var g\le(16\kappa+256)\,\mathcal E(g)+4N_m\theta^2\Var g .
+\]
+Since $N_m\eta\le1/4$ and $\eta\le1/3072$, $4N_m\theta^2=16N_m\eta^2/(1-
+\eta)^2\le4\eta/(1-\eta)^2<1/2$, so $\Var g\le(32\kappa+512)\mathcal E(g)$.
+The rest is Theorem~\ref{rC12:finite} with $\gamma=1/(32\kappa+512)$ and
+$\varepsilon/16\ge\gamma/32$.
+\end{proof}
+
+At $\beta=0$ both hypotheses hold with $\eta=0$, $\kappa=1$, and the theorem
+gives $\gamma_{d,m}\ge1/544$, against $\gamma_{d,m}\ge1$ from
+Lemma~\ref{rC12:anova}. For $\kappa=1$ the side of the patch is $m\ge80513$
+cells, and $(\mathrm C^*_d(\eta))$ with $N_m\eta\le1/4$ then holds once
+$d\ge3+e^{6\omega_\varphi}(6\omega_\varphi+\log(4N_m))$ by
+Theorem~\ref{rC12:segment}.
+
+\subsubsection{Strong coupling}
+
+\begin{corollary}\label{rC12:strong}
+For every $d\ge2$ and $m\ge4$, $\gamma_{d,m}\ge e^{-6(md)^4\omega_\varphi}$.
+Hence, for even $L$ with $d\mid L$ and $L\ge594d$, if
+\[
+\omega_\varphi\le\frac{\log2}{6(297d)^4},
+\]
+then $\mathrm{BP}(2d-1,1/64)$ holds on $\Lambda_L$, with its local and, for
+$G=\SU(N)$, neutral forms. For $\SU(2)$ and $d=2$ (cubes of side three) the
+condition is $\lvert\beta_W\rvert\le\log2/(12\cdot594^4)$, which is
+$4.6\cdot10^{-13}$ to two digits.
+\end{corollary}
+
+\begin{proof}
+This is the comparison argument of Holley and Stroock~\cite{HS87}. Let
+$\rho$ be the density of $\nu=\nu^\omega_s$ with respect to $h$ on
+$G^{\Pi_s}$. A plaquette meeting $\Pi_s$ has its base point in $r_s+
+[-1,md-1)^4$, so there are at most $6(md)^4$ of them, and $\rho$ is a
+normalised product of their weights; hence $A/a\le e^{6(md)^4\omega_\varphi}$
+for $A=\max\rho\ge1\ge a=\min\rho$. Let $Q_j$ integrate out $U_{B_j}$ under
+$h$. By Lemma~\ref{rC12:anova}(i), since the $B_j$, $j\in S^\circ_s$,
+cover $\Pi_s$, and since $\mathcal P^\omega_jg$ is a function of
+$U_{\Pi_s\setminus B_j}$,
+\[
+\begin{split}
+\Var_\nu g&\le A\Var_hg\le A\sum_jh\bigl((g-Q_jg)^2\bigr)\\
+&\le A\sum_jh\bigl(
+(g-\mathcal P^\omega_jg)^2\bigr)\le\frac Aa\sum_j\nu\bigl((g-\mathcal
+P^\omega_jg)^2\bigr).
+\end{split}
+\]
+With $m=297$ and $\gamma=1/2$, $m-1=296\ge148/\gamma$, and
+Theorem~\ref{rC12:finite} gives the constant $\gamma/32=1/64$; for
+$\SU(2)$, $\omega_\varphi=2\lvert\beta_W\rvert$, and $\log2/(12\cdot594^4)=
+4.63979\ldots\cdot10^{-13}$.
+\end{proof}
+
+The range is more than eleven orders of magnitude below the range
+$\lvert\beta_W\rvert<2/9$ of Corollary~\ref{cor:bpranges}: the comparison
+with $\beta=0$ pays for every plaquette of a patch of $(md)^4$ sites, and the
+finite-size criterion needs $m$ of order $10^2$. The argument uses neither
+Dobrushin coefficients nor single-link estimates.
+
+\begin{remark}[what the hypotheses give]\label{rC12:meaning}
+(a) \emph{Proved implications.} $(\mathrm C^*_d(\eta))$ with $N_m\eta\le1/4$
+and $(\mathrm T_{d,m}(\kappa))$ give the patch gap
+(Theorem~\ref{rC12:reduction}); the patch gap gives
+$\mathrm{BP}(2d-1,\varpi)$ on every torus with even $L$, $d\mid L$,
+$L\ge2md$ (Theorem~\ref{rC12:finite}), and then decay of correlations by
+Theorem~\ref{thm:avgdecay}. Consequently, if along a tuning $(\beta_k,a_k)$
+the two hypotheses held with $m$ and $\kappa$ independent of $k$ and
+$(2d_k-1)a_k\le\ell$, Theorem~\ref{thm:avgtransfer}, applied with the even
+$L\ge2md_k$ divisible by $d_k$, would give every continuum limit of the
+torus limits the spectral bound $\sigma(H)\subset\{0\}\cup[m_*,\infty)$
+with $m_*=16\varpi/(625e^2\ell)$, $\varpi=1/(1024\kappa+16384)$. The
+hypotheses of this implication are not proved along any tuning.
+
+(b) \emph{The coarse-scale hypothesis.} By Theorem~\ref{rC12:segment} and
+Proposition~\ref{rC12:coulomb}, $(\mathrm C_{d,m}(\epsilon))$ and
+$(\mathrm C^*_d(\eta))$ hold at every coupling for $d$ large compared with
+$e^{6\omega_\varphi}$, also in a nonconfining phase, and they do not imply
+the averaged condition. Along the weak-coupling tuning the bound of
+Theorem~\ref{rC12:segment} does not suffice: for $\SU(2)$ at one loop
+$\beta_W\approx4b_0N\log(1/(a\Lambda))$ with $b_0=11N/(48\pi^2)$, which is
+$0.3715\log(1/(a\Lambda))$, so $e^{6\omega_\varphi}=e^{12\beta_W}$ grows like
+$(a\Lambda)^{-4.46}$, while $d\le\ell/a$. At large $\beta_W$ the
+conditional law of a single link is concentrated at scale
+$\beta_W^{-1/2}$, and a product of $k$ independent elements with steps of
+that size equidistributes after a number of steps of order $\beta_W$. A
+single-link contraction of that strength, a factor $1-c/\beta_W$ in place of
+the Doeblin factor $1-e^{-6\omega_\varphi}$ in
+Lemma~\ref{rC12:convolution}, would give $(\mathrm C^*_d(\eta))$ along
+the tuning, since there $d$ may be taken of order $\ell/a$, much larger
+than $\beta_W\log\beta_W$. Such a contraction is not proved here, and it would
+concern the coarse links only, not the decoupling of the cells.
+
+(c) \emph{The decoupling hypothesis.} $(\mathrm T_{d,m}(\kappa))$ is a
+uniform tensorisation of the variance over the cells of side $d$ given the
+coarse links, a statement of the same kind as the averaged condition
+itself, at the scale of the cells and relative to the coarse links. It holds
+with $\kappa=1$ at $\beta=0$. Along the tuning the cells contain $d^4\to
+\infty$ sites, and $(\mathrm T_{d,m}(\kappa))$ with $\kappa$ independent of
+$k$ is a variance bound at the physical scale $(2d_k-1)a_k\le\ell$. Whether
+it fails in the $\U(1)$ Coulomb phase is not decided here: a box version of
+Theorem~\ref{rC12:reduction}, together with Theorem~\ref{rC12:segment} and
+Corollary~\ref{cor:avgcoulomb}, would show that it fails there for box
+measures.
+
+(d) \emph{Relation to $D(n,\alpha)$, (E), the area law and the mass gap.}
+The patch gap and $(\mathrm T_{d,m}(\kappa))$ are variance conditions;
+$D(n,\alpha)$ is a coupling condition on influences in the forest gauge,
+which gives $\mathrm{BP}$ through Proposition~\ref{prop:avgsup}(i) in its
+supremum form $D^0_L(n,\alpha)$. No implication between $D(n,\alpha)$ and
+$(\mathrm T_{d,m}(\kappa))$ or the patch gap is proved in either direction,
+and whether an area law implies $(\mathrm T_{d,m}(\kappa))$ is open.
+Nothing in this subsection proves $\mathrm{BP}(n_k,\varpi)$ along the
+tuning, $D(n,\alpha)$, condition (E), an area law or the mass gap.
+\end{remark}
+
+\begin{remark}[open problems]\label{rC12:open}
+(a) $(\mathrm T_{d,m}(\kappa))$, or the patch gap, at any weak coupling
+with $d$ large. (b) $(\mathrm C^*_d(\eta))$ along the tuning through a
+single-link contraction of order $1/\beta_W$. (c) The box versions of
+Theorems~\ref{rC12:finite} and~\ref{rC12:reduction}. (d) A Dobrushin
+bound for the patch gap at strong coupling with a range comparable to that
+of Corollary~\ref{cor:bpranges}. (e) Better constants: $\kappa=1$ requires
+$m\ge80513$, which comes from the factor $p^3(p-2)$ in
+Lemma~\ref{rC12:knabe} and the $80$ neighbouring blocks. (f) Whether
+$\mathrm{BP}(n,\varpi)$, which is an average over the torus, implies a
+patch gap uniform in the boundary condition.
+\end{remark}
