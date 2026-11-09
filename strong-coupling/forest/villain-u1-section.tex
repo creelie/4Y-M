@@ -1,0 +1,1225 @@
+\subsection{The averaged cube estimate for the three-dimensional
+$\U(1)$ Villain model: exact duality, dual form, and the missing
+estimate}\label{rM3:sec}
+
+Theorem~\ref{rD:maxwell} shows that the free photon fails
+$\mathrm{BP}(n,\varpi)$ at any fixed $n$ as $L\to\infty$, and
+Remark~\ref{rem:rSmissing} records that step (D) needs a cube constant
+produced by a dynamically generated mass. A lattice gauge theory in
+which confinement and exponential decay of correlations are proved at
+every coupling, including weak coupling, is the three-dimensional $\U(1)$
+Villain model (G\"opfert--Mack~\cite{GM82}); in the semiclassical picture
+of Polyakov~\cite{Pol77} and Banks--Myerson--Kogut~\cite{BMK77} its photon
+acquires the Debye mass $m_D\sim\exp(-c\beta)$ of a dilute monopole gas.
+This subsection sets up the exact duality of that model in the form needed
+for the cube dynamics, identifies what $\mathrm{BP}(n,\varpi)$ becomes on
+the dual side, proves it for the Debye--H\"uckel Gaussian approximation,
+and isolates what is missing for the Villain measure itself. Nothing here
+proves $\mathrm{BP}(n,\varpi)$ for the Villain model. The results are: the
+exact decomposition of the field strength into an independent massless
+Gaussian and a lattice-valued monopole field
+(Proposition~\ref{rM3:lawF}); the exact dual form of the condition on the
+plaquette algebra (Theorem~\ref{rM3:dualform}); the law of the interior
+field given the exterior (Proposition~\ref{rM3:interior}), whose exact
+part is a Gaussian independent of the exterior; the inequality of
+$\mathrm{BP}$ with a $\beta$-independent constant for the odd
+single-plaquette functions (Proposition~\ref{rM3:plaq}); a two-sided bound
+$c\min(1,s^2)\le\varpi\le C\min(1,s^2)$, $s=nm$, uniform in $L$ and
+$\beta$, for the Debye--H\"uckel Gaussian field of mass $m$
+(Theorem~\ref{rM3:DH}); the
+necessary condition $\varpi\le e^2q_nn/\xi$ in terms of the correlation
+length (Proposition~\ref{rM3:xi}); and the precise statement of the open
+estimates (Sec.~\ref{rM3:missing}).
+
+\subsubsection{Setting}\label{rM3:setting}
+
+The lattice is the torus $\Lambda_L=(\Z/L\Z)^3$, $L$ even, $L\ge2n+4$,
+$n\ge2$; $E$, $P$, $C$ are its links, plaquettes and (unit) cubes, with
+$\lvert E\rvert=\lvert P\rvert=3L^3$, $\lvert C\rvert=L^3$. Conventions
+are those of Sec.~\ref{rD:sec} with $4$ replaced by $3$: a plaquette
+$(y,\mu\nu)$, $\mu<\nu$, has links $(y,\mu),(y+e_\mu,\nu),(y+e_\nu,\mu),
+(y,\nu)$ and
+\[
+(d\theta)_{(y,\mu\nu)}=\theta_{(y,\mu)}+\theta_{(y+e_\mu,\nu)}
+-\theta_{(y+e_\nu,\mu)}-\theta_{(y,\nu)};
+\]
+a cube $c_z$ has corner $z$ and $(dF)_z=\sum_{\mu<\nu}\pm(F_{(z+e_\rho,
+\mu\nu)}-F_{(z,\mu\nu)})$ with the sign $+$ for $(\mu\nu,\rho)=(23,1),
+(12,3)$ and $-$ for $(13,2)$; $\delta=d^{\mathsf T}$ for the standard inner
+products on $\R^E,\R^P,\R^C$. Then $dd=0$, $\delta\delta=0$, and
+$-\Delta_3=d\delta$ on $\R^C$ is the (positive) lattice Laplacian of the
+dual lattice with kernel the constants. For $V\subset E$, $P(V)$ is the set
+of plaquettes containing a link of $V$; $V_x$ is the set of links with
+base point in $x+[0,n)^3$, so $\lvert P(V_x)\rvert=3n^2(n+2)$; $X=
+\Lambda_L$; $q_n=(2+1/n)^3\in(8,\frac{125}8]$. The gauge group is
+$\U(1)^{\Lambda_L}$, $\mathcal A\subset L^2(\mu)$ the gauge-invariant
+functions, $\mathcal P_x$ the conditional expectation given the links
+outside $V_x$, and $\mathrm{BP}(n,\varpi)$ is
+\[
+\varpi\Var_\mu(f)\le\mathcal E_n(f):=\frac1{n^3}\sum_{x\in X}
+\mu\bigl((f-\mathcal P_xf)^2\bigr)
+\]
+for every real $f\in\mathcal A$.
+
+\begin{remark}[dimension]\label{rM3:dim}
+Lemma~\ref{lem:avgspeed} and Theorem~\ref{thm:avgdecay} use, besides
+the facts that $\mu$ has a positive density and that each $\mathcal P_x$
+is an orthogonal projection preserving $\mathcal A$, only the facts that
+each link lies in exactly $n^d$ of the sets $V_x$, that
+$\lvert X\rvert\ge4n^d$ (here $\lvert X\rvert=L^3\ge8n^3$), and that
+$y\rightsquigarrow z$ forces $\lvert z-y\rvert_\infty\le n$, so that at
+most $(2n+1)^d=q_nn^d$ points feed one cube. Their proofs hold with
+$d=3$ after one numerical change: where $q_n>16$ is used, $q_n>8$ is
+used instead, which replaces $64e^2$ by $16e^2$ in the prefactor of
+Theorem~\ref{thm:avgdecay} and leaves the inequalities
+$\varpi/(e^2q_n)<1-e^{-2}$ and $3\varpi/(e^2q_n)<1$ valid. So
+$\varpi\le4$ whenever $\mathrm{BP}(n,\varpi)$ holds (indeed $\varpi\le
+1+2/n$, since a plaquette lies in $P(V_x)$ for $n^2(n+2)$ points $x$), and
+$\mathrm{BP}(n,\varpi)$ gives covariance decay of local gauge-invariant
+functions at rate $\varpi/(e^2q_nn)$ per lattice unit. The passage to a
+transfer-matrix gap (Corollary~\ref{cor:avggap}) needs in addition the
+reflection positivity of the three-dimensional Villain measure and the
+three-dimensional form of the transfer-matrix construction; they are not
+discussed here and are not used below.
+\end{remark}
+
+The Villain weight is $\varphi_\beta(t)=\sum_{k\in\Z}e^{-\beta(t+2\pi k)^2
+/2}$, $t\in(-\pi,\pi]$, as in Proposition~\ref{prop:coulomb}, and
+\[
+\mu_\beta(d\theta)=\frac1Z\prod_{p\in P}\varphi_\beta\bigl((d\theta)_p
+\bigr)\prod_{e\in E}\frac{d\theta_e}{2\pi},\qquad\theta\in(-\pi,\pi]^E .
+\]
+Write $P_\beta$ for the law of the field strength $F=d\theta+2\pi k$
+introduced below; $\E$ and $\Var$ without subscript refer to $\mu_\beta$
+or to the joint measure $\tilde\mu_\beta$, as the context shows.
+
+\subsubsection{The joint measure and the law of the field strength}
+\label{rM3:duality}
+
+Let $\tilde\mu_\beta$ be the probability measure on $(-\pi,\pi]^E\times
+\Z^P$ with density proportional to $\prod_{p}e^{-\beta((d\theta)_p+2\pi
+k_p)^2/2}$ with respect to $\prod_e d\theta_e/2\pi\otimes$ counting
+measure; summing over $k$ gives $\mu_\beta$ as the $\theta$-marginal. Put
+$F:=d\theta+2\pi k\in\R^P$. Then $dF=2\pi\,dk$, $dk=:\mathsf n\in\Z^C$ is
+the monopole density, $\sum_z\mathsf n_z=0$, and the periods of $F$ over
+closed $2$-chains lie in $2\pi\Z$.
+
+Let $\mathcal B=d\R^E\subset\R^P$ (the exact $2$-cochains), $\Pi$ the
+orthogonal projection onto $\mathcal B$, $\mathcal K_\R=\ker d\subset\R^E$
+and $\mathcal H=\ker d\cap\ker\delta\subset\R^P$ (harmonic $2$-cochains,
+$\dim\mathcal H=3$). The Hodge decomposition is $\R^P=\mathcal B\oplus
+\delta\R^C\oplus\mathcal H$ and $\mathcal B^\perp=\delta\R^C\oplus\mathcal
+H=\ker\delta$.
+
+\begin{lemma}[sector lattices]\label{rM3:lattices}
+\textup{(i)} $\mathcal K_\Z:=\mathcal K_\R\cap\Z^E$ is a lattice of full
+rank in $\mathcal K_\R$. \textup{(ii)} $\Lambda_{\mathcal B}:=\mathcal B
+\cap\Z^P$ is a lattice of full rank in $\mathcal B$ containing $d\Z^E$ with
+finite index. \textup{(iii)} $\mathcal M:=2\pi(1-\Pi)\Z^P$ is a lattice
+(discrete subgroup of full rank) in $\mathcal B^\perp$.
+\end{lemma}
+
+\begin{proof}
+(i) and (ii): $d$ has integer entries, so $\mathcal K_\R$ and $\mathcal B$
+are rational subspaces (spanned by vectors with rational coordinates:
+the kernel of an integer matrix has a rational basis, and $\mathcal B$ is
+spanned by the integer columns of $d$). A rational subspace $W\subset\R^N$
+of dimension $r$ meets $\Z^N$ in a lattice of rank $r$: clearing
+denominators of a rational basis gives $r$ independent integer vectors
+of $W$, and $W\cap\Z^N$ is discrete. $d\Z^E\subset\Lambda_{\mathcal B}$ has
+rank $\dim\mathcal B$, so the index is finite. (iii) Let $B$ be the integer matrix whose columns are a basis of
+$\mathcal B$ chosen among the columns of $d$; then $\Pi=B(B^{\mathsf T}B)
+^{-1}B^{\mathsf T}$ is a rational matrix, so $(1-\Pi)\Z^P\subset N^{-1}
+\Z^P$ for a common denominator $N$. Hence $(1-\Pi)\Z^P$ is a discrete,
+finitely generated subgroup of $\mathcal B^\perp$, and it spans
+$\mathcal B^\perp$ because $(1-\Pi)$ maps $\R^P$ onto $\mathcal B^\perp$
+and $\Z^P$ spans $\R^P$.
+\end{proof}
+
+\begin{proposition}[law of the field strength]\label{rM3:lawF}
+Under $\tilde\mu_\beta$ put $G:=\Pi F\in\mathcal B$ and $M:=(1-\Pi)F\in
+\mathcal B^\perp$. Then
+\begin{enumerate}[label=\textup{(\roman*)},leftmargin=*]
+\item $M=2\pi(1-\Pi)k\in\mathcal M$, and $G=\Pi F=d\theta+2\pi\Pi k$;
+\item $G$ and $M$ are independent; $G$ has the Gaussian law $\gamma_\beta$
+on $\mathcal B$ with covariance $\beta^{-1}\Pi$ (the Maxwell field of
+Theorem~\ref{rD:maxwell} in three dimensions), and
+$P(M=m)=Z_{\mathcal M}^{-1}e^{-\beta\lVert m\rVert^2/2}$, $m\in\mathcal M$;
+\item $F=G+M$, so $P_\beta=\gamma_\beta*\bigl(Z_{\mathcal M}^{-1}
+\sum_{m\in\mathcal M}e^{-\beta\lVert m\rVert^2/2}\delta_m\bigr)$.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+(i) is immediate from $F=d\theta+2\pi k$ and $\Pi d\theta=d\theta$.
+For (ii) let $\Phi\ge0$ be a Borel function on $\R^P$. By definition of
+$\tilde\mu_\beta$,
+\begin{align*}
+Z\,\tilde\mu_\beta\bigl(\Phi(F)e^{\beta\lVert F\rVert^2/2}\bigr)
+&=\int_{(-\pi,\pi]^E}\sum_{k\in\Z^P}\Phi(d\theta+2\pi k)\prod_e\frac{d\theta_e}
+{2\pi}\\
+&=\int_{\mathbb T^E}\bar\Phi(d\theta)\,d\theta,
+\end{align*}
+where $\mathbb T^E=(\R/2\pi\Z)^E$ carries normalised Haar measure and
+$\bar\Phi(F+2\pi\Z^P)=\sum_k\Phi(F+2\pi k)$ is the periodisation of $\Phi$
+to $\mathbb T^P$. The map $d:\mathbb T^E\to\mathbb T^P$ is a continuous
+homomorphism, so the image of Haar measure is Haar measure on the compact
+group $d(\mathbb T^E)=(\mathcal B+2\pi\Z^P)/2\pi\Z^P\cong\mathcal B/2\pi
+\Lambda_{\mathcal B}$, a torus by Lemma~\ref{rM3:lattices}(ii), whose Haar
+measure is $\lambda_{\mathcal B}$ restricted to a fundamental domain
+$Q$ of $2\pi\Lambda_{\mathcal B}$ and divided by $\lvert Q\rvert$. For
+$g\in\mathcal B$ group the terms of $\bar\Phi(g)=\sum_{k\in\Z^P}\Phi(g+2\pi
+k)$ according to $m=2\pi(1-\Pi)k\in\mathcal M$: the $k$ with a given $m$
+form a coset $k_0(m)+\Lambda_{\mathcal B}$, since $\Lambda_{\mathcal B}
+=\Z^P\cap\ker(1-\Pi)$, and $2\pi k=2\pi\Pi k_0(m)+2\pi\ell+m$ for $\ell\in
+\Lambda_{\mathcal B}$. Hence
+\begin{align*}
+\int_{\mathbb T^E}\bar\Phi(d\theta)\,d\theta&=\frac1{\lvert Q\rvert}
+\sum_{m\in\mathcal M}\sum_{\ell\in\Lambda_{\mathcal B}}\int_Q\Phi\bigl(g+2\pi
+\Pi k_0(m)\\
+&\qquad\qquad+2\pi\ell+m\bigr)\lambda_{\mathcal B}(dg)\\
+&=\frac1{\lvert Q\rvert}
+\sum_{m\in\mathcal M}\int_{\mathcal B}\Phi(g+m)\,\lambda_{\mathcal B}(dg),
+\end{align*}
+because the translates $Q+2\pi\ell+2\pi\Pi k_0(m)$, $\ell\in\Lambda_{\mathcal
+B}$, tile $\mathcal B$. Taking $\Phi(F)=\mathbf 1_A(\Pi F)\mathbf 1_{\{(1-\Pi)F=m
+\}}e^{-\beta\lVert F\rVert^2/2}$ with $A\subset\mathcal B$ Borel and using
+$\lVert g+m\rVert^2=\lVert g\rVert^2+\lVert m\rVert^2$ for $g\in\mathcal
+B$, $m\in\mathcal B^\perp$,
+\[
+\tilde\mu_\beta(G\in A,\,M=m)=\frac{e^{-\beta\lVert m\rVert^2/2}}{Z\lvert Q
+\rvert}\int_Ae^{-\beta\lVert g\rVert^2/2}\lambda_{\mathcal B}(dg),
+\]
+which factorises in $(A,m)$; this is (ii), and (iii) restates it.
+\end{proof}
+
+\begin{remark}[Coulomb form]\label{rM3:coulomb}
+Each $m\in\mathcal M$ is $m=2\pi(\delta u+h)$ with $u\in\R^C$ of mean
+zero, $h\in\mathcal H$, and $\mathsf n:=dk=\frac1{2\pi}dm=d\delta u=
+-\Delta_3u$, so $u=(-\Delta_3)^{-1}\mathsf n$ and
+\[
+\lVert m\rVert^2=4\pi^2\bigl(\ip{\mathsf n}{(-\Delta_3)^{-1}\mathsf n}
++\lVert h\rVert^2\bigr)=:4\pi^2\bigl(\mathcal E(\mathsf n)+\lVert h
+\rVert^2\bigr),
+\]
+the lattice Coulomb energy of the integer charge distribution $\mathsf n$
+plus a harmonic part. The weight $e^{-\beta\lVert m\rVert^2/2}$ is
+$e^{-2\pi^2\beta\mathcal E(\mathsf n)}e^{-2\pi^2\beta\lVert h\rVert^2}$:
+this is the monopole Coulomb gas of \cite{BMK77,GM82}, with the
+self-energy $2\pi^2\beta v_L(0)$ of an isolated unit charge,
+$v_L=(-\Delta_3)^{-1}$ on mean-zero functions; as $L\to\infty$,
+$v_L(0)$ tends to the value $v(0)=0.2527\ldots$ of the Green function
+of $\Z^3$ at the origin (a standard fact, not used below). The harmonic
+part is constrained by the integrality of $k$ jointly with $\mathsf n$,
+so we do not claim independence of $\mathsf n$ and $h$; nothing below
+uses it. In the Debye--H\"uckel approximation of a dilute gas, each
+cube carries charge $\pm1$ with probability $z=e^{-2\pi^2\beta v(0)}$, so
+$\mathsf n_z$ has variance $2z$, and the screening mass of the coupling
+$4\pi^2\beta$ is
+\[
+m_D^2=4\pi^2\beta\cdot2z=8\pi^2\beta\,e^{-2\pi^2\beta v(0)}
+\]
+in lattice units~\cite{Pol77,BMK77}. This formula is heuristic and is
+not used in any proof below; Definition~\ref{rM3:DHdef} turns the
+Debye--H\"uckel approximation into a Gaussian measure with a free mass
+parameter. The proof of Theorem~\ref{rD:maxwell} applies to $G$ in
+three dimensions, with Lemma~\ref{rM3:layer} below (for $dF=0$) in place
+of Lemmas~\ref{rD:layer} and~\ref{rD:walls}: it uses only $dG=0$ and
+the covariance $\beta^{-1}\Pi$, and with $n$ layers of $n^2+2n$
+plaquettes and $\operatorname{Var}(f)=L^3/(2\beta)$ it shows that the
+component $G$ alone, with the exterior $\sigma$-algebras
+$\sigma(G_p:p\notin P(V_x))$, fails $\mathrm{BP}(n,\varpi)$ unless
+$\varpi\le8\pi^2n(n+2)/L^2$; this is the bound of
+Theorem~\ref{rM3:DH}(iii) with $\mathsf m=0$. The
+content of the duality is that the Villain field strength is exactly
+this massless Gaussian plus an independent lattice-valued monopole field,
+and that all screening is carried by the second summand.
+\end{remark}
+
+\subsubsection{Charge sectors and the plaquette algebra}\label{rM3:sectors}
+
+For $c\in(-\pi,\pi]^3$ let $T_c$ shift every link of direction $\mu$ by
+$c_\mu$: $(T_c\theta)_{(y,\mu)}=\theta_{(y,\mu)}+c_\mu$ mod $2\pi$. Then
+$d(T_c\theta)=d\theta$, so $T_c$ preserves $\mu_\beta$ and the
+plaquette variables; it maps gauge-invariant functions to gauge-invariant
+functions, and it commutes with $\mathcal P_x$, since it maps the
+conditional law of $\theta_{V_x}$ given the exterior to the conditional
+law given the shifted exterior (the density $\prod_{p\in P(V_x)}\varphi_\beta
+((d\theta)_p)$ is $T_c$-invariant). The torus $\mathbb T^3=\{T_c\}$ acts
+unitarily on $L^2(\mu_\beta)$ and on $\mathcal A$; let $\mathcal A=
+\bigoplus_{\kappa\in\Z^3}\mathcal A_\kappa$ be the decomposition into
+isotypic components, $T_cf=e^{i\ip\kappa c}f$ on $\mathcal A_\kappa$. Each
+$\mathcal A_\kappa$ is closed, $\mathcal P_x$-invariant, and the
+components are mutually orthogonal. Let $\mathcal A_F$ be the closed
+subspace of $L^2(\mu_\beta)$ of functions of the plaquette angles
+$(e^{i(d\theta)_p})_{p\in P}$, that is, of $(e^{iF_p})_{p\in P}$.
+Then $\mathcal A_F\subset\mathcal A_0$, and $\mathcal P_x\mathcal A_F
+\subset\mathcal A_F$ by Corollary~\ref{rM3:exterior} below.
+
+\begin{lemma}[splitting]\label{rM3:split}
+Let $S\subset\mathcal A$ be a closed subspace containing the constants,
+invariant under complex conjugation and under every $\mathcal P_x$,
+$x\in X$. Then $\mathrm{BP}(n,\varpi)$
+holds for $\mu_\beta$ if and only if $\varpi\Var(f)\le\mathcal E_n(f)$
+for all real $f\in S$ and for all real $f\in S^\perp\cap\mathcal A$.
+\end{lemma}
+
+\begin{proof}
+The direct implication is trivial. Conversely, let $f\in\mathcal A$ be
+real and write $f=f_1+f_2$ with $f_1$ the orthogonal projection of $f$ onto
+$S$ and $f_2=f-f_1\in S^\perp\cap\mathcal A$. Since $S$ is invariant
+under conjugation, so is the projection onto it, and $f_1$, $f_2$ are real.
+Then $\Var f=\Var f_1+\Var f_2$ since $f_2\perp S\ni1,f_1$, and
+$\mathcal E_n(f)=\mathcal E_n(f_1)+\mathcal E_n(f_2)$ since
+$f_1-\mathcal P_xf_1\in S$ and $f_2-\mathcal P_xf_2\in S^\perp$
+($\mathcal P_x$ is self-adjoint and $S$-invariant, hence
+$S^\perp$-invariant); the two inequalities add up.
+\end{proof}
+
+Applied to $S=\mathcal A_F$, the lemma reduces $\mathrm{BP}(n,\varpi)$ to
+two statements: the inequality on functions of the field strength
+(treated in Theorem~\ref{rM3:dualform}), and the inequality on
+$\mathcal A_F^\perp\cap\mathcal A$, which contains the charged sectors
+$\mathcal A_\kappa$, $\kappa\ne0$ (Polyakov loops winding around the
+torus), and whatever part of $\mathcal A_0$ is not generated by the
+plaquette angles. On a box with free boundary every gauge-invariant
+function is a function of the plaquette angles (axial gauge fixing), and
+on the torus one expects $\mathcal A_0=\mathcal A_F$; we do not prove
+this and do not use it. The charged sectors are left open here (see
+Remark~\ref{rM3:charged}).
+\subsubsection{The dual block and the exterior data of a cube}
+\label{rM3:block}
+
+Fix $x\in X$ and use relative coordinates $z=y-x$, taken in
+$(-L/2,L/2]^3$. The interior links are those with base point in
+$[0,n)^3$; a plaquette $(y,\mu\nu)$ lies in $P(V_x)$ if and only if
+$z_\rho\in[0,n-1]$ for the third direction $\rho$ and $(z_\mu,z_\nu)\in
+[-1,n-1]^2\setminus\{(-1,-1)\}$ (its three base points $y,y+e_\mu,
+y+e_\nu$ must include one in $[0,n)^3$). The cubes containing a plaquette
+of $P(V_x)$ are the $c_{x+z}$ with
+\[
+z\in Y:=[-1,n-1]^3\setminus\{(-1,-1,-1)\},
+\]
+the dual block of the cube. Write $p(z,1)=(x+z+e_1,23)$, $p(z,2)=(x+z+e_2,
+13)$, $p(z,3)=(x+z+e_3,12)$ for the plaquette common to $c_{x+z}$ and
+$c_{x+z+e_\mu}$; then $p(z,\mu)\in P(V_x)$ exactly for the dual links
+\begin{gather*}
+(\dagger)\quad\{z,z+e_\mu\}:\ z_\mu\in[-1,n-2],\\
+(z_\nu,z_\rho)\in[-1,n-1]^2\setminus\{(-1,-1)\},
+\end{gather*}
+and both ends of such a link lie in $Y$. For $u\in\R^C$ one has
+$(\delta u)_{p(z,1)}=u_{z}-u_{z+e_1}$, $(\delta u)_{p(z,2)}=u_{z+e_2}-u_z$,
+$(\delta u)_{p(z,3)}=u_z-u_{z+e_3}$ (writing $u_z$ for $u_{c_{x+z}}$).
+
+\begin{lemma}[Poincar\'e lemma on the dual block]\label{rM3:poincare}
+Let $m\in\R^P$ be supported in $P(V_x)$ with $(\delta m)_e=0$ for every
+$e\in V_x$. Then there is $u\in\R^C$, supported on the cubes of $Y$, with
+$(\delta u)_p=m_p$ for every $p\in P(V_x)$. If $m$ is integer valued, $u$
+can be taken integer valued.
+\end{lemma}
+
+\begin{proof}
+Put $a_1(z):=-m_{p(z,1)}$, $a_2(z):=m_{p(z,2)}$, $a_3(z):=-m_{p(z,3)}$ for
+all $z$ (so $a_\mu(z)=0$ unless $\{z,z+e_\mu\}$ is a $(\dagger)$-link),
+and for $\nu<\rho$
+\[
+\operatorname{curl}_{\nu\rho}(z):=a_\nu(z)+a_\rho(z+e_\nu)-a_\nu(z+e_\rho)
+-a_\rho(z).
+\]
+Writing out $\delta$ on links with the conventions of
+Sec.~\ref{rM3:setting} gives the identities
+\begin{gather*}
+(\delta m)_{(y,1)}=-\operatorname{curl}_{23}(z-e_2-e_3),\\
+(\delta m)_{(y,2)}=\operatorname{curl}_{13}(z-e_1-e_3),\\
+(\delta m)_{(y,3)}=-\operatorname{curl}_{12}(z-e_1-e_2),\qquad z=y-x .
+\end{gather*}
+For instance
+\[
+(\delta m)_{(y,1)}=m_{(y,12)}-m_{(y-e_2,12)}+m_{(y,13)}-m_{(y-e_3,13)},
+\]
+and with $z'=z-e_2-e_3$ the four terms are $-a_3(z'+e_2)$, $a_3(z')$,
+$-a_2(z'+e_3)$ and $a_2(z')$. The hypothesis therefore reads
+\[
+(\star)\quad\operatorname{curl}_{\nu\rho}(z)=0\quad\text{if }
+z_\mu\in[0,n-1],\ z_\nu,z_\rho\in[-1,n-2],
+\]
+where $\{\mu,\nu,\rho\}=\{1,2,3\}$.
+We must find $u$ with $g_\mu(z):=u_{z+e_\mu}-u_z=a_\mu(z)$ on every
+$(\dagger)$-link; the sign conventions above make this equivalent to
+$(\delta u)_{p(z,\mu)}=m_{p(z,\mu)}$.
+
+\emph{Step 1: the cube $Y_0=[0,n-1]^3$.} Put
+\[
+u_z:=\sum_{j<z_1}a_1(j,0,0)+\sum_{j<z_2}a_2(z_1,j,0)+\sum_{j<z_3}
+a_3(z_1,z_2,j).
+\]
+Then $g_3(z)=a_3(z)$ directly. For $g_2$, the terms
+\[
+\sum_{j<z_3}[a_3(z_1,z_2+1,j)-a_3(z_1,z_2,j)]
+\]
+telescope by
+$\operatorname{curl}_{23}(z_1,z_2,j)=0$ ($z_1\in[0,n-1]$, $z_2,j\in[0,n-2]$)
+to $a_2(z)-a_2(z_1,z_2,0)$, so $g_2(z)=a_2(z)$. For $g_1$, $\operatorname{curl}_{12}(z_1,j,0)=0$ and
+$\operatorname{curl}_{13}(z_1,z_2,j)=0$ give
+\[
+\begin{aligned}
+&\sum_{j<z_2}[a_2(z_1+1,j,0)-a_2(z_1,j,0)]\\
+&\qquad=a_1(z_1,z_2,0)-a_1(z_1,0,0),\\
+&\sum_{j<z_3}[a_3(z_1+1,z_2,j)-a_3(z_1,z_2,j)]\\
+&\qquad=a_1(z)-a_1(z_1,z_2,0);
+\end{aligned}
+\]
+hence $g_1(z)=a_1(z)$. All curls
+used are in the range $(\star)$.
+
+\emph{Step 2 (faces).} For $z$ with $z_\mu=-1$ and the other two
+coordinates in $[0,n-1]$ put $u_z:=u_{z+e_\mu}-a_\mu(z)$, so $g_\mu(z)
+=a_\mu(z)$. For a link inside the face, say $\mu=1$ and $\{z,z+e_2\}$ with
+$z_2\le n-2$: $g_2(z)=g_2(z+e_1)-a_1(z+e_2)+a_1(z)=a_2(z+e_1)-a_1(z+e_2)
++a_1(z)=a_2(z)+\operatorname{curl}_{12}(z)=a_2(z)$, since $z_3\in[0,n-1]$
+and $z_1=-1,z_2\in[-1,n-2]$. The link $\{z,z+e_3\}$ uses
+$\operatorname{curl}_{13}(z)=0$ ($z_2\in[0,n-1]$), and the faces $z_2=-1$,
+$z_3=-1$ are treated in the same way with $\operatorname{curl}_{12}$,
+$\operatorname{curl}_{23}$ and $\operatorname{curl}_{13}$,
+$\operatorname{curl}_{23}$ respectively; in each case the coordinate that
+must lie in $[0,n-1]$ is the one not involved in the face.
+
+\emph{Step 3 (edges).} For $z$ with $z_\nu=z_\rho=-1$, $z_\mu\in[0,n-1]$,
+put $u_z:=u_{z+e_\nu}-a_\nu(z)$ (the point $z+e_\nu$ lies on the face
+$z_\rho=-1$). Then $g_\nu(z)=a_\nu(z)$, and
+$g_\rho(z)=u_{z+e_\rho}-u_z=[u_{z+e_\nu+e_\rho}-a_\nu(z+e_\rho)]-[u_{z+e_\nu
++e_\rho}-a_\rho(z+e_\nu)-a_\nu(z)]=a_\rho(z)\pm\operatorname{curl}_{\nu\rho}
+(z)=a_\rho(z)$, by $(\star)$ with $z_\mu\in[0,n-1]$. The links
+$\{z,z+e_\mu\}$ along the edge are not $(\dagger)$-links, since
+$(z_\nu,z_\rho)=(-1,-1)$.
+
+\emph{Step 4.} Put $u_z:=0$ for $z=(-1,-1,-1)$ and for $z\notin Y$. The
+links from the corner, the links along the edges, and the links with an
+end outside $[-1,n-1]^3$ are not $(\dagger)$-links. Every $(\dagger)$-link
+has $z\in Y$ with zero, one or two coordinates equal to $-1$, and it was
+checked in Steps 1, 2, 3 respectively. Integrality is clear from the
+construction.
+\end{proof}
+
+Let $d_x:\R^{V_x}\to\R^{P(V_x)}$ be the restriction of $d$ to functions
+supported on $V_x$ (the interior coboundary), $D_x:=d_x\R^{V_x}$, $\Pi_x$ the
+orthogonal projection of $\R^{P(V_x)}$ onto $D_x$, $K_x:=d_x(\mathbb T^{V_x})
+\subset\mathbb T^{P(V_x)}$, a closed subgroup, and $\Gamma_x:=D_x+2\pi\Z^{P
+(V_x)}$. The annihilator of $K_x$ in the dual group $\Z^{P(V_x)}$ of
+$\mathbb T^{P(V_x)}$ is
+\[
+K_x^\perp=\{m\in\Z^{P(V_x)}:(\delta m)_e=0\ \forall e\in V_x\},
+\]
+because $\ip m{d_x\eta}=\ip{\delta m}\eta$ for $\eta\in\R^{V_x}$ and this
+lies in $2\pi\Z$ for all $\eta$ exactly when $\delta m$ vanishes on $V_x$.
+For $m\in K_x^\perp$ Lemma~\ref{rM3:poincare} gives $u^{(m)}\in\Z^C$ with
+$m=\delta u^{(m)}$ on $P(V_x)$; put $m^{\prime}:=\delta u^{(m)}-m$, an
+integer $2$-cochain supported outside $P(V_x)$.
+
+\begin{lemma}[the coset of the exterior data]\label{rM3:coset}
+For $\theta\in(-\pi,\pi]^E$ let $\theta^0$ agree with $\theta$ outside
+$V_x$ and vanish on $V_x$, and let $b(\theta):=(d\theta^0)|_{P(V_x)}$. Then
+for every $m\in K_x^\perp$
+\begin{align*}
+e^{i\ip m{b(\theta)}}&=\exp\Bigl(-i\sum_{p\notin P(V_x)}m'_p(d\theta)_p
+\Bigr)\\
+&=\exp\Bigl(-i\sum_{p\notin P(V_x)}m'_pF_p\Bigr),
+\end{align*}
+and the coset $b(\theta)+\Gamma_x$ is a continuous function of finitely
+many of these quantities. Consequently $b(\theta)+\Gamma_x$ is a
+measurable function of $(e^{iF_p})_{p\notin P(V_x)}$.
+\end{lemma}
+
+\begin{proof}
+$\ip m{b(\theta)}=\ip m{d\theta^0}=\ip{\delta u^{(m)}}{d\theta^0}-\ip{m'}
+{d\theta^0}=\ip{u^{(m)}}{dd\theta^0}-\sum_{p\notin P(V_x)}m'_p(d\theta)_p$,
+since $m$ is supported in $P(V_x)$, $dd=0$ and $(d\theta^0)_p=(d\theta)_p$
+for $p\notin P(V_x)$; the second equality uses $F_p-(d\theta)_p\in2\pi\Z$ and
+$m'_p\in\Z$. The group $\mathbb T^{P(V_x)}/K_x$ is compact abelian with dual
+group $K_x^\perp$ (Pontryagin duality), so its characters separate points;
+$K_x^\perp$ is a subgroup of $\Z^{P(V_x)}$, hence finitely generated by
+some $m_1,\dots,m_r$, and $\bar b\mapsto(e^{i\ip{m_j}{\bar b}})_{j\le r}$ is a
+continuous injective homomorphism of a compact group into $\mathbb T^r$,
+hence a homeomorphism onto its image. The coset $b+\Gamma_x$ is the class
+of $b$ in $\mathbb T^{P(V_x)}/K_x$ when $\Gamma_x/2\pi\Z^{P(V_x)}=K_x$, which
+holds since $K_x=d_x(\mathbb T^{V_x})=(D_x+2\pi\Z^{P(V_x)})/2\pi\Z^{P(V_x)}$.
+\end{proof}
+
+\begin{corollary}[the exterior data are the exterior field strength]
+\label{rM3:exterior}
+Let $f\in\mathcal A_F$. Then $\mathcal P_xf$ is a function of
+$(e^{iF_p})_{p\notin P(V_x)}$, and under $\tilde\mu_\beta$
+\begin{align*}
+\mathcal P_xf&=\E\bigl[f\bigm|\theta_{E\setminus V_x},k_{P\setminus P(V_x)}
+\bigr]=\E\bigl[f\bigm|F_{P\setminus P(V_x)}\bigr]\\
+&=\E\bigl[f\bigm|(e^{iF_p})_{p\notin P(V_x)}\bigr]\quad\text{a.s.}
+\end{align*}
+In particular $\mathcal P_x\mathcal A_F\subset\mathcal A_F$.
+\end{corollary}
+
+\begin{proof}
+Write $f=\Phi\bigl((e^{i(d\theta)_p})_{p\in P}\bigr)$. For $p\in P(V_x)$,
+$(d\theta)_p=b(\theta)_p+(d_x\theta_{V_x})_p$, and for $p\notin P(V_x)$,
+$(d\theta)_p$ depends only on $\theta_{E\setminus V_x}$. The conditional
+law of $\theta_{V_x}$ given the exterior has density proportional to
+$\prod_{p\in P(V_x)}\varphi_\beta(b(\theta)_p+(d_x\theta_{V_x})_p)$, so
+$\mathcal P_xf=\Psi\bigl(b(\theta),(e^{i(d\theta)_p})_{p\notin P(V_x)}\bigr)$
+with
+\begin{gather*}
+\Psi(b,w)=\frac{\int\Phi\bigl(e^{i(b+d_x\eta)},w\bigr)\Upsilon_b(\eta)\,d\eta}
+{\int\Upsilon_b(\eta)\,d\eta},\\
+\Upsilon_b(\eta)=\prod_{p\in P(V_x)}\varphi_\beta\bigl(b_p+(d_x\eta)_p\bigr),
+\end{gather*}
+the integrals over $\eta\in(-\pi,\pi]^{V_x}$.
+The substitution $\eta\mapsto\eta-\eta_0$ shows $\Psi(b+d_x\eta_0,w)=
+\Psi(b,w)$, and $\Psi(b+2\pi j,w)=\Psi(b,w)$ for $j\in\Z^{P(V_x)}$ since
+$\Phi$ and $\varphi_\beta$ are $2\pi$-periodic. So $\Psi(\cdot,w)$ is a
+function of the coset $b+\Gamma_x$, and the first claim follows from
+Lemma~\ref{rM3:coset} ($e^{i(d\theta)_p}=e^{iF_p}$).
+
+Under $\tilde\mu_\beta$ the conditional density of $(\theta_{V_x},k_{P(V_x)})$
+given $(\theta_{E\setminus V_x},k_{P\setminus P(V_x)})$ is proportional to
+$\prod_{p\in P(V_x)}e^{-\beta((d\theta)_p+2\pi k_p)^2/2}$, which does not
+involve $k_{P\setminus P(V_x)}$; summing over $k_{P(V_x)}$ gives the density
+$\prod_{p\in P(V_x)}\varphi_\beta((d\theta)_p)$ of the conditional law of
+$\theta_{V_x}$ given $\theta_{E\setminus V_x}$ under $\mu_\beta$. Hence $\E[f\mid\theta_{E\setminus V_x},k_{P\setminus P(V_x)}]=
+\mathcal P_xf$ for $f=f(\theta)$. Since $\sigma\bigl((e^{iF_p})_{p\notin
+P(V_x)}\bigr)\subset\sigma(F_{P\setminus P(V_x)})\subset\sigma(\theta_{E
+\setminus V_x},k_{P\setminus P(V_x)})$ and $\mathcal P_xf$ is measurable
+with respect to the smallest of these, the tower property gives the two
+remaining equalities.
+\end{proof}
+
+\subsubsection{The dual form of the cube estimate}\label{rM3:dualsec}
+
+\begin{theorem}[dual form of $\mathrm{BP}(n,\varpi)$ on the plaquette
+algebra]\label{rM3:dualform}
+Let $P_\beta$ be the law of $F=d\theta+2\pi k$ under $\tilde\mu_\beta$
+(Proposition~\ref{rM3:lawF}), and for $x\in X$ let $F_x^{\rm ext}:=
+(F_p)_{p\notin P(V_x)}$. The inequality $\varpi\Var_\mu(f)\le\mathcal E_n
+(f)$ holds for every real $f\in\mathcal A_F$ if and only if
+\[
+\varpi\Var_{P_\beta}(g)\le\frac1{n^3}\sum_{x\in X}\E_{P_\beta}\Bigl[\Var_{P_
+\beta}\bigl(g\bigm|F_x^{\rm ext}\bigr)\Bigr]
+\]
+for every real $g\in L^2(P_\beta)$ with $g(F+2\pi j)=g(F)$ for all
+$j\in\Z^P$.
+\end{theorem}
+
+\begin{proof}
+The map $g\mapsto g(F)$ is an isometric isomorphism of the real
+$2\pi$-periodic functions in $L^2(P_\beta)$ onto the real part of
+$\mathcal A_F$ (a function of $(e^{iF_p})_p$ is a periodic function of
+$F$ and conversely), with $\Var_\mu(g(F))=\Var_{P_\beta}(g)$ since
+$\mu_\beta$ is the $\theta$-marginal of $\tilde\mu_\beta$. By
+Corollary~\ref{rM3:exterior}, $\mathcal P_x(g(F))=\E[g(F)\mid F_x^{\rm
+ext}]$, so $\mu((f-\mathcal P_xf)^2)=\E[(g-\E[g\mid F_x^{\rm ext}])^2]=
+\E[\Var(g\mid F^{\rm ext}_x)]$.
+\end{proof}
+
+The right side is the Dirichlet form of a dynamics on the field strength
+alone: resample the $3n^2(n+2)$ plaquette values inside the dual block
+from their conditional law given the exterior values. The next result
+describes that conditional law. Let $\Lambda_x:=\Z^{P(V_x)}\cap D_x$ and
+$\mathcal M_x:=2\pi(1-\Pi_x)\Z^{P(V_x)}$; as in Lemma~\ref{rM3:lattices},
+$\Lambda_x$ is a full-rank lattice in $D_x$ and $\mathcal M_x$ a full-rank
+lattice in $D_x^\perp\cap\R^{P(V_x)}$, and $\Gamma_x=D_x\oplus\mathcal M_x$.
+
+\begin{proposition}[the interior field given the exterior]
+\label{rM3:interior}
+Fix $x\in X$ and write $F^{\rm int}:=(F_p)_{p\in P(V_x)}$. Under
+$\tilde\mu_\beta$, conditionally on $F^{\rm ext}_x$ (and also
+conditionally on the finer data $(\theta_{E\setminus V_x},k_{P\setminus
+P(V_x)})$: the two conditional laws coincide):
+\begin{enumerate}[label=\textup{(\roman*)},leftmargin=*]
+\item $F^{\rm int}$ lies in the coset $b+\Gamma_x$ of
+Lemma~\ref{rM3:coset}, which is a function of $F^{\rm ext}_x$, and its
+conditional law has density proportional to $e^{-\beta\lVert F^{\rm int}
+\rVert^2/2}$ with respect to the Haar measure $\lambda_{D_x}\otimes
+\mathrm{counting}$ of that coset;
+\item $\Pi_xF^{\rm int}$ is Gaussian with mean $0$ and covariance
+$\beta^{-1}\Pi_x$, whatever the exterior;
+\item $(1-\Pi_x)F^{\rm int}$ lies in the coset $a_0+\mathcal M_x$, $a_0=
+(1-\Pi_x)b$, a function of $F^{\rm ext}_x$, with conditional probabilities
+proportional to $e^{-\beta\lVert a\rVert^2/2}$, $a\in a_0+\mathcal M_x$;
+\item $\Pi_xF^{\rm int}$ and $(1-\Pi_x)F^{\rm int}$ are conditionally
+independent.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+Given $(\theta_{E\setminus V_x},k_{P\setminus P(V_x)})$, the pair
+$(\eta,K):=(\theta_{V_x},k_{P(V_x)})$ has density proportional to
+$e^{-\beta\lVert b+d_x\eta+2\pi K\rVert^2/2}$ on $(-\pi,\pi]^{V_x}\times
+\Z^{P(V_x)}$, with $b=b(\theta)$, and $F^{\rm int}=b+d_x\eta+2\pi K$. The
+computation in the proof of Proposition~\ref{rM3:lawF}, with $E,P,d,
+\mathcal B,\Lambda_{\mathcal B},\mathcal M$ replaced by $V_x,P(V_x),d_x,
+D_x,\Lambda_x,\mathcal M_x$ and $\Phi$ replaced by $\Phi(b+\cdot)$, gives
+for Borel $\Phi\ge0$
+\begin{multline*}
+\E\bigl[\Phi(F^{\rm int})\bigm|\theta_{E\setminus V_x},k_{P\setminus P(V_x)}
+\bigr]\\
+=\frac1{N(b)}\sum_{a\in\mathcal M_x}\int_{D_x}\Phi(b+g+a)\,
+e^{-\beta\lVert b+g+a\rVert^2/2}\,\lambda_{D_x}(dg),
+\end{multline*}
+with $N(b)$ the normalisation. The measure
+\[
+\sum_{a\in\mathcal M_x}\int_{D_x}\delta_{b+g+a}\,\lambda_{D_x}(dg)
+\]
+is the Haar measure of the coset
+$b+D_x+\mathcal M_x=b+\Gamma_x$, and the right side depends on $b$ only
+through this coset. By Lemma~\ref{rM3:coset} the coset is a function of
+$F^{\rm ext}_x$, so the displayed conditional law is also the conditional
+law given $F^{\rm ext}_x$; this is (i). For (ii)--(iv) write
+\[
+b+g+a=(\Pi_xb+g)+((1-\Pi_x)b+a)
+\]
+with $\Pi_xb+g\in D_x$ and $(1-\Pi_x)b+a\in
+D_x^\perp$, so
+\[
+\lVert b+g+a\rVert^2=\lVert\Pi_xb+g\rVert^2+\lVert(1-\Pi_x)b+a\rVert^2
+\]
+and the conditional law factorises into the image of the measure
+\[
+e^{-\beta\lVert\Pi_xb+g\rVert^2/2}\lambda_{D_x}(dg)
+\]
+under $g\mapsto\Pi_xb+g$, which is the centred Gaussian $N(0,\beta^{-1}\Pi_x)$ on $D_x$ by translation
+invariance of $\lambda_{D_x}$, and the discrete law of (iii). The coset
+$a_0+\mathcal M_x=(1-\Pi_x)(b+\Gamma_x)$ is a function of $F^{\rm ext}_x$.
+\end{proof}
+
+\begin{corollary}[the cube photon is never screened]\label{rM3:photon}
+For $c\in\R^P$ and every $x\in X$,
+\[
+\E\bigl[\Var(\ip cF\mid F^{\rm ext}_x)\bigr]\ \ge\ \beta^{-1}\lVert\Pi_x
+c^{\rm int}\rVert^2,\qquad c^{\rm int}:=c|_{P(V_x)},
+\]
+with equality if and only if $\ip{c^{\rm int}}{(1-\Pi_x)F^{\rm int}}$ is
+a.s. a function of $F^{\rm ext}_x$. The lower bound is the Gaussian cube
+response of Lemma~\ref{rD:gaussresp} in three dimensions.
+\end{corollary}
+
+\begin{proof}
+Decompose
+\[
+\ip cF=\ip{c^{\rm ext}}{F^{\rm ext}_x}+\ip{c^{\rm int}}{\Pi_xF^{\rm int}}
++\ip{c^{\rm int}}{(1-\Pi_x)F^{\rm int}};
+\]
+the first term is
+$F^{\rm ext}_x$-measurable, the other two are conditionally independent by
+Proposition~\ref{rM3:interior}(iv), and the conditional variance of the
+second is $\beta^{-1}\lVert\Pi_xc^{\rm int}\rVert^2$ by (ii).
+\end{proof}
+
+\begin{proposition}[the dual action of $\mathcal P_x$ on characters]
+\label{rM3:characters}
+For $m\in\Z^P$ let $\chi_m(F)=e^{i\ip mF}$, so that the $\chi_m$ span a dense
+subspace of $\mathcal A_F$. Write $m=m^{\rm int}+m^{\rm ext}$ according to
+$P=P(V_x)\sqcup(P\setminus P(V_x))$. Then
+\begin{gather*}
+\mathcal P_x\chi_m=\chi_{m^{\rm ext}}\,\frac{\Sigma(m^{\rm int})}
+{\Sigma(0)},\\
+\Sigma(r)=\sum_{\substack{m'\in\Z^{P(V_x)}\\ \delta(r+m')|_{V_x}=0}}
+e^{-\lVert m'\rVert^2/2\beta}\,e^{i\ip{\delta(r+m')}{\theta}_{E\setminus V_x}},
+\end{gather*}
+where $\ip\cdot\cdot_{E\setminus V_x}$ is the sum over exterior links; by
+Lemma~\ref{rM3:coset} each exponential $e^{i\ip{\delta\tilde m}\theta_{E
+\setminus V_x}}$ with $\delta\tilde m|_{V_x}=0$ is a function of $F^{\rm
+ext}_x$.
+\end{proposition}
+
+\begin{proof}
+Since $m^{\rm int}$ is integer, $\chi_{m^{\rm int}}(F^{\rm int})=e^{i\ip
+{m^{\rm int}}{b+d_x\eta}}$ does not depend on $K$, and summing the
+conditional density over $K$ gives $\prod_{p\in P(V_x)}\varphi_\beta(b_p+(d_x
+\eta)_p)$. Insert the Poisson summation form $\varphi_\beta(t)=(2\pi
+\beta)^{-1/2}\sum_{m'\in\Z}e^{-m'^2/2\beta}e^{im't}$ of the Villain
+weight (the Fourier coefficients of the $2\pi$-periodisation of $e^{-\beta
+t^2/2}$), exchange the absolutely convergent sum with the integral, and
+integrate over $\eta\in(-\pi,\pi]^{V_x}$: $\int e^{i\ip{\tilde m}{d_x\eta}}
+d\eta/(2\pi)^{\lvert V_x\rvert}=\mathbf 1\{\delta\tilde m|_{V_x}=0\}$, and for
+such $\tilde m$, $\ip{\tilde m}b=\ip{\tilde m}{d\theta^0}=\ip{\delta\tilde m}
+{\theta^0}=\ip{\delta\tilde m}\theta_{E\setminus V_x}$. The numerator is this
+with $\tilde m=m^{\rm int}+m'$, the denominator with $\tilde m=m'$.
+\end{proof}
+
+\begin{remark}[the dual height model and the sine-Gordon field]
+\label{rM3:nodual}
+Poisson resummation of every $\varphi_\beta$ and integration over $\theta$
+give
+\[
+Z=\Bigl(\frac1{2\pi\beta}\Bigr)^{\lvert P\rvert/2}\sum_{m\in\Z^P,\ \delta m
+=0}e^{-\lVert m\rVert^2/2\beta},
+\]
+a sum over integer-valued coclosed $2$-cochains. They include the $m=
+\delta h$, $h\in\Z^C$, the gradients of integer-valued height functions
+on the dual lattice, and the restriction of the sum to these is the
+partition function of an integer-valued height model; duality
+transformations of this kind are the starting point of~\cite{GM82}
+(and, in four dimensions, of~\cite{FS82}), see~\cite{RFN24}. Proposition~\ref{rM3:characters} expresses the cube
+move on characters as a ratio of two sums of this type over the
+$m'$ supported in the dual block, weighted by the phases
+$e^{i\ip{\delta\tilde m}\theta}$, which are functions of the exterior field
+strength. These weights are complex in general, so the formula is not
+the conditional expectation of a block of the height model, and we do not
+know a positive dual measure whose block resampling is intertwined with the
+cube move. Likewise the Gaussian (sine-Gordon type) field that arises
+from a further Gaussian transformation of the Coulomb energy of
+Remark~\ref{rM3:coulomb}, as in the approach of~\cite{GM82} described
+in~\cite{RFN24}, enters as a variable in a representation of
+expectations; it is not constructed here as a random variable on the
+probability space of $\tilde\mu_\beta$ coupled to $F$. So
+Theorem~\ref{thm:ffscalar} applied to a massive scalar of mass $m_D$ gives
+no statement about $\mu_\beta$, and in this subsection the monopole
+screening enters $\mathrm{BP}(n,\varpi)$ on $\mathcal A_F$ only through
+the inequality of Theorem~\ref{rM3:dualform}. Theorem~\ref{rM3:DH} below makes this
+precise in the Gaussian approximation, where the cube move does act on
+the field strength itself.
+\end{remark}
+\subsubsection{Single plaquettes: the photon gives a $\beta$-independent
+constant}\label{rM3:plaqsec}
+
+\begin{lemma}[second moment of the field strength]\label{rM3:moment}
+Under $\tilde\mu_\beta$, $\E\lVert M\rVert^2\le\dim\mathcal B^\perp/\beta
+=(L^3+2)/\beta$, $\E\lVert G\rVert^2=\dim\mathcal B/\beta=(2L^3-2)/\beta$,
+and $\E F_p^2\le1/\beta$ for every plaquette $p$.
+\end{lemma}
+
+\begin{proof}
+$\ker d\subset\R^E$ consists of the exact $1$-cochains ($\dim L^3-1$) and
+the harmonic ones ($\dim3$), so $\dim\mathcal B=3L^3-(L^3+2)=2L^3-2$ and
+$\dim\mathcal B^\perp=L^3+2=:N$. By Proposition~\ref{rM3:lawF}(ii), $G$ is
+centred Gaussian with covariance $\beta^{-1}\Pi$, so $\E\lVert G\rVert^2=
+\beta^{-1}\operatorname{tr}\Pi=\dim\mathcal B/\beta$. Let $\mathcal M^*=\{w
+\in\mathcal B^\perp:\ip wa\in\Z\ \forall a\in\mathcal M\}$ be the dual lattice
+and $\lvert\mathcal M\rvert$ the covolume (Lemma~\ref{rM3:lattices}(iii)).
+The Poisson summation formula for the Gaussian $e^{-\beta\lVert y\rVert^2/2}$
+on $\mathcal B^\perp\cong\R^N$ gives, for $\beta>0$,
+\begin{gather*}
+Z_{\mathcal M}(\beta):=\sum_{a\in\mathcal M}e^{-\beta\lVert a\rVert^2/2}=
+\frac{(2\pi/\beta)^{N/2}}{\lvert\mathcal M\rvert}\,\Theta(\beta),\\
+\Theta(\beta)=\sum_{w\in\mathcal M^*}e^{-2\pi^2\lVert w\rVert^2/\beta}.
+\end{gather*}
+Both series and their $\beta$-derivatives converge uniformly on compact
+subsets of $(0,\infty)$, and every term of $\Theta$ is nondecreasing in
+$\beta$, so $\Theta'\ge0$. Hence
+\[
+\E\lVert M\rVert^2=-2\frac{d}{d\beta}\log Z_{\mathcal M}(\beta)=\frac N\beta
+-2\frac{\Theta'(\beta)}{\Theta(\beta)}\le\frac N\beta .
+\]
+Since $G$ and $M$ are independent and $\E G=0$, $\E\lVert F\rVert^2=
+\E\lVert G\rVert^2+\E\lVert M\rVert^2\le3L^3/\beta$. The translations of
+$\Lambda_L$ and the cyclic permutation of the coordinate axes act on
+$(\theta,k)$ preserving $\tilde\mu_\beta$, and they act on $\R^P$ by
+permutations of the plaquettes up to signs; this group acts transitively on
+$P$, so $\E F_p^2$ does not depend on $p$ and equals $\E\lVert F\rVert^2/
+(3L^3)\le1/\beta$.
+\end{proof}
+
+\begin{proposition}[odd plaquette functions]\label{rM3:plaq}
+Let $\beta>1$, $n\ge2$, $L\ge n+2$, and let $p$ be a plaquette. Then
+$f=\sin F_p=\operatorname{Im}e^{i(d\theta)_p}\in\mathcal A_F$ satisfies
+\[
+\mathcal E_n(f)\ge\frac{(1+2/n)(1-1/\beta)}4\,\Var_\mu(f),
+\]
+and the constant is at least $\frac18$ for $\beta\ge2$. The same holds for
+$c\sin F_p$, $c\in\R$.
+\end{proposition}
+
+\begin{proof}
+$\Var_\mu(f)\le\E\sin^2F_p\le\E F_p^2\le1/\beta$ by Lemma~\ref{rM3:moment}.
+If $p\notin P(V_x)$, $f$ is $F^{\rm ext}_x$-measurable and contributes
+nothing; $p\in P(V_x)$ for exactly $n\cdot n(n+2)=n^2(n+2)$ points $x$ (the
+number of plaquettes of $P(V_0)$ in the plane of $p$,
+Sec.~\ref{rM3:block}). Fix such an $x$. Then $p$ has a link $e\in V_x$; the
+four plaquettes containing $e$ lie in $P(V_x)$, so $w=d_x\mathbf 1_e\in D_x$
+has $\lVert w\rVert^2=4$ and $\ip{\mathbf 1_p}w=\pm1$, whence
+\[
+\sigma^2:=\beta^{-1}\lVert\Pi_x\mathbf 1_p\rVert^2\in\bigl[\tfrac1{4\beta},
+\tfrac1\beta\bigr].
+\]
+Write $F_p=X+a$ with $X=\ip{\mathbf 1_p}{\Pi_xF^{\rm int}}$ and $a=\ip{\mathbf
+1_p}{(1-\Pi_x)F^{\rm int}}$. By Proposition~\ref{rM3:interior}(ii),(iv),
+conditionally on $F^{\rm ext}_x$ the variable $X$ is $N(0,\sigma^2)$ and
+independent of $a$. For $X\sim N(0,\sigma^2)$ and a constant $a$,
+$\E\sin(X+a)=e^{-\sigma^2/2}\sin a$ and $\E\sin^2(X+a)=\frac12(1-e^{-2
+\sigma^2}\cos2a)$, so
+\begin{align*}
+V(a):=\Var\sin(X+a)&=\frac{1-e^{-2\sigma^2}}2-\bigl(e^{-\sigma^2}-e^{-2\sigma^2}
+\bigr)\sin^2a\\
+&\ge\sigma^2-\sigma^4-\sigma^2a^2,
+\end{align*}
+using $1-e^{-u}\ge u-u^2/2$ and $e^{-\sigma^2}(1-e^{-\sigma^2})\le\sigma^2$.
+By the law of total variance, $\Var(f\mid F^{\rm ext}_x)\ge\E[V(a)\mid
+F^{\rm ext}_x]$ (given $(a,F^{\rm ext}_x)$ the variable $X$ is still
+$N(0,\sigma^2)$, so $\Var(f\mid a,F^{\rm ext}_x)=V(a)$). Moreover $\E X^2=
+\sigma^2$ and $\E[Xa]=0$ (condition on $(a,F^{\rm ext}_x)$), so $\E a^2=
+\E F_p^2-\sigma^2\le1/\beta-\sigma^2$. Hence
+\begin{align*}
+\E\bigl[\Var(f\mid F^{\rm ext}_x)\bigr]&\ge\sigma^2-\sigma^4-\sigma^2
+\Bigl(\frac1\beta-\sigma^2\Bigr)\\
+&=\sigma^2\Bigl(1-\frac1\beta\Bigr)\ge\frac{1-1/\beta}{4\beta}.
+\end{align*}
+By Corollary~\ref{rM3:exterior}, $\mu((f-\mathcal P_xf)^2)=\E[\Var(f\mid
+F^{\rm ext}_x)]$, and summing over the $n^2(n+2)$ points $x$,
+$\mathcal E_n(f)\ge n^{-3}n^2(n+2)(1-1/\beta)/(4\beta)\ge\frac{(1+2/n)(1-
+1/\beta)}4\Var_\mu(f)$. For $\beta\ge2$ the constant is at least
+$(1+2/n)/8\ge\frac18$. Both sides are quadratic in $c$.
+\end{proof}
+
+\begin{remark}[what this shows, and the even functions]\label{rM3:plaqremark}
+For $\SU(2)$, Proposition~\ref{rD:plaquette} obtains the inequality of
+$\mathrm{BP}$ for plaquette traces with a constant of order
+$1/(\beta\log\beta)$, and the second-moment bound of
+Theorem~\ref{rDtwo:secondmoment} removes the logarithmic loss
+(Corollary~\ref{rDtwo:bpplaquette}, Remark~\ref{rD:plaqloss}). For the odd
+functions of one Villain plaquette the constant is independent of $\beta$
+and $L$ and needs only a second moment: the
+exact part of the interior field is a Gaussian of variance $\asymp\beta^{-1}$
+whatever the exterior (Proposition~\ref{rM3:interior}), and the second
+moment of $F_p$ is at most $\beta^{-1}$ (Lemma~\ref{rM3:moment}). For the
+even function $\cos F_p$ the same argument gives $\E\Var(\cos F_p\mid
+F^{\rm ext}_x)\ge\E[(1-e^{-\sigma^2})^2/2]\ge c\beta^{-2}$ for $\beta\ge1$
+(the conditional variance of $\cos(X+a)$ is $\frac12(1-e^{-\sigma^2})^2+
+(e^{-\sigma^2}-e^{-2\sigma^2})\sin^2a$), and a $\beta$-independent constant
+would follow from $\Var(\cos F_p)\le C\beta^{-2}$. For this
+$\E(1-\cos F_p)^2\le\frac14\E F_p^4\le C\beta^{-2}$ would suffice, and
+since $F_p=G_p+M_p$ with $G_p$ Gaussian of variance at most $\beta^{-1}$, a
+fourth-moment bound $\E M_p^4\le C'\beta^{-2}$ on the monopole component
+would give it; Lemma~\ref{rM3:moment} gives only the second moment, and
+this fourth-moment bound is not proved here. By the
+symmetry $(\theta,k)\mapsto(-\theta,-k)$, which preserves $\tilde\mu_\beta$
+and the exterior $\sigma$-algebras, $\cos F_p$ and $\sin F_p$ are
+orthogonal both for the variance and for the Dirichlet form, so the
+inequality on $\operatorname{span}\{\cos F_p,\sin F_p\}$ is equivalent to
+the two separate inequalities. These are statements at the scale of one
+plaquette. Their mechanism is the photon; the monopoles enter only
+through the second moment of Lemma~\ref{rM3:moment}. They say
+nothing about the long-wavelength functions that decide
+$\mathrm{BP}(n,\varpi)$ (Theorem~\ref{rD:maxwell}).
+\end{remark}
+
+\subsubsection{The layer flux: where the monopoles break the Maxwell
+mechanism}\label{rM3:layersec}
+
+Fix $x$ and the plane $\{1,2\}$. For $t\in x_3+[0,n)$ let $Q_t$ be the
+$(n+1)^2$ plaquettes $(y,12)$ with $y_3=t$ and $(y_1,y_2)\in(x_1,x_2)+[-1,
+n-1]^2$, $q_t\in Q_t$ the one with $(y_1,y_2)=(x_1-1,x_2-1)$, $R_t=Q_t
+\setminus\{q_t\}$, $s_t=x_3+n-t\in[1,n]$, $Q'_t=Q_t+s_te_3$, and let $T_t$ be
+the set of the $(n+1)^2s_t$ cubes $c_{z+je_3}$, $(z,12)\in Q_t$, $0\le j<s_t$.
+By Sec.~\ref{rM3:block}, the plaquettes of $P(V_x)$ in the plane $\{1,2\}$
+are the disjoint union of the $R_t$ (this uses $L\ge n+2$).
+
+\begin{lemma}[layer flux]\label{rM3:layer}
+Let $L\ge n+2$. There are integer $2$-chains $W_t$ supported on plaquettes
+not in $P(V_x)$ such that $Q'_t\cap P(V_x)=\emptyset$, $q_t\notin P(V_x)$,
+and for every $F\in\R^P$
+\begin{gather*}
+\Phi_t(F):=\sum_{p\in R_t}F_p=E_t(F)-\ip{dF}{\mathbf 1_{T_t}},\\
+E_t(F):=\sum_{p\in Q'_t}F_p+\ip F{W_t}-F_{q_t}.
+\end{gather*}
+For the Villain field strength $F=d\theta+2\pi k$, $\ip{dF}{\mathbf 1_{T_t}}
+=2\pi N_t$ with $N_t=\sum_{c\in T_t}\mathsf n_c\in\Z$ the monopole number
+of $T_t$, and $E_t(F)$ is a function of $F^{\rm ext}_x$.
+\end{lemma}
+
+\begin{proof}
+By the formula for $d$ on $2$-cochains (Sec.~\ref{rM3:setting}), the
+boundary chain $\partial c_z:=d^{\mathsf T}\mathbf 1_{c_z}$ is $\sum_\rho
+\sigma_\rho(\mathbf 1_{(z+e_\rho,\mu\nu)}-\mathbf 1_{(z,\mu\nu)})$, $\{\mu,
+\nu\}$ the complement of $\rho$, $\sigma_1=\sigma_3=1$, $\sigma_2=-1$. In
+$\partial\mathbf 1_{T_t}$ the $12$-faces telescope in $j$ to $\mathbf 1_{Q'_t}-
+\mathbf 1_{Q_t}$. For fixed $j$, the $23$-faces $\pm[(z+e_1,23)-(z,23)]$
+telescope in $z_1\in x_1+[-1,n-1]$ and leave faces with first coordinate
+$x_1-1$ or $x_1+n$; a $23$-plaquette has its three base points $y,y+e_2,
+y+e_3$ with the same first coordinate, which is then not in $x_1+[0,n)$, so
+these faces are not in $P(V_x)$. The $13$-faces are treated in the same way
+with the second coordinate. Put $W_t=\partial\mathbf 1_{T_t}-(\mathbf 1_{Q'_t}
+-\mathbf 1_{Q_t})$. The plaquettes of $Q'_t$ have all base points with third
+coordinate $x_3+n$, and $q_t\notin P(V_x)$ by the description of
+$P(V_x)$ in Sec.~\ref{rM3:block}. Since $L\ge n+2$, the residues
+$x_i-1,\dots,x_i+n$ are distinct, so the cubes of $T_t$ are distinct and
+the cancellations are as stated. Now $\ip F{\partial\mathbf 1_{T_t}}=\ip{dF}
+{\mathbf 1_{T_t}}$ gives $\sum_{Q'_t}F-\sum_{Q_t}F+\ip F{W_t}=\ip{dF}{\mathbf
+1_{T_t}}$, which is the identity after subtracting $F_{q_t}$. For the
+Villain field, $dF=2\pi dk=2\pi\mathsf n$, and $E_t$ involves only
+plaquettes outside $P(V_x)$.
+\end{proof}
+
+For the Maxwell field $dF=0$ and $\Phi_t$ is exterior-measurable, which is
+the whole mechanism of Theorem~\ref{rD:maxwell}: a cube move cannot change
+the flux through the layers it reads. For the Villain field the move
+changes $\Phi_t$ exactly by $2\pi$ times the change of the monopole number
+of $T_t$, a region of the dual block. The layer flux is relaxed by the
+cube dynamics only through monopoles created or annihilated inside the
+block, and with weight $2\pi$, an integer multiple of the period. A
+function of the plaquette angles $e^{iF_p}$ sees $\Phi_t$ only modulo
+$2\pi$ through products of characters, and $e^{i\Phi_t}=e^{iE_t}$ is
+exterior-measurable. So the long-wavelength test functions of
+Theorem~\ref{rD:maxwell} must be built from non-periodic functions of
+$F$, such as $\sin F_p$ summed over many plaquettes, whose layer sums are
+not of the form $e^{i\Phi_t}$. Theorem~\ref{rM3:DH} shows what happens when
+the integer constraint on $dF$ is replaced by a Gaussian penalty.
+\subsubsection{The Debye--H\"uckel Gaussian field}\label{rM3:DHsec}
+
+By Proposition~\ref{rM3:lawF}, $P_\beta$ has density $\propto e^{-\beta
+\lVert F\rVert^2/2}$ with respect to $\lambda_{\mathcal B}\otimes
+\mathrm{counting}$ on the union $\mathcal B+\mathcal M$ of translates of
+$\mathcal B$, and every $F$ in its support has $dF\in2\pi\Z^C$. In the dilute-gas (Debye--H\"uckel) approximation the
+integer charge $\mathsf n=dF/2\pi$ is replaced by a centred Gaussian with
+variance $2z$ per cube, that is, the constraint by the weight
+$e^{-\lVert dF\rVert^2/(16\pi^2z)}=e^{-\beta\lVert dF\rVert^2/(2\mathsf m^2)}$
+with $\mathsf m^2=8\pi^2\beta z$ (Remark~\ref{rM3:coulomb}). We take $\mathsf
+m>0$ as a free parameter.
+
+\begin{definition}[the Debye--H\"uckel field]\label{rM3:DHdef}
+For $\beta,\mathsf m>0$ let $Q_{\mathsf m}=\beta(I+\mathsf m^{-2}\delta d)$
+on $\R^P$, a positive definite operator ($Q_{\mathsf m}\ge\beta$), and let
+$\gamma^{\rm DH}$ be the centred Gaussian law on $\R^P$ with covariance
+$Q_{\mathsf m}^{-1}$. For $x\in X$ let $\mathcal P^{\rm DH}_x$ be the
+conditional expectation given $(F_p)_{p\notin P(V_x)}$, and
+$\varpi_{\rm DH}(n,\mathsf m)$ the largest $\varpi$ with
+\[
+\varpi\Var_{\gamma^{\rm DH}}(f)\le\frac1{n^3}\sum_{x\in X}\bigl\lVert f-
+\mathcal P^{\rm DH}_xf\bigr\rVert^2_{L^2(\gamma^{\rm DH})}
+\]
+for all real $f\in L^2(\gamma^{\rm DH})$,
+which is $\varpi(Q_{\mathsf m};(P(V_x))_x)$ of~\eqref{eq:ffvarpi} with the
+normalisation $n^{-3}$.
+\end{definition}
+
+On the exact cochains $\mathcal B$, $Q_{\mathsf m}=\beta$, and on $\delta
+\R^C$, $Q_{\mathsf m}\delta u=\beta\delta(1+\mathsf m^{-2}(-\Delta_3))u$, so
+the covariance is $Q_{\mathsf m}^{-1}=\beta^{-1}[\Pi+H+\mathsf m^2(\mathsf m^2
++\delta d)^{-1}\Pi_c]$, $\Pi_c$ and $H$ the projections onto $\delta\R^C$
+and $\mathcal H$. The
+exact part is the same massless Maxwell field as in
+Proposition~\ref{rM3:lawF}; nevertheless the off-diagonal covariance
+$\ip{\mathbf 1_p}{Q_{\mathsf m}^{-1}\mathbf 1_q}=-\beta^{-1}\ip{d\mathbf 1_p}
+{(\mathsf m^2-\Delta_3)^{-1}d\mathbf 1_q}$, $p\ne q$ (from $(I+\mathsf m^{-2}
+\delta d)^{-1}=I-\delta(\mathsf m^2+d\delta)^{-1}d$ and $d\delta=-\Delta_3$
+on $\R^C$), decays exponentially at rate $\asymp\mathsf m$ for small
+$\mathsf m$, as the lattice resolvent $(\mathsf m^2-\Delta_3)^{-1}$ does.
+The field strength of
+$\gamma^{\rm DH}$ is massive although its exact part is not, and the
+mechanism is the one of the Villain decomposition: the coexact part cancels
+the long-range tail of $\Pi$.
+
+\begin{theorem}[the cube condition for the Debye--H\"uckel field]
+\label{rM3:DH}
+Let $n\ge2$, $L\ge n+2$, $\beta,\mathsf m>0$, $s=n\mathsf m$, and
+$\alpha_n,\rho_n$ as in Lemma~\ref{lem:ffparabola}. Then
+\begin{enumerate}[label=\textup{(\roman*)},leftmargin=*]
+\item $\displaystyle\varpi_{\rm DH}(n,\mathsf m)\ge\frac1{\alpha_n^3}\,
+\frac{s^2}{2s^2+60\rho_n}\ge\Bigl(\frac56\Bigr)^3\frac{s^2}{2s^2+60}$;
+\item $\displaystyle\varpi_{\rm DH}(n,\mathsf m)\le\min\Bigl\{1+\frac2n,\
+\frac{b_n^2s^2}2\Bigr\}$, where
+\[
+b_n^2=\frac{(n+1)^3(2n+1)}{3n^4}\le\frac{45}{16};
+\]
+\item the slowly varying wave $f=\sum_y\cos(2\pi y_1/L)F_{(y,12)}$ satisfies
+$\displaystyle\frac{\mathcal E^{\rm DH}_n(f)}{\Var(f)}\le\Bigl(\frac{2\pi
+\sqrt{2n(n+2)}}L+b_ns\Bigr)^2$, $\mathcal E^{\rm DH}_n$ the right side
+of the inequality in Definition~\ref{rM3:DHdef}.
+\end{enumerate}
+The bounds are independent of $\beta$, and (i), (ii) are independent of
+$L$. In particular $c\min(1,s^2)\le\varpi_{\rm DH}\le\min(1+\frac2n,
+\frac{45}{32}s^2)$ with $c=(5/6)^3/62$.
+\end{theorem}
+
+\begin{proof}
+(i) For a plaquette $p=(y,\mu\nu)$ and $x\in X$ put $\chi_x(p)=\prod_{i=1}^3
+\tau(y_i-x_i)$, $\tau$ the parabolic profile. If $\chi_x(p)\ne0$ then $y\in x
++[0,n)^3$, so the link $(y,\mu)$ of $p$ lies in $V_x$ and $p\in P(V_x)$; and
+$\sum_x\chi_x(p)=1$, $\sum_x\chi_x(p)^2=S_2^3$ as in~\eqref{eq:ffchisums}.
+For $v\in\R^P$ put $v_x=\chi_xv$, supported in $P(V_x)$, with $\sum_xv_x=v$.
+For $\rho\in\{1,2,3\}$ let $w_\rho(y)=\sigma_\rho v_{(y,\mu\nu)}$, $\{\mu,\nu\}$
+the complement of $\rho$; then $\lVert v\rVert^2=\sum_\rho\lVert w_\rho
+\rVert^2$, $(dv)_z=\sum_\rho\nabla_\rho w_\rho(z)$ by the formula for $d$,
+and, since $\chi_x(p)$ depends only on the base point of $p$,
+\[
+(d(\chi_xv))_z=\chi_x(z)(dv)_z+\sum_\rho(\nabla_\rho\chi_x)(z)\,w_\rho(z+e_\rho),
+\]
+where $\chi_x(z)=\prod_i\tau(z_i-x_i)$. By $(a+b_1+b_2+b_3)^2\le2a^2+6\sum
+b_\rho^2$ and $\sum_x\chi_x(z)^2=S_2^3$, $\sum_x(\nabla_\rho\chi_x(z))^2=
+S_2^2D_2$ (the sum factorises over the coordinates, and $L\ge n+1$),
+\[
+\sum_x\lVert d(\chi_xv)\rVert^2\le2S_2^3\lVert dv\rVert^2+6S_2^2D_2\lVert v
+\rVert^2 .
+\]
+Hence
+\begin{align*}
+\sum_x\ip{v_x}{Q_{\mathsf m}v_x}&=\beta\sum_x\Bigl(\lVert\chi_xv\rVert^2+\frac{
+\lVert d(\chi_xv)\rVert^2}{\mathsf m^2}\Bigr)\\
+&\le C_0\,\beta\Bigl(\lVert v
+\rVert^2+\frac{\lVert dv\rVert^2}{\mathsf m^2}\Bigr)=C_0\ip v{Q_{\mathsf m}v}
+\end{align*}
+with $C_0=S_2^2\max(S_2+6D_2\mathsf m^{-2},2S_2)\le S_2^2(2S_2+6D_2\mathsf
+m^{-2})$. Lemma~\ref{lem:fflions}, which is stated for an arbitrary finite
+family of coordinate sets, applied with $T=\R^P$, the sets $P(V_x)$ and
+$d=3$, gives $\varpi_{\rm DH}\ge1/(n^3C_0)$. With $S_2=\alpha_n/n$, $D_2=
+\beta_n/n^3$ and $\beta_n=10\rho_n\alpha_n$ (here $\beta_n$ is the constant
+of Lemma~\ref{lem:ffparabola}, not the coupling),
+\[
+n^3C_0\le2\alpha_n^3+\frac{6\alpha_n^2\beta_n}{s^2}=\alpha_n^3\Bigl(2+\frac{60
+\rho_n}{s^2}\Bigr),
+\]
+which is the first bound; the second uses $\alpha_n\le6/5$, $\rho_n<1$.
+
+(ii), (iii) The bound $1+2/n$: for $f=F_p$, $\lVert f-\mathcal P^{\rm DH}_x
+f\rVert^2\le\Var(F_p)$, and it vanishes unless $p\in P(V_x)$, which holds
+for $n^2(n+2)$ points $x$. For the other two bounds let $c\in\R^P$ vanish
+off the plaquettes $(y,12)$ and take on them either the values $c_{(y,12)}=
+1$ (case (ii)) or $c_{(y,12)}=\cos(2\pi y_1/L)$ (case (iii)), and put $f=
+\ip cF$. In both cases $dc=0$: by the formula for $d$ on $2$-cochains only
+the term $\rho=3$, $c_{(z+e_3,12)}-c_{(z,12)}$, can contribute, and $c_{(y,
+12)}$ does not depend on $y_3$. Hence $Q_{\mathsf m}c=\beta c$ and $\Var(f)=
+\ip c{Q_{\mathsf m}^{-1}c}=\lVert c\rVert^2/\beta$, which is $L^3/\beta$ in
+case (ii) and $L^3/(2\beta)$ in case (iii) (as $L\ge4$). Fix $x$, put $\bar
+c=1$ in case (ii) and $\bar c=\cos(2\pi(x_1-1)/L)$ in case (iii),
+$c^{\rm in}=c\mathbf 1_{P(V_x)}$,
+$c^{\rm ext}=c-c^{\rm in}$, and with Lemma~\ref{rM3:layer}
+\[
+g=\ip{c^{\rm ext}}F+\bar c\sum_tE_t(F),
+\]
+a function of $(F_p)_{p\notin P(V_x)}$. Since $c^{\rm in}$ is supported on
+$\bigsqcup_tR_t$ and $\sum_tE_t=\sum_t\Phi_t+\ip{dF}\vartheta$ with $\vartheta=\sum_t
+\mathbf 1_{T_t}$,
+\[
+f-g=\ip hF-\bar c\ip F{\delta\vartheta},\qquad h=c^{\rm in}-\bar c\sum_t\mathbf 1_{R_t}.
+\]
+In case (ii), $h=0$. In case (iii), as in Theorem~\ref{rD:maxwell}, $h$
+is supported on the $n^2(n+2)$ plaquettes of the layers, and on $(y,12)\in
+R_t$, $y_1=x_1-1+j$, $0\le j\le n$, $\lvert h_{(y,12)}\rvert\le2\pi j/L\le2\pi
+n/L$, so $\E\ip hF^2=\ip h{Q_{\mathsf m}^{-1}h}\le\lVert h\rVert^2/\beta\le
+4\pi^2n^4(n+2)/(\beta L^2)$, using $Q_{\mathsf m}\ge\beta$. Next, $u=(1+\mathsf m^{-2}(-\Delta_3))^{-1}\vartheta$ satisfies
+$Q_{\mathsf m}\beta^{-1}\delta u=\delta\vartheta$, so
+\begin{align*}
+\E\ip F{\delta\vartheta}^2&=\ip{\delta\vartheta}{Q_{\mathsf m}^{-1}\delta\vartheta}=\frac1
+\beta\Bigl\langle\vartheta,\frac{-\Delta_3}{1+\mathsf m^{-2}(-\Delta_3)}\vartheta
+\Bigr\rangle\\
+&\le\frac{\mathsf m^2}\beta\lVert\vartheta\rVert^2,
+\end{align*}
+since $\lambda/(1+\lambda/\mathsf m^2)\le\mathsf m^2$ for $\lambda\ge0$. The
+cube $c_z$ lies in $T_t$ if and only if $(z_1,z_2)\in(x_1,x_2)+[-1,n-1]^2$
+and $t\le z_3\le x_3+n-1$, so $\vartheta(z)=z_3-x_3+1$ on those cubes with $z_3\in
+x_3+[0,n)$, and $\lVert\vartheta\rVert^2=(n+1)^2\sum_{j=1}^nj^2=(n+1)^3n(2n+1)/6$.
+Since $g$ is measurable for the exterior, $I-\mathcal P^{\rm DH}_x$ is an
+orthogonal projection, and $\lvert\bar c\rvert\le1$,
+\[
+\lVert f-\mathcal P^{\rm DH}_xf\rVert\le\lVert f-g\rVert\le\beta^{-1/2}
+\bigl(a_h+\mathsf m\lVert\vartheta\rVert\bigr),
+\]
+with $a_h=0$ in case (ii) and $a_h=2\pi n^2\sqrt{n+2}/L$ in case (iii).
+Summing the squares over the $L^3$ points $x$ and dividing by $n^3$: in
+case (ii), $\varpi_{\rm DH}L^3/\beta\le n^{-3}L^3\mathsf m^2\lVert\vartheta
+\rVert^2/\beta$, that is $\varpi_{\rm DH}\le\mathsf m^2(n+1)^3(2n+1)/(6n^2)=
+b_n^2s^2/2$; in case (iii), $\mathcal E^{\rm DH}_n(f)/\Var(f)\le2n^{-3}(a_h+
+\mathsf m\lVert\vartheta\rVert)^2=(2\pi\sqrt{2n(n+2)}/L+b_ns)^2$. Finally $b_n^2=
+\frac13(1+\frac1n)^3(2+\frac1n)$ decreases in $n$ and equals $\frac{45}{16}$
+at $n=2$.
+\end{proof}
+
+\begin{remark}[reading of Theorem~\ref{rM3:DH}]\label{rM3:DHremark}
+With $n=\ell/a$ and $\mathsf m=m_{\rm phys}a$, $s=m_{\rm phys}\ell$, and the
+theorem says that the Debye--H\"uckel field satisfies $\mathrm{BP}(n,
+\varpi)$ with $\varpi\ge(5/6)^3s^2/(2s^2+60)$, uniformly in $L$, $\beta$ and
+the lattice spacing, and with no better constant than
+$\frac12b_n^2s^2\le\frac{45}{32}s^2$, on every torus. This is the behaviour of the free massive
+scalar (Theorem~\ref{thm:ffscalar}, $\varpi\asymp s^2/(s^2+10d)$) and of the
+Proca field (Theorem~\ref{thm:ffproca}, Proposition~\ref{prop:ffupper}),
+with one difference: the mass term acts only on the coexact part, through
+$\mathsf m^{-2}\lVert dF\rVert^2$, while the exact part keeps its massless
+law. The proof of (i) shows how this suffices: cutting $v$ by the profile
+creates the divergence $(\nabla\chi_x)\cdot w$, and that is paid by the
+monopole term at the price $D_2/\mathsf m^2$, exactly as the mass term pays
+the cut of a scalar field in Lemma~\ref{lem:ffpartition}. In the proofs of
+(ii) and (iii) the test functions are no longer frozen, because the layer
+flux $\Phi_t$ now differs from an exterior function by the Gaussian charge
+$\ip{dF}{\mathbf 1_{T_t}}$, of variance $\le\mathsf m^2\lVert\mathbf
+1_{T_t}\rVert^2/\beta$. The test function of (ii) is the flux through the
+planes $y_3=\mathrm{const}$ of the torus, a harmonic direction that is
+exactly frozen when $\mathsf m\to0$; that of (iii) is the slow wave of
+Theorem~\ref{rD:maxwell}, and setting $\mathsf m=0$ in (iii) gives the
+three-dimensional form of Theorem~\ref{rD:maxwell}. So in the Gaussian
+approximation
+the dynamically generated mass does produce the cube constant that
+Remark~\ref{rem:rSmissing} asks for, on cubes of the size of the inverse
+mass, and with a constant of order $(m_{\rm phys}\ell)^2$ on smaller cubes.
+\end{remark}
+\subsubsection{A necessary condition, and comparison}\label{rM3:compare}
+
+\begin{proposition}[correlation length]\label{rM3:xi}
+Let $\mathcal L$ be an infinite set of even $L\ge2n+4$ such that
+$\mathrm{BP}(n,\varpi)$ holds for the Villain measure $\mu_\beta$ on
+$\Lambda_L=(\Z/L\Z)^3$ for every $L\in\mathcal L$, and let $\omega$ be a
+torus limit along $\mathcal L$ (defined as after
+Theorem~\ref{thm:avgdecay}, with $\Z^3$ in place of $\Z^4$). If $f,g$ are bounded local gauge-invariant
+functions with $\lvert\omega(f\tau_dg)-\omega(f)\omega(g)\rvert\ge c_0e^{-d/
+\xi}$ for some $c_0>0$, $\xi>0$ and infinitely many $d$, then $\varpi\le e^2
+q_nn/\xi$, $q_n=(2+1/n)^3$. With $na=\ell$ and $\xi=1/(m_{\rm phys}a)$
+this reads $\varpi\le e^2q_n\,m_{\rm phys}\ell$.
+\end{proposition}
+
+\begin{proof}
+The proof of Corollary~\ref{rD:xi} uses only the second bound of
+Theorem~\ref{thm:avgdecay}, which holds for $d=3$ by
+Remark~\ref{rM3:dim}, and $\varpi\le4$, $q_n>8$ for the absorption of
+$e^{\varpi c/(e^2q_nn)}\le e^c$ into the constant.
+\end{proof}
+
+If the correlation length of the Villain model at large $\beta$ is of
+the order of the inverse Debye mass, as the semiclassical picture
+predicts, Proposition~\ref{rM3:xi} says that a constant $\varpi$ bounded
+below is possible only on cubes with $n\gtrsim\varpi/(e^2q_nm_D)$, that is
+of the size of the inverse photon mass. The lower bound on correlations
+required in the proposition is not proved here for the Villain model. We
+use from~\cite{GM82} only the area law and the exponential decay of
+correlations, which are upper bounds, as summarised in~\cite{Cha18,RFN24};
+whether~\cite{GM82} also gives a matching lower bound on plaquette
+correlations, which would make the hypothesis of
+Proposition~\ref{rM3:xi} hold with $\xi$ of the order of the inverse
+photon mass, is not checked here. In the Debye--H\"uckel approximation the
+corresponding necessary condition is the sharper quadratic bound of
+Theorem~\ref{rM3:DH}(ii), $\varpi\le\frac{45}{32}(n\mathsf m)^2$ on every
+torus.
+
+\begin{remark}[comparison with the free fields and the Maxwell field]
+\label{rM3:table}
+In units of the cube, $s=$ mass $\times$ side, the cube constant behaves
+as follows ($d=3$ here, general $d$ in Sec.~\ref{ssec:fffree}, $d=4$ in
+Sec.~\ref{rD:sec}):
+\begin{itemize}[leftmargin=*]
+\item massive scalar: $\varpi\ge(\frac56)^d\frac{s^2}{s^2+10d}$
+(Theorem~\ref{thm:ffscalar}), and an upper bound vanishing with $s$
+(Proposition~\ref{prop:ffupper});
+\item Maxwell field: no lower bound; $\varpi\le O(n^2/L^2)$
+(Theorem~\ref{rD:maxwell});
+\item Debye--H\"uckel field: $(\frac56)^3\frac{s^2}{2s^2+60}\le\varpi\le
+\min(1+\frac2n,\frac{45}{32}s^2)$ on every torus (Theorem~\ref{rM3:DH});
+\item Villain, plaquette algebra: lower bound open; $\varpi\le e^2q_nn/\xi$
+whenever correlations decay no faster than $e^{-d/\xi}$
+(Proposition~\ref{rM3:xi});
+\item Villain, the functions $c\sin F_p$ of one plaquette: the inequality
+holds with $\frac18$ for $\beta\ge2$ (Proposition~\ref{rM3:plaq}).
+\end{itemize}
+The Maxwell field and the Debye--H\"uckel field have the same exact part;
+the difference is the term $\mathsf m^{-2}\lVert dF\rVert^2$, a mass for the
+coexact (monopole) part only, and it is enough to turn the diffusive
+failure into a uniform constant. The Villain field strength has the same
+exact part again (Proposition~\ref{rM3:lawF}), and its coexact part is the
+lattice-valued field $M$ instead of a Gaussian.
+\end{remark}
+
+\subsubsection{What is missing for the Villain measure}\label{rM3:missing}
+
+The proof of Theorem~\ref{rM3:DH}(i) has two steps: the reduction of the
+Dirichlet form to linear functionals of a Gaussian field
+(Theorem~\ref{thm:ffchaos}, Lemma~\ref{lem:fflinear}), and a stable
+decomposition of the precision form (Lemma~\ref{lem:fflions}). For the
+Villain measure, Theorem~\ref{rM3:dualform} and
+Proposition~\ref{rM3:interior} reduce $\mathrm{BP}(n,\varpi)$ on the
+plaquette algebra to an inequality for $P_\beta=\gamma_\beta*\nu_{\mathcal M}$,
+$\nu_{\mathcal M}$ the law of $M$, whose block law given the exterior is
+the product of the Gaussian $N(0,\beta^{-1}\Pi_x)$ on $D_x$ and the
+discrete Gaussian $\nu_{a_0}\propto e^{-\beta\lVert a\rVert^2/2}$ on the coset
+$a_0+\mathcal M_x$, $a_0=a_0(F^{\rm ext}_x)$. Neither step transfers, and
+the missing estimates are the following.
+
+\emph{(O1) The class of functions.} The inequality is required for
+periodic functions of $F$ only, and $P_\beta$ is not Gaussian, so there is
+no chaos decomposition and no reduction to linear functionals; the linear
+functionals $\ip cF$ of Theorem~\ref{rM3:DH}(ii), (iii) are not
+observables of the gauge theory. The long-wavelength functions that decide the inequality
+are nonlinear superpositions such as $\sum_y\cos(2\pi y_1/L)\sin F_{(y,12)}$
+(Sec.~\ref{rM3:layersec}). What is missing is an inequality of Poincar\'e
+or Brascamp--Lieb type for the block dynamics of $P_\beta$ on periodic
+functions, with the monopole component treated non-perturbatively. Even
+the upper bound $\varpi\lesssim(nm_D)^2$ for the Villain model, the
+analogue of Theorem~\ref{rM3:DH}(ii), (iii), is not proved here: the
+proof of Theorem~\ref{rM3:DH} would transfer only with a lower bound on
+the variance of a periodic superposition such as the one above, uniform
+in $L$, and an upper bound on $\E\Var(\sum_tN_t\mid F^{\rm ext}_x)$ for the
+slab monopole numbers $N_t$ of Lemma~\ref{rM3:layer}.
+
+\emph{(O2) Screening inside a block, conditionally on the exterior.} In the
+Gaussian case the conditional covariance of the block does not depend on
+the exterior. For the Villain measure the interior exact part is exactly
+Gaussian and exterior-independent (Proposition~\ref{rM3:interior}(ii)),
+so all dependence on the exterior sits in the coset $a_0+\mathcal M_x$.
+The relaxation of a slow mode needs the slab monopole numbers $N_t$,
+functions of the discrete component, to fluctuate under $\nu_{a_0}$ for
+typical $a_0$; in the Debye--H\"uckel field the corresponding Gaussian
+charge has variance at most $\mathsf m^2\lVert\mathbf 1_{T_t}\rVert^2/\beta$
+(proof of Theorem~\ref{rM3:DH}(ii)). A form of the missing estimate
+modelled on this order of magnitude, which we state as a target and do
+not claim to be necessary or sufficient, is: with $\nu_{a_0}$ averaged over $a_0$ under $P_\beta$, a lower bound on the
+block fluctuations of the discrete component of the form
+$\E\Var(\ip{\mathsf n}{\tau}\mid F^{\rm ext}_x)\ge c\,\mathsf m^2\lVert\tau
+\rVert^2/(4\pi^2\beta)$ for the profiles $\tau$ supported in the dual block,
+with $\mathsf m\asymp m_D$ and $c$ independent of $L$, together with the
+corresponding statement for nonlinear functions. On cubes of side $n\ll
+1/m_D$ the Debye--H\"uckel field has $\varpi_{\rm DH}\le\frac{45}{32}
+(n\mathsf m)^2$ (Theorem~\ref{rM3:DH}(ii)); no such upper bound is proved
+for the Villain measure.
+
+\emph{(O3) The relation to the known results.} Theorem~\ref{thm:avgdecay}
+shows that $\mathrm{BP}(n,\varpi)$ implies exponential decay of
+correlations; G\"opfert and Mack prove confinement and exponential decay
+of correlations of the Villain model at every $\beta$~\cite{GM82}, as
+summarised in~\cite{Cha18,RFN24}. The converse implication, from decay of
+correlations of the measure to a spectral gap of the cube dynamics, is not
+available here: the derivations of spectral gaps of block dynamics from
+spatial mixing that we are aware of use mixing estimates that hold uniformly
+in the boundary condition, and the decay statements quoted above concern
+the infinite-volume state. The text of~\cite{GM82} could not be consulted
+for this subsection, so whether its renormalisation-group estimates
+contain bounds uniform in the boundary condition, which would be the input
+for (O2), is not checked. Gaussian (sine-Gordon type) representations of
+the kind used there represent expectations and not the cube dynamics
+(Remark~\ref{rM3:nodual}).
+
+\begin{remark}[the charged sectors]\label{rM3:charged}
+By Lemma~\ref{rM3:split}, $\mathrm{BP}(n,\varpi)$ on $\mathcal A$ also needs
+the inequality on $\mathcal A_F^\perp\cap\mathcal A$, which contains the
+sectors $\mathcal A_\kappa$, $\kappa\ne0$, of functions transforming under
+the shifts $T_c$ of Sec.~\ref{rM3:sectors}, such as the Polyakov loops
+$e^{i\sum_{j=0}^{L-1}\theta_{(y+je_1,1)}}$, which lie in $\mathcal
+A_{Le_1}$ (the loop has $L$ links of direction $1$). These
+functions have mean zero, and a cube move changes the phase of a Polyakov
+loop only through the links of the loop inside the cube. On a fixed torus
+the Polyakov loops of $\SU(2)$ give the failure bound of
+Theorem~\ref{thm:bpfixed}(ii); its $\U(1)$ analogue, and the behaviour of
+these sectors on large tori, where confinement makes distant Polyakov
+loops nearly independent, are not treated here. This subsection does not
+claim $\mathcal A_0=\mathcal A_F$ either (Sec.~\ref{rM3:sectors}).
+\end{remark}
+
+\subsubsection{Status}\label{rM3:status}
+
+Proved: the exact decomposition $F=G+M$ of the Villain field strength into
+an independent massless Gaussian and a lattice-valued monopole field
+(Proposition~\ref{rM3:lawF}); the dual form of $\mathrm{BP}(n,\varpi)$ on
+the plaquette algebra (Theorem~\ref{rM3:dualform}); the block law given the
+exterior (Proposition~\ref{rM3:interior}) and the lower bound for linear
+functionals (Corollary~\ref{rM3:photon}); the exact layer-flux identity
+with monopoles (Lemma~\ref{rM3:layer}); the inequality of $\mathrm{BP}$
+with constant $\ge\frac18$ for the odd single-plaquette functions at $\beta
+\ge2$ (Proposition~\ref{rM3:plaq}); for the Debye--H\"uckel Gaussian field of
+mass $\mathsf m$, $\mathrm{BP}(n,\varpi)$ with $\varpi\ge(5/6)^3s^2/(2s^2+60)$
+uniformly in $L$ and $\beta$, and $\varpi\le\min(1+2/n,\frac{45}{32}s^2)$,
+$s=n\mathsf m$ (Theorem~\ref{rM3:DH}); and the necessary condition of
+Proposition~\ref{rM3:xi}. Open: $\mathrm{BP}(n,\varpi)$ for the Villain
+measure on any class of functions containing the long-wavelength
+superpositions, on the plaquette algebra or on the charged sectors (items
+(O1)--(O3) and Remark~\ref{rM3:charged}); also open here are the
+fourth-moment bound that would give a $\beta$-independent constant for
+$\cos F_p$ (Remark~\ref{rM3:plaqremark}), the identity $\mathcal A_0=
+\mathcal A_F$ on the torus, and the lower bound on correlations in the
+hypothesis of Proposition~\ref{rM3:xi}. Nothing in this subsection proves
+$\mathrm{BP}(n,\varpi)$ or a mass gap for the three-dimensional Villain
+model beyond what is quoted from~\cite{GM82}, nor a mass gap for the
+four-dimensional theory, step (D), step (E), or any part of the Clay
+problem; the three-dimensional abelian model serves only as the test case
+in which the mechanism of Remark~\ref{rem:rSmissing} can be examined, and
+in its Gaussian approximation the mechanism works.
