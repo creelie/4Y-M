@@ -249,7 +249,7 @@ Work the list in order and tick each item as it lands.
    paths.
 5. [x] **Pre-PR checks.** (passed 2026-11-09) Grep the full `upstream/main...HEAD` diff for forbidden strings and for `/home/` and `/n/` paths.
    Confirm no `__pycache__`, PDFs or binaries are included. Make sure it merges cleanly into upstream/main.
-6. [ ] **Open the PR** to creelie/4Y-M `main`. Summary: step 2 closed; free-field k-infimum and two-scale results;
+6. [x] **Open the PR** (#290, 2026-11-09) to creelie/4Y-M `main`. Summary: step 2 closed; free-field k-infimum and two-scale results;
    U(1)₃ drift; SU(2)₃ first result; reproducible code.
 
 After the PR (next research items, not blocking it): a higher-statistics SU(2)₃ rerun (4–5× nconf) to decide collapse vs
