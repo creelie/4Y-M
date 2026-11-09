@@ -224,6 +224,7 @@ k = 2π/L along x1 and x3; cubes spaced n+4 and observable box margin 3 so no lo
 ℓg² = 4n/β labels the continuum line: β ∈ {5, 7.5, 10} with n chosen to hit ℓg² ∈ {1.6, 2.4, 3.2, 4.8}, L = 32, 1200
 configurations each, plus an n = L selftest (ϖ = 1) and a thinning check. Decision: collapse vs ℓg² with no drift in β
 supports gap ⇒ (U) in a single-scale gauge theory; a U(1)-like ≈0.6× drop per halving of a means (U) is strictly stronger.
+- 2026-11-09: **Step 4b, SU(2)₃ result (A_GAUSSIAN_FIBRE_4D §10.5).** Selftest and thinning pass. ϖ stays O(1) (1.1–1.7) on the whole grid. At fixed ℓg², halving a multiplies ϖ by 0.86–0.90, much weaker than U(1)₃'s 0.6, but coherent across observables (33/36 ratios < 1, each ≈ 0.6σ). Constant + O(a) and a slow power law a^{≈0.2} cannot be separated yet. So this is no refutation of gap ⇒ (U), and not yet a confirmation. Next (after the PR): 4–5× statistics plus β ≈ 15.
 
 ## Working queue toward the next PR (from 2026-11-09, branch research/next-steps-3)
 
@@ -232,7 +233,7 @@ open. Gap found: the code behind these results (and behind #289) was never commi
 `/research/`, where it lives. The PR is ready when every numerical claim since #289 can be reproduced from tracked files.
 Work the list in order and tick each item as it lands.
 
-1. [ ] **Record the SU(2)₃ result** (job finished, 14/14 lines). Write A_GAUSSIAN_FIBRE_4D §10.5 and a log entry above.
+1. [x] **Record the SU(2)₃ result** (done 2026-11-09, §10.5) (job finished, 14/14 lines). Write A_GAUSSIAN_FIBRE_4D §10.5 and a log entry above.
    First read: selftest ϖ ≈ 0.88–1.05 ± 0.2–0.35 (passes); thinning s = 10 vs s = 4 agree; ϖ > 1 everywhere, falls with ℓg²
    (W1_kx1: β = 5: 1.68 → 1.23; β = 10: 1.43 → 1.14 over ℓg² = 1.6 → 4.8). At fixed ℓg² there is a mild downward drift in β,
    within about 1σ, so collapse and a U(1)-like drift cannot be separated yet. Before writing, run su2bp/analyze.py on the

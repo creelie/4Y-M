@@ -460,3 +460,28 @@ The plaquette-energy observables (Σ cos θ) give ϖ ≈ 1 everywhere and carry 
 - **Caveat: this is not a single-scale limit.** Compact U(1)₃ has two scales: the photon mass m ~ exp(−cβ)/a and the coupling e² = 1/(βa). Along β → ∞ at fixed m, m/e² → 0, so the theory approaches a free massless photon at every fixed ratio to e². The drift may therefore reflect the hierarchy m ≪ e² rather than a general failure of gap ⇒ (U).
 - **What this shows.** A gap alone does not imply (U) uniformly. If (U) is to follow from a gap, it can only do so in a theory with a single scale (with m/Λ fixed along the limit), which is the Yang–Mills situation.
 - **Next.** The clean interacting test is 3D SU(2). There g² is the only scale, β = 4/(g²a), and m/g² is a fixed number, so fixed mℓ is a genuine continuum line.
+
+### 10.5 Step 4b, single-scale interacting test: 3D SU(2)
+
+Job ym-su2-3d-bp. Wilson action, L = 32, 1200 configurations per point. The estimator is the same as in §10.4, with Kennedy–Pendleton heat-bath plus overrelaxation on quaternion links. Error bars come from a 20-block jackknife. The observables are w×w Wilson loops (w = 1, 2, 3) summed at k = 0 (all planes), and at k = 2π/L along x₁ and along x₃. The only scale is g², with β = 4/(g²a), so ℓg² = 4n/β labels a continuum line. Code, plan and raw output: `experiments/su2bp/`.
+
+**Checks.**
+- The n = L selftest (L = 6, β = 5) gives 0.88–1.05 ± 0.17–0.35 across the 9 observables, consistent with 1.
+- Inner thinning s = 10 against s = 4 at β = 7.5, n = 6 agrees within errors on every observable (W1_kx1: 1.23 ± 0.16 against 1.21 ± 0.18).
+
+**ϖ for W1 at k = 2π/L along x₁** (the other 8 observables behave the same way):
+
+| ℓg² | β = 5 | β = 7.5 | β = 10 |
+|---|---|---|---|
+| 1.6 | 1.68 ± 0.26 | 1.47 ± 0.14 | 1.43 ± 0.20 |
+| 2.4 (2.13 at β = 7.5) | 1.47 ± 0.22 | 1.34 ± 0.19 | 1.23 ± 0.12 |
+| 3.2 | 1.43 ± 0.21 | 1.21 ± 0.18 | 1.21 ± 0.14 |
+| 4.8 | 1.23 ± 0.14 | 1.19 ± 0.14 | 1.14 ± 0.15 |
+
+Mean over all 9 observables: β = 5 gives 1.44, 1.42, 1.38, 1.30; β = 10 gives 1.28, 1.25, 1.18, 1.13 (ℓg² = 1.6, 2.4, 3.2, 4.8).
+
+**Reading.**
+- **Far from U(1).** ϖ stays O(1), and above 1, on the whole grid. Halving a (β = 5 → 10) at fixed ℓg² multiplies ϖ by 0.86–0.90 (the mean of the 9 observables, at each ℓg²). The compact U(1)₃ factor was ≈ 0.6.
+- **But the drift is coherent.** 33 of the 36 (observable, ℓg²) ratios β10/β5 are below 1, none exceeds 1.03, and 22 lie in 0.80–0.92. Each one is only about 0.6σ, and the 9 observables share configurations, so they are correlated and cannot be pooled as independent. This run therefore cannot separate a constant plus O(a) approach, which would support gap ⇒ (U) in a single-scale gauge theory, from a slow power law ϖ ∝ a^{≈0.2} going to 0.
+- **Dependence on ℓg².** At each β, ϖ falls slowly as ℓg² grows. This is compatible with approach to a positive plateau at large ℓ.
+- **Status.** Not a refutation. Unlike U(1)₃, there is no strong decay, but the run is not yet a confirmation either. Deciding needs about 4–5× the statistics (target errors ≈ 0.07), plus a fourth β (≈ 15) so that the a-dependence can be fitted to c₀ + c₁a vs. c·a^p.
