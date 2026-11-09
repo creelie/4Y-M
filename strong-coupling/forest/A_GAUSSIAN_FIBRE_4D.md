@@ -504,3 +504,28 @@ Mean over all 9 observables: β = 5 gives 1.44, 1.42, 1.38, 1.30; β = 10 gives 
 - **But the drift is coherent.** 33 of the 36 (observable, ℓg²) ratios β10/β5 are below 1, none exceeds 1.03, and 22 lie in 0.80–0.92. Each one is only about 0.6σ, and the 9 observables share configurations, so they are correlated and cannot be pooled as independent. This run therefore cannot separate a constant plus O(a) approach, which would support gap ⇒ (U) in a single-scale gauge theory, from a slow power law ϖ ∝ a^{≈0.2} going to 0.
 - **Dependence on ℓg².** At each β, ϖ falls slowly as ℓg² grows. This is compatible with approach to a positive plateau at large ℓ.
 - **Status.** Not a refutation. Unlike U(1)₃, there is no strong decay, but the run is not yet a confirmation either. Deciding needs about 4–5× the statistics (target errors ≈ 0.07), plus a fourth β (≈ 15) so that the a-dependence can be fitted to c₀ + c₁a vs. c·a^p.
+
+### 10.6 Step 4b, high statistics: 3D SU(2) with β up to 15
+
+Rerun of §10.5 with 5000 configurations per point (≈4×), and a fourth β = 15 on L = 48 with n ∈ {6, 9, 12, 18}. Raw data: `experiments/su2bp/results_hi.jsonl`; launcher `run_hi.sh`. Selftest (n = L): 0.88–1.05, as before.
+
+Mean of the 9 observables (each ± ≈0.09):
+
+| ℓg² | β = 5 | 7.5 | 10 | 15 |
+|---|---|---|---|---|
+| 1.6 | 1.43 | 1.31 | 1.27 | 1.22 |
+| 2.4 | 1.42 | (1.30 at 2.13) | 1.23 | 1.15 |
+| 3.2 | 1.39 | 1.23 | 1.18 | 1.10 |
+| 4.8 | 1.30 | 1.17 | 1.12 | 1.08 |
+
+- The downward drift persists. β15/β5 is 0.70–0.98 over all 36 (observable, ℓg²) pairs (mean 0.83, all < 1). β10/β5 is 0.76–1.00 (mean 0.87), reproducing §10.5.
+- Fits in a ∝ 1/β, per ℓg² on the observable mean:
+  - c₀ + c₁a gives c₀ = 1.11, 1.02, 0.97 and 0.96 (each ±0.10–0.13), so c₀ > 0 at 7–10σ;
+  - c·a^p gives p = 0.14–0.20 (±0.09).
+  - Per observable: c₀ ranges over 0.85–1.17 and p over 0.02–0.32. The W3 loops at k ≠ 0 drift most (p ≈ 0.25–0.32).
+- Both models fit with χ² ≪ 1. **Four β values over a factor 3 in a still cannot separate them**, and the per-point errors stayed ≈ 0.09, not the 0.07 target. The jackknife error of a ratio of variances shrinks more slowly than 1/√nconf here.
+- By the decision rule fixed beforehand (c₀ > 0 at 3σ supports (U); p > 0.2 with c₀ ≈ 0 refutes), the outcome is **supports (U)**. But it is a weak support: the linear model's c₀ is an extrapolation, not a plateau in the data.
+- Confound: the physical box Lg² is 25.6, 17.1, 12.8 and 12.8 at β = 5, 7.5, 10 and 15. Part of the β = 5 → 10 drop may be finite-volume, while 10 → 15 at equal Lg² still drops ≈ 0.95×.
+
+Compared with U(1)₃ (0.6× per halving of a), SU(2)₃ drifts ≈ 0.9× per halving of a. A conclusive test needs β ≈ 20–30 at fixed Lg², and a better estimator (e.g. the variance of the conditional mean computed by multilevel sampling) to cut the error per point. Recorded as the next interacting item, not yet scheduled.
+
