@@ -224,3 +224,32 @@ k = 2π/L along x1 and x3; cubes spaced n+4 and observable box margin 3 so no lo
 ℓg² = 4n/β labels the continuum line: β ∈ {5, 7.5, 10} with n chosen to hit ℓg² ∈ {1.6, 2.4, 3.2, 4.8}, L = 32, 1200
 configurations each, plus an n = L selftest (ϖ = 1) and a thinning check. Decision: collapse vs ℓg² with no drift in β
 supports gap ⇒ (U) in a single-scale gauge theory; a U(1)-like ≈0.6× drop per halving of a means (U) is strictly stronger.
+
+## Working queue toward the next PR (from 2026-11-09, branch research/next-steps-3)
+
+Status: 7 commits since PR #289 (6df33b1), all notes in this file and forest/A_GAUSSIAN_FIBRE_4D.md, pushed to the fork, no PR
+open. Gap found: the code behind these results (and behind #289) was never committed, because `.gitignore` excludes
+`/research/`, where it lives. The PR is ready when every numerical claim since #289 can be reproduced from tracked files.
+Work the list in order and tick each item as it lands.
+
+1. [ ] **Record the SU(2)₃ result** (job finished, 14/14 lines). Write A_GAUSSIAN_FIBRE_4D §10.5 and a log entry above.
+   First read: selftest ϖ ≈ 0.88–1.05 ± 0.2–0.35 (passes); thinning s = 10 vs s = 4 agree; ϖ > 1 everywhere, falls with ℓg²
+   (W1_kx1: β = 5: 1.68 → 1.23; β = 10: 1.43 → 1.14 over ℓg² = 1.6 → 4.8). At fixed ℓg² there is a mild downward drift in β,
+   within about 1σ, so collapse and a U(1)-like drift cannot be separated yet. Before writing, run su2bp/analyze.py on the
+   output and quote its numbers, not this first read.
+2. [ ] **Track the experiment code.** Move the code that backs the results since #289, and ideally #289 too, into
+   `strong-coupling/forest/experiments/`, starting with `gaussrho/` (gauss_k0, gauss_kscan, gauss_twoscale, gauss_massU, …),
+   `u1bp/` and `su2bp/` (.c, analyze.py, plan*.json). Leave the `run*.sh` launchers untracked, because they name the cluster.
+   Replace them with one README per experiment: build line, `python` / `cc` invocation, plan file, expected output format.
+   Decide whether to include pathcov, linresp, polchinski2d, reduced_dobrushin and vortex_mc (they back earlier sections).
+3. [ ] **Commit the raw result files** each § cites (small JSON lines, such as the SU(2) output), next to their experiment.
+   Strip any paths.
+4. [ ] **Fix references.** Point notes that cite `research/experiments/...` (e.g. the step-4 entry above) to the new tracked
+   paths.
+5. [ ] **Pre-PR checks.** Grep the full `upstream/main...HEAD` diff for forbidden strings and for `/home/` and `/n/` paths.
+   Confirm no `__pycache__`, PDFs or binaries are included. Make sure it merges cleanly into upstream/main.
+6. [ ] **Open the PR** to creelie/4Y-M `main`. Summary: step 2 closed; free-field k-infimum and two-scale results;
+   U(1)₃ drift; SU(2)₃ first result; reproducible code.
+
+After the PR (next research items, not blocking it): a higher-statistics SU(2)₃ rerun (4–5× nconf) to decide collapse vs
+drift at fixed ℓg²; a proof of the step-1 monotonicity in k.
