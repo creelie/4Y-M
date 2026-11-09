@@ -247,7 +247,7 @@ Work the list in order and tick each item as it lands.
    Strip any paths.
 4. [x] **Fix references.** (done) Point notes that cite `research/experiments/...` (e.g. the step-4 entry above) to the new tracked
    paths.
-5. [ ] **Pre-PR checks.** Grep the full `upstream/main...HEAD` diff for forbidden strings and for `/home/` and `/n/` paths.
+5. [x] **Pre-PR checks.** (passed 2026-11-09) Grep the full `upstream/main...HEAD` diff for forbidden strings and for `/home/` and `/n/` paths.
    Confirm no `__pycache__`, PDFs or binaries are included. Make sure it merges cleanly into upstream/main.
 6. [ ] **Open the PR** to creelie/4Y-M `main`. Summary: step 2 closed; free-field k-infimum and two-scale results;
    U(1)₃ drift; SU(2)₃ first result; reproducible code.
