@@ -529,3 +529,23 @@ Mean of the 9 observables (each ± ≈0.09):
 
 Compared with U(1)₃ (0.6× per halving of a), SU(2)₃ drifts ≈ 0.9× per halving of a. A conclusive test needs β ≈ 20–30 at fixed Lg², and a better estimator (e.g. the variance of the conditional mean computed by multilevel sampling) to cut the error per point. Recorded as the next interacting item, not yet scheduled.
 
+
+### 10.7 Erratum: jackknife errors in §10.4–10.6 were √20 too large (2026-11-09)
+
+`su2bp/analyze.py` and `u1bp/analyze.py` computed the 20-block jackknife error as √((nb−1)·Σ(θᵢ−θ̄)²) instead of √(((nb−1)/nb)·Σ(θᵢ−θ̄)²). So every quoted ± in §10.4, §10.5 and §10.6 (ϖ, and the U(1) effective masses) is too large by √20 ≈ 4.47. The central values are unchanged. Both scripts are fixed, and the error entries in `results.jsonl` (u1bp, su2bp) and `results_hi.jsonl` are divided by √20. The other analysis scripts (`pathcov`, `linresp`, `vortex_mc`) use the correct formula.
+
+Cross-check (β = 5, n = 4): the per-configuration numerator E Var(f | cube^c) has relative error 0.1–0.2%, and the denominator Var(f) has 1–2.5% with no measurable autocorrelation (τ_int ≲ 1). The corrected jackknife errors (≈ 2%) match. The "≈ 0.09 errors not shrinking with statistics" in §10.6 was this bug, not an estimator problem. **A multilevel estimator is therefore not needed.** The error is dominated by the plain variance in the denominator and already falls as 1/√nconf.
+
+**§10.6 re-read with correct errors** (observable mean; the error is the mean of the 9 per-observable errors, which is conservative since they are correlated). The selftest line (L = 6), which had overwritten the β = 5, ℓg² = 4.8 entry in the earlier fit script, is excluded.
+
+| ℓg² | β = 5 | 7.5 | 10 | 15 | β15/β5 | c₀ (c₀ + c₁a) | χ² lin | p (c·aᵖ) | χ² pow | dof |
+|---|---|---|---|---|---|---|---|---|---|---|
+| 1.6 | 1.428(23) | 1.313(20) | 1.265(22) | 1.218(20) | 0.853(20) | 1.109(29) | 0.17 | 0.144(20) | 2.12 | 2 |
+| 2.4 | 1.415(23) | — | 1.227(20) | 1.147(20) | 0.811(19) | 1.021(28) | 0.27 | 0.193(21) | 0.22 | 1 |
+| 3.2 | 1.386(24) | 1.232(20) | 1.181(20) | 1.103(19) | 0.796(19) | 0.965(28) | 0.46 | 0.203(21) | 2.58 | 2 |
+| 4.8 | 1.300(18) | 1.172(19) | 1.124(18) | 1.075(15) | 0.827(16) | 0.958(22) | 0.48 | 0.171(17) | 3.98 | 2 |
+
+- **The drift is real.** β15/β5 = 0.80–0.85, a 7–12σ drop at every ℓg². At equal box (Lg² = 12.8), β = 10 → 15 still drops 0.93–0.96, ≈ 4σ combined.
+- **The plateau model is preferred, mildly.** Summed over groups, χ² = 1.4 for c₀ + c₁a against 8.9 for c·aᵖ (7 dof each). The power law is not excluded (p-value ≈ 0.26), but c₀ = 0.96–1.11 ± 0.03 is > 30σ from 0.
+- **The box confound remains.** The c₁a term is partly the β = 5, 7.5 points in larger boxes. The fixed-box pass (Lg² = 12.8 at β = 5, 7.5, 20, 25; job submitted 2026-11-09) is the decisive test, and its corrected errors should be ≈ 0.02 per point, enough to resolve the pre-registered β25/β10 ≥ 0.95 vs ≤ 0.85 rule.
+- **U(1)₃ (§10.4).** With √20 smaller errors, the 0.6× per halving decay is far beyond noise, so the reading there is strengthened.

@@ -4,7 +4,7 @@ NOBS=5; names=['sinB12_k0','sinB12_kx1','sinB12_kx3','cosP_all_k0','cos12_k0']
 def jk(f, data, nb=20):
     m=len(data)//nb*nb; d=data[:m].reshape(nb,-1,*data.shape[1:]); full=f(data[:m])
     reps=np.array([f(np.concatenate([d[j] for j in range(nb) if j!=i])) for i in range(nb)])
-    return full, np.sqrt((nb-1)*((reps-reps.mean(0))**2).sum(0))
+    return full, np.sqrt((nb-1)/nb*((reps-reps.mean(0))**2).sum(0))
 for fn in sys.argv[1:]:
     hdr=dict(kv.split('=') for kv in open(fn).readline()[2:].split())
     L=int(hdr['L']); n=int(hdr['n']); V=L**3

@@ -10,6 +10,6 @@ for fn in sys.argv[1:]:
         nm=X[:,:NOBS].mean(0); f=X[:,NOBS::2]+1j*X[:,NOBS+1::2]
         return nm/(n**3*(np.abs(f-f.mean(0))**2).mean(0)/V)
     full=g(A); d=A.reshape(nb,-1,A.shape[1]); reps=np.array([g(np.concatenate([d[j] for j in range(nb) if j!=i])) for i in range(nb)])
-    err=np.sqrt((nb-1)*((reps-reps.mean(0))**2).sum(0))
+    err=np.sqrt((nb-1)/nb*((reps-reps.mean(0))**2).sum(0))
     print(json.dumps(dict(L=L,beta=float(hdr['beta']),n=n,s=int(hdr['s']),nconf=len(A),ellg2=4*n/float(hdr['beta']),
         varpi={k:[float(a),float(b)] for k,a,b in zip(names,full,err)})))
