@@ -1,4 +1,4 @@
-# Lattice Mass Gaps and Continuum Criteria for Four-Dimensional Yang-Mills Theory
+# Yang-Mills Theory and the Mass Gap
 
 Release: https://github.com/creelie/4Y-M/releases/tag/v4.42.0
 

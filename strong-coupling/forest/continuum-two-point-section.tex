@@ -1,0 +1,933 @@
+\subsection{What the lattice gives without the averaged condition}
+\label{ssec:rEunconditional}
+
+The averaged condition $\mathrm{BP}(n_k,\varpi)$ of
+Theorem~\ref{thm:avgtransfer} enters Sec.~\ref{ssec:limitE} at one place
+only, the decay $e^{-m_*a_kt}$ of Lemma~\ref{lem:limitElattice}(iii), that
+is, through the lattice gap of Corollary~\ref{cor:avggap}
+(Remark~\ref{rem:limitEscope}). This subsection records what remains when
+that gap is removed: the torus limits exist for every coupling, they are
+invariant and reflection positive, their two-point functions have
+renormalised continuum limits along subsequences with a positive Hamiltonian
+on the one-field space, and the short-distance law (AF) alone supplies the
+two inputs (SD) and (NE). It then states the missing step as one lemma and
+proves that its hypotheses are necessary as well as sufficient.
+
+Throughout, $\beta_k\ge0$ is an arbitrary sequence of couplings; nothing is
+assumed about $\mathrm{BP}$, about $D(n,\alpha)$ or about the tuning. For a
+state $\omega$ as in Appendix~\ref{app:transfer} with transfer matrix
+$\mathbb T$ and vacuum $\Omega$ put
+\[
+\gamma(\omega)=\bigl\|\mathbb T|_{\Omega^\perp}\bigr\|\in[0,1],
+\]
+the norm of $\mathbb T$ on the orthogonal complement of the vacuum; since
+$\mathbb T$ is self-adjoint and $\mathbb T\Omega=\Omega$, the subspace
+$\Omega^\perp$ is invariant under $\mathbb T$. We write $\gamma_k=\gamma(
+\omega_k)$. A \emph{lattice gap} $m_{\mathrm{lat}}>0$ means $\gamma_k\le
+e^{-m_{\mathrm{lat}}}$ for all $k$; the \emph{physical gap} at level $k$ is
+$a_k^{-1}\log(1/\gamma_k)\in[0,\infty]$.
+
+\begin{lemma}[torus limits exist and are reflection positive]\label{rE:torus}
+Let $G$ be a compact group with a faithful unitary representation, $\beta\ge0$,
+and let $\mu_L$ be the Wilson measure of $\Lambda_L=(\Z/L\Z)^4$ at $\beta$.
+
+\textup{(i)} Every sequence of even integers $L\to\infty$ has a subsequence
+along which $\omega(O)=\lim_L\mu_L(O)$ exists for every continuous function
+$O$ of finitely many links of $\Z^4$, each $O$ being evaluated on $\Lambda_L$
+through a box centred at the origin once $L$ is large. The functional
+$\omega$ is a state, given by a probability measure on the configurations of
+$\Z^4$.
+
+\textup{(ii)} $\omega$ is invariant under the translations of $\Z^4$ and under
+the hypercubic group $B_4$.
+
+\textup{(iii)} $\omega$ is reflection positive for the reflections in
+coordinate hyperplanes through sites and in coordinate hyperplanes bisecting
+links: $\omega(\vartheta_\mu(\bar F)F)\ge0$ for every $\mu$ and every
+continuous gauge-invariant function $F$ of finitely many links with both
+endpoints on the positive side of the plane of $\vartheta_\mu$.
+
+\textup{(iv)} The reconstruction of Appendix~\ref{app:transfer} applies to
+$\omega$ and gives $\mathcal H_\omega$, $\Omega$, $F\mapsto\Psi_F$ and a
+self-adjoint $\mathbb T$ with $0\le\mathbb T\le1$, $\mathbb T\Omega=\Omega$
+and $\ip{\Psi_F}{\mathbb T^t\Psi_H}=\omega(\vartheta(\bar F)\tau_tH)$ for
+integers $t\ge0$. For $F$ with $\omega(F)=0$, $\Psi_F\perp\Omega$ and
+$\|\mathbb T^t\Psi_F\|\le\gamma(\omega)^t\|\Psi_F\|$.
+\end{lemma}
+
+\begin{proof}
+(i) Let $E_m$ be the set of links of $\Z^4$ with both endpoints in
+$[-m,m]^4$. For $L>2m+2$ the quotient map $\Z^4\to\Lambda_L$ is injective on
+$[-m,m]^4$, two of its points differing by less than $L$ in every
+coordinate, so it identifies $E_m$ with a set of links of $\Lambda_L$ and a
+function of the links in $E_m$ with a function on the configurations of
+$\Lambda_L$; this defines $\mu_L(O)$ for $O\in C(G^{E_m})$ and $L>2m+2$. The
+image measure $\nu_{L,m}$ of $\mu_L$ on $G^{E_m}$ is a Borel probability
+measure on a compact metrisable space, so by the Riesz representation
+theorem and the Banach--Alaoglu theorem every sequence of them has a weakly
+convergent subsequence, and a diagonal argument over $m\in\mathbb N$ gives a
+subsequence $(L_j)$ with $\nu_{L_j,m}\to\nu_m$ weakly for every $m$. The
+projection $G^{E_{m+1}}\to G^{E_m}$ is continuous and carries $\nu_{L,m+1}$
+to $\nu_{L,m}$, hence $\nu_{m+1}$ to $\nu_m$. The Kolmogorov extension
+theorem on the countable product $G^{E(\Z^4)}$ gives a probability measure
+$\nu$ with marginals $\nu_m$, and $\omega(O)=\int O\,d\nu=\lim_j\mu_{L_j}(O)$
+for $O\in C(G^{E_m})$ and every $m$.
+
+(ii) Let $v\in\Z^4$ and $O\in C(G^{E_m})$. The translate $\tau_vO$ lies in
+$C(G^{E_{m'}})$ with $m'=m+|v|_\infty$. For $L>2m'+2$ the translation of
+$\Lambda_L$ by the class of $v$ is a bijection of its links that preserves
+the set of plaquettes and therefore $\mu_L$, and it carries the embedding of
+$E_m$ to that of $E_m+v$; hence $\mu_L(\tau_vO)=\mu_L(O)$, and the limit
+gives $\omega(\tau_vO)=\omega(O)$. The hypercubic group acts on $\Lambda_L$
+fixing the origin, permutes the plaquettes, and preserves $\ReTr Q_p$ under
+reversal of orientation because $\ReTr U^{-1}=\ReTr U$ for unitary $U$; it
+carries each link variable to the variable of the image link or to its
+inverse, and the product Haar measure is invariant under $U\mapsto U^{-1}$
+on every link; so $\mu_L$ is $B_4$-invariant, and so is $\omega$.
+
+(iii) Let $F$ be a continuous gauge-invariant function of the links in
+$E_m$ lying on the positive side of the plane of $\vartheta_\mu$. For even
+$L>2m+2$ the reflection $\vartheta_\mu$ induces a reflection of $\Lambda_L$,
+in the plane $\{x_\mu=0\}$ (and its antipode $\{x_\mu=L/2\}$) for the
+reflection through sites and in the plane $\{x_\mu=\frac12\}$ for the
+reflection bisecting links, the embedded support of $F$ lies strictly on one
+side of it, and Osterwalder and Seiler proved $\mu_L(\vartheta_\mu(\bar F)
+F)\ge0$ for the Wilson measure of the torus with $\beta\ge0$ for both kinds
+of reflection~\cite{OSei78,Sei82}. This is one inequality for one local
+function, and it passes to the limit along $(L_j)$.
+
+(iv) By (ii) and (iii), $\omega$ is a state of the kind treated in
+Appendix~\ref{app:transfer}, which gives the reconstruction. If
+$\omega(F)=0$ then $\ip\Omega{\Psi_F}=\omega(F)=0$, so $\Psi_F\in
+\Omega^\perp$, and $\|\mathbb T^t\Psi_F\|\le\gamma(\omega)^t\|\Psi_F\|$
+because $\Omega^\perp$ is invariant under $\mathbb T$.
+\end{proof}
+
+The proof of Corollary~\ref{cor:avggap} is this lemma followed by the
+decay of Theorem~\ref{thm:avgdecay}; the lemma is the part that needs no
+hypothesis on $\beta$.
+
+\emph{The gap-free two-point theory.} Let $\omega_k$ be torus limits at
+$\beta_k\ge0$ as in Lemma~\ref{rE:torus}, with $\mathbb T_k$, $\Omega_k$ and
+$\gamma_k$, and let $\Phi$, $r$, $A_k(f)$, $c_k$, $\mathcal N_k(\varepsilon)$
+be as in Sec.~\ref{ssec:limitE}. For $\eta\ge0$ and a direction $\mu$ let
+$\mathcal V^\eta_\mu$ be the set of $g\in C_c(\R^4)$ with
+$\operatorname{supp}g\subset\{x_\mu>\eta\}$, and for $g\in\mathcal V^0_0$
+put
+\[
+R_k(g)=\frac{\omega_k\bigl(\vartheta(\overline{A_k(g)})A_k(g)\bigr)}
+{\mathcal N_k(\varepsilon)}
+\]
+when $\mathcal N_k(\varepsilon)>0$. Let $\tau_yg=g(\cdot-y)$ for $y\in\R^4$.
+
+\begin{theorem}[the two-point function without the averaged condition]
+\label{rE:two}
+Let $\varepsilon>0$ and let $k$ be so large that $(r+1)a_k\le\varepsilon$.
+
+\textup{(i)} If $\mathcal N_k(\varepsilon)=0$, then $\omega_k(A_k(f)A_k(g))=0$
+for every $(f,g)\in\mathcal C_2(Q,\delta)$ with $\delta\ge8\varepsilon$.
+Consequently every sequence of $k$ has a subsequence along which either
+$\mathcal N_k(\varepsilon)>0$ for every $k$, or the connected two-point
+function $G_k$ of $\Phi$ vanishes, for every $k$, at all $z\in\Z^4$ with
+$a_k|z|_\infty>8\varepsilon$.
+
+In \textup{(ii)}--\textup{(vi)} suppose $\mathcal N_k(\varepsilon)>0$ for the
+$k$ considered and put $Z_k=\mathcal N_k(\varepsilon)^{-1/2}$.
+
+\textup{(ii)} Let $c\in\R$, $d\ge0$, $f$ supported in a cube of side $L$ in
+$\{x_\mu\le c-2\varepsilon\}$ and $g$ in a cube of side $L'$ in
+$\{x_\mu\ge c+2\varepsilon+d\}$. Then
+\[
+Z_k^2\bigl|\omega_k\bigl(A_k(f)A_k(g)\bigr)\bigr|\le\mathsf K_L\mathsf
+K_{L'}\,\gamma_k^{\lfloor d/a_k\rfloor}\,\|f\|_\infty\|g\|_\infty ,
+\]
+and for $(f,g)\in\mathcal C_2(Q,\delta)$ with $Q$ of side $L$ and
+$\delta\ge8\varepsilon$,
+\[
+Z_k^2\bigl|\omega_k\bigl(A_k(f)A_k(g)\bigr)\bigr|\le\mathsf K_{4L/\delta}^2
+\mathsf K_{\delta/4}^2\,\|f\|_\infty\|g\|_\infty .
+\]
+
+\textup{(iii)} Every sequence of $k$ has a subsequence along which
+$S_2(f,g)=\lim_kZ_k^2\omega_k(A_k(f)A_k(g))$ exists for all $f,g\in
+C_c(\R^4)$ with $\dist_\infty(\operatorname{supp}f,\operatorname{supp}g)>
+8\varepsilon$. It is symmetric and bilinear, bounded as in \textup{(ii)},
+invariant under the translations of $\R^4$ and under $B_4$,
+$S_2(\bar f,\bar g)=\overline{S_2(f,g)}$, and for every $\mu$
+\[
+\sum_{i,j}\bar c_ic_j\,S_2(\bar g_i\circ\theta_\mu,g_j)\ge0\qquad
+(c_i\in\C,\ g_i\in\mathcal V^{4\varepsilon}_\mu).
+\]
+It is given by a unique distribution on the open set $\{(x,y)\in\R^8:
+|x-y|_\infty>8\varepsilon\}$.
+
+\textup{(iv)} Let $S_2$ be a limit of \textup{(iii)} and $\mu$ a direction.
+The form $\ip g{g'}_\mu=S_2(\bar g\circ\theta_\mu,g')$ on
+$\mathcal V^{4\varepsilon}_\mu$ is Hermitian and positive semidefinite; let
+$\mathcal H^{(1)}_\mu$ be the completion of its quotient by its null space
+and $g\mapsto[g]$ the quotient map. There are a self-adjoint operator
+$H^{(1)}_\mu\ge0$ on $\mathcal H^{(1)}_\mu$ and a strongly continuous unitary
+representation $U_\mu$ of the hyperplane $e_\mu^\perp$ commuting with it
+such that, for all $g,g'\in\mathcal V^{4\varepsilon}_\mu$, $t\ge0$ and
+$y\perp e_\mu$,
+\[
+S_2\bigl(\bar g\circ\theta_\mu,\tau_{te_\mu+y}g'\bigr)=\bigl\langle[g],
+e^{-tH^{(1)}_\mu}U_\mu(y)[g']\bigr\rangle .
+\]
+The map $[g]\mapsto[g\circ\pi_\mu]$ is a unitary operator from
+$\mathcal H^{(1)}_0$ onto $\mathcal H^{(1)}_\mu$ that carries $H^{(1)}_0$ to
+$H^{(1)}_\mu$. If $S_2$ is defined on all separated pairs, the same holds
+with $\mathcal V^{4\varepsilon}_\mu$ replaced by $\mathcal V^0_\mu$.
+
+\textup{(v)} For a limit $S_2$ of \textup{(iii)} the following are
+equivalent: $S_2$ does not vanish identically; $S_2(\bar g\circ\theta_0,g)>0$
+for some $g\in\mathcal V^{4\varepsilon}_0$; $\mathcal H^{(1)}_0\ne0$. Some
+limit of \textup{(iii)} does not vanish identically if and only if
+$\limsup_kR_k(g)>0$ for some $g\in\mathcal V^{4\varepsilon}_0$, and if
+$\liminf_kR_k(g_0)>0$ for one $g_0\in\mathcal V^{4\varepsilon}_0$, then no
+limit of \textup{(iii)} vanishes identically. If $S_2$ is defined on all
+separated pairs, the equivalence holds with $\mathcal V^{4\varepsilon}_0$
+replaced by $\mathcal V^0_0$.
+
+\textup{(vi)} If there is a lattice gap, $\gamma_k\le e^{-m_{\mathrm{lat}}}$
+for a fixed $m_{\mathrm{lat}}>0$ and all $k$, then every limit of
+\textup{(iii)} vanishes identically.
+\end{theorem}
+
+The theorem is Theorem~\ref{thm:limitEtwo}(i)--(iii),(v) and the
+constructions of Corollary~\ref{cor:limitEtwo}(b) with the gap removed:
+$\gamma_k$ is only the norm of $\mathbb T_k$ on $\Omega_k^\perp$, no bound
+on it is assumed, and the Hamiltonian $H^{(1)}_\mu$ is positive but no
+lower bound on its spectrum is claimed.
+
+\begin{proof}
+We use the following parts of Sec.~\ref{ssec:limitE}, none of which uses
+the averaged condition: Lemma~\ref{lem:limitElattice}(i) and (ii), which are
+identities; the first two assertions of Lemma~\ref{lem:limitElattice}(iii),
+$\omega_k(\vartheta_\mu(\bar F)F)\ge0$ and $0\le\omega_k(\vartheta_\mu(\bar
+F)\tau^\mu_{2t}F)\le\omega_k(\vartheta_\mu(\bar F)F)$, whose proof uses only
+the reconstruction and $0\le\mathbb T_k\le1$; the identity
+$N_\mu(\tau_vF)=N_\mu(F)$ for $v_\mu=0$ from the same proof; and
+Lemma~\ref{lem:limitEbox}, whose proof uses Lemma~\ref{lem:limitElattice}(i),
+(ii) and $\|\mathbb T_k^{n_0}\|\le1$. All of these hold for the states of
+Lemma~\ref{rE:torus}.
+
+(i) Suppose $\mathcal N_k(\varepsilon)=0$. Then $\Psi_{A_k(h)}=0$ for every
+$h$ supported in $B_\varepsilon$, and Lemma~\ref{lem:limitEbox} gives
+$\Psi_{A_k(g)}=0$ for every $g$ supported in a cube and in
+$\{x_0\ge\varepsilon\}$, and, in the form with $\vartheta_\mu$, the same for
+$g$ supported in $\{x_\mu\ge\varepsilon\}$ with the vectors of the
+reconstruction in the direction $\mu$. Let $f$ be supported in $\{x_\mu\le
+c-2\varepsilon\}$ and $g$ in $\{x_\mu\ge c+2\varepsilon\}$, both in cubes. The
+first three sentences of the proof of Theorem~\ref{thm:limitEtwo}(i) use only
+the invariance of $\omega_k$ under $\pi_\mu$ and the translations and
+Lemma~\ref{lem:limitElattice}(i), and give $\omega_k(A_k(f)A_k(g))=
+\ip{\Psi_{A_k(h)}}{\mathbb T_k^n\Psi_{A_k(g')}}$ with $h$ and $g'$ supported
+in $\{x_0\ge\varepsilon\}$; so $\omega_k(A_k(f)A_k(g))=0$. For $(f,g)\in
+\mathcal C_2(Q,\delta)$ with $\delta\ge8\varepsilon$, the decomposition in
+the proof of Theorem~\ref{thm:limitEtwo}(ii), with $s=\delta/4$, writes
+$\omega_k(A_k(f)A_k(g))$ as a finite sum of such terms, each with pieces in
+cubes of side $s$ whose projections on some axis $\mu$ are at distance at
+least $\delta/2\ge4\varepsilon$; so the sum vanishes. Given $x,y\in\Z^4$ with
+$a_k|x-y|_\infty>8\varepsilon$, choose $f,g\in C_c(\R^4)$ with values in
+$[0,1]$, supported in $\ell^\infty$-balls of radius $\rho<a_k/2$ about
+$a_kx$ and $a_ky$ with $2\rho\le a_k|x-y|_\infty-8\varepsilon$, and with
+$f(a_kx)=g(a_ky)=1$; then $A_k(f)=a_k^4(\Phi_x-c_k)$,
+$A_k(g)=a_k^4(\Phi_y-c_k)$, the pair lies in $\mathcal C_2(Q,8\varepsilon)$
+for a cube $Q$ containing both balls, and by translation invariance
+$a_k^8G_k(y-x)=\omega_k(A_k(f)A_k(g))=0$. The dichotomy follows by passing
+to a subsequence on which the sign of $\mathcal N_k(\varepsilon)$ is
+constant.
+
+(ii) The proof of Theorem~\ref{thm:limitEtwo}(i) applies verbatim: the
+bound $|\ip{\Psi_{A_k(h)}}{\mathbb T_k^n\Psi_{A_k(g')}}|\le\gamma_k^n
+\|\Psi_{A_k(h)}\|\|\Psi_{A_k(g')}\|$ holds because both vectors are
+orthogonal to $\Omega_k$, the packets being centred, and $\Omega_k^\perp$ is
+invariant under $\mathbb T_k$ (Lemma~\ref{rE:torus}(iv)); the norms are
+bounded by Lemma~\ref{lem:limitEbox}. The second bound is the proof of
+Theorem~\ref{thm:limitEtwo}(ii), which uses the first with $\gamma_k^{\lfloor
+d/a_k\rfloor}\le1$.
+
+(iii) Let $\mathcal G$ be the countable set of the proof of
+Theorem~\ref{thm:limitEsep}(i). By (ii) the sequence $Z_k^2\omega_k(A_k(g)
+A_k(g'))$ is bounded for each pair $g,g'\in\mathcal G$ at distance greater
+than $8\varepsilon$, and a diagonal subsequence makes all of them converge.
+For $f,g$ at distance $\delta>8\varepsilon$, choose $g_1,g_2\in\mathcal G$
+as in that proof with $\|f-g_1\|_\infty,\|g-g_2\|_\infty<\eta$ and supports
+within $\eta$ of those of $f,g$, where $\eta<(\delta-8\varepsilon)/4$; the
+pairs $(f-g_1,g)$, $(g_1,g-g_2)$ and $(g_1,g_2)$ lie in one $\mathcal C_2(Q',
+\delta')$ with $\delta'=\delta-2\eta>8\varepsilon$, and the second bound of
+(ii) shows that $Z_k^2\omega_k(A_k(f)A_k(g))$ is a Cauchy sequence. Symmetry
+and bilinearity pass to the limit, and so does the bound. Invariance under
+dyadic translations and under $B_4$, and the conjugation identity, follow
+from Lemma~\ref{lem:limitElattice}(i) and the invariance of $\omega_k$, and
+invariance under real translations from the bound and uniform continuity,
+exactly as in the proof of Theorem~\ref{thm:limitEsep}(ii), the translated
+pairs staying at distance greater than $8\varepsilon$. For the positivity,
+let $g=\sum_ic_ig_i$ with $g_i\in\mathcal V^{4\varepsilon}_\mu$; then
+$g$ is supported in $\{x_\mu\ge4\varepsilon+\eta'\}$ for some $\eta'>0$. For
+$(r+1)a_k\le\varepsilon$ Lemma~\ref{lem:limitElattice}(ii),(iii) gives
+$\omega_k(\vartheta_\mu(\overline{A_k(g)})A_k(g))\ge0$, and by
+Lemma~\ref{lem:limitElattice}(i) this number equals $\omega_k(A_k(\bar g
+\circ\theta_{\mu,k})A_k(g))$. The function $\bar g\circ\theta_{\mu,k}$ is
+supported in $\{x_\mu\le-4\varepsilon-\eta'+a_k\}$, so the pairs
+$(\bar g\circ\theta_{\mu,k},g)$ and $(\bar g\circ\theta_\mu,g)$ lie in one
+$\mathcal C_2(Q',8\varepsilon+\eta')$ for large $k$, and $\|\bar g\circ
+\theta_{\mu,k}-\bar g\circ\theta_\mu\|_\infty\to0$ because $\theta_{\mu,k}$
+is $\theta_\mu$ followed by a translation of length at most $a_k$ and $g$ is
+uniformly continuous. By the bound of (ii) the difference of the two moments
+tends to $0$, and $S_2(\bar g\circ\theta_\mu,g)=\lim_kZ_k^2\omega_k(A_k(\bar
+g\circ\theta_{\mu,k})A_k(g))\ge0$; expanding $g$ gives the stated
+inequality. The distribution is constructed from the bound exactly as in the
+proof of Theorem~\ref{thm:limitEsep}(i), with the products of open cubes
+replaced by products $U_1\times U_2$ of bounded open sets whose closures are
+at $\ell^\infty$-distance greater than $8\varepsilon$; these cover the open
+set in question, and the localisation argument given there applies.
+
+(iv) Write $\ip\cdot\cdot$ for $\ip\cdot\cdot_\mu$ and $\tau_t$ for
+$\tau_{te_\mu}$. For $g,g'\in\mathcal V^{4\varepsilon}_\mu$ and $t\ge0$ the
+pair $(\bar g\circ\theta_\mu,\tau_tg')$ has its supports in $\{x_\mu<-4
+\varepsilon\}$ and $\{x_\mu>4\varepsilon+t\}$, at distance greater than
+$8\varepsilon$, so $S_2$ is defined on it; and $t\mapsto S_2(\bar g\circ
+\theta_\mu,\tau_tg')$ is continuous on $[0,\infty)$ by the bound of (ii)
+and the uniform continuity of $g'$, the pairs lying in one $\mathcal C_2(Q',
+\delta')$ with $\delta'>8\varepsilon$ for $t$ in a bounded set.
+
+\emph{Hermitian symmetry.} Since $\theta_\mu\in B_4$ and $S_2$ is symmetric,
+$B_4$-invariant and satisfies the conjugation identity,
+$\ip g{g'}=S_2(\bar g\circ\theta_\mu,g')=S_2(\bar g,g'\circ\theta_\mu)=
+S_2(g'\circ\theta_\mu,\bar g)=\overline{S_2(\bar g'\circ\theta_\mu,g)}=
+\overline{\ip{g'}g}$. Positivity is (iii). So the quotient by the null
+space is a pre-Hilbert space and $\mathcal H^{(1)}_\mu$ is its completion.
+
+\emph{Time translations.} We use $\theta_\mu e_\mu=-e_\mu$, hence
+$\overline{\tau_tg}\circ\theta_\mu=\tau_{-t}(\bar g\circ\theta_\mu)$, and the
+translation invariance of $S_2$. For $g,g'\in\mathcal V^{4\varepsilon}_\mu$
+and $t\ge0$,
+\[
+\ip g{\tau_tg'}=S_2\bigl(\tau_{-t}(\bar g\circ\theta_\mu),g'\bigr)=
+S_2\bigl(\overline{\tau_tg}\circ\theta_\mu,g'\bigr)=\ip{\tau_tg}{g'} .
+\tag{a}
+\]
+Next let $t\ge0$ be dyadic and $k$ so large that $n=t/a_k$ is an integer.
+By Lemma~\ref{lem:limitElattice}(ii) the function $F=A_k(g)$ depends on
+links in $\{x_\mu\ge1\}$, and Lemma~\ref{lem:limitElattice}(iii) gives
+$0\le\omega_k(\vartheta_\mu(\bar F)\tau^\mu_{2n}F)\le\omega_k(\vartheta_\mu(
+\bar F)F)$. By Lemma~\ref{lem:limitElattice}(i) the middle term is
+$\omega_k(A_k(\bar g\circ\theta_{\mu,k})A_k(\tau_{2t}g))$ and the right term
+is the same with $\tau_{2t}g$ replaced by $g$. Multiplying by $Z_k^2$ and
+passing to the limit, with the approximation of $\theta_{\mu,k}$ by
+$\theta_\mu$ as in (iii), gives
+\[
+0\le S_2(\bar g\circ\theta_\mu,\tau_{2t}g)\le S_2(\bar g\circ\theta_\mu,g)
+\qquad(t\ge0\text{ dyadic}),
+\]
+and by continuity in $t$ for all $t\ge0$. By (a) the middle term is
+$\ip{\tau_tg}{\tau_tg}$. Hence $\|[\tau_tg]\|\le\|[g]\|$, so $T(t)[g]=
+[\tau_tg]$ is a well defined linear contraction of the quotient, which
+extends to a contraction $T(t)$ of $\mathcal H^{(1)}_\mu$; by (a) it is
+symmetric, hence self-adjoint; $\ip{[g]}{T(t)[g]}=\|[\tau_{t/2}g]\|^2\ge0$
+on a dense set, so $T(t)\ge0$; and $T(t)T(s)=T(t+s)$, $T(0)=1$. For strong
+continuity, let $g\in\mathcal V^{4\varepsilon}_\mu$ and $t\ge0$; the
+function $h=\tau_tg-g$ lies in $\mathcal V^{4\varepsilon}_\mu$, and
+\[
+\|T(t)[g]-[g]\|^2=S_2(\bar h\circ\theta_\mu,h)\le\mathsf K_{4L'/\delta'}^2
+\mathsf K_{\delta'/4}^2\|h\|_\infty^2
+\]
+by the bound of (ii), for a cube of side $L'$ and a separation $\delta'>8
+\varepsilon$ that do not depend on $t\in[0,1]$. Since $\|h\|_\infty\to0$ as
+$t\to0$, $T(t)\to1$ strongly on a dense set, hence on $\mathcal H^{(1)}_\mu$
+because $\|T(t)\|\le1$, and $t\mapsto T(t)$ is strongly continuous on
+$[0,\infty)$ by the semigroup law. Now $T(1)$ is injective: $\ker T(2^{-m})=
+\ker T(2^{-m-1})$ for every $m$, because $T(2^{-m})=T(2^{-m-1})^2$ with
+$T(2^{-m-1})\ge0$; so a vector $v\in\ker T(1)$ lies in $\ker T(2^{-m})$ for
+all $m$, and $v=\lim_mT(2^{-m})v=0$. Hence the spectral measure of $T(1)$
+has no mass at $0$, and $H^{(1)}_\mu=-\log T(1)$, defined by the functional
+calculus on $(0,1]$, is self-adjoint with $H^{(1)}_\mu\ge0$ and $e^{-H^{(1)}
+_\mu}=T(1)$. The positive square root of a positive operator is unique, so
+$T(2^{-m})=T(1)^{2^{-m}}$ by induction on $m$, and $T(t)=e^{-tH^{(1)}_\mu}$
+for every dyadic $t\ge0$; both sides are strongly continuous in $t$, so the
+identity holds for all $t\ge0$.
+
+\emph{Spatial translations.} For $y\perp e_\mu$, $\theta_\mu y=y$, so
+$\overline{\tau_yg}\circ\theta_\mu=\tau_y(\bar g\circ\theta_\mu)$, and the
+translation invariance of $S_2$ gives $\ip{\tau_yg}{\tau_yg'}=\ip g{g'}$;
+thus $U_\mu(y)[g]=[\tau_yg]$ defines an isometry of the quotient, with
+inverse $U_\mu(-y)$, which extends to a unitary operator; $U_\mu(y)U_\mu(y')
+=U_\mu(y+y')$, $U_\mu(y)$ commutes with $T(t)$ because $\tau_y\tau_t=\tau_t
+\tau_y$, and $U_\mu$ is strongly continuous by the same estimate as for
+$T$. Finally $\ip g{\tau_{te_\mu+y}g'}=\ip{[g]}{T(t)U_\mu(y)[g']}$ by
+definition.
+
+\emph{The four directions.} For $g\in\mathcal V^{4\varepsilon}_0$ the
+function $g\circ\pi_\mu$ vanishes unless $(\pi_\mu x)_0=x_\mu>4
+\varepsilon$, so it lies in $\mathcal V^{4\varepsilon}_\mu$, and the map is
+onto because $\pi_\mu$ is an involution. From $\pi_\mu\theta_\mu=\theta_0
+\pi_\mu$ and the $B_4$-invariance of $S_2$,
+\begin{align*}
+S_2\bigl(\overline{g\circ\pi_\mu}\circ\theta_\mu,g'\circ\pi_\mu\bigr)&=
+S_2\bigl((\bar g\circ\theta_0)\circ\pi_\mu,g'\circ\pi_\mu\bigr)\\
+&=S_2(\bar g\circ\theta_0,g'),
+\end{align*}
+so $[g]\mapsto[g\circ\pi_\mu]$ is a well defined isometry of the quotients,
+which extends to a unitary operator $W_\mu$. Since $\pi_\mu e_0=e_\mu$,
+$(\tau_{te_0}g)\circ\pi_\mu=\tau_{te_\mu}(g\circ\pi_\mu)$, so $W_\mu$
+intertwines the two semigroups and therefore the two Hamiltonians.
+
+If $S_2$ is defined on all separated pairs, every step above applies with
+$4\varepsilon$ replaced by $0$: the pairs used are then separated, the
+positivity $\omega_k(\vartheta_\mu(\overline{A_k(g)})A_k(g))\ge0$ holds for
+$g$ supported in $\{x_\mu\ge\eta\}$ once $(r+1)a_k\le\eta$, and the
+approximation of $\theta_{\mu,k}$ by $\theta_\mu$ keeps the pairs separated.
+
+(v) If $S_2(\bar g\circ\theta_0,g)>0$ for some $g\in\mathcal V^{4
+\varepsilon}_0$, then $S_2\ne0$ and $[g]\ne0$. Conversely suppose
+$S_2(\bar g\circ\theta_0,g)=0$ for all $g\in\mathcal V^{4\varepsilon}_0$.
+By (iv) with $\mu=0$ and $B_4$-invariance, $S_2(\bar g\circ\theta_\mu,g)=
+S_2(\overline{g\circ\pi_\mu}\circ\theta_0,g\circ\pi_\mu)=0$ for every
+$\mu$ and $g\in\mathcal V^{4\varepsilon}_\mu$, so the positive semidefinite
+form $\ip\cdot\cdot_\mu$ vanishes on its diagonal and, by the Cauchy--Schwarz
+inequality, identically: $S_2(\bar g\circ\theta_\mu,g')=0$ for $g,g'\in
+\mathcal V^{4\varepsilon}_\mu$. With translation invariance this says that
+$S_2(f,g)=0$ whenever $f$ is supported in $\{x_\mu<c-4\varepsilon\}$ and $g$
+in $\{x_\mu>c+4\varepsilon\}$ for some $c$ and $\mu$, as $f=\bar h\circ
+\theta_\mu$ with $h=\bar f\circ\theta_\mu$ after the translation by $-ce_\mu$.
+Let $(f,g)\in\mathcal C_2(Q,\delta)$ with $\delta>8\varepsilon$, put
+$s=(\delta-8\varepsilon)/4>0$, and write $f=\sum_m\chi^s_mf$, $g=\sum_{m'}
+\chi^s_{m'}g$ with the partition of unity of the proof of
+Theorem~\ref{thm:limitEsep}(vi), whose members are supported in closed cubes
+of side $s$; finitely many terms are nonzero. For a pair of nonzero pieces
+pick points $p,q$ of their supports and $\mu$ with $|p_\mu-q_\mu|\ge\delta$;
+the projections of the two cubes on the $\mu$ axis are at distance at least
+$\delta-2s=\delta/2+4\varepsilon>8\varepsilon$, so the pieces are at
+$\ell^\infty$-distance greater than $8\varepsilon$ and lie on opposite sides
+of some $c$ with margins greater than $4\varepsilon$. By bilinearity $S_2(f,
+g)$ is the sum of the $S_2$ of the pairs of pieces, each of which is $0$.
+So $S_2$ vanishes identically, and $\mathcal H^{(1)}_0=0$ means exactly
+that $S_2(\bar g\circ\theta_0,g)=0$ for all $g\in\mathcal V^{4\varepsilon}
+_0$. This proves the equivalence. If $S_2$ is defined on all separated
+pairs, the same argument with $\mathcal V^0_\mu$ in place of
+$\mathcal V^{4\varepsilon}_\mu$, pairs at a positive distance $\delta$,
+$s=\delta/4$ and margins greater than $0$ gives the equivalence on
+$\mathcal V^0_0$.
+
+For $g\in\mathcal V^{4\varepsilon}_0$ and large $k$, Lemma~\ref{lem:limitElattice}(i)
+gives $R_k(g)=Z_k^2\omega_k(A_k(\bar g\circ\theta_{0,k})A_k(g))$, and along
+any subsequence with a limit $S_2$, the approximation of $\theta_{0,k}$ by
+$\theta_0$ in (iii) gives $R_k(g)\to S_2(\bar g\circ\theta_0,g)$. If some
+limit $S_2$ is not zero, pick $g$ with $S_2(\bar g\circ\theta_0,g)>0$; then
+$\limsup_kR_k(g)>0$. If $\limsup_kR_k(g)>0$, take a subsequence along which
+$R_k(g)$ tends to the $\limsup$ and refine it by (iii); the limit satisfies
+$S_2(\bar g\circ\theta_0,g)=\limsup_kR_k(g)>0$. If $\liminf_kR_k(g_0)>0$,
+every limit has $S_2(\bar g_0\circ\theta_0,g_0)\ge\liminf_kR_k(g_0)>0$.
+
+(vi) Let $(f,g)\in\mathcal C_2(Q,\delta)$ with $\delta>8\varepsilon$ and
+decompose as in the proof of the second bound of (ii), with pieces in cubes
+of side $s=\delta/4$ whose projections on some axis are at distance at least
+$\delta/2$. Each pair of pieces satisfies the hypothesis of the first bound
+of (ii) with $d=\delta/2-4\varepsilon>0$, so the lattice quantity is at most
+$\mathsf K_{4L/\delta}^2\mathsf K_{\delta/4}^2\|f\|_\infty\|g\|_\infty
+e^{-m_{\mathrm{lat}}(d/a_k-1)}$, which tends to $0$.
+\end{proof}
+
+The structure that (iii) and (iv) give is, in the language of~\cite{OS73}
+restricted to the two-point function at separations greater than
+$8\varepsilon$: symmetry, invariance under the translations and the
+hypercubic group, and reflection positivity in each of the four coordinate
+directions, with a positive Hamiltonian on the one-field space of each
+direction. It does not give invariance under $\mathrm O(4)$, the
+independence of the limit from the subsequence, a regularity or growth
+condition at coinciding points, clustering, or a lower bound on
+$\sigma(H^{(1)}_\mu)$; and it does not decide whether $\mathcal H^{(1)}_\mu
+\ne0$, which is the content of (v).
+
+\begin{corollary}[the physical gap under (SD)]\label{rE:gapbound}
+In the setting of Theorem~\textup{\ref{rE:two}}, with
+$\mathcal N_k(\varepsilon)>0$ for large $k$:
+
+\textup{(i)} for $(r+1)a_k\le\varepsilon'<\varepsilon$,
+$\mathcal N_k(\varepsilon)\le\mathsf K^2\gamma_k^{2\lfloor(\varepsilon-
+\varepsilon')/a_k\rfloor}\mathcal N_k(\varepsilon')$;
+
+\textup{(ii)} if \textup{(SD)} holds, then for every $\varepsilon'\in(0,
+\varepsilon)$, with $C_{\varepsilon'}=\limsup_k\mathcal N_k(\varepsilon')/
+\mathcal N_k(\varepsilon)<\infty$,
+\[
+\limsup_k\frac1{a_k}\log\frac1{\gamma_k}\le\frac{\log(\mathsf K^2C_{
+\varepsilon'})}{2(\varepsilon-\varepsilon')} ;
+\]
+in particular a lattice gap is incompatible with \textup{(SD)}.
+
+\textup{(iii)} \textup{(SD)} holds if and only if \textup{(UV)} holds, and if
+and only if \textup{(M$_{\mathrm s}$)} holds for $n=2$ with the constants
+$Z_k=\mathcal N_k(\varepsilon)^{-1/2}$.
+\end{corollary}
+
+\begin{proof}
+(i) is the first inequality of Proposition~\ref{prop:limitEsd}(i); its
+proof uses Lemma~\ref{lem:limitElattice}(i), the identity $\Psi_{A_k(h)}=
+\mathbb T_k^n\Psi_{A_k(h')}$ from the proof of
+Lemma~\ref{lem:limitElattice}(iii), $\Psi_{A_k(h')}\perp\Omega_k$ for the
+centred packet, $\|\mathbb T_k^n\Psi\|\le\gamma_k^n\|\Psi\|$ on
+$\Omega_k^\perp$ (Lemma~\ref{rE:torus}(iv)) and Lemma~\ref{lem:limitEbox};
+the second inequality there, $\gamma_k\le e^{-m_*a_k}$, is the only use of
+the averaged condition and is not needed. (ii) is the proof of
+Proposition~\ref{prop:limitEsd}(iii) from (i): with $n=\lfloor(\varepsilon-
+\varepsilon')/a_k\rfloor\ge(\varepsilon-\varepsilon')/a_k-1$ and $C>C_{
+\varepsilon'}$, (i) gives $\gamma_k^{-2n}\le\mathsf K^2C$ for large $k$,
+that is $a_k^{-1}\log(1/\gamma_k)\le\log(\mathsf K^2C)/(2(\varepsilon-
+\varepsilon'-a_k))$, and $C\downarrow C_{\varepsilon'}$. Under a lattice gap
+the left side is at least $m_{\mathrm{lat}}/a_k\to\infty$. (iii) The
+equivalence with (UV) is Proposition~\ref{prop:limitEsd}(ii), whose proof
+uses only the commutation of the spectral projections with $\mathbb T_k$,
+$\|\mathbb T_k\|\le1$, Lemma~\ref{lem:limitEbox} and spectral measures; the
+equivalence with (M$_{\mathrm s,2}$) is Corollary~\ref{cor:limitEtwo}(a),
+whose proof uses Theorem~\ref{thm:limitEtwo}(i),(ii) with $\varepsilon'$ in
+place of $\varepsilon$, that is, Theorem~\ref{rE:two}(ii).
+\end{proof}
+
+\emph{The short-distance law without the averaged condition.} The
+hypotheses of Theorem~\ref{thm:limitEaf} are the averaged condition and
+(AF). The averaged condition can be dropped from parts (i)--(iv), with one
+change in the proof of (iv): (NE) is read off the lower bound of (AF)
+directly.
+
+\begin{theorem}[(AF) alone gives the two-point inputs]\label{rE:af}
+Let $\omega_k$ be torus limits at arbitrary $\beta_k\ge0$ and assume
+\textup{(AF)} for constants $Z_k$. Then:
+
+\textup{(i)} the bound of Theorem~\textup{\ref{thm:limitEaf}(i)} holds, so
+\textup{(M$_{\mathrm s,2}$)} holds for the constants $Z_k$, every limit $S_2$
+of $Z_k^2\omega_k(A_k(f)A_k(g))$ along a subsequence satisfies
+$|S_2(f,g)|\le C_1\iint|f(x)||g(y)|w_\gamma(|x-y|)\,dx\,dy$ on the separated
+pairs, and extends uniquely to a continuous linear functional on
+$\mathcal S_0(\R^8)$;
+
+\textup{(ii)} for $f,g\ge0$ forming a separated pair with $|x-y|\le r_0$ for
+$x\in\operatorname{supp}f$, $y\in\operatorname{supp}g$, every such limit has
+$S_2(f,g)\ge c_1\iint f(x)g(y)w_\gamma(|x-y|)\,dx\,dy$; in particular no
+limit vanishes identically;
+
+\textup{(iii)} for every $\varepsilon>0$, $\mathcal N_k(\varepsilon)>0$ for
+large $k$ and $0<\liminf_kZ_k^2\mathcal N_k(\varepsilon)\le\limsup_kZ_k^2
+\mathcal N_k(\varepsilon)<\infty$;
+
+\textup{(iv)} \textup{(SD$_{\mathrm p}$)} holds with $p_0=4$, hence
+\textup{(SD)} and \textup{(UV)}; \textup{(NE)} holds; the physical gap
+$a_k^{-1}\log(1/\gamma_k)$ is bounded in $k$; and for the constants
+$Z^\sharp_k=\mathcal N_k(\varepsilon)^{-1/2}$ every limit $S^\sharp_2$ of
+$(Z^\sharp_k)^2\omega_k(A_k(f)A_k(g))$ along a subsequence exists on all
+separated pairs, is a positive multiple of a limit of \textup{(i)}, does not
+vanish identically, extends to $\mathcal S_0(\R^8)$, and has
+$\mathcal H^{(1)}_\mu\ne0$ for every $\mu$;
+
+\textup{(v)} \textup{(AF)} fails for every choice of $Z_k$ if there is a
+lattice gap, in particular under the hypotheses of
+Corollary~\textup{\ref{cor:limitEstrong}} or
+Corollary~\textup{\ref{cor:limitEstrongG}}.
+\end{theorem}
+
+\begin{proof}
+(i) and (ii) are proved exactly as Theorem~\ref{thm:limitEaf}(i),(ii): the
+proofs use Lemma~\ref{lem:limitElattice}(i), translation invariance, the two
+bounds of (AF), the counting of lattice points, the convergence of Riemann
+sums, and Lemma~\ref{lem:limitEextend}; the averaged condition is not used.
+In particular (M$_{\mathrm s,2}$) holds, so the diagonal argument of the
+proof of Theorem~\ref{thm:limitEsep}(i) gives limits on all separated pairs
+along subsequences, and the proofs of Theorem~\ref{thm:limitEsep}(ii) and
+(iii) for $n=2$, which use only (M$_{\mathrm s,2}$),
+Lemma~\ref{lem:limitElattice}(i),(ii) and the positivity part of
+Lemma~\ref{lem:limitElattice}(iii), show that every such limit is
+symmetric, invariant under the translations and $B_4$, satisfies the
+conjugation identity, and has $S_2(\bar g\circ\theta_\mu,g)\ge0$ for
+$g\in\mathcal V^0_\mu$. Theorem~\ref{rE:two}(iv), in its form for limits
+defined on all separated pairs, applies to these limits with the constants
+$Z_k$: its proof used of the constants only that $S_2$ is a limit of
+$Z_k^2\omega_k(A_k(\cdot)A_k(\cdot))$ with the stated invariance,
+positivity and boundedness, the bound of Theorem~\ref{rE:two}(ii) being
+replaced by (M$_{\mathrm s,2}$).
+
+(iii) The upper bound is as in the proof of Theorem~\ref{thm:limitEaf}(iii):
+with $Q_0$ the cube of side $L_0=2(\varepsilon+2+2a_0)$ there, for $h$
+supported in $B_{\varepsilon'}$ with $\|h\|_\infty\le1$, $\varepsilon'\le
+\varepsilon$ and $a_k\le\varepsilon'$, the pair $(\bar h\circ\theta_{0,k},h)$
+lies in $\mathcal C_2(Q_0,\min(\varepsilon',1))$, so (i) gives
+\[
+Z_k^2\mathcal N_k(\varepsilon')\le C_2\max(1,\varepsilon'^{-4}),\qquad
+C_2=100\,C_1(1+L_0)^4 ,
+\tag{b}
+\]
+for large $k$. For the lower bound suppose $Z_k^2\mathcal N_k(\varepsilon)
+\to0$ along a subsequence, and refine it to a limit $S_2$ on all separated
+pairs. Let $g\in\mathcal V^0_0$ be supported in a cube of side $L$ and in
+$\{x_0\ge\eta\}$, $\eta>0$, and let $t\ge4\varepsilon+1$ be dyadic. For
+large $k$ the function $\bar g\circ\theta_{0,k}$ is supported in $\{x_0\le
+-\eta+a_k\}$ and $\tau_{te_0}g$ in $\{x_0\ge\eta+t\}$; with $c=2\varepsilon
+-\eta+a_k$ and $d=0$ these are the supports of the first bound of
+Theorem~\ref{rE:two}(ii), whose proof does not use $\mathcal N_k(
+\varepsilon)>0$ once it is multiplied by $\mathcal N_k(\varepsilon)$, and
+that bound gives
+\[
+Z_k^2\bigl|\omega_k\bigl(A_k(\bar g\circ\theta_{0,k})A_k(\tau_{te_0}g)\bigr)
+\bigr|\le\mathsf K_L^2\,Z_k^2\mathcal N_k(\varepsilon)\,\|g\|_\infty^2\to0 .
+\]
+By the approximation of $\theta_{0,k}$ by $\theta_0$, $S_2(\bar g\circ
+\theta_0,\tau_{te_0}g)=0$. By Theorem~\ref{rE:two}(iv) for this $S_2$ on
+$\mathcal V^0_0$, this number is $\|e^{-tH^{(1)}_0/2}[g]\|^2$, and
+$e^{-tH^{(1)}_0/2}$ is injective, so $[g]=0$, that is $S_2(\bar g\circ
+\theta_0,g)=0$ for every $g\in\mathcal V^0_0$. By the argument of
+Theorem~\ref{rE:two}(v), applied with $\mathcal V^0_\mu$ and separated pairs,
+$S_2$ vanishes identically. This contradicts (ii). Hence $\liminf_kZ_k^2
+\mathcal N_k(\varepsilon)>0$, and in particular $\mathcal N_k(\varepsilon)>0$
+for large $k$.
+
+(iv) Let $c_\varepsilon=\frac12\liminf_kZ_k^2\mathcal N_k(\varepsilon)>0$.
+By (b) and (iii), for $\varepsilon'\in(0,\varepsilon]$ and large $k$,
+\[
+\mathcal N_k(\varepsilon')\le\frac{C_2\max(1,\varepsilon'^{-4})}{c_\varepsilon}
+\mathcal N_k(\varepsilon)\le C_0\Bigl(\frac\varepsilon{\varepsilon'}\Bigr)^4
+\mathcal N_k(\varepsilon)
+\]
+with $C_0=C_2\max(1,\varepsilon^{-4})/c_\varepsilon$, which is (SD$_{\mathrm p}$) with $p_0=4$; it gives (SD), and (UV) and the
+bound on the physical gap by Corollary~\ref{rE:gapbound}.
+
+For (NE) let $g_0\in C_c(\R^4)$ take values in $[0,1]$, be supported in
+$[\frac{r_0}8,\frac{r_0}4]\times[0,\frac{r_0}8]^3$ and be positive on the
+interior of this box. Let $x,y\in\Z^4$ with $g_0(a_kx)g_0(a_ky)>0$. The
+plane of $\vartheta$ is $\{x_0=c\}$ with $|c|\le\frac12$, so $\vartheta x=
+(2c-x_0,x_1,x_2,x_3)$ and the time component of $y-\vartheta x$ is
+$x_0+y_0-2c\ge r_0/(4a_k)-1\ge2r+1$ for large $k$, while $|y-\vartheta x|\le
+|a_k^{-1}(a_ky-\theta_0(a_kx))|+1\le a_k^{-1}r_0\sqrt{\tfrac14+\tfrac3{64}}
++1\le r_0/a_k$ for large $k$. So both bounds of (AF) apply to every such
+pair, and with $p_k(x,y)=a_k^8g_0(a_kx)g_0(a_ky)$ and
+$Y_k=Z_k^2\,\omega_k(\vartheta(\overline{A_k(g_0)})A_k(g_0))$,
+\begin{align*}
+Y_k&=\sum_{x,y}p_k(x,y)\,Z_k^2G_k(y-\vartheta x)\\
+&\ge c_1\sum_{x,y}p_k(x,y)\,w_\gamma(a_k|y-\vartheta x|),
+\end{align*}
+the identity being Lemma~\ref{lem:limitElattice}(i) and translation
+invariance. On the support of $g_0\otimes g_0$ the distance $|y-\theta_0x|$
+lies in $[\frac{r_0}4,r_0]$, where $w_\gamma$ is Lipschitz, and
+$|a_k(y-\vartheta x)|$ differs from $|a_ky-\theta_0(a_kx)|$ by at most
+$a_k$; so the right side is a Riemann sum, up to an error $O(a_k)$, of the
+continuous compactly supported function $(x,y)\mapsto g_0(x)g_0(y)w_\gamma(
+|y-\theta_0x|)$, and
+\[
+\liminf_kY_k\ge c_1\iint g_0(x)g_0(y)\,w_\gamma(|y-\theta_0x|)\,dx\,dy=:c_1I>0 .
+\]
+With (b) at $\varepsilon'=\varepsilon$ this gives
+\[
+\liminf_kR_k(g_0)\ge\frac{c_1I}{C_2\max(1,\varepsilon^{-4})}>0 ,
+\]
+which is (NE).
+
+By (SD) and Corollary~\ref{rE:gapbound}(iii), (M$_{\mathrm s,2}$) holds for
+$Z^\sharp_k$, so the limits $S^\sharp_2$ exist on all separated pairs along
+subsequences, and by (SD$_{\mathrm p}$) and
+Proposition~\ref{prop:limitEtwotempered}(a),(b), whose extension step uses
+only the proof of Corollary~\ref{cor:limitEtwo}(a), that is
+Theorem~\ref{rE:two}(ii), and Lemma~\ref{lem:limitEextend}, they extend to
+$\mathcal S_0(\R^8)$; the invariance and positivity of the extensions, which
+that proposition takes from Theorem~\ref{thm:limitEtempered}(iii) and
+Lemma~\ref{lem:limitEcut}(iii), are not needed here. Along a subsequence with a limit $S^\sharp_2$,
+refine so that $Z_k^2\mathcal N_k(\varepsilon)\to\lambda\in(0,\infty)$, by
+(iii), and so that the limit $S_2$ with the constants $Z_k$ exists; then
+$S^\sharp_2=S_2/\lambda$, and $S^\sharp_2$ is not identically zero by (ii).
+By Theorem~\ref{rE:two}(v) in its form on $\mathcal V^0_\mu$,
+$\mathcal H^{(1)}_0\ne0$, hence $\mathcal H^{(1)}_\mu\ne0$ for every $\mu$
+by the unitary equivalence of Theorem~\ref{rE:two}(iv).
+
+(v) Under (AF), (iii) and (iv) give $\mathcal N_k(\varepsilon)>0$ for large
+$k$ and (SD), and Corollary~\ref{rE:gapbound}(ii) excludes a lattice gap.
+Corollary~\ref{cor:limitEstrong} provides the lattice gap $3.28/(625e^2)$
+for $\SU(2)$ and $\beta_{W,k}\le\frac18$, and Corollary~\ref{cor:limitEstrongG}
+the corresponding gap for $N\beta\le\kappa_G/48$.
+\end{proof}
+
+The theorem separates the two halves of the problem for $n=2$: the
+short-distance law (AF) is a statement about the Wilson measure at lattice
+distances between $2r+1$ and $r_0/a_k$ and carries all of (SD), (UV) and
+(NE); the averaged condition is a statement about distances of order $\ell$
+in physical units and carries the gap $m_*$. Neither implies the other, and
+(AF) forces the physical gap to stay bounded while the lattice gap tends to
+zero.
+
+\emph{Flowed packets in a periodic spatial box.} For the spatially flowed
+observables of Sec.~\ref{ssec:flowlimit} the analogous unconditional
+statement is already in the paper; we record it with the inventory of what
+it gives, since it is the only place where positivity of the renormalising
+norm is a theorem rather than a hypothesis.
+
+\begin{proposition}[flowed packets, unconditional part]\label{rE:flow}
+Let $G=\SU(N)$, replace $\Z^4$ by $\Z\times(\Z/L_k\Z)^3$ with $L_k\ge3$, let
+$\omega_k$ be the infinite-time Wilson state of the box at an arbitrary
+$\beta_k>0$, and let $\Phi$, $\tau$, $f_0=g\otimes h$ with $g,h\ge0$ and
+$g(a_kn)h(a_kx)>0$ for some $n\ge1$ and some $x$, $A_k$, $C_k(\sigma)$ be as
+in Sec.~\textup{\ref{ssec:flowlimit}} and
+Proposition~\textup{\ref{prop:flowpositive}}. Then $C_k(0)>0$ for every $k$,
+and with $Z_k=C_k(0)^{-1/2}$ statements \textup{(i)}--\textup{(iv)} of
+Theorem~\textup{\ref{thm:flowlimit}} hold with $\mathcal D$ replaced by its
+points $(t,0)$: along a subsequence the renormalised flowed packets have a
+continuum limit in the sense of Definition~\textup{\ref{def:limit}}, a
+Hilbert space with vacuum $\Omega$, a self-adjoint $H\ge0$ with $H\Omega=0$
+and vectors $\psi(f)$ with dense range reproducing the limits of the
+reflected correlations at dyadic times, together with a spectral measure
+$\mu$ on $[0,\infty]$ with $\lim_kC_k(\sigma)/C_k(0)=\int e^{-\sigma E}d\mu(E)$;
+the limit is nontrivial if and only if $\mu([0,\infty))>0$, if and only if
+$\lim_kC_k(\sigma)/C_k(0)>0$ along the subsequence for one, equivalently
+for every, dyadic $\sigma>0$; and some subsequence has a nontrivial limit if
+and only if $\limsup_kC_k(\sigma)/C_k(0)>0$ for one dyadic $\sigma>0$. On the infinite
+lattice, with $\omega_k$ the torus limits of Lemma~\textup{\ref{rE:torus}}
+and $C_k(0)>0$ assumed, the same holds with all of $\mathcal D$, and the
+dyadic spatial translations act by unitaries commuting with $H$.
+\end{proposition}
+
+\begin{proof}
+Proposition~\ref{prop:flowpositive} gives $C_k(0)>0$ in the box, using
+L\"uscher's strict positivity of the transfer matrix~\cite{Lus77}. The proof
+of Theorem~\ref{thm:flowlimit}(i)--(iv) uses only the reflection positivity
+of $\omega_k$, its transfer matrix with $0\le\mathbb T_k\le1$, the spatial
+translations where $\mathcal D$ contains them, Proposition~\ref{prop:spatialflow}(ii)
+and Appendix~\ref{app:spectral}, as stated after
+Proposition~\ref{prop:flowshift}; part (v) is the only part that uses a
+gap. On the infinite lattice the states of Lemma~\ref{rE:torus} have these
+properties.
+\end{proof}
+
+What Proposition~\ref{rE:flow} gives is the Hilbert space, the positive
+Hamiltonian, the time semigroup and the reflection-positive inner product
+of one renormalised flowed packet and its translates. It does not give
+Euclidean invariance, independence of the subsequence, correlations of more
+than two renormalised fields, clustering, a gap, or nontriviality; the last
+is the ratio condition, which Theorem~\ref{thm:strongratio} and
+Proposition~\ref{prop:limitEnorm}(iii) show to fail wherever the lattice
+gap stays bounded below, so that it is a statement about the tuning
+$\beta_k\to\infty$ alone.
+
+\subsection{The missing step}\label{ssec:rEmissing}
+
+We state the inputs of Sec.~\ref{ssec:limitE} in one place, prove that
+they suffice for (E) at separated points, and prove that the two-point
+inputs are necessary. Let $\omega_k$ be torus limits along a tuning
+$(a_k,\beta_k)$ as in Lemma~\ref{rE:torus} and $\Phi$ as in
+Sec.~\ref{ssec:limitE}; the constants $Z_k>0$ are those of each input.
+
+\begin{enumerate}[label=\textup{(I\arabic*)},leftmargin=*]
+\item\label{rE:I1} \emph{The averaged condition along the tuning.} There
+are $\varpi>0$, $\ell>0$ and integers $n_k\ge2$ with $n_ka_k\le\ell$ such
+that $\mathrm{BP}(n_k,\varpi)$ holds for the Wilson measure of $\Lambda_L$
+at $\beta_k$ for all $L$ in the infinite set of even integers along which
+$\omega_k$ is formed (the hypothesis of Theorem~\ref{thm:avgtransfer}).
+\item\label{rE:I2} \emph{The two-sided short-distance law.} (AF) holds for
+the constants $Z_k$: for $\gamma\ge0$, $0<c_1\le C_1$, $r_0\in(0,1]$ and all
+large $k$, $Z_k^2|G_k(z)|\le C_1w_\gamma(a_k|z|)$ for $|z|_\infty\ge2r+1$, and
+$Z_k^2G_k(z)\ge c_1w_\gamma(a_k|z|)$ if moreover $a_k|z|\le r_0$.
+\item\label{rE:I3} \emph{Reflected norms of products with a rate.}
+(G$_{\mathrm s}$) holds for the constants $Z_k$; by
+Proposition~\ref{prop:limitEreflect} this is equivalent, up to the rate, to
+(RN$_m$) for every $m\ge1$.
+\item\label{rE:I4} \emph{One rotation.} (W$_{\mathrm s}$): a rotation of
+infinite order is an asymptotic symmetry of the moments of the separated
+tuples.
+\item\label{rE:I5} \emph{Uniqueness.} (U$_{\mathrm s}$): all subsequential
+limits of the moments of separated tuples coincide.
+\end{enumerate}
+
+\begin{theorem}[the inputs suffice]\label{rE:suffices}
+\textup{(a)} Under \textup{\ref{rE:I1}} and \textup{\ref{rE:I2}}, with
+$Z^\sharp_k=\mathcal N_k(\varepsilon)^{-1/2}$: \textup{(SD$_{\mathrm p}$)},
+\textup{(SD)}, \textup{(UV)} and \textup{(NE)} hold; $Z_k/Z^\sharp_k$ is
+bounded above and below by positive constants; every limit $S_2$ of
+Corollary~\textup{\ref{cor:limitEtwo}(b)} is not identically zero, extends
+to $\mathcal S_0(\R^8)$, is invariant under the translations and $B_4$,
+reflection positive in every coordinate direction, and its one-field
+Hamiltonians $H^{(1)}_\mu$ have spectrum in $[m_*,\infty)$ and not empty,
+$m_*=16\varpi/(625e^2\ell)$.
+
+\textup{(b)} Under \textup{\ref{rE:I1}}--\textup{\ref{rE:I5}} with one
+sequence of constants $Z_k$, the moments $\omega_k(\prod_jZ_kA_k(f_j))$
+converge for every separated tuple; their limits, extended to
+$\mathcal S_0(\R^{4n})$ by Theorem~\textup{\ref{thm:limitEtempered}} and with
+$S_0=1$, satisfy the linear growth condition of~\cite{OS75} and the axioms
+of~\cite{OS73} of Euclidean invariance, reflection positivity, symmetry and
+clustering; the Hilbert space and Hamiltonian of their reconstruction are
+$\mathcal H_0$ and $H_0$ of Theorem~\textup{\ref{thm:limitEsep}}, with
+$\sigma(H_0)\subset\{0\}\cup[m_*,\infty)$, $\ker H_0=\C\Omega_0$ and
+$\sigma(H_0)\cap[m_*,\infty)\ne\emptyset$; and they are not the Schwinger
+functions of the vacuum alone. That is, \textup{(E)} holds for the field
+$\Phi$ at separated points, with a mass gap of at least $m_*$.
+\end{theorem}
+
+\begin{proof}
+(a) Theorem~\ref{rE:af}(iii),(iv) gives (SD$_{\mathrm p}$), (SD), (UV), (NE),
+the comparability of the constants, the extension to $\mathcal S_0(\R^8)$
+and the nonvanishing of every limit of Corollary~\ref{cor:limitEtwo}(b);
+\ref{rE:I1} is not used for these. Under \ref{rE:I1},
+Corollary~\ref{cor:avggap} gives $\gamma_k\le e^{-m_*a_k}$, and
+Corollary~\ref{cor:limitEtwo}(b) gives $\sigma(H^{(1)})\subset[m_*,\infty)$;
+the invariance, positivity and the unitary equivalence of the directions
+are Theorem~\ref{rE:two}(iii),(iv) on $\mathcal V^0_\mu$, and
+$\mathcal H^{(1)}_\mu\ne0$ is Theorem~\ref{rE:af}(iv), so the spectrum is
+not empty.
+
+(b) \ref{rE:I3} gives (M$_{\mathrm s}$). Corollary~\ref{cor:limitEOS}, whose
+hypotheses are \ref{rE:I1}, (G$_{\mathrm s}$), (W$_{\mathrm s}$) and
+(U$_{\mathrm s}$), gives convergence, the growth condition, the four axioms,
+the identification of the reconstruction with $(\mathcal H_0,H_0)$,
+$\sigma(H_0)\subset\{0\}\cup[m_*,\infty)$ and $\ker H_0=\C\Omega_0$. For
+nontriviality, Theorem~\ref{rE:af}(ii) shows that $S_2$ is not identically
+zero on the separated pairs, so $\mathcal H_0\ne\C\Omega_0$ by
+Theorem~\ref{thm:limitEsep}(vi), and $\sigma(H_0)\cap[m_*,\infty)\ne
+\emptyset$ by Theorem~\ref{thm:limitEsep}(iv),(vi). The reconstruction
+theorem of~\cite{OS75} turns Schwinger functions with these properties into
+a Wightman theory on $\mathcal H_0$ with Hamiltonian $H_0$.
+\end{proof}
+
+\begin{proposition}[the two-point inputs are necessary]\label{rE:necessary}
+Let $\omega_k$ be torus limits along any tuning, $Z_k>0$ arbitrary
+constants, and suppose that for every $n$ and every separated tuple the
+limit $S_n(f_1,\dots,f_n)=\lim_k\omega_k(\prod_jZ_kA_k(f_j))$ exists along
+the full sequence and that $S_2$ is not identically zero. Then:
+
+\textup{(i)} \textup{(M$_{\mathrm s}$)} holds for the constants $Z_k$;
+
+\textup{(ii)} for every $\varepsilon>0$, $\mathcal N_k(\varepsilon)>0$ for
+large $k$ and $0<\liminf_kZ_k^2\mathcal N_k(\varepsilon)\le\limsup_kZ_k^2
+\mathcal N_k(\varepsilon)<\infty$; so $Z_k$ is comparable to
+$\mathcal N_k(\varepsilon)^{-1/2}$;
+
+\textup{(iii)} \textup{(SD)}, \textup{(UV)} and \textup{(NE)} hold for the
+constants $\mathcal N_k(\varepsilon)^{-1/2}$;
+
+\textup{(iv)} $\limsup_ka_k^{-1}\log(1/\gamma_k)<\infty$: the physical gap of
+the torus limits stays bounded, and in particular the lattice gap tends to
+zero. Consequently no tuning along which the torus limits have a lattice
+gap, in particular none that stays in the range of
+Corollary~\textup{\ref{cor:limitEstrong}} or
+Corollary~\textup{\ref{cor:limitEstrongG}}, admits such limits, for any
+choice of $Z_k$.
+\end{proposition}
+
+\begin{proof}
+(i) Convergent sequences are bounded, so the hypothesis of the converse in
+Theorem~\ref{thm:limitEsep} holds. We repeat its proof. Fix $n$, a cube $Q$
+and $\delta>0$, and cover $Q$ by the closed cubes of side $s=\delta/4$ that
+carry the functions $\chi^s_m$ of the proof of Theorem~\ref{thm:limitEsep}(vi);
+at most $(2L/s+3)^4$ of them meet $Q$. For $(f_j)\in\mathcal C_n(Q,\delta)$
+every nonzero term $\omega_k(\prod_jZ_kA_k(\chi^s_{m_j}f_j))$ has its $n$
+cubes at pairwise distance at least $\delta-2s=\delta/2$. Fix such cubes
+$C_1,\dots,C_n$, let $X_j$ be the Banach space of continuous functions on
+$\R^4$ supported in $C_j$ with the supremum norm, and let $B_k(h_1,\dots,
+h_n)=\omega_k(\prod_jZ_kA_k(h_j))$ on $X_1\times\cdots\times X_n$. Each $B_k$
+is a bounded $n$-linear form, since $|A_k(h)|\le2\|\Phi\|_\infty\|h\|_\infty
+\sum_xa_k^4\mathbf 1_{C_j}(a_kx)$, and for each point the sequence $(B_k)$
+is bounded because it converges. A pointwise bounded family of bounded
+$n$-linear forms on a product of Banach spaces is uniformly bounded: for
+$n=1$ this is the uniform boundedness principle; for $n\ge2$ and fixed $h_1$
+the forms $B_k(h_1,\cdot)$ are bounded $(n-1)$-linear and pointwise bounded,
+so by induction $\sup_k\|B_k(h_1,\cdot)\|<\infty$, and the linear maps $h_1
+\mapsto B_k(h_1,\cdot)$ into the Banach space of bounded $(n-1)$-linear
+forms are pointwise bounded, hence uniformly bounded. Summing the resulting
+bounds over the finitely many choices of cubes gives $M_n(Q,\delta)$.
+
+(ii) Upper bound: for $h$ supported in $B_\varepsilon$ with $\|h\|_\infty\le
+1$ and $a_k\le\varepsilon$, the pair $(\bar h\circ\theta_{0,k},h)$ lies in
+$\mathcal C_2(Q_0,\varepsilon)$ for the cube $Q_0$ of the proof of
+Theorem~\ref{rE:af}(iii), and $\omega_k(\vartheta(\overline{A_k(h)})A_k(h))=
+\omega_k(A_k(\bar h\circ\theta_{0,k})A_k(h))$; so (i) gives $Z_k^2\mathcal
+N_k(\varepsilon)\le M_2(Q_0,\varepsilon)$. Lower bound: by (i) and the proofs
+of Theorem~\ref{thm:limitEsep}(ii),(iii) for $n=2$, $S_2$ is symmetric,
+invariant, satisfies the conjugation identity and is reflection positive on
+$\mathcal V^0_\mu$, so Theorem~\ref{rE:two}(iv) on $\mathcal V^0_\mu$
+applies, and by the argument of Theorem~\ref{rE:two}(v) with separated
+pairs, $S_2\ne0$ gives $g\in\mathcal V^0_0$ with $[g]\ne0$. Since
+$e^{-\varepsilon H^{(1)}_0}$ is injective, $S_2(\overline{\tau_{\varepsilon
+e_0}g}\circ\theta_0,\tau_{\varepsilon e_0}g)=\|e^{-\varepsilon H^{(1)}_0}
+[g]\|^2>0$, and $g'=\tau_{\varepsilon e_0}g$ is supported in a cube of side
+$L$ and in $\{x_0\ge\varepsilon\}$. By Lemma~\ref{lem:limitElattice}(i) and
+Lemma~\ref{lem:limitEbox},
+\begin{align*}
+Z_k^2\,\omega_k\bigl(A_k(\bar g'\circ\theta_{0,k})A_k(g')\bigr)&=Z_k^2\,
+\omega_k\bigl(\vartheta(\overline{A_k(g')})A_k(g')\bigr)\\
+&\le\mathsf K_L^2\,Z_k^2\mathcal N_k(\varepsilon)\,\|g\|_\infty^2 ,
+\end{align*}
+and the left side tends to $S_2(\bar g'\circ\theta_0,g')>0$ by the
+approximation of $\theta_{0,k}$ by $\theta_0$. Hence $\liminf_kZ_k^2
+\mathcal N_k(\varepsilon)>0$.
+
+(iii) For $\varepsilon'\in(0,\varepsilon)$, (ii) at $\varepsilon'$ and at
+$\varepsilon$ gives $\mathcal N_k(\varepsilon')\le M_2(Q_0,\varepsilon')
+Z_k^{-2}\le C\,\mathcal N_k(\varepsilon)$ for large $k$, which is (SD);
+(UV) follows by Corollary~\ref{rE:gapbound}(iii). For (NE), the function
+$g'$ of (ii) has $\liminf_kR_k(g')\ge S_2(\bar g'\circ\theta_0,g')/
+\limsup_kZ_k^2\mathcal N_k(\varepsilon)>0$.
+
+(iv) is Corollary~\ref{rE:gapbound}(ii) with (SD) from (iii); a lattice gap
+$m_{\mathrm{lat}}$ gives $a_k^{-1}\log(1/\gamma_k)\ge m_{\mathrm{lat}}/a_k\to
+\infty$. Corollaries~\ref{cor:limitEstrong} and~\ref{cor:limitEstrongG}
+provide the lattice gaps in their ranges.
+\end{proof}
+
+\begin{remark}[independence of the inputs]\label{rE:independent}
+The examples of Sec.~\ref{ssec:limitE}, states on $\Z^4$ invariant under
+translations and $B_4$ and reflection positive in the four coordinate
+directions, show that the consequences of the inputs do not imply one
+another. Proposition~\ref{prop:limitEheavy} gives such states with a
+physical gap bounded above and below for which (SD) fails, so the lattice
+gap $\gamma_k\le e^{-m_*a_k}$ that \ref{rE:I1} provides does not give
+\ref{rE:I2}. Theorem~\ref{rE:af}(iv) shows that \ref{rE:I2} bounds the
+physical gap above and gives no lower bound on it, and
+Proposition~\ref{prop:limitEafexample} gives states satisfying (AF) with
+physical gap $\frac12$; whether (AF) can hold with physical gap tending to
+zero is not decided by the examples. Proposition~\ref{prop:limitEthree}
+gives states with a lattice gap, (SD$_{\mathrm p}$) and (NE) for which
+(RN$_m$), $m\ge2$, fails, so a gap and the two-point conditions do not give
+\ref{rE:I3}; these states do not satisfy (AF), and no example in
+Sec.~\ref{ssec:limitE} decides whether \ref{rE:I1} and \ref{rE:I2} together
+give \ref{rE:I3}. Proposition~\ref{prop:limitEfactorial} gives states for
+which (M$_{\mathrm s}$) and (RN$_m$) hold for every $m$ while the rate of
+(G$_{\mathrm s}$) fails, and Proposition~\ref{prop:limitEnotempered} shows
+that the separated-point structure without a rate does not give
+temperedness, which is why \ref{rE:I3} carries the rate.
+Proposition~\ref{prop:limitEafexample} gives states satisfying (AF),
+(G$_{\mathrm s}$) and (U$_{\mathrm s}$) that are not invariant under any
+rotation of infinite order, so \ref{rE:I2}, \ref{rE:I3} and \ref{rE:I5} do
+not give \ref{rE:I4}.
+\end{remark}
+
+\begin{remark}[the exact obstruction]\label{rE:status}
+For the Wilson measure with $G=\SU(N)$ and the plaquette sum $\Phi$ the
+situation is the following. Everything in Sec.~\ref{ssec:rEunconditional}
+holds for every tuning. Of the inputs, \ref{rE:I1} is proved only in the
+strong-coupling ranges of Corollaries~\ref{cor:bpranges}
+and~\ref{cor:limitEstrongG}, where Theorem~\ref{rE:af}(v) and
+Proposition~\ref{rE:necessary}(iv) show that \ref{rE:I2} fails and no
+nontrivial limit exists; \ref{rE:I2} is proved in no range of couplings that
+tends to the continuum, and by Remark~\ref{rem:limitEafstatus} it is
+equivalent to the $Z_k$-free two-sided comparison of
+Proposition~\ref{prop:limitEafscale}(iii), open already in a box of fixed
+physical size; \ref{rE:I3}, \ref{rE:I4} and \ref{rE:I5} are proved in no
+range. By Proposition~\ref{rE:necessary}, (SD) and (NE) with the resulting bound
+on the physical gap, which are consequences of \ref{rE:I2} by
+Theorem~\ref{rE:af}(iv), are also necessary for (E) with these packets, so
+that any proof of (E) along a tuning must establish them; \ref{rE:I2} itself
+is not shown to be necessary. The literature supplies none of the five
+for the four-dimensional Wilson measure: Ba{\l}aban's renormalisation group
+gives bounds on partition functions in a box of fixed physical size uniform
+in the spacing~\cite{Bal84a,Bal85a,Bal87,Bal88,Bal89b}, not bounds on the
+connected two-point function of $\Phi$; Magnen, Rivasseau and S\'en\'eor
+give the basis for a construction of the Schwinger functions of the
+$\SU(2)$ gauge field in a regularised axial gauge with an infrared
+cut-off~\cite{MRS93}, not expectations of the Wilson measure along a
+lattice tuning; the stochastic quantisation of Yang--Mills in two and three
+dimensions~\cite{CCHS22,CCHS24} and the state space of the
+three-dimensional theory~\cite{CC24} concern lower dimensions; and the weak-coupling correlation decay of
+Adhikari and Cao~\cite{AC25} concerns finite gauge groups. The smallest
+statement whose proof would change the picture is the two-sided law
+\ref{rE:I2} for the $24$-plaquette sum $\Phi$ along the tuning
+(AF$_\beta$), whose finite-volume form in a box of fixed physical size is
+open as well: for the torus limits along that tuning, Theorem~\ref{rE:af}
+would give the renormalisation, the short-distance condition and the
+nontriviality of the two-point limits, and with \ref{rE:I1} a two-point
+theory with mass gap $m_*$.
+\end{remark}

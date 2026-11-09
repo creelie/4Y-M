@@ -2,17 +2,18 @@
   "release": "v4.42.0",
   "version_doi": "10.5281/zenodo.24055064",
   "permanent_work_doi": "10.5281/zenodo.23444338",
-  "pages": 398,
+  "pages": 428,
   "baseline_commit": "1a6f46663f0ccf6eb5d3c9a73a039a5394bce6d3",
   "files": {
-    "aiprovenance.md": "52ea653c8ff9da7ddd3828677a670be1d30883cd50bfbdbd6741c4527b25df3e",
+    "aiprovenance.md": "9a0195c9a2a9cd6104f13c2cedc7467692f25b797a1673f2a5051dce0d4d462f",
+    "archive-receipt.json": "9fb19836664deb47e0303632f424926d6f3fb6d416d418c7f818dde9699b6523",
     "bibliography-audit.md": "98985ca56cecf582b6a295980697e330e489df56141f9d6d683ecb45cf89184c",
-    "hexagon-submission-form.md": "36cd3074752d0badaba175704adcbe4c473c251958b5c5b3fd698810e0549462",
-    "next-version-submission-notes.md": "4d13e16694ccdf5bbbde3385b364b955696623ad4c746ea5e02a0ebdcb342cf5",
-    "release-details.md": "9f87259743040289b4149c9a35f2028ecbf6aa4ec2fc882714e60e64cd68a97c",
+    "hexagon-submission-form.md": "1712d5ccdc18b187c078e7777981e675c1bcde105334dfd22e578db1db8fdb66",
+    "next-version-submission-notes.md": "cdfe8c15c4e3bcc8a7f220de7fc58ea1174014cdee689b27656ebd40cffe0ae5",
+    "release-details.md": "6fe2cd058f0bd4ac386df80a74a9a5b99631ed7bcca57082bb29b38f2da6fe1c",
     "source-zip-validation.json": "883ec17c9e90def3bbacb4f15c9c7de4511fc6fb7a55efce177992a7b1d61cd7",
     "validation.json": "d77f6a25d8274a2f34052e56c9b9abb16fbf3d182e1e8e5ff6775e21ee373482",
-    "ym4d.pdf": "51438309af580ff2bf15f9a7d033abd45e1d5d36bcf73f620c83e3a31292c1b6",
-    "ym4dtex.zip": "1001bc91c5fb2b40db518baf35b5ceb5550d8117720309d9fd057abafd52f31a"
+    "ym4d.pdf": "9a3c0893189cd7a4fefba23ee6726fbae1a51273b1cbdd7209fe355b8431d907",
+    "ym4dtex.zip": "bec7e7ae1ac208865369f13fc83519e3d70183dd0c4b011a4b2ae1cd0926cdbf"
   }
 }

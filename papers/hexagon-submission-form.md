@@ -6,7 +6,7 @@ Requested next version: v8. Submit as an update of the existing paper. Do not de
 
 ## Title
 
-Lattice Mass Gaps and Continuum Criteria for Four-Dimensional Yang-Mills Theory
+Yang-Mills Theory and the Mass Gap
 
 ## Abstract
 

@@ -1,7 +1,7 @@
 {
-  "title": "Lattice Mass Gaps and Continuum Criteria for Four-Dimensional Yang-Mills Theory",
+  "title": "Yang-Mills Theory and the Mass Gap",
   "upload_type": "publication",
-  "description": "We prove strong-coupling lattice mass gaps for compact simple gauge groups and a conditional continuum transfer. Off-diagonal response identities and finite-volume Wilson Poisson constructions give explicit residual certificates. The weak-coupling cube estimate and a nontrivial four-dimensional continuum construction remain open. Adds proved off-diagonal semigroup and static Poisson-residual identities matching the excluded same-link block in (FC); derives Gaussian full-row and response lower obstructions from the existing collective-source identities; constructs finite-volume Wilson Poisson trials as finite sums of actual conditional expectations, with a proved residual rate uniform in the coarse data at fixed geometry; proves a mixed Poisson/flux enclosure without assuming a global inverse gap; and adds a detailed appendix on spectral cutoffs, minimum fluxes, Gaussian transport and an explicitly specified nonconvex probability model. Three new figures and 64 exact checks accompany the derivations. The full prior manuscript and all four authors are retained. All 116 bibliography entries are retained without adding an unverified bibliographic item.",
+  "description": "We prove a mass gap for four-dimensional lattice Yang-Mills theory with any compact simple gauge group at strong coupling, and we prove that one uniform estimate on cubes of fixed physical size gives every continuum limit a mass gap. That estimate along the weak-coupling tuning and a nontrivial four-dimensional continuum construction remain open.",
   "creators": [
     {
       "name": "Bhattacharjee, Deep",

@@ -70,9 +70,9 @@
 % it is published, e.g. \def\preprintsDOI{10.20944/preprints2026xx.xxxx.v1}
 \def\preprintsDOI{}
 \begin{document}
-\hypersetup{pdftitle={Lattice Mass Gaps and Continuum Criteria for Four-Dimensional Yang-Mills Theory}}
+\hypersetup{pdftitle={Yang-Mills Theory and the Mass Gap}}
 
-\title{Lattice Mass Gaps and Continuum Criteria for Four-Dimensional Yang-Mills Theory}
+\title{Yang--Mills Theory and the Mass Gap}
 
 \author{Deep Bhattacharjee$^{*}$\,\orcidlink{0000-0003-0466-750X}}
 \email{itsdeep@live.com}
@@ -102,7 +102,7 @@ Road, Golpark, Kolkata 700029, West Bengal, India}
 \date{8 November 2026}
 
 \begin{abstract}
-We prove strong-coupling lattice mass gaps for compact simple gauge groups and a conditional continuum transfer. Off-diagonal response identities and finite-volume Wilson Poisson constructions give explicit residual certificates. The weak-coupling cube estimate and a nontrivial four-dimensional continuum construction remain open.
+We prove a mass gap for four-dimensional lattice Yang--Mills theory with any compact simple gauge group at strong coupling, and we prove that one uniform estimate on cubes of fixed physical size gives every continuum limit a mass gap.
 \end{abstract}
 
 \maketitle
@@ -115,10 +115,13 @@ Primary 81T25, 82B20; Secondary 81T13, 60K35, 82B26, 22E30, 43A77.
 \emph{Keywords.}
 Lattice gauge theory; mass gap; Dobrushin uniqueness; block-spin
 renormalisation; reflection positivity.
-\scriptsize An earlier version of this paper is available at
-\url{https://hexagonmath.org/2610.00341v7}.\ifx\preprintsDOI\empty\else{} The paper is also
+\scriptsize This paper substantially elaborates and revises the Hexagon preprint 2610.00341v9,
+\url{https://hexagonmath.org/2610.00341v9}. It proves the mass gap of four-dimensional lattice
+Yang--Mills theory at strong coupling for every compact simple gauge group and reduces the
+continuum mass gap to a single cube estimate at fixed physical scale, which it proves for
+free massive fields uniformly in the lattice spacing.\ifx\preprintsDOI\empty\else{} It is also
 available on Preprints.org,
-\href{https://doi.org/\preprintsDOI}{doi:\preprintsDOI}.\fi{} Compared with it, this paper adds Sec.~\ref{sec:islands}, on the labels of the blocks, the islands of bad blocks, the bad side of a projected block average, the obstructions to the remaining routes and the effective action across one scale, Secs.~\ref{ssec:averaged}--\ref{ssec:bpmetrics}, on an averaged form of the cube condition, its local form, the couplings where it holds and fails, its neutral part on small tori, its passage to block variables, the upward step, the measures for which it holds, the split inequality at strong coupling, the condition at the coarsest scale, the coefficients across scales, the forces in the fibre law, the smoothing along the paths, the order of the row sums of the Gaussian model and the metrics that compose across scales, and Secs.~\ref{ssec:osaxioms}, \ref{ssec:limitE} and~\ref{ssec:chainG}, on the Osterwalder--Schrader axioms for the flowed fields, the limit at separated points of the fields without flow, with the inputs it needs and the examples that separate them, and the conditional chain for every compact simple group, together with the concluding Sec.~\ref{sec:conclusion}, and it proves by hand every constant that the earlier version took from computer certificates.}
+\href{https://doi.org/\preprintsDOI}{doi:\preprintsDOI}.\fi}
 \endgroup
 \addtocounter{footnote}{-1}
 
@@ -688,7 +691,10 @@ specification gives the full conclusion of Theorem~\ref{thm:su2}.
 Secs.~\ref{sec:su2}, \ref{sec:plaqblocks}, \ref{sec:curvature},
 \ref{sec:su3} and~\ref{sec:su3blocks} prove Theorems~\ref{thm:su2}--\ref{thm:su3blocks}, and
 Sec.~\ref{sec:limits} measures what is left. Sec.~\ref{sec:bypass} proves
-(I1)--(I3), Sec.~\ref{sec:inputs} states and measures their open inputs, and
+(I1)--(I3), Sec.~\ref{sec:inputs} states and measures their open inputs and proves the
+cube condition for free massive fields uniformly in the spacing (Sec.~\ref{ssec:fffree}) and its
+failure for the free photon together with its plaquette form at weak coupling (Sec.~\ref{rD:sec}),
+Sec.~\ref{ssec:rEunconditional} builds the two-point continuum theory without the cube condition, and
 Sec.~\ref{sec:blocks} poses the cube condition for block averages, composes the cut-off average
 across scales at small fields and locates the large fields under the
 Wilson measure. Sec.~\ref{sec:islands} proves what a labelling of the
@@ -11949,6 +11955,12 @@ has to be an estimate such as (D).
 \end{enumerate}
 \end{remark}
 
+\input{free-field-section}
+
+\input{perturbation-stability-section}
+
+\input{weak-coupling-cube-section}
+
 \subsection{The ratio, the strong-coupling range and the cube estimate}\label{ssec:ratiocube}
 
 This subsection states the open input of Theorem~\ref{thm:flowlimit}
@@ -22847,6 +22859,8 @@ and it does not follow from the properties at separated points: the
 two-point function of Proposition~\ref{prop:limitEnotempered}(ii) has those
 that Corollary~\ref{cor:limitEtwo}(b) gives and is not tempered.
 \end{remark}
+
+\input{continuum-two-point-section}
 
 \subsection{The conditional chain for every compact simple group}
 \label{ssec:chainG}
@@ -47890,13 +47904,39 @@ scores of the interior path products (Proposition~\ref{prop:bppathsuff}).
 In the Gaussian abelian model the corresponding row sums are of order
 $(\log b)/b$, so that model meets the decorrelation along the tuning,
 although it is not a lattice gauge measure (Theorem~\ref{thm:bprowgauss}
-and Corollary~\ref{cor:bprowFC}).
+and Corollary~\ref{cor:bprowFC}). The free massive scalar and Proca fields satisfy the
+averaged estimate itself on every torus, uniformly in the lattice spacing
+(Corollary~\ref{cor:ffuniform}). For the scalar field the best constant is
+the response of one cube to a constant shift of its boundary data, and it
+converges, as the spacing goes to zero, to $s^2\langle1,(-\Delta+s^2)^{-1}1\rangle$
+on the unit cube with $s=m\ell$ (Theorems~\ref{ffs:thm:exact}
+and~\ref{ffs:thm:limit}); no constant survives as $m\ell\to0$
+(Proposition~\ref{prop:ffupper}), so for these fields the estimate holds
+exactly when a mass is present at the scale of the cube. The free photon violates it at the
+diffusive rate $\varpi\le8\pi^2(n+1)^2/L^2$ (Theorem~\ref{rD:maxwell}); every
+measure satisfying it has local observables of finite susceptibility at the
+scale of the cube (Proposition~\ref{rD:suscept}); and for $\SU(2)$ at
+weak coupling it holds on plaquette traces with a constant of order
+$1/(\beta\log\beta)$ (Proposition~\ref{rD:plaquette}). The estimate is not
+monotone in the Hessian (Theorem~\ref{thm:rSnonmono}), but it survives
+convex perturbations with bounded Hessian, in particular convex plaquette
+potentials added to the Proca field (Theorem~\ref{thm:rSwitten} and
+Corollary~\ref{cor:rSplaquette}); bounded perturbations can destroy it, as the
+Ising model shows (Proposition~\ref{prop:rSising}), and the Wilson action has
+flat directions in every gauge, so these arguments do not reach it
+(Corollary~\ref{cor:rSnoapply}).
 
 Three inputs remain: that covariance bound along the tuning, the split
 inequality at weak coupling, and a nontrivial continuum limit with the
-properties of Sec.~\ref{ssec:limitE}. Given them, the results above give
-the continuum theory a mass gap; without them the mass gap is not proved
-here.
+properties of Sec.~\ref{ssec:limitE}. Without any of them the torus limits
+exist and are reflection positive at every coupling, and their two-point
+functions have renormalised continuum limits with a positive Hamiltonian
+(Theorem~\ref{rE:two}); the short-distance law (AF) together with the
+averaged estimate gives a nontrivial two-point theory with a mass gap, and
+every nontrivial limit of these correlations along the whole tuning forces
+(SD), (UV), (NE) and a bounded physical gap (Theorem~\ref{rE:suffices} and Proposition~\ref{rE:necessary}).
+Given the three inputs, the results above give the continuum theory a mass
+gap; without them the mass gap is not proved here.
 
 Lattice gauge fields also define four-dimensional gauge theories with
 chiral fermions in every anomaly-free representation, once the lattice
@@ -49847,6 +49887,17 @@ stated with $\frac{29}2$, whose proof uses no computer.
 \bibitem{AC25}
 A.~Adhikari and S.~Cao, Correlation decay for finite lattice gauge theories at weak coupling, Ann. Probab. \textbf{53} (2025), 140--174, \href{https://doi.org/10.1214/24-AOP1702}{doi:10.1214/24-AOP1702}.
 
+\bibitem{Ami91}
+Y.~Amit, On rates of convergence of stochastic relaxation for Gaussian and
+non-Gaussian distributions, J. Multivariate Anal. \textbf{38} (1991),
+82--99,
+\href{https://doi.org/10.1016/0047-259X(91)90033-X}{doi:10.1016/0047-259X(91)90033-X}.
+
+\bibitem{ALZ24}
+F.~Ascolani, H.~Lavenant and G.~Zanella, Entropy contraction of the Gibbs
+sampler under log-concavity, preprint, 2024,
+\href{https://arxiv.org/abs/2410.00858}{arXiv:2410.00858}.
+
 \bibitem{Aum44}
 G.~Aumann, {\"U}ber R{\"a}ume mit Mittelbildungen, Math. Ann.
 \textbf{119} (1944), 210--215,
@@ -49975,7 +50026,7 @@ Ann. Henri Poincar\'e \textbf{1} (2000), 59--100,
 \href{https://doi.org/10.1007/PL00001002}{doi:10.1007/PL00001002}.
 
 \bibitem{BK55}
-M.~Biernacki and J.~Krzy\.z, On the monotonity of certain functionals in the theory of analytic functions, Ann. Univ. Mariae Curie-Sk{\l}odowska Sect. A \textbf{9} (1955), 135--147.
+M.~Biernacki and J.~Krzy\.z, On the monotonity of certain functionals in the theory of analytic functions, Ann. Univ. Mariae Curie-Sk{\l}odowska Sect. A \textbf{9} (1955), 135--147 (1957).
 
 \bibitem{Bis09}
 M.~Biskup, Reflection positivity and phase transitions in lattice spin
@@ -50009,6 +50060,20 @@ order, Phys. Rev. Lett. \textbf{33} (1974), 244--246,
 
 \bibitem{CDJ77}
 J.~C.~Collins, A.~Duncan and S.~D.~Joglekar, Trace and dilatation anomalies in gauge theories, Phys. Rev. D \textbf{16} (1977), 438--449, \href{https://doi.org/10.1103/PhysRevD.16.438}{doi:10.1103/PhysRevD.16.438}.
+
+\bibitem{CC24} S.~Cao and S.~Chatterjee, A state space for 3D Euclidean
+Yang--Mills theories, Comm. Math. Phys. \textbf{405} (2024), art.~3,
+\href{https://doi.org/10.1007/s00220-023-04870-y}{doi:10.1007/s00220-023-04870-y}.
+
+\bibitem{CCHS22} A.~Chandra, I.~Chevyrev, M.~Hairer and H.~Shen, Langevin
+dynamic for the 2D Yang--Mills measure, Publ. Math. Inst. Hautes \'Etudes
+Sci. \textbf{136} (2022), 1--147,
+\href{https://doi.org/10.1007/s10240-022-00132-0}{doi:10.1007/s10240-022-00132-0}.
+
+\bibitem{CCHS24} A.~Chandra, I.~Chevyrev, M.~Hairer and H.~Shen, Stochastic
+quantisation of Yang--Mills--Higgs in 3D, Invent. Math. \textbf{237} (2024),
+541--696,
+\href{https://doi.org/10.1007/s00222-024-01264-2}{doi:10.1007/s00222-024-01264-2}.
 
 \bibitem{Chat19}
 S.~Chatterjee, Yang--Mills for probabilists, in \emph{Probability and Analysis in Interacting Physical Systems}, Springer Proc. Math. Stat. 283, Springer, Cham, 2019, 1--16, \href{https://doi.org/10.1007/978-3-030-15338-0_1}{doi:10.1007/978-3-030-15338-0\_1}.
@@ -50103,6 +50168,11 @@ reflection positivity. I. General theory and long range lattice models,
 Comm. Math. Phys. \textbf{62} (1978), 1--34,
 \href{https://doi.org/10.1007/BF01940327}{doi:10.1007/BF01940327}.
 
+\bibitem{FSS76}
+J.~Fr\"ohlich, B.~Simon and T.~Spencer, Infrared bounds, phase transitions
+and continuous symmetry breaking, Comm. Math. Phys. \textbf{50} (1976),
+79--95, \href{https://doi.org/10.1007/BF01608557}{doi:10.1007/BF01608557}.
+
 \bibitem{FS82}
 J.~Fr\"ohlich and T.~Spencer, Massless phases and symmetry restoration in abelian gauge theories and spin systems, Comm. Math. Phys. \textbf{83} (1982), 411--454, \href{https://doi.org/10.1007/BF01213610}{doi:10.1007/BF01213610}.
 
@@ -50187,6 +50257,11 @@ Prize Problems}, Clay Mathematics Institute and American Mathematical
 Society, Cambridge, MA and Providence, RI, 2006, 129--152,
 \url{https://www.claymath.org/wp-content/uploads/2022/06/yangmills.pdf}.
 
+\bibitem{Jan97}
+S.~Janson, \emph{Gaussian Hilbert Spaces}, Cambridge Tracts in Mathematics
+\textbf{129}, Cambridge University Press, Cambridge, 1997,
+\href{https://doi.org/10.1017/CBO9780511526169}{doi:10.1017/CBO9780511526169}.
+
 \bibitem{Joh17}
 F.~Johansson, Arb: efficient arbitrary-precision midpoint-radius interval
 arithmetic, IEEE Trans. Comput. \textbf{66} (2017), 1281--1292,
@@ -50217,12 +50292,18 @@ theories, Phys. Rev. D \textbf{11} (1975), 395--408,
 
 \bibitem{LM17}
 R.~Lata{\l}a and D.~Matlak, Royen's proof of the Gaussian correlation
-inequality, in: Geometric Aspects of Functional Analysis, Lecture Notes in
-Math. \textbf{2169}, Springer, Cham, 2017, 265--275,
+inequality, in \emph{Geometric Aspects of Functional Analysis}, Lecture Notes in
+Math. 2169, Springer, Cham, 2017, 265--275,
 \href{https://doi.org/10.1007/978-3-319-45282-1_17}{doi:10.1007/978-3-319-45282-1\_17}.
 
 \bibitem{Lev03}
 T.~L\'evy, Yang--Mills measure on compact surfaces, Mem. Amer. Math. Soc. \textbf{166} (2003), no.~790, \href{https://doi.org/10.1090/memo/0790}{doi:10.1090/memo/0790}.
+
+\bibitem{Lio88}
+P.-L. Lions, On the Schwarz alternating method. I, in: \emph{First
+International Symposium on Domain Decomposition Methods for Partial
+Differential Equations} (Paris, 1987), R.~Glowinski, G.~H. Golub,
+G.~A. Meurant and J.~P\'eriaux, eds., SIAM, Philadelphia, 1988, pp.~1--42.
 
 \bibitem{Lus77}
 M.~L\"uscher, Construction of a selfadjoint, strictly positive transfer matrix
@@ -50294,8 +50375,8 @@ K.~Osterwalder and E.~Seiler, Gauge field theories on a lattice, Ann. Physics
 \href{https://doi.org/10.1016/0003-4916(78)90039-8}{doi:10.1016/0003-4916(78)90039-8}.
 
 \bibitem{Pet16}
-P.~Petersen, \emph{Riemannian Geometry}, 3rd ed., Graduate Texts in
-Mathematics \textbf{171}, Springer, Cham, 2016,
+P.~Petersen, \emph{Riemannian Geometry}, 3rd ed., Grad. Texts in Math.
+171, Springer, Cham, 2016,
 \href{https://doi.org/10.1007/978-3-319-26654-1}{doi:10.1007/978-3-319-26654-1}.
 
 \bibitem{Pol73}
@@ -50353,6 +50434,12 @@ Adv. Math. 62, Cambridge University Press, Cambridge, 1999,
 
 \bibitem{SW71}
 E.~M.~Stein and G.~Weiss, \emph{Introduction to Fourier Analysis on Euclidean Spaces}, Princeton University Press, Princeton, NJ, 1971, \href{https://doi.org/10.1515/9781400883899}{doi:10.1515/9781400883899}.
+
+\bibitem{TW05}
+A.~Toselli and O.~Widlund, \emph{Domain Decomposition Methods---Algorithms
+and Theory}, Springer Series in Computational Mathematics \textbf{34},
+Springer, Berlin, 2005,
+\href{https://doi.org/10.1007/b137868}{doi:10.1007/b137868}.
 
 \bibitem{Uhl82}
 K.~K.~Uhlenbeck, Connections with $L^p$ bounds on curvature, Comm. Math.
