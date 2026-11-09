@@ -692,7 +692,8 @@ Secs.~\ref{sec:su2}, \ref{sec:plaqblocks}, \ref{sec:curvature},
 \ref{sec:su3} and~\ref{sec:su3blocks} prove Theorems~\ref{thm:su2}--\ref{thm:su3blocks}, and
 Sec.~\ref{sec:limits} measures what is left. Sec.~\ref{sec:bypass} proves
 (I1)--(I3), Sec.~\ref{sec:inputs} states and measures their open inputs and proves the
-cube condition for free massive fields uniformly in the spacing (Sec.~\ref{ssec:fffree}), and
+cube condition for free massive fields uniformly in the spacing (Sec.~\ref{ssec:fffree}),
+Sec.~\ref{ssec:rEunconditional} builds the two-point continuum theory without the cube condition, and
 Sec.~\ref{sec:blocks} poses the cube condition for block averages, composes the cut-off average
 across scales at small fields and locates the large fields under the
 Wilson measure. Sec.~\ref{sec:islands} proves what a labelling of the
@@ -22853,6 +22854,8 @@ and it does not follow from the properties at separated points: the
 two-point function of Proposition~\ref{prop:limitEnotempered}(ii) has those
 that Corollary~\ref{cor:limitEtwo}(b) gives and is not tempered.
 \end{remark}
+
+\input{continuum-two-point-section}
 
 \subsection{The conditional chain for every compact simple group}
 \label{ssec:chainG}
@@ -47905,9 +47908,15 @@ is present at the scale of the cube.
 
 Three inputs remain: that covariance bound along the tuning, the split
 inequality at weak coupling, and a nontrivial continuum limit with the
-properties of Sec.~\ref{ssec:limitE}. Given them, the results above give
-the continuum theory a mass gap; without them the mass gap is not proved
-here.
+properties of Sec.~\ref{ssec:limitE}. Without any of them the torus limits
+exist and are reflection positive at every coupling, and their two-point
+functions have renormalised continuum limits with a positive Hamiltonian
+(Theorem~\ref{rE:two}); the short-distance law (AF) together with the
+averaged estimate gives a nontrivial two-point theory with a mass gap, and
+every nontrivial limit of these correlations along the whole tuning forces
+(SD), (UV), (NE) and a bounded physical gap (Theorem~\ref{rE:suffices} and Proposition~\ref{rE:necessary}).
+Given the three inputs, the results above give the continuum theory a mass
+gap; without them the mass gap is not proved here.
 
 Lattice gauge fields also define four-dimensional gauge theories with
 chiral fermions in every anomaly-free representation, once the lattice
@@ -50026,6 +50035,20 @@ order, Phys. Rev. Lett. \textbf{33} (1974), 244--246,
 
 \bibitem{CDJ77}
 J.~C.~Collins, A.~Duncan and S.~D.~Joglekar, Trace and dilatation anomalies in gauge theories, Phys. Rev. D \textbf{16} (1977), 438--449, \href{https://doi.org/10.1103/PhysRevD.16.438}{doi:10.1103/PhysRevD.16.438}.
+
+\bibitem{CC24} S.~Cao and S.~Chatterjee, A state space for 3D Euclidean
+Yang--Mills theories, Comm. Math. Phys. \textbf{405} (2024), art.~3,
+\href{https://doi.org/10.1007/s00220-023-04870-y}{doi:10.1007/s00220-023-04870-y}.
+
+\bibitem{CCHS22} A.~Chandra, I.~Chevyrev, M.~Hairer and H.~Shen, Langevin
+dynamic for the 2D Yang--Mills measure, Publ. Math. Inst. Hautes \'Etudes
+Sci. \textbf{136} (2022), 1--147,
+\href{https://doi.org/10.1007/s10240-022-00132-0}{doi:10.1007/s10240-022-00132-0}.
+
+\bibitem{CCHS24} A.~Chandra, I.~Chevyrev, M.~Hairer and H.~Shen, Stochastic
+quantisation of Yang--Mills--Higgs in 3D, Invent. Math. \textbf{237} (2024),
+541--696,
+\href{https://doi.org/10.1007/s00222-024-01264-2}{doi:10.1007/s00222-024-01264-2}.
 
 \bibitem{Chat19}
 S.~Chatterjee, Yang--Mills for probabilists, in \emph{Probability and Analysis in Interacting Physical Systems}, Springer Proc. Math. Stat. 283, Springer, Cham, 2019, 1--16, \href{https://doi.org/10.1007/978-3-030-15338-0_1}{doi:10.1007/978-3-030-15338-0\_1}.
