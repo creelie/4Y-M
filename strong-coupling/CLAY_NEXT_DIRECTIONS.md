@@ -257,3 +257,5 @@ Work the list in order and tick each item as it lands.
 
 After the PR (next research items, not blocking it): a higher-statistics SU(2)₃ rerun (4–5× nconf) to decide collapse vs
 drift at fixed ℓg²; a proof of the step-1 monotonicity in k.
+
+- 2026-11-09 — Submitted the fixed-box SU(2)₃ pass (L·g² = 12.8 for every β; β = 5, 7.5, 20, 25 added to the existing β = 10, 15). This removes the box confound of the β ≤ 15 pass. Decision rule: β25/β10 ≥ 0.95 at equal ℓg² → plateau (supports (U)); ≤ 0.85 → continued drift. Launcher: `forest/experiments/su2bp/run_fixbox.sh`. The multilevel estimator is deferred; this pass uses 5 inner resamples instead of 3.
