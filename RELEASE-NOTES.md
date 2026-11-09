@@ -1,9 +1,7 @@
-# Research revision v4.42.0
+# Yang-Mills Theory and the Mass Gap (current manuscript)
 
-Adds proved off-diagonal semigroup and static Poisson-residual identities matching the excluded same-link block in (FC); derives Gaussian full-row and response lower obstructions from the existing collective-source identities; constructs finite-volume Wilson Poisson trials as finite sums of actual conditional expectations, with a proved residual rate uniform in the coarse data at fixed geometry; proves a mixed Poisson/flux enclosure without assuming a global inverse gap; and adds a detailed appendix on spectral cutoffs, minimum fluxes, Gaussian transport and an explicitly specified nonconvex probability model. Three new figures and 64 exact checks accompany the derivations. The full prior manuscript and all four authors are retained. All 116 bibliography entries are retained without adding an unverified bibliographic item.
+The paper is shortened to 188 pages: it keeps the strong-coupling theorems for every compact simple group, the continuum step and the estimates that bear on (D) and (E), and cites the Hexagon preprint 2610.00341v7 for the multiscale material. New in this version: the cube estimate for free massive scalar and Proca fields with its exact constant, its stability under convex perturbations, the weak-coupling estimates for SU(2) plaquette traces and Wilson loops with a constant independent of beta, the renormalised two-point continuum theory without the cube estimate, and lower bounds on plaquette correlations. The abstract states the gap values.
 
-The uniform weak-coupling Wilson estimate (D), the all-scale construction needed in this route, and a nontrivial continuum limit (E) remain unproved.
+The uniform weak-coupling cube estimate (D) and a nontrivial continuum limit (E) remain unproved.
 
-Version DOI: https://doi.org/10.5281/zenodo.24055064
-
-Permanent work DOI: https://doi.org/10.5281/zenodo.23444338
+DOI (all versions): https://doi.org/10.5281/zenodo.23444338

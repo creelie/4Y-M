@@ -1,7 +1,7 @@
 {
   "title": "Yang-Mills Theory and the Mass Gap",
   "upload_type": "publication",
-  "description": "We prove a mass gap for four-dimensional lattice Yang-Mills theory with any compact simple gauge group at strong coupling, and we prove that one uniform estimate on cubes of fixed physical size gives every continuum limit a mass gap. That estimate along the weak-coupling tuning and a nontrivial four-dimensional continuum construction remain open.",
+  "description": "We prove that four-dimensional lattice Yang-Mills theory with any compact simple gauge group G in U(N) has the mass gap m >= arccosh(1 + (kappa_G/(N beta) - 29/2)/12) > 0 at strong coupling beta, and that one uniform estimate with constant varpi on cubes of physical side l gives every continuum limit a mass gap of at least 16 varpi/(625 e^2 l). The cube estimate along the weak-coupling tuning and a nontrivial continuum limit remain open.",
   "creators": [
     {
       "name": "Bhattacharjee, Deep",
