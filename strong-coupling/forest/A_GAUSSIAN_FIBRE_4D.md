@@ -387,7 +387,7 @@ The two agree, so c(mℓ) is (numerically) the exact limit and not just a lower 
 
 **Higher chaos (step (ii)).** For a Gaussian field, resampling a cube Λ is a conditional expectation onto a Gaussian sub-σ-algebra. On the Fock (Wiener-chaos) decomposition it acts as the second quantization Γ(P_Λ) of the one-particle projection P_Λ. So the BP Dirichlet form is E_n(f) = avg_Λ ⟨f, (1 − Γ(P_Λ)) f⟩, a random-scan block Gibbs sampler. For such samplers with a Gaussian target, the L² spectral gap equals the gap restricted to linear functions (Amit 1991, 1996, *J. Multivariate Anal.*; see also Roberts–Sahu 1997). The mechanism is that the chain maps each chaos to itself, and on the m-th chaos the one-step operator is a symmetrized product of contractions whose norm is at most the norm on the first chaos. The gauge projection commutes with every Γ(P_Λ) when Λ is gauge-covariant, so the same holds on the gauge-invariant sector. **Consequence: in the free massive field, BP(n, ϖ) for all observables follows from its first-chaos version, which the computations above control.** Caveat: those references treat finitely many coordinates and a finite family of blocks. Our infinite-volume, translation-averaged family needs a limiting argument (finite torus, then L → ∞, using the volume stability already seen). This has not been written out.
 
-**Status of "gap ⇒ (U)" in the free massive field.** Proven modulo two items: (a) the infimum over k is attained as k → 0 (seen numerically on the full 9⁴ grid, not proven); (b) the finite-to-infinite-volume extension of the Amit reduction. Granting both, ϖ_∞ = (mℓ)²⟨1,(−Δ_D+(mℓ)²)⁻¹1⟩_{[0,1]³} > 0. So, at least for the free theory, (U) is implied by a gap, and the framework is a reformulation of the gap and not a strictly stronger demand.
+**Status of "gap ⇒ (U)" in the free massive field.** Proven modulo two items: (a) the infimum over k is attained as k → 0 (seen numerically on the full 9⁴ grid; proved up to a factor 5 in §10.2, which suffices for (U)); (b) the finite-to-infinite-volume extension of the Amit reduction. Granting both, ϖ_∞ = (mℓ)²⟨1,(−Δ_D+(mℓ)²)⁻¹1⟩_{[0,1]³} > 0. So, at least for the free theory, (U) is implied by a gap, and the framework is a reformulation of the gap and not a strictly stronger demand.
 
 **C_B^lin at n = 4 (step (iii)).** L = 8 gives C_B^lin = 0.76997, with a 5-fold degenerate top eigenvalue (cubic symmetry) and median 0.734. The L = 9 volume check is still running. The sequence is 0.658, 0.724, 0.770 for n = 2, 3, 4. Fitting c₀ − c/n gives c₀ = 0.857 from n = 2, 3 and c₀ = 0.907 from n = 3, 4. The extrapolated limit is still below 1 but rising as more points are used, so the sequence converges more slowly than 1/n. **Reading:** linear coarse test functions alone probably don't push C_B past 1. Either C^G_∞ > 1 comes from nonlinear test functions, or C_B^lin creeps to ≥ 1 only at large n. In either case step 1 of §8.3 is still argued only by consistency. The §8.3 no-go is therefore conditional on step 1 as well as on (LSC). This matters less now: the free-field computation above shows that (U), and not the tower, is the right target.
 
@@ -414,6 +414,25 @@ Radial scan of the transverse BP symbol ϖ_k at |k| = t/n, t ∈ {0} ∪ geomspa
 - At the zone boundary, ϖ_k ≈ 1.
 
 So inf_k ϖ_k = ϖ_n(k→0). Combined with the uniform trial-field lower bound for ϖ_n(k→0), this gives free-field gap ⇒ (U) numerically, with no remaining gap in the chain. A proof of monotonicity in |k| is still open. The natural route is a Bloch decomposition: compare the symbol with its k = 0 value through the phase-twisted Dirichlet problem.
+
+**Proof of a uniform version (2026-11-09).** Monotonicity itself is still only numerical, but the following is proved, and it is all (U) needs: for every transverse k, n and μ,
+
+  ϖ_k ≥ ϖ_n(k→0) · (1+λ)/(1+Θλ),  λ = |ĉ|²/μ²,  ĉ = 2 sin(k/2),  with Θ ≤ 5,
+
+so inf_k ϖ_k ≥ ϖ_n(k→0)/5, and ϖ_k → ϖ_n(k→0) as k → 0. With the trial-field bound this gives inf_k ϖ_k ≥ c(mℓ)/5 > 0 uniformly in n, which closes item (a) up to a constant.
+
+*Proof.*
+1. On transverse u, K̂(k)u = |ĉ|²u, so ϖ_k = (|ĉ|²+μ²) n⁻⁴ min_{u⊥ĉ, |u|=1} q_k(u). Here q_k(u) = ⟨E_k u, G E_k u⟩, G = (K_in+μ²)⁻¹, and E_k u is the plane wave u_d e^{ik·r} on the interior links.
+2. *Q̂(k) is real.* The point inversion about the cube centre maps interior links to interior links, reverses every orientation, and commutes with K_in. Hence G_{Ii,Ij} = G_{ij} and r_{Ii} = 2z − r_i, so Q̂(k) equals its complex conjugate. The minimising u can therefore be taken real.
+3. *Trial field.* Let w = G E_0 u (real), the k = 0 maximiser, so ⟨w, E_0 u⟩ = ⟨w,(K_in+μ²)w⟩ = q(n)|u|² (cubic symmetry, Q̂(0) = q(n)I). Put v = e^{ik·r}w. Then ⟨v, E_k u⟩ = q(n)|u|², and the variational formula q_k(u) = sup_v [2Re⟨v,E_k u⟩ − ⟨v,(K_in+μ²)v⟩], optimised over the scale of v, gives q_k(u) ≥ q(n)²|u|⁴ / ⟨v,(K_in+μ²)v⟩.
+4. *Twisted energy.* v vanishes off the cube and K_in is the restriction of the Z⁴ form, so ⟨v,Kv⟩ = ∫ ŵ(p)* K̂(p+k) ŵ(p) dp/(2π)⁴ (midpoint convention). Because w is real and K̂ is real and even, this equals ∫ ŵ* A(p,k) ŵ with A = ½[K̂(p+k)+K̂(p−k)].
+5. *Symbol bound.* Write s = sin(k/2), γ = cos(k/2), c = 2 sin(p/2), D = 2cos(p/2). The addition formulas give, exactly,
+   A = (|a|²+|b|²)I − aaᵀ − bbᵀ, a = γ∘c, b = ½ D∘ĉ.
+   Using |a|² = |c|² − Σs²c², |b|² ≤ |ĉ|², 1−γ ≤ s² and |c| ≤ 4,
+   A − K̂(p) ≤ |b|²I + (ccᵀ − aaᵀ) ≤ (|ĉ|² + 2|c|·|(1−γ)∘c|) I ≤ (|ĉ|² + 16|s|²) I = 5|ĉ|² I.
+6. Hence ⟨v,(K_in+μ²)v⟩ ≤ ⟨w,(K_in+μ²)w⟩ + Θ|ĉ|²‖w‖² ≤ (1+Θλ) q(n)|u|², because μ²‖w‖² ≤ q(n)|u|². So q_k(u) ≥ q(n)|u|²/(1+Θλ). Multiplying by (|ĉ|²+μ²)n⁻⁴ = μ²n⁻⁴(1+λ) gives the claim. ∎
+
+Numerically the best constant in step 5, sup λ_max(A − K̂)/|ĉ|² over 10⁵ random (p, k), is Θ* ≈ 1.06. Strict monotonicity (effectively Θ = 1 along the optimiser) still rests on the 35-group scan.
 
 ### 10.3 Step 3: free-field two-scale comparison
 
