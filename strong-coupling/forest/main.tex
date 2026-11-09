@@ -118,7 +118,8 @@ renormalisation; reflection positivity.
 \scriptsize This paper substantially elaborates and revises the Hexagon preprint 2610.00341v9,
 \url{https://hexagonmath.org/2610.00341v9}. It proves the mass gap of four-dimensional lattice
 Yang--Mills theory at strong coupling for every compact simple gauge group and reduces the
-continuum mass gap to a single cube estimate at fixed physical scale.\ifx\preprintsDOI\empty\else{} It is also
+continuum mass gap to a single cube estimate at fixed physical scale, which it proves for
+free massive fields uniformly in the lattice spacing.\ifx\preprintsDOI\empty\else{} It is also
 available on Preprints.org,
 \href{https://doi.org/\preprintsDOI}{doi:\preprintsDOI}.\fi}
 \endgroup
@@ -690,7 +691,8 @@ specification gives the full conclusion of Theorem~\ref{thm:su2}.
 Secs.~\ref{sec:su2}, \ref{sec:plaqblocks}, \ref{sec:curvature},
 \ref{sec:su3} and~\ref{sec:su3blocks} prove Theorems~\ref{thm:su2}--\ref{thm:su3blocks}, and
 Sec.~\ref{sec:limits} measures what is left. Sec.~\ref{sec:bypass} proves
-(I1)--(I3), Sec.~\ref{sec:inputs} states and measures their open inputs, and
+(I1)--(I3), Sec.~\ref{sec:inputs} states and measures their open inputs and proves the
+cube condition for free massive fields uniformly in the spacing (Sec.~\ref{ssec:fffree}), and
 Sec.~\ref{sec:blocks} poses the cube condition for block averages, composes the cut-off average
 across scales at small fields and locates the large fields under the
 Wilson measure. Sec.~\ref{sec:islands} proves what a labelling of the
@@ -11950,6 +11952,8 @@ invariance is closed for the action density. The infrared input therefore
 has to be an estimate such as (D).
 \end{enumerate}
 \end{remark}
+
+\input{free-field-section}
 
 \subsection{The ratio, the strong-coupling range and the cube estimate}\label{ssec:ratiocube}
 
@@ -47892,7 +47896,12 @@ scores of the interior path products (Proposition~\ref{prop:bppathsuff}).
 In the Gaussian abelian model the corresponding row sums are of order
 $(\log b)/b$, so that model meets the decorrelation along the tuning,
 although it is not a lattice gauge measure (Theorem~\ref{thm:bprowgauss}
-and Corollary~\ref{cor:bprowFC}).
+and Corollary~\ref{cor:bprowFC}). The free massive scalar and Proca fields satisfy the
+averaged estimate itself on every torus, uniformly in the lattice spacing,
+with $\varpi=(5/6)^4(m\ell)^2/((m\ell)^2+40)$ in four dimensions, and no
+constant survives as $m\ell\to0$ (Corollary~\ref{cor:ffuniform} and
+Proposition~\ref{prop:ffupper}): the estimate holds exactly when a mass
+is present at the scale of the cube.
 
 Three inputs remain: that covariance bound along the tuning, the split
 inequality at weak coupling, and a nontrivial continuum limit with the
@@ -49849,6 +49858,12 @@ stated with $\frac{29}2$, whose proof uses no computer.
 \bibitem{AC25}
 A.~Adhikari and S.~Cao, Correlation decay for finite lattice gauge theories at weak coupling, Ann. Probab. \textbf{53} (2025), 140--174, \href{https://doi.org/10.1214/24-AOP1702}{doi:10.1214/24-AOP1702}.
 
+\bibitem{Ami91}
+Y.~Amit, On rates of convergence of stochastic relaxation for Gaussian and
+non-Gaussian distributions, J. Multivariate Anal. \textbf{38} (1991),
+82--99,
+\href{https://doi.org/10.1016/0047-259X(91)90033-X}{doi:10.1016/0047-259X(91)90033-X}.
+
 \bibitem{Aum44}
 G.~Aumann, {\"U}ber R{\"a}ume mit Mittelbildungen, Math. Ann.
 \textbf{119} (1944), 210--215,
@@ -50189,6 +50204,11 @@ Prize Problems}, Clay Mathematics Institute and American Mathematical
 Society, Cambridge, MA and Providence, RI, 2006, 129--152,
 \url{https://www.claymath.org/wp-content/uploads/2022/06/yangmills.pdf}.
 
+\bibitem{Jan97}
+S.~Janson, \emph{Gaussian Hilbert Spaces}, Cambridge Tracts in Mathematics
+\textbf{129}, Cambridge University Press, Cambridge, 1997,
+\href{https://doi.org/10.1017/CBO9780511526169}{doi:10.1017/CBO9780511526169}.
+
 \bibitem{Joh17}
 F.~Johansson, Arb: efficient arbitrary-precision midpoint-radius interval
 arithmetic, IEEE Trans. Comput. \textbf{66} (2017), 1281--1292,
@@ -50225,6 +50245,12 @@ Math. 2169, Springer, Cham, 2017, 265--275,
 
 \bibitem{Lev03}
 T.~L\'evy, Yang--Mills measure on compact surfaces, Mem. Amer. Math. Soc. \textbf{166} (2003), no.~790, \href{https://doi.org/10.1090/memo/0790}{doi:10.1090/memo/0790}.
+
+\bibitem{Lio88}
+P.-L. Lions, On the Schwarz alternating method. I, in: \emph{First
+International Symposium on Domain Decomposition Methods for Partial
+Differential Equations} (Paris, 1987), R.~Glowinski, G.~H. Golub,
+G.~A. Meurant and J.~P\'eriaux, eds., SIAM, Philadelphia, 1988, pp.~1--42.
 
 \bibitem{Lus77}
 M.~L\"uscher, Construction of a selfadjoint, strictly positive transfer matrix
@@ -50355,6 +50381,12 @@ Adv. Math. 62, Cambridge University Press, Cambridge, 1999,
 
 \bibitem{SW71}
 E.~M.~Stein and G.~Weiss, \emph{Introduction to Fourier Analysis on Euclidean Spaces}, Princeton University Press, Princeton, NJ, 1971, \href{https://doi.org/10.1515/9781400883899}{doi:10.1515/9781400883899}.
+
+\bibitem{TW05}
+A.~Toselli and O.~Widlund, \emph{Domain Decomposition Methods---Algorithms
+and Theory}, Springer Series in Computational Mathematics \textbf{34},
+Springer, Berlin, 2005,
+\href{https://doi.org/10.1007/b137868}{doi:10.1007/b137868}.
 
 \bibitem{Uhl82}
 K.~K.~Uhlenbeck, Connections with $L^p$ bounds on curvature, Comm. Math.
