@@ -1,6 +1,6 @@
 # Next-version submission notes
 
-Title: Lattice Mass Gaps and Continuum Criteria for Four-Dimensional Yang-Mills Theory
+Title: Yang-Mills Theory and the Mass Gap
 
 Authors, unchanged: Deep Bhattacharjee; Ushashi Bhattacharya; James Montgomery Lockwood; Tristan Romanov. Deep Bhattacharjee remains corresponding author.
 

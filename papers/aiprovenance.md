@@ -1,6 +1,6 @@
 # AI provenance
 
-Work: Lattice Mass Gaps and Continuum Criteria for Four-Dimensional Yang-Mills Theory
+Work: Yang-Mills Theory and the Mass Gap
 
 Research release: v4.42.0. Version DOI: https://doi.org/10.5281/zenodo.24055064
 

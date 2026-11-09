@@ -1,4 +1,4 @@
-# Lattice Mass Gaps and Continuum Criteria for Four-Dimensional Yang-Mills Theory
+# Yang-Mills Theory and the Mass Gap
 
 Current research release: [v4.42.0](https://github.com/creelie/4Y-M/releases/tag/v4.42.0).
 
@@ -6,7 +6,7 @@ Version DOI: https://doi.org/10.5281/zenodo.24055064
 
 Permanent work DOI, printed in the manuscript: https://doi.org/10.5281/zenodo.23444338
 
-We prove strong-coupling lattice mass gaps for compact simple gauge groups and a conditional continuum transfer. Off-diagonal response identities and finite-volume Wilson Poisson constructions give explicit residual certificates. The weak-coupling cube estimate and a nontrivial four-dimensional continuum construction remain open.
+We prove a mass gap for four-dimensional lattice Yang-Mills theory with any compact simple gauge group at strong coupling, and we prove that one uniform estimate on cubes of fixed physical size gives every continuum limit a mass gap. That estimate along the weak-coupling tuning and a nontrivial four-dimensional continuum construction remain open.
 
 ## Current submission files
 
