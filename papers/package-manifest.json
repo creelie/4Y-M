@@ -1,11 +1,11 @@
 {
   "release": "v4.43.0",
-  "version_doi": null,
+  "version_doi": "10.5281/zenodo.24083857",
   "permanent_work_doi": "10.5281/zenodo.23444338",
   "pages": 203,
   "baseline_commit": "e992576682e5c278f470faa852b4eab83b2425af",
   "files": {
-    "ym4d.pdf": "4232e3136f44a0333fb5777ce5d3edb422a4f9e89ea33aae5cd8b1e4dfbba8a5",
-    "ym4dtex.zip": "f04bdd2ab3b85b8cd2d9aedcbbca82423599de87763d0ad98be79d1cb954b9e6"
+    "ym4d.pdf": "6f2862b760a859b1b690b7b3ae422f595a3f4bd3689529ec16a32080718ee019",
+    "ym4dtex.zip": "1f00ca9ff9e80e88762a6f640d485f18f9fa120b1c1774b7e232d2a68c178e2e"
   }
 }
