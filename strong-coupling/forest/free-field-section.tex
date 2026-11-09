@@ -424,9 +424,11 @@ $\varpi$, and the final bound is $s^2/(s^2+10d)\ge\min(1,s^2)/(1+10d)$.
 \end{proof}
 
 For $d=4$ the bound is $\varpi\ge(5/6)^4s^2/(s^2+40)$, which is $0.0118$ at
-$s=1$ and $0.0438$ at $s=2$. At $n=2$ the bound of the theorem, with the
-$n$-dependent constants, is $s^2/(s^2+4d)$, and it coincides with the upper
-bound of Proposition~\ref{prop:ffupper} below, so it is exact.
+$s=1$ and $0.0438$ at $s=2$. At $n=2$ the bound of the theorem, with the $n$-dependent constants, is
+$s^2/(s^2+4d)$, and it coincides with the upper bound of
+Proposition~\ref{prop:ffupper} below, so it is exact; for every $n$ the upper
+bound of Proposition~\ref{prop:ffupper}(i) is the exact constant
+(Theorem~\ref{ffs:thm:exact}).
 
 \subsubsection{The Proca field}
 
@@ -667,6 +669,517 @@ is gauge-invariant, this bounds the infimum over gauge-invariant functions,
 and the infimum over all functions is smaller.
 \end{proof}
 
+\subsubsection{The exact constant for the scalar field}
+
+The bounds of Theorem~\ref{thm:ffscalar} and Proposition~\ref{prop:ffupper}(i)
+enclose the scalar constant, and the upper bound is attained: the infimum
+in~\eqref{eq:ffvarpi} is the value of the quotient at the constant linear
+function. The proof diagonalizes the additive Schwarz operator of the cubes by
+Fourier series; what makes the zero mode minimal is the positivity of the
+Dirichlet resolvent of the cube (Fig.~\ref{fig:freefield}). Throughout this part $Q=Q_{\rm s}$, $V=V_0=
+\{0,\dots,n-1\}^d$, $G=(Q_{VV})^{-1}=(-\Delta_D+\mu^2)^{-1}$ as in the proof
+of Proposition~\ref{prop:ffupper}, and the spaces $\R^{\mathbb T}$, $\R^V$ are
+complexified where plane waves occur; inner products are conjugate linear in
+the first argument. Let $\widehat{\mathbb T}=(2\pi/L)\Z^d/2\pi\Z^d$ be the
+dual torus, and for $k\in\widehat{\mathbb T}$ let $e_k(y)=e^{ik\cdot y}$,
+$e_k^V=R_Ve_k$, and
+\[
+\hat q(k)=\mu^2+\sum_{i=1}^d(2-2\cos k_i),
+\]
+so that $Qe_k=\hat q(k)e_k$. For $u\in V$ write $w\sim u$, $w\notin V$ for the
+torus neighbours of $u$ outside $V$; since $L\ge n+1$ these are the sites
+$u\pm e_i\notin V$ of $\Z^d$, read modulo $L$, and $k\cdot(w-u)$ is well
+defined modulo $2\pi$.
+
+\begin{theorem}[the exact constant for the scalar field]\label{ffs:thm:exact}
+Let $d\ge1$, $n\ge2$, $L\ge n+1$ and $\mu>0$.
+\begin{enumerate}[label=\textup{(\roman*)},leftmargin=*]
+\item The operator $Q^{1/2}SQ^{1/2}$ of Lemma~\ref{lem:fflinear} is
+diagonalized by the plane waves $e_k$, $k\in\widehat{\mathbb T}$, with
+eigenvalues
+\begin{equation}\label{ffs:eq:spectrum}
+\begin{split}
+\lambda_k&=\hat q(k)\ip{e_k^V}{Ge_k^V}\\
+&=n^d-\sum_{u,u'\in V}\;\sum_{w\sim u',\,w\notin V}G(u,u')\cos\bigl(k\cdot(w-u)
+\bigr).
+\end{split}
+\end{equation}
+\item $G$ has positive entries, $\lambda_k\ge\lambda_0$ for every $k$, with
+equality only for $k=0$, and $\lambda_0=\mu^2\ip{\mathbf 1_V}{G\mathbf 1_V}$.
+\item Consequently
+\[
+\varpi(Q_{\rm s};(V_x))=\frac{\mu^2}{n^d}\ip{\mathbf 1_V}{(-\Delta_D+\mu^2)
+^{-1}\mathbf 1_V}=1-\alpha_n(\mu^2),
+\]
+with $\alpha_n$ as in Proposition~\textup{\ref{prop:gauss}}; the infimum
+in~\eqref{eq:ffvarpi} is attained at the constant linear function $\ell_{
+\mathbf 1}$, and among linear functions only at its nonzero multiples. The
+first inequality of Proposition~\textup{\ref{prop:ffupper}(i)} is an equality.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+(i) The translation $\tau_af(y)=f(y-a)$ of the torus maps $V_x$ to $V_{x+a}$
+and commutes with $Q$, so $\tau_aR_{V_x}^{\mathsf T}Q_{V_xV_x}^{-1}R_{V_x}\tau_a
+^{-1}=R_{V_{x+a}}^{\mathsf T}Q_{V_{x+a}V_{x+a}}^{-1}R_{V_{x+a}}$, and summing
+over $x$ shows that $S$ commutes with every $\tau_a$. The plane waves are the
+common eigenvectors of the translations, with distinct characters for distinct
+$k$, so $Se_k=\hat\sigma(k)e_k$ with $\hat\sigma(k)=L^{-d}\ip{e_k}{Se_k}$. In
+$\ip{e_k}{Se_k}=\sum_x\ip{R_{V_x}e_k}{Q_{V_xV_x}^{-1}R_{V_x}e_k}$ the
+translation $\tau_x$ identifies $V_x$ with $V$ and $Q_{V_xV_x}$ with $Q_{VV}=
+-\Delta_D+\mu^2$ (the proof of Proposition~\ref{prop:ffupper}(i)), and carries
+$R_{V_x}e_k$ to $e^{ik\cdot x}e_k^V$; the phase drops out of the Hermitian
+form, so every term equals $\ip{e_k^V}{Ge_k^V}$ and $\hat\sigma(k)=\ip{e_k^V}
+{Ge_k^V}$. As $Q^{1/2}e_k=\hat q(k)^{1/2}e_k$, the $e_k$ are an orthogonal
+eigenbasis of $Q^{1/2}SQ^{1/2}$ with eigenvalues $\lambda_k=\hat q(k)\ip{e_k^V}
+{Ge_k^V}$.
+
+For the second expression let $B:\C^{\mathbb T}\to\C^V$, $(Bf)(u)=\sum_{w\sim
+u,\,w\notin V}f(w)$. For every $f$ and $u\in V$,
+\begin{align*}
+(Q_{VV}R_Vf)(u)&=(2d+\mu^2)f(u)-\sum_{w\sim u,\,w\in V}f(w)\\
+&=(R_VQf)(u)+(Bf)(u),
+\end{align*}
+that is, $Q_{VV}R_Vf=R_VQf+Bf$. With $f=e_k$ this reads $Q_{VV}e_k^V=\hat
+q(k)e_k^V+Be_k$; applying $G$ and pairing with $e_k^V$,
+\[
+n^d=\ip{e_k^V}{e_k^V}=\hat q(k)\ip{e_k^V}{Ge_k^V}+\ip{e_k^V}{GBe_k},
+\]
+so $\lambda_k=n^d-\ip{e_k^V}{GBe_k}=n^d-\sum_{u,u',w}G(u,u')e^{ik\cdot(w-u)}$,
+the sum over $u,u'\in V$ and $w\sim u'$, $w\notin V$. Since $\lambda_k$ is
+real, the exponential can be replaced by its real part, which
+is~\eqref{ffs:eq:spectrum}.
+
+(ii) Write $Q_{VV}=(2d+\mu^2)(I-K)$, where $K=(2d+\mu^2)^{-1}A_V$ and $A_V$ is
+the adjacency matrix of the cube, which is entrywise nonnegative and has
+spectral norm at most its maximal degree $2d$. So $\lVert K\rVert\le2d/(2d+\mu^2)
+<1$ and $G=(2d+\mu^2)^{-1}\sum_{m\ge0}K^m$ has nonnegative entries; the entry
+$(u,u')$ of $K^m$ is positive for $m$ the graph distance of $u$ and $u'$, so
+$G(u,u')>0$ for all $u,u'$. By~\eqref{ffs:eq:spectrum},
+\[
+\lambda_k-\lambda_0=\sum_{u,u'\in V}\;\sum_{w\sim u',\,w\notin V}G(u,u')
+\bigl(1-\cos(k\cdot(w-u))\bigr)\ge0 .
+\]
+Equality forces $\cos(k\cdot(w-u))=1$ for every triple; the triple $u=u'$ with
+$u_i=n-1$ and $w=u+e_i$ gives $\cos k_i=1$, so $k_i\in2\pi\Z$ for every $i$,
+that is, $k=0$ in $\widehat{\mathbb T}$. Finally $B\mathbf 1=Q_{VV}\mathbf 1_V-
+R_VQ\mathbf 1=Q_{VV}\mathbf 1_V-\mu^2\mathbf 1_V$, so $\ip{\mathbf 1_V}{GB
+\mathbf 1}=n^d-\mu^2\ip{\mathbf 1_V}{G\mathbf 1_V}$ and $\lambda_0=\mu^2\ip{
+\mathbf 1_V}{G\mathbf 1_V}$.
+
+(iii) By Lemma~\ref{lem:fflinear}, $n^d\varpi(Q_{\rm s};(V_x))$ is the smallest
+eigenvalue of $Q^{1/2}SQ^{1/2}$, which is $\lambda_0$ by (ii); the formula for
+$\alpha_n$ is that of Proposition~\ref{prop:gauss} with $t=\mu^2$. The quotient
+in~\eqref{eq:ffvarpi} at $\ell_{\mathbf 1}$ is $n^{-d}\lambda_0$ by the proof
+of Proposition~\ref{prop:ffupper}(i), and a linear function $\ell_h$ attains
+the infimum exactly when $Q^{-1/2}h$ lies in the $\lambda_0$-eigenspace, which
+is the span of $e_0=\mathbf 1$; since $Q^{1/2}\mathbf 1=\mu\mathbf 1$, these are
+the multiples of $\ell_{\mathbf 1}$.
+\end{proof}
+
+\begin{remark}[a second proof, and the structure of the spectrum]\label{ffs:rem:variational}
+(a) The inequality $\lambda_k\ge\lambda_0$ also follows from the variational
+characterization $\ip{b}{Gb}=\sup_{w\in\C^V}\bigl[2\operatorname{Re}\ip bw-\ip
+w{Q_{VV}w}\bigr]\ge\lvert\ip bw\rvert^2/\ip w{Q_{VV}w}$ with the trial
+function $w=ge_k^V$, $g=G\mathbf 1_V$, where $(ge_k^V)(u)=g(u)e^{ik\cdot u}$.
+For real $g$ on $V$, extended by zero, $\lvert g(u+e_i)e^{ik_i}-g(u)\rvert^2=
+(g(u+e_i)-g(u))^2+2(1-\cos k_i)g(u)g(u+e_i)$, and $\sum_ug(u)g(u+e_i)\le\lVert
+g\rVert^2$, so
+\[
+\ip{ge_k^V}{Q_{VV}\,ge_k^V}\le\ip g{Q_{VV}g}+(\hat q(k)-\mu^2)\lVert g\rVert^2 .
+\]
+With $\gamma=\ip{\mathbf 1_V}{G\mathbf 1_V}=\ip g{Q_{VV}g}\ge\mu^2\lVert g
+\rVert^2$ and $\ip{e_k^V}{ge_k^V}=\gamma$ this gives $\ip{e_k^V}{Ge_k^V}\ge
+\gamma^2/(\gamma\hat q(k)/\mu^2)$, that is $\lambda_k\ge\mu^2\gamma=\lambda_0$.
+This proof uses only that $g$ is real, not the positivity of $G$; it is the
+route that Proposition~\ref{ffs:prop:proca} below follows for the Proca field,
+where positivity is not available.
+
+(b) The sum in~\eqref{ffs:eq:spectrum} is $\operatorname{Re}\ip{e_k^V}{f_k}$,
+where $f_k=GBe_k$ is the function on $V$ with $Q\tilde f_k=0$ on $V$ for the
+extension $\tilde f_k$ of $f_k$ by $e_k$ outside $V$: the massive harmonic
+extension of the boundary values of the plane wave. Its kernel $GB\ge0$ is the
+Poisson kernel of the cube, whose row sums are $1-\mu^2(G\mathbf 1_V)(u)<1$,
+and \eqref{ffs:eq:spectrum} says that $\lambda_k$ is $n^d$ minus the Fourier
+transform of the nonnegative measure $\sum_{u,u',w}G(u,u')\delta_{w-u}$ on the
+torus, which is largest at $k=0$ (Bochner). In particular $\lambda_k\le2n^d-
+\lambda_0<2n^d$ for every $k$, so the spectrum of the additive Schwarz operator
+$P_{\rm ad}$ lies in $[\lambda_0,2n^d-\lambda_0]$.
+\end{remark}
+
+We write $\varpi_n^{(d)}(s)$ for the exact constant of Theorem~\ref{ffs:thm:exact}
+as a function of $s=n\mu$ and $d$, and $\varpi_n(s)=\varpi_n^{(d)}(s)$ when $d$
+is fixed. The Dirichlet Laplacian of the cube is the sum of $d$ commuting
+copies of the Dirichlet Laplacian of the path on $n$ sites, whose eigenvectors
+are $\phi_j(u)=\sin(\pi j(u+1)/(n+1))$, $1\le j\le n$, with eigenvalues
+$4\sin^2\theta_j$, $\theta_j=\pi j/(2n+2)$, $\lVert\phi_j\rVert^2=(n+1)/2$ and
+$\ip{\mathbf 1}{\phi_j}=\cot\theta_j$ for $j$ odd and $0$ for $j$ even (the sum
+$\sum_{u=1}^ne^{i\pi ju/(n+1)}$ equals $2/(1-e^{i\pi j/(n+1)})$ for $j$ odd and
+$0$ for $j$ even, and the imaginary part of the former is $\cot\theta_j$).
+The operator $-\Delta_D+\mu^2$ is not a tensor product, but the semigroup
+$e^{t\Delta_D}$ is, which gives the second formula below.
+
+\begin{corollary}[closed forms]\label{ffs:cor:closed}
+Let $n\ge2$, $s>0$ and $\mu=s/n$.
+\begin{enumerate}[label=\textup{(\roman*)},leftmargin=*]
+\item \textup{(Fourier series)}\quad With $\theta_j=\pi j/(2n+2)$ and the sum
+over $j\in\{1,3,5,\dots\}^d$, $j_i\le n$,
+\[
+\varpi_n^{(d)}(s)=s^2\Bigl(\frac2{n(n+1)}\Bigr)^d\sum_{j}\frac{\prod_{i=1}^d
+\cot^2\theta_{j_i}}{s^2+4n^2\sum_{i=1}^d\sin^2\theta_{j_i}} .
+\]
+\item \textup{(Product formula)}\quad With
+\[
+H_n(t)=\ip{\mathbf 1}{e^{t\Delta_D^{(1)}}\mathbf 1}
+=\frac2{n+1}\sum_{j\ \rm odd}\cot^2\theta_j\,e^{-4t\sin^2\theta_j},
+\]
+the heat content of the path,
+\[
+\varpi_n^{(d)}(s)=\frac{s^2}{n^{d+2}}\int_0^\infty e^{-s^2t/n^2}H_n(t)^d\,dt .
+\]
+\item \textup{($d=1$)}\quad With $\kappa>0$ defined by $2\sinh(\kappa/2)=\mu=
+s/n$,
+\[
+\varpi_n^{(1)}(s)=1-\frac{2\sinh(n\kappa/2)}{s\cosh((n+1)\kappa/2)} .
+\]
+\item \textup{(The dimension)}\quad
+\[
+1-d\bigl(1-\varpi_n^{(1)}(s)\bigr)\le\varpi_n^{(d)}(s)\le\varpi_n^{(1)}(s),
+\]
+and $\varpi_2^{(d)}(s)=s^2/(s^2+4d)$.
+\end{enumerate}
+\end{corollary}
+
+\begin{proof}
+(i) Expand $\mathbf 1_V$ in the orthogonal eigenbasis $\phi_{j_1}\otimes\dots
+\otimes\phi_{j_d}$ of $-\Delta_D$:
+\[
+\ip{\mathbf 1_V}{G\mathbf 1_V}=\sum_j\prod_i
+\cot^2\theta_{j_i}\big/\bigl[((n+1)/2)^d(\mu^2+4\sum_i\sin^2\theta_{j_i})\bigr],
+\]
+the sum over odd $j_i$, and multiply by $\mu^2n^{-d}=s^2n^{-d-2}$. (ii)
+$G=\int_0^\infty e^{-\mu^2t}e^{t\Delta_D}dt$ and $e^{t\Delta_D}=\bigotimes_i
+e^{t\Delta_D^{(1)}}$, so $\ip{\mathbf 1_V}{G\mathbf 1_V}=\int_0^\infty e^{-\mu^2
+t}H_n(t)^ddt$. (iii) Let $g=G\mathbf 1$ on the path. The solutions of $-(g(u+1)
+-2g(u)+g(u-1))+\mu^2g(u)=0$ are combinations of $e^{\pm\kappa u}$ with $2\cosh
+\kappa=2+\mu^2$, that is $4\sinh^2(\kappa/2)=\mu^2$, and
+\[
+g(u)=\mu^{-2}\bigl[1-\cosh(\kappa(u-\tfrac{n-1}2))/\cosh(\kappa\tfrac{n+1}2)\bigr]
+\]
+solves $(-\Delta_D+\mu^2)g=\mathbf 1$ with $g(-1)=g(n)=0$. Summing the
+geometric series,
+\[
+\sum_{u=0}^{n-1}\cosh(\kappa(u-\tfrac{n-1}2))=\sinh(n\kappa/2)/\sinh(\kappa/2),
+\]
+so
+\begin{multline*}
+\mu^2n^{-1}\ip{\mathbf 1}g\\
+=1-\sinh(n\kappa/2)/(n\sinh(\kappa/2)\cosh((n+1)\kappa/2)),
+\end{multline*}
+and $n\sinh(\kappa/2)=s/2$. (iv) Let $v=\mathbf 1_V-\mu^2G\mathbf 1
+_V$, so that $(-\Delta_D+\mu^2)v=-\Delta_D\mathbf 1_V=:b$, where $b(u)=\sum_ib_i
+(u)$ and $b_i(u)\in\{0,1,2\}$ counts the neighbours $u\pm e_i$ of $u$ outside
+$V$; and let $v_i(u)=v^{(1)}(u_i)$, where $v^{(1)}=\mathbf 1-\mu^2G^{(1)}\mathbf
+1$ is the same function for the path, which satisfies $(-\Delta_D^{(1)}+\mu^2)
+v^{(1)}=b^{(1)}$ and $0\le v^{(1)}\le1$ (as $G^{(1)}\ge0$ and $G^{(1)}\mathbf 1
+\le\mu^{-2}\mathbf 1$). Writing $-\Delta_D=\sum_j(-\Delta_j)$ with $-\Delta_j$
+the Dirichlet Laplacian in the coordinate $j$, one has $(-\Delta_i+\mu^2)v_i=
+b_i$ and, since $v_i$ does not depend on $u_j$, $(-\Delta_jv_i)(u)=b_j(u)v_i(u)$
+for $j\ne i$. Hence
+\begin{gather*}
+(-\Delta_D+\mu^2)\Bigl(\sum_iv_i-v\Bigr)=\sum_{i}\sum_{j\ne i}b_jv_i\ge0,
+\\
+(-\Delta_D+\mu^2)(v-v_i)=\sum_{j\ne i}b_j(1-v_i)\ge0,
+\end{gather*}
+and the positivity of $G$ gives $v_i\le v\le\sum_jv_j$. Pairing with $\mathbf 1
+_V$, and using $\ip{\mathbf 1_V}v=n^d(1-\varpi_n^{(d)}(s))$ and $\ip{\mathbf 1_V}
+{v_i}=n^{d-1}\ip{\mathbf 1}{v^{(1)}}=n^d(1-\varpi_n^{(1)}(s))$, gives the two
+inequalities. For $n=2$ every site of $V$ has $d$ neighbours in $V$, so
+$-\Delta_D\mathbf 1_V=d\mathbf 1_V$ and $\varpi_2^{(d)}(s)=\mu^2/(d+\mu^2)=s^2/
+(s^2+4d)$.
+\end{proof}
+
+\begin{theorem}[the limit $n\to\infty$ at fixed $s=n\mu$]\label{ffs:thm:limit}
+Let $d\ge1$ and $s>0$. Then
+\begin{align*}
+\lim_{n\to\infty}\varpi_n^{(d)}(s)&=\varpi_\infty^{(d)}(s):=s^2\ip{\mathbf 1}
+{(-\Delta+s^2)^{-1}\mathbf 1}_{L^2([0,1]^d)}\\
+&=s^2\Bigl(\frac8{\pi^2}\Bigr)^d\sum_{k\in\{1,3,5,\dots\}^d}\frac{\prod_{i=1}^d
+k_i^{-2}}{s^2+\pi^2\lvert k\rvert^2}\\
+&=s^2\int_0^\infty e^{-s^2t}H(t)^d\,dt,
+\end{align*}
+where $-\Delta$ is the Dirichlet Laplacian of the unit cube and $H(t)=\frac8
+{\pi^2}\sum_{k\ \rm odd}k^{-2}e^{-\pi^2k^2t}$ is the heat content of the unit
+interval. In $d=1$, $\varpi_\infty^{(1)}(s)=1-\frac2s\tanh\frac s2$; in
+general
+\begin{gather*}
+1-\frac{2d}s\tanh\frac s2\le\varpi_\infty^{(d)}(s)\le1-\frac2s\tanh\frac s2,
+\\
+\varpi_\infty^{(d)}(s)=T_ds^2+O(s^4)\quad(s\to0),
+\end{gather*}
+with $T_d=\ip{\mathbf 1}{(-\Delta)^{-1}\mathbf 1}_{L^2([0,1]^d)}$ the torsional
+rigidity of the unit cube, $T_1=1/12$. For $d=4$,
+\[
+\varpi_\infty^{(4)}(1)=0.012954\ldots,\qquad\varpi_\infty^{(4)}(2)=0.048687
+\ldots,
+\]
+and for $d=3$, $\varpi_\infty^{(3)}(1)=0.019564\ldots$, $\varpi_\infty^{(3)}(2)
+=0.071850\ldots$.
+\end{theorem}
+
+\begin{proof}
+In the Fourier series of Corollary~\ref{ffs:cor:closed}(i) fix $j$. As
+$n\to\infty$, $\theta_{j_i}=\pi j_i/(2n+2)\to0$,
+\[
+\cot^2\theta_{j_i}\sim(2n+2)^2/(\pi^2j_i^2)\quad\text{and}\quad
+4n^2\sin^2\theta_{j_i}\to\pi^2j_i^2,
+\]
+so the $j$-th term converges to
+\[
+s^2(8/\pi^2)^d\prod_ij_i^{-2}/(s^2+\pi^2\lvert j\rvert^2).
+\]
+Since $\cot^2\theta\le\theta^{-2}$, the $j$-th term is at most
+\begin{multline*}
+(2/(n(n+1)))^d(4(n+1)^2/\pi^2)^d\prod_ij_i^{-2}\\
+=(8(n+1)/(n\pi^2))^d\prod_ij_i^{-2}\le(12/\pi^2)^d\prod_ij_i^{-2},
+\end{multline*}
+which is summable over $j$; dominated convergence gives the series. The eigenfunctions of the Dirichlet Laplacian of $[0,1]^d$
+are $\prod_i\sin(\pi k_ix_i)$, $k\in\mathbb N^d$, with eigenvalues $\pi^2\lvert k
+\rvert^2$, squared norms $2^{-d}$ and $\ip{\mathbf 1}{\prod_i\sin(\pi k_ix_i)}=
+\prod_i2/(\pi k_i)$ for all $k_i$ odd and $0$ otherwise; so the series is
+$s^2\ip{\mathbf 1}{(-\Delta+s^2)^{-1}\mathbf 1}$. The integral form follows
+from $(s^2+\pi^2\lvert k\rvert^2)^{-1}=\int_0^\infty e^{-(s^2+\pi^2\lvert k
+\rvert^2)t}dt$ and Tonelli, since $H(t)^d=\sum_k(8/\pi^2)^d\prod_ik_i^{-2}e^{-
+\pi^2\lvert k\rvert^2t}$.
+
+For $d=1$ the function $w=1-\cosh(s(x-\frac12))/\cosh(s/2)$ solves $-w''+s^2w=
+s^2$ with $w(0)=w(1)=0$, and $\int_0^1w=1-\frac2s\tanh\frac s2$. The two-sided
+bound is the limit of Corollary~\ref{ffs:cor:closed}(iv), using
+Corollary~\ref{ffs:cor:closed}(iii) and $\kappa\sim s/n$ (so $\sinh(n\kappa/2)/
+\cosh((n+1)\kappa/2)\to\tanh(s/2)$). The expansion at $s\to0$ is the series
+with $(s^2+\pi^2\lvert k\rvert^2)^{-1}=\pi^{-2}\lvert k\rvert^{-2}-s^2\pi^{-2}
+\lvert k\rvert^{-2}(s^2+\pi^2\lvert k\rvert^2)^{-1}$, both parts summable;
+$T_1=1/12$ is the coefficient of $s^2$ in $1-\frac2s\tanh\frac s2$. The
+numerical values are the integral evaluated by quadrature, with $H(t)=1-4\sqrt{
+t/\pi}+O(e^{-1/(16t)})$ for small $t$ and the series otherwise; they agree
+with the lattice values of Corollary~\ref{ffs:cor:closed}(ii) at $n=2048,4096$
+extrapolated in $1/n$ ($0.0129536$ and $0.0486873$) to five digits, and with a
+cell-centred finite difference solution of the continuum problem extrapolated
+in the mesh size ($0.01296$, $0.04871$) to four.
+\end{proof}
+
+Numerically $T_2=0.03514\ldots$, $T_3=0.02017\ldots$, $T_4=0.01324\ldots$, and
+the lattice values approach the limit from above at the rate $1/n$: for $d=4$,
+$s=1$, $\varpi_n^{(4)}(1)$ is $0.0588$, $0.0347$, $0.0234$, $0.0180$, $0.0154$,
+$0.0142$, $0.0136$ at $n=2,4,8,16,32,64,128$, and for $s=2$ it is $0.2000$,
+$0.1250$, $0.0862$, $0.0671$, $0.0578$, $0.0532$, $0.0509$. In every case
+computed $\varpi_n^{(d)}(s)$ decreases in $n$; this monotonicity is not proved
+here. The lower bound $c_d(s)$ of Theorem~\ref{thm:ffscalar} is uniform in $n$,
+so $\varpi_\infty^{(d)}(s)\ge c_d(s)$: for $d=4$, $0.0130\ge0.0118$ at $s=1$
+and $0.0487\ge0.0438$ at $s=2$. Over the full range the ratio is at most
+$\alpha_n^d\le(6/5)^d$ times the factor $(s^2+10d\rho_n)/(s^2+n^2\lambda_1(n))$,
+and the Dirichlet resolvent is what the parabolic trial function approximates.
+
+\begin{figure*}[t]
+\centering
+\includegraphics[width=0.92\textwidth]{figures/fig_freefield.png}
+\caption{The cube condition for the free massive scalar field. (a) The response
+$\mu^2(-\Delta_D+\mu^2)^{-1}\mathbf 1$ of one square cube of side $n=14$ to a constant
+shift of its boundary data, at $s=n\mu=2$; its mean over the cube is the exact
+constant of Theorem~\ref{ffs:thm:exact} in $d=2$. (b) The exact constant
+$\varpi_n^{(4)}(s)$ for $n=2,4,8$, its limit $s^2\langle1,(-\Delta+s^2)^{-1}1\rangle$
+on the unit cube (Theorem~\ref{ffs:thm:limit}), equal to $0.0130$ at $s=1$ and
+$0.0487$ at $s=2$, and the lower bound $(5/6)^4s^2/(s^2+40)$ of
+Theorem~\ref{thm:ffscalar}, all against $s=m\ell$.}
+\label{fig:freefield}
+\end{figure*}
+
+\subsubsection{The Proca field at zero momentum}
+
+For the Proca field on gauge-invariant functions the same reduction to
+momentum space applies, but the proof of Theorem~\ref{ffs:thm:exact} does not:
+the precision of the link cube is not an $M$-matrix. What is proved is the
+exact scalar constant as a lower bound, and the exact value of the
+zero-momentum sector; that the latter is the infimum is observed numerically
+in every case computed. Let $d\ge2$, $V=V_0$, $E_V=E_0$, $G_{\rm P}=((Q_{\rm P}
+)_{E_VE_V})^{-1}$, and for $1\le i\le d$ let $\epsilon_i\in\R^{E_V}$ be the
+indicator of the links of $E_V$ in the direction $e_i$, so that the test field
+of Proposition~\ref{prop:ffupper}(ii) is $h_V=\epsilon_1$. Put
+\[
+M_0=\bigl(\ip{\epsilon_i}{G_{\rm P}\epsilon_j}\bigr)_{i,j=1}^d,
+\]
+and write $\varpi_{\rm P}^{\rm inv}$ for the infimum in~\eqref{eq:ffvarpi}
+over gauge-invariant functions, the constant of Theorem~\ref{thm:ffproca}(ii).
+
+\begin{proposition}[the Proca field: what is proved]\label{ffs:prop:proca}
+Let $d\ge2$, $n\ge2$, $L\ge n+1$, $\mu>0$ and $s=n\mu$.
+\begin{enumerate}[label=\textup{(\roman*)},leftmargin=*]
+\item $M_0=\alpha I+\beta(J-I)$ with $\alpha=\ip{\epsilon_1}{G_{\rm P}\epsilon_1
+}$, $\beta=\ip{\epsilon_1}{G_{\rm P}\epsilon_2}$ and $J$ the all-ones matrix;
+its eigenvalues are $\alpha+(d-1)\beta$, on $\mathbf 1$, and $\alpha-\beta$, on
+the vectors of sum zero.
+\item $\displaystyle\varpi_n^{(d)}(s)\le\varpi_{\rm P}^{\rm inv}\le\frac{\mu^2}
+{n^d}\min\bigl(\alpha-\beta,\alpha+(d-1)\beta\bigr)\le\frac{\mu^2}{n^d}\alpha$,
+the last expression being the bound of Proposition~\textup{\ref{prop:ffupper}(ii)}.
+The lower bound is the exact scalar constant of Theorem~\ref{ffs:thm:exact},
+which improves the constant of Theorem~\ref{thm:ffproca}(ii). More precisely,
+for every $k\in\widehat{\mathbb T}$ and every transverse $a\in\C^d$ at $k$
+(that is, $\delta_0(ae_k)=0$), the Rayleigh quotient of the gauge-invariant
+linear function $\ell_{ae_k}$ is at least $n^{-d}\lambda_k\ge n^{-d}\lambda_0$,
+with $\lambda_k$ as in~\eqref{ffs:eq:spectrum}.
+\item $\mu^2\alpha/n^d\ge\varpi_n^{(d-1)}(s)$, the exact scalar constant in
+dimension $d-1$ with the same $n$ and $s$.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+(i) A permutation $\pi$ of $\{1,\dots,d\}$ acts on sites by $(\pi y)_{\pi(i)}=
+y_i$ and on fields by $(U_\pi A)(\pi y,\pi(i))=A(y,i)$. $U_\pi$ is orthogonal,
+preserves $V$, hence $E_V$, maps $\epsilon_i$ to $\epsilon_{\pi(i)}$, and
+$(d_1U_\pi A)(\pi y;\pi(i),\pi(j))=\pm(d_1A)(y;i,j)$, so $\lVert d_1U_\pi A
+\rVert=\lVert d_1A\rVert$ and $U_\pi$ commutes with $Q_{\rm P}$ and with the
+restriction to $E_V$, hence with $G_{\rm P}$. So $M_0(\pi(i),\pi(j))=M_0(i,j)$
+for all $\pi$, and a symmetric matrix invariant under conjugation by all
+permutations is of the stated form.
+
+(ii) By Lemma~\ref{lem:fflinear}, $n^d\varpi_{\rm P}^{\rm inv}$ is the smallest
+eigenvalue of the compression of $Q_{\rm P}^{1/2}S_{\rm P}Q_{\rm P}^{1/2}$ to
+$G^\perp=\ker\delta_0$, with $S_{\rm P}$ the Schwarz operator of the link
+cubes. As in the proof of Theorem~\ref{ffs:thm:exact}, $S_{\rm P}$ and $Q_{\rm
+P}$ commute with translations, so they map each space $\C^d\otimes e_k=\{ae_k:
+a\in\C^d\}$ into itself, $S_{\rm P}$ acting by the matrix $\hat\sigma_{\rm P}
+(k)$ with $a^*\hat\sigma_{\rm P}(k)a=L^{-d}\ip{ae_k}{S_{\rm P}\,ae_k}=\ip{h_V}
+{G_{\rm P}h_V}$, $h_V=R_{E_V}(ae_k)$ (the translation $\tau_x$ identifies
+$E_x$ with $E_V$ and $(Q_{\rm P})_{E_xE_x}$ with $(Q_{\rm P})_{E_VE_V}$). The
+space $\ker\delta_0$ is the orthogonal sum of its intersections $T_k\otimes e_k$
+with these spaces, where $T_k=\{a:\sum_ia_i(1-e^{-ik_i})=0\}$ for $k\ne0$ and
+$T_0=\C^d$, and on $T_k\otimes e_k$ the operator $Q_{\rm P}=-\Delta\otimes I-
+d_0\delta_0+\mu^2$ (Lemma~\ref{lem:ffhodge}) acts as $\hat q(k)$. So the
+compression is block diagonal with blocks $\hat q(k)P_k\hat\sigma_{\rm P}(k)
+P_k$ on $T_k$, $P_k$ the orthogonal projection onto $T_k$, and
+\begin{equation}\label{ffs:eq:procamin}
+n^d\varpi_{\rm P}^{\rm inv}=\min_{k\in\widehat{\mathbb T}}\ \min_{a\in T_k,\,
+\lvert a\rvert=1}\hat q(k)\ip{h_V}{G_{\rm P}h_V},\qquad h_V=R_{E_V}(ae_k).
+\end{equation}
+At $k=0$, $\hat q(0)=\mu^2$, $T_0=\C^d$ and $\ip{h_V}{G_{\rm P}h_V}=a^*M_0a$,
+so the inner minimum is $\mu^2\min(\alpha-\beta,\alpha+(d-1)\beta)$ by (i),
+which is at most $\mu^2\alpha$ (take $a=e_1$). This is the upper bound.
+
+For the lower bound let $w\in\C^{E_V}$, extended by zero to $E$, and let
+$w_i=w(\cdot,i)\in\C^V$, extended by zero to $\mathbb T$. Lemma~\ref{lem:ffhodge},
+applied to the real and imaginary parts of $w$, gives $\lVert d_1w\rVert^2=
+\sum_i\lVert\nabla w_i\rVert^2-\lVert\delta_0w\rVert^2\le\sum_i\lVert\nabla w_i
+\rVert^2$, and $\lVert\nabla w_i\rVert^2+\mu^2\lVert w_i\rVert^2=\ip{w_i}{(Q_{
+\rm s})_{VV}w_i}$ since $w_i$ is supported in $V$. Hence, identifying $\C^{E_V}$
+with $\C^V\otimes\C^d$,
+\[
+(Q_{\rm P})_{E_VE_V}\le(Q_{\rm s})_{VV}\otimes I_d,\qquad G_{\rm P}\ge G\otimes
+I_d
+\]
+in the operator order. For $h_V=e_k^V\otimes a$ this gives $\ip{h_V}{G_{\rm P}
+h_V}\ge\lvert a\rvert^2\ip{e_k^V}{Ge_k^V}$, so each term in~\eqref{ffs:eq:procamin}
+is at least $\hat q(k)\ip{e_k^V}{Ge_k^V}=\lambda_k\ge\lambda_0=n^d\varpi_n^{(d)}
+(s)$ by Theorem~\ref{ffs:thm:exact}. The statement about the Rayleigh quotient
+of $\ell_{ae_k}$ is the same computation, since $\Var(\ell_{ae_k})=L^d\lvert a
+\rvert^2/\hat q(k)$ for transverse $a$.
+
+(iii) Write $y=(y_1,y')$ with $y'\in V'=\{0,\dots,n-1\}^{d-1}$, let $\varphi
+\in\R^{V'}$, extended by zero, and let $w(y,1)=\varphi(y')$ for $y\in V$, $w(y,
+i)=0$ for $i\ge2$; then $w$ is supported in $E_V$. A plaquette $(y;i,j)$ with
+$i,j\ge2$ carries no component of $w$, and for $(y;1,j)$, $j\ge2$, $(d_1w)(y;1,
+j)=w(y,1)-w(y+e_j,1)$, which is $\varphi(y')-\varphi(y'+e_j)$ if $0\le y_1\le
+n-1$ and $0$ otherwise. Hence $\lVert d_1w\rVert^2=n\lVert\nabla'\varphi\rVert^2
+=n\ip\varphi{-\Delta_D^{(d-1)}\varphi}$, $\lVert w\rVert^2=n\lVert\varphi
+\rVert^2$ and $\ip{\epsilon_1}w=n\ip{\mathbf 1}\varphi$, so that
+\begin{align*}
+\alpha&=\sup_{w\in\R^{E_V}}\bigl[2\ip{\epsilon_1}w-\ip w{Q_{\rm P}w}\bigr]\\
+&\ge n\sup_{\varphi}\bigl[2\ip{\mathbf 1}\varphi-\ip\varphi{(-\Delta_D^{(d-1)}
++\mu^2)\varphi}\bigr]\\
+&=n\ip{\mathbf 1}{(-\Delta_D^{(d-1)}+\mu^2)^{-1}\mathbf 1},
+\end{align*}
+and
+\[
+\mu^2\alpha/n^d\ge\mu^2n^{-(d-1)}\ip{\mathbf 1}{(-\Delta_D^{(d-1)}+\mu^2)
+^{-1}\mathbf 1}=\varpi_n^{(d-1)}(s).
+\]
+\end{proof}
+
+\begin{remark}[where the scalar argument fails, and what is observed]\label{ffs:rem:proca}
+(a) \emph{Positivity.} The entries of $(Q_{\rm P})_{E_VE_V}=(\delta_1d_1+\mu^2)
+_{E_VE_V}$ at the pairs $\{(y,i),(y+e_i,j)\}$ and $\{(y,i),(y-e_j,j)\}$, $i<j$,
+are $+1$, so the matrix is not an $M$-matrix, and $G_{\rm P}$ has negative
+entries (for $d=2$, $n=2$, $\mu=1/2$ its smallest entry is $-0.88$). The
+harmonic-extension kernel of Remark~\ref{ffs:rem:variational}(b) is therefore
+not a positive kernel, and no analogue of~\eqref{ffs:eq:spectrum} with a
+nonnegative measure is available. The variational route of
+Remark~\ref{ffs:rem:variational}(a) with the trial field $(G_{\rm P}h^0_V)e_k$,
+$h^0_V=R_{E_V}a$, reduces the equality $n^d\varpi_{\rm P}^{\rm inv}=\mu^2(
+\alpha-\beta)$ to the inequality
+\begin{multline*}
+\lVert d_1(ge_k)\rVert^2\le\lVert d_1g\rVert^2+(\hat q(k)-\mu^2)\lVert g\rVert
+^2\\
+\text{for }g=G_{\rm P}R_{E_V}a,\ a\in T_k,
+\end{multline*}
+where $(ge_k)(y,i)=g(y,i)e^{ik\cdot y}$: given it,
+\begin{align*}
+\hat q(k)\ip{h_V}{G_{\rm P}h_V}&\ge\hat q(k)\lvert a^*M_0a\rvert^2/\ip{ge_k}
+{Q_{\rm P}\,ge_k}\\
+&\ge\mu^2a^*M_0a.
+\end{align*}
+For the scalar field the corresponding inequality is pointwise in the links
+and holds for every real $g$; for the curl the four terms of $(d_1(ge_k))(p)$
+carry different phases and signs, and
+\[
+\lvert\sum_mc_me^{i\theta_m}\rvert^2-
+(\sum_mc_m)^2=-\sum_{m<m'}c_mc_{m'}\lvert e^{i\theta_m}-e^{i\theta_{m'}}
+\rvert^2
+\]
+has no sign. The inequality holds, with relative margin at least
+$0.14$, in every case computed; it is not proved.
+
+(b) \emph{Observed.} In every case computed ($d=2,3,4$, $n\le4$, $L\le6$,
+$0.6\le s\le9$), the minimum in~\eqref{ffs:eq:procamin} is attained at $k=0$
+only, the minimum over $k\ne0$ exceeding it by a factor at least $1.07$ (at
+$s=9$) and typically between $2$ and $25$; $\beta>0$; and so
+\[
+n^d\varpi_{\rm P}^{\rm inv}=\mu^2(\alpha-\beta),
+\]
+attained at the constant transverse field $h=e_1-e_2$, which has $d_1h=0$ and
+$\delta_0h=0$. The test field $\epsilon_1$ of Proposition~\ref{prop:ffupper}(ii)
+is therefore not optimal: its quotient $\mu^2\alpha/n^d$ exceeds the constant
+by the factor $(1-\beta/\alpha)^{-1}$, which is $1.11$ for $d=4$, $n=2$, $s=1$
+and tends to $1$ as $n\to\infty$ ($\beta/\alpha$ is $0.10$, $0.041$, $0.015$,
+$0.0047$ at $n=2,4,8,16$ for $d=4$, $s=1$). For $d=4$, $n=2$ the values
+$\mu^2(\alpha-\beta)/n^d$ are $0.0759$ at $s=1$ and $0.2436$ at $s=2$, the
+exact constants quoted in Remark~\ref{rem:ffnumbers}(a). The lower bound of
+Proposition~\ref{ffs:prop:proca}(ii) is not sharp: $\varpi_{\rm P}^{\rm inv}/
+\varpi_n^{(d)}(s)$ is $1.29$ for $d=4$, $n=2$, $s=1$.
+
+(c) \emph{The limit.} In every case computed, $\mu^2(\alpha-\beta)/n^d$
+decreases in $n$ at the rate $1/n$ towards the scalar constant of
+Theorem~\ref{ffs:thm:limit} \emph{in one dimension less}: for $d=3$, $s=1$,
+extrapolation in $1/n$ from $n=24,32$ gives $0.03353$ against $\varpi_\infty^{
+(2)}(1)=0.03352$; for $d=4$, $s=1$, from $n=16,20$ it gives $0.0195$ against
+$\varpi_\infty^{(3)}(1)=0.01956$, and for $s=2$ it gives $0.0721$ against
+$\varpi_\infty^{(3)}(2)=0.07185$ (the values at $n=2,4,8,16,20$ are $0.0759$,
+$0.0489$, $0.0343$, $0.0269$, $0.0254$ for $s=1$ and $0.2436$, $0.1669$,
+$0.1216$, $0.0971$, $0.0921$ for $s=2$). This is what Proposition~\ref{ffs:prop:proca}(iii)
+suggests: the field $\varphi(y')e_1$ with $\varphi$ constant along $e_1$ is
+supported in $E_V$ at no cost in the direction $e_1$, because the link cube
+$E_V$ only constrains the tangential components of a field on its boundary
+(the normal component of a field on $E_V$ may jump to zero across a face
+without producing a curl), and in the continuum $w=\varphi(x')e_1$, $\varphi=
+(-\Delta_{[0,1]^{d-1}}+s^2)^{-1}\mathbf 1$, solves $(\delta d+s^2)w=e_1$ in the
+unit cube with vanishing tangential trace. On the lattice $\varphi e_1$ fails
+to solve $(Q_{\rm P})_{E_VE_V}w=\epsilon_1$ only by a residual on the face
+$y_1=0$, which accounts for the correction of order $1/n$. The convergence of
+$\mu^2(\alpha-\beta)/n^d$ to $\varpi_\infty^{(d-1)}(s)$ is not proved here.
+So, if the minimum stays at $k=0$, the gauge-invariant Proca constant in $d=4$
+tends, at fixed $m\ell$, to the three-dimensional scalar constant, $0.0196$ at
+$m\ell=1$ and $0.0719$ at $m\ell=2$; the four-dimensional scalar constant tends
+to $0.0130$ and $0.0487$.
+\end{remark}
+
 \subsubsection{Uniformity in the lattice spacing, and the size of the constants}
 
 \begin{corollary}[the hypothesis of Theorem~\ref{thm:avgtransfer} for free
@@ -706,19 +1219,26 @@ Proposition~\ref{prop:ffupper}(ii).
 
 \begin{remark}[the size of the constants]\label{rem:ffnumbers}
 (a) In the Gaussian setting the constant of Theorem~\ref{thm:ffscalar} is
-close to optimal. On the finite tori where the smallest eigenvalue of
-Lemma~\ref{lem:fflinear} can be computed exactly, the $n$-dependent bound
-$\alpha_n^{-d}s^2/(s^2+10d\rho_n)$ is attained at $n=2$ for every $d$ and
-$s$, and lies within $2.5\%$ of the exact constant for $n=3$, $d\le4$ (and
-$n=4$, $d=1$); the gauge-invariant Proca constant exceeds the bound of
-Theorem~\ref{thm:ffproca}(ii) by a factor between $1.15$ and $2.0$ in
-$d=2,3,4$, and the full Proca constant exceeds the bound of (i) by a factor
-between $1.3$ and $3.0$; the two Proca constants coincide except at large
-$s$ (for $d=4$, $n=2$, $s=4$ they are $0.5534$ and $0.5571$), the infimum
-being attained at zero momentum. For the gauge-invariant Proca field in $d=4$ the
+close to optimal, and the exact constant is known: by Theorem~\ref{ffs:thm:exact}
+it is $\varpi_n^{(d)}(s)=\mu^2n^{-d}\ip{\mathbf 1_V}{(-\Delta_D+\mu^2)^{-1}
+\mathbf 1_V}$, with the closed forms of Corollary~\ref{ffs:cor:closed}. The
+$n$-dependent bound $\alpha_n^{-d}s^2/(s^2+10d\rho_n)$ equals it at $n=2$ for
+every $d$ and $s$, and lies within $2.5\%$ of it for $n=3$, $d\le4$ (and $n=4$,
+$d=1$); the ratio of the exact constant to the clean bound $c_d(s)$ tends to
+$\varpi_\infty^{(d)}(s)/c_d(s)$ as $n\to\infty$, which for $d=4$ is $1.10$ at
+$s=1$ and $1.11$ at $s=2$. The gauge-invariant Proca constant exceeds the exact
+scalar constant, which is a lower bound for it by Proposition~\ref{ffs:prop:proca}(ii),
+by a factor between $1.06$ (at $s=9$) and $2.0$ (at $s=0.6$) in the cases
+computed in $d=2,3,4$, $n\le4$, the factor decreasing in $s$, and the full
+Proca constant exceeds the bound of Theorem~\ref{thm:ffproca}(i) by a factor
+between $1.3$ and $3.0$; the two Proca constants coincide except at large $s$
+(for $d=4$, $n=2$, $s=4$ they are $0.5534$ and $0.5571$), the infimum being
+attained at zero momentum. For the gauge-invariant Proca field in $d=4$ the
 exact constant on the tori $L=4,5$ with $n=2$ is $0.0759$ at $s=1$ and
-$0.2436$ at $s=2$; the bounds are $0.0588$ and $0.2$, the clean bounds
-$c_4(1)=0.0118$ and $c_4(2)=0.0438$.
+$0.2436$ at $s=2$, which is $\mu^2(\alpha-\beta)/n^d$ of
+Proposition~\ref{ffs:prop:proca}; the bounds are $0.0588$ and $0.2$ (the exact
+scalar constants at $n=2$), the clean bounds $c_4(1)=0.0118$ and $c_4(2)=
+0.0438$.
 
 (b) The parabolic profile is the trial function of the proof of
 Proposition~\ref{prop:gauss}(ii), and the bound of Theorem~\ref{thm:ffscalar}
@@ -730,15 +1250,13 @@ of one cube; Proposition~\ref{prop:avgsup}(i) is the statement, for the
 Wilson measure, that a one-cube bound of this kind implies $\mathrm{BP}$, and
 for the Gaussian field Theorem~\ref{thm:ffchaos} gives the conclusion
 directly. The quantity $1-\alpha_n(\mu^2)$ of Proposition~\ref{prop:gauss} is
-$\mu^2n^{-d}\ip{\mathbf 1_V}{(-\Delta_D+\mu^2)^{-1}\mathbf 1_V}$, the upper
-bound of Proposition~\ref{prop:ffupper}(i): it is the value of the quotient
-in~\eqref{eq:ffvarpi} at the constant linear function $\ell_{\mathbf 1}$,
-and in every case computed ($d\le4$, $n\le4$, $L\le16$, and $L\to\infty$ on
-a momentum grid) it coincides with the exact constant to all digits, that is,
-the infimum is attained at $h=\mathbf 1$. This is not proved here; what is
-proved is that the two bounds squeeze $\varpi$ to within the gap between the
-parabolic trial function and the exact Dirichlet resolvent, about $4\%$ for
-$n\le4$.
+$\mu^2n^{-d}\ip{\mathbf 1_V}{(-\Delta_D+\mu^2)^{-1}\mathbf 1_V}$, the value of
+the quotient in~\eqref{eq:ffvarpi} at the constant linear function $\ell_{
+\mathbf 1}$, and by Theorem~\ref{ffs:thm:exact} it is the exact constant: the
+gap of the dynamics on $L^2$ is exactly the Kantorovich response of one cube to
+a constant shift of its boundary data. The gap between the parabolic trial
+function and the exact Dirichlet resolvent is about $4\%$ for $n\le4$ and at
+most $11\%$ in the limit $n\to\infty$ for $d=4$, $s\le2$.
 
 (c) Corollary~\ref{cor:ffuniform} shows that the hypothesis of
 Theorem~\ref{thm:avgtransfer}, the uniform condition $\mathrm{BP}(\ell/a_k,
