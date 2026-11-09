@@ -550,18 +550,18 @@ Cross-check (β = 5, n = 4): the per-configuration numerator E Var(f | cube^c) h
 - **The box confound remains.** The c₁a term is partly the β = 5, 7.5 points in larger boxes. The fixed-box pass (Lg² = 12.8 at β = 5, 7.5, 20, 25; job submitted 2026-11-09) is the decisive test, and its corrected errors should be ≈ 0.02 per point, enough to resolve the pre-registered β25/β10 ≥ 0.95 vs ≤ 0.85 rule.
 - **U(1)₃ (§10.4).** With √20 smaller errors, the 0.6× per halving decay is far beyond noise, so the reading there is strengthened.
 
-### 10.8 Step 4b at fixed box Lg² = 12.8, β = 5 to 25 (interim, 2026-11-09)
+### 10.8 Step 4b at fixed box Lg² = 12.8, β = 5 to 25 (2026-11-09)
 
-Fixed-box pass: Lg² = 12.8 at every β (L = 16, 24, 32, 48, 64, 80 for β = 5, 7.5, 10, 15, 20, 25). β = 10 and 15 are taken from §10.6. Launcher `experiments/su2bp/run_fixbox.sh`. **Interim:** β = 5 and 7.5 are complete (5000 configs). β = 20 has 3300–4800 configs and β = 25 has 1800–2600, still running. The analysis uses the corrected jackknife (§10.7). Observable mean, ± is the mean per-observable error:
+Fixed-box pass: Lg² = 12.8 at every β (L = 16, 24, 32, 48, 64, 80 for β = 5, 7.5, 10, 15, 20, 25). β = 10 and 15 are taken from §10.6. Launcher `experiments/su2bp/run_fixbox.sh`; raw results `experiments/su2bp/results_fixbox.jsonl`. Configurations: 5000 for β ≤ 20, 4000 for β = 25 (one point, ℓg² = 2.4, at 3900). The analysis uses the corrected jackknife (§10.7). Observable mean, ± is the mean per-observable error:
 
 | ℓg² | β = 5 | 7.5 | 10 | 15 | 20 | 25 | β25/β10 |
 |---|---|---|---|---|---|---|---|
-| 1.6 | 1.437(24) | 1.327(22) | 1.265(22) | 1.218(20) | 1.185(20) | 1.124(25) | 0.889(25) |
-| 2.4 | 1.416(19) | — | 1.227(20) | 1.147(20) | 1.134(24) | 1.089(30) | 0.888(28) |
-| 3.2 | 1.399(20) | 1.232(22) | 1.181(20) | 1.103(19) | 1.089(19) | 1.080(29) | 0.914(29) |
-| 4.8 | 1.293(22) | 1.173(17) | 1.124(18) | 1.075(15) | 1.083(21) | 1.035(25) | 0.921(27) |
+| 1.6 | 1.437(24) | 1.327(22) | 1.265(22) | 1.218(20) | 1.186(19) | 1.125(19) | 0.889(22) |
+| 2.4 | 1.416(19) | — | 1.227(20) | 1.147(20) | 1.135(19) | 1.089(20) | 0.887(22) |
+| 3.2 | 1.399(20) | 1.232(22) | 1.181(20) | 1.103(19) | 1.086(15) | 1.060(18) | 0.898(21) |
+| 4.8 | 1.293(22) | 1.173(17) | 1.124(18) | 1.075(15) | 1.084(18) | 1.037(19) | 0.923(22) |
 
-- **No finite-box effect.** β = 5 in L = 16 (Lg² = 12.8) equals β = 5 in L = 32 (Lg² = 25.6) within errors at every ℓg² (1.437 vs 1.428, 1.416 vs 1.415, 1.399 vs 1.386, 1.293 vs 1.300). The same holds at β = 7.5. So the §10.6 confound was not the cause of the drift: the drift is a lattice-spacing effect.
-- **Fits over a factor 5 in a (6 β values).** c₀ + c₁a fits well, with total χ² = 7.9 on 15 dof. It gives c₀ = 1.086, 1.023, 0.978, 0.981 (± 0.02) at ℓg² = 1.6, 2.4, 3.2, 4.8. c·aᵖ fits worse: χ² = 29.9 on 15 dof (p-value ≈ 0.01), driven by ℓg² = 3.2 and 4.8, where β = 15 → 25 flattens (1.103 → 1.080, 1.075 → 1.035).
-- **The pre-registered rule is inconclusive.** β25/β10 = 0.89–0.92 ± 0.03, between the 0.85 (drift) and 0.95 (plateau) thresholds. The thresholds assumed the plateau would be reached by β = 10. The c₀ + c₁a model predicts 0.88–0.91 for this ratio, which is what is observed.
-- **Reading (interim).** In SU(2)₃ the data favour ϖ at fixed ℓg² approaching a positive constant ≈ 1.0 with an O(a) correction. This is the behaviour (U) requires. The U(1)₃ contrast (§10.4: ϖ ∝ (ma)^0.75 → 0) shows the test can see a failure. Final numbers follow when β = 20, 25 complete.
+- **No finite-box effect.** β = 5 in L = 16 (Lg² = 12.8) equals β = 5 in L = 32 (Lg² = 25.6) within errors at every ℓg² (1.437 vs 1.428, 1.416 vs 1.415, 1.399 vs 1.386, 1.293 vs 1.300), and likewise at β = 7.5. The §10.6 confound was not the cause of the drift: it is a lattice-spacing effect.
+- **Fits over a factor 5 in a (6 β values).** c₀ + c₁a: total χ² = 9.4 on 15 dof, c₀ = 1.080, 1.022, 0.975, 0.983 (± 0.016) at ℓg² = 1.6, 2.4, 3.2, 4.8. c·aᵖ: χ² = 31.7 on 15 dof (p-value ≈ 0.007), p = 0.12–0.17; it fails at ℓg² = 3.2 and 4.8, where β = 15 → 25 flattens.
+- **The pre-registered rule is inconclusive.** β25/β10 = 0.89–0.92 ± 0.02, between the 0.85 (drift) and 0.95 (plateau) thresholds. Those thresholds assumed the plateau would be reached by β = 10. The c₀ + c₁a fit predicts this ratio.
+- **Reading.** In SU(2)₃ the data favour ϖ at fixed ℓg² approaching a positive constant ≈ 1.0 with an O(a) correction, which is what (U) requires. It is evidence, not proof: a very slow decay (p ≲ 0.05) or a turnover beyond β = 25 is not excluded. The U(1)₃ contrast (§10.4: ϖ ∝ (ma)^0.75 → 0) shows the test can see a failure. Selected ℓg² do not vary ϖ much (0.98–1.08), consistent with a ℓ-independent constant once ℓg² ≳ 2.
