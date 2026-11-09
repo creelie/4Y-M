@@ -12,7 +12,7 @@ surveys. The averaged condition $\mathrm{BP}(n,\varpi)$ is a statement of this
 kind for the dynamics that resamples whole cubes of side $n$. For a block
 dynamics with blocks larger than the mixing length, Dyer, Sinclair, Vigoda
 and Weitz derive the contraction of the block dynamics from strong spatial
-mixing by path coupling~\cite{DSVW04,BD97},\footnote{Path coupling reduces a contraction estimate for a Markov chain in a path metric to pairs of states at distance one: if every such pair can be coupled so that the expected distance after one step is at most $1-\delta$, the same holds for all pairs~\cite{BD97}.} in the spirit of the
+mixing by path coupling~\cite{DSVW04,BD97},\footnote{Path coupling reduces a contraction estimate for a Markov chain in a path metric to pairs of states at distance one: if every such pair can be coupled so that the expected distance after one step is at most $1-\delta$, then all pairs can be coupled so that the expected distance after one step is at most $1-\delta$ times the initial distance~\cite{BD97}.} in the spirit of the
 constructive criterion of~\cite{DS85}. This subsection carries that
 argument out for the cube chain of Sec.~\ref{ssec:averaged} on gauge orbits.
 It formulates a mixing condition on the cubes of side $n$ alone, posed for
@@ -148,7 +148,7 @@ in one cell can be absorbed, up to one gauge transformation, everywhere
 except with exponentially small probability at grid distance $j$, uniformly in
 the exterior. $\mathrm{SM}^{\rm TV}_s$ is the strong mixing condition
 of~\cite{MO94a,Mar99} for the raw links, with single-cell changes of the
-boundary condition, restricted to the nested sets $\Delta_j$. Since $ms(j-1)$
+boundary condition, restricted to the nested sets $\Delta_j$. Since $s(j-1)$
 is a lower bound for the lattice distance between $Q$ and the cells at grid
 distance $j$, both conditions express decay at the rate $m$ in lattice
 units. Put, for $\lambda>0$ and $q=e^{-\lambda}$,
@@ -539,10 +539,10 @@ On $\Lambda_{2n+4}$, with $\bar R=\max(R_{d_{\mathcal G}}(n,1),1)$,
 \[
 \begin{split}
 \bar R-1&\ge\bigl(1-X_n(\beta)\bigr)\frac{n^4}{(n+2)^4-n^4}\\
-&\ge\bigl(1-X_n(\beta)\bigr)\frac n{30}.
+&\ge\bigl(1-X_n(\beta)\bigr)\frac n{30}\quad\text{if }X_n(\beta)\le1,
 \end{split}
 \]
-If $\mathrm{SM}_1(n;C,m)$ holds on $\Lambda_{2n+4}$, then $C\Phi(m)\ge
+and trivially otherwise, since $\bar R\ge1$. If $\mathrm{SM}_1(n;C,m)$ holds on $\Lambda_{2n+4}$, then $C\Phi(m)\ge
 (1-X_n(\beta))\,n/30$. The raw response $R_{\mathrm H_1}(n,1)$ is the same
 on every $\Lambda_L$ with $L\ge2n+4$, and $\max(R_{\mathrm H_1}(n,1),1)-1$
 satisfies the same lower bound there. If $\mathrm{SM}^{\rm TV}_1(n;C,m)$
@@ -694,7 +694,7 @@ through the gauge-invariant influence bounds and not through $\mathrm{BP}$.
 \item For $\SU(2)$ the coupling form with $s=1$ fails on $\Lambda_{2n+4}$,
 and the total variation form on every $\Lambda_L$, $L\ge2n+4$, for the cube
 sides $n$ displayed after Proposition~\ref{rW9:fails}; each of the three forms
-fails on boxes in the Coulomb phase of the Villain theory
+fails on boxes in the Coulomb phase of the Villain theory for all constants with which Theorem~\ref{rW9:main} would give $\varpi>0$
 (Proposition~\ref{rW9:fails}); the raw response is bounded at strong
 coupling (Proposition~\ref{rW9:strong}).
 \end{enumerate}
@@ -767,7 +767,7 @@ influence of the exterior on bounded gauge-invariant functions
 coupling (Proposition~\ref{rW9:strong}); for $\SU(2)$ at large $\beta$ the
 condition with fixed constants fails on cubes of the sides displayed after
 Proposition~\ref{rW9:fails}, and it fails on boxes in the Villain Coulomb
-phase (Proposition~\ref{rW9:fails}); on all large scales it gives a gap at
+phase for constants with which Theorem~\ref{rW9:main} would give $\varpi>0$ (Proposition~\ref{rW9:fails}); on all large scales it gives a gap at
 the mixing rate (Theorem~\ref{rW9:allscales},
 Corollary~\ref{rW9:allscalescont}). The argument is the path coupling
 of~\cite{BD97,DSVW04} for block dynamics, carried to gauge orbits and cells.

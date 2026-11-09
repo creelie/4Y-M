@@ -613,11 +613,23 @@ $\partial_\beta^2\log\varphi_\beta(\theta)\ge0$.
 For $k\ne0$, $(\theta+2\pi k)^2-\theta^2=4\pi\lvert k\rvert(\pi\lvert k\rvert
 +\theta\operatorname{sgn}k)\ge4\pi\lvert k\rvert(\pi-\lvert\theta\rvert)+4
 \pi^2\lvert k\rvert(\lvert k\rvert-1)$. (i) The lower bound is the term $k=0$.
-Each of the terms $k=\pm1$ is at most $e^{-\beta\theta^2/2}$, and the sum of
-the terms $\lvert k\rvert\ge2$ is at most $e^{-\beta\theta^2/2}\cdot2e^{-4\pi^2
-\beta}/(1-e^{-8\pi^2\beta})\le0.001\,e^{-\beta\theta^2/2}$ for $\beta\ge1/4$.
-By Poisson summation $\varphi_\beta(\theta)=(2\pi\beta)^{-1/2}\sum_ne^{-n^2/
-(2\beta)}\cos(n\theta)$ with positive coefficients, so
+The terms $k$ and $-k$ add up to
+\[
+2e^{-\beta\theta^2/2}e^{-2\pi^2\beta k^2}\cosh(2\pi\beta k\theta),
+\]
+which for $\lvert\theta\rvert\le\pi$ is at most $e^{-\beta\theta^2/2}(1+
+e^{-4\pi^2\beta})$ for $k=1$ and at most $2e^{-\beta\theta^2/2}e^{-2\pi^2
+\beta k(k-1)}$ for $k\ge2$. Hence, for $\beta\ge1/4$,
+\begin{align*}
+\varphi_\beta(\theta)&\le e^{-\beta\theta^2/2}\Bigl(2+e^{-4\pi^2\beta}+2
+\sum_{k\ge2}e^{-2\pi^2\beta k(k-1)}\Bigr)\\
+&\le2.001\,e^{-\beta\theta^2/2}.
+\end{align*}
+By Poisson summation
+\[
+\varphi_\beta(\theta)=(2\pi\beta)^{-1/2}\sum_ne^{-n^2/(2\beta)}\cos(n\theta)
+\]
+with positive coefficients, so
 \[
 \varphi_\beta(\theta)\le\varphi_\beta(0)=\sum_ke^{-2\pi^2\beta k^2}
 \le1+\frac{2e^{-2\pi^2\beta}}{1-e^{-6\pi^2\beta}}\le1+\eta_\beta.

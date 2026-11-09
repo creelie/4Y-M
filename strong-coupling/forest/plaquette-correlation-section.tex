@@ -483,7 +483,7 @@ once $\beta\le\beta_0(N)$, which is the Koteck\'y--Preiss
 criterion~\cite{KP86} with $a(\gamma)=|A_\gamma|$, uniformly in $L$, $s$,
 $s'$; it gives the absolute convergence of the Mayer series, uniformly on
 the polydisc, and, applied with the activities of the plaquettes $a\ne p,q$
-multiplied by $e^{n(R_a)}$ for $\beta\le\beta_0(N)/e$, the bound
+multiplied by $(\beta_0(N)/\beta)^{n(R_a)}$, whose sums are bounded by $2e\sum_k(N^2\beta_0(N))^k$ by the bound after \eqref{rEtwo:eqsourcebound}, the bound
 $K_N(C_N\beta)^n$ on the clusters of order at least $n$ through $p$.
 \end{proof}
 
@@ -636,7 +636,7 @@ Lemma~\ref{rEtwo:plateau}, $\sum_{\gamma\in X}\sum_{a\in A_\gamma\setminus
 $\Sigma=\partial\mathcal B$, every $n(R_a)=1$ for $a\ne p,q$, and no
 plaquette other than $p,q$ belongs to two polymers of $X$. In the equality
 case $X$ consists of a single polymer: a polymer whose plaquettes lie in
-$\{p,q\}$ does not exist ($p$ and $q$ share no link, and a polymer has at
+$\{p,q\}$ does not exist (a polymer has at
 least six plaquettes), and if two polymers of $X$ partitioned the faces of
 the sphere $\partial\mathcal B$, a link whose two faces lie in different
 polymers would lie in one plaquette of each, contradicting
@@ -1121,7 +1121,7 @@ reflection. Then
 \begin{equation}\label{rEtwo:eqlaplace}
 Z_k^2G_k((3+n)e_0)=\int_{[0,\infty)}e^{-nE}\,d\tau_k(E)\qquad(n\ge1),
 \end{equation}
-and $\tau_k([0,\infty))=Z_k^2G_k(3e_0)$.
+and $\tau_k([0,\infty))\le\tau_k([0,\infty])=Z_k^2G_k(3e_0)$.
 
 \begin{proposition}[spectral form of the two-point law]\label{rEtwo:spectral}
 Let $\omega_k$ satisfy (AF), and put $A=\log(2C_1/c_1)$, $B=8+\gamma$.
@@ -1274,9 +1274,9 @@ and $E_k\le E\le1$,
 \ell(a_k/E)^{-\gamma}.
 \]
 
-The lower half of (AF) implies \textup{(a)} and \textup{(b)} with $E_k=
+(AF) implies \textup{(a)} and \textup{(b)} with $E_k=
 C_4(a_k/r_0)\log(r_0/a_k)$. Conversely \textup{(a)} and \textup{(b)} imply
-the lower half of (AF) up to the factor $(\log((t-3)/2))^{-8}$ on $3\le t
+the lower half of (AF), with a constant factor on $3\le t\le10$ and up to the factor $(\log((t-3)/2))^{-8}$ on $11\le t
 \le3+8/E_k$; with the $E_k$ above this is the range $a_kt\le8r_0/(C_4\log(
 r_0/a_k))(1+o(1))$, shorter than $a_kt\le r_0$ by a logarithm. Neither
 \textup{(a)} nor \textup{(b)} follows from the results of this subsection:
@@ -1292,7 +1292,7 @@ every consequence of reflection positivity.
 \end{corollary}
 
 \begin{proof}
-If the lower half of (AF) holds, (a) is its case $t=3$ and (b) is
+If (AF) holds, (a) is the case $t=3$ of its lower half and (b) is
 Proposition~\ref{rEtwo:spectral}(ii) with $C=2C_3^8/c_1$. Conversely (b)
 gives, by Proposition~\ref{rEtwo:spectral}(iii), the lower half for $11\le
 t\le3+8/E_k$ up to the factor $(\log((t-3)/2))^{-8}$; (a) gives it at

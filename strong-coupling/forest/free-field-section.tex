@@ -711,7 +711,7 @@ equality only for $k=0$, and $\lambda_0=\mu^2\ip{\mathbf 1_V}{G\mathbf 1_V}$.
 \varpi(Q_{\rm s};(V_x))=\frac{\mu^2}{n^d}\ip{\mathbf 1_V}{(-\Delta_D+\mu^2)
 ^{-1}\mathbf 1_V}=1-\alpha_n(\mu^2),
 \]
-with $\alpha_n$ as in Proposition~\textup{\ref{prop:gauss}}; the infimum
+with $\alpha_n(t)$ the function of Proposition~\textup{\ref{prop:gauss}} (not the constant $\alpha_n$ of Lemma~\textup{\ref{lem:ffparabola}}); the infimum
 in~\eqref{eq:ffvarpi} is attained at the constant linear function $\ell_{
 \mathbf 1}$, and among linear functions only at its nonzero multiples. The
 first inequality of Proposition~\textup{\ref{prop:ffupper}(i)} is an equality.
@@ -814,7 +814,7 @@ copies of the Dirichlet Laplacian of the path on $n$ sites, whose eigenvectors
 are $\phi_j(u)=\sin(\pi j(u+1)/(n+1))$, $1\le j\le n$, with eigenvalues
 $4\sin^2\theta_j$, $\theta_j=\pi j/(2n+2)$, $\lVert\phi_j\rVert^2=(n+1)/2$ and
 $\ip{\mathbf 1}{\phi_j}=\cot\theta_j$ for $j$ odd and $0$ for $j$ even (the sum
-$\sum_{u=1}^ne^{i\pi ju/(n+1)}$ equals $2/(1-e^{i\pi j/(n+1)})$ for $j$ odd and
+$\sum_{u=0}^ne^{i\pi ju/(n+1)}$ equals $2/(1-e^{i\pi j/(n+1)})$ for $j$ odd and
 $0$ for $j$ even, and the imaginary part of the former is $\cot\theta_j$).
 The operator $-\Delta_D+\mu^2$ is not a tensor product, but the semigroup
 $e^{t\Delta_D}$ is, which gives the second formula below.
@@ -918,7 +918,7 @@ general
 \varpi_\infty^{(d)}(s)=T_ds^2+O(s^4)\quad(s\to0),
 \end{gather*}
 with $T_d=\ip{\mathbf 1}{(-\Delta)^{-1}\mathbf 1}_{L^2([0,1]^d)}$ the torsional
-rigidity of the unit cube, $T_1=1/12$. For $d=4$,
+rigidity of the unit cube, $T_1=1/12$. Numerically \textup{(}summing the series; these values are not used in any proof\textup{)}, for $d=4$,
 \[
 \varpi_\infty^{(4)}(1)=0.012954\ldots,\qquad\varpi_\infty^{(4)}(2)=0.048687
 \ldots,
@@ -1114,7 +1114,7 @@ not a positive kernel, and no analogue of~\eqref{ffs:eq:spectrum} with a
 nonnegative measure is available. The variational route of
 Remark~\ref{ffs:rem:variational}(a) with the trial field $(G_{\rm P}h^0_V)e_k$,
 $h^0_V=R_{E_V}a$, reduces the equality $n^d\varpi_{\rm P}^{\rm inv}=\mu^2(
-\alpha-\beta)$ to the inequality
+\alpha-\beta)$ to $\beta\ge0$ and the inequality
 \begin{multline*}
 \lVert d_1(ge_k)\rVert^2\le\lVert d_1g\rVert^2+(\hat q(k)-\mu^2)\lVert g\rVert
 ^2\\
@@ -1174,7 +1174,7 @@ unit cube with vanishing tangential trace. On the lattice $\varphi e_1$ fails
 to solve $(Q_{\rm P})_{E_VE_V}w=\epsilon_1$ only by a residual on the face
 $y_1=0$, which accounts for the correction of order $1/n$. The convergence of
 $\mu^2(\alpha-\beta)/n^d$ to $\varpi_\infty^{(d-1)}(s)$ is not proved here.
-So, if the minimum stays at $k=0$, the gauge-invariant Proca constant in $d=4$
+So, if the minimum stays at $k=0$ and this convergence holds, the gauge-invariant Proca constant in $d=4$
 tends, at fixed $m\ell$, to the three-dimensional scalar constant, $0.0196$ at
 $m\ell=1$ and $0.0719$ at $m\ell=2$; the four-dimensional scalar constant tends
 to $0.0130$ and $0.0487$.
@@ -1214,7 +1214,7 @@ With $s_k=n_k\mu_k=m\,n_ka_k$, Theorems~\ref{thm:ffscalar}
 and~\ref{thm:ffproca} give $c_d(s_k)$, which is increasing in $s_k$; for
 $n_ka_k=\ell$ it is $c_d(m\ell)$, and for $s_k\ge m\ell/2$ it is at least
 $(5/6)^d(m\ell)^2/((m\ell)^2+40d)$. The upper bound is
-Proposition~\ref{prop:ffupper}(ii).
+Proposition~\ref{prop:ffupper}(i) and~(ii).
 \end{proof}
 
 \begin{remark}[the size of the constants]\label{rem:ffnumbers}
@@ -1223,7 +1223,7 @@ close to optimal, and the exact constant is known: by Theorem~\ref{ffs:thm:exact
 it is $\varpi_n^{(d)}(s)=\mu^2n^{-d}\ip{\mathbf 1_V}{(-\Delta_D+\mu^2)^{-1}
 \mathbf 1_V}$, with the closed forms of Corollary~\ref{ffs:cor:closed}. The
 $n$-dependent bound $\alpha_n^{-d}s^2/(s^2+10d\rho_n)$ equals it at $n=2$ for
-every $d$ and $s$, and lies within $2.5\%$ of it for $n=3$, $d\le4$ (and $n=4$,
+every $d$ and $s$, and lies within $2.6\%$ of it for $n=3$, $d\le4$, $s\le2$ (and within $2.5\%$ for $n=4$, $s\le9$,
 $d=1$); the ratio of the exact constant to the clean bound $c_d(s)$ tends to
 $\varpi_\infty^{(d)}(s)/c_d(s)$ as $n\to\infty$, which for $d=4$ is $1.10$ at
 $s=1$ and $1.11$ at $s=2$. The gauge-invariant Proca constant exceeds the exact
@@ -1255,7 +1255,7 @@ the quotient in~\eqref{eq:ffvarpi} at the constant linear function $\ell_{
 \mathbf 1}$, and by Theorem~\ref{ffs:thm:exact} it is the exact constant: the
 gap of the dynamics on $L^2$ is exactly the Kantorovich response of one cube to
 a constant shift of its boundary data. The gap between the parabolic trial
-function and the exact Dirichlet resolvent is about $4\%$ for $n\le4$ and at
+function and the exact Dirichlet resolvent is at most $5\%$ for $n\le4$ and at
 most $11\%$ in the limit $n\to\infty$ for $d=4$, $s\le2$.
 
 (c) Corollary~\ref{cor:ffuniform} shows that the hypothesis of

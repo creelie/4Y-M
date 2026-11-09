@@ -107,7 +107,7 @@ Jharkhand 835215, India}
 \date{9 November 2026}
 
 \begin{abstract}
-Four-dimensional lattice Yang--Mills theory with any compact simple gauge group $G\subset\U(N)$ has the mass gap $m\ge\operatorname{arccosh}\bigl(1+\frac1{12}\bigl(\frac{\kappa_G}{N\beta}-\frac{29}2\bigr)\bigr)>0$ at strong coupling $\beta$. One cube estimate with constant $\varpi$ at a physical scale $\ell$, uniform along the weak-coupling tuning, gives every continuum limit the mass gap $m\ge16\varpi/(625e^2\ell)$; the estimate holds for free massive fields and at strong coupling.
+Four-dimensional lattice Yang--Mills theory with any compact simple gauge group $G\subset\U(N)$ has the mass gap $m\ge\operatorname{arccosh}\bigl(1+\frac1{12}\bigl(\frac{\kappa_G}{N\beta}-\frac{29}2\bigr)\bigr)>0$ at strong coupling $\beta$. One cube estimate with constant $\varpi$ at a physical scale $\ell$, uniform along the weak-coupling tuning, gives every nontrivial continuum limit the mass gap $m\ge16\varpi/(625e^2\ell)$; the estimate holds for free massive fields and at strong coupling.
 \end{abstract}
 
 \maketitle
@@ -203,7 +203,7 @@ converge, along every sequence of boxes that exhausts $\Z^4$, to a limit
 $\omega(O)$ that does not depend on the sequence. The state $\omega$ is
 invariant under translations and the hypercubic group and reflection
 positive;\footnote{That is, $\omega(\vartheta(\bar F)F)\ge0$ for every $F$ depending on the links on one side of a lattice hyperplane, $\vartheta$ being the reflection in it. It gives the Hilbert space and the transfer matrix of Osterwalder and Schrader~\cite{OS73,OS75} and of Osterwalder and Seiler~\cite{OSei78}, reconstructed in Appendix~\ref{app:transfer}.} truncated correlations of Lipschitz observables decay at every
-rate below $-\log(3\beta_W)$; and the transfer matrix has spectral gap
+rate below $-\log(3|\beta_W|)$; and the transfer matrix has spectral gap
 \[
 m\ge-\log(3\beta_W)>0 .
 \]
@@ -301,9 +301,7 @@ representation of $\SU(N)$~\cite[Ch.~6]{Kac90}. The identity
 $\kappa_G=h^\vee/(2\ell_\rho)$ is the statement that the Ricci tensor of a
 compact simple group with a bi-invariant metric is one quarter of the
 negative Killing form, $\Ric(X,X)=-\frac14B(X,X)$~\cite{Mil76}, together with
-$B(X,X)=2h^\vee\Tr(\rho(X)^2)/\ell_\rho$. Lower Ricci bounds of the same
-kind, for special holonomy and for Riemannian submersions, are studied
-in~\cite{BTBS26,GBN26}.} For small $|\beta|$ the existence of a gap is classical
+$B(X,X)=2h^\vee\Tr(\rho(X)^2)/\ell_\rho$.} For small $|\beta|$ the existence of a gap is classical
 for every compact group, with no explicit range~\cite[Thm.~3.6]{OSei78}; what is new is an explicit range for
 every group, past the range $N|\beta|<\kappa_G/16$ that the Hessian bound $16$
 gives without gauge fixing, and an explicit gap.\footnote{The computation
@@ -391,8 +389,8 @@ $\beta_W=\frac34$; Remark~\ref{rem:su3cover} describes it, and no result
 uses it.
 
 The plaquette blocks of Theorem~\ref{thm:blocks} work for $\SU(3)$ as well.
-They use the same modulus of the one-link measure, but only through the
-three links of a block, so they need $\Lambda(2\beta_W)$ small and not
+They use the same Kantorovich modulus $\Lambda(r)$, $r=2\beta_W$, of the one-link measure (Sec.~\ref{sec:su3}), but only through the
+three links of a block, so they need $\Lambda(r)$ small and not
 $2r\Lambda(r)<1$: near the end of Theorem~\ref{thm:su3} they give a larger
 gap, and they go past it.
 
@@ -523,9 +521,9 @@ and back, what the condition at the coarsest scale requires of the
 single-link laws of the block variables, the cube condition for block
 averages and a cut-off of Ba{\l}aban's averaging operation that composes
 across scales at small fields, and the labelling of blocks into good and bad
-islands. None of these results gives (D) along the tuning, and they are not
+islands. None of these results gives the cube estimate (D) of Sec.~\ref{sec:inputs} along the tuning, and they are not
 repeated here; this paper keeps the strong-coupling theorems, the continuum
-step and the estimates that bear directly on (D) and (E).
+step and the estimates that bear directly on (D) and on the limit (E) of Sec.~\ref{sec:inputs}.
 
 \begin{figure*}[t]
 \centering
@@ -541,9 +539,6 @@ which is proved along the continuum tuning. Each arrow joins an open input
 to the implication that consumes it; no implication feeds its own input.}
 \label{fig:logic}
 \end{figure*}
-
-This paper substantially elaborates and revises our Hexagon
-preprint~\cite{BBLR26}.
 
 \emph{Plan.} Sec.~\ref{sec:linefield} constructs the line field.
 Sec.~\ref{sec:state} shows that a Dobrushin bound for the gauge-fixed
@@ -1248,10 +1243,10 @@ random search followed by the Nelder--Mead method, gives $0.2783$ at
 $\beta_W=0.34$, and $40|\beta|$ times it crosses one near $\beta_W=0.357$;
 this evaluation is an illustration and no result uses it. No bound of this
 form passes $\beta_W=0.3667$: at $b=0$ the function $f=\ip{y_1}e+
-\operatorname{Re}(y_2y_3e)$ is $1$-Lipschitz for $d$ and has $\Cov_{\mu_b}(f,
+\operatorname{Re}(y_2y_3e)$, with $e=1$, is $1$-Lipschitz for $d$ and has $\Cov_{\mu_b}(f,
 \ip{y_1}e)=\frac14(1+I_2(\beta_W)/I_1(\beta_W))$ exactly
-\cite[Proposition~458]{BBLR26}, which is at least $0.2718$ at
-$\beta_W=0.351$, so the sensitivity is at least this number and $40|\beta|$
+\cite[Proposition~458]{BBLR26}, which increases with $\beta_W$ and is at least $0.2727$ at
+$\beta_W=0.3667$, so the sensitivity is at least this number there and $40|\beta|$
 times it exceeds one for $\beta_W>0.3667$. Past this point the gain from integrating out
 one link is spent, and larger blocks are needed, such as the free links of a
 cube of the line field, whose sensitivity no longer reduces to two sites.
@@ -1605,7 +1600,7 @@ identity field $-\Hess S_0$ restricted to $X_F=0$ has the eigenvalue
 $9+\sqrt{17}=13.123$ on the torus of side two, so $9+\sqrt{17}\le h_F\le\frac{29}2$.
 A gradient search over $\SU(2)$ fields of periods two, four and six finds
 nothing above $13.97401$, the value at an abelian field; certificates made of
-plaquette forms and vertex forms on the period-two cell cannot go below
+plaquette forms and vertex forms on the period-two cell: a numerical search finds none below
 $14.384$. One of us (T.~Romanov)~\cite{Rom26} constructed such a certificate, with sixteen
 positive definite vertex forms of size eight and nonnegative plaquette
 weights, rational with denominator $10^6$. Its positivity is checked by
@@ -1618,7 +1613,7 @@ $\SU(2)$ and $\beta_W<0.3121$ for $\SU(3)$. This is a computation, used
 by no result of the paper, and concerns the lattice at fixed spacing, not
 the continuum limit. The theorems of this paper are stated with
 $\frac{29}2$, which is proved by hand. With this gauge the curvature
-method reaches $|\beta|<\frac1{29}$ and stops before $\frac1{26.25}$; the
+method reaches $|\beta|<\frac1{29}$ and stops before $\frac1{26.24}$; the
 computation moves the first value to $1/28.840002$.
 \end{remark}
 
@@ -1768,7 +1763,7 @@ $\gamma=\frac{187}{128}$.\footnote{The direct Bochner bound, with
 Minkowski's inequality in place of the cross term, gives
 $(\sqrt{\mu_0}-\frac g2r)^2+\frac32-r$ with $g^2=\max_W\|PA(W)\|^2=2.0655$;
 it is exact at $b=0$, where the gap is $\frac83$, but falls below $\gamma$
-for $r>0.24$ and vanishes before $r=1$.}
+for $r>0.24$ and vanishes only near $r=\frac32$.}
 
 \subsection{The modulus by hand}\label{ssec:su3modulus}
 
@@ -1955,7 +1950,7 @@ $0.515$.
 The losses in this bound are Jensen's inequality, the Poincar\'e inequality
 for $\varphi_h$, which replaces the true variance of $\varphi_h$ by
 $\nu_b|\nabla\varphi_h|^2/\gamma(r)$, and the gap $\gamma(r)$ itself: at
-$b=0$ the variance is $\frac16$ and the gap $\frac83$, so that $L_h(0)=
+$b=0$ the variance is $\frac16$ and the gap $\frac83$, so that the same Cauchy--Schwarz bound gives $L_h(0)\le
 \frac14$, while the lemma gives $\frac23/\gamma(0)=0.302$. Evaluated in
 floating point, $\alpha_1$ reaches one near $\beta_W=0.5176$. The rest of this
 section describes a sharper bound for $\Lambda(r)$, with a corrector of
@@ -2703,7 +2698,7 @@ every continuum limit without a separate assumption on the gap.
 \subsection{Smoothed observables}
 
 The observables $O_k(f)$ of Definition~\ref{def:limit} need not be local.
-The renormalised fields that one expects to converge are smoothed by the
+The renormalised fields considered here are smoothed by the
 gradient flow of the Wilson action~\cite{Lus10}\footnote{The flow moves the gauge field along the negative gradient of the Wilson action. At positive flow time the flowed fields are smooth on the scale of the square root of the flow time, and in perturbation theory their gauge-invariant composite fields need no further renormalisation~\cite{Lus10,LW11}.}; at positive flow time their
 correlation functions are finite to all orders of perturbation theory once
 the coupling is renormalised~\cite{LW11}. Flow in all four directions mixes
@@ -2810,8 +2805,8 @@ nontriviality is not proved here.
 \subsection{Renormalised flowed observables}\label{ssec:flowlimit}
 
 The spatially flowed fields can be renormalised by one condition at a single
-physical separation, and their correlation functions then have continuum
-limits along subsequences without further assumptions. What remains open is
+physical separation, and, when the reflected norm $C_k(0)$ below is positive, their two-point functions have continuum
+limits along subsequences. What remains open is
 whether such a limit is trivial, and that question reduces to one ratio of
 lattice two-point functions.
 
@@ -2985,7 +2980,7 @@ $\mu_k$ for the measures in the proof of Theorem~\ref{thm:flowlimit}.
 
 \begin{proposition}\label{prop:flowshift}
 \textup{(i)} Suppose $C_k(\sigma)\ge c\,C_k(0)$ for a dyadic $\sigma>0$, a
-$c>0$ and every $k$ of a sequence. Let $\mu'_k$ be the spectral measure, in
+$c>0$ and every large $k$ of a sequence, so that $\sigma/2a_k$ is an integer. Let $\mu'_k$ be the spectral measure, in
 energies $E=-a_k^{-1}\log\lambda$, of the unit vector
 $C_k(\sigma)^{-1/2}\Psi_{A'_k}$ with $A'_k=\tau_{\sigma/2a_k}A_k$. Then
 $\mu'_k$ is a probability measure on $[0,\infty)$,
@@ -3293,7 +3288,7 @@ $0.023$, $0.0145$ at $a_k^{-1}=8,12,16$, while the ratios at $r>0$ again
 converge to the same continuum values ($0.27092$, $0.27126$, $0.27137$). The
 values are numerical evaluations of the free-field formulas.
 
-At next order the spatial flow, being nonlinear, fuses two hard modes into a
+At next order in perturbation theory (a one-loop count that is not carried out here and is used by no result) the spatial flow, being nonlinear, fuses two hard modes into a
 soft one, and the state $\Psi_{U_k}$ acquires a component of energy about
 $2q$ for each $q\lesssim a_k^{-1}$. Its norm is of order $g^2$ and ultraviolet
 finite, dominated by $q\approx\tau^{-1/2}$, but its mean energy is not: in the
@@ -3447,8 +3442,8 @@ $\{x_B,y_B:B\in\mathcal Z\}$. By the law of total variance,
 $\Var(F\mid\mathfrak B)=\E[\Var(F\mid\mathfrak H)\mid\mathfrak B]
 +\Var(\E[F\mid\mathfrak H]\mid\mathfrak B)$, so
 $\E\Var(F\mid\mathfrak B)\ge\E\Var(F\mid\mathfrak H)$. In the exponent of the
-density, a site $w$ enters through $(d+\frac{\mu^2}2)\phi(w)^2$ and through
-$-\phi(w)\phi(w')$ for each of its $2d$ neighbours $w'$. Given $\mathfrak H$,
+density, a site $w$ enters through $-(d+\frac{\mu^2}2)\phi(w)^2$ and through
+$+\phi(w)\phi(w')$ for each of its $2d$ neighbours $w'$. Given $\mathfrak H$,
 the block average fixes $s_B=\phi(x_B)+\phi(y_B)$, and with
 $u_B=\phi(x_B)-\phi(y_B)$ we have $\phi(x_B)^2+\phi(y_B)^2=\frac12(s_B^2+
 u_B^2)$. Since the free sites have only $\mathfrak H$-measurable neighbours,
@@ -4570,15 +4565,15 @@ $\lvert\beta_W\rvert<\frac29$, and $\alpha_n<1$ reads $\lvert\beta_W\rvert
 \infty$ the threshold $4n^2/(18n^2+18n-3)$ increases to $\frac29$.} At $\lvert\beta_W\rvert\le\frac18$,
 $\alpha_n\le\alpha_2\le0.59$ for every $n\ge2$; at $\lvert\beta_W\rvert\le
 \frac15$, $\alpha_n\le0.982$ for every $n\ge9$.
-\item $G=\SU(3)$ and $\beta_W\ge0$ with
+\item $G=\SU(3)$ and $0\le\beta_W<\frac{283}{128}$, so that $\gamma(2\beta_W)>0$, with
 \[
 \zeta(\beta_W)=\frac{3r\sqrt{\epsilon(r)}}{\gamma(r)}<1,\qquad r=2\beta_W,
 \]
 where $\epsilon$ and $\gamma$ are as in Theorem~\ref{thm:su3}, with
 \[
-\alpha_n=\frac{\zeta(\beta_W)\,(18n-3)}{18\,(1-\zeta(\beta_W))\,n^2}.
+\alpha_n=\frac{\zeta(\beta_W)\,(18n-3)}{18\,(1-\zeta(\beta_W))\,n^2},
 \]
-The function $\zeta$ is increasing, $\zeta(0.35)\le0.8584$, and for
+whenever $\alpha_n<1$. The function $\zeta$ is increasing, $\zeta(0.35)\le0.8584$, and for
 $\beta_W\le0.35$ and $n\ge6$, $\alpha_n\le0.3368\,(18n-3)/n^2\le0.9824$.
 \item $G\subset\U(N)$ closed and connected with semisimple Lie algebra,
 $24N\lvert\beta\rvert<\kappa_G$, with
@@ -5959,7 +5954,7 @@ scale $\xi$, and it is a statement about the gauge, not about the
 gauge-invariant observables: the gauge here is built on straight lines, and
 in gauges of axial type the gauge-fixed variables can fluctuate on all
 scales while gauge-invariant observables cluster. Propositions~\ref{prop:gauss}
-and~\ref{prop:gaussforest} carry the count out exactly for Gaussian fields,
+and~\ref{prop:gaussforest} carry the count out for Gaussian fields, exactly and as a lower bound,
 and Proposition~\ref{prop:gaussforest} shows that the quadratic
 approximation of the forest gauge fluctuates in this way. Where it does,
 (D) fails in this gauge and has to be posed for block-averaged variables,
@@ -6110,7 +6105,7 @@ The proof uses only that gauge transformations constant on the lines of $F$
 move the whole cube while changing few boundary links, which is the
 behaviour of gauges of axial type anticipated in
 Remark~\ref{rem:cubeheuristic}. The class sums themselves, computed exactly
-for $n\le8$, lie between $1.57$ and $11.24$ times $N_n$ and
+for $n\le8$ in a computation that no statement uses, lie between $1.57$ and $11.24$ times $N_n$ and
 increase with $n$. Below the correlation length the theory is weakly
 coupled, and the quadratic approximation is its leading order there. A proof
 of (D) along the tuning therefore has to show that the nonperturbative
@@ -6192,7 +6187,7 @@ posed for variables, such as the block averages, that a constant field
 moves.
 
 \begin{remark}\label{rem:routes}
-Five other routes stop at (D) or (E), or earlier.
+Four other routes stop at (D) or (E), or earlier.
 \begin{enumerate}[label=\textup{(\alph*)},leftmargin=*]
 \item \emph{Disjoint blocks.} The block criterion of
 Lemma~\ref{lem:blockcomparison} with a partition into cubes of side $n$
@@ -6296,7 +6291,7 @@ its range is orthogonal to its kernel,
 so the spectral measure $\nu_k$ of $\mathbb T_k$ at
 $\Psi_k=C_k(0)^{-1/2}\Psi_{A_k}$ (Lemma~\ref{lem:spectralmeasure}) has no atom
 at $0$. Therefore $C_k(t)/C_k(0)=\int\lambda^{t/a_k}d\nu_k>0$. Convexity and
-monotonicity are Proposition~\ref{prop:sliceratio}(ii).
+monotonicity follow from this formula by H\"older's inequality and $\lambda\le1$, as in Proposition~\ref{prop:sliceratio}(ii).
 
 (ii) The first claims follow from (i). On a lattice, a convex function has
 chord slopes that increase in both end points; this gives monotonicity in
@@ -6660,7 +6655,7 @@ This subsection tests the first condition of Corollary~\ref{cor:trial}
 against the most direct estimate for it: a pointwise bound on the change of a
 gauge-invariant function of one slice in one time step by the time-like
 plaquettes, combined with an upper bound on the plaquette energy. Both bounds
-are proved with explicit constants. The combination cannot give the
+are proved with explicit constants. For $\SU(2)$ the combination cannot give the
 condition along any tuning with $a_k\beta_k\to0$, whatever the trial
 function, and the one-loop tuning is of this kind.
 
@@ -6911,7 +6906,7 @@ slice functions with $X_k^c=X_k-\omega_k(X_k)$. Suppose that there are
 $\nu,v>0$ such that for all large $k$
 \begin{gather*}
 \Var_{\omega_k}X_k\ge2\nu\Lambda(X_k)^2,\\
-\omega_k\bigl(X_k^c\,\tau_{u/a_k}A_k\bigr)^2\ge v^2\,\Var_{\omega_k}X_k\,
+\bigl|\omega_k\bigl(X_k^c\,\tau_{u/a_k}A_k\bigr)\bigr|^2\ge v^2\,\Var_{\omega_k}X_k\,
 C_k(2u) .
 \end{gather*}
 If moreover $a_k\beta_k\ge\kappa_0>0$ for all large $k$, then $(\mathrm N_u)$
@@ -7483,7 +7478,7 @@ invariance, as (E) asks, is not available for these fields at a positive
 flow time; it has to be posed for observables whose regularisation is
 $\mathrm O(4)$-covariant, such as the four-dimensional flow, which at
 positive flow time mixes the two sides of the reflection plane
-(Sec.~\ref{ssec:flowlimit}), or the limit of vanishing flow time. For
+(Sec.~\ref{sec:bypass} and Proposition~\ref{prop:fourflow}), or the limit of vanishing flow time. For
 families invariant under $B_4$ part (iv) applies, and one rotation of
 infinite order gives $\mathrm O(4)$. In either case the rotation enters as a
 lattice statement: a Ward identity in which the breaking of the rotation is
@@ -7852,7 +7847,7 @@ variation of $g$ on $\R$, and write $D_{X_k}(r)$ for $D_{X_k}(r/a_k)$ when
 $r\in a_k\Z_{\ge0}$ is a physical time.
 
 \begin{corollary}\label{cor:smearedtrial}
-\textup{(i)} If $D_{X_k}(2t_1)\ge c\,D_{X_k}(2t_0)$ with $c>0$ for all large
+\textup{(i)} If $D_{X_k}(2t_0)>0$ and $D_{X_k}(2t_1)\ge c\,D_{X_k}(2t_0)$ with $c>0$ for all large
 $k$, then $\ip{\chi_k}{(1-\mathbb T_k)\chi_k}\le\kappa a_k$ for all large
 $k$, with $\kappa=2\Var(g)/(c\int g)$. The hypothesis holds with
 $c=c_1^{\max(1,(2t_1-2t_0)/(r'-r))}$ if $D_{X_k}(r')\ge c_1D_{X_k}(r)$ for
@@ -7881,7 +7876,7 @@ $V(w)=a_k\sum_n|g(a_kn)-g(a_k(n-1))|\le a_k\Var(g)$, while
 $\|w\|_1=a_k\sum_ng(a_kn)$ is a Riemann sum of $g$, which is Riemann
 integrable, and so is at least $\frac12\int g$ for large $k$. Then (i)
 follows from Proposition~\ref{prop:smearedtrial}(i); the condition
-$D_{X_k}(2t_1)>0$ holds because $D_{X_k}(2t_0)>0$ is implicit in the
+$D_{X_k}(2t_1)>0$ follows from $D_{X_k}(2t_1)\ge c\,D_{X_k}(2t_0)$ and $D_{X_k}(2t_0)>0$, as assumed in the
 hypothesis. Its second sentence is the log-convexity argument of
 Proposition~\ref{prop:sliceratio}(ii) with $\alpha=2t_0$, $\beta=2t_1$,
 which uses only that $D_{X_k}$ is nonincreasing and log-convex. For (ii),
@@ -7897,7 +7892,7 @@ up to the choice of the physical times, a ratio of two correlations of the
 smeared field at physical times is bounded below. No lattice-scale quantity
 enters: no Lipschitz constant, no plaquette energy, and no first step.
 Proposition~\ref{prop:lipobstruction} concerns single slices and does not
-apply to $B_k$. When $\Phi$ is real, $X_k$ is the slice field $U_k$ of a product packet
+apply to $B_k$. When $\Phi$ and $h$ are real, $X_k$ is the slice field $U_k$ of a product packet
 $f_0=g\otimes h$ and $u=0$, $B_k=A_k$, the overlap is $1$, and part (i)
 gives the hypothesis of Proposition~\ref{prop:flowshift}(ii) from the slice
 ratio of Proposition~\ref{prop:sliceratio}(iii), without the comparison of
@@ -8014,7 +8009,7 @@ comparison that loses a factor $1-c\,g_j^2$ at every scale between $a_k$ and
 $\sigma$, however small $c>0$, gives a lower bound on $\rho_k(u,\sigma)$ that
 tends to zero, at the rate $(\log(1/a_k))^{-4c/h}$, with $4/h<15.534$;\footnote{Since $\beta_k=b\log(1/a_k)+O(1)$, this rate is a constant times $(g_0^2)^{4c/h}$ with $g_0^2=4/\beta_k$ the bare coupling: a power of the coupling at the lattice scale, which is not small at any fixed order of perturbation theory in $g_0^2$ but tends to zero along the tuning.} such a
 bound carries no information in the limit. Part (iii) says that losses of
-second order in the running coupling give $\rho_k(u,\sigma)\ge
+second order in the running coupling, $c_{k,j}\le c/(\beta^{(j)}_k)^2$, give $\rho_k(u,\sigma)\ge
 \rho^{\mathrm G}_ke^{-2c(1/(\beta^-_\sigma)^2+1/(h\beta^-_\sigma))}$ uniformly
 in $k$, a bound that approaches $\rho^{\mathrm G}_k$ as $\sigma$ decreases.
 So a perturbative lower bound on the ratio along the one-loop tuning has to
@@ -8579,7 +8574,7 @@ $\bigcup_L\mathcal F_L$, and put $d(S,S')=\sum_i2^{-i}\min(1,|S(P_i)-
 S'(P_i)|)$. By the bounds and density, $d(S^m,S)\to0$ if and only if
 $S^m_n(f_1,\dots,f_n)\to S_n(f_1,\dots,f_n)$ for all $n$ and $f_j\in
 C_c(\R^4)$, and by the diagonal argument of Theorem~\ref{thm:higher}(ii)
-$(\mathfrak X,d)$ is a compact metric space. For $k\ge k_0$ the lattice
+$(\mathfrak X,d)$ is a compact metric space. Since the moments at each fixed $k$ are bounded by Proposition~\ref{prop:msplit}(i), the constants $M_n(Q)$ may be enlarged so that $k_0=1$; then for every $k$ the lattice
 moments $x_k=(\omega_k(\prod_jZ_kA_k(f_j)))_n$ lie in $\mathfrak X$; let
 $\mathfrak L$ be their set of limit points, the set of subsequential
 limits, and put
@@ -8635,7 +8630,7 @@ $\phi_k$ be the centred Gaussian field on $\Z^4$ with covariance
 \[
 q_k^{|x_0-y_0|}K_{\varepsilon_k}\bigl(a_k(\mathbf x-\mathbf y)\bigr),
 \]
-$A_k(f)=\sum_xa_k^4f(a_kx)\phi_k(x)$, and $f_0\ge0$ nonzero. The law of
+$A_k(f)=\sum_xa_k^4f(a_kx)\phi_k(x)$, and $f_0\in C^1_c(\R^4)$ nonnegative and nonzero. The law of
 $\phi_k$ is invariant under translations and $\Gamma$ and reflection
 positive for the time reflections through sites and bisecting links, and
 its transfer matrix has gap $ma_k$. Moreover $\rho_k(u,\sigma)=
@@ -9271,7 +9266,7 @@ $(\mathrm N_u)$, (RC), (M) and (W); (U1) compares two spacings, which no
 statement at one spacing contains.
 
 The examples are Gaussian and Markov fields, not lattice gauge theories. They
-show that a proof of any of the four open statements has to use properties
+show that a proof of any of these open statements has to use properties
 of the Wilson measure along the tuning beyond translation and $\Gamma$
 invariance, reflection positivity, the transfer-matrix gap, the
 normalisation (RC) and the parts of (M) proved or assumed here.
@@ -9689,8 +9684,8 @@ cube of side $L$ with $|h'|\le1$ and $a_k\le1$, and the second is at most
 $a_k^{-1}(L+1)^3$. For $h\ne0$, $I_k(\delta)\ge a_k^2\sum_xh(a_kx)^2\ge
 (2a_k)^{-1}\int h^2$ for large $k$, so $I^{h'}_k(\delta)\le2(\delta+1)
 (L+1)^6I_k(\delta)/\int h^2$, which is (M$_{\mathrm{sp}}$). By
-Proposition~\ref{prop:msplit}(vi), $\Upsilon_k\to\infty$, so (M$_Z$) and,
-by Proposition~\ref{prop:mzslice}(iii), (Z$_{\mathrm{sl}}$) fail.
+contrast, the noise does not contribute to $D_k(\delta)$, so $D_k(\delta)\le(\sum_xa_k^3|h(a_kx)|)^2$ is bounded while $I_k(\delta)\to\infty$, and (Z$_{\mathrm{sl}}$) fails; by Proposition~\ref{prop:mzslice}(iii) so does (M$_Z$),
+as Proposition~\ref{prop:msplit}(vi) shows directly for $f_0\ge0$.
 \end{proof}
 
 So exact spatial reflection positivity gives (M$_{\mathrm{sp}}$) for every
@@ -10287,7 +10282,7 @@ along the constant tunings (Proposition~\ref{prop:cubecompatible}(ii)). Compactn
 lower bound on $D_k(\delta)$, which is what (Z$_{\mathrm{sl}}$) requires;
 exact spatial reflection positivity together with (M$_{\mathrm{sp}}$) does
 not give it (Proposition~\ref{prop:rpexamples}(b)), and there the term
-that breaks it is constant in space, so that no spatial smoothing removes
+that breaks it is independent between time slices and carries its weight at spatial momenta of order $a_k$, so that no spatial smoothing at a fixed physical flow time removes
 it. The
 missing estimate is that of Remark~\ref{rem:opensplit}: a bound on the
 high-energy spectral weight of the slice field by its weight at bounded
@@ -10521,11 +10516,11 @@ the Villain action it fails at every size once $\beta$ is large
 (Proposition~\ref{prop:coulomb}). In \cite[Sec.~XII\,A]{BBLR26} the
 estimate is posed for block averages, where its quadratic approximation
 holds along the tuning. None of these decides (D) along the
-continuum tuning, where $n$ grows while $\beta$ grows.\footnote{The four
+continuum tuning, where $n$ grows while $\beta$ grows.\footnote{These
 statements answer the question of which parts of (D) can be settled with
-the methods of this paper. The first places (D) in the range where the
-single-link method already works, the second and third show what any proof
-of (D) at weak coupling has to produce, and the fourth excludes the most
+the methods of this paper. Proposition~\ref{prop:cubesmall} places (D) in the range where the
+single-link method already works, Theorem~\ref{thm:cubeneeds} and Corollary~\ref{cor:cubefails} show what any proof
+of (D) at weak coupling has to produce, and Proposition~\ref{prop:slowline} excludes the most
 direct one-dimensional route. }
 
 For a finite $V\subset A$ and $j\in A\setminus V$ let $b(V,j)$ be the number
@@ -10567,7 +10562,7 @@ class $c$,
 \[
 \sum_{j\in c\setminus V}b(V,j)\le10m^3-2m^2 ,
 \]
-with equality for three classes. Consequently, if $C_{ee'}\le c_0$ for all
+with equality for three classes when $n\ge4$. Consequently, if $C_{ee'}\le c_0$ for all
 $e,e'$ with $12c_0<1$, then $D(n,\alpha)$ holds for every $\alpha\in(0,1)$
 with
 \[
@@ -10601,7 +10596,7 @@ $a_c\le10$ and $8-a_c+b_c\ge0$, so
 &\ge m^2(8-a_c+b_c)\ge0,
 \end{split}
 \]
-with equality for the three classes with $(a_c,b_c)=(10,2)$. By
+with equality for the three classes with $(a_c,b_c)=(10,2)$ when $m\ge2$, and also for the three with $(9,1)$ when $m=1$. By
 Lemma~\ref{lem:cubesingle}, $K_c\le c_0(10m^3-2m^2)/(1-12c_0)$, and $N_n=m^4$
 gives $K_c/N_n\le\hat\alpha_n$. For $\SU(2)$ the proof of
 Theorem~\ref{thm:su2} gives $c_0=|\beta|=|\beta_W|/4$.
@@ -11188,8 +11183,8 @@ the blocked theory out of the small-field regime before the condition can
 be checked. That passage, at a running coupling of order one, is the step
 that remains open.
 
-The next statement shows that the cube condition separates a theory with a
-massless photon from the expected behaviour of $\SU(N)$: for the compact
+The next statement shows that the cube condition fails for a theory with a
+massless photon: for the compact
 abelian theory in its Coulomb phase it fails at every scale. Let $G=\U(1)$
 with the chordal metric, $D=2$, and replace the Wilson weight by the
 Villain weight
@@ -11235,7 +11230,7 @@ smooth in $\theta_p$, so it is gauge invariant, local and Lipschitz in each
 of its four links, with constants that do not depend on $p$, and
 $\omega(\Psi_p)=0$ by the symmetry $\theta\mapsto-\theta$. The bound above
 gives $\sum_{p'}|\omega(\Psi_p\Psi_{p'})|<\infty$, the sum over the
-plaquettes $p'$ parallel to $p$. The state of~\cite{FS82} is the limit of
+plaquettes $p'$ parallel to $p$. Under $D(n,\alpha)$ the gauge-fixed specification has exactly one Gibbs measure (Proposition~\ref{prop:state}(i), through Theorem~\ref{thm:onescale}), so the infinite-volume state of~\cite{FS82}, a Gibbs state of the same Villain specification, coincides on gauge-invariant local functions with the limit of
 the same free-boundary measures over boxes, which is $\omega$. Fr\"ohlich
 and Spencer prove, for $\beta$ larger than some $\beta_0$, that the Fourier
 transform of the two-plaquette function of the field strength is
@@ -11723,7 +11718,7 @@ $\theta_\mu$ replaced by $\theta_{\mu,k}$. For $a_k\le\min(\varepsilon,
 obtained by replacing $\theta_\mu$ by $\theta_{\mu,k}$ in some factors lie
 in $\mathcal C(Q',\min(\varepsilon,\delta/2))$ for a cube $Q'$ independent of
 $k$, because the reflected factors are supported in $\{x_\mu\le-\varepsilon
-+a_k\}$. By (i) and multilinearity the difference of the two moments is at
++a_k\}$. By (M$_{\mathrm s}$) and multilinearity the difference of the two moments is at
 most a constant times $\max_{\beta,j}\|f_{\beta,j}\circ\theta_{\mu,k}-
 f_{\beta,j}\circ\theta_\mu\|_\infty$, which tends to $0$ by uniform
 continuity. So $S(\theta_\mu\bar P\cdot P)\ge0$. The form is Hermitian by
@@ -11823,7 +11818,7 @@ bound of (i) gives $R\in G_S$. The proof of
 Proposition~\ref{prop:rotations}(iv) uses only that the group is a closed
 subgroup of $\mathrm O(4)$ containing $B_4$.
 
-For the converse, cover $Q$ by the closed cubes of side $s=\delta/4$ that
+For the converse, let $Q$ have side $L$ and cover it by the closed cubes of side $s=\delta/4$ that
 carry the functions $\chi^s_m$, at most $(2L/s+3)^4$ of them. For
 $(f_j)\in\mathcal C_n(Q,\delta)$, every nonzero term
 $\omega_k(\prod_jZ_kA_k(\chi^s_{m_j}f_j))$ has the $n$ cubes of
@@ -12503,7 +12498,7 @@ which produces the growth, is carried by energies at least
 $a_k^{-1}\log(1/\varrho)\to\infty$, and (UV) fails, by the proof of
 Proposition~\ref{prop:limitEsd}(ii), which uses only the invariance,
 reflection positivity and the gap. For $\lambda_k=0$ it is the field of
-Proposition~\ref{prop:osobstruction}(a), for which (SD) and
+Proposition~\ref{prop:osobstruction}(a), for which $\ell_0\le\mathcal N_k(\varepsilon')\le(2+a_0)^8$ for $\varepsilon'\le\varepsilon$ and large $k$ by the bounds in the proof of (b), so that, with Wick's formula, (SD) and
 (M$_{\mathrm s}$) hold. Like that field, it is not a lattice gauge theory; it shows that
 (SD), equivalently (UV), is an input on the ultraviolet behaviour of the
 Wilson measure that reflection positivity and the gap do not supply.
@@ -12523,7 +12518,7 @@ such limit has $\mathcal H^{(1)}\ne0$.
 
 \textup{(ii)} If $\omega_k(\Phi_0\Phi_z)\ge c_k^2$ for all large $k$ and all
 $z\in\Z^4$ with $|z|_\infty\ge2r+1$, then $R_k(g_0)\ge1$ for large $k$ and
-every continuous $g_0$ with values in $[0,1]$, equal to $1$ on
+every $g_0\in C_c(\R^4)$ with values in $[0,1]$, equal to $1$ on
 $B_\varepsilon$ and supported in $\{x_0\ge\varepsilon/2\}$; in particular
 \textup{(NE)} holds.
 \end{proposition}
@@ -13206,7 +13201,7 @@ along that set, which is not proved.
 coordinate directions bounds the separated two-point moments at every point
 by their values on a coordinate axis, where they form a completely monotone
 function of the distance. For $n=2$ write $g_k(s)=M_k(0,se_0)$ for
-$s\in\Z$, and $\lfloor t\rceil=\lfloor t+\frac12\rfloor$. Let $h\in\{1,-1\}$
+$s\in\Z$, and $\lfloor t\rceil=\lfloor t+\frac12\rfloor$. Let $h\in\{-1,0,1\}$
 be such that $\vartheta x=(h-x_0,\mathbf x)$ for $x=(x_0,\mathbf x)\in\Z^4$;
 the plane fixed by $\vartheta$ is $\{x_0=h/2\}$.
 
@@ -13863,7 +13858,7 @@ proof of Theorem~\textup{\ref{thm:limitEsep}(i)}. There is a number $c_\star$,
 independent of $n$, $C$, $p'$, $q'$ and $S$, such that, with
 $w=\lceil q'\rceil+\lceil p'\rceil+12n+1$,
 \[
-|S(F)|\le c_\star^n\,C\,6^{q'}16^{p'}\,|F|_w\qquad\text{for }F\in
+|S(F)|\le c_\star^n\,C\,9^{q'}16^{p'}\,|F|_w\qquad\text{for }F\in
 C^\infty_c(\mathfrak D_n).
 \]
 Hence $S$ extends uniquely to a linear functional on $\mathcal S_0(\R^{4n})$
@@ -13923,22 +13918,22 @@ so that $w\ge\max(w_0,8n+N)$. At a point of the support of $H$, $d\le12h\le
 the same quantity is at most $|F|_w$.
 
 \emph{Summation.} For $x\in X_m$, $|z_j|_\infty\le|x|_\infty+h$, so the cube
-of the first step has $1+L\le2(1+|x|_\infty)\le2(1+|x|^2)^{1/2}$. Evaluating at
+of the first step has $1+L\le2(1+|x|_\infty)\le3(1+|x|^2)^{1/2}$. Evaluating at
 the point of the compact box $X_m$ where $(1+|x|^2)^{-w_0/2}$ is largest, and
 using $q'-w_0\le-8n$ and $(1+|x|^2)^{4n}\ge\prod_{j,\nu}(1+x_{j\nu}^2)$, the
 piece $\psi^h_mH$ of a term of the second or third kind contributes at most
 \[
-C2^{q'}h^{-p'}\bigl(5b_\psi\cdot2C_\psi\cdot9\bigr)^{4n}3^{w_0}\frac{(48h)^N}
+C3^{q'}h^{-p'}\bigl(5b_\psi\cdot2C_\psi\cdot9\bigr)^{4n}3^{w_0}\frac{(48h)^N}
 {N!}|F|_w\sup_{x\in X_m}\prod_{j,\nu}(1+x_{j\nu}^2)^{-1} .
 \]
 The sum over $m\in(\Z^4)^n$ of the supremum is the $4n$-th power of
 $\sum_{k\in\Z}\sup_{|t-hk|\le h}(1+t^2)^{-1}\le3+2\int_0^\infty\frac{du}{1+h^2u^2}
 <\frac7h$. With $48^N/N!\le e^{48}$, $3^{w_0}\le3^{q'+1}3^{8n}$ and
 $h^{N-p'-4n}\le h$, the terms of the second and third kinds at the scale $h$
-contribute at most $C6^{q'}c_1^nh|F|_w$ with $c_1=3^{10}e^{48}(5\cdot7\cdot9
+contribute at most $C9^{q'}c_1^nh|F|_w$ with $c_1=3^{10}e^{48}(5\cdot7\cdot9
 \cdot2C_\psi b_\psi)^4$, and each $h_l$ occurs in at most two of them, with
 $\sum_l2h_l=\frac14$. The term $E_0F$ contributes at most
-$C2^{q'}16^{p'}(5\cdot7\cdot16\,b_\psi)^{4n}|F|_w$ by the same count without
+$C3^{q'}16^{p'}(5\cdot7\cdot16\,b_\psi)^{4n}|F|_w$ by the same count without
 the Taylor factor. This gives the bound with $c_\star=c_1+(5\cdot7\cdot16\,
 b_\psi)^4$.
 
@@ -13971,16 +13966,16 @@ Theorem~\textup{\ref{thm:limitEsep}}.
 on $\mathcal C_n(Q,\delta)$ for every cube $Q$ of side $L$ and
 $\delta\in(0,1]$. Then $S_n$
 extends uniquely to a linear functional on $\mathcal S_0(\R^{4n})$ continuous
-for the topology of $\mathcal S(\R^{4n})$, and $|S_n(F)|\le c_\star^nC6^{q'}
+for the topology of $\mathcal S(\R^{4n})$, and $|S_n(F)|\le c_\star^nC9^{q'}
 16^{p'}|F|_w$ with $w$ and $c_\star$ as in
 Lemma~\textup{\ref{lem:limitEextend}}.
 
 \textup{(ii)} Under \textup{(G$_{\mathrm s}$)}, for every $n\ge1$ and
 $F\in\mathcal S_0(\R^{4n})$,
 \[
-|S_n(F)|\le\sigma_n|F|_{sn},\qquad\sigma_n=(6^q16^pc_\star K)^n(n!)^\beta,
+|S_n(F)|\le\sigma_n|F|_{sn},\qquad\sigma_n=(9^q16^pc_\star K)^n(n!)^\beta,
 \]
-with $s=\lceil p\rceil+\lceil q\rceil+13$, and $\sigma_n\le e^{6^q16^pc_\star K}(n!)^{\beta+1}$, since $y^n\le e^yn!$ for
+with $s=\lceil p\rceil+\lceil q\rceil+13$, and $\sigma_n\le e^{9^q16^pc_\star K}(n!)^{\beta+1}$, since $y^n\le e^yn!$ for
 $y\ge0$; this is the linear growth condition of~\cite{OS75}.
 
 \textup{(iii)} Suppose that the hypothesis of \textup{(i)} holds for every
@@ -14281,7 +14276,7 @@ C|z|^{-8}$ for $z\ne0$, then $|S_2(f,g)|\le\|f\|_\infty\|g\|_\infty L^4C\int_{
 $\mathcal C_2(Q,\delta)$, which is that hypothesis with $q'=p'=4$, while (M)
 fails by Proposition~\ref{prop:limitEsing}. At strong coupling
 (Corollary~\ref{cor:limitEstrong}) every limit vanishes at separated points,
-and its extension is $0$.
+and its extension to $\mathcal S_0(\R^{4n})$ is $0$.
 \end{remark}
 
 \emph{Asymptotic freedom at short distance.} Renormalised perturbation
@@ -14349,7 +14344,7 @@ $D_{\mu\rho}=\partial_\mu\partial_\rho D=M_{\mu\rho}/(2\pi^2|x|^4)$, where $M=4u
 $u=x/|x|$. Since $\operatorname{tr}M=0$ and $\operatorname{tr}M^2=12$, each
 of the four squared terms of the bracket, summed over $\mu,\nu,\rho,\sigma$,
 gives $4\cdot12$, the two cross terms with a trace vanish and the other four
-give $-12$ each, so the sum of the squares is $(192-96)(2\pi^2|x|^4)^{-2}=
+give $-24$ each, so the sum of the squares is $(192-96)(2\pi^2|x|^4)^{-2}=
 24\pi^{-4}|x|^{-8}$, and Wick's theorem gives $T_0=2(N^2-1)\cdot24\pi^{-4}=
 48(N^2-1)/\pi^4$. With $\bar g(|x|)^{-2}=2b_0\log\frac1{|x|\Lambda}(1+o(1))$
 this gives, as $|x|\to0$,
@@ -14959,8 +14954,8 @@ properties; any argument that uses the state only through these, such as a
 chessboard or multiple-reflection estimate or a bound by powers of the
 transfer matrix, gives neither (RN$_2$) nor (M$_{\mathrm s,3}$). The
 choice of $Z_k$ does not matter: the unnormalised separated two-point moments
-are bounded in $k$, so every normalisation for which some separated
-two-point limit is nonzero has $\liminf_kZ_k>0$, and for it the moments in
+are bounded in $k$, so every normalisation for which no separated
+two-point limit vanishes identically has $\liminf_kZ_k>0$, and for it the moments in
 (b) and (c) still tend to infinity; this applies to $Z_k=C_k(\sigma_0)^{-1/2}$
 of Proposition~\ref{prop:limitEnorm}(ii) for $f_0\ge0$, $f_0\ne0$. Part (d)
 takes into account that $\Phi$ is bounded for the Wilson measure: for
@@ -15339,7 +15334,7 @@ hypothesis of Theorem~\textup{\ref{thm:limitEtwo}}, and let
 $\Phi=b_0-\sum_jb_j\cos\theta_j$ with $b_j\ge0$ for $j\ge1$ and each
 $\theta_j$ an integer combination of the angles of the links with both
 endpoints in $[-r,r]^4$; the sum of $1-\cos\theta_p$ over the $24$
-plaquettes with a corner at $0$ is an example. Then $K_k(z)\ge0$ for all
+plaquettes with a corner at $0$ is an example. Then $G_k(z)=\omega_k(\Phi_0\Phi_z)-c_k^2\ge0$ for all
 $z\in\Z^4$. If \textup{(SD)} holds, then \textup{(NE)} holds, every limit
 $S_2$ of Corollary~\textup{\ref{cor:limitEtwo}(b)} is not identically zero,
 and $\mathcal N_k(\varepsilon)\le\omega_k(\vartheta(A_k(g_0))A_k(g_0))$ for
@@ -15969,7 +15964,7 @@ L\'evy~\cite{Lev03}.
 
 \section*{Data and code availability}
 
-\par The current manuscript and complete TeX inputs are in the \texttt{papers/} directory of \url{https://github.com/creelie/4Y-M}, research release \href{https://github.com/creelie/4Y-M/releases/tag/v4.43.0}{v4.43.0}, archived on Zenodo as \href{https://doi.org/10.5281/zenodo.24083857}{doi:10.5281/zenodo.24083857}. The permanent work DOI is \href{https://doi.org/10.5281/zenodo.23444338}{10.5281/zenodo.23444338}. The earlier DOI links below identify historical computational records.
+\par The current manuscript and complete TeX inputs are in the \texttt{papers/} directory of \url{https://github.com/creelie/4Y-M}, research release \href{https://github.com/creelie/4Y-M/releases/tag/v4.44.0}{v4.44.0}. The permanent work DOI is \href{https://doi.org/10.5281/zenodo.23444338}{10.5281/zenodo.23444338}.
 
 
 The proofs are analytic. Remarks~\ref{rem:su3cover} and~\ref{rem:su3blocks}
@@ -16169,7 +16164,7 @@ $\mu$-almost every $\eta$. So is $\gamma_V(\cdot\mid\eta)$, whose
 conditional laws of single links are the $\gamma^F_e$. The composition $P_\eta$
 of the kernels $\gamma^F_e$, $e\in V$, in a fixed order has a density with
 respect to Haar measure on $G^V$ bounded below by a positive constant,
-because each single-link density is at least $e^{-12N^2\beta}$ times its
+because each single-link density is at least $e^{-12N^2|\beta|}$ times its
 maximum over the group. A Markov kernel with such a lower bound has at most
 one invariant probability measure (Doeblin's condition), so
 $\nu_\eta=\gamma_V(\cdot\mid\eta)$.
@@ -16408,11 +16403,11 @@ For $m>0$ the following are equivalent:
 \begin{enumerate}[label=\textup{(\alph*)},leftmargin=*]
 \item the spectrum of $\mathbb T$ on $\Omega^\perp$ lies in $[0,e^{-m}]$;
 \item for every $F$ in a class of gauge-invariant local functions supported
-at times in a bounded interval and dense in $L^2(\omega)$ on each such support,
+at nonnegative times in a bounded interval and dense in $L^2(\omega)$ on each such support,
 there is $C_F<\infty$ with $0\le\omega(\vartheta(\bar F)\tau_tF)-|\omega(F)|^2
 \le C_Fe^{-mt}$ for all $t\ge0$.
 \end{enumerate}
-Under \textup{(a)} one may take $C_F=\|F\|_\infty^2$ for every bounded $F$.
+Under \textup{(a)} one may take $C_F=\|F\|_\infty^2$ for every bounded $F$ supported at nonnegative times.
 \end{proposition}
 
 \begin{proof}
@@ -17575,7 +17570,7 @@ the positivity of ninety-six matrices of trigonometric polynomials and the
 arithmetic of finitely many rational numbers are checked by
 computer.\footnote{The constant
 $14.420001$ is not the best possible for this kind of certificate: by the
-search reported in Remark~\ref{rem:hf} it cannot go below $14.384$, while
+numerical search reported in Remark~\ref{rem:hf} it does not go below $14.384$, while
 the true value of $h_F$ is at least $13.123$.}
 
 \subsection{Ends and corners}
@@ -17730,7 +17725,7 @@ each pair $a<b$, in the entries $(Y_i)_{ab}$ and $(Y_i)_{ba}=
 of the pair $a<b$ is the same difference for $N=2$ at
 $W'=\operatorname{diag}(w_a,w_b)$, evaluated on the matrices $Y_i'\in
 \mathfrak u(2)$ with off-diagonal entries $(Y_i)_{ab}$, $(Y_i)_{ba}$ and
-zero diagonal. The term of $a$ is the difference at $W'$, for any $b\ne a$,
+zero diagonal. The term of $a$ is the difference at $W'=\operatorname{diag}(w_a,w_b)$ for any $b\ne a$, or at $W'=\operatorname{diag}(w_1,1)$ when $N=1$,
 evaluated on $Y_i'=\operatorname{diag}((Y_i)_{aa},0)$. In both cases
 $Y'_{k_p}=0$, so each term is nonnegative.
 \end{proof}
@@ -17773,13 +17768,9 @@ class with the smallest minimum, about $0.0057$ on a grid of $96^2$ phases
 (red dot); the exact computation of Remark~\ref{rem:certificate} finds it
 positive at every phase.
 (b)~The forty-eight totals in the definition of $h$, in increasing order,
-against $\frac{29}2$, the value $14.420001$ of the largest, the floor
+against $\frac{29}2$, the value $14.420001$ of the largest, the numerical floor
 $14.384$ for certificates on the period-two cell, and the lower bound
-$9+\sqrt{17}$ for $h_F$. (c)~The constant $C$ in $\sum\phi^2\le CQ$ for the
-block gauge: $52$ from \cite[Theorem~330]{BBLR26}, $5000/537$ from the
-computation of \cite[Remark~331]{BBLR26}, and the bulk Bloch value
-$1/0.10749=9.3034$, the best constant when $W$ is the set of all
-blocks. The eigenvalues in (a) and the Bloch value are in floating point.}
+$9+\sqrt{17}$ for $h_F$. The eigenvalues in (a) are in floating point.}
 \label{fig:certificate}
 \end{figure*}
 
@@ -17954,9 +17945,6 @@ D.~Bhattacharjee, U.~Bhattacharya, J.~M.~Lockwood and T.~Romanov, One cube
 estimate implies the Yang--Mills mass gap, Hexagon preprint 2610.00341v7,
 2026, \url{https://hexagonmath.org/2610.00341v7}.
 
-\bibitem{BTBS26}
-D.~Bhattacharjee, S.~Nath Thakur, S.~Bhattacharya and P.~Samal, $\SU(n)$ holonomy deviations in Calabi--Yau manifolds (CY1--CY4), Preprints (2026), \href{https://doi.org/10.20944/preprints202602.0023.v1}{doi:10.20944/preprints202602.0023.v1}.
-
 \bibitem{BL76}
 H.~J.~Brascamp and E.~H.~Lieb, On extensions of the Brunn--Minkowski and
 Pr\'ekopa--Leindler theorems, including inequalities for log concave
@@ -18112,9 +18100,6 @@ J.~Fr\"ohlich and T.~Spencer, Massless phases and symmetry restoration in abelia
 C.~Gattringer and C.~B.~Lang, \emph{Quantum Chromodynamics on the Lattice},
 Lecture Notes in Phys. 788, Springer, Berlin, 2010,
 \href{https://doi.org/10.1007/978-3-642-01850-3}{doi:10.1007/978-3-642-01850-3}.
-
-\bibitem{GBN26}
-R.~Ghora, D.~Bhattacharjee, P.~Nandi, P.~Samal, R.~Patra, S.~Singha Roy and S.~Bhattacharya, O'Neill tensor bounds for Riemannian submersions in fibred Calabi--Yau manifolds, Preprints (2026), \href{https://doi.org/10.20944/preprints202602.0125.v1}{doi:10.20944/preprints202602.0125.v1}.
 
 \bibitem{Gin70}
 J.~Ginibre, General formulation of Griffiths' inequalities, Comm. Math. Phys. \textbf{16} (1970), 310--328, \href{https://doi.org/10.1007/BF01646537}{doi:10.1007/BF01646537}.
