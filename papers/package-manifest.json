@@ -3,9 +3,9 @@
   "version_doi": null,
   "permanent_work_doi": "10.5281/zenodo.23444338",
   "pages": 227,
-  "baseline_commit": "824964578e5d41402833aaf992634907055575c7",
+  "baseline_commit": "c06a63d32197990181f5705a549df9492fbd7973",
   "files": {
-    "ym4d.pdf": "46c614b468fd3c234d5d39b6df09a9f2d1fcab9ce235bd4e846b2a5b3d90cac5",
-    "ym4dtex.zip": "90daa0c1b10bc5240f614f0773e4a96ceb0244c241573cba05c77934b5a3ba3e"
+    "ym4d.pdf": "324c7970f188ea3b3ecabb127f58e14491c562d0e07a8d605e9b5fb7aad730fa",
+    "ym4dtex.zip": "5bb418748232c88c1b80ca8c92dc1686e7d10c897ecbce3b28ab3ea53e1e9e12"
   }
 }
