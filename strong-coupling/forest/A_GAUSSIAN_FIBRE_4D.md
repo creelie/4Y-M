@@ -387,8 +387,181 @@ The two agree, so c(mℓ) is (numerically) the exact limit and not just a lower 
 
 **Higher chaos (step (ii)).** For a Gaussian field, resampling a cube Λ is a conditional expectation onto a Gaussian sub-σ-algebra. On the Fock (Wiener-chaos) decomposition it acts as the second quantization Γ(P_Λ) of the one-particle projection P_Λ. So the BP Dirichlet form is E_n(f) = avg_Λ ⟨f, (1 − Γ(P_Λ)) f⟩, a random-scan block Gibbs sampler. For such samplers with a Gaussian target, the L² spectral gap equals the gap restricted to linear functions (Amit 1991, 1996, *J. Multivariate Anal.*; see also Roberts–Sahu 1997). The mechanism is that the chain maps each chaos to itself, and on the m-th chaos the one-step operator is a symmetrized product of contractions whose norm is at most the norm on the first chaos. The gauge projection commutes with every Γ(P_Λ) when Λ is gauge-covariant, so the same holds on the gauge-invariant sector. **Consequence: in the free massive field, BP(n, ϖ) for all observables follows from its first-chaos version, which the computations above control.** Caveat: those references treat finitely many coordinates and a finite family of blocks. Our infinite-volume, translation-averaged family needs a limiting argument (finite torus, then L → ∞, using the volume stability already seen). This has not been written out.
 
-**Status of "gap ⇒ (U)" in the free massive field.** Proven modulo two items: (a) the infimum over k is attained as k → 0 (seen numerically on the full 9⁴ grid, not proven); (b) the finite-to-infinite-volume extension of the Amit reduction. Granting both, ϖ_∞ = (mℓ)²⟨1,(−Δ_D+(mℓ)²)⁻¹1⟩_{[0,1]³} > 0. So, at least for the free theory, (U) is implied by a gap, and the framework is a reformulation of the gap and not a strictly stronger demand.
+**Status of "gap ⇒ (U)" in the free massive field.** Proven modulo two items: (a) the infimum over k is attained as k → 0 (seen numerically on the full 9⁴ grid; proved up to a factor 5 in §10.2, which suffices for (U)); (b) the finite-to-infinite-volume extension of the Amit reduction. Granting both, ϖ_∞ = (mℓ)²⟨1,(−Δ_D+(mℓ)²)⁻¹1⟩_{[0,1]³} > 0. So, at least for the free theory, (U) is implied by a gap, and the framework is a reformulation of the gap and not a strictly stronger demand.
 
 **C_B^lin at n = 4 (step (iii)).** L = 8 gives C_B^lin = 0.76997, with a 5-fold degenerate top eigenvalue (cubic symmetry) and median 0.734. The L = 9 volume check is still running. The sequence is 0.658, 0.724, 0.770 for n = 2, 3, 4. Fitting c₀ − c/n gives c₀ = 0.857 from n = 2, 3 and c₀ = 0.907 from n = 3, 4. The extrapolated limit is still below 1 but rising as more points are used, so the sequence converges more slowly than 1/n. **Reading:** linear coarse test functions alone probably don't push C_B past 1. Either C^G_∞ > 1 comes from nonlinear test functions, or C_B^lin creeps to ≥ 1 only at large n. In either case step 1 of §8.3 is still argued only by consistency. The §8.3 no-go is therefore conditional on step 1 as well as on (LSC). This matters less now: the free-field computation above shows that (U), and not the tower, is the right target.
 
 **C_B^lin n = 4, volume check.** L = 9 gives 0.76850, against 0.76997 at L = 8. The difference is 0.2%, larger than the 10⁻⁵ seen at n = 2 and 3, as expected since the cube is now half the box. The n = 4 value is ≈ 0.769, and the conclusions above are unchanged.
+
+### 10.1 Step 2: higher chaos, any volume (self-contained proof)
+
+**Lemma.** Let P_Λ be orthogonal projections on a Hilbert space H, and let T₁ = avg_Λ P_Λ be any average (finite, or a weak limit of Følner averages). Then for every m ≥ 1, on H^{⊗m} (in particular on the symmetric tensors),
+
+  avg_Λ P_Λ^{⊗m} ≤ T₁ ⊗ 1^{⊗(m−1)}.
+
+The same holds after compressing to any subspace of the form H_T ⊗ H′.
+
+*Proof.* P_Λ ≥ 0 and 0 ≤ P_Λ^{⊗(m−1)} ≤ 1. For A ≥ 0 and B ≤ C, A ⊗ B ≤ A ⊗ C, so P_Λ^{⊗m} ≤ P_Λ ⊗ 1. Averaging preserves the inequality. For ψ ∈ H_T ⊗ H′, ⟨ψ,(T₁⊗1)ψ⟩ = ⟨ψ,(Π_T T₁ Π_T ⊗ 1)ψ⟩. ∎
+
+**Application.** For a Gaussian field, resampling Λ is the conditional expectation Γ(P_Λ), and it acts on the m-th Wiener chaos as P_Λ^{⊗m}. So the BP form is E_n(f) = Σ_m ⟨f_m,(1 − avg P_Λ^{⊗m}) f_m⟩. A transverse (first-chaos) bound ‖Π_T T₁ Π_T‖ ≤ 1 − ϖ, together with the Lemma, gives E_n(f) ≥ ϖ Var(f) for every f whose chaos kernels lie in H_T^{⊗m}. Those are exactly the polynomials that are invariant under gradient shifts in each slot, which is the gauge-invariant sector. The argument uses only operator positivity. It needs no finite-dimensionality, so it holds directly in infinite volume and replaces the appeal to Amit (§10). **Step 2 is closed.** This is a simpler, slightly weaker cousin of Amit's theorem (the gap on chaos m is at least the gap on chaos 1), and it is all (U) needs.
+
+### 10.2 Step 1 (k-infimum at k → 0): numerical confirmation
+
+Radial scan of the transverse BP symbol ϖ_k at |k| = t/n, t ∈ {0} ∪ geomspace(0.02, πn, 24), along five directions (axis, two diagonals of rank 2, 3, 4, and generic (1,2,3,5)), for n ∈ {8, 12, 16}, mℓ ∈ {1, 4}, plus n = 3 as a selftest.
+
+- In all 35 (n, mℓ, direction) groups, ϖ_k is monotone nondecreasing in t, so its minimum is at t = 0.
+- The t = 0 values reproduce the k = 0 computation exactly. For mℓ = 1 they are 0.03063, 0.02763 and 0.02588 at n = 8, 12 and 16. For mℓ = 4 they are 0.29859, 0.28014 and 0.26831.
+- At the zone boundary, ϖ_k ≈ 1.
+
+So inf_k ϖ_k = ϖ_n(k→0). Combined with the uniform trial-field lower bound for ϖ_n(k→0), this gives free-field gap ⇒ (U) numerically, with no remaining gap in the chain. A proof of monotonicity in |k| is still open. The natural route is a Bloch decomposition: compare the symbol with its k = 0 value through the phase-twisted Dirichlet problem.
+
+**Proof of a uniform version (2026-11-09).** Monotonicity itself is still only numerical, but the following is proved, and it is all (U) needs: for every transverse k, n and μ,
+
+  ϖ_k ≥ ϖ_n(k→0) · (1+λ)/(1+Θλ),  λ = |ĉ|²/μ²,  ĉ = 2 sin(k/2),  with Θ ≤ 5,
+
+so inf_k ϖ_k ≥ ϖ_n(k→0)/5, and ϖ_k → ϖ_n(k→0) as k → 0. With the trial-field bound this gives inf_k ϖ_k ≥ c(mℓ)/5 > 0 uniformly in n, which closes item (a) up to a constant.
+
+*Proof.*
+1. On transverse u, K̂(k)u = |ĉ|²u, so ϖ_k = (|ĉ|²+μ²) n⁻⁴ min_{u⊥ĉ, |u|=1} q_k(u). Here q_k(u) = ⟨E_k u, G E_k u⟩, G = (K_in+μ²)⁻¹, and E_k u is the plane wave u_d e^{ik·r} on the interior links.
+2. *Q̂(k) is real.* The point inversion about the cube centre maps interior links to interior links, reverses every orientation, and commutes with K_in. Hence G_{Ii,Ij} = G_{ij} and r_{Ii} = 2z − r_i, so Q̂(k) equals its complex conjugate. The minimising u can therefore be taken real.
+3. *Trial field.* Let w = G E_0 u (real), the k = 0 maximiser, so ⟨w, E_0 u⟩ = ⟨w,(K_in+μ²)w⟩ = q(n)|u|² (cubic symmetry, Q̂(0) = q(n)I). Put v = e^{ik·r}w. Then ⟨v, E_k u⟩ = q(n)|u|², and the variational formula q_k(u) = sup_v [2Re⟨v,E_k u⟩ − ⟨v,(K_in+μ²)v⟩], optimised over the scale of v, gives q_k(u) ≥ q(n)²|u|⁴ / ⟨v,(K_in+μ²)v⟩.
+4. *Twisted energy.* v vanishes off the cube and K_in is the restriction of the Z⁴ form, so ⟨v,Kv⟩ = ∫ ŵ(p)* K̂(p+k) ŵ(p) dp/(2π)⁴ (midpoint convention). Because w is real and K̂ is real and even, this equals ∫ ŵ* A(p,k) ŵ with A = ½[K̂(p+k)+K̂(p−k)].
+5. *Symbol bound.* Write s = sin(k/2), γ = cos(k/2), c = 2 sin(p/2), D = 2cos(p/2). The addition formulas give, exactly,
+   A = (|a|²+|b|²)I − aaᵀ − bbᵀ, a = γ∘c, b = ½ D∘ĉ.
+   Using |a|² = |c|² − Σs²c², |b|² ≤ |ĉ|², 1−γ ≤ s² and |c| ≤ 4,
+   A − K̂(p) ≤ |b|²I + (ccᵀ − aaᵀ) ≤ (|ĉ|² + 2|c|·|(1−γ)∘c|) I ≤ (|ĉ|² + 16|s|²) I = 5|ĉ|² I.
+6. Hence ⟨v,(K_in+μ²)v⟩ ≤ ⟨w,(K_in+μ²)w⟩ + Θ|ĉ|²‖w‖² ≤ (1+Θλ) q(n)|u|², because μ²‖w‖² ≤ q(n)|u|². So q_k(u) ≥ q(n)|u|²/(1+Θλ). Multiplying by (|ĉ|²+μ²)n⁻⁴ = μ²n⁻⁴(1+λ) gives the claim. ∎
+
+Numerically the best constant in step 5, sup λ_max(A − K̂)/|ĉ|² over 10⁵ random (p, k), is Θ* ≈ 1.06. Strict monotonicity (effectively Θ = 1 along the optimiser) still rests on the 35-group scan.
+
+### 10.3 Step 3: free-field two-scale comparison
+
+We work on one lattice at fixed μ = ma and use cubes of side n and n0 = n/2, so ℓ/ℓ0 = 2. At each k (4 directions, 17 radii up to the zone boundary t = πn) we compute the best constant C(n) = inf_k λ_min(H_{n0}^{-1/2} H_n H_{n0}^{-1/2}) in E_n ≥ C·E_{n0}. Job ym-gaussmass-twoscale; script `strong-coupling/forest/experiments/gaussrho/gauss_twoscale.py`.
+
+| n | C(n), mℓ = 1 | C(n), mℓ = 4 | ratio at k → 0, mℓ = 1 | ratio at k → 0, mℓ = 4 |
+|---|---|---|---|---|
+| 4 | 1.380 | 1.361 | 3.58 | 2.60 |
+| 8 | 1.066 | 1.071 | 3.21 | 2.38 |
+| 12 | 1.007 | 1.011 | 3.22 | 2.43 |
+| 16 | 0.988 | 0.991 | 3.27 | 2.48 |
+
+- **Where the infimum sits.** The infimum over k is always at the zone boundary (t = πn, along diag4 or gen), where both symbols are ≈ 1. It is a UV/lattice effect, not an IR one.
+- **Convergence of C(n).** The successive differences are 0.31, 0.059 and 0.019. These fit a + b n^{-p} with p ≈ 2.2, so C(∞) ≈ 0.97 for both masses. The comparison is uniform in n.
+- **Infrared content.** At k → 0, the ratio ϖ_n/ϖ_{n0} is stable at ≈ 3.2–3.3 (mℓ = 1) and ≈ 2.4–2.5 (mℓ = 4). This is the continuum ratio c(mℓ)/c(mℓ/2), which tends to 4 as m → 0 from the (mℓ)² prefactor.
+- **The two-scale form of (U).** The free field therefore satisfies E_ℓ ≥ C E_{ℓ/2} with C uniform in a. Iterated from a fixed scale ℓ0, this gives (U) at every ℓ = 2^j ℓ0 with constant C^j, which depends on j but not on a. This is the form a Yang–Mills proof of (U) would target: a scale-to-scale comparison at bounded ratio, uniform in the cutoff.
+- **Caveat.** The constant must not degrade with the cutoff. In the free field the only loss is UV, at the zone boundary, and it is bounded (C ≥ 0.97).
+
+### 10.4 Step 4, first interacting test: 3D compact U(1)
+
+Job ym-u1-3d-bp. Wilson action, L = 32, 2000 configurations per point. ϖ_n(f) = E Var(f | cube^c)/(n³ Var f / V) is estimated directly by nested conditional heat-bath resampling, with error bars from a 20-block jackknife.
+
+**Checks.**
+- The n = L selftest gives 0.95–1.01, against an expected value of 1.
+- Inner thinning s = 10 against s = 4 at β = 1.9, n = 4 agrees within errors (0.461 ± 0.072 against 0.391 ± 0.060).
+- The masses are effective masses at t = 1 from x₃-slice correlators of Σ sin θ₁₂. They are 1.14 ± 0.16 (β = 1.6), 0.57 ± 0.07 (1.9) and 0.29 ± 0.06 (2.2), so the mass halves per β step.
+
+**ϖ for f = Σ e^{ik x₁} sin θ₁₂ at k = 2π/L** (the k = 0 and k ∥ x₃ variants agree within errors):
+
+| m·n | β = 1.6 | β = 1.9 | β = 2.2 |
+|---|---|---|---|
+| ≈ 0.6 | | | 0.10 ± 0.02 |
+| ≈ 1.06 | | 0.22 ± 0.03 | 0.14 ± 0.02 |
+| ≈ 1.75 | | 0.34 ± 0.04 | 0.21 ± 0.03 |
+| ≈ 2.35 | 0.67 ± 0.06 | 0.39 ± 0.06 | 0.24 ± 0.05 |
+| ≈ 3.4 | 0.84 ± 0.07 | 0.49 ± 0.09 | |
+| ≈ 4.3 | 0.90 ± 0.06 | 0.52 ± 0.07 | |
+
+The plaquette-energy observables (Σ cos θ) give ϖ ≈ 1 everywhere and carry no information.
+
+**Reading.**
+- **No collapse.** At fixed m·ℓ, ϖ falls by a factor of about 0.6 each time m·a halves. At m·n ≈ 2.35 it goes 0.67 → 0.39 → 0.24; successive steps are separated by about 3σ and 2σ.
+- **Rate.** That is ϖ ∝ (ma)^{≈0.75}. Along this line of β, ϖ at fixed physical ℓ tends to 0, so (U) fails while the theory stays gapped.
+- **Caveat: this is not a single-scale limit.** Compact U(1)₃ has two scales: the photon mass m ~ exp(−cβ)/a and the coupling e² = 1/(βa). Along β → ∞ at fixed m, m/e² → 0, so the theory approaches a free massless photon at every fixed ratio to e². The drift may therefore reflect the hierarchy m ≪ e² rather than a general failure of gap ⇒ (U).
+- **What this shows.** A gap alone does not imply (U) uniformly. If (U) is to follow from a gap, it can only do so in a theory with a single scale (with m/Λ fixed along the limit), which is the Yang–Mills situation.
+- **Next.** The clean interacting test is 3D SU(2). There g² is the only scale, β = 4/(g²a), and m/g² is a fixed number, so fixed mℓ is a genuine continuum line.
+
+### 10.5 Step 4b, single-scale interacting test: 3D SU(2)
+
+Job ym-su2-3d-bp. Wilson action, L = 32, 1200 configurations per point. The estimator is the same as in §10.4, with Kennedy–Pendleton heat-bath plus overrelaxation on quaternion links. Error bars come from a 20-block jackknife. The observables are w×w Wilson loops (w = 1, 2, 3) summed at k = 0 (all planes), and at k = 2π/L along x₁ and along x₃. The only scale is g², with β = 4/(g²a), so ℓg² = 4n/β labels a continuum line. Code, launcher and raw output: `experiments/su2bp/`.
+
+**Checks.**
+- The n = L selftest (L = 6, β = 5) gives 0.88–1.05 ± 0.17–0.35 across the 9 observables, consistent with 1.
+- Inner thinning s = 10 against s = 4 at β = 7.5, n = 6 agrees within errors on every observable (W1_kx1: 1.23 ± 0.16 against 1.21 ± 0.18).
+
+**ϖ for W1 at k = 2π/L along x₁** (the other 8 observables behave the same way):
+
+| ℓg² | β = 5 | β = 7.5 | β = 10 |
+|---|---|---|---|
+| 1.6 | 1.68 ± 0.26 | 1.47 ± 0.14 | 1.43 ± 0.20 |
+| 2.4 (2.13 at β = 7.5) | 1.47 ± 0.22 | 1.34 ± 0.19 | 1.23 ± 0.12 |
+| 3.2 | 1.43 ± 0.21 | 1.21 ± 0.18 | 1.21 ± 0.14 |
+| 4.8 | 1.23 ± 0.14 | 1.19 ± 0.14 | 1.14 ± 0.15 |
+
+Mean over all 9 observables: β = 5 gives 1.44, 1.42, 1.38, 1.30; β = 10 gives 1.28, 1.25, 1.18, 1.13 (ℓg² = 1.6, 2.4, 3.2, 4.8).
+
+**Reading.**
+- **Far from U(1).** ϖ stays O(1), and above 1, on the whole grid. Halving a (β = 5 → 10) at fixed ℓg² multiplies ϖ by 0.86–0.90 (the mean of the 9 observables, at each ℓg²). The compact U(1)₃ factor was ≈ 0.6.
+- **But the drift is coherent.** 33 of the 36 (observable, ℓg²) ratios β10/β5 are below 1, none exceeds 1.03, and 22 lie in 0.80–0.92. Each one is only about 0.6σ, and the 9 observables share configurations, so they are correlated and cannot be pooled as independent. This run therefore cannot separate a constant plus O(a) approach, which would support gap ⇒ (U) in a single-scale gauge theory, from a slow power law ϖ ∝ a^{≈0.2} going to 0.
+- **Dependence on ℓg².** At each β, ϖ falls slowly as ℓg² grows. This is compatible with approach to a positive plateau at large ℓ.
+- **Status.** Not a refutation. Unlike U(1)₃, there is no strong decay, but the run is not yet a confirmation either. Deciding needs about 4–5× the statistics (target errors ≈ 0.07), plus a fourth β (≈ 15) so that the a-dependence can be fitted to c₀ + c₁a vs. c·a^p.
+
+### 10.6 Step 4b, high statistics: 3D SU(2) with β up to 15
+
+Rerun of §10.5 with 5000 configurations per point (≈4×), and a fourth β = 15 on L = 48 with n ∈ {6, 9, 12, 18}. Raw data: `experiments/su2bp/results_hi.jsonl`; launcher `run_hi.sh`. Selftest (n = L): 0.88–1.05, as before.
+
+Mean of the 9 observables (each ± ≈0.09):
+
+| ℓg² | β = 5 | 7.5 | 10 | 15 |
+|---|---|---|---|---|
+| 1.6 | 1.43 | 1.31 | 1.27 | 1.22 |
+| 2.4 | 1.42 | (1.30 at 2.13) | 1.23 | 1.15 |
+| 3.2 | 1.39 | 1.23 | 1.18 | 1.10 |
+| 4.8 | 1.30 | 1.17 | 1.12 | 1.08 |
+
+- The downward drift persists. β15/β5 is 0.70–0.98 over all 36 (observable, ℓg²) pairs (mean 0.83, all < 1). β10/β5 is 0.76–1.00 (mean 0.87), reproducing §10.5.
+- Fits in a ∝ 1/β, per ℓg² on the observable mean:
+  - c₀ + c₁a gives c₀ = 1.11, 1.02, 0.97 and 0.96 (each ±0.10–0.13), so c₀ > 0 at 7–10σ;
+  - c·a^p gives p = 0.14–0.20 (±0.09).
+  - Per observable: c₀ ranges over 0.85–1.17 and p over 0.02–0.32. The W3 loops at k ≠ 0 drift most (p ≈ 0.25–0.32).
+- Both models fit with χ² ≪ 1. **Four β values over a factor 3 in a still cannot separate them**, and the per-point errors stayed ≈ 0.09, not the 0.07 target. The jackknife error of a ratio of variances shrinks more slowly than 1/√nconf here.
+- By the decision rule fixed beforehand (c₀ > 0 at 3σ supports (U); p > 0.2 with c₀ ≈ 0 refutes), the outcome is **supports (U)**. But it is a weak support: the linear model's c₀ is an extrapolation, not a plateau in the data.
+- Confound: the physical box Lg² is 25.6, 17.1, 12.8 and 12.8 at β = 5, 7.5, 10 and 15. Part of the β = 5 → 10 drop may be finite-volume, while 10 → 15 at equal Lg² still drops ≈ 0.95×.
+
+Compared with U(1)₃ (0.6× per halving of a), SU(2)₃ drifts ≈ 0.9× per halving of a. A conclusive test needs β ≈ 20–30 at fixed Lg², and a better estimator (e.g. the variance of the conditional mean computed by multilevel sampling) to cut the error per point. Recorded as the next interacting item, not yet scheduled.
+
+
+### 10.7 Erratum: jackknife errors in §10.4–10.6 were √20 too large (2026-11-09)
+
+`su2bp/analyze.py` and `u1bp/analyze.py` computed the 20-block jackknife error as √((nb−1)·Σ(θᵢ−θ̄)²) instead of √(((nb−1)/nb)·Σ(θᵢ−θ̄)²). So every quoted ± in §10.4, §10.5 and §10.6 (ϖ, and the U(1) effective masses) is too large by √20 ≈ 4.47. The central values are unchanged. Both scripts are fixed, and the error entries in `results.jsonl` (u1bp, su2bp) and `results_hi.jsonl` are divided by √20. The other analysis scripts (`pathcov`, `linresp`, `vortex_mc`) use the correct formula.
+
+Cross-check (β = 5, n = 4): the per-configuration numerator E Var(f | cube^c) has relative error 0.1–0.2%, and the denominator Var(f) has 1–2.5% with no measurable autocorrelation (τ_int ≲ 1). The corrected jackknife errors (≈ 2%) match. The "≈ 0.09 errors not shrinking with statistics" in §10.6 was this bug, not an estimator problem. **A multilevel estimator is therefore not needed.** The error is dominated by the plain variance in the denominator and already falls as 1/√nconf.
+
+**§10.6 re-read with correct errors** (observable mean; the error is the mean of the 9 per-observable errors, which is conservative since they are correlated). The selftest line (L = 6), which had overwritten the β = 5, ℓg² = 4.8 entry in the earlier fit script, is excluded.
+
+| ℓg² | β = 5 | 7.5 | 10 | 15 | β15/β5 | c₀ (c₀ + c₁a) | χ² lin | p (c·aᵖ) | χ² pow | dof |
+|---|---|---|---|---|---|---|---|---|---|---|
+| 1.6 | 1.428(23) | 1.313(20) | 1.265(22) | 1.218(20) | 0.853(20) | 1.109(29) | 0.17 | 0.144(20) | 2.12 | 2 |
+| 2.4 | 1.415(23) | — | 1.227(20) | 1.147(20) | 0.811(19) | 1.021(28) | 0.27 | 0.193(21) | 0.22 | 1 |
+| 3.2 | 1.386(24) | 1.232(20) | 1.181(20) | 1.103(19) | 0.796(19) | 0.965(28) | 0.46 | 0.203(21) | 2.58 | 2 |
+| 4.8 | 1.300(18) | 1.172(19) | 1.124(18) | 1.075(15) | 0.827(16) | 0.958(22) | 0.48 | 0.171(17) | 3.98 | 2 |
+
+- **The drift is real.** β15/β5 = 0.80–0.85, a 7–12σ drop at every ℓg². At equal box (Lg² = 12.8), β = 10 → 15 still drops 0.93–0.96, ≈ 4σ combined.
+- **The plateau model is preferred, mildly.** Summed over groups, χ² = 1.4 for c₀ + c₁a against 8.9 for c·aᵖ (7 dof each). The power law is not excluded (p-value ≈ 0.26), but c₀ = 0.96–1.11 ± 0.03 is > 30σ from 0.
+- **The box confound remains.** The c₁a term is partly the β = 5, 7.5 points in larger boxes. The fixed-box pass (Lg² = 12.8 at β = 5, 7.5, 20, 25; job submitted 2026-11-09) is the decisive test, and its corrected errors should be ≈ 0.02 per point, enough to resolve the pre-registered β25/β10 ≥ 0.95 vs ≤ 0.85 rule.
+- **U(1)₃ (§10.4).** With √20 smaller errors, the 0.6× per halving decay is far beyond noise, so the reading there is strengthened.
+
+### 10.8 Step 4b at fixed box Lg² = 12.8, β = 5 to 25 (2026-11-09)
+
+Fixed-box pass: Lg² = 12.8 at every β (L = 16, 24, 32, 48, 64, 80 for β = 5, 7.5, 10, 15, 20, 25). β = 10 and 15 are taken from §10.6. Launcher `experiments/su2bp/run_fixbox.sh`; raw results `experiments/su2bp/results_fixbox.jsonl`. Configurations: 5000 for β ≤ 20, 4000 for β = 25 (one point, ℓg² = 2.4, at 3900). The analysis uses the corrected jackknife (§10.7). Observable mean, ± is the mean per-observable error:
+
+| ℓg² | β = 5 | 7.5 | 10 | 15 | 20 | 25 | β25/β10 |
+|---|---|---|---|---|---|---|---|
+| 1.6 | 1.437(24) | 1.327(22) | 1.265(22) | 1.218(20) | 1.186(19) | 1.125(19) | 0.889(22) |
+| 2.4 | 1.416(19) | — | 1.227(20) | 1.147(20) | 1.135(19) | 1.089(20) | 0.887(22) |
+| 3.2 | 1.399(20) | 1.232(22) | 1.181(20) | 1.103(19) | 1.086(15) | 1.060(18) | 0.898(21) |
+| 4.8 | 1.293(22) | 1.173(17) | 1.124(18) | 1.075(15) | 1.084(18) | 1.037(19) | 0.923(22) |
+
+- **No finite-box effect.** β = 5 in L = 16 (Lg² = 12.8) equals β = 5 in L = 32 (Lg² = 25.6) within errors at every ℓg² (1.437 vs 1.428, 1.416 vs 1.415, 1.399 vs 1.386, 1.293 vs 1.300), and likewise at β = 7.5. The §10.6 confound was not the cause of the drift: it is a lattice-spacing effect.
+- **Fits over a factor 5 in a (6 β values).** c₀ + c₁a: total χ² = 9.4 on 15 dof, c₀ = 1.080, 1.022, 0.975, 0.983 (± 0.016) at ℓg² = 1.6, 2.4, 3.2, 4.8. c·aᵖ: χ² = 31.7 on 15 dof (p-value ≈ 0.007), p = 0.12–0.17; it fails at ℓg² = 3.2 and 4.8, where β = 15 → 25 flattens.
+- **The pre-registered rule is inconclusive.** β25/β10 = 0.89–0.92 ± 0.02, between the 0.85 (drift) and 0.95 (plateau) thresholds. Those thresholds assumed the plateau would be reached by β = 10. The c₀ + c₁a fit predicts this ratio.
+- **Reading.** In SU(2)₃ the data favour ϖ at fixed ℓg² approaching a positive constant ≈ 1.0 with an O(a) correction, which is what (U) requires. It is evidence, not proof: a very slow decay (p ≲ 0.05) or a turnover beyond β = 25 is not excluded. The U(1)₃ contrast (§10.4: ϖ ∝ (ma)^0.75 → 0) shows the test can see a failure. Selected ℓg² do not vary ϖ much (0.98–1.08), consistent with a ℓ-independent constant once ℓg² ≳ 2.

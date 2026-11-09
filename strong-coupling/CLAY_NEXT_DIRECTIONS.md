@@ -104,10 +104,10 @@ Sources:
 
 ## Progress log
 
-- **2026-11-06, #5 dropped.** Falsifier `research/experiments/polchinski2d/` (cluster job 1677160): for the single-plaquette SU(2) measure e^{β cos θ} on S³ (2D axial gauge), the multiscale curvature rate along the heat flow divided by the exact Poincaré gap is 0.59, 0.51, 0.33, 0.11, 0.007 at β = 0.5, 1, 2, 4, 8, which is exponential decay. The flow restores convexity only at t* ≈ 0.4, and the antipodal curvature ≈ −2β is paid for before then. β ≥ 16 rows are numerical underflow. Heuristic proxy for the BBD criterion, not a theorem about it.
+- **2026-11-06, #5 dropped.** Falsifier `strong-coupling/forest/experiments/polchinski2d/` (cluster job 1677160): for the single-plaquette SU(2) measure e^{β cos θ} on S³ (2D axial gauge), the multiscale curvature rate along the heat flow divided by the exact Poincaré gap is 0.59, 0.51, 0.33, 0.11, 0.007 at β = 0.5, 1, 2, 4, 8, which is exponential decay. The flow restores convexity only at t* ≈ 0.4, and the antipodal curvature ≈ −2β is paid for before then. β ≥ 16 rows are numerical underflow. Heuristic proxy for the BBD criterion, not a theorem about it.
 - **2026-11-06, benchmark frozen** (see `forest/BALL_CERTIFICATE.md`): SU(2) 0.351, SU(3) 0.77. The 0.348/0.52 figures were a stale README.
 - **2026-11-06, #1 interface drafted:** `forest/BALL_CERTIFICATE.md`.
-- **#3 running:** `research/experiments/linresp/`.
+- **#3 running:** `strong-coupling/forest/experiments/linresp/`.
 - 2026-11-06: **#3 done** (job 1676562). L* = 2 for β ∈ [2.0, 2.6] at L=8, T=16. Caveats:
   C(r≥2) is at the noise level, and this is a weak-form periodic-state heuristic, not a
   sup-ω influence. Decision rule (L* ≤ 4) says continue with #1/#2 at small L and favours
@@ -199,3 +199,69 @@ Sources:
 - 2026-11-08: **Higher chaos is reduced to the first chaos** by the Amit Gaussian Gibbs-sampler theorem (block resampling = Γ(P_Λ)) (§10). Free-field "gap ⇒ (U)" now rests only on (a) the k-infimum being at k → 0 and (b) the infinite-volume extension. C_B^lin at n = 4 (L = 8, 9) is submitted.
 - 2026-11-08: **C_B^lin(n = 4, L = 8) = 0.770.** The sequence 0.658 / 0.724 / 0.770 extrapolates to 0.86–0.91, which is below 1 but drifting up, so it is inconclusive for §8.3 step 1. L = 9 is still running. Remaining for the free field: prove the k-infimum is at k → 0, and do the infinite-volume Amit extension. Then the main open question returns to Yang–Mills: a uniform two-scale comparison E_{ℓ/a} ≳ E_{ℓ₀/a} (§8.4) as the route to (U).
 - 2026-11-08: C_B^lin(n = 4, L = 9) = 0.7685, so the result is volume-stable to 0.2%. The numerical items in the plan are now all done. What remains is proof work: (a) k-infimum at k → 0 for the free massive field; (b) Amit reduction in infinite volume; (c) the Yang–Mills two-scale comparison for (U).
+
+## Next phase (from 2026-11-08, branch research/next-steps-3)
+
+Where things stand: (U) ⇒ gap holds in general (Thm `avgtransfer`). Gap ⇒ (U) holds in the free massive field, modulo steps 1–2 below. So, in the free theory, (U) and a mass gap are equivalent inputs. The plan, in order:
+
+1. **Prove the k-infimum is at k → 0** (free field). First a fine radial numerical scan at |k| = t/n along 5 directions for n = 8, 12, 16. Then a monotonicity proof.
+2. **Amit reduction in infinite volume.** Write out the finite-torus to L → ∞ argument that reduces all observables to linear ones.
+3. **Two-scale comparison in the free field.** Compute E_{ℓ/a} against E_{ℓ₀/a} exactly, using the `gauss_k0` machinery, and check whether the constant is uniform in a. This shapes the Yang–Mills form of (U).
+4. **(U) with interactions.** Measure ϖ_n at fixed physical ℓ in an interacting gapped model, compact U(1) in 3D or SU(2) in 2D/3D, using the path-covariance Monte Carlo setup. Flat in a supports gap ⇒ (U) beyond Gaussians.
+5. Deprioritized: C_B^lin at larger n.
+
+- 2026-11-08: Step 1 numerical scan submitted (ym-gaussmass-kscan).
+- 2026-11-08: **Step 2 closed** (§10.1). A two-line positivity lemma, avg P^{⊗m} ≤ (avg P) ⊗ 1, reduces BP on all gauge-invariant observables to the first chaos, in any volume, with no appeal to Amit. Free-field gap ⇒ (U) now rests only on step 1 (k-infimum at k → 0); its numerical scan is submitted.
+
+- 2026-11-08: Next-phase step 1 numerically confirmed. The k-scan over 35 groups (n ≤ 16, mℓ ∈ {1,4}, 5 directions) is monotone in |k| with the minimum at k → 0; see A_GAUSSIAN_FIBRE_4D §10.2. A proof of the monotonicity is open. Step 3 (free-field two-scale comparison, cubes of side n and n/2 at fixed mℓ, n ≤ 16) has been submitted.
+- 2026-11-08: Next-phase step 3 done for the free field (A_GAUSSIAN_FIBRE_4D §10.3). The two-scale constant C(n) for ℓ/ℓ0 = 2 is 1.38, 1.07, 1.01, 0.99 at n = 4–16 and converges to ≈ 0.97. The infimum sits at the zone boundary (a UV effect); the IR ratio is stable at ≈ c(mℓ)/c(mℓ/2). Remaining: step 4, (U) in an interacting model (compact U(1) in 3D first), and a proof of the step-1 monotonicity.
+- 2026-11-08: Step 4 started with 3D compact U(1) (monopole-gapped). `strong-coupling/forest/experiments/u1bp/u1bp.c` estimates ϖ_n directly from the definition: E Var(f | outside cube) / (n³ Var(f)/V), with nested conditional heat-bath resampling of non-adjacent cubes. Observables are sin θ₁₂ at k = 0 and at the smallest k, plus plaquette energies. The mass m(β) comes from slice correlators. The grid is β ∈ {1.6, 1.9, 2.2}, n ∈ {2,3,4,6,8}, L = 32, plus an n = L selftest (should give ϖ = 1) and an inner-thinning check. Test: do the ϖ curves collapse in m(β)·n with no downward drift in β?
+- 2026-11-08: **Step 4, compact U(1)₃ result (A_GAUSSIAN_FIBRE_4D §10.4).** ϖ_n at fixed m·ℓ does not collapse. It falls about 0.6× per halving of m·a (0.67, 0.39, 0.24 at mℓ ≈ 2.35; about 3σ per step), roughly ϖ ∝ (ma)^0.75. So (U) fails along this line although the theory is gapped. Caveat: U(1)₃ has two scales (m ≪ e² as β → ∞), so this refutes gap ⇒ (U) only for theories with a scale hierarchy. Next: **3D SU(2)** (one scale, m/g² fixed), which is the decisive interacting test. Reuse u1bp.c with SU(2) heat-bath (Kennedy–Pendleton), the observable Re tr of plaquettes at small k, and the 0++ mass from slice correlators.
+
+**2026-11-08 — step 4b (3D SU(2)) submitted.** Same conditional cube-resampling estimator as the U(1) run, now with quaternion links
+(Kennedy–Pendleton heat-bath + overrelaxation). Observables: w×w Wilson loops, w = 1, 2, 3, at k = 0 (all planes) and at
+k = 2π/L along x1 and x3; cubes spaced n+4 and observable box margin 3 so no loop touches two cubes. The only scale is g², so
+ℓg² = 4n/β labels the continuum line: β ∈ {5, 7.5, 10} with n chosen to hit ℓg² ∈ {1.6, 2.4, 3.2, 4.8}, L = 32, 1200
+configurations each, plus an n = L selftest (ϖ = 1) and a thinning check. Decision: collapse vs ℓg² with no drift in β
+supports gap ⇒ (U) in a single-scale gauge theory; a U(1)-like ≈0.6× drop per halving of a means (U) is strictly stronger.
+- 2026-11-09: **Step 4b, SU(2)₃ result (A_GAUSSIAN_FIBRE_4D §10.5).** Selftest and thinning pass. ϖ stays O(1) (1.1–1.7) on the whole grid. At fixed ℓg², halving a multiplies ϖ by 0.86–0.90, much weaker than U(1)₃'s 0.6, but coherent across observables (33/36 ratios < 1, each ≈ 0.6σ). Constant + O(a) and a slow power law a^{≈0.2} cannot be separated yet. So this is no refutation of gap ⇒ (U), and not yet a confirmation. Next (after the PR): 4–5× statistics plus β ≈ 15.
+- 2026-11-09: **k-infimum, uniform proof (A_GAUSSIAN_FIBRE_4D §10.2).** Proved inf_k ϖ_k ≥ ϖ_n(k→0)/5 for the transverse free massive symbol, uniformly in n and μ: a phase-modulated k = 0 maximiser as trial field, plus an exact symbol identity for ½[K̂(p+k)+K̂(p−k)]. With the trial-field bound this gives (U) for the first chaos with constant c(mℓ)/5. Best constant numerically ≈ 1.06; strict monotonicity remains numerical.
+- 2026-11-09: **SU(2)₃ high-statistics rerun submitted.** 5000 configurations per point (≈4×), β ∈ {5, 7.5, 10, 15}, β = 15 on L = 48 with n ∈ {6, 9, 12, 18}. Decision: fit c₀ + c₁a against c·a^p at each ℓg². Launcher: experiments/su2bp/run_hi.sh.
+- 2026-11-09: **SU(2)₃ high-statistics result (A_GAUSSIAN_FIBRE_4D §10.6).** The drift persists (β15/β5 = 0.83 on average, 36/36 < 1). The c₀ + c₁a fit gives c₀ ≈ 1.0 ± 0.12 > 0 at every ℓg², but a power law a^{0.14–0.20} fits equally well. This is weak support for (U) under the pre-registered rule, not a decision. Next: β ≈ 20–30 at fixed Lg² with a lower-variance (multilevel) estimator.
+
+## Working queue toward the next PR (from 2026-11-09, branch research/next-steps-3)
+
+Status: 7 commits since PR #289 (6df33b1), all notes in this file and forest/A_GAUSSIAN_FIBRE_4D.md, pushed to the fork, no PR
+open. Gap found: the code behind these results (and behind #289) was never committed, because `.gitignore` excludes
+`/research/`, where it lives. The PR is ready when every numerical claim since #289 can be reproduced from tracked files.
+Work the list in order and tick each item as it lands.
+
+1. [x] **Record the SU(2)₃ result** (done 2026-11-09, §10.5) (job finished, 14/14 lines). Write A_GAUSSIAN_FIBRE_4D §10.5 and a log entry above.
+   First read: selftest ϖ ≈ 0.88–1.05 ± 0.2–0.35 (passes); thinning s = 10 vs s = 4 agree; ϖ > 1 everywhere, falls with ℓg²
+   (W1_kx1: β = 5: 1.68 → 1.23; β = 10: 1.43 → 1.14 over ℓg² = 1.6 → 4.8). At fixed ℓg² there is a mild downward drift in β,
+   within about 1σ, so collapse and a U(1)-like drift cannot be separated yet. Before writing, run su2bp/analyze.py on the
+   output and quote its numbers, not this first read.
+2. [x] **Track the experiment code.** (done 2026-11-09: all 8 directories, launchers rewritten to plain `python`; cluster request plans left out) Move the code that backs the results since #289, and ideally #289 too, into
+   `strong-coupling/forest/experiments/`, starting with `gaussrho/` (gauss_k0, gauss_kscan, gauss_twoscale, gauss_massU, …),
+   `u1bp/` and `su2bp/` (.c, analyze.py, plan*.json). Leave the `run*.sh` launchers untracked, because they name the cluster.
+   Replace them with one README per experiment: build line, `python` / `cc` invocation, plan file, expected output format.
+   Decide whether to include pathcov, linresp, polchinski2d, reduced_dobrushin and vortex_mc (they back earlier sections).
+3. [x] **Commit the raw result files** (done: gaussrho, u1bp, su2bp; older pathcov/linresp outputs not recovered) each § cites (small JSON lines, such as the SU(2) output), next to their experiment.
+   Strip any paths.
+4. [x] **Fix references.** (done) Point notes that cite `research/experiments/...` (e.g. the step-4 entry above) to the new tracked
+   paths.
+5. [x] **Pre-PR checks.** (passed 2026-11-09) Grep the full `upstream/main...HEAD` diff for forbidden strings and for `/home/` and `/n/` paths.
+   Confirm no `__pycache__`, PDFs or binaries are included. Make sure it merges cleanly into upstream/main.
+6. [x] **Open the PR** (#290, 2026-11-09) to creelie/4Y-M `main`. Summary: step 2 closed; free-field k-infimum and two-scale results;
+   U(1)₃ drift; SU(2)₃ first result; reproducible code.
+
+After the PR (next research items, not blocking it): a higher-statistics SU(2)₃ rerun (4–5× nconf) to decide collapse vs
+drift at fixed ℓg²; a proof of the step-1 monotonicity in k.
+
+- 2026-11-09 — Submitted the fixed-box SU(2)₃ pass (L·g² = 12.8 for every β; β = 5, 7.5, 20, 25 added to the existing β = 10, 15). This removes the box confound of the β ≤ 15 pass. Decision rule: β25/β10 ≥ 0.95 at equal ℓg² → plateau (supports (U)); ≤ 0.85 → continued drift. Launcher: `forest/experiments/su2bp/run_fixbox.sh`. The multilevel estimator is deferred; this pass uses 5 inner resamples instead of 3.
+
+- 2026-11-09 — **Bug found while diagnosing the "errors stuck at 0.09":** the su2bp/u1bp jackknife over-stated errors by √20. Fixed, data files corrected, §10.7 erratum written. True per-point error ≈ 0.02. With it: the SU(2)₃ drift is significant (β15/β5 ≈ 0.82, 7–12σ), and c₀ + c₁a fits better than c·aᵖ (χ² 1.4 vs 8.9 / 7 dof), c₀ ≈ 1.0 ± 0.03. The multilevel estimator is dropped (not needed: numerator noise 0.1–0.2%, denominator 1–2.5%, no autocorrelation). The fixed-box run (job running) decides; its analysis uses the fixed formula (the in-run analyze.py is the old one, so rerun analyze on its .dat files).
+
+- 2026-11-09 — Fixed-box run, interim (β = 20/25 partly done): no finite-box effect (β = 5 at L = 16 = at L = 32). c₀ + c₁a over β = 5–25 fits (χ² 7.9/15, c₀ ≈ 0.98–1.09 ± 0.02); c·aᵖ disfavoured (χ² 29.9/15). The pre-registered β25/β10 rule lands in the gap (0.89–0.92), as the linear model predicts. A_GAUSSIAN_FIBRE_4D §10.8. Next: final numbers when the job ends, then merge PR #290.
+
+- 2026-11-09 — Fixed-box run final (§10.8): c₀ + c₁a χ² 9.4/15, c₀ ≈ 0.98–1.08 ± 0.016; c·aᵖ χ² 31.7/15 (disfavoured, p-value 0.007). Pre-registered rule inconclusive (0.89–0.92). SU(2)₃ evidence for (U): favoured, not proven. PR #290 complete and ready to merge. Next directions (new PR): 4D SU(2) analogue of §10.8 at modest β; sharpen the free-field factor 5 to 1.

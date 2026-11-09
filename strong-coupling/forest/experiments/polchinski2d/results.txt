@@ -1,0 +1,13 @@
+flow.py:44: DeprecationWarning: `trapz` is deprecated. Use `trapezoid` instead, or one of the numerical integration functions in `scipy.integrate`.
+  integ = np.trapz(np.exp(-cum), ts) + np.exp(-cum[-1])/max(L[-1], 1e-9)
+{"beta": 0.5, "Lam0": 1.500004104651902, "tstar": 0.0, "minLam": 1.500004104651902, "B": 1.7951567035074747, "gap": 3.0332662182844126, "ratio": 0.5918229968363274}
+{"beta": 1, "Lam0": 1.000008207688888, "tstar": 0.0, "minLam": 1.000008207688888, "B": 1.5847779182317085, "gap": 3.13226234396381, "ratio": 0.5059531240369242}
+{"beta": 2, "Lam0": 1.5636221612602696e-05, "tstar": 0.0, "minLam": -0.05214917645618522, "B": 1.1691205575403274, "gap": 3.5163750884110523, "ratio": 0.33247891028275345}
+{"beta": 4, "Lam0": -2.0000031147266633, "tstar": 0.34065896409350066, "minLam": -3.483091510366436, "B": 0.515226311648527, "gap": 4.878186623917592, "ratio": 0.10561840933317085}
+{"beta": 8, "Lam0": -6.036230798960435, "tstar": 0.4237133544942798, "minLam": -17.434342917113486, "B": 0.05949419332500419, "gap": 8.608905703537975, "ratio": 0.006910773026652395}
+flow.py:44: RuntimeWarning: overflow encountered in exp
+  integ = np.trapz(np.exp(-cum), ts) + np.exp(-cum[-1])/max(L[-1], 1e-9)
+{"beta": 16, "Lam0": -688998.0467026049, "tstar": 0.4725505985387647, "minLam": -694031.519201786, "B": 0.0, "gap": 16.5449351746132, "ratio": 0.0}
+{"beta": 32, "Lam0": -534722412.754734, "tstar": 0.4725505985387647, "minLam": -534789290.86863226, "B": 0.0, "gap": 32.52086215499965, "ratio": 0.0}
+
+[exited with code 0]

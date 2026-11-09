@@ -103,7 +103,7 @@ effort.
 
 ## 6. Step 5.1 result (job 1679093, 2026-11-06): raw form fails
 
-Raw potential-Lipschitz sums (β = β_W, no vMF W₁ factor), `research/experiments/reduced_dobrushin/`:
+Raw potential-Lipschitz sums (β = β_W, no vMF W₁ factor), `strong-coupling/forest/experiments/reduced_dobrushin/`:
 
 | L | β_W | R(6β) | max row unred → red | max ∂-column unred → red |
 |---|---|---|---|---|
