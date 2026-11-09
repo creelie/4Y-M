@@ -692,7 +692,8 @@ Secs.~\ref{sec:su2}, \ref{sec:plaqblocks}, \ref{sec:curvature},
 \ref{sec:su3} and~\ref{sec:su3blocks} prove Theorems~\ref{thm:su2}--\ref{thm:su3blocks}, and
 Sec.~\ref{sec:limits} measures what is left. Sec.~\ref{sec:bypass} proves
 (I1)--(I3), Sec.~\ref{sec:inputs} states and measures their open inputs and proves the
-cube condition for free massive fields uniformly in the spacing (Sec.~\ref{ssec:fffree}),
+cube condition for free massive fields uniformly in the spacing (Sec.~\ref{ssec:fffree}) and its
+failure for the free photon together with its plaquette form at weak coupling (Sec.~\ref{rD:sec}),
 Sec.~\ref{ssec:rEunconditional} builds the two-point continuum theory without the cube condition, and
 Sec.~\ref{sec:blocks} poses the cube condition for block averages, composes the cut-off average
 across scales at small fields and locates the large fields under the
@@ -11955,6 +11956,8 @@ has to be an estimate such as (D).
 \end{remark}
 
 \input{free-field-section}
+
+\input{weak-coupling-cube-section}
 
 \subsection{The ratio, the strong-coupling range and the cube estimate}\label{ssec:ratiocube}
 
@@ -47907,7 +47910,12 @@ converges, as the spacing goes to zero, to $s^2\langle1,(-\Delta+s^2)^{-1}1\rang
 on the unit cube with $s=m\ell$ (Theorems~\ref{ffs:thm:exact}
 and~\ref{ffs:thm:limit}); no constant survives as $m\ell\to0$
 (Proposition~\ref{prop:ffupper}), so for these fields the estimate holds
-exactly when a mass is present at the scale of the cube.
+exactly when a mass is present at the scale of the cube. The free photon violates it at the
+diffusive rate $\varpi\le8\pi^2(n+1)^2/L^2$ (Theorem~\ref{rD:maxwell}); every
+measure satisfying it has local observables of finite susceptibility at the
+scale of the cube (Proposition~\ref{rD:suscept}); and for $\SU(2)$ at
+weak coupling it holds on plaquette traces with a constant of order
+$1/(\beta\log\beta)$ (Proposition~\ref{rD:plaquette}).
 
 Three inputs remain: that covariance bound along the tuning, the split
 inequality at weak coupling, and a nontrivial continuum limit with the
