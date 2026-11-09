@@ -95,6 +95,11 @@ Road, Golpark, Kolkata 700029, West Bengal, India}
 \thanks{Secondary address: \nolinkurl{Blaze61029dogQ@proton.me}.}
 \affiliation{Independent Researcher, San Antonio, USA}
 
+\author{Sanjeevan Singha Roy\,\orcidlink{0000-0002-6148-1421}}
+\email{sanjeevan9905@gmail.com}
+\affiliation{Department of Physics, Birla Institute of Technology, Mesra, Ranchi,
+Jharkhand 835215, India}
+
 \author{Tristan Romanov}
 \email{romanov360@gmail.com}
 \affiliation{Independent Researcher, San Francisco, CA, USA}
@@ -16061,6 +16066,8 @@ that Corollary~\ref{cor:limitEtwo}(b) gives and is not tempered.
 
 \input{rotation-nontriviality-section}
 
+\input{uv-tightness-section}
+
 \section{Conclusion}\label{sec:conclusion}
 
 For every compact simple gauge group, four-dimensional lattice Yang--Mills
@@ -16186,44 +16193,6 @@ written by Deep Bhattacharjee, James Montgomery Lockwood and Tristan
 Romanov.
 
 \section*{Declarations}
-
-\emph{Author contributions.} Deep Bhattacharjee conceived the project and, with the help of AI agents
-working under his direction, made its constructions and proved its main
-results: the forest gauge on the period-two line field and the
-free-boundary state with its transfer-matrix gap at strong coupling; the
-plaquette blocks of $\SU(2)$ and $\SU(3)$ with their constants proved by
-hand; the reduction of the mass gap to one averaged estimate in a cube of
-fixed physical size and the continuum step; the averaged condition at
-strong coupling and in the centre and neutral sectors; and, in the preprint
-\cite{BBLR26}, the labels of Ba{\l}aban's blocks and the islands of bad
-blocks, the descent of the averaged condition to block variables, the upward
-step and the split inequality, the single-link coefficients across scales,
-the forces in the fibre law, the smoothing along the paths for $\SU(2)$, the
-row sums of the Gaussian model and the conditional chain for every compact
-simple group. He wrote the programs of the certified computations and the
-paper, and checked every statement. Ushashi Bhattacharya took part in
-discussions of the results, checked the proofs and the references, and read
-and revised the manuscript. James Montgomery Lockwood supplied
-the internal-fibre formulation behind the heat-bath criterion
-of~\cite{BBLR26}, the analysis of constrained cubes and its code, the
-composition of metrics across scales~\cite{BBLR26}, and the Lean~4
-formalisations of the quaternion model of $\SU(2)$, the open-gluon
-certificates, the coupling lemmas, the strong-coupling comparison, the limit
-of couplings and the metrics. Tristan Romanov contributed the certified
-bound on the forest-gauge Hessian~\cite{Rom26} (Remark~\ref{rem:certificate})
-and the research continuation on which the island analysis of~\cite{BBLR26}
-is built: the finite Dobrushin arithmetic, the minimality of the coupling
-cost and its measure-level form, the relative and canonical charts, the
-matching of labels on independent links, the rough-background and branch
-obstructions, the rarity witnesses and the island kernel, the analysis of
-the lattice slice field with the exact Wick coefficients on finite boxes,
-the block-response diagnostics, the flat fields of
-\cite[Remark~410]{BBLR26}, four Lean~4 modules, and the programs and
-certificates behind them; for this paper he also ran the numerical study of
-the cube constant of massive Gaussian fields that preceded
-Sec.~\ref{ssec:fffree}, the reduction of the cube estimate to first-chaos
-quantities in the Gaussian model, and an audit of the dependencies of
-Sec.~\ref{ssec:limitE} on the gap. The author list follows~\cite{BBLR26}.
 
 \emph{Use of artificial intelligence.} The computations, the checks and parts of the drafting were done with AI
 assistance (Claude Opus~5.5, Claude Fable~5.1, GPT-6.1 Sol Ultra and GPT-6
@@ -18097,6 +18066,12 @@ T.~Ba{\l}aban, Averaging operations for lattice gauge theories, Comm. Math.
 Phys. \textbf{98} (1985), 17--51,
 \href{https://doi.org/10.1007/BF01211042}{doi:10.1007/BF01211042}.
 
+\bibitem{Bal85c}
+T.~Ba{\l}aban, The variational problem and background fields in
+renormalization group method for lattice gauge theories, Comm. Math. Phys.
+\textbf{102} (1985), 277--309,
+\href{https://doi.org/10.1007/BF01229381}{doi:10.1007/BF01229381}.
+
 \bibitem{Bal87}
 T.~Ba{\l}aban, Renormalization group approach to lattice gauge field
 theories.~I. Generation of effective actions in a small field approximation
@@ -18202,6 +18177,12 @@ S.~Cao, R.~Nissim and S.~Sheffield, Expanded regimes of area law for lattice Yan
 \bibitem{CDJ77}
 J.~C.~Collins, A.~Duncan and S.~D.~Joglekar, Trace and dilatation anomalies in gauge theories, Phys. Rev. D \textbf{16} (1977), 438--449, \href{https://doi.org/10.1103/PhysRevD.16.438}{doi:10.1103/PhysRevD.16.438}.
 
+\bibitem{CC23}
+S.~Cao and S.~Chatterjee, The Yang--Mills heat flow with random
+distributional initial data, Comm. Partial Differential Equations
+\textbf{48} (2023), 209--251,
+\href{https://doi.org/10.1080/03605302.2023.2169937}{doi:10.1080/03605302.2023.2169937}.
+
 \bibitem{CC24} S.~Cao and S.~Chatterjee, A state space for 3D Euclidean
 Yang--Mills theories, Comm. Math. Phys. \textbf{405} (2024), art.~3,
 \href{https://doi.org/10.1007/s00220-023-04870-y}{doi:10.1007/s00220-023-04870-y}.
@@ -18224,6 +18205,11 @@ S.~Chatterjee, Yang--Mills for probabilists, in \emph{Probability and Analysis i
 
 \bibitem{Chat19b}
 S.~Chatterjee, Rigorous solution of strongly coupled $\SO(N)$ lattice gauge theory in the large $N$ limit, Comm. Math. Phys. \textbf{366} (2019), 203--268, \href{https://doi.org/10.1007/s00220-019-03353-3}{doi:10.1007/s00220-019-03353-3}.
+
+\bibitem{Che19}
+I.~Chevyrev, Yang--Mills measure on the two-dimensional torus as a random
+distribution, Comm. Math. Phys. \textbf{372} (2019), 1027--1058,
+\href{https://doi.org/10.1007/s00220-019-03567-5}{doi:10.1007/s00220-019-03567-5}.
 
 \bibitem{Cre77}
 M.~Creutz, Gauge fixing, the transfer matrix, and confinement on a lattice,
@@ -18458,6 +18444,15 @@ A.~Naddaf and T.~Spencer, On homogenization and scaling limit of some
 gradient perturbations of a massless free field, Comm. Math. Phys.
 \textbf{183} (1997), 55--84,
 \href{https://doi.org/10.1007/BF02509796}{doi:10.1007/BF02509796}.
+
+\bibitem{OCFdV20}
+M.~O'Carroll and P.~A.~Faria da Veiga, On Yang--Mills stability and plaquette
+field generating functional, preprint, 2020,
+\href{https://arxiv.org/abs/2005.00899}{arXiv:2005.00899}; see also
+P.~A.~Faria da Veiga and M.~O'Carroll, On Yang--Mills stability bounds and
+plaquette field generating function, Rep. Math. Phys. \textbf{95} (2025),
+303--380,
+\href{https://doi.org/10.1016/S0034-4877(25)00035-7}{doi:10.1016/S0034-4877(25)00035-7}.
 
 \bibitem{OS73}
 K.~Osterwalder and R.~Schrader, Axioms for Euclidean Green's functions,

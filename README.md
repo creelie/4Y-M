@@ -1,6 +1,6 @@
 # Yang-Mills Theory and the Mass Gap
 
-Deep Bhattacharjee, Ushashi Bhattacharya, James Montgomery Lockwood and Tristan Romanov.
+Deep Bhattacharjee, Ushashi Bhattacharya, James Montgomery Lockwood, Sanjeevan Singha Roy and Tristan Romanov.
 
 DOI (all versions): https://doi.org/10.5281/zenodo.23444338
 
