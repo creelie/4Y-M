@@ -1,7 +1,7 @@
-# Yang-Mills Theory and the Mass Gap (current manuscript)
+# Yang-Mills Theory and the Mass Gap (v4.43.0)
 
-The paper is shortened to 188 pages: it keeps the strong-coupling theorems for every compact simple group, the continuum step and the estimates that bear on (D) and (E), and cites the Hexagon preprint 2610.00341v7 for the multiscale material. New in this version: the cube estimate for free massive scalar and Proca fields with its exact constant, its stability under convex perturbations, the weak-coupling estimates for SU(2) plaquette traces and Wilson loops with a constant independent of beta, the renormalised two-point continuum theory without the cube estimate, and lower bounds on plaquette correlations. The abstract states the gap values.
+The paper (203 pages) proves the strong-coupling mass gap m >= arccosh(1 + (kappa_G/(N beta) - 29/2)/12) for every compact simple gauge group and shows that one uniform cube estimate at physical scale l gives every continuum limit the mass gap m >= 16 varpi/(625 e^2 l). It contains the cube estimate for free massive fields with its exact constant and its stability under convex perturbations, weak-coupling estimates for SU(2) with a constant independent of beta, a renormalisation-group recursion for the cube constant, the renormalised two-point continuum theory, lower bounds on plaquette correlations and ultraviolet tightness. Side material not needed for these results was removed. Sanjeevan Singha Roy joins as fifth author, and the declarations are complete.
 
-The uniform weak-coupling cube estimate (D) and a nontrivial continuum limit (E) remain unproved.
+The uniform weak-coupling cube estimate (D) and a nontrivial continuum limit (E) remain unproved, so the continuum mass gap is not proved.
 
 DOI (all versions): https://doi.org/10.5281/zenodo.23444338
