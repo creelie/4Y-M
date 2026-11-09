@@ -1,8 +1,6 @@
 """Figure of Appendix "app:certificate": (a) the least eigenvalue of the plaquette matrix M_p(phi)
 over the torus of phases, for the plaquette whose minimum is smallest; (b) the bracket of the definition
-of h for the 48 free links of a period cell, against 9 + sqrt(17), 14.384 and 29/2; (c) the constants of
-the block gap, Theorem "blockgap" (52), Proposition "blockgapsharp" (5000/537) and the bulk Bloch value
-1/c* = 1/0.1074877694868. Run from this directory: python3 make_certificate.py (about one minute; it
+of h for the 48 free links of a period cell, against 9 + sqrt(17), 14.384 and 29/2. Run from this directory: python3 make_certificate.py (about one minute; it
 imports strong-coupling/gauge-fixed/checks/romanov/romanov_certificate.py and its data). The
 eigenvalues are in floating point. Writes fig_certificate.png."""
 import os, sys
@@ -53,8 +51,8 @@ for j in range(len(rc.PL)):
 j, lam = best
 print('plaquette', j, 'least eigenvalue on the grid', lam.min())
 
-fig = plt.figure(figsize=(9.6, 3.2))
-ax = fig.add_axes([-0.03, 0.0, 0.38, 1.0], projection='3d')
+fig = plt.figure(figsize=(7.04, 3.2))
+ax = fig.add_axes([-0.041, 0.0, 0.518, 1.0], projection='3d')
 ax.set_box_aspect((1, 1, 0.75))
 ax.plot_surface(P1, P2, lam, cmap='viridis', rstride=2, cstride=2, lw=0.1, edgecolor='#444444', alpha=0.95)
 i0 = np.unravel_index(lam.argmin(), lam.shape)
@@ -68,27 +66,17 @@ ax.view_init(26, -55)
 ax.set_title(r'(a) least eigenvalue of $M_p(\varphi)$', fontsize=10, y=0.97)
 
 tot = sorted(float(v) for v in rc.tot.values())
-ax2 = fig.add_axes([0.40, 0.18, 0.27, 0.68])
+ax2 = fig.add_axes([0.545, 0.18, 0.368, 0.68])
 ax2.bar(range(len(tot)), tot, color=BLUE, width=0.8)
-for y, col, lab in ((14.5, RED, r'$\frac{29}{2}$'), (14.420001, ORANGE, r'$14.420001$'),
-                    (14.384, GREEN, r'$14.384$'), (9 + np.sqrt(17), INK, r'$9+\sqrt{17}$')):
+for y, yt, col, lab in ((14.5, 14.57, RED, r'$\frac{29}{2}$'), (14.420001, 14.45, ORANGE, r'$14.420001$'),
+                        (14.384, 14.33, GREEN, r'$14.384$'), (9 + np.sqrt(17), 9 + np.sqrt(17), INK, r'$9+\sqrt{17}$')):
     ax2.axhline(y, color=col, lw=1.0, ls='--' if col != ORANGE else '-')
-    ax2.text(len(tot) + 0.5, y, lab, color=col, fontsize=8, va='center')
+    ax2.annotate(lab, (len(tot) - 0.5, y), xytext=(len(tot) + 0.8, yt), color=col, fontsize=8, va='center',
+                 annotation_clip=False, arrowprops=dict(arrowstyle='-', color=col, lw=0.6))
 ax2.set_ylim(12.6, 14.7)
 ax2.set_xlim(-1, len(tot))
 ax2.set_xlabel('free links of a period cell')
 ax2.set_title('(b) totals of the certificate', fontsize=10)
 ax2.spines['top'].set_visible(False); ax2.spines['right'].set_visible(False)
 
-ax3 = fig.add_axes([0.80, 0.18, 0.18, 0.68])
-vals = [(1 / 0.1074877694868, GREEN, 'Bloch'), (5000 / 537, ORANGE, r'$\frac{5000}{537}$'), (52, RED, '52')]
-for x, (v, col, lab) in enumerate(vals):
-    ax3.bar(x, v, color=col, width=0.6)
-    ax3.text(x, v * 1.08, lab, ha='center', fontsize=9, color=col)
-ax3.set_yscale('log')
-ax3.set_ylim(5, 100)
-ax3.set_xticks([])
-ax3.set_ylabel(r'$C$ in $\sum\phi^2\leq C\,Q$')
-ax3.set_title('(c) block gap', fontsize=10)
-ax3.spines['top'].set_visible(False); ax3.spines['right'].set_visible(False)
 save(fig, 'fig_certificate.png')

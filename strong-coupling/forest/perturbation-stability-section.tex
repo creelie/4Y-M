@@ -7,7 +7,7 @@ units of the cube. This subsection asks which perturbations of the Gaussian
 preserve it. The answer has a negative and a positive half. A lower bound on
 the Hessian of the Hamiltonian does not preserve it: a convex perturbation of
 the free field can drive the constant to zero, because the Dirichlet form of
-the cube dynamics, unlike the carr\'e du champ of the Langevin dynamics,
+the cube dynamics, unlike the carr\'e du champ of the Langevin dynamics,\footnote{For a Markov generator $\mathcal L$ the carr\'e du champ is $\Gamma(f)=\frac12\bigl(\mathcal L f^2-2f\mathcal Lf\bigr)$; for the Langevin dynamics $\mathcal L=\Delta-\nabla S\cdot\nabla$ it equals $\lvert\nabla f\rvert^2$, and the Dirichlet form is $\E\,\Gamma(f)$.}
 depends on the Hessian and is not monotone in it. What preserves it is a
 two-sided control of the Hessian, or more precisely a pointwise stable
 decomposition of the Hessian along the cubes; under that hypothesis the
@@ -90,13 +90,25 @@ convex, $\mathrm{BP}(n,\varpi_0)$ for $\mu_0$ implies $\mathrm{BP}(n,c
 (-\log\mu_0)$'' in place of ``$V$ convex''.
 \end{theorem}
 
+\begin{figure*}[t]
+\centering
+\includegraphics[width=0.92\textwidth]{figures/fig_stability.png}
+\caption{A convex perturbation can destroy the cube condition
+(Theorem~\ref{thm:rSnonmono}). (a) The bound
+$s^2/(s^2+(1+t)\,16d/9)$, $d=4$, on the constant of the free scalar field
+perturbed by $\frac t2\lVert\nabla\phi\rVert^2$, over $s=m\ell$ and $t$.
+(b) The same bound against $t$ for $s=1,2,4,8$; it tends to $0$ as
+$t\to\infty$ although the Hessian only grows.}
+\label{fig:stability}
+\end{figure*}
+
 \begin{proof}
 $\mu_t$ is the Gaussian with precision $Q_t=(1+t)(-\Delta)+\mu^2=(1+t)
-(-\Delta+\mu_t^2)$, $\mu_t^2=\mu^2/(1+t)$. For $c>0$ the law $\gamma_{cQ}$ is
+(-\Delta+m_t^2)$, $m_t^2=\mu^2/(1+t)$. For $c>0$ the law $\gamma_{cQ}$ is
 the image of $\gamma_Q$ under $\phi\mapsto c^{-1/2}\phi$, which commutes with
 the conditional expectations $\mathcal P_x$, so $\varpi(cQ)=\varpi(Q)$ and
-$\varpi(Q_t)=\varpi(-\Delta+\mu_t^2)$. Proposition~\ref{prop:ffupper}(i) with
-$s_t=n\mu_t$ gives $\varpi(Q_t)\le s_t^2/(s_t^2+16d/9)=s^2/(s^2+(1+t)16d/9)$.
+$\varpi(Q_t)=\varpi(-\Delta+m_t^2)$. Proposition~\ref{prop:ffupper}(i) with
+$s_t=nm_t$ gives $\varpi(Q_t)\le s_t^2/(s_t^2+16d/9)=s^2/(s^2+(1+t)16d/9)$.
 The Proca case is Proposition~\ref{prop:ffupper}(ii) in the same way. The
 last claim follows because $\mu_0$ itself satisfies $\mathrm{BP}(n,\varpi_0)$
 with $\varpi_0=c_d(s)>0$ by Theorem~\ref{thm:ffscalar}, while
@@ -500,9 +512,12 @@ even $L$,
 \[
 \varpi(\mu_\beta)\le\frac{2n^d}{L^d};
 \]
-one may take $\beta_1(3)=6.7$ and $\beta_1(4)=8.6$. Consequently there is no
-function $F$ with $\varpi(e^{-W}\mu_0)\ge F(d,n,\omega_{\rm loc}(W))\,\varpi
-(\mu_0)$ on all tori: the cube condition is not stable under bounded local
+one may take $\beta_1(3)=9.5$ and $\beta_1(4)=19.8$. Consequently there is no
+function $F$ on all tori with
+\[
+\varpi(e^{-W}\mu_0)\ge F(d,n,\omega_{\rm loc}(W))\,\varpi(\mu_0):
+\]
+the cube condition is not stable under bounded local
 perturbations with constants uniform in the volume.
 \end{proposition}
 
@@ -545,9 +560,16 @@ and for $k'\in B_k$, $\lvert k'\rvert\le\lvert k\rvert+\sqrt d\,\pi/L\le(1+
 G_L\le\frac{\pi^2}2\Bigl(1+\frac{\sqrt d}2\Bigr)^2\frac1{(2\pi)^d}\int_{[-2
 \pi,2\pi]^d}\frac{dk'}{\lvert k'\rvert^2}=:I_d,
 \]
-which is finite for $d\ge3$; with $k'=2\pi u$, $I_d=\frac18(1+\frac{\sqrt d}
-2)^2\int_{[-1,1]^d}\lvert u\rvert^{-2}du$, and the integral is $15.35$ for
-$d=3$ and $17.15$ for $d=4$, so $I_3<6.7$ and $I_4<8.6$. With $\beta_1(d)=
+which is finite for $d\ge3$. With $k'=2\pi u$,
+\begin{gather*}
+I_d=\frac18\Bigl(1+\frac{\sqrt d}2\Bigr)^2\int_{[-1,1]^d}\frac{du}{\lvert u
+\rvert^2},\\
+\int_{[-1,1]^d}\frac{du}{\lvert u\rvert^2}\le\lvert S^{d-1}
+\rvert\int_0^{\sqrt d}r^{d-3}\,dr,
+\end{gather*}
+and the right-hand side is $4\pi\sqrt3<21.8$ for $d=3$ and $4\pi^2<39.5$ for
+$d=4$ (numerically the integral is $15.35$ for $d=3$ and $17.15$ for $d=4$),
+so $I_3<9.5$ and $I_4<19.8$. With $\beta_1(d)=
 I_d$, for $\beta\ge\beta_1$ we get $G_L/(2\beta)\le\frac12$ and
 $\Var_{\mu_\beta}(M)=\mu_\beta(M^2)\ge L^{2d}/2$, using $\mu_\beta(M)=0$ by
 the spin-flip symmetry. Then~\eqref{eq:rSBP} with $f=M$ forces $\varpi\le
@@ -694,7 +716,7 @@ configuration is $\frac\beta{N}\delta_1d_1$ on each of the $N^2-1$
 components with respect to a basis of $\mathfrak{su}(N)$ orthonormal for
 $-\Tr(XY)$, so (ii) holds verbatim with $\dim F=d(N^2-1)$; the statement at
 the trivial configuration is a statement about the Maxwell form and does not
-see the group. The paper's Sec.~\ref{sec:curvature} records the analogue of
+see the group. The introduction (Sec.~\ref{sec:intro}) records the analogue of
 (iii) for $\SU(2)$: the Bakry--\'Emery tensor is negative at large fields
 once $\beta_W>\frac13$.
 

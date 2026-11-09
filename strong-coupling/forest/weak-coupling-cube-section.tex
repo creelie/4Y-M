@@ -231,6 +231,17 @@ and there is no $\varpi>0$ such that $\mathrm{BP}(n,\varpi)$ holds for all
 $L$.
 \end{theorem}
 
+\begin{figure*}[t]
+\centering
+\includegraphics[width=0.92\textwidth]{figures/fig_maxwell.png}
+\caption{The Maxwell obstruction (Theorem~\ref{rD:maxwell}). (a) The
+logarithm of the bound $8\pi^2(n+1)^2/L^2$ on any constant $\varpi$ of
+$\mathrm{BP}(n,\varpi)$ for the Maxwell field, over the cube side $n$ and
+the side $L$ of the torus. (b) The bound $\min(1,8\pi^2(n+1)^2/L^2)$ against
+$L$ for $n=2,4,8,16$: for every fixed $n$ it tends to $0$ like $L^{-2}$.}
+\label{fig:maxwell}
+\end{figure*}
+
 \begin{proof}
 Let $c\in C^2$ be the cochain with $c_{(y,12)}=\cos(2\pi y_1/L)$ and all
 other components zero, so that $f=\ip cF$. The cochain $c$ is exact: with
@@ -724,7 +735,7 @@ $\alpha<1$, which gives $\mathrm{BP}(n,1-\alpha)$ for all $L\ge2n+4$ at
 once (Proposition~\ref{prop:avgsup}, Theorem~\ref{thm:bpstrong}(ii)); it
 does not depend on $L$, and Corollary~\ref{cor:bpresponse} excludes
 $D^0_L(n,\alpha)$ only for $n^4<(1-\alpha)\beta/(38400(\log\beta+6.11))$,
-for $\alpha\le\frac12$ only for $n^4<\beta/(76800(\log\beta+6.11))$; the
+for $\alpha\ge\frac12$ only for $n^4<\beta/(76800(\log\beta+6.11))$; the
 choice $n_k=\lfloor\ell/a_k\rfloor$ leaves this range as soon as $a_k\le
 \ell\bigl(76800(\log\beta_k+6.11)/\beta_k\bigr)^{1/4}/2$, that is for every
 tuning in which $a_k$ tends to zero faster than $\beta_k^{-1/4}$. The first
@@ -734,7 +745,7 @@ of side $n(\beta)$ with arbitrary exterior, with no averaging, and its
 analogue for the massless Gaussian field fails
 (Proposition~\ref{prop:gauss}(i)). Second, the single-link
 bounds of Proposition~\ref{rD:plaquette} give the inequality of
-$\mathrm{BP}$ for the plaquette traces uniformly in $L$, but with a
+$\mathrm{BP}$ for the plaquette traces uniformly in $L$ and with a
 constant independent of $\beta$ (Corollary~\ref{rDtwo:bpplaquette}),
 and only for these functions; the
 block-spin results of \cite[Sec.~X\,Q]{BBLR26} give $\mathrm{BP}(n,\frac12)$
