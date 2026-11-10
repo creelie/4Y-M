@@ -154,8 +154,8 @@ $\ip XY=-\Tr(XY)$, and $6N|\beta|<\kappa_G$. Then $C^T_{ek}\le N|\beta|/
 $b=4\beta\sum_{p\ni e}\bar s_p$, where $s_p$ is the product of the other three
 variables of $p$, as in Sec.~\ref{sec:state}. A partner $k$ enters one
 $s_p$, and moving it by $\delta_k$ moves $\bar s_p$ by $\delta_k$, since left and
-right multiplication and inversion are isometries; the sharp quarter of
-\cite{BB26a} gives the bound. Links of $T_x$ do not move.
+right multiplication and inversion are isometries; the sharp quarter,
+Theorem~\ref{q-thm:quarter}, gives the bound. Links of $T_x$ do not move.
 
 (ii) The conditional law is $\nu\propto e^{-V}d\psi_e$ with $V=-N\beta
 \sum_{p\ni e}\ReTr[\psi,U]_p$; by~\eqref{eq:fp} each term has second
@@ -407,115 +407,3 @@ $r/(4-ar)\le1/(4-a)$. For a Perron vector $v\ge0$ of $A$, $\varrho=tv$
 satisfies $cA\varrho\ge\varrho$ for every $t>0$.
 \end{proof}
 
-\section{Free massive fields}\label{sec:free}
-
-Here $d\ge1$, $n\ge2$, $L\ge n+1$, $\mathbb T=(\Z/L\Z)^d$, $\mu>0$ is a lattice
-mass, $-\Delta$ is the lattice Laplacian and $Q=-\Delta+\mu^2$. For a positive
-definite $Q$ on $\R^N$ let $\gamma_Q$ be the centred Gaussian law with
-covariance $C=Q^{-1}$, and for $V\subset\{1,\dots,N\}$ let $\mathcal P_V$ be the
-conditional expectation given the coordinates outside $V$. For the cubes
-$V_x=x+\{0,\dots,n-1\}^d$, $x\in\mathbb T$, put
-\begin{equation}\label{eq:ffvarpi}
-\varpi(Q)=\inf_f\frac{n^{-d}\sum_x\|f-\mathcal P_{V_x}f\|^2}{\Var_{\gamma_Q}(f)},
-\end{equation}
-the infimum over nonconstant $f\in L^2(\gamma_Q)$, the best constant in
-$\BP(n,\cdot)$. With $s=n\mu$ and $\mu=ma$, $n=\ell/a$, the parameter $s=m\ell$
-is the mass times the physical size of the cube.
-
-\begin{lemma}[linear functions suffice]\label{lem:chaos}
-For a positive definite $Q$ and any family of coordinate sets $(V_x)$, the
-infimum in~\eqref{eq:ffvarpi} equals its infimum over the linear functions
-$\ell_h(\phi)=\ip h\phi$, and
-\[
-\|\ell_h-\mathcal P_V\ell_h\|^2=\ip{h_V}{Q_{VV}^{-1}h_V},\qquad
-\Var(\ell_h)=\ip h{Q^{-1}h},
-\]
-with $h_V$ the restriction of $h$ to $V$ and $Q_{VV}$ the block of $Q$ on $V$.
-\end{lemma}
-
-\begin{proof}
-The conditional law of $\phi_V$ given $\phi_{V^c}$ is Gaussian with covariance
-$Q_{VV}^{-1}$, which gives the formula for $\ell_h$. Write $\phi=Q^{-1/2}\xi$ with
-$\xi$ standard Gaussian. Conditioning on $\phi_{V^c}$ is conditioning on the
-Gaussian subspace $K_V=\{\ip u\xi:u\in Q^{-1/2}\R^{V^c}\}$, and on the $m$-th
-Wiener chaos, identified with the symmetric tensors $\mathrm{Sym}^m(\R^N)$, it
-acts as $\pi_V^{\otimes m}$, with $\pi_V$ the orthogonal projection onto $Q^{-1/2}
-\R^{V^c}$~\cite[Ch.~4]{Jan97}. The chaoses are orthogonal and invariant under
-every $\mathcal P_V$, so it suffices to treat one chaos $m\ge1$. The projection
-$I-\pi_V^{\otimes m}$ dominates $(I-\pi_V)\otimes I^{\otimes(m-1)}$, as both are
-projections that commute and the range of the second lies in that of the
-first. For a symmetric tensor $F$, therefore,
-\[
-\sum_x\|F-\pi_{V_x}^{\otimes m}F\|^2\ge\Bigl\langle F,\Bigl(\sum_x(I-\pi_{V_x})\Bigr)
-\otimes I^{\otimes(m-1)}F\Bigr\rangle\ge\lambda\|F\|^2,
-\]
-where $\lambda$ is the least eigenvalue of $\sum_x(I-\pi_{V_x})$ on $\R^N$, which is
-the infimum of the quotient over linear functions ($m=1$).
-\end{proof}
-
-\begin{theorem}[the exact constant]\label{thm:free}
-Let $V=\{0,\dots,n-1\}^d$, $-\Delta_D$ its Dirichlet Laplacian and $\mathbf 1$ its
-constant function. Then
-\[
-\varpi(-\Delta+\mu^2)=\frac{\mu^2}{n^d}\ip{\mathbf 1}{(-\Delta_D+\mu^2)^{-1}\mathbf 1},
-\]
-attained only at multiples of $\ell_{\mathbf 1}$ among linear functions, and
-\[
-\Bigl(\frac56\Bigr)^d\frac{s^2}{s^2+10d}\le\varpi(-\Delta+\mu^2)\le\frac{s^2}
-{s^2+4dn^2\sin^2\frac\pi{2n+2}}\le\frac{s^2}{s^2+16d/9}.
-\]
-\end{theorem}
-
-\begin{proof}
-Since $L\ge n+1$, the block $Q_{V_xV_x}$ is the translate of $Q_{VV}=-\Delta_D+
-\mu^2$; put $G_V=Q_{VV}^{-1}$. By Lemma~\ref{lem:chaos}, $n^d\varpi$ is the least
-value of $\ip h{Sh}/\ip h{Q^{-1}h}$ with $S=\sum_xR_{V_x}^{\mathsf T}Q_{V_xV_x}^{-1}
-R_{V_x}$, that is, the least eigenvalue of $Q^{1/2}SQ^{1/2}$. Translations commute
-with $Q$ and $S$, so the plane waves $e_k(y)=e^{ik\cdot y}$ diagonalise it with
-eigenvalues $\lambda_k=\hat q(k)\ip{e_k^V}{G_Ve_k^V}$, where $\hat q(k)=\mu^2+
-\sum_i(2-2\cos k_i)$ and $e_k^V$ is the restriction to $V$.
-
-Let $B$ map $f$ to the function $u\mapsto\sum_{w\sim u,\,w\notin V}f(w)$ on $V$.
-Then $Q_{VV}R_Vf=R_VQf+Bf$, so $Q_{VV}e_k^V=\hat q(k)e_k^V+Be_k$, and pairing
-$G_V$ of this with $e_k^V$ gives
-\[
-\lambda_k=n^d-\sum_{u,u'\in V}\sum_{w\sim u',\,w\notin V}G_V(u,u')\cos\bigl(k\cdot
-(w-u)\bigr).
-\]
-Write $Q_{VV}=(2d+\mu^2)(I-K)$ with $K$ entrywise nonnegative and $\|K\|\le
-2d/(2d+\mu^2)<1$; the Neumann series shows that $G_V$ has positive entries.
-Hence $\lambda_k-\lambda_0=\sum G_V(u,u')(1-\cos(k\cdot(w-u)))\ge0$, with equality only
-at $k=0$ (take $u=u'$ on a face and $w=u+e_i$). Since $Q\mathbf 1=\mu^2\mathbf 1$,
-$\lambda_0=\mu^2\ip{\mathbf 1}{G_V\mathbf 1}$, which is the formula.
-
-\emph{Upper bound.} $G_V\le(\lambda_1+\mu^2)^{-1}$ with $\lambda_1=4d\sin^2\frac\pi
-{2n+2}$ the least eigenvalue of $-\Delta_D$, and $\|\mathbf 1\|^2=n^d$; then
-$\sin t\ge2t/\pi$ gives $n^2\lambda_1\ge4dn^2/(n+1)^2\ge16d/9$.
-
-\emph{Lower bound.} By the variational formula $\ip{\mathbf 1}{G_V\mathbf 1}\ge
-\ip{\mathbf 1}w^2/\ip w{Q_{VV}w}$, take $w(u)=\prod_i\tau(u_i)$ with the parabolic
-profile $\tau(s)=6(s+1)(n-s)/(n(n+1)(n+2))$ on $\{0,\dots,n-1\}$, zero
-outside. Then $\sum\tau=1$, $S_2=\sum\tau^2=\alpha_n/n$ and $D_2=\sum_{s\in\Z}
-(\tau(s+1)-\tau(s))^2=\beta_n/n^3$ with
-\[
-\alpha_n=\frac{6(n^2+2n+2)}{5(n+1)(n+2)}\le\frac65,\qquad
-\beta_n=\frac{12n^2}{(n+1)(n+2)}=10\rho_n\alpha_n,\quad
-\rho_n=\frac{n^2}{n^2+2n+2}<1,
-\]
-by the power sums $\sum_{u=1}^nu(n+1-u)=n(n+1)(n+2)/6$, $\sum_{u=1}^nu^2(n+1-u)^2=
-n(n+1)(n+2)(n^2+2n+2)/30$ and $\sum_{u=0}^n(n-2u)^2=n(n+1)(n+2)/3$. The Dirichlet
-form of the product is $\ip w{-\Delta_Dw}=dS_2^{d-1}D_2$ and $\ip{\mathbf 1}w=1$, so
-\[
-\varpi\ge\frac{\mu^2}{n^d(\mu^2S_2^d+dS_2^{d-1}D_2)}=\frac1{\alpha_n^d+d\alpha_n^{d-1}
-\beta_ns^{-2}}=\alpha_n^{-d}\frac{s^2}{s^2+10d\rho_n}\ge\Bigl(\frac56\Bigr)^d
-\frac{s^2}{s^2+10d}.\qedhere
-\]
-\end{proof}
-
-At $n=2$ the two bounds coincide with $s^2/(s^2+4d)$. For $d=4$ the lower
-bound is $0.0118$ at $s=1$ and $0.0438$ at $s=2$; the upper bound vanishes as
-$s\to0$, so a massless free field satisfies no cube condition uniform in the
-lattice spacing. The same proof, with the Hodge identity of the torus, gives
-the cube condition for the free massive vector (Proca) field on gauge-invariant
-functions, with the same lower bound and the upper bound $s^2/(1+s^2)$
-\cite{BBLRS26}.

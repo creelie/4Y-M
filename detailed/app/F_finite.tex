@@ -1,0 +1,228 @@
+\section{A finite-size criterion for the cube condition}\label{app:finite}
+
+This appendix proves the finite-size criterion used in
+Sec.~\ref{sec:massgen}: a gap for the dynamics that resamples the blocks of
+one patch of $m^4$ blocks, uniform in the configuration outside the patch,
+gives the cube condition on every large torus. Blocks that share no
+plaquette give commuting projections, and this replaces the disjointness
+used in the finite-size criteria of Knabe~\cite{Kna88} and of Gosset and
+Mozgunov~\cite{GM16} for quantum spin systems.\footnote{In those criteria
+the local terms of a Hamiltonian act on overlapping sets of sites, and the
+gap of the whole system is bounded below by the gap of a finite patch minus
+a correction that decays with the size of the patch. Here the local terms
+are the complements $I-\mathcal P_j$ of conditional expectations, and two
+of them commute as soon as the blocks are at distance at least two.}
+
+\emph{Setting.} The notation is that of Sec.~\ref{sec:cube} and of the
+setting of Sec.~\ref{sec:massgen}. Fix integers $d\ge2$ and $m\ge4$ with
+$d\mid L$, put $K=L/d$, $n=2d-1$, and fix a shift $a\in[0,d)^4$. For $j$ in
+the coarse torus $T_K=(\Z/K\Z)^4$ let $r_j=a+dj$, let $B_j=V_{r_j}$ be the
+set of links with base point in $r_j+[0,n)^4$, and write $\mathcal P_j=
+\mathcal P_{r_j}$. Displacements $v=j'-j$ in $T_K$ are represented in
+$(-K/2,K/2]^4$. Two sets $A,A'$ of links are \emph{non-interacting} if no
+plaquette contains a link of each; for a set $A$ of links, $P_A$ is the
+conditional expectation under $\mu$ given the links outside $A$.
+
+\begin{lemma}\label{lem:fcommute}
+\begin{enumerate}[label=\textup{(\roman*)},leftmargin=*]
+\item For non-interacting sets $A,A'$ of links, $P_AP_{A'}=P_{A'}P_A=
+P_{A\cup A'}$, and $(I-P_A)(I-P_{A'})$ is an orthogonal projection.
+\item If $K\ge4$ and $|j'-j|_\infty\ge2$, then $B_j$ and $B_{j'}$ are
+non-interacting.
+\item The blocks $B_j$, $j\in T_K$, cover $E$.
+\item If $f\in L^2(\mu)$ and $\mathcal P_jf=f$ for every $j\in T_K$, then
+$f$ is almost surely constant.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+(i) Every link lies on a plaquette, so $A\cap A'=\emptyset$. Given the
+links outside $A\cup A'$, the law of $(U_A,U_{A'})$ has density
+proportional to $\prod_{p\cap(A\cup A')\ne\emptyset}\varphi(U_p)$, and each
+factor involves the links of exactly one of $A$, $A'$. The density is
+therefore a product of a function of $U_A$ and a function of $U_{A'}$,
+with coefficients depending on the links outside $A\cup A'$. Hence $U_A$
+and $U_{A'}$ are conditionally independent, the conditional law
+$\gamma_A$ of $U_A$ given the links outside $A$ does not depend on
+$U_{A'}$, and likewise for $A'$. So $P_AP_{A'}f$ and $P_{A'}P_Af$ are both
+the integral of $f$ against $\gamma_A\otimes\gamma_{A'}$, which is
+$P_{A\cup A'}f$, and $(I-P_A)(I-P_{A'})=I-P_A-P_{A'}+P_{A\cup A'}$ is
+self-adjoint and idempotent.
+
+(ii) Let $|v_i|\ge2$ for $v=j'-j$. In the coordinate $i$ the base points of
+the links of $B_j$ and of $B_{j'}$ lie in $dj_i+a_i+[0,2d-2]$ and in
+$dj_i+a_i+dv_i+[0,2d-2]$ modulo $L$. If $v_i\ge2$, their distance in
+$\Z/L\Z$ is at least $\min\{(v_i-2)d+2,(K-v_i-2)d+2\}\ge2$, since $v_i\le
+K/2$ and $K\ge4$; the case $v_i\le-2$ is symmetric. A plaquette meeting both
+blocks would contain two links whose base points differ by at least two in
+the coordinate $i$, while the base points of the links of a plaquette
+differ by at most one in each coordinate.
+
+(iii) The sets $r_j+[0,d)^4$ partition $\Lambda_L$, and $[0,d)\subset
+[0,n)$.
+
+(iv) The density of $\mu$ with respect to the Haar measure $h$ of $G^E$ is
+bounded above and below by positive constants, so $\mu$ and $h$ have the
+same null sets and $L^2(\mu)=L^2(h)$. If $\mathcal P_jf=f$, then $f$ is
+almost surely a function of $U_{E\setminus B_j}$, and it is fixed by the
+conditional expectation $Q_j$ of $h$ given $U_{E\setminus B_j}$, which
+integrates out $U_{B_j}$. By Fubini's theorem the $Q_j$ commute and their
+product integrates out the links of $\bigcup_jB_j=E$, so $f=\int f\,dh$
+almost surely.
+\end{proof}
+
+In four dimensions the displacements $v$ with $|v|_\infty=1$ are $80$ in
+number, and those with $|v|_\infty\ge2$ give commuting projections. For
+$s\in T_K$ let $S_s=s+[0,m-1]^4$ be the \emph{patch} at $s$ and $S^\circ_s=
+s+[0,m-2]^4$ the set of its $(m-1)^4$ block indices, and put
+\[
+H=\sum_{j\in T_K}(I-\mathcal P_j),\qquad H_s=\sum_{j\in S^\circ_s}(I-
+\mathcal P_j).
+\]
+These are bounded nonnegative operators on $L^2(\mu)$ and preserve the
+subspace $\mathcal A$ of gauge-invariant functions.
+
+\begin{lemma}\label{lem:knabe}
+Let $m\ge4$, $p=m-1$, $K\ge2m$, let $\mathcal K$ be $L^2(\mu)$ or
+$\mathcal A$, and suppose that $H_s^2\ge\gamma H_s$ on $\mathcal K$ for
+every $s\in T_K$, with $\gamma>0$. Then $H^2\ge\varepsilon H$ on
+$\mathcal K$ with
+\[
+\varepsilon=1-\frac{(1-\gamma)p^4+72p^3-168p^2+96p-16}{p^3(p-2)}\ge
+\frac{\gamma p-74}{p-2}.
+\]
+In particular $\varepsilon\ge\gamma/2$ if $m-1\ge148/\gamma$.
+\end{lemma}
+
+\begin{proof}
+All operators below preserve $\mathcal K$, and a restriction of an
+orthogonal projection to an invariant closed subspace is an orthogonal
+projection; so it suffices to argue on $L^2(\mu)$ with inequalities read on
+$\mathcal K$. Write $\mathbf P_j=I-\mathcal P_j$ and $A_v=\sum_j\mathbf P_j
+\mathbf P_{j+v}$. Since $K\ge2m$, two indices $j$ and $j+v$ lie in a common
+$S^\circ_s$ only if $|v_i|\le m-2$ for all $i$, and then for exactly
+$c_v=\prod_{i=1}^4(p-|v_i|)$ points $s$. Let $O$ be the set of the $80$
+displacements with $|v|_\infty=1$, $D$ the set of those with
+$|v|_\infty\ge2$, and $D'$ the set of $v\in D$ with all $|v_i|\le m-2$. For
+$v\in D$, $\mathbf P_j\mathbf P_{j+v}$ is an orthogonal projection by
+Lemma~\ref{lem:fcommute}(i),(ii), so $A_v\ge0$. Summing the hypothesis over
+$s$,
+\[
+\sum_sH_s^2=c_0H+\sum_{v\in O}c_vA_v+\sum_{v\in D'}c_vA_v\ge\gamma\sum_sH_s
+=\gamma c_0H .
+\]
+Put $c_*=p^3(p-2)$; then $c_v\le c_*$ for $v\in D'$, since one factor of
+$c_v$ is at most $p-2$ and the others are at most $p$. For orthogonal
+projections $\mathbf P,\mathbf P'$, $(\mathbf P\pm\mathbf P')^2\ge0$ gives
+$-(\mathbf P+\mathbf P')\le\mathbf P\mathbf P'+\mathbf P'\mathbf P\le
+\mathbf P+\mathbf P'$, so $-2H\le A_v+A_{-v}\le2H$. As $O$ is symmetric and
+$c_{-v}=c_v$,
+\[
+\sum_{v\in O}(c_*-c_v)A_v\ge-\Sigma H,\qquad\Sigma=\sum_{v\in O}|c_*-c_v|,
+\]
+and therefore
+\[
+c_*\sum_{v\in O}A_v=\sum_{v\in O}c_vA_v+\sum_{v\in O}(c_*-c_v)A_v\ge
+-\bigl((1-\gamma)c_0+\Sigma\bigr)H-\sum_{v\in D'}c_vA_v .
+\]
+Since $H^2=\sum_vA_v=H+\sum_{v\in O}A_v+\sum_{v\in D}A_v$,
+\[
+H^2\ge\Bigl(1-\frac{(1-\gamma)c_0+\Sigma}{c_*}\Bigr)H+\sum_{v\in D'}\Bigl(1-
+\frac{c_v}{c_*}\Bigr)A_v+\sum_{v\in D\setminus D'}A_v ,
+\]
+and the last two sums are nonnegative. It remains to compute $\Sigma$. A
+displacement $v\in O$ with $k$ nonzero coordinates has $c_v=p^{4-k}(p-1)^k$,
+and there are $8$, $24$, $32$ and $16$ of them for $k=1,2,3,4$. The
+differences $c_v-c_*$ are
+\[
+p^3,\qquad p^2,\qquad-p(p^2-3p+1),\qquad-2p(p-1)(p-2)+1,
+\]
+with the signs shown since $p\ge3$. Hence
+$\Sigma=8p^3+24p^2+32p(p^2-3p+1)+16(2p(p-1)(p-2)-1)=72p^3-168p^2+96p-16$,
+and with $c_0=p^4$ this is the formula for $\varepsilon$. As $-168p^2+96p
+-16<0$, $\varepsilon\ge1-((1-\gamma)p+72)/(p-2)=(\gamma p-74)/(p-2)$, and if
+$\gamma p\ge148$ this is at least $(\gamma p-74)/p\ge\gamma/2$.
+\end{proof}
+
+For a patch $S_s$ let $\Pi_s=\bigcup_{j\in S^\circ_s}B_j$, the set of links
+with base point in $r_s+[0,md-1)^4$. For $L\ge md+2$ the patch and the
+plaquettes meeting it embed in $\Z^4$, and the conditional law of
+$U_{\Pi_s}$ under $\mu$ given the links outside $\Pi_s$ is the measure
+$\nu^\omega_{Q}$ of Sec.~\ref{sec:massgen} for the box $Q=r_s+[0,md-1)^4$,
+with $\omega$ the configuration outside. For $j\in S^\circ_s$ write
+$\mathcal P^\omega_j$ for the conditional expectation under $\nu^\omega_Q$
+given the links of $\Pi_s\setminus B_j$.
+
+\begin{definition}\label{def:patchgap}
+The \emph{gauge-invariant patch gap} $\gamma_{d,m}$ is the largest
+$\gamma\ge0$ such that
+\[
+\gamma\Var_{\nu^\omega_Q}(F)\le\sum_{j\in S^\circ_s}\nu^\omega_Q\bigl((F-
+\mathcal P^\omega_jF)^2\bigr)
+\]
+for every patch box $Q=r+[0,md-1)^4$ of $\Z^4$, every exterior
+configuration $\omega$ and every $F\in\mathcal A^\omega_Q$.
+\end{definition}
+
+By translation invariance $\gamma_{d,m}$ depends only on $G$, $\varphi$,
+$d$ and $m$. It is the gap, on gauge-invariant functions, of the dynamics
+that resamples the $(m-1)^4$ blocks of one patch, uniform in the
+configuration outside the patch.
+
+\begin{theorem}[finite-size criterion]\label{thm:finite}
+Let $d\ge2$, $m\ge4$, $d\mid L$, $L$ even, $L\ge2md$, and suppose that
+$\gamma_{d,m}\ge\gamma>0$ and that the number $\varepsilon$ of
+Lemma~\ref{lem:knabe} is positive. Then
+\[
+\frac{\varepsilon}{16}\Var_\mu(f)\le\frac1{n^4}\sum_{x\in\Lambda_L}\mu\bigl(
+(f-\mathcal P_xf)^2\bigr)\qquad\text{for every real }f\in\mathcal A,
+\]
+that is, $\BP(2d-1,\varepsilon/16)$. If $m-1\ge148/\gamma$, then
+$\varepsilon/16\ge\gamma/32$.
+\end{theorem}
+
+\begin{proof}
+Fix $a$. Since $L\ge2md$, $K\ge2m\ge8$.
+
+\emph{The patch inequality on the torus.} Let $F\in\mathcal A$; replacing $F$
+by $\int F(gU)\,dg$, the integral over all gauge transformations of
+$\Lambda_L$ with Haar measure, we may take $F$ invariant at every point.
+Write $U=(\sigma,\omega)$ with $\sigma$ the links of $\Pi_s$ and $\omega$ the
+others. Under $\mu$ the conditional law of $\sigma$ given $\omega$ is
+$\nu^\omega_Q$, and for $j\in S^\circ_s$ the conditional law of $U_{B_j}$
+given the other links is the same under $\mu$ and under $\nu^\omega_Q$, so
+$(\mathcal P_jF)(\cdot,\omega)=\mathcal P^\omega_j(F(\cdot,\omega))$ for almost
+every $\omega$ and $H_s$ acts on each fibre as $H^\omega_s=\sum_{j\in
+S^\circ_s}(I-\mathcal P^\omega_j)$. A gauge transformation of $\Lambda_L$
+that is trivial at the vertices not interior to $Q$ fixes $\omega$, so each
+fibre $F(\cdot,\omega)$ lies in $\mathcal A^\omega_Q$. On $\mathcal
+A^\omega_Q$ the operator $H^\omega_s$ is self-adjoint and nonnegative,
+preserves the constants and their orthogonal complement
+(Lemma~\ref{lem:boxinv}(iii)), and by Definition~\ref{def:patchgap} is at
+least $\gamma$ on that complement. So its spectrum there lies in
+$\{0\}\cup[\gamma,\infty)$ and $(H^\omega_s)^2\ge\gamma H^\omega_s$.
+Integrating over $\omega$, $\|H_sF\|^2\ge\gamma\ip F{H_sF}$ for $F\in
+\mathcal A$, that is, $H_s^2\ge\gamma H_s$ on $\mathcal A$.
+
+\emph{Conclusion.} By Lemma~\ref{lem:knabe} with $\mathcal K=\mathcal A$,
+$H^2\ge\varepsilon H$ on $\mathcal A$, so the spectrum of $H$ on $\mathcal
+A$ lies in $\{0\}\cup[\varepsilon,\infty)$. If $F\in\mathcal A$ and $HF=0$,
+then $\sum_j\|F-\mathcal P_jF\|^2=\ip F{HF}=0$, so $F$ is constant by
+Lemma~\ref{lem:fcommute}(iv). Hence for real $f\in\mathcal A$ the function
+$g=f-\mu(f)\in\mathcal A$ is orthogonal to the kernel of $H$ on $\mathcal
+A$, and
+\[
+\varepsilon\Var_\mu(f)\le\ip g{Hg}=\sum_{j\in T_K}\mu\bigl((f-\mathcal
+P_{r_j}f)^2\bigr).
+\]
+As $a$ runs over $[0,d)^4$ and $j$ over $T_K$, $r_j=a+dj$ runs over
+$\Lambda_L$ once. Averaging over $a$ gives $\varepsilon d^4\Var_\mu(f)\le
+\sum_x\mu((f-\mathcal P_xf)^2)$, and $d^4\ge n^4/16$. Since $L\ge8d\ge2n+4$
+this is $\BP(2d-1,\varepsilon/16)$, and the last claim is
+Lemma~\ref{lem:knabe}.
+\end{proof}
+
+The passage from the patch to the torus costs a factor: at $\varphi\equiv1$
+the links are independent, $\gamma_{d,m}\ge1$ by the Efron--Stein
+inequality~\cite{ES81}, and the theorem gives $\BP(2d-1,\varepsilon/16)$
+with $\varepsilon<1$, against $\BP(n,1)$ from Proposition~\ref{prop:bpsup}.
