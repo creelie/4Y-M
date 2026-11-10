@@ -231,10 +231,162 @@ For $\SU(2)$ the condition $\alpha_n<1$ reads $|\beta_W|(15n^2+18n-3)<4n^2$; at
 $|\beta_W|=\frac14$ it holds for $n\ge18$, and its threshold increases to
 $\frac4{15}$ as $n\to\infty$. At strong coupling the condition is therefore
 \emph{easier} for large cubes, because the response of a cube to one boundary
-link is spread over $n^4$ links while it touches only $O(n^3)$ of them. Without
-the gauge fixing every link has eighteen partners, and the same argument needs
-$18c<1$, that is $|\beta_W|<\frac29$. No choice of gauge-fixed links goes
-much further:
+link is spread over $n^4$ links while it touches only $O(n^3)$ of them.
+
+\subsection*{A weighted count}
+For a free link $e$ let $N(e)$ be its set of free partners. The proof of
+Lemma~\ref{lem:bpblock} gives, for each free $e$,
+\begin{equation}\label{eq:rho}
+\varrho(e)\le\sum_{k\in N(e)}C^T_{ek}\varrho(k)+C^T_{ej}[e\text{ a partner of }j]
+\,\delta(U_j,U'_j).
+\end{equation}
+
+\begin{lemma}\label{lem:weightedresp}
+Let $w$ be a function on the free links with values in $[w_-,w_+]$, $w_->0$,
+with $\sum_{k\in N(e)}w(k)\le\lambda w(e)$ for every free $e$. If $C^T_{ek}\le
+c$ for all free $e$ and all $k$, and $c\lambda<1$, then
+$R_x(j)\le(w_+/w_-)\,c\,b(V_x,j)/(1-c\lambda)$.
+\end{lemma}
+
+\begin{proof}
+Multiply~\eqref{eq:rho} by $w(e)$ and sum over $e$. Since $k\in N(e)$ exactly
+when $e\in N(k)$, $\sum_ew(e)\varrho(e)\le c\lambda\sum_kw(k)\varrho(k)+
+c\,w_+b(V_x,j)\delta(U_j,U'_j)$, and $\sum_e\varrho(e)\le w_-^{-1}\sum_ew(e)
+\varrho(e)$.
+\end{proof}
+
+Write a link of $V_x$ as $(x+b,\mu)$ with $b\in[0,n-1]^4$, let
+$z(e)=\#\{i\ne\mu:b_i=0\}$ be the number of lower faces containing it, and
+call it a \emph{foot} if $b_\mu=0$. On free links put $w=45$ if $z=1$ and $e$
+is active and not a foot, $w=47$ if $z=1$ and $e\in F$ or $e$ is a foot,
+$w=48$ if $z=0$ and $e$ is an active foot, and $w=40$ otherwise.
+
+\begin{proposition}\label{prop:weights}
+For every $n\ge2$, every cube and every free link $e$,
+$\sum_{k\in N(e)}w(k)\le\frac{72}5w(e)$.
+\end{proposition}
+
+\begin{proof}
+Work in the coordinates $b$, so that $(y,\nu)\in F$ when $\sigma(x+y)=\nu$.
+Let $e=(b,\mu)$. For $\nu\ne\mu$ the other links of the plaquette $p^+_\nu$ of
+base point $b$ in the plane $\{\mu,\nu\}$ are $P_1=(b+e_\mu,\nu)$,
+$P_2=(b+e_\nu,\mu)$, $P_3=(b,\nu)$, and those of the plaquette $p^-_\nu$ of base
+point $b-e_\nu$ are $P_4=(b-e_\nu,\mu)$, $P_5=(b-e_\nu+e_\mu,\nu)$,
+$P_6=(b-e_\nu,\nu)$. If $e$ is active, with $s=\sigma(x+b)$,
+$t=\sigma(x+b+e_\mu)$ and $\rho$ the fourth direction, the links of $F$ among
+them are $P_3,P_6$ for $\nu=s$, $P_1,P_5$ for $\nu=t$ and $P_2,P_4$ for
+$\nu=\rho$: the first four by Lemma~\ref{lem:structure}(i) at $b$ and at
+$b+e_\mu$, and in the plane $\{\mu,\rho\}$ the link of $F$ is opposite to $e$
+by Lemma~\ref{lem:structure}(ii). If $e\in F$, none of them is in $F$.
+
+\emph{Reduction to the orthant.} Call a link with base point in
+$O=\Z^4_{\ge0}$ \emph{$O$-free} if it is active or has $z\ge1$, extend $w$ to
+such links by the same rule, and count as partners of $e$ the $O$-free links
+of the plaquettes of $e$ with base point in $O$. If $b_\nu=0$, the links of
+$p^-_\nu$ other than $e$ lie outside $V_x$. A link $(y,\mu')\in V_x$ lies in
+$T_x$ exactly when it is in $F$ and its head is interior, that is, $z=0$ and
+$y_{\mu'}\le n-2$; so free links are $O$-free except the \emph{exceptional}
+ones, links of $F$ with $z=0$ and $y_{\mu'}=n-1$, of weight $40$. An
+exceptional link $\phi$ in a plaquette $p$ is its link of $F$, and $p$ has a
+link $\ell$ based at $\mu'$-coordinate $n$, which lies outside $V_x$, is
+active, has its base point in $O$ (as $z(\phi)=0$), and has $w(\ell)\ge40$;
+exchanging $\phi$ for $\ell$ shows that the orthant sum dominates the sum over
+$N(e)$ for non-exceptional $e$. An exceptional $e$ has at most two partners in
+$V_x$ in each plaquette, each of weight at most $48$, and $12\cdot48=576=
+\frac{72}5\cdot40$.
+
+\emph{The orthant count.} Fix $\nu\ne\mu$, put $f=[b_\mu=0]$, $\beta=b_\nu$,
+and let $z'$ be the number of zeros among $b_i$, $i\notin\{\mu,\nu\}$. From
+the base points, $z(P_1)=z(P_2)=z(P_5)=z'$, $z(P_3)=z(P_6)=z'+f$,
+$z(P_4)=z'+[\beta=1]$; $P_2,P_4$ are feet when $f=1$, $P_1,P_3$ when
+$\beta=0$, $P_5,P_6$ when $\beta=1$; and $p^-_\nu$ counts only when
+$\beta\ge1$. An $O$-free link has weight $40$ if $z\ge2$, $47$ or $45$ if
+$z=1$ according as it is in $F$ or a foot or neither, and $48$ or $40$ if
+$z=0$ (then it is active) according as it is a foot or not; a link of $F$ with
+$z=0$ contributes nothing. Let $C(\text{role},f,\beta,z')$ be the resulting
+weight of the $O$-free links among $P_1,\dots,P_6$, the role of $\nu$ being
+$s$, $t$, $\rho$, or $\mathrm F$ when $e\in F$. For $z'=2$, $C=120$ if
+$\beta=0$ and $C=240$ otherwise; for $z'\le1$ the values are
+\begin{center}
+\small
+\begin{tabular}{cc|rrr|rrr}
+\toprule
+&&\multicolumn{3}{c|}{$z'=0$, $\beta=$}&\multicolumn{3}{c}{$z'=1$, $\beta=$}\\
+role&$f$&$0$&$1$&${\ge}2$&$0$&$1$&${\ge}2$\\
+\midrule
+$s$&0&88&173&160&139&271&274\\
+$s$&1&143&277&270&134&259&264\\
+$t$&0&88&173&160&139&271&274\\
+$t$&1&95&187&186&134&261&268\\
+$\rho$&0&96&223&160&141&271&274\\
+$\rho$&1&95&227&170&134&259&264\\
+$\mathrm F$&0&136&261&240&139&269&270\\
+$\mathrm F$&1&143&275&266&134&259&264\\
+\bottomrule
+\end{tabular}
+\end{center}
+For instance, for the role $s$, $f=1$, $\beta=1$, $z'=0$ the weights of
+$P_1,\dots,P_6$ are $40,48,47,47,48,47$. The orthant sum is
+$\sum_{\nu\ne\mu}C(\text{role}(\nu),f,b_\nu,z'_\nu)$, where $z'_\nu=z(e)-1$ if
+$b_\nu=0$ and $z'_\nu=z(e)$ otherwise, and $\frac{72}5w(e)$ is $576$, $648$,
+$676.8$ or $691.2$ for $w(e)=40,45,47,48$. For active $e$ with $z=0$ the sum
+is at most $173+173+223=569$ ($f=0$, $w=40$) or $277+187+227=691$ ($f=1$,
+$w=48$). For active $e$ with $z=1$ it is at most $96+274+274=644$ ($f=0$,
+$w=45$), and for $f=1$, $w=47$, at most $143+268+264$, $95+264+264$ or
+$95+264+268$ as the zero direction has role $s$, $t$ or $\rho$, all at most
+$675$. For active $e$ with $z=2$ it is at most $141+139+240=520$, for $z=3$
+it is $360$, with $w=40$. For $e\in F$ (then $z\ge1$) it is at most
+$136+270+270=676$ or $143+264+264=671$ when $z=1$, $w=47$; at most $518$ when
+$z=2$; and $360$ when $z=3$, with $w=40$.
+\end{proof}
+
+\begin{theorem}\label{thm:bpweighted}
+Let $n\ge2$ and $L\ge2n+4$. If $C^T_{ek}\le c$ for all cubes, free links $e$
+and links $k$, with $\frac{72}5c<1$, then $\BP(n,1-\alpha_n)$ holds whenever
+$\alpha_n=6c(18n-3)/((5-72c)n^2)<1$. In particular:
+\begin{enumerate}[label=\textup{(\roman*)},leftmargin=*]
+\item for $G=\SU(2)$ and $|\beta_W|<\frac5{18}$, with
+$\alpha_n=3|\beta_W|(18n-3)/(2(5-18|\beta_W|)n^2)$;
+\item for $G=\SU(3)$, the Hilbert--Schmidt distance and $0\le\beta_W\le0.45$.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+Lemma~\ref{lem:weightedresp} with Proposition~\ref{prop:weights},
+$\lambda=\frac{72}5$ and $w_+/w_-=\frac65$, and Lemma~\ref{lem:bpcount} give
+$\sum_{x:\,i\notin V_x}R_x(i)\le\frac65c(18n^3-3n^2)/(1-\frac{72}5c)=
+\alpha_nn^4$, and Proposition~\ref{prop:interiorbp} applies; its proof uses
+only that $\delta$ is bi-invariant and invariant under inversion. For (i),
+$c=|\beta_W|/4$ by Lemma~\ref{lem:onelink}. For (ii) let $r=2\beta_W$,
+$Z_*(r)=\int_{\SU(3)}e^{r\ReTr U}dU$, $\epsilon(r)=1-5e^{-r/5}/(9Z_*(r))$ and
+$\gamma(r)=\frac{283}{128}-\frac r2$. The conditional law of a free link is
+$\nu_b\propto e^{\ReTr(Ub)}dU$ with $b$ a sum of $N\beta=r/6$ times six
+products of elements of $\SU(3)$, the links of $T_x$ being $1$, so the
+one-link estimate of the $\SU(3)$ theorem of~\cite{BBLRS26} applies and gives
+$c=r\sqrt{\epsilon(r)}/(6\gamma(r))$, increasing in $r$. With the moments
+$m_k=\int(\ReTr U)^kdU$, $(m_0,\dots,m_8)=(1,0,\frac12,\frac14,\frac34,
+\frac{15}{16},\frac{65}{32},\frac{231}{64},\frac{973}{128})$, and $|m_k|\le
+3^{k-8}m_8$ for $k\ge8$,
+\[
+Z_*(r)\le\sum_{k=0}^8\frac{m_kr^k}{k!}+\frac{m_8}{3^8}\frac{(3r)^9}{9!}
+\Bigl(1-\frac{3r}{10}\Bigr)^{-1}.
+\]
+At $r=0.9$ the sum is at most $1.2599146$ and the tail at most
+$3.4\cdot10^{-5}$, so $Z_*(0.9)\le1.2599486$; with $e^{-0.18}\ge1-0.18+0.0162
+-0.000972$ this gives $\epsilon(0.9)\le0.63172<0.7949^2$, and with
+$\gamma(0.9)=\frac{1127}{640}$, $\frac{72}5c\le2.16\cdot0.7949\cdot640/1127
+\le0.9751$.
+\end{proof}
+
+For fixed $n$ the threshold of (i) exceeds that of
+Theorem~\ref{thm:bpstrong}(i) exactly when $n^2-6n+1>0$, that is for $n\ge6$;
+both theorems hold. The same arithmetic at $r=0.88$, where $Z_*\le1.246559$,
+$\epsilon\le0.62627$ and $\gamma=\frac{5667}{3200}$, gives $15c\le0.9832$, so
+Theorem~\ref{thm:bpstrong} holds for $\SU(3)$ with $0\le\beta_W\le0.44$.
+
+Without the gauge fixing every link has eighteen partners, and the same
+argument needs $18c<1$, that is $|\beta_W|<\frac29$ for $\SU(2)$. No choice of
+gauge-fixed links and weights goes much further:
 
 \begin{proposition}\label{prop:methodlimit}
 Let $T\subset V_x$ have at most $(n-1)^4$ links and $A$ be the partner matrix
