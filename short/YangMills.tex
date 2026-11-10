@@ -73,6 +73,11 @@ Road, Golpark, Kolkata 700029, West Bengal, India}
 \address{Independent Researcher, San Francisco, CA, USA}
 \email{romanov360@gmail.com}
 
+\author[I. J. Sessford]{Ikailo John Sessford}
+\address{Ikailo Inc., Whitby, Ontario, Canada}
+\email{john@ikailo.com}
+\urladdr{\href{https://orcid.org/0009-0002-0150-4027}{orcid.org/0009-0002-0150-4027}}
+
 \author[S. Singha Roy]{Sanjeevan Singha Roy}
 \address{Department of Physics, Birla Institute of Technology, Mesra, Ranchi,
 Jharkhand 835215, India}
@@ -86,18 +91,19 @@ Jharkhand 835215, India}
 Dobrushin uniqueness, continuum limit}
 
 \begin{abstract}
-For four-dimensional lattice Yang--Mills theory with a compact simple gauge
-group $G\subset\U(N)$ and Ricci curvature $\kappa_G$ we prove the lattice mass gap
+We prove that four-dimensional lattice Yang--Mills theory with any compact
+simple gauge group $G\subset\U(N)$ has the mass gap
 $m\ge\operatorname{arccosh}\bigl(1+\frac1{12}\bigl(\frac{\kappa_G}{N\beta}
--\frac{29}2\bigr)\bigr)$ whenever $N\beta<\frac2{29}\kappa_G$. We prove that a
-spectral gap $\varpi$ of the dynamics that resamples cubes of physical size
-$\ell$, uniform in the lattice spacing, gives every nontrivial continuum limit
-the mass gap $\Delta\ge16\varpi/(625e^2\ell)$, and that this cube gap holds at
-strong coupling and for massive free fields; along the weak-coupling tuning
-that the continuum problem requires it remains open.
+-\frac{29}2\bigr)\bigr)$ whenever $N\beta<\frac2{29}\kappa_G$, and that a
+spectral gap $\varpi$ for resampling cubes of physical size $\ell$, uniform in
+the lattice spacing, forces the mass gap $\Delta\ge16\varpi/(625e^2\ell)$ in
+every nontrivial continuum limit. We prove this cube gap at strong coupling,
+for $\SU(2)$ up to $\beta_W=5/18$ and for $\SU(3)$ up to $\beta_W=0.45$, and for
+massive free fields; along the weak-coupling tuning it remains open.
 \end{abstract}
 
 \maketitle
+\markboth{D. BHATTACHARJEE ET AL.}{YANG--MILLS THEORY AND THE MASS GAP}
 
 \section{Introduction}\label{sec:intro}
 
@@ -262,7 +268,7 @@ law and the sharp Hessian bound without gauge fixing are proved in
 \cite{BB26a}, and an earlier and much longer account of the one-cube
 reduction is \cite{BBLR26}.
 
-I.~J.~Sessford~\cite{Ses26} has formalised in Lean~4 with Mathlib, without
+One of us (I.~J.~S.) has formalised in Lean~4 with Mathlib~\cite{Ses26}, without
 unproved statements and with only the standard axioms, several ingredients of
 the strong-coupling analysis on periodic lattices: the Haar probability on
 $\SU(N)$, an infinite-volume Gibbs state obtained as a limit of torus states,
@@ -272,7 +278,7 @@ correlations to a transfer-matrix gap (one direction of
 Proposition~\ref{prop:gapdecay}). For the periodic state it proves a
 transfer-matrix gap for every $N$ at $\beta_W<5.9\cdot10^{-5}$, and explicit
 single-link heat-bath gaps on boxes of side fifteen for $\SU(2)$ at
-$\beta_W\le0.166$ and for $\SU(3)$ at $\beta_W\le0.38$ (his coupling is
+$\beta_W\le0.166$ and for $\SU(3)$ at $\beta_W\le0.38$ (the coupling there is
 $\beta_W/2$). It also proves, by a Poincar\'e inequality and a light-cone
 argument different from Lemma~\ref{lem:speed}, that an ungauged one-cube
 influence condition gives a lattice gap of order $1/n$; this is a variant of
@@ -1600,8 +1606,7 @@ estimate on one scale.
 
 \section*{Acknowledgements}
 
-We thank I.~J.~Sessford for sharing his Lean development~\cite{Ses26}. The
-von Mises--Fisher modulus and the Hessian bound without gauge fixing are those
+The von Mises--Fisher modulus and the Hessian bound without gauge fixing are those
 of~\cite{BB26a}; the line field, the curvature bound in the gauge, the cube
 condition and its consequences follow the longer account~\cite{BBLR26,BBLRS26}.
 The constructive framework is that of Osterwalder, Schrader and Seiler, the
