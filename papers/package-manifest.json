@@ -1,11 +1,11 @@
 {
   "release": "v4.47.1",
-  "version_doi": "pending",
+  "version_doi": "10.5281/zenodo.24117822",
   "permanent_work_doi": "10.5281/zenodo.23444338",
   "pages": 69,
   "baseline_commit": "9dde354",
   "files": {
-    "YangMills.pdf": "eba7281ffa75c02ed1ca34f7810bb297d00bde8b7b79e1b04682680539dd71cd",
-    "YangMillstex.zip": "6f5de48706cd63fbeade9f15a013a8728e20fae761fd92af42b8de91e549ae63"
+    "YangMills.pdf": "03358f7fdaf920bf933fb57f87bda802778a721b7ae5b6927e67fdd87d5e052d",
+    "YangMillstex.zip": "cdff3a1b4458de942b8225ee2b1e7f9898789f235154a3b1b3d687ca05735ce8"
   }
 }
