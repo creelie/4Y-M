@@ -1,7 +1,7 @@
 {
   "title": "Yang-Mills Theory and the Mass Gap",
   "upload_type": "publication",
-  "description": "We prove that four-dimensional lattice Yang-Mills theory with any compact simple gauge group G in U(N) has the mass gap m >= arccosh(1 + (kappa_G/(N beta) - 29/2)/12) whenever N beta < 2 kappa_G/29, and that a spectral gap varpi for resampling cubes of physical size l, uniform in the lattice spacing, forces the mass gap Delta >= 16 varpi/(625 e^2 l) in every nontrivial continuum limit. We prove this cube gap at strong coupling, for SU(2) up to beta_W = 5/18 and for SU(3) up to beta_W = 0.45, and for massive free fields; along the weak-coupling tuning it remains open, so the continuum mass gap is not proved. The longer account is release v4.44.0, doi:10.5281/zenodo.24085959.",
+  "description": "We prove that four-dimensional lattice Yang-Mills theory with any compact simple gauge group has a mass gap with an explicit lower bound at strong coupling, and that a spectral gap varpi for resampling cubes of physical size l, uniform in the lattice spacing, gives every nontrivial continuum limit the mass gap 16 varpi/(625 e^2 l). We prove this cube gap at strong coupling, for SU(2) up to beta_W = 7/20, and reduce it to a decay of correlations below 1/2 across one slab of width l/2, which we prove in two dimensions and which remains open in four. Detailed version, 69 pages; the continuum mass gap is not proved.",
   "creators": [
     {
       "name": "Bhattacharjee, Deep",
@@ -40,7 +40,7 @@
     "Dobrushin uniqueness"
   ],
   "access_right": "open",
-  "version": "4.46.0",
+  "version": "4.47.1",
   "publication_date": "2026-11-10",
   "publication_type": "preprint",
   "related_identifiers": [
@@ -50,7 +50,7 @@
       "scheme": "url"
     },
     {
-      "identifier": "10.5281/zenodo.24114232",
+      "identifier": "10.5281/zenodo.24117469",
       "relation": "isNewVersionOf",
       "scheme": "doi"
     }

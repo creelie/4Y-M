@@ -1,4 +1,4 @@
-# Yang-Mills Theory and the Mass Gap (v4.47.0)
+# Yang-Mills Theory and the Mass Gap (v4.47.1)
 
 Authors: Deep Bhattacharjee, Ushashi Bhattacharya, James Montgomery Lockwood, Tristan Romanov, Ikailo John Sessford and Sanjeevan Singha Roy.
 
