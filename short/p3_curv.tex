@@ -1,0 +1,250 @@
+
+\section{Curvature in the gauge}\label{sec:curvature}
+
+In this section $G\subset\U(N)$ is closed and connected with Lie algebra $\g$
+and the inner product $\ip XY=-\Tr(XY)$. A tangent vector at a field $Q$ is
+$v=(X_eQ_e)$ with $X_e\in\g$, and $|v|^2=\sum_e|X_e|^2$. For the plaquette $p$
+at $x$ in the plane $\mu<\nu$, with links $e_1,\dots,e_4$ as in
+Sec.~\ref{sec:lattice}, transport the vectors to $x$,
+\[
+Y_1=X_{e_1},\quad Y_2=Q_{e_1}X_{e_2}Q_{e_1}^*,\quad
+Y_3=Q_{e_4}X_{e_3}Q_{e_4}^*,\quad Y_4=X_{e_4},
+\]
+and write $W=Q_p$. Along the geodesics $Q_e(t)=e^{tX_e}Q_e$ the plaquette
+variable is $Q_p(t)=e^{tY_1}e^{tY_2}We^{-tY_3}e^{-tY_4}$, and differentiating
+twice gives the second derivative of $\ReTr Q_p$,
+\begin{equation}\label{eq:fp}
+f_p=\sum_{i=1}^4\ReTr(Y_i^2W)+2\ReTr(Y_1Y_2W)+2\ReTr(Y_3Y_4W)
+-2\!\!\sum_{i\in\{1,2\},\,j\in\{3,4\}}\!\!\ReTr(Y_iWY_j),
+\end{equation}
+so that $\Hess S_0(v,v)=\sum_pf_p$ for $S_0=\sum_p\ReTr Q_p$. The
+\emph{corner form} of $p$ is
+\begin{equation}\label{eq:corner}
+c_p=2\ip{Y_1}{Y_4}-2\ip{Y_1}{Y_2}+2\ip{Y_2}{WY_3W^*}-2\ip{Y_3}{Y_4};
+\end{equation}
+it collects the inner products of the vectors of two links that meet at a
+right angle at a corner of $p$.
+
+\begin{lemma}[divergence identity]\label{lem:identity}
+On $\Z^4$, or on a box with free boundary, for every field $Q$ and every
+square-summable $X$,
+\[
+\sum_y\Bigl[|D_yX|^2+\sum_\mu\bigl|X_{y,\mu}+Q^*_{y-e_\mu,\mu}X_{y-e_\mu,\mu}
+Q_{y-e_\mu,\mu}\bigr|^2\Bigr]=4|X|^2+\sum_pc_p ,
+\]
+where $D_yX=\sum_\mu[X_{y,\mu}-Q^*_{y-e_\mu,\mu}X_{y-e_\mu,\mu}Q_{y-e_\mu,\mu}]$
+is the covariant divergence and terms with a link outside the box are
+omitted.
+\end{lemma}
+
+\begin{proof}
+At a site $y$ let $o_\mu$ be the vector of the outgoing link of direction $\mu$
+and $i_\mu$ the transported vector of the incoming one, so that $D_yX=\sum_\mu
+(o_\mu-i_\mu)$. Every link is outgoing at one end and incoming at the other, so
+the squares $|o_\mu|^2+|i_\mu|^2$, which occur once in $|D_yX|^2$ and once in
+$|o_\mu+i_\mu|^2$, add up to $4|X|^2$. The collinear cross term
+$-2\ip{o_\mu}{i_\mu}$ of $|D_yX|^2$ cancels the term $+2\ip{o_\mu}{i_\mu}$ of
+$|o_\mu+i_\mu|^2$. Every remaining cross term of $|D_yX|^2$ pairs two
+perpendicular ends at $y$, and such a pair is a corner of exactly one
+plaquette, with the sign and transport of~\eqref{eq:corner}; in a box two
+perpendicular ends at $y$ span a plaquette of the box.
+\end{proof}
+
+\begin{lemma}[one plaquette]\label{lem:local}
+Let $k\in\{1,2,3,4\}$, let $k\pm1$ \textup{(}mod $4$\textup{)} be the
+positions adjacent to $k$ and $k+2$ the opposite one. For every $N$, every
+$W\in\U(N)$ and all $Y_1,\dots,Y_4\in\mathfrak u(N)$ with $Y_k=0$,
+\[
+\pm f_p+\tfrac9{10}c_p\le\tfrac{21}{10}\bigl(|Y_{k-1}|^2+|Y_{k+1}|^2\bigr)
++\tfrac54|Y_{k+2}|^2 .
+\]
+\end{lemma}
+
+\begin{proof}
+Replacing $W$ by $-W$ changes the sign of $f_p$ and fixes $c_p$, so the sign
+$+$ suffices, and conjugation by a unitary matrix preserves both sides, so we
+may take $W=\operatorname{diag}(w_a)$. The difference $\mathcal F$ of the two
+sides then splits into a block for each diagonal position $a$, in the real
+variables $y_i=-i(Y_i)_{aa}$, and a block for each pair $a\ne b$, in the
+complex variables $z_i=(Y_i)_{ab}$, since $(Y_i)_{ba}=-\bar z_i$.
+Appendix~\ref{app:blocks} shows that every block is positive definite.
+\end{proof}
+
+\begin{theorem}[Hessian bound]\label{thm:hess}
+For every closed subgroup $G\subset\U(N)$, every box or $\Z^4$, every field
+$Q$ and every tangent vector $v$ that vanishes on the links of $F$,
+\[
+|\Hess S_0(v,v)|\le\tfrac{29}2|v|^2 .
+\]
+\end{theorem}
+
+\begin{proof}
+Every plaquette has exactly one link of $F$, on which $X$ vanishes, and by
+Lemma~\ref{lem:structure}(ii) each active link is adjacent to that link in
+four of its plaquettes and opposite to it in two. Summing
+Lemma~\ref{lem:local} over the plaquettes,
+\[
+\sum_p\bigl(\pm f_p+\tfrac9{10}c_p\bigr)\le\bigl(4\cdot\tfrac{21}{10}+2\cdot
+\tfrac54\bigr)|X|^2=\tfrac{109}{10}|X|^2 .
+\]
+By Lemma~\ref{lem:identity}, $\frac9{10}\sum_pc_p=\frac9{10}\Sigma-\frac{36}{10}
+|X|^2$ with $\Sigma\ge0$ the left side of that lemma. Hence $\pm\Hess S_0(v,v)
+\le(\frac{109}{10}+\frac{36}{10})|X|^2=\frac{29}2|X|^2$; links near the boundary
+of a box lie in fewer plaquettes and receive less. Both lemmas concern
+vectors in $\mathfrak u(N)$, so the bound holds on every closed subgroup, whose
+geodesics $e^{tX}Q_e$ with $X\in\g$ are geodesics of $\U(N)$.
+\end{proof}
+
+The factor $\frac9{10}$ lets the divergence identity pay for the corners at
+the price $\frac{36}{10}$ while the blocks of one plaquette stay positive.
+Without the gauge the sharp bound is $16$ \cite{BB26a}.
+
+\begin{lemma}[Ricci curvature]\label{lem:ricci}
+Let $G\subset\U(N)$ be closed and connected with simple Lie algebra, and let
+$\mathfrak t\subset\g$ be a maximal abelian subalgebra. Write the eigenvalues
+of $\operatorname{ad}H$ on $\g\otimes\C$ and of $H$ on $\C^N$, $H\in\mathfrak t$, as
+$i\alpha(H)$ and $i\mu(H)$, over the roots $\alpha$ and the weights $\mu$ counted
+with multiplicity. Then $\Ric_G=\kappa_G\ip\cdot\cdot$ with
+\[
+\kappa_G=\frac{\sum_\alpha\alpha(H)^2}{4\sum_\mu\mu(H)^2}=\frac{h^\vee}{2\ell_\rho}
+\qquad(0\ne H\in\mathfrak t).
+\]
+\end{lemma}
+
+\begin{proof}
+For a bi-invariant metric $R(X,Y)Z=-\frac14[[X,Y],Z]$ on left-invariant fields
+\cite[Sect.~7]{Mil76}, so for an orthonormal basis $(E_i)$,
+$\Ric(X,X)=\frac14\sum_i|[X,E_i]|^2=-\frac14\Tr(\operatorname{ad}X)^2$. The
+Killing form and $\ip\cdot\cdot$ are invariant and $\g$ is simple, so the
+Killing form is $-4\kappa\ip\cdot\cdot$ for a constant $\kappa$, and on
+$\mathfrak t$ the two forms are $-\sum_\alpha\alpha(H)^2$ and $\sum_\mu\mu(H)^2$.
+For $H$ the coroot of the highest root, $\sum_\alpha\alpha(H)^2=4h^\vee$ and
+$\sum_\mu\mu(H)^2=2\ell_\rho$~\cite[Ch.~6]{Kac90}.
+\end{proof}
+
+\begin{table}[t]
+\caption{The curvature $\kappa_G=h^\vee/(2\ell_\rho)$ in a faithful
+representation of least dimension $N$, and the range of Theorem~\ref{thm:A}
+for $\beta_W=N^2\beta$.}
+\label{tab:groups}
+\begin{tabular}{llcccc}
+\toprule
+Group&$\rho$&$h^\vee$&$\ell_\rho$&$\kappa_G$&$\beta_W<$\\
+\midrule
+$\SU(N)$, $N\ge2$&$\C^N$&$N$&$1$&$\frac N2$&$\frac{N^2}{29}$\\
+$\SO(N)$, $N\ge5$&$\R^N$&$N-2$&$2$&$\frac{N-2}4$&$\frac{N(N-2)}{58}$\\
+$\mathrm{Sp}(n)$, $n\ge2$&$\C^{2n}$&$n+1$&$1$&$\frac{n+1}2$&$\frac{2n(n+1)}{29}$\\
+$G_2$&$7$&$4$&$2$&$1$&$\frac{14}{29}$\\
+$F_4$&$26$&$9$&$6$&$\frac34$&$\frac{39}{29}$\\
+$E_6$&$27$&$12$&$6$&$1$&$\frac{54}{29}$\\
+$E_7$&$56$&$18$&$12$&$\frac34$&$\frac{84}{29}$\\
+$E_8$&$248$&$30$&$60$&$\frac14$&$\frac{124}{29}$\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+For two links $e\ne e'$ of a plaquette $p$ write $\Hess\ReTr Q_p(v,v)=
+\sum_{e,e'\in p}H^p_{ee'}(X_e,X_{e'})$ with $H^p_{ee'}(a,b)=H^p_{e'e}(b,a)$. By
+\eqref{eq:fp} a mixed block is, after isometric transport, $\pm\ReTr(abW)$ or
+$\pm\ReTr(aWb)$, so
+\begin{equation}\label{eq:mixed}
+|H^p_{ee'}(a,b)|\le|a|\,|b| .
+\end{equation}
+
+\subsection{Decay with an explicit rate}
+
+Let $A'$ be a finite set of active links and $P'$ a finite set of plaquettes
+whose active links lie in $A'$. Call $S=\sum_{p\in P'}c_p\ReTr Q^F_p$, $0\le
+c_p\le1$, \emph{admissible} if $|\Hess S(v,v)|\le\frac{29}2|v|^2$ for $v$
+tangent to $G^{A'}$. By Theorem~\ref{thm:hess} the action $S_\Lambda=\sum_{p\in
+P(\Lambda)}\ReTr Q^F_p$ of a box is admissible, and so is every convex combination
+of admissible actions; by~\eqref{eq:mixed} and Lemma~\ref{lem:structure}(iii)
+the mixed blocks of $\Hess S$ have norm at most one and each link has at most
+twelve partners. Let $\mu$ have density proportional to $e^{N\beta S}$ on
+$G^{A'}$, let $L=\Delta+N\beta\ip{\nabla S}{\nabla\cdot}$ be its Langevin generator,
+self-adjoint in $L^2(\mu)$, and $P_t=e^{tL}$. For weights $w>0$ on $A'$ put
+$\Gamma^w(f)=\sum_ew_e|\nabla_ef|^2$, with $\nabla_e$ the gradient in the factor of
+$e$; $\Gamma$ is the case $w\equiv1$.
+
+\begin{lemma}\label{lem:weighted}
+Let $G$ have semisimple Lie algebra, $\lambda\ge0$, $w_e=e^{\lambda d_e}$ with
+$|d_e-d_{e'}|\le1$ for partners, and
+\[
+K_\lambda=\kappa_G-N|\beta|\Bigl(\tfrac{29}2+12\bigl(\cosh\tfrac\lambda2-1\bigr)\Bigr).
+\]
+Then $\Gamma^w(P_tf)\le e^{-2K_\lambda t}P_t\Gamma^w(f)$ for smooth $f$ and $t\ge0$.
+\end{lemma}
+
+\begin{proof}
+Put $V=-N\beta S$. On the product $G^{A'}$ the projection to one factor is
+parallel and the Ricci tensor is block diagonal, so Bochner's formula
+applied factor by factor gives
+\[
+\tfrac12L\Gamma^w(g)-\Gamma^w(g,Lg)=\sum_ew_e\bigl(|\nabla\nabla_eg|^2+\Ric_G(\nabla_e
+g,\nabla_eg)\bigr)+\sum_{e,e'}w_e\Hess V_{ee'}(\nabla_eg,\nabla_{e'}g).
+\]
+With $u_e=\nabla_eg$, $v_e=\sqrt{w_e}u_e$ and the symmetry of $\Hess V$, the last
+sum is
+\[
+\Hess V(v,v)+\sum_{e\ne e'}\Bigl(\cosh\tfrac{\lambda(d_e-d_{e'})}2-1\Bigr)\Hess
+V_{ee'}(v_e,v_{e'}),
+\]
+since $(w_e+w_{e'})/(2\sqrt{w_ew_{e'}})=\cosh\frac{\lambda(d_e-d_{e'})}2$. The first
+term is at least $-\frac{29}2N|\beta||v|^2$; in the second only partners
+contribute, each with coefficient at most $\cosh\frac\lambda2-1$ and a block of
+norm at most $N|\beta|$, and with twelve partners it is at least
+$-12(\cosh\frac\lambda2-1)N|\beta||v|^2$. As $\Ric_G\ge\kappa_G$ and $|v|^2=
+\Gamma^w(g)$, the left side is at least $K_\lambda\Gamma^w(g)$. For
+$\varphi(s)=P_s\Gamma^w(P_{t-s}f)$ this gives $\varphi'\ge2K_\lambda\varphi$, hence
+$\varphi(0)\le e^{-2K_\lambda t}\varphi(t)$.
+\end{proof}
+
+\begin{lemma}\label{lem:decayrate}
+Suppose $K_\lambda>0$. Let $f,g$ be smooth functions of the links of $A_f$ and
+$B_g$, and let $D$ be the graph distance from $A_f$ to $B_g$ in the graph on
+$A'$ whose edges join partners. Then
+\[
+|\Cov_\mu(f,g)|\le\frac{e^{-\lambda D/2}}{K_\lambda}\,\|\nabla f\|_\infty
+\sum_{e\in B_g}\|\nabla_eg\|_\infty .
+\]
+\end{lemma}
+
+\begin{proof}
+Lemma~\ref{lem:weighted} with $\lambda=0$ shows that $P_tf\to\mu(f)$ uniformly,
+so $\Cov_\mu(f,g)=\int_0^\infty\mu(\Gamma(P_tf,g))\,dt$. Let $d_e$ be the smaller of
+$D$ and the graph distance from $e$ to $A_f$; then $w=1$ on $A_f$, $w=e^{\lambda
+D}$ on $B_g$, and $\Gamma^w(f)\le\|\nabla f\|_\infty^2$. For $e\in B_g$,
+Lemma~\ref{lem:weighted} gives $|\nabla_eP_tf|^2\le e^{-\lambda D}e^{-2K_\lambda t}
+\|\nabla f\|_\infty^2$, and integration in $t$ gives the bound.
+\end{proof}
+
+\begin{proof}[Proof of Theorem~\ref{thm:A}]
+Let $\lambda^*$ solve $K_{\lambda^*}=0$, so that $\lambda^*/2=m_G(\beta)$, and let
+$0<\lambda<\lambda^*$. Lemma~\ref{lem:decayrate} with $S=S_\Lambda$ gives
+$|\Cov_{\mu^F_\Lambda}(f,g)|\le C_{f,g}e^{-\lambda D/2}$ uniformly in the box. For
+boxes $\Lambda\subset\Lambda'$ interpolate $S_s=(1-s)S_\Lambda+sS_{\Lambda'}$, which is
+admissible; for smooth $f$ of the active links of $\Lambda$,
+\[
+\frac d{ds}\mu_s(f)=N\beta\sum_{p\in P(\Lambda')\setminus P(\Lambda)}\Cov_{\mu_s}
+\bigl(f,\ReTr Q^F_p\bigr),
+\]
+with $|\nabla_e\ReTr Q_p|\le\sqrt N$. A plaquette outside $P(\Lambda)$ is at graph
+distance at least $R-1$ from the support of $f$, $R$ the distance to the
+complement of $\Lambda$, and at most $C(k+1)^4$ plaquettes lie at graph distance
+$k$, so $|\mu^F_{\Lambda'}(f)-\mu^F_\Lambda(f)|\le C_fR^4e^{-\lambda R/2}$. The limit
+exists along every increasing sequence of boxes, two sequences are compared
+through their intersections, and continuous gauge-invariant observables are
+uniform limits of smooth ones $e^{\tau\Delta}O$, the heat semigroup commuting
+with translations of $G$. With Lemma~\ref{lem:gaugefix} the limit $\omega$ exists;
+invariance and reflection positivity follow as in Proposition~\ref{prop:state}.
+Since $\Ric_G\ge0$, $e^{\tau\Delta}O$ has the Lipschitz constant of $O$
+\cite[Sect.~3.3]{BGL14}, so the decay passes to Lipschitz observables; two links
+of a plaquette have times differing by at most one, so observables at time
+separation $t$ are at graph distance at least $t-c$, and truncated
+correlations decay at every rate below $m_G(\beta)$. Proposition~\ref{prop:gapdecay}
+gives the gap.
+\end{proof}
+
+The rate behaves like $\log\frac{\kappa_G}{6N|\beta|}$ as $\beta\to0$. The proof
+also gives a Poincar\'e inequality with constant $1/(\kappa_G-\frac{29}2N|\beta|)$
+for every $\mu^F_\Lambda$, uniformly in the box~\cite[Cor.~5.7.2]{BGL14}.
