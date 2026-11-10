@@ -1,0 +1,906 @@
+\section{Stars: the cube condition for \texorpdfstring{$\SU(2)$}{SU(2)} past \texorpdfstring{$\beta_W=\frac13$}{beta\_W=1/3}}\label{sec:stars}
+
+Proposition~\ref{prop:methodlimit} shows that no argument built on single-link
+updates and gauge-fixed links passes $\beta_W=\frac13$ for $\SU(2)$. This
+section replaces single links by \emph{stars}, the eight links at a vertex of
+one parity, and passes that value: the cube condition holds uniformly in the
+cube size for $|\beta_W|\le\frac7{20}$
+(Theorem~\ref{thm:starsuniform}), and a block condition giving a lattice gap
+holds for $|\beta_W|\le\frac9{25}$ (Theorem~\ref{thm:stars}). The gain is
+visible at first order: the perturbation of one plaquette at a vertex enters
+the law of the star only through the relative variable of two of its links,
+so a star responds with the coefficient $c$ where two single links respond
+with $2c$, and no plaquette is internal to a star.\footnote{A Dobrushin
+certificate bounds the response of a block to a change of its boundary by a
+matrix of local influences, and contraction means that this matrix has
+spectral radius below one. Grouping links into blocks changes the matrix:
+interactions inside a block are treated exactly instead of being bounded.}
+
+\emph{Setting.} Throughout the section $G=\SU(2)$, identified with the unit
+quaternions $S^3\subset\R^4$, with the Euclidean inner product
+$\ip\cdot\cdot$ of $\R^4$ and the chordal metric $\delta(U,V)=|U-V|$, which is
+bi-invariant, invariant under inversion, and of diameter $2$. For unit
+quaternions $\ReTr U=2\ip U1$, and for unit $p,q$ and $x,y\in\R^4$,
+$\ip{px}y=\ip x{\bar py}$, $\ip{xq}y=\ip x{y\bar q}$ and $|pxq|=|x|$. The
+Wilson measure is $\mu(dU)=Z^{-1}\prod_pe^{2\beta\ReTr U_p}\prod_edU_e$ on
+$\Lambda_L$, $L$ even, with $\beta_W=4\beta$, and $\mathcal A$, $V_x$,
+$\mathcal P_x$ and $\BP(n,\varpi)$ are as in Sec.~\ref{sec:cube}. For a set
+$V$ of links, $\mathcal P_V$ is the conditional expectation given the links
+outside $V$. For $b\in\R^4$, $\nu_b(dx)\propto e^{\ip xb}dx$ is the von
+Mises--Fisher law on $S^3$, and the sharp quarter (Theorem~\ref{q-thm:quarter}
+in Appendix~\ref{app:sharp}) states
+\begin{equation}\label{eq:Q}
+W_1(\nu_b,\nu_{b'})\le\theta\,|b-b'|\quad\text{for all }b,b'\in\R^4,
+\qquad\theta=\tfrac14,
+\end{equation}
+with $W_1$ the Kantorovich distance for $\delta$. This is the only property of
+$\nu_b$ used in the section. We put
+\[
+c=4\theta|\beta|=|\beta|=\tfrac14|\beta_W| .
+\]
+Every argument below uses only~\eqref{eq:Q}, and with a constant $\theta$ in
+place of $\frac14$ the ranges become $4\theta|\beta|\le\frac7{80}$ and
+$4\theta|\beta|\le\frac9{100}$.
+
+\subsection{Even stars and two-paths}
+
+Call a vertex \emph{even} if the sum of its coordinates is even. For an even
+vertex $v$ the \emph{star} $B_v$ is the set of the eight links with an end
+point at $v$. Write the eight directions as $\pm1,\dots,\pm4$, and for the link
+of $B_v$ in direction $\sigma$ let $X_\sigma$ be its parallel transporter from
+$v$ outwards: $X_{+\mu}=U_{(v,\mu)}$ and $X_{-\mu}=U_{(v-e_\mu,\mu)}^{-1}$. Two
+directions are \emph{adjacent} if they are distinct and not opposite; each
+direction is adjacent to six others, and there are $24$ adjacent pairs.
+
+\begin{lemma}\label{lem:stars}
+Let $L\ge4$ be even.
+\begin{enumerate}[label=\textup{(\roman*)},leftmargin=*]
+\item Every link has exactly one even end point, so the stars partition $E$.
+\item Every plaquette has exactly two even corners $v,v'$, which are opposite
+corners, and two of its links lie in $B_v$, two in $B_{v'}$. The plaquettes
+with corner $v$ correspond bijectively to the adjacent pairs $\{\sigma,\tau\}$:
+the plaquette $p_{\sigma\tau}$ has corners $v$, $v+\sigma$, $v+\sigma+\tau$,
+$v+\tau$.
+\item For such a plaquette, $\ReTr U_p=2\ip{h_p}{X_\sigma^{-1}X_\tau}$, where
+the \emph{two-path} $h_p$ is the transporter from $v+\sigma$ to $v+\tau$
+through the opposite even corner $v'=v+\sigma+\tau$, the product of the two
+links of $p$ in $B_{v'}$, suitably inverted. $h_p$ is unchanged by a gauge
+transformation at $v'$, and changing one of its two links by $\eta$ in
+$\delta$ changes $h_p$ by exactly $\eta$.
+\item The conditional law of $(X_\sigma)_\sigma$ given the links outside $B_v$ is
+\[
+\gamma_{v,h}(dX)=\frac1{Z_v}\prod_{\{\sigma,\tau\}}e^{4\beta\ip{h_{\sigma\tau}}
+{X_\sigma^{-1}X_\tau}}\prod_\sigma dX_\sigma ,
+\]
+with one ordering fixed in each adjacent pair. It depends on the
+configuration only through the $24$ two-paths $h=(h_{\sigma\tau})$, and it is
+invariant under $X_\sigma\mapsto gX_\sigma$, the gauge transformation at $v$.
+\item A link $i$ with even end point $v_i$ lies in exactly six plaquettes;
+their even corners other than $v_i$ are six distinct even vertices, and for
+each of them, $v$, the link $i$ is a factor of exactly one two-path $h_p$ with
+$p$ at $v$.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+(i) The end points of a link differ by a unit vector, so their parities
+differ. (ii) The corners of a plaquette are $y$, $y+e_\mu$, $y+e_\mu+e_\nu$,
+$y+e_\nu$, of parities $\epsilon,\epsilon+1,\epsilon,\epsilon+1$, and each
+link joins consecutive corners. A plaquette with even corner $v$ is spanned by
+two adjacent directions at $v$, and conversely; since $L\ge4$ these $24$
+squares are distinct. (iii) Going around $p$ from $v$, $U_p$ is conjugate to
+$X_\sigma h_pX_\tau^{-1}$ or to its inverse, and $\ReTr$ is a class function,
+invariant under inversion on $\SU(2)$; so $\ReTr U_p=\ReTr(X_\sigma h_p
+X_\tau^{-1})=2\ip{X_\sigma h_p}{X_\tau}=2\ip{h_p}{X_\sigma^{-1}X_\tau}$. A gauge
+transformation $g$ at $v'$ multiplies the first factor of $h_p$ on the right
+by $g^{-1}$ and the second on the left by $g$, and multiplication by unit
+quaternions is an isometry. (iv) The plaquettes containing a link of $B_v$
+are those with corner $v$, by (ii), and their weights are given by (iii); the
+gauge transformation at $v$ changes no two-path. (v) If $i$ joins $v_i$ to
+$w=v_i+\sigma$, its plaquettes are spanned by $\sigma$ and the six directions
+$\tau\perp\sigma$, with opposite even corners $v_i+\sigma+\tau$, which are
+distinct since $L\ge4$; in the plaquette with corner $v$, the link $i$ is one
+of the two links at $v_i$, hence a factor of the two-path.
+\end{proof}
+
+For the star at $v$ define the quotient pseudometric
+\[
+\bar d_v(X,X')=\min_{g\in G}\sum_\sigma\delta(gX_\sigma,X'_\sigma).
+\]
+
+\subsection{The seven-spin system}
+
+Fix an adjacent pair $\{a,b\}$, let $S_a$ be the set of the seven directions
+other than $a$, $A_7$ its adjacency matrix and $e_b$ the indicator of $b$.
+In $S_a$, the direction $b$ is adjacent to $\bar a=-a$ and to the four
+directions $C$ of the other two axes; $\bar a$ is adjacent to $b$,
+$\bar b=-b$ and $C$; $\bar b$ to $\bar a$ and $C$; and each element of $C$ to
+$b$, $\bar a$, $\bar b$ and the two elements of $C$ on the other axis. The
+largest degree is $6$. For $0\le c<\frac16$ put
+\[
+s(c)=\mathbf 1^{\mathsf T}(I-cA_7)^{-1}e_b=\sum_{k\ge0}c^k\,\mathbf 1^{\mathsf T}
+A_7^ke_b ,
+\]
+a nondecreasing function of $c$ with $s(c)\ge1$. The symmetries fixing $a$ and
+$b$ permute $C$ transitively, so $x=(I-cA_7)^{-1}e_b$ is constant, equal to
+$z$, on $C$, and $(x_b,x_{\bar a},x_{\bar b},z)$ is the unique solution of
+\begin{equation}\label{eq:sevensys}
+\begin{aligned}
+x_b&=1+c(x_{\bar a}+4z),&\quad x_{\bar a}&=c(x_b+x_{\bar b}+4z),\\
+x_{\bar b}&=c(x_{\bar a}+4z),&\quad z&=c(x_b+x_{\bar a}+x_{\bar b}+2z),
+\end{aligned}
+\end{equation}
+with $s(c)=x_b+x_{\bar a}+x_{\bar b}+4z$.
+
+\begin{lemma}\label{lem:svalues}
+\begin{enumerate}[label=\textup{(\roman*)},leftmargin=*]
+\item $s(\frac1{12})=\frac{26}{15}$, with $(x_b,x_{\bar a},x_{\bar b},z)=
+\frac1{210}(221,28,11,26)$.
+\item $s(\frac7{80})=\frac{3480}{1933}$, with $(x_b,x_{\bar a},x_{\bar b},z)=
+\frac1{181702}(192531,26320,10829,24360)$.
+\item $s(\frac9{100})=\frac{5450}{2957}$, with $(x_b,x_{\bar a},x_{\bar b},z)=
+\frac1{348926}(371363,53100,22437,49050)$.
+\end{enumerate}
+Hence $6c\,s(c)$ equals $\frac{13}{15}$ at $c=\frac1{12}$, $\frac{1827}{1933}$
+at $c=\frac7{80}$ and $\frac{2943}{2957}$ at $c=\frac9{100}$, and
+$6c\,s(c)\le\frac{2943}{2957}$ for $0\le c\le\frac9{100}$.
+\end{lemma}
+
+\begin{proof}
+Since $c\lambda_{\max}(A_7)\le6c<1$, the matrix $I-cA_7$ is invertible and it
+suffices to check~\eqref{eq:sevensys}. (i) Multiplied by $12\cdot210$ the four
+equations read $12\cdot221-(28+104)=2520$, $12\cdot28-(221+11+104)=0$,
+$12\cdot11-132=0$ and $12\cdot26-(221+28+11+52)=0$; the sum is
+$364/210=26/15$. (ii) Multiplied by $80\cdot181702=14536160$:
+\begin{align*}
+80\cdot192531-7(26320+4\cdot24360)&=15402480-866320=14536160,\\
+80\cdot26320-7(192531+10829+4\cdot24360)&=2105600-7\cdot300800=0,\\
+80\cdot10829-7(26320+4\cdot24360)&=866320-7\cdot123760=0,\\
+80\cdot24360-7(192531+26320+10829+2\cdot24360)&=1948800-7\cdot278400=0.
+\end{align*}
+The sum is $327120/181702=3480/1933$, as $327120=94\cdot3480$ and
+$181702=94\cdot1933$. (iii) Multiplied by $100\cdot348926$:
+$100\cdot371363-9(53100+196200)=34892600$,
+$100\cdot53100-9(371363+22437+196200)=5310000-9\cdot590000=0$,
+$100\cdot22437-9(53100+196200)=0$ and
+$100\cdot49050-9(371363+53100+22437+98100)=4905000-9\cdot545000=0$. The sum
+is $643100/348926=5450/2957$, as $348926=118\cdot2957$ and
+$643100=118\cdot5450$. The last claim follows from the monotonicity of $s$.
+\end{proof}
+
+\begin{lemma}[one star]\label{lem:onestar}
+Assume~\eqref{eq:Q} and $c<\frac16$. Let $h,h'$ be two families of two-paths
+at $v$ that differ only at one adjacent pair $\{a,b\}$. Then
+\[
+W_1^{\bar d_v}(\gamma_{v,h},\gamma_{v,h'})\le c\,s(c)\,|h_{ab}-h'_{ab}| .
+\]
+\end{lemma}
+
+\begin{proof}
+Under $\gamma_{v,h}$ put $Z_\sigma=X_a^{-1}X_\sigma$. The map $X\mapsto(X_a,Z)$
+preserves Haar measure, and by Lemma~\ref{lem:stars}(iv) the density depends
+only on $Z$, with $Z_a=1$; so $X_a$ is Haar distributed and independent of
+$Z_S=(Z_\sigma)_{\sigma\in S_a}$, whose law $\mu^{(a)}_h$ has density
+proportional to $\prod e^{4\beta\ip{h_{\sigma\tau}}{Z_\sigma^{-1}Z_\tau}}$. Given
+a coupling of $\mu^{(a)}_h$ and $\mu^{(a)}_{h'}$, take $X_a=X'_a$ Haar and
+independent, $X_\sigma=X_aZ_\sigma$ and $X'_\sigma=X_aZ'_\sigma$; this couples
+$\gamma_{v,h}$ and $\gamma_{v,h'}$, and with $g=1$ in the definition,
+$\bar d_v(X,X')\le\sum_{\sigma\in S_a}\delta(Z_\sigma,Z'_\sigma)$. It suffices
+to bound the Kantorovich distance of $\mu^{(a)}_h$ and $\mu^{(a)}_{h'}$ for the
+cost $\sum_{\sigma\in S_a}\delta$.
+
+For $\sigma\in S_a$ the conditional law of $Z_\sigma$ given the others is
+$\nu_{B_\sigma}$ with $B_\sigma=4\beta\sum_{\tau\text{ adj.\ }\sigma}w_{\sigma\tau}$,
+where $w_{\sigma\tau}=Z_\tau\bar h_{\sigma\tau}$ or $Z_\tau h_{\tau\sigma}$
+according to the ordering of the pair, since $\ip{h_{\sigma\tau}}{Z_\sigma^{-1}
+Z_\tau}=\ip{Z_\sigma}{Z_\tau\bar h_{\sigma\tau}}$; changing $Z_\tau$ by $\eta$
+changes $w_{\sigma\tau}$ by $\eta$, and changing $h_{ab}$ changes only $B_b$, by
+at most $4|\beta||h_{ab}-h'_{ab}|$. Let $\pi$ minimise
+$\int\sum_\sigma\delta(Z_\sigma,Z'_\sigma)\,d\pi$ over couplings of
+$\mu^{(a)}_h$ and $\mu^{(a)}_{h'}$ (one exists by compactness) and put
+$\varrho_\sigma=\int\delta(Z_\sigma,Z'_\sigma)\,d\pi$. Replacing
+$(Z_\sigma,Z'_\sigma)$ by a measurably chosen optimal coupling of the two
+conditional laws~\cite[Cor.~5.22]{Vil09} gives another coupling that changes
+only the $\sigma$-term of the cost, so by minimality and~\eqref{eq:Q}
+\[
+\varrho_\sigma\le\theta\int|B_\sigma-B'_\sigma|\,d\pi\le c\sum_{\tau\in S_a,\
+\tau\text{ adj.\ }\sigma}\varrho_\tau+c\,|h_{ab}-h'_{ab}|\,[\sigma=b],
+\]
+that is, $\varrho\le cA_7\varrho+c|h_{ab}-h'_{ab}|e_b$ componentwise. Iterating,
+$\varrho\le\sum_{k<K}(cA_7)^kc|h_{ab}-h'_{ab}|e_b+(cA_7)^K\varrho$, and
+$(cA_7)^K\to0$ since the spectral radius of $cA_7$ is at most $6c<1$.
+Summing the components gives $\sum_\sigma\varrho_\sigma\le c\,s(c)|h_{ab}-
+h'_{ab}|$.
+\end{proof}
+
+\subsection{The star condition and a lattice gap up to \texorpdfstring{$\beta_W=\frac9{25}$}{beta\_W=9/25}}
+
+Let $\mathcal P_v=\mathcal P_{B_v}$ and let $N_s=L^4/2$ be the number of even
+vertices. For a function $h$ on $G^E$ let $\Lip(h)$ be the least constant
+with $|h(U)-h(U')|\le\Lip(h)\delta(U_i,U'_i)$ whenever $U,U'$ differ only at
+one link $i$; changing links one at a time, $|h(U)-h(U')|\le\Lip(h)\sum_e
+\delta(U_e,U'_e)$.
+
+\begin{proposition}[star condition]\label{prop:starcond}
+Assume~\eqref{eq:Q} and put $\gamma=c\,s(c)$, with $c<\frac16$ and $6\gamma<1$.
+Then for every real $f\in\mathcal A$
+\[
+\sum_{v\text{ even}}\mu\bigl((f-\mathcal P_vf)^2\bigr)\ge(1-6\gamma)\Var_\mu(f).
+\]
+\end{proposition}
+
+\begin{proof}
+Let $h\in\mathcal A$ be Lipschitz, gauge invariant at every configuration, and
+let $U,U'$ differ only at $i$. If $i\in B_v$, then $\mathcal P_vh(U)=\mathcal
+P_vh(U')$. Otherwise let $\pi$ be a coupling of $\gamma_v(\cdot\mid U)$ and
+$\gamma_v(\cdot\mid U')$ minimising the integral of $\bar d_v$, a continuous
+pseudometric on a compact space. For $\sigma,\sigma'\in G^{B_v}$ and $g\in G$
+the gauge transformation $g$ at $v$ changes only the links of $B_v$, so by
+gauge invariance $h(\sigma',U')=h(g\sigma',U')$ and
+\[
+|h(\sigma,U)-h(\sigma',U')|\le\Lip(h)\Bigl(\sum_{e\in B_v}\delta(\sigma_e,
+(g\sigma')_e)+\delta(U_i,U'_i)\Bigr);
+\]
+the infimum over $g$ gives $\Lip(h)(\bar d_v(\sigma,\sigma')+\delta(U_i,U'_i))$.
+By Lemma~\ref{lem:stars}(iv),~(v), the laws $\gamma_v(\cdot\mid U)$ and
+$\gamma_v(\cdot\mid U')$ differ only through the two-path of one plaquette,
+which moves by $\delta(U_i,U'_i)$, if $v$ is one of the six vertices of
+Lemma~\ref{lem:stars}(v), and coincide otherwise. Lemma~\ref{lem:onestar}
+gives
+\[
+|\mathcal P_vh(U)-\mathcal P_vh(U')|\le\Lip(h)\,\bigl(1+\gamma\,[v\text{ one of
+the six}]\bigr)\,\delta(U_i,U'_i).
+\]
+For $\mathcal K_s=N_s^{-1}\sum_v\mathcal P_v$, summing over $v$ (exactly one
+star contains $i$) gives $\Lip(\mathcal K_sh)\le(1-\kappa_0)\Lip(h)$ with
+$\kappa_0=(1-6\gamma)/N_s$. Each $\mathcal P_v$ maps $\mathcal A$ to itself, by
+gauge covariance of $\gamma_v$, and for a Lipschitz $g\in\mathcal A$,
+$\Var_\mu(g)\le\frac12\iint(g(U)-g(U'))^2\,\mu(dU)\mu(dU')\le2\Lip(g)^2|E|^2$.
+So $\Var_\mu(\mathcal K_s^th)\le2(1-\kappa_0)^{2t}\Lip(h)^2|E|^2$. On the
+mean-zero part of $\mathcal A$ the operator $\mathcal K_s$ is self-adjoint with
+$0\le\mathcal K_s\le I$, and $\Var_\mu(\mathcal K_s^th)=\int\lambda^{2t}\,
+d\nu_h(\lambda)$ for its spectral measure $\nu_h$ at $h-\mu(h)$; hence $\nu_h$
+lives on $[0,1-\kappa_0]$. Lipschitz functions are dense in $L^2(\mu)$, and
+the orthogonal projection onto $\mathcal A$, averaging over the compact gauge
+group, which acts link by link by isometries, does not increase $\Lip$; so
+such $h$ are dense in $\mathcal A$, and the spectral projection of $\mathcal K_s$
+on $(1-\kappa_0,1]$ vanishes on the mean-zero part of $\mathcal A$. Thus
+$\ip f{(I-\mathcal K_s)f}\ge\kappa_0\Var_\mu(f)$, and $\ip f{(I-\mathcal P_v)f}=
+\mu((f-\mathcal P_vf)^2)$.
+\end{proof}
+
+\begin{theorem}\label{thm:stars}
+Let $G=\SU(2)$ and $|\beta_W|\le\frac9{25}$. Then for every even $L\ge4$ and
+every real $f\in\mathcal A$,
+\[
+\sum_{v\text{ even}}\mu\bigl((f-\mathcal P_vf)^2\bigr)\ge\frac{14}{2957}
+\Var_\mu(f),
+\]
+and for every $n\ge2$ and even $L\ge2n+4$, $\BP(n,\varpi_n)$ holds with
+\[
+\varpi_n=\frac{14}{2957}\cdot\frac{(n-1)^4}{n^4\lceil(n-1)^4/2\rceil},\qquad
+\varpi_2=\frac{14}{16\cdot2957}.
+\]
+For $0\le\beta_W\le\frac9{25}$ every torus limit is translation invariant and
+reflection positive, and its transfer matrix has spectral gap at least
+$\varpi_2/(2e^2q_2)=7/(625\cdot2957\,e^2)$.
+\end{theorem}
+
+\begin{proof}
+Here $c=|\beta|\le\frac9{100}$, and by Lemma~\ref{lem:svalues}
+$1-6c\,s(c)\ge\frac{14}{2957}$; the first claim is
+Proposition~\ref{prop:starcond}. For a cube $V_x$, an even vertex $v$ with
+$v-x\in[1,n-1]^4$ has its eight links based in $x+[0,n)^4$, so $B_v\subset
+V_x$. The $\sigma$-algebra of the links outside $V_x$ is contained in that of
+the links outside $B_v$, so $\mu((f-\mathcal P_xf)^2)=\mu(f^2)-\mu((\mathcal
+P_xf)^2)\ge\mu(f^2)-\mu((\mathcal P_vf)^2)=\mu((f-\mathcal P_vf)^2)$. Each cube
+contains at most $N=\lceil(n-1)^4/2\rceil$ such vertices, and each even $v$ is
+in this position in exactly $(n-1)^4$ cubes. Averaging over those $v$ in each
+cube,
+\[
+\sum_x\mu((f-\mathcal P_xf)^2)\ge\frac{(n-1)^4}{N}\sum_{v\text{ even}}
+\mu((f-\mathcal P_vf)^2)\ge\frac{(n-1)^4}N\cdot\frac{14}{2957}\Var_\mu(f),
+\]
+which is $\BP(n,\varpi_n)$. The last claim is Corollary~\ref{cor:latticegap}
+with $n=2$ and $q_2=\frac{625}{16}$.
+\end{proof}
+
+The same proof works whenever $6c\,s(c)<1$. The exact threshold is the root
+$c_*$ of $6c\,s(c)=1$, and Lemma~\ref{lem:svalues}(iii) shows
+$c_*>\frac9{100}$.\footnote{Solving~\eqref{eq:sevensys} numerically gives
+$c_*\approx0.09023$, that is $\beta_W\approx0.3609$. No statement of the paper
+uses this value.} At $\beta_W=\frac13$ the star condition holds with
+$6c\,s(c)=\frac{13}{15}$, while the single-link argument of
+Sec.~\ref{sec:bpstrong} is exactly marginal there. The constant $\varpi_n$ of
+Theorem~\ref{thm:stars} decays like $\frac{28}{2957}n^{-4}$, so that theorem is
+a cube condition for each fixed $n$, enough for the lattice gap but not for
+Theorem~\ref{thm:B}. The lower faces of a cube are the reason, and the next
+proposition shows that they stop every certificate that treats their links
+one at a time.
+
+\begin{proposition}[the face barrier]\label{prop:facebarrier}
+For a lower face $\{\hat v_i=0\}$ of the cube $V_x$, $\hat v=v-x$, let $F_i$ be
+the set of links $(b,\mu)\in V_x$ with $\hat b_i=0$ and $\mu\ne i$, and let
+$A_F$ be the matrix on $F_i$ with $(A_F)_{ek}=1$ when $e\ne k$ lie in a common
+plaquette all of whose links are in $F_i$. Then $\lambda_{\max}(A_F)\ge
+12(1-\frac1n)^2$. Consequently, if a certificate for the response of a cube
+treats the links of $F_i$ as single sites with influence matrix $C\ge cA_F$ on
+$F_i\times F_i$, the inequalities $0\le\varrho\le C\varrho+\mathfrak s$ admit
+solutions with $\sum\varrho$ arbitrarily large as soon as
+$12c(1-\frac1n)^2\ge1$; as $n\to\infty$ such a certificate cannot pass
+$c=\frac1{12}$, that is $|\beta_W|=\frac13$.
+\end{proposition}
+
+\begin{proof}
+$|F_i|=3n^3$. A plaquette in a plane $\{\mu,\nu\}\not\ni i$ with base point
+$y$, $\hat y_i=0$, has all four links in $F_i$ exactly when its three base
+points lie in $x+[0,n)^4$, that is $\hat y_\mu,\hat y_\nu\le n-2$; there are
+$3n(n-1)^2$ of them. Two links share at most one plaquette, so
+$\mathbf 1^{\mathsf T}A_F\mathbf 1=12\cdot3n(n-1)^2$, and the Rayleigh quotient
+of $\mathbf 1$ is $12(1-\frac1n)^2$. If $c\lambda_{\max}(A_F)\ge1$ and $w\ge0$
+is a Perron vector of $A_F$, extended by $0$, then $\varrho=tw$ satisfies
+$C\varrho\ge tcA_Fw\ge\varrho$ on $F_i$ for every $t>0$.
+\end{proof}
+
+For single-link updates the hypothesis $C\ge cA_F$ holds with $c=|\beta|$: at
+$b=0$ the derivative of $b\mapsto\nu_b$ has Kantorovich norm exactly
+$\frac14$ (Lemma~\ref{q-lem:rate}(i)), and the staples of a face link can
+cancel while one of them moves. The forest of Sec.~\ref{sec:bpstrong} does not
+help, since its links $T_x$ have interior heads and the face links are free.
+What does help is to let the gauge transformation act at the vertices of the
+faces as well, and to pay for it.
+
+\subsection{The cube as a block system}
+
+Fix $x$ and $n\ge2$, and write $\hat v=v-x$, computed in a window
+$x+[-2,n+2]^4$ that embeds in $\Z^4$ because $L\ge2n+4$. Let $V=V_x$ and
+$Q=\{v:\hat v\in[0,n-1]^4\}$. Call $v$ \emph{lower} if $v\in Q$, with zero set
+$Z(v)=\{a:\hat v_a=0\}$ and $z(v)=|Z(v)|$, and \emph{upper} if $\hat v\in
+[0,n]^4$ has exactly one coordinate equal to $n$. If $k$ is a link with odd end
+point $o$ and direction $\mu$, its six plaquettes are indexed by $(\nu,
+\epsilon)$, $\nu\ne\mu$, $\epsilon=\pm1$; the even corner of the plaquette
+$(\nu,\epsilon)$ other than the even end point of $k$ is $o+\epsilon e_\nu$,
+and there $k$ is a factor of the two-path of this plaquette only
+(Lemma~\ref{lem:stars}(v)).
+
+\begin{lemma}\label{lem:cubestars}
+Let $n\ge2$.
+\begin{enumerate}[label=\textup{(\roman*)},leftmargin=*]
+\item If $v$ is lower and even, $B_v\cap V$ consists of $B_v$ minus the
+$z(v)$ \emph{outside links} $(v-e_a,a)$, $a\in Z(v)$; we call the directions
+$-a$, $a\in Z(v)$, \emph{fixed} and the others \emph{free}. If $v$ is upper
+and even with $\hat v_a=n$, then $B_v\cap V=\{(v-e_a,a)\}$. Other even vertices
+carry no link of $V$. Hence $V$ is partitioned into the \emph{blocks}
+$B_v\cap V$, $v$ even and lower or upper, and the \emph{owner} $w(k)$ of
+$k\in V$ is its even end point.
+\item Let $k\in V$ have odd end point $o$, direction $\mu$ and owner
+$o+\varsigma e_\mu$, $\varsigma=\pm1$, and let $p$ be its plaquette
+$(\nu,\epsilon)$, $v=o+\epsilon e_\nu$. The links of $p$ at $v$ are in the
+directions $-\epsilon\nu$ and $\varsigma\mu$. If $v$ is lower, both lie in
+$V$. If $v$ is upper with $\hat v_a=n$, the links of $p$ at $v$ other than
+$(v-e_a,a)$ lie outside $V$.
+\item Let $v$ be lower and even and $a\in Z(v)$. The outside link $(v-e_a,a)$
+is a factor of no two-path $h_p$ at a lower or upper vertex. If a plaquette
+$p$ at $v$ has one of its links at $v$ outside $V$, then both links of $p$ at
+the opposite even corner lie outside $V$.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+(i) The outgoing links $(v,b)$ of a lower $v$ have base point in $Q$, and an
+incoming link $(v-e_b,b)$ lies in $V$ if and only if $\hat v_b\ge1$. If
+$\hat v_a=n$ for exactly one $a$, no outgoing link and no incoming link
+$(v-e_b,b)$, $b\ne a$, has its base point in $Q$, while $(v-e_a,a)$ has. If
+$\hat v\notin[0,n]^4$ or two coordinates equal $n$, no link at $v$ has its base
+point in $Q$.
+
+(ii) The corners of $p$ are $o$, $o+\varsigma e_\mu$, $o+\varsigma e_\mu+
+\epsilon e_\nu$ and $v$, so the links at $v$ go to $o$, in direction
+$-\epsilon\nu$, and to $v+\varsigma e_\mu$, in direction $\varsigma\mu$. Let $v$
+be lower. If $\epsilon=+1$ the first link is $(o,\nu)$, and $\hat o=\hat v-e_\nu$
+lies in $Q$, its $\nu$-coordinate being $\hat o_\nu\ge0$; if $\epsilon=-1$ it is
+$(v,\nu)$, with base point $v\in Q$. The second link is $(v,\mu)$ if
+$\varsigma=+1$; if $\varsigma=-1$ it is $(v-e_\mu,\mu)$, which lies in $V$
+because $\hat v_\mu=\hat o_\mu\ge1$, as $k=(o-e_\mu,\mu)\in V$. If $v$ is upper,
+(i) gives the claim.
+
+(iii) The plaquettes of $(v-e_a,a)$ have the even corners $v$ and
+$v-e_a\pm e_\nu$, whose $a$-coordinate is $-1$, so these are neither lower nor
+upper; and a link is a factor of a two-path only at the even corner opposite
+to its own even end point. If $p$ at $v$ is spanned by $-a$ and $\tau$, the
+opposite corner $v'=v-e_a+\tau$ and both its neighbours in $p$, $v-e_a$ and
+$v+\tau$, are joined to it by links based at $a$-coordinate $-1$.
+\end{proof}
+
+For a block vertex $v$ the conditional law $\gamma_v(\cdot\mid\sigma,U)$ of
+the links of $B_v\cap V$, given the other links of $V$ (values $\sigma$) and
+the links off $V$ (values $U$), has density proportional to the product of
+the weights $e^{4\beta\ip{h_p}{X_\sigma^{-1}X_\tau}}$ of the plaquettes $p$ at
+$v$ with a link at $v$ in $V$. It depends on $(\sigma,U)$ only through these
+two-paths and the values of the links at $v$ off $V$.
+
+\subsection{The soft quotient}
+
+At a vertex of a lower face the gauge transformation moves the outside links
+at that vertex, and the conditional law of the cube does not see it. The
+following pseudometric allows it anyway, at the price of the displacement it
+causes on those links. The price is legitimate in the Lipschitz contraction
+argument of Proposition~\ref{prop:interiorbp}, because the test function
+depends on all links.
+
+\begin{definition}\label{def:dtilde}
+For a lower even $v$ and configurations $X,X'$ of $B_v\cap V$, written as
+outward transporters, put
+\[
+\tilde d_v(X,X')=\min_{g\in G}\Bigl[\sum_{\sigma\text{ free}}\delta(gX_\sigma,
+X'_\sigma)+z(v)\,\delta(g,1)\Bigr],
+\]
+and for an upper even $v$ let $\tilde d_v$ be $\delta$ on its single link. For
+$\sigma,\sigma'\in G^V$ let $D(\sigma,\sigma')=\sum_v\tilde d_v(\sigma_{B_v},
+\sigma'_{B_v})$, the sum over the block vertices, and for $j\notin V$
+\[
+\tilde R_x(j)=\sup\Bigl\{\frac{W^D(\gamma^0_{V,U},\gamma^0_{V,U'})}
+{\delta(U_j,U'_j)}:U,U'\text{ differ only at }j\Bigr\},
+\]
+where $\gamma^0_{V,U}=\gamma^0_V(\cdot\mid U)$ and $W^D$ is the Kantorovich
+distance for the cost $D$.
+\end{definition}
+
+The minimum exists by compactness, and $\tilde d_v$ and $D$ are continuous,
+symmetric, since $\delta(gX,X')=\delta(X,g^{-1}X')$ and
+$\delta(g,1)=\delta(g^{-1},1)$, and satisfy the triangle inequality, by
+composing the minimising elements. For $z(v)=0$, $\tilde d_v=\bar d_v$.
+
+\begin{lemma}\label{lem:softlip}
+Let $h$ be a function on $G^E$, gauge invariant at every configuration, with
+$|h(W)-h(W')|\le\Lip(h)\sum_e\delta(W_e,W'_e)$. If $U,U'$ differ only at
+$j\notin V$, then for all $\sigma,\sigma'\in G^V$
+\[
+|h(\sigma,U)-h(\sigma',U')|\le\Lip(h)\bigl(D(\sigma,\sigma')+\delta(U_j,U'_j)
+\bigr).
+\]
+\end{lemma}
+
+\begin{proof}
+For each lower even $v$ choose $g_v$ attaining $\tilde d_v(\sigma_{B_v},
+\sigma'_{B_v})$, and let $g$ be the gauge transformation equal to $g_v$ at
+these vertices and to $1$ elsewhere; then $h(\sigma,U)=h(g\cdot(\sigma,U))$. A
+link of $V$ has exactly one even end point $v$, and $g$ acts on it by $X\mapsto
+g_vX$ on its outward transporter at $v$, or trivially if $v$ is upper. A link
+$e\notin V$ has at most one end point where $g\ne1$, namely an even lower
+$v$, and then $e$ is one of the $z(v)$ outside links at $v$, by
+Lemma~\ref{lem:cubestars}(i); there $\delta((g\cdot U)_e,U'_e)\le\delta(g_v,1)+
+\delta(U_e,U'_e)$ by bi-invariance. Summing over all links,
+$|h(g\cdot(\sigma,U))-h(\sigma',U')|\le\Lip(h)\bigl(\sum_v\tilde d_v+
+\delta(U_j,U'_j)\bigr)$.
+\end{proof}
+
+\subsection{Block responses}
+
+\begin{lemma}[Dobrushin on $S^3$]\label{lem:dobS3}
+Assume~\eqref{eq:Q}. Let $S$ be finite and $\nu,\nu'$ probability measures on
+$G^S$ with continuous positive densities with respect to Haar measure, such
+that for every $s\in S$ the conditional law of $x_s$ given $x_{S\setminus s}$
+is $\nu_{B_s(x)}$ under $\nu$ and $\nu_{B'_s(x)}$ under $\nu'$, where
+$|B_s(x)-B_s(y)|\le4|\beta|\sum_ta_{st}\delta(x_t,y_t)$ and
+$|B_s(x)-B'_s(x)|\le4|\beta|\eta_s$ for all $x,y$, with $a_{st}\ge0$,
+$a_{ss}=0$ and $\eta_s\ge0$. Then there is a coupling $\pi$ of $\nu,\nu'$ whose
+$\varrho_s=\int\delta(x_s,x'_s)\,d\pi$ satisfy $\varrho\le cA\varrho+c\eta$
+componentwise. Consequently:
+\begin{enumerate}[label=\textup{(\alph*)},leftmargin=*]
+\item if $\sum_sa_{st}\le d$ for every $t$ and $cd<1$, then
+$\sum_s\varrho_s\le c\sum_s\eta_s/(1-cd)$;
+\item if the spectral radius of $cA$ is less than $1$ and $y\in[0,\infty)^S$
+satisfies $y\ge cAy+c\eta$, then $\varrho\le y$;
+\item if $y\ge0$ satisfies $y\ge c_0Ay+\eta$ and $c\le c_0$, then $cy\ge
+cA(cy)+c\eta$, so $\varrho\le cy$ when the spectral radius of $cA$ is less
+than $1$.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+Let $\pi$ minimise $\int\sum_s\delta(x_s,x'_s)\,d\pi$ over couplings. Fix $s$
+and replace under $\pi$ the pair $(x_s,x'_s)$ by a sample of an optimal
+coupling of $\nu_{B_s(x)}$ and $\nu_{B'_s(x')}$, chosen measurably in
+$(x_{S\setminus s},x'_{S\setminus s})$~\cite[Cor.~5.22]{Vil09}. This is again
+a coupling of $\nu,\nu'$, and only the $s$-term of the cost changes, so by
+minimality,~\eqref{eq:Q} and the triangle inequality, $\varrho_s\le\theta\int
+|B_s(x)-B'_s(x')|\,d\pi\le c\sum_ta_{st}\varrho_t+c\eta_s$. (a) Summing over
+$s$, $\sum\varrho\le cd\sum\varrho+c\sum\eta$. (b) The vector $y-\varrho$
+satisfies $y-\varrho\ge cA(y-\varrho)$, hence $y-\varrho\ge(cA)^K(y-\varrho)
+\to0$. (c) $cy-c^2Ay\ge c(y-c_0Ay)\ge c\eta$; apply (b).
+\end{proof}
+
+From now on $c\le c_0=\frac7{80}$, that is $|\beta_W|\le\frac7{20}$, and
+$\kappa_0=s(c_0)=\frac{3480}{1933}<1.8004$, so that $6c_0\kappa_0=
+\frac{1827}{1933}$. For a direction $a$ and a family $h$ of two-paths let
+$\mu^{(a)}_h$ be the law on $G^{S_a}$ with density proportional to
+$\prod_{\{\sigma,\tau\}}e^{4\beta\ip{h_{\sigma\tau}}{Z_\sigma^{-1}Z_\tau}}$,
+$Z_a=1$, as in the proof of Lemma~\ref{lem:onestar}. By that proof,
+Lemma~\ref{lem:svalues}(ii) and Lemma~\ref{lem:dobS3}(c), if $h,h'$ differ only
+at the pair $\{a,b\}$ there is a coupling of $\mu^{(a)}_h$ and $\mu^{(a)}_{h'}$
+with
+\begin{equation}\label{eq:sevenbound}
+\int\sum_{\sigma\in S_a}\delta(Z_\sigma,Z'_\sigma)\le\kappa_0c\,
+|h_{ab}-h'_{ab}|\qquad(c\le c_0).
+\end{equation}
+
+\begin{lemma}\label{lem:partial}
+Let $c\le c_0$ and $v$ a block vertex, and write $\gamma^{h,Y}$ for its block
+law as a function of the two-paths $h$ at $v$ and of the values $Y$ of the
+links at $v$ off $V$. Put $\kappa_1=\kappa_0$, $\kappa_2=\frac94$,
+$\kappa_3=\frac{40}{13}$ and $\kappa_4=\frac{160}{59}$.
+\begin{enumerate}[label=\textup{(\alph*)},leftmargin=*]
+\item Let $v$ be lower, and let $(h,Y)$ and $(h',Y)$ differ only at the
+two-path $h_p$ of a plaquette $p$ whose two links at $v$ are free. Then
+$W^{\tilde d_v}(\gamma^{h,Y},\gamma^{h',Y})\le\kappa_{z(v)}c\,|h_p-h'_p|$, with
+$\kappa_0$ for $z(v)=0$.
+\item In particular, for $z(v)=1$ the constant is the full-star constant
+$\kappa_0c$.
+\item Let $v$ be lower and $p$ a plaquette at $v$ with one link at $v$ free and
+one fixed. Then the bound of \textup{(a)} holds with $\kappa_0c$ if $z(v)=1$
+and with $\frac{16}9c$ if $z(v)\ge2$.
+\item Let $v$ be lower and let $(h,Y)$ and $(h,Y')$ differ only at one
+outside link, by $\eta$ in $\delta$. Then $W^{\tilde d_v}(\gamma^{h,Y},
+\gamma^{h,Y'})\le\eta$.
+\item Let $v$ be upper. If $(h,Y)$ and $(h',Y')$ differ only at one two-path
+$h_p$ with $p\ni(v-e_a,a)$, or only at one outside link at $v$, the distance is
+at most $c|h_p-h'_p|$, respectively $c\eta$.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+\emph{Representation.} Let $v$ be lower and $F$ its set of fixed directions,
+let $\Phi_h(X)=\prod e^{4\beta\ip{h_{\sigma\tau}}{X_\sigma^{-1}X_\tau}}$ over all
+$24$ adjacent pairs, so that $\Phi_h(gX)=\Phi_h(X)$, and note that
+$\gamma^{h,Y}$ has density proportional to $\Phi_h$ evaluated at $X_F=Y_F$. Fix
+a free direction $\sigma_0$. If $F=\emptyset$, the map
+$X\mapsto(X_{\sigma_0},(X_{\sigma_0}^{-1}X_\rho)_{\rho\ne\sigma_0})$ preserves
+Haar measure and carries $\gamma^h$ to $\mathrm{Haar}\otimes\mu^{(\sigma_0)}_h$,
+as in the proof of Lemma~\ref{lem:onestar}. If $F\ne\emptyset$, fix $f_1\in F$
+and let $\Psi(X)$ consist of $W_\rho=X_{\sigma_0}^{-1}X_\rho$ for the free
+$\rho\ne\sigma_0$ and of $W_m=X_{\sigma_0}^{-1}Y_{f_1}$. Then $\Psi$ is a
+bijection of the free coordinates, with inverse $X_{\sigma_0}=Y_{f_1}W_m^{-1}$,
+$X_\rho=Y_{f_1}W_m^{-1}W_\rho$, and it preserves Haar measure: $X_{\sigma_0}
+\mapsto X_{\sigma_0}^{-1}Y_{f_1}$ does, and for fixed $X_{\sigma_0}$ so does
+each $X_\rho\mapsto X_{\sigma_0}^{-1}X_\rho$. Since $\Phi_h(X)=\Phi_h(
+X_{\sigma_0}^{-1}X)$ and $X_{\sigma_0}^{-1}X_f=W_mK_f$ with $K_f=Y_{f_1}^{-1}
+Y_f$, the image of $\gamma^{h,Y}$ has density proportional to $\Phi_h$ at
+$X_{\sigma_0}=1$, $X_\rho=W_\rho$, $X_f=W_mK_f$. If $(W,W')$ couples the images
+for $(h,Y)$ and $(h',Y)$ and $X=\Psi^{-1}W$, $X'=\Psi^{-1}W'$, then
+$g=Y_{f_1}W'^{-1}_mW_mY_{f_1}^{-1}$ satisfies $gX_{\sigma_0}=X'_{\sigma_0}$,
+$\delta(gX_\rho,X'_\rho)=\delta(W_\rho,W'_\rho)$ and $\delta(g,1)=
+\delta(W_m,W'_m)$, so
+\begin{equation}\label{eq:transfer}
+\tilde d_v(X,X')\le\sum_\rho\delta(W_\rho,W'_\rho)+z(v)\,\delta(W_m,W'_m).
+\end{equation}
+
+(a), (b) for $z(v)\le1$. Take $\sigma_0$ and $\tau$ to be the two directions of
+$p$ at $v$. For $z(v)=1$, $F=\{f_1\}$, the image is exactly
+$\mu^{(\sigma_0)}_h$, the coordinate $W_m$ being $Z_{f_1}$, and the change of
+$h_p=h_{\sigma_0\tau}$ is a change of the field on $Z_\tau$;
+\eqref{eq:sevenbound} and~\eqref{eq:transfer} give $\kappa_0c|h_p-h'_p|$. For
+$z(v)=0$ couple with the same $X_{\sigma_0}$ and use $g=1$; this is
+Lemma~\ref{lem:onestar} with~\eqref{eq:sevenbound}.
+
+(a) for $z(v)=2$. Let $F=\{-i,-j\}$; the free directions are $P=+i$, $Q=+j$,
+$K_\pm=\pm k$ and $L_\pm=\pm l$. Up to the symmetries $i\leftrightarrow j$,
+$k\leftrightarrow l$, $k\mapsto-k$ and $l\mapsto-l$ of the star, which fix
+$F$, the pair of $p$ is one of $\{P,Q\}$, $\{P,K_+\}$ and $\{K_+,L_+\}$. In the
+image the terms of the density are: for adjacent free $\rho,\rho'\ne\sigma_0$,
+$\ip h{W_\rho^{-1}W_{\rho'}}$; for $\{\sigma_0,\rho\}$, a field on $W_\rho$; for
+$\{f,\rho\}$, $\ip h{(W_mK_f)^{-1}W_\rho}=\ip{K_fh}{W_m^{-1}W_\rho}$, linear in
+$W_m$ and in $W_\rho$; for $\{\sigma_0,f\}$, a field on $W_m$; and for
+$\{-i,-j\}$, a constant. So Lemma~\ref{lem:dobS3} applies with
+$a_{\rho\rho'}=1$ for adjacent free $\rho,\rho'\ne\sigma_0$,
+$a_{\rho m}=a_{m\rho}$ equal to the number of $f\in F$ adjacent to $\rho$
+(one for $P,Q$, two for $K_\pm,L_\pm$), and $\eta=|h_p-h'_p|e_\tau$. Every row
+sum of $A$ is at most $9$, so $c_0A$ has spectral radius at most
+$\frac{63}{80}$. By~\eqref{eq:transfer} the cost is at most
+$\sum_\rho\varrho_\rho+2\varrho_m$. We give $\hat y\ge c_0A\hat y+e_\tau$ and
+use Lemma~\ref{lem:dobS3}(c); each item lists $\hat y$ and the inequalities
+multiplied by $80$ and by the denominator of $\hat y$.
+
+\emph{The pair $\{P,Q\}$}, $\sigma_0=P$, $\tau=Q$. The spins are $Q$, $K_\pm$,
+$L_\pm$, each of the last four adjacent to $Q$ and to the two of the other
+axis, and $m$; $100\hat y=(Q,K_\pm,L_\pm,m)=(108,16,21)$. The inequalities
+are $8640\ge7(4\cdot16+21)+8000=8595$, $1280\ge7(108+2\cdot16+2\cdot21)=1274$
+and $1680\ge7(108+8\cdot16)=1652$, and the cost is at most
+$(108+4\cdot16+2\cdot21)/100=2.14$.
+
+\emph{The pair $\{P,K_+\}$}, $\sigma_0=K_+$, $\tau=P$. The spins are $P$ and
+$Q$, adjacent to each other and to $K_-$, $L_\pm$; $K_-$, adjacent to $P,Q,
+L_\pm$; $L_\pm$, adjacent to $P,Q,K_-$; and $m$; $200\hat y=(P,Q,K_-,L_\pm,m)=
+(216,32,35,32,40)$. The inequalities are $17280\ge7(32+35+64+40)+16000=17197$,
+$2560\ge7(216+35+64+40)=2485$, $2800\ge7(216+32+64+80)=2744$,
+$2560\ge7(216+32+35+80)=2541$ and $3200\ge7(216+32+70+128)=3122$, and the
+cost is at most $(216+32+35+64+80)/200=2.135$.
+
+\emph{The pair $\{K_+,L_+\}$}, $\sigma_0=K_+$, $\tau=L_+$, with the same spins
+and adjacencies; $200\hat y=(P,Q,K_-,L_+,L_-,m)=(32,32,36,219,19,54)$. The
+inequalities are $2560\ge7(32+36+219+19+54)=2520$ for $P$ and for $Q$,
+$2880\ge7(64+219+19+108)=2870$, $17520\ge7(64+36+108)+16000=17456$,
+$1520\ge7(64+36+108)=1456$ and $4320\ge7(64+72+2\cdot238)=4284$, and the cost
+is at most $(64+36+219+19+108)/200=2.23$.
+
+In all cases the response is at most $2.23\,c|h_p-h'_p|\le\kappa_2c|h_p-h'_p|$.
+
+(a) for $z(v)\ge3$, and (c), (d) for $z(v)\ge2$. Use the coordinates
+$X_\sigma$, $\sigma$ free, directly, and $g=1$ in $\tilde d_v$. Each conditional
+law is $\nu_B$ with $B=4\beta$ times the sum of the unit vectors of the
+plaquettes at $v$ through $\sigma$, those through free neighbours depending
+isometrically on them; so Lemma~\ref{lem:dobS3}(a) applies with $A$ the
+adjacency matrix of the free directions, whose largest degree is $d=5,4,3$
+for $z(v)=2,3,4$ (for $z=2$, $+i$ is adjacent to $+j$, $\pm k$, $\pm l$; for
+$z=3$, $+i$ to $+j$, $+k$, $\pm l$; for $z=4$ the free directions are the four
+positive ones). A change of $h_p$ with both links free gives $\sum\eta=
+2|h_p-h'_p|$, with one link free $\sum\eta=|h_p-h'_p|$, and a change of the
+outside link in direction $f$ by $\eta$ gives $\eta$ on each free neighbour of
+$f$, at most $d$ of them. With $c\le c_0$: $\frac{2c}{1-4c}\le\frac{40}{13}c$,
+$\frac{2c}{1-3c}\le\frac{160}{59}c$, $\frac c{1-cd}\le\frac c{1-5c_0}=
+\frac{16}9c$ and $\frac{dc}{1-dc}\le\frac{5c_0}{1-5c_0}=\frac79$.
+
+(c), (d) for $z(v)=1$. Let $F=\{f\}$ and $X_f=Y$. The map $X\mapsto Z=(Y^{-1}
+X_\rho)_\rho$ carries $\gamma^{h,Y}$ to $\mu^{(f)}_h$, which does not depend on
+$Y$. A change of $h_p$, $p$ spanned by $f$ and $\tau$, is a change of the
+field on $Z_\tau$, so~\eqref{eq:sevenbound} gives a coupling with
+$\int\sum\delta(YZ_\rho,YZ'_\rho)\le\kappa_0c|h_p-h'_p|$, with $g=1$. For a
+change $Y\to Y'$ couple $X=YZ$ and $X'=Y'Z$ and take $g=Y'Y^{-1}$; then
+$\tilde d_v(X,X')\le\delta(Y'Y^{-1},1)=\delta(Y,Y')$.
+
+(e) The block law is $\nu_b$ with $b=4\beta$ times the sum of the six vectors
+of the plaquettes through $(v-e_a,a)$; such a change moves $b$ by at most
+$4|\beta||h_p-h'_p|$, respectively $4|\beta|\eta$, since an outside link lies
+in at most one plaquette with $(v-e_a,a)$. Apply~\eqref{eq:Q}.
+\end{proof}
+
+Part (b) is the point of the soft quotient: a star with one fixed link is
+exactly as good as a full star, and the price $z(v)\delta(g,1)$ never feeds
+back into the system, because an outside link of a lower vertex is a factor
+of no two-path at a block (Lemma~\ref{lem:cubestars}(iii)). The margin is lost
+at the edges of the cube, $z(v)=2$, and the next lemma pays for them with
+weights.
+
+\subsection{The column inequality}
+
+For a block vertex $v$ and a plaquette $p$ at $v$ let $\Gamma_v(p)$ be the
+constant of Lemma~\ref{lem:partial}(a), (c) or (e), and $\Gamma_v(p)=0$ if no
+link of $p$ at $v$ lies in $V$. Put $u_v=1$ for upper $v$ and $u_v=u_{z(v)}$
+for lower $v$, with
+\[
+u_0=u_1=1,\quad u_2=\tfrac56,\quad u_3=\tfrac7{10},\quad u_4=\tfrac35;
+\qquad\lambda=\tfrac{97}{100}.
+\]
+
+\begin{lemma}\label{lem:column}
+Let $n\ge4$ and $c\le c_0$. For every $k\in V$, with plaquettes
+$p_{(\nu,\epsilon)}$ and even corners $v_{(\nu,\epsilon)}=o+\epsilon e_\nu$ as
+above,
+\[
+\sum_{(\nu,\epsilon)}u_{v_{(\nu,\epsilon)}}\Gamma_{v_{(\nu,\epsilon)}}
+(p_{(\nu,\epsilon)})\le\lambda\,u_{w(k)} .
+\]
+\end{lemma}
+
+\begin{proof}
+Put $f(z)=u_z\kappa_zc$: $f(0)=f(1)=\kappa_0c<1.8004\,c$, $f(2)=\frac{15}8c$,
+$f(3)=\frac{28}{13}c<2.1539\,c$ and $f(4)=\frac{96}{59}c<1.6272\,c$, all at
+least $c$. By Lemma~\ref{lem:cubestars}(ii) a lower $v_{(\nu,\epsilon)}$ has
+both links of $p$ free, so it contributes $f(z(v_{(\nu,\epsilon)}))$; an upper
+one contributes at most $c$, and other vertices contribute $0$. Let $o$, $\mu$
+and $\varsigma$ be as in Lemma~\ref{lem:cubestars}(ii).
+
+\emph{Case A: $\hat o$ has a coordinate equal to $n$.} Since $k\in V$ is
+$(o,\mu)$, which needs $o\in Q$, or $(o-e_\mu,\mu)$, which needs $\hat o-e_\mu
+\in[0,n-1]^4$, this coordinate is $\hat o_\mu$, and $w(k)=o-e_\mu$ with
+$\hat w_\mu=n-1\ge1$; so $z(w)\le3$ and $u_w\ge\frac7{10}$. Every
+$v_{(\nu,\epsilon)}$ has $\mu$-coordinate $n$, so the sum is at most
+$6c\le6c_0=0.525<\frac7{10}\cdot0.97$.
+
+\emph{Case B: $o\in Q$.} Let $Z=z(o)$ be the number of zeros of $\hat o$,
+$a=\#\{\nu\ne\mu:\hat o_\nu=0\}$ and $b=\#\{\nu\ne\mu:\hat o_\nu=1\}$. As
+$n\ge4$, the classes $\{0\}$, $\{1\}$, $[2,n-2]$ and $\{n-1\}$ are disjoint.
+For $\nu\ne\mu$: if $\hat o_\nu=0$, $\epsilon=-1$ gives no block and
+$\epsilon=+1$ a lower vertex with $z=Z-1$; if $\hat o_\nu=1$, $\epsilon=+1$
+gives $z=Z$ and $\epsilon=-1$ gives $z=Z+1$; if $2\le\hat o_\nu\le n-2$ both
+give $z=Z$; and if $\hat o_\nu=n-1$, $\epsilon=-1$ gives $z=Z$ and
+$\epsilon=+1$ an upper vertex, which contributes at most $c\le f(Z)$. Hence the
+sum is at most
+\[
+a\,f(Z-1)+b\bigl(f(Z)+f(Z+1)\bigr)+2(3-a-b)f(Z).
+\]
+If $\hat o_\mu=0$, then $\varsigma=+1$, $Z=a+1$ and $z(w)=a$, and the sum is at
+most $h(a,b)=af(a)+b(f(a+1)+f(a+2))+2(3-a-b)f(a+1)$, to be compared with
+$\lambda u_a$. If $\hat o_\mu\ge1$, then $Z=a$ and $w$ is upper, with $u_w=1$,
+or lower with $z(w)\in\{a,a+1\}$, so $u_w\ge u_{a+1}$; the sum is at most
+$g(a,b)=af(a-1)+b(f(a)+f(a+1))+2(3-a-b)f(a)$, to be compared with $\lambda
+u_{a+1}$. Here $a+b\le3$. Since $f(0)=f(1)\le f(2)\le f(3)$, the quantities
+$h(0,b)$, $g(1,b)$, $h(1,b)$ and $g(2,b)$ increase with $b$, and
+$g(0,b)=6f(0)$. Every term is $c$ times a constant, so it suffices to take
+$c=c_0$; with $\hat\lambda=\lambda/c_0=\frac{388}{35}>11.0857$ and $f$ in units
+of $c$, the cases are
+\begin{align*}
+h(0,3)&=3f(0)+3f(2)<5.4012+5.625=11.0262<\hat\lambda,\\
+g(0,b)&=6f(0)<10.8024<\hat\lambda,\\
+g(1,2)&=3f(0)+2f(2)<9.1512<\tfrac56\hat\lambda,\quad\tfrac56\hat\lambda>9.2380,\\
+h(1,2)&=f(0)+2f(2)+2f(3)<9.8582<\hat\lambda,\\
+g(2,1)&=2f(0)+f(2)+f(3)<7.6297<\tfrac7{10}\hat\lambda,\quad
+\tfrac7{10}\hat\lambda>7.7599,\\
+h(2,0)&=2f(2)+2f(3)<8.0578<\tfrac56\hat\lambda,\\
+h(2,1)&=2f(2)+f(3)+f(4)<7.5311<\tfrac56\hat\lambda,\\
+g(3,0)&=3f(2)=5.625<\tfrac35\hat\lambda,\quad\tfrac35\hat\lambda>6.6514,\\
+h(3,0)&=3f(3)<6.4617<\tfrac7{10}\hat\lambda.
+\end{align*}
+All inequalities hold.
+\end{proof}
+
+\subsection{The cube condition uniformly in the cube size}
+
+\begin{proposition}\label{prop:starresponse}
+Let $c\le c_0$, $n\ge4$ and $L\ge2n+4$ even. For every link $j$,
+\[
+\sum_{x:\,j\notin V_x}\tilde R_x(j)\le259\,n^3 .
+\]
+\end{proposition}
+
+\begin{proof}
+Fix $x$, $j\notin V=V_x$ and $U,U'$ differing only at $j$, and write
+$\eta=\delta(U_j,U'_j)$. Let $\pi$ minimise $\int D\,d\pi$ over couplings of
+$\gamma^0_{V,U}$ and $\gamma^0_{V,U'}$, and put $\varrho_v=\int\tilde d_v\,d\pi$.
+As in Lemma~\ref{lem:dobS3}, replacing the block of $v$ by an optimal
+coupling for $\tilde d_v$ of $\gamma_v(\cdot\mid\sigma,U)$ and
+$\gamma_v(\cdot\mid\sigma',U')$ changes only the $v$-term, so $\varrho_v\le\int
+\Omega_v\,d\pi$ with $\Omega_v=W^{\tilde d_v}(\gamma_v(\cdot\mid\sigma,U),
+\gamma_v(\cdot\mid\sigma',U'))$.
+
+\emph{Pointwise bound.} Changing the two-paths at $v$ one at a time, and then
+the outside link $j$ if it is a link at $v$, the triangle inequality for
+$W^{\tilde d_v}$ and Lemma~\ref{lem:partial} give $\Omega_v\le\sum_p\Gamma_v(p)
+|h_p(\sigma,U)-h_p(\sigma',U')|+r_v\eta$, where $r_v\le1$ if $v$ is lower and
+$j$ is an outside link at $v$, $r_v\le c$ if $v$ is upper and $j$ is a link at
+$v$, and $r_v=0$ otherwise. For each block vertex $w$ fix $g^*_w$ attaining
+$\tilde d_w(\sigma_{B_w},\sigma'_{B_w})$, with $g^*_w=1$ for upper $w$, and put
+$\delta_k=\delta(g^*_{w(k)}X_k(\sigma),X_k(\sigma'))$ for $k\in V$, so that
+$\sum_{k\in B_w\cap V}\delta_k\le\tilde d_w$. If both links of $p$ at the
+opposite corner $v'$ lie in $V$, then $v'$ is lower, an upper vertex carrying
+one link of $V$, and by invariance of $h_p$ under $X\mapsto g^*_{v'}X$ at $v'$,
+$|h_p(\sigma,U)-h_p(\sigma',U')|$ is at most the sum of their $\delta_k$. If
+exactly one lies in $V$, the other is off $V$ and is not an outside link of a
+lower vertex (Lemma~\ref{lem:cubestars}(iii)), so $v'$ is upper and the bound
+is $\delta_k+[j\in p]\eta$. If none lies in $V$, the bound is $[j\in p]\eta$.
+Each $k\in V$ is a factor of a two-path at $v$ for at most one $p$ at $v$, and
+these $v$ are the vertices $v_{(\nu,\epsilon)}$ of $k$, so
+Lemma~\ref{lem:column} gives, pointwise,
+\[
+\sum_vu_v\Omega_v\le\lambda\sum_{k\in V}u_{w(k)}\delta_k+B\eta\le\lambda\sum_w
+u_w\tilde d_w+B\eta,
+\]
+with $B=\sum_{p\ni j}u_{v(p)}\Gamma_{v(p)}(p)+\max_vu_vr_v$, where $v(p)$ is
+the even corner of $p$ opposite to the even end point of $j$.
+
+\emph{Constants.} By Lemma~\ref{lem:partial}, $u_v\Gamma_v(p)\le\frac{28}{13}c$
+in all cases ($\max_zf(z)=f(3)$; with one fixed link $\kappa_0c$ or
+$\frac{16}9c$; upper vertices $c$), and only the plaquettes $p\ni j$
+containing a link of $V$ contribute. Integrating, $\sum_vu_v\varrho_v\le
+\lambda\sum_vu_v\varrho_v+B_x(j)\eta$, with $B_x(j)=\frac{28}{13}c\,P_x(j)+
+R_x(j)$, where $P_x(j)$ is the number of plaquettes $p\ni j$ with a link in
+$V_x$, and $R_x(j)=1$ if $j$ is an outside link at a lower vertex of the
+cube, $c$ if $j$ is a link off $V_x$ at an upper even vertex of the cube, and
+$0$ otherwise. All terms are finite, so $\sum_vu_v\varrho_v\le
+B_x(j)\eta/(1-\lambda)$ and
+\[
+W^D(\gamma^0_{V,U},\gamma^0_{V,U'})\le\sum_v\varrho_v\le\frac{B_x(j)\,\eta}
+{u_4(1-\lambda)}=\frac{500}9B_x(j)\,\eta .
+\]
+
+\emph{Summation over $x$.} A plaquette counted in $P_x(j)$ contains a partner
+$k$ of $j$ with $k\in V_x$, and distinct plaquettes give distinct partners.
+For $j=(b,\nu)$ the eighteen partners have base points $b+\Delta$ with
+$\sum\|\Delta\|_1=18$, $\Delta\in\{0,e_\mu,e_\nu,-e_\mu,-e_\mu,e_\nu-e_\mu\}$
+for each $\mu\ne\nu$, and $\#\{x:k\in V_x,\ j\notin V_x\}=|Q_0\setminus(Q_0-
+\Delta)|\le n^3\|\Delta\|_1$ with $Q_0=[0,n)^4$, by moving one coordinate at a
+time; so $\sum_xP_x(j)\le18n^3$. For $R_x$, let $v$ be the even end point of
+$j$. If $v$ is the head of $j=(v-e_a,a)$, it is a lower vertex with $a\in
+Z(v)$ for exactly $n^3$ cubes, and an upper vertex of the cube with $j$ off
+$V_x$ for at most $3n^3$ cubes, the coordinate equal to $n$ not being $a$; if
+$v$ is the base point of $j$, it is never lower with $j\notin V_x$ and is upper
+for at most $4n^3$ cubes. So $\sum_xR_x(j)\le(1+3c)n^3$. With $c\le c_0$,
+\[
+\sum_x\tilde R_x(j)\le\frac{500}9\Bigl(\frac{28}{13}\cdot18c_0+1+3c_0\Bigr)n^3
+=\frac{500}9\cdot\frac{4841}{1040}\,n^3<258.61\,n^3 .\qedhere
+\]
+\end{proof}
+
+\begin{theorem}\label{thm:starsuniform}
+Let $G=\SU(2)$ and $|\beta_W|\le\frac7{20}$.
+\begin{enumerate}[label=\textup{(\roman*)},leftmargin=*]
+\item For every $n\ge260$ and even $L\ge2n+4$, $\BP(n,1-259/n)$ holds; in
+particular $\BP(n,\frac12)$ holds for $n\ge518$.
+\item For every $n\ge2$ and even $L\ge2n+4$, $\BP(n,\varpi)$ holds with
+$\varpi=\frac{106}{1933}\cdot517^{-4}$, independent of $n$ and $L$.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+(i) Let $\mathcal K=L^{-4}\sum_x\mathcal P_x$ and let $h$ be gauge invariant at
+every configuration with $\Lip(h)<\infty$, and let $U,U'$ differ only at $i$.
+If $i\in V_x$, then $\mathcal P_xh(U)=\mathcal P_xh(U')$. If $i\notin V_x$,
+Lemma~\ref{lem:softlip} and any coupling $\pi$ of $\gamma^0_{V_x,U}$ and
+$\gamma^0_{V_x,U'}$ give $|\mathcal P_xh(U)-\mathcal P_xh(U')|\le\Lip(h)(\int
+D\,d\pi+\delta(U_i,U'_i))$, and the infimum over $\pi$ gives
+$\Lip(h)(\tilde R_x(i)+1)\delta(U_i,U'_i)$. As $i$ lies in $n^4$ cubes,
+Proposition~\ref{prop:starresponse} gives $\Lip(\mathcal Kh)\le(1-\kappa)
+\Lip(h)$ with $\kappa=(1-259/n)n^4/L^4>0$, and $\mathcal Kh$ is again gauge
+invariant at every configuration, by gauge covariance of $\gamma^0_{V_x,U}$.
+The spectral argument of Proposition~\ref{prop:starcond} gives
+$\ip h{(I-\mathcal K)h}\ge\kappa\Var_\mu(h)$, first for such $h$ and then, by
+density, for every real $f\in\mathcal A$; and $L^{-4}\sum_x\mu((f-\mathcal
+P_xf)^2)=\ip f{(I-\mathcal K)f}$, which is $\BP(n,1-259/n)$.
+
+(ii) For $n\ge518$ use (i). For $2\le n\le517$ use the proof of
+Theorem~\ref{thm:stars}, which gives $\BP(n,(1-6c\,s(c))(n-1)^4/(n^4\lceil
+(n-1)^4/2\rceil))$ whenever $6c\,s(c)<1$; here $1-6c\,s(c)\ge1-\frac{1827}
+{1933}=\frac{106}{1933}$ by Lemma~\ref{lem:svalues}(ii), and $(n-1)^4\ge
+\lceil(n-1)^4/2\rceil$, so $\BP(n,\frac{106}{1933}n^{-4})$ holds, and
+$\frac{106}{1933}n^{-4}\ge\varpi$.
+\end{proof}
+
+Theorem~\ref{thm:starsuniform} extends the uniform range $\frac5{18}$ of
+Theorem~\ref{thm:bpweighted} past $\beta_W=\frac13$, where
+Proposition~\ref{prop:methodlimit} stops every gauge-fixed single-link
+scheme and Proposition~\ref{prop:facebarrier} every scheme that treats face
+links as single sites. The faces cost nothing here; the margin is lost at the
+cube edges, through the column $h(0,3)$ of Lemma~\ref{lem:column}.\footnote{A
+linear programme over weights depending on the block, with the exact
+constants for $z(v)=2$, suggests on cubes of side up to $8$ that the method
+reaches the star threshold $\beta_W\approx0.3609$ of Theorem~\ref{thm:stars};
+with weights depending only on $z(v)$ it stops near $\beta_W\approx0.345$.
+These are numerical observations and no statement rests on them.} The value
+$\beta_W\le\frac7{20}$ is far below the scaling region of four-dimensional
+$\SU(2)$, where $\beta_W$ is of order $2$ and above, and the next proposition
+explains why no one-step contraction of this kind reaches it.
+
+\subsection{Single links near flat configurations}
+
+Let $A(\kappa)=\int x_1\,\nu_{\kappa e_1}(dx)$ be the mean resultant length of
+$\nu_b$ at $|b|=\kappa$. By symmetry $\int x\,\nu_b(dx)=A(|b|)b/|b|$; $A$ is
+nondecreasing, its derivative being the variance of $x_1$, and
+$A(\kappa)\to1$ as $\kappa\to\infty$.
+
+\begin{proposition}\label{prop:flat}
+Let $\beta>0$, let $e$ be a link whose six plaquettes contain no link fixed at a
+value other than $1$, and let $k$ be a partner of $e$. The single-link influence
+satisfies
+\[
+C_{ek}=\sup\frac{W_1(\nu_b,\nu_{b'})}{\delta(U_k,U'_k)}\ge\frac{A(24\beta)}6 .
+\]
+Hence in any single-link scheme in which every link has at least twelve free
+partners, as for the forest of Theorem~\ref{thm:A}, every row sum of the
+influence matrix is at least $2A(24\beta)$, which tends to $2$ as
+$\beta\to\infty$.
+\end{proposition}
+
+\begin{proof}
+Take all links equal to $1$, so every staple is $1$ and $b=24\beta\cdot1$.
+Change $U_k$ so that the staple of the plaquette containing $e$ and $k$
+becomes $\cos\vartheta+t\sin\vartheta$ with a unit imaginary quaternion $t$;
+then $\delta(U_k,U'_k)=2\sin\frac\vartheta2$ and $b'=4\beta(5+\cos\vartheta+
+t\sin\vartheta)$. The function $x\mapsto\ip xt$ is $1$-Lipschitz, so
+$W_1(\nu_b,\nu_{b'})\ge\ip{\int x\,d\nu_{b'}-\int x\,d\nu_b}t=A(|b'|)\,
+4\beta\sin\vartheta/|b'|$. Divide by $2\sin\frac\vartheta2$ and let
+$\vartheta\to0$. For the limit of $A$: the law of $x_1$ under
+$\nu_{\kappa e_1}$ has density proportional to $e^{\kappa t}\sqrt{1-t^2}$ on
+$[-1,1]$, and for $0<\epsilon<\frac12$ the mass of $[-1,1-2\epsilon]$ divided
+by that of $[1-\epsilon,1]$ is at most $e^{-\kappa\epsilon}\pi/\int_{1-
+\epsilon}^1\sqrt{1-t^2}\,dt\to0$.
+\end{proof}
+
+At weak coupling the Gibbs measure concentrates near flat configurations, so
+even an influence matrix computed only on typical configurations does not
+contract there: per link it approaches $\frac16$ per partner, and
+$12\cdot\frac16=2$.\footnote{Numerically $A(\kappa)=\frac12$ at
+$\kappa\approx2.45$, that is $\beta_W\approx0.41$.} Larger blocks with better
+internal estimates push the threshold to some finite $\beta_W$, but the mass at
+weak coupling is non-perturbative, $m\sim\Lambda e^{-c\beta}$, and a
+contraction can appear only at block sizes of order $e^{c\beta}$ lattice units.
+Section~\ref{sec:weak} and Appendix~\ref{app:obstructions} make this precise.

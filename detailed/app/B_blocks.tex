@@ -1,0 +1,46 @@
+\section{The blocks of Lemma~\ref{lem:local}}\label{app:blocks}
+
+\emph{Diagonal blocks.} Let $w_a=e^{i\phi}$. On the diagonal part
+$f_p=-\cos\phi\,(y_1+y_2-y_3-y_4)^2$ and $c_p=2(y_1y_4-y_1y_2+y_2y_3-y_3y_4)$, so
+\[
+\mathcal F=\sum_i\alpha_iy_i^2+\cos\phi\,(y_1+y_2-y_3-y_4)^2-\tfrac95(y_1y_4-y_1y_2
++y_2y_3-y_3y_4),
+\]
+with $y_k=0$, $\alpha_{k\pm1}=\frac{21}{10}$, $\alpha_{k+2}=\frac54$. It is affine in
+$\cos\phi$, so positivity at $\cos\phi=\pm1$ suffices. For $k=1$ and $\cos\phi=1$
+the matrix in $(y_2,y_3,y_4)$ is
+\[
+\begin{pmatrix}\frac{31}{10}&-\frac{19}{10}&-1\\[2pt]-\frac{19}{10}&\frac94&
+\frac{19}{10}\\[2pt]-1&\frac{19}{10}&\frac{31}{10}\end{pmatrix},
+\]
+with leading principal minors $\frac{31}{10}$, $\frac{673}{200}$,
+$\frac{8421}{2000}$. In general the leading principal minors are
+$\frac{31}{10},\frac{673}{200},\frac{8421}{2000}$ (fixed link $e_1$ or $e_4$),
+$\frac{31}{10},\frac{861}{100},\frac{8421}{2000}$ ($e_2$) and
+$\frac94,\frac{673}{200},\frac{8421}{2000}$ ($e_3$) at $\cos\phi=1$, and
+$\frac{11}{10},\frac{53}{200},\frac{21}{2000}$ ($e_1$, $e_4$),
+$\frac{11}{10},\frac{21}{100},\frac{21}{2000}$ ($e_2$) and
+$\frac14,\frac{53}{200},\frac{21}{2000}$ ($e_3$) at $\cos\phi=-1$; all are
+positive.
+
+\emph{Pair blocks.} Let $w_a=e^{i(\chi+\vartheta)}$ and $w_b=e^{i(\chi-\vartheta)}$. The
+terms of $f_p$ carry $w_a+\bar w_b=2\cos\chi\,e^{i\vartheta}$ or its conjugate, and
+$c_p$ carries $w_a\bar w_b=e^{2i\vartheta}$, so the Hermitian matrix $M(m,\vartheta)$ of
+$\mathcal F$, $m=\cos\chi$, is affine in $m$ with $M(-1,\vartheta)=M(1,\vartheta+\pi)$,
+and $m=1$ suffices. For the fixed link $e_2$, in the variables $(z_1,z_3,z_4)$
+and with $c=\cos\vartheta$,
+\[
+M=\begin{pmatrix}\frac{21}5+2c&-2e^{i\vartheta}&-\frac95-2e^{i\vartheta}\\[2pt]
+-2e^{-i\vartheta}&\frac{21}5+2c&\frac95+2e^{-i\vartheta}\\[2pt]
+-\frac95-2e^{-i\vartheta}&\frac95+2e^{i\vartheta}&\frac52+2c\end{pmatrix}.
+\]
+With $u=\cos^2(\vartheta/2)\in[0,1]$ its leading principal minors are
+\[
+\tfrac{20u+11}5,\qquad\tfrac{(20u+1)(20u+21)}{25},\qquad
+\tfrac{400u(40u^2-23u+4)+21}{250},
+\]
+and $40u^2-23u+4$ has negative discriminant $529-640$. The other positions give
+the same determinant and the leading minors $\frac{20u+11}5$ or $\frac{8u+1}2$
+and $\frac{800u^2-180u+53}{50}$, whose discriminant $32400-169600$ is negative.
+Every block is positive definite.
+

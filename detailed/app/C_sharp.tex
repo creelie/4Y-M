@@ -1,0 +1,803 @@
+\section{The single-link law of SU(2)}\label{app:sharp}
+
+This appendix proves the sharp quarter, $W_1(\nu_b,\nu_{b'})\le\frac14|b-b'|$
+for the one-link law of $\SU(2)$ in the chordal metric, which
+the proof of Theorem~\ref{thm:A} for $\SU(2)$, Lemma~\ref{lem:onelink}(i) and the whole of
+Sec.~\ref{sec:stars} use, together with the exact value $\frac14$ at $b=0$,
+which shows that the single-link argument of Sec.~\ref{sec:state} stops at
+$\beta_W=\frac13$. The argument is that of~\cite{BB26a}; it is given in full
+so that the paper is self-contained. The computations it calls on are in
+Appendix~\ref{app:vmfcomp}, and the facts about Bessel functions in
+Appendix~\ref{app:bessel}.
+
+\subsection{The von Mises--Fisher law}
+
+Identify $\SU(2)$ with the unit quaternions, that is with the unit sphere
+$S^3\subset\R^4$, so that $\ReTr U=2x_0(U)$ and $\ReTr(UV)=2\ip u{\bar v}$
+for the Euclidean inner product of $\R^4$ and quaternion conjugation
+$v\mapsto\bar v$. Fix a link $e$ and the field off $e$. Every plaquette
+through $e$ can be rotated cyclically so that its trace reads $\ReTr(Q_eA_p)$
+with $A_p\in\SU(2)$, the staple of $e$ in $p$. The action therefore depends on
+$Q_e$ only through
+\[
+N\beta\sum_{p\ni e}\ReTr(Q_eA_p)=\ip{x}{b},\qquad
+b=4\beta\sum_{p\ni e}\bar A_p\in\R^4,
+\]
+with $x=Q_e\in S^3$. Since there are six staples, each of norm one,
+\begin{equation}\label{q-eq:kappamax}
+\kappa:=|b|\le y:=24|\beta| .
+\end{equation}
+The conditional law of $Q_e$ is the von Mises--Fisher law\footnote{On the
+sphere $S^{p-1}\subset\R^p$ the von Mises--Fisher law with mean direction
+$\mu$ and concentration $\kappa$ has density proportional to
+$e^{\kappa\ip x\mu}$ with respect to the surface measure, and its normalising
+constant is $(2\pi)^{p/2}I_{p/2-1}(\kappa)/\kappa^{p/2-1}$; it is the maximum
+entropy law with prescribed mean resultant, and it plays on the sphere the
+role of the Gaussian in $\R^p$. For $p=4$ the Bessel index is $1$. The mean
+resultant length $\E\ip x\mu=I_{p/2}(\kappa)/I_{p/2-1}(\kappa)$ is the
+function $A$ of Lemma~\ref{q-lem:moments}. See Mardia and Jupp~\cite{MJ00},
+Ch.~9, for these facts and for the tangent-normal decomposition used in
+Appendix~\ref{app:vmfcomp}.}
+\begin{equation}\label{q-eq:vmf}
+\nu_b(dx)=Z(\kappa)^{-1}e^{\ip xb}\,\sigma(dx)
+\end{equation}
+on the unit sphere, with $\sigma$ the normalised surface measure. We use
+coordinates in which $b=\kappa e_1$. The density of $t=x_1$ is proportional
+to $(1-t^2)^{1/2}e^{\kappa t}$ on $[-1,1]$, so $Z(\kappa)=2I_1(\kappa)/\kappa$
+with the modified Bessel function $I_1$, normalised so that $Z(0)=1$.
+
+\begin{lemma}\label{q-lem:vmf}
+For every $\kappa\ge0$ the law $\nu_b$ on the unit sphere $S^3$ satisfies
+the Poincar\'e inequality $\Var_{\nu_b}(g)\le\frac13\int|\nabla g|^2d\nu_b$,
+and the constant $\frac13$ is attained at $\kappa=0$.
+\end{lemma}
+
+\begin{proof}
+In the polar angle $\theta\in(0,\pi)$ from $e_1$ the generator of the
+reversible diffusion of $\nu_b$ is $L=\partial_\theta^2+b(\theta)
+\partial_\theta+\sin^{-2}\theta\,\Delta_{S^2}$ with $b(\theta)=2\cot\theta-
+\kappa\sin\theta$. On spherical harmonics of degree $\ell$ on $S^2$ it acts as
+a Sturm--Liouville operator $L_\ell$ with potential
+$\ell(\ell+1)\sin^{-2}\theta$. A ground state comparison of Barta's
+type~\cite{Bar37} with the trial function $\psi=\sin\theta\,
+e^{a\kappa\cos\theta}$ gives $-L_1\psi\ge3\psi$ for $a=-\frac15$, and the same
+trial function with $a=-\frac25$ gives the bound $3$ for the derivatives of
+zonal eigenfunctions; Appendix~\ref{app:vmfcomp} carries out both computations.
+Hence every nonzero eigenvalue of $-L$ is at least $3$. At $\kappa=0$ the
+first eigenvalue of the Laplacian of the unit $S^3$ is $3$.
+\end{proof}
+
+\subsection{Moments}
+
+Let $A(\kappa)=\E_{\nu_b}x_1=Z'(\kappa)/Z(\kappa)=I_2(\kappa)/I_1(\kappa)$.
+
+\begin{lemma}\label{q-lem:moments}
+For every $\kappa>0$, in coordinates with $b=\kappa e_1$,
+\begin{enumerate}[label=\textup{(\roman*)},leftmargin=*]
+\item $\E x_2^2=\E x_3^2=\E x_4^2=A/\kappa$, $\E(1-x_1^2)=3A/\kappa$, the
+covariance matrix of $x$ is $\operatorname{diag}(A',A/\kappa,A/\kappa,
+A/\kappa)$, and $A'=1-A^2-3A/\kappa$;
+\item $\displaystyle\frac{\kappa}{2+\sqrt{\kappa^2+4}}\le
+A(\kappa)\le\frac{\kappa}{1+\sqrt{\kappa^2+9}}$;
+\item $A'\le A/\kappa\le\bigl(1+\sqrt{\kappa^2+9}\bigr)^{-1}\le\frac14$;
+\item $A(\kappa)\ge\kappa\big/\bigl(\frac32+\sqrt{\kappa^2+25/4}\bigr)$.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+(i) Integrating by parts against $\frac{d}{dt}(1-t^2)^{3/2}=-3t(1-t^2)^{1/2}$
+gives $\kappa\,\E(1-x_1^2)=3\E x_1$, and the three coordinates
+$x_2,x_3,x_4$ are exchangeable under $\nu_b$, with $\sum_ix_i^2=1$. The
+off-diagonal covariances vanish by the reflections $x_i\mapsto-x_i$,
+$i\ge2$, and $A'=\Var x_1$ because $A=(\log Z)'$.
+(ii) By (i), $A$ solves the Riccati equation $A'=1-A^2-3A/\kappa$ with
+$A(\kappa)=\kappa/4+O(\kappa^3)$. Appendix~\ref{app:vmfcomp} shows that the left
+side of (ii) is a subsolution and the right side a supersolution of this
+equation, with the same behaviour at $0$, and concludes by comparison.
+(iii) The middle inequality is (ii). For the first, put $s=\sqrt{\kappa^2+4}$.
+By (ii), $4A/\kappa\ge4/(2+s)$ and $1-A^2\le1-\kappa^2/(2+s)^2$, and
+\[
+\begin{aligned}
+1-\frac{\kappa^2}{(2+s)^2}\le\frac4{2+s}
+&\iff(2+s)^2-\kappa^2\le4(2+s)\\
+&\iff s^2-\kappa^2\le4,
+\end{aligned}
+\]
+which holds with equality. So $A'=1-A^2-3A/\kappa\le A/\kappa$.
+(iv) is the comparison of (ii) with a third barrier, which improves the
+lower bound of (ii); it is carried out in the same appendix.
+\end{proof}
+
+\subsection{The Lipschitz rate of the family}
+
+Let $\delta$ be the chordal metric $\delta(x,x')=|x-x'|$ on $S^3$ and $W_1$
+the Kantorovich distance for $\delta$. For $c\in\R^4$ and a unit vector
+$h\in\R^4$ put
+\begin{equation}\label{q-eq:rate}
+L(c,h)=\sup_g\Cov_{\nu_c}\bigl(g,\ip hx\bigr),
+\end{equation}
+the supremum over $1$-Lipschitz functions $g$ for $\delta$. Since
+$\frac{d}{dt}\nu_{c+th}(g)=\Cov_{\nu_{c+th}}(g,\ip hx)$, the
+Kantorovich--Rubinstein duality gives, for all $b,b'$,
+\begin{equation}\label{q-eq:w1segment}
+W_1(\nu_b,\nu_{b'})\le|b-b'|\sup_{c\in[b,b']}L\Bigl(c,\frac{b'-b}{|b'-b|}
+\Bigr).
+\end{equation}
+By rotation invariance $L(c,h)$ depends only on $\kappa=|c|$ and on the angle
+$\varphi$ between $h$ and $c^\perp$, and we write $L(\kappa,\varphi)$.
+
+\begin{lemma}\label{q-lem:rate}
+For all $c$ and $h$, $L(c,h)\le1/(2\sqrt3)$. Moreover:
+\begin{enumerate}[label=\textup{(\roman*)},leftmargin=*]
+\item at $c=0$, $L(0,h)=\frac14$ for every $h$;
+\item if $h\perp c$, then $L(c,h)=\E_{\nu_c}x_2^2=A(\kappa)/\kappa\le\frac14$;
+\item if $\kappa\ge\sqrt{88}/3\approx3.127$, then $L(c,h)\le\frac14$ for
+every $h$.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+A $1$-Lipschitz function for $\delta$ is $1$-Lipschitz for the geodesic
+distance, which is larger, so $|\nabla g|\le1$ almost everywhere, and
+Lemma~\ref{q-lem:vmf} gives $\Var g\le\frac13$. By Lemma~\ref{q-lem:moments}(i),
+(iii) the largest eigenvalue of the covariance of $x$ is $A/\kappa\le\frac14$,
+so $\Var\ip hx\le A/\kappa$. The Cauchy--Schwarz inequality gives
+\begin{equation}\label{q-eq:csbound}
+L(c,h)\le\bigl(\tfrac13A/\kappa\bigr)^{1/2}\le\Bigl(3\bigl(1+
+\sqrt{\kappa^2+9}\bigr)\Bigr)^{-1/2}\le\frac1{2\sqrt3}.
+\end{equation}
+(i) and (ii) are reflection arguments. Let $R$ be the reflection in the
+hyperplane $h^\perp$, and suppose $\nu_c$ is $R$-invariant, which is the case
+when $c=0$ or $h\perp c$. Then $\E\ip hx=0$ and
+\[
+\begin{aligned}
+\Cov(g,\ip hx)&=\E\bigl[(g(x)-g(Rx))\ip hx;\ \ip hx>0\bigr]\\
+&\le\E\bigl[2\ip hx^2;\ \ip hx>0\bigr]=\E\ip hx^2,
+\end{aligned}
+\]
+since $\delta(x,Rx)=2|\ip hx|$. Equality holds for $g=\ip hx$, which is
+$1$-Lipschitz. At $c=0$, $\E\ip hx^2=\frac14$; for $h\perp c$, $\E\ip
+hx^2=A/\kappa$. (iii) By~\eqref{q-eq:csbound}, $L\le\frac14$ as soon as
+$1+\sqrt{\kappa^2+9}\ge\frac{16}3$, that is $\kappa^2\ge\frac{88}9$.
+\end{proof}
+
+The reflection settles the directions
+$h\perp c$ and the point $c=0$; for an oblique $h$ the reflection no longer
+preserves $\nu_c$, and the Cauchy--Schwarz bound~\eqref{q-eq:csbound} is too
+weak for $\kappa<\sqrt{88}/3$. The next theorem closes this case.
+
+\begin{theorem}[The sharp quarter]\label{q-thm:quarter}
+For every $c\in\R^4$ and every unit vector $h\in\R^4$,
+\[
+L(c,h)\le\tfrac14 ,
+\]
+with equality at $c=0$. Equivalently, $W_1(\nu_b,\nu_{b'})\le\frac14|b-b'|$
+for all $b,b'\in\R^4$, and the constant $\frac14$ is the best possible.
+\end{theorem}
+
+The equivalence is~\eqref{q-eq:w1segment} in one direction and the derivative
+formula above it in the other; the sharpness is Lemma~\ref{q-lem:rate}(i). The
+metric matters.\footnote{In the geodesic metric of $S^3$ the statement is
+false already at $c=0$: the function $\arcsin x_2$ is geodesically
+$1$-Lipschitz and its covariance with $x_2$ under the uniform law is
+$\frac8{9\pi}\approx0.283>\frac14$. A proof therefore has to use that the
+chordal distance between two points is shorter than their geodesic distance,
+that is, it has to see the sphere from the ball it bounds. The proof below
+does exactly this: it extends a chordally Lipschitz function to the ball and
+integrates by parts there.} The proof has four steps. A Lipschitz function
+on $S^3$ extends to the unit ball $B\subset\R^4$, and Green's formula in $B$
+bounds the covariance by a negative Sobolev norm of the density
+(Lemma~\ref{q-lem:harmonic}). This norm splits into a zonal and a transverse
+part, both explicit series in modified Bessel functions
+(Lemma~\ref{q-lem:spectral}). The transverse part is at most $\frac14$ because a
+certain power series has nonnegative coefficients
+(Proposition~\ref{q-prop:transverse}), and the zonal part is at most $\frac14$
+by a Riccati comparison (Proposition~\ref{q-prop:zonal}).
+
+\subsection{Harmonic extension}
+
+Let $\sigma$ be the normalised surface measure of $S^3$ and $H_k$ the space
+of spherical harmonics of degree $k$, the restrictions to $S^3$ of harmonic
+homogeneous polynomials of degree $k$ on $\R^4$. The spaces $H_k$ are
+orthogonal in $L^2(\sigma)$ and span it; we write $u_k$ for the component of
+$u$ in $H_k$, and for $u$ with $\int u\,d\sigma=0$ we put
+\begin{equation}\label{q-eq:Qnorm}
+\mathcal Q(u)=\sum_{k\ge1}\frac1k\,\|u_k\|_{L^2(\sigma)}^2 .
+\end{equation}
+This is $\ip u{\Lambda^{-1}u}$ for the Dirichlet-to-Neumann operator
+$\Lambda$ of $B$, which acts on $H_k$ as multiplication by $k$.
+
+\begin{lemma}\label{q-lem:harmonic}
+Let $u$ be a real-analytic function on $S^3$ with $\int u\,d\sigma=0$ and let
+$g$ be $1$-Lipschitz for the chordal metric. Then
+\[
+\int_{S^3}g\,u\,d\sigma\le\tfrac12\,\mathcal Q(u)^{1/2}.
+\]
+\end{lemma}
+
+\begin{proof}
+The chordal metric is the Euclidean metric of $\R^4$ restricted to $S^3$,
+so McShane's extension $G(y)=\inf_{x\in S^3}\bigl(g(x)+|x-y|\bigr)$
+is $1$-Lipschitz on $\R^4$ and equals $g$ on $S^3$~\cite{McS34}; by
+Rademacher's theorem $|\nabla G|\le1$ almost everywhere. Let
+$\psi=\sum_{k\ge1}k^{-1}r^ku_k(\omega)$ in polar coordinates $y=r\omega$. Each
+term is a harmonic polynomial, the series converges with all derivatives on
+the closed ball because $u$ is real-analytic,\footnote{For real-analytic
+$u$ the norms $\|u_k\|$ decay geometrically in $k$, and the supremum of a
+function in $H_k$ is at most $(\dim H_k)^{1/2}=k+1$ times its $L^2(\sigma)$
+norm, so the series for $\psi$ and for each of its derivatives converge
+uniformly on $\bar B$.} and $\partial_r\psi=u$ on $S^3$. Green's formula for
+the Lipschitz function $G$ and the smooth harmonic function $\psi$ reads
+$\int_{S^3}G\,\partial_r\psi\,dS=\int_B\nabla G\cdot\nabla\psi\,dy$. With
+$|S^3|=2\pi^2$ and $|B|=\pi^2/2$ the Cauchy--Schwarz inequality gives
+\[
+\int g\,u\,d\sigma=\frac1{2\pi^2}\int_B\nabla G\cdot\nabla\psi\,dy\le
+\frac{|B|^{1/2}}{2\pi^2}\Bigl(\int_B|\nabla\psi|^2dy\Bigr)^{1/2}.
+\]
+Green's formula once more gives $\int_B|\nabla\psi|^2=\int_{S^3}\psi\,
+\partial_r\psi\,dS=2\pi^2\sum_kk^{-1}\|u_k\|^2=2\pi^2\mathcal Q(u)$, and the
+right side becomes $\frac12\mathcal Q(u)^{1/2}$.
+\end{proof}
+
+The lemma is a form of Thomson's principle. By Kantorovich--Rubinstein
+duality, $\sup_g\int gu\,d\sigma$ is the least cost of a flow in $\R^4$ that
+carries the positive part of $u\,d\sigma$ to its negative part, the cost
+being the total length travelled by the mass.\footnote{This is the
+Beckmann formulation of the transport problem with cost $|x-y|$: the
+optimal cost equals the least $\int|V|$ over vector measures $V$ on $\R^4$
+with divergence $u\,d\sigma$. Restricting the flow to the closed ball does
+not change the infimum, since projecting onto $\bar B$ shortens paths. The
+gradient $\nabla\psi$ on $B$ is one admissible flow. It minimises the energy
+$\int|V|^2$ rather than the cost $\int|V|$, and the Cauchy--Schwarz inequality
+converts one into the other at the price of the factor $|B|^{1/2}$.} The
+harmonic field $\nabla\psi$ is one such flow, through the interior of the
+ball, and the lemma computes its cost. At $c=0$ the flow is optimal: for
+$u=\ip hx$ one has $\psi=\ip hy$, the field $\nabla\psi=h$ is constant,
+the Cauchy--Schwarz inequality is an equality, and $\mathcal Q(u)=\|u\|^2=
+\frac14$.
+
+\subsection{Spectral decomposition}
+
+Fix $c=\kappa e_1$ with $\kappa>0$ and write $h=\cos\varphi\,e_1+\sin\varphi
+\,e_2$, which is no loss of generality by rotation invariance. Let
+$\rho=d\nu_c/d\sigma=e^{\kappa x_1}/Z(\kappa)$, $Z(\kappa)=\int e^{\kappa x_1}
+d\sigma=2I_1(\kappa)/\kappa$, and
+\[
+u=\bigl(\ip hx-\E_{\nu_c}\ip hx\bigr)\rho ,
+\]
+so that $\Cov_{\nu_c}(g,\ip hx)=\int gu\,d\sigma$ and $\int u\,d\sigma=0$.
+Let $U_n$ be the Chebyshev polynomials of the second kind and put
+\begin{equation}\label{q-eq:dn}
+d_n(\kappa)=\frac{(n+1)\,I_{n+1}(\kappa)}{I_1(\kappa)},\qquad n\ge0 .
+\end{equation}
+
+\begin{lemma}\label{q-lem:spectral}
+With this notation
+\[
+\mathcal Q(u)=\cos^2\varphi\,\mathcal Q_z(\kappa)+\sin^2\varphi\,
+\mathcal Q_x(\kappa),
+\]
+where
+\[
+\mathcal Q_z=\sum_{n\ge1}\frac{d_n'(\kappa)^2}n,\qquad
+\mathcal Q_x=\frac1{3\kappa^2}\sum_{n\ge1}(n+2)\,d_n(\kappa)^2 .
+\]
+\end{lemma}
+
+\begin{proof}
+The functions $U_n(x_1)$, $n\ge0$, are the zonal harmonics: $U_n(x_1)\in
+H_n$, and they are orthonormal in $L^2(\sigma)$ (Appendix~\ref{app:bessel}).
+The expansion $e^{\kappa t}=\frac2\kappa\sum_n(n+1)I_{n+1}(\kappa)U_n(t)$ of
+the same appendix gives $\rho=\sum_nd_n(\kappa)U_n(x_1)$, with $d_0=1$.
+
+Write $u=\cos\varphi\,u_z+\sin\varphi\,u_x$ with $u_z=(x_1-A)\rho$ and
+$u_x=x_2\rho$; here $\E_{\nu_c}x_1=A$ and $\E_{\nu_c}x_2=0$. The reflection
+$x_2\mapsto-x_2$ maps each $H_k$ to itself, fixes $u_z$ and reverses $u_x$,
+so the components of $u_z$ and $u_x$ in each $H_k$ are orthogonal and the
+cross term in $\mathcal Q(u)$ vanishes.
+
+Since $A=Z'/Z$, we have $u_z=\partial_\kappa\rho=\sum_nd_n'(\kappa)U_n(x_1)$,
+and the component of $u_z$ in $H_n$ is $d_n'U_n(x_1)$, of norm $|d_n'|$. This
+gives $\mathcal Q_z$.
+
+For $u_x$, let $y(t)=\cos t\,e_1+\sin t\,e_2$. The law $\nu_{\kappa y(t)}$ has
+density $\rho_t=e^{\kappa\ip{y(t)}x}/Z(\kappa)=\sum_nd_n(\kappa)U_n(\ip{y(t)}x)$,
+and $\partial_t\rho_t|_{t=0}=\kappa x_2\rho$. The function
+$U_n(\ip{y(t)}x)$ lies in $H_n$ for every $t$, hence so does its derivative
+$x_2U_n'(x_1)$ at $t=0$, and the component of $u_x$ in $H_n$ is
+$\kappa^{-1}d_nx_2U_n'(x_1)$. Its norm follows from the eigenvalue
+$n(n+2)$ of the Laplacian of $S^3$ on $H_n$. For $f=U_n(x_1)$,
+\[
+\begin{aligned}
+n(n+2)&=n(n+2)\|f\|^2=\int|\nabla_{S^3}f|^2d\sigma\\
+&=\int U_n'(x_1)^2(1-x_1^2)\,d\sigma ,
+\end{aligned}
+\]
+since the tangential gradient of $x_1$ has squared length $1-x_1^2$. Given
+$x_1$, the point $(x_2,x_3,x_4)$ is uniform on the sphere of radius
+$(1-x_1^2)^{1/2}$, so $\E[x_2^2\mid x_1]=\frac13(1-x_1^2)$ and
+$\|x_2U_n'(x_1)\|^2=\frac13n(n+2)$. Summing $n^{-1}\kappa^{-2}d_n^2\cdot\frac13
+n(n+2)$ over $n\ge1$ gives $\mathcal Q_x$.
+\end{proof}
+
+By Lemmas~\ref{q-lem:harmonic} and~\ref{q-lem:spectral},
+\begin{equation}\label{q-eq:Lbyq}
+L(\kappa,\varphi)\le\tfrac12\max\bigl(\mathcal Q_z(\kappa),\mathcal Q_x(
+\kappa)\bigr)^{1/2},
+\end{equation}
+and Theorem~\ref{q-thm:quarter} follows once both parts are at most
+$\frac14$. Both are $\frac14$ at $\kappa=0$, by continuity from the values
+$d_1\sim\kappa/2$, $d_1'\to\frac12$ and $d_n=O(\kappa^n)$.
+
+\subsection{Three Bessel sums}
+
+The series of Lemma~\ref{q-lem:spectral} reduce to closed forms. Write $I_j$
+for $I_j(\kappa)$.
+
+\begin{lemma}\label{q-lem:besselsums}
+For every $\kappa>0$,
+\begin{align*}
+\sum_{j\ge1}j^2I_j^2&=\frac\kappa4\,I_1(2\kappa),\qquad
+\sum_{j\ge1}j^3I_j^2=\frac{\kappa^2}4\bigl(I_0^2+I_1^2\bigr),\\
+I_1(2\kappa)&=2\sum_{j\ge1}I_{j-1}I_j .
+\end{align*}
+\end{lemma}
+
+The first and third identities follow from Parseval's formula for
+$e^{\kappa\cos\theta}=\sum_{j\in\Z}I_je^{ij\theta}$, and the second from the
+recurrences of $I_j$ by telescoping; Appendix~\ref{app:bessel} gives the
+proofs.
+
+\subsection{The transverse part}
+
+\begin{proposition}\label{q-prop:transverse}
+$\mathcal Q_x(\kappa)\le\frac14$ for every $\kappa\ge0$.
+\end{proposition}
+
+\begin{proof}
+By~\eqref{q-eq:dn}, $\mathcal Q_x=(3\kappa^2I_1^2)^{-1}\sum_{j\ge2}j^2(j+1)
+I_j^2$, and the sum equals $\sum_{j\ge1}(j^3+j^2)I_j^2-2I_1^2$. By
+Lemma~\ref{q-lem:besselsums}, $\mathcal Q_x\le\frac14$ is equivalent to
+\begin{equation}\label{q-eq:Dfunction}
+\mathcal D(\kappa):=(8+2\kappa^2)I_1^2-\kappa^2I_0^2-\kappa I_1(2\kappa)\ge0 .
+\end{equation}
+Each term is an entire function of $\kappa$ that is even after the
+factor $\kappa^2$ is removed, so $\mathcal D(\kappa)=\sum_{n\ge0}\mathcal D_n
+\kappa^{2n}$. Lemma~\ref{q-lem:Dcoef} of Appendix~\ref{app:bessel} computes the
+coefficients: $\mathcal D_0=\mathcal D_1=0$, and for $n=m+1\ge2$
+\[
+\mathcal D_n=\frac{N_m}{4^m\,m!\,(m+1)!\,(m+1)(m+2)},
+\]
+with
+\[
+\begin{aligned}
+N_m={}&\binom{2m}m\bigl(4(2m+1)+(m-1)(m+1)(m+2)\bigr)\\
+&-4^m(m+1)(m+2).
+\end{aligned}
+\]
+The numerator $N_m$ vanishes for $m=0,1,2$ and is positive for $m\ge3$
+(Lemma~\ref{q-lem:Dcoef}). So every coefficient of $\mathcal D$ is nonnegative
+and $\mathcal D\ge0$.
+\end{proof}
+
+The first nonzero coefficient is $\mathcal D_4=\frac1{2304}$, so
+$\frac14-\mathcal Q_x=\mathcal D/(12\kappa^2I_1^2)$ is of order $\kappa^4$ at $0$: the transverse part
+leaves the value $\frac14$ very slowly, which is why no estimate that loses a
+constant can prove the proposition.
+
+\subsection{The zonal part}
+
+Let $A=I_2/I_1$ as before, so that $d_1=2A$ and, by
+Lemma~\ref{q-lem:moments}(i), $A'=1-A^2-3A/\kappa$.
+
+\begin{proposition}\label{q-prop:zonal}
+For $0<\kappa\le\sqrt{88}/3$,
+\[
+\mathcal Q_z(\kappa)\le\frac14+4A'^2+\frac{A^2}4-\frac A{2\kappa}-
+\frac{2A^2}{\kappa^2}<\frac14 .
+\]
+\end{proposition}
+
+\begin{proof}
+\emph{The higher modes.} With $r_\nu=I_{\nu+1}/I_\nu$ the recurrence
+$I_\nu'=I_{\nu+1}+\frac\nu\kappa I_\nu$ gives
+\[
+\frac{d_n'}{d_n}=\frac{I_{n+1}'}{I_{n+1}}-\frac{I_1'}{I_1}=\frac n\kappa+
+r_{n+1}-r_1 .
+\]
+By Lemma~\ref{q-lem:ratio} of Appendix~\ref{app:bessel}, $r_{n+1}\le r_1$, and
+$r_1=A\le\kappa/4$ by Lemma~\ref{q-lem:moments}(iii). Hence $-n/\kappa\le
+n/\kappa-\kappa/4\le d_n'/d_n\le n/\kappa$ for $n\ge2$ and $\kappa^2\le16$, so
+$d_n'^2\le n^2d_n^2/\kappa^2$. With $d_1'=2A'$,
+\[
+\mathcal Q_z\le4A'^2+\frac1{\kappa^2}\sum_{n\ge2}n\,d_n^2=4A'^2+\frac{S_3-
+S_2-4I_2^2}{\kappa^2I_1^2},
+\]
+where $S_2=\sum_{j\ge1}j^2I_j^2$ and $S_3=\sum_{j\ge1}j^3I_j^2$; the
+second form uses $n\,d_n^2I_1^2=(j-1)j^2I_j^2$ with $j=n+1$.
+
+\emph{The closed form.} The recurrences $I_0-I_2=\frac2\kappa I_1$ and
+$I_1-I_3=\frac4\kappa I_2$ give $I_0/I_1=2/\kappa+A$ and $I_2I_3/I_1^2=A-
+4A^2/\kappa$. By Lemma~\ref{q-lem:besselsums},
+$S_3/(\kappa^2I_1^2)=\frac14(2/\kappa+A)^2+\frac14$, and, keeping three
+terms of the third identity,
+\[
+\frac{S_2}{\kappa^2I_1^2}\ge\frac{I_0I_1+I_1I_2+I_2I_3}{2\kappa I_1^2}=
+\frac1{2\kappa}\Bigl(\frac2\kappa+3A-\frac{4A^2}\kappa\Bigr).
+\]
+Collecting terms, $\mathcal Q_z\le\frac14+4A'^2+T(A)$ with $T(a)=\frac{a^2}4-
+\frac a{2\kappa}-\frac{2a^2}{\kappa^2}$, which is the first inequality.
+
+\emph{The barrier.} Let $s=\sqrt{\kappa^2+25/4}$ and $A_\flat=\kappa/(\frac32
++s)$. By Lemma~\ref{q-lem:moments}(iv), $A_\flat\le A\le\kappa/4$. The function
+$a\mapsto1-a^2-3a/\kappa$ decreases on $a\ge0$, and $A'\ge0$ because $A'=
+\Var x_1$, so $0\le A'\le\alpha:=1-A_\flat^2-3A_\flat/\kappa$. For $\kappa^2\le
+12$ the quadratic $T$ decreases on $[0,\kappa/4]$, since
+\[
+T(a)-T(a')=(a'-a)\,\frac{2\kappa-(a+a')(\kappa^2-8)}{4\kappa^2}
+\]
+and $(a+a')(\kappa^2-8)\le\frac\kappa2(\kappa^2-8)\le2\kappa$ there. So
+$\mathcal Q_z\le\frac14+4\alpha^2+T(A_\flat)$. With $\kappa^2=s^2-\frac{25}4$
+and $A_\flat/\kappa=2/(2s+3)$ both terms are rational in $s$:
+$\alpha=16/(2s+3)^2$, and
+\begin{equation}\label{q-eq:zonalfactor}
+\begin{aligned}
+4\alpha^2+T(A_\flat)&=\frac{(2s-5)\,p(s)}{4(2s+3)^4},\\
+p(s)&=8s^3+28s^2-98s-695 .
+\end{aligned}
+\end{equation}
+For $0<\kappa\le\sqrt{88}/3$ we have $\frac52<s\le\sqrt{577}/6<4.004$. On
+$s\ge\frac52$ the cubic $p$ increases, since $p'(s)=24s^2+56s-98>0$, and
+$p(4.004)<-120$. So the right side of~\eqref{q-eq:zonalfactor} is negative.
+\end{proof}
+
+\subsection{Proof of Theorem~\ref{q-thm:quarter}}
+
+At $c=0$ the theorem is Lemma~\ref{q-lem:rate}(i), and for $|c|\ge\sqrt{88}/3$
+it is Lemma~\ref{q-lem:rate}(iii). For $0<|c|<\sqrt{88}/3$,
+Propositions~\ref{q-prop:transverse} and~\ref{q-prop:zonal} give $\mathcal Q_x,
+\mathcal Q_z\le\frac14$, and~\eqref{q-eq:Lbyq} gives $L\le\frac14$. \qed
+
+
+\section{Computations for the single-link law}\label{app:vmfcomp}
+
+\subsection{Barta's inequality}
+
+Let $\rho(\theta)=\sin^2\theta\,e^{\kappa\cos\theta}$ on $(0,\pi)$, let $V$
+be a continuous potential, and let
+\[
+T=-\rho^{-1}\partial_\theta\,\rho\,\partial_\theta+V .
+\] If $\psi>0$ is smooth on $(0,\pi)$ with
+$\rho\psi^2=O(\sin^4\theta)$ at the end points and $T\psi\ge\lambda_0\psi$,
+then
+\[
+\int(|h'|^2+Vh^2)\rho\,d\theta\ge\lambda_0\int h^2\rho\,d\theta
+\]
+for every smooth $h$ vanishing to first order at $0$ and $\pi$. Indeed, writing
+$h=\psi u$ and integrating by parts, the boundary terms $\rho\psi\psi'u^2$
+vanish and
+\[
+\int(|h'|^2+Vh^2)\rho=\int\rho\psi^2|u'|^2+\int\frac{T\psi}\psi\,h^2\rho
+\ \ge\ \lambda_0\int h^2\rho .
+\]
+This is the inequality of Barta~\cite{Bar37} in the form of a ground state
+transformation.
+
+\subsection{The computations of Lemma~\ref{q-lem:vmf}}
+
+The generator of the reversible diffusion of $\nu_b$ on $S^3$ is
+$L=\Delta_{S^3}+\kappa\nabla x_1\cdot\nabla$. In the polar angle $\theta$
+from $e_1$ the round metric is $d\theta^2+\sin^2\theta\,g_{S^2}$, so
+$\Delta_{S^3}=\partial_\theta^2+2\cot\theta\,\partial_\theta+\sin^{-2}\theta\,
+\Delta_{S^2}$, and $\nabla x_1\cdot\nabla=-\sin\theta\,\partial_\theta$. On
+$h(\theta)Y_\ell$ with a spherical harmonic $Y_\ell$ of degree $\ell$ on $S^2$
+the operator acts as $L_\ell=\partial_\theta^2+b\,\partial_\theta-\ell(\ell+1)
+\sin^{-2}\theta$, $b=2\cot\theta-\kappa\sin\theta=\rho'/\rho$, so
+$-L_\ell=T$ with $V=\ell(\ell+1)\sin^{-2}\theta$.
+
+\emph{Degree $\ell\ge1$.} Take $\psi=\sin\theta\,e^{a\kappa\cos\theta}$. Then
+$\psi'/\psi=\cot\theta-a\kappa\sin\theta$ and
+$\psi''/\psi=(\psi'/\psi)^2+(\psi'/\psi)'$, and a short computation gives
+\[
+\frac{-L_1\psi}\psi=3+(1+5a)\kappa\cos\theta-a(1+a)\kappa^2\sin^2\theta .
+\]
+For $a=-\frac15$ this is $3+\frac4{25}\kappa^2\sin^2\theta\ge3$. Since
+$V=\ell(\ell+1)\sin^{-2}\theta\ge2\sin^{-2}\theta$ for $\ell\ge1$, Barta's
+inequality gives $-L_\ell\ge3$ on every sector with $\ell\ge1$.
+
+\emph{Degree $\ell=0$.} Let $g(\theta)$ be a zonal eigenfunction,
+$-L_0g=\lambda g$, $g$ not constant, so that $g'(0)=g'(\pi)=0$. Differentiating
+$g''+bg'=-\lambda g$ gives, for $h=g'$,
+\[
+-\bigl(h''+bh'\bigr)-b'h=\lambda h,\qquad -b'=\frac2{\sin^2\theta}+\kappa
+\cos\theta,
+\]
+so $h$ is an eigenfunction of $T$ with $V=2\sin^{-2}\theta+\kappa\cos\theta$,
+with eigenvalue $\lambda$, and $h\not\equiv0$ vanishes at both ends. With the
+same $\psi$,
+\[
+\frac{T\psi}\psi=3+(2+5a)\kappa\cos\theta-a(1+a)\kappa^2\sin^2\theta,
+\]
+which for $a=-\frac25$ is $3+\frac6{25}\kappa^2\sin^2\theta\ge3$. Barta's
+inequality applied to $h$ gives $\lambda\ge3$. Together with the case
+$\ell\ge1$ every nonzero eigenvalue of $-L$ is at least $3$, which is
+Lemma~\ref{q-lem:vmf}; the spectrum is discrete because $S^3$ is compact and
+the drift is smooth.
+
+\subsection{Moments}
+
+The density of $t=x_1$ under $\nu_b$ is proportional to $(1-t^2)^{1/2}e^{
+\kappa t}$. For every smooth $\phi$ on $[-1,1]$,
+\[
+\frac d{dt}\Bigl[(1-t^2)^{3/2}e^{\kappa t}\Bigr]=(1-t^2)^{1/2}e^{\kappa t}
+\bigl(\kappa(1-t^2)-3t\bigr),
+\]
+and integration by parts gives $\E[\phi'(t)(1-t^2)]=\E\bigl[\phi(t)\bigl(3t-
+\kappa(1-t^2)\bigr)\bigr]$. With $\phi=1$ this is $\kappa\E(1-x_1^2)=3\E x_1$,
+the identity of Lemma~\ref{q-lem:moments}(i). With $\phi=t^k$ it gives the
+recursion
+\[
+m_{k+2}=m_k-\frac{k+3}\kappa\,m_{k+1}+\frac k\kappa\,m_{k-1},\qquad m_k=\E
+x_1^k,
+\]
+from $m_0=1$ and $m_1=A$; all polynomial moments of $\nu_b$ are rational in
+$\kappa$ and $A(\kappa)$.\footnote{For instance $m_2=1-3A/\kappa$,
+$m_3=A-3/\kappa+12A/\kappa^2$ and $m_4=m_2-5m_3/\kappa+2A/\kappa$. The joint moments
+with $x_2,x_3,x_4$ follow from exchangeability:
+$\E[\phi(x_1)x_2^2]=\frac13\E[\phi(x_1)(1-x_1^2)]$.}
+
+\subsection{The Riccati barriers}
+
+By Lemma~\ref{q-lem:moments}(i), $A$ solves $A'=\mathcal F(\kappa,A):=1-A^2-
+3A/\kappa$ on $(0,\infty)$, and $A(\kappa)=\frac\kappa4-\frac{\kappa^3}{96}+
+O(\kappa^5)$ from the series of $I_1$ and $I_2$. Let $s=\sqrt{\kappa^2+4}$,
+$u=\sqrt{\kappa^2+9}$, $\phi_-=\kappa/(2+s)$ and $\phi_+=\kappa/(1+u)$. Direct
+differentiation gives
+\[
+\begin{aligned}
+\phi_-'-\mathcal F(\kappa,\phi_-)&=-\frac{\kappa^2}{s(s+2)^2}\le0,\\
+\phi_+'-\mathcal F(\kappa,\phi_+)&=\frac{(u-3)^2}{u(1+u)^2}\ge0,
+\end{aligned}
+\]
+and $\phi_\pm=\frac\kappa4+O(\kappa^3)$.\footnote{For the first identity write
+$\phi_-=(s-2)/\kappa$, which follows from $s^2-4=\kappa^2$; then
+$\phi_-'=(\kappa^2/s-s+2)/\kappa^2$ and $1-\phi_-^2-3\phi_-/\kappa=
+(\kappa^2-(s-2)^2-3(s-2))/\kappa^2$, and the difference simplifies with
+$s^2=\kappa^2+4$. The second is the same computation with
+$\phi_+=\kappa(u-1)/(u^2-1)=\kappa(u-1)/(\kappa^2+8)$ in place of $\phi_-$
+and $u^2=\kappa^2+9$ in place of $s^2=\kappa^2+4$. After clearing the denominator $\kappa^2(1+u)^2$ the
+numerator becomes $\kappa^2(u-3)^2/u$, which is the stated residual.} The comparison is singular at $0$
+because of the term $3A/\kappa$, and we carry it out with an integrating
+factor. Let $D=A-\phi_-$. Then
+\[
+\begin{aligned}
+D'&=\mathcal F(\kappa,A)-\mathcal F(\kappa,\phi_-)-\bigl(\phi_-'-\mathcal F(
+\kappa,\phi_-)\bigr)\\
+&=-\Bigl(A+\phi_-+\frac3\kappa\Bigr)D+R,
+\end{aligned}
+\]
+with $R=\kappa^2/(s(s+2)^2)\ge0$. Put $\mu(\kappa)=\kappa^3\exp\int_0^\kappa
+(A+\phi_-)$. Then $(\mu D)'=\mu R\ge0$, and $\mu D=O(\kappa^6)\to0$ as
+$\kappa\to0$, so $\mu D\ge0$ and $A\ge\phi_-$. The same argument with
+$D=\phi_+-A$ and $R=(u-3)^2/(u(1+u)^2)$ gives $A\le\phi_+$. This is
+Lemma~\ref{q-lem:moments}(ii).
+
+For (iv) let $s=\sqrt{\kappa^2+25/4}$ and $\phi_\flat=\kappa/(\frac32+s)$.
+Since $s^2-\frac94=\kappa^2+4$, the same differentiation gives
+\[
+\phi_\flat'-\mathcal F(\kappa,\phi_\flat)=-\frac{5\,(s-\frac52)}{2\,s\,
+(\frac32+s)^2}\le0,
+\]
+so $\phi_\flat$ is a subsolution, and $\phi_\flat=\frac\kappa4-\frac{\kappa^3}
+{80}+O(\kappa^5)$.\footnote{With $\phi_\flat=\kappa(s-\frac32)/(\kappa^2+4)$ one
+has $\phi_\flat'=(\frac32 s+\frac{25}4)/(s(\frac32+s)^2)$, using $ds/d\kappa=
+\kappa/s$; and $\mathcal F(\kappa,\phi_\flat)=1-\phi_\flat^2-3/(\frac32+s)$.
+Clearing the denominator $s(\frac32+s)^2$ and replacing $\kappa^2$ by
+$s^2-\frac{25}4$ leaves $-\frac52 s+\frac{25}4$ in the numerator, which is the
+stated residual. The expansion follows from $s=\frac52+\frac{\kappa^2}5+
+O(\kappa^4)$.} Hence $A-\phi_\flat=\frac{\kappa^3}{480}+O(\kappa^5)$, and the
+integrating-factor argument above, with $D=A-\phi_\flat$, $R=\frac{5(s-5/2)}
+{2s(3/2+s)^2}\ge0$ and $\mu=\kappa^3\exp\int_0^\kappa(A+\phi_\flat)$, gives
+$\mu D=O(\kappa^6)$ at $0$, $(\mu D)'=\mu R\ge0$, and so $A\ge\phi_\flat$. Since
+$\frac32+\sqrt{\kappa^2+25/4}<2+\sqrt{\kappa^2+4}$ for $\kappa>0$, this
+improves the lower bound of (ii).
+
+
+\section{Bessel functions}\label{app:bessel}
+
+This appendix proves the auxiliary statements used in Appendix~\ref{app:sharp}
+for Theorem~\ref{q-thm:quarter}. Throughout, $I_j=I_j(\kappa)$ with $\kappa>0$,
+and $I_{-j}=I_j$ for integers $j$. We use the series
+\[
+I_\nu(\kappa)=\sum_{i\ge0}\frac{(\kappa/2)^{2i+\nu}}{i!\,(i+\nu)!},
+\]
+the integral $I_j(\kappa)=\pi^{-1}\int_0^\pi e^{\kappa\cos\theta}\cos
+j\theta\,d\theta$, the Fourier series $e^{\kappa\cos\theta}=\sum_{j\in\Z}
+I_je^{ij\theta}$ and the recurrences
+\begin{equation}\label{q-eq:besselrec}
+I_{j-1}-I_{j+1}=\frac{2j}\kappa\,I_j,\quad I_j'=I_{j+1}+\frac j\kappa\,I_j ,
+\end{equation}
+all of which are in Watson's treatise~\cite{Wat44}, \S\S3.7, 3.71,
+2.22. All series below converge absolutely, because $0<I_j\le(\kappa/2)^j
+e^\kappa/j!$.
+
+\subsection{Zonal harmonics}
+
+Under $\sigma$ the coordinate $x_1$ has the density $\frac2\pi(1-t^2)^{1/2}$
+on $[-1,1]$, the area of the two-sphere $\{x_1=t\}$ being proportional to
+$1-t^2$ and its normal speed to $(1-t^2)^{-1/2}$. The Chebyshev polynomials
+$U_n(\cos\theta)=\sin((n+1)\theta)/\sin\theta$ satisfy
+\[
+\int U_nU_m\,d\sigma=\frac2\pi\int_0^\pi\sin((n+1)\theta)\sin((m+1)\theta)
+\,d\theta=\delta_{nm},
+\]
+and $U_n=C_n^{(1)}$ is the Gegenbauer polynomial of index $\frac{4-2}2=1$, so
+$U_n(\ip yx)$ is the zonal harmonic of degree $n$ on $S^3$ with pole $y$:
+$|x|^nU_n(\ip yx/|x|)$ is a harmonic polynomial on $\R^4$~\cite{SW71},
+Ch.~IV, \S2.
+
+\begin{lemma}\label{q-lem:chebexp}
+$e^{\kappa t}=\frac2\kappa\sum_{n\ge0}(n+1)I_{n+1}(\kappa)\,U_n(t)$ in
+$L^2\bigl(\frac2\pi(1-t^2)^{1/2}dt\bigr)$, and uniformly on $[-1,1]$.
+\end{lemma}
+
+\begin{proof}
+With $t=\cos\theta$ and $2\sin\theta\sin((n+1)\theta)=\cos n\theta-\cos(
+n+2)\theta$, the $n$-th coefficient is
+\[
+\begin{aligned}
+\frac2\pi\int_0^\pi e^{\kappa\cos\theta}\sin((n+1)\theta)\sin\theta\,d\theta
+&=I_n-I_{n+2}\\
+&=\frac{2(n+1)}\kappa I_{n+1},
+\end{aligned}
+\]
+by~\eqref{q-eq:besselrec}. Since $|U_n|\le n+1$ and $I_{n+1}$ decays
+factorially, the series converges uniformly.
+\end{proof}
+
+\subsection{Proof of Lemma~\ref{q-lem:besselsums}}
+
+Let $F(\theta)=e^{\kappa\cos\theta}=\sum_jI_je^{ij\theta}$. Then
+\[
+F'(\theta)=-\kappa\sin\theta\,F(\theta)=\sum_jijI_je^{ij\theta},
+\]
+and Parseval's formula gives
+\[
+\begin{aligned}
+\sum_{j\in\Z}j^2I_j^2&=\frac{\kappa^2}{2\pi}\int_0^{2\pi}\sin^2\theta\,
+e^{2\kappa\cos\theta}d\theta\\
+&=\frac{\kappa^2}2\bigl(I_0(2\kappa)-I_2(2\kappa)\bigr)=\frac\kappa2I_1(2\kappa),
+\end{aligned}
+\]
+the last step by~\eqref{q-eq:besselrec} at the argument $2\kappa$. Halving gives
+the first identity. The coefficient of $e^{i\theta}$ in $F^2=e^{2\kappa\cos
+\theta}$ is $I_1(2\kappa)=\sum_{j\in\Z}I_jI_{1-j}$, and the terms with $j\le0$
+repeat those with $j\ge1$; this is the third identity.
+
+For the second, $jI_j=\frac\kappa2(I_{j-1}-I_{j+1})$ by~\eqref{q-eq:besselrec}, so
+\[
+\sum_{j\ge1}j^3I_j^2=\frac{\kappa^2}4\sum_{j\ge1}j\bigl(I_{j-1}^2+I_{j+1}^2-
+2I_{j-1}I_{j+1}\bigr).
+\]
+Shifting indices gives
+\[
+\sum_{j\ge1}j\bigl(I_{j-1}^2+I_{j+1}^2\bigr)=I_0^2+\sum_{m\ge1}2mI_m^2,
+\qquad
+\sum_{m\ge1}2mI_m^2=\kappa\sum_{m\ge1}(I_{m-1}I_m-I_mI_{m+1})=\kappa I_0I_1,
+\]
+the last by telescoping. For the mixed term write $j=\frac12((j-1)+(j+1))$
+and apply~\eqref{q-eq:besselrec} to $(j-1)I_{j-1}$ and to $(j+1)I_{j+1}$,
+using $I_{-1}=I_1$ at $j=1$:
+\[
+\begin{aligned}
+jI_{j-1}I_{j+1}=\frac\kappa4\bigl[&(I_{j-1}I_j-I_jI_{j+1})\\
+&+(I_{j-2}I_{j+1}-I_{j-1}I_{j+2})\bigr].
+\end{aligned}
+\]
+Both brackets telescope, to $I_0I_1$ and to $I_{-1}I_2=I_1I_2$, so
+$\sum_{j\ge1}jI_{j-1}I_{j+1}=\frac\kappa4(I_0I_1+I_1I_2)$. Altogether
+\[
+\sum_{j\ge1}j^3I_j^2=\frac{\kappa^2}4\Bigl(I_0^2+\frac\kappa2I_1(I_0-I_2)
+\Bigr)=\frac{\kappa^2}4\bigl(I_0^2+I_1^2\bigr). \qquad\qed
+\]
+
+\subsection{\texorpdfstring{The coefficients of $\mathcal D$}{The coefficients of D}}
+
+\begin{lemma}\label{q-lem:Dcoef}
+Write $\mathcal D(\kappa)=\sum_{n\ge0}\mathcal D_n\kappa^{2n}$ for the function
+of~\eqref{q-eq:Dfunction}. Then $\mathcal D_0=\mathcal D_1=0$, and for $m\ge1$
+\[
+\mathcal D_{m+1}=\frac{N_m}{4^m\,m!\,(m+1)!\,(m+1)(m+2)},
+\]
+with $N_m=\binom{2m}m\bigl(4(2m+1)+(m-1)(m+1)(m+2)\bigr)-4^m(m+1)(m+2)$.
+Moreover $N_m=0$ for $m\le2$ and $N_m>0$ for $m\ge3$.
+\end{lemma}
+
+\begin{proof}
+\emph{The coefficients.} Multiplying the series of $I_0$ and $I_1$ and
+collecting powers,
+\[
+\begin{gathered}
+I_0^2=\sum_{m\ge0}\alpha_m\kappa^{2m},\qquad I_1^2=\sum_{m\ge0}\beta_m
+\kappa^{2m+2},\\
+\kappa I_1(2\kappa)=\sum_{m\ge0}\frac{\kappa^{2m+2}}{m!\,(m+1)!},
+\end{gathered}
+\]
+where
+\[
+\begin{aligned}
+\alpha_m&=\frac1{4^m}\sum_{i=0}^m\frac1{i!^2(m-i)!^2},\\
+\beta_m&=\frac1{4^{m+1}}\sum_{i=0}^m\frac1{i!\,(i+1)!\,(m-i)!\,(m-i+1)!}.
+\end{aligned}
+\]
+By Vandermonde's identity, $\sum_i\binom mi^2=\binom{2m}m$ and
+$\sum_i\binom mi\binom{m+2}{i+1}=\binom{2m+2}{m+1}$, so
+\[
+\alpha_m=\frac{\binom{2m}m}{4^m\,m!^2},\qquad\beta_m=\frac{\binom{2m+2}{m+1}}
+{4^{m+1}m!\,(m+2)!}.
+\]
+The coefficient of $\kappa^{2m+2}$ in $\mathcal D$ is $\mathcal D_{m+1}=8\beta_m
++2\beta_{m-1}-\alpha_m-1/(m!(m+1)!)$, with $\beta_{-1}=0$; for $m=0$ it is
+$\frac84-1-1=0$, and $\mathcal D_0=0$ because every term of $\mathcal D$ is
+$O(\kappa^2)$. For $m\ge1$ put $\Delta=4^m\,m!\,(m+1)!\,(m+1)(m+2)$ and
+$b=\binom{2m}m$. With $\binom{2m+2}{m+1}=\frac{2(2m+1)}{m+1}b$,
+\[
+\begin{aligned}
+8\beta_m&=\frac{4(2m+1)\,b}\Delta,\qquad\alpha_m=\frac{(m+1)^2(m+2)\,b}\Delta,\\
+2\beta_{m-1}&=\frac{2m(m+1)(m+2)\,b}\Delta,\\
+\frac1{m!(m+1)!}&=\frac{4^m(m+1)(m+2)}\Delta,
+\end{aligned}
+\]
+and $2m-(m+1)=m-1$ gives $\mathcal D_{m+1}=N_m/\Delta$.
+
+\emph{The sign.} Directly, $N_0=N_1=N_2=0$ ($2-2$, $24-24$, $192-192$),
+$N_3=80$, $N_4=1140$ and $N_5=10416$. For $m\ge6$ we first show
+$16^m\le4m\binom{2m}m^2$ for $m\ge1$ by induction: it is an equality at
+$m=1$, and $(m+1)\binom{2m+2}{m+1}=2(2m+1)\binom{2m}m$ gives
+\[
+\begin{aligned}
+4(m+1)\binom{2m+2}{m+1}^2&=\frac{16(2m+1)^2}{m+1}\binom{2m}m^2\\
+&\ge\frac{16(2m+1)^2}{4m(m+1)}16^m\ge16^{m+1}.
+\end{aligned}
+\]
+Since $(m-1)^2\ge4m$ for $m\ge6$, it follows that $\binom{2m}m^2(m-1)^2\ge
+16^m$, that is $\binom{2m}m(m-1)\ge4^m$, and
+\[
+\begin{aligned}
+N_m={}&\Bigl(\binom{2m}m(m-1)-4^m\Bigr)(m+1)(m+2)\\
+&+4(2m+1)\binom{2m}m>0 .
+\end{aligned}
+\]
+\end{proof}
+
+\subsection{Monotonicity of Bessel ratios}
+
+\begin{lemma}\label{q-lem:ratio}
+For $n\ge1$ and $\kappa>0$, $I_{n+2}(\kappa)/I_{n+1}(\kappa)\le I_2(\kappa)/
+I_1(\kappa)$.
+\end{lemma}
+
+\begin{proof}
+We use a lemma of Biernacki and Krzy\.z~\cite{BK55}: if $f=\sum a_jx^j$ and
+$g=\sum b_jx^j$ have positive coefficients and $a_j/b_j$ is nonincreasing in
+$j$, then $f/g$ is nonincreasing on $x>0$. Indeed
+\[
+\begin{aligned}
+f'g-fg'&=\sum_{i,j}(i-j)a_ib_jx^{i+j-1}\\
+&=\frac12\sum_{i,j}(i-j)b_ib_j\Bigl(\frac{a_i}{b_i}-\frac{a_j}{b_j}\Bigr)
+x^{i+j-1}\le0 .
+\end{aligned}
+\]
+Take $x=\kappa^2$, $f=I_{n+1}(\kappa)/\kappa^{n+1}$ and $g=I_1(\kappa)/\kappa$.
+Then $a_j/b_j=2^{-n}(j+1)!/(j+n+1)!$ decreases in $j$, so $I_{n+1}/(\kappa^n
+I_1)$ is nonincreasing in $\kappa$. Its logarithmic derivative is, by the
+second recurrence of~\eqref{q-eq:besselrec},
+\[
+\begin{aligned}
+&\frac{n+1}\kappa+\frac{I_{n+2}}{I_{n+1}}-\frac n\kappa-\frac1\kappa-\frac{I_2}
+{I_1}\\
+&\qquad=\frac{I_{n+2}}{I_{n+1}}-\frac{I_2}{I_1}\le0 .
+\end{aligned}\qedhere
+\]
+\end{proof}
+

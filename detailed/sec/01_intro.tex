@@ -1,110 +1,3 @@
-\documentclass[11pt]{amsart}
-
-\usepackage[T1]{fontenc}
-\usepackage{lmodern}
-\usepackage[a4paper,hmargin=1.15in,vmargin=1.1in]{geometry}
-\usepackage{amssymb,mathrsfs}
-\usepackage{graphicx}
-\usepackage{booktabs}
-\usepackage{xcolor}
-\usepackage{enumitem}
-\usepackage{microtype}
-\usepackage[colorlinks=true,linkcolor=blue!50!black,citecolor=blue!50!black,urlcolor=blue!50!black,bookmarks=false]{hyperref}
-\usepackage{xurl}
-
-\tolerance=2000
-\emergencystretch=3em
-\hfuzz=1pt
-\raggedbottom
-
-\newtheorem{theorem}{Theorem}[section]
-\newtheorem{lemma}[theorem]{Lemma}
-\newtheorem{proposition}[theorem]{Proposition}
-\newtheorem{corollary}[theorem]{Corollary}
-\newtheorem{mainthm}{Theorem}
-\renewcommand{\themainthm}{\Alph{mainthm}}
-\theoremstyle{definition}
-\newtheorem{definition}[theorem]{Definition}
-\theoremstyle{remark}
-\newtheorem{remark}[theorem]{Remark}
-\numberwithin{equation}{section}
-
-\newcommand{\R}{\mathbb{R}}
-\newcommand{\Z}{\mathbb{Z}}
-\newcommand{\C}{\mathbb{C}}
-\newcommand{\E}{\mathbb{E}}
-\newcommand{\SU}{\mathrm{SU}}
-\newcommand{\SO}{\mathrm{SO}}
-\newcommand{\U}{\mathrm{U}}
-\newcommand{\g}{\mathfrak{g}}
-\newcommand{\Tr}{\operatorname{Tr}}
-\newcommand{\ReTr}{\operatorname{Re}\operatorname{Tr}}
-\newcommand{\Hess}{\operatorname{Hess}}
-\newcommand{\Ric}{\operatorname{Ric}}
-\newcommand{\Cov}{\operatorname{Cov}}
-\newcommand{\Var}{\operatorname{Var}}
-\newcommand{\dist}{\operatorname{dist}}
-\newcommand{\ip}[2]{\langle #1,#2\rangle}
-\newcommand{\BP}{\mathrm{BP}}
-
-\begin{document}
-\hypersetup{pdftitle={Yang-Mills Theory and the Mass Gap}}
-
-\title{Yang--Mills Theory and the Mass Gap}
-
-\author[D. Bhattacharjee]{Deep Bhattacharjee$^{*}$}
-\address{Formerly, Electro-Gravitational Space Propulsion Laboratory
-(EGSPL), Bhubaneswar, Odisha 751030, India; formerly, University of Calcutta (Heramba Chandra College), 23/49 Gariahat
-Road, Golpark, Kolkata 700029, West Bengal, India}
-\email{itsdeep@live.com, d.bhattacharjee@erl-forschung.de, egspl@proton.me}
-\urladdr{\href{https://orcid.org/0000-0003-0466-750X}{orcid.org/0000-0003-0466-750X}}
-\thanks{$^{*}$Corresponding author: Deep Bhattacharjee, itsdeep@live.com.}
-
-\author[U. Bhattacharya]{Ushashi Bhattacharya}
-\address{Formerly, National Taiwan University, Taipei 106319, Taiwan}
-\email{rai.bhattacharya.in@gmail.com}
-\urladdr{\href{https://orcid.org/0009-0002-2254-3914}{orcid.org/0009-0002-2254-3914}}
-
-\author[J. M. Lockwood]{James Montgomery Lockwood}
-\address{Independent Researcher, San Antonio, USA}
-\email{spectralityworkinggroup@gmail.com}
-
-\author[T. Romanov]{Tristan Romanov}
-\address{Independent Researcher, San Francisco, CA, USA}
-\email{romanov360@gmail.com}
-
-\author[I. J. Sessford]{Ikailo John Sessford}
-\address{Ikailo Inc., Whitby, Ontario, Canada}
-\email{john@ikailo.com}
-\urladdr{\href{https://orcid.org/0009-0002-0150-4027}{orcid.org/0009-0002-0150-4027}}
-
-\author[S. Singha Roy]{Sanjeevan Singha Roy}
-\address{Department of Physics, Birla Institute of Technology, Mesra, Ranchi,
-Jharkhand 835215, India}
-\email{sanjeevan9905@gmail.com}
-\urladdr{\href{https://orcid.org/0000-0002-6148-1421}{orcid.org/0000-0002-6148-1421}}
-
-\date{10 November 2026}
-
-\subjclass[2020]{81T25, 82B20, 81T13, 60K35, 22E30. PACS 11.15.Ha, 11.15.Tk, 05.50.+q}
-\keywords{Lattice gauge theory, mass gap, Bakry--\'Emery criterion,
-Dobrushin uniqueness, continuum limit}
-
-\begin{abstract}
-We prove that four-dimensional lattice Yang--Mills theory with any compact
-simple gauge group $G\subset\U(N)$ has the mass gap
-$m\ge\operatorname{arccosh}\bigl(1+\frac1{12}\bigl(\frac{\kappa_G}{N\beta}
--\frac{29}2\bigr)\bigr)$ whenever $N\beta<\frac2{29}\kappa_G$, and that a
-spectral gap $\varpi$ for resampling cubes of physical size $\ell$, uniform in
-the lattice spacing, forces the mass gap $\Delta\ge16\varpi/(625e^2\ell)$ in
-every nontrivial continuum limit. We prove this cube gap at strong coupling,
-for $\SU(2)$ up to $\beta_W=5/18$ and for $\SU(3)$ up to $\beta_W=0.45$, and for
-massive free fields; along the weak-coupling tuning it remains open.
-\end{abstract}
-
-\maketitle
-\markboth{D. BHATTACHARJEE ET AL.}{YANG--MILLS THEORY AND THE MASS GAP}
-
 \section{Introduction}\label{sec:intro}
 
 The Yang--Mills existence and mass gap problem asks for a quantum
@@ -131,7 +24,11 @@ Ba{\l}aban's renormalisation group \cite{Bal84a,Bal85a,Bal89b} gives ultraviolet
 stability in finite volume at weak coupling (Dimock \cite{Dim13} presents the
 method for the scalar $\phi^4$ model in three dimensions), and Magnen, Rivasseau and S\'en\'eor constructed the theory with an
 infrared cutoff \cite{MRS93}. No existing result gives a mass gap in physical
-units. This paper proves three things about this problem, and states
+units. This paper proves a lattice mass gap with explicit constants for every
+compact simple group, reduces the continuum gap to one estimate on one
+physical scale, proves that estimate at strong coupling, reduces it further to
+a decay of correlations across a slab of physical width $\ell/2$, and
+determines what the methods used here can and cannot reach. It also states
 precisely what is missing.
 
 \subsection{The lattice gap with explicit constants}
@@ -224,20 +121,102 @@ times the physical size of the cube)
 \[
 \Bigl(\frac56\Bigr)^d\frac{s^2}{s^2+10d}\le\varpi\le\frac{s^2}{s^2+16d/9}.
 \]
+\item For $G=\SU(2)$ and $|\beta_W|\le\frac7{20}$, $\BP(n,\varpi)$ holds for
+every $n\ge2$ with $\varpi=\frac{106}{1933}\cdot517^{-4}$, independent of $n$
+and of the torus, and $\BP(n,1-259/n)$ holds for $n\ge260$. For
+$0\le\beta_W\le\frac9{25}$ every torus limit is reflection positive and its
+transfer matrix has spectral gap at least $7/(625\cdot2957\,e^2)$.
 \end{enumerate}
 \end{mainthm}
 
 Part (ii) is the model case of the continuum tuning: the constant is uniform
 in the lattice spacing at fixed $m\ell$, and it vanishes as $m\to0$. The cube
 condition is therefore a quantitative statement of mass generation at the
-scale $\ell$.
+scale $\ell$. Part (i) is proved in Sec.~\ref{sec:bpstrong} by the gauge of
+Theorem~\ref{thm:A} and a weighted Dobrushin criterion for blocks of links.
+No argument built on single-link updates in this gauge passes
+$\beta_W=\frac13$ for $\SU(2)$ (Proposition~\ref{prop:methodlimit}). Part
+(iii) passes that value by resampling \emph{stars}, the eight links at a
+vertex of one parity (Sec.~\ref{sec:stars}): the perturbation of one
+plaquette at a vertex enters the law of a star only through the relative
+variable of two of its links, and no plaquette is internal to a star.
+
+\subsection{Mass generation at one scale}
+
+Statement (D) below asks for the cube condition along the continuum tuning.
+Section~\ref{sec:massgen} reduces it to a hypothesis of a different kind,
+closer to physics. Split a box of the lattice, all of whose widths lie
+between $2d-1$ and $md-1$, into two outer parts of width $d$ and a middle of
+width $d-1$ in one coordinate, fix an arbitrary configuration outside the
+box, and let $\rho$ be the maximal correlation between the gauge-invariant
+observables of the two outer parts under the conditional law. The hypothesis
+$(\mathrm M_{d,m}(c))$ asks that $\rho\le c$ for all such boxes, splittings
+and boundary conditions. Along the tuning $d\approx\ell/(2a)$, so this is a
+decay of correlations across a slab of physical width about $\ell/2$,
+uniform in the boundary condition.
+
+Theorem~\ref{thm:D} proves that $(\mathrm M_{d,m}(c))$ with $c<\frac12$ and $m$
+large in terms of $c$ gives $\BP(2d-1,(1-2c)^4/32)$, hence, along the tuning,
+statement (D) and the continuum gap $(1-2c)^4/(1250\,e^2\ell)$ in every
+nontrivial limit. The proof passes through a gap for the dynamics that
+resamples overlapping patches of a box, obtained from the decorrelation of
+the slabs by a Markov factorisation, and a finite-size criterion for
+gauge-invariant functions in the spirit of those of Knabe~\cite{Kna88} and of
+Gosset and Mozgunov~\cite{GM16} for quantum spin systems. The hypothesis also
+gives exponential decay of gauge-invariant correlations under every boundary
+condition, at rate $\log(1/c)/d$ per lattice spacing
+(Proposition~\ref{prop:alldecay}). It holds at strong coupling at fixed $d$ and
+$m$, and in two dimensions along the weak-coupling tuning
+(Theorem~\ref{thm:twod}). In four dimensions it is not proved.
+
+\subsection{The limits of the methods}
+
+Appendix~\ref{app:obstructions} proves that several natural routes to (D)
+cannot work, and locates the threshold of Theorem~\ref{thm:D}.
+\begin{enumerate}[label=\textup{(\alph*)},leftmargin=*]
+\item \emph{The threshold $\frac12$ is sharp.} For a massless Gaussian chain
+the maximal correlation of the slab mechanism equals $\frac12$ exactly, and
+the gap of the corresponding block dynamics on $M$ blocks is at most
+$16/(3M)$; so no decorrelation constant $c\ge\frac12$ can give a gap uniform in
+the size (Proposition~\ref{prop:gausschain}).
+\item \emph{Two dimensions.} For $\SU(2)$ in two dimensions the middle slab of
+a box integrates out, after an axial gauge, to a convolution power of the
+heat kernel, and $(\mathrm M_{d,m}(c))$ holds with
+$c=20\,e^{-3g^2(da)^2/4}$, which tends to zero as the physical size of the box
+grows (Theorem~\ref{thm:twod}). The same condition for strips one link wide
+fails along the tuning: a pinned strip is a Brownian bridge on $\SU(2)$, and
+the antipodal boundary condition breaks a global symmetry, with correlation
+close to one (Proposition~\ref{prop:strip}).
+\item \emph{Curvature.} The Bakry--\'Emery constant of the Wilson measure
+without gauge fixing is at most $N/2-16N|\beta|$, so the Hessian bound $16$ of
+\cite{BB26a} is sharp (Theorem~\ref{thm:fullspace}); in the gauge of
+Theorem~\ref{thm:A} the constant $\frac{29}2$ cannot be replaced by anything
+below $\frac{38}3$, and no Bakry--\'Emery argument for the gauge-fixed measure
+reaches $|\beta_W|=\frac3{19}$ (Theorem~\ref{thm:slice}). Every smooth
+plaquette action, such as an effective action at a coarse scale, obeys a bound
+of the same kind (Proposition~\ref{prop:coarse}).
+\item \emph{Entropy, covariances and fixed blocks.} Block entropy
+factorisation implies the cube condition and so cannot be easier
+(Proposition~\ref{prop:entbp}); the link covariances of every gauge-invariant
+measure are $\frac14I$ and carry no information on the coupling
+(Proposition~\ref{prop:linkcov}); and a single-link spectral gap, or any gap
+for blocks of fixed lattice size, with constant $C_k$ satisfying $C_ka_k\to0$,
+forces every continuum limit to be trivial
+(Proposition~\ref{prop:fixedblocks}).
+\item \emph{A gap in the limit is not enough.} If the lattice gaps $m_k$ tend
+to zero, a choice of lattice spacings proportional to $m_k$ produces a
+nontrivial continuum limit with a mass gap; this limit is kinematic and is not
+identified with Yang--Mills theory (Theorem~\ref{thm:gaptuning}). The content
+of (D) and (E) is that the gap and the nontriviality hold along the tuning of
+asymptotic freedom.
+\end{enumerate}
 
 \subsection{What remains}
 
-Theorem~\ref{thm:A} is a strong-coupling theorem. The Clay problem needs the
-opposite end of the coupling range: the continuum limit lives at
-$\beta\to\infty$, where the range $N\beta<\frac2{29}\kappa_G$ of
-Theorem~\ref{thm:A} and the range of Theorem~\ref{thm:C}(i) do not reach. Two
+Theorems~\ref{thm:A} and~\ref{thm:C}(i), (iii) are strong-coupling theorems.
+The Clay problem needs the opposite end of the coupling range: the continuum
+limit lives at $\beta\to\infty$, which the ranges of these theorems do not
+reach. Two
 statements would complete the proof of a continuum mass gap, and neither is
 proved here:
 \begin{enumerate}[label=\textup{(\Alph*)},leftmargin=*]
@@ -248,7 +227,8 @@ tuning $\beta_k\to\infty$, uniformly in $k$;
 limit satisfying the Osterwalder--Schrader axioms.
 \end{enumerate}
 Given (D) and (E), Theorem~\ref{thm:B} gives the mass gap $\Delta\ge
-16\varpi/(625e^2\ell)$. Section~\ref{sec:weak} explains why (D) is the heart of
+16\varpi/(625e^2\ell)$, and by Theorem~\ref{thm:D} statement (D) follows from
+$(\mathrm M_{d_k,m}(c))$ along the tuning with $c<\frac12$. Section~\ref{sec:weak} explains why (D) is the heart of
 the matter: by Theorem~\ref{thm:C}(ii) it cannot hold without a dynamically
 generated mass, it fails at fixed cube size at weak coupling, and it fails in
 the Coulomb phase of the abelian theory, so its proof has to use the
@@ -286,3 +266,4 @@ the lattice step, Theorem~\ref{thm:decay} and Corollary~\ref{cor:latticegap},
 at a smaller rate. The continuum step, the gauge
 fixing and the curvature bounds are not part of that development, which shares
 with this paper the open hypothesis (D).
+

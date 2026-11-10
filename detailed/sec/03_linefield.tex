@@ -1,0 +1,68 @@
+\section{The line field}\label{sec:linefield}
+
+A \emph{direction field} is a map $\sigma:\Z^4\to\{0,1,2,3\}$; its links
+are $F=\{(x,\sigma(x)):x\in\Z^4\}$. At each site put $\pi_x(\mu)=
+\sigma(x+e_\mu)$. The plaquette at $x$ in the plane $\{\mu,\nu\}$ contains
+\begin{equation}\label{eq:count}
+[\sigma(x)\in\{\mu,\nu\}]+[\pi_x(\mu)=\nu]+[\pi_x(\nu)=\mu]
+\end{equation}
+links of $F$.
+
+\begin{lemma}\label{lem:cycle}
+Every plaquette contains exactly one link of $F$ if and only if, at every
+site $x$, $\pi_x$ fixes $\sigma(x)$ and permutes the other three directions
+cyclically.
+\end{lemma}
+
+\begin{proof}
+Fix $x$, let $s=\sigma(x)$ and let $R$ be the other three directions. For the
+plane $\{s,\nu\}$ the count~\eqref{eq:count} is $1+[\pi_x(s)=\nu]+[\pi_x(\nu)
+=s]$, which equals one for all $\nu\in R$ exactly when $\pi_x$ fixes $s$ and
+maps $R$ into $R$. For a plane $\{\mu,\nu\}\subset R$ the count is
+$[\pi_x(\mu)=\nu]+[\pi_x(\nu)=\mu]$. Draw an arrow $\mu\to\pi_x(\mu)$ whenever
+$\pi_x(\mu)\in R\setminus\{\mu\}$; each vertex has at most one outgoing arrow,
+and the condition asks for exactly one arrow on each of the three pairs. Three
+arrows on three vertices with out-degree at most one give out-degree one
+everywhere, and such a tournament is a directed three-cycle.
+\end{proof}
+
+From now on $\sigma$ is the field of period two of Table~\ref{tab:sigma} in
+Appendix~\ref{app:table}; in each row $\pi_x$ fixes $\sigma(x)$ and is a
+three-cycle on the other directions, so every plaquette contains exactly one
+link of $F$.\footnote{A field with one link of $F$ at every site and one in
+every plaquette can exist only in four dimensions: a site carries
+$d(d-1)/2$ plaquettes at which it is the base point and a link lies in
+$2(d-1)$ plaquettes, and the two counts agree only for $d=4$.} Call the links
+outside $F$ \emph{active} and write $A$ for their set.
+
+\begin{lemma}\label{lem:structure}\leavevmode
+\begin{enumerate}[label=\textup{(\roman*)},leftmargin=*]
+\item $F$ is a disjoint union of bi-infinite straight lines, one through every
+site; hence $F\cap E(\Lambda)$ is a forest for every box $\Lambda$.
+\item An active link $e=(x,\mu)$ lies in six plaquettes. In four of them the
+link of $F$ shares an end point with $e$; in the other two it is opposite to
+$e$.
+\item Every active link shares a plaquette with exactly twelve other active
+links, two in each of its plaquettes, and two links share at most one
+plaquette.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+(i) Since $\pi_x$ fixes $\sigma(x)$, $\sigma(x+e_{\sigma(x)})=\sigma(x)$, and since
+$\sigma$ has period two, also $\sigma(x-e_{\sigma(x)})=\sigma(x)$. If $(x-e_\nu,\nu)
+\in F$, straightness at $x-e_\nu$ gives $\sigma(x)=\nu$, so the incoming link of
+$F$ at $x$ is unique and continues the outgoing one. A line meets a box in a
+segment.
+
+(ii) A link of $F$ sharing an end point with $e$ is the outgoing or incoming
+link of $F$ at $x$, of direction $s=\sigma(x)\ne\mu$, or at $x+e_\mu$, of
+direction $t=\pi_x(\mu)\in R\setminus\{\mu\}$. They lie in the two plaquettes of
+$e$ in the plane $\{\mu,s\}$ and the two in the plane $\{\mu,t\}$, four distinct
+plaquettes as $s\ne t$. In the two plaquettes of the remaining plane
+$\{\mu,\rho\}$ the unique link of $F$ touches neither end of $e$, so it is the
+opposite link.
+
+(iii) Each plaquette of $e$ contains $e$, one link of $F$ and two other links.
+\end{proof}
+
