@@ -206,9 +206,9 @@ and passes this decay through the Osterwalder--Schrader reconstruction.
 \begin{mainthm}\label{thm:C}
 \begin{enumerate}[label=\textup{(\roman*)},leftmargin=*]
 \item At $\beta=0$, $\BP(n,1)$ holds for every $n$. For
-$24N|\beta|<\kappa_G$ and $n$ large, $\BP(n,1-\alpha_n)$ holds with
-$\alpha_n=N|\beta|(18n-3)/((\kappa_G-24N|\beta|)n^2)\to0$; for $\SU(2)$ the
-range is $|\beta_W|<\frac29$.
+$21N|\beta|<\kappa_G$ and $n$ large, $\BP(n,1-\alpha_n)$ holds with
+$\alpha_n=N|\beta|(18n-3)/((\kappa_G-21N|\beta|)n^2)\to0$; for $\SU(2)$ the
+range is $|\beta_W|<\frac4{15}$.
 \item For the free scalar field of lattice mass $\mu$ in $d$ dimensions the
 best constant is
 $\varpi=\frac{\mu^2}{n^d}\ip{\mathbf 1}{(-\Delta_D+\mu^2)^{-1}\mathbf 1}$, with
@@ -1000,74 +1000,135 @@ $\Omega^\perp$ lies in $[\Delta,\infty)$, and is not empty if $\Omega^\perp\ne\{
 The proof uses the cube condition only through the decay of two-point
 functions of gauge-invariant observables, and the constant $\Delta$ depends on
 $\varpi$ and $\ell$ alone.
-
 \section{The cube condition at strong coupling}\label{sec:bpstrong}
 
 Keep the setting of Sec.~\ref{sec:cube}, with a bi-invariant metric $\delta$
-of diameter $D$ on $G$. For $V\subset E$ and $j\notin V$ let
-\[
-C^0_{V,j}=\sup\frac{W_1^{d_V}\bigl(\gamma^0_V(\cdot\mid U),\gamma^0_V(\cdot\mid U')
-\bigr)}{\delta(U_j,U'_j)},\qquad d_V(\sigma,\sigma')=\sum_{e\in V}\delta(\sigma_e,\sigma'_e),
-\]
-the supremum over configurations that differ only at $j$, write
-$C^0_{ee'}=C^0_{\{e\},e'}$, and put $K^0_\nu=\sum_jC^0_{V_0,j}$, the sum over the
-links $j\notin V_0$ of direction $\nu$. Two distinct links are partners if
-they share a plaquette; every link has eighteen partners, three in each of its
-six plaquettes.
+of diameter $D$ on $G$, invariant under inversion, and $d_E(U,U')=\sum_e
+\delta(U_e,U'_e)$. Two distinct links are \emph{partners} if they share a
+plaquette; two links share at most one plaquette, and every link has eighteen
+partners, three in each of its six plaquettes. The direction field $\sigma$ of
+Sec.~\ref{sec:linefield} has period two, so it is defined on $\Lambda_L$. By
+Lemma~\ref{lem:structure}(i) the links of $F$ with an end point $v$ are exactly
+$(v,\sigma(v))$ and $(v-e_{\sigma(v)},\sigma(v))$, and $\sigma(v-e_{\sigma(v)})=
+\sigma(v)$.
 
 \begin{proposition}\label{prop:bpsup}
-\begin{enumerate}[label=\textup{(\roman*)},leftmargin=*]
-\item If $K^0_\nu\le\alpha n^4$ for $\nu=0,\dots,3$ with $\alpha<1$, then
-$\BP(n,1-\alpha)$ holds, for every real $f\in L^2(\mu)$.
-\item At $\beta=0$, $\BP(n,1)$ holds for every $n$.
-\end{enumerate}
+At $\beta=0$, $\BP(n,1)$ holds for every $n$.
 \end{proposition}
 
 \begin{proof}
-(i) Let $d_E(U,U')=\sum_e\delta(U_e,U'_e)$ and $\kappa_0=(1-\alpha)n^4/L^4$. Let
-$U,U'$ differ only at a link $i$ and couple $\mathcal K(U,\cdot)$ and
-$\mathcal K(U',\cdot)$ by choosing the same $x$. If $i\in V_x$ the exteriors agree
-and the identity coupling costs nothing; if $i\notin V_x$ an optimal coupling of
-the cube laws costs at most $C^0_{V_x,i}\delta(U_i,U'_i)$, and the link $i$ adds
-$\delta(U_i,U'_i)$. By translation invariance $\sum_{x:\,i\notin V_x}C^0_{V_x,i}=
-K^0_\nu$, so
-\[
-W_1^{d_E}\bigl(\mathcal K(U,\cdot),\mathcal K(U',\cdot)\bigr)\le\frac{L^4-n^4+\alpha n^4}
-{L^4}\,\delta(U_i,U'_i)=(1-\kappa_0)\delta(U_i,U'_i),
-\]
-and by the triangle inequality $\mathcal K$ contracts the Lipschitz constant for
-$d_E$ by $1-\kappa_0$. Hence $\Var_\mu(\mathcal K^th)\le\frac12(1-\kappa_0)^{2t}
-\mathrm{Lip}(h)^2D^2|E|^2$, while $\Var_\mu(\mathcal K^th)=\int\lambda^{2t}d\nu_h$ for the
-spectral measure $\nu_h$ of $\mathcal K$ at $h-\mu(h)$; so $\nu_h$ lives on
-$[0,1-\kappa_0]$. Lipschitz functions are dense in $L^2(\mu)$, so
-$\ip f{(I-\mathcal K)f}\ge\kappa_0\Var_\mu(f)$ for all $f$, which is
-$\BP(n,1-\alpha)$.
-
-(ii) For $\varphi\equiv1$, $\mu$ is a product of Haar measures. Write $f=\sum_Sf_S$
+For $\varphi\equiv1$, $\mu$ is a product of Haar measures. Write $f=\sum_Sf_S$
 with $f_S$ a function of the links of $S$ and $\int f_S\,dU_e=0$ for $e\in S$;
 the $f_S$ are orthogonal and $\mathcal P_xf=\sum_{S\cap V_x=\emptyset}f_S$, so
 $\sum_x\mu((f-\mathcal P_xf)^2)=\sum_{S\ne\emptyset}\|f_S\|^2\#\{x:S\cap V_x\ne
 \emptyset\}\ge n^4\Var_\mu(f)$.
 \end{proof}
 
-\begin{lemma}\label{lem:bpblock}
-If $C^0_{ee'}\le c$ for all partners with $18c<1$, then $C^0_{V,j}\le(1-18c)^{-1}
-\sum_{e\in V}C^0_{ej}$ for every finite $V$ and $j\notin V$.
+\subsection*{Gauge fixing inside a cube}
+For a cube $Q_x=x+[0,n)^4$ write $\hat v=v-x$ and call $v$ \emph{interior} if
+$\hat v\in[1,n-1]^4$; let $I_x$ be the set of interior vertices. For $z\in I_x$
+put $\tau(z)=(z-e_{\sigma(z)},\sigma(z))$, a link of $F$ with head $z$, and
+$T_x=\{\tau(z):z\in I_x\}$. Every link with an end point in $I_x$ has its base
+point in $Q_x$, so $T_x\subset V_x$, the map $\tau$ is injective, and no link
+outside $V_x$ touches $I_x$. Call the links of $V_x\setminus T_x$ \emph{free}.
+For $\psi\in G^{V_x\setminus T_x}$ let $[\psi,U]$ be the configuration equal to
+$\psi$ on the free links, to $1$ on $T_x$ and to $U$ outside $V_x$, and let
+$\gamma^T_{x,U}$ be the probability measure on $G^{V_x\setminus T_x}$ with
+density proportional to $\prod_{p\cap V_x\ne\emptyset}\varphi([\psi,U]_p)$.
+
+\begin{lemma}\label{lem:cubegauge}
+For every bounded measurable $f\in\mathcal A$,
+$\mathcal P_xf(U)=\int f([\psi,U])\,\gamma^T_{x,U}(d\psi)$.
 \end{lemma}
 
 \begin{proof}
-Let $U,U'$ differ only at $j$ and let $\pi^*$ minimise $\sum_{e\in V}\E_\pi
-\delta(\sigma_e,\sigma'_e)$ over couplings of $\gamma^0_V(\cdot\mid U)$ and
-$\gamma^0_V(\cdot\mid U')$, with $\varrho(e)$ the expected distances. Resampling one
-link $e\in V$ by an optimal coupling of its two single-link laws gives, by
-minimality, $\varrho(e)\le\sum_{k\in V}C^0_{ek}\varrho(k)+C^0_{ej}\delta(U_j,U'_j)$.
-Summing over $e$ and using $\sum_{e\in V}C^0_{ek}\le18c$ gives $(1-18c)\sum_e
-\varrho(e)\le\delta(U_j,U'_j)\sum_{e\in V}C^0_{ej}$.
+Let $\sigma'\in G^{V_x}$ and write $(\sigma',U)$ for the configuration equal to
+$\sigma'$ on $V_x$ and to $U$ elsewhere. Order $I_x$ by the sum of the
+coordinates of $\hat z$; then $z-e_{\sigma(z)}$ precedes $z$ or is not
+interior. Put $g_v=1$ for $v\notin I_x$ and recursively $g_z=g_{z-e_{\sigma(z)}}
+\sigma'_{\tau(z)}$. The gauge transformation $g$ sets every link of $T_x$ to $1$
+and fixes every link outside $V_x$, so $g\cdot(\sigma',U)=[\psi,U]$ with
+$\psi=(g\cdot\sigma')|_{V_x\setminus T_x}$. Since $g$ depends only on
+$\sigma'_{T_x}$, for fixed $\sigma'_{T_x}$ the map $\sigma'_{V_x\setminus T_x}
+\mapsto\psi$ multiplies each coordinate on both sides by fixed elements, so
+$\sigma'\mapsto(\psi,\sigma'_{T_x})$ preserves Haar measure. Plaquette variables
+change by conjugation and $\varphi$ is a class function, so the density of
+$\gamma^0_{V_x}(\cdot\mid U)$ at $\sigma'$ is proportional to
+$\prod_{p\cap V_x\ne\emptyset}\varphi([\psi,U]_p)$, while $f(\sigma',U)=
+f([\psi,U])$. Integrating out $\sigma'_{T_x}$ gives the claim.
+\end{proof}
+
+A link $(b,\mu)$ of $V_x$ is a \emph{face link} if $\hat b_i=0$ for some
+$i\ne\mu$, that is, if both its end points lie in one lower face
+$\{\hat v_i=0\}$ of the cube.
+
+\begin{lemma}\label{lem:fifteen}
+\begin{enumerate}[label=\textup{(\roman*)},leftmargin=*]
+\item If all four links of a plaquette are free, its link of $F$ is a face
+link.
+\item Every free link has at most fifteen free partners.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+(i) Let $\phi=(y,s)$ be the link of $F$ of the plaquette $p$ and $h=y+e_s$.
+If $h$ were interior, then $\sigma(h)=s$ and $\phi=\tau(h)\in T_x$. Since $y\in
+Q_x$, $\hat h_i=\hat y_i\in[0,n-1]$ for $i\ne s$ and $\hat h_s\in[1,n]$, so
+$\hat h_s=n$ or $\hat y_i=0$ for some $i\ne s$. If $\hat h_s=n$, the link of
+$p$ parallel to its second direction $\nu$ through $h$ has a base point with
+$s$-coordinate $n$ and is not in $V_x$. Hence $\phi$ is a face link.
+
+(ii) Let $k=(b,\mu)$ be free and $m(p)$ the number of free links of a
+plaquette $p\ni k$; $k$ has $\sum_{p\ni k}(m(p)-1)$ free partners. If $k$ is a
+face link, $\hat b_i=0$ with $i\ne\mu$, the plaquette of $k$ with base point
+$b-e_i$ in the plane $\{\mu,i\}$ has its other three links based at
+$i$-coordinate $-1$, outside $V_x$; the other five plaquettes give at most $3$
+each, $15$ in all. Otherwise $k$ has at most $12+M$ free partners, where $M$
+counts the plaquettes $p\ni k$ with $m(p)=4$, whose link $\phi$ of $F$ is a face
+link by (i), so $\phi\ne k$. If $k\in F$ then $M=0$; let $k$ be active and
+$\phi$ lie in the face $\{\hat v_i=0\}$. If $\phi$ shares an end point $v$ with
+$k$, then $v=b$ (for $v=b+e_\mu$ either $k$ is a face link or $\hat b_i=-1$),
+$\hat b_i=0$ and $i=\mu$; there are two links of $F$ at $b$, each in at most
+one plaquette of $k$. If $\phi$ is opposite to $k$, it is $(b\pm e_\nu,\mu)$
+in a plaquette of the plane $\{\mu,\nu\}$; as $k$ is not a face link, $\nu=i$,
+the sign is $-$ and $\hat b_i=1$, and by Lemma~\ref{lem:structure}(ii) the
+plane $\{\mu,\nu\}$ is the one plane in which the link of $F$ is opposite to
+$k$, so this happens for at most one plaquette. Hence $M\le3$.
+\end{proof}
+
+For a free link $e$ the conditional law $\gamma^T_e(\cdot\mid\psi,U)$ of
+$\psi_e$ under $\gamma^T_{x,U}$ has density proportional to $\prod_{p\ni e}
+\varphi([\psi,U]_p)$. Let $C^T_{ek}$ be the supremum of $W_1(\gamma^T_e(\cdot
+\mid\psi,U),\gamma^T_e(\cdot\mid\psi',U'))/\delta([\psi,U]_k,[\psi',U']_k)$ over
+pairs for which $[\psi,U]$ and $[\psi',U']$ differ only at a link $k$, free or
+outside $V_x$; it vanishes unless $e$ and $k$ are partners. For $j\notin V_x$
+let $b(V_x,j)$ be the number of links of $V_x$ that are partners of $j$, and
+\[
+R_x(j)=\sup\frac{W_1^{d_x}(\gamma^T_{x,U},\gamma^T_{x,U'})}{\delta(U_j,U'_j)},
+\qquad d_x(\psi,\psi')=\sum_{e\in V_x\setminus T_x}\delta(\psi_e,\psi'_e),
+\]
+the supremum over configurations that differ only at $j$.
+
+\begin{lemma}\label{lem:bpblock}
+If $C^T_{ek}\le c$ for all free $e$ and all $k$, with $15c<1$, then
+$R_x(j)\le c\,b(V_x,j)/(1-15c)$.
+\end{lemma}
+
+\begin{proof}
+Let $U,U'$ differ only at $j$, let $\pi$ minimise $\int d_x\,d\pi$ over
+couplings of $\gamma^T_{x,U}$ and $\gamma^T_{x,U'}$, and let $\varrho(e)=\int
+\delta(\psi_e,\psi'_e)\,d\pi$. Replacing $(\psi_e,\psi'_e)$ by a measurably
+chosen optimal coupling of the two conditional laws of $\psi_e$
+\cite[Cor.~5.22]{Vil09} gives another coupling, so by minimality and the
+triangle inequality $\varrho(e)\le c\sum_k\varrho(k)+c[e\text{ a partner of }j]
+\delta(U_j,U'_j)$, the sum over the free partners $k$ of $e$. Summing over $e$
+and using Lemma~\ref{lem:fifteen}(ii), $(1-15c)\sum_e\varrho(e)\le
+c\,b(V_x,j)\delta(U_j,U'_j)$.
 \end{proof}
 
 \begin{lemma}\label{lem:bpcount}
-For $n\ge2$, $L\ge2n+4$ and a link $j$, $\sum_{x:\,j\notin V_x}\#\{e\in V_x:e
-\text{ a partner of }j\}=18n^3-3n^2$.
+For $n\ge2$, $L\ge2n+4$ and a link $j$, $\sum_{x:\,j\notin V_x}b(V_x,j)=
+18n^3-3n^2$.
 \end{lemma}
 
 \begin{proof}
@@ -1081,57 +1142,120 @@ $\Delta=e_\nu-e_\mu$, that is $6n^3-n^2$ for each of the three $\mu$.
 \end{proof}
 
 \begin{lemma}\label{lem:onelink}
-Let $G$ have semisimple Lie algebra, $\delta$ the geodesic distance of
-$\ip XY=-\Tr(XY)$, and $6N|\beta|<\kappa_G$. Then $C^0_{ee'}\le N|\beta|/(\kappa_G
--6N|\beta|)$ for all partners.
+\begin{enumerate}[label=\textup{(\roman*)},leftmargin=*]
+\item For $G=\SU(2)$, the chordal metric and $\varphi=e^{2\beta\ReTr(\cdot)}$,
+$C^T_{ek}\le|\beta|=|\beta_W|/4$.
+\item Let $G$ have semisimple Lie algebra, $\delta$ the geodesic distance of
+$\ip XY=-\Tr(XY)$, and $6N|\beta|<\kappa_G$. Then $C^T_{ek}\le N|\beta|/
+(\kappa_G-6N|\beta|)$.
+\end{enumerate}
 \end{lemma}
 
 \begin{proof}
-The conditional law of $U_e$ is $\nu\propto e^{-V}dU$ with $V=-N\beta\sum_{p\ni e}
-\ReTr U_p$; by~\eqref{eq:fp} each term has second derivative $\ReTr(Y^2W)$ with
-$|Y|=|X|$, so $\Ric_G+\Hess V\ge K_1=\kappa_G-6N|\beta|$. Lemma~\ref{lem:weighted}
-with one factor and the argument of Lemma~\ref{lem:decayrate} give
-$|\Cov_\nu(g,h)|\le\|\nabla g\|_\infty\|\nabla h\|_\infty/K_1$. Move the partner
-$e'$ along a unit-speed geodesic; the derivative of $\nu_s(g)$ is
-$-\Cov_{\nu_s}(g,\partial_sV_s)$, and $\partial_sV_s$ comes from the one plaquette
-containing $e$ and $e'$, with gradient in $U_e$ of norm at most $N|\beta|$
-by~\eqref{eq:mixed}. For smooth $1$-Lipschitz $g$ this gives $|\nu_0(g)-\nu_\delta
-(g)|\le N|\beta|\delta/K_1$; convolution on $G$ preserves Lipschitz constants for
-a bi-invariant metric, and Kantorovich--Rubinstein duality concludes.
+(i) The conditional law of $\psi_e$ is the von Mises--Fisher law $\nu_b$ with
+$b=4\beta\sum_{p\ni e}\bar s_p$, where $s_p$ is the product of the other three
+variables of $p$, as in Sec.~\ref{sec:state}. A partner $k$ enters one
+$s_p$, and moving it by $\delta_k$ moves $\bar s_p$ by $\delta_k$, since left and
+right multiplication and inversion are isometries; the sharp quarter of
+\cite{BB26a} gives the bound. Links of $T_x$ do not move.
+
+(ii) The conditional law is $\nu\propto e^{-V}d\psi_e$ with $V=-N\beta
+\sum_{p\ni e}\ReTr[\psi,U]_p$; by~\eqref{eq:fp} each term has second
+derivative $\ReTr(Y^2W)$ with $|Y|=|X|$, so $\Ric_G+\Hess V\ge K_1=
+\kappa_G-6N|\beta|$. Lemma~\ref{lem:weighted} with one factor and the argument
+of Lemma~\ref{lem:decayrate} give $|\Cov_\nu(g,h)|\le\|\nabla g\|_\infty
+\|\nabla h\|_\infty/K_1$. Move the partner $k$ along a unit-speed geodesic; the
+derivative of $\nu_s(g)$ is $-\Cov_{\nu_s}(g,\partial_sV_s)$, and $\partial_sV_s$
+comes from the one plaquette containing $e$ and $k$, with gradient in $\psi_e$
+of norm at most $N|\beta|$ by~\eqref{eq:mixed}. For smooth $1$-Lipschitz $g$
+this gives $|\nu_0(g)-\nu_\delta(g)|\le N|\beta|\delta/K_1$; convolution on $G$
+preserves Lipschitz constants for a bi-invariant metric, and
+Kantorovich--Rubinstein duality concludes.
+\end{proof}
+
+\begin{proposition}\label{prop:interiorbp}
+If $\sum_{x:\,i\notin V_x}R_x(i)\le\alpha n^4$ for every link $i$, with
+$\alpha<1$, then $\BP(n,1-\alpha)$ holds.
+\end{proposition}
+
+\begin{proof}
+For a function $h$ let $\mathrm{Lip}(h)$ be the least constant with
+$|h(U)-h(U')|\le\mathrm{Lip}(h)\delta(U_i,U'_i)$ whenever $U,U'$ differ only at
+one link $i$; then $|h(U)-h(U')|\le\mathrm{Lip}(h)d_E(U,U')$. Let $h\in\mathcal A$
+be Lipschitz and $U,U'$ differ only at $i$. If $i\in V_x$,
+$\mathcal P_xh(U)=\mathcal P_xh(U')$. If $i\notin V_x$, Lemma~\ref{lem:cubegauge}
+and an optimal coupling $\pi$ of $\gamma^T_{x,U}$ and $\gamma^T_{x,U'}$ give
+\[
+|\mathcal P_xh(U)-\mathcal P_xh(U')|\le\int|h([\psi,U])-h([\psi',U'])|\,d\pi
+\le\mathrm{Lip}(h)\bigl(R_x(i)+1\bigr)\delta(U_i,U'_i).
+\]
+Since $i$ lies in $n^4$ of the cubes, $\mathrm{Lip}(\mathcal Kh)\le(1-\kappa_0)
+\mathrm{Lip}(h)$ with $\kappa_0=(1-\alpha)n^4/L^4$, and as $\mathcal K$
+preserves $\mathcal A$, $\Var_\mu(\mathcal K^th)\le\frac12(1-\kappa_0)^{2t}
+\mathrm{Lip}(h)^2D^2|E|^2$. The restriction of $\mathcal K$ to the mean-zero
+part of $\mathcal A$ is self-adjoint with $0\le\mathcal K\le I$, and
+$\Var_\mu(\mathcal K^th)=\int\lambda^{2t}d\nu_h$ for its spectral measure $\nu_h$
+at $h-\mu(h)$, so $\nu_h$ lives on $[0,1-\kappa_0]$. Lipschitz functions are
+dense in $L^2(\mu)$, and averaging over the compact gauge group, the
+orthogonal projection onto $\mathcal A$, does not increase $\mathrm{Lip}$,
+because gauge transformations act link by link by isometries; so Lipschitz
+functions are dense in $\mathcal A$, and $\ip f{(I-\mathcal K)f}\ge\kappa_0
+\Var_\mu(f)$ for real $f\in\mathcal A$, which is $\BP(n,1-\alpha)$.
 \end{proof}
 
 \begin{theorem}\label{thm:bpstrong}
-Let $n\ge2$ and $L\ge2n+4$. If $C^0_{ee'}\le c$ for all partners with $18c<1$,
-then $\BP(n,1-\alpha_n)$ holds whenever
+Let $n\ge2$ and $L\ge2n+4$. If $C^T_{ek}\le c$ for all cubes, free links $e$
+and links $k$, with $15c<1$, then $\BP(n,1-\alpha_n)$ holds whenever
 \[
-\alpha_n=\frac{c\,(18n-3)}{(1-18c)\,n^2}<1 .
+\alpha_n=\frac{c\,(18n-3)}{(1-15c)\,n^2}<1 .
 \]
 In particular:
 \begin{enumerate}[label=\textup{(\roman*)},leftmargin=*]
-\item for $G=\SU(2)$ and $|\beta_W|<\frac29$, with $\alpha_n=|\beta_W|(18n-3)/
-((4-18|\beta_W|)n^2)$;
-\item for $G\subset\U(N)$ with semisimple Lie algebra and $24N|\beta|<\kappa_G$,
-with $\alpha_n=N|\beta|(18n-3)/((\kappa_G-24N|\beta|)n^2)$.
+\item for $G=\SU(2)$ and $|\beta_W|<\frac4{15}$, with $\alpha_n=|\beta_W|(18n-3)/
+((4-15|\beta_W|)n^2)$;
+\item for $G\subset\U(N)$ with semisimple Lie algebra and $21N|\beta|<\kappa_G$,
+with $\alpha_n=N|\beta|(18n-3)/((\kappa_G-21N|\beta|)n^2)$.
 \end{enumerate}
 For fixed $\beta$ in these ranges $\alpha_n$ decreases to $0$, so $\BP(n,\varpi)$
 holds with $\varpi\to1$ as $n\to\infty$, uniformly in the torus.
 \end{theorem}
 
 \begin{proof}
-By translation invariance $K^0_\nu=\sum_{x:\,j\notin V_x}C^0_{V_x,j}$ for a link
-$j$ of direction $\nu$. Lemmas~\ref{lem:bpblock} and~\ref{lem:bpcount} give
-$K^0_\nu\le c(18n^3-3n^2)/(1-18c)=\alpha_nn^4$, and Proposition~\ref{prop:bpsup}(i)
-applies. For $\SU(2)$ the single-link law is the von Mises--Fisher law and the
-sharp quarter gives $c=|\beta|=|\beta_W|/4$, as in Sec.~\ref{sec:state}; in general
-Lemma~\ref{lem:onelink} gives $c=N|\beta|/(\kappa_G-6N|\beta|)$, and $18c<1$ reads
-$24N|\beta|<\kappa_G$.
+Lemmas~\ref{lem:bpblock} and~\ref{lem:bpcount} give $\sum_{x:\,i\notin V_x}
+R_x(i)\le c(18n^3-3n^2)/(1-15c)=\alpha_nn^4$, and
+Proposition~\ref{prop:interiorbp} applies. Lemma~\ref{lem:onelink} gives
+$c=|\beta_W|/4$ for $\SU(2)$, and $c=N|\beta|/(\kappa_G-6N|\beta|)$ in
+general, for which $15c<1$ reads $21N|\beta|<\kappa_G$ and $c/(1-15c)=
+N|\beta|/(\kappa_G-21N|\beta|)$.
 \end{proof}
 
-For $\SU(2)$ the condition $\alpha_n<1$ reads $|\beta_W|(18n^2+18n-3)<4n^2$; it
-holds for $|\beta_W|<\frac{16}{105}$ at $n=2$, and its threshold increases to
-$\frac29$ as $n\to\infty$. At strong coupling the condition is therefore
+For $\SU(2)$ the condition $\alpha_n<1$ reads $|\beta_W|(15n^2+18n-3)<4n^2$; at
+$|\beta_W|=\frac14$ it holds for $n\ge18$, and its threshold increases to
+$\frac4{15}$ as $n\to\infty$. At strong coupling the condition is therefore
 \emph{easier} for large cubes, because the response of a cube to one boundary
-link is spread over $n^4$ links while it touches only $O(n^3)$ of them.
+link is spread over $n^4$ links while it touches only $O(n^3)$ of them. Without
+the gauge fixing every link has eighteen partners, and the same argument needs
+$18c<1$, that is $|\beta_W|<\frac29$. No choice of gauge-fixed links goes
+much further:
+
+\begin{proposition}\label{prop:methodlimit}
+Let $T\subset V_x$ have at most $(n-1)^4$ links and $A$ be the partner matrix
+of $V_x\setminus T$. Then $\lambda_{\max}(A)\ge6r(4-r)(3-r)/(4-r^2)$ with
+$r=(1-1/n)^2$, which tends to $12$. If $c\lambda_{\max}(A)\ge1$, the
+inequalities $0\le\varrho\le cA\varrho+s$ used in Lemma~\ref{lem:bpblock}
+admit solutions with $\sum_e\varrho(e)$ arbitrarily large, so for $\SU(2)$ the
+argument cannot pass $|\beta_W|=\frac13$.
+\end{proposition}
+
+\begin{proof}
+The $P=6n^2(n-1)^2=6rn^4$ plaquettes with all links in $V_x$ contain at most
+$6|T|=aP$ links of $T$ in all, $a\le r$, so their numbers $m(p)$ of links outside
+$T$ have mean at least $4-a\ge3$; by convexity $\mathbf1^{\top}A\mathbf1\ge
+\sum_pm(p)(m(p)-1)\ge P(4-a)(3-a)$, and the Rayleigh quotient of $\mathbf1$ is
+at least $6r(4-a)(3-a)/(4-ar)$, which decreases in $a$ because
+$r/(4-ar)\le1/(4-a)$. For a Perron vector $v\ge0$ of $A$, $\varrho=tv$
+satisfies $cA\varrho\ge\varrho$ for every $t>0$.
+\end{proof}
 
 \section{Free massive fields}\label{sec:free}
 
@@ -1253,7 +1377,7 @@ tuning dictated by asymptotic freedom: for $\SU(N)$ the bare coupling
 $g^2=2N/\beta_W$ tends to zero like $1/(b_0\log(1/(a\Lambda)))$ with
 $b_0=11N/(48\pi^2)$ and a fixed physical scale $\Lambda$, so $\beta_W\to\infty$
 logarithmically in $1/a$. Theorems~\ref{thm:A} and~\ref{thm:bpstrong} hold for
-$\beta_W<N^2/29$ and $\beta_W<N^2/48$ respectively; at fixed $\beta$ the lattice
+$\beta_W<N^2/29$ and $\beta_W<N^2/42$ respectively; at fixed $\beta$ the lattice
 gap in physical units, $m_G(\beta)/a$, diverges as $a\to0$, and no continuum
 limit exists at fixed $\beta$. The results of this paper therefore say nothing
 about the continuum theory without statement (D). Three facts show what (D)
@@ -1313,7 +1437,8 @@ $N\beta<\frac2{29}\kappa_G$, and for $\SU(2)$ up to $\beta_W=\frac13$. A single
 spectral gap $\varpi$ of the dynamics that resamples cubes of a fixed physical
 size $\ell$, uniform along the continuum tuning, gives every nontrivial
 continuum limit the mass gap $16\varpi/(625e^2\ell)$. That spectral gap holds
-at strong coupling and for massive free fields, it fails for massless fields,
+at strong coupling, for $\SU(2)$ up to $\beta_W=\frac4{15}$, and for massive free
+fields; it fails for massless fields,
 at fixed cube size and in the abelian Coulomb phase, and along the weak-coupling
 tuning required by the continuum problem it is not proved. The Clay problem
 remains open; what this paper contributes is an explicit strong-coupling
