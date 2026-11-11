@@ -3,13 +3,13 @@ import YangMills.StrongCoupling.CouplingMinimality
 /-!
 # The coupling half of the W₁ Dobrushin comparison (G1): interface
 
-Companion to `DobrushinComparison.lean` (item G1 of `strong-coupling/forest/A4_LEAN.md`).
+Companion to `DobrushinComparison.lean`.
 
 * `resolvent_comparison`: `ρ ≤ C ρ + b` with weighted column sums `≤ θ < 1` gives
   `∑ w ρ ≤ (1 / (1 - θ)) ∑ w b`.
 * `decay_with_floor`: `decay_rowweighted` with an extra constant source `ε`, at the price
-  `ε / (1 - α₀)`. This is the arithmetic of the O(q) floor of `ANNEALED.md`, Proposition 1, and of
-  the floor in the window bootstrap of `CALM_LINK.md` §3.
+  `ε / (1 - α₀)`. This is the arithmetic of a floor of order `q` in a
+  window bootstrap.
 * Couplings: coupled updates with the right marginals map couplings to couplings
   (`coupled_update_isCoupling`); one coupled update integrated against a coupling (`bind_step_le`);
   the discrepancy recurrence for a coupling that one coupled update cannot improve

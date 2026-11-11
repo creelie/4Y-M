@@ -1,7 +1,0 @@
-N(2 alpha_G) <= 2.45883e+16  sqrt = 1.56807e+8
-c_Q = 4.0  C_G <= 1.472e+13   n >= 17 C_G/alpha: 17C_G = 2.502e+14
-c_Q = 8.0  C_G <= 2.944e+13   n >= 17 C_G/alpha: 17C_G = 5.004e+14
-alpha = 0.5  n ~ 1.0e+15  |W| ~ 6.27e+58  beta_W = 4 lam >~ 2.29e+98
-    P(calm exterior) <= 9.86e-61
-alpha = 0.9  n ~ 5.56e+14  |W| ~ 5.97e+57  beta_W = 4 lam >~ 2.16e+97
-    P(calm exterior) <= 3.3e-59

@@ -1,1 +1,0 @@
-m=4 P=4 seed=1: max n_j = 10, mean n_j = 8.535, groups by size {0: np.int64(0), 1: np.int64(4), 2: np.int64(19), 3: np.int64(22), 4: np.int64(37)}, leading-order ceiling 4/max = 0.400

@@ -1,9 +1,0 @@
-rho=1e-08 s=1 join=3 Delta=2400 log q*=-21090.2 beta*=3.4267e+21
-rho=1e-08 s=1 join=9 Delta=130320 log q*=-31444.0 beta*=5.0837e+21
-rho=1e-08 s=5 join=11 Delta=279840 log q*=-33424.9 beta*=5.4007e+21
-rho=1e-08 s=5 join=17 Delta=1500624 log q*=-37777.9 beta*=6.0973e+21
-rho=1e-09 s=1 join=3 Delta=2400 log q*=-21090.2 beta*=3.4312e+23
-rho=1e-09 s=1 join=9 Delta=130320 log q*=-31444.0 beta*=5.0882e+23
-rho_c=2.7285e-16
-rho=rho_c s=1 join=10 log q*=-32481.7 beta*=7.0966e+36
-rho=rho_c s=5 join=18 log q*=-38354.1 beta*=8.3588e+36
