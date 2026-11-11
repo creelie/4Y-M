@@ -1,5 +1,0 @@
-radius 3: one-coordinate overlap <= 4; attained 4
-  four-coordinate M=2401, H=256
-radius 5: one-coordinate overlap <= 6; attained 6
-  four-coordinate M=14641, H=1296
-Exhaustive tiny coverage implication: passed

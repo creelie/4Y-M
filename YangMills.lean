@@ -16,3 +16,5 @@ import YangMills.StrongCoupling.WassersteinBridge
 import YangMills.StrongCoupling.CouplingMinimizer
 import YangMills.StrongCoupling.IslandLayer
 import YangMills.AveragedCondition
+import YangMills.OneScale
+import YangMills.GapFree

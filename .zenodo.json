@@ -1,7 +1,7 @@
 {
-  "title": "Yang-Mills Theory and the Mass Gap",
+  "title": "The Yang-Mills Mass Gap from One Bound at One Scale",
   "upload_type": "publication",
-  "description": "We prove that four-dimensional lattice Yang-Mills theory with any compact simple gauge group has a mass gap with an explicit lower bound at strong coupling, and that a spectral gap varpi for resampling cubes of physical size l, uniform in the lattice spacing, gives every nontrivial continuum limit the mass gap 16 varpi/(625 e^2 l). We prove this cube gap at strong coupling, for SU(2) up to beta_W = 7/20, and reduce it to a decay of correlations below 1/2 across one slab of width l/2, which we prove in two dimensions and which remains open in four. Detailed version, 69 pages; the continuum mass gap is not proved.",
+  "description": "We prove the mass gap of four-dimensional lattice Yang-Mills theory at strong coupling for every compact simple gauge group, with explicit bounds. For the continuum theories built on tori we prove that a mass gap and a unique vacuum follow from one bound on partition functions at one physical scale. That bound is open at weak coupling, and the unrenormalised loop variables are shown to have a trivial limit. The archive contains the paper, a Lean 4 project (265 theorems) and a Julia script (234 checks). The continuum mass gap is not proved.",
   "creators": [
     {
       "name": "Bhattacharjee, Deep",
@@ -10,7 +10,8 @@
     },
     {
       "name": "Bhattacharya, Ushashi",
-      "orcid": "0009-0002-2254-3914"
+      "orcid": "0009-0002-2254-3914",
+      "affiliation": "Formerly, National Taiwan University, Taipei 106319, Taiwan"
     },
     {
       "name": "Lockwood, James Montgomery",
@@ -33,15 +34,13 @@
   ],
   "license": "MIT",
   "keywords": [
-    "Yang-Mills",
+    "Yang-Mills theory",
     "mass gap",
-    "lattice gauge theory",
-    "Bakry-Emery criterion",
-    "Dobrushin uniqueness"
+    "lattice gauge theory"
   ],
   "access_right": "open",
-  "version": "4.47.1",
-  "publication_date": "2026-11-10",
+  "version": "5.0.0",
+  "publication_date": "2026-11-12",
   "publication_type": "preprint",
   "related_identifiers": [
     {
@@ -50,7 +49,7 @@
       "scheme": "url"
     },
     {
-      "identifier": "10.5281/zenodo.24117469",
+      "identifier": "10.5281/zenodo.24117822",
       "relation": "isNewVersionOf",
       "scheme": "doi"
     }

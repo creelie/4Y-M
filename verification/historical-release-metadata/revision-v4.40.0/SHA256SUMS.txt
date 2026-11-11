@@ -1,3 +1,0 @@
-216f4056dfd372aa40ccd7848b8a70effcfdaf1c98ae1c45821bbdad61ca591e  ym4d.pdf
-ced1ecd857ab5f78213f1e5b9de36ab69582b7a0265fdd4e297ce1b063802fca  ym4dtex.zip
-dd0d5cb95a1ad49baba577e07de2fd4ec75dcd8eb1ccba7e32da877c3a15ac95  ym4d.zip

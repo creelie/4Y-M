@@ -1,18 +1,1 @@
 .lake/
-*.aux
-*.log
-*.out
-*.fls
-*.fdb_latexmk
-*.bbl
-*.blg
-*Notes.bib
-*.toc
-__pycache__/
-*.so
-*.pkl
-
-# Local cluster tooling and operational data stay outside version control.
-/research/
-/strong-coupling/forest/RUN_LOG.md
-detailed/YangMills.pdf

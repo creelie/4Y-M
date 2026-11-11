@@ -3,12 +3,12 @@ import Mathlib
 /-!
 # The arithmetic core of the W₁ Dobrushin comparison
 
-Lemma `comparison` of `strong-coupling/forest/main.tex` has two halves.
+The Dobrushin comparison lemma of the paper has two halves.
 
 1. **Measure theory.** A minimising coupling of two measures invariant under the single-site
    updates outside a set `S` satisfies `ρ e ≤ ∑ e', C e e' * ρ e'` for every `e ∉ S`, where
    `ρ e` is the expected link distance. This needs Kantorovich couplings and is not formalised
-   here (item G1 of `strong-coupling/forest/A4_LEAN.md`).
+   here.
 2. **Arithmetic.** From those inequalities, a weighted Dobrushin condition gives decay. This file
    proves that half for a finite index set, in two forms:
 

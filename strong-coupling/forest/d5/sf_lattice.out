@@ -1,7 +1,0 @@
-(1) f_0 depends exactly on I_0, P_{0,mu}, I_{e_nu}, P_{e_nu,mu} (mu!=nu): 21 groups
-    active links per block: inside 17  private 32
-(2) V_{y,mu} depends only on P_{y,mu}, I_y, I_{y+e_mu}
-(3) X={0}: |X^|=11, |d^-X|=4, |d^=X|=6, pairs into X=4, moved plaquettes=216
-    300 random l_inf-connected sets of 1..7 blocks: kernel factor set = X u d^-X u d^=X, moved plaquettes per block <= 216.000 <= 384
-(4) components at l_inf distance >= 2: disjoint factor sets and variables (300 trials)
-all checks passed

@@ -1,6 +1,0 @@
-a = 0.956087541852
-46a = 43.980026925183 < 44
-2a/(1-a) = 43.545161540508 < 44
-M = Dsep = 2401; 6M = 14406
-Offset enumeration and periodic separation (sides 1..64): passed
-No Hessian, label-domain, or island-threshold claim is checked here.

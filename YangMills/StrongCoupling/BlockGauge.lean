@@ -3,8 +3,7 @@
 
 Offsets in a block `2y + {0,1}⁴` are read as `o : Fin 16`, bit `μ` of `o` being `o_μ`.  A link
 `(o, μ)` is a tree link if `o_μ = 0` and `o_ν = 0` for every `ν > μ`.  The theorems check the
-finite counts of Lemma `lem:blocktree` and of the proof of Theorem `thm:blockgap` of the paper in
-`strong-coupling/forest/`, and the twelve classes of Proposition `prop:invisible`.
+finite counts of Lemma `lem:blocktree` and of the proof of Theorem `thm:blockgap` of the paper, and the twelve classes of Proposition `prop:invisible`.
 -/
 
 namespace YangMills.StrongCoupling.BlockGauge

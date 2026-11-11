@@ -1,3 +1,0 @@
-r = 77/50, side r/2^3: 826 boxes meet R_r, 4124 new moment points
-  points 500/4124 315s
-  points 1000/4124 582s

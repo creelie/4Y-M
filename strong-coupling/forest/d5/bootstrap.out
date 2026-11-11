@@ -1,8 +1,0 @@
-bootstrap radius R = 6.525e+5 blocks; window m = 2.9e+24 blocks, |L1| <= 2.35e+26
-  contraction factor at R: 0.5
-(i)  lam|L1|eps_loc <= 1e-3 needs beta >= 1.14e+64
-(ii) torus: lam|L1| n_P q(rho_c) <= 1e-3 needs beta >= 2.11e+95  (rho_c = 3.59e-46)
-(iii) density bound: lam|L1| p_nc >= 1.3e+148 at beta = 1.0e+10
-(iii) density bound: lam|L1| p_nc >= 1.09e+149 at beta = 1.0e+100
-(iii) density bound: lam|L1| p_nc >= 1.07e+150 at beta = 1.0e+1000
-      (beta-independent up to log beta: the density bound can never make the floor small)

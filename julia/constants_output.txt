@@ -1,0 +1,273 @@
+== Theorem A: the lattice gap m_G(beta) for SU(N), kappa_G = N/2 ==
+m_G positive on (0, 1/29): m_G(1/29 - 1e-9) > 0            0.0002647325720910544   OK
+m_G(1/30)                                                  0.2876820724517812   OK
+SU(2) Dobrushin rate -log(3 beta_W) at beta_W = 1/4        0.2876820724517809   OK
+
+== Theorem B: the constant 16/625 ==
+q_2 = 625/16                                               39.0625   OK
+q_n decreasing to 16                                       29.64197530864198   OK
+Delta = 16 varpi/(625 e^2 l) at varpi = 1, l = 1           0.0034645832508572853   OK
+
+== Theorem C(i): SU(2) weighted count and SU(3) range ==
+SU(2): 5/18 in Wilson coupling                             0.2777777777777778   OK
+SU(3): beta_W = 0.45 means r = 2 beta_W = 0.9              0.9   OK
+
+== Appendix H: the single-link law of SU(3) ==
+Casimir C(1,0) = 8/3                                       2.6666666666666665   OK
+Casimir C(1,1) = 6                                         6.0   OK
+dim(1,1) = 8                                               8.0   OK
+Ric = 3/2 for su(3) with <X,Y> = -Tr(XY)                   1.5   OK
+mu_0 = C(1,0) - 3/2 = 7/6                                  1.1666666666666665   OK
+gamma(0) = (39/64)(7/6) + 3/2 = 283/128                    2.2109375   OK
+gamma(0.9) = 1127/640                                      1.7609375   OK
+gamma(0.88) = 5667/3200                                    1.7709375   OK
+Haar moment m_1 of Re tr U                                 0.0   OK
+Haar moment m_2 of Re tr U                                 0.5   OK
+Haar moment m_3 of Re tr U                                 0.25   OK
+Haar moment m_4 of Re tr U                                 0.75   OK
+Haar moment m_5 of Re tr U                                 0.9375   OK
+Haar moment m_6 of Re tr U                                 2.03125   OK
+Haar moment m_7 of Re tr U                                 3.60938   OK
+Haar moment m_8 of Re tr U                                 7.60156   OK
+Z_*(0.9) <= 1.2599486                                      1.2599349   OK
+epsilon(0.9) <= 0.63172                                    0.631696   OK
+(72/5)c at r = 0.9 <= 0.9751 < 1                           0.97491   OK
+Z_*(0.88) <= 1.2465557                                     1.2465454   OK
+epsilon(0.88) <= 0.626268                                  0.626248   OK
+15c at r = 0.88 <= 0.9832 < 1                              0.98309   OK
+epsilon(0) = 4/9                                           0.4444444444444444   OK
+
+== Theorem D and its cylinder form ==
+m - 1 >= 148/(1-2c)^4 at c = 0.0 needs m >=                149.0   OK
+varpi = (1-2c)^4/32 at c = 0.0                             0.03125   OK
+m - 1 >= 148/(1-2c)^4 at c = 0.1 needs m >=                363.0   OK
+varpi = (1-2c)^4/32 at c = 0.1                             0.012800000000000002   OK
+m - 1 >= 148/(1-2c)^4 at c = 0.25 needs m >=               2369.0   OK
+varpi = (1-2c)^4/32 at c = 0.25                            0.001953125   OK
+bridge: Delta = (1-2c)^4 K_0/(2500 e^2) equals 16 varpi/(625 e^2 l), l = 2/K_0, c = 0.1, K_0 = 3 6.651999841645988e-5   OK
+
+== Thermal discrepancy lemma: the sharp two-state example ==
+|D|^2 = (Z-1) C_M at r=0.3, M=4                            (0.0005810390454912649, 0.0005810390454912668)   OK
+|D|^2 = (Z-1) C_M at r=0.7, M=6                            (0.005429523190874285, 0.005429523190874273)   OK
+r <= e^{-m} in the no-bound example                        0.3624601243342974   OK
+ratio d r^M/(1 + d r^M) = c                                0.5000000000000001   OK
+
+== Theorem E: the cylinder gap and m_n N >= Delta ==
+m_n/a >= 16 varpi/(625 e^2 l)                              (0.013754074711157973, 0.007424106966122753)   OK
+
+== Closed polymers, the strong-coupling range and the one-scale reduction ==
+SU(2): 1 <= c_0(x) <= cosh x at x = 0.1, 1, 3              (1.1303182079849698, 1.5430806348152437)   OK
+tanh x <= x <= e^x - 1 on a grid                           true   OK
+t_k by series = Lagrange = brute force, Delta = 3, k <= 7  BigInt[1, 3, 9, 28, 90, 297, 1001]   OK
+t_k by series = Lagrange = brute force, Delta = 4, k <= 7  BigInt[1, 4, 18, 88, 455, 2448, 13566]   OK
+Delta = 20: series = Lagrange for k <= 12                  26691504   OK
+t_3 = C(Delta,2) + Delta(Delta-1), Delta = 20              570   OK
+t_k <= (20e)^(k-1) for k <= 60                             2.7211578370252455e-5   OK
+v = 20 e / (24 e) = 5/6                                    0.8333333333333334   OK
+KP sum (6/(5e)) v^6/(1-v) <= 0.89                          0.8870549796765107   OK
+24 sum_{k>=6} (20e)^(k-1) (24e)^(-k) equals it             0.8870549796765107   OK
+(6M + 3/2) L^3 <= 6 L^3 (M+1) for M >= 4                   true   OK
+SU(2) range beta <= 1.405e-3                               0.0014057826651048585   OK
+24 e^2 (e^{4 beta} - 1) <= 1 at beta = 1.405e-3            0.9994416872023725   OK
+beta_W <= 5.62e-3 is inside the range 4 beta_max (rounded down) 0.005623130660419434   OK
+against beta <= 5.75e-5 of the first range: ratio          24.44839417573667   OK
+e^x - 1 <= 2x on [0,1]                                     true   OK
+sum lambda^(a+b) <= sum lambda^a sum lambda^b (random, a = 2, b = 3) (582.8864098025015, 3878.1697692905245)   OK
+D(M'+M'') <= D(M') D(M'') (random spectrum, 2 + 3)         (4.41220942018762, 68.21694175048694)   OK
+log(1+D) <= M kappa + sum D_s(M') D_s(M'') on random spectra (0.14366425181823828, 0.5538321963337048)   OK
+y_max = 1/70 + 8/100 < 0.0943                              0.09428571428571429   OK
+e^{0.0943} - 1 = 0.0989 <= 1/10                            0.09888936328108144   OK
+(e^{0.0943} - 1)/0.0943 <= 1.049                           1.0486676912097714   OK
+exp(eta + 8d^2) - 1 <= min(1/10, 0.84 d + 1.05 eta) on the grid d <= 1/10, eta <= 1/70 true   OK
+iterated recursion stays below the geometric bound (J = 12, eta = 1/70) (0.016858216363135003, 0.09452131441885796)   OK
+1.05/0.16 <= 6.6 and 1.05/(70 0.16) <= 1/10 and 6.6 + 1/10 <= 6.7 (6.5625, 0.09375)   OK
+1 <= Z(l')Z(l'')/Z(l'+l'') <= Z(l')Z(l'')                  7.781758729817566   OK
+exp(c - Delta s_0/2) <= 1/10 at c = 0.0, Delta = 1.0       0.09999999999999998   OK
+exp(c - Delta s_0/2) <= 1/10 at c = 1.0, Delta = 0.5       0.09999999999999998   OK
+exp(c - Delta s_0/2) <= 1/10 at c = 3.0, Delta = 2.0       0.09999999999999998   OK
+Ising weights e^{J ss' + h(s+s')/2} = 8, 1/4, 2            (7.999999999999998, 0.25, 2.0)   OK
+corr(s_1, s_3)^2 = 1143318969/2580030436 exactly           1143318969//2580030436   OK
+corr(s_1, s_3) = 0.6657 > 1/2                              0.6656888608890814   OK
+no closed connected set of <= 5 plaquettes through a fixed plaquette (291786 sets) 0   OK
+neighbour degree of a plaquette is 20                      20   OK
+the boundary of a cube (six plaquettes) is closed          true   OK
+
+== Doubling defects, symmetrised rings and the finite-size bound ==
+doubling sandwich and telescoping series on 200 random spectra true   OK
+ratio psi/log Zc near 1 for r near 1 (q=50)                1.0000007480443327   OK
+ratio psi/log Zc near 2 for r near 0 (q=ceil(r^(-3M/2)))   1.9999999276176277   OK
+exp(log(11/10)) - 1 = 1/10                                 0.10000000000000009   OK
+(1/2) log(11/10) = 0.04766 (rounded)                       0.04765508990216247   OK
+log(11/10) >= 1/11                                         0.09531017980432493   OK
+four-direction expansion and bounds on the symmetrised rings (100 tori) true   OK
+ring partition function cosh^m K (1 + r^m)                 4.90185546875   OK
+D = (1+r^M)^|l| - 1 for |l| = 8                            0.820440501389434   OK
+rings: log(1+D_0) at s = 2 grows like N^3 (N = 4, 16, 64)  37478.28453635489   OK
+rings: D_0 >= floor(Ns)^3 exp(-Delta(2s+1/N)) at N = 4     1409.4864853427696   OK
+log(1+x) - log(1+x^2)/2 >= log(1+x)/2 on [0,1]             true   OK
+x^4 exp(-x/2) decreasing for x >= 8 (m_* = 1)              true   OK
+(x/y)^4 <= exp(m(x-y)/2) for x >= y >= 8/m (grid, m = 0.7) true   OK
+6 exp(m/N) <= 6e for N >= m                                16.30969097075427   OK
+2 sigma_* + e^{-m L} = 7 e^{-m L} on the symmetric torus   2.8459876181841937   OK
+6e s^4 exp(-m s/2) <= 1/70 at K = 1, m_* = 1, s = 50       0.0014156754541046616   OK
+volume of halves sums exactly: prod (a+b) = sum over eight halves true   OK
+X uniform on {-1,0,1}, Y = X^2 - 2/3: mean zero and covariance zero 0.0   OK
+Y is a function of X, so the maximal correlation is 1      1   OK
+one pair: rho^2 = 0.16 <= HS^2 - 1 = 0.16 (equality for two-point laws) 0.15999999999999992   OK
+n = 10 independent pairs: HS bound (1+h)^10 - 1 exceeds rho^2 = 0.16 by a factor > 20 21.321469241561953   OK
+
+== The gap against the Casimir defect ==
+log(10 * 1.1^8) = 3.0651...                                3.0650665314286454   OK
+1.1^8 = 2.1436... <= 2.144                                 2.1435888100000016   OK
+1.1^8 exp(-x) <= 1/10 for x >= log(10 * 1.1^8)             0.09999999999999999   OK
+1/140 + 3.0651 < 3.0723                                    3.0722428571428573   OK
+log(10 e^{0.8}) = 3.1025...                                3.1025850929940457   OK
+e^{0.8} <= 2.2256 and 30 e^{0.8} (1 + 1/99) < 67.5         67.44063419674144   OK
+2 (e^{0.8} - 1) < 2.452 and 2.452 e^{-3.1997} <= 1/10      0.09997891333035183   OK
+b_j = 30 (m+2)(m'+1) / (4 (m+1) m') <= 7.8 for m' >= 50, m in {2m', 2m'+1} 7.725742574257426   OK
+(m+2)(m-4) <= (m+1)(m-2) for m >= 0                        true   OK
+dyadic scale 3.0651 * 625 e^2 / 16 is about 885            884.6951503450132   OK
+Delta_E ell = 16 varpi/(625 e^2) is about 0.0035 varpi     0.0034645832508572853   OK
+convex alternative: every x <= x_* with x <= f(x) satisfies x <= 2A(B-1) 0.02451081856984936   OK
+convex alternative: the large branch starts above x_*      0.13562811176058973   OK
+rings: finite-time identity M kappa_p = Phi + log Zcal_t(M) - sum_s log Zcal_s(M) 323.8147390339034   OK
+rings: Phi >= 0 (cutting a side) and kappa_p >= 0          323.8147390339054   OK
+rings: log Z(n) = -n_1 E_0(u) + log Zcal_u(n_1) with u transverse 12448.515881298461   OK
+rings: single-cut defect <= log Zcal_u(a) + log Zcal_u(b)  177.72180756398993   OK
+rings: (m+1) kappa <= 30 (1 + 1/m') X at m = 12            4.872426080999931   OK
+rings: D(M) <= e^{-Delta(M-M_1)/N} (e^{M_1 kappa} (1+d_{j+1})^8 - 1) 0.0   OK
+rings: log Zcal_l(M) = V(l) psi(M) with psi(M) = log(1 + r^M) 13.659147973084016   OK
+exponent: -Delta m/(2N) + (m+1) kappa/2 = -theta Delta m/(2N) at equality in (K) -2.1   OK
+positivity alone: the coefficients 30 and 1/2 multiply to 15 > 1 15   OK
+
+== The pinned two-state chain and the field rings ==
+pinned chain: brute force = Q(Q+t)/((1+Q)(Q^2+t)) at (J,h,d) = (1.0,0.3,2) 0.5651400987095828   OK
+pinned chain: brute force = Q(Q+t)/((1+Q)(Q^2+t)) at (J,h,d) = (1.3862943611198906,0.6931471805599453,2) 0.6656888608890814   OK
+pinned chain: brute force = Q(Q+t)/((1+Q)(Q^2+t)) at (J,h,d) = (2.0,0.5,3) 0.8520311910109829   OK
+pinned chain: brute force = Q(Q+t)/((1+Q)(Q^2+t)) at (J,h,d) = (1.5,0.2,4) 0.6445539295720941   OK
+C(t,Q) decreasing in t, from 1/(1+Q) to Q/(1+Q) (Q = 0.3)  0.7692307692247862   OK
+C(t,Q) > 1/2 iff t < Q^2 (grid)                            true   OK
+field rings: vacuum value theta_N^d -> e^{-Delta/K_0} = 1/20 (N = 10, 160, 2560) 0.04999999997862381   OK
+field rings: t_N -> (sqrt(1+r^2) - r)^2 = 6.24e-4 < Q_0^2  0.0006242199685709801   OK
+field rings: rho -> C(t_inf, Q_0) = 0.7716 > 1/2 (N = 10, 160, 2560) 0.7716092866736168   OK
+(sqrt(1+r^2) - r)(sqrt(1+r^2) + r) = 1 and 148/0.9^4 = 225.6 < 226 225.57536960829142   OK
+field rings: C -> 1/(1+Q_0) as r -> infinity               0.9523809523809523   OK
+
+== The Casimir defect of the free field ==
+Z_4 = sum |w|^-4 = 16.5323 (theta integral)                16.532315936812957   OK
+c(0) = 15 Z_4/(2 pi^2) = 12.5630 > 6.8; Z_4 > 9 gives > 135/(2 pi^2) = 6.84 12.563053643002299   OK
+c(8), c(12), c(16), c(18), c(20) as in the footnote        0.029695828997561836   OK
+c decreasing on the sample                                 10.897586229434099   OK
+L(x) <= c(x) <= U(x) at x = 8, 12, 16, 18, 20, 24          0.8878663055440603   OK
+root of L = 1/70 at 16.7521, so X_* >= 16.75               16.752088887366682   OK
+root of U = 1/70 at 17.9870, so X_* <= 17.99               17.986969648993423   OK
+root of c = 1/70 at X_* = 17.7106, inside the bracket      17.71058038290537   OK
+epsilon(17.71) = 0.132, epsilon(17.987) = 0.1246           0.12461863136029193   OK
+the lower bound function is decreasing for x > 2: 1 + x/2 - x^2/2 < 0 true   OK
+heat-kernel formula = mode-sum kappa on (6,7,6), mu_0 = 0.3 1.7598364831866036   OK
+massless cubes: m kappa_0 = 14.560, 12.907, 12.641 at m = 8, 16, 32, decreasing to c(0) 12.641209639259614   OK
+free gluons: 2 dim G c(0) = 75.38 (SU(2)), 201.0 (SU(3))   75.37832185801379   OK
+top eigenvalue of K_a = sqrt(2 pi) e^{-omega/2} at a = 0.7 1.6685224626908501   OK
+c = e^omega solves c^2 - (2+a) c + 1 = 0 and b = sinh omega 0.906917857360853   OK
+Lagrange identity in three dimensions                      1.5099000000000002   OK
+zero-mode coefficient 1 - 8*2 = -15 and (4 pi)^{-1/2} 8 (4 pi)^{-3/2} = 1/(2 pi^2) 0.05066059182116889   OK
+
+done
+
+== The pressure bound at one scale ==
+F(1)=1.4090                                                1.4090054092720583   OK
+F(5)=0.3219                                                0.3218683000865752   OK
+F(10)=0.0539                                               0.05392382381833743   OK
+x_* = 5.2063 (root of x/2 = F + log 10)                    5.206255504201875   OK
+F(x_*) = 0.3005                                            0.3005426591068922   OK
+x_1 = 2.4851 (root of F_1 = log 1.1)                       2.485054277571961   OK
+F decreasing                                               (0.8907713991640981, 0.6225556569134032, 0.4471460590711359)   OK
+X_16(x=1) = 1.4666                                         1.4665678769638866   OK
+X_64(x=1) = 1.4122                                         1.4122294646607845   OK
+X_64(x=5) = 0.3242                                         0.3241628488809021   OK
+X_N <= F_0.2297 (N=16,x=1)                                 9.604445681547848   OK
+arsinh(2)/pi >= 0.4595                                     0.45952344379504967   OK
+Jordan: sin^2(k/2) >= k^2/pi^2 on [0,pi]                   true   OK
+K_a: lambda_1/lambda_0 = e^{-omega}                        0.4430821426391471   OK
+K_a: lambda_2/lambda_0 = e^{-2 omega}                      0.19632178512569742   OK
+K_a: lambda_0 = sqrt(2pi) e^{-omega/2}                     1.6685224626908508   OK
+X = 1.0763577391 at (8, 0.3)                               1.0763577390570476   OK
+exchange identity X = Y + h delta_1                        2.80153678033912e-12   OK
+h zeta <= h delta_1 <= 2 h zeta                            (0.5056355339957008, 0.9726939546540052, 1.0112710679914017)   OK
+zeta(h;c,c) <= X/h                                         (0.1264088834989252, 0.2690894347642619)   OK
+Y >= 0                                                     0.10366378440024074   OK
+rings (iii): s^3 N/2 <= X <= s^3 N                         79.60264682534466   OK
+rings (iii): r^h = N^-2                                    0.01   OK
+rings (iii): D <= e^{s^3/N} - 1                            (1.2254519145696343, 1.2255409284924679)   OK
+rings (iii): sup N kappa <= 24 4^r0 / N                    (9.599040032, 9.6)   OK
+kappa of symmetrised rings: 12 h^2 (2 phi(h) - phi(2h))    true   OK
+4^k N^(4-4 2^k) <= 2^(-4(2^k-1)) and 4^k 2^(-4(2^k-1)) <= 1 for N>=2 true   OK
+log(1+y) in [y/2, y] on [0,1]                              true   OK
+4096/27 (log 10)^3 in (1852, 1853)                         1852.0096697853514   OK
+3/4 - t + t^4/4 = (t-1)^2 (t^2+2t+3)/4                     true   OK
+max of Delta s - 2 E s^4 is 3/4 Delta (Delta/8E)^(1/3)     true   OK
+log(1+1/(e^y-1)) = -log(1-e^{-y})                          true   OK
+Delta_N = 2N arsinh(mu/2N) increases to mu                 true   OK
+
+== Extensivity and the ascent in time (Section ssec:ascent) ==
+log(16(e-1)) = 3.3139...                                   3.3139135768526993   OK
+2(e-1) = 3.4365...                                         3.43656365691809   OK
+64/96^3 < 7.234e-5 and e^(7.234e-5)-1 <= 7.24e-5           (7.233796296296296e-5, 7.234261660089459e-5)   OK
+512/96^3 < 5.79e-4 and e^(5.79e-4)-1 <= 5.8e-4             (0.0005787037037037037, 0.0005791676528554397)   OK
+30 (1+1/6) 5.8e-4 < 0.021                                  0.0203   OK
+log 15.6 + 0.8 + 5.8e-4*7.8 < 3.56                         3.551794914255491   OK
+4 log 1.47 < 1.55 and 0.021 e^(-1.55/4) <= 1/70            (1.5410496031625796, 0.014253784319279704)   OK
+(e^{Fv}-1)/v increasing: (e^y-1)/y <= e-1 on (0,1]         true   OK
+y_{i+1} = 16(e-1) e^{-delta T} y_i <= y_i when delta T >= 3.3139 1.0000135769448653   OK
+cut cost 12 T/P = 1/2 at P = 24 T                          0.5   OK
+ascent: 2 gamma (2(e-1))^i e^{-delta(T_i - T_0)} matches the recursion true   OK
+free scalar: density of (40,40,40) <= 2 g (sample)         (0.0019559748181633015, 0.004715495803933502)   OK
+
+== The field rings with an arbitrary field (Proposition prop:fieldringsall) ==
+t^(1/2) = kappa/(N R + N sinh h)                           0.04964885637779252   OK
+kappa/S <= t^(1/2) <= 2 kappa/Delta <= 1                   (0.040016849044172825, 0.04964885637779252, 0.09950371902099892)   OK
+rho(-,-) = C(t, Q) by enumeration                          (0.7228001126328321, 0.7228001126328275)   OK
+rho(+,+) = C(1/t, Q)                                       (0.2690864389082016, 0.26908643890821854)   OK
+rho(+,-) = sqrt(rho(+,+) rho(-,-))                         0.4410166758194391   OK
+max over boundary conditions is rho(-,-)                   0.7228001126328321   OK
+pi(E) < 1/2                                                0.06710115572881092   OK
+1 - q <= e^{Delta l}(cosh((l+1) kappa) - 1)                (0.001298617165723881, 0.006699842882825621)   OK
+M_c/n <= 4 for n >= 2                                      4.0   OK
+r -> infinity: C(0,Q0) = 1/(1+Q0) > 1/2                    0.9523809523809523   OK
+C(tau,Q0) < 1/2 iff tau > Q0^2                             true   OK
+C(tau,Q0) -> 0 as Q0 -> 0                                  0.000100989800020099   OK
+
+== Strong coupling, uniform in the boundary condition ==
+theta_{1/10} = 0.2727...                                   0.27272727272727276   OK
+c = theta^2 = 0.07438, (1-2c)^4 = 0.5250                   (0.07438016528925621, 0.5250581663560745)   OK
+m = 283 >= 1 + 148/(1-2c)^4 and BP(3, (1-2c)^4/32) = 0.0164 (282.87353227381675, 0.016408067698627328)   OK
+theta_{0.15} = 0.6923 and c = 0.0744 needs d >= 8          (0.6923076923076921, 0.07622441499294698, 0.05277074884127097)   OK
+C_m = (m-1)^8 + gamma (m-1)^4 at m = 4, gamma = 1          6642   OK
+
+== The ascent without a gap hypothesis (Theorem F) ==
+20 (e^{1/20} - 1) <= 1.0255                                1.0254219275204808   OK
+16 * 1.0255^2 <= 16.83 and 16.83/20 = 0.8415               16.826404   OK
+16 (e^y - 1)^2 <= 16.83 y^2 on [0, 1/20]                   16.823842071037138   OK
+16.83 y_i <= u_0^(2^i) along the recursion from y_0 = 1/20 0.0   OK
+log(1/0.8415) > 0.172                                      0.1725692653512764   OK
+1.0255/20 <= 0.061 and 0.061 = 1.0255/16.83 rounded up     0.06093285799168153   OK
+e^{y/13824} - 1 <= y/13823 for y <= 1/20                   3.6169046890854872e-6   OK
+(16.83 * 13823)^-2 <= 1.9e-11                              1.8476816768590134e-11   OK
+fixed point y_c = 0.0589...                                0.05890758193370862   OK
+e^{4 y_0/96^3} - 1 <= 2.3e-7 at y_0 = 1/20                 2.260561598099491e-7   OK
+log(1/2.3e-7) >= 15.28 and (1 - 1/e) 15.28 >= 9.6          (15.285186528023216, 9.658802138900361)   OK
+y_0/(2 * 96^3) <= 2.9e-8 at y_0 = 1/20                     2.825701678240741e-8   OK
+64 sqrt(3/32) sqrt(1e-3) <= 0.62 < 0.632                   0.6196773353931866   OK
+3/(32*16) < 0.006 < 0.15 = 9.6/64                          0.005859375   OK
+
+== The gap closes at a fixed lattice size (SU(2)) ==
+2 sqrt 2/(3 pi^3) >= 1/33                                  0.03040703826851573   OK
+6 + 4 log 33 + 6 log 8 <= 6 * 5.42                         32.46267949594493   OK
+Haar mass of {theta <= t} >= 8 t^3/(3 pi^3) on [0, pi/2]   0.5   OK
+theta_r = 2 asin(r/sqrt 8) >= r/sqrt 2 for r <= 2          1.5707963267948963   OK
+eps(c) = 12 (log c + 5.42)/c <= 1e-3 at c = 2.2e5          0.0009666208813818816   OK
+
+== Appendix: the one-link constant ==
+e^x - 1 - x <= x^2 on [0, 1]                               0.7182818284590451   OK
+e^s - 1 <= 2 s on [0, 1]                                   1.718281828459045   OK
+SU(2) one-link mean of (1/2) Tr Q stays below 1            0.9766555133965144   OK
