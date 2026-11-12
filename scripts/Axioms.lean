@@ -168,3 +168,17 @@ import YangMills
 #print axioms YangMills.GapFree.action_constant
 #print axioms YangMills.GapFree.base_scale_arithmetic
 #print axioms YangMills.GapFree.base_scale_small
+#print axioms YangMills.BoundEquiv.two_mul_cube
+#print axioms YangMills.BoundEquiv.gamma_normalisation
+#print axioms YangMills.BoundEquiv.exp_le_of_margin
+#print axioms YangMills.BoundEquiv.expm1_div_mono
+#print axioms YangMills.BoundEquiv.sb_constant
+#print axioms YangMills.BoundEquiv.cube_ratio
+#print axioms YangMills.BoundEquiv.window_volume
+#print axioms YangMills.BoundEquiv.window_min_volume
+#print axioms YangMills.BoundEquiv.exp_sub_one_le_div
+#print axioms YangMills.BoundEquiv.window_defect
+#print axioms YangMills.BoundEquiv.dstar_bounds
+#print axioms YangMills.BoundEquiv.twist_ratio
+#print axioms YangMills.BoundEquiv.twist_constants
+#print axioms YangMills.BoundEquiv.defect_criterion

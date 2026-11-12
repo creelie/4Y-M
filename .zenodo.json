@@ -1,7 +1,7 @@
 {
   "title": "The Yang-Mills Mass Gap from One Bound at One Scale",
   "upload_type": "publication",
-  "description": "We prove the mass gap of four-dimensional lattice Yang-Mills theory at strong coupling for every compact simple gauge group, with explicit bounds. For the continuum theories built on tori we prove that a mass gap and a unique vacuum follow from one bound on partition functions at one physical scale. That bound is open at weak coupling, and the unrenormalised loop variables are shown to have a trivial limit. The archive contains the paper, a Lean 4 project (265 theorems) and a Julia script (234 checks). The continuum mass gap is not proved.",
+  "description": "We prove the mass gap of four-dimensional lattice Yang-Mills theory at strong coupling for every compact simple gauge group, with explicit bounds. For the continuum theories built on tori we prove that a mass gap and a unique vacuum follow from one bound on partition functions at one physical scale, and that this bound is equivalent to a lattice gap together with a Stefan-Boltzmann bound on the thermal free energy. That bound is open at weak coupling, and the unrenormalised loop variables have a trivial limit. The archive contains the paper, a Lean 4 project (279 theorems) and a Julia script (245 checks). The continuum mass gap is not proved.",
   "creators": [
     {
       "name": "Bhattacharjee, Deep",
@@ -39,8 +39,8 @@
     "lattice gauge theory"
   ],
   "access_right": "open",
-  "version": "5.0.0",
-  "publication_date": "2026-11-12",
+  "version": "5.1.0",
+  "publication_date": "2026-11-13",
   "publication_type": "preprint",
   "related_identifiers": [
     {
@@ -49,7 +49,7 @@
       "scheme": "url"
     },
     {
-      "identifier": "10.5281/zenodo.24117822",
+      "identifier": "10.5281/zenodo.24147967",
       "relation": "isNewVersionOf",
       "scheme": "doi"
     }

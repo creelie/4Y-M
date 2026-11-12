@@ -741,6 +741,35 @@ ok("Haar mass of {theta <= t} >= 8 t^3/(3 pi^3) on [0, pi/2]", all((2/pi)*(t/2 -
 ok("theta_r = 2 asin(r/sqrt 8) >= r/sqrt 2 for r <= 2", all(2*asin(r/sqrt(8)) >= r/sqrt(2) for r in 0.01:0.01:2), 2*asin(2/sqrt(8)))
 ok("eps(c) = 12 (log c + 5.42)/c <= 1e-3 at c = 2.2e5", 12*(log(2.2e5) + 5.42)/2.2e5 <= 1e-3, 12*(log(2.2e5) + 5.42)/2.2e5)
 
+println("\n== What the one bound is (Theorem thm:Bequiv, Propositions prop:defect, prop:twist) ==")
+ok("2 * 96^3 = 1769472", 2*96^3 == 1769472, 2*96^3)
+ok("5.768 <= log 320 <= 5.769", 5.768 <= log(320) <= 5.769, log(320))
+ok("2 gamma (96 T_0)^3 = 1/20 at T_0 = 2T, gamma = 1/(320 (96T)^3)", 2*(1//(320*96^3))*(96*2)^3 == 1//20, 2*(1//(320*96^3))*(96*2)^3)
+ok("8 y_0/96^3 <= 4.6e-7 at y_0 = 1/20", 8*0.05/96^3 <= 4.6e-7, 8*0.05/96^3)
+ok("d_* = e^{4 y_0/96^3} - 1 in [2.26e-7, 2.27e-7]", big"2.26e-7" <= exp(big(4)/20/big(96)^3) - 1 <= big"2.27e-7", Float64(exp(big(4)/20/big(96)^3) - 1))
+ok("e^{1/320} - 1 < 3.13e-3 < 3.2e-3", exp(1/320) - 1 < 3.13e-3, exp(1/320) - 1)
+ok("2 (e^{1/320} - 1) <= 6.3e-3 and 2 * 2.27e-7 <= 4.6e-7", 2*(exp(1/320) - 1) <= 6.3e-3 && 2*2.27e-7 <= 4.6e-7, 2*(exp(1/320) - 1))
+ok("(1 - D)/(1 + D) >= 1 - 2D on [0, 1]", all((1 - D)/(1 + D) >= 1 - 2D - 1e-15 for D in 0:0.001:1), (1 - 0.5)/(1.5))
+ok("(e^{a v} - 1)/v nondecreasing in v", all(all(diff([(exp(a*v) - 1)/v for v in 0.01:0.01:3]) .>= -1e-12) for a in 0:0.25:3), (exp(3) - 1)/3)
+let ok1 = true
+    # Theorem thm:Bequiv(a): e^{-mT}(e^W - 1) <= 1/320 whenever mT >= W + log 320
+    for W in 0:0.5:20, extra in 0:0.25:5
+        mT = W + log(320) + extra
+        ok1 &= exp(-mT)*(exp(W) - 1) <= 1/320
+    end
+    ok("e^{-mT}(e^W - 1) <= 1/320 when mT >= W + log 320", ok1, exp(-log(320))*(exp(0) - 1))
+end
+let worst = 0.0
+    # Proposition prop:twist: |1 + sum w_i r_i^T - 1| <= D for unimodular w_i (random spectra, N = 2, 3)
+    for trial in 1:2000, N in (2, 3)
+        r = rand(30) .^ 2; T = 2 + trial % 7
+        w = [cis(2pi*rand(0:N-1)/N) for _ in r]
+        D = sum(r .^ T); S = sum(w .* r .^ T)
+        worst = max(worst, abs(S) - D)
+    end
+    ok("|sum w_i r_i^T| <= D for centre phases", worst <= 1e-12, worst)
+end
+
 println("\n== Appendix: the one-link constant ==")
 ok("e^x - 1 - x <= x^2 on [0, 1]", all(exp(x) - 1 - x <= x^2 for x in 0:0.001:1), exp(1) - 2)
 ok("e^s - 1 <= 2 s on [0, 1]", all(exp(s) - 1 <= 2s for s in 0:0.001:1), exp(1) - 1)
