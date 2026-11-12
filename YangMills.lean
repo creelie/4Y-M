@@ -18,3 +18,4 @@ import YangMills.StrongCoupling.IslandLayer
 import YangMills.AveragedCondition
 import YangMills.OneScale
 import YangMills.GapFree
+import YangMills.BoundEquiv
