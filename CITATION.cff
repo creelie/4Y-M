@@ -24,7 +24,7 @@ authors:
     given-names: Sanjeevan
     orcid: "https://orcid.org/0000-0002-6148-1421"
     affiliation: "Department of Physics, Birla Institute of Technology, Mesra, Ranchi, Jharkhand 835215, India"
-version: "5.1.0"
+version: "5.2.0"
 date-released: "2026-11-13"
 repository-code: "https://github.com/creelie/4Y-M"
 license: MIT

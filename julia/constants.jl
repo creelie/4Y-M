@@ -770,6 +770,82 @@ let worst = 0.0
     ok("|sum w_i r_i^T| <= D for centre phases", worst <= 1e-12, worst)
 end
 
+println("\n== The count of states and the centre sectors (Section ssec:count) ==")
+let dstar = exp(big(4)/20/big(96)^3) - 1
+    v = 2*log(2/dstar)
+    ok("2 log(2/d_*) in [31.99, 32.00]", big"31.99" <= v <= big"32.00", Float64(v))
+end
+let okp = true, worst = Inf
+    # Theorem thm:plane, q = 2: Z(n) from the definition against lambda_0^T * product formula
+    q = BigFloat(2)
+    Z2(a, b) = q^a + q^b - 1
+    Zfull(n) = prod(Z2(n[m], n[k])^(prod(n) / (n[m]*n[k])) for m in 1:4 for k in m+1:4)
+    for l1 in 3:7, l2 in 3:6, l3 in 3:5, T in 2:6
+        l = (l1, l2, l3); V = l1*l2*l3
+        c = Z2(l1, l2)^l3 * Z2(l1, l3)^l2 * Z2(l2, l3)^l1
+        lam0 = c * q^(V//l1 + V//l2 + V//l3)
+        calZ = prod((1 + (q^li - 1)*q^(-T))^(V//li) for li in l)
+        okp &= abs(log(Zfull((l1, l2, l3, T))) - T*log(lam0) - log(calZ)) < 1e-30
+        okp &= abs(log(Zfull((l1, l2, l3, T))) - log(Zfull((T, l3, l1, l2)))) < 1e-30
+        if minimum(l) >= 2T
+            worst = min(worst, Float64(log(calZ) / (V*log(q))))
+        end
+    end
+    ok("plane model: definition = lambda_0^T x product, symmetric", okp, okp)
+    ok("plane model: log calZ >= (3/2) log q V when sides >= 2T", worst >= 1.5, worst)
+end
+let a = log(320)
+    f(x) = x^3/(x - a)
+    m = minimum(f(x) for x in a+1e-3:1e-4:3a)
+    ok("min of x^3/(x - log 320) = (27/4)(log 320)^2", abs(m - 27/4*a^2) < 1e-4, m)
+    ok("(27 96^3 (log 320)^2)^(1/3) >= 926.3", cbrt(27*96^3*a^2) >= 926.3, cbrt(27*96^3*a^2))
+    ok("926 (pi^2/15)^(1/3) <= 806", 926*cbrt(pi^2/15) <= 806, 926*cbrt(pi^2/15))
+end
+let okc = true
+    # Proposition prop:count(a): D(T) <= 2P e^{-mT/2} for spectra with N(E) <= P e^{lambda E}
+    for trial in 1:500
+        T = rand(3:40); m = 0.5 + 2rand(); lam = T/2*rand(); P = 1 + 5rand()
+        E = Float64[]; Ecur = m
+        while Ecur < m + 60/T && length(E) < 20000
+            if length(E) + 1 <= P*exp(lam*Ecur); push!(E, Ecur); else Ecur += 0.01; end
+        end
+        okc &= sum(exp.(-T .* E)) <= 2P*exp(-m*T/2) + 1e-12
+    end
+    ok("D(T_0) <= 2P e^{-m T_0/2} under the count (random spectra)", okc, okc)
+end
+let okf = true
+    # Lemma lem:flux: 1 - cos(2 pi e/N) in [2 sin^2(pi/N), 2] for e != 0, and the charged-defect identity
+    for N in 2:8, e in 1:N-1
+        x = 1 - cos(2pi*e/N); okf &= 2sin(pi/N)^2 - 1e-14 <= x <= 2 + 1e-14
+    end
+    for trial in 1:1000
+        D0 = 10rand(); W = rand()*0.99; Dn = W*(1 + D0)/(1 - W)
+        okf &= abs(Dn - W*(1 + D0 + Dn)) < 1e-9
+    end
+    ok("flux coefficients and D_ne = W(1 + D_0)/(1 - W)", okf, okf)
+end
+ok("1/642 * 641/640 * 642/641 = 1/640 and log 640 in [6.461, 6.462]", 1//642*641//640*642//641 == 1//640 && 6.461 <= log(640) <= 6.462, log(640))
+ok("kappa_2 = 16/642, kappa_3 = 12/642, 3 e^{1/320}/20 <= 0.1505", abs(16/642 - 0.02492) < 1e-5 && abs(12/642 - 0.01869) < 1e-5 && 3exp(1/320)/20 <= 0.1505, 3exp(1/320)/20)
+let a = asinh(2)/pi, rho0 = sqrt(3)*2/(pi*a), c = sqrt(3)/(pi*a)
+    z = 3*(pi^2/6)/2.399^2 + 3*1.2020569031595942/2.399 + pi^4/90
+    ok("centre-blind: a = arsinh 2/pi, rho_0 >= 2.399, c <= 1.19979", a >= 0.4595 && rho0 >= 2.399 && c <= 1.19979, (a, rho0, c))
+    ok("centre-blind: 3 zeta(2)/2.399^2 + 3 zeta(3)/2.399 + zeta(4) <= 3.443, total <= 6.01", z <= 3.443 && 3.443*c^3 <= 5.947 && -log(1 - exp(-1)) <= 0.0574*8 && 5.947 + 0.0574 <= 6.01, z)
+end
+let worst = 0.0
+    # Proposition prop:centreblind(b): the lattice mode sum against 6.01 V/T'^3
+    for T in (3, 4, 6), Tp in (T, T + 1, 2T), l in ((2Tp, 2Tp, 2Tp), (2Tp, 3Tp, 5Tp), (2Tp, 2Tp, 7Tp))
+        mu0 = 2sinh(1/(2T)); V = prod(l); S = 0.0
+        for n1 in 0:l[1]-1, n2 in 0:l[2]-1, n3 in 0:l[3]-1
+            kh2 = 4sin(pi*n1/l[1])^2 + 4sin(pi*n2/l[2])^2 + 4sin(pi*n3/l[3])^2
+            w = 2asinh(sqrt(mu0^2 + kh2)/2)
+            S += -log(1 - exp(-Tp*w))
+        end
+        worst = max(worst, S/(V/Tp^3))
+    end
+    ok("centre-blind: lattice mode sum <= 6.01 V/T'^3", worst <= 6.01, worst)
+    ok("centre-blind: e^{-15.29} > 2.27e-7 >= 4 y_0/96^3", exp(-15.29) > 2.27e-7 && 4/20/96^3 <= 2.27e-7, exp(-15.29))
+end
+
 println("\n== Appendix: the one-link constant ==")
 ok("e^x - 1 - x <= x^2 on [0, 1]", all(exp(x) - 1 - x <= x^2 for x in 0:0.001:1), exp(1) - 2)
 ok("e^s - 1 <= 2 s on [0, 1]", all(exp(s) - 1 <= 2s for s in 0:0.001:1), exp(1) - 1)

@@ -19,3 +19,4 @@ import YangMills.AveragedCondition
 import YangMills.OneScale
 import YangMills.GapFree
 import YangMills.BoundEquiv
+import YangMills.CountSectors
