@@ -39,7 +39,7 @@
     "lattice gauge theory"
   ],
   "access_right": "open",
-  "version": "5.2.1",
+  "version": "5.3.0",
   "publication_date": "2026-11-13",
   "related_identifiers": [
     {
@@ -48,7 +48,7 @@
       "scheme": "url"
     },
     {
-      "identifier": "10.5281/zenodo.24196600",
+      "identifier": "10.5281/zenodo.24200747",
       "relation": "isNewVersionOf",
       "scheme": "doi"
     }
