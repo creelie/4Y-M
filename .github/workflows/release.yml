@@ -17,4 +17,4 @@ jobs:
           GH_TOKEN: ${{ github.token }}
           TAG: ${{ inputs.tag }}
         run: |
-          gh release create "$TAG" papers/4Y-MPaper.pdf --target "$GITHUB_SHA" --title "$TAG" --notes "The Yang-Mills Mass Gap from One Bound at One Scale. Paper, Lean 4 project and Julia script."
+          gh release create "$TAG" --target "$GITHUB_SHA" --title "$TAG" --notes "The Yang-Mills Mass Gap from One Bound at One Scale. Lean 4 project and Julia script."

@@ -2,7 +2,7 @@
 
 <p align="center">
   <a href="https://doi.org/10.5281/zenodo.23444338"><img src="https://img.shields.io/badge/DOI-10.5281%2Fzenodo.23444338-22d3ee?style=for-the-badge" alt="DOI"></a>
-  <a href="papers/4Y-MPaper.pdf"><img src="https://img.shields.io/badge/paper-PDF-f472b6?style=for-the-badge" alt="paper"></a>
+  <a href="https://github.com/creelie/4Y-M/blob/paper/papers/4Y-MPaper.pdf"><img src="https://img.shields.io/badge/paper-PDF-f472b6?style=for-the-badge" alt="paper"></a>
   <img src="https://img.shields.io/badge/Lean_4-300_theorems-7c5cff?style=for-the-badge" alt="Lean 4">
   <img src="https://img.shields.io/badge/Julia-259_checks-34d399?style=for-the-badge" alt="Julia">
   <img src="https://img.shields.io/badge/license-MIT-f59e0b?style=for-the-badge" alt="MIT">
@@ -20,7 +20,6 @@
 
 | Folder | Contents | Run |
 | :--- | :--- | :--- |
-| [`papers/`](papers) | the paper | |
 | [`YangMills/`](YangMills) | Lean 4 project over Mathlib | `lake exe cache get && lake build` |
 | [`scripts/`](scripts) | axiom audit | `lake env lean scripts/Axioms.lean` |
 | [`julia/`](julia) | constants of the paper | `julia julia/constants.jl` |
