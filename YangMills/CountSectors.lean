@@ -251,4 +251,73 @@ theorem maxwell_photon (c3 : ℝ) (_h0 : 0 ≤ c3) (h : c3 ≤ 1.47761) :
 theorem maxwell_count_one (L1 L2 : ℝ) (h1 : L1 ≤ 4.4553) (h2 : L2 ≤ 2.677) :
     10.69 + 3 / 8 * (L1 + L2) ≤ 13.37 := by linarith
 
+/-! ### The twist cost for SU(N) (Proposition `prop:twistcost`) -/
+
+/-- `(1 - x) ≤ 2 W^{1/4}` in the form used: `(1-x)⁴/16 ≤ W` and `W ≤ D` give `(1-x)⁴ ≤ 16 D`. -/
+theorem twist_fourth_power (x W D : ℝ) (h1 : (1 - x) ^ 4 / 16 ≤ W) (h2 : W ≤ D) :
+    (1 - x) ^ 4 ≤ 16 * D := by linarith
+
+/-- `(0.04967/2)⁴ ≥ 3.804·10⁻⁷`, so `(1-x)⁴ ≤ 16·3.804·10⁻⁷` forces `1 - x ≤ 0.04967`. -/
+theorem twist_root_general (u : ℝ) (_hu : 0 ≤ u) (h : u ^ 4 ≤ 16 * (3804 / 10 ^ 10)) :
+    u ≤ 0.04967 := by
+  by_contra hc
+  push Not at hc
+  have : (0.04967 : ℝ) ^ 4 < u ^ 4 := by
+    exact pow_lt_pow_left₀ hc (by norm_num) (by norm_num)
+  have h2 : (16 : ℝ) * (3804 / 10 ^ 10) ≤ 0.04967 ^ 4 := by norm_num
+  linarith
+
+/-- The even case: `(1-x)⁴ ≤ 16·2.261·10⁻⁷` forces `1 - x ≤ 0.04362`. -/
+theorem twist_root_even (u : ℝ) (_hu : 0 ≤ u) (h : u ^ 4 ≤ 16 * (2261 / 10 ^ 10)) :
+    u ≤ 0.04362 := by
+  by_contra hc
+  push Not at hc
+  have : (0.04362 : ℝ) ^ 4 < u ^ 4 := by
+    exact pow_lt_pow_left₀ hc (by norm_num) (by norm_num)
+  have h2 : (16 : ℝ) * (2261 / 10 ^ 10) ≤ 0.04362 ^ 4 := by norm_num
+  linarith
+
+/-- The constants of the base scale: `(1 - 0.04967)/4 ≥ 0.2375` and `4(1 - 0.04362) ≥ 3.825`. -/
+theorem twist_base_constants :
+    (0.2375 : ℝ) ≤ (1 - 0.04967) / 4 ∧ (3.825 : ℝ) ≤ 4 * (1 - 0.04362) := by
+  constructor <;> norm_num
+
+/-! ### Finite gauge groups: the exponential base scale (Proposition `prop:finiteG`(b)) -/
+
+/-- The link ordering leaves `|Λ|+3` free links: `(|Λ'|+2) + (n-1)|Λ'| + 1 = n|Λ'| + 3`. -/
+theorem finiteG_free_links (V' n : ℕ) (hn : 1 ≤ n) :
+    (V' + 2) + (n - 1) * V' + 1 = n * V' + 3 := by
+  obtain ⟨k, rfl⟩ : ∃ k, n = k + 1 := ⟨n - 1, by omega⟩
+  simp only [Nat.add_sub_cancel]
+  ring
+
+/-- `Tr ρ² ≤ a(1 + |G|³ a (e^x - 1))` with `a ≤ 1/2`: the right side increases in `a`. -/
+theorem finiteG_trace_mono (a G3 E : ℝ) (ha : 0 ≤ a) (ha2 : a ≤ 1 / 2) (hG : 0 ≤ G3) (hE : 0 ≤ E) :
+    a * (1 + G3 * a * E) ≤ 1 / 2 * (1 + G3 * (1 / 2) * E) := by
+  have h1 : G3 * a * E ≤ G3 * (1 / 2) * E := by
+    apply mul_le_mul_of_nonneg_right _ hE
+    exact mul_le_mul_of_nonneg_left ha2 hG
+  have h2 : 0 ≤ 1 + G3 * a * E := by positivity
+  nlinarith
+
+/-- With `t ≥ 1.97507/|G|³` and `|G|³ ≥ 8`: `t/(1+t) ≥ 1.584/|G|³`, written for `c = t |G|³`. -/
+theorem finiteG_t_ratio (c G3 : ℝ) (hc : 1.97507 ≤ c) (hG : 8 ≤ G3) :
+    1.584 * (G3 + c) ≤ c * G3 := by nlinarith
+
+/-- `96/1.584 < 60.61` and `60.61 < 2.791⁴`. -/
+theorem finiteG_exp_constants : (96 : ℝ) / 1.584 < 60.61 ∧ (60.61 : ℝ) < 2.791 ^ 4 := by
+  constructor <;> norm_num
+
+/-! ### Two dimensions, SU(2) (Proposition `prop:twod`) -/
+
+/-- `Σ_{n≥1} qⁿ = q/(1-q) ≤ d` iff `q ≤ d/(1+d)`. -/
+theorem twod_geometric (q d : ℝ) (hq1 : q < 1)
+    (h : q * (1 + d) ≤ d) : q / (1 - q) ≤ d := by
+  rw [div_le_iff₀ (by linarith)]
+  linarith
+
+/-- The base scale in string units: `1.8528² ≤ 3.4332` and `4.5784 ≤ 2.1398²`. -/
+theorem twod_string_units : (1.8528 : ℝ) ^ 2 ≤ 3.4332 ∧ (4.5784 : ℝ) ≤ 2.1398 ^ 2 := by
+  constructor <;> norm_num
+
 end YangMills.CountSectors

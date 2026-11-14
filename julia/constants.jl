@@ -846,7 +846,7 @@ let worst = 0.0
     ok("centre-blind: e^{-15.29} > 2.27e-7 >= 4 y_0/96^3", exp(-15.29) > 2.27e-7 && 4/20/96^3 <= 2.27e-7, exp(-15.29))
 end
 
-println("\n== Finite gauge groups and the Maxwell model ==")
+println("\n== Finite gauge groups, the Maxwell model, the twist cost and two dimensions ==")
 let S3 = 6*48^3*3^4/400/0.99*1e-36, worst = maximum(T^4*10.0^(-4T^2)/(81*1e-36) for T in 3:20)
     ok("finite G: S(T0=3) <= 1.36e-31 and T^4 10^{-4T^2} max at T0 = 3", S3 <= 1.36e-31 && worst <= 1.0 + 1e-12, S3)
     ok("finite G: e^S - 1 <= 1.4e-31 < 1 - 6.3e-3; -log(1.4e-31) >= 70", expm1(1.36e-31) <= 1.4e-31 && -log(1.4e-31) >= 70, -log(1.4e-31))
@@ -897,6 +897,26 @@ let maxratio = 0.0
         end
     end
     ok("Maxwell: Z_M(n) = Tr T_s^T in every direction (log difference)", maxratio < 1e-8, maxratio)
+end
+
+let y1 = 16*(exp(1/20) - 1)^2, D1 = expm1(y1/48^3), D2 = expm1(4/20/96^3)
+    epsN(N, b) = 2/b*(1 + 8N^2*log(1 + 2sqrt(48N*b)))
+    ok("SU(N) twist cost: y_1 <= 0.04206, D <= 3.804e-7, 1 - x <= 0.04967, 0.2375", y1 <= 0.04206 && D1 <= 3.804e-7 && 2*3.804e-7^0.25 <= 0.04967 && (1 - 0.04967)/4 >= 0.2375, (y1, D1))
+    ok("SU(N) twist cost, even T0: D <= 2.261e-7, 1 - x <= 0.04362, 3.825", D2 <= 2.261e-7 && 2*2.261e-7^0.25 <= 0.04362 && 4*(1 - 0.04362) >= 3.825, D2)
+    ok("SU(N) twist cost: eps_2(1e4) = 0.0487, eps_3(3e4) = 0.0401", abs(epsN(2, 1e4) - 0.0487) < 1e-4 && abs(epsN(3, 3e4) - 0.0401) < 1e-4, (epsN(2, 1e4), epsN(3, 3e4)))
+end
+
+let t = 4exp(-1/160) - 2
+    ok("finite G: t = 1.97508/|G|^3 <= 0.2469, x >= 1.584/|G|^3, 96/1.584 < 60.61, 60.61^(1/4) < 2.791", t/8 <= 0.2469 && 8t/(8 + t) >= 1.584 && 96/1.584 < 60.61 && 60.61^0.25 < 2.791, (t, 8t/(8 + t)))
+end
+let d2 = expm1(1/960)
+    ok("2D SU(2): log(1 + 1/d2)/1.5 <= 4.5784, log(1/d2)/2 >= 3.4332, sqrt bounds 1.8528, 2.1398", log(1 + 1/d2)/1.5 <= 4.5784 && log(1/d2)/2 >= 3.4332 && sqrt(3.4332) >= 1.8528 && sqrt(4.5784) <= 2.1398, (log(1 + 1/d2)/1.5, log(1/d2)/2))
+    # check only: the Riccati bounds arsinh((n+1/2)/x) < -log(I_{n+1}/I_n) < arsinh((n+1)/x), I_n from its power series in BigFloat
+    good = setprecision(256) do
+        In(n, x) = (xb = big(x); t = (xb/2)^n/factorial(big(n)); s = t; for j in 1:800; t *= (xb/2)^2/(j*(n + j)); s += t; end; s)
+        all(asinh((n + 0.5)/big(x)) < -log(In(n + 1, x)/In(n, x)) < asinh((n + 1)/big(x)) for n in 0:20, x in (0.5, 2.0, 8.0, 40.0, 200.0))
+    end
+    ok("2D SU(2): Riccati bounds on I_{n+1}/I_n, n <= 20, x in {0.5, 2, 8, 40, 200}", good, good)
 end
 
 println("\n== Appendix: the one-link constant ==")
