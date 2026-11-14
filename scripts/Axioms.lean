@@ -215,3 +215,13 @@ import YangMills
 #print axioms YangMills.CountSectors.maxwell_zeta
 #print axioms YangMills.CountSectors.maxwell_photon
 #print axioms YangMills.CountSectors.maxwell_count_one
+#print axioms YangMills.CountSectors.twist_fourth_power
+#print axioms YangMills.CountSectors.twist_root_general
+#print axioms YangMills.CountSectors.twist_root_even
+#print axioms YangMills.CountSectors.twist_base_constants
+#print axioms YangMills.CountSectors.finiteG_free_links
+#print axioms YangMills.CountSectors.finiteG_trace_mono
+#print axioms YangMills.CountSectors.finiteG_t_ratio
+#print axioms YangMills.CountSectors.finiteG_exp_constants
+#print axioms YangMills.CountSectors.twod_geometric
+#print axioms YangMills.CountSectors.twod_string_units

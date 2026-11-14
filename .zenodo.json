@@ -1,7 +1,7 @@
 {
   "title": "The Yang-Mills Mass Gap from One Bound at One Scale",
   "upload_type": "software",
-  "description": "We prove the mass gap of four-dimensional lattice Yang-Mills theory at strong coupling for every compact simple gauge group. For the continuum theories on tori we prove that a mass gap and a unique vacuum follow from one bound on partition functions at one physical scale. This bound is a lattice gap together with a count of states, which the gap alone does not give; a centre-vortex condition can replace only the gap among charged states, and the bound is open at weak coupling. The archive contains the Lean 4 project (312 theorems) and the Julia script (267 checks) that accompany the paper; the paper itself is not part of the archive. The continuum mass gap is not proved.",
+  "description": "We prove the mass gap of four-dimensional lattice Yang-Mills theory at strong coupling for every compact simple gauge group. For the continuum theories on tori we prove that a mass gap and a unique vacuum follow from one bound on partition functions at one physical scale. This bound is a lattice gap together with a count of states, which the gap alone does not give; a centre-vortex condition can replace only the gap among charged states, and the bound is open at weak coupling. The archive contains the Lean 4 project (322 theorems) and the Julia script (273 checks) that accompany the paper; the paper itself is not part of the archive. The continuum mass gap is not proved.",
   "creators": [
     {
       "name": "Bhattacharjee, Deep",
