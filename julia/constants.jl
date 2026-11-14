@@ -846,6 +846,59 @@ let worst = 0.0
     ok("centre-blind: e^{-15.29} > 2.27e-7 >= 4 y_0/96^3", exp(-15.29) > 2.27e-7 && 4/20/96^3 <= 2.27e-7, exp(-15.29))
 end
 
+println("\n== Finite gauge groups and the Maxwell model ==")
+let S3 = 6*48^3*3^4/400/0.99*1e-36, worst = maximum(T^4*10.0^(-4T^2)/(81*1e-36) for T in 3:20)
+    ok("finite G: S(T0=3) <= 1.36e-31 and T^4 10^{-4T^2} max at T0 = 3", S3 <= 1.36e-31 && worst <= 1.0 + 1e-12, S3)
+    ok("finite G: e^S - 1 <= 1.4e-31 < 1 - 6.3e-3; -log(1.4e-31) >= 70", expm1(1.36e-31) <= 1.4e-31 && -log(1.4e-31) >= 70, -log(1.4e-31))
+    ok("finite G: cube n = 3, T = 81: 6 n^7/396 10^{-2n^2} <= 3.4e-17, decreasing", 6*3^7/396*1e-18 <= 3.4e-17 && all(6n^7/396*10.0^(-2n^2) <= 3.4e-17 for n in 3:12), 6*3^7/396*1e-18)
+    ok("finite G: |G|/(4|G|-3) <= 2/5, 2/5 + 1/10 = 1/2 < e^{-1/160}", all(g/(4g-3) <= 0.4 for g in 2:1000) && 0.5 < exp(-1/160), exp(-1/160))
+end
+let a = 2asinh(sqrt(3))/(pi*sqrt(3)), r = 2sqrt(3)/(pi*a), c3 = (sqrt(3)/(pi*a))^3
+    z = 3*(pi^2/6)/2.27797^2 + 3*1.2020569031595942/2.27797 + pi^4/90
+    C(b) = 10.69 + 3/8*(log(1 + sqrt(2304pi*b)) + log(1 + sqrt(576/(pi*b))))
+    ok("Maxwell: a = 0.48405, rho_0 >= 2.27797, c^3 <= 1.47761", abs(a - 0.48405) < 1e-5 && r >= 2.27797 && c3 <= 1.47761, (a, r, c3))
+    ok("Maxwell: zeta combination <= 3.6164, photons <= 10.69 V/T^3", z <= 3.6164 && 2*3.6164*1.47761 <= 10.69, z)
+    ok("Maxwell: C(1) <= 13.37", C(1.0) <= 13.37, C(1.0))
+end
+let maxratio = 0.0
+    # Proposition prop:maxwell(a): the 4D formula equals the trace in every direction
+    function z4(n, b)
+        N = prod(n); fl = 1.0
+        for (i, j) in ((1,2),(1,3),(1,4),(2,3),(2,4),(3,4))
+            fl *= sum(exp(-2pi^2*b*m^2*N/(n[i]*n[j])^2) for m in -6:6)
+        end
+        d = 0.0
+        for k in Iterators.product((0:x-1 for x in n)...)
+            all(==(0), k) && continue
+            d -= log(sum(4sin(pi*k[i]/n[i])^2 for i in 1:4))
+        end
+        log((2pi*b)^1.5*sqrt(N)*fl) + d
+    end
+    function ztr(s, T, b)
+        V = prod(s); om = Float64[]
+        for k in Iterators.product((0:x-1 for x in s)...)
+            all(==(0), k) && continue
+            push!(om, 2asinh(sqrt(sum(4sin(pi*k[i]/s[i])^2 for i in 1:3))/2))
+        end
+        th(x) = sum(exp(-x*m^2) for m in -40:40)
+        r = -T*sum(om) - 2sum(log1p(-exp(-T*w)) for w in om)
+        for i in 1:3
+            j, k = [x for x in 1:3 if x != i]
+            I = b*s[j]*s[k]/s[i]; mu = 2pi^2*b*s[i]/(s[j]*s[k])
+            r += log(th(T/(2I))) + log(th(T*mu))
+        end
+        r
+    end
+    for n in ((3,3,3,3), (3,4,5,3), (3,4,5,6))
+        a = z4(n, 0.7)
+        for d in 1:4
+            s = Tuple(n[i] for i in 1:4 if i != d)
+            maxratio = max(maxratio, abs(ztr(s, n[d], 0.7) - a))
+        end
+    end
+    ok("Maxwell: Z_M(n) = Tr T_s^T in every direction (log difference)", maxratio < 1e-8, maxratio)
+end
+
 println("\n== Appendix: the one-link constant ==")
 ok("e^x - 1 - x <= x^2 on [0, 1]", all(exp(x) - 1 - x <= x^2 for x in 0:0.001:1), exp(1) - 2)
 ok("e^s - 1 <= 2 s on [0, 1]", all(exp(s) - 1 <= 2s for s in 0:0.001:1), exp(1) - 1)

@@ -10,8 +10,10 @@ Proposition `prop:centreblind`): the bound `T/(T-λ) ≤ 2`, the criterion
 `2P e^{-mT/2} ≤ d`, the trace inequality of the plane model, the minimum of
 `x³/(x-a)`, the constant `926`, the charged-defect identity, the sector
 arithmetic `1/642 · 641/640 · 642/641 = 1/640`, the constants `0.02492`
-and `0.1505`, and the numbers `3.443`, `5.947` and `6.01` of the
-centre-blind example.
+and `0.1505`, the numbers `3.443`, `5.947` and `6.01` of the
+centre-blind example, the constants of the finite gauge groups
+(Proposition `prop:finiteG`) and of the Maxwell model
+(Proposition `prop:maxwell`).
 -/
 
 namespace YangMills.CountSectors
@@ -148,5 +150,105 @@ theorem blind_total (c : ℝ) (hc0 : 0 ≤ c) (hc : c ≤ 1.19979) :
 
 /-- The zero mode: `0.4588/8 ≤ 0.0574`. -/
 theorem zero_mode : (0.4588 : ℝ) / 8 ≤ 0.0574 := by norm_num
+
+/-! ### Finite gauge groups (Proposition `prop:finiteG`) -/
+
+/-- The window bound at `T₀ = 3`: `(6·48³·3⁴/400)/(1 - 1/100) · 10⁻³⁶ ≤ 1.36·10⁻³¹`. -/
+theorem finite_window_S :
+    (6 * 48 ^ 3 * 3 ^ 4 / 400 : ℝ) / (1 - 1 / 100) * (1 / 10 ^ 36) ≤ 136 / 10 ^ 33 := by
+  norm_num
+
+/-- The window bound decreases: `(T+1)⁴ · 10^{4T²} ≤ T⁴ · 10^{4(T+1)²}` for `T ≥ 1`. -/
+theorem finite_window_decreasing (T : ℕ) (hT : 1 ≤ T) :
+    (T + 1) ^ 4 * 10 ^ (4 * T ^ 2) ≤ T ^ 4 * 10 ^ (4 * (T + 1) ^ 2) := by
+  have hsplit : 4 * (T + 1) ^ 2 = 4 * T ^ 2 + (8 * T + 4) := by ring
+  rw [hsplit, pow_add]
+  have h1 : (T + 1) ^ 4 ≤ 16 * T ^ 4 := by
+    have : T + 1 ≤ 2 * T := by omega
+    calc (T + 1) ^ 4 ≤ (2 * T) ^ 4 := Nat.pow_le_pow_left this 4
+      _ = 16 * T ^ 4 := by ring
+  have h2 : 16 ≤ 10 ^ (8 * T + 4) := by
+    calc 16 ≤ 10 ^ 4 := by norm_num
+      _ ≤ 10 ^ (8 * T + 4) := Nat.pow_le_pow_right (by norm_num) (by omega)
+  calc (T + 1) ^ 4 * 10 ^ (4 * T ^ 2) ≤ 16 * T ^ 4 * 10 ^ (4 * T ^ 2) :=
+        Nat.mul_le_mul_right _ h1
+    _ ≤ 10 ^ (8 * T + 4) * T ^ 4 * 10 ^ (4 * T ^ 2) := by
+        apply Nat.mul_le_mul_right; exact Nat.mul_le_mul_right _ h2
+    _ = T ^ 4 * (10 ^ (4 * T ^ 2) * 10 ^ (8 * T + 4)) := by ring
+
+/-- `e^S - 1 ≤ S/(1-S)` for `0 ≤ S < 1`. -/
+theorem exp_sub_one_le (S : ℝ) (_h0 : 0 ≤ S) (h1 : S < 1) :
+    Real.exp S - 1 ≤ S / (1 - S) := by
+  have hpos : 0 < 1 - S := by linarith
+  have h : 1 - S ≤ Real.exp (-S) := by linarith [Real.add_one_le_exp (-S)]
+  have he : Real.exp S * Real.exp (-S) = 1 := by rw [← Real.exp_add]; simp
+  have hS : Real.exp S * (1 - S) ≤ 1 := by
+    calc Real.exp S * (1 - S) ≤ Real.exp S * Real.exp (-S) :=
+          mul_le_mul_of_nonneg_left h (Real.exp_pos S).le
+      _ = 1 := he
+  rw [le_div_iff₀ hpos]; nlinarith
+
+/-- The twisted ratio on the window: `e^S - 1 ≤ 1.4·10⁻³¹ < 1 - 6.3·10⁻³`. -/
+theorem finite_twist_small (S : ℝ) (h0 : 0 ≤ S) (h : S ≤ 136 / 10 ^ 33) :
+    Real.exp S - 1 ≤ 14 / 10 ^ 32 ∧ (14 / 10 ^ 32 : ℝ) < 1 - 63 / 10 ^ 4 := by
+  refine ⟨?_, by norm_num⟩
+  have h1 : S < 1 := by linarith [show (136 / 10 ^ 33 : ℝ) < 1 by norm_num]
+  have hpos : 0 < 1 - S := by linarith
+  calc Real.exp S - 1 ≤ S / (1 - S) := exp_sub_one_le S h0 h1
+    _ ≤ 14 / 10 ^ 32 := by
+        rw [div_le_iff₀ hpos]
+        nlinarith
+
+/-- The twist costs at least `70`: `e^{70} ≤ 1/(1.4·10⁻³¹)`. -/
+theorem finite_twist_cost : Real.exp 70 ≤ 1 / (14 / 10 ^ 32) := by
+  have h : Real.exp 70 = Real.exp 1 ^ 70 := by
+    rw [← Real.exp_nat_mul]; norm_num
+  rw [h]
+  have h1 : Real.exp 1 ^ 70 ≤ (2.7182818286 : ℝ) ^ 70 :=
+    pow_le_pow_left₀ (Real.exp_pos 1).le Real.exp_one_lt_d9.le 70
+  have h2 : (2.7182818286 : ℝ) ^ 70 ≤ 1 / (14 / 10 ^ 32) := by norm_num
+  linarith
+
+/-- The cube of side `n = 3` at `T = n⁴`: `6·3⁷/396 · 10⁻¹⁸ ≤ 3.4·10⁻¹⁷`. -/
+theorem finite_cube_S : (6 * 3 ^ 7 / 396 : ℝ) * (1 / 10 ^ 18) ≤ 34 / 10 ^ 18 := by
+  norm_num
+
+/-- `ε ≤ 3.4·10⁻¹⁷` and `(1-D)/(1+D) ≤ ε` give `D ≥ 1/2`. -/
+theorem finite_cube_defect (D ε : ℝ) (hD : 0 ≤ D) (he : ε ≤ 34 / 10 ^ 18)
+    (h : (1 - D) / (1 + D) ≤ ε) : 1 / 2 ≤ D := by
+  have hp : 0 < 1 + D := by linarith
+  rw [div_le_iff₀ hp] at h
+  nlinarith
+
+/-- `|G|/(4|G|-3) ≤ 2/5` for `|G| ≥ 2`. -/
+theorem finite_hom_ratio (n : ℝ) (hn : 2 ≤ n) : n / (4 * n - 3) ≤ 2 / 5 := by
+  have hp : 0 < 4 * n - 3 := by linarith
+  rw [div_le_iff₀ hp]; linarith
+
+/-- `2/5 + 1/10 = 1/2 < e^{-1/160}`. -/
+theorem finite_purity : (2 / 5 + 1 / 10 : ℝ) < Real.exp (-(1 / 160)) := by
+  have h := Real.add_one_le_exp (-(1 / 160 : ℝ))
+  norm_num at h ⊢; linarith
+
+/-! ### The Maxwell model (Proposition `prop:maxwell`) -/
+
+/-- `3ζ(2)/2.27797² + 3ζ(3)/2.27797 + ζ(4) ≤ 3.6164` with decimal bounds of `ζ`. -/
+theorem maxwell_zeta (z2 z3 z4 : ℝ) (h2 : z2 ≤ 1.64494) (h3 : z3 ≤ 1.20206)
+    (h4 : z4 ≤ 1.08233) : 3 * z2 / 2.27797 ^ 2 + 3 * z3 / 2.27797 + z4 ≤ 3.6164 := by
+  have e2 : 3 * z2 / 2.27797 ^ 2 ≤ 3 * 1.64494 / 2.27797 ^ 2 := by
+    apply div_le_div_of_nonneg_right _ (by norm_num); linarith
+  have e3 : 3 * z3 / 2.27797 ≤ 3 * 1.20206 / 2.27797 := by
+    apply div_le_div_of_nonneg_right _ (by norm_num); linarith
+  have : 3 * 1.64494 / (2.27797 : ℝ) ^ 2 + 3 * 1.20206 / 2.27797 + 1.08233 ≤ 3.6164 := by
+    norm_num
+  linarith
+
+/-- The photon constant: `2 · 3.6164 · c³ ≤ 10.69` for `c³ ≤ 1.47761`. -/
+theorem maxwell_photon (c3 : ℝ) (_h0 : 0 ≤ c3) (h : c3 ≤ 1.47761) :
+    2 * (3.6164 * c3) ≤ 10.69 := by nlinarith
+
+/-- `C(1) ≤ 13.37` from `log(1+√(2304π)) ≤ 4.4553` and `log(1+√(576/π)) ≤ 2.677`. -/
+theorem maxwell_count_one (L1 L2 : ℝ) (h1 : L1 ≤ 4.4553) (h2 : L2 ≤ 2.677) :
+    10.69 + 3 / 8 * (L1 + L2) ≤ 13.37 := by linarith
 
 end YangMills.CountSectors

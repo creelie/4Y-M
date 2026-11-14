@@ -2,8 +2,8 @@
 
 <p align="center">
   <a href="https://github.com/creelie/4Y-M/blob/paper/papers/4Y-MPaper.pdf"><img src="https://img.shields.io/badge/paper-PDF-f472b6?style=for-the-badge" alt="paper"></a>
-  <img src="https://img.shields.io/badge/Lean_4-300_theorems-7c5cff?style=for-the-badge" alt="Lean 4">
-  <img src="https://img.shields.io/badge/Julia-259_checks-34d399?style=for-the-badge" alt="Julia">
+  <img src="https://img.shields.io/badge/Lean_4-312_theorems-7c5cff?style=for-the-badge" alt="Lean 4">
+  <img src="https://img.shields.io/badge/Julia-267_checks-34d399?style=for-the-badge" alt="Julia">
   <img src="https://img.shields.io/badge/license-MIT-f59e0b?style=for-the-badge" alt="MIT">
 </p>
 
