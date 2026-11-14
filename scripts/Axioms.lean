@@ -203,3 +203,15 @@ import YangMills
 #print axioms YangMills.CountSectors.zeta_combination
 #print axioms YangMills.CountSectors.blind_total
 #print axioms YangMills.CountSectors.zero_mode
+#print axioms YangMills.CountSectors.finite_window_S
+#print axioms YangMills.CountSectors.finite_window_decreasing
+#print axioms YangMills.CountSectors.exp_sub_one_le
+#print axioms YangMills.CountSectors.finite_twist_small
+#print axioms YangMills.CountSectors.finite_twist_cost
+#print axioms YangMills.CountSectors.finite_cube_S
+#print axioms YangMills.CountSectors.finite_cube_defect
+#print axioms YangMills.CountSectors.finite_hom_ratio
+#print axioms YangMills.CountSectors.finite_purity
+#print axioms YangMills.CountSectors.maxwell_zeta
+#print axioms YangMills.CountSectors.maxwell_photon
+#print axioms YangMills.CountSectors.maxwell_count_one
